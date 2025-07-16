@@ -308,9 +308,10 @@ sub parser_errors($)
 
   my $registrar = $document->{'parser_registrar'};
 
-  my ($error_warnings_list, $error_count) = $registrar->errors();
+  my ($error_warnings_list, $error_count)
+     = Texinfo::Report::errors($registrar);
 
-  $registrar->clear();
+  Texinfo::Report::clear($registrar);
 
   return ($error_warnings_list, $error_count);
 }
@@ -323,9 +324,10 @@ sub errors($)
 
   my $registrar = $document->{'registrar'};
 
-  my ($error_warnings_list, $error_count) = $registrar->errors();
+  my ($error_warnings_list, $error_count)
+     = Texinfo::Report::errors($registrar);
 
-  $registrar->clear();
+  Texinfo::Report::clear($registrar);
 
   return ($error_warnings_list, $error_count);
 }
@@ -558,12 +560,13 @@ sub _existing_label_error($$;$$)
     if (defined($registrar)) {
       my $existing_target = $self->{'identifiers_target'}->{$normalized};
       my $label_element = Texinfo::Common::get_label_element($element);
-      $registrar->line_error(sprintf(__("\@%s `%s' previously defined"),
+      Texinfo::Report::line_error($registrar,
+                       sprintf(__("\@%s `%s' previously defined"),
                                      $element->{'cmdname'},
                     Texinfo::Convert::Texinfo::convert_to_texinfo(
     Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
                               $element->{'source_info'}, 0, $debug);
-      $registrar->line_error(
+      Texinfo::Report::line_error($registrar,
                     sprintf(__("here is the previous definition as \@%s"),
                             $existing_target->{'cmdname'}),
                              $existing_target->{'source_info'}, 1, $debug);
@@ -619,7 +622,7 @@ sub set_labels_identifiers_target($$;$)
      = #sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
         @elements_with_error;
     foreach my $element (@sorted) {
-      _existing_label_error($self, $element, $self->{'registrar'}, $debug);
+      _existing_label_error($self, $element, $registrar, $debug);
     }
   }
 }

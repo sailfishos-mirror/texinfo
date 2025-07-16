@@ -259,7 +259,7 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 #                         based on defaults and parser argument.
 
 # other keys for the parser state initialized at parser creation
-# registrar          # Texinfo::Report object used for error
+# registrar          # errors list used for error
 #                    # reporting.
 
 # A source information is an hash reference with the keys:
@@ -970,8 +970,8 @@ sub parse_texi_file($$)
     if (defined($encoding)) {
       $decoded_input_file_path = decode($encoding, $input_file_path);
     }
-    $document->{'parser_registrar'}->document_error(
-                 sprintf(__("could not open %s: %s"),
+    Texinfo::Report::document_error($document->{'parser_registrar'},
+                                    sprintf(__("could not open %s: %s"),
                                   $decoded_input_file_path, $error_message));
     return $document;
   }
@@ -1095,9 +1095,9 @@ sub errors($)
   if (!$registrar) {
     return undef;
   }
-  my ($error_warnings_list, $error_count) = $registrar->errors();
+  my ($error_warnings_list, $error_count) = Texinfo::Report::errors($registrar);
 
-  $registrar->clear();
+  Texinfo::Report::clear($registrar);
 
   return $error_warnings_list, $error_count;
 }
@@ -1172,8 +1172,8 @@ sub _line_warn
   my $continuation = shift;
   my $debug = shift;
   my $registrar = $self->{'document'}->{'parser_registrar'};
-  $registrar->line_warn($text, $error_location_info, $continuation,
-                        $self->{'conf'}->{'DEBUG'});
+  Texinfo::Report::line_warn($registrar, $text, $error_location_info,
+                             $continuation, $self->{'conf'}->{'DEBUG'});
 }
 
 sub _line_error
@@ -1184,8 +1184,8 @@ sub _line_error
   my $continuation = shift;
 
   my $registrar = $self->{'document'}->{'parser_registrar'};
-  $registrar->line_error($text, $error_location_info, $continuation,
-                         $self->{'conf'}->{'DEBUG'});
+  Texinfo::Report::line_error($registrar, $text, $error_location_info,
+                              $continuation, $self->{'conf'}->{'DEBUG'});
 }
 
 # Format a bug message
@@ -2685,7 +2685,8 @@ sub _next_text($;$)
           my $file_name_encoding = $input->{'file_name_encoding'};
           my $decoded_file_name = decode($file_name_encoding,
                                         $input->{'input_file_path'});
-          $self->{'document'}->{'parser_registrar'}->document_warn(
+          Texinfo::Report::document_warn(
+                           $self->{'document'}->{'parser_registrar'},
                                sprintf(__("error on closing %s: %s"),
                                        $decoded_file_name, $!),
                                     $self->{'conf'}->{'PROGRAM'});

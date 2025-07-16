@@ -2112,7 +2112,7 @@ while(@input_files) {
   my $converter_errors = $converter->get_converter_errors();
   if (defined($converter_errors)) {
     foreach my $error (@$converter_errors) {
-      $converter_registrar->add_formatted_message($error);
+      Texinfo::Report::add_formatted_message($converter_registrar, $error);
     }
   }
 
@@ -2121,7 +2121,7 @@ while(@input_files) {
                     $converter->output_files_information());
   $error_count = merge_opened_files($error_count, \%opened_files,
                                     $converter_opened_files);
-  $error_count = handle_errors($converter_registrar->errors(),
+  $error_count = handle_errors(Texinfo::Report::errors($converter_registrar),
                                $error_count, \%opened_files);
   my $converter_unclosed_files
        = Texinfo::Convert::Utils::output_files_unclosed_files(

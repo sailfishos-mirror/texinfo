@@ -2494,8 +2494,7 @@ Return a reference on an array containing the error or warning messages
 registered in the converter.  Error and warning messages are hash references as
 described in L<Texinfo::Report::errors|Texinfo::Report/($error_warnings_list,
 $error_count) = errors($registrar)> and can be used in input of L<<
-Texinfo::Report::add_formatted_message|Texinfo::Report/$registrar->add_formatted_message
-($msg) >>.
+Texinfo::Report::add_formatted_message|Texinfo::Report/add_formatted_message ($registrar, $msg) >>.
 
 =back
 

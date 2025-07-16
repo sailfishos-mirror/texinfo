@@ -1,3 +1,23 @@
+2025-07-16 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Document.pm (set_labels_identifiers_target): use
+	the registrar given in argument.
+
+	* tta/perl/Texinfo/Document.pm (parser_errors, errors)
+	(_existing_label_error), tta/perl/Texinfo/ParserNonXS.pm
+	(parse_texi_file, errors, _line_error, _next_text),
+	tta/perl/Texinfo/Report.pm (new, errors, clear, add_formatted_message)
+	(format_line_message, line_warn, line_error, document_warn)
+	(document_error), tta/perl/Texinfo/Structuring.pm
+	(structuring_line_warn, structuring_line_error),
+	tta/perl/Texinfo/Transformations.pm
+	(_protect_hashchar_at_line_beginning), tta/perl/t/test_utils.pl
+	(convert_to_*), tta/perl/t/z_misc/no_structure_test.t
+	(_do_format_test_file), tta/perl/t/z_misc/same_parser_multiple_files.t
+	(_do_format_test_file), tta/perl/texi2any.pl b/tta/perl/texi2any.pl:
+	do not call Texinfo::Report functions as methods.  Rename $self in
+	Texinfo::Report as $error_messages.
+
 2025-07-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	'node-not-found-interactive' hook
@@ -30,14 +50,14 @@
 	* info/run-external.c, info/man.c (read_from_fd):
 	Move to run-external.c.
 
-2025-07-17 Patrice Dumas  <pertusus@free.fr>
+2025-07-16 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/perl: improve MakeMaker based build system.
 
 	Modify AUTHOR to use the bug-texinfo address instead of the personal
 	address.  Remove some dubious original author information.
 
-2025-07-17 Patrice Dumas  <pertusus@free.fr>
+2025-07-16 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/perl/Makefile.am (test_files, EXTRA_DIST): remove t/01use.t
 	and test_Texinfo.pl that are not useful.

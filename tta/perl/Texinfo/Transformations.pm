@@ -960,7 +960,8 @@ sub _protect_hashchar_at_line_beginning($$$)
               if ($parent_for_warn->{'cmdname'}
                   and $parent_for_warn->{'source_info'}) {
                 if ($registrar) {
-                  $registrar->line_warn(sprintf(__(
+                  # TODO call a wrapper?  What can customization_information be
+                  Texinfo::Report::line_warn($registrar, sprintf(__(
                       "could not protect hash character in \@%s"),
                            $parent_for_warn->{'cmdname'}),
                                         $parent_for_warn->{'source_info'}, 0,

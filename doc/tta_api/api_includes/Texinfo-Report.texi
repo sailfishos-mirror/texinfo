@@ -15,16 +15,17 @@ Texinfo::Report - Error storing for Texinfo modules
   my $registrar = Texinfo::Report::new();
 
   if ($warning_happened) {
-    $registrar->line_warn($converter, sprintf(__("\@%s is wrongly used"),
-                       $current->{'cmdname'}), $current->{'source_info'});
+    Texinfo::Report::line_warn($registrar, sprintf(__("\@%s is wrongly used"),
+                       $current->{'cmdname'}), $current->{'source_info'},
+                       0, $converter->get_conf('DEBUG'));
   }
 
-  my ($errors, $errors_count) = $registrar->errors();
+  my ($errors, $errors_count) = Texinfo::Report::errors($registrar);
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
   }
 
-  $registrar->clear();
+  Texinfo::Report::clear($registrar);
 @end verbatim
 
 @node Texinfo@asis{::}Report NOTES
@@ -105,25 +106,25 @@ May be @code{warning}, or @code{error}.
 
 @end table
 
-@item $registrar->clear ()
-@anchor{Texinfo@asis{::}Report $registrar->clear ()}
+@item clear ($registrar)
+@anchor{Texinfo@asis{::}Report clear ($registrar)}
 @cindex @code{clear}
 
 Clear the previously registered messages.
 
-@item $registrar->add_formatted_message ($msg)
-@anchor{Texinfo@asis{::}Report $registrar->add_formatted_message ($msg)}
+@item add_formatted_message ($registrar, $msg)
+@anchor{Texinfo@asis{::}Report add_formatted_message ($registrar@comma{} $msg)}
 @cindex @code{add_formatted_message}
 
 Register the @emph{$msg} hash reference corresponding to an error, warning or error
 line continuation.  The @emph{$msg} hash reference should correspond to the
 structure returned by @code{errors}.
 
-@item $registrar->line_warn($text, $error_location_info, $continuation, $debug, $silent)
-@anchor{Texinfo@asis{::}Report $registrar->line_warn($text@comma{} $error_location_info@comma{} $continuation@comma{} $debug@comma{} $silent)}
+@item line_warn ($registrar, $text, $error_location_info, $continuation, $debug, $silent)
+@anchor{Texinfo@asis{::}Report line_warn ($registrar@comma{} $text@comma{} $error_location_info@comma{} $continuation@comma{} $debug@comma{} $silent)}
 
-@item $registrar->line_error($text, $error_location_info, $continuation, $debug, $silent)
-@anchor{Texinfo@asis{::}Report $registrar->line_error($text@comma{} $error_location_info@comma{} $continuation@comma{} $debug@comma{} $silent)}
+@item line_error ($registrar, $text, $error_location_info, $continuation, $debug, $silent)
+@anchor{Texinfo@asis{::}Report line_error ($registrar@comma{} $text@comma{} $error_location_info@comma{} $continuation@comma{} $debug@comma{} $silent)}
 @cindex @code{line_warn}
 @cindex @code{line_error}
 
@@ -146,11 +147,11 @@ a message that is output immediatly if debugging is set.
 The @emph{source_info} key of Texinfo tree elements is described
 in more details in @ref{Texinfo@asis{::}Parser source_info}.
 
-@item $registrar->document_warn($text, $program_name, $continuation)
-@anchor{Texinfo@asis{::}Report $registrar->document_warn($text@comma{} $program_name@comma{} $continuation)}
+@item document_warn ($registrar, $text, $program_name, $continuation)
+@anchor{Texinfo@asis{::}Report document_warn ($registrar@comma{} $text@comma{} $program_name@comma{} $continuation)}
 
-@item $registrar->document_error($text, $program_name, $continuation)
-@anchor{Texinfo@asis{::}Report $registrar->document_error($text@comma{} $program_name@comma{} $continuation)}
+@item document_error ($registrar, $text, $program_name, $continuation)
+@anchor{Texinfo@asis{::}Report document_error ($registrar@comma{} $text@comma{} $program_name@comma{} $continuation)}
 @cindex @code{document_warn}
 @cindex @code{document_error}
 

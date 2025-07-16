@@ -48,9 +48,9 @@ sub _do_format_test_file($$$$$$)
     my $converter_errors = $converter->get_converter_errors();
     my $converter_registrar = Texinfo::Report::new();
     foreach my $error (@$converter_errors) {
-      $converter_registrar->add_formatted_message($error);
+      Texinfo::Report::add_formatted_message($converter_registrar, $error);
     }
-    my ($errors, $error_nrs) = $converter_registrar->errors();
+    my ($errors, $error_nrs) = Texinfo::Report::errors($converter_registrar);
     foreach my $error_message (@$errors) {
       warn "$format_type: ".$error_message->{'error_line'};
     }

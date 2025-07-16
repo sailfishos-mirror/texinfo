@@ -411,8 +411,7 @@ the line is a continuation line of a message.
 Return a reference on an array containing the error or warning messages
 registered in the converter.  Error and warning messages are hash references as
 described in @ref{Texinfo@asis{::}Report ($error_warnings_list@comma{}
-$error_count) = errors($registrar),, Texinfo::Report::errors} and can be used in input of @ref{Texinfo@asis{::}Report $registrar->add_formatted_message
-($msg),, Texinfo::Report::add_formatted_message}.
+$error_count) = errors($registrar),, Texinfo::Report::errors} and can be used in input of @ref{Texinfo@asis{::}Report add_formatted_message ($registrar@comma{} $msg),, Texinfo::Report::add_formatted_message}.
 
 @end table
 

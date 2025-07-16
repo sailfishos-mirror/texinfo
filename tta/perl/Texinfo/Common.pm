@@ -43,6 +43,8 @@ use Carp qw(cluck confess);
 
 use Locale::Messages;
 
+use Texinfo::Report;
+
 use Texinfo::Documentlanguages;
 use Texinfo::Commands;
 use Texinfo::Options;
@@ -1759,11 +1761,13 @@ sub converter_or_registrar_line_warn($$$$)
   my $error_location_info = shift;
 
   if (defined($registrar)) {
+    # FIXME call a wrapper here, for structuring (or document)
     my $debug;
     if ($customization_information) {
       $debug = $customization_information->get_conf('DEBUG');
     }
-    $registrar->line_warn($text, $error_location_info, 0, $debug);
+    Texinfo::Report::line_warn($registrar, $text,
+                               $error_location_info, 0, $debug);
   } else {
     $customization_information->converter_line_warn($text,
                                                     $error_location_info);

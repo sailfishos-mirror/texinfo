@@ -400,10 +400,10 @@ sub convert_to_plaintext($$$$$)
   my $converter_errors = $converter->get_converter_errors();
   my $converter_registrar = Texinfo::Report::new();
   foreach my $error (@$converter_errors) {
-    $converter_registrar->add_formatted_message($error);
+    Texinfo::Report::add_formatted_message($converter_registrar, $error);
   }
 
-  my ($errors, $error_nrs) = $converter_registrar->errors();
+  my ($errors, $error_nrs) = Texinfo::Report::errors($converter_registrar);
   return ($errors, $result, $converter);
 }
 
@@ -427,10 +427,10 @@ sub convert_to_info($$$$$)
   my $converter_errors = $converter->get_converter_errors();
   my $converter_registrar = Texinfo::Report::new();
   foreach my $error (@$converter_errors) {
-    $converter_registrar->add_formatted_message($error);
+    Texinfo::Report::add_formatted_message($converter_registrar, $error);
   }
 
-  my ($errors, $error_nrs) = $converter_registrar->errors();
+  my ($errors, $error_nrs) = Texinfo::Report::errors($converter_registrar);
   return ($errors, $result, $converter);
 }
 
@@ -465,11 +465,11 @@ sub convert_to_html($$$$$)
   my $converter_errors = $converter->get_converter_errors();
   my $converter_registrar = Texinfo::Report::new();
   foreach my $error (@$converter_errors) {
-    $converter_registrar->add_formatted_message($error);
+    Texinfo::Report::add_formatted_message($converter_registrar, $error);
   }
 
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
-  my ($errors, $error_nrs) = $converter_registrar->errors();
+  my ($errors, $error_nrs) = Texinfo::Report::errors($converter_registrar);
   return ($errors, $result, $converter);
 }
 
@@ -500,10 +500,10 @@ sub convert_to_xml($$$$$)
   my $converter_errors = $converter->get_converter_errors();
   my $converter_registrar = Texinfo::Report::new();
   foreach my $error (@$converter_errors) {
-    $converter_registrar->add_formatted_message($error);
+    Texinfo::Report::add_formatted_message($converter_registrar, $error);
   }
 
-  my ($errors, $error_nrs) = $converter_registrar->errors();
+  my ($errors, $error_nrs) = Texinfo::Report::errors($converter_registrar);
   return ($errors, $result, $converter);
 }
 
@@ -549,10 +549,10 @@ sub convert_to_docbook($$$$$)
   my $converter_errors = $converter->get_converter_errors();
   my $converter_registrar = Texinfo::Report::new();
   foreach my $error (@$converter_errors) {
-    $converter_registrar->add_formatted_message($error);
+    Texinfo::Report::add_formatted_message($converter_registrar, $error);
   }
 
-  my ($errors, $error_nrs) = $converter_registrar->errors();
+  my ($errors, $error_nrs) = Texinfo::Report::errors($converter_registrar);
   return ($errors, $result, $converter);
 }
 
@@ -582,10 +582,10 @@ sub convert_to_latex($$$$$)
   my $converter_errors = $converter->get_converter_errors();
   my $converter_registrar = Texinfo::Report::new();
   foreach my $error (@$converter_errors) {
-    $converter_registrar->add_formatted_message($error);
+    Texinfo::Report::add_formatted_message($converter_registrar, $error);
   }
 
-  my ($errors, $error_nrs) = $converter_registrar->errors();
+  my ($errors, $error_nrs) = Texinfo::Report::errors($converter_registrar);
   return ($errors, $result, $converter);
 }
 

@@ -46,6 +46,7 @@ use Texinfo::Commands;
 use Texinfo::TreeElement;
 
 use Texinfo::Common;
+use Texinfo::Report;
 
 use Texinfo::ManipulateTree qw(normalized_entry_associated_internal_node);
 
@@ -121,6 +122,7 @@ my %command_structuring_level = %Texinfo::CommandsValues::command_structuring_le
 my %appendix_commands = %Texinfo::Commands::appendix_commands;
 my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 
+# TODO move to Document?
 sub structuring_line_warn($$$;$$)
 {
   my $document = shift;
@@ -136,8 +138,8 @@ sub structuring_line_warn($$$;$$)
 
   my $debug = $customization_information->get_conf('DEBUG');
 
-  $registrar->line_warn($text, $error_location_info, $continuation,
-                         $debug, $silent);
+  Texinfo::Report::line_warn($registrar, $text, $error_location_info,
+                         $continuation, $debug, $silent);
 }
 
 sub structuring_line_error($$$;$$)
@@ -155,8 +157,8 @@ sub structuring_line_error($$$;$$)
 
   my $debug = $customization_information->get_conf('DEBUG');
 
-  $registrar->line_error($text, $error_location_info, $continuation,
-                         $debug, $silent);
+  Texinfo::Report::line_error($registrar, $text, $error_location_info,
+                         $continuation, $debug, $silent);
 }
 
 # Go through the sectioning commands (e.g. @chapter, not @node), and

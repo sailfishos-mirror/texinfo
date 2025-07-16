@@ -49,35 +49,34 @@ sub __p($$) {
 
 sub new()
 {
-  my $self = {'errors_warnings' => [],
-               'error_nrs' => 0,};
-  bless $self;
-  return $self;
+  my $error_messages = {'errors_warnings' => [],
+                        'error_nrs' => 0,};
+  return $error_messages;
 }
 
 # return the errors and warnings
 sub errors($)
 {
-  my $self = shift;
-  return ($self->{'errors_warnings'}, $self->{'error_nrs'});
+  my $error_messages = shift;
+  return ($error_messages->{'errors_warnings'}, $error_messages->{'error_nrs'});
 }
 
 sub clear($)
 {
-  my $self = shift;
-  $self->{'errors_warnings'} = [];
-  $self->{'error_nrs'} = 0;
+  my $error_messages = shift;
+  $error_messages->{'errors_warnings'} = [];
+  $error_messages->{'error_nrs'} = 0;
 }
 
 # add an already formatted/setup message
 sub add_formatted_message($$)
 {
-  my $self = shift;
+  my $error_messages = shift;
   my $message = shift;
 
-  $self->{'error_nrs'}++ if ($message->{'type'} eq 'error'
+  $error_messages->{'error_nrs'}++ if ($message->{'type'} eq 'error'
                              and !$message->{'continuation'});
-  push @{$self->{'errors_warnings'}}, $message;
+  push @{$error_messages->{'errors_warnings'}}, $message;
 }
 
 # Used in generic converter API.
@@ -130,7 +129,7 @@ sub format_line_message($$$$;$)
 # format a line warning
 sub line_warn($$$;$$$)
 {
-  my $self = shift;
+  my $error_messages = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
@@ -146,12 +145,12 @@ sub line_warn($$$;$$$)
 
   my $warning = format_line_message('warning', $text, $error_location_info,
                                     $continuation, $warn);
-  $self->add_formatted_message($warning);
+  add_formatted_message($error_messages, $warning);
 }
 
 sub line_error($$$;$$$)
 {
-  my $self = shift;
+  my $error_messages = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
@@ -167,7 +166,7 @@ sub line_error($$$;$$$)
 
   my $error = format_line_message('error', $text, $error_location_info,
                                   $continuation, $warn);
-  $self->add_formatted_message($error);
+  add_formatted_message($error_messages, $error);
 }
 
 sub format_document_message($$;$$)
@@ -199,28 +198,28 @@ sub format_document_message($$;$$)
   return $result;
 }
 
-sub document_warn($$$;$)
+sub document_warn($$;$$)
 {
-  my $self = shift;
+  my $error_messages = shift;
   my $text = shift;
   my $program_name = shift;
   my $continuation = shift;
 
   my $warning = format_document_message('warning', $text, $program_name,
                                         $continuation);
-  $self->add_formatted_message($warning);
+  add_formatted_message($error_messages, $warning);
 }
 
-sub document_error($$$;$)
+sub document_error($$;$$)
 {
-  my $self = shift;
+  my $error_messages = shift;
   my $text = shift;
   my $program_name = shift;
   my $continuation = shift;
 
   my $error = format_document_message('error', $text, $program_name,
                                       $continuation);
-  $self->add_formatted_message($error);
+  add_formatted_message($error_messages, $error);
 }
 
 1;
@@ -238,16 +237,17 @@ Texinfo::Report - Error storing for Texinfo modules
   my $registrar = Texinfo::Report::new();
 
   if ($warning_happened) {
-    $registrar->line_warn($converter, sprintf(__("\@%s is wrongly used"),
-                       $current->{'cmdname'}), $current->{'source_info'});
+    Texinfo::Report::line_warn($registrar, sprintf(__("\@%s is wrongly used"),
+                       $current->{'cmdname'}), $current->{'source_info'},
+                       0, $converter->get_conf('DEBUG'));
   }
 
-  my ($errors, $errors_count) = $registrar->errors();
+  my ($errors, $errors_count) = Texinfo::Report::errors($registrar);
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
   }
 
-  $registrar->clear();
+  Texinfo::Report::clear($registrar);
 
 =head1 NOTES
 
@@ -317,21 +317,21 @@ May be C<warning>, or C<error>.
 
 =back
 
-=item $registrar->clear ()
+=item clear ($registrar)
 X<C<clear>>
 
 Clear the previously registered messages.
 
-=item $registrar->add_formatted_message ($msg)
+=item add_formatted_message ($registrar, $msg)
 X<C<add_formatted_message>>
 
 Register the I<$msg> hash reference corresponding to an error, warning or error
 line continuation.  The I<$msg> hash reference should correspond to the
 structure returned by C<errors>.
 
-=item $registrar->line_warn($text, $error_location_info, $continuation, $debug, $silent)
+=item line_warn ($registrar, $text, $error_location_info, $continuation, $debug, $silent)
 
-=item $registrar->line_error($text, $error_location_info, $continuation, $debug, $silent)
+=item line_error ($registrar, $text, $error_location_info, $continuation, $debug, $silent)
 X<C<line_warn>>
 X<C<line_error>>
 
@@ -354,9 +354,9 @@ a message that is output immediatly if debugging is set.
 The I<source_info> key of Texinfo tree elements is described
 in more details in L<Texinfo::Parser/source_info>.
 
-=item $registrar->document_warn($text, $program_name, $continuation)
+=item document_warn ($registrar, $text, $program_name, $continuation)
 
-=item $registrar->document_error($text, $program_name, $continuation)
+=item document_error ($registrar, $text, $program_name, $continuation)
 X<C<document_warn>>
 X<C<document_error>>
 
