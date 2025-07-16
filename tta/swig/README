@@ -9,20 +9,6 @@ texinfo/util/swig/README
 This directory contains a SWIG (https://www.swig.org/) interface designed
 to connect high-level programming languages to GNU Texinfo texi2any C code.
 
-A preliminary build system for a Perl extension is available in the perl
-directory.  This build system is not fully integrated.  First you should build
-in the main directory to generate files with SWIG.  Then you should go to the
-perl directory to build the Perl module using Makefile.PL:
-
-$ make
-$ cd perl
-$ perl Makefile.PL
-$ make
-$ make test
-
-Note also that the Perl module will not be functional if installed as
-it finds the Texinfo libraries in the source directory.
-
 Libtool hides the generated binary objects in the .libs directory.  Therefore
 to find the Python module extensions from the python/ subdirectory, you can
 add the .libs directory to PYTHONPATH.  For example, with bash:
@@ -32,10 +18,10 @@ $ export PYTHONPATH=.libs
 In the perl directory, you can add the directories where the extension
 files are with -I:
 
-$ perl -I blib/arch/ -I blib/lib/ ./test_Texinfo.pl
+$ perl -I . -I .libs t/30source_marks.t
 
-In addition to the build system, this distribution includes the following
-files:
+In addition to the build and test system, this distribution includes the
+following files:
     README                    This file.
     texinfo.i                 The SWIG interface file.
     python/test_Texinfo.py    Example of use of the Python interface

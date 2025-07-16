@@ -1,4 +1,4 @@
-Todo list and notes for texi2any/util/swig
+Todo list and notes for texi2any/tta/swig
 
   Copyright 2025 Free Software Foundation.
 
@@ -22,26 +22,4 @@ element = skip_to_cmdname(reader, 'cindex')
 index_entry = Texinfo.element_index_entry (document, element)
 index_info = Texinfo.index_entry_index (document, index_entry)
 
-
-Need to link against libperl for the interfaces.
-
-Use automake for perl.
---enable-perl-install-mode=site/vendor/custom
-custom means using the usual prefixes, with perl5 prepended.
- 
-And also:
---enable-installsitearch=
---enable-installsitelib=
---enable-installvendorarch=
---enable-installvendorlib=
- 
-If these are not specified, the perl -V values are used using
-txi_LOOKUP_PERL_CONF*.
-
-Note that, as explained on the Dynaloader documentation (but it is hard to
-find more general information on the expected directories layout), the
-.so should be installed in
-installsitearch or installvendorarch/auto/$module
-The .pm that load the XS modules seem to be in 
-installsitearch or installvendorarch/
 

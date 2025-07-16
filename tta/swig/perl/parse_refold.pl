@@ -25,7 +25,7 @@ use lib '.', '.libs', 'blib/arch', 'blib/lib';
 use Texinfo;
 
 Texinfo::setup(1);
- 
+
 my $document = Texinfo::parse_text('@set myval toto
  
 @macro do {a, b}
