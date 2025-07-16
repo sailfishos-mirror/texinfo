@@ -319,6 +319,21 @@ AC_ARG_ENABLE([c-texi2any],
 AC_ARG_WITH([swig],
    AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: check)]))
 
+AC_ARG_ENABLE([perl-install-mode],
+    AS_HELP_STRING([--enable-perl-install-mode],[Perl SWIG interface install mode site/vendor/custom (default: site)]))
+
+AC_ARG_ENABLE([installsitearch],
+    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl default)]))
+
+AC_ARG_ENABLE([installsitelib],
+    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl default)]))
+
+AC_ARG_ENABLE([installvendorarch],
+    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl default)]))
+
+AC_ARG_ENABLE([installvendorlib],
+    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl default)]))
+
 # This is useful on platforms where gettext functions are present, but
 # setting the locale through LANGUAGE is not implemented.  In 2024 this is
 # the case of the musl libc libintl implementation, for example.

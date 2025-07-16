@@ -15,10 +15,12 @@
 
 %module Texinfo
 
-%{
-/* for CONVERTER_CONFIG */
-#include <config.h>
+/* We do not include config.h as the define there could be incompatible with
+   the language define.  This is likely to be the case for Perl, see comments
+   in build_perl_info.c.
+ */
 
+%{
 #include <stddef.h>
 #include <stdlib.h>
 /* not necessarly used, but could be for debugging */
@@ -66,6 +68,10 @@ setup (int texinfo_uninstalled, const char *converterdatadir_in,
   char *t2a_srcdir = 0;
   char *t2a_builddir = 0;
   const char *converterdatadir;
+  int embed_perl = 0;
+#ifdef EMBED_PERL
+  embed_perl = 1;
+#endif
 
   if (texinfo_uninstalled)
     {
@@ -100,20 +106,15 @@ setup (int texinfo_uninstalled, const char *converterdatadir_in,
         converterdatadir = DATADIR "/" CONVERTER_CONFIG;
     }
 
-#ifdef HAVE_EMBEDDED_PERL
   if (texinfo_uninstalled)
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG "+nc";
   else
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
-  txi_setup_main_load_interpreter (1, texinfo_uninstalled, converterdatadir,
-                                   t2a_builddir, t2a_srcdir, 0, 0, 0,
-                                   version_for_embedded_interpreter_check);
-#else
-  txi_setup_main_load_interpreter (0, texinfo_uninstalled,
+  txi_setup_main_load_interpreter (embed_perl, texinfo_uninstalled,
                                    converterdatadir, t2a_builddir, t2a_srcdir,
-                                   0, 0, 0, 0);
-#endif
+                                   0, 0, 0,
+                                   version_for_embedded_interpreter_check);
   free (t2a_builddir);
   free (t2a_srcdir);
 }

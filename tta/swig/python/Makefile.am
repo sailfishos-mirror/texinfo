@@ -8,7 +8,14 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-AM_CPPFLAGS = -DDATADIR=\"$(datadir)\"
+AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
+       -DPACKAGE_VERSION_CONFIG=\"$(PACKAGE_VERSION)\"
+
+if PERL_EMBEDDED
+AM_CPPFLAGS += -DEMBED_PERL
+endif
+
+txi_libs_srcdir = $(srcdir)/../../C
 
 $(top_builddir)/../tta/C/libtexinfo.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo.la
@@ -38,7 +45,7 @@ endif
 endif
 # TODO same as ctexi2any, not sure whether it is needed or not
 _Texinfo_la_LIBADD += $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-_Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I.. -I$(srcdir)/../../C/main -I$(srcdir)/../../C/parsetexi -I$(srcdir)/../../C/convert ${PYTHON_CPPFLAGS}
+_Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi -I$(txi_libs_srcdir)/convert ${PYTHON_CPPFLAGS}
 
 clean-local:
 	rm -rf __pycache__

@@ -20,9 +20,11 @@
 # example code that re-fold macros, values and other found in the source
 # marks as Texinfo code.
 
-use lib '.', 'blib/arch', 'blib/lib';
+use lib '.', '.libs', 'blib/arch', 'blib/lib';
 
 use Texinfo;
+
+Texinfo::setup(1);
  
 my $document = Texinfo::parse_text('@set myval toto
  

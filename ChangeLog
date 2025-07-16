@@ -1,3 +1,27 @@
+2025-07-16 Patrice Dumas  <pertusus@free.fr>
+
+	Integrate Perl SWIG interface in the build system
+
+	* tta/swig/python/Makefile.am (AM_CPPFLAGS), tta/swig/texinfo.i
+	(setup), tta/configure.ac, tta/swig/perl/Makefile.PL: remove include
+	<config.h> from texinfo.i as it could be incompatible with Perl
+	includes.  Pass EMBED_PERL and PACKAGE_VERSION_CONFIG through
+	AM_CPPFLAGS.  Remove HAVE_EMBEDDED_PERL.  Modify setup to use
+	EMBED_PERL to set the embed_perl variable only.
+
+	* tta/swig/python/Makefile.am (txi_libs_srcdir): add and use variable.
+
+	* configure.ac, tta/configure.ac (perl-install-mode, installsitearch)
+	(installvendorarch, installvendorlib, installsitelib, swig_perl_tests)
+	(perlarchdir, perllibdir, AC_CONFIG_FILES), tta/swig/Makefile.am
+	(SUBDIRS, DIST_SUBDIRS), tta/swig/perl/Makefile.am: integrate Perl
+	SWIG interface in the build system.
+
+	* tta/swig/perl/t/*.t, tta/swig/perl/parse_refold.pl: add code to find
+	module and XS object in source dir and build dir.
+
+	* tta/swig/perl/t/*.t, tta/swig/perl/parse_refold.pl: update.
+
 2025-07-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Add @documentinfo, @publication, @maketitle.

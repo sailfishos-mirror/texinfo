@@ -449,11 +449,6 @@ fi
 
 AM_CONDITIONAL([PERL_EMBEDDED], [test "z$embedded_perl" = 'zyes'])
 
-if test $embedded_perl = yes ; then
-  AC_DEFINE([HAVE_EMBEDDED_PERL], [1],
-            [Define to 1 if Perl can be embedded])
-fi
-
 AC_ARG_ENABLE([c-texi2any],
     AS_HELP_STRING([--enable-c-texi2any],[Use texi2any program implemented in C if possible]),
     [ prefer_c_t2a=$enableval],
@@ -548,9 +543,11 @@ AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 
 # SWIG interfaces
 
-# FIXME if enable_xs=yes check link against libperl.  It is needed 
-# for python in that case.  And libperl may not be installed even if
-# enable_xs=yes.
+# FIXME if enable_xs=yes and embedded_perl=no, the interface will need
+# to build against libperl explicitely, it was verified for Python.
+# libperl may not be available even if enable_xs=yes.
+# Therefore it would be nice to check a link against libperl here.
+# It is not the case for the Perl SWIG interface.
 
 with_swig=check
 AC_ARG_WITH([swig],
@@ -593,6 +590,98 @@ fi
 
 AM_CONDITIONAL([SWIG_PYTHON_INTERFACE], [test "x$with_swig_python" = "xyes"])
 
+perl_install_mode=site
+
+AC_ARG_ENABLE([perl-install-mode],
+    AS_HELP_STRING([--enable-perl-install-mode],[Perl SWIG interface install mode site/vendor/custom (default: site)]),
+    [
+     if test "z$enableval" = zsite -o "z$enableval" = zvendor -o "z$enableval" = zcustom ; then
+       perl_install_mode=$enableval
+     fi
+])
+
+perl_installsitearch=
+AC_ARG_ENABLE([installsitearch],
+    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl default)]),
+    [
+     if test "z$enableval" != z ; then
+       perl_installsitearch=$enableval
+     fi
+    ])
+
+perl_installsitelib=
+AC_ARG_ENABLE([installsitelib],
+    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl default)]),
+    [
+     if test "z$enableval" != z ; then
+       perl_installsitelib=$enableval
+     fi
+    ])
+
+perl_installvendorarch=
+AC_ARG_ENABLE([installvendorarch],
+    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl default)]),
+    [
+     if test "z$enableval" != z ; then
+       perl_installvendorarch=$enableval
+     fi
+    ])
+
+perl_installvendorlib=
+AC_ARG_ENABLE([installvendorlib],
+    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl default)]),
+    [
+     if test "z$enableval" != z ; then
+       perl_installvendorlib=$enableval
+     fi
+    ])
+
+swig_perl_tests=no
+if test x$enable_xs != xno ; then
+  if $PERL -e "use Test::More;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+    then
+      swig_perl_tests=yes
+  fi
+
+  if test $perl_install_mode = site ; then
+
+    if test "z$perl_installsitearch" = z ; then
+      txi_LOOKUP_PERL_CONF([installsitearch])
+      perl_installsitearch=$PERL_CONF_installsitearch
+    fi
+    perlarchdir=$perl_installsitearch
+
+    if test "z$perl_installsitelib" = z ; then
+      txi_LOOKUP_PERL_CONF([installsitelib])
+      perl_installsitelib=$PERL_CONF_installsitelib
+    fi
+    perllibdir=$perl_installsitelib
+
+  elif test $perl_install_mode = vendor ; then
+
+    if test "z$perl_installvendorarch" = z ; then
+      txi_LOOKUP_PERL_CONF([installvendorarch])
+      perl_installvendorarch=$PERL_CONF_installvendorarch
+    fi
+    perlarchdir=$perl_installvendorarch
+
+    if test "z$perl_installvendorlib" = z ; then
+      txi_LOOKUP_PERL_CONF([installvendorlib])
+      perl_installvendorlib=$PERL_CONF_installvendorlib
+    fi
+    perllibdir=$perl_installvendorlib
+
+  else
+    perlarchdir="$libdir/perl5"
+    perllibdir="$libdir/perl5"
+  fi
+fi
+
+AM_CONDITIONAL([SWIG_PERL_TESTS], [test "z$swig_perl_tests" = 'zyes'])
+
+AC_SUBST([perlarchdir])
+AC_SUBST([perllibdir])
+
 
 AC_CONFIG_FILES([
   Makefile
@@ -613,6 +702,7 @@ AC_CONFIG_FILES([
   perl/XSTexinfo/Makefile
   swig/Makefile
   swig/python/Makefile
+  swig/perl/Makefile
   gnulib/lib/Makefile
 ])
 

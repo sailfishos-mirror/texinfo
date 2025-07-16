@@ -10,6 +10,6 @@ WriteMakefile(
         #'VERSION_FROM' => '../../../tta/perl/Texinfo/Common.pm',
         'VERSION' => '7.2',
         'OBJECT' =>'$(O_FILES)',
-        'INC' => '-I. -I.. -I../../C/main -I../../C/parsetexi -I../../C/convert -DDATADIR=\\"/usr/share/local/\\"',
+        'INC' => '-I../../C/main -I../../C/parsetexi -I../../C/convert -DDATADIR=\\"/usr/share/local/\\" -DCONVERTER_CONFIG=\\"texi2any\\" -DPACKAGE_VERSION_CONFIG=\\"7.2dev\\" -DEMBED_PERL',
         test => {TESTS => 't/*.t'},
 );

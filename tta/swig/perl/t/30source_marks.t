@@ -21,9 +21,52 @@ use Test::More;
 
 plan tests => 2;
 
+BEGIN {
+  # to find Texinfo.pm
+  my $srcdir = $ENV{'srcdir'};
+  if (defined($srcdir)) {
+    unshift @INC, $srcdir;
+  }
+  # To find the XS extension
+  my $t2a_builddir = $ENV{'t2a_builddir'};
+  if (!defined($t2a_builddir) and defined($srcdir)) {
+    my $updir = File::Spec->updir();
+    # this is correct for in-source builds only.
+    $t2a_builddir = join('/', ($srcdir, $updir, $updir));
+  }
+  if (defined($t2a_builddir)) {
+    unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+  }
+}
+
+eval { require Text::Diff; Text::Diff->import('diff'); };
+
+my $text_diff_loading_error = $@;
+
 use Texinfo;
 
+Texinfo::setup(1);
+
 ok(1, 'modules loading');
+
+sub is_diff($$$)
+{
+  my $result = shift;
+  my $reference = shift;
+  my $test_name = shift;
+
+  #if (!$test_differences_loading_error) {
+  #  eq_or_diff_text($result, $reference, $test_name);
+  #} elsif ($text_diff_loading_error) {
+  if ($text_diff_loading_error or !defined($reference)
+      or ref($reference) ne '' or !defined($result)) {
+    is($result, $reference, $test_name);
+  } else {
+    ok($result eq $reference, $test_name)
+       or note((diff(\$result, \$reference)));
+    #is($result, $reference, $test_name) or note(diff(\$result, \$reference));
+  }
+}
 
 # TODO the @lm line leads to expected error messages.  Currently the API
 # only allows to print error messages, not to get them, so no way to
@@ -117,11 +160,13 @@ while (1) {
     $type = '' if (!defined($type));
     $result .= $type;
     my $text = Texinfo::element_text($element);
-    if ($text eq '') {
-      $result .= '[T]';
-    } else {
-      $text =~ s/\n/\\n/g;
-      $result .= "[T: $text]";
+    if (defined($text)) {
+      if ($text eq '') {
+        $result .= '[T]';
+      } else {
+        $text =~ s/\n/\\n/g;
+        $result .= "[T: $text]";
+      }
     }
     my $cmdname = Texinfo::element_cmdname($element);
     $result .= '@'.$cmdname if (defined($cmdname));
@@ -171,28 +216,29 @@ my $reference = '[T: View toto.  And then mine and yours . .\\n]|4
 [T: OO the arg\\n]|2
  0: c:3; s:1; p:0|{@onearg the arg}
  1: c:3; s:2; p:10|
-[T: text before OO another arg]|2
+[T: text before OO another arg]|1
  0: c:4; s:1; p:12|{@onearg  another arg@comment am I there?}
- 1: c:4; s:2; p:26|
+rawline_text[T: am I there?]|1
+ 0: c:4; s:2; p:11|
 empty_line[T: \\n]|1
  0: c:1; s:1; p:1|{@lm @
 }
 [T: bullet\\n]|1
  0: c:1; s:2; p:6|
-arguments_line[T]|1
+block_line_arg|1
  0: c:2; s:1; p:0|{@defbuiltin {my foo} a last {} arg{ument}}
-bracketed_arg[T]|1
+bracketed_arg|1
  0: c:2; s:2; p:0|
 empty_line[T: \\n]|1
  0: c:3; s:1; p:1|{@defbuiltin {my foo} {} {}}
-bracketed_arg[T]|1
+bracketed_arg|1
  0: c:3; s:2; p:0|
 empty_line[T: \\n]|1
  0: c:4; s:1; p:1|{@defbuiltin {my foo} {second arg} remaining on {line}}
-bracketed_arg[T]|1
+bracketed_arg|1
  0: c:4; s:2; p:0|
 ';
 
-is($result, $reference, 'source marks representation');
+is_diff($result, $reference, 'source marks representation');
 
 1;

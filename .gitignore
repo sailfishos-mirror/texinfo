@@ -418,6 +418,9 @@ util/texindex
 util/txixml2texi
 util/*.sig
 
+tta/swig/perl/*.lo
+tta/swig/perl/*.la
+tta/swig/perl/.libs
 tta/swig/perl/blib
 tta/swig/perl/Makefile.old
 tta/swig/perl/MANIFEST.bak
@@ -425,6 +428,8 @@ tta/swig/perl/MYMETA.json
 tta/swig/perl/MYMETA.yml
 tta/swig/perl/pm_to_blib
 tta/swig/perl/perl_texinfo_wrap.c
+tta/swig/perl/t/*.trs
+tta/swig/perl/t/*.log
 tta/swig/perl/Texinfo.bs
 tta/swig/perl/Texinfo.pm
 tta/swig/python/__pycache__

@@ -10,11 +10,15 @@
 
 SUBDIRS = .
 
+if ! DISABLE_XS
+SUBDIRS += perl
+endif
+
 if SWIG_PYTHON_INTERFACE
 SUBDIRS += python
 endif
 
-DIST_SUBDIRS = python
+DIST_SUBDIRS = perl python
 
 BUILT_SOURCES = python/python_texinfo_wrap.c \
                 perl/perl_texinfo_wrap.c
