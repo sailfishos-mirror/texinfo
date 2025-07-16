@@ -31,11 +31,11 @@
 
 static char *read_from_fd (int fd);
 
-char *
-get_output_from_program (char *formatter_args[])
+int
+get_output_from_program (char *formatter_args[], char **program_output)
 {
   int pipes[2];
-  int formatter_status = 0;
+  int exit_status = 0;
   char *output = NULL;
 
   /* Open a pipe to this program, read the output, and save it away
@@ -43,11 +43,11 @@ get_output_from_program (char *formatter_args[])
      writer end is pipes[1]. */
 #if PIPE_USE_FORK
   if (pipe (pipes) == -1)
-    return 0; /* Creating pipe failed. */
+    return 127; /* Creating pipe failed. */
 
   pid_t child = fork ();
   if (child == -1)
-    return NULL;
+    return 127;
 
   if (child != 0)
     {
@@ -56,7 +56,7 @@ get_output_from_program (char *formatter_args[])
       close (pipes[1]);
       output = read_from_fd (pipes[0]);
       close (pipes[0]);
-      wait (&formatter_status); /* Wait for child process to exit. */
+      wait (&exit_status); /* Wait for child process to exit. */
     }
   else
     { /* In the child, close the read end of the pipe, make the write end
@@ -101,13 +101,17 @@ get_output_from_program (char *formatter_args[])
       close (fd_err);
     dup2 (save_stderr, fileno (stderr));
     if (fpipe == 0)
-      return NULL;
+      return 127;
     output = read_from_fd (fileno (fpipe));
-    formatter_status = pclose (fpipe);
+    exit_status = pclose (fpipe);
   }
 #endif /* !PIPE_USE_FORK */
 
-  return output;
+  if (program_output)
+    *program_output = output;
+  else
+    free (output);
+  return exit_status;
 }
 
 /* Return pointer to bytes read from file descriptor FD.  Return value to be

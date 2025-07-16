@@ -17,6 +17,7 @@
 
 
 #include "info.h"
+#include "run-external.h"
 
 #include <unistd.h>
 #if defined (HAVE_SYS_WAIT_H)
@@ -139,7 +140,7 @@ locate_init_file (const char *init_file, const char *dot_init_file)
 /* Run info hook and return exit status.  Return 127 if not found (same
    as bash exit status for command not found). */
 int
-run_info_hook (const char *hook, char *const argv[])
+run_info_hook (const char *hook, char *argv[], char **hook_output)
 {
 #define exit_notfound 127
   char *hook_name;
@@ -152,25 +153,10 @@ run_info_hook (const char *hook, char *const argv[])
   free (hook_name);
   if (!hook_file)
     return exit_notfound;
-
-  pid_t child = fork();
-  if (child == -1)
-    return exit_notfound; /* error forking */
-
-  if (child != 0)
-    {
-      /* In parent process. */
-      int exit_status;
-      free (hook_file);
-      wait (&exit_status);
-      return exit_status;
-    }
-  else
-    {
-      /* In child process.  */
-      execv (hook_file, argv);
-
-      return exit_notfound; /* shouldn't get here */
-    }
 #undef exit_notfound
+
+  argv[0] = hook_file;
+  int exit_status = get_output_from_program (argv, hook_output);
+  free (hook_file);
+  return exit_status;
 }

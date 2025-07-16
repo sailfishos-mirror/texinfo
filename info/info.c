@@ -304,7 +304,7 @@ get_initial_file (int *argc, char ***argv, char **error)
       hook_args[0] = hook_name;
       hook_args[1] = (*argv)[0];
       hook_args[2] = 0;
-      int status = run_info_hook (hook_name, hook_args);
+      int status = run_info_hook (hook_name, hook_args, 0);
       if (status == 0)
         {
           /* Hook handled manual. */

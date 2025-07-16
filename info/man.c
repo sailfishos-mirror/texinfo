@@ -368,7 +368,13 @@ get_manpage_from_formatter (char *formatter_args[])
   putenv ("GROFF_SGR=1"); /* for Debian whose man outputs
                              'overstrike' sequences without this */
 
-  formatted_page = get_output_from_program (formatter_args);
+  int status = get_output_from_program (formatter_args, &formatted_page);
+  if (status != 0)
+    {
+      free (formatted_page);
+      return 0;
+    }
+
   if (!formatted_page)
     return 0;
 
