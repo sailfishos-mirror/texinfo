@@ -1,5 +1,11 @@
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac (perl_install*): substitute Perl conf siteprefix or
+	vendorprefix with ${prefix} to follow the GNU Standards and have
+	make distcheck work.
+
+2025-07-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/Makefile.am (AM_CPPFLAGS): do not embed a perl
 	interpreter as there is already one running.
 

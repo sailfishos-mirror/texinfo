@@ -602,7 +602,7 @@ AC_ARG_ENABLE([perl-install-mode],
 
 perl_installsitearch=
 AC_ARG_ENABLE([installsitearch],
-    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl default)]),
+    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl config)]),
     [
      if test "z$enableval" != z ; then
        perl_installsitearch=$enableval
@@ -611,7 +611,7 @@ AC_ARG_ENABLE([installsitearch],
 
 perl_installsitelib=
 AC_ARG_ENABLE([installsitelib],
-    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl default)]),
+    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl config)]),
     [
      if test "z$enableval" != z ; then
        perl_installsitelib=$enableval
@@ -620,7 +620,7 @@ AC_ARG_ENABLE([installsitelib],
 
 perl_installvendorarch=
 AC_ARG_ENABLE([installvendorarch],
-    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl default)]),
+    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl config)]),
     [
      if test "z$enableval" != z ; then
        perl_installvendorarch=$enableval
@@ -629,7 +629,7 @@ AC_ARG_ENABLE([installvendorarch],
 
 perl_installvendorlib=
 AC_ARG_ENABLE([installvendorlib],
-    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl default)]),
+    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl config)]),
     [
      if test "z$enableval" != z ; then
        perl_installvendorlib=$enableval
@@ -643,37 +643,40 @@ if test x$enable_xs != xno ; then
       swig_perl_tests=yes
   fi
 
-  if test $perl_install_mode = site ; then
-
-    if test "z$perl_installsitearch" = z ; then
-      txi_LOOKUP_PERL_CONF([installsitearch])
-      perl_installsitearch=$PERL_CONF_installsitearch
-    fi
-    perlarchdir=$perl_installsitearch
-
-    if test "z$perl_installsitelib" = z ; then
-      txi_LOOKUP_PERL_CONF([installsitelib])
-      perl_installsitelib=$PERL_CONF_installsitelib
-    fi
-    perllibdir=$perl_installsitelib
-
-  elif test $perl_install_mode = vendor ; then
-
-    if test "z$perl_installvendorarch" = z ; then
-      txi_LOOKUP_PERL_CONF([installvendorarch])
-      perl_installvendorarch=$PERL_CONF_installvendorarch
-    fi
-    perlarchdir=$perl_installvendorarch
-
-    if test "z$perl_installvendorlib" = z ; then
-      txi_LOOKUP_PERL_CONF([installvendorlib])
-      perl_installvendorlib=$PERL_CONF_installvendorlib
-    fi
-    perllibdir=$perl_installvendorlib
-
+  if test $perl_install_mode = custom ; then
+    perlarchdir='${libdir}/perl5'
+    perllibdir='${libdir}/perl5'
   else
-    perlarchdir="$libdir/perl5"
-    perllibdir="$libdir/perl5"
+    if test $perl_install_mode = site ; then
+      txi_LOOKUP_PERL_CONF([siteprefix])
+
+      if test "z$perl_installsitearch" = z ; then
+        txi_LOOKUP_PERL_CONF([installsitearch])
+        perl_installsitearch=`echo "$PERL_CONF_installsitearch" | sed "s,$PERL_CONF_siteprefix,\\\${prefix},"`
+      fi
+      perlarchdir=$perl_installsitearch
+
+      if test "z$perl_installsitelib" = z ; then
+        txi_LOOKUP_PERL_CONF([installsitelib])
+        perl_installsitelib=`echo "$PERL_CONF_installsitelib" | sed "s,$PERL_CONF_siteprefix,\\\${prefix},"`
+      fi
+      perllibdir=$perl_installsitelib
+
+    elif test $perl_install_mode = vendor ; then
+      txi_LOOKUP_PERL_CONF([vendorprefix])
+
+      if test "z$perl_installvendorarch" = z ; then
+        txi_LOOKUP_PERL_CONF([installvendorarch])
+        perl_installvendorarch=`echo "$PERL_CONF_installvendorarch" | sed "s,$PERL_CONF_vendorprefix,\\\${prefix},"`
+      fi
+      perlarchdir=$perl_installvendorarch
+
+      if test "z$perl_installvendorlib" = z ; then
+        txi_LOOKUP_PERL_CONF([installvendorlib])
+        perl_installvendorlib=`echo "$PERL_CONF_installvendorlib" | sed "s,$PERL_CONF_vendorprefix,\\\${prefix},"`
+      fi
+      perllibdir=$perl_installvendorlib
+    fi
   fi
 fi
 
