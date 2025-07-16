@@ -1,3 +1,8 @@
+2025-07-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/info-stnd.texi (Hooks): New chapter to document new Info
+	hooks feature.
+
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/configure.ac (perl_install*): substitute Perl conf siteprefix or
