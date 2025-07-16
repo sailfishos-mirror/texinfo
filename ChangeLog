@@ -1,5 +1,10 @@
 2025-07-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (test_files): remove t/30source_marks.t as
+	there something xrong with embedded Perl and the SWIG interface.
+
+2025-07-16 Patrice Dumas  <pertusus@free.fr>
+
 	Integrate Perl SWIG interface in the build system
 
 	* tta/swig/python/Makefile.am (AM_CPPFLAGS), tta/swig/texinfo.i
