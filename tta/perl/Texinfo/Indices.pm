@@ -16,7 +16,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
-# Parts (also from Patrice Dumas) come from texi2html.pl.
 #
 # Most methods in that module are called from documents or
 # converters methods that cache the results.  Therefore, the relevant
@@ -908,7 +907,7 @@ L<Texinfo::Document>.
 
 =head1 AUTHOR
 
-Patrice Dumas, E<lt>pertusus@free.frE<gt>
+Patrice Dumas, E<lt>bug-texinfo@gnu.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

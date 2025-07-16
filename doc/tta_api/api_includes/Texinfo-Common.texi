@@ -424,7 +424,7 @@ tree.
 @node Texinfo@asis{::}Common AUTHOR
 @section Texinfo::Common AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Common COPYRIGHT AND LICENSE
 @section Texinfo::Common COPYRIGHT AND LICENSE

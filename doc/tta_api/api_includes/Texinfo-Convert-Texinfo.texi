@@ -45,7 +45,7 @@ Converts the Texinfo tree @emph{$tree} to Texinfo code.
 @node Texinfo@asis{::}Convert@asis{::}Texinfo AUTHOR
 @section Texinfo::Convert::Texinfo AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}Texinfo COPYRIGHT AND LICENSE
 @section Texinfo::Convert::Texinfo COPYRIGHT AND LICENSE

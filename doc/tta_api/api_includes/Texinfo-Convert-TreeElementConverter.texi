@@ -214,7 +214,7 @@ and @ref{Texinfo@asis{::}Structuring NAME,, Texinfo::Structuring}.
 @node Texinfo@asis{::}Convert@asis{::}TreeElementConverter AUTHOR
 @section Texinfo::Convert::TreeElementConverter AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}TreeElementConverter COPYRIGHT AND LICENSE
 @section Texinfo::Convert::TreeElementConverter COPYRIGHT AND LICENSE

@@ -2032,7 +2032,7 @@ sub _convert($$;$)
 1;
 
 __END__
-# Automatically generated from maintain/template.pod
+# Automatically generated from Convert_format_template.pod
 
 =head1 NAME
 
@@ -2094,7 +2094,7 @@ associated to a document by a call to C<output> or C<convert>.
 
 =head1 AUTHOR
 
-Patrice Dumas, E<lt>pertusus@free.frE<gt>
+Patrice Dumas, E<lt>bug-texinfo@gnu.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

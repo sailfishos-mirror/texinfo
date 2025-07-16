@@ -1690,7 +1690,7 @@ L<Texinfo::Document>, L<Texinfo::Structuring>, L<Texinfo::Transformations>.
 
 =head1 AUTHOR
 
-Patrice Dumas, E<lt>pertusus@free.frE<gt>
+Patrice Dumas, E<lt>bug-texinfo@gnu.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -532,7 +532,7 @@ Release the C data corresponding to @emph{$document}.
 @node Texinfo@asis{::}Document AUTHOR
 @section Texinfo::Document AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Document COPYRIGHT AND LICENSE
 @section Texinfo::Document COPYRIGHT AND LICENSE

@@ -72,7 +72,7 @@ associated to a document by a call to @code{output} or @code{convert}.
 @node Texinfo@asis{::}Convert@asis{::}DocBook AUTHOR
 @section Texinfo::Convert::DocBook AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}DocBook COPYRIGHT AND LICENSE
 @section Texinfo::Convert::DocBook COPYRIGHT AND LICENSE

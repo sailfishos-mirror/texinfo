@@ -166,7 +166,7 @@ the translated string, without the braced arguments substituted.
 @node Texinfo@asis{::}Translations AUTHOR
 @section Texinfo::Translations AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Translations COPYRIGHT AND LICENSE
 @section Texinfo::Translations COPYRIGHT AND LICENSE

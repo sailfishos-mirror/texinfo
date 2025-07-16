@@ -1858,7 +1858,7 @@ and C<---> or C<''> left as is, for example in C<@code>, C<@example>.
 
 =head1 AUTHOR
 
-Patrice Dumas, E<lt>pertusus@free.frE<gt>
+Patrice Dumas, E<lt>bug-texinfo@gnu.orgE<gt>
 
 =head1 SEE ALSO
 

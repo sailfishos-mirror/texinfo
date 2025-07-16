@@ -453,7 +453,7 @@ built-in.
 
 =head1 AUTHOR
 
-Patrice Dumas, E<lt>pertusus@free.frE<gt>
+Patrice Dumas, E<lt>bug-texinfo@gnu.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

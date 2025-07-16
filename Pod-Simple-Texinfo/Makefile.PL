@@ -21,5 +21,5 @@ WriteMakefile(
 #    FULLPERLRUN       => '$(FULLPERL) '."-I$t2a_srcdir -I$t2a_srcdir/maintain/lib/Unicode-EastAsianWidth/lib/ -I$t2a_srcdir/maintain/lib/libintl-perl/lib  -I$t2a_srcdir/maintain/lib/Text-Unidecode/lib/",
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/Pod/Simple/Texinfo.pm', # retrieve abstract from module
-       AUTHOR         => 'Patrice Dumas <pertusus@free.fr>') : ()),
+       AUTHOR         => 'Patrice Dumas <bug-texinfo@gnu.org>') : ()),
 );

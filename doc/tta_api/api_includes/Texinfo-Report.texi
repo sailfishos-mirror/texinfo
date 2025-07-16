@@ -164,7 +164,7 @@ that the line is a continuation line of a message.
 @node Texinfo@asis{::}Report AUTHOR
 @section Texinfo::Report AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Report COPYRIGHT AND LICENSE
 @section Texinfo::Report COPYRIGHT AND LICENSE

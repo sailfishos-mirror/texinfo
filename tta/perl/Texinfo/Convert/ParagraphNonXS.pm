@@ -14,8 +14,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-# Original author: Patrice Dumas <pertusus@free.fr>
 
 # this module has nothing Texinfo specific.  In contrast with existing
 # modules Text::Wrap, Text::Format, it keeps a state of the paragraph

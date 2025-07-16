@@ -90,7 +90,7 @@ entry with said item.  Reference one of them in the entry's
 @node Texinfo@asis{::}ManipulateTree AUTHOR
 @section Texinfo::ManipulateTree AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}ManipulateTree COPYRIGHT AND LICENSE
 @section Texinfo::ManipulateTree COPYRIGHT AND LICENSE

@@ -294,7 +294,7 @@ The API for association of pages/output units to files is not defined yet.
 @node Texinfo@asis{::}OutputUnits AUTHOR
 @section Texinfo::OutputUnits AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}OutputUnits COPYRIGHT AND LICENSE
 @section Texinfo::OutputUnits COPYRIGHT AND LICENSE

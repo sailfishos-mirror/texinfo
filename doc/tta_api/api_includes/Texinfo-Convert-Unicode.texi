@@ -136,7 +136,7 @@ considered to be in code style.
 @node Texinfo@asis{::}Convert@asis{::}Unicode AUTHOR
 @section Texinfo::Convert::Unicode AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}Unicode COPYRIGHT AND LICENSE
 @section Texinfo::Convert::Unicode COPYRIGHT AND LICENSE

@@ -14,5 +14,13 @@
 ^MYMETA\.
 ^pm_to_blib$
 ^pod2htm.*
+
 ^perl_texinfo_wrap\.o$
 ^Texinfo-.*\.tar\.gz$
+
+# Autotools/libtool based build system files
+^Makefile\.am
+^Makefile\.in
+^\.deps/
+^\.libs/
+^Texinfo[\._]la

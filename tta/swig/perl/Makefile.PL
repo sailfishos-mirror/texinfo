@@ -11,5 +11,7 @@ WriteMakefile(
         'VERSION' => '7.2',
         'OBJECT' =>'$(O_FILES)',
         'INC' => '-I../../C/main -I../../C/parsetexi -I../../C/convert -DDATADIR=\\"/usr/share/local/\\" -DCONVERTER_CONFIG=\\"texi2any\\" -DPACKAGE_VERSION_CONFIG=\\"7.2dev\\" -DEMBED_PERL',
-        test => {TESTS => 't/*.t'},
+        'test' => {TESTS => 't/*.t'},
+        'LICENSE'      => 'gpl_3',
+        'AUTHOR'       => 'Patrice Dumas <bug-texinfo@gnu.org>',
 );

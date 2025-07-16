@@ -136,7 +136,7 @@ nodes are used as labels in the generated master menu.
 @node Texinfo@asis{::}Transformations AUTHOR
 @section Texinfo::Transformations AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Transformations COPYRIGHT AND LICENSE
 @section Texinfo::Transformations COPYRIGHT AND LICENSE

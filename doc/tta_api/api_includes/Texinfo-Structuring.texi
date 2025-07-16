@@ -252,7 +252,7 @@ Register a warning in for each @code{@@part} in global commands information of
 @node Texinfo@asis{::}Structuring AUTHOR
 @section Texinfo::Structuring AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Structuring COPYRIGHT AND LICENSE
 @section Texinfo::Structuring COPYRIGHT AND LICENSE

@@ -81,7 +81,7 @@ specification.  This is only supported in (and relevant for) HTML.
 @node Texinfo@asis{::}Convert@asis{::}HTML AUTHOR
 @section Texinfo::Convert::HTML AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}HTML COPYRIGHT AND LICENSE
 @section Texinfo::Convert::HTML COPYRIGHT AND LICENSE

@@ -181,7 +181,7 @@ the sorted indices to the document.
 @node Texinfo@asis{::}Indices AUTHOR
 @section Texinfo::Indices AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Indices COPYRIGHT AND LICENSE
 @section Texinfo::Indices COPYRIGHT AND LICENSE

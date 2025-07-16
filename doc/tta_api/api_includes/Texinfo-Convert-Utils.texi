@@ -143,7 +143,7 @@ containing the accent commands nested in @emph{$element} (including
 @node Texinfo@asis{::}Convert@asis{::}Utils AUTHOR
 @section Texinfo::Convert::Utils AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}Utils COPYRIGHT AND LICENSE
 @section Texinfo::Convert::Utils COPYRIGHT AND LICENSE

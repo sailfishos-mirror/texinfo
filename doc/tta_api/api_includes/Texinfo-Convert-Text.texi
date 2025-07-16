@@ -164,7 +164,7 @@ lower-cased.
 @node Texinfo@asis{::}Convert@asis{::}Text AUTHOR
 @section Texinfo::Convert::Text AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}Text COPYRIGHT AND LICENSE
 @section Texinfo::Convert::Text COPYRIGHT AND LICENSE

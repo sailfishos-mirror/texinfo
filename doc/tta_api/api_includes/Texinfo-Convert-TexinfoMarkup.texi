@@ -131,7 +131,7 @@ and @code{---} or @code{''} left as is, for example in @code{@@code}, @code{@@ex
 @node Texinfo@asis{::}Convert@asis{::}TexinfoMarkup AUTHOR
 @section Texinfo::Convert::TexinfoMarkup AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}TexinfoMarkup SEE ALSO
 @section Texinfo::Convert::TexinfoMarkup SEE ALSO

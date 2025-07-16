@@ -1430,7 +1430,7 @@ If there is a translation context, it should be in @emph{translation_context}.
 @node Texinfo@asis{::}Parser AUTHOR
 @section Texinfo::Parser AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Parser COPYRIGHT AND LICENSE
 @section Texinfo::Parser COPYRIGHT AND LICENSE

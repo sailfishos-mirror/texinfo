@@ -797,7 +797,7 @@ specification.
 @node Texinfo@asis{::}Convert@asis{::}Converter AUTHOR
 @section Texinfo::Convert::Converter AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}Converter COPYRIGHT AND LICENSE
 @section Texinfo::Convert::Converter COPYRIGHT AND LICENSE

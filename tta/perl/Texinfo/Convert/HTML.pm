@@ -14702,7 +14702,7 @@ sub _set_variables_texi2html($)
 # the customization API involves multiple modules as well as the main program.
 
 __END__
-# Automatically generated from maintain/template.pod
+# Automatically generated from Convert_format_template.pod
 
 =head1 NAME
 
@@ -14772,7 +14772,7 @@ specification.  This is only supported in (and relevant for) HTML.
 
 =head1 AUTHOR
 
-Patrice Dumas, E<lt>pertusus@free.frE<gt>
+Patrice Dumas, E<lt>bug-texinfo@gnu.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

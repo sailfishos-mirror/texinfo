@@ -100,7 +100,7 @@ built-in.
 @node Texinfo@asis{::}Convert@asis{::}NodeNameNormalization AUTHOR
 @section Texinfo::Convert::NodeNameNormalization AUTHOR
 
-Patrice Dumas, <pertusus@@free.fr>
+Patrice Dumas, <bug-texinfo@@gnu.org>
 
 @node Texinfo@asis{::}Convert@asis{::}NodeNameNormalization COPYRIGHT AND LICENSE
 @section Texinfo::Convert::NodeNameNormalization COPYRIGHT AND LICENSE
