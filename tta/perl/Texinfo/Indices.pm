@@ -294,13 +294,21 @@ sub _setup_collator($$)
 # result in the document, itself, in general, called through sorting functions.
 sub setup_index_entries_sort_strings($$$$;$)
 {
-  my $registrar = shift;
-  my $customization_information = shift;
+  my $document = shift;
+  my $converter = shift;
   my $index_entries = shift;
   my $indices_information = shift;
   my $prefer_reference_element = shift;
 
   return undef unless ($index_entries);
+
+  my $document_info;
+
+  if (defined($converter)) {
+    $document_info = $converter;
+  } else {
+    $document_info = $document;
+  }
 
   # convert index entries to sort string using unicode when possible
   # independently of input and output encodings
@@ -310,7 +318,7 @@ sub setup_index_entries_sort_strings($$$$;$)
   # point doing so, as it is only useful for @verbatiminclude, which
   # cannot appear in index entries.
   #$convert_text_options->{'INCLUDE_DIRECTORIES'}
-  #   = $customization_information->get_conf('INCLUDE_DIRECTORIES');
+  #   = $converter->get_conf('INCLUDE_DIRECTORIES');
 
   my $indices_sort_strings = {};
   foreach my $index_name (keys(%$index_entries)) {
@@ -323,7 +331,7 @@ sub setup_index_entries_sort_strings($$$$;$)
         Texinfo::Convert::Text::set_options_code($convert_text_options);
       }
       my $entry_sort_string
-        = index_entry_element_sort_string($customization_information,
+        = index_entry_element_sort_string($document_info,
                                $index_entry, $main_entry_element,
                            $convert_text_options, $prefer_reference_element);
       my $non_empty_index_subentries = 0;
@@ -333,8 +341,8 @@ sub setup_index_entries_sort_strings($$$$;$)
         $entry_cmdname
           = $main_entry_element->{'extra'}->{'original_def_cmdname'}
            if (!defined($entry_cmdname));
-        Texinfo::Common::converter_or_registrar_line_warn($registrar,
-                                   $customization_information,
+        Texinfo::Common::converter_or_document_line_warn($document,
+                                   $converter,
                        sprintf(__("empty index key in \@%s"),
                                   $entry_cmdname),
                                $main_entry_element->{'source_info'});
@@ -350,15 +358,15 @@ sub setup_index_entries_sort_strings($$$$;$)
       foreach my $subentry (@subentries) {
         $subentry_nr ++;
         my $subentry_sort_string
-              = index_entry_element_sort_string($customization_information,
+              = index_entry_element_sort_string($document_info,
                              $index_entry, $subentry, $convert_text_options);
         if ($subentry_sort_string !~ /\S/) {
           my $entry_cmdname = $main_entry_element->{'cmdname'};
           $entry_cmdname
             = $main_entry_element->{'extra'}->{'original_def_cmdname'}
               if (!defined($entry_cmdname));
-          Texinfo::Common::converter_or_registrar_line_warn($registrar,
-                                $customization_information,
+          Texinfo::Common::converter_or_document_line_warn($document,
+                                $converter,
                          sprintf(__("empty index sub entry %d key in \@%s"),
                                     $subentry_nr, $entry_cmdname),
                                   $main_entry_element->{'source_info'});
@@ -456,14 +464,14 @@ sub _setup_sortable_index_entries($$)
 sub _setup_sort_sortable_strings_collator($$$$)
 {
   my $document = shift;
-  my $customization_information = shift;
+  my $converter = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
 
   # simple wrapper around setup_index_entries_sort_strings that caches the
   # result
-  my $indices_sort_strings = Texinfo::Document::indices_sort_strings($document,
-                                                   $customization_information);
+  my $indices_sort_strings
+    = Texinfo::Document::indices_sort_strings($document, $converter);
 
   my $collator = _setup_collator($use_unicode_collation, $locale_lang);
 
@@ -477,13 +485,13 @@ sub _setup_sort_sortable_strings_collator($$$$)
 sub sort_indices_by_index($$;$$)
 {
   my $document = shift;
-  my $customization_information = shift;
+  my $converter = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
 
   my ($index_sortable_index_entries, $collator)
      = _setup_sort_sortable_strings_collator($document,
-                       $customization_information, $use_unicode_collation,
+                       $converter, $use_unicode_collation,
                        $locale_lang);
 
   if (!$index_sortable_index_entries) {
@@ -626,13 +634,13 @@ sub index_entry_first_letter_text_or_command($;$)
 sub sort_indices_by_letter($$;$$)
 {
   my $document = shift;
-  my $customization_information = shift;
+  my $converter = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
 
   my ($index_sortable_index_entries, $collator)
      = _setup_sort_sortable_strings_collator($document,
-                       $customization_information, $use_unicode_collation,
+                       $converter, $use_unicode_collation,
                        $locale_lang);
 
   if (!$index_sortable_index_entries) {
@@ -751,16 +759,16 @@ Texinfo::Indices - merging and sorting indices from Texinfo
   my $merged_index_entries
      = Texinfo::Indices::merge_indices($indices_information);
 
-  # $config is an object implementing the get_conf() method.
+  # $converter is a converter object
   my $index_entries_sorted;
   if ($sort_by_letter) {
     $index_entries_sorted
       = Texinfo::Indices::sort_indices_by_letter($document,
-                                                   $config);
+                                                 $converter);
   } else {
     $index_entries_sorted
       = Texinfo::Indices::sort_indices_by_index($document,
-                                                  $config);
+                                                $converter);
   }
 
 
@@ -845,9 +853,9 @@ X<C<setup_index_entry_keys_formatting>>
 Return options relevant for index keys sorting for conversion of Texinfo
 to text to be output.
 
-=item $index_entries_sorted = sort_indices_by_index($document, $customization_information, $use_unicode_collation, $locale_lang)
+=item $index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang)
 
-=item $index_entries_sorted = sort_indices_by_letter($document, $customization_information, $use_unicode_collation, $locale_lang)
+=item $index_entries_sorted = sort_indices_by_letter($document, $converter, $use_unicode_collation, $locale_lang)
 X<C<sort_indices_by_index>> X<C<sort_indices_by_letter>>
 
 C<sort_indices_by_letter> sorts by index and letter, while
@@ -876,15 +884,12 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-Error reporting also requires Texinfo customization variables
-information, which means an object implementing the C<get_conf> method, a
-converter (L<Texinfo::Convert::Converter/Getting and setting customization
-variables>) or a document L<Texinfo::Document/Getting customization options
-values registered in document>) as I<$customization_information> argument.
+The optional argument I<$converter> is used for error reporting if present,
+otherwise the I<$document> is used.
 
 In general, those methods should not be called directly, instead
-L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang) >>
-or L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang) >>
+L<< C<Texinfo::Document::sorted_indices_by_index>|Texinfo::Document/$sorted_indices = sorted_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang) >>
+or L<< C<Texinfo::Document::sorted_indices_by_letter>|Texinfo::Document/$sorted_indices = sorted_indices_by_letter($document, $converter, $use_unicode_collation, $locale_lang) >>
 should be called on a document. The C<Texinfo::Document> functions call
 C<sort_indices_by_index> or C<sort_indices_by_letter> if needed and associate
 the sorted indices to the document.

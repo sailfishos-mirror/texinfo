@@ -2007,7 +2007,7 @@ while(@input_files) {
 
   # do it now to get error messages here
   if ($formats_table{$converted_format}->{'setup_index_entries_sort_strings'}) {
-    Texinfo::Document::setup_indices_sort_strings($document, $document);
+    Texinfo::Document::setup_indices_sort_strings($document, undef);
   }
 
   #Texinfo::Document::rebuild_document($document);

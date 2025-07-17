@@ -132,8 +132,8 @@ my $top_node = $identifier_target->{'Top'};
 my $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
 # FIXME does not test the XS code
-my $master_menu = Texinfo::Structuring::new_detailmenu([undef], $document,
-                                          $document->{'registrar'},
+my $master_menu = Texinfo::Structuring::new_detailmenu([undef],
+                                        undef, $document,
                                         $identifier_target, $nodes_list,
                                         $top_node_structure->{'menus'});
 my $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
@@ -182,8 +182,8 @@ $top_node = $identifier_target->{'Top'};
 $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
 # FIXME does not test the XS code
-$master_menu = Texinfo::Structuring::new_detailmenu([undef], $document,
-                                          $document->{'registrar'},
+$master_menu = Texinfo::Structuring::new_detailmenu([undef],
+                                          undef, $document,
                                           $identifier_target, $nodes_list,
                                            $top_node_structure->{'menus'});
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
@@ -192,7 +192,7 @@ is($out, $reference, 'master menu no detailmenu');
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($in_detailmenu);
 Texinfo::Structuring::associate_internal_references($document);
-Texinfo::Transformations::regenerate_master_menu($document, $parser);
+Texinfo::Transformations::regenerate_master_menu($document);
 #Texinfo::Document::rebuild_document($document);
 my $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -204,7 +204,7 @@ is($out, _get_in($reference), 'regenerate with existing detailmenu');
 $parser = Texinfo::Parser::parser();
 $document = $parser->parse_texi_piece($no_detailmenu);
 Texinfo::Structuring::associate_internal_references($document);
-Texinfo::Transformations::regenerate_master_menu($document, $parser);
+Texinfo::Transformations::regenerate_master_menu($document);
 #Texinfo::Document::rebuild_document($document);
 $tree = $document->tree();
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

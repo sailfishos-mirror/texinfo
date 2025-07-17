@@ -490,8 +490,8 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-The functions call @ref{Texinfo@asis{::}Document $sorted_indices = $document->sorted_indices_by_letter($customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Document::sorted_indices_by_letter}}
-or @ref{Texinfo@asis{::}Document $sorted_indices = $document->sorted_indices_by_index($customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Document::sorted_indices_by_index}}
+The functions call @ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Document::sorted_indices_by_letter}}
+or @ref{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Document::sorted_indices_by_index}}
 with arguments based on @code{USE_UNICODE_COLLATION}, @code{COLLATION_LANGUAGE} and
 @code{DOCUMENTLANGUAGE_COLLATION} customization options, and, if relevant, current
 @code{@@documentlanguage}.

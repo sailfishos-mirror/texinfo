@@ -767,9 +767,10 @@ sub regenerate_master_menu($;$)
   my $new_detailmenu
       = Texinfo::Structuring::new_detailmenu(
                       [$document->get_conf('documentlanguage')],
-                      $document, $document->{'registrar'},
+                      undef, $document,
                       $identifier_target, $nodes_list,
                       $top_node_relations->{'menus'},
+                      $document->get_conf('DEBUG'),
                       $use_sections);
   # no need for a master menu
   return undef if (!defined($new_detailmenu));

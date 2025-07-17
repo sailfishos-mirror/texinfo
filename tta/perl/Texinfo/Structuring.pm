@@ -2045,14 +2045,15 @@ sub new_complete_node_menu($;$$$)
 # Create a new @detailmenu element.
 # used in tree transformations.  Used in converters through
 # new_complete_menu_master_menu.
-sub new_detailmenu($$$$$$;$)
+sub new_detailmenu($$$$$$;$$)
 {
   my $lang_translations = shift;
-  my $customization_information = shift;
-  my $registrar = shift;
+  my $converter = shift;
+  my $document = shift;
   my $identifier_target = shift;
   my $nodes_list = shift;
   my $menus = shift;
+  my $debug = shift;
   my $use_sections = shift;
 
   # only holds contents here, will be turned into a proper block
@@ -2071,8 +2072,8 @@ sub new_detailmenu($$$$$$;$)
           if ($node) {
             push @{$new_detailmenu->{'contents'}},
                          _print_down_menus($node, undef,
-                                           $customization_information,
-                                           $registrar,
+                                           $converter,
+                                           $document,
                                            $identifier_target,
                                            $nodes_list,
                                            $use_sections);
@@ -2089,7 +2090,7 @@ sub new_detailmenu($$$$$$;$)
     my $master_menu_title
            = Texinfo::Translations::gdt(' --- The Detailed Node Listing ---',
                   $lang_translations,
-                  undef, $customization_information->get_conf('DEBUG'));
+                  undef, $debug);
     my @master_menu_title_contents;
     foreach my $content (@{$master_menu_title->{'contents'}},
                          Texinfo::TreeElement::new({'text' => "\n"})) {
@@ -2132,7 +2133,7 @@ sub new_complete_menu_master_menu($$$$)
   and $node_relations->{'associated_section'}->{'element'}->{'cmdname'} eq 'top') {
       my $detailmenu = new_detailmenu($self->{'current_lang_translations'},
                                       $self, undef, $labels, $nodes_list,
-                                      [$menu_node]);
+                                      [$menu_node], $self->get_conf('DEBUG'));
       if ($detailmenu) {
         # add a blank line before the detailed node listing
         my $menu_comment
@@ -2162,8 +2163,8 @@ sub _print_down_menus($$$$$$;$)
 {
   my $node = shift;
   my $up_nodes = shift;
-  my $customization_information = shift;
-  my $registrar = shift;
+  my $converter = shift;
+  my $document = shift;
   my $identifier_target = shift;
   my $nodes_list = shift;
   my $use_sections = shift;
@@ -2237,8 +2238,8 @@ sub _print_down_menus($$$$$$;$)
       my $normalized_child = $child->{'extra'}->{'normalized'};
       foreach my $up_node_normalized (@$up_nodes) {
         if ($normalized_child eq $up_node_normalized->[0]) {
-          Texinfo::Common::converter_or_registrar_line_warn($registrar,
-                   $customization_information,
+          Texinfo::Common::converter_or_document_line_warn($document,
+                   $converter,
                 sprintf(__("node `%s' appears in its own menus"),
                 target_element_to_texi_label($up_node_normalized->[1])),
                            $up_node_normalized->[1]->{'source_info'});
@@ -2249,8 +2250,8 @@ sub _print_down_menus($$$$$$;$)
       if (!$up_node_in_menu) {
         push @master_menu_contents, _print_down_menus($child,
                                            $up_nodes,
-                                           $customization_information,
-                                           $registrar,
+                                           $converter,
+                                           $document,
                                            $identifier_target,
                                            $nodes_list,
                                            $use_sections);
@@ -2374,7 +2375,7 @@ similar to the C<DEBUG> customization variable.  If set, it is supplied to the
 function called for translations.  Translations are only needed when generating
 the top node menu.
 
-=item $detailmenu = new_detailmenu($lang_translations, $customization_information, $registrar, $identifier_target, $nodes_list, $menus)
+=item $detailmenu = new_detailmenu($lang_translations, $converter, $document, $identifier_target, $nodes_list, $debug, $menus)
 X<C<new_detailmenu>>
 
 Returns a detailmenu tree element formatted as a master node.
@@ -2382,14 +2383,14 @@ I<$menus> is an array reference containing the regular menus of the Top node.
 I<$lang_translations> argument should be an array reference with one or two
 elements.  The first element of the array is the language used for translations.
 The second element, if set, should be an hash reference holding translations
-already done.  I<$customization_information> should hold information needed for
+already done.  If I<$debug> optional arguments is set, debugging mode
+is assumed.
+  I<$converter> should hold information needed for
 translations and error reporting.
 
-The I<$registrar> argument can be set to an error messages list.
-If the I<$registrar> argument is not set, I<$customization_information> is
-assumed to be a converter, and error reporting uses converters error
-messages reporting functions (L<Texinfo::Convert::Converter/Registering error
-and warning messages>).
+I<$converter>, if set, is used for error reporting
+(L<Texinfo::Convert::Converter/Registering error and warning messages>).  If
+not set, the I<$document> is used for error reporting instead.
 
 =item $entry = new_node_menu_entry($node_relations, $use_sections)
 X<C<new_node_menu_entry>>

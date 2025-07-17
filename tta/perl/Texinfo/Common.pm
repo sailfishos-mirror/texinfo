@@ -1749,28 +1749,25 @@ sub get_label_element($)
 }
 
 # For code that can be called both from the main
-# context, with a registrar and customization information, and from
-# a converter
+# context and from a converter.  With either a converter, and, if
+# not given, a document.
 # NOTE it is considered internal and should not be called in user-defined
 # code.  If this changes, should be documented.
-sub converter_or_registrar_line_warn($$$$)
+sub converter_or_document_line_warn($$$$)
 {
-  my $registrar = shift;
-  my $customization_information = shift;
+  my $document = shift;
+  my $converter = shift;
   my $text = shift;
   my $error_location_info = shift;
 
-  if (defined($registrar)) {
+  if (defined($converter)) {
+    $converter->converter_line_warn($text, $error_location_info);
+  } else {
     # TODO call a wrapper here, for structuring (or document)?
-    my $debug;
-    if ($customization_information) {
-      $debug = $customization_information->get_conf('DEBUG');
-    }
+    my $debug = $document->get_conf('DEBUG');
+    my $registrar = $document->{'registrar'};
     push @$registrar, Texinfo::Report::line_warn($text,
                                          $error_location_info, 0, $debug);
-  } else {
-    $customization_information->converter_line_warn($text,
-                                                    $error_location_info);
   }
 }
 

@@ -57,15 +57,14 @@ my $document_options = $main_configuration->get_customization_options_hash();
 $document->register_document_options($document_options);
 
 my $indices_sort_strings
-  = Texinfo::Indices::setup_index_entries_sort_strings($document->{'registrar'},
-                                              $document,
+  = Texinfo::Indices::setup_index_entries_sort_strings($document, undef,
                                       $index_entries, $indices_information);
 
 my $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 my $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, $document);
+  = Texinfo::Indices::sort_indices_by_index($document, undef);
 
 my @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
@@ -80,7 +79,7 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my $sorted_index_entries_by_letter
- = Texinfo::Indices::sort_indices_by_letter($document, $document);
+ = Texinfo::Indices::sort_indices_by_letter($document, undef);
 
 my @letter_entries_ref = (
    {'!' => [ '!' ]},
@@ -135,12 +134,12 @@ $document = $parser->parse_texi_text('@node Top
 
 $document->register_document_options($document_options);
 $indices_sort_strings
-  = Texinfo::Document::indices_sort_strings($document, $document);
+  = Texinfo::Document::indices_sort_strings($document, undef);
 $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, $document);
+  = Texinfo::Indices::sort_indices_by_index($document, undef);
 
 @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {

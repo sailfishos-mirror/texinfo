@@ -12,6 +12,26 @@
 
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Structuring.pm (new_detailmenu): pass $debug for
+	translations as argument.
+
+	* tta/perl/Texinfo/Common.pm (converter_or_document_line_warn),
+	tta/perl/Texinfo/Document.pm (setup_indices_sort_strings)
+	(indices_sort_strings, sorted_indices_by_letter)
+	(sorted_indices_by_index, print_document_indices_sort_strings),
+	tta/perl/Texinfo/Indices.pm (setup_index_entries_sort_strings)
+	(_setup_sort_sortable_strings_collator, sort_indices_by_index)
+	(sort_indices_by_letter), tta/perl/Texinfo/Structuring.pm
+	(new_detailmenu, _print_down_menus),
+	tta/perl/Texinfo/Transformations.pm (regenerate_master_menu),
+	tta/perl/t/z_misc/do_master_menu.t, tta/perl/t/z_misc/test_sort.t:
+	use converter and/or document in argument instead of
+	customization_information and registrar for error messages, and use
+	the document if the converter is not set.  Replace
+	converter_or_registrar_line_warn by converter_or_document_line_warn.
+
+2025-07-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Indices.pm (_setup_sort_sortable_strings_collator)
 	(sort_indices_by_index, sort_indices_by_letter): remove unused
 	registrar argument.  Update callers.

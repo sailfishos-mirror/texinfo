@@ -337,11 +337,11 @@ In general, the sorting methods should not be called directly, instead
 used, which already call the following functions.
 
 @table @asis
-@item $sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang)
-@anchor{Texinfo@asis{::}Document $sorted_indices = $document->sorted_indices_by_index($customization_information@comma{} $use_unicode_collation@comma{} $locale_lang)}
+@item $sorted_indices = sorted_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang)
+@anchor{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang)}
 
-@item $sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang)
-@anchor{Texinfo@asis{::}Document $sorted_indices = $document->sorted_indices_by_letter($customization_information@comma{} $use_unicode_collation@comma{} $locale_lang)}
+@item $sorted_indices = sorted_indices_by_letter($document, $converter, $use_unicode_collation, $locale_lang)
+@anchor{Texinfo@asis{::}Document $sorted_indices = sorted_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang)}
 @cindex @code{sorted_indices_by_index}
 @cindex @code{sorted_indices_by_letter}
 
@@ -367,14 +367,11 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-The optional @emph{$customization_information} argument is used for
-error reporting, to find Texinfo customization variables information.
-In general, it should be a converter (@ref{Texinfo@asis{::}Convert@asis{::}Converter Getting and
-setting customization variables}) or a document @ref{Texinfo@asis{::}Document Getting
-customization options values registered in document}).
+The optional @emph{$converter} argument is used for error reporting, if not
+defined, the @emph{$document} is used.
 
-@ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_index}}
-and @ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($document@comma{} $customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_letter}}
+@ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_index}}
+and @ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($document@comma{} $converter@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_letter}}
 are used to sort the indexes, if needed.
 
 In general, those methods should not be called directly, instead

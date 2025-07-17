@@ -350,13 +350,12 @@ sub merged_indices($)
 sub setup_indices_sort_strings($$)
 {
   my $document = shift;
-  my $customization_information = shift;
+  my $converter = shift;
 
   if (!$document->{'index_entries_sort_strings'}) {
     my $indices_sort_strings
-      = Texinfo::Indices::setup_index_entries_sort_strings
-             ($document->{'registrar'}, $customization_information,
-              $document->merged_indices(),
+      = Texinfo::Indices::setup_index_entries_sort_strings($document,
+              $converter, $document->merged_indices(),
               $document->indices_information(), 0);
     $document->{'index_entries_sort_strings'} = $indices_sort_strings;
   }
@@ -369,9 +368,9 @@ sub setup_indices_sort_strings($$)
 sub indices_sort_strings($$)
 {
   my $document = shift;
-  my $customization_information = shift;
+  my $converter = shift;
 
-  setup_indices_sort_strings($document, $customization_information);
+  setup_indices_sort_strings($document, $converter);
   return $document->{'index_entries_sort_strings'};
 }
 
@@ -379,10 +378,12 @@ sub indices_sort_strings($$)
 # No XS override, as there is no reason to call this function directly
 # outside of tests, Texinfo::Convert::Converter
 # get_converter_indices_sorted_by_letter should be called directly.
+# In general a CONVERTER argument is given, but if not the DOCUMENT is
+# used instead to register error messages.
 sub sorted_indices_by_letter($$$$)
 {
   my $document = shift;
-  my $customization_information = shift;
+  my $converter = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
 
@@ -404,7 +405,7 @@ sub sorted_indices_by_letter($$$$)
     $document->merged_indices();
     $document->{'sorted_indices_by_letter'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_letter
-                    ($document, $customization_information,
+                    ($document, $converter,
                      $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
@@ -414,10 +415,12 @@ sub sorted_indices_by_letter($$$$)
 # No XS override, as there is no reason to call this function directly
 # outside of tests, Texinfo::Convert::Converter
 # get_converter_indices_sorted_by_index should be called directly.
+# In general a CONVERTER argument is given, but if not the DOCUMENT is
+# used instead to register error messages.
 sub sorted_indices_by_index($$$$)
 {
   my $document = shift;
-  my $customization_information = shift;
+  my $converter = shift;
   my $use_unicode_collation = shift;
   my $locale_lang = shift;
 
@@ -439,7 +442,7 @@ sub sorted_indices_by_index($$$$)
     $document->merged_indices();
     $document->{'sorted_indices_by_index'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_index
-                      ($document, $customization_information,
+                      ($document, $converter,
                        $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};
@@ -507,14 +510,14 @@ sub print_document_indices_sort_strings($)
      = $document->get_conf('COLLATION_LANGUAGE');
   }
 
-  my $indices_sort_strings = indices_sort_strings($document, $document);
+  my $indices_sort_strings = indices_sort_strings($document, undef);
 
   my $index_entries_sort_strings
    = Texinfo::Indices::format_index_entries_sort_strings(
                                                      $indices_sort_strings);
 
   my $sorted_index_entries
-       = sorted_indices_by_index($document, $document,
+       = sorted_indices_by_index($document, undef,
                                $use_unicode_collation, $locale_lang);
 
   my $idx_sort_strings_str = '';
@@ -949,9 +952,9 @@ used, which already call the following functions.
 
 =over
 
-=item $sorted_indices = $document->sorted_indices_by_index($customization_information, $use_unicode_collation, $locale_lang)
+=item $sorted_indices = sorted_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang)
 
-=item $sorted_indices = $document->sorted_indices_by_letter($customization_information, $use_unicode_collation, $locale_lang)
+=item $sorted_indices = sorted_indices_by_letter($document, $converter, $use_unicode_collation, $locale_lang)
 X<C<sorted_indices_by_index>> X<C<sorted_indices_by_letter>>
 
 C<sorted_indices_by_letter> returns the indices sorted by index and letter,
@@ -976,14 +979,11 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-The optional I<$customization_information> argument is used for
-error reporting, to find Texinfo customization variables information.
-In general, it should be a converter (L<Texinfo::Convert::Converter/Getting and
-setting customization variables>) or a document L<Texinfo::Document/Getting
-customization options values registered in document>).
+The optional I<$converter> argument is used for error reporting, if not
+defined, the I<$document> is used.
 
-L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $customization_information, $use_unicode_collation, $locale_lang) >>
-and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $customization_information, $use_unicode_collation, $locale_lang) >>
+L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $converter, $use_unicode_collation, $locale_lang) >>
+and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $converter, $use_unicode_collation, $locale_lang) >>
 are used to sort the indexes, if needed.
 
 In general, those methods should not be called directly, instead
