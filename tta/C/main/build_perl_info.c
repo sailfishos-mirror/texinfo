@@ -1738,55 +1738,13 @@ build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
   return av;
 }
 
-/* add C messages to an error messages list, like
-   Texinfo::Report::add_formatted_message does.
-   NOTE probably not useful for converters as errors need to be passed
-   explicitely both from Perl and XS and are added at that point.
-
-   Returns $report->{'errors_warnings'} in ERRORS_WARNINGS_OUT and
-   $report->{'error_nrs'} in ERRORS_NRS_OUT, even if ERROR_MESSAGES is
-   0, to avoid the need to fetch them from report_hv if calling code
-   is interested in those SV.
- */
-static void
-add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
-                              AV *report_av)
-{
-  size_t i;
-
-  dTHX;
-
-   if (!error_messages)
-    {
-      /* See the comment before pass_errors_to_hv, this probably
-         cannot happen.  We do not warn here, there should already
-         be other warnings as it means that no XS document was found.
-       */
-      return;
-    }
-  else
-    {
-      /* add errors from error_messages */
-      for (i = 0; i < error_messages->number; i++)
-        {
-          const ERROR_MESSAGE error_msg = error_messages->list[i];
-          SV *sv = convert_error (error_msg);
-
-          av_push (report_av, sv);
-        }
-    }
-}
-
-/* ERROR_MESSAGES could be 0, in that case the function is used to get
-   the perl references but they are not modified.
-   Error messages set to 0, however, cannot happen in practice, as it cannot
-   happen when called through pass_document_parser_errors_to_parser_sv for
-   parser errors, and for document errors it would mean no XS document found,
+/* ERROR_MESSAGES cannot be 0, as it cannot happen when called through
+   pass_document_parser_errors_to_parser_sv for parser errors, and
+   for document errors it would mean no XS document found,
    which cannot happen right now and would probably trigger many warnings.
  */
 SV *
-pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages,
-                          SV *object_sv)
+pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages, SV *object_sv)
 {
   HV *object_hv;
   SV **error_messages_sv;
@@ -1799,14 +1757,18 @@ pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages,
   error_messages_sv = hv_fetch (object_hv, error_messages_key,
                                 strlen (error_messages_key), 0);
   /* A error_messages is systematically added to document at
-     initialization, so the
-     condition should always be true.  errors_warnings_out
-     should always be set and it is a good thing because
-     errors_warnings_out is not supposed to be undef */
+     initialization, so the condition should always be true. */
   if (error_messages_sv && SvOK (*error_messages_sv))
     {
       AV *report_av = (AV *) SvRV (*error_messages_sv);
-      add_formatted_error_messages (error_messages, report_av);
+      size_t i;
+      for (i = 0; i < error_messages->number; i++)
+        {
+          const ERROR_MESSAGE error_msg = error_messages->list[i];
+          SV *sv = convert_error (error_msg);
+
+          av_push (report_av, sv);
+        }
       return newRV_inc ((SV *) report_av);
     }
   return 0;
