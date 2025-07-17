@@ -50,7 +50,7 @@ with @code{associate_internal_references}.
 
 No method is exported in the default case.
 
-Most methods use the @ref{Texinfo@asis{::}Report NAME,, Texinfo::Report} registrar from a parsed document
+Most methods use the error messages list from a parsed document
 for error reporting. Most also require Texinfo customization variables
 information, which means an object implementing the @code{get_conf} method, in
 general a parsed document with registered customization, or, sometime,
@@ -133,7 +133,7 @@ The second element, if set, should be an hash reference holding translations
 already done.  @emph{$customization_information} should hold information needed for
 translations and error reporting.
 
-The @emph{$registrar} argument can be set to a @ref{Texinfo@asis{::}Report NAME,, Texinfo::Report} object.
+The @emph{$registrar} argument can be set to an error messages list.
 If the @emph{$registrar} argument is not set, @emph{$customization_information} is
 assumed to be a converter, and error reporting uses converters error
 messages reporting functions (@ref{Texinfo@asis{::}Convert@asis{::}Converter Registering error

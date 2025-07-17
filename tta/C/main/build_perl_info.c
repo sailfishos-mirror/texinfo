@@ -1738,7 +1738,7 @@ build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
   return av;
 }
 
-/* add C messages to a Texinfo::Report object, like
+/* add C messages to an error messages list, like
    Texinfo::Report::add_formatted_message does.
    NOTE probably not useful for converters as errors need to be passed
    explicitely both from Perl and XS and are added at that point.
@@ -1750,79 +1750,30 @@ build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
  */
 static void
 add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
-                              HV *report_hv, SV **errors_warnings_out,
-                              SV **error_nrs_out)
+                              AV *report_av)
 {
-  SV **errors_warnings_sv;
-  SV **error_nrs_sv;
   size_t i;
 
   dTHX;
 
-  *errors_warnings_out = 0;
-  *error_nrs_out = 0;
-
-  errors_warnings_sv = hv_fetch (report_hv, "errors_warnings",
-                                 strlen ("errors_warnings"), 0);
-
-  error_nrs_sv = hv_fetch (report_hv, "error_nrs",
-                                      strlen ("error_nrs"), 0);
-
-  if (errors_warnings_sv && SvOK (*errors_warnings_sv))
+   if (!error_messages)
     {
-      int error_nrs = 0;
-      /* initialize number of errors from the existing errors in Perl */
-      if (error_nrs_sv && SvOK (*error_nrs_sv))
-        {
-          error_nrs = SvIV (*error_nrs_sv);
-          *error_nrs_out = *error_nrs_sv;
-        }
-      *errors_warnings_out = *errors_warnings_sv;
-
-      if (!error_messages)
-        {
-          /* See the comment before pass_errors_to_registrar, this probably
-             cannot happen.  We do not warn here, there should already
-             be other warnings as it means that no XS document was found.
-           */
-          return;
-        }
-      else
-        {
-          /* add errors from error_messages */
-          AV *av = (AV *)SvRV (*errors_warnings_sv);
-
-          for (i = 0; i < error_messages->number; i++)
-            {
-              const ERROR_MESSAGE error_msg = error_messages->list[i];
-              SV *sv = convert_error (error_msg);
-
-              av_push (av, sv);
-            }
-
-          error_nrs += error_messages->error_nrs;
-
-          if (error_nrs)
-            {
-              if (error_nrs_sv && SvOK (*error_nrs_sv))
-                {
-                  sv_setiv (*error_nrs_sv, error_nrs);
-                }
-              else
-                {
-                  SV *new_error_nrs_sv = newSViv (error_nrs);
-                  hv_store (report_hv, "error_nrs",
-                       strlen ("error_nrs"), new_error_nrs_sv, 0);
-                  *error_nrs_out = new_error_nrs_sv;
-                }
-            }
-        }
+      /* See the comment before pass_errors_to_registrar, this probably
+         cannot happen.  We do not warn here, there should already
+         be other warnings as it means that no XS document was found.
+       */
+      return;
     }
   else
     {
-      /* warn if it does not looks like a Texinfo::Report object, as
-         it is likely that the error messages are going to disappear */
-      fprintf (stderr, "BUG? no 'errors_warnings'. Not a Perl Texinfo::Report?\n");
+      /* add errors from error_messages */
+      for (i = 0; i < error_messages->number; i++)
+        {
+          const ERROR_MESSAGE error_msg = error_messages->list[i];
+          SV *sv = convert_error (error_msg);
+
+          av_push (report_av, sv);
+        }
     }
 }
 
@@ -1835,8 +1786,7 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
  */
 SV *
 pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
-                          SV *object_sv,
-                          SV **errors_warnings_out, SV **error_nrs_out)
+                          SV *object_sv)
 {
   HV *object_hv;
   SV **registrar_sv;
@@ -1848,54 +1798,24 @@ pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
 
   registrar_sv = hv_fetch (object_hv, registrar_key,
                            strlen (registrar_key), 0);
-  /* A registrar is systematically added to document by parsers, so the
+  /* A registrar is systematically added to document at
+     initialization, so the
      condition should always be true.  errors_warnings_out
      should always be set and it is a good thing because
      errors_warnings_out is not supposed to be undef */
   if (registrar_sv && SvOK (*registrar_sv))
     {
-      HV *report_hv = (HV *) SvRV (*registrar_sv);
-      add_formatted_error_messages (error_messages, report_hv,
-                                    errors_warnings_out, error_nrs_out);
-      return newRV_inc ((SV *) report_hv);
+      AV *report_av = (AV *) SvRV (*registrar_sv);
+      add_formatted_error_messages (error_messages, report_av);
+      return newRV_inc ((SV *) report_av);
     }
-  *errors_warnings_out = 0;
-  *error_nrs_out = 0;
-  return newSV (0);
-}
-
-/* same as calling Texinfo::Report::new() */
-static SV *
-new_texinfo_report (void)
-{
-  HV *hv_stash;
-  HV *hv;
-  SV *sv;
-  AV *errors_warnings;
-
-  dTHX;
-
-  hv = newHV ();
-
-  hv_store (hv, "error_nrs", strlen ("error_nrs"), newSViv (0), 0);
-
-  errors_warnings = newAV ();
-  hv_store (hv, "errors_warnings", strlen ("errors_warnings"),
-            newRV_noinc ((SV *) errors_warnings), 0);
-
-  hv_stash = gv_stashpv ("Texinfo::Report", GV_ADD);
-  sv = newRV_noinc ((SV *) hv);
-  sv_bless (sv, hv_stash);
-  return sv;
+  return 0;
 }
 
 void
 pass_document_parser_errors_to_registrar (DOCUMENT *document,
                                           SV *parser_sv)
 {
-  SV *registrar_sv;
-  SV *errors_warnings_sv = 0;
-  SV *error_nrs_sv = 0;
   HV *parser_hv;
   SV **parser_registrar_sv;
 
@@ -1912,19 +1832,14 @@ pass_document_parser_errors_to_registrar (DOCUMENT *document,
   /* Add error registrar to Parser if needed */
   parser_registrar_sv = hv_fetch (parser_hv, "registrar",
                                   strlen ("registrar"), 0);
-  if (parser_registrar_sv)
+  if (!parser_registrar_sv)
     {
-      registrar_sv = *parser_registrar_sv;
-    }
-  else
-    {
-      registrar_sv = new_texinfo_report ();
-      SvREFCNT_inc (registrar_sv);
-      hv_store (parser_hv, "registrar", strlen ("registrar"), registrar_sv, 0);
+      AV *av = newAV ();
+      hv_store (parser_hv, "registrar", strlen ("registrar"),
+                newRV_noinc ((SV *) av), 0);
     }
 
-  pass_errors_to_registrar (&document->parser_error_messages, parser_sv,
-                            &errors_warnings_sv, &error_nrs_sv);
+  pass_errors_to_registrar (&document->parser_error_messages, parser_sv);
   clear_error_message_list (&document->parser_error_messages);
 }
 
@@ -2339,7 +2254,7 @@ build_minimal_document (DOCUMENT *document)
   HV *hv;
   SV *sv;
   HV *hv_info;
-  SV *registrar_sv;
+  AV *messages_list_av;
 
   dTHX;
 
@@ -2379,11 +2294,11 @@ build_minimal_document (DOCUMENT *document)
   hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
             newSViv (document->descriptor), 0);
 
-  /* New error registrar for document to be used after parsing, for
+  /* New error messages list for document to be used after parsing, for
      structuring and tree modifications */
-  registrar_sv = new_texinfo_report ();
-  SvREFCNT_inc (registrar_sv);
-  hv_store (hv, "registrar", strlen ("registrar"), registrar_sv, 0);
+  messages_list_av = newAV ();
+  hv_store (hv, "registrar", strlen ("registrar"),
+            newRV_noinc ((SV *) messages_list_av), 0);
 
   if (!document->hv)
     {
@@ -2556,7 +2471,6 @@ build_document (DOCUMENT *document, int no_store)
   HV *hv;
   SV *sv;
   HV *hv_stash;
-  SV *registrar_sv;
 
   dTHX;
 
@@ -2569,11 +2483,11 @@ build_document (DOCUMENT *document, int no_store)
     {
       hv = newHV ();
 
-      /* error registrar for document to be used after parsing, for
+      /* error messages list for document to be used after parsing, for
          structuring and tree modifications */
-      registrar_sv = new_texinfo_report ();
-      SvREFCNT_inc (registrar_sv);
-      hv_store (hv, "registrar", strlen ("registrar"), registrar_sv, 0);
+      AV *messages_list_av = newAV ();
+      hv_store (hv, "registrar", strlen ("registrar"),
+                newRV_noinc ((SV *) messages_list_av), 0);
     }
 
   fill_document_hv (hv, document, no_store);

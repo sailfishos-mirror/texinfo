@@ -754,7 +754,7 @@ Texinfo::Indices - merging and sorting indices from Texinfo
   my $merged_index_entries
      = Texinfo::Indices::merge_indices($indices_information);
 
-  # $registrar is a Texinfo::Report object.  $config is an object
+  # $registrar is an error messages list.  $config is an object
   # implementing the get_conf() method.
   my $index_entries_sorted;
   if ($sort_by_letter) {
@@ -880,7 +880,7 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-The I<$registrar> argument can be set to a L<Texinfo::Report> object.
+The I<$registrar> argument should be an error messages list.
 Error reporting also requires Texinfo customization variables
 information, which means an object implementing the C<get_conf> method, a
 converter (L<Texinfo::Convert::Converter/Getting and setting customization

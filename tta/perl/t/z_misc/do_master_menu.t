@@ -133,7 +133,7 @@ my $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
 # FIXME does not test the XS code
 my $master_menu = Texinfo::Structuring::new_detailmenu([undef], $document,
-                                          $document->registrar(),
+                                          $document->{'registrar'},
                                         $identifier_target, $nodes_list,
                                         $top_node_structure->{'menus'});
 my $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
@@ -183,7 +183,7 @@ $top_node_structure
   = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
 # FIXME does not test the XS code
 $master_menu = Texinfo::Structuring::new_detailmenu([undef], $document,
-                                          $document->registrar(),
+                                          $document->{'registrar'},
                                           $identifier_target, $nodes_list,
                                            $top_node_structure->{'menus'});
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);

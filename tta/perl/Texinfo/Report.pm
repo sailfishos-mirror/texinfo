@@ -47,36 +47,17 @@ sub __p($$) {
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
 }
 
-sub new()
+sub count_errors($)
 {
-  my $error_messages = {'errors_warnings' => [],
-                        'error_nrs' => 0,};
-  return $error_messages;
-}
+  my $error_messages_list = shift;
 
-# return the errors and warnings
-sub errors($)
-{
-  my $error_messages = shift;
-  return ($error_messages->{'errors_warnings'}, $error_messages->{'error_nrs'});
-}
-
-sub clear($)
-{
-  my $error_messages = shift;
-  $error_messages->{'errors_warnings'} = [];
-  $error_messages->{'error_nrs'} = 0;
-}
-
-# add an already formatted/setup message
-sub add_formatted_message($$)
-{
-  my $error_messages = shift;
-  my $message = shift;
-
-  $error_messages->{'error_nrs'}++ if ($message->{'type'} eq 'error'
-                             and !$message->{'continuation'});
-  push @{$error_messages->{'errors_warnings'}}, $message;
+  my $error_nr = 0;
+  foreach my $message (@$error_messages_list) {
+    if ($message->{'type'} eq 'error' and !$message->{'continuation'}) {
+      $error_nr++;
+    }
+  }
+  return $error_nr;
 }
 
 # Used in generic converter API.
@@ -127,9 +108,8 @@ sub format_line_message($$$$;$)
 
 
 # format a line warning
-sub line_warn($$$;$$$)
+sub line_warn($$;$$$)
 {
-  my $error_messages = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
@@ -145,12 +125,12 @@ sub line_warn($$$;$$$)
 
   my $warning = format_line_message('warning', $text, $error_location_info,
                                     $continuation, $warn);
-  add_formatted_message($error_messages, $warning);
+
+  return $warning;
 }
 
-sub line_error($$$;$$$)
+sub line_error($$;$$$)
 {
-  my $error_messages = shift;
   my $text = shift;
   my $error_location_info = shift;
   my $continuation = shift;
@@ -166,7 +146,7 @@ sub line_error($$$;$$$)
 
   my $error = format_line_message('error', $text, $error_location_info,
                                   $continuation, $warn);
-  add_formatted_message($error_messages, $error);
+  return $error;
 }
 
 sub format_document_message($$;$$)
@@ -198,28 +178,26 @@ sub format_document_message($$;$$)
   return $result;
 }
 
-sub document_warn($$;$$)
+sub document_warn($;$$)
 {
-  my $error_messages = shift;
   my $text = shift;
   my $program_name = shift;
   my $continuation = shift;
 
   my $warning = format_document_message('warning', $text, $program_name,
                                         $continuation);
-  add_formatted_message($error_messages, $warning);
+  return $warning;
 }
 
-sub document_error($$;$$)
+sub document_error($;$$)
 {
-  my $error_messages = shift;
   my $text = shift;
   my $program_name = shift;
   my $continuation = shift;
 
   my $error = format_document_message('error', $text, $program_name,
                                       $continuation);
-  add_formatted_message($error_messages, $error);
+  return $error;
 }
 
 1;
@@ -234,20 +212,18 @@ Texinfo::Report - Error storing for Texinfo modules
 
   use Texinfo::Report;
 
-  my $registrar = Texinfo::Report::new();
+  my $error_messages = [];
 
   if ($warning_happened) {
-    Texinfo::Report::line_warn($registrar, sprintf(__("\@%s is wrongly used"),
+    push @$error_messages, Texinfo::Report::line_warn(
+                       sprintf(__("\@%s is wrongly used"),
                        $current->{'cmdname'}), $current->{'source_info'},
                        0, $converter->get_conf('DEBUG'));
   }
 
-  my ($errors, $errors_count) = Texinfo::Report::errors($registrar);
-  foreach my $error_message (@$errors) {
+  foreach my $error_message (@$error_messages) {
     warn $error_message->{'error_line'};
   }
-
-  Texinfo::Report::clear($registrar);
 
 =head1 NOTES
 
@@ -258,31 +234,23 @@ Texinfo to other formats.  There is no promise of API stability.
 
 The C<Texinfo::Report> module helps with error handling.  Errors
 and warnings can be setup, stored and retrieved later on.
-This module is used by the Texinfo modules L<Texinfo::Parser> and
-L<Texinfo::Convert::Converter>.
+This module methods are used by the L<Texinfo::Parser> and
+L<Texinfo::Convert::Converter> modules.
 
 =head1 METHODS
 
 No method is exported in the default case.
 
-The C<new> method initializes a C<Texinfo::Report> object.
-The errors collected are available through the C<errors> method, the other
-methods allow registering errors and warnings.
+The methods allow registering errors and warnings.
 
 =over
 
-=item my $registrar = Texinfo::Report::new()
-X<C<Texinfo::Report::new>>
+=item $error_count = count_errors ($error_messages)
 
-Return an initialized  C<Texinfo::Report> object.
-
-=item ($error_warnings_list, $error_count) = errors($registrar)
-X<C<errors>>
-
-This function returns as I<$error_count> the count of errors since
-calling C<new>.  The I<$error_warnings_list> is an array of hash references
-one for each error, warning or error line continuation.  Each of these has
-the following keys:
+This function returns as I<$error_count> the count of errors in the error
+messages list (as opposed to warnings).  The I<$error_warnings_list> is an
+array of hash references one for each error, warning or error line
+continuation.  Each of these has the following keys:
 
 =over
 
@@ -317,31 +285,19 @@ May be C<warning>, or C<error>.
 
 =back
 
-=item clear ($registrar)
-X<C<clear>>
+=item $message = line_warn ($text, $error_location_info, $continuation, $debug, $silent)
 
-Clear the previously registered messages.
-
-=item add_formatted_message ($registrar, $msg)
-X<C<add_formatted_message>>
-
-Register the I<$msg> hash reference corresponding to an error, warning or error
-line continuation.  The I<$msg> hash reference should correspond to the
-structure returned by C<errors>.
-
-=item line_warn ($registrar, $text, $error_location_info, $continuation, $debug, $silent)
-
-=item line_error ($registrar, $text, $error_location_info, $continuation, $debug, $silent)
+=item $message = line_error ($text, $error_location_info, $continuation, $debug, $silent)
 X<C<line_warn>>
 X<C<line_error>>
 
-Register a warning or an error.  The I<$text> is the text of the
-error or warning.  The mandatory I<$error_location_info> holds the information
-on the error or warning location.  The I<$error_location_info> reference on
-hash may be obtained from Texinfo elements I<source_info> keys.   It may also
-be setup to point to a file name, using the C<file_name> key and to a line
-number, using the C<line_nr> key.  The C<file_name> key value should be a
-binary string.
+Register a warning or an error message structure.  The I<$text> is the text of
+the error or warning.  The mandatory I<$error_location_info> holds the
+information on the error or warning location.  The I<$error_location_info>
+reference on hash may be obtained from Texinfo elements I<source_info> keys.
+It may also be setup to point to a file name, using the C<file_name> key and to
+a line number, using the C<line_nr> key.  The C<file_name> key value should be
+a binary string.
 
 The I<$continuation> optional arguments, if true, conveys that
 the line is a continuation line of a message.
@@ -354,16 +310,16 @@ a message that is output immediatly if debugging is set.
 The I<source_info> key of Texinfo tree elements is described
 in more details in L<Texinfo::Parser/source_info>.
 
-=item document_warn ($registrar, $text, $program_name, $continuation)
+=item $message = document_warn ($text, $program_name, $continuation)
 
-=item document_error ($registrar, $text, $program_name, $continuation)
+=item $message = document_error ($text, $program_name, $continuation)
 X<C<document_warn>>
 X<C<document_error>>
 
-Register a document-wide error or warning.  I<$text> is the error or
-warning message.  The I<$program_name> is prepended to the
-message, if defined.  The I<$continuation> optional arguments, if true, conveys
-that the line is a continuation line of a message.
+Returns a document-wide error or warning message structure.  I<$text> is the
+error or warning message.  The I<$program_name> is prepended to the message, if
+defined.  The I<$continuation> optional arguments, if true, conveys that the
+line is a continuation line of a message.
 
 =back
 

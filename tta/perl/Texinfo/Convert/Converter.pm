@@ -2454,9 +2454,8 @@ was not set.
 =head2 Registering error and warning messages
 
 C<Texinfo::Convert::Converter> implements an interface to register error and
-warning messages in the converter, that can be retrieved later on, in general
-to be given to C<Texinfo::Report::add_formatted_message>.  Underneath,
-C<Texinfo::Report> is used to setup the messages data structure.
+warning messages in the converter, that can be retrieved later on.
+Underneath, C<Texinfo::Report> is used to setup the messages data structure.
 
 =over
 
@@ -2492,9 +2491,8 @@ X<C<get_converter_errors>>
 
 Return a reference on an array containing the error or warning messages
 registered in the converter.  Error and warning messages are hash references as
-described in L<Texinfo::Report::errors|Texinfo::Report/($error_warnings_list,
-$error_count) = errors($registrar)> and can be used in input of L<<
-Texinfo::Report::add_formatted_message|Texinfo::Report/add_formatted_message ($registrar, $msg) >>.
+described in L<Texinfo::Report::count_errors|Texinfo::Report/$error_count
+ = count_errors ($error_messages)>.
 
 =back
 

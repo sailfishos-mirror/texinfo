@@ -959,7 +959,7 @@ sub test($$)
     $tree = $document->tree($XS_structuring);
   }
 
-  my ($errors, $error_nrs) = $document->parser_errors();
+  my $errors = $document->parser_errors();
 
   my $indices;
 
@@ -1074,7 +1074,7 @@ sub test($$)
   my $indices_sorted_sort_strings
     = $document->print_document_indices_sort_strings();
 
-  my ($document_errors, $document_error_nrs) = $document->errors();
+  my $document_errors = $document->errors();
   push @$errors, @$document_errors;
 
   $tree = $document->tree($XS_conversion);

@@ -155,14 +155,13 @@ destroy_document (SV *document_in)
         if (document)
           destroy_document (document);
 
-void
+SV *
 document_errors (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
         SV *errors_warnings_sv = 0;
-        SV *error_nrs_sv = 0;
         ERROR_MESSAGE_LIST *error_messages = 0;
-     PPCODE:
+     CODE:
         /* if XS is used, a document should be found.  It could
            also have been possible to abort if a document is not
            found.
@@ -172,9 +171,8 @@ document_errors (SV *document_in)
         if (document)
           error_messages = &document->error_messages;
 
-        pass_errors_to_registrar (error_messages, document_in,
-                                  &errors_warnings_sv,
-                                  &error_nrs_sv);
+        errors_warnings_sv
+          = pass_errors_to_registrar (error_messages, document_in);
         clear_error_message_list (error_messages);
 
         /* NOTE this is incorrect, as the callers do not expect
@@ -183,26 +181,19 @@ document_errors (SV *document_in)
            and the corresponding array reference should always be found
          */
         if (!errors_warnings_sv)
-          errors_warnings_sv = newSV (0);
+          RETVAL = newSV (0);
         else
-          SvREFCNT_inc (errors_warnings_sv);
-        if (!error_nrs_sv)
-          error_nrs_sv = newSV (0);
-        else
-          SvREFCNT_inc (error_nrs_sv);
+          RETVAL = SvREFCNT_inc (errors_warnings_sv);
 
-        EXTEND(SP, 2);
-        PUSHs(sv_2mortal(errors_warnings_sv));
-        PUSHs(sv_2mortal(error_nrs_sv));
+  OUTPUT:
+      RETVAL
 
-void
+SV *
 document_parser_errors (SV *document_in)
     PREINIT:
         DOCUMENT *document = 0;
-        SV *errors_warnings_sv = 0;
-        SV *error_nrs_sv = 0;
         AV *av;
-     PPCODE:
+     CODE:
         /* if XS is used, a document should be found.  It could
            also have been possible to abort if a document is not
            found.
@@ -215,20 +206,17 @@ document_parser_errors (SV *document_in)
                   = &document->parser_error_messages;
             av = build_errors (error_messages->list,
                                error_messages->number);
-            error_nrs_sv = newSViv (error_messages->error_nrs);
             clear_error_message_list (error_messages);
           }
         else
           {
             /* Should never happen */
             av = newAV ();
-            error_nrs_sv = newSViv (0);
           }
-        errors_warnings_sv = newRV_noinc ((SV *) av);
+        RETVAL = newRV_noinc ((SV *) av);
+  OUTPUT:
+      RETVAL
 
-        EXTEND(SP, 2);
-        PUSHs(sv_2mortal(errors_warnings_sv));
-        PUSHs(sv_2mortal(error_nrs_sv));
 
 void
 register_document_options (SV *document_in, SV *sv_options_in)

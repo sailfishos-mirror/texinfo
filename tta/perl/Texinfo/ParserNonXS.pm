@@ -842,12 +842,9 @@ sub parse_texi_line($$;$)
   # add the errors to the Parser registrar as there is no document
   # returned to get the errors from.
   if (!defined($self->{'registrar'})) {
-    $self->{'registrar'} = Texinfo::Report::new();
+    $self->{'registrar'} = [];
   }
-  push @{$self->{'registrar'}->{'errors_warnings'}},
-      @{$document->{'parser_registrar'}->{'errors_warnings'}};
-  $self->{'registrar'}->{'error_nrs'}
-     += $document->{'parser_registrar'}->{'error_nrs'};
+  push @{$self->{'registrar'}}, @{$document->{'parser_registrar'}};
 
   return $document->tree();
 }
@@ -970,7 +967,8 @@ sub parse_texi_file($$)
     if (defined($encoding)) {
       $decoded_input_file_path = decode($encoding, $input_file_path);
     }
-    Texinfo::Report::document_error($document->{'parser_registrar'},
+    push @{$document->{'parser_registrar'}},
+      Texinfo::Report::document_error(
                                     sprintf(__("could not open %s: %s"),
                                   $decoded_input_file_path, $error_message));
     return $document;
@@ -1092,14 +1090,12 @@ sub errors($)
 {
   my $self = shift;
   my $registrar = $self->{'registrar'};
-  if (!$registrar) {
-    return undef;
-  }
-  my ($error_warnings_list, $error_count) = Texinfo::Report::errors($registrar);
 
-  Texinfo::Report::clear($registrar);
+  my $errors_list = [@{$self->{'registrar'}}];
 
-  return $error_warnings_list, $error_count;
+  $self->{'registrar'} = [];
+
+  return $errors_list;
 }
 
 # Following are the internal parsing subroutines.  The most important are
@@ -1171,9 +1167,17 @@ sub _line_warn
   my $error_location_info = shift;
   my $continuation = shift;
   my $debug = shift;
+
+  if (!defined($error_location_info)) {
+    cluck("BUG: _line_warn: error_location_info undef");
+    return;
+  }
+
   my $registrar = $self->{'document'}->{'parser_registrar'};
-  Texinfo::Report::line_warn($registrar, $text, $error_location_info,
-                             $continuation, $self->{'conf'}->{'DEBUG'});
+  push @{$registrar},
+    Texinfo::Report::line_warn($text,
+                         $error_location_info, $continuation,
+                         $self->{'conf'}->{'DEBUG'});
 }
 
 sub _line_error
@@ -1183,9 +1187,15 @@ sub _line_error
   my $error_location_info = shift;
   my $continuation = shift;
 
+  if (!defined($error_location_info)) {
+    cluck("BUG: line_error: error_location_info undef");
+    return;
+  }
+
   my $registrar = $self->{'document'}->{'parser_registrar'};
-  Texinfo::Report::line_error($registrar, $text, $error_location_info,
-                              $continuation, $self->{'conf'}->{'DEBUG'});
+  push @{$registrar},
+   Texinfo::Report::line_error($text, $error_location_info,
+                               $continuation, $self->{'conf'}->{'DEBUG'});
 }
 
 # Format a bug message
@@ -2685,8 +2695,8 @@ sub _next_text($;$)
           my $file_name_encoding = $input->{'file_name_encoding'};
           my $decoded_file_name = decode($file_name_encoding,
                                         $input->{'input_file_path'});
-          Texinfo::Report::document_warn(
-                           $self->{'document'}->{'parser_registrar'},
+          push @{$self->{'document'}->{'parser_registrar'}},
+           Texinfo::Report::document_warn(
                                sprintf(__("error on closing %s: %s"),
                                        $decoded_file_name, $!),
                                     $self->{'conf'}->{'PROGRAM'});
@@ -8738,7 +8748,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   my $parser = Texinfo::Parser::parser();
   my $document = $parser->parse_texi_file("somefile.texi");
 
-  my ($errors, $errors_count) = $document->parser_errors();
+  my $errors = $document->parser_errors();
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
   }
@@ -8868,18 +8878,17 @@ is parsed into a tree.  I<$file_name> should be a binary string.
 =back
 
 The errors collected during the tree parsing are available with
-the resulting document C<parser_errors>.  These errors are internally
-registered in a C<Texinfo::Report> object.
+the resulting document C<parser_errors>.
 
 =over
 
-=item ($error_warnings_list, $error_count) = $document->parser_errors()
+=item $error_warnings_list = $document->parser_errors()
 X<C<parser_errors>>
 
-This function returns as I<$error_count> the count of parsing errors.
-The I<$error_warnings_list> is an array of hash references
-one for each error, warning or error line continuation.
-They are described in detail in L<Texinfo::Report::errors|Texinfo::Report/($error_warnings_list, $error_count) = errors($registrar)>.
+This function returns the I<$error_warnings_list> as an array of hash
+references one for each error, warning or error line continuation.  They are
+described in detail in
+L<Texinfo::Report::count_errors|Texinfo::Report/$error_count  = count_errors ($error_messages)>.
 
 =back
 

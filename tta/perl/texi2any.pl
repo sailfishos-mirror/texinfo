@@ -1438,14 +1438,11 @@ sub _exit($$)
      or $error_count > get_conf('ERROR_LIMIT')));
 }
 
-sub handle_errors(@)
+sub handle_errors($$$)
 {
-  my $errors = shift;
-  my $additional_error_count = shift;
-  my $error_count = shift;
-  my $opened_files = shift;
+  my ($errors, $error_count, $opened_files) = @_;
 
-  $error_count += $additional_error_count if ($additional_error_count);
+  $error_count += Texinfo::Report::count_errors($errors);
   _output_error_messages($errors);
 
   _exit($error_count, $opened_files);
@@ -2016,13 +2013,12 @@ while(@input_files) {
   #Texinfo::Document::rebuild_document($document);
 
   # parser errors
-  my ($errors, $new_error_count) = $document->parser_errors();
-  $error_count += $new_error_count if ($new_error_count);
+  my $errors = $document->parser_errors();
   # document/structuring errors
-  my ($document_errors, $document_error_count) = $document->errors();
+  my $document_errors = $document->errors();
   push @$errors, @$document_errors;
 
-  $error_count = handle_errors($errors, $document_error_count,
+  $error_count = handle_errors($errors,
                                $error_count, \%opened_files);
 
   if (get_conf('DUMP_STRUCTURE')
@@ -2108,20 +2104,14 @@ while(@input_files) {
         ->{'converter'}}($converter_options);
   $converter->output($document);
 
-  my $converter_registrar = Texinfo::Report::new();
   my $converter_errors = $converter->get_converter_errors();
-  if (defined($converter_errors)) {
-    foreach my $error (@$converter_errors) {
-      Texinfo::Report::add_formatted_message($converter_registrar, $error);
-    }
-  }
 
   my $converter_opened_files
     = Texinfo::Convert::Utils::output_files_opened_files(
                     $converter->output_files_information());
   $error_count = merge_opened_files($error_count, \%opened_files,
                                     $converter_opened_files);
-  $error_count = handle_errors(Texinfo::Report::errors($converter_registrar),
+  $error_count = handle_errors($converter_errors,
                                $error_count, \%opened_files);
   my $converter_unclosed_files
        = Texinfo::Convert::Utils::output_files_unclosed_files(

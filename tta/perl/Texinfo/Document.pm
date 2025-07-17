@@ -149,9 +149,9 @@ sub new_document($)
     'sections_list' => [],
     'headings_list' => [],
      # error registrar for parsing
-    'parser_registrar' => Texinfo::Report::new(),
+    'parser_registrar' => [],
      # error registrar for the document for structuring, not for parsing
-    'registrar' => Texinfo::Report::new(),
+    'registrar' => [],
   };
 
   bless $document;
@@ -246,13 +246,6 @@ sub headings_list($)
   return $self->{'headings_list'};
 }
 
-# No XS override, no need
-sub registrar($)
-{
-  my $self = shift;
-  return $self->{'registrar'};
-}
-
 # Useful for options used in structuring/tree transformations.
 sub register_document_options($$)
 {
@@ -306,14 +299,11 @@ sub parser_errors($)
 {
   my $document = shift;
 
-  my $registrar = $document->{'parser_registrar'};
+  my $errors_list = [@{$document->{'parser_registrar'}}];
 
-  my ($error_warnings_list, $error_count)
-     = Texinfo::Report::errors($registrar);
+  $document->{'parser_registrar'} = [];
 
-  Texinfo::Report::clear($registrar);
-
-  return ($error_warnings_list, $error_count);
+  return $errors_list;
 }
 
 # The XS override pass C error messages to the document registrar and destroys
@@ -322,14 +312,11 @@ sub errors($)
 {
   my $document = shift;
 
-  my $registrar = $document->{'registrar'};
+  my $errors_list = [@{$document->{'registrar'}}];
 
-  my ($error_warnings_list, $error_count)
-     = Texinfo::Report::errors($registrar);
+  $document->{'registrar'} = [];
 
-  Texinfo::Report::clear($registrar);
-
-  return ($error_warnings_list, $error_count);
+  return $errors_list;
 }
 
 
@@ -560,13 +547,13 @@ sub _existing_label_error($$;$$)
     if (defined($registrar)) {
       my $existing_target = $self->{'identifiers_target'}->{$normalized};
       my $label_element = Texinfo::Common::get_label_element($element);
-      Texinfo::Report::line_error($registrar,
+      push @$registrar, Texinfo::Report::line_error(
                        sprintf(__("\@%s `%s' previously defined"),
                                      $element->{'cmdname'},
                     Texinfo::Convert::Texinfo::convert_to_texinfo(
     Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
                               $element->{'source_info'}, 0, $debug);
-      Texinfo::Report::line_error($registrar,
+      push @$registrar, Texinfo::Report::line_error(
                     sprintf(__("here is the previous definition as \@%s"),
                             $existing_target->{'cmdname'}),
                              $existing_target->{'source_info'}, 1, $debug);
@@ -990,10 +977,9 @@ When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
 The optional I<$customization_information> argument is used for
-error reporting, both to find the L<Texinfo::Report> object to use for error
-reporting and Texinfo customization variables information.  In general, it
-should be a converter (L<Texinfo::Convert::Converter/Getting and setting
-customization variables>) or a document L<Texinfo::Document/Getting
+error reporting, to find Texinfo customization variables information.
+In general, it should be a converter (L<Texinfo::Convert::Converter/Getting and
+setting customization variables>) or a document L<Texinfo::Document/Getting
 customization options values registered in document>).
 
 L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
@@ -1008,33 +994,22 @@ C<sorted_indices_by_index> and C<sorted_indices_by_letter>.
 
 =back
 
-=head2 Getting errors and error registering object
+=head2 Getting errors and warnings
 
-A document has a L<Texinfo::Report> objet associated, that is used to
-register errors and warning messages in.  To get the errors registered
-in the document, the C<errors> method should be called.
-It is also possible to get the document associated C<Texinfo::Report> objet
-by calling the C<registrar> accessor method.
+A document has a list of error and warning messages associated, that is used to
+register errors and warning messages in.  To get the errors registered in the
+document, the C<errors> method should be called.
 
 =over
 
-=item $registrar = registrar($document)
+=item $error_warnings_list = errors($document)
 
-Returns the C<Texinfo::Report> object associated with the I<$document>.
-
-In general, this is not needed as most functions use the document associated
-C<Texinfo::Report> object automatically.  However, for some functions a
-C<Texinfo::Report> object is passed in argument, being able to
-get the document registrar object is interesting in those cases.
-
-=item ($error warnings list, $error count) = errors($document)
-
-This function returns as I<$error_count> the count of errors since setting
+This function returns as the errors since setting
 up the I<$document> (or calling the function). The returned
 I<$error_warnings_list> is an array of hash references
 one for each error, warning or error line continuation.  The format of
 these hash references is described
-in L<C<Texinfo::Report::errors>|Texinfo::Report/($error_warnings_list, $error_count) = errors($registrar)>.
+L<Texinfo::Report::count_errors|Texinfo::Report/$error_count  = count_errors ($error_messages)>.
 
 =back
 

@@ -446,7 +446,8 @@ sub _replace_convert_substrings($;$$)
   }
 
   my $tree = $parser->parse_texi_line($texinfo_line, undef, 1);
-  my ($errors, $errors_count) = $parser->errors();
+  my $errors = $parser->errors();
+  my $errors_count = Texinfo::Report::count_errors($errors);
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";
     warn "translated string: $translated_string\n";

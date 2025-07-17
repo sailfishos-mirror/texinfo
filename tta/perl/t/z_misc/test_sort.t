@@ -58,7 +58,7 @@ $document->register_document_options($document_options);
 my $customization_information = $document;
 
 my $indices_sort_strings
-  = Texinfo::Indices::setup_index_entries_sort_strings($document->registrar(),
+  = Texinfo::Indices::setup_index_entries_sort_strings($document->{'registrar'},
                                               $customization_information,
                                       $index_entries, $indices_information);
 
@@ -66,7 +66,7 @@ my $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 my $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, $document->registrar(),
+  = Texinfo::Indices::sort_indices_by_index($document, $document->{'registrar'},
                                             $customization_information);
 
 my @entries = ();
@@ -82,7 +82,7 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my $sorted_index_entries_by_letter
- = Texinfo::Indices::sort_indices_by_letter($document, $document->registrar(),
+ = Texinfo::Indices::sort_indices_by_letter($document, $document->{'registrar'},
                                             $customization_information);
 
 my @letter_entries_ref = (
@@ -143,7 +143,7 @@ $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, $document->registrar(),
+  = Texinfo::Indices::sort_indices_by_index($document, $document->{'registrar'},
                                             $customization_information);
 
 @entries = ();

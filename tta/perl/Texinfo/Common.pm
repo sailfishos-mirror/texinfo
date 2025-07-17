@@ -1761,13 +1761,13 @@ sub converter_or_registrar_line_warn($$$$)
   my $error_location_info = shift;
 
   if (defined($registrar)) {
-    # FIXME call a wrapper here, for structuring (or document)
+    # TODO call a wrapper here, for structuring (or document)?
     my $debug;
     if ($customization_information) {
       $debug = $customization_information->get_conf('DEBUG');
     }
-    Texinfo::Report::line_warn($registrar, $text,
-                               $error_location_info, 0, $debug);
+    push @$registrar, Texinfo::Report::line_warn($text,
+                                         $error_location_info, 0, $debug);
   } else {
     $customization_information->converter_line_warn($text,
                                                     $error_location_info);

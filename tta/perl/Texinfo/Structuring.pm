@@ -133,13 +133,13 @@ sub structuring_line_warn($$$;$$)
 
   $continuation = 0 if !defined($continuation);
 
-  my $registrar = $document->registrar();
+  my $registrar = $document->{'registrar'};
   my $customization_information = $document;
 
   my $debug = $customization_information->get_conf('DEBUG');
 
-  Texinfo::Report::line_warn($registrar, $text, $error_location_info,
-                         $continuation, $debug, $silent);
+  push @$registrar, Texinfo::Report::line_warn($text, $error_location_info,
+                                    $continuation, ($debug and not $silent));
 }
 
 sub structuring_line_error($$$;$$)
@@ -152,13 +152,13 @@ sub structuring_line_error($$$;$$)
 
   $continuation = 0 if !defined($continuation);
 
-  my $registrar = $document->registrar();
+  my $registrar = $document->{'registrar'};
   my $customization_information = $document;
 
   my $debug = $customization_information->get_conf('DEBUG');
 
-  Texinfo::Report::line_error($registrar, $text, $error_location_info,
-                         $continuation, $debug, $silent);
+  push @$registrar, Texinfo::Report::line_error($text, $error_location_info,
+                                      $continuation, ($debug and not $silent));
 }
 
 # Go through the sectioning commands (e.g. @chapter, not @node), and
@@ -2309,7 +2309,7 @@ with C<associate_internal_references>.
 
 No method is exported in the default case.
 
-Most methods use the L<Texinfo::Report> registrar from a parsed document
+Most methods use the error messages list from a parsed document
 for error reporting. Most also require Texinfo customization variables
 information, which means an object implementing the C<get_conf> method, in
 general a parsed document with registered customization, or, sometime,
@@ -2386,7 +2386,7 @@ The second element, if set, should be an hash reference holding translations
 already done.  I<$customization_information> should hold information needed for
 translations and error reporting.
 
-The I<$registrar> argument can be set to a L<Texinfo::Report> object.
+The I<$registrar> argument can be set to an error messages list.
 If the I<$registrar> argument is not set, I<$customization_information> is
 assumed to be a converter, and error reporting uses converters error
 messages reporting functions (L<Texinfo::Convert::Converter/Registering error

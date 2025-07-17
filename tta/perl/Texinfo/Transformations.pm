@@ -443,7 +443,7 @@ sub _new_node($$;$)
     $debug = $customization_information->get_conf('DEBUG');
   }
   Texinfo::Document::register_label_element($document, $node,
-                                            $document->registrar(), $debug);
+                                            $document->{'registrar'}, $debug);
 
   return $node;
 }
@@ -767,7 +767,7 @@ sub regenerate_master_menu($;$)
   my $new_detailmenu
       = Texinfo::Structuring::new_detailmenu(
                       [$document->get_conf('documentlanguage')],
-                      $document, $document->registrar(),
+                      $document, $document->{'registrar'},
                       $identifier_target, $nodes_list,
                       $top_node_relations->{'menus'},
                       $use_sections);
@@ -961,7 +961,7 @@ sub _protect_hashchar_at_line_beginning($$$)
                   and $parent_for_warn->{'source_info'}) {
                 if ($registrar) {
                   # TODO call a wrapper?  What can customization_information be
-                  Texinfo::Report::line_warn($registrar, sprintf(__(
+                  push @$registrar, Texinfo::Report::line_warn(sprintf(__(
                       "could not protect hash character in \@%s"),
                            $parent_for_warn->{'cmdname'}),
                                         $parent_for_warn->{'source_info'}, 0,
@@ -1032,8 +1032,8 @@ sub protect_hashchar_at_line_beginning($;$$)
 sub protect_hashchar_at_line_beginning_in_document($)
 {
   my $document = shift;
-  protect_hashchar_at_line_beginning($document->tree(), $document->registrar(),
-                                     $document);
+  protect_hashchar_at_line_beginning($document->tree(),
+                                     $document->{'registrar'}, $document);
   return;
 }
 
@@ -1156,8 +1156,7 @@ X<C<protect_hashchar_at_line_beginning>>
 Protect hash (#) character at the beginning of line such that they would not be
 considered as lines to be processed by the CPP processor.  The I<$registrar>
 and I<$customization_information> arguments are optional.  If defined, the
-I<$registrar> argument should be a L<Texinfo::Report> object in which the
-errors and warnings encountered while parsing are registered.  If defined,
+I<$registrar> argument should be an error messages list.  If defined,
 I<$customization_information> should give access to customization through
 C<get_conf>.  If both I<$registrar> and I<$customization_information> are
 defined they are used for error reporting in case an hash character could not

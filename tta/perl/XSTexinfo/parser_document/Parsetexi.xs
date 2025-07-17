@@ -295,40 +295,25 @@ parser_conf_set_DEBUG (int i)
 void
 parser_conf_set_accept_internalvalue (int value)
 
-void
+SV *
 errors (SV *parser_sv)
     PREINIT:
         SV *errors_warnings_sv = 0;
-        SV *error_nrs_sv = 0;
         HV *parser_hv;
         SV **registrar_sv;
-    PPCODE:
+    CODE:
         parser_hv = (HV *)SvRV (parser_sv);
         registrar_sv = hv_fetch (parser_hv, "registrar",
                                  strlen ("registrar"), 0);
         if (registrar_sv)
           {
-            SV **registrar_error_nrs_sv;
             AV *empty_errors_warnings = newAV ();
-            SV **registrar_errors_warnings_sv;
-            HV *registrar_hv = (HV *)SvRV (*registrar_sv);
-
-            registrar_errors_warnings_sv
-                    = hv_fetch (registrar_hv, "errors_warnings",
-                                           strlen ("errors_warnings"), 0);
-            errors_warnings_sv = *registrar_errors_warnings_sv;
-            SvREFCNT_inc (errors_warnings_sv);
-            registrar_error_nrs_sv = hv_fetch (registrar_hv, "error_nrs",
-                                               strlen ("error_nrs"), 0);
-            error_nrs_sv = *registrar_error_nrs_sv;
-            SvREFCNT_inc (error_nrs_sv);
+            errors_warnings_sv = newSVsv (*registrar_sv);
 
             /* registrar->clear() */
-            hv_store (registrar_hv, "errors_warnings",
-                      strlen ("errors_warnings"),
+            hv_store (parser_hv, "registrar",
+                      strlen ("registrar"),
                       newRV_noinc ((SV *) empty_errors_warnings), 0);
-            hv_store (registrar_hv, "error_nrs",
-                      strlen ("error_nrs"), newSViv (0), 0);
           }
         else
           {
@@ -337,7 +322,10 @@ errors (SV *parser_sv)
             abort ();
           }
 
-        EXTEND(SP, 2);
-        PUSHs(sv_2mortal(errors_warnings_sv));
-        PUSHs(sv_2mortal(error_nrs_sv));
+        if (errors_warnings_sv)
+          RETVAL = errors_warnings_sv;
+        else
+          RETVAL = newSV (0);
+      OUTPUT:
+        RETVAL
 

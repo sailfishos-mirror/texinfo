@@ -11077,7 +11077,8 @@ sub _prepare_output_units_global_targets($$$$)
         my $parser = Texinfo::Parser::parser({'NO_INDEX' => 1,
                                               'NO_USER_COMMANDS' => 1,});
         my $tree = $parser->parse_texi_line($node_texi_name, undef, 1);
-        my ($errors, $errors_count) = $parser->errors();
+        my $errors = $parser->errors();
+        my $errors_count = Texinfo::Report::count_errors($errors);
         if ($errors_count) {
           warn "Global $direction node name parsing $errors_count error(s)\n";
           warn "node name: $node_texi_name\n";

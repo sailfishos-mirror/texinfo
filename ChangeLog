@@ -1,5 +1,45 @@
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (add_formatted_error_messages)
+	(pass_errors_to_registrar, pass_document_parser_errors_to_registrar)
+	(build_minimal_document, build_document),
+	tta/perl/Texinfo/Convert/HTML.pm
+	(_prepare_output_units_global_targets), tta/perl/Texinfo/Document.pm
+	(new_document, parser_errors, errors), tta/perl/Texinfo/ParserNonXS.pm
+	(parse_texi_line, errors), tta/perl/Texinfo/Report.pm (count_errors),
+	tta/perl/Texinfo/Translations.pm (_replace_convert_substrings),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (document_errors)
+	(document_parser_errors),
+	tta/perl/XSTexinfo/parser_document/Parsetexi.xs (errors),
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(utils_tree_element_expand_verbatiminclude), tta/perl/t/test_utils.pl
+	(test), tta/perl/texi2any.pl (handle_errors): store error and warning
+	messages directly in lists in document and parser.  Determine the
+	number of errors only when used, with the new count_errors method.
+	Remove new_texinfo_report.  Remove Texinfo::Report new, clear,
+	add_formatted_message and 
+
+	* tta/perl/Texinfo/Report.pm (line_warn, line_error, document_warn)
+	(document_error), tta/perl/Texinfo/Common.pm
+	(converter_or_registrar_line_warn), tta/perl/Texinfo/Document.pm
+	(_existing_label_error), tta/perl/Texinfo/ParserNonXS.pm
+	(parse_texi_file, _line_warn, _line_error, _next_text),
+	tta/perl/Texinfo/Structuring.pm (structuring_line_warn)
+	(structuring_line_error), tta/perl/Texinfo/Transformations.pm
+	(_protect_hashchar_at_line_beginning): have
+	line_error, line_warn, document_error and document_warn return the
+	error message instead of putting it in a list.
+
+	* tta/perl/Texinfo/Document.pm, tta/perl/Texinfo/Structuring.pm
+	(structuring_line_warn, structuring_line_error),
+	tta/perl/Texinfo/Transformations.pm (_new_node)
+	(regenerate_master_menu, protect_hashchar_at_line_beginning),
+	tta/perl/t/z_misc/do_master_menu.t, tta/perl/t/z_misc/test_sort.t:
+	access document messages list directly, not through a method.  Remove
+	the registrar method.
+
+2025-07-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/z_misc/same_parser_multiple_files.t
 	(_do_format_test_file), tta/perl/t/z_misc/no_structure_test.t
 	(_do_format_test_file): return directly the converter error messages

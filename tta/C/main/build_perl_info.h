@@ -48,8 +48,7 @@ AV *build_errors (const ERROR_MESSAGE* error_list, size_t error_number);
 void pass_document_parser_errors_to_registrar (DOCUMENT *document,
                                                SV *parser_sv);
 SV *pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
-                              SV *object_sv,
-                              SV **errors_warnings_out, SV **error_nrs_out);
+                              SV *object_sv);
 
 SV *build_document (DOCUMENT *document, int no_store);
 SV *build_minimal_document (DOCUMENT *document);

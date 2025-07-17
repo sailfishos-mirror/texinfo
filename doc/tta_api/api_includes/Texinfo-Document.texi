@@ -368,10 +368,9 @@ When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
 The optional @emph{$customization_information} argument is used for
-error reporting, both to find the @ref{Texinfo@asis{::}Report NAME,, Texinfo::Report} object to use for error
-reporting and Texinfo customization variables information.  In general, it
-should be a converter (@ref{Texinfo@asis{::}Convert@asis{::}Converter Getting and setting
-customization variables}) or a document @ref{Texinfo@asis{::}Document Getting
+error reporting, to find Texinfo customization variables information.
+In general, it should be a converter (@ref{Texinfo@asis{::}Convert@asis{::}Converter Getting and
+setting customization variables}) or a document @ref{Texinfo@asis{::}Document Getting
 customization options values registered in document}).
 
 @ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $registrar@comma{} $customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_index}}
@@ -386,35 +385,23 @@ should be used.  The @code{Texinfo::Convert::Converter} methods call
 
 @end table
 
-@node Texinfo@asis{::}Document Getting errors and error registering object
-@subsection Getting errors and error registering object
+@node Texinfo@asis{::}Document Getting errors and warnings
+@subsection Getting errors and warnings
 
-A document has a @ref{Texinfo@asis{::}Report NAME,, Texinfo::Report} objet associated, that is used to
-register errors and warning messages in.  To get the errors registered
-in the document, the @code{errors} method should be called.
-It is also possible to get the document associated @code{Texinfo::Report} objet
-by calling the @code{registrar} accessor method.
+A document has a list of error and warning messages associated, that is used to
+register errors and warning messages in.  To get the errors registered in the
+document, the @code{errors} method should be called.
 
 @table @asis
-@item $registrar = registrar($document)
-@anchor{Texinfo@asis{::}Document $registrar = registrar($document)}
+@item $error_warnings_list = errors($document)
+@anchor{Texinfo@asis{::}Document $error_warnings_list = errors($document)}
 
-Returns the @code{Texinfo::Report} object associated with the @emph{$document}.
-
-In general, this is not needed as most functions use the document associated
-@code{Texinfo::Report} object automatically.  However, for some functions a
-@code{Texinfo::Report} object is passed in argument, being able to
-get the document registrar object is interesting in those cases.
-
-@item ($error warnings list, $error count) = errors($document)
-@anchor{Texinfo@asis{::}Document ($error warnings list@comma{} $error count) = errors($document)}
-
-This function returns as @emph{$error_count} the count of errors since setting
+This function returns as the errors since setting
 up the @emph{$document} (or calling the function). The returned
 @emph{$error_warnings_list} is an array of hash references
 one for each error, warning or error line continuation.  The format of
 these hash references is described
-in @ref{Texinfo@asis{::}Report ($error_warnings_list@comma{} $error_count) = errors($registrar),, @code{Texinfo::Report::errors}}.
+@ref{Texinfo@asis{::}Report $error_count  = count_errors ($error_messages),, Texinfo::Report::count_errors}.
 
 @end table
 

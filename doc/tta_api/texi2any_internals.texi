@@ -150,7 +150,7 @@ Texinfo::Document METHODS
 
 * Texinfo@asis{::}Document Getting document information::
 * Texinfo@asis{::}Document Merging and sorting indexes::
-* Texinfo@asis{::}Document Getting errors and error registering object::
+* Texinfo@asis{::}Document Getting errors and warnings::
 * Texinfo@asis{::}Document Getting customization options values registered in document::
 * Texinfo@asis{::}Document Registering information in document::
 * Texinfo@asis{::}Document Methods for Perl and C code interactions::

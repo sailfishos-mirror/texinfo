@@ -92,8 +92,7 @@ transformation should be avoided unless one knows exactly what to expect.
 Protect hash (#) character at the beginning of line such that they would not be
 considered as lines to be processed by the CPP processor.  The @emph{$registrar}
 and @emph{$customization_information} arguments are optional.  If defined, the
-@emph{$registrar} argument should be a @ref{Texinfo@asis{::}Report NAME,, Texinfo::Report} object in which the
-errors and warnings encountered while parsing are registered.  If defined,
+@emph{$registrar} argument should be an error messages list.  If defined,
 @emph{$customization_information} should give access to customization through
 @code{get_conf}.  If both @emph{$registrar} and @emph{$customization_information} are
 defined they are used for error reporting in case an hash character could not

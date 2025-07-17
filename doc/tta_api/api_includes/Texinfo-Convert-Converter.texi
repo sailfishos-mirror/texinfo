@@ -366,9 +366,8 @@ was not set.
 @subsection Registering error and warning messages
 
 @code{Texinfo::Convert::Converter} implements an interface to register error and
-warning messages in the converter, that can be retrieved later on, in general
-to be given to @code{Texinfo::Report::add_formatted_message}.  Underneath,
-@code{Texinfo::Report} is used to setup the messages data structure.
+warning messages in the converter, that can be retrieved later on.
+Underneath, @code{Texinfo::Report} is used to setup the messages data structure.
 
 @table @asis
 @item $converter->converter_document_error($text, $continuation)
@@ -410,8 +409,8 @@ the line is a continuation line of a message.
 
 Return a reference on an array containing the error or warning messages
 registered in the converter.  Error and warning messages are hash references as
-described in @ref{Texinfo@asis{::}Report ($error_warnings_list@comma{}
-$error_count) = errors($registrar),, Texinfo::Report::errors} and can be used in input of @ref{Texinfo@asis{::}Report add_formatted_message ($registrar@comma{} $msg),, Texinfo::Report::add_formatted_message}.
+described in @ref{Texinfo@asis{::}Report $error_count
+ = count_errors ($error_messages),, Texinfo::Report::count_errors}.
 
 @end table
 

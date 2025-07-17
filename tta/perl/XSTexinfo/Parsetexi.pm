@@ -38,7 +38,6 @@ use warnings;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-use Texinfo::Report;
 # Not directly used, but the returned variables are in this module, this
 # import makes sure that the functions associated to the objects are found.
 use Texinfo::Document;
