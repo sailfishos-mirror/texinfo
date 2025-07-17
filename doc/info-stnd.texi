@@ -2558,12 +2558,12 @@ To define a hook, you place an executable program by the same name
 in the directory @code{@env{$XDG_CONFIG_DIRS}/texinfo/info-hooks},
 where @env{$XDG_CONFIG_DIRS} is one of the XDG directories described
 in the previous chapter (@pxref{Custom Key Bindings}).
-Currently, Info has the following hook:
+Currently, Info has the following hooks:
 
 @table @code
 @item manual-not-found
-This hook runs if a manual is not found.  The program is passed
-one argument on the command line, which is the name of the manual.
+This hook runs if a manual is not found when Info is run.  The program is
+passed one argument on the command line, which is the name of the manual.
 It should print any messages for the user on standard error.
 
 For example, if the hook is implemented as a shell script, it could
@@ -2580,6 +2580,38 @@ exit 0
 If the exit status of the hook is 0, then Info exits.  Otherwise
 (perhaps if the hook program encountered some problem), Info keeps
 on running as before, probably exiting with its usual error message.
+
+@item node-not-found-interactive
+This hook runs if the user attempts to load a node while they are
+using Info and the node can't be found.  The name of the manual is
+passed as a command-line argument.  Info uses any text that the hook
+prints to standard output to create a new node, and diplays this node
+to the user.
+
+For example:
+
+@example
+#!/bin/sh
+
+msg="You were looking for the '$1' manual, but it's not
+installed on your system.
+
+You could try downloading the Info manual from:
+https://www.gnu.org/manual/manual.html
+
+Or you could try checking if a man page by that name exists:
+
+* Menu:
+
+* (*manpages*)$1::      Man page
+
+"
+
+echo "$msg"
+@end example
+
+@noindent (The hook would be need to be more sophisticated than
+this to be useful in practice.)
 @end table
 
 
