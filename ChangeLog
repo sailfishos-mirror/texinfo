@@ -1,15 +1,3 @@
-2025-07-17  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* doc/info-stnd.texi (Hooks): initial documentation of
-	'node-not-found-interactive'.
-
-2025-07-17  Gavin Smith <gavinsmith0123@gmail.com>
-
-	* info/run-external.c (get_output_from_program): Do not
-	close stderr in child process.
-	* doc/info-stnd.texi (Hooks): Hooks should print messages on
-	standard error.
-
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Structuring.pm (new_detailmenu): pass $debug for
@@ -38,6 +26,18 @@
 
 	* tta/perl/Texinfo/Structuring.pm (_check_menu_entry): remove unused
 	customization_information argument.  Update callers.
+
+2025-07-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/info-stnd.texi (Hooks): initial documentation of
+	'node-not-found-interactive'.
+
+2025-07-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/run-external.c (get_output_from_program): Do not
+	close stderr in child process.
+	* doc/info-stnd.texi (Hooks): Hooks should print messages on
+	standard error.
 
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
