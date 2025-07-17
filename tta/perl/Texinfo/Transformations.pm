@@ -336,7 +336,7 @@ sub reference_to_arg_in_document($)
 
 # The $DOCUMENT error_messages is used to register error messages.
 # Does not matter much, as the code checks that the new node target label does
-# not exist already.
+# not exist already, therefore there cannot be any error.
 sub _new_node($$)
 {
   my $node_tree = shift;
@@ -952,13 +952,10 @@ sub _protect_hashchar_at_line_beginning($$$)
               if ($parent_for_warn->{'cmdname'}
                   and $parent_for_warn->{'source_info'}) {
                 if ($document) {
-                  # TODO call a wrapper?
-                  my $error_messages = $document->{'error_messages'};
-                  push @$error_messages, Texinfo::Report::line_warn(sprintf(__(
+                  $document->document_line_warn(sprintf(__(
                       "could not protect hash character in \@%s"),
                            $parent_for_warn->{'cmdname'}),
-                                        $parent_for_warn->{'source_info'}, 0,
-                                $document->get_conf('DEBUG'));
+                                     $parent_for_warn->{'source_info'}, 0);
                 }
                 last;
               }

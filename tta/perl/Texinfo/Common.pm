@@ -1753,21 +1753,20 @@ sub get_label_element($)
 # not given, a document.
 # NOTE it is considered internal and should not be called in user-defined
 # code.  If this changes, should be documented.
-sub converter_or_document_line_warn($$$$)
+sub converter_or_document_line_warn($$$$;$)
 {
   my $document = shift;
   my $converter = shift;
   my $text = shift;
   my $error_location_info = shift;
+  my $continuation = shift;
 
   if (defined($converter)) {
-    $converter->converter_line_warn($text, $error_location_info);
+    $converter->converter_line_warn($text, $error_location_info,
+                                    $continuation);
   } else {
-    # TODO call a wrapper here, for structuring (or document)?
-    my $debug = $document->get_conf('DEBUG');
-    my $error_messages = $document->{'error_messages'};
-    push @$error_messages, Texinfo::Report::line_warn($text,
-                                         $error_location_info, 0, $debug);
+    $document->document_line_warn($text, $error_location_info,
+                                  $continuation);
   }
 }
 

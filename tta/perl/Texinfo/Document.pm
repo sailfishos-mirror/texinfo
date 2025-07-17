@@ -305,9 +305,7 @@ sub document_line_warn($$$;$)
   $continuation = 0 if !defined($continuation);
 
   my $error_messages = $document->{'error_messages'};
-  my $customization_information = $document;
-
-  my $debug = $customization_information->get_conf('DEBUG');
+  my $debug = $document->get_conf('DEBUG');
 
   push @$error_messages, Texinfo::Report::line_warn($text,
                            $error_location_info, $continuation, $debug);
@@ -323,9 +321,7 @@ sub document_line_error($$$;$)
   $continuation = 0 if !defined($continuation);
 
   my $error_messages = $document->{'error_messages'};
-  my $customization_information = $document;
-
-  my $debug = $customization_information->get_conf('DEBUG');
+  my $debug = $document->get_conf('DEBUG');
 
   push @$error_messages,
           Texinfo::Report::line_error($text, $error_location_info,
