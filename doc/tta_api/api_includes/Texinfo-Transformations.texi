@@ -85,19 +85,15 @@ container anymore, their content are merged directly in the menu in
 Note that this kind of tree is not supported by other codes, so this
 transformation should be avoided unless one knows exactly what to expect.
 
-@item protect_hashchar_at_line_beginning($tree, $registrar, $customization_information)
-@anchor{Texinfo@asis{::}Transformations protect_hashchar_at_line_beginning($tree@comma{} $registrar@comma{} $customization_information)}
+@item protect_hashchar_at_line_beginning($tree, $document)
+@anchor{Texinfo@asis{::}Transformations protect_hashchar_at_line_beginning($tree@comma{} $document)}
 @cindex @code{protect_hashchar_at_line_beginning}
 
 Protect hash (#) character at the beginning of line such that they would not be
-considered as lines to be processed by the CPP processor.  The @emph{$registrar}
-and @emph{$customization_information} arguments are optional.  If defined, the
-@emph{$registrar} argument should be an error messages list.  If defined,
-@emph{$customization_information} should give access to customization through
-@code{get_conf}.  If both @emph{$registrar} and @emph{$customization_information} are
-defined they are used for error reporting in case an hash character could not
-be protected because it appeared in a raw formatted environment (@code{@@tex},
-@code{@@html}...).
+considered as lines to be processed by the CPP processor.  The @emph{$document}
+argument is optional.  If defined, the @emph{$document} is used for error reporting
+in case an hash character could not be protected because it appeared in a raw
+formatted environment (@code{@@tex}, @code{@@html}...).
 
 @item $modified_tree = reference_to_arg_in_tree($tree, $document)
 @anchor{Texinfo@asis{::}Transformations $modified_tree = reference_to_arg_in_tree($tree@comma{} $document)}

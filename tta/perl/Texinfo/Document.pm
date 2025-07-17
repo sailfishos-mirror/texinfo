@@ -537,26 +537,31 @@ sub print_document_indices_sort_strings($)
 
 
 
+# In general, we avoid passing error messages separate from the object holding
+# them.  In that case, however, when called from parser, we want
+# parser_registrar error messages to be modified from a document, and not
+# the error messages of the document, so we pass the error messages list
+# separately.
 sub _existing_label_error($$;$$)
 {
   my $self = shift;
   my $element = shift;
-  my $registrar = shift;
+  my $error_messages = shift;
   my $debug = shift;
 
   if ($element->{'extra'}
       and defined($element->{'extra'}->{'normalized'})) {
     my $normalized = $element->{'extra'}->{'normalized'};
-    if (defined($registrar)) {
+    if (defined($error_messages)) {
       my $existing_target = $self->{'identifiers_target'}->{$normalized};
       my $label_element = Texinfo::Common::get_label_element($element);
-      push @$registrar, Texinfo::Report::line_error(
+      push @$error_messages, Texinfo::Report::line_error(
                        sprintf(__("\@%s `%s' previously defined"),
                                      $element->{'cmdname'},
                     Texinfo::Convert::Texinfo::convert_to_texinfo(
     Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
                               $element->{'source_info'}, 0, $debug);
-      push @$registrar, Texinfo::Report::line_error(
+      push @$error_messages, Texinfo::Report::line_error(
                     sprintf(__("here is the previous definition as \@%s"),
                             $existing_target->{'cmdname'}),
                              $existing_target->{'source_info'}, 1, $debug);
@@ -588,7 +593,7 @@ sub _add_element_to_identifiers_target($$)
 sub set_labels_identifiers_target($$;$)
 {
   my $self = shift;
-  my $registrar = shift;
+  my $error_messages = shift;
   my $debug = shift;
 
   my @elements_with_error;
@@ -612,7 +617,7 @@ sub set_labels_identifiers_target($$;$)
      = #sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
         @elements_with_error;
     foreach my $element (@sorted) {
-      _existing_label_error($self, $element, $registrar, $debug);
+      _existing_label_error($self, $element, $error_messages, $debug);
     }
   }
 }
@@ -626,12 +631,12 @@ sub register_label_element($$;$$)
 {
   my $self = shift;
   my $element = shift;
-  my $registrar = shift;
+  my $error_messages = shift;
   my $debug = shift;
 
   my $retval = _add_element_to_identifiers_target($self, $element);
   if (!$retval) {
-    _existing_label_error($self, $element, $registrar, $debug);
+    _existing_label_error($self, $element, $error_messages, $debug);
   }
   # TODO do not push at the end but have the caller give an information
   # on the element it should be after or before in the list?

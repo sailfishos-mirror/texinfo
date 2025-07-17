@@ -334,17 +334,13 @@ sub reference_to_arg_in_document($)
 # prepare and add a new node as a possible cross reference targets
 # modifies $document
 
-# $CUSTOMIZATION_INFORMATION is used for error reporting, but it may
-# not be useful, as the code checks that the new node target label does
+# The $DOCUMENT error messages registrar is used to register error messages.
+# Does not matter much, as the code checks that the new node target label does
 # not exist already.
-# Right now the $DOCUMENT error messages registrar is used to register
-# error messages, instead it could be given as argument.  Does not matter
-# much, see just above.
-sub _new_node($$;$)
+sub _new_node($$)
 {
   my $node_tree = shift;
   my $document = shift;
-  my $customization_information = shift;
 
   # We protect for all the contexts, as the node name should be
   # the same in the different contexts, even if some protections
@@ -438,12 +434,9 @@ sub _new_node($$;$)
   }
   $node->{'extra'}->{'normalized'} = $normalized;
 
-  my $debug;
-  if ($customization_information) {
-    $debug = $customization_information->get_conf('DEBUG');
-  }
   Texinfo::Document::register_label_element($document, $node,
-                                            $document->{'registrar'}, $debug);
+                                            $document->{'registrar'},
+                                            $document->get_conf('DEBUG'));
 
   return $node;
 }
@@ -514,7 +507,6 @@ sub insert_nodes_for_sectioning_commands($)
 {
   my $document = shift;
 
-  my $customization_information = $document;
   my $root = $document->tree();
   my $nodes_list = $document->nodes_list();
   my $sections_list = $document->sections_list();
@@ -550,8 +542,7 @@ sub insert_nodes_for_sectioning_commands($)
         $new_node_tree
          = Texinfo::ManipulateTree::copy_contentsNonXS($line_arg);
       }
-      my $new_node = _new_node($new_node_tree, $document,
-                               $customization_information);
+      my $new_node = _new_node($new_node_tree, $document);
       if (defined($new_node)) {
         # insert before $content
         splice(@{$root->{'contents'}}, $idx, 0, $new_node);
@@ -938,7 +929,7 @@ sub _protect_hashchar_at_line_beginning($$$)
   my $current = shift;
   my $argument = shift;
 
-  my ($registrar, $customization_information) = @$argument;
+  my $document = $argument;
 
   if ($current->{'text'} and
       $current->{'text'} =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/
@@ -960,13 +951,14 @@ sub _protect_hashchar_at_line_beginning($$$)
             while ($parent_for_warn) {
               if ($parent_for_warn->{'cmdname'}
                   and $parent_for_warn->{'source_info'}) {
-                if ($registrar) {
-                  # TODO call a wrapper?  What can customization_information be
+                if ($document) {
+                  # TODO call a wrapper?
+                  my $registrar = $document->{'registrar'};
                   push @$registrar, Texinfo::Report::line_warn(sprintf(__(
                       "could not protect hash character in \@%s"),
                            $parent_for_warn->{'cmdname'}),
                                         $parent_for_warn->{'source_info'}, 0,
-                                $customization_information->get_conf('DEBUG'));
+                                $document->get_conf('DEBUG'));
                 }
                 last;
               }
@@ -1017,15 +1009,14 @@ sub _protect_hashchar_at_line_beginning($$$)
   return undef;
 }
 
-sub protect_hashchar_at_line_beginning($;$$)
+sub protect_hashchar_at_line_beginning($;$)
 {
   my $tree = shift;
-  my $registrar = shift;
-  my $customization_information = shift;
+  my $document = shift;
 
   return Texinfo::ManipulateTree::modify_tree($tree,
                      \&_protect_hashchar_at_line_beginning,
-                      [$registrar, $customization_information]);
+                      $document);
 }
 
 # Has an XS override. Defined to be able to test Perl and XS. Undocumented
@@ -1033,8 +1024,7 @@ sub protect_hashchar_at_line_beginning($;$$)
 sub protect_hashchar_at_line_beginning_in_document($)
 {
   my $document = shift;
-  protect_hashchar_at_line_beginning($document->tree(),
-                                     $document->{'registrar'}, $document);
+  protect_hashchar_at_line_beginning($document->tree(), $document);
   return;
 }
 
@@ -1151,18 +1141,14 @@ I<preformatted> container.
 Note that this kind of tree is not supported by other codes, so this
 transformation should be avoided unless one knows exactly what to expect.
 
-=item protect_hashchar_at_line_beginning($tree, $registrar, $customization_information)
+=item protect_hashchar_at_line_beginning($tree, $document)
 X<C<protect_hashchar_at_line_beginning>>
 
 Protect hash (#) character at the beginning of line such that they would not be
-considered as lines to be processed by the CPP processor.  The I<$registrar>
-and I<$customization_information> arguments are optional.  If defined, the
-I<$registrar> argument should be an error messages list.  If defined,
-I<$customization_information> should give access to customization through
-C<get_conf>.  If both I<$registrar> and I<$customization_information> are
-defined they are used for error reporting in case an hash character could not
-be protected because it appeared in a raw formatted environment (C<@tex>,
-C<@html>...).
+considered as lines to be processed by the CPP processor.  The I<$document>
+argument is optional.  If defined, the I<$document> is used for error reporting
+in case an hash character could not be protected because it appeared in a raw
+formatted environment (C<@tex>, C<@html>...).
 
 =item $modified_tree = reference_to_arg_in_tree($tree, $document)
 X<C<reference_to_arg_in_tree>>

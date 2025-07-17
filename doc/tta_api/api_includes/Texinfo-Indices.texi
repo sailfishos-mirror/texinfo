@@ -151,7 +151,7 @@ the best to use for output.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-The optional argument @emph{$converter} is used for error reporting if present, 
+The optional argument @emph{$converter} is used for error reporting if present,
 otherwise the @emph{$document} is used.
 
 In general, those methods should not be called directly, instead
