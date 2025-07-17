@@ -259,8 +259,8 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 #                         based on defaults and parser argument.
 
 # other keys for the parser state initialized at parser creation
-# registrar          # errors list used for error
-#                    # reporting.
+# error_messages          # errors messages list used for error
+#                         # reporting.
 
 # A source information is an hash reference with the keys:
 # line_nr        the line number.
@@ -839,12 +839,12 @@ sub parse_texi_line($$;$)
   $self->_parse_texi($root, $root);
   get_parser_info($self);
 
-  # add the errors to the Parser registrar as there is no document
+  # add the errors to the Parser error_messages as there is no document
   # returned to get the errors from.
-  if (!defined($self->{'registrar'})) {
-    $self->{'registrar'} = [];
+  if (!defined($self->{'error_messages'})) {
+    $self->{'error_messages'} = [];
   }
-  push @{$self->{'registrar'}}, @{$document->{'parser_registrar'}};
+  push @{$self->{'error_messages'}}, @{$document->{'parser_error_messages'}};
 
   return $document->tree();
 }
@@ -967,7 +967,7 @@ sub parse_texi_file($$)
     if (defined($encoding)) {
       $decoded_input_file_path = decode($encoding, $input_file_path);
     }
-    push @{$document->{'parser_registrar'}},
+    push @{$document->{'parser_error_messages'}},
       Texinfo::Report::document_error(
                                     sprintf(__("could not open %s: %s"),
                                   $decoded_input_file_path, $error_message));
@@ -1089,13 +1089,13 @@ sub _parse_texi_document($)
 sub errors($)
 {
   my $self = shift;
-  my $registrar = $self->{'registrar'};
+  my $error_messages = $self->{'error_messages'};
 
-  my $errors_list = [@{$self->{'registrar'}}];
+  my $errors_output = [@{$self->{'error_messages'}}];
 
-  $self->{'registrar'} = [];
+  $self->{'error_messages'} = [];
 
-  return $errors_list;
+  return $errors_output;
 }
 
 # Following are the internal parsing subroutines.  The most important are
@@ -1173,8 +1173,8 @@ sub _line_warn
     return;
   }
 
-  my $registrar = $self->{'document'}->{'parser_registrar'};
-  push @{$registrar},
+  my $error_messages = $self->{'document'}->{'parser_error_messages'};
+  push @{$error_messages},
     Texinfo::Report::line_warn($text,
                          $error_location_info, $continuation,
                          $self->{'conf'}->{'DEBUG'});
@@ -1192,8 +1192,8 @@ sub _line_error
     return;
   }
 
-  my $registrar = $self->{'document'}->{'parser_registrar'};
-  push @{$registrar},
+  my $error_messages = $self->{'document'}->{'parser_error_messages'};
+  push @{$error_messages},
    Texinfo::Report::line_error($text, $error_location_info,
                                $continuation, $self->{'conf'}->{'DEBUG'});
 }
@@ -2695,7 +2695,7 @@ sub _next_text($;$)
           my $file_name_encoding = $input->{'file_name_encoding'};
           my $decoded_file_name = decode($file_name_encoding,
                                         $input->{'input_file_path'});
-          push @{$self->{'document'}->{'parser_registrar'}},
+          push @{$self->{'document'}->{'parser_error_messages'}},
            Texinfo::Report::document_warn(
                                sprintf(__("error on closing %s: %s"),
                                        $decoded_file_name, $!),
@@ -8258,7 +8258,7 @@ sub _parse_texi($$$)
 
   # Setup identifier target elements based on 'labels_list'
   Texinfo::Document::set_labels_identifiers_target($document,
-           $document->{'parser_registrar'}, $self->{'conf'}->{'DEBUG'});
+           $document->{'parser_error_messages'}, $self->{'conf'}->{'DEBUG'});
   Texinfo::Translations::complete_indices($document->{'indices'},
                                           $self->{'conf'}->{'DEBUG'});
 

@@ -814,11 +814,6 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
   return 0;
 }
 
-/* in perl registrar and configuration.  The document errors list
-   is used here.  It could be relevant to use an error messages list
-   as argument instead of using the document error messages list, but
-   it does not matter much as there should be no error, see comment
-   before new_node */
 ELEMENT_LIST *
 insert_nodes_for_sectioning_commands (DOCUMENT *document)
 {
@@ -1425,14 +1420,6 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   return 1;
 }
 
-/* NOTE in Perl there is a separate registrar and customization_information,
-   here we directly use a document from ARGUMENT for error registration and
-   customization.
-   It would be more flexible to pass separately error_messages and
-   options, but would also require a specific structure, and we
-   always have a document in C/XS, so it is simpler to use it.
-   In Perl, the document may actually be used to get the registrar and
-   customization_information. */
 ELEMENT_LIST *
 protect_hashchar_at_line_beginning_internal (const char *type,
                                              ELEMENT *current,

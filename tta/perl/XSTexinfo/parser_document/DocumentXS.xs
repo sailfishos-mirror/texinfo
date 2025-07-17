@@ -172,7 +172,7 @@ document_errors (SV *document_in)
           error_messages = &document->error_messages;
 
         errors_warnings_sv
-          = pass_errors_to_registrar (error_messages, document_in);
+          = pass_errors_to_hv (error_messages, document_in);
         clear_error_message_list (error_messages);
 
         /* NOTE this is incorrect, as the callers do not expect

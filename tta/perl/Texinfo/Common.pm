@@ -1765,8 +1765,8 @@ sub converter_or_document_line_warn($$$$)
   } else {
     # TODO call a wrapper here, for structuring (or document)?
     my $debug = $document->get_conf('DEBUG');
-    my $registrar = $document->{'registrar'};
-    push @$registrar, Texinfo::Report::line_warn($text,
+    my $error_messages = $document->{'error_messages'};
+    push @$error_messages, Texinfo::Report::line_warn($text,
                                          $error_location_info, 0, $debug);
   }
 }

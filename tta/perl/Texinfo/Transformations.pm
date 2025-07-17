@@ -334,7 +334,7 @@ sub reference_to_arg_in_document($)
 # prepare and add a new node as a possible cross reference targets
 # modifies $document
 
-# The $DOCUMENT error messages registrar is used to register error messages.
+# The $DOCUMENT error_messages is used to register error messages.
 # Does not matter much, as the code checks that the new node target label does
 # not exist already.
 sub _new_node($$)
@@ -435,7 +435,7 @@ sub _new_node($$)
   $node->{'extra'}->{'normalized'} = $normalized;
 
   Texinfo::Document::register_label_element($document, $node,
-                                            $document->{'registrar'},
+                                            $document->{'error_messages'},
                                             $document->get_conf('DEBUG'));
 
   return $node;
@@ -953,8 +953,8 @@ sub _protect_hashchar_at_line_beginning($$$)
                   and $parent_for_warn->{'source_info'}) {
                 if ($document) {
                   # TODO call a wrapper?
-                  my $registrar = $document->{'registrar'};
-                  push @$registrar, Texinfo::Report::line_warn(sprintf(__(
+                  my $error_messages = $document->{'error_messages'};
+                  push @$error_messages, Texinfo::Report::line_warn(sprintf(__(
                       "could not protect hash character in \@%s"),
                            $parent_for_warn->{'cmdname'}),
                                         $parent_for_warn->{'source_info'}, 0,

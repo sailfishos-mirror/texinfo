@@ -150,7 +150,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
           add the errors to the Parser registrar as there is no document
           returned to get the errors from.
         */
-            pass_document_parser_errors_to_registrar (document,
+            pass_document_parser_errors_to_parser_sv (document,
                                                       parser_sv);
             if (!no_store)
               document_sv = build_minimal_document (document);
@@ -300,25 +300,25 @@ errors (SV *parser_sv)
     PREINIT:
         SV *errors_warnings_sv = 0;
         HV *parser_hv;
-        SV **registrar_sv;
+        SV **error_messages_sv;
     CODE:
         parser_hv = (HV *)SvRV (parser_sv);
-        registrar_sv = hv_fetch (parser_hv, "registrar",
-                                 strlen ("registrar"), 0);
-        if (registrar_sv)
+        error_messages_sv = hv_fetch (parser_hv, "error_messages",
+                                      strlen ("error_messages"), 0);
+        if (error_messages_sv)
           {
             AV *empty_errors_warnings = newAV ();
-            errors_warnings_sv = newSVsv (*registrar_sv);
+            errors_warnings_sv = newSVsv (*error_messages_sv);
 
-            /* registrar->clear() */
-            hv_store (parser_hv, "registrar",
-                      strlen ("registrar"),
+            /* clear the error_messages array */
+            hv_store (parser_hv, "error_messages",
+                      strlen ("error_messages"),
                       newRV_noinc ((SV *) empty_errors_warnings), 0);
           }
         else
           {
             fprintf (stderr,
-                     "BUG: no registrar but Parser::errors is called\n");
+                     "BUG: no error_messages but Parser::errors is called\n");
             abort ();
           }
 

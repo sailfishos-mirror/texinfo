@@ -10,6 +10,27 @@
 
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (pass_errors_to_hv)
+	(pass_document_parser_errors_to_parser_sv): rename
+	pass_errors_to_registrar as pass_errors_to_hv and
+	pass_document_parser_errors_to_registrar as
+	pass_document_parser_errors_to_parser_sv.  Rename registrar as
+	error_messages.  Update callers.
+
+	* tta/C/main/build_perl_info.c (build_minimal_document)
+	(build_document), tta/perl/Texinfo/Common.pm
+	(converter_or_document_line_warn), tta/perl/Texinfo/Document.pm
+	(new_document, parser_errors, errors), tta/perl/Texinfo/ParserNonXS.pm
+	(parse_texi_line, parse_texi_file, errors, _line_warn, _line_error)
+	(_next_text, _parse_texi), tta/perl/Texinfo/Structuring.pm
+	(structuring_line_warn, structuring_line_error),
+	tta/perl/Texinfo/Transformations.pm (_new_node)
+	(_protect_hashchar_at_line_beginning),
+	tta/perl/XSTexinfo/parser_document/Parsetexi.xs (errors):
+	rename registrar as error_messages.
+
+2025-07-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm (_existing_label_error)
 	(set_labels_identifiers_target, register_label_element): rename
 	registrar as error_messages. 

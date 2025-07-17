@@ -148,10 +148,10 @@ sub new_document($)
     'nodes_list' => [],
     'sections_list' => [],
     'headings_list' => [],
-     # error registrar for parsing
-    'parser_registrar' => [],
-     # error registrar for the document for structuring, not for parsing
-    'registrar' => [],
+     # error messages for parsing
+    'parser_error_messages' => [],
+     # error messages for the document for structuring, not for parsing
+    'error_messages' => [],
   };
 
   bless $document;
@@ -299,24 +299,24 @@ sub parser_errors($)
 {
   my $document = shift;
 
-  my $errors_list = [@{$document->{'parser_registrar'}}];
+  my $errors_output = [@{$document->{'parser_error_messages'}}];
 
-  $document->{'parser_registrar'} = [];
+  $document->{'parser_error_messages'} = [];
 
-  return $errors_list;
+  return $errors_output;
 }
 
-# The XS override pass C error messages to the document registrar and destroys
-# C associated data.
+# The XS override pass C error messages to the document
+# error_messages and destroys C associated data.
 sub errors($)
 {
   my $document = shift;
 
-  my $errors_list = [@{$document->{'registrar'}}];
+  my $errors_output = [@{$document->{'error_messages'}}];
 
-  $document->{'registrar'} = [];
+  $document->{'error_messages'} = [];
 
-  return $errors_list;
+  return $errors_output;
 }
 
 
@@ -539,7 +539,7 @@ sub print_document_indices_sort_strings($)
 
 # In general, we avoid passing error messages separate from the object holding
 # them.  In that case, however, when called from parser, we want
-# parser_registrar error messages to be modified from a document, and not
+# parser_error_messages error messages to be modified from a document, and not
 # the error messages of the document, so we pass the error messages list
 # separately.
 sub _existing_label_error($$;$$)

@@ -133,12 +133,12 @@ sub structuring_line_warn($$$;$$)
 
   $continuation = 0 if !defined($continuation);
 
-  my $registrar = $document->{'registrar'};
+  my $error_messages = $document->{'error_messages'};
   my $customization_information = $document;
 
   my $debug = $customization_information->get_conf('DEBUG');
 
-  push @$registrar, Texinfo::Report::line_warn($text, $error_location_info,
+  push @$error_messages, Texinfo::Report::line_warn($text, $error_location_info,
                                     $continuation, ($debug and not $silent));
 }
 
@@ -152,12 +152,13 @@ sub structuring_line_error($$$;$$)
 
   $continuation = 0 if !defined($continuation);
 
-  my $registrar = $document->{'registrar'};
+  my $error_messages = $document->{'error_messages'};
   my $customization_information = $document;
 
   my $debug = $customization_information->get_conf('DEBUG');
 
-  push @$registrar, Texinfo::Report::line_error($text, $error_location_info,
+  push @$error_messages,
+          Texinfo::Report::line_error($text, $error_location_info,
                                       $continuation, ($debug and not $silent));
 }
 

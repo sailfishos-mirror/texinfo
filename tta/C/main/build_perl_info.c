@@ -1758,7 +1758,7 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
 
    if (!error_messages)
     {
-      /* See the comment before pass_errors_to_registrar, this probably
+      /* See the comment before pass_errors_to_hv, this probably
          cannot happen.  We do not warn here, there should already
          be other warnings as it means that no XS document was found.
        */
@@ -1780,32 +1780,32 @@ add_formatted_error_messages (const ERROR_MESSAGE_LIST *error_messages,
 /* ERROR_MESSAGES could be 0, in that case the function is used to get
    the perl references but they are not modified.
    Error messages set to 0, however, cannot happen in practice, as it cannot
-   happen when called through pass_document_parser_errors_to_registrar for
+   happen when called through pass_document_parser_errors_to_parser_sv for
    parser errors, and for document errors it would mean no XS document found,
    which cannot happen right now and would probably trigger many warnings.
  */
 SV *
-pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
+pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages,
                           SV *object_sv)
 {
   HV *object_hv;
-  SV **registrar_sv;
-  const char *registrar_key = "registrar";
+  SV **error_messages_sv;
+  const char *error_messages_key = "error_messages";
 
   dTHX;
 
   object_hv = (HV *) SvRV (object_sv);
 
-  registrar_sv = hv_fetch (object_hv, registrar_key,
-                           strlen (registrar_key), 0);
-  /* A registrar is systematically added to document at
+  error_messages_sv = hv_fetch (object_hv, error_messages_key,
+                                strlen (error_messages_key), 0);
+  /* A error_messages is systematically added to document at
      initialization, so the
      condition should always be true.  errors_warnings_out
      should always be set and it is a good thing because
      errors_warnings_out is not supposed to be undef */
-  if (registrar_sv && SvOK (*registrar_sv))
+  if (error_messages_sv && SvOK (*error_messages_sv))
     {
-      AV *report_av = (AV *) SvRV (*registrar_sv);
+      AV *report_av = (AV *) SvRV (*error_messages_sv);
       add_formatted_error_messages (error_messages, report_av);
       return newRV_inc ((SV *) report_av);
     }
@@ -1813,11 +1813,11 @@ pass_errors_to_registrar (const ERROR_MESSAGE_LIST *error_messages,
 }
 
 void
-pass_document_parser_errors_to_registrar (DOCUMENT *document,
+pass_document_parser_errors_to_parser_sv (DOCUMENT *document,
                                           SV *parser_sv)
 {
   HV *parser_hv;
-  SV **parser_registrar_sv;
+  SV **parser_error_messages_sv;
 
   dTHX;
 
@@ -1829,17 +1829,17 @@ pass_document_parser_errors_to_registrar (DOCUMENT *document,
     return;
    */
 
-  /* Add error registrar to Parser if needed */
-  parser_registrar_sv = hv_fetch (parser_hv, "registrar",
-                                  strlen ("registrar"), 0);
-  if (!parser_registrar_sv)
+  /* Add error error_messages to Parser if needed */
+  parser_error_messages_sv = hv_fetch (parser_hv, "error_messages",
+                                       strlen ("error_messages"), 0);
+  if (!parser_error_messages_sv)
     {
       AV *av = newAV ();
-      hv_store (parser_hv, "registrar", strlen ("registrar"),
+      hv_store (parser_hv, "error_messages", strlen ("error_messages"),
                 newRV_noinc ((SV *) av), 0);
     }
 
-  pass_errors_to_registrar (&document->parser_error_messages, parser_sv);
+  pass_errors_to_hv (&document->parser_error_messages, parser_sv);
   clear_error_message_list (&document->parser_error_messages);
 }
 
@@ -2297,7 +2297,7 @@ build_minimal_document (DOCUMENT *document)
   /* New error messages list for document to be used after parsing, for
      structuring and tree modifications */
   messages_list_av = newAV ();
-  hv_store (hv, "registrar", strlen ("registrar"),
+  hv_store (hv, "error_messages", strlen ("error_messages"),
             newRV_noinc ((SV *) messages_list_av), 0);
 
   if (!document->hv)
@@ -2486,7 +2486,7 @@ build_document (DOCUMENT *document, int no_store)
       /* error messages list for document to be used after parsing, for
          structuring and tree modifications */
       AV *messages_list_av = newAV ();
-      hv_store (hv, "registrar", strlen ("registrar"),
+      hv_store (hv, "error_messages", strlen ("error_messages"),
                 newRV_noinc ((SV *) messages_list_av), 0);
     }
 

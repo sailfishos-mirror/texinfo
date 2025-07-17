@@ -485,7 +485,7 @@ utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_e
               }
             if (!converter && converter_sv)
               {
-                pass_errors_to_registrar (error_messages, converter_sv);
+                pass_errors_to_hv (error_messages, converter_sv);
                 wipe_error_message_list (error_messages);
                 free (error_messages);
               }
