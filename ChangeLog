@@ -12,6 +12,15 @@
 
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Indices.pm (_setup_sort_sortable_strings_collator)
+	(sort_indices_by_index, sort_indices_by_letter): remove unused
+	registrar argument.  Update callers.
+
+	* tta/perl/Texinfo/Structuring.pm (_check_menu_entry): remove unused
+	customization_information argument.  Update callers.
+
+2025-07-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (add_formatted_error_messages)
 	(pass_errors_to_registrar, pass_document_parser_errors_to_registrar)
 	(build_minimal_document, build_document),

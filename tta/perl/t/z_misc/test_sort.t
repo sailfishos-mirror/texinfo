@@ -55,19 +55,17 @@ my $indices_information = $document->indices_information();
 my $index_entries = $document->merged_indices();
 my $document_options = $main_configuration->get_customization_options_hash();
 $document->register_document_options($document_options);
-my $customization_information = $document;
 
 my $indices_sort_strings
   = Texinfo::Indices::setup_index_entries_sort_strings($document->{'registrar'},
-                                              $customization_information,
+                                              $document,
                                       $index_entries, $indices_information);
 
 my $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 my $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, $document->{'registrar'},
-                                            $customization_information);
+  = Texinfo::Indices::sort_indices_by_index($document, $document);
 
 my @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
@@ -82,8 +80,7 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ẽ', 'ł');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my $sorted_index_entries_by_letter
- = Texinfo::Indices::sort_indices_by_letter($document, $document->{'registrar'},
-                                            $customization_information);
+ = Texinfo::Indices::sort_indices_by_letter($document, $document);
 
 my @letter_entries_ref = (
    {'!' => [ '!' ]},
@@ -136,15 +133,14 @@ $document = $parser->parse_texi_text('@node Top
 @cindex hhh @subentry jjj @subentry lll @sortas{A}
 ');
 
+$document->register_document_options($document_options);
 $indices_sort_strings
-  = Texinfo::Document::indices_sort_strings($document,
-                                            $customization_information);
+  = Texinfo::Document::indices_sort_strings($document, $document);
 $index_entries_sort_strings
   = Texinfo::Indices::format_index_entries_sort_strings($indices_sort_strings);
 
 $sorted_index_entries
-  = Texinfo::Indices::sort_indices_by_index($document, $document->{'registrar'},
-                                            $customization_information);
+  = Texinfo::Indices::sort_indices_by_index($document, $document);
 
 @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {

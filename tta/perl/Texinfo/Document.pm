@@ -404,8 +404,8 @@ sub sorted_indices_by_letter($$$$)
     $document->merged_indices();
     $document->{'sorted_indices_by_letter'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_letter
-          ($document, $document->{'registrar'}, $customization_information,
-           $use_unicode_collation, $locale_lang);
+                    ($document, $customization_information,
+                     $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_letter'}->{$lang_key};
 }
@@ -439,8 +439,8 @@ sub sorted_indices_by_index($$$$)
     $document->merged_indices();
     $document->{'sorted_indices_by_index'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_index
-          ($document, $document->{'registrar'}, $customization_information,
-           $use_unicode_collation, $locale_lang);
+                      ($document, $customization_information,
+                       $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};
 }
@@ -982,8 +982,8 @@ In general, it should be a converter (L<Texinfo::Convert::Converter/Getting and
 setting customization variables>) or a document L<Texinfo::Document/Getting
 customization options values registered in document>).
 
-L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
-and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $registrar, $customization_information, $use_unicode_collation, $locale_lang) >>
+L<< C<Texinfo::Indices::sort_indices_by_index>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_index($document, $customization_information, $use_unicode_collation, $locale_lang) >>
+and L<< C<Texinfo::Indices::sort_indices_by_letter>|Texinfo::Indices/$index_entries_sorted = sort_indices_by_letter($document, $customization_information, $use_unicode_collation, $locale_lang) >>
 are used to sort the indexes, if needed.
 
 In general, those methods should not be called directly, instead

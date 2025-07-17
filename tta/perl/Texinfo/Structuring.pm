@@ -435,10 +435,9 @@ my %direction_texts = (
  'up' => 'Up'
 );
 
-sub _check_menu_entry($$$$$$)
+sub _check_menu_entry($$$$$)
 {
   my $document = shift;
-  my $customization_information = shift;
   my $identifier_target = shift;
   my $command = shift;
   my $menu_content = shift;
@@ -691,7 +690,7 @@ sub complete_node_tree_with_menus($)
                 if ($content->{'extra'}) {
                   if (!$content->{'extra'}->{'manual_content'}) {
                     if ($check_menu_entries) {
-                      _check_menu_entry($document, $customization_information,
+                      _check_menu_entry($document,
                                         $identifier_target, 'menu',
                                         $menu_content, $content);
                     }
@@ -762,7 +761,7 @@ sub complete_node_tree_with_menus($)
             if ($content->{'type'} eq 'menu_entry_node') {
               if (not ($content->{'extra'}
                        and $content->{'extra'}->{'manual_content'})) {
-                _check_menu_entry($document, $customization_information,
+                _check_menu_entry($document,
                     $identifier_target, 'detailmenu', $menu_content, $content);
               }
               last;

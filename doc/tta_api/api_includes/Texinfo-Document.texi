@@ -373,8 +373,8 @@ In general, it should be a converter (@ref{Texinfo@asis{::}Convert@asis{::}Conve
 setting customization variables}) or a document @ref{Texinfo@asis{::}Document Getting
 customization options values registered in document}).
 
-@ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $registrar@comma{} $customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_index}}
-and @ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($document@comma{} $registrar@comma{} $customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_letter}}
+@ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_index($document@comma{} $customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_index}}
+and @ref{Texinfo@asis{::}Indices $index_entries_sorted = sort_indices_by_letter($document@comma{} $customization_information@comma{} $use_unicode_collation@comma{} $locale_lang),, @code{Texinfo::Indices::sort_indices_by_letter}}
 are used to sort the indexes, if needed.
 
 In general, those methods should not be called directly, instead
