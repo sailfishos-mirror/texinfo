@@ -2564,13 +2564,15 @@ Currently, Info has the following hook:
 @item manual-not-found
 This hook runs if a manual is not found.  The program is passed
 one argument on the command line, which is the name of the manual.
+It should print any messages for the user on standard error.
+
 For example, if the hook is implemented as a shell script, it could
 look like this:
 
 @example
 #!/bin/sh
 
-echo "Manual '$1' not found"
+echo "Manual '$1' not found" >&2
 
 exit 0
 @end example

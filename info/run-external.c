@@ -62,9 +62,11 @@ get_output_from_program (char *formatter_args[], char **program_output)
     { /* In the child, close the read end of the pipe, make the write end
          of the pipe be stdout, and execute the man page formatter. */
       close (pipes[0]);
-      (void)! freopen (NULL_DEVICE, "w", stderr);
       (void)! freopen (NULL_DEVICE, "r", stdin);
+      /* (void)! freopen (NULL_DEVICE, "w", stderr); */
+      /* NB don't close stderr to allow hooks to print messages to stderr. */
       /* avoid "unused result" warning with ! operator */
+
       dup2 (pipes[1], fileno (stdout));
 
       execv (formatter_args[0], formatter_args);
