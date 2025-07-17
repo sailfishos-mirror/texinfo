@@ -295,6 +295,43 @@ sub build_tree($;$)
   return $tree;
 }
 
+sub document_line_warn($$$;$)
+{
+  my $document = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+  my $continuation = shift;
+
+  $continuation = 0 if !defined($continuation);
+
+  my $error_messages = $document->{'error_messages'};
+  my $customization_information = $document;
+
+  my $debug = $customization_information->get_conf('DEBUG');
+
+  push @$error_messages, Texinfo::Report::line_warn($text,
+                           $error_location_info, $continuation, $debug);
+}
+
+sub document_line_error($$$;$)
+{
+  my $document = shift;
+  my $text = shift;
+  my $error_location_info = shift;
+  my $continuation = shift;
+
+  $continuation = 0 if !defined($continuation);
+
+  my $error_messages = $document->{'error_messages'};
+  my $customization_information = $document;
+
+  my $debug = $customization_information->get_conf('DEBUG');
+
+  push @$error_messages,
+          Texinfo::Report::line_error($text, $error_location_info,
+                                      $continuation, $debug);
+}
+
 sub parser_errors($)
 {
   my $document = shift;

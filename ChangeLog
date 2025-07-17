@@ -10,6 +10,15 @@
 
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm (document_line_warn)
+	(document_line_error), tta/perl/Texinfo/Structuring.pm: move
+	structuring_line_warn to Document.pm and rename as document_line_warn.
+	Move structuring_line_error to Document.pm and rename as
+	document_line_error.  Remove unused silent argument of
+	document_line_warn and document_line_error.  Update callers.
+
+2025-07-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (pass_errors_to_hv)
 	(pass_document_parser_errors_to_parser_sv): rename
 	pass_errors_to_registrar as pass_errors_to_hv and

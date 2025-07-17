@@ -122,46 +122,6 @@ my %command_structuring_level = %Texinfo::CommandsValues::command_structuring_le
 my %appendix_commands = %Texinfo::Commands::appendix_commands;
 my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 
-# TODO move to Document?
-sub structuring_line_warn($$$;$$)
-{
-  my $document = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
-  my $silent = shift;
-
-  $continuation = 0 if !defined($continuation);
-
-  my $error_messages = $document->{'error_messages'};
-  my $customization_information = $document;
-
-  my $debug = $customization_information->get_conf('DEBUG');
-
-  push @$error_messages, Texinfo::Report::line_warn($text, $error_location_info,
-                                    $continuation, ($debug and not $silent));
-}
-
-sub structuring_line_error($$$;$$)
-{
-  my $document = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
-  my $silent = shift;
-
-  $continuation = 0 if !defined($continuation);
-
-  my $error_messages = $document->{'error_messages'};
-  my $customization_information = $document;
-
-  my $debug = $customization_information->get_conf('DEBUG');
-
-  push @$error_messages,
-          Texinfo::Report::line_error($text, $error_location_info,
-                                      $continuation, ($debug and not $silent));
-}
-
 # Go through the sectioning commands (e.g. @chapter, not @node), and
 # set:
 # 'section_level'
@@ -213,7 +173,7 @@ sub sectioning_structure($)
       if ($prev_section_level < $level) {
         # new command is below
         if ($level - $prev_section_level > 1) {
-          structuring_line_error($document,
+          $document->document_line_error(
            sprintf(__("raising the section level of \@%s which is too low"),
               $content->{'cmdname'}), $content->{'source_info'});
           $level = $prev_section_level + 1;
@@ -266,12 +226,12 @@ sub sectioning_structure($)
               if ($level < $sec_root->{'section_root_level'}) {
                 # level is 0 for part and section level -1 for sec root. The
                 # condition means section level > 1, ie below chapter-level.
-                structuring_line_warn($document,
+                $document->document_line_warn(
                  sprintf(__("no chapter-level command before \@%s"),
                          $content->{'cmdname'}), $content->{'source_info'});
               }
             } else {
-              structuring_line_warn($document,
+              $document->document_line_warn(
   sprintf(__("lowering the section level of \@%s appearing after a lower element"),
                   $content->{'cmdname'}), $content->{'source_info'});
               $level = $sec_root->{'section_root_level'} + 1;
@@ -389,7 +349,7 @@ sub sectioning_structure($)
     } elsif ($content->{'cmdname'} eq 'part'
              and not $section_relations->{'part_associated_section'}) {
 
-      structuring_line_warn($document,
+      $document->document_line_warn(
         sprintf(__("no sectioning command associated with \@%s"),
                 $content->{'cmdname'}), $content->{'source_info'});
     }
@@ -421,7 +381,7 @@ sub warn_non_empty_parts($)
   if ($global_commands->{'part'}) {
     foreach my $part (@{$global_commands->{'part'}}) {
       if (!Texinfo::Common::is_content_empty($part)) {
-        structuring_line_warn($document,
+        $document->document_line_warn(
                      sprintf(__("\@%s not empty"), $part->{'cmdname'}),
                        $part->{'source_info'});
       }
@@ -450,7 +410,7 @@ sub _check_menu_entry($$$$$)
     my $menu_node = $identifier_target->{$normalized_menu_node};
 
     if (!$menu_node) {
-      structuring_line_error($document,
+      $document->document_line_error(
                   sprintf(__("\@%s reference to nonexistent node `%s'"),
                           $command,
                           link_element_to_texi($menu_entry_node)),
@@ -458,7 +418,7 @@ sub _check_menu_entry($$$$$)
     } else {
       if (!Texinfo::Convert::Texinfo::check_node_same_texinfo_code($menu_node,
                            $menu_entry_node->{'extra'}->{'node_content'})) {
-        structuring_line_warn($document,
+        $document->document_line_warn(
         sprintf(__("\@%s entry node name `%s' different from %s name `%s'"),
                 $command,
                 link_element_to_texi($menu_entry_node),
@@ -623,7 +583,7 @@ sub check_nodes_are_referenced($)
     # it is normal that a redundant node is not referenced
     if ($node->{'extra'}->{'is_target'}) {
       if (not exists($referenced_nodes{$node})) {
-        structuring_line_warn($document, sprintf(__("node `%s' unreferenced"),
+        $document->document_line_warn(sprintf(__("node `%s' unreferenced"),
                                       target_element_to_texi_label($node)),
                               $node->{'source_info'});
       # if the node is referenced, warn if there is no menu up
@@ -634,7 +594,7 @@ sub check_nodes_are_referenced($)
         if (not (($node_relations->{'associated_section'}
                   and _node_automatic_directions($node))
                  or $referenced_in_menus{$node})) {
-          structuring_line_warn($document, sprintf(__("node `%s' not in menu"),
+          $document->document_line_warn(sprintf(__("node `%s' not in menu"),
                                         target_element_to_texi_label($node)),
                                $node->{'source_info'});
         }
@@ -674,7 +634,7 @@ sub complete_node_tree_with_menus($)
     if ($node_relations->{'menus'}) {
       if (scalar(@{$node_relations->{'menus'}}) > 1) {
         foreach my $menu (@{$node_relations->{'menus'}}[1 .. $#{$node_relations->{'menus'}}]) {
-          structuring_line_warn($document, sprintf(__("multiple \@%s"),
+          $document->document_line_warn(sprintf(__("multiple \@%s"),
                        $menu->{'cmdname'}), $menu->{'source_info'});
         }
       }
@@ -843,7 +803,7 @@ sub check_node_tree_menu_structure($)
               my $section_up_node
                 = _section_direction_associated_node ($section_relations,'up');
               if (!$section_up_node) {
-                structuring_line_warn($document,
+                $document->document_line_warn(
     sprintf(__("node `%s' in menu in `%s' but not under it in sectioning"),
                              target_element_to_texi_label($menu_node),
                              target_element_to_texi_label($node)),
@@ -852,7 +812,7 @@ sub check_node_tree_menu_structure($)
               } elsif ($section_up_node
                          and $section_up_node->{'element'}
                          and $section_up_node->{'element'} ne $node) {
-                structuring_line_warn($document,
+                $document->document_line_warn(
     sprintf(__("node `%s' in menu in `%s' but under `%s' in sectioning"),
                     target_element_to_texi_label($menu_node),
                     target_element_to_texi_label($node),
@@ -933,14 +893,14 @@ sub check_node_tree_menu_structure($)
                         and $menu_node eq $next_pointer_node) {
             # good
           } elsif (defined($section_node)) {
-            structuring_line_warn($document,
+            $document->document_line_warn(
               sprintf(__("node `%s' in menu where `%s' expected"),
                 target_element_to_texi_label($menu_node),
                 target_element_to_texi_label($section_node)),
               $menu_content->{'source_info'});
             $node_errors{$menu_node_element_number} = 1;
           } else {
-            structuring_line_warn($document,
+            $document->document_line_warn(
               sprintf(__("unexpected node `%s' in menu"),
                 target_element_to_texi_label($menu_node)),
               $menu_content->{'source_info'});
@@ -1041,7 +1001,7 @@ sub check_node_tree_menu_structure($)
           if (!defined($node_directions)
                 or !defined($node_directions->{'up'})
                 or $node_directions->{'up'} eq $up_node) {
-            structuring_line_warn($document, sprintf(
+            $document->document_line_warn(sprintf(
      __("node `%s' lacks menu item for `%s' but is above it in sectioning"),
                target_element_to_texi_label($up_node),
                target_element_to_texi_label($node)),
@@ -1084,7 +1044,7 @@ sub check_node_tree_menu_structure($)
                 and defined($menu_node_directions->{'up'})
                 and $menu_node_directions->{'up'} ne $node) {
             my $direction = 'up';
-            structuring_line_warn($document,
+            $document->document_line_warn(
      sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
                   $direction,
                   target_element_to_texi_label($menu_node),
@@ -1104,7 +1064,7 @@ sub check_node_tree_menu_structure($)
                   and defined($menu_prev_node_directions->{'next'})
                   and $menu_prev_node_directions->{'next'} ne $menu_node) {
                 my $direction = 'next';
-                structuring_line_warn($document,
+                $document->document_line_warn(
          sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
                           $direction,
                           target_element_to_texi_label($menu_prev_node),
@@ -1120,7 +1080,7 @@ sub check_node_tree_menu_structure($)
                   and defined($menu_node_directions->{'prev'})
                   and $menu_node_directions->{'prev'} ne $menu_prev_node) {
                 my $direction = 'prev';
-                structuring_line_warn($document,
+                $document->document_line_warn(
          sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
                           $direction,
                           target_element_to_texi_label($menu_node),
@@ -1299,7 +1259,7 @@ sub construct_nodes_tree($)
                 and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
                                  $node_target,
                                  $direction_element->{'extra'}->{'node_content'})) {
-              structuring_line_warn($document, sprintf(
+              $document->document_line_warn(sprintf(
              __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
                   $direction_texts{$direction},
                   link_element_to_texi($direction_element),
@@ -1310,7 +1270,7 @@ sub construct_nodes_tree($)
             }
           } else {
             if (!$customization_information->get_conf('novalidate')) {
-              structuring_line_error($document,
+              $document->document_line_error(
                    sprintf(__("%s reference to nonexistent `%s'"),
                       $direction_texts{$direction},
                       link_element_to_texi($direction_element)),
@@ -1671,7 +1631,7 @@ sub associate_internal_referencesNonXS($)
       if (!defined($normalized)
           or !defined($identifier_target->{$normalized})) {
         if (!$customization_information->get_conf('novalidate')) {
-          structuring_line_error($document,
+          $document->document_line_error(
                      sprintf(__("\@%s reference to nonexistent node `%s'"),
                              $ref->{'cmdname'},
                              link_element_to_texi($label_element)),
@@ -1683,7 +1643,7 @@ sub associate_internal_referencesNonXS($)
             and !Texinfo::Convert::Texinfo::check_node_same_texinfo_code(
                                $node_target,
                                $label_element->{'extra'}->{'node_content'})) {
-          structuring_line_warn($document,
+          $document->document_line_warn(
                  sprintf(__("\@%s to `%s', different from %s name `%s'"),
                      $ref->{'cmdname'},
                      link_element_to_texi($label_element),
