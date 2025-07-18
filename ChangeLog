@@ -1,5 +1,13 @@
 2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/ext/highlight_syntax.pm (highlight_process):
+	Create output directory if it does not exist.  Otherwise there
+	can be an error that a file couldn't be opened.
+
+	Report and investigation by Raymond Toy <toy.raymond@gmail.com>.
+
+2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info.c (main): Reformat string constant in usage message
 	so to have whitespace in first column.  No functional change.
 

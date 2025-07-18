@@ -414,6 +414,13 @@ sub highlight_process($$)
   my $highlight_basename = "${document_name}_highlight";
 
   my $highlight_out_dir = $self->get_info('destination_directory');
+  if (! -d $highlight_out_dir) {
+    if (!mkdir $highlight_out_dir) {
+      $self->converter_document_warn(
+         sprintf(__("highlight_syntax.pm: could not make directory %s: %s"),
+                                      $highlight_out_dir, $!));
+    }
+  }
   foreach my $language (keys(%languages)) {
     my $suffix;
     if (defined($languages_extensions{$language})) {
