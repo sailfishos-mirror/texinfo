@@ -968,9 +968,6 @@ main (int argc, char *argv[])
           exit (1);
         }
       info_find_matching_files (user_filename);
-      /* If only one match, don't start in a menu of matches. */
-      if (ref_index == 1)
-        all_matches_p = 0;
 
       /* --where */
       if (print_where_p)
@@ -983,129 +980,129 @@ main (int argc, char *argv[])
             printf ("%s\n", ref_list[i]->filename);
           exit (0);
         }
-      if (all_matches_p)
+
+      /* If only one match, don't start in a menu of matches. */
+      if (ref_index != 1)
         {
           info_session_allfiles (ref_list, user_filename, error);
           exit (0);
         }
     }
-  else
+
+  /* --show-options */
+  if (goto_invocation_p)
     {
-      if (goto_invocation_p)
+      /* If they said "info --show-options foo bar baz",
+         the last of the arguments is the program whose
+         options they want to see.  */
+      char **p = argv;
+      if (*p)
         {
-          /* If they said "info --show-options foo bar baz",
-             the last of the arguments is the program whose
-             options they want to see.  */
-          char **p = argv;
-          if (*p)
+          while (p[1])
+            p++;
+          invocation_program_name = *p;
+        }
+    }
+
+  get_initial_file (&argc, &argv, &error);
+
+  if (!user_filename && argv[0])
+    {
+      /* Try loading a man page. */
+      debug (3, ("falling back to manpage node"));
+
+      int man_exists = check_manpage_node (argv[0]);
+      if (man_exists)
+        {
+          NODE *man_node = get_manpage_node (argv[0]);
+          if (man_node)
             {
-              while (p[1])
-                p++;
-              invocation_program_name = *p;
+              info_session_one_node (man_node);
+              exit (0);
             }
         }
+    }
 
-      get_initial_file (&argc, &argv, &error);
+  /* If the user specified a particular filename, add the path of that file
+     to the contents of INFOPATH, for '--variable follow-strategy=path'. */
+  if (user_filename)
+    add_file_directory_to_path (user_filename);
 
-      if (!user_filename && argv[0])
+  /* If the user specified `--index-search=STRING --all', create
+     and display the menu of results. */
+  if (index_search_p && all_matches_p && initial_file)
+    {
+      FILE_BUFFER *initial_fb;
+      initial_fb = info_find_file (initial_file);
+      if (initial_fb)
         {
-          /* Try loading a man page. */
-          debug (3, ("falling back to manpage node"));
-
-          int man_exists = check_manpage_node (argv[0]);
-          if (man_exists)
+          NODE *node = create_virtual_index (initial_fb,
+                                             index_search_string);
+          if (node)
             {
-              NODE *man_node = get_manpage_node (argv[0]);
-              if (man_node)
+              if (user_output_filename)
                 {
-                  info_session_one_node (man_node);
-                  exit (0);
-                }
-            }
-        }
-
-      /* If the user specified a particular filename, add the path of that file
-         to the contents of INFOPATH, for '--variable follow-strategy=path'. */
-      if (user_filename)
-        add_file_directory_to_path (user_filename);
-
-      /* If the user specified `--index-search=STRING --all', create
-         and display the menu of results. */
-      if (index_search_p && all_matches_p && initial_file)
-        {
-          FILE_BUFFER *initial_fb;
-          initial_fb = info_find_file (initial_file);
-          if (initial_fb)
-            {
-              NODE *node = create_virtual_index (initial_fb,
-                                                 index_search_string);
-              if (node)
-                {
-                  if (user_output_filename)
-                    {
-                      FILE *output_stream = 0;
-                      if (strcmp (user_output_filename, "-") == 0)
-                        output_stream = stdout;
-                      else
-                        output_stream = fopen (user_output_filename, "w");
-                      if (output_stream)
-                        {
-                          write_node_to_stream (node, output_stream);
-                        }
-                      exit (0);
-                    }
+                  FILE *output_stream = 0;
+                  if (strcmp (user_output_filename, "-") == 0)
+                    output_stream = stdout;
                   else
+                    output_stream = fopen (user_output_filename, "w");
+                  if (output_stream)
                     {
-                      info_session_one_node (node);
-                      exit (0);
+                      write_node_to_stream (node, output_stream);
                     }
+                  exit (0);
                 }
-            }
-        }
-
-      /* If the user specified `--index-search=STRING', 
-         start the info session in the node corresponding
-         to what they want. */
-      else if (index_search_p && initial_file && !user_output_filename)
-        {
-          FILE_BUFFER *initial_fb;
-          initial_fb = info_find_file (initial_file);
-          if (initial_fb)
-            {
-              REFERENCE *result;
-              int i, match_offset;
-
-              result = next_index_match (initial_fb, index_search_string, 0, 1,
-                                         &i, &match_offset);
-
-              if (result)
+              else
                 {
-                  initialize_info_session ();
-                  report_index_match (i, match_offset);
-                  info_select_reference (active_window, result);
-                  info_read_and_dispatch ();
-                  close_info_session ();
+                  info_session_one_node (node);
                   exit (0);
                 }
             }
-
-          fprintf (stderr, _("no index entries found for '%s'\n"),
-                   index_search_string);
-          close_dribble_file ();
-          exit (1);
         }
+    }
 
-      /* Add nodes to start with. */
-      add_initial_nodes (argc, argv, &error);
-
-      /* --where */
-      if (print_where_p)
+  /* If the user specified `--index-search=STRING', 
+     start the info session in the node corresponding
+     to what they want. */
+  else if (index_search_p && initial_file && !user_output_filename)
+    {
+      FILE_BUFFER *initial_fb;
+      initial_fb = info_find_file (initial_file);
+      if (initial_fb)
         {
-          if (initial_file)
-            printf ("%s\n", initial_file);
-          exit (0);
+          REFERENCE *result;
+          int i, match_offset;
+
+          result = next_index_match (initial_fb, index_search_string, 0, 1,
+                                     &i, &match_offset);
+
+          if (result)
+            {
+              initialize_info_session ();
+              report_index_match (i, match_offset);
+              info_select_reference (active_window, result);
+              info_read_and_dispatch ();
+              close_info_session ();
+              exit (0);
+            }
         }
 
+      fprintf (stderr, _("no index entries found for '%s'\n"),
+               index_search_string);
+      close_dribble_file ();
+      exit (1);
+    }
+
+  /* Add nodes to start with. */
+  add_initial_nodes (argc, argv, &error);
+
+  /* --where */
+  if (print_where_p)
+    {
+      if (initial_file)
+        printf ("%s\n", initial_file);
+      exit (0);
     }
 
   /* --output */

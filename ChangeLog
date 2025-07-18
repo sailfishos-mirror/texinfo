@@ -1,5 +1,11 @@
 2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info.c (main) <not --all>: Move block of code
+	out of "else" clause of condition.  This reduces the indentation
+	by one level.
+
+2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	info_session_allfiles
 
 	* info/session.c (info_session): Remove second parameter
