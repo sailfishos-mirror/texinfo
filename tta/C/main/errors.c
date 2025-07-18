@@ -108,8 +108,6 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
                        pgettext ("Texinfo source file error in macro",
                                  "%s (possibly involving @%s)"),
                        error_message->message, error_message->source_info.macro);
-          if (!continuation)
-            error_messages->error_nrs++;
         }
 #else
       if (type == MSG_warning)
@@ -119,9 +117,6 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
         {
           text_printf (&error_line, "%s (possibly involving @%s)",
                     error_message->message, error_message->source_info.macro);
-
-          if (!continuation)
-            error_messages->error_nrs++;
         }
 #endif
     }
@@ -141,9 +136,6 @@ message_list_line_formatted_message (ERROR_MESSAGE_LIST *error_messages,
       else
         {
           text_printf (&error_line, "%s", error_message->message);
-
-          if (!continuation)
-            error_messages->error_nrs++;
         }
     }
   text_append (&error_line, "\n");
@@ -219,9 +211,6 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
         {
           text_printf (&error_line, "%s: %s",
                        conf->PROGRAM.o.string, error_message->message);
-
-          if (!continuation)
-            error_messages->error_nrs++;
         }
     }
   else
@@ -241,9 +230,6 @@ message_list_document_formatted_message (ERROR_MESSAGE_LIST *error_messages,
       else
         {
           text_append (&error_line, error_message->message);
-
-          if (!continuation)
-            error_messages->error_nrs++;
         }
     }
   text_append (&error_line, "\n");
@@ -434,6 +420,24 @@ clear_error_message_list (ERROR_MESSAGE_LIST *error_messages)
   error_messages->number = 0;
 }
 
+/* returns the number of messages of type error that are not continuations */
+size_t
+count_errors (ERROR_MESSAGE_LIST *error_messages)
+{
+  size_t count = 0;
+  size_t i;
+
+  for (i = 0; i < error_messages->number; i++)
+    {
+      const ERROR_MESSAGE *error_msg = &error_messages->list[i];
+      if (!error_msg->continuation
+          && (error_msg->type == MSG_document_error
+              || error_msg->type == MSG_error))
+        count++;
+    }
+  return count;
+}
+
 /* add file information to message and print out.  Similar to texi2any.pl
    _output_error_messages.  Used from C only */
 size_t
@@ -444,7 +448,7 @@ output_error_messages (ERROR_MESSAGE_LIST *error_messages,
   TEXT text;
   ENCODING_CONVERSION *conversion = 0;
   size_t i;
-  size_t error_nrs = error_messages->error_nrs;
+  size_t error_nrs = count_errors (error_messages);
 
   if (message_encoding)
     conversion = get_encoding_conversion (message_encoding,

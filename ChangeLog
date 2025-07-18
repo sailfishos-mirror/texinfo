@@ -1,19 +1,21 @@
-2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
-	Allow 'manual-not-found' hook to create a node
+	* tta/C/main/errors.c (count_errors): add to count the number of
+	errors that are not continuations.
 
-	* info/info.c (get_initial_file): If the 'manual-not-found'
-	hook produced any output, use the output as a node and start
-	the Info session displaying that node.
-	* doc/info-stnd.texi (Hooks): update with example of outputing
-	a node.
+	* tta/C/main/document_types.h (ERROR_MESSAGE_LIST),
+	tta/C/main/errors.c (message_list_line_formatted_message)
+	(message_list_document_formatted_message, output_error_messages):
+	remove the number of errors that are not continuations from
+	ERROR_MESSAGE_LIST, call count_errors to determine it when needed
+	only.  Same as Perl. 
 
-2025-07-17 Patrice Dumas  <pertusus@free.fr>
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/build_perl_info.c (pass_errors_to_hv): inline
 	add_formatted_error_messages in pass_errors_to_hv.
 
-2025-07-17 Patrice Dumas  <pertusus@free.fr>
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Common.pm (converter_or_document_line_warn): add
 	continuation argument.
@@ -25,7 +27,7 @@
 	* tta/perl/Texinfo/Document.pm (document_line_warn)
 	(document_line_error): remove intermediary variable.
 
-2025-07-17 Patrice Dumas  <pertusus@free.fr>
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Document.pm (document_line_warn)
 	(document_line_error), tta/perl/Texinfo/Structuring.pm: move
@@ -34,7 +36,7 @@
 	document_line_error.  Remove unused silent argument of
 	document_line_warn and document_line_error.  Update callers.
 
-2025-07-17 Patrice Dumas  <pertusus@free.fr>
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/build_perl_info.c (pass_errors_to_hv)
 	(pass_document_parser_errors_to_parser_sv): rename
@@ -55,7 +57,7 @@
 	tta/perl/XSTexinfo/parser_document/Parsetexi.xs (errors):
 	rename registrar as error_messages.
 
-2025-07-17 Patrice Dumas  <pertusus@free.fr>
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Document.pm (_existing_label_error)
 	(set_labels_identifiers_target, register_label_element): rename
@@ -69,6 +71,16 @@
 	(_protect_hashchar_at_line_beginning)
 	(protect_hashchar_at_line_beginning): use document only for error
 	reporting.
+
+2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Allow 'manual-not-found' hook to create a node
+
+	* info/info.c (get_initial_file): If the 'manual-not-found'
+	hook produced any output, use the output as a node and start
+	the Info session displaying that node.
+	* doc/info-stnd.texi (Hooks): update with example of outputing
+	a node.
 
 2025-07-17 Patrice Dumas  <pertusus@free.fr>
 
