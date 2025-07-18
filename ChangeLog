@@ -1,5 +1,10 @@
 2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info.c (main): Reformat string constant in usage message
+	so to have whitespace in first column.  No functional change.
+
+2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session.c (info_session_one_node): New function.
 	* info/info.c (get_initial_file, main): Call info_session_one_node.
 
