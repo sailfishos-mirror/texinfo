@@ -978,15 +978,16 @@ main (int argc, char *argv[])
 
           for (i = 0; ref_list[i]; i++)
             printf ("%s\n", ref_list[i]->filename);
-          exit (0);
         }
-
-      /* If only one match, don't start in a menu of matches. */
-      if (ref_index != 1)
+      else
         {
-          info_session_allfiles (ref_list, user_filename, error);
-          exit (0);
+          /* If only one match, don't start in a menu of matches. */
+          if (ref_index != 1)
+            info_session_allfiles (ref_list, user_filename, error);
+          else
+            info_session (ref_list, error);
         }
+      exit (0);
     }
 
   /* --show-options */

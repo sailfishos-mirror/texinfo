@@ -1,5 +1,11 @@
 2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info.c (main) <--all>: Handle --all completely within
+	this condition, and call 'exit' at the end.  This eliminates
+	any dependence following code might have on --all.
+
+2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info.c (main) <not --all>: Move block of code
 	out of "else" clause of condition.  This reduces the indentation
 	by one level.
