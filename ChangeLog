@@ -32,7 +32,7 @@
 
 	* tta/C/structuring_transfo/structuring.c
 	(check_node_tree_menu_structure, find_identifier_target): remove
-	unused variables. 
+	unused variables.
 
 	* tta/C/structuring_transfo/structuring.c (construct_nodes_tree): add
 	a const.
@@ -47,7 +47,7 @@
 	(message_list_document_formatted_message, output_error_messages):
 	remove the number of errors that are not continuations from
 	ERROR_MESSAGE_LIST, call count_errors to determine it when needed
-	only.  Same as Perl. 
+	only.  Same as Perl.
 
 2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
@@ -100,7 +100,7 @@
 
 	* tta/perl/Texinfo/Document.pm (_existing_label_error)
 	(set_labels_identifiers_target, register_label_element): rename
-	registrar as error_messages. 
+	registrar as error_messages.
 
 	* tta/perl/Texinfo/Transformations.pm (_new_node)
 	(insert_nodes_for_sectioning_commands): use the document only for
@@ -181,7 +181,7 @@
 	messages directly in lists in document and parser.  Determine the
 	number of errors only when used, with the new count_errors method.
 	Remove new_texinfo_report.  Remove Texinfo::Report new, clear,
-	add_formatted_message and 
+	add_formatted_message and errors.
 
 	* tta/perl/Texinfo/Report.pm (line_warn, line_error, document_warn)
 	(document_error), tta/perl/Texinfo/Common.pm
@@ -371,7 +371,7 @@
 	(with_swig_python, SWIG_PYTHON_INTERFACE, AC_CONFIG_FILES)
 	(AC_ARG_WITH swig): add --with-swig options to configure.  Set
 	automake conditionals based on SWIG and Python macros results.
-	Add swig directory to tta/Makefile.am, conditionally. 
+	Add swig directory to tta/Makefile.am, conditionally.
 
 	* tta/swig/Makefile.am (SUBDIRS, DIST_SUBDIRS): build python interface
 	only if SWIG_PYTHON_INTERFACE is set.
@@ -436,7 +436,7 @@
 2025-07-14 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/parsetexi/handle_commands.c (add_comment_at_end): determine
-	comment text length early, before possibly adding an end of line. 
+	comment text length early, before possibly adding an end of line.
 
 	* tta/C/parsetexi/handle_commands.c (add_comment_at_end): use
 	comment_text_element for this element source marks.
@@ -549,7 +549,7 @@
 
 	* tta/C/structuring_transfo/transformations.c (correct_level),
 	tta/perl/Texinfo/Transformations.pm (_correct_level): update for
-	changes in tree. 
+	changes in tree.
 
 2025-07-13 Patrice Dumas  <pertusus@free.fr>
 
@@ -566,7 +566,7 @@
 	not return anything for non special arg commands.  Update caller.
 
 	* tta/C/main/element_types.txt, tta/C/parsetexi/handle_commands.c
-	(new_element_at_begin_reloc, raw_line_command_arg_spaces) 
+	(new_element_at_begin_reloc, raw_line_command_arg_spaces)
 	(add_comment_at_end, handle_line_command),
 	tta/perl/Texinfo/ParserNonXS.pm (_new_element_at_begin_reloc)
 	(_raw_line_command_arg_spaces, _add_comment_at_end)

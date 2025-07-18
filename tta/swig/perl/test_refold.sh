@@ -19,14 +19,14 @@
 
 #set -e
 #set -x
- 
+
 if [ z"$srcdir" = 'z' ]; then
   srcdir='.'
 fi
 
 mdir=check_refold_tree
 mkdir -p $mdir
- 
+
 echo "generate t directory Texinfo files"
 rm -rf $mdir/refold_texi
 
