@@ -51,8 +51,6 @@ definfoenclose_command                 braces
 # type at the element creation, except maybe to help with the handling
 # of C specific data
 nobrace_command                        c_only
-# @item, @tab
-container_command                      c_only
 line_command                           spaces_before,c_only
 block_command                          spaces_before,c_only
 brace_command                          braces,c_only

@@ -7,7 +7,6 @@ TYPE_DATA type_data[] = {
 {"index_entry_command", 0, 1},
 {"definfoenclose_command", 0, 2},
 {"nobrace_command", TF_c_only, 0},
-{"container_command", TF_c_only, 0},
 {"line_command", TF_c_only, 1},
 {"block_command", TF_c_only, 1},
 {"brace_command", TF_c_only, 2},

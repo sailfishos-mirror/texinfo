@@ -471,7 +471,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                 {
                   debug ("ITEM CONTAINER");
                   counter_inc (&count_items);
-                  command_e = new_command_element (ET_container_command, cmd);
+                  command_e = new_command_element (ET_nobrace_command, cmd);
 
                   add_extra_integer (command_e, AI_key_item_number,
                                      counter_value (&count_items, parent));
@@ -525,7 +525,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                     {
                       counter_inc (&count_cells);
                       command_e
-                        = new_command_element (ET_container_command, cmd);
+                        = new_command_element (ET_nobrace_command, cmd);
                       add_to_element_contents (row, command_e);
                       current = command_e;
                       debug ("TAB");
@@ -548,7 +548,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
                   add_extra_integer (row, AI_key_row_number,
                                      parent->e.c->contents.number - 2);
 
-                  command_e = new_command_element (ET_container_command, cmd);
+                  command_e = new_command_element (ET_nobrace_command, cmd);
                   add_to_element_contents (row, command_e);
                   current = command_e;
 

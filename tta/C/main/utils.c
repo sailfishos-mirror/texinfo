@@ -875,17 +875,7 @@ new_element_from_names (const char *type_name, const char *command_name,
       if (e_type == ET_NONE)
         {
           if (builtin_command_data[cmd].flags & CF_nobrace)
-            {
-              if (builtin_command_data[cmd].data != NOBRACE_skipspace)
-                e_type = ET_nobrace_command;
-              else
-                {
-                  if (cmd == CM_item || cmd == CM_tab || cmd == CM_headitem)
-                    e_type = ET_container_command;
-                  else
-                    e_type = ET_nobrace_command;
-                }
-            }
+            e_type = ET_nobrace_command;
           else if (builtin_command_data[cmd].flags & CF_line)
             e_type = ET_line_command;
           else if (builtin_command_data[cmd].flags & CF_block)
