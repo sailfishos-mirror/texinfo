@@ -297,6 +297,7 @@ get_initial_file (int *argc, char ***argv, char **error)
     {
       debug (3, ("running manual-not-found hook"));
       char *hook_name = "manual-not-found";
+      char *hook_output;
 
       /* Create argument array. */
       char *hook_args[3];
@@ -304,11 +305,34 @@ get_initial_file (int *argc, char ***argv, char **error)
       hook_args[0] = hook_name;
       hook_args[1] = (*argv)[0];
       hook_args[2] = 0;
-      int status = run_info_hook (hook_name, hook_args, 0);
+      int status = run_info_hook (hook_name, hook_args, &hook_output);
       if (status == 0)
         {
-          /* Hook handled manual. */
-          exit (EXIT_FAILURE);
+          if (!hook_output || !*hook_output)
+            {
+              /* Hook handled manual but did not print any output. */
+              exit (EXIT_FAILURE);
+            }
+
+          /* Use the output from the hook as a node to display. */
+          struct text_buffer buf;
+          text_buffer_init (&buf);
+          text_buffer_printf (&buf,
+                              "Node: %s output,\tUp: (dir)\n\n", hook_name);
+          text_buffer_printf (&buf, "%s", hook_output);
+          free (hook_output);
+
+          NODE *node = text_buffer_to_node (&buf);
+          char *node_name;
+          xasprintf (&node_name, "%s output", hook_name);
+          name_internal_node (node, node_name);
+          scan_node_contents (node, 0, 0);
+
+          initialize_info_session ();
+          info_set_node_of_window (active_window, node);
+          info_read_and_dispatch ();
+          close_info_session ();
+          exit (0);
         }
       else if (status != 127)
         {

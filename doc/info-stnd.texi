@@ -2577,9 +2577,50 @@ echo "Manual '$1' not found" >&2
 exit 0
 @end example
 
-If the exit status of the hook is 0, then Info exits.  Otherwise
-(perhaps if the hook program encountered some problem), Info keeps
-on running as before, probably exiting with its usual error message.
+The hook should exit with a status of zero to indicate success.
+
+If the hook runs successfully and does not print anything on its
+standard output, Info exits.
+
+If the hook prints anything to standard output, Info creates a node
+with this output, and starts an interactive session displaying this node.
+For example, the following hook script tries to find a man page, and if
+it succeeds, creates an Info menu allowing the user to navigate to that
+man page from within Info:
+
+@example
+#!/bin/sh
+
+manpage_exists=0
+if man -w "$1" >/dev/null ; then
+  manpage_exists=1
+fi
+
+if test $manpage_exists = 1 ; then
+  msg="An Info manual called '$1' was not found on your
+system.
+
+See <https://www.gnu.org/doc/> in a web browser to get
+information on GNU project documentation.
+
+You could try loading the man page instead, using the link
+below:
+
+* Menu:
+
+* (*manpages*)$1::	$1 man page
+"
+
+  echo "$msg"
+fi
+
+exit 0
+@end example
+
+
+If the exit status of the hook is non-zero (perhaps if the hook program
+encountered some problem), Info keeps on running as before, probably
+exiting with its usual error message.
 
 @item node-not-found-interactive
 This hook runs if the user attempts to load a node while they are
