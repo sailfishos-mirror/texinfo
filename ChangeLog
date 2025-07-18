@@ -1,3 +1,10 @@
+2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/configure.ac (--with-swig):  Make third argument to AC_ARG_WITH
+	blank and change the fourth to set 'with_swig' to 'check' rather than
+	'no'.  Do not set 'with_swig' variable before AC_ARG_WITH use as
+	this appears to lead the third argument always to be executed.
+
 2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/structuring_transfo/structuring.c

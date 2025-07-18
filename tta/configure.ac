@@ -549,11 +549,10 @@ AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 # Therefore it would be nice to check a link against libperl here.
 # It is not the case for the Perl SWIG interface.
 
-with_swig=check
 AC_ARG_WITH([swig],
    AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: check)]),
-   [ with_swig='yes' ],
-   [ with_swig='no' ])
+   [],
+   [ with_swig='check' ])
 
 if test $with_swig != 'no' ; then
   # Find swig executable
