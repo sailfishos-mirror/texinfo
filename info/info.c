@@ -328,10 +328,7 @@ get_initial_file (int *argc, char ***argv, char **error)
           name_internal_node (node, node_name);
           scan_node_contents (node, 0, 0);
 
-          initialize_info_session ();
-          info_set_node_of_window (active_window, node);
-          info_read_and_dispatch ();
-          close_info_session ();
+          info_session_one_node (node);
           exit (0);
         }
       else if (status != 127)
@@ -1056,10 +1053,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"),
                     }
                   else
                     {
-                      initialize_info_session ();
-                      info_set_node_of_window (active_window, node);
-                      info_read_and_dispatch ();
-                      close_info_session ();
+                      info_session_one_node (node);
                       exit (0);
                     }
                 }

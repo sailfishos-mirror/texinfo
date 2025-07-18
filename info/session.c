@@ -223,6 +223,16 @@ info_session (REFERENCE **ref_list, char *user_filename, char *error)
   close_info_session ();
 }
 
+/* Start an info session with a single node displayed. */
+void
+info_session_one_node (NODE *node)
+{
+  initialize_info_session ();
+  info_set_node_of_window (active_window, node);
+  info_read_and_dispatch ();
+  close_info_session ();
+}
+
 void info_next_line (WINDOW *, int count);
 void info_prev_line (WINDOW *, int count);
 static int info_keyseq_displayed_p;
