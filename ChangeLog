@@ -7,6 +7,13 @@
 
 2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/element_types.txt, tta/C/main/utils.c
+	(new_element_from_names), tta/C/parsetexi/handle_commands.c
+	(handle_brace_command): remove C specific brace_args_command type, use
+	brace_command instead.
+	
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/Makefile.am (EXTRA_DIST),
 	tta/swig/perl/test_refold.sh: compare the output of parse_refold.pl
 	and the original file for all the Texinfo manuals generated based on

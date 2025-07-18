@@ -895,9 +895,6 @@ new_element_from_names (const char *type_name, const char *command_name,
             {
               if (builtin_command_data[cmd].data == BRACE_context)
                 e_type = ET_context_brace_command;
-              else if (builtin_command_data[cmd].data == BRACE_arguments
-                       || builtin_command_data[cmd].data == BRACE_inline)
-                e_type = ET_brace_args_command;
               else
                 e_type = ET_brace_command;
             }

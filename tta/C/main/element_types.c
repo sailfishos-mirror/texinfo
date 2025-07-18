@@ -11,7 +11,6 @@ TYPE_DATA type_data[] = {
 {"line_command", TF_c_only, 1},
 {"block_command", TF_c_only, 1},
 {"brace_command", TF_c_only, 2},
-{"brace_args_command", TF_c_only, 2},
 {"context_brace_command", TF_c_only, 2},
 {"after_menu_description_line", TF_text, 0},
 {"space_at_end_menu_node", TF_text, 0},
