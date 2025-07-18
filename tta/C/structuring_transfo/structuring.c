@@ -1319,8 +1319,6 @@ check_node_tree_menu_structure (DOCUMENT *document)
           size_t j;
           for (j = 0; j < menus->number; j++)
             {
-              const ELEMENT *menu_node;
-
               const ELEMENT *menu = menus->list[j];
               size_t k;
               /* Loop through each entry in the menu and
@@ -1691,7 +1689,6 @@ set_top_node_next (const NODE_RELATIONS_LIST *nodes_list,
                    const C_HASHMAP *identifiers_target)
 {
   const ELEMENT *top_node = find_identifier_target (identifiers_target, "Top");
-  const ELEMENT *arguments_line;
 
   if (!top_node)
     return 0;
@@ -1850,7 +1847,7 @@ construct_nodes_tree (DOCUMENT *document)
         }
       else /* explicit directions */
         {
-          ELEMENT *arguments_line = node->e.c->contents.list[0];
+          const ELEMENT *arguments_line = node->e.c->contents.list[0];
 
           size_t i;
           for (i = 1; i < arguments_line->e.c->contents.number; i++)

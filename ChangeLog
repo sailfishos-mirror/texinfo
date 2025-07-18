@@ -1,5 +1,14 @@
 2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/structuring.c
+	(check_node_tree_menu_structure, find_identifier_target): remove
+	unused variables. 
+
+	* tta/C/structuring_transfo/structuring.c (construct_nodes_tree): add
+	a const.
+
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/errors.c (count_errors): add to count the number of
 	errors that are not continuations.
 
