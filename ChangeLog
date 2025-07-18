@@ -7,6 +7,13 @@
 
 2025-07-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (EXTRA_DIST),
+	tta/swig/perl/test_refold.sh: compare the output of parse_refold.pl
+	and the original file for all the Texinfo manuals generated based on
+	tta/perl/t/*.t tests.
+
+2025-07-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/parse_refold.pl: finished implementation.
 
 2025-07-18 Patrice Dumas  <pertusus@free.fr>

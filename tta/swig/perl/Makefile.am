@@ -71,7 +71,8 @@ if SWIG_PERL_TESTS
 TESTS = $(test_files)
 endif
 
-EXTRA_DIST = $(test_files)
+EXTRA_DIST = $(test_files) \
+              test_refold.sh
 
 MAINTAINERCLEANFILES = Texinfo.pm
 
