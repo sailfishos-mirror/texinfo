@@ -983,6 +983,11 @@ main (int argc, char *argv[])
             printf ("%s\n", ref_list[i]->filename);
           exit (0);
         }
+      if (all_matches_p)
+        {
+          info_session_allfiles (ref_list, user_filename, error);
+          exit (0);
+        }
     }
   else
     {
@@ -1127,7 +1132,7 @@ main (int argc, char *argv[])
       exit (0);
     }
     
-  info_session (ref_list, all_matches_p ? user_filename : 0, error);
+  info_session (ref_list, error);
   close_info_session ();
   exit (0);
 }

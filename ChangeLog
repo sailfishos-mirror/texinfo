@@ -1,3 +1,14 @@
+2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info_session_allfiles
+
+	* info/session.c (info_session): Remove second parameter
+	and do not use for --all.
+	(info_session_allfiles): New function, used for --all.
+	* info/info.c (main) <--all>: Call info_session_allfiles
+	directly in this section rather than leaving it for info_session
+	later on in the function.
+
 2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Use info_session_one_node more

@@ -108,7 +108,9 @@ void info_error (const char *format, ...) TEXINFO_PRINTFLIKE(1,2);
 void initialize_info_session (void);
 void info_read_and_dispatch (void);
 void close_info_session (void);
-void info_session (REFERENCE **ref_list, char *user_filename, char *error);
+void info_session (REFERENCE **ref_list, char *error);
+void info_session_allfiles (REFERENCE **ref_list, char *user_filename,
+                            char *error);
 void info_session_one_node (NODE *node);
 void initialize_terminal_and_keymaps (char *init_file);
 NODE *info_intuit_options_node (NODE *initial_node, char *program);

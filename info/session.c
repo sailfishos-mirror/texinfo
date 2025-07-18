@@ -197,11 +197,10 @@ display_startup_message (void)
 }
 
 /* Run an Info session.  If USER_FILENAME is null, create a window for each
-   node referenced in REF_LIST.  If USER_FILENAME is not null, "--all" was
-   used on the command line, and display a file index with entries in
-   REF_LIST.  ERROR is an optional error message to display at start-up. */
+   node referenced in REF_LIST.
+   ERROR is an optional error message to display at start-up. */
 void
-info_session (REFERENCE **ref_list, char *user_filename, char *error)
+info_session (REFERENCE **ref_list, char *error)
 {
   /* Initialize the Info session. */
   initialize_info_session ();
@@ -211,13 +210,26 @@ info_session (REFERENCE **ref_list, char *user_filename, char *error)
   else
     show_error_node (error);
 
-  if (!user_filename)
-    begin_multiple_window_info_session (ref_list, error);
+  begin_multiple_window_info_session (ref_list, error);
+  info_read_and_dispatch ();
+  close_info_session ();
+}
+
+/* Used when "--all" was used on the command line.  Display a file index
+   with entries in REF_LIST.  */
+void
+info_session_allfiles (REFERENCE **ref_list, char *user_filename, char *error)
+{
+  /* Initialize the Info session. */
+  initialize_info_session ();
+
+  if (!error)
+    display_startup_message ();
   else
-    {
-      allfiles_create_node (user_filename, ref_list);
-      info_set_node_of_window (active_window, allfiles_node);
-    }
+    show_error_node (error);
+
+  allfiles_create_node (user_filename, ref_list);
+  info_set_node_of_window (active_window, allfiles_node);
 
   info_read_and_dispatch ();
   close_info_session ();
