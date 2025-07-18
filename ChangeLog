@@ -1,5 +1,20 @@
 2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Use info_session_one_node more
+
+	* info/info.c (get_initial_file):
+	Remove logic looking for a manpage from here.
+	(main): Check for man page after calling get_initial_file, and
+	if found, start info session with info_session_one_node.
+
+	* info/session.c (info_intuit_options_node) Return a pointer to NODE
+	rather than than a REFERENCE.
+	(info_goto_invocation_node): Update.
+	* info/info.c (add_initial_nodes) <--show-options>: Start session
+	with invocation node with info_session_one_node.
+
+2025-07-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/ext/highlight_syntax.pm (highlight_process):
 	Create output directory if it does not exist.  Otherwise there
 	can be an error that a file couldn't be opened.

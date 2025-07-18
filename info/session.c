@@ -3480,9 +3480,8 @@ find_invocation_node_by_nodename (FILE_BUFFER *fb, char *program)
 /* Find the node in the file with name FILE that is the best candidate to
    list the PROGRAM's invocation info and its command-line options, by looking
    for menu items and chains of menu items with characteristic names.  This
-   function frees NODE.  Return value should be freed by caller with
-   info_reference_free.  */
-REFERENCE *
+   function frees NODE. */
+NODE *
 info_intuit_options_node (NODE *node, char *program)
 {
   /* The list of node names typical for GNU manuals where the program
@@ -3576,13 +3575,7 @@ info_intuit_options_node (NODE *node, char *program)
         node = node2;
       }
     }
-
-  {
-    char *n = node->nodename;
-    node->nodename = 0;
-    free_history_node (node);
-    return info_new_reference (filename, n);
-  }
+  return node;
 }
 
 /* Given a name of an Info file, find the name of the package it describes by
@@ -3617,7 +3610,7 @@ DECLARE_INFO_COMMAND (info_goto_invocation_node,
   char *program_name, *line;
   char *default_program_name, *prompt, *file_name;
   NODE *top_node;
-  REFERENCE *invocation_ref;
+  NODE *invocation_node;
 
   /* Intuit the name of the program they are likely to want.
      We use the file name of the current Info file as a hint.  */
@@ -3644,14 +3637,11 @@ DECLARE_INFO_COMMAND (info_goto_invocation_node,
   if (!top_node)
     info_error (msg_cant_find_node, "Top");
 
-  invocation_ref = info_intuit_options_node (top_node, program_name);
+  invocation_node = info_intuit_options_node (top_node, program_name);
 
   /* We've got our best shot at the invocation node.  Now select it.  */
-  if (invocation_ref)
-    {
-      info_select_reference (window, invocation_ref);
-      info_reference_free (invocation_ref);
-    }
+  if (invocation_node)
+    info_set_node_of_window (window, invocation_node);
 
   free (line);
   free (default_program_name);

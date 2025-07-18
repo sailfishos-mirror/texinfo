@@ -343,24 +343,6 @@ get_initial_file (int *argc, char ***argv, char **error)
         }
     }
 
-  /* Fall back to loading man page. */
-    {
-      int man_exists;
-
-      debug (3, ("falling back to manpage node"));
-
-      man_exists = check_manpage_node ((*argv)[0]);
-      if (man_exists)
-        {
-          add_pointer_to_array
-            (info_new_reference (MANPAGE_FILE_BUFFER_NAME, (*argv)[0]),
-             ref_index, ref_list, ref_slots, 2);
-
-          initial_file = MANPAGE_FILE_BUFFER_NAME;
-          return;
-        }
-    }
-
   /* Inexact dir lookup. */
     {
       entry = lookup_dir_entry ((*argv)[0], 1);
@@ -492,7 +474,7 @@ add_initial_nodes (int argc, char **argv, char **error)
   if (goto_invocation_p)
     {
       NODE *top_node = 0;
-      REFERENCE *invoc_ref = 0;
+      NODE *invoc_node = 0;
 
       char *program;
 
@@ -517,13 +499,11 @@ add_initial_nodes (int argc, char **argv, char **error)
         top_node = info_get_node (ref_list[0]->filename, 
                                   ref_list[0]->nodename);
       if (top_node)
-        invoc_ref = info_intuit_options_node (top_node, program);
-      if (invoc_ref)
+        invoc_node = info_intuit_options_node (top_node, program);
+      if (invoc_node)
         {
-          info_reference_free (ref_list[0]);
-          ref_index = 0;
-
-          add_pointer_to_array (invoc_ref, ref_index, ref_list, ref_slots, 2);
+          info_session_one_node (invoc_node);
+          exit (0);
         }
       free (program);
     }
@@ -1022,6 +1002,23 @@ main (int argc, char *argv[])
 
       get_initial_file (&argc, &argv, &error);
 
+      if (!user_filename && argv[0])
+        {
+          /* Try loading a man page. */
+          debug (3, ("falling back to manpage node"));
+
+          int man_exists = check_manpage_node (argv[0]);
+          if (man_exists)
+            {
+              NODE *man_node = get_manpage_node (argv[0]);
+              if (man_node)
+                {
+                  info_session_one_node (man_node);
+                  exit (0);
+                }
+            }
+        }
+
       /* If the user specified a particular filename, add the path of that file
          to the contents of INFOPATH, for '--variable follow-strategy=path'. */
       if (user_filename)
@@ -1093,12 +1090,8 @@ main (int argc, char *argv[])
           exit (1);
         }
 
-      /* Add nodes to start with (unless we fell back to the man page). */
-      if (!ref_list[0] || strcmp (ref_list[0]->filename, 
-                                  MANPAGE_FILE_BUFFER_NAME))
-        {
-          add_initial_nodes (argc, argv, &error);
-        }
+      /* Add nodes to start with. */
+      add_initial_nodes (argc, argv, &error);
 
       /* --where */
       if (print_where_p)
