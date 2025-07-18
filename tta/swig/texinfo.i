@@ -139,6 +139,7 @@ const char *element_command_data_type (ELEMENT *element);
 // Parser
 
 // api.h
+// status is 0 in case of success
 DOCUMENT *parse_file (const char *input_file_path, int *OUTPUT);
 DOCUMENT *parse_piece (const char *, int line_nr=1);
 DOCUMENT *parse_string (const char *, int line_nr=1);

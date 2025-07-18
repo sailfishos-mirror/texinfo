@@ -1555,6 +1555,8 @@ print_element_source_info (ELEMENT *element, TEXT *result,
             decoded_file_name
               = decode_string (source_info->file_name, fname_encoding,
                                &status, 0);
+          else
+            decoded_file_name = source_info->file_name;
           text_append (result, decoded_file_name);
         }
 

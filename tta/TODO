@@ -21,8 +21,7 @@ inline contents_child_by_index in C?
 SWIG Index sorted by letter?  Iteration over attributes names to discover
 element attributes? changing source marks.
 
-* split/reuse relocate_source_marks, possibly modified to copy
-  the source mark and not remove them.
+Example of source mark not on a text element
  defcondx_Dbar empty_ifset_in_ifset_no_set t/55conditionals.t
 
 
@@ -48,6 +47,9 @@ Missing documentation
 
 Tree documentation in ParserNonXS.pm
 ------------------------------------
+
+Change strategy of documentation, document extra and info as arguments
+as in the SWIG interface?
 
 elided_rawpreformatted, elided_brace_command_arg types.
 
