@@ -1,5 +1,10 @@
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/swig_interface.c (element_cmdname): return command
+	name for user-defined macro calls too.
+
+2025-07-19 Patrice Dumas  <pertusus@free.fr>
+
 	Rename swig_command_data.h as swig_element_data.h and add types
 
 	* tta/C/Makefile.am (C_libtexinfo_main_sources),

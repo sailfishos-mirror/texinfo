@@ -345,6 +345,7 @@ typedef struct SOURCE_MARK {
 // swig_interface.h
 const char *element_type (ELEMENT *element);
 const char *element_text (ELEMENT *element);
+// returns the macro name for user-defined macro calls too
 const char *element_cmdname (ELEMENT *element);
 int element_children_number (ELEMENT *element);
 ELEMENT *element_get_child (ELEMENT *element, int index);

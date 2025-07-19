@@ -152,8 +152,7 @@ element_text (ELEMENT *element)
 const char *
 element_cmdname (ELEMENT *element)
 {
-  if (!(type_data[element->type].flags & TF_text)
-      && element->e.c->cmd)
+  if (!(type_data[element->type].flags & TF_text))
     return element_command_name (element);
 
   return 0;
