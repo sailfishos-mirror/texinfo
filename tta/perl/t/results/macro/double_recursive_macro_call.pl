@@ -49,12 +49,12 @@ $result_tree_text{'double_recursive_macro_call'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1>
-   >*macro_call C1
+   >*macro_call@mactwo C1
    >|INFO
    >|command_name:{mactwo}
     >*brace_arg
   >macro_expansion<start;2>
-   >*macro_call C1
+   >*macro_call@macone C1
    >|INFO
    >|command_name:{macone}
     >*brace_arg

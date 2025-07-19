@@ -293,7 +293,9 @@ sub _convert_to_texinfo($)
         $result .= _convert_args($element->{'contents'}->[0]);
       } elsif (exists($brace_commands{$cmdname})
                or ($element->{'type'}
-                   and $element->{'type'} eq 'definfoenclose_command')) {
+                   and ($element->{'type'} eq 'definfoenclose_command'
+                        or $element->{'type'} eq 'macro_call'
+                        or $element->{'type'} eq 'rmacro_call'))) {
         # contents may not be set for a command without braces.  In that
         # case it is better if the command is considered as a command without
         # argument.
@@ -313,12 +315,16 @@ sub _convert_to_texinfo($)
         return $result;
       } elsif ($line_commands{$data_cmdname}
                or ($element->{'type'}
-                   and $element->{'type'} eq 'index_entry_command')) {
+                   and ($element->{'type'} eq 'index_entry_command'
+                        or $element->{'type'} eq 'macro_call_line'
+                        or $element->{'type'} eq 'rmacro_call_line'))) {
         # line commands that are not root commands
         $result .= $spc_before_arg;
         $result .= _convert_args($element);
         return $result;
-      } elsif ($def_commands{$data_cmdname}) {
+      } elsif ($def_commands{$data_cmdname}
+               or ($element->{'type'}
+                   and ($element->{'type'} eq 'linemacro_call'))) {
         # @def* commands (that are also block commands)
         $result .= $spc_before_arg;
       } else {
@@ -328,26 +334,6 @@ sub _convert_to_texinfo($)
       if ($element->{'type'}
           and $element->{'type'} eq 'bracketed_arg') {
         $result .= '{';
-      } elsif ($element->{'type'}
-               and ($element->{'type'} eq 'macro_call'
-                    or $element->{'type'} eq 'rmacro_call'
-                    or $element->{'type'} eq 'linemacro_call'
-                    or $element->{'type'} eq 'macro_call_line'
-                    or $element->{'type'} eq 'rmacro_call_line')) {
-        $result .= '@'.$element->{'info'}->{'command_name'};
-        if (($element->{'type'} eq 'macro_call'
-             or $element->{'type'} eq 'rmacro_call')
-            and $element->{'contents'}) {
-          if ($element->{'info'}
-              and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
-            $result
-              .= $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'};
-          }
-          $result .= '{';
-          $result .= _convert_args($element);
-          $result .= '}';
-          return $result;
-        }
       }
       if ($element->{'info'}
           and $element->{'info'}->{'spaces_before_argument'}) {

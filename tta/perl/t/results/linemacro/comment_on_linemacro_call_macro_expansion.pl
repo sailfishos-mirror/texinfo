@@ -51,7 +51,7 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
    {macro first |a|\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@mymacro C1
     >|INFO
     >|command_name:{mymacro}
     >|spaces_after_cmd_before_arg:
@@ -62,7 +62,7 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
       >|{spaces_before_argument:\\n}
       >{macro_call_arg_text:@lm {a} @c in comment}
    >linemacro_expansion<start;1><p:6>
-    >*linemacro_call C2
+    >*linemacro_call@lm C2
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:

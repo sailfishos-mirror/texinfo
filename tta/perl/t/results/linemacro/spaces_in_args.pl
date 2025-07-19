@@ -30,7 +30,7 @@ $result_tree_text{'spaces_in_args'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
-   >*linemacro_call C3
+   >*linemacro_call@mylinecommand C3
    >|INFO
    >|command_name:{mylinecommand}
    >|spaces_before_argument:

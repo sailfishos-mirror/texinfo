@@ -30,7 +30,7 @@ $result_tree_text{'macro_one_arg_end_of_file'} = '*document_root C1
    {Arg .}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call_line C1
+    >*macro_call_line@onearg C1
     >|INFO
     >|command_name:{onearg}
      >*line_arg

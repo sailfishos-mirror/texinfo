@@ -79,16 +79,14 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
     }
   else
     {
-      if (e->e.c->cmd)
+      /* includes user-defined macro calls (which are only in source marks) */
+      const char *cmdname = element_command_name (e);
+      if (cmdname)
         {
           enum command_id cmd = element_builtin_data_cmd (e);
           const ELEMENT *spc_before_arg = 0;
 
-          if (cmd)
-            {
-              const char *cmdname = element_command_name (e);
-              ADD("@");  ADD(cmdname);
-            }
+          ADD("@");  ADD(cmdname);
 
           if (type_data[e->type].elt_info_number > eit_spaces_after_cmd_before_arg)
             {
@@ -125,7 +123,8 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               convert_args (arguments, result);
             }
           else if (builtin_command_data[cmd].flags & CF_brace
-                   || builtin_command_data[cmd].flags & CF_INFOENCLOSE)
+                   || builtin_command_data[cmd].flags & CF_INFOENCLOSE
+                   || e->type == ET_macro_call || e->type == ET_rmacro_call)
             {
               int braces;
 
@@ -161,7 +160,9 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               return;
             }
           else if (builtin_command_data[cmd].flags & CF_line
-                   || e->type == ET_index_entry_command)
+                   || e->type == ET_index_entry_command
+                   || e->type == ET_macro_call_line
+                   || e->type == ET_rmacro_call_line)
             {
           /* line commands that are not root commands */
               if (spc_before_arg)
@@ -170,7 +171,8 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
               convert_args (e, result);
               return;
             }
-          else if (builtin_command_data[cmd].flags & CF_def)
+          else if (builtin_command_data[cmd].flags & CF_def
+                   || e->type == ET_linemacro_call)
             { /* @def* commands (that are also block commands) */
               if (spc_before_arg)
                 ADD((char *)spc_before_arg->e.text->text);
@@ -186,22 +188,6 @@ convert_to_texinfo_internal (const ELEMENT *e, TEXT *result)
         {
           if (e->type == ET_bracketed_arg)
             ADD("{");
-          else if (type_data[e->type].flags & TF_macro_call)
-            {
-              const char *cmdname = element_command_name (e);
-              ADD("@");  ADD(cmdname);
-              if (e->type == ET_macro_call || e->type == ET_rmacro_call
-                  && e->e.c->contents.number)
-                {
-                  elt = e->elt_info[eit_spaces_after_cmd_before_arg];
-                  if (elt)
-                    ADD((char *)elt->e.text->text);
-                  ADD("{");
-                  convert_args (e, result);
-                  ADD("}");
-                  return;
-                }
-            }
           if (type_data[e->type].elt_info_number > eit_spaces_before_argument)
             {
               elt = e->elt_info[eit_spaces_before_argument];

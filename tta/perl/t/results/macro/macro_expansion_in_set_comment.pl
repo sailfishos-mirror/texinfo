@@ -28,7 +28,7 @@ $result_tree_text{'macro_expansion_in_set_comment'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
-   >*macro_call C1
+   >*macro_call@mymac C1
    >|INFO
    >|command_name:{mymac}
     >*brace_arg C1

@@ -38,7 +38,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     {Text in copying.\\n}
     >SOURCEMARKS
     >macro_expansion<start;1><p:17>
-     >*macro_call C1
+     >*macro_call@files-char C1
      >|INFO
      >|command_name:{files-char}
       >*brace_arg
@@ -205,7 +205,7 @@ $result_tree_text{'test_image'} = '*document_root C3
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;2><p:1>
-   >*macro_call C1
+   >*macro_call@files-char C1
    >|INFO
    >|command_name:{files-char}
     >*brace_arg
@@ -350,7 +350,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     {}
     >SOURCEMARKS
     >macro_expansion<start;3>
-     >*macro_call C1
+     >*macro_call@files-char C1
      >|INFO
      >|command_name:{files-char}
       >*brace_arg
@@ -499,7 +499,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *block_line_arg C1
     >SOURCEMARKS
     >macro_expansion<start;4>
-     >*macro_call C1
+     >*macro_call@files-char C1
      >|INFO
      >|command_name:{files-char}
       >*brace_arg
@@ -637,7 +637,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      {}
      >SOURCEMARKS
      >macro_expansion<start;5>
-      >*macro_call C1
+      >*macro_call@files-char C1
       >|INFO
       >|command_name:{files-char}
        >*brace_arg

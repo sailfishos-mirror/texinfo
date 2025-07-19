@@ -294,7 +294,7 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    {Macro not unmacroed Other macro.\\n}
    >SOURCEMARKS
    >macro_expansion<start;1><p:20>
-    >*macro_call C1
+    >*macro_call@othermacro C1
     >|INFO
     >|command_name:{othermacro}
      >*brace_arg

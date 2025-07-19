@@ -61,7 +61,7 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
-   >*macro_call C1
+   >*macro_call@codekbdmacro C1
    >|INFO
    >|command_name:{codekbdmacro}
     >*brace_arg
@@ -254,7 +254,7 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;2><p:1>
-   >*macro_call C1
+   >*macro_call@codekbdmacro C1
    >|INFO
    >|command_name:{codekbdmacro}
     >*brace_arg
@@ -439,7 +439,7 @@ $result_tree_text{'kbdinputstyle_in_table'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;3><p:1>
-   >*macro_call C1
+   >*macro_call@codekbdmacro C1
    >|INFO
    >|command_name:{codekbdmacro}
     >*brace_arg

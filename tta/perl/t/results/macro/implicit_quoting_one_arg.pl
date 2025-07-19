@@ -29,7 +29,7 @@ $result_tree_text{'implicit_quoting_one_arg'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
-   >*macro_call C1
+   >*macro_call@FIXAME C1
    >|INFO
    >|command_name:{FIXAME}
     >*brace_arg C1

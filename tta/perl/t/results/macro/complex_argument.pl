@@ -70,7 +70,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
-   >*macro_call C1
+   >*macro_call@macrothree C1
    >|INFO
    >|command_name:{macrothree}
     >*brace_arg C1
@@ -102,7 +102,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      {4 1}
      >SOURCEMARKS
      >macro_expansion<start;2><p:2>
-      >*macro_call C1
+      >*macro_call@macrofour C1
       >|INFO
       >|command_name:{macrofour}
        >*brace_arg
@@ -124,7 +124,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      {doubleafter 1}
      >SOURCEMARKS
      >macro_expansion<start;3><p:12>
-      >*macro_call C1
+      >*macro_call@macrofour C1
       >|INFO
       >|command_name:{macrofour}
        >*brace_arg
@@ -231,7 +231,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    {1\\n}
    >SOURCEMARKS
    >macro_expansion<start;4>
-    >*macro_call C1
+    >*macro_call@macrofour C1
     >|INFO
     >|command_name:{macrofour}
      >*brace_arg
@@ -250,7 +250,7 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    {Call macroseven\\n}
    >SOURCEMARKS
    >macro_expansion<start;5><p:16>
-    >*macro_call C1
+    >*macro_call@macroseven C1
     >|INFO
     >|command_name:{macroseven}
      >*brace_arg C1

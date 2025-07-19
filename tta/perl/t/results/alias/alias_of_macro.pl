@@ -42,7 +42,7 @@ $result_tree_text{'alias_of_macro'} = '*document_root C1
    {||thearg||\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@mymacro C1
     >|INFO
     >|alias_of:{new}
     >|command_name:{mymacro}

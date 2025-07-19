@@ -47,7 +47,7 @@ $result_tree_text{'macro_definition_in_include'} = '*document_root C1
    {in themacro\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@themacro C1
     >|INFO
     >|command_name:{themacro}
      >*brace_arg

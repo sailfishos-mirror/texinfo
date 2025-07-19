@@ -42,7 +42,7 @@ $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
    {text\\n}
    >SOURCEMARKS
    >linemacro_expansion<start;1>
-    >*linemacro_call C1
+    >*linemacro_call@lm C1
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:

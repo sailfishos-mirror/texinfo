@@ -69,7 +69,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      |{spaces_after_argument:\\n}
     >SOURCEMARKS
     >linemacro_expansion<start;1>
-     >*linemacro_call C3
+     >*linemacro_call@outside C3
      >|INFO
      >|command_name:{outside}
      >|spaces_before_argument:
@@ -111,7 +111,7 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      {spaces: }
      >SOURCEMARKS
      >linemacro_expansion<start;2><p:1>
-      >*linemacro_call C3
+      >*linemacro_call@inside C3
       >|INFO
       >|command_name:{inside}
       >|spaces_before_argument:

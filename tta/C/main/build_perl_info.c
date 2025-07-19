@@ -896,6 +896,7 @@ static void
 build_base_element (ELEMENT *e, HV *hv)
 {
   SV *sv;
+  const char *cmdname;
 
   dTHX;
 
@@ -920,11 +921,12 @@ build_base_element (ELEMENT *e, HV *hv)
       STORE("type", sv, HSH_type);
     }
 
-  if (e->e.c->cmd)
+  cmdname = element_command_name (e);
+  if (cmdname)
     {
       /* Note we could optimize the call to newSVpv here and
          elsewhere by passing an appropriate second argument. */
-      sv = newSVpv (element_command_name (e), 0);
+      sv = newSVpv (cmdname, 0);
       STORE("cmdname", sv, HSH_cmdname);
     }
 #undef STORE

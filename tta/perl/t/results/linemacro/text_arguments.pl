@@ -30,7 +30,7 @@ $result_tree_text{'text_arguments'} = '*document_root C1
    {Z}
    >SOURCEMARKS
    >linemacro_expansion<start;1>
-    >*linemacro_call C3
+    >*linemacro_call@nospace C3
     >|INFO
     >|command_name:{nospace}
     >|spaces_before_argument:

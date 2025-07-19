@@ -30,7 +30,7 @@ $result_tree_text{'macro_name_with_hyphen'} = '*document_root C1
    {This blah and that }
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C2
+    >*macro_call@macro-one C2
     >|INFO
     >|command_name:{macro-one}
      >*brace_arg C1

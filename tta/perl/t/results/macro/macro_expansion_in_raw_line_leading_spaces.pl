@@ -28,7 +28,7 @@ $result_tree_text{'macro_expansion_in_raw_line_leading_spaces'} = '*document_roo
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
-   >*macro_call C1
+   >*macro_call@mymac C1
    >|INFO
    >|command_name:{mymac}
     >*brace_arg
@@ -67,7 +67,7 @@ $result_tree_text{'macro_expansion_in_raw_line_leading_spaces'} = '*document_roo
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;2><p:1>
-   >*macro_call C1
+   >*macro_call@mycontents C1
    >|INFO
    >|command_name:{mycontents}
     >*brace_arg

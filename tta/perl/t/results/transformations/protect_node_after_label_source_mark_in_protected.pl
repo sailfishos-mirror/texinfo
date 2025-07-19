@@ -42,7 +42,7 @@ $result_tree_text{'protect_node_after_label_source_mark_in_protected'} = '*docum
    {There is some text }
    >SOURCEMARKS
    >macro_expansion<start;1><p:9>
-    >*macro_call C1
+    >*macro_call@vvv C1
     >|INFO
     >|command_name:{vvv}
      >*brace_arg

@@ -31,7 +31,7 @@ $result_tree_text{'macro_in_invalid_documentencoding'} = '*document_root C1
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;1><p:1>
-    |>*macro_call C1
+    |>*macro_call@badmacro C1
     |>|INFO
     |>|command_name:{badmacro}
      |>*brace_arg

@@ -48,7 +48,7 @@ $result_tree_text{'macro_in_value'} = '*document_root C1
      >*brace_container C1
       >{flagab}
    >macro_expansion<start;1><p:8>
-    >*macro_call
+    >*macro_call@ab
     >|INFO
     >|command_name:{ab}
   {empty_line:\\n}

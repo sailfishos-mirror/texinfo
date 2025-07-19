@@ -30,7 +30,7 @@ $result_tree_text{'user_defined_txiinternalvalue'} = '*document_root C1
    {user internalvalue\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call
+    >*macro_call@txiinternalvalue
     >|INFO
     >|command_name:{txiinternalvalue}
    >macro_expansion<end;1><p:18>

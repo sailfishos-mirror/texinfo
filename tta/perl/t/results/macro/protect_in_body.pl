@@ -30,7 +30,7 @@ $result_tree_text{'protect_in_body'} = '*document_root C1
    {the result: }
    >SOURCEMARKS
    >macro_expansion<start;1><p:4>
-    >*macro_call C2
+    >*macro_call@macroone C2
     >|INFO
     >|command_name:{macroone}
     >|spaces_after_cmd_before_arg:

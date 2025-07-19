@@ -31,7 +31,7 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
    {With a doubles arg a simple }
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@macrotwo C1
     >|INFO
     >|command_name:{macrotwo}
     >|spaces_after_cmd_before_arg:
@@ -61,7 +61,7 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
    {With a doubles arg arg with comma , here  and re arg with comma , here \\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@macrotwo C1
     >|INFO
     >|command_name:{macrotwo}
     >|spaces_after_cmd_before_arg:

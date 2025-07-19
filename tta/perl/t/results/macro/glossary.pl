@@ -160,7 +160,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    {The }
    >SOURCEMARKS
    >macro_expansion<start;1><p:4>
-    >*macro_call C3
+    >*macro_call@gentry C3
     >|INFO
     >|command_name:{gentry}
      >*brace_arg C1
@@ -240,7 +240,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    |misc_args:A{glossary}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@expandglossary C1
     >|INFO
     >|command_name:{expandglossary}
     >|spaces_after_cmd_before_arg:
@@ -304,7 +304,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    { is used in many cases while\\n}
    >SOURCEMARKS
    >macro_expansion<start;3><p:29>
-    >*macro_call C3
+    >*macro_call@gentry C3
     >|INFO
     >|command_name:{gentry}
      >*brace_arg C1
@@ -384,7 +384,7 @@ $result_tree_text{'glossary'} = '*document_root C5
    |misc_args:A{glossary}
    >SOURCEMARKS
    >macro_expansion<start;4>
-    >*macro_call C1
+    >*macro_call@expandglossary C1
     >|INFO
     >|command_name:{expandglossary}
     >|spaces_after_cmd_before_arg:
@@ -478,12 +478,12 @@ $result_tree_text{'glossary'} = '*document_root C5
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;5>
-   >*macro_call C1
+   >*macro_call@glossary C1
    >|INFO
    >|command_name:{glossary}
     >*brace_arg
   >macro_expansion<start;6>
-   >*macro_call
+   >*macro_call@glossarytext
    >|INFO
    >|command_name:{glossarytext}
   {ignorable_spaces_after_command: }

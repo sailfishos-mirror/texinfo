@@ -31,7 +31,7 @@ $result_tree_text{'macro_zero'} = '*document_root C1
    {0\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@zero C1
     >|INFO
     >|command_name:{zero}
      >*brace_arg

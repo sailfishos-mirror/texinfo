@@ -38,7 +38,7 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
      {d, e f }
      >SOURCEMARKS
      >linemacro_expansion<start;1>
-      >*linemacro_call C3
+      >*linemacro_call@mycommand C3
       >|INFO
       >|command_name:{mycommand}
       >|spaces_before_argument:

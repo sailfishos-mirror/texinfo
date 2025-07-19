@@ -28,7 +28,7 @@ $result_tree_text{'macro_with_error_at_end_line_after_macro'} = '*document_root 
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
-   >*macro_call C1
+   >*macro_call@witherror C1
    >|INFO
    >|command_name:{witherror}
     >*brace_arg C1

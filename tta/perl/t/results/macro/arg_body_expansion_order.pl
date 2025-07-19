@@ -52,7 +52,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
-   >*macro_call C1
+   >*macro_call@redefineothermacro C1
    >|INFO
    >|command_name:{redefineothermacro}
     >*brace_arg C1
@@ -90,7 +90,7 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
    {different\\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@othermacro C1
     >|INFO
     >|command_name:{othermacro}
      >*brace_arg

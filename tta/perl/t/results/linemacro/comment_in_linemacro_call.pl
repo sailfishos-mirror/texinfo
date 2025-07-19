@@ -31,7 +31,7 @@ $result_tree_text{'comment_in_linemacro_call'} = '*document_root C1
    {c }
    >SOURCEMARKS
    >linemacro_expansion<start;1>
-    >*linemacro_call C2
+    >*linemacro_call@lm C2
     >|INFO
     >|command_name:{lm}
     >|spaces_before_argument:

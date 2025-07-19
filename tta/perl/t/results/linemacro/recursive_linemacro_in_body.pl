@@ -29,7 +29,7 @@ $result_tree_text{'recursive_linemacro_in_body'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1>
-   >*linemacro_call C2
+   >*linemacro_call@anorecurse C2
    >|INFO
    >|command_name:{anorecurse}
    >|spaces_before_argument:

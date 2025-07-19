@@ -35,7 +35,7 @@ $result_tree_text{'macro_in_menu_comment_closed_by_detailmenu'} = '*document_roo
    *menu_comment
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@emptystring C1
     >|INFO
     >|command_name:{emptystring}
      >*brace_arg

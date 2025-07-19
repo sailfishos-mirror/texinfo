@@ -132,7 +132,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     {menu_entry_leading_text:* }
     >SOURCEMARKS
     >macro_expansion<start;1>
-     >*macro_call C1
+     >*macro_call@starspaces C1
      >|INFO
      >|command_name:{starspaces}
       >*brace_arg
@@ -144,7 +144,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<end;1>
      >macro_expansion<start;2><p:10>
-      >*macro_call C1
+      >*macro_call@twocolon C1
       >|INFO
       >|command_name:{twocolon}
        >*brace_arg
@@ -159,7 +159,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      {after_menu_description_line:  \\n}
      >SOURCEMARKS
      >macro_expansion<start;3>
-      >*macro_call C1
+      >*macro_call@spaces C1
       >|INFO
       >|command_name:{spaces}
        >*brace_arg
@@ -169,7 +169,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     {menu_entry_leading_text:* }
     >SOURCEMARKS
     >macro_expansion<start;4>
-     >*macro_call C1
+     >*macro_call@astar C1
      >|INFO
      >|command_name:{astar}
       >*brace_arg
@@ -187,13 +187,13 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     {menu_entry_leading_text:* }
     >SOURCEMARKS
     >macro_expansion<start;5>
-     >*macro_call C1
+     >*macro_call@astar C1
      >|INFO
      >|command_name:{astar}
       >*brace_arg
     >macro_expansion<end;5><p:1>
     >macro_expansion<start;6><p:1>
-     >*macro_call C1
+     >*macro_call@aspace C1
      >|INFO
      >|command_name:{aspace}
       >*brace_arg
@@ -217,7 +217,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
      {node colon macro}
      >SOURCEMARKS
      >macro_expansion<start;7><p:16>
-      >*macro_call C1
+      >*macro_call@acolon C1
       >|INFO
       >|command_name:{acolon}
        >*brace_arg
@@ -225,13 +225,13 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     >SOURCEMARKS
     >macro_expansion<end;7><p:1>
     >macro_expansion<start;8><p:1>
-     >*macro_call C1
+     >*macro_call@acolon C1
      >|INFO
      >|command_name:{acolon}
       >*brace_arg
     >macro_expansion<end;8><p:2>
     >macro_expansion<start;9><p:2>
-     >*macro_call C1
+     >*macro_call@aspace C1
      >|INFO
      >|command_name:{aspace}
       >*brace_arg
@@ -252,7 +252,7 @@ $result_tree_text{'macro_in_menu'} = '*document_root C1
     {menu_entry_separator:. }
     >SOURCEMARKS
     >macro_expansion<start;10><p:1>
-     >*macro_call C1
+     >*macro_call@aspace C1
      >|INFO
      >|command_name:{aspace}
       >*brace_arg

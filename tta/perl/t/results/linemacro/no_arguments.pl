@@ -30,7 +30,7 @@ $result_tree_text{'no_arguments'} = '*document_root C1
    {Body.\\n}
    >SOURCEMARKS
    >linemacro_expansion<start;1>
-    >*linemacro_call C1
+    >*linemacro_call@noarg C1
     >|INFO
     >|command_name:{noarg}
      >*linemacro_arg C1
@@ -41,7 +41,7 @@ $result_tree_text{'no_arguments'} = '*document_root C1
    {Body.\\n}
    >SOURCEMARKS
    >linemacro_expansion<start;2>
-    >*linemacro_call C1
+    >*linemacro_call@noarg C1
     >|INFO
     >|command_name:{noarg}
     >|spaces_before_argument:
@@ -54,7 +54,7 @@ $result_tree_text{'no_arguments'} = '*document_root C1
    {Body.\\n}
    >SOURCEMARKS
    >linemacro_expansion<start;3>
-    >*linemacro_call C1
+    >*linemacro_call@noarg C1
     >|INFO
     >|command_name:{noarg}
     >|spaces_before_argument:

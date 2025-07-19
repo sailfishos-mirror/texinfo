@@ -30,13 +30,13 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
    {text text text text\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@mymacro C1
     >|INFO
     >|command_name:{mymacro}
      >*brace_arg
    >macro_expansion<end;1><p:4>
    >macro_expansion<start;2><p:5>
-    >*macro_call C1
+    >*macro_call@mymacro C1
     >|INFO
     >|command_name:{mymacro}
      >*brace_arg
@@ -45,7 +45,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
       >|{spaces_before_argument: }
    >macro_expansion<end;2><p:9>
    >macro_expansion<start;3><p:10>
-    >*macro_call C1
+    >*macro_call@mymacro C1
     >|INFO
     >|command_name:{mymacro}
      >*brace_arg
@@ -54,7 +54,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
       >|{spaces_before_argument:  }
    >macro_expansion<end;3><p:14>
    >macro_expansion<start;4><p:15>
-    >*macro_call C1
+    >*macro_call@mymacro C1
     >|INFO
     >|command_name:{mymacro}
      >*brace_arg C1
@@ -87,13 +87,13 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
    {XX XX XX XxX}
    >SOURCEMARKS
    >macro_expansion<start;5>
-    >*macro_call C1
+    >*macro_call@mytwo C1
     >|INFO
     >|command_name:{mytwo}
      >*brace_arg
    >macro_expansion<end;5><p:2>
    >macro_expansion<start;6><p:3>
-    >*macro_call C1
+    >*macro_call@mytwo C1
     >|INFO
     >|command_name:{mytwo}
      >*brace_arg
@@ -102,7 +102,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
       >|{spaces_before_argument: }
    >macro_expansion<end;6><p:5>
    >macro_expansion<start;7><p:6>
-    >*macro_call C1
+    >*macro_call@mytwo C1
     >|INFO
     >|command_name:{mytwo}
      >*brace_arg
@@ -111,7 +111,7 @@ $result_tree_text{'empty_macro_argument'} = '*document_root C1
       >|{spaces_before_argument:  }
    >macro_expansion<end;7><p:8>
    >macro_expansion<start;8><p:9>
-    >*macro_call C1
+    >*macro_call@mytwo C1
     >|INFO
     >|command_name:{mytwo}
      >*brace_arg C1

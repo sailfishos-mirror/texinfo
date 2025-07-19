@@ -50,7 +50,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;1><p:1>
-    |>*macro_call C1
+    |>*macro_call@begin-file C1
     |>|INFO
     |>|command_name:{begin-file}
      |>*brace_arg
@@ -64,7 +64,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     >SOURCEMARKS
     >macro_expansion<end;1><p:13>
     >macro_expansion<start;2><p:13>
-     >*macro_call C1
+     >*macro_call@end-file-name C1
      >|INFO
      >|command_name:{end-file-name}
       >*brace_arg C1
@@ -111,7 +111,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;3><p:1>
-   >*macro_call
+   >*macro_call@documentencoding-command
    >|INFO
    >|command_name:{documentencoding-command}
   *@documentencoding C1 l18:@documentencoding-command
@@ -121,7 +121,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    |>SOURCEMARKS
    |>macro_expansion<end;3>
    |>macro_expansion<start;4><p:1>
-    |>*macro_call C1
+    |>*macro_call@latin1 C1
     |>|INFO
     |>|command_name:{latin1}
      |>*brace_arg
@@ -208,7 +208,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     >|{spaces_before_argument: }
     >|>SOURCEMARKS
     >|>macro_expansion<start;5><p:1>
-     >|>*macro_call
+     >|>*macro_call@multiinclude
      >|>|INFO
      >|>|command_name:{multiinclude}
    >|EXTRA
@@ -261,7 +261,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    {in themacro\\n}
    >SOURCEMARKS
    >macro_expansion<start;6>
-    >*macro_call C1
+    >*macro_call@themacro C1
     >|INFO
     >|command_name:{themacro}
      >*brace_arg
@@ -276,7 +276,7 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    {texi_commands.info\\n}
    >SOURCEMARKS
    >macro_expansion<start;7>
-    >*macro_call C1
+    >*macro_call@end-file-name C1
     >|INFO
     >|command_name:{end-file-name}
      >*brace_arg C1

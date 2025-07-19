@@ -5451,6 +5451,7 @@ sub _handle_macro($$$$$)
   my $macro_call_element
     = Texinfo::TreeElement::new(
                        {'type' => $expanded_macro->{'cmdname'}.'_call',
+                        'cmdname' => $command,
                         'info' => {'command_name' => $command},
                         'contents' => []});
 

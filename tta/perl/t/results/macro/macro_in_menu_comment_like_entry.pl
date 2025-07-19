@@ -38,13 +38,13 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
      {* a5}
      >SOURCEMARKS
      >macro_expansion<start;1><p:1>
-      >*macro_call C1
+      >*macro_call@emptystring C1
       >|INFO
       >|command_name:{emptystring}
        >*brace_arg
      >macro_expansion<end;1><p:1>
      >macro_expansion<start;2><p:3>
-      >*macro_call C1
+      >*macro_call@emptystring C1
       >|INFO
       >|command_name:{emptystring}
        >*brace_arg
@@ -52,7 +52,7 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
      *@b C1 l7
      >SOURCEMARKS
      >macro_expansion<start;4>
-      >*macro_call C1
+      >*macro_call@emptystring C1
       >|INFO
       >|command_name:{emptystring}
        >*brace_arg
@@ -61,7 +61,7 @@ $result_tree_text{'macro_in_menu_comment_like_entry'} = '*document_root C1
        {b}
        >SOURCEMARKS
        >macro_expansion<start;3><p:1>
-        >*macro_call C1
+        >*macro_call@emptystring C1
         >|INFO
         >|command_name:{emptystring}
          >*brace_arg

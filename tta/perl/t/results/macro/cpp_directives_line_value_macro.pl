@@ -33,7 +33,7 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
    {#line 30 "toto"\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@vvv C1
     >|INFO
     >|command_name:{vvv}
      >*brace_arg
@@ -62,7 +62,7 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
    {# 130\\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@machash C1
     >|INFO
     >|command_name:{machash}
      >*brace_arg
@@ -91,7 +91,7 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
    {# 900 "titi" 3900\\n}
    >SOURCEMARKS
    >macro_expansion<start;3><p:2>
-    >*macro_call C1
+    >*macro_call@numberfileflag C1
     >|INFO
     >|command_name:{numberfileflag}
      >*brace_arg C1

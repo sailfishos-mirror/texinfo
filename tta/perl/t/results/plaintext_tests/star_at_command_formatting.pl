@@ -41,7 +41,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
    {Some text }
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@mymacro C1
     >|INFO
     >|command_name:{mymacro}
      >*brace_arg
@@ -114,7 +114,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     {Some text }
     >SOURCEMARKS
     >macro_expansion<start;2>
-     >*macro_call C1
+     >*macro_call@mymacro C1
      >|INFO
      >|command_name:{mymacro}
       >*brace_arg
@@ -197,7 +197,7 @@ $result_tree_text{'star_at_command_formatting'} = '*document_root C1
     {Some text }
     >SOURCEMARKS
     >macro_expansion<start;3>
-     >*macro_call C1
+     >*macro_call@mymacro C1
      >|INFO
      >|command_name:{mymacro}
       >*brace_arg

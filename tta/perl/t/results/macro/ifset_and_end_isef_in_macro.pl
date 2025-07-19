@@ -47,7 +47,7 @@ $result_tree_text{'ifset_and_end_isef_in_macro'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
-   >*macro_call
+   >*macro_call@beginifset
    >|INFO
    >|command_name:{beginifset}
   >ignored_conditional_block<1><p:1>

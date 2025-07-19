@@ -98,7 +98,7 @@ $result_tree_text{'macro_in_ifset_set'} = '*document_root C1
    {in ifset\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@truc C1
     >|INFO
     >|command_name:{truc}
      >*brace_arg

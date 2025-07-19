@@ -162,7 +162,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        |{spaces_after_argument:\\n}
       >SOURCEMARKS
       >linemacro_expansion<start;1>
-       >*linemacro_call C2
+       >*linemacro_call@param C2
        >|INFO
        >|command_name:{param}
        >|spaces_before_argument:
@@ -215,7 +215,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       {empty_line:\\n}
       >SOURCEMARKS
       >linemacro_expansion<start;2><p:1>
-       >*linemacro_call C2
+       >*linemacro_call@param C2
        >|INFO
        >|command_name:{param}
        >|spaces_before_argument:
@@ -273,7 +273,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       {empty_line:\\n}
       >SOURCEMARKS
       >linemacro_expansion<start;3><p:1>
-       >*linemacro_call C2
+       >*linemacro_call@param C2
        >|INFO
        >|command_name:{param}
        >|spaces_before_argument:
@@ -326,7 +326,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       {empty_line:\\n}
       >SOURCEMARKS
       >linemacro_expansion<start;4><p:1>
-       >*linemacro_call C2
+       >*linemacro_call@returns C2
        >|INFO
        >|command_name:{returns}
        >|spaces_before_argument:
@@ -379,7 +379,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
       {empty_line:\\n}
       >SOURCEMARKS
       >linemacro_expansion<start;5><p:1>
-       >*linemacro_call C1
+       >*linemacro_call@raises C1
        >|INFO
        >|command_name:{raises}
        >|spaces_before_argument:

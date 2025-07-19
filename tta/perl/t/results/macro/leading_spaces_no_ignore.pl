@@ -30,7 +30,7 @@ $result_tree_text{'leading_spaces_no_ignore'} = '*document_root C1
   {spaces_before_paragraph:  }
   >SOURCEMARKS
   >macro_expansion<start;1>
-   >*macro_call C1
+   >*macro_call@mymacro C1
    >|INFO
    >|command_name:{mymacro}
     >*brace_arg

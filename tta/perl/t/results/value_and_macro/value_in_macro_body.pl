@@ -42,7 +42,7 @@ $result_tree_text{'value_in_macro_body'} = '*document_root C1
    {result: }
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@testvaluebody C1
     >|INFO
     >|command_name:{testvaluebody}
      >*brace_arg C1

@@ -29,7 +29,7 @@ $result_tree_text{'macro_expands_to_empty'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1>
-   >*macro_call C1
+   >*macro_call@foo C1
    >|INFO
    >|command_name:{foo}
     >*brace_arg
@@ -38,7 +38,7 @@ $result_tree_text{'macro_expands_to_empty'} = '*document_root C1
    {aa\\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@foo C1
     >|INFO
     >|command_name:{foo}
      >*brace_arg C1

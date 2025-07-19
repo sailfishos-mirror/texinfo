@@ -50,13 +50,13 @@ $result_tree_text{'expansion_order'} = '*document_root C1
    {\\arg\\\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@bidule C1
     >|INFO
     >|command_name:{bidule}
      >*brace_arg C1
       >{macro_call_arg_text:ab}
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@machin C1
     >|INFO
     >|command_name:{machin}
      >*brace_arg

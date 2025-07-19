@@ -42,7 +42,7 @@ $result_tree_text{'alias_macro_target_removed'} = '*document_root C1
    {!!aa!!\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@mystrong C1
     >|INFO
     >|alias_of:{new}
     >|command_name:{mystrong}

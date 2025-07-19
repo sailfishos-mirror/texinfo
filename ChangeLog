@@ -1,5 +1,19 @@
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
+	Add cmdname for user-defined macro calls
+
+	* tta/C/main/build_perl_info.c (build_base_element),
+	tta/C/main/manipulate_tree.c (print_element_details),
+	tta/perl/Texinfo/ParserNonXS.pm b/tta/perl/Texinfo/ParserNonXS.pm
+	(_handle_macro): add cmdname to user-defined macro calls elements
+	in Perl data.
+
+	* tta/C/main/convert_to_texinfo.c (convert_to_texinfo_internal),
+	tta/perl/Texinfo/Convert/Texinfo.pm (_convert_to_texinfo):
+	handle user-defined macro calls together with @-commands.
+
+2025-07-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/element_types.txt, tta/C/parsetexi/macro.c
 	(expand_linemacro_arguments), tta/perl/Texinfo/ParserNonXS.pm
 	(_expand_linemacro_arguments): use a new type for user-defined

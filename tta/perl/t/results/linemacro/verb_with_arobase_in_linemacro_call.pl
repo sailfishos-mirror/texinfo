@@ -28,7 +28,7 @@ $result_tree_text{'verb_with_arobase_in_linemacro_call'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
-   >*linemacro_call C1
+   >*linemacro_call@mycommand C1
    >|INFO
    >|command_name:{mycommand}
    >|spaces_before_argument:

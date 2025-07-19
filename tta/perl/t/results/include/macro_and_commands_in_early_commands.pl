@@ -32,7 +32,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;1><p:1>
-    |>*macro_call C1
+    |>*macro_call@begin-file C1
     |>|INFO
     |>|command_name:{begin-file}
      |>*brace_arg
@@ -73,7 +73,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;2><p:1>
-    |>*macro_call C1
+    |>*macro_call@latin1 C1
     |>|INFO
     |>|command_name:{latin1}
      |>*brace_arg
@@ -161,7 +161,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     >|{spaces_before_argument: }
     >|>SOURCEMARKS
     >|>macro_expansion<start;3><p:1>
-     >|>*macro_call
+     >|>*macro_call@multiinclude
      >|>|INFO
      >|>|command_name:{multiinclude}
    >|EXTRA
@@ -216,7 +216,7 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    {in themacro\\n}
    >SOURCEMARKS
    >macro_expansion<start;4>
-    >*macro_call C1
+    >*macro_call@themacro C1
     >|INFO
     >|command_name:{themacro}
      >*brace_arg

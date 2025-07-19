@@ -41,7 +41,7 @@ $result_tree_text{'ignored_macro_definition'} = '*document_root C1
    {outside.\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@mymacro C1
     >|INFO
     >|command_name:{mymacro}
      >*brace_arg

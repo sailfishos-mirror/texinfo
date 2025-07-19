@@ -50,12 +50,12 @@ $result_tree_text{'nested_macro_call'} = '*document_root C1
    {Before (machin)\\n}
    >SOURCEMARKS
    >macro_expansion<start;1><p:7>
-    >*macro_call C1
+    >*macro_call@truc C1
     >|INFO
     >|command_name:{truc}
      >*brace_arg
    >macro_expansion<start;2><p:7>
-    >*macro_call C1
+    >*macro_call@machin C1
     >|INFO
     >|command_name:{machin}
      >*brace_arg

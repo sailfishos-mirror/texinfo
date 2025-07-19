@@ -33,7 +33,7 @@ $result_tree_text{'simple_imbricated_macro_rmacro'} = '*document_root C1
    {truc.\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@truc C1
     >|INFO
     >|command_name:{truc}
      >*brace_arg
@@ -62,7 +62,7 @@ $result_tree_text{'simple_imbricated_macro_rmacro'} = '*document_root C1
    {bidule.\\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*rmacro_call C1
+    >*rmacro_call@bidule C1
     >|INFO
     >|command_name:{bidule}
      >*brace_arg

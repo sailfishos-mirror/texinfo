@@ -46,7 +46,7 @@ $result_tree_text{'space_macro_after_end'} = '*document_root C1
      |{spaces_after_argument:   }
      |>SOURCEMARKS
      |>macro_expansion<start;1><p:1>
-      |>*macro_call C1
+      |>*macro_call@spaces C1
       |>|INFO
       |>|command_name:{spaces}
        |>*brace_arg

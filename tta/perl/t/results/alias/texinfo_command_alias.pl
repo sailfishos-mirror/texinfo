@@ -42,7 +42,7 @@ $result_tree_text{'texinfo_command_alias'} = '*document_root C1
    {!!aa!!\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@mystrong C1
     >|INFO
     >|alias_of:{strong}
     >|command_name:{mystrong}

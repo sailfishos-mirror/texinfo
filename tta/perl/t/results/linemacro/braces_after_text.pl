@@ -34,7 +34,7 @@ $result_tree_text{'braces_after_text'} = '*document_root C1
      |{spaces_after_argument:\\n}
     >SOURCEMARKS
     >linemacro_expansion<start;1>
-     >*linemacro_call C3
+     >*linemacro_call@mymacro C3
      >|INFO
      >|command_name:{mymacro}
      >|spaces_before_argument:

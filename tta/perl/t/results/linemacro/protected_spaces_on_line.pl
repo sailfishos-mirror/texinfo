@@ -30,7 +30,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
-   >*linemacro_call C2
+   >*linemacro_call@test C2
    >|INFO
    >|command_name:{test}
    >|spaces_before_argument:
@@ -106,7 +106,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;2><p:1>
-   >*linemacro_call C2
+   >*linemacro_call@test C2
    >|INFO
    >|command_name:{test}
    >|spaces_before_argument:
@@ -190,7 +190,7 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >linemacro_expansion<start;3><p:1>
-   >*linemacro_call C2
+   >*linemacro_call@test C2
    >|INFO
    >|command_name:{test}
    >|spaces_before_argument:

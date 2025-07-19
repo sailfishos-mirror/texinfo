@@ -42,7 +42,7 @@ $result_tree_text{'definfoenclose_replaced_by_macro'} = '*document_root C1
    {||aa||\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@phoo C1
     >|INFO
     >|command_name:{phoo}
      >*brace_arg C1

@@ -30,7 +30,7 @@ $result_tree_text{'macro_name_zero'} = '*document_root C1
    {in macro:\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call
+    >*macro_call@0
     >|INFO
     >|command_name:{0}
    >macro_expansion<end;1><p:8>

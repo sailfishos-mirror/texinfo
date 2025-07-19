@@ -30,7 +30,7 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse'} = '*document_root
    {Toto }
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@inlinefirstfmt C1
     >|INFO
     >|command_name:{inlinefirstfmt}
      >*brace_arg

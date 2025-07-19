@@ -30,7 +30,7 @@ $result_tree_text{'macro_no_arg_expansion'} = '*document_root C1
    {res1 abc\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@testone C1
     >|INFO
     >|command_name:{testone}
      >*brace_arg

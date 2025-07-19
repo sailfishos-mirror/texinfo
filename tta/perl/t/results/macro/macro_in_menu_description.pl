@@ -48,7 +48,7 @@ $result_tree_text{'macro_in_menu_description'} = '*document_root C1
      {after_menu_description_line:\\n}
      >SOURCEMARKS
      >macro_expansion<start;1>
-      >*macro_call C1
+      >*macro_call@emptystring C1
       >|INFO
       >|command_name:{emptystring}
        >*brace_arg

@@ -65,7 +65,7 @@ $result_tree_text{'macro_in_brace_command'} = '*document_root C1
        {foo-expansion}
        >SOURCEMARKS
        >macro_expansion<start;1>
-        >*macro_call C1
+        >*macro_call@foo C1
         >|INFO
         >|command_name:{foo}
          >*brace_arg
@@ -73,7 +73,7 @@ $result_tree_text{'macro_in_brace_command'} = '*document_root C1
        *@@
        >SOURCEMARKS
        >macro_expansion<start;2>
-        >*macro_call C1
+        >*macro_call@abar C1
         >|INFO
         >|command_name:{abar}
          >*brace_arg

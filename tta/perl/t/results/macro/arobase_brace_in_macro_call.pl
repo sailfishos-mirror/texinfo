@@ -31,7 +31,7 @@ $result_tree_text{'arobase_brace_in_macro_call'} = '*document_root C1
    {first: }
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@simplemac C1
     >|INFO
     >|command_name:{simplemac}
      >*brace_arg C1
@@ -51,7 +51,7 @@ $result_tree_text{'arobase_brace_in_macro_call'} = '*document_root C1
    {first: }
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@simplemac C1
     >|INFO
     >|command_name:{simplemac}
      >*brace_arg C1

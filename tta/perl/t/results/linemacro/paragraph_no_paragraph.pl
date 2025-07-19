@@ -30,7 +30,7 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
   { }
   >SOURCEMARKS
   >linemacro_expansion<start;1><p:1>
-   >*linemacro_call C3
+   >*linemacro_call@mycommand C3
    >|INFO
    >|command_name:{mycommand}
    >|spaces_before_argument:
@@ -66,7 +66,7 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
    {Some text a\\n}
    >SOURCEMARKS
    >linemacro_expansion<start;2><p:10>
-    >*linemacro_call C3
+    >*linemacro_call@mycommand C3
     >|INFO
     >|command_name:{mycommand}
     >|spaces_before_argument:

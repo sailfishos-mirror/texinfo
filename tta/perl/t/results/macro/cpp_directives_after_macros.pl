@@ -52,7 +52,7 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
    {spaces_before_paragraph:  }
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@noargsspaces C1
     >|INFO
     >|command_name:{noargsspaces}
      >*brace_arg
@@ -66,7 +66,7 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
    {#line 75 "a_file_after_macro_call_no_spaces"\\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@emptyexpansion C1
     >|INFO
     >|command_name:{emptyexpansion}
      >*brace_arg

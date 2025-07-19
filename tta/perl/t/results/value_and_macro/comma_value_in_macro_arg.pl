@@ -42,7 +42,7 @@ $result_tree_text{'comma_value_in_macro_arg'} = '*document_root C1
    {result: }
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@macro1 C1
     >|INFO
     >|command_name:{macro1}
     >|spaces_after_cmd_before_arg:

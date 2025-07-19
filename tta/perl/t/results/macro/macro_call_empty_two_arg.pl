@@ -31,7 +31,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@twoa C1
     >|INFO
     >|command_name:{twoa}
      >*brace_arg
@@ -43,7 +43,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@twoa C1
     >|INFO
     >|command_name:{twoa}
      >*brace_arg
@@ -58,7 +58,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;3>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg
@@ -74,7 +74,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;4>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg
@@ -90,7 +90,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;5>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg
@@ -109,7 +109,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first g,\\n}
    >SOURCEMARKS
    >macro_expansion<start;6>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg C1
@@ -126,7 +126,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first h,\\n}
    >SOURCEMARKS
    >macro_expansion<start;7>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg C1
@@ -140,7 +140,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;8>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg
@@ -157,7 +157,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;9>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg
@@ -177,7 +177,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;10>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg
@@ -191,7 +191,7 @@ $result_tree_text{'macro_call_empty_two_arg'} = '*document_root C1
    {first ,\\n}
    >SOURCEMARKS
    >macro_expansion<start;11>
-    >*macro_call C2
+    >*macro_call@twoa C2
     >|INFO
     >|command_name:{twoa}
      >*brace_arg

@@ -1587,6 +1587,7 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
 {
   int j;
   enum command_id data_cmd = 0;
+  const char *cmdname;
 
   for (j = 0; j < level; j++)
     text_append_n (result, " ", 1);
@@ -1614,16 +1615,17 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
       && !(type_data[element->type].flags & TF_c_only))
     text_append (result, type_data[element->type].name);
 
-  if (element->e.c->cmd)
-    {
-      data_cmd = element_builtin_data_cmd (element);
-      text_printf (result, "@%s", debug_element_command_name (element));
-    }
+  cmdname = debug_element_command_name (element);
+  if (cmdname)
+    text_printf (result, "@%s", debug_element_command_name (element));
 
   if (element->e.c->contents.number > 0)
     text_printf (result, " C%zu", element->e.c->contents.number);
 
   print_element_source_info (element, result, fname_encoding, use_filename);
+
+  if (element->e.c->cmd)
+    data_cmd = element_builtin_data_cmd (element);
 
   if (data_cmd
       && builtin_command_data[data_cmd].flags & CF_root)

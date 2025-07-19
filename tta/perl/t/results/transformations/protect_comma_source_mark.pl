@@ -42,7 +42,7 @@ $result_tree_text{'protect_comma_source_mark'} = '*document_root C1
    {There is some text }
    >SOURCEMARKS
    >macro_expansion<start;1><p:9>
-    >*macro_call C1
+    >*macro_call@vvv C1
     >|INFO
     >|command_name:{vvv}
      >*brace_arg

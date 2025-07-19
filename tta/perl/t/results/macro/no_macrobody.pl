@@ -28,7 +28,7 @@ $result_tree_text{'no_macrobody'} = '*document_root C1
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;1>
-   >*macro_call_line C1
+   >*macro_call_line@nomacrobody C1
    >|INFO
    >|command_name:{nomacrobody}
    >|spaces_before_argument:
@@ -41,7 +41,7 @@ $result_tree_text{'no_macrobody'} = '*document_root C1
    {.\\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@nomacrobody C1
     >|INFO
     >|command_name:{nomacrobody}
      >*brace_arg C1

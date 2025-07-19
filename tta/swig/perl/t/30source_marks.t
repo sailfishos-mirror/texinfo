@@ -15,6 +15,9 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
+# NOTE this test is more important that it seems at first glance, since
+# it is the only test of conversion of elements in source marks to Texinfo.
+
 use strict;
 
 use Test::More;

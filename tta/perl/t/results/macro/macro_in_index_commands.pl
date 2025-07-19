@@ -68,7 +68,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;1><p:1>
-    |>*macro_call C1
+    |>*macro_call@cp C1
     |>|INFO
     |>|command_name:{cp}
      |>*brace_arg
@@ -76,7 +76,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
   |misc_args:A{cp|fn}
   >SOURCEMARKS
   >macro_expansion<start;3>
-   >*macro_call C1
+   >*macro_call@syncodeindexcommand C1
    >|INFO
    >|command_name:{syncodeindexcommand}
     >*brace_arg
@@ -88,7 +88,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     >SOURCEMARKS
     >macro_expansion<end;1><p:2>
     >macro_expansion<start;2><p:3>
-     >*macro_call C1
+     >*macro_call@fn C1
      >|INFO
      >|command_name:{fn}
       >*brace_arg
@@ -134,7 +134,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     |{spaces_before_argument: }
     |>SOURCEMARKS
     |>macro_expansion<start;4><p:1>
-     |>*macro_call C1
+     |>*macro_call@truc C1
      |>|INFO
      |>|command_name:{truc}
       |>*brace_arg
@@ -193,7 +193,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;5><p:1>
-    |>*macro_call C1
+    |>*macro_call@codeidx C1
     |>|INFO
     |>|command_name:{codeidx}
      |>*brace_arg
@@ -258,7 +258,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;6><p:1>
-   >*macro_call C1
+   >*macro_call@trucindexcommand C1
    >|INFO
    >|command_name:{trucindexcommand}
     >*brace_arg
@@ -285,7 +285,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;7><p:1>
-    |>*macro_call C1
+    |>*macro_call@defcodeindexentry C1
     |>|INFO
     |>|command_name:{defcodeindexentry}
      |>*brace_arg
@@ -320,7 +320,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;8><p:1>
-    |>*macro_call C1
+    |>*macro_call@truc C1
     |>|INFO
     |>|command_name:{truc}
      |>*brace_arg
@@ -349,7 +349,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
     {pindex codeidx}
     >SOURCEMARKS
     >macro_expansion<start;9><p:7>
-     >*macro_call C1
+     >*macro_call@codeidx C1
      >|INFO
      >|command_name:{codeidx}
       >*brace_arg
@@ -363,7 +363,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;10><p:1>
-    |>*macro_call C1
+    |>*macro_call@truc C1
     |>|INFO
     |>|command_name:{truc}
      |>*brace_arg
@@ -386,7 +386,7 @@ $result_tree_text{'macro_in_index_commands'} = '*document_root C3
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;11><p:1>
-    |>*macro_call C1
+    |>*macro_call@cp C1
     |>|INFO
     |>|command_name:{cp}
      |>*brace_arg

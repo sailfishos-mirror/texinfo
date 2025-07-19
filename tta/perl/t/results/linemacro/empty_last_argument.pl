@@ -46,7 +46,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
      |{spaces_after_argument:\\n}
     >SOURCEMARKS
     >linemacro_expansion<start;1>
-     >*linemacro_call C2
+     >*linemacro_call@defbuiltin C2
      >|INFO
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
@@ -99,7 +99,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     {empty_line:\\n}
     >SOURCEMARKS
     >linemacro_expansion<start;2><p:1>
-     >*linemacro_call C1
+     >*linemacro_call@defbuiltin C1
      >|INFO
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
@@ -146,7 +146,7 @@ $result_tree_text{'empty_last_argument'} = '*document_root C1
     {empty_line:\\n}
     >SOURCEMARKS
     >linemacro_expansion<start;3><p:1>
-     >*linemacro_call C2
+     >*linemacro_call@defbuiltin C2
      >|INFO
      >|command_name:{defbuiltin}
      >|spaces_before_argument:

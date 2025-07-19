@@ -41,7 +41,7 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse_else'} = '*document
      {before shown}
      >SOURCEMARKS
      >macro_expansion<start;1><p:9>
-      >*macro_call C1
+      >*macro_call@endcallinignoredinlineelse C1
       >|INFO
       >|command_name:{endcallinignoredinlineelse}
        >*brace_arg

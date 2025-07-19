@@ -33,7 +33,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
    {}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@vvv C1
     >|INFO
     >|command_name:{vvv}
      >*brace_arg
@@ -66,7 +66,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
    {}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@machash C1
     >|INFO
     >|command_name:{machash}
      >*brace_arg
@@ -101,7 +101,7 @@ $result_tree_text{'protect_hashchar_at_line_beginning_source_mark'} = '*document
    { 900 "titi" 3900\\n}
    >SOURCEMARKS
    >macro_expansion<start;3><p:1>
-    >*macro_call C1
+    >*macro_call@numberfileflag C1
     >|INFO
     >|command_name:{numberfileflag}
      >*brace_arg C1

@@ -88,7 +88,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    {Out of code --- out-of-code.\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@testallowcodebreakspara C1
     >|INFO
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
@@ -156,7 +156,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;2>
-   >*macro_call C1
+   >*macro_call@testallowcodebreaksexample C1
    >|INFO
    >|command_name:{testallowcodebreaksexample}
     >*brace_arg
@@ -202,7 +202,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    {Out of code --- out-of-code.\\n}
    >SOURCEMARKS
    >macro_expansion<start;3>
-    >*macro_call C1
+    >*macro_call@testallowcodebreakspara C1
     >|INFO
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
@@ -270,7 +270,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;4>
-   >*macro_call C1
+   >*macro_call@testallowcodebreaksexample C1
    >|INFO
    >|command_name:{testallowcodebreaksexample}
     >*brace_arg
@@ -306,7 +306,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
      {Out of code --- out-of-code.\\n}
      >SOURCEMARKS
      >macro_expansion<start;5>
-      >*macro_call C1
+      >*macro_call@testallowcodebreakspara C1
       >|INFO
       >|command_name:{testallowcodebreakspara}
        >*brace_arg C1
@@ -415,7 +415,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    {Out of code --- out-of-code.\\n}
    >SOURCEMARKS
    >macro_expansion<start;6>
-    >*macro_call C1
+    >*macro_call@testallowcodebreakspara C1
     >|INFO
     >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
@@ -483,7 +483,7 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;7>
-   >*macro_call C1
+   >*macro_call@testallowcodebreaksexample C1
    >|INFO
    >|command_name:{testallowcodebreaksexample}
     >*brace_arg

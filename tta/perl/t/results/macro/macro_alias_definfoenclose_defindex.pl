@@ -87,7 +87,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    {||maa||\\n}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@phooindex C1
     >|INFO
     >|command_name:{phooindex}
      >*brace_arg C1
@@ -204,7 +204,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    {!!mff!!\\n}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call_line C1
+    >*macro_call_line@phooindex C1
     >|INFO
     >|command_name:{phooindex}
     >|spaces_before_argument:
@@ -260,7 +260,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    {!!mhh!!\\n}
    >SOURCEMARKS
    >macro_expansion<start;3>
-    >*macro_call_line C1
+    >*macro_call_line@phooindex C1
     >|INFO
     >|command_name:{phooindex}
     >|spaces_before_argument:
@@ -376,7 +376,7 @@ $result_tree_text{'macro_alias_definfoenclose_defindex'} = '*document_root C5
    {%%mmm%%\\n}
    >SOURCEMARKS
    >macro_expansion<start;4>
-    >*macro_call C1
+    >*macro_call@phooindex C1
     >|INFO
     >|command_name:{phooindex}
      >*brace_arg C1

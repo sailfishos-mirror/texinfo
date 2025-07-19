@@ -1637,7 +1637,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    >SOURCEMARKS
    >include<end;1>
    >macro_expansion<start;1>
-    >*macro_call C1
+    >*macro_call@mybibuselist C1
     >|INFO
     >|command_name:{mybibuselist}
      >*brace_arg C1
@@ -1678,7 +1678,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
        >|{spaces_after_argument:\\n}
        >{ifset}
    >macro_expansion<start;2>
-    >*macro_call C1
+    >*macro_call@mybibsetrefnode C1
     >|INFO
     >|command_name:{mybibsetrefnode}
      >*brace_arg C1
@@ -1767,7 +1767,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      {References}
      >SOURCEMARKS
      >macro_expansion<start;3>
-      >*macro_call C1
+      >*macro_call@mybibnode C1
       >|INFO
       >|command_name:{mybibnode}
        >*brace_arg
@@ -1830,7 +1830,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {bibliography, a feature of LaTeX }
    >SOURCEMARKS
    >macro_expansion<start;4><p:33>
-    >*macro_call C1
+    >*macro_call@mybibcite C1
     >|INFO
     >|command_name:{mybibcite}
      >*brace_arg C1
@@ -1882,7 +1882,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
    {(See item [LaTeX2e] in }
    >SOURCEMARKS
    >macro_expansion<start;5>
-    >*macro_call C2
+    >*macro_call@mybibmakeref C2
     >|INFO
     >|command_name:{mybibmakeref}
      >*brace_arg C1
@@ -1900,7 +1900,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
      {References}
      >SOURCEMARKS
      >macro_expansion<start;6>
-      >*macro_call C1
+      >*macro_call@mybibnode C1
       >|INFO
       >|command_name:{mybibnode}
        >*brace_arg
@@ -1940,7 +1940,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |{spaces_before_argument: }
   |>SOURCEMARKS
   |>macro_expansion<start;7><p:1>
-   |>*macro_call C1
+   |>*macro_call@mybibnode C1
    |>|INFO
    |>|command_name:{mybibnode}
     |>*brace_arg
@@ -1991,7 +1991,7 @@ $result_tree_text{'bib_example'} = '*document_root C9
     {empty_line:\\n}
     >SOURCEMARKS
     >macro_expansion<start;8><p:1>
-     >*macro_call C1
+     >*macro_call@mybibitem C1
      >|INFO
      >|command_name:{mybibitem}
       >*brace_arg C1

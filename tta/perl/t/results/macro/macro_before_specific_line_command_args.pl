@@ -32,7 +32,7 @@ $result_tree_text{'macro_before_specific_line_command_args'} = '*document_root C
    |{spaces_before_argument: }
    |>SOURCEMARKS
    |>macro_expansion<start;1>
-    |>*macro_call C1
+    |>*macro_call@cpfn C1
     |>|INFO
     |>|command_name:{cpfn}
      |>*brace_arg

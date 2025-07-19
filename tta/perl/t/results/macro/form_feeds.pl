@@ -49,7 +49,7 @@ $result_tree_text{'form_feeds'} = '*document_root C1
    {f arg1}
    >SOURCEMARKS
    >macro_expansion<start;1>
-    >*macro_call C2
+    >*macro_call@mymacro C2
     >|INFO
     >|command_name:{mymacro}
     >|spaces_after_cmd_before_arg:
@@ -75,7 +75,7 @@ $result_tree_text{'form_feeds'} = '*document_root C1
    {g a}
    >SOURCEMARKS
    >macro_expansion<start;2>
-    >*macro_call_line C1
+    >*macro_call_line@oneargmacro C1
     >|INFO
     >|command_name:{oneargmacro}
     >|spaces_before_argument:

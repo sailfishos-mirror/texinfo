@@ -42,7 +42,7 @@ $result_tree_text{'closing_brace_in_macro_call_in_ignored_inline'} = '*document_
      {truc }
      >SOURCEMARKS
      >macro_expansion<start;1><p:5>
-      >*macro_call C1
+      >*macro_call@closebrace C1
       >|INFO
       >|command_name:{closebrace}
        >*brace_arg

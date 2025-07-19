@@ -34,7 +34,7 @@ $result_tree_text{'macro_for_end'} = '*document_root C1
      |{spaces_after_argument:\\n}
     >SOURCEMARKS
     >macro_expansion<start;1>
-     >*macro_call C1
+     >*macro_call@myend C1
      >|INFO
      >|command_name:{myend}
       >*brace_arg

@@ -60,7 +60,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
        {argaa}
        >SOURCEMARKS
        >macro_expansion<start;1><p:3>
-        >*macro_call C1
+        >*macro_call@string C1
         >|INFO
         >|command_name:{string}
          >*brace_arg
@@ -83,7 +83,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
      {delimiter:(}
      >SOURCEMARKS
      >macro_expansion<start;2><p:1>
-      >*macro_call C1
+      >*macro_call@string C1
       >|INFO
       >|command_name:{string}
        >*brace_arg
@@ -107,7 +107,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
        {bbaa}
        >SOURCEMARKS
        >macro_expansion<start;3><p:2>
-        >*macro_call C1
+        >*macro_call@string C1
         >|INFO
         >|command_name:{string}
          >*brace_arg
@@ -125,7 +125,7 @@ $result_tree_text{'macro_in_def_delimiters'} = '*document_root C1
      {delimiter:]}
      >SOURCEMARKS
      >macro_expansion<start;4><p:1>
-      >*macro_call C1
+      >*macro_call@string C1
       >|INFO
       >|command_name:{string}
        >*brace_arg
