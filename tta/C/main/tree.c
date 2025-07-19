@@ -77,13 +77,6 @@ new_element (enum element_type type)
          sizeof (ELEMENT *) * type_data[type].elt_info_number);
     }
 
-  if (type_data[type].flags & TF_macro_call)
-    {
-      int string_info_nr = 2;
-      e->e.c->string_info = (char **) malloc (string_info_nr * sizeof (char *));
-      memset (e->e.c->string_info, 0, string_info_nr * sizeof (char *));
-    }
-
   return e;
 }
 
@@ -96,6 +89,7 @@ new_command_element (enum element_type type, enum command_id cmd)
   e->e.c->cmd = cmd;
 
   if (type == ET_definfoenclose_command || type == ET_index_entry_command
+      || type_data[type].flags & TF_macro_call
       || cmd == CM_verb)
     string_info_nr = 2;
 

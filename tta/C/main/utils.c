@@ -852,15 +852,10 @@ new_element_from_names (const char *type_name, const char *command_name,
       enum command_id cmd;
 
       if (e_type == ET_index_entry_command
-          || e_type == ET_definfoenclose_command)
+          || e_type == ET_definfoenclose_command
+          || type_data[e_type].flags & TF_macro_call)
         {
           ELEMENT *e = new_command_element (e_type, CM_NONE);
-          e->e.c->string_info[sit_command_name] = strdup (command_name);
-          return e;
-        }
-      else if (type_data[e_type].flags & TF_macro_call)
-        {
-          ELEMENT *e = new_element (e_type);
           e->e.c->string_info[sit_command_name] = strdup (command_name);
           return e;
         }

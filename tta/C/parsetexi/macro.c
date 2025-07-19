@@ -824,7 +824,7 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
 
   if (macro->e.c->cmd == CM_linemacro)
     {
-      macro_call_element = new_element (ET_linemacro_call);
+      macro_call_element = new_command_element (ET_linemacro_call, CM_NONE);
       expand_linemacro_arguments (macro, &line, cmd, macro_call_element);
     }
   else
@@ -835,9 +835,9 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
       if (*p == '{')
         {
           if (macro->e.c->cmd == CM_macro)
-            macro_call_element = new_element (ET_macro_call);
+            macro_call_element = new_command_element (ET_macro_call, CM_NONE);
           else /* macro->e.c->cmd == CM_rmacro */
-            macro_call_element = new_element (ET_rmacro_call);
+            macro_call_element = new_command_element (ET_rmacro_call, CM_NONE);
           if (p - line > 0)
             {
               ELEMENT *spaces_element
@@ -860,17 +860,19 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
              arg and not called with {}. */
 
           if (macro->e.c->cmd == CM_macro)
-            macro_call_element = new_element (ET_macro_call);
+            macro_call_element = new_command_element (ET_macro_call, CM_NONE);
           else /* macro->e.c->cmd == CM_rmacro */
-            macro_call_element = new_element (ET_rmacro_call);
+            macro_call_element = new_command_element (ET_rmacro_call, CM_NONE);
         }
       else
         {
           ELEMENT *arg_elt = new_element (ET_line_arg);
           if (macro->e.c->cmd == CM_macro)
-            macro_call_element = new_element (ET_macro_call_line);
+            macro_call_element
+              = new_command_element (ET_macro_call_line, CM_NONE);
           else /* macro->e.c->cmd == CM_rmacro */
-            macro_call_element = new_element (ET_rmacro_call_line);
+            macro_call_element
+              = new_command_element (ET_rmacro_call_line, CM_NONE);
           add_to_element_contents (macro_call_element, arg_elt);
 
           while (1)
