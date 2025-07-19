@@ -32,7 +32,6 @@ $result_tree_text{'text_arguments'} = '*document_root C1
    >linemacro_expansion<start;1>
     >*linemacro_call@nospace C3
     >|INFO
-    >|command_name:{nospace}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1

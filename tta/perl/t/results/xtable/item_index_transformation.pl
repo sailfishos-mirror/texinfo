@@ -50,7 +50,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     *table_term C6
      *index_entry_command@cindex C1 l9
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -63,7 +62,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
        {After1}
      *index_entry_command@cindex C1 l10
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -76,7 +74,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
        {After2}
      *index_entry_command@cindex C1 l5
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -159,7 +156,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     *table_term C5
      *index_entry_command@cindex C1 l20
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -172,7 +168,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
        {after1}
      *index_entry_command@cindex C1 l21
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -255,7 +250,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     *table_term C4
      *index_entry_command@cindex C1 l28
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -268,7 +262,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
        {before1}
      *index_entry_command@cindex C1 l29
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -356,7 +349,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
     *table_term C4
      *index_entry_command@cindex C1 l42
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -369,7 +361,6 @@ $result_tree_text{'item_index_transformation'} = '*document_root C3
        {after6}
      *index_entry_command@cindex C1 l43
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA

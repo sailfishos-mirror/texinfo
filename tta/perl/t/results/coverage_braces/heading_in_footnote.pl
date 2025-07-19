@@ -32,7 +32,6 @@ $result_tree_text{'heading_in_footnote'} = '*document_root C1
        {H1}
      *index_entry_command@cindex C1 l4
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA

@@ -57,7 +57,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
     {)}
   *index_entry_command@cindex C1 nodes_before_top.texi:l7
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -136,7 +135,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top.texi:l16
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -164,7 +162,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top.texi:l20
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -203,7 +200,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
     {first before top}
   *index_entry_command@cindex C1 nodes_before_top.texi:l24
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -318,7 +314,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
    {Text and then index entries\\n}
    *index_entry_command@cindex C1 nodes_before_top.texi:l40
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -331,7 +326,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
      {! entry in node}
    *index_entry_command@findex C1 nodes_before_top.texi:l41
    |INFO
-   |command_name:{findex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -344,7 +338,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
      {fun in node}
    *index_entry_command@cindex C1 nodes_before_top.texi:l42
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -509,7 +502,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top.texi:l60
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -522,7 +514,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
     {something}
   *index_entry_command@findex C1 nodes_before_top.texi:l61
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -535,7 +526,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
     {somewhere}
   *index_entry_command@cindex C1 nodes_before_top.texi:l62
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -581,7 +571,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
     {second}
   *index_entry_command@cindex C1 nodes_before_top.texi:l65
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -608,7 +597,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
   {empty_line:\\n}
   *index_entry_command@findex C1 nodes_before_top.texi:l69
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -621,7 +609,6 @@ $result_tree_text{'nodes_before_top_split_chapter_no_nodes'} = '*document_root C
     {a function}
   *index_entry_command@cindex C1 nodes_before_top.texi:l70
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

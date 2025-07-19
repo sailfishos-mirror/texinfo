@@ -87,7 +87,6 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
       {rawline_text:comment in itemize}
     *index_entry_command@cindex C1 l9
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -129,7 +128,6 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
    *before_item C1
     *index_entry_command@cindex C1 l14
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -152,7 +150,6 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
     {ignorable_spaces_after_command: }
     *index_entry_command@cindex C1 l16
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -199,7 +196,6 @@ $result_tree_text{'inter_item_commands_in_itemize'} = '*document_root C5
      {T--ext before items.\\n}
      *index_entry_command@cindex C1 l23
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA

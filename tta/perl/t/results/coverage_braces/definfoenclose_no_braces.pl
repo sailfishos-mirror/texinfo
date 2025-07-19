@@ -20,8 +20,6 @@ $result_tree_text{'definfoenclose_no_braces'} = '*document_root C1
     {phoo,;,:}
   *paragraph C1
    *definfoenclose_command@phoo l2
-   |INFO
-   |command_name:{phoo}
    |EXTRA
    |begin:{;}
    |end:{:}

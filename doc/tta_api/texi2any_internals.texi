@@ -125,7 +125,7 @@ Texinfo tree structure
 
 Element types
 
-* Texinfo@asis{::}Parser Types for command elements::
+* Texinfo@asis{::}Parser Types for command and user-defined macro call elements::
 * Texinfo@asis{::}Parser Types for text elements::
 * Texinfo@asis{::}Parser Tree container elements::
 * Texinfo@asis{::}Parser Types of container elements::

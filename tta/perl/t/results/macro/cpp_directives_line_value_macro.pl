@@ -34,8 +34,6 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@vvv C1
-    >|INFO
-    >|command_name:{vvv}
      >*brace_arg
    >macro_expansion<end;1><p:15>
   {empty_line:\\n}
@@ -63,8 +61,6 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@machash C1
-    >|INFO
-    >|command_name:{machash}
      >*brace_arg
    >macro_expansion<end;2><p:1>
   {empty_line:\\n}
@@ -92,8 +88,6 @@ $result_tree_text{'cpp_directives_line_value_macro'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;3><p:2>
     >*macro_call@numberfileflag C1
-    >|INFO
-    >|command_name:{numberfileflag}
      >*brace_arg C1
       >{macro_call_arg_text:900}
    >macro_expansion<end;3><p:17>

@@ -33,8 +33,6 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@threea C3
-    >|INFO
-    >|command_name:{threea}
      >*brace_arg C1
       >{macro_call_arg_text:j}
      >*brace_arg C1
@@ -57,8 +55,6 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@threea C3
-    >|INFO
-    >|command_name:{threea}
      >*brace_arg C1
       >{macro_call_arg_text:m}
      >*brace_arg
@@ -80,8 +76,6 @@ $result_tree_text{'macro_call_empty_middle_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;3>
     >*macro_call@threea C3
-    >|INFO
-    >|command_name:{threea}
      >*brace_arg C1
       >{macro_call_arg_text:o}
      >*brace_arg

@@ -31,8 +31,6 @@ $result_tree_text{'ifclear_in_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@note C1
-   >|INFO
-   >|command_name:{note}
     >*brace_arg C1
     >|INFO
     >|spaces_before_argument:

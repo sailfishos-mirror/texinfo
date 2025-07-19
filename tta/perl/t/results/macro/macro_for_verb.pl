@@ -29,8 +29,6 @@ $result_tree_text{'macro_for_verb'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@verbopen C1
-   >|INFO
-   >|command_name:{verbopen}
     >*brace_arg
   *paragraph C2
    *@verb C1 l5:@verbopen

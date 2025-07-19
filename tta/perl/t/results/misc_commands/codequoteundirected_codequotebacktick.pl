@@ -78,13 +78,9 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >SOURCEMARKS
      >macro_expansion<start;1>
       >*macro_call@allquotes C1
-      >|INFO
-      >|command_name:{allquotes}
        >*brace_arg
      >macro_expansion<start;2>
       >*macro_call@quotes C1
-      >|INFO
-      >|command_name:{quotes}
        >*brace_arg
      *@quotedblleft C1 l31:@quotes
       *brace_container
@@ -180,8 +176,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >SOURCEMARKS
      >macro_expansion<start;3>
       >*macro_call@quotes C1
-      >|INFO
-      >|command_name:{quotes}
        >*brace_arg
      *@quotedblleft C1 l31:@quotes
       *brace_container
@@ -287,8 +281,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
      >SOURCEMARKS
      >macro_expansion<start;4>
       >*macro_call@quotes C1
-      >|INFO
-      >|command_name:{quotes}
        >*brace_arg
      *@quotedblleft C1 l31:@quotes
       *brace_container
@@ -444,13 +436,9 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    >SOURCEMARKS
    >macro_expansion<start;5>
     >*macro_call@allquotes C1
-    >|INFO
-    >|command_name:{allquotes}
      >*brace_arg
    >macro_expansion<start;6>
     >*macro_call@quotes C1
-    >|INFO
-    >|command_name:{quotes}
      >*brace_arg
    *@quotedblleft C1 l45:@quotes
     *brace_container
@@ -546,8 +534,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    >SOURCEMARKS
    >macro_expansion<start;7>
     >*macro_call@quotes C1
-    >|INFO
-    >|command_name:{quotes}
      >*brace_arg
    *@quotedblleft C1 l45:@quotes
     *brace_container
@@ -653,8 +639,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
    >SOURCEMARKS
    >macro_expansion<start;8>
     >*macro_call@quotes C1
-    >|INFO
-    >|command_name:{quotes}
      >*brace_arg
    *@quotedblleft C1 l45:@quotes
     *brace_container
@@ -721,13 +705,9 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >SOURCEMARKS
     >macro_expansion<start;9>
      >*macro_call@allquotes C1
-     >|INFO
-     >|command_name:{allquotes}
       >*brace_arg
     >macro_expansion<start;10>
      >*macro_call@quotes C1
-     >|INFO
-     >|command_name:{quotes}
       >*brace_arg
     *@quotedblleft C1 l48:@quotes
      *brace_container
@@ -823,8 +803,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >SOURCEMARKS
     >macro_expansion<start;11>
      >*macro_call@quotes C1
-     >|INFO
-     >|command_name:{quotes}
       >*brace_arg
     *@quotedblleft C1 l48:@quotes
      *brace_container
@@ -930,8 +908,6 @@ $result_tree_text{'codequoteundirected_codequotebacktick'} = '*document_root C5
     >SOURCEMARKS
     >macro_expansion<start;12>
      >*macro_call@quotes C1
-     >|INFO
-     >|command_name:{quotes}
       >*brace_arg
     *@quotedblleft C1 l48:@quotes
      *brace_container

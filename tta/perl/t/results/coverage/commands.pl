@@ -66,7 +66,6 @@ $result_tree_text{'commands'} = '*document_root C1
   {empty_line:\\n}
   *index_entry_command@cindex C1 l8
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

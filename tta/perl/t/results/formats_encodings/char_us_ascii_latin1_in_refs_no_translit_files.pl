@@ -324,7 +324,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
   {empty_line:\\n}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l39
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -337,7 +336,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
     {ä ë ï ö ü ÿ}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l40
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -350,7 +348,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
     {Ä Ë Ï Ö Ü}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l41
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -363,7 +360,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
     {é}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l42
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -376,7 +372,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
     {è}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l43
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -389,7 +384,6 @@ $result_tree_text{'char_us_ascii_latin1_in_refs_no_translit_files'} = '*document
     {â ê î ô û Â Ê Î Ô Û}
   *index_entry_command@cindex C1 char_us_ascii_latin1_in_refs.texi:l44
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

@@ -37,7 +37,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     >linemacro_expansion<start;1>
      >*linemacro_call@defbuiltin C2
      >|INFO
-     >|command_name:{defbuiltin}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >*linemacro_arg C1
@@ -129,7 +128,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     >linemacro_expansion<start;2><p:1>
      >*linemacro_call@defbuiltin C2
      >|INFO
-     >|command_name:{defbuiltin}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >*linemacro_arg C1
@@ -209,7 +207,6 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
     >linemacro_expansion<start;3><p:1>
      >*linemacro_call@defbuiltin C2
      >|INFO
-     >|command_name:{defbuiltin}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >*linemacro_arg C1

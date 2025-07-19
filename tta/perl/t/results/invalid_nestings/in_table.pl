@@ -161,7 +161,6 @@ $result_tree_text{'in_table'} = '*document_root C3
       *line_arg C1
        *index_entry_command@cindex C1 l14
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -206,7 +205,6 @@ $result_tree_text{'in_table'} = '*document_root C3
       *line_arg C1
        *index_entry_command@cindex C1 l18
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -236,7 +234,6 @@ $result_tree_text{'in_table'} = '*document_root C3
       *line_arg C1
        *index_entry_command@cindex C1 l21
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA

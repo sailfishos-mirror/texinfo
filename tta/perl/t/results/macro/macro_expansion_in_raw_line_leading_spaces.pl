@@ -29,8 +29,6 @@ $result_tree_text{'macro_expansion_in_raw_line_leading_spaces'} = '*document_roo
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@mymac C1
-   >|INFO
-   >|command_name:{mymac}
     >*brace_arg
   *@set C1
   |INFO
@@ -68,8 +66,6 @@ $result_tree_text{'macro_expansion_in_raw_line_leading_spaces'} = '*document_roo
   >SOURCEMARKS
   >macro_expansion<start;2><p:1>
    >*macro_call@mycontents C1
-   >|INFO
-   >|command_name:{mycontents}
     >*brace_arg
   *@contents C1 l11:@mycontents
   |INFO

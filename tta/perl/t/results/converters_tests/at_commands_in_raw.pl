@@ -224,7 +224,6 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    {.\\n}
    *index_entry_command@findex C1 l72
    |INFO
-   |command_name:{findex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -295,8 +294,6 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
    >SOURCEMARKS
    >macro_expansion<start;1><p:20>
     >*macro_call@othermacro C1
-    >|INFO
-    >|command_name:{othermacro}
      >*brace_arg
    >macro_expansion<end;1><p:31>
   {empty_line:\\n}

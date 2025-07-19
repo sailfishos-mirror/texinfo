@@ -54,8 +54,6 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1>
    >*macro_call@conditionals C1
-   >|INFO
-   >|command_name:{conditionals}
     >*brace_arg
   >expanded_conditional_command<start;1>
    >*@ifset C1 l15:@conditionals
@@ -157,8 +155,6 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;2>
    >*macro_call@conditionals C1
-   >|INFO
-   >|command_name:{conditionals}
     >*brace_arg
   >expanded_conditional_command<start;3>
    >*@ifset C1 l19:@conditionals
@@ -260,8 +256,6 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;3>
    >*macro_call@conditionals C1
-   >|INFO
-   >|command_name:{conditionals}
     >*brace_arg
   >ignored_conditional_block<3>
    >*@ifset C8 l23:@conditionals
@@ -319,8 +313,6 @@ $result_tree_text{'nested_ifset_ifclear'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;4>
    >*macro_call@conditionals C1
-   >|INFO
-   >|command_name:{conditionals}
     >*brace_arg
   >ignored_conditional_block<4>
    >*@ifset C8 l27:@conditionals

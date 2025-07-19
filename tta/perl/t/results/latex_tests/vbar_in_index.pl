@@ -10,7 +10,6 @@ $result_tree_text{'vbar_in_index'} = '*document_root C1
   *preamble_before_content
   *index_entry_command@findex C1 l1
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -22,7 +21,6 @@ $result_tree_text{'vbar_in_index'} = '*document_root C1
     {A|B}
   *index_entry_command@cindex C1 l2
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

@@ -1246,13 +1246,7 @@ print_element_info (ELEMENT *element, int level,
       if (element->e.c->string_info[sit_alias_of])
         add_info_name_string_value (&info_strings, "alias_of",
                       element->e.c->string_info[sit_alias_of]);
-      if ((element->type == ET_index_entry_command
-           || element->type == ET_definfoenclose_command
-           || type_data[element->type].flags & TF_macro_call)
-          && element->e.c->string_info[sit_command_name])
-        add_info_name_string_value (&info_strings, "command_name",
-                     element->e.c->string_info[sit_command_name]);
-      else if (element->e.c->cmd == CM_verb
+      if (element->e.c->cmd == CM_verb
                && element->e.c->contents.number > 0
                && element->e.c->string_info[sit_delimiter])
         add_info_name_string_value (&info_strings, "delimiter",

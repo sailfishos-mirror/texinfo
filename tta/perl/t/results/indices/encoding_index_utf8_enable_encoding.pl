@@ -70,7 +70,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l9
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -83,7 +82,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {é é}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l10
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -108,7 +106,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
       {i}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l11
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -136,7 +133,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
       {i}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l12
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -149,7 +145,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {a}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l13
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -162,7 +157,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {b}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l14
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -175,7 +169,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {c}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l15
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -188,7 +181,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {d}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l16
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -201,7 +193,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {e}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l17
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -214,7 +205,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {f}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l18
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -227,7 +217,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {g}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l19
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -240,7 +229,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {h}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l20
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -253,7 +241,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {i}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l21
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -266,7 +253,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {j}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l22
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -279,7 +265,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {k}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l23
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -292,7 +277,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {l}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l24
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -305,7 +289,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {m}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l25
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -318,7 +301,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {n}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l26
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -331,7 +313,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {o}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l27
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -344,7 +325,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {p}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l28
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -357,7 +337,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {q}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l29
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -370,7 +349,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {r}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l30
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -383,7 +361,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {s}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l31
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -396,7 +373,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {t}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l32
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -409,7 +385,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {u}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l33
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -422,7 +397,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {v}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l34
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -435,7 +409,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {w}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l35
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -448,7 +421,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {x}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l36
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -461,7 +433,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {y}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l37
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -474,7 +445,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {z}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l38
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -487,7 +457,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {A}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l39
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -500,7 +469,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {B}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l40
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -514,7 +482,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l41
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -528,7 +495,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l42
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -548,7 +514,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     { (dotless)}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l43
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -572,7 +537,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     { (dotless)}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l44
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -586,7 +550,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l45
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -600,7 +563,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l46
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -614,7 +576,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l47
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -628,7 +589,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l48
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -642,7 +602,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l49
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -656,7 +615,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l50
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -670,7 +628,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l51
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -683,7 +640,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {0}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l52
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -696,7 +652,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {9}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l53
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -710,7 +665,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l54
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -724,7 +678,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l55
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -738,7 +691,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
      *brace_container
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l56
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -751,7 +703,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {``}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l57
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -764,7 +715,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {`}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l58
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -777,7 +727,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {\'}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l59
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -790,7 +739,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {\'\'}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l60
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -803,7 +751,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {"}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l61
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -816,7 +763,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     *@@
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l62
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -829,7 +775,6 @@ $result_tree_text{'encoding_index_utf8_enable_encoding'} = '*document_root C5
     {--}
   *index_entry_command@cindex C1 encoding_index_utf8.texi:l63
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

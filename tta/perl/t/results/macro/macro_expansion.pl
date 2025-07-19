@@ -36,7 +36,6 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    >macro_expansion<start;1><p:15>
     >*macro_call@macroone C2
     >|INFO
-    >|command_name:{macroone}
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
@@ -72,8 +71,6 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2><p:18>
     >*macro_call@macroone C1
-    >|INFO
-    >|command_name:{macroone}
      >*brace_arg C1
       >{macro_call_arg_text:aaa @samp{a macro , } bbb}
    *@samp C1 l11:@macroone
@@ -106,8 +103,6 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;3><p:18>
     >*macro_call@macroone
-    >|INFO
-    >|command_name:{macroone}
   *@verbatim C3 l13:@macroone
    *arguments_line C1
     *block_line_arg
@@ -134,8 +129,6 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;4><p:16>
     >*macro_call@macroone C2
-    >|INFO
-    >|command_name:{macroone}
      >*brace_arg C1
       >{macro_call_arg_text:first arg}
      >*brace_arg C1
@@ -169,8 +162,6 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;5><p:15>
     >*macro_call@macroone C2
-    >|INFO
-    >|command_name:{macroone}
      >*brace_arg C1
       >{macro_call_arg_text:first , arg}
      >*brace_arg C1
@@ -204,8 +195,6 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;6><p:16>
     >*macro_call@macroone C2
-    >|INFO
-    >|command_name:{macroone}
      >*brace_arg C1
       >{macro_call_arg_text:arg 1\\n\\nnow}
      >*brace_arg C1

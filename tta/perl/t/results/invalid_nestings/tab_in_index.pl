@@ -41,7 +41,6 @@ $result_tree_text{'tab_in_index'} = '*document_root C1
        {aaa\\n}
        *index_entry_command@vindex C1 l3
        |INFO
-       |command_name:{vindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA

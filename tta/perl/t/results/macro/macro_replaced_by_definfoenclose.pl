@@ -40,8 +40,6 @@ $result_tree_text{'macro_replaced_by_definfoenclose'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    *definfoenclose_command@phoo C1 l7
-   |INFO
-   |command_name:{phoo}
    |EXTRA
    |begin:{;}
    |end:{:}

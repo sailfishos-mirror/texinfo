@@ -9,7 +9,6 @@ $result_tree_text{'index_entries'} = '*document_root C1
  *before_node_section C5
   *index_entry_command@cindex C1 l1
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -34,7 +33,6 @@ $result_tree_text{'index_entries'} = '*document_root C1
   {empty_line:\\n}
   *index_entry_command@trucindex C1 l5
   |INFO
-  |command_name:{trucindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

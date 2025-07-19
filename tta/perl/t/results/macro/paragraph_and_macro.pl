@@ -67,8 +67,6 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1>
    >*macro_call@aempty C1
-   >|INFO
-   >|command_name:{aempty}
     >*brace_arg
   >macro_expansion<end;1>
   {empty_line:\\n}
@@ -76,8 +74,6 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;2><p:2>
    >*macro_call@aempty C1
-   >|INFO
-   >|command_name:{aempty}
     >*brace_arg
   >macro_expansion<end;2><p:2>
   {empty_line:\\n}
@@ -85,8 +81,6 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;3>
    >*macro_call@aempty C1
-   >|INFO
-   >|command_name:{aempty}
     >*brace_arg
   >macro_expansion<end;3>
   *paragraph C1
@@ -96,8 +90,6 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;4>
    >*macro_call@aspace C1
-   >|INFO
-   >|command_name:{aspace}
     >*brace_arg
   >macro_expansion<end;4><p:3>
   {empty_line:\\n}
@@ -105,8 +97,6 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;5><p:2>
    >*macro_call@aspace C1
-   >|INFO
-   >|command_name:{aspace}
     >*brace_arg
   >macro_expansion<end;5><p:5>
   {empty_line:\\n}
@@ -114,8 +104,6 @@ $result_tree_text{'paragraph_and_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;6>
    >*macro_call@aspace C1
-   >|INFO
-   >|command_name:{aspace}
     >*brace_arg
   >macro_expansion<end;6><p:3>
   *paragraph C1

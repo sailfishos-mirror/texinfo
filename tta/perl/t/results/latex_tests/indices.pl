@@ -82,7 +82,6 @@ $result_tree_text{'indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 l10
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -102,7 +101,6 @@ $result_tree_text{'indices'} = '*document_root C5
       {o}
   *index_entry_command@cindex C1 l11
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -116,7 +114,6 @@ $result_tree_text{'indices'} = '*document_root C5
     {AA}
   *index_entry_command@cindex C1 l12
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -130,7 +127,6 @@ $result_tree_text{'indices'} = '*document_root C5
     {aa}
   *index_entry_command@cindex C1 l13
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -144,7 +140,6 @@ $result_tree_text{'indices'} = '*document_root C5
     {i}
   *index_entry_command@cindex C1 l14
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -158,7 +153,6 @@ $result_tree_text{'indices'} = '*document_root C5
     {Z}
   *index_entry_command@cindex C1 l15
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -175,7 +169,6 @@ $result_tree_text{'indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 l17
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -251,7 +244,6 @@ $result_tree_text{'indices'} = '*document_root C5
           {o}
   *index_entry_command@cindex C1 l18
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -265,7 +257,6 @@ $result_tree_text{'indices'} = '*document_root C5
     {\\cmd}
   *index_entry_command@cindex C1 l19
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -297,7 +288,6 @@ $result_tree_text{'indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 l23
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -324,7 +314,6 @@ $result_tree_text{'indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@findex C1 l25
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

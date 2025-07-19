@@ -31,8 +31,6 @@ $result_tree_text{'arg_not_closed'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1><p:5>
     >*macro_call@foo C1
-    >|INFO
-    >|command_name:{foo}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:

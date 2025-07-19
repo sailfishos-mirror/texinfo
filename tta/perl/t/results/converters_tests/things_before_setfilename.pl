@@ -188,7 +188,6 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    {empty_line:\\n}
    *index_entry_command@cindex C1 things_before_setfilename.texi:l38
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

@@ -31,8 +31,6 @@ $result_tree_text{'macro_expansion_end_in_ignored_nested_conditional'} = '*docum
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@beginnestedcond C1
-   >|INFO
-   >|command_name:{beginnestedcond}
     >*brace_arg
   >ignored_conditional_block<1><p:1>
    >*@ifset C6 l7:@beginnestedcond

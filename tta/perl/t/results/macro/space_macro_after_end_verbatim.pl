@@ -46,8 +46,6 @@ $result_tree_text{'space_macro_after_end_verbatim'} = '*document_root C1
      |>SOURCEMARKS
      |>macro_expansion<start;1><p:1>
       |>*macro_call@spaces C1
-      |>|INFO
-      |>|command_name:{spaces}
        |>*brace_arg
      |>macro_expansion<end;1><p:1>
      {verbatim}

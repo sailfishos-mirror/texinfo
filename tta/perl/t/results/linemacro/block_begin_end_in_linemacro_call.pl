@@ -32,7 +32,6 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    >linemacro_expansion<start;1>
     >*linemacro_call@lm C1
     >|INFO
-    >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1
@@ -80,7 +79,6 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     >linemacro_expansion<start;2>
      >*linemacro_call@lm C1
      >|INFO
-     >|command_name:{lm}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >*linemacro_arg C1
@@ -109,7 +107,6 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    >linemacro_expansion<start;3>
     >*linemacro_call@lm C1
     >|INFO
-    >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1
@@ -149,7 +146,6 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    >linemacro_expansion<start;4>
     >*linemacro_call@lm C1
     >|INFO
-    >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1
@@ -183,7 +179,6 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
    >linemacro_expansion<start;5>
     >*linemacro_call@lm C1
     >|INFO
-    >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1
@@ -224,8 +219,6 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;1>
       >*macro_call@mymac C2
-      >|INFO
-      >|command_name:{mymac}
        >*brace_arg C1
         >{macro_call_arg_text:arg1}
        >*brace_arg C1
@@ -241,7 +234,6 @@ $result_tree_text{'block_begin_end_in_linemacro_call'} = '*document_root C1
     |>linemacro_expansion<start;6><p:1>
      |>*linemacro_call@lm C1
      |>|INFO
-     |>|command_name:{lm}
      |>|spaces_before_argument:
       |>|{spaces_before_argument: }
       |>*linemacro_arg C1

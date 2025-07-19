@@ -52,7 +52,6 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@lm C2
    >|INFO
-   >|command_name:{lm}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*linemacro_arg C1
@@ -76,8 +75,6 @@ $result_tree_text{'call_macro_in_linemacro_call'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1><p:2>
     >*macro_call@mymacro C2
-    >|INFO
-    >|command_name:{mymacro}
      >*brace_arg C1
       >{macro_call_arg_text:@emph }
      >*brace_arg C1

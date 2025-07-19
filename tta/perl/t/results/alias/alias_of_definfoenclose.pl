@@ -35,7 +35,6 @@ $result_tree_text{'alias_of_definfoenclose'} = '*document_root C1
    *definfoenclose_command@phoo C1 l5
    |INFO
    |alias_of:{new}
-   |command_name:{phoo}
    |EXTRA
    |begin:{;}
    |end:{:}

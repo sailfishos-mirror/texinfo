@@ -39,7 +39,6 @@ $result_tree_text{'inter_item_commands_in_table_in_example'} = '*document_root C
        *preformatted C3
         *index_entry_command@cindex C1 l4
         |INFO
-        |command_name:{cindex}
         |spaces_before_argument:
          |{spaces_before_argument: }
         |EXTRA

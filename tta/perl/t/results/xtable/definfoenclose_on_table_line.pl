@@ -29,8 +29,6 @@ $result_tree_text{'definfoenclose_on_table_line'} = '*document_root C1
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
      *definfoenclose_command@phi l3
-     |INFO
-     |command_name:{phi}
      |EXTRA
      |begin:{:}
      |end:{:}

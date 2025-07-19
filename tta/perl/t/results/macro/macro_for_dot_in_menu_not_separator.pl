@@ -45,14 +45,10 @@ $result_tree_text{'macro_for_dot_in_menu_not_separator'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;1><p:4>
       >*macro_call@macrodot C1
-      >|INFO
-      >|command_name:{macrodot}
        >*brace_arg
      >macro_expansion<end;1><p:5>
      >macro_expansion<start;2><p:10>
       >*macro_call@macrodot C1
-      >|INFO
-      >|command_name:{macrodot}
        >*brace_arg
     {menu_entry_separator:. }
     >SOURCEMARKS

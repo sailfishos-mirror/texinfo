@@ -41,7 +41,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     {split indices}
   *index_entry_command@cindex C1 index_split.texi:l5
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -166,7 +165,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
    {Text and then index entries\\n}
    *index_entry_command@cindex C1 index_split.texi:l24
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -179,7 +177,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
      {entry in node}
    *index_entry_command@cindex C1 index_split.texi:l25
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -192,7 +189,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
      {! entry in node}
    *index_entry_command@findex C1 index_split.texi:l26
    |INFO
-   |command_name:{findex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -205,7 +201,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
      {fun in node}
    *index_entry_command@cindex C1 index_split.texi:l27
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -245,7 +240,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l33
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -273,7 +267,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     {First chapter}
   *index_entry_command@findex C1 index_split.texi:l36
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -286,7 +279,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     {a function}
   *index_entry_command@cindex C1 index_split.texi:l37
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -299,7 +291,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
     {a concept in first}
   *index_entry_command@findex C1 index_split.texi:l38
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -427,7 +418,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l52
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -496,7 +486,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l62
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -575,7 +564,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l74
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -602,7 +590,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l78
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -678,7 +665,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l88
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -731,7 +717,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l94
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -770,7 +755,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l99
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -799,7 +783,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l104
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -826,7 +809,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l108
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -862,7 +844,6 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_split.texi:l112
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

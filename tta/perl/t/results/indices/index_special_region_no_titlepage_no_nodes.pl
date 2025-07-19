@@ -20,7 +20,6 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
     {empty_line:\\n}
     *index_entry_command@cindex C1 index_special_region.texi:l5
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -63,7 +62,6 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
        {empty_line:\\n}
        *index_entry_command@cindex C1 index_special_region.texi:l12
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -110,7 +108,6 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
     {empty_line:\\n}
     *index_entry_command@cindex C1 index_special_region.texi:l21
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -151,7 +148,6 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
        {empty_line:\\n}
        *index_entry_command@cindex C1 index_special_region.texi:l27
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -253,7 +249,6 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
   {empty_line:\\n}
   *index_entry_command@findex C1 index_special_region.texi:l42
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -266,8 +261,6 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
     {findex entry}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_special_region.texi:l44
-  |INFO
-  |command_name:{cindex}
    *line_arg
    |INFO
    |spaces_after_argument:
@@ -429,7 +422,6 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
   {empty_line:\\n}
   *index_entry_command@findex C1 index_special_region.texi:l64
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -443,7 +435,6 @@ $result_tree_text{'index_special_region_no_titlepage_no_nodes'} = '*document_roo
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_special_region.texi:l66
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

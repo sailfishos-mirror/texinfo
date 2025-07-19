@@ -62,7 +62,6 @@ $result_tree_text{'alias_of_added_index_before_added_index'} = '*document_root C
   *index_entry_command@sliindex C1 l8
   |INFO
   |alias_of:{new}
-  |command_name:{sliindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

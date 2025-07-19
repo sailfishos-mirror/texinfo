@@ -37,7 +37,6 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
     >linemacro_expansion<start;1>
      >*linemacro_call@mylinecommand C3
      >|INFO
-     >|command_name:{mylinecommand}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >*linemacro_arg C1

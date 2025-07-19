@@ -40,7 +40,6 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
   {empty_line:\\n}
   *index_entry_command@cindex C1 l9
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -53,7 +52,6 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
   {empty_line:\\n}
   *index_entry_command@cindex C1 l11
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -68,7 +66,6 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
   {empty_line:\\n}
   *index_entry_command@cindex C1 l13
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

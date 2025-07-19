@@ -71,8 +71,6 @@ $result_tree_text{'complex_argument'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@macrothree C1
-   >|INFO
-   >|command_name:{macrothree}
     >*brace_arg C1
      >{macro_call_arg_text:@verb{% @macrotwo %}\\n@c @macrofour\\n@pagesizes 4 @macrofour{}\\n@headings doubleafter @macrofour{}\\n@verbatim\\n@macrotwo\\n@end verbatim\\n@ignore\\n@macrofour\\n@end ignore\\n@macro macroseven {truc}\\n@emph{\\truc\\}\\n@end macro\\nmacroseven defined\\n@ifinfo\\n@macrofour\\n@end ifinfo\\n@iftex\\n@macrotwo{aa,bb}\\n@end iftex\\n@macrofour{}\\n}
   *paragraph C11
@@ -103,8 +101,6 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;2><p:2>
       >*macro_call@macrofour C1
-      >|INFO
-      >|command_name:{macrofour}
        >*brace_arg
    {2\\n}
    {3\\n}
@@ -125,8 +121,6 @@ $result_tree_text{'complex_argument'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;3><p:12>
       >*macro_call@macrofour C1
-      >|INFO
-      >|command_name:{macrofour}
        >*brace_arg
    {2\\n}
    {3\\n}
@@ -232,8 +226,6 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;4>
     >*macro_call@macrofour C1
-    >|INFO
-    >|command_name:{macrofour}
      >*brace_arg
    {2\\n}
    {3\\n}
@@ -251,8 +243,6 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;5><p:16>
     >*macro_call@macroseven C1
-    >|INFO
-    >|command_name:{macroseven}
      >*brace_arg C1
       >{macro_call_arg_text:aaa}
    *@emph C1 l41:@macroseven

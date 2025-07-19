@@ -37,8 +37,6 @@ $result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;1><p:1>
       >*macro_call@inlinefirstarg C1
-      >|INFO
-      >|command_name:{inlinefirstarg}
        >*brace_arg
     *elided_brace_command_arg C1
      {raw: before}

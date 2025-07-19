@@ -44,7 +44,6 @@ $result_tree_text{'center'} = '*document_root C1
     {center }
     *index_entry_command@cindex C1 l3
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA

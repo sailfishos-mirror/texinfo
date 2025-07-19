@@ -85,7 +85,6 @@ $result_tree_text{'multitable'} = '*document_root C1
        {multitable tab 2\\n}
        *index_entry_command@cindex C1 l7
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA

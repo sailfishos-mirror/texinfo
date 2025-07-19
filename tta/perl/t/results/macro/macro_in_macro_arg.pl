@@ -71,19 +71,13 @@ $result_tree_text{'macro_in_macro_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@macrothree C1
-    >|INFO
-    >|command_name:{macrothree}
      >*brace_arg C1
       >{macro_call_arg_text:@macroone{}text for macro2}
    >macro_expansion<start;2>
     >*macro_call@macroone C1
-    >|INFO
-    >|command_name:{macroone}
      >*brace_arg
    >macro_expansion<start;3><p:3>
     >*macro_call_line@macrotwo C1
-    >|INFO
-    >|command_name:{macrotwo}
      >*line_arg C1
       >{text for macro2}
       >>SOURCEMARKS

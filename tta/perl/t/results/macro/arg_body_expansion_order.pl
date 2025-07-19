@@ -53,8 +53,6 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@redefineothermacro C1
-   >|INFO
-   >|command_name:{redefineothermacro}
     >*brace_arg C1
      >{macro_call_arg_text:@othermacro{}}
   *@unmacro C1
@@ -91,8 +89,6 @@ $result_tree_text{'arg_body_expansion_order'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@othermacro C1
-    >|INFO
-    >|command_name:{othermacro}
      >*brace_arg
    >macro_expansion<end;2><p:9>
    >macro_expansion<end;1><p:9>

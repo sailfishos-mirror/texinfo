@@ -9,7 +9,6 @@ $result_tree_text{'raw_block_on_line'} = '*document_root C1
  *before_node_section C1
   *index_entry_command@cindex C1 l1
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

@@ -34,8 +34,6 @@ $result_tree_text{'bye_in_macro'} = '*document_root C3
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@byeinmacro
-    >|INFO
-    >|command_name:{byeinmacro}
  *@bye C1
   *line_arg
   |INFO

@@ -48,8 +48,6 @@ $result_tree_text{'paragraph_command'} = '*document_root C1
     {foo,\\,//}
   *paragraph C2
    *definfoenclose_command@foo C1 l12
-   |INFO
-   |command_name:{foo}
    |EXTRA
    |begin:{\\}
    |end:{//}

@@ -133,7 +133,6 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   {empty_line:\\n}
   *index_entry_command@cindex C1 l16
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

@@ -23,7 +23,6 @@ $result_tree_text{'unknown_then_known_index_entry'} = '*document_root C1
      {some}
    *index_entry_command@someindex C1 l3
    |INFO
-   |command_name:{someindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

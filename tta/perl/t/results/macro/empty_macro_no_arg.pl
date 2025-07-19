@@ -29,16 +29,12 @@ $result_tree_text{'empty_macro_no_arg'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1>
    >*macro_call@foo
-   >|INFO
-   >|command_name:{foo}
   >macro_expansion<end;1>
   {empty_line:\\n}
   {empty_line:\\n}
   >SOURCEMARKS
   >macro_expansion<start;2>
    >*macro_call@foo C1
-   >|INFO
-   >|command_name:{foo}
     >*brace_arg
   >macro_expansion<end;2>
 ';

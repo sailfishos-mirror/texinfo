@@ -155,7 +155,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
     {An index entry\\n}
     *index_entry_command@cindex C1 l30
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -439,7 +438,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {An index entry\\n}
       *index_entry_command@cindex C1 l71
       |INFO
-      |command_name:{cindex}
       |spaces_before_argument:
        |{spaces_before_argument: }
       |EXTRA
@@ -788,7 +786,6 @@ $result_tree_text{'complex_float'} = '*document_root C5
       {An index entry 2\\n}
       *index_entry_command@cindex C1 l116
       |INFO
-      |command_name:{cindex}
       |spaces_before_argument:
        |{spaces_before_argument: }
       |EXTRA

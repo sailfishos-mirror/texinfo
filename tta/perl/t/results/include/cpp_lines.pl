@@ -113,8 +113,6 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@macr C1
-    >|INFO
-    >|command_name:{macr}
      >*brace_arg
    >macro_expansion<end;1><p:12>
   {empty_line:\\n}
@@ -155,8 +153,6 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@macrtwo C1
-    >|INFO
-    >|command_name:{macrtwo}
      >*brace_arg
    {# line 666 "x"\\n}
    >SOURCEMARKS

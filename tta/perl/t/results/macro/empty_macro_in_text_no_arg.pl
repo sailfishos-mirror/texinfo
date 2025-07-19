@@ -31,8 +31,6 @@ $result_tree_text{'empty_macro_in_text_no_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1><p:5>
     >*macro_call@texnl
-    >|INFO
-    >|command_name:{texnl}
    >macro_expansion<end;1><p:5>
   {empty_line:\\n}
   *@macro C2 l6
@@ -58,8 +56,6 @@ $result_tree_text{'empty_macro_in_text_no_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2><p:11>
     >*macro_call@texnltwo
-    >|INFO
-    >|command_name:{texnltwo}
    >macro_expansion<end;2><p:11>
 ';
 

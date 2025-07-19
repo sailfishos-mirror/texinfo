@@ -29,8 +29,6 @@ $result_tree_text{'macro_for_ignored_line_command'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@pagemacro C1
-   >|INFO
-   >|command_name:{pagemacro}
     >*brace_arg
   *@page C1
   |INFO

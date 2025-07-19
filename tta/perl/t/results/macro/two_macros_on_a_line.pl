@@ -63,14 +63,10 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@mymacro C1
-    >|INFO
-    >|command_name:{mymacro}
      >*brace_arg
    >macro_expansion<end;1><p:10>
    >macro_expansion<start;2><p:11>
     >*macro_call@mymacro C1
-    >|INFO
-    >|command_name:{mymacro}
      >*brace_arg
    >macro_expansion<end;2><p:21>
   {empty_line:\\n}
@@ -86,13 +82,9 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;3>
     >*macro_call@mymacro
-    >|INFO
-    >|command_name:{mymacro}
    >macro_expansion<end;3><p:10>
    >macro_expansion<start;4><p:11>
     >*macro_call@mymacro C1
-    >|INFO
-    >|command_name:{mymacro}
      >*brace_arg
    >macro_expansion<end;4><p:21>
   {empty_line:\\n}
@@ -108,14 +100,10 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;5>
     >*macro_call@mymacro C1
-    >|INFO
-    >|command_name:{mymacro}
      >*brace_arg
    >macro_expansion<end;5><p:10>
    >macro_expansion<start;6><p:11>
     >*macro_call@mymacro
-    >|INFO
-    >|command_name:{mymacro}
    >macro_expansion<end;6><p:21>
   {empty_line:\\n}
   *paragraph C4
@@ -125,7 +113,6 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
    >macro_expansion<start;7>
     >*macro_call@mymacrowithargs C1
     >|INFO
-    >|command_name:{mymacrowithargs}
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
@@ -140,8 +127,6 @@ $result_tree_text{'two_macros_on_a_line'} = '*document_root C1
    >macro_expansion<end;7><p:5>
    >macro_expansion<start;8><p:6>
     >*macro_call@mymacro C1
-    >|INFO
-    >|command_name:{mymacro}
      >*brace_arg
    >macro_expansion<end;8><p:16>
 ';

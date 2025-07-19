@@ -37,8 +37,6 @@ $result_tree_text{'protect_first_parenthesis_after_parenthesis_source_mark'} = '
       >SOURCEMARKS
       >macro_expansion<start;1>
        >*macro_call@vvv C1
-       >|INFO
-       >|command_name:{vvv}
         >*brace_arg
       >macro_expansion<end;1><p:1>
     {my_f)}

@@ -48,14 +48,10 @@ $result_tree_text{'double_macro_expansion_in_set_comment'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@callmymac C1
-   >|INFO
-   >|command_name:{callmymac}
     >*brace_arg C1
      >{macro_call_arg_text:vv}
   >macro_expansion<start;2><p:1>
    >*macro_call@mymac C1
-   >|INFO
-   >|command_name:{mymac}
     >*brace_arg C1
      >{macro_call_arg_text:vv}
   *@set C1

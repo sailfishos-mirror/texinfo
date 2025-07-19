@@ -1043,15 +1043,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       store_info_string (e, e->e.c->string_info[sit_alias_of],
                          "alias_of", &info_hv);
 
-      if (e->type == ET_index_entry_command
-          || e->type == ET_definfoenclose_command
-          || type_data[e->type].flags & TF_macro_call)
-        {
-          store_info_string (e, e->e.c->string_info[sit_command_name],
-                            "command_name", &info_hv);
-        } /* verb is a brace command type and so cannot be confused
-             with the preceding types */
-      else if (e->e.c->cmd == CM_verb && e->e.c->contents.number > 0)
+      if (e->e.c->cmd == CM_verb && e->e.c->contents.number > 0)
         store_info_string (e, e->e.c->string_info[sit_delimiter],
                            "delimiter", &info_hv);
     }

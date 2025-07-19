@@ -44,7 +44,6 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
       {empty_line:\\n}
       *index_entry_command@cindex C1 l6
       |INFO
-      |command_name:{cindex}
       |spaces_before_argument:
        |{spaces_before_argument: }
       |EXTRA
@@ -162,7 +161,6 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
        {multitable tab 2\\n}
        *index_entry_command@cindex C1 l17
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -211,7 +209,6 @@ $result_tree_text{'inter_item_commands_in_multitable'} = '*document_root C1
      {Title\\n}
      *index_entry_command@cindex C1 l23
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA

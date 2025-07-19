@@ -97,7 +97,6 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
      *preformatted C1
       *index_entry_command@cindex C1 l6
       |INFO
-      |command_name:{cindex}
       |spaces_before_argument:
        |{spaces_before_argument: }
       |EXTRA
@@ -150,7 +149,6 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
      *preformatted C3
       *index_entry_command@cindex C1 l8
       |INFO
-      |command_name:{cindex}
       |spaces_before_argument:
        |{spaces_before_argument: }
       |EXTRA

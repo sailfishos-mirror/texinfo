@@ -43,8 +43,6 @@ $result_tree_text{'protect_node_after_label_source_mark_in_protected'} = '*docum
    >SOURCEMARKS
    >macro_expansion<start;1><p:9>
     >*macro_call@vvv C1
-    >|INFO
-    >|command_name:{vvv}
      >*brace_arg
    *@asis C1
     *brace_container C1

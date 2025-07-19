@@ -66,7 +66,6 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   {empty_line:\\n}
   *index_entry_command@cindex C1 l7
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -109,7 +108,6 @@ $result_tree_text{'sections_and_printindex'} = '*document_root C8
   {empty_line:\\n}
   *index_entry_command@cindex C1 l11
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

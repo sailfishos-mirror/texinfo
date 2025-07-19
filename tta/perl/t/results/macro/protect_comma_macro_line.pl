@@ -35,7 +35,6 @@ $result_tree_text{'protect_comma_macro_line'} = '*document_root C1
    >macro_expansion<start;1>
     >*macro_call_line@macrotwo C1
     >|INFO
-    >|command_name:{macrotwo}
     >|spaces_before_argument:
      >|{spaces_before_argument:  }
      >*line_arg C1

@@ -360,8 +360,6 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C2
    *definfoenclose_command@phoo C1 l39
-   |INFO
-   |command_name:{phoo}
    |EXTRA
    |begin:{//}
    |end:{\\\\}
@@ -414,8 +412,6 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   {empty_line:\\n}
   *paragraph C2
    *definfoenclose_command@phi C1 l45
-   |INFO
-   |command_name:{phi}
    |EXTRA
    |begin:{:}
    |end:{:}
@@ -494,7 +490,6 @@ $result_tree_text{'value_in_misc_commands'} = '*document_root C5
   *paragraph C2
    *definfoenclose_command@strong C1 l54
    |INFO
-   |command_name:{strong}
    |spaces_after_cmd_before_arg:
     |{spaces_after_cmd_before_arg:}
     |>SOURCEMARKS

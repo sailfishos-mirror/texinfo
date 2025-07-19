@@ -33,8 +33,6 @@ $result_tree_text{'macro_after_paragraph'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1>
    >*macro_call@mymacro C1
-   >|INFO
-   >|command_name:{mymacro}
     >*brace_arg
   *paragraph C1
    {after end of line\\n}

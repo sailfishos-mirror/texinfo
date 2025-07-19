@@ -81,7 +81,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
           {empty_line:\\n}
           *index_entry_command@cindex C1 float_copying.texi:l16
           |INFO
-          |command_name:{cindex}
           |spaces_before_argument:
            |{spaces_before_argument: }
           |EXTRA
@@ -94,7 +93,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
             {indexed caption copying footnote}
           *index_entry_command@findex C1 float_copying.texi:l17
           |INFO
-          |command_name:{findex}
           |spaces_before_argument:
            |{spaces_before_argument: }
           |EXTRA
@@ -129,7 +127,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
        {spaces_after_close_brace:\\n}
        *index_entry_command@cindex C1 float_copying.texi:l24
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -142,7 +139,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
          {indexed caption}
        *index_entry_command@findex C1 float_copying.texi:l25
        |INFO
-       |command_name:{findex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -207,7 +203,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
   {empty_line:\\n}
   *index_entry_command@cindex C1 float_copying.texi:l33
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -332,7 +327,6 @@ $result_tree_text{'float_copying'} = '*document_root C6
   {empty_line:\\n}
   *index_entry_command@cindex C1 float_copying.texi:l55
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

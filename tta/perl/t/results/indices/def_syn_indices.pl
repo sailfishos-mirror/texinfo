@@ -95,7 +95,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@trucindex C1 l13
   |INFO
-  |command_name:{trucindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -121,7 +120,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@codeidxindex C1 l17
   |INFO
-  |command_name:{codeidxindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -148,7 +146,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 l19
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -174,7 +171,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@kindex C1 l23
   |INFO
-  |command_name:{kindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -187,7 +183,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
     {truc kindex}
   *index_entry_command@pindex C1 l24
   |INFO
-  |command_name:{pindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -259,7 +254,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@defgindex C1 l34
   |INFO
-  |command_name:{defgindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -273,7 +267,6 @@ $result_tree_text{'def_syn_indices'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@abcindex C1 l36
   |INFO
-  |command_name:{abcindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

@@ -65,8 +65,6 @@ $result_tree_text{'definfoenclose_texinfo_commands'} = '*document_root C1
     *brace_container
    {. }
    *definfoenclose_command@strong C1 l8
-   |INFO
-   |command_name:{strong}
    |EXTRA
    |begin:{(}
    |end:{)}

@@ -17,7 +17,6 @@ $result_tree_text{'printindex_index_entry_in_copying_no_insertcopying'} = '*docu
     {empty_line:\\n}
     *index_entry_command@findex C1 l3
     |INFO
-    |command_name:{findex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA

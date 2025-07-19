@@ -57,8 +57,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
     >SOURCEMARKS
     >macro_expansion<start;1>
      >*macro_call@myvtable C1
-     >|INFO
-     >|command_name:{myvtable}
       >*brace_arg
    *@vtable C5 l27:@myvtable
    |INFO
@@ -221,8 +219,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;2>
     >*macro_call@myvtable C1
-    >|INFO
-    >|command_name:{myvtable}
      >*brace_arg
    *@vtable C5 l32:@myvtable
    |INFO
@@ -390,8 +386,6 @@ $result_tree_text{'table_nested'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;3>
       >*macro_call@myvtable C1
-      >|INFO
-      >|command_name:{myvtable}
        >*brace_arg
     *@vtable C5 l38:@myvtable
     |INFO

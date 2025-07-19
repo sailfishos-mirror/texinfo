@@ -51,8 +51,6 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    |>SOURCEMARKS
    |>macro_expansion<start;1><p:1>
     |>*macro_call@begin-file C1
-    |>|INFO
-    |>|command_name:{begin-file}
      |>*brace_arg
   |EXTRA
   |text_arg:{macro_in_passtexi_commands.info}
@@ -65,8 +63,6 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     >macro_expansion<end;1><p:13>
     >macro_expansion<start;2><p:13>
      >*macro_call@end-file-name C1
-     >|INFO
-     >|command_name:{end-file-name}
       >*brace_arg C1
        >{macro_call_arg_text:info}
     >macro_expansion<end;2><p:31>
@@ -112,8 +108,6 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
   >SOURCEMARKS
   >macro_expansion<start;3><p:1>
    >*macro_call@documentencoding-command
-   >|INFO
-   >|command_name:{documentencoding-command}
   *@documentencoding C1 l18:@documentencoding-command
   |INFO
   |spaces_before_argument:
@@ -122,8 +116,6 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    |>macro_expansion<end;3>
    |>macro_expansion<start;4><p:1>
     |>*macro_call@latin1 C1
-    |>|INFO
-    |>|command_name:{latin1}
      |>*brace_arg
   |EXTRA
   |global_command_number:{1}
@@ -209,8 +201,6 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
     >|>SOURCEMARKS
     >|>macro_expansion<start;5><p:1>
      >|>*macro_call@multiinclude
-     >|>|INFO
-     >|>|command_name:{multiinclude}
    >|EXTRA
    >|text_arg:{macro_included.texi}
     >*line_arg C1
@@ -262,8 +252,6 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    >SOURCEMARKS
    >macro_expansion<start;6>
     >*macro_call@themacro C1
-    >|INFO
-    >|command_name:{themacro}
      >*brace_arg
    >macro_expansion<end;6><p:11>
   {empty_line:\\n}
@@ -277,8 +265,6 @@ $result_tree_text{'macro_in_early_commands'} = '*document_root C4
    >SOURCEMARKS
    >macro_expansion<start;7>
     >*macro_call@end-file-name C1
-    >|INFO
-    >|command_name:{end-file-name}
      >*brace_arg C1
       >{macro_call_arg_text:info}
    >macro_expansion<end;7><p:18>

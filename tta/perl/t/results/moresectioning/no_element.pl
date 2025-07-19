@@ -160,7 +160,6 @@ $result_tree_text{'no_element'} = '*document_root C1
   {empty_line:\\n}
   *index_entry_command@cindex C1 l32
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

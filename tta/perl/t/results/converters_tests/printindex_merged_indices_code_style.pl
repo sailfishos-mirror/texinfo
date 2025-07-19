@@ -92,7 +92,6 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 l11
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -106,7 +105,6 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@vindex C1 l13
   |INFO
-  |command_name:{vindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -120,7 +118,6 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@findex C1 l15
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -158,7 +155,6 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cdiindex C1 l21
   |INFO
-  |command_name:{cdiindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -196,7 +192,6 @@ $result_tree_text{'printindex_merged_indices_code_style'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@ddiindex C1 l27
   |INFO
-  |command_name:{ddiindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

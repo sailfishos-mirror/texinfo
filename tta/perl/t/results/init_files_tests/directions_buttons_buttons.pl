@@ -121,7 +121,6 @@ $result_tree_text{'directions_buttons_buttons'} = '*document_root C7
   {empty_line:\\n}
   *index_entry_command@cindex C1 l14
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

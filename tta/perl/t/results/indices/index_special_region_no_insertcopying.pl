@@ -20,7 +20,6 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
     {empty_line:\\n}
     *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l5
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -63,7 +62,6 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
        {empty_line:\\n}
        *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l12
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -135,7 +133,6 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
     {empty_line:\\n}
     *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l24
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -176,7 +173,6 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
        {empty_line:\\n}
        *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l30
        |INFO
-       |command_name:{cindex}
        |spaces_before_argument:
         |{spaces_before_argument: }
        |EXTRA
@@ -280,7 +276,6 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
   {empty_line:\\n}
   *index_entry_command@findex C1 index_special_region_no_insertcopying.texi:l45
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -293,8 +288,6 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
     {findex entry}
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l47
-  |INFO
-  |command_name:{cindex}
    *line_arg
    |INFO
    |spaces_after_argument:
@@ -455,7 +448,6 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
   {empty_line:\\n}
   *index_entry_command@findex C1 index_special_region_no_insertcopying.texi:l67
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -469,7 +461,6 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_special_region_no_insertcopying.texi:l69
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

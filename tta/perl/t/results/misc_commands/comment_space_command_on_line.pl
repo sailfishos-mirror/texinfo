@@ -172,7 +172,6 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
   {empty_line:\\n}
   *index_entry_command@cindex C1 l13
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

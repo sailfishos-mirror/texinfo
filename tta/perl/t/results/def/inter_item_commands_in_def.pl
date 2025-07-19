@@ -89,7 +89,6 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
    *inter_def_item C1
     *index_entry_command@cindex C1 l5
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -141,7 +140,6 @@ $result_tree_text{'inter_item_commands_in_def'} = '*document_root C1
    *def_item C3
     *index_entry_command@cindex C1 l7
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA

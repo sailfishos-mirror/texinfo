@@ -80,7 +80,6 @@ $result_tree_text{'seeentry_no_braces'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 l9
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

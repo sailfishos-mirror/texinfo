@@ -45,7 +45,6 @@ $result_tree_text{'alias_of_macro'} = '*document_root C1
     >*macro_call@mymacro C1
     >|INFO
     >|alias_of:{new}
-    >|command_name:{mymacro}
      >*brace_arg C1
       >{macro_call_arg_text:tt}
    >macro_expansion<end;1><p:10>

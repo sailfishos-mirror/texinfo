@@ -40,7 +40,6 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
      >linemacro_expansion<start;1>
       >*linemacro_call@mycommand C3
       >|INFO
-      >|command_name:{mycommand}
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >*linemacro_arg C1

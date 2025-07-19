@@ -156,7 +156,6 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
     {.\\n}
     *index_entry_command@cindex C1 l19
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA

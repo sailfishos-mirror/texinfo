@@ -4105,8 +4105,6 @@ sub _end_line_misc_line($$$)
   } else {
     if ($self->{'index_entry_commands'}->{$current->{'cmdname'}}) {
       $current->{'type'} = 'index_entry_command';
-      $current->{'info'} = {} if (!$current->{'info'});
-      $current->{'info'}->{'command_name'} = $current->{'cmdname'};
     }
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top and @xrefname are allowed
@@ -5452,7 +5450,6 @@ sub _handle_macro($$$$$)
     = Texinfo::TreeElement::new(
                        {'type' => $expanded_macro->{'cmdname'}.'_call',
                         'cmdname' => $command,
-                        'info' => {'command_name' => $command},
                         'contents' => []});
 
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {
@@ -6631,8 +6628,6 @@ sub _handle_brace_command($$$$)
   } else {
     if ($self->{'definfoenclose'}->{$command}) {
       $command_e->{'type'} = 'definfoenclose_command';
-      $command_e->{'info'} = {} if (!$command_e->{'info'});
-      $command_e->{'info'}->{'command_name'} = $command;
       $command_e->{'extra'} = {} if (!$command_e->{'extra'});
       $command_e->{'extra'}->{'begin'}
         = $self->{'definfoenclose'}->{$command}->[0];
@@ -8998,10 +8993,6 @@ arguments are, for example, C<@set>, C<@unmacro>
 and C<@comment>.  C<@raisesections>, C<@contents> and C<@novalidate>
 are examples of I<lineraw> line commands without arguments.
 
-I<lineraw> line commands C<contents> contains direclty I<rawline_arg>
-text elements holding the line arguments or the end of line if the
-@-command do not have any argument.
-
 =item regular line commands
 
 Most line commands with arguments that are not node or sectioning commands are
@@ -9127,7 +9118,7 @@ X<Texinfo tree element structure>
 
 =item cmdname
 
-The command name of @-command elements.
+The command name of @-command and user-defined macro call elements.
 
 =item text
 
@@ -9196,11 +9187,12 @@ See L</Information available in the C<extra> key>.
 
 =head2 Element types
 
-=head3 Types for command elements
+=head3 Types for command and user-defined macro call elements
 
 Some types can be associated with @-commands (in addition to C<cmdname>),
-although usually there will be no type at all.  The following are the
-possible values of C<type> for tree elements for @-commands.
+although usually there will be no type at all.  The following are the possible
+values of C<type> for tree elements for @-commands and user-defined macro call
+elements.
 
 =over
 
@@ -9209,8 +9201,6 @@ possible values of C<type> for tree elements for @-commands.
 This type is set for an @-command that is redefined by C<@definfoenclose>.
 The beginning is in C<< {'extra'}->{'begin'} >> and the end in
 C<< {'extra'}->{'end'} >>.
-
-The command name is the info I<command_name> value.
 
 =item index_entry_command
 
@@ -9226,7 +9216,20 @@ is:
 the C<@fooindex> @-command element will have the I<index_entry_command>
 type.
 
-The command name is the info I<command_name> value.
+=item macro_call
+
+=item macro_call_line
+
+=item rmacro_call
+
+=item rmacro_call_line
+
+=item linemacro_call
+
+Container holding the arguments of user-defined macro, linemacro
+or rmacro.  It should not appear directly in the tree as the user defined
+call is expanded.  The I<macro_call_line> or I<rmacro_call_line> elements
+are used when there are no braces and the whole line is the argument.
 
 =back
 
@@ -9324,12 +9327,11 @@ Space appearing before a paragraph beginning.
 Text in an environment where it should be kept as is (in C<@verbatim>,
 C<@verb>, C<@macro> body).
 
-=item rawline_arg
+=item rawline_text
 
-Used for the arguments to some special line commands whose arguments
+Used for the text in arguments to some special line commands whose arguments
 aren't subject to the usual macro expansion.  For example C<@set>,
-C<@unmacro>, C<@comment>.  The argument is associated to
-the I<text> key.
+C<@unmacro>, C<@comment>.
 
 =item spaces_at_end
 
@@ -9531,22 +9533,6 @@ recursed into, as the text within is untranslated, but the untranslated text
 should be gathered when converting the I<untranslated_def_line_arg> type
 container.
 
-=item macro_call
-
-=item macro_call_line
-
-=item rmacro_call
-
-=item rmacro_call_line
-
-=item linemacro_call
-
-Container holding the arguments of a user defined macro, linemacro
-or rmacro.  It should not appear directly in the tree as the user defined
-call is expanded.  The name of the macro, rmacro or linemacro is the the info
-I<command_name> value.  The I<macro_call_line> or I<rmacro_call_line> elements
-are used when there are no braces and the whole line is the argument.
-
 =item menu_comment
 
 The I<menu_comment> container holds what is between menu entries
@@ -9650,15 +9636,6 @@ and C<@itemx>, in a I<table_term>.
 =head2 Information available in the C<info> key
 
 =over
-
-=item command_name
-
-Name of commands that can be defined dynamically.
-The name of index command or definfoenclose defined command (also
-available in I<cmdname> for those commands).
-The name of user defined macro, rmacro or linemacro called
-associated with the element holding the arguments of the user defined command
-call.
 
 =item delimiter
 

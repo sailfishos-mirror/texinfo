@@ -31,8 +31,6 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmt'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@startfmt C1
-    >|INFO
-    >|command_name:{startfmt}
      >*brace_arg
    *@inlinefmt C2 l5:@startfmt
    |EXTRA

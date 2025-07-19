@@ -31,8 +31,6 @@ $result_tree_text{'macro_end_call_in_ignored_inlineraw'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@startraw C1
-    >|INFO
-    >|command_name:{startraw}
      >*brace_arg
    *@inlineraw C2 l5:@startraw
    |EXTRA

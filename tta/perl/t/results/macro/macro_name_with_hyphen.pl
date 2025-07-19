@@ -31,8 +31,6 @@ $result_tree_text{'macro_name_with_hyphen'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@macro-one C2
-    >|INFO
-    >|command_name:{macro-one}
      >*brace_arg C1
       >{macro_call_arg_text:blah}
      >*brace_arg C1

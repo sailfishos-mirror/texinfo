@@ -287,7 +287,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
   {empty_line:\\n}
   *index_entry_command@cindex C1 l36
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -302,7 +301,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
       {e1}
   *index_entry_command@cindex C1 l37
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -315,8 +313,6 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     {i2}
   {empty_line:\\n}
   *index_entry_command@vindex C1 l39
-  |INFO
-  |command_name:{vindex}
    *line_arg
    |INFO
    |spaces_after_argument:

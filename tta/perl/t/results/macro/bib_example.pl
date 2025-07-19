@@ -1638,8 +1638,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
    >include<end;1>
    >macro_expansion<start;1>
     >*macro_call@mybibuselist C1
-    >|INFO
-    >|command_name:{mybibuselist}
      >*brace_arg C1
       >{macro_call_arg_text:References}
     *line_arg C1
@@ -1679,8 +1677,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
        >{ifset}
    >macro_expansion<start;2>
     >*macro_call@mybibsetrefnode C1
-    >|INFO
-    >|command_name:{mybibsetrefnode}
      >*brace_arg C1
       >{macro_call_arg_text:References}
     *line_arg C1
@@ -1768,8 +1764,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
      >SOURCEMARKS
      >macro_expansion<start;3>
       >*macro_call@mybibnode C1
-      >|INFO
-      >|command_name:{mybibnode}
        >*brace_arg
      >value_expansion<start;1>{References}
       >*@value C1
@@ -1831,8 +1825,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
    >SOURCEMARKS
    >macro_expansion<start;4><p:33>
     >*macro_call@mybibcite C1
-    >|INFO
-    >|command_name:{mybibcite}
      >*brace_arg C1
       >{macro_call_arg_text:LaTeX2e}
    >ignored_conditional_block<2><p:33>
@@ -1883,8 +1875,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
    >SOURCEMARKS
    >macro_expansion<start;5>
     >*macro_call@mybibmakeref C2
-    >|INFO
-    >|command_name:{mybibmakeref}
      >*brace_arg C1
       >{macro_call_arg_text:@mybibnode{}}
      >*brace_arg C1
@@ -1901,8 +1891,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
      >SOURCEMARKS
      >macro_expansion<start;6>
       >*macro_call@mybibnode C1
-      >|INFO
-      >|command_name:{mybibnode}
        >*brace_arg
      >value_expansion<start;2>{References}
       >*@value C1
@@ -1941,8 +1929,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
   |>SOURCEMARKS
   |>macro_expansion<start;7><p:1>
    |>*macro_call@mybibnode C1
-   |>|INFO
-   |>|command_name:{mybibnode}
     |>*brace_arg
   |>value_expansion<start;3><p:1>{References}
    |>*@value C1
@@ -1992,8 +1978,6 @@ $result_tree_text{'bib_example'} = '*document_root C9
     >SOURCEMARKS
     >macro_expansion<start;8><p:1>
      >*macro_call@mybibitem C1
-     >|INFO
-     >|command_name:{mybibitem}
       >*brace_arg C1
        >{macro_call_arg_text:LaTeX2e}
     >ignored_conditional_block<3><p:1>

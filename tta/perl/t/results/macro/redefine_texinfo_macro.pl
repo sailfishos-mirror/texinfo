@@ -29,8 +29,6 @@ $result_tree_text{'redefine_texinfo_macro'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@code C1
-   >|INFO
-   >|command_name:{code}
     >*brace_arg C1
      >{macro_call_arg_text:code}
   *paragraph C2

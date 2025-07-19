@@ -114,7 +114,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     {empty_line:\\n}
     *index_entry_command@cindex C1 l15
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -156,7 +155,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     {empty_line:\\n}
     *index_entry_command@cindex C1 l22
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -196,7 +194,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *before_item C2
     *index_entry_command@cindex C1 l27
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -239,7 +236,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      {Title\\n}
      *index_entry_command@cindex C1 l34
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -279,7 +275,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
    *before_item C4
     *index_entry_command@cindex C1 l39
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -301,7 +296,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
       {rawline_text:comment}
     *index_entry_command@cindex C1 l41
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -314,7 +308,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
       {sedond idx}
     *index_entry_command@cindex C1 l42
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA

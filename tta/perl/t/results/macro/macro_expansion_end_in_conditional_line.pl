@@ -41,8 +41,6 @@ $result_tree_text{'macro_expansion_end_in_conditional_line'} = '*document_root C
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@begincond C1
-   >|INFO
-   >|command_name:{begincond}
     >*brace_arg
   >expanded_conditional_command<start;1><p:1>
    >*@ifset C1 l7:@begincond

@@ -196,7 +196,6 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   {empty_line:\\n}
   *index_entry_command@cindex C1 l26
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

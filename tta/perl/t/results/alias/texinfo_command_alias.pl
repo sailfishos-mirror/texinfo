@@ -45,7 +45,6 @@ $result_tree_text{'texinfo_command_alias'} = '*document_root C1
     >*macro_call@mystrong C1
     >|INFO
     >|alias_of:{strong}
-    >|command_name:{mystrong}
      >*brace_arg C1
       >{macro_call_arg_text:aa}
    >macro_expansion<end;1><p:6>
@@ -66,7 +65,6 @@ $result_tree_text{'texinfo_command_alias'} = '*document_root C1
    *definfoenclose_command@mystrong C1 l11
    |INFO
    |alias_of:{strong}
-   |command_name:{mystrong}
    |EXTRA
    |begin:{;}
    |end:{:}

@@ -95,7 +95,6 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
   {spaces_after_close_brace:\\n}
   *index_entry_command@cpindex C1 l14
   |INFO
-  |command_name:{cpindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

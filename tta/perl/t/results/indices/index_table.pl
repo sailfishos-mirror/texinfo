@@ -120,7 +120,6 @@ $result_tree_text{'index_table'} = '*document_root C12
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_table.texi:l14
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -136,7 +135,6 @@ $result_tree_text{'index_table'} = '*document_root C12
    {Some text\\n}
    *index_entry_command@cindex C1 index_table.texi:l17
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -397,7 +395,6 @@ $result_tree_text{'index_table'} = '*document_root C12
      {menu}
   *index_entry_command@cindex C1 index_table.texi:l48
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -410,7 +407,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l49
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -423,7 +419,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {aoncept}
   *index_entry_command@cindex C1 index_table.texi:l50
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -436,7 +431,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {zoncept}
   *index_entry_command@cindex C1 index_table.texi:l51
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -449,7 +443,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {eoncept}
   *index_entry_command@cindex C1 index_table.texi:l52
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -462,7 +455,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {roncept}
   *index_entry_command@cindex C1 index_table.texi:l53
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -475,7 +467,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {toncept}
   *index_entry_command@cindex C1 index_table.texi:l54
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -488,7 +479,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {yoncept}
   *index_entry_command@cindex C1 index_table.texi:l55
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -501,7 +491,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {uoncept}
   *index_entry_command@cindex C1 index_table.texi:l56
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -514,7 +503,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {ioncept}
   *index_entry_command@cindex C1 index_table.texi:l57
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -527,7 +515,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {ooncept}
   *index_entry_command@cindex C1 index_table.texi:l58
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -540,7 +527,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {poncept}
   *index_entry_command@cindex C1 index_table.texi:l59
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -553,7 +539,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {qoncept}
   *index_entry_command@cindex C1 index_table.texi:l60
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -566,7 +551,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concep}
   *index_entry_command@cindex C1 index_table.texi:l61
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -579,7 +563,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {rsconcept}
   *index_entry_command@cindex C1 index_table.texi:l62
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -592,7 +575,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {soncept}
   *index_entry_command@cindex C1 index_table.texi:l63
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -605,7 +587,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {doncept}
   *index_entry_command@cindex C1 index_table.texi:l64
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -618,7 +599,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {foncept}
   *index_entry_command@cindex C1 index_table.texi:l65
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -631,7 +611,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {goncept}
   *index_entry_command@cindex C1 index_table.texi:l66
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -644,7 +623,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {honcept}
   *index_entry_command@cindex C1 index_table.texi:l67
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -657,7 +635,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {joncept}
   *index_entry_command@cindex C1 index_table.texi:l68
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -670,7 +647,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {koncept}
   *index_entry_command@cindex C1 index_table.texi:l69
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -683,7 +659,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {loncept}
   *index_entry_command@cindex C1 index_table.texi:l70
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -696,7 +671,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {moncept}
   *index_entry_command@cindex C1 index_table.texi:l71
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -709,7 +683,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {roncept}
   *index_entry_command@cindex C1 index_table.texi:l72
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -722,7 +695,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {woncept}
   *index_entry_command@cindex C1 index_table.texi:l73
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -735,7 +707,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {xoncept}
   *index_entry_command@cindex C1 index_table.texi:l74
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -748,7 +719,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {voncept}
   *index_entry_command@cindex C1 index_table.texi:l75
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -761,7 +731,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {boncept}
   *index_entry_command@cindex C1 index_table.texi:l76
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -774,7 +743,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {noncept}
   *index_entry_command@cindex C1 index_table.texi:l77
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -787,7 +755,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {,oncept}
   *index_entry_command@cindex C1 index_table.texi:l78
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -800,7 +767,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {?oncept}
   *index_entry_command@cindex C1 index_table.texi:l79
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -813,7 +779,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {;oncept}
   *index_entry_command@cindex C1 index_table.texi:l80
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -826,7 +791,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {/oncept}
   *index_entry_command@cindex C1 index_table.texi:l81
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -839,7 +803,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {!oncept}
   *index_entry_command@cindex C1 index_table.texi:l82
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -852,7 +815,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cancept}
   *index_entry_command@cindex C1 index_table.texi:l83
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -865,7 +827,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {czncept}
   *index_entry_command@cindex C1 index_table.texi:l84
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -878,7 +839,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cencept}
   *index_entry_command@cindex C1 index_table.texi:l85
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -891,7 +851,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {ctncept}
   *index_entry_command@cindex C1 index_table.texi:l86
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -904,7 +863,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cyncept}
   *index_entry_command@cindex C1 index_table.texi:l87
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -917,7 +875,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cuncept}
   *index_entry_command@cindex C1 index_table.texi:l88
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -930,7 +887,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cincept}
   *index_entry_command@cindex C1 index_table.texi:l89
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -943,7 +899,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l90
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -956,7 +911,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cpncept}
   *index_entry_command@cindex C1 index_table.texi:l91
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -969,7 +923,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cqncept}
   *index_entry_command@cindex C1 index_table.texi:l92
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -982,7 +935,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {csncept}
   *index_entry_command@cindex C1 index_table.texi:l93
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -995,7 +947,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cdncept}
   *index_entry_command@cindex C1 index_table.texi:l94
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1008,7 +959,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cfncept}
   *index_entry_command@cindex C1 index_table.texi:l95
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1021,7 +971,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cgncept}
   *index_entry_command@cindex C1 index_table.texi:l96
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1034,7 +983,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {chncept}
   *index_entry_command@cindex C1 index_table.texi:l97
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1047,7 +995,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cjncept}
   *index_entry_command@cindex C1 index_table.texi:l98
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1060,7 +1007,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {ckncept}
   *index_entry_command@cindex C1 index_table.texi:l99
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1073,7 +1019,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {clncept}
   *index_entry_command@cindex C1 index_table.texi:l100
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1086,7 +1031,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cmncept}
   *index_entry_command@cindex C1 index_table.texi:l101
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1099,7 +1043,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {csdcept}
   *index_entry_command@cindex C1 index_table.texi:l102
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1112,7 +1055,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cxncept}
   *index_entry_command@cindex C1 index_table.texi:l103
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1125,7 +1067,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cvncept}
   *index_entry_command@cindex C1 index_table.texi:l104
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1138,7 +1079,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cbncept}
   *index_entry_command@cindex C1 index_table.texi:l105
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1151,7 +1091,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {cnncept}
   *index_entry_command@cindex C1 index_table.texi:l106
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1164,7 +1103,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {c,ncept}
   *index_entry_command@cindex C1 index_table.texi:l107
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1177,7 +1115,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {crncept}
   *index_entry_command@cindex C1 index_table.texi:l108
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1190,7 +1127,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l109
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1203,7 +1139,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l110
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1216,7 +1151,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l111
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1229,7 +1163,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l112
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1242,7 +1175,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l113
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1255,7 +1187,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l114
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1268,7 +1199,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l115
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1281,7 +1211,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l116
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1294,7 +1223,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l117
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1307,7 +1235,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l118
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1320,7 +1247,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l119
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1333,7 +1259,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l120
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1346,7 +1271,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l121
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1359,7 +1283,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l122
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1372,7 +1295,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l123
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1385,7 +1307,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l124
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1398,7 +1319,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l125
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1411,7 +1331,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l126
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1424,7 +1343,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l127
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1437,7 +1355,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l128
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1450,7 +1367,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l129
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1463,7 +1379,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l130
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1476,7 +1391,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l131
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1489,7 +1403,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l132
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1502,7 +1415,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l133
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1515,7 +1427,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l134
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1528,7 +1439,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l135
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1541,7 +1451,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l136
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1554,7 +1463,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l137
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1567,7 +1475,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l138
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1580,7 +1487,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l139
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1593,7 +1499,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l140
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1606,7 +1511,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l141
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1619,7 +1523,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l142
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1632,7 +1535,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l143
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1645,7 +1547,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l144
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1658,7 +1559,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l145
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1671,7 +1571,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l146
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1684,7 +1583,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l147
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1697,7 +1595,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l148
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1710,7 +1607,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l149
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1723,7 +1619,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l150
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1736,7 +1631,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l151
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1749,7 +1643,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l152
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1762,7 +1655,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l153
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1775,7 +1667,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l154
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1788,7 +1679,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l155
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1801,7 +1691,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l156
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1814,7 +1703,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l157
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1827,7 +1715,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l158
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1840,7 +1727,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l159
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1853,7 +1739,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l160
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1866,7 +1751,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l161
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1879,7 +1763,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l162
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1892,7 +1775,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l163
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1905,7 +1787,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l164
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1918,7 +1799,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l165
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1931,7 +1811,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l166
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1944,7 +1823,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l167
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1957,7 +1835,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l168
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1970,7 +1847,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l169
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1983,7 +1859,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l170
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -1996,7 +1871,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l171
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -2009,7 +1883,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l172
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -2022,7 +1895,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l173
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -2035,7 +1907,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l174
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -2048,7 +1919,6 @@ $result_tree_text{'index_table'} = '*document_root C12
     {concept}
   *index_entry_command@cindex C1 index_table.texi:l175
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

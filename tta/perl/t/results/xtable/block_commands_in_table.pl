@@ -259,7 +259,6 @@ $result_tree_text{'block_commands_in_table'} = '*document_root C5
         {rawline_text:comment}
      *index_entry_command@vindex C1 l37
      |INFO
-     |command_name:{vindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA

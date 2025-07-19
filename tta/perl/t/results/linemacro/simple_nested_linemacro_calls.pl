@@ -71,7 +71,6 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
     >linemacro_expansion<start;1>
      >*linemacro_call@outside C3
      >|INFO
-     >|command_name:{outside}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >*linemacro_arg C1
@@ -113,7 +112,6 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
      >linemacro_expansion<start;2><p:1>
       >*linemacro_call@inside C3
       >|INFO
-      >|command_name:{inside}
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >*linemacro_arg C1
@@ -157,7 +155,6 @@ $result_tree_text{'simple_nested_linemacro_calls'} = '*document_root C2
    *def_item C1
     *index_entry_command@cindex C1 l13:@outside
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA

@@ -39,8 +39,6 @@ $result_tree_text{'macro_in_end_argument'} = '*document_root C1
     |>SOURCEMARKS
     |>macro_expansion<start;1><p:1>
      |>*macro_call@acartouche C1
-     |>|INFO
-     |>|command_name:{acartouche}
       |>*brace_arg
    |EXTRA
    |text_arg:{cartouche}

@@ -84,7 +84,6 @@ $result_tree_text{'table'} = '*document_root C1
       {rawline_text:after vtable}
     *index_entry_command@cindex C1 l11
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -120,7 +119,6 @@ $result_tree_text{'table'} = '*document_root C1
         {rawline_text:after item}
      *index_entry_command@kindex C1 l15
      |INFO
-     |command_name:{kindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA

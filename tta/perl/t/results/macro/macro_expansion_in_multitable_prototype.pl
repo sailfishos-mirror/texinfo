@@ -61,8 +61,6 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
       >SOURCEMARKS
       >macro_expansion<start;1><p:2>
        >*macro_call@simple C1
-       >|INFO
-       >|command_name:{simple}
         >*brace_arg
       >macro_expansion<end;1><p:4>
      { }
@@ -71,8 +69,6 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
       >SOURCEMARKS
       >macro_expansion<start;2><p:2>
        >*macro_call@simple C1
-       >|INFO
-       >|command_name:{simple}
         >*brace_arg
       >macro_expansion<end;2><p:4>
      { }
@@ -85,8 +81,6 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
       >SOURCEMARKS
       >macro_expansion<start;3><p:1>
        >*macro_call@simple C1
-       >|INFO
-       >|command_name:{simple}
         >*brace_arg
       >macro_expansion<end;3><p:3>
      { }
@@ -97,8 +91,6 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
       >SOURCEMARKS
       >macro_expansion<start;4><p:2>
        >*macro_call@endbrace C1
-       >|INFO
-       >|command_name:{endbrace}
         >*brace_arg C1
          >{macro_call_arg_text:@code{l}}
       *@code C1 l9:@endbrace
@@ -113,8 +105,6 @@ $result_tree_text{'macro_expansion_in_multitable_prototype'} = '*document_root C
       >SOURCEMARKS
       >macro_expansion<start;5><p:2>
        >*macro_call@endbrace C1
-       >|INFO
-       >|command_name:{endbrace}
         >*brace_arg C1
          >{macro_call_arg_text:T}
    *multitable_body C1

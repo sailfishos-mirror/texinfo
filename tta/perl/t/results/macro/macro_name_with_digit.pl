@@ -51,15 +51,12 @@ $result_tree_text{'macro_name_with_digit'} = '*document_root C1
    >macro_expansion<start;1>
     >*macro_call_line@macro11 C1
     >|INFO
-    >|command_name:{macro11}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*line_arg C1
       >{some thing @macro1{}}
    >macro_expansion<start;2><p:18>
     >*macro_call@macro1 C1
-    >|INFO
-    >|command_name:{macro1}
      >*brace_arg
    >macro_expansion<end;2><p:24>
    >macro_expansion<end;1><p:24>

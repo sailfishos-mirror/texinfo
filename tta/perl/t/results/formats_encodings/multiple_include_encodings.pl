@@ -441,7 +441,6 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
   {empty_line:\\n}
   *index_entry_command@cindex C1 chapter_char_latin2_latin2_in_refs.texi:l18
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

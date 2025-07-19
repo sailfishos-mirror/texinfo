@@ -28,7 +28,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     {Top}
   *index_entry_command@cindex C1 index_nodes.texi:l4
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -143,7 +142,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
    {Text and then index entries\\n}
    *index_entry_command@cindex C1 index_nodes.texi:l20
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -156,7 +154,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      {entry in node}
    *index_entry_command@cindex C1 index_nodes.texi:l21
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -169,7 +166,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      {! entry in node}
    *index_entry_command@findex C1 index_nodes.texi:l22
    |INFO
-   |command_name:{findex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -182,7 +178,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
      {fun in node}
    *index_entry_command@cindex C1 index_nodes.texi:l23
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -347,7 +342,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
   {empty_line:\\n}
   *index_entry_command@cindex C1 index_nodes.texi:l41
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -360,7 +354,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     {something}
   *index_entry_command@findex C1 index_nodes.texi:l42
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -373,7 +366,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     {somewhere}
   *index_entry_command@cindex C1 index_nodes.texi:l43
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -419,7 +411,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     {second}
   *index_entry_command@cindex C1 index_nodes.texi:l46
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -446,7 +437,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
   {empty_line:\\n}
   *index_entry_command@findex C1 index_nodes.texi:l50
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -459,7 +449,6 @@ $result_tree_text{'index_nodes'} = '*document_root C7
     {a function}
   *index_entry_command@cindex C1 index_nodes.texi:l51
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

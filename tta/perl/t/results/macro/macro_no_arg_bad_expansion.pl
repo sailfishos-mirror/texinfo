@@ -31,8 +31,6 @@ $result_tree_text{'macro_no_arg_bad_expansion'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@testone
-    >|INFO
-    >|command_name:{testone}
    >macro_expansion<end;1><p:4>
 ';
 

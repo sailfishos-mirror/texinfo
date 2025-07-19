@@ -94,7 +94,6 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   {empty_line:\\n}
   *index_entry_command@cindex C1 l10
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -107,7 +106,6 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     {:}
   *index_entry_command@cindex C1 l11
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -120,7 +118,6 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     {:a}
   *index_entry_command@cindex C1 l12
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -154,7 +151,6 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
   {empty_line:\\n}
   *index_entry_command@cindex C1 l18
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -167,7 +163,6 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     {d::e}
   *index_entry_command@cindex C1 l19
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -180,7 +175,6 @@ $result_tree_text{'colons_in_index_entries_and_node'} = '*document_root C4
     {f :d}
   *index_entry_command@cindex C1 l20
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

@@ -33,7 +33,6 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
    >macro_expansion<start;1>
     >*macro_call@macrotwo C1
     >|INFO
-    >|command_name:{macrotwo}
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1
@@ -63,7 +62,6 @@ $result_tree_text{'expand_two_same'} = '*document_root C1
    >macro_expansion<start;2>
     >*macro_call@macrotwo C1
     >|INFO
-    >|command_name:{macrotwo}
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg: }
      >*brace_arg C1

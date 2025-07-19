@@ -118,7 +118,8 @@ enum string_info_type {
    sit_alias_of,  /* every @-command + macro_call */
    sit_delimiter, /* CM_verb */
    sit_command_name = 1, /* ET_definfoenclose_command, ET_index_entry_command
-                            and macro_call */
+                            and macro_call.  Not in Perl info, in Perl cmdname
+                            can be used instead. */
 };
 
 /* corresponds to name, extra type and associated data.  The associated data

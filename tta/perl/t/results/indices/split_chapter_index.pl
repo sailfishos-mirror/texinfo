@@ -53,7 +53,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
     {split indices}
   *index_entry_command@cindex C1 split_chapter_index.texi:l7
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -132,7 +131,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
    {Text and then index entries\\n}
    *index_entry_command@cindex C1 split_chapter_index.texi:l20
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -145,7 +143,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
      {entry in node}
    *index_entry_command@cindex C1 split_chapter_index.texi:l21
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -158,7 +155,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
      {! entry in node}
    *index_entry_command@findex C1 split_chapter_index.texi:l22
    |INFO
-   |command_name:{findex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -171,7 +167,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
      {fun in node}
    *index_entry_command@cindex C1 split_chapter_index.texi:l23
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -198,7 +193,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   {empty_line:\\n}
   *index_entry_command@cindex C1 split_chapter_index.texi:l27
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -212,7 +206,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   {empty_line:\\n}
   *index_entry_command@findex C1 split_chapter_index.texi:l29
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -225,7 +218,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
     {a function}
   *index_entry_command@cindex C1 split_chapter_index.texi:l30
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -238,7 +230,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
     {a concept in first}
   *index_entry_command@findex C1 split_chapter_index.texi:l31
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -339,7 +330,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   {empty_line:\\n}
   *index_entry_command@cindex C1 split_chapter_index.texi:l44
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -353,7 +343,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   {empty_line:\\n}
   *index_entry_command@cindex C1 split_chapter_index.texi:l46
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -399,7 +388,6 @@ $result_tree_text{'split_chapter_index'} = '*document_root C10
   {empty_line:\\n}
   *index_entry_command@cindex C1 split_chapter_index.texi:l53
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

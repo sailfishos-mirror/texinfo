@@ -90,7 +90,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
       {rawline_text:comment in itemize}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l11
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -132,7 +131,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    *before_item C1
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l16
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -155,7 +153,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     {ignorable_spaces_after_command: }
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l18
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -202,7 +199,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {T--ext before items.\\n}
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l25
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -280,7 +276,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     {empty_line:\\n}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l37
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -322,7 +317,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     {empty_line:\\n}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l44
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -362,7 +356,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    *before_item C2
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l49
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -405,7 +398,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {Title\\n}
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l56
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -445,7 +437,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    *before_item C4
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l61
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -467,7 +458,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
       {rawline_text:comment}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l63
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -480,7 +470,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
       {sedond idx}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l64
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -645,7 +634,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      *inter_item C3
       *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l83
       |INFO
-      |command_name:{cindex}
       |spaces_before_argument:
        |{spaces_before_argument: }
       |EXTRA
@@ -764,7 +752,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     *table_term C3
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l98
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -821,7 +808,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    *before_item C2
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l105
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -871,7 +857,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     *table_term C3
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l111
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -928,7 +913,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    *before_item C2
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l118
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -978,7 +962,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     {empty_line:\\n}
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l125
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -1026,7 +1009,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
    *before_item C2
     *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l131
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -1077,7 +1059,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     *table_term C2
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l138
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -1123,7 +1104,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
     *table_term C5
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l143
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -1145,7 +1125,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
        {rawline_text:commant}
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l145
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA
@@ -1158,7 +1137,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
        {second}
      *index_entry_command@cindex C1 indices_in_begin_tables_lists.texi:l146
      |INFO
-     |command_name:{cindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA

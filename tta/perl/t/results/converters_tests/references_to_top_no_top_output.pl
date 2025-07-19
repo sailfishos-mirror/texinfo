@@ -178,7 +178,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 l28
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -269,7 +268,6 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   {empty_line:\\n}
   *index_entry_command@cindex C1 l42
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

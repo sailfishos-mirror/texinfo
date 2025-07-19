@@ -23,8 +23,6 @@ $result_tree_text{'definfoenclose_with_empty_arg'} = '*document_root C1
   *paragraph C3
    {My }
    *definfoenclose_command@headword C1 l4
-   |INFO
-   |command_name:{headword}
    |EXTRA
    |begin:{}
    |end:{:}

@@ -48,7 +48,6 @@ $result_tree_text{'test_index'} = '*document_root C13
    {before menu.\\n}
    *index_entry_command@cindex C1 l7
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -61,7 +60,6 @@ $result_tree_text{'test_index'} = '*document_root C13
      {in Top}
    *index_entry_command@cindex C1 l8
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -74,7 +72,6 @@ $result_tree_text{'test_index'} = '*document_root C13
      *@@
    *index_entry_command@cindex C1 l9
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -88,7 +85,6 @@ $result_tree_text{'test_index'} = '*document_root C13
       *brace_container
    *index_entry_command@cindex C1 l10
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -322,7 +318,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
   *index_entry_command@cindex C1 l34
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -335,7 +330,6 @@ $result_tree_text{'test_index'} = '*document_root C13
     {index entry looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   *index_entry_command@findex C1 l35
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -351,7 +345,6 @@ $result_tree_text{'test_index'} = '*document_root C13
    {A paragraph \\n}
    *index_entry_command@findex C1 l38
    |INFO
-   |command_name:{findex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -381,7 +374,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
   *index_entry_command@findex C1 l51
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -620,7 +612,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
   *index_entry_command@findex C1 l203
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -664,7 +655,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
   *index_entry_command@cindex C1 l208
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -695,7 +685,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
   *index_entry_command@findex C1 l214
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -811,7 +800,6 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
   *index_entry_command@cindex C1 l231
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

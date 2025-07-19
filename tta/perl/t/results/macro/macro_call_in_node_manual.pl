@@ -136,8 +136,6 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;1>
       >*macro_call@openbrace C1
-      >|INFO
-      >|command_name:{openbrace}
        >*brace_arg
      >macro_expansion<end;1><p:1>
      {a_man}
@@ -155,8 +153,6 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;2>
       >*macro_call@openbracetext C1
-      >|INFO
-      >|command_name:{openbracetext}
        >*brace_arg
      {begin}
      >SOURCEMARKS
@@ -177,8 +173,6 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;3>
       >*macro_call@openbracetext C1
-      >|INFO
-      >|command_name:{openbracetext}
        >*brace_arg
      {begin}
      >SOURCEMARKS
@@ -198,16 +192,12 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;4>
       >*macro_call@openbracetext C1
-      >|INFO
-      >|command_name:{openbracetext}
        >*brace_arg
      {beginlast}
      >SOURCEMARKS
      >macro_expansion<end;4><p:5>
      >macro_expansion<start;5><p:5>
       >*macro_call@manualnameend C1
-      >|INFO
-      >|command_name:{manualnameend}
        >*brace_arg
      >macro_expansion<end;5><p:9>
      {)}
@@ -227,8 +217,6 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;6><p:3>
       >*macro_call@manualnameendbrace C1
-      >|INFO
-      >|command_name:{manualnameendbrace}
        >*brace_arg
      {)}
      >SOURCEMARKS
@@ -248,8 +236,6 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;7>
       >*macro_call@openbracetext C1
-      >|INFO
-      >|command_name:{openbracetext}
        >*brace_arg
      {begin}
      >SOURCEMARKS
@@ -258,8 +244,6 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;8>
       >*macro_call@manualnameendbrace C1
-      >|INFO
-      >|command_name:{manualnameendbrace}
        >*brace_arg
       *brace_container C1
        {in code}
@@ -283,8 +267,6 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;9><p:3>
       >*macro_call@manualnameendbracespace C1
-      >|INFO
-      >|command_name:{manualnameendbracespace}
        >*brace_arg
      {)}
      {    }
@@ -307,8 +289,6 @@ $result_tree_text{'macro_call_in_node_manual'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;10><p:3>
       >*macro_call@manualnameendbracespacetext C1
-      >|INFO
-      >|command_name:{manualnameendbracespacetext}
        >*brace_arg
      {)}
      {  }

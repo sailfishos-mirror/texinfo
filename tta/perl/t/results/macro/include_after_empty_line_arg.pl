@@ -29,8 +29,6 @@ $result_tree_text{'include_after_empty_line_arg'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call_line@mymacro C1
-   >|INFO
-   >|command_name:{mymacro}
     >*line_arg C1
      >{}
   *paragraph C3

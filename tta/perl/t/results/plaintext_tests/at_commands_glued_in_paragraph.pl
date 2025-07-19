@@ -99,7 +99,6 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
    {index}
    *index_entry_command@cindex C1 l14
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

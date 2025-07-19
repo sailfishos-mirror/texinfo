@@ -73,7 +73,6 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
    *preformatted C6
     *index_entry_command@cindex C1 l8
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -88,7 +87,6 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
     {empty_line:\\n}
     *index_entry_command@cindex C1 l11
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA
@@ -112,7 +110,6 @@ $result_tree_text{'index_entry_in_preformatted'} = '*document_root C5
     {text2\\n}
     *index_entry_command@cindex C1 l13
     |INFO
-    |command_name:{cindex}
     |spaces_before_argument:
      |{spaces_before_argument: }
     |EXTRA

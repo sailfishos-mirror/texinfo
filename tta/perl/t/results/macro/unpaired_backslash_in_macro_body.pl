@@ -32,8 +32,6 @@ $result_tree_text{'unpaired_backslash_in_macro_body'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@mymacro C1
-    >|INFO
-    >|command_name:{mymacro}
      >*brace_arg
    {not paired\\n}
    >SOURCEMARKS

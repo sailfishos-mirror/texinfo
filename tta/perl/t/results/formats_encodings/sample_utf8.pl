@@ -295,7 +295,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
   {empty_line:\\n}
   *index_entry_command@cindex C1 sample_utf8.texi:l44
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -311,7 +310,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    {This is the first chapter. 这是第一章。\\n}
    *index_entry_command@cindex C1 sample_utf8.texi:l47
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -324,7 +322,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {另一个，index entry}
    *index_entry_command@cindex C1 sample_utf8.texi:l48
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -337,7 +334,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
      {ĄĘ ae ąę}
    *index_entry_command@cindex C1 sample_utf8.texi:l49
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

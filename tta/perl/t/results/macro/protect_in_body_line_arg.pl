@@ -31,8 +31,6 @@ $result_tree_text{'protect_in_body_line_arg'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@macroone
-    >|INFO
-    >|command_name:{macroone}
    *@emph C1 l5:@macroone
     *brace_container
    { protected \\ -> \\arg1\\ }

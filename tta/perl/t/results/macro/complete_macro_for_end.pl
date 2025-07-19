@@ -35,8 +35,6 @@ $result_tree_text{'complete_macro_for_end'} = '*document_root C1
     >SOURCEMARKS
     >macro_expansion<start;1>
      >*macro_call@theend C1
-     >|INFO
-     >|command_name:{theend}
       >*brace_arg
    *@end C1 l6:@theend
    |INFO

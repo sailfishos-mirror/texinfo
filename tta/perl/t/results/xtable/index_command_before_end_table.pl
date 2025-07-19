@@ -44,7 +44,6 @@ $result_tree_text{'index_command_before_end_table'} = '*document_root C1
      {empty_line:\\n}
      *index_entry_command@vindex C1 l7
      |INFO
-     |command_name:{vindex}
      |spaces_before_argument:
       |{spaces_before_argument: }
      |EXTRA

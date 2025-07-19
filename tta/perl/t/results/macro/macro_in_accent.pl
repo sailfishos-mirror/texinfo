@@ -53,8 +53,6 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
     |>SOURCEMARKS
     |>macro_expansion<start;1><p:1>
      |>*macro_call@aletter C1
-     |>|INFO
-     |>|command_name:{aletter}
       |>*brace_arg
    >SOURCEMARKS
    >macro_expansion<end;1>
@@ -68,8 +66,6 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
     |>SOURCEMARKS
     |>macro_expansion<start;2>
      |>*macro_call@aletter C1
-     |>|INFO
-     |>|command_name:{aletter}
       |>*brace_arg
    >SOURCEMARKS
    >macro_expansion<end;2>
@@ -83,8 +79,6 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
     |>SOURCEMARKS
     |>macro_expansion<start;3>
      |>*macro_call@aletter C1
-     |>|INFO
-     |>|command_name:{aletter}
       |>*brace_arg
    >SOURCEMARKS
    >macro_expansion<end;3>
@@ -97,8 +91,6 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
      >SOURCEMARKS
      >macro_expansion<start;4>
       >*macro_call@aletter C1
-      >|INFO
-      >|command_name:{aletter}
        >*brace_arg
      >macro_expansion<end;4><p:1>
    {.\\n}
@@ -111,14 +103,10 @@ $result_tree_text{'macro_in_accent'} = '*document_root C1
     |>SOURCEMARKS
     |>macro_expansion<start;5>
      |>*macro_call@aspace C1
-     |>|INFO
-     |>|command_name:{aspace}
       |>*brace_arg
     |>macro_expansion<end;5><p:2>
     |>macro_expansion<start;6><p:2>
      |>*macro_call@aletter C1
-     |>|INFO
-     |>|command_name:{aletter}
       |>*brace_arg
    >SOURCEMARKS
    >macro_expansion<end;6>

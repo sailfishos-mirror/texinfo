@@ -31,8 +31,6 @@ $result_tree_text{'recursive_call_in_argument'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@anorecurse C1
-    >|INFO
-    >|command_name:{anorecurse}
      >*brace_arg C1
       >{macro_call_arg_text:@anorecurse{}}
    >macro_expansion<end;1><p:1>

@@ -92,7 +92,6 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    {\\n}
    *index_entry_command@cindex C1 l10
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -172,7 +171,6 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
    {\\n}
    *index_entry_command@cindex C1 l16
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA

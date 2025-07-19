@@ -53,7 +53,6 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@lm C2
    >|INFO
-   >|command_name:{lm}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*linemacro_arg C1
@@ -65,8 +64,6 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
      >{bracketed_linemacro_arg:gg , yy \\n  zz}
   >macro_expansion<start;1><p:1>
    >*macro_call@mymacro C2
-   >|INFO
-   >|command_name:{mymacro}
     >*brace_arg C1
      >{macro_call_arg_text:@code{}\\n@var{something}\\nnow second arg: gg }
     >*brace_arg C1

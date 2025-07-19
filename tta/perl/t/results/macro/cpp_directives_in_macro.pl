@@ -34,8 +34,6 @@ $result_tree_text{'cpp_directives_in_macro'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@simplemacro C1
-    >|INFO
-    >|command_name:{simplemacro}
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:

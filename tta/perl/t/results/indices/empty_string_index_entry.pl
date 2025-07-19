@@ -40,7 +40,6 @@ $result_tree_text{'empty_string_index_entry'} = '*document_root C3
   {empty_line:\\n}
   *index_entry_command@findex C1 l4
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

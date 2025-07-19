@@ -60,14 +60,12 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   >macro_expansion<start;1><p:1>
    >*macro_call_line@funindex C1
    >|INFO
-   >|command_name:{funindex}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*line_arg C1
      >{\\\\q}
   *index_entry_command@findex C1 l8:@funindex
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -76,8 +74,6 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   >SOURCEMARKS
   >macro_expansion<start;2>
    >*macro_call@funindex C1
-   >|INFO
-   >|command_name:{funindex}
     >*brace_arg C1
      >{macro_call_arg_text:\\r}
    *line_arg C1
@@ -89,7 +85,6 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
     >macro_expansion<end;1><p:3>
   *index_entry_command@findex C1 l9:@funindex
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -99,7 +94,6 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   >macro_expansion<start;3>
    >*macro_call_line@funindex C1
    >|INFO
-   >|command_name:{funindex}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*line_arg C1
@@ -113,7 +107,6 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
     >macro_expansion<end;2><p:2>
   *index_entry_command@findex C1 l10:@funindex
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -122,8 +115,6 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
   >SOURCEMARKS
   >macro_expansion<start;4>
    >*macro_call@funindex C1
-   >|INFO
-   >|command_name:{funindex}
     >*brace_arg C1
      >{macro_call_arg_text:\\r}
    *line_arg C1
@@ -135,7 +126,6 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
     >macro_expansion<end;3><p:2>
   *index_entry_command@findex C1 l11:@funindex
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

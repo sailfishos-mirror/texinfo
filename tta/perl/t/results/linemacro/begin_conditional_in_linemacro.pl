@@ -32,7 +32,6 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
    >linemacro_expansion<start;1>
     >*linemacro_call@lm C1
     >|INFO
-    >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1
@@ -69,7 +68,6 @@ $result_tree_text{'begin_conditional_in_linemacro'} = '*document_root C1
    >linemacro_expansion<start;2>
     >*linemacro_call@lm C1
     >|INFO
-    >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1

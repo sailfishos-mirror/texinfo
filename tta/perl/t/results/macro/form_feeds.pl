@@ -51,7 +51,6 @@ $result_tree_text{'form_feeds'} = '*document_root C1
    >macro_expansion<start;1>
     >*macro_call@mymacro C2
     >|INFO
-    >|command_name:{mymacro}
     >|spaces_after_cmd_before_arg:
      >|{spaces_after_cmd_before_arg:  \\f}
      >*brace_arg C1
@@ -77,7 +76,6 @@ $result_tree_text{'form_feeds'} = '*document_root C1
    >macro_expansion<start;2>
     >*macro_call_line@oneargmacro C1
     >|INFO
-    >|command_name:{oneargmacro}
     >|spaces_before_argument:
      >|{spaces_before_argument: \\f \\f }
      >*line_arg C1

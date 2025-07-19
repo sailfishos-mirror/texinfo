@@ -70,7 +70,6 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
   >linemacro_expansion<start;1><p:1>
    >*linemacro_call@mylinecommand C3
    >|INFO
-   >|command_name:{mylinecommand}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*linemacro_arg C1
@@ -122,8 +121,6 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
        >SOURCEMARKS
        >macro_expansion<start;1>
         >*macro_call_line@mymac C1
-        >|INFO
-        >|command_name:{mymac}
          >*line_arg C1
           >{} A aa B @mymac {bb}}
        *@samp C1 l15:@mymac
@@ -149,7 +146,6 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
   >linemacro_expansion<start;2><p:1>
    >*linemacro_call@mylinecommand C3
    >|INFO
-   >|command_name:{mylinecommand}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
     >*linemacro_arg C1
@@ -191,8 +187,6 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
        >SOURCEMARKS
        >linemacro_expansion<start;3>
         >*linemacro_call@mylinemac C2
-        >|INFO
-        >|command_name:{mylinemac}
          >*linemacro_arg C1
           >{macro_call_arg_text:}}
          >*linemacro_arg C1

@@ -29,8 +29,6 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;1><p:1>
    >*macro_call@expand C1
-   >|INFO
-   >|command_name:{expand}
     >*brace_arg
   *@center C1 l5:@expand
   |INFO
@@ -73,8 +71,6 @@ $result_tree_text{'line_end_accent_command_macro_call'} = '*document_root C1
   >SOURCEMARKS
   >macro_expansion<start;2><p:1>
    >*macro_call@nospace C1
-   >|INFO
-   >|command_name:{nospace}
     >*brace_arg
   *@center C1 l12:@nospace
   |INFO

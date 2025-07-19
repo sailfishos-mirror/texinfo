@@ -31,8 +31,6 @@ $result_tree_text{'protect_colon_source_mark'} = '*document_root C1
    >SOURCEMARKS
    >macro_expansion<start;1><p:9>
     >*macro_call@klm C1
-    >|INFO
-    >|command_name:{klm}
      >*brace_arg C1
       >{macro_call_arg_text:nop}
    *@asis C1

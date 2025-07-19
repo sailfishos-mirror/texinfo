@@ -286,10 +286,6 @@ arguments are, for example, @code{@@set}, @code{@@unmacro}
 and @code{@@comment}.  @code{@@raisesections}, @code{@@contents} and @code{@@novalidate}
 are examples of @emph{lineraw} line commands without arguments.
 
-@emph{lineraw} line commands @code{contents} contains direclty @emph{rawline_arg}
-text elements holding the line arguments or the end of line if the
-@@-command do not have any argument.
-
 @item regular line commands
 @anchor{Texinfo@asis{::}Parser regular line commands}
 
@@ -428,7 +424,7 @@ can do:
 @item cmdname
 @anchor{Texinfo@asis{::}Parser cmdname}
 
-The command name of @@-command elements.
+The command name of @@-command and user-defined macro call elements.
 
 @item text
 @anchor{Texinfo@asis{::}Parser text}
@@ -507,12 +503,13 @@ See @ref{Texinfo@asis{::}Parser Information available in the @code{extra} key,, 
 @node Texinfo@asis{::}Parser Element types
 @subsection Element types
 
-@node Texinfo@asis{::}Parser Types for command elements
-@subsubsection Types for command elements
+@node Texinfo@asis{::}Parser Types for command and user-defined macro call elements
+@subsubsection Types for command and user-defined macro call elements
 
 Some types can be associated with @@-commands (in addition to @code{cmdname}),
-although usually there will be no type at all.  The following are the
-possible values of @code{type} for tree elements for @@-commands.
+although usually there will be no type at all.  The following are the possible
+values of @code{type} for tree elements for @@-commands and user-defined macro call
+elements.
 
 @table @asis
 @item definfoenclose_command
@@ -521,8 +518,6 @@ possible values of @code{type} for tree elements for @@-commands.
 This type is set for an @@-command that is redefined by @code{@@definfoenclose}.
 The beginning is in @code{@{'extra'@}->@{'begin'@}} and the end in
 @code{@{'extra'@}->@{'end'@}}.
-
-The command name is the info @emph{command_name} value.
 
 @item index_entry_command
 @anchor{Texinfo@asis{::}Parser index_entry_command}
@@ -541,7 +536,25 @@ is:
 the @code{@@fooindex} @@-command element will have the @emph{index_entry_command}
 type.
 
-The command name is the info @emph{command_name} value.
+@item macro_call
+@anchor{Texinfo@asis{::}Parser macro_call}
+
+@item macro_call_line
+@anchor{Texinfo@asis{::}Parser macro_call_line}
+
+@item rmacro_call
+@anchor{Texinfo@asis{::}Parser rmacro_call}
+
+@item rmacro_call_line
+@anchor{Texinfo@asis{::}Parser rmacro_call_line}
+
+@item linemacro_call
+@anchor{Texinfo@asis{::}Parser linemacro_call}
+
+Container holding the arguments of user-defined macro, linemacro
+or rmacro.  It should not appear directly in the tree as the user defined
+call is expanded.  The @emph{macro_call_line} or @emph{rmacro_call_line} elements
+are used when there are no braces and the whole line is the argument.
 
 @end table
 
@@ -656,13 +669,12 @@ Space appearing before a paragraph beginning.
 Text in an environment where it should be kept as is (in @code{@@verbatim},
 @code{@@verb}, @code{@@macro} body).
 
-@item rawline_arg
-@anchor{Texinfo@asis{::}Parser rawline_arg}
+@item rawline_text
+@anchor{Texinfo@asis{::}Parser rawline_text}
 
-Used for the arguments to some special line commands whose arguments
+Used for the text in arguments to some special line commands whose arguments
 aren't subject to the usual macro expansion.  For example @code{@@set},
-@code{@@unmacro}, @code{@@comment}.  The argument is associated to
-the @emph{text} key.
+@code{@@unmacro}, @code{@@comment}.
 
 @item spaces_at_end
 @anchor{Texinfo@asis{::}Parser spaces_at_end}
@@ -902,27 +914,6 @@ recursed into, as the text within is untranslated, but the untranslated text
 should be gathered when converting the @emph{untranslated_def_line_arg} type
 container.
 
-@item macro_call
-@anchor{Texinfo@asis{::}Parser macro_call}
-
-@item macro_call_line
-@anchor{Texinfo@asis{::}Parser macro_call_line}
-
-@item rmacro_call
-@anchor{Texinfo@asis{::}Parser rmacro_call}
-
-@item rmacro_call_line
-@anchor{Texinfo@asis{::}Parser rmacro_call_line}
-
-@item linemacro_call
-@anchor{Texinfo@asis{::}Parser linemacro_call}
-
-Container holding the arguments of a user defined macro, linemacro
-or rmacro.  It should not appear directly in the tree as the user defined
-call is expanded.  The name of the macro, rmacro or linemacro is the the info
-@emph{command_name} value.  The @emph{macro_call_line} or @emph{rmacro_call_line} elements
-are used when there are no braces and the whole line is the argument.
-
 @item menu_comment
 @anchor{Texinfo@asis{::}Parser menu_comment}
 
@@ -1052,16 +1043,6 @@ and @code{@@itemx}, in a @emph{table_term}.
 @subsection Information available in the @code{info} key
 
 @table @asis
-@item command_name
-@anchor{Texinfo@asis{::}Parser command_name}
-
-Name of commands that can be defined dynamically.
-The name of index command or definfoenclose defined command (also
-available in @emph{cmdname} for those commands).
-The name of user defined macro, rmacro or linemacro called
-associated with the element holding the arguments of the user defined command
-call.
-
 @item delimiter
 @anchor{Texinfo@asis{::}Parser delimiter 1}
 

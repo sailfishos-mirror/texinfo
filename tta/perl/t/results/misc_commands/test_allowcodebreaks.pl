@@ -89,8 +89,6 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    >SOURCEMARKS
    >macro_expansion<start;1>
     >*macro_call@testallowcodebreakspara C1
-    >|INFO
-    >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
       >{macro_call_arg_text:0}
    *@code C1 l21:@testallowcodebreakspara
@@ -157,8 +155,6 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   >SOURCEMARKS
   >macro_expansion<start;2>
    >*macro_call@testallowcodebreaksexample C1
-   >|INFO
-   >|command_name:{testallowcodebreaksexample}
     >*brace_arg
   *@example C3 l22:@testallowcodebreaksexample
    *arguments_line C1
@@ -203,8 +199,6 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    >SOURCEMARKS
    >macro_expansion<start;3>
     >*macro_call@testallowcodebreakspara C1
-    >|INFO
-    >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
       >{macro_call_arg_text:1}
    *@code C1 l26:@testallowcodebreakspara
@@ -271,8 +265,6 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   >SOURCEMARKS
   >macro_expansion<start;4>
    >*macro_call@testallowcodebreaksexample C1
-   >|INFO
-   >|command_name:{testallowcodebreaksexample}
     >*brace_arg
   *@example C3 l27:@testallowcodebreaksexample
    *arguments_line C1
@@ -307,8 +299,6 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
      >SOURCEMARKS
      >macro_expansion<start;5>
       >*macro_call@testallowcodebreakspara C1
-      >|INFO
-      >|command_name:{testallowcodebreakspara}
        >*brace_arg C1
         >{macro_call_arg_text:w}
      *@code C1 l30:@testallowcodebreakspara
@@ -416,8 +406,6 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
    >SOURCEMARKS
    >macro_expansion<start;6>
     >*macro_call@testallowcodebreakspara C1
-    >|INFO
-    >|command_name:{testallowcodebreakspara}
      >*brace_arg C1
       >{macro_call_arg_text:2}
    *@code C1 l39:@testallowcodebreakspara
@@ -484,8 +472,6 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
   >SOURCEMARKS
   >macro_expansion<start;7>
    >*macro_call@testallowcodebreaksexample C1
-   >|INFO
-   >|command_name:{testallowcodebreaksexample}
     >*brace_arg
   *@example C3 l40:@testallowcodebreaksexample
    *arguments_line C1

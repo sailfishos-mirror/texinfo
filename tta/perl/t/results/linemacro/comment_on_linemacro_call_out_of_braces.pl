@@ -34,7 +34,6 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
    >linemacro_expansion<start;1>
     >*linemacro_call@lm C2
     >|INFO
-    >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1
@@ -63,8 +62,6 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
    >SOURCEMARKS
    >linemacro_expansion<start;2>
     >*linemacro_call@lm C1
-    >|INFO
-    >|command_name:{lm}
      >*linemacro_arg C1
       >{macro_call_arg_text:}
    {second ||\\n}
@@ -87,7 +84,6 @@ $result_tree_text{'comment_on_linemacro_call_out_of_braces'} = '*document_root C
    >linemacro_expansion<start;3>
     >*linemacro_call@lm C3
     >|INFO
-    >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >*linemacro_arg C1

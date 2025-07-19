@@ -46,7 +46,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
     {)}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l4
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -142,7 +141,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l17
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -172,7 +170,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l22
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -211,7 +208,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
     {first before top}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l26
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -281,7 +277,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
     {top section}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l37
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -379,7 +374,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
    {Text and then index entries\\n}
    *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l49
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -392,7 +386,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
      {! entry in node}
    *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l50
    |INFO
-   |command_name:{findex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -405,7 +398,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
      {fun in node}
    *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l51
    |INFO
-   |command_name:{cindex}
    |spaces_before_argument:
     |{spaces_before_argument: }
    |EXTRA
@@ -570,7 +562,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l69
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -583,7 +574,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
     {something}
   *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l70
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -596,7 +586,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
     {somewhere}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l71
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -642,7 +631,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
     {second}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l74
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -669,7 +657,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
   {empty_line:\\n}
   *index_entry_command@findex C1 nodes_before_top_and_sections.texi:l78
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -682,7 +669,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
     {a function}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l79
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -792,7 +778,6 @@ $result_tree_text{'nodes_before_top_and_sections_chapter_no_node'} = '*document_
   {empty_line:\\n}
   *index_entry_command@cindex C1 nodes_before_top_and_sections.texi:l90
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA

@@ -33,8 +33,6 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    |>SOURCEMARKS
    |>macro_expansion<start;1><p:1>
     |>*macro_call@begin-file C1
-    |>|INFO
-    |>|command_name:{begin-file}
      |>*brace_arg
   |EXTRA
   |text_arg:{macro_i--n_pass@texi_commands.info}
@@ -74,8 +72,6 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    |>SOURCEMARKS
    |>macro_expansion<start;2><p:1>
     |>*macro_call@latin1 C1
-    |>|INFO
-    |>|command_name:{latin1}
      |>*brace_arg
   |EXTRA
   |global_command_number:{1}
@@ -162,8 +158,6 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
     >|>SOURCEMARKS
     >|>macro_expansion<start;3><p:1>
      >|>*macro_call@multiinclude
-     >|>|INFO
-     >|>|command_name:{multiinclude}
    >|EXTRA
    >|text_arg:{macro_included.texi}
     >*line_arg C1
@@ -217,8 +211,6 @@ $result_tree_text{'macro_and_commands_in_early_commands'} = '*document_root C4
    >SOURCEMARKS
    >macro_expansion<start;4>
     >*macro_call@themacro C1
-    >|INFO
-    >|command_name:{themacro}
      >*brace_arg
    >macro_expansion<end;4><p:11>
   {empty_line:\\n}

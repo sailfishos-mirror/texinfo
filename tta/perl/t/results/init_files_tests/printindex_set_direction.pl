@@ -67,7 +67,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
   {empty_line:\\n}
   *index_entry_command@cindex C1 l7
   |INFO
-  |command_name:{cindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -80,7 +79,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
     {CC}
   *index_entry_command@vindex C1 l8
   |INFO
-  |command_name:{vindex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
@@ -93,7 +91,6 @@ $result_tree_text{'printindex_set_direction'} = '*document_root C11
     {VV}
   *index_entry_command@findex C1 l9
   |INFO
-  |command_name:{findex}
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
