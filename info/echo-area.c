@@ -22,6 +22,7 @@
 #include "display.h"
 #include "scan.h"
 #include "util.h"
+#include "nodes.h"
 #include "echo-area.h"
 
 /* Non-zero means that C-g was used to quit reading input. */

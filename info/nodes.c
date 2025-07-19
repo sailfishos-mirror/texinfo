@@ -23,7 +23,6 @@
 #include "search.h"
 #include "filesys.h"
 #include "scan.h"
-#include "util.h"
 #include "tag.h"
 #include "man.h"
 #include "variables.h"
@@ -1335,3 +1334,42 @@ info_node_of_tag_fast (FILE_BUFFER *fb, TAG **tag_ptr)
 {
   return info_node_of_tag_ext (fb, tag_ptr, 1);
 }
+
+/* Return "(FILENAME)NODENAME" for NODE, or just "NODENAME" if NODE's
+   filename is not set.  Return value should not be freed. */
+char *
+node_printed_rep (NODE *node)
+{
+  static char *rep;
+
+  if (node->fullpath)
+    {
+      char *filename = filename_non_directory (node->fullpath);
+      rep = xrealloc (rep, 1 + strlen (filename) + 1 + strlen (node->nodename) + 1);
+      sprintf (rep, "(%s)%s", filename, node->nodename);
+      return rep;
+    }
+  else
+    return node->nodename;
+}
+
+/* Return non-zero if NODE is one especially created by Info. */
+int
+internal_info_node_p (NODE *node)
+{
+  return (node != NULL) && (node->flags & N_IsInternal);
+}
+
+/* Make NODE appear to be one especially created by Info. */
+void
+name_internal_node (NODE *node, char *name)
+{
+  if (!node)
+    return;
+
+  node->fullpath = "";
+  node->subfile = 0;
+  node->nodename = name;
+  node->flags |= N_IsInternal;
+}
+

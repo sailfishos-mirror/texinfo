@@ -187,6 +187,15 @@ FILE_BUFFER *make_file_buffer (void);
 /* Non-zero means don't try to be smart when searching for nodes.  */
 extern int strict_node_location_p;
 
+char *node_printed_rep (NODE *node);
+
+/* Return non-zero if NODE is one especially created by Info. */
+int internal_info_node_p (NODE *node);
+
+/* Make NODE appear to be one especially created by Info, and give it NAME. */
+void name_internal_node (NODE *node, char *name);
+
+
 
 /* Found in dir.c */
 NODE *get_dir_node (void);

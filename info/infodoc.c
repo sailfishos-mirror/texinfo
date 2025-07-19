@@ -20,6 +20,7 @@
 #include "info.h"
 #include "scan.h"
 #include "util.h"
+#include "nodes.h"
 #include "filesys.h"
 #include "session.h"
 #include "doc.h"

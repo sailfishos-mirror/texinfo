@@ -56,25 +56,6 @@ file_buffer_of_window (WINDOW *window)
   return NULL;
 }
 
-/* Return "(FILENAME)NODENAME" for NODE, or just "NODENAME" if NODE's
-   filename is not set.  Return value should not be freed. */
-char *
-node_printed_rep (NODE *node)
-{
-  static char *rep;
-
-  if (node->fullpath)
-    {
-      char *filename = filename_non_directory (node->fullpath);
-      rep = xrealloc (rep, 1 + strlen (filename) + 1 + strlen (node->nodename) + 1);
-      sprintf (rep, "(%s)%s", filename, node->nodename);
-      return rep;
-    }
-  else
-    return node->nodename;
-}
-
-
 /* Return a pointer to the part of PATHNAME that simply defines the file. */
 char *
 filename_non_directory (char *pathname)
@@ -88,26 +69,6 @@ filename_non_directory (char *pathname)
     filename--;
 
   return filename;
-}
-
-/* Return non-zero if NODE is one especially created by Info. */
-int
-internal_info_node_p (NODE *node)
-{
-  return (node != NULL) && (node->flags & N_IsInternal);
-}
-
-/* Make NODE appear to be one especially created by Info. */
-void
-name_internal_node (NODE *node, char *name)
-{
-  if (!node)
-    return;
-
-  node->fullpath = "";
-  node->subfile = 0;
-  node->nodename = name;
-  node->flags |= N_IsInternal;
 }
 
 /* Return the window displaying NAME, the name of an internally created

@@ -11,16 +11,9 @@
 
 FILE_BUFFER *file_buffer_of_window (WINDOW *window);
 
-char *node_printed_rep (NODE *node);
 
 /* Return a pointer to the part of PATHNAME that simply defines the file. */
 char *filename_non_directory (char *pathname);
-
-/* Return non-zero if NODE is one especially created by Info. */
-int internal_info_node_p (NODE *node);
-
-/* Make NODE appear to be one especially created by Info, and give it NAME. */
-void name_internal_node (NODE *node, char *name);
 
 /* Return the window displaying NAME, the name of an internally created
    Info window. */

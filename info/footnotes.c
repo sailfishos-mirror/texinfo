@@ -21,6 +21,7 @@
 #include "session.h"
 #include "scan.h"
 #include "util.h"
+#include "nodes.h"
 #include "footnotes.h"
 
 /* Nonzero means attempt to show footnotes when displaying a new window. */

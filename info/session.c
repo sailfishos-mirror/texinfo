@@ -21,6 +21,7 @@
 #include "display.h"
 #include "session.h"
 #include "util.h"
+#include "nodes.h"
 #include "echo-area.h"
 #include "search.h"
 #include "footnotes.h"
