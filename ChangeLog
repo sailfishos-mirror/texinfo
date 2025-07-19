@@ -1,5 +1,12 @@
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/parse_refold.pl (_convert): handle alias.  Pass
+	current source mark to recursive calls of _convert.  Call _convert for
+	all conversions to be sure that alias and source marks are correctly
+	expanded.
+
+2025-07-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/swig_interface.c (element_cmdname): return command
 	name for user-defined macro calls too.
 

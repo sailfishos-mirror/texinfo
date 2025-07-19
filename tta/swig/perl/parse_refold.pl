@@ -65,9 +65,6 @@ my $tree = Texinfo::document_tree($document);
 
 #print STDERR Texinfo::tree_print_details($tree)."\n\n\n";
 
-my $current_smark_counter;
-my $current_smark_type;
-
 sub _text($$$;$)
 {
   my ($text, $from, $type, $to) = @_;
@@ -98,11 +95,11 @@ sub _text($$$;$)
   return $result;
 }
 
-sub _convert($$);
+sub _convert($$;$);
 
-sub _handle_source_marks($$$)
+sub _handle_source_marks($$)
 {
-  my ($element, $current_smark_counter, $current_smark_type) = @_;
+  my ($element, $current_smark) = @_;
   my $result = '';
   my $last_position;
   my $source_marks_nr = Texinfo::element_source_marks_number($element);
@@ -112,13 +109,12 @@ sub _handle_source_marks($$$)
       my $source_mark_counter = $source_mark->swig_counter_get();
       my $source_mark_type = $source_mark->swig_type_get();
 
-      if ($current_smark_counter) {
-        if ($source_mark_counter == $current_smark_counter
-            and $current_smark_type eq $source_mark_type) {
+      if ($current_smark) {
+        if ($source_mark_counter == $current_smark->[1]
+            and $current_smark->[0] eq $source_mark_type) {
           $last_position = $source_mark->swig_position_get();
           #print STDERR "ESM: $source_mark_type;c:$source_mark_counter;p:$last_position\n";
-          $current_smark_counter = undef;
-          $current_smark_type = undef;
+          $current_smark = undef;
         }
         # FIXME what about source marks in source mark elements?
         next;
@@ -126,15 +122,6 @@ sub _handle_source_marks($$$)
 
       my $source_mark_status = $source_mark->swig_status_get();
 
-      if ($source_mark_status eq $Texinfo::SM_status_start
-          # expanded conditional has a start and an end, but the
-          # tree within is the expanded tree and should not be skipped
-          and $source_mark_type
-              != $Texinfo::SM_type_expanded_conditional_command) {
-        #print STDERR "SSM: $source_mark_type;c:$source_mark_counter\n";
-        $current_smark_counter = $source_mark_counter;
-        $current_smark_type = $source_mark_type;
-      }
       my $source_mark_position = $source_mark->swig_position_get();
       if (defined($source_mark_position) and $source_mark_position > 0) {
         # source_mark_position > 0 only in text elements
@@ -149,9 +136,9 @@ sub _handle_source_marks($$$)
       my $source_mark_element = $source_mark->swig_element_get();
       if (defined($source_mark_element)) {
         #print STDERR "!! ".Texinfo::tree_print_details($source_mark_element)."\n";
-        # FIXME could be space elements and source marks?
-        $result
-          .= Texinfo::convert_to_texinfo($source_mark_element);
+        ($smark_e_text, $current_smark)
+          = _convert($source_mark_element, $document, $current_smark);
+        $result .= $smark_e_text;
       } else {
         my $source_mark_line = $source_mark->swig_line_get();
         if (defined($source_mark_line)) {
@@ -160,17 +147,34 @@ sub _handle_source_marks($$$)
           $result .= "@\n";
         }
       }
+      if ($source_mark_status eq $Texinfo::SM_status_start
+          # expanded conditional has a start and an end, but the
+          # tree within is the expanded tree and should not be skipped
+          and $source_mark_type
+              != $Texinfo::SM_type_expanded_conditional_command) {
+        #print STDERR "SSM: $source_mark_type;c:$source_mark_counter\n";
+        $current_smark = [$source_mark_type, $source_mark_counter];
+      }
     }
   }
-  return $result, $last_position, $current_smark_counter, $current_smark_type;
+  return $result, $last_position, $current_smark;
 }
 
-sub _convert($$) {
-  my ($tree, $document) = @_;
+sub _current_smark($) {
+  my $current_smark = shift;
 
+  return defined($current_smark) ?
+             "$current_smark->[0]:$current_smark->[1]" : '-';
+}
+
+sub _convert($$;$) {
+  my ($tree, $document, $current_smark) = @_;
+
+  #print STDERR "_CONVERT: "._current_smark($current_smark)."\n";
   my $descriptor = Texinfo::register_new_reader($tree, $document);
   my $reader = Texinfo::retrieve_reader_descriptor($descriptor);
 
+  my $spaces;
   my $args_stack = [];
 
   my $result = '';
@@ -186,18 +190,16 @@ sub _convert($$) {
     $type = '' if (!defined($type));
 
     #print STDERR "R [".join('|', @$args_stack)."] $category ".
-    #  (defined($current_smark_type) ?
-    #         "$current_smark_type:$current_smark_counter" : '-')
+    #  _current_smark($current_smark)
     #  .' '.Texinfo::element_print_details($element)."\n";
 
     if ($category == $Texinfo::TXI_READ_TEXT
         or $category == $Texinfo::TXI_READ_IGNORABLE_TEXT) {
       my ($last_position, $smark_result);
-      ($smark_result, $last_position, $current_smark_counter,
-       $current_smark_type) = _handle_source_marks($element,
-                                $current_smark_counter, $current_smark_type);
+      ($smark_result, $last_position, $current_smark)
+        = _handle_source_marks($element, $current_smark);
       $result .= $smark_result;
-      if (!$current_smark_counter) {
+      if (!defined($current_smark)) {
         if ($type eq 'spaces') {
           my ($inserted, $status)
                   = Texinfo::element_attribute_integer($element,
@@ -212,36 +214,34 @@ sub _convert($$) {
     my $cmdname = Texinfo::element_cmdname($element);
 
     if (defined($cmdname)) {
+      # FIXME item_LINE or item?  Probably item, but check
       if ($category != $Texinfo::TXI_READ_ELEMENT_END) {
-        if (!$current_smark_counter) {
-        # FIXME item_LINE or item?  Probably item, but check
-        # TODO alias
-          $result .= '@'.$cmdname;
+        if (!defined($current_smark)) {
+          my $alias_of = Texinfo::element_attribute_string($element, 
+                                                          'alias_of');
+          $result .= '@';
+          if (defined($alias_of)) {
+            $result .= $alias_of;
+          } else {
+            $result .= $cmdname;
+          }
         }
 
-        my $spaces_after_cmd_before_arg
+        my $spaces_cmd_before_arg
           = Texinfo::element_attribute_element($element,
                                  'spaces_after_cmd_before_arg');
         if (defined($spaces_after_cmd_before_arg)) {
-          $result .= _convert($spaces_after_cmd_before_arg, $document);
+          ($spaces, $current_smark)
+           = _convert($spaces_cmd_before_arg, $document, $current_smark);
+          $result .= $spaces;
         }
       }
 
       if ($category == $Texinfo::TXI_READ_ELEMENT_START) {
-        my $arg_line
-          = Texinfo::element_attribute_string($element, 'arg_line');
-
-        if (defined($arg_line)) {
-          if (!$current_smark_counter) {
-            $result .= $arg_line;
-          }
-          Texinfo::reader_skip_children($reader, $element);
-          next;
-        }
-
         if (Texinfo::element_command_is_brace($element)
-            or $type eq 'definfoenclose_command') {
-          if (!$current_smark_counter) {
+            or $type eq 'definfoenclose_command'
+            or $type eq 'macro_call' or $type eq 'rmacro_call') {
+          if (!defined($current_smark)) {
             if (Texinfo::element_type(
                   Texinfo::element_get_child($element, 0))
                        ne 'following_arg') {
@@ -258,8 +258,9 @@ sub _convert($$) {
         }
       } elsif ($category == $Texinfo::TXI_READ_ELEMENT_END) {
         if (Texinfo::element_command_is_brace($element)
-            or $type eq 'definfoenclose_command') {
-          if (!$current_smark_counter) {
+            or $type eq 'definfoenclose_command',
+            or $type eq 'macro_call' or $type eq 'rmacro_call') {
+          if (!defined($current_smark)) {
             if ($cmdname eq 'verb') {
               $result
              .= Texinfo::element_attribute_string($element, 'delimiter');
@@ -281,11 +282,9 @@ sub _convert($$) {
           Texinfo::reader_skip_children($reader, $element);
           next;
         }
-        if (!$current_smark_counter) {
+        if (!defined($current_smark)) {
           if ($type eq 'bracketed_arg') {
-            if (!$current_smark_counter) {
-              $result .= '{';
-            }
+            $result .= '{';
           }
         }
       }
@@ -294,7 +293,7 @@ sub _convert($$) {
         if ($type eq 'brace_arg' or $type eq 'line_arg'
             or $type eq 'block_line_arg') {
           $args_stack->[-1]++;
-          if (!$current_smark_counter) {
+          if (!defined($current_smark)) {
             if ($args_stack->[-1] > 1) {
               $result .= ',';
             }
@@ -304,37 +303,43 @@ sub _convert($$) {
     }
     if ($category == $Texinfo::TXI_READ_ELEMENT_START
         or $category == $Texinfo::TXI_READ_EMPTY) {
-      if (!$current_smark_counter) {
+      if (!defined($current_smark)) {
         my $spaces_before_argument
           = Texinfo::element_attribute_element($element,
                                  'spaces_before_argument');
         if (defined($spaces_before_argument)) {
-          $result .= _convert($spaces_before_argument, $document);
+          ($spaces, $current_smark)
+             = _convert($spaces_before_argument, $document, $current_smark);
+          $result .= $spaces;
         }
       }
     }
     if ($category == $Texinfo::TXI_READ_EMPTY
         or $category == $Texinfo::TXI_READ_ELEMENT_END) {
-      if (!$current_smark_counter) {
+      if (!defined($current_smark)) {
         my $spaces_after_argument
           = Texinfo::element_attribute_element($element,
                                  'spaces_after_argument');
         if (defined($spaces_after_argument)) {
-          $result .= _convert($spaces_after_argument, $document);
+          ($spaces, $current_smark)
+             = _convert($spaces_after_argument, $document, $current_smark);
+          $result .= $spaces;
         }
 
         if ($type eq 'line_arg' or $type eq 'block_line_arg') {
-          my $comment = Texinfo::element_attribute_element($element,
+          my $comment_e = Texinfo::element_attribute_element($element,
                                              'comment_at_end');
-          if ($comment) {
-            $result .= Texinfo::convert_to_texinfo($comment);
+          if ($comment_e) {
+            ($comment, $current_smark)
+               = _convert($comment_e, $current_smark);
+            $result .= $comment;
           }
         }
       }
     }
 
     if ($category == $Texinfo::TXI_READ_ELEMENT_END) {
-      if (!$current_smark_counter) {
+      if (!defined($current_smark)) {
         if ($type eq 'bracketed_arg') {
           $result .= '}';
         }
@@ -347,16 +352,19 @@ sub _convert($$) {
     if ($category == $Texinfo::TXI_READ_EMPTY
         or $category == $Texinfo::TXI_READ_ELEMENT_END) {
       my ($last_position, $smark_result);
-      ($smark_result, $last_position, $current_smark_counter,
-       $current_smark_type) = _handle_source_marks($element,
-                                $current_smark_counter, $current_smark_type);
+      ($smark_result, $last_position, $current_smark)
+         = _handle_source_marks($element, $current_smark);
       $result .= $smark_result;
     }
   }
 
-  return $result;
+  return ($result, $current_smark);
 }
 
-my $result = _convert($tree, $document);
+my ($result, $current_smark) = _convert($tree, $document);
+
+if (defined($current_smark)) {
+  warn "Source mark not closed\n";
+}
 
 print "$result";
