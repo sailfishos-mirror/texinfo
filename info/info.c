@@ -1132,7 +1132,6 @@ main (int argc, char *argv[])
     }
     
   info_session (ref_list, error);
-  close_info_session ();
   exit (0);
 }
 

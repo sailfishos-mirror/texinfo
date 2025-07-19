@@ -1,5 +1,10 @@
 2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info.c (main): do not call close_info_session unnecessarily
+	after info_session, as info_session calls this itself.
+
+2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info.c (main) <manpage fallback>: Check success of
 	finding initial file before trying to fallback.
 
