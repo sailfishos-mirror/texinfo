@@ -52,6 +52,7 @@ Change strategy of documentation, document extra and info as arguments
 as in the SWIG interface?
 
 elided_rawpreformatted, elided_brace_command_arg types.
+linemacro_arg
 
 'comment_at_end' in info hash
 

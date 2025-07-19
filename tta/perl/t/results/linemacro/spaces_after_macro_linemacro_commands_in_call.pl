@@ -73,14 +73,14 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    >|command_name:{mylinecommand}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{macro_call_arg_text:@mymac}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >{bracketed_linemacro_arg:aa}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
@@ -152,14 +152,14 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
    >|command_name:{mylinecommand}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{macro_call_arg_text:@mylinemac}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >{bracketed_linemacro_arg:Fun}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
@@ -193,9 +193,9 @@ $result_tree_text{'spaces_after_macro_linemacro_commands_in_call'} = '*document_
         >*linemacro_call C2
         >|INFO
         >|command_name:{mylinemac}
-         >*line_arg C1
+         >*linemacro_arg C1
           >{macro_call_arg_text:}}
-         >*line_arg C1
+         >*linemacro_arg C1
          >|INFO
          >|spaces_before_argument:
           >|{spaces_before_argument: }

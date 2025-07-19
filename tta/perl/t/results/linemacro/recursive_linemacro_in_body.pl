@@ -34,9 +34,9 @@ $result_tree_text{'recursive_linemacro_in_body'} = '*document_root C1
    >|command_name:{anorecurse}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{bracketed_linemacro_arg:aa}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }

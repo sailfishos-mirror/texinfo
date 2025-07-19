@@ -47,7 +47,7 @@ $result_tree_text{'end_conditional_in_linemacro'} = '*document_root C1
     >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >*line_arg C1
+     >*linemacro_arg C1
       >{bracketed_linemacro_arg:text\\n  @end ifclear}
    {  }
    >SOURCEMARKS

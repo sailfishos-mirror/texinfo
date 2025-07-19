@@ -35,14 +35,14 @@ $result_tree_text{'text_arguments'} = '*document_root C1
     >|command_name:{nospace}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >*line_arg C1
+     >*linemacro_arg C1
       >{macro_call_arg_text:X}
-     >*line_arg C1
+     >*linemacro_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >{macro_call_arg_text:Y}
-     >*line_arg C1
+     >*linemacro_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }

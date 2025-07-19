@@ -167,9 +167,9 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|command_name:{param}
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >*line_arg C1
+        >*linemacro_arg C1
          >{macro_call_arg_text:a}
-        >*line_arg C1
+        >*linemacro_arg C1
         >|INFO
         >|spaces_before_argument:
          >|{spaces_before_argument: }
@@ -220,9 +220,9 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|command_name:{param}
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >*line_arg C1
+        >*linemacro_arg C1
          >{macro_call_arg_text:n}
-        >*line_arg C1
+        >*linemacro_arg C1
         >|INFO
         >|spaces_before_argument:
          >|{spaces_before_argument: }
@@ -278,9 +278,9 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|command_name:{param}
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >*line_arg C1
+        >*linemacro_arg C1
          >{macro_call_arg_text:axis}
-        >*line_arg C1
+        >*linemacro_arg C1
         >|INFO
         >|spaces_before_argument:
          >|{spaces_before_argument: }
@@ -331,9 +331,9 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|command_name:{returns}
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >*line_arg C1
+        >*linemacro_arg C1
          >{macro_call_arg_text:out}
-        >*line_arg C1
+        >*linemacro_arg C1
         >|INFO
         >|spaces_before_argument:
          >|{spaces_before_argument: }
@@ -384,7 +384,7 @@ $result_tree_text{'api_doc_with_linemacro'} = '*document_root C1
        >|command_name:{raises}
        >|spaces_before_argument:
         >|{spaces_before_argument: }
-        >*line_arg C1
+        >*linemacro_arg C1
          >{macro_call_arg_text:IndexError}
      *@defline C1 l32:@raises
      |INFO

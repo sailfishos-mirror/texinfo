@@ -33,7 +33,7 @@ $result_tree_text{'spaces_in_call'} = '*document_root C1
    >*linemacro_call C1
    >|INFO
    >|command_name:{mylinecommand}
-    >*line_arg C1
+    >*linemacro_arg C1
      >{macro_call_arg_text:{a b}{c d}{rest}}
   *@defblock C3 l7:@mylinecommand
    *arguments_line C1

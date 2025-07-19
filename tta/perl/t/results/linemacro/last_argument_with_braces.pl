@@ -40,9 +40,9 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >*line_arg C1
+      >*linemacro_arg C1
        >{bracketed_linemacro_arg:my foo}
-      >*line_arg C1
+      >*linemacro_arg C1
       >|INFO
       >|spaces_before_argument:
        >|{spaces_before_argument: }
@@ -132,9 +132,9 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >*line_arg C1
+      >*linemacro_arg C1
        >{bracketed_linemacro_arg:my foo}
-      >*line_arg C1
+      >*linemacro_arg C1
       >|INFO
       >|spaces_before_argument:
        >|{spaces_before_argument: }
@@ -212,9 +212,9 @@ $result_tree_text{'last_argument_with_braces'} = '*document_root C1
      >|command_name:{defbuiltin}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >*line_arg C1
+      >*linemacro_arg C1
        >{bracketed_linemacro_arg:my foo}
-      >*line_arg C1
+      >*linemacro_arg C1
       >|INFO
       >|spaces_before_argument:
        >|{spaces_before_argument: }

@@ -455,7 +455,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
   size_t args_total;
   int spaces_nr;
   size_t i;
-  ELEMENT *argument = new_element (ET_line_arg);
+  ELEMENT *argument = new_element (ET_linemacro_arg);
   ELEMENT *argument_content = new_text_element (ET_macro_call_arg_text);
   const STRING_LIST *formal_args_list = lookup_extra_misc_args (macro,
                                                        AI_key_misc_args);
@@ -593,7 +593,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               ELEMENT *spaces_element
                 = new_text_element (ET_spaces_before_argument);
 
-              argument = new_element (ET_line_arg);
+              argument = new_element (ET_linemacro_arg);
               argument_content
                 = new_text_element (ET_macro_call_arg_text);
               counter_push (&argument_brace_groups, argument_content, 0);

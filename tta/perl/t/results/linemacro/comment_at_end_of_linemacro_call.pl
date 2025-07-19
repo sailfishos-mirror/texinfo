@@ -41,9 +41,9 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
       >|command_name:{lm}
       >|spaces_before_argument:
        >|{spaces_before_argument: }
-       >*line_arg C1
+       >*linemacro_arg C1
         >{bracketed_linemacro_arg:something protected}
-       >*line_arg C1
+       >*linemacro_arg C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }

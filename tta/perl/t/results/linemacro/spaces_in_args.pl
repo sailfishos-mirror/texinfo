@@ -35,14 +35,14 @@ $result_tree_text{'spaces_in_args'} = '*document_root C1
    >|command_name:{mylinecommand}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{bracketed_linemacro_arg:  a }
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >{bracketed_linemacro_arg: d  }
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }

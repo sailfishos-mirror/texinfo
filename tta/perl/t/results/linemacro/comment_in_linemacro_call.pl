@@ -36,9 +36,9 @@ $result_tree_text{'comment_in_linemacro_call'} = '*document_root C1
     >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >*line_arg C1
+     >*linemacro_arg C1
       >{macro_call_arg_text:@code{\\nsomething @comment in}}
-     >*line_arg C1
+     >*linemacro_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }

@@ -35,9 +35,9 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    >|command_name:{test}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{macro_call_arg_text:foo}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
@@ -111,9 +111,9 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    >|command_name:{test}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{macro_call_arg_text:foo@ b}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
@@ -195,9 +195,9 @@ $result_tree_text{'protected_spaces_on_line'} = '*document_root C1
    >|command_name:{test}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{macro_call_arg_text:foo}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }

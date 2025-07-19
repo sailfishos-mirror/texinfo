@@ -35,14 +35,14 @@ $result_tree_text{'spaces_after_command_in_call'} = '*document_root C1
    >|command_name:{mylinecommand}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{macro_call_arg_text:@code {d}}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >{macro_call_arg_text:@ringaccent b}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }

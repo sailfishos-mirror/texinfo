@@ -67,9 +67,9 @@ $result_tree_text{'comment_on_linemacro_call_macro_expansion'} = '*document_root
     >|command_name:{lm}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >*line_arg C1
+     >*linemacro_arg C1
       >{bracketed_linemacro_arg:a}
-     >*line_arg C1
+     >*linemacro_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }

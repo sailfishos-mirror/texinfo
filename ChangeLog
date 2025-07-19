@@ -1,5 +1,13 @@
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/element_types.txt, tta/C/parsetexi/macro.c
+	(expand_linemacro_arguments), tta/perl/Texinfo/ParserNonXS.pm
+	(_expand_linemacro_arguments): use a new type for user-defined
+	linemacro arguments, linemacro_arg as it is not delimited by commas
+	like line_arg.  
+
+2025-07-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/Makefile.am (python_texinfo_wrap.c, perl_texinfo_wrap.c):
 	remove explicit header dependencies, they are created automatically.
 	Remove SWIG_header_dependencies.

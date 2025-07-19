@@ -56,9 +56,9 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
    >|command_name:{lm}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{bracketed_linemacro_arg:something}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }

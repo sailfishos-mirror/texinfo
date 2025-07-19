@@ -33,7 +33,7 @@ $result_tree_text{'no_arguments'} = '*document_root C1
     >*linemacro_call C1
     >|INFO
     >|command_name:{noarg}
-     >*line_arg C1
+     >*linemacro_arg C1
       >{macro_call_arg_text:}
    >linemacro_expansion<end;1><p:5>
   {empty_line:\\n}
@@ -46,7 +46,7 @@ $result_tree_text{'no_arguments'} = '*document_root C1
     >|command_name:{noarg}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >*line_arg C1
+     >*linemacro_arg C1
       >{macro_call_arg_text:A B}
    >linemacro_expansion<end;2><p:5>
   {empty_line:\\n}
@@ -59,7 +59,7 @@ $result_tree_text{'no_arguments'} = '*document_root C1
     >|command_name:{noarg}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >*line_arg C1
+     >*linemacro_arg C1
       >{bracketed_linemacro_arg:in brace}
    >linemacro_expansion<end;3><p:5>
 ';

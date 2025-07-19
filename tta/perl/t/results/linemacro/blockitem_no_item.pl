@@ -43,14 +43,14 @@ $result_tree_text{'blockitem_no_item'} = '*document_root C1
       >|command_name:{mycommand}
       >|spaces_before_argument:
        >|{spaces_before_argument: }
-       >*line_arg C1
+       >*linemacro_arg C1
         >{macro_call_arg_text:d}
-       >*line_arg C1
+       >*linemacro_arg C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }
         >{macro_call_arg_text:e}
-       >*line_arg C1
+       >*linemacro_arg C1
        >|INFO
        >|spaces_before_argument:
         >|{spaces_before_argument: }

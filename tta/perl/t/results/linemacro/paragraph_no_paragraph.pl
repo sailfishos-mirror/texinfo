@@ -35,14 +35,14 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
    >|command_name:{mycommand}
    >|spaces_before_argument:
     >|{spaces_before_argument: }
-    >*line_arg C1
+    >*linemacro_arg C1
      >{macro_call_arg_text:@anchor{aa}}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >{macro_call_arg_text:definite}
-    >*line_arg C1
+    >*linemacro_arg C1
     >|INFO
     >|spaces_before_argument:
      >|{spaces_before_argument: }
@@ -71,14 +71,14 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
     >|command_name:{mycommand}
     >|spaces_before_argument:
      >|{spaces_before_argument: }
-     >*line_arg C1
+     >*linemacro_arg C1
       >{bracketed_linemacro_arg:a\\n  protected}
-     >*line_arg C1
+     >*linemacro_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >{macro_call_arg_text:in}
-     >*line_arg C1
+     >*linemacro_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }

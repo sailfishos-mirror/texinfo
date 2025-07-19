@@ -40,14 +40,14 @@ $result_tree_text{'newline_and_continuation_in_brace'} = '*document_root C1
      >|command_name:{mylinecommand}
      >|spaces_before_argument:
       >|{spaces_before_argument: }
-      >*line_arg C1
+      >*linemacro_arg C1
        >{macro_call_arg_text:a@code{b c}d}
-      >*line_arg C1
+      >*linemacro_arg C1
       >|INFO
       >|spaces_before_argument:
        >|{spaces_before_argument: }
        >{bracketed_linemacro_arg:some arg @\\n   b}
-      >*line_arg C1
+      >*linemacro_arg C1
       >|INFO
       >|spaces_before_argument:
        >|{spaces_before_argument: }

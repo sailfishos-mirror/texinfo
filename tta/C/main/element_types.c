@@ -44,6 +44,7 @@ TYPE_DATA type_data[] = {
 {"block_line_arg", 0, 4},
 {"line_arg", 0, 4},
 {"following_arg", 0, 0},
+{"linemacro_arg", 0, 3},
 {"rawline_text", TF_text, 0},
 {"menu_entry", 0, 0},
 {"menu_entry_leading_text", TF_text, 0},

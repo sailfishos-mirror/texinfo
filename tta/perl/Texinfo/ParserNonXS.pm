@@ -2894,7 +2894,7 @@ sub _expand_linemacro_arguments($$$$$)
 
   my $braces_level = 0;
   my $argument
-    = Texinfo::TreeElement::new({'type' => 'line_arg',
+    = Texinfo::TreeElement::new({'type' => 'linemacro_arg',
                                  'contents' => [],
                                  'parent' => $current});
   push @{$current->{'contents'}}, $argument;
@@ -2958,7 +2958,7 @@ sub _expand_linemacro_arguments($$$$$)
           $argument_content->{'text'} .= $separator;
         } else {
           $argument
-            = Texinfo::TreeElement::new({'type' => 'line_arg',
+            = Texinfo::TreeElement::new({'type' => 'linemacro_arg',
                                          'contents' => [],
                                          'parent' => $current});
           push @{$current->{'contents'}}, $argument;

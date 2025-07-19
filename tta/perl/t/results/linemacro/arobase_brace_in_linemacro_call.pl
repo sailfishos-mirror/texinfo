@@ -34,9 +34,9 @@ $result_tree_text{'arobase_brace_in_linemacro_call'} = '*document_root C1
     >*linemacro_call C2
     >|INFO
     >|command_name:{simplemac}
-     >*line_arg C1
+     >*linemacro_arg C1
       >{bracketed_linemacro_arg: @{ }
-     >*line_arg C1
+     >*linemacro_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
@@ -56,9 +56,9 @@ $result_tree_text{'arobase_brace_in_linemacro_call'} = '*document_root C1
     >*linemacro_call C2
     >|INFO
     >|command_name:{simplemac}
-     >*line_arg C1
+     >*linemacro_arg C1
       >{bracketed_linemacro_arg: @} }
-     >*line_arg C1
+     >*linemacro_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }

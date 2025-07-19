@@ -26,6 +26,7 @@ typedef struct types_struct {
 
 extern TYPE_DATA type_data[];
 
+/* also change swig_element_data.h when changing the flags here if needed */
 #define TF_text               0x0001
 /* Used to determine elt_info_number in generated TYPE_DATA generated,
    but not directly used in code

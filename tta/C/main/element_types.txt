@@ -101,6 +101,9 @@ brace_arg                                  spaces_before,spaces_after
 block_line_arg                             spaces_before,spaces_after
 line_arg                                   spaces_before,spaces_after
 following_arg
+# similar to def_line_arg, but for user-defined linemacro calls.  Also
+# similar to line_arg, but not delimited by commas.
+linemacro_arg                              spaces_before,spaces_after
 
 rawline_text                               text
 
