@@ -1037,6 +1037,20 @@ info_set_node_of_window (WINDOW *win, NODE *node)
     info_get_or_remove_footnotes (win);
 }
 
+/* Return the file buffer which belongs to WINDOW's node. */
+FILE_BUFFER *
+file_buffer_of_window (WINDOW *window)
+{
+  /* If this window has no node, then it has no file buffer. */
+  if (!window->node)
+    return NULL;
+
+  if (window->node->fullpath)
+    return info_find_file (window->node->fullpath);
+
+  return NULL;
+}
+
 
 /* **************************************************************** */
 /*                                                                  */

@@ -42,20 +42,6 @@ xasprintf (char **ptr, const char *template, ...)
   return ret;
 }
 
-/* Return the file buffer which belongs to WINDOW's node. */
-FILE_BUFFER *
-file_buffer_of_window (WINDOW *window)
-{
-  /* If this window has no node, then it has no file buffer. */
-  if (!window->node)
-    return NULL;
-
-  if (window->node->fullpath)
-    return info_find_file (window->node->fullpath);
-
-  return NULL;
-}
-
 /* Return a pointer to the part of PATHNAME that simply defines the file. */
 char *
 filename_non_directory (char *pathname)

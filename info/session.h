@@ -63,6 +63,8 @@ COMMAND_FUNCTION *read_key_sequence (Keymap map, int menu, int mouse,
 unsigned char info_input_pending_p (void);
 void info_set_node_of_window (WINDOW *window, NODE *node);
 void info_set_node_of_window_fast (WINDOW *window, NODE *node);
+FILE_BUFFER *file_buffer_of_window (WINDOW *window);
+
 void initialize_keyseq (void);
 void add_char_to_keyseq (int character);
 FILE_BUFFER *file_buffer_of_window (WINDOW *window);

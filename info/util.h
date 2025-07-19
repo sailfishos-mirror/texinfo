@@ -9,9 +9,6 @@
 # include <iconv.h>
 #endif
 
-FILE_BUFFER *file_buffer_of_window (WINDOW *window);
-
-
 /* Return a pointer to the part of PATHNAME that simply defines the file. */
 char *filename_non_directory (char *pathname);
 

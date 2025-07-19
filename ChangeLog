@@ -1,5 +1,10 @@
 2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/util.c, info/session.c (file_buffer_of_window):
+	Move to session.c.
+
+2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/util.c, info/nodes.c
 	(node_printed_rep, internal_info_node_p, name_internal_node)
 	Move functions to nodes.c.
