@@ -41,7 +41,7 @@
 #include "manipulate_indices.h"
 #include "reader.h"
 #include "texinfo.h"
-#include "swig_command_data.h"
+#include "swig_element_data.h"
 #include "swig_interface.h"
 %}
 
@@ -120,17 +120,9 @@ setup (int texinfo_uninstalled, const char *converterdatadir_in,
 }
 %}
 
-//%rename(setup_paths_information) setup_txi_paths_information;
-
-// document.h
-//void setup_txi_paths_information (int texinfo_uninstalled,
-//                             const char *converterdatadir,
-//                             const char *t2a_builddir,
-//                             const char *t2a_srcdir);
-
 // Information on elements
 
-%include "swig_command_data.h"
+%include "swig_element_data.h"
 
 // swig_interface.h
 const char *element_command_data_type (ELEMENT *element);
@@ -149,7 +141,7 @@ void parser_conf_reset_values (void);
 void parser_conf_add_value (const char *name, const char *value);
 
 // parser_conf.h
-PARSER_CONF * register_conf (void);
+PARSER_CONF *register_conf (void);
 void apply_conf (PARSER_CONF *parser_conf);
 
 // conf.h

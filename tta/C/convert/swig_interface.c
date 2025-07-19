@@ -37,7 +37,7 @@
 #include "utils.h"
 #include "builtin_commands.h"
 #include "document.h"
-#include "swig_command_data.h"
+#include "swig_element_data.h"
 #include "swig_interface.h"
 
 #define cm_flag(name) \
@@ -91,6 +91,16 @@ const char *line_command_data_type_name[] = {
    TXI_CMD_CATEGORY_LINE
 #undef tcc_cmd_category
 };
+
+#define ty_flag(name)  \
+int \
+element_type_is_##name (ELEMENT *element) \
+{ \
+  return type_data[element->type].flags & TF_##name; \
+}
+  TXI_TY_FLAGS_LIST
+#undef ty_flag
+
 
 const char *
 element_command_data_type (ELEMENT *element)

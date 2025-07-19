@@ -1,7 +1,8 @@
-/* swig_command_data.h - declarations for commands data */
-#ifndef SWIG_COMMAND_DATA_H
-#define SWIG_COMMAND_DATA_H
+/* swig_element_data.h - declarations for elements data */
+#ifndef SWIG_ELEMENT_DATA_H
+#define SWIG_ELEMENT_DATA_H
 
+/* next two may need changes for builtin_commands.h flags modifications */
 #define TXI_CM_FLAGS_LIST \
   cm_flag(line) \
   cm_flag(root) \
@@ -47,5 +48,17 @@ TXI_CM_FLAGS_LIST
 int element_command_is_##name (ELEMENT *e);
 TXI_CM_OTHER_FLAGS_LIST
 #undef cm_oflag
+
+/* next list may need changes for types_data.h flags modifications */
+#define TXI_TY_FLAGS_LIST \
+  ty_flag(text) \
+  ty_flag(macro_call) \
+  ty_flag(leading_space) \
+  ty_flag(trailing_space)
+
+#define ty_flag(name) \
+int element_type_is_##name (ELEMENT *element);
+TXI_TY_FLAGS_LIST
+#undef ty_flag
 
 #endif
