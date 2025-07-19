@@ -630,7 +630,7 @@ build_element_attribute (const ELEMENT *element, const char *attribute,
               break;
             case AI_key_alias_of:
               if ((element->e.c->cmd
-                   || type_data[element->type].flags & TF_macro_call)
+                   || type_data[element->type].flags & TF_with_command)
                   && element->e.c->string_info[idx])
                 return newSVpv_utf8 (element->e.c->string_info[idx], 0);
               break;

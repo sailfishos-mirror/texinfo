@@ -35,17 +35,19 @@
 #  spaces_after: element containing the spaces appearing after the argument
 #
 # Other flags:
-#  macro_call: @-command like user-defined macros call that require some
-#              information not needed by other containers.  Mainly used in C
-#              specific code for memory management and when passing to Perl.
+#  with_command: type corresponding to @-command with name determined dynamically.
+#                Index commands (that can be added with defindex, for
+#                example), definfienclos'ed commands, user-defined macro calls.
+#                Mainly used in C specific code for memory management to and when
+#                passing to Perl.
 #  c_only: element type associated to @-commands appearing only in C, needed
 #          because each correspond to a different need for associated info
 #          element or strings.  Flag only used to avoid passing to Perl.
 
 
 # Types for @-commands
-index_entry_command                    spaces_before
-definfoenclose_command                 braces
+index_entry_command                    spaces_before,with_command
+definfoenclose_command                 braces,with_command
 
 # only in C.  These types should only be used in code to set the
 # type at the element creation, except maybe to help with the handling
@@ -170,11 +172,11 @@ elided_rawpreformatted
 elided_brace_command_arg
 
 # for macro expansion source marks
-macro_call                                braces,macro_call
-rmacro_call                               braces,macro_call
-macro_call_line                           spaces_before,macro_call
-rmacro_call_line                          spaces_before,macro_call
-linemacro_call                            spaces_before,macro_call
+macro_call                                braces,with_command
+rmacro_call                               braces,with_command
+macro_call_line                           spaces_before,with_command
+rmacro_call_line                          spaces_before,with_command
+linemacro_call                            spaces_before,with_command
 
 # macro and linemacro (if not bracketed) call arguments texts
 macro_call_arg_text                       text

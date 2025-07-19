@@ -88,8 +88,7 @@ new_command_element (enum element_type type, enum command_id cmd)
 
   e->e.c->cmd = cmd;
 
-  if (type == ET_definfoenclose_command || type == ET_index_entry_command
-      || type_data[type].flags & TF_macro_call
+  if (type_data[type].flags & TF_with_command
       || cmd == CM_verb)
     string_info_nr = 2;
 
@@ -261,10 +260,8 @@ destroy_element (ELEMENT *e)
           destroy_element_and_children (e->elt_info[i]);
       free (e->elt_info);
 
-      if (e->type == ET_definfoenclose_command
-          || e->type == ET_index_entry_command
-          || e->e.c->cmd == CM_verb
-          || type_data[e->type].flags & TF_macro_call)
+      if (e->e.c->cmd == CM_verb
+          || type_data[e->type].flags & TF_with_command)
         {
           string_info_nr = 2;
         }

@@ -52,7 +52,7 @@ TXI_CM_OTHER_FLAGS_LIST
 /* next list may need changes for types_data.h flags modifications */
 #define TXI_TY_FLAGS_LIST \
   ty_flag(text) \
-  ty_flag(macro_call) \
+  ty_flag(with_command) \
   ty_flag(leading_space) \
   ty_flag(trailing_space)
 
