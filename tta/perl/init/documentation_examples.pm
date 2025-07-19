@@ -368,7 +368,7 @@ sub my_test_documentation_convert_index_entry_command_type($$$$)
     return '';
   }
 
-  my $cmdname = $element->{'info'}->{'command_name'};
+  my $cmdname = $element->{'cmdname'};
 
   my $color_number = $converter->get_shared_conversion_state('quotation',
                                                        'color', 'purple1');

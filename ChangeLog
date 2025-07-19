@@ -1,5 +1,11 @@
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/init/documentation_examples.pm
+	(my_test_documentation_convert_index_entry_command_type): use cmdname
+	instead of {'info'}->{'command_name'}.
+
+2025-07-19 Patrice Dumas  <pertusus@free.fr>
+
 	Add cmdname for user-defined macro calls
 
 	* tta/C/main/build_perl_info.c (build_base_element),
