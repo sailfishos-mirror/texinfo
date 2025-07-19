@@ -1007,9 +1007,10 @@ main (int argc, char *argv[])
 
   get_initial_file (&argc, &argv, &error);
 
-  if (!user_filename && argv[0])
+  /* Try loading a man page if no initial file has been found
+     yet and the user did not give --file. */
+  if (!initial_file && !user_filename && argv[0])
     {
-      /* Try loading a man page. */
       debug (3, ("falling back to manpage node"));
 
       int man_exists = check_manpage_node (argv[0]);
