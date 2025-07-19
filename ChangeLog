@@ -8,6 +8,14 @@
 
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/swig_interface.c (element_attribute_string) 
+	(set_element_attribute_string), tta/C/main/build_perl_info.c
+	(build_element_attribute), tta/C/main/tree_types.h (AI_KEYS_LIST):
+	remove AI_key_command_name, this information is internal to the C code
+	and should not go through interfaces.
+
+2025-07-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/tree.c (new_element, new_command_element),
 	tta/C/main/utils.c (new_element_from_names), tta/C/parsetexi/macro.c
 	(handle_macro): create macro call elements with new_command_element.

@@ -623,13 +623,6 @@ build_element_attribute (const ELEMENT *element, const char *attribute,
           int idx = associated_info_table[key].data;
           switch (key)
             {
-            case AI_key_command_name:
-              if ((element->type == ET_index_entry_command
-                   || element->type == ET_definfoenclose_command
-                   || type_data[element->type].flags & TF_macro_call)
-                  && element->e.c->string_info[idx])
-                return newSVpv_utf8 (element->e.c->string_info[idx], 0);
-              break;
             case AI_key_delimiter:
               if (element->e.c->cmd == CM_verb
                   && element->e.c->string_info[idx])

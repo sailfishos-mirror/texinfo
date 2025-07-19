@@ -188,7 +188,6 @@ enum string_info_type {
   \
   ai_key(alias_of, string_info, sit_alias_of) \
   ai_key(delimiter, string_info, sit_delimiter) \
-  ai_key(command_name, string_info, sit_command_name) \
 
 
 /* Keys used in ASSOCIATED_INFO and other associated info structures. */
