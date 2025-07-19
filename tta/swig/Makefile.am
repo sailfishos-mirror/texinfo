@@ -24,13 +24,12 @@ BUILT_SOURCES = python/python_texinfo_wrap.c \
                 perl/perl_texinfo_wrap.c
 
 SWIG_include_directories = -I$(srcdir)/../C/convert
-SWIG_header_dependencies = $(srcdir)/../C/convert/swig_command_data.h
 
 # tell Make how to create the generated SWIG files
-$(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_dependencies)
+$(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i
 	$(SWIG) $(AX_SWIG_PYTHON_OPT) $(SWIG_include_directories) -outdir $(srcdir)/python -o $@ $<
 
-$(srcdir)/perl/perl_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_dependencies)
+$(srcdir)/perl/perl_texinfo_wrap.c: $(srcdir)/texinfo.i
 	$(SWIG) $(SWIG_include_directories) -perl -outdir $(srcdir)/perl -o $@ $<
 
 EXTRA_DIST = README texinfo.i

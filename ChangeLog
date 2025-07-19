@@ -1,5 +1,11 @@
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/Makefile.am (python_texinfo_wrap.c, perl_texinfo_wrap.c):
+	remove explicit header dependencies, they are created automatically.
+	Remove SWIG_header_dependencies.
+
+2025-07-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/parse_refold.pl (_convert): handle alias.  Pass
 	current source mark to recursive calls of _convert.  Call _convert for
 	all conversions to be sure that alias and source marks are correctly
