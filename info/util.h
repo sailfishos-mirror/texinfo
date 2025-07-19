@@ -12,10 +12,6 @@
 /* Return a pointer to the part of PATHNAME that simply defines the file. */
 char *filename_non_directory (char *pathname);
 
-/* Return the window displaying NAME, the name of an internally created
-   Info window. */
-WINDOW *get_internal_info_window (char *name);
-
 /* Used with multibyte iterator mbi_iterator_t. */
 #define ITER_SETBYTES(iter,n) ((iter).cur.bytes = n)
 #define ITER_LIMIT(iter) ((iter).limit - (iter).cur.ptr)

@@ -16,9 +16,7 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include "info.h"
-#include "session.h"
 #include "util.h"
-#include "tag.h"
 
 /* wrapper for asprintf */
 static int
@@ -55,21 +53,6 @@ filename_non_directory (char *pathname)
     filename--;
 
   return filename;
-}
-
-/* Return the window displaying NAME, the name of an internally created
-   Info window. */
-WINDOW *
-get_internal_info_window (char *name)
-{
-  WINDOW *win;
-
-  for (win = windows; win; win = win->next)
-    if (internal_info_node_p (win->node) &&
-        (strcmp (win->node->nodename, name) == 0))
-      break;
-
-  return win;
 }
 
 

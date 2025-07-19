@@ -264,6 +264,21 @@ create_internal_info_help_node (int help_is_only_window_p)
   name_internal_node (internal_info_help_node, xstrdup (info_help_nodename));
 }
 
+/* Return the window displaying NAME, the name of an internally created
+   Info window. */
+WINDOW *
+get_internal_info_window (char *name)
+{
+  WINDOW *win;
+
+  for (win = windows; win; win = win->next)
+    if (internal_info_node_p (win->node) &&
+        (strcmp (win->node->nodename, name) == 0))
+      break;
+
+  return win;
+}
+
 /* Return a window which is the window showing help in this Info. */
 
 /* If the eligible window's height is >= this, split it to make the help

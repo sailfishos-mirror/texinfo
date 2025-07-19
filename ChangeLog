@@ -1,5 +1,10 @@
 2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/util.c, info/infodoc.c (get_internal_info_window):
+	Move to infodoc.c.  Declare in session.h.
+
+2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/util.c, info/session.c (file_buffer_of_window):
 	Move to session.c.
 

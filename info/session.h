@@ -1,4 +1,4 @@
-/* session.h -- Functions found in session.c.
+/* session.h -- Functions found in session.c, m-x.c and infodoc.c
 
    Copyright 1993-2025 Free Software Foundation, Inc.
 
@@ -107,6 +107,8 @@ void info_debug (const char *format, ...) TEXINFO_PRINTFLIKE(1,2);
    output to stderr. */
 void info_error (const char *format, ...) TEXINFO_PRINTFLIKE(1,2);
 
+void show_error_node (char *error_msg);
+
 void initialize_info_session (void);
 void info_read_and_dispatch (void);
 void close_info_session (void);
@@ -127,10 +129,16 @@ NODE *info_follow_menus (NODE *initial_node, char **menus,
 extern int info_explicit_arg;
 extern int ea_explicit_arg;
 void info_initialize_numeric_arg (void);
+
 
 /* Found in m-x.c.  */
 char *read_function_name (char *prompt, WINDOW *window);
 
-void show_error_node (char *error_msg);
+
+/* In infodoc.c. */
+
+/* Return the window displaying NAME, the name of an internally created
+   Info window. */
+WINDOW *get_internal_info_window (char *name);
 
 #endif /* not SESSION_H */
