@@ -1212,6 +1212,7 @@ print_element_info (ELEMENT *element, int level,
   int i;
   TEXT info_e_text;
   ADDITIONAL_INFO_NAME_VAL_LIST info_strings;
+  const char *cmdname;
 
   memset (&info_strings, 0, sizeof (ADDITIONAL_INFO_NAME_VAL_LIST));
 
@@ -1239,13 +1240,15 @@ print_element_info (ELEMENT *element, int level,
     }
   free (info_e_text.text);
 
-  if (element->e.c->cmd)
+  cmdname = element_command_name (element);
+  if (cmdname)
     {
       if (element->e.c->string_info[sit_alias_of])
         add_info_name_string_value (&info_strings, "alias_of",
                       element->e.c->string_info[sit_alias_of]);
       if ((element->type == ET_index_entry_command
-           || element->type == ET_definfoenclose_command)
+           || element->type == ET_definfoenclose_command
+           || type_data[element->type].flags & TF_macro_call)
           && element->e.c->string_info[sit_command_name])
         add_info_name_string_value (&info_strings, "command_name",
                      element->e.c->string_info[sit_command_name]);
@@ -1254,15 +1257,6 @@ print_element_info (ELEMENT *element, int level,
                && element->e.c->string_info[sit_delimiter])
         add_info_name_string_value (&info_strings, "delimiter",
                           element->e.c->string_info[sit_delimiter]);
-    }
-  else if (type_data[element->type].flags & TF_macro_call)
-    {
-      if (element->e.c->string_info[sit_alias_of])
-        add_info_name_string_value (&info_strings, "alias_of",
-                         element->e.c->string_info[sit_alias_of]);
-      if (element->e.c->string_info[sit_command_name])
-        add_info_name_string_value (&info_strings, "command_name",
-                     element->e.c->string_info[sit_command_name]);
     }
 
   print_info_strings (&info_strings, level, prepended, result, "INFO");

@@ -1,5 +1,11 @@
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (element_to_perl_hash)
+	(print_element_info): handle user-defined macro call elements together
+	with other @-commands.
+
+2025-07-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/init/documentation_examples.pm
 	(my_test_documentation_convert_index_entry_command_type): use cmdname
 	instead of {'info'}->{'command_name'}.

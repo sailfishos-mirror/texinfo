@@ -943,6 +943,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   HV *info_hv = 0;
   HV *extra_hv = 0;
   HV *element_hv;
+  const char *cmdname;
 
   dTHX;
 
@@ -1035,14 +1036,16 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
 
 #undef store_flag
 
+  cmdname = element_command_name (e);
   /* process info_string array */
-  if (e->e.c->cmd)
+  if (cmdname)
     {
       store_info_string (e, e->e.c->string_info[sit_alias_of],
                          "alias_of", &info_hv);
 
       if (e->type == ET_index_entry_command
-          || e->type == ET_definfoenclose_command)
+          || e->type == ET_definfoenclose_command
+          || type_data[e->type].flags & TF_macro_call)
         {
           store_info_string (e, e->e.c->string_info[sit_command_name],
                             "command_name", &info_hv);
@@ -1051,13 +1054,6 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       else if (e->e.c->cmd == CM_verb && e->e.c->contents.number > 0)
         store_info_string (e, e->e.c->string_info[sit_delimiter],
                            "delimiter", &info_hv);
-    }
-  else if (type_data[e->type].flags & TF_macro_call)
-    {
-      store_info_string (e, e->e.c->string_info[sit_alias_of],
-                         "alias_of", &info_hv);
-      store_info_string (e, e->e.c->string_info[sit_command_name],
-                         "command_name", &info_hv);
     }
 
   /* process elt_info array */
