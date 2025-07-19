@@ -32,7 +32,8 @@
 static char *read_from_fd (int fd);
 
 int
-get_output_from_program (char *formatter_args[], char **program_output)
+get_output_from_program (char *formatter_args[], char **program_output,
+                         int discard_stderr)
 {
   int pipes[2];
   int exit_status = 0;
@@ -63,9 +64,8 @@ get_output_from_program (char *formatter_args[], char **program_output)
          of the pipe be stdout, and execute the man page formatter. */
       close (pipes[0]);
       (void)! freopen (NULL_DEVICE, "r", stdin);
-      /* (void)! freopen (NULL_DEVICE, "w", stderr); */
-      /* NB don't close stderr to allow hooks to print messages to stderr. */
-      /* avoid "unused result" warning with ! operator */
+      if (discard_stderr)
+        (void)! freopen (NULL_DEVICE, "w", stderr);
 
       dup2 (pipes[1], fileno (stdout));
 
