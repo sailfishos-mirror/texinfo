@@ -53,10 +53,10 @@ EXTRA_DIST = pcterm.c
 ginfo_SOURCES = configfiles.c configfiles.h dir.c display.c display.h \
   doc.h dribble.c dribble.h echo-area.c echo-area.h \
   filesys.c filesys.h footnotes.c footnotes.h indices.c indices.h \
-  info.c info.h infodoc.c infokey.c \
-  infomap.c infomap.h infopath.c m-x.c man.c man.h nodemenu.c \
-  nodes.c nodes.h run-external.c run-external.h scan.c scan.h \
-  search.c search.h session.c session.h signals.c signals.h \
+  info.c info.h infodoc.c infokey.c \ infomap.c infomap.h infopath.c \
+  m-x.c man.c man.h nodemenu.c nodes.c nodes.h \
+  run-external.c run-external.h scan.c scan.h \
+  search.c search.h session.c session.h session-cmd.c signals.c signals.h \
   tag.c tag.h termdep.h terminal.c terminal.h tilde.c tilde.h \
   util.c util.h variables.c variables.h window.c window.h
 nodist_ginfo_SOURCES = doc.c funs.h
@@ -81,9 +81,9 @@ noinst_PROGRAMS = makedoc
 makedoc_SOURCES = makedoc.c
 
 # Files with Info commands defined that makedoc should read.
-cmd_sources = $(srcdir)/session.c $(srcdir)/echo-area.c $(srcdir)/infodoc.c \
-  $(srcdir)/m-x.c $(srcdir)/indices.c $(srcdir)/nodemenu.c \
-  $(srcdir)/footnotes.c $(srcdir)/variables.c
+cmd_sources = $(srcdir)/session-cmd.c $(srcdir)/echo-area.c \
+  $(srcdir)/infodoc.c $(srcdir)/m-x.c $(srcdir)/indices.c \
+  $(srcdir)/nodemenu.c $(srcdir)/footnotes.c $(srcdir)/variables.c
 
 # Make the target only funs.h even though we create all the
 # $(generated_sources) so that parallel makes won't do the rm && makedoc

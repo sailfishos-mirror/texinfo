@@ -1,4 +1,4 @@
-/* session.h -- Functions found in session.c, m-x.c and infodoc.c
+/* session.h -- declarations for session.c, session-cmd.c, m-x.c and infodoc.c
 
    Copyright 1993-2025 Free Software Foundation, Inc.
 
@@ -71,6 +71,7 @@ int check_info_keyseq_displayed (void);
 FILE_BUFFER *file_buffer_of_window (WINDOW *window);
 int info_select_reference (WINDOW *window, REFERENCE *entry);
 int info_any_buffered_input_p (void);
+int control_g_waiting (void);
 void pause_or_input (void);
 
 void dump_nodes_to_file (REFERENCE **references,
@@ -125,6 +126,8 @@ void info_abort_key (WINDOW *window, int count);
 
 NODE *info_follow_menus (NODE *initial_node, char **menus,
                          char **error_msg, int strict);
+
+void menu_digit (WINDOW *window, int key);
 
 /* Adding numeric arguments. */
 extern int info_explicit_arg;

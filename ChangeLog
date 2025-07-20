@@ -1,5 +1,16 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session-cmd.c: New file, containing all of the
+	functions defined with DECLARE_INFO_COMMAND that were in
+	session.c.  This means that code in session.c can change
+	without 'makedoc' having to rerun to rebuild doc.c and funs.h.
+
+	* info/session.c (control_g_waiting): New function.
+	* info/session-cmd.c (info_search_internal): Use it instead of
+	accessing info_input_buffer directly.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session.c (info_keyseq_displayed_p):
 	Eliminate duplicate declaration of static variable.  This
 	interferes with attempts at splitting source code file.
