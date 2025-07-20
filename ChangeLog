@@ -1,5 +1,10 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert) <definfoenclose>:
+	Split out code from other brace commands.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/run-external.c (get_output_from_program):
 	When returning exit status of executed program, wrap result
 	from 'wait' function in WEXITSTATUS to get the exit status

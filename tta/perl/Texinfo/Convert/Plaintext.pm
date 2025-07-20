@@ -3086,18 +3086,28 @@ sub _convert
       remove_end_sentence($formatter->{'container'})
         if ($accented_text ne '');
       return;
-    } elsif (exists($brace_commands{$cmdname})
-             or (defined($type) and $type eq 'definfoenclose_command')) {
-      if ($self->{'style_map'}->{$cmdname}
-           or (defined($type) and $type eq 'definfoenclose_command')) {
+    } elsif (defined($type) and $type eq 'definfoenclose_command') {
+        _stream_output($self,
+                       add_next($formatter->{'container'},
+                                $element->{'extra'}->{'begin'}, 1),
+                       $formatter->{'container'});
+        if ($element->{'contents'}) {
+          _convert($self, $element->{'contents'}->[0]);
+        }
+        _stream_output($self,
+                       add_next($formatter->{'container'},
+                                $element->{'extra'}->{'end'}, 1),
+                       $formatter->{'container'});
+        return;
+    } elsif (exists($brace_commands{$cmdname})) {
+      if ($self->{'style_map'}->{$cmdname}) {
         if ($brace_code_commands{$cmdname}) {
           if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
           } else {
             $formatter->{'font_type_stack'}->[-1]->{'monospace'}++;
           }
-        } elsif (exists($brace_commands{$cmdname})
-                 and $brace_commands{$cmdname} eq 'style_no_code') {
+        } elsif ($brace_commands{$cmdname} eq 'style_no_code') {
           if ($formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
             push @{$formatter->{'font_type_stack'}}, {'monospace' => 0,
                                                       'normal' => 1};
@@ -3121,11 +3131,7 @@ sub _convert
             if ($formatter->{'w'} == 1);
         }
         my ($text_before, $text_after);
-        if (defined($type)
-            and $type eq 'definfoenclose_command') {
-          $text_before = $element->{'extra'}->{'begin'};
-          $text_after = $element->{'extra'}->{'end'};
-        } elsif (exists $non_quoted_commands_when_nested{$cmdname}
+        if (exists $non_quoted_commands_when_nested{$cmdname}
                  and $formatter->{'font_type_stack'}->[-1]->{'code_command'}) {
           $text_before = '';
           $text_after = '';
@@ -3174,8 +3180,7 @@ sub _convert
           allow_end_sentence($formatter->{'container'});
           pop @{$formatter->{'font_type_stack'}}
             if !$formatter->{'font_type_stack'}->[-1]->{'monospace'};
-        } elsif (exists($brace_commands{$cmdname})
-                 and $brace_commands{$cmdname} eq 'style_no_code') {
+        } elsif ($brace_commands{$cmdname} eq 'style_no_code') {
           if ($formatter->{'font_type_stack'}->[-1]->{'normal'}) {
             $formatter->{'font_type_stack'}->[-1]->{'normal'}--;
             pop @{$formatter->{'font_type_stack'}}
