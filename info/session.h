@@ -67,6 +67,7 @@ FILE_BUFFER *file_buffer_of_window (WINDOW *window);
 
 void initialize_keyseq (void);
 void add_char_to_keyseq (int character);
+int check_info_keyseq_displayed (void);
 FILE_BUFFER *file_buffer_of_window (WINDOW *window);
 int info_select_reference (WINDOW *window, REFERENCE *entry);
 int info_any_buffered_input_p (void);

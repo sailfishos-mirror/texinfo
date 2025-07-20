@@ -248,7 +248,6 @@ info_session_one_node (NODE *node)
 
 void info_next_line (WINDOW *, int count);
 void info_prev_line (WINDOW *, int count);
-static int info_keyseq_displayed_p;
 
 void
 info_read_and_dispatch (void)
@@ -271,7 +270,7 @@ info_read_and_dispatch (void)
       cmd = read_key_sequence (info_keymap, 1, 1, 0, &count);
       if (cmd)
         {
-          if (!info_keyseq_displayed_p)
+          if (!check_info_keyseq_displayed ())
             window_clear_echo_area ();
 
           (*cmd) (active_window, count);
@@ -5516,6 +5515,12 @@ initialize_keyseq (void)
 {
   info_keyseq_index = 0;
   info_keyseq_displayed_p = 0;
+}
+
+int
+check_info_keyseq_displayed (void)
+{
+  return info_keyseq_displayed_p;
 }
 
 /* Add CHARACTER to the current key sequence. */
