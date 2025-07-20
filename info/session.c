@@ -1404,3 +1404,16 @@ read_key_sequence (Keymap map, int menu, int mouse,
   return 0;
 }
 
+void
+info_abort (void)
+{
+  /* If error printing doesn't oridinarily ring the bell, do it now,
+     since C-g always rings the bell.  Otherwise, let the error printer
+     do it. */
+  if (!info_error_rings_bell_p)
+    terminal_ring_bell ();
+  info_error ("%s", _("Quit"));
+
+  info_initialize_numeric_arg ();
+}
+

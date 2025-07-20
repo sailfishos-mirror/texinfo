@@ -1442,7 +1442,7 @@ info_menu_or_ref_item (WINDOW *window, int menu_item, int xref, int ask_p)
       /* User aborts, just quit. */
       if (!line)
         {
-          info_abort_key (window, 0);
+          info_abort ();
           return;
         }
 
@@ -1976,7 +1976,7 @@ DECLARE_INFO_COMMAND (info_menu_sequence,
   /* If the user aborted, quit now. */
   if (!line)
     {
-      info_abort_key (window, 0);
+      info_abort ();
       return;
     }
 
@@ -2470,7 +2470,7 @@ DECLARE_INFO_COMMAND (info_goto_node, _("Read a node name and select it"))
   /* If the user aborted, quit now. */
   if (!line)
     {
-      info_abort_key (window, 0);
+      info_abort ();
       return;
     }
 
@@ -2654,7 +2654,7 @@ DECLARE_INFO_COMMAND (info_goto_invocation_node,
   free (prompt);
   if (!line)
     {
-      info_abort_key (window, 0);
+      info_abort ();
       free (default_program_name);
       return;
     }
@@ -2687,7 +2687,7 @@ DECLARE_INFO_COMMAND (info_man, _("Read a manpage reference and select it"))
 
   if (!line)
     {
-      info_abort_key (window, 0);
+      info_abort ();
       return;
     }
 
@@ -2749,7 +2749,7 @@ DECLARE_INFO_COMMAND (info_view_file, _("Read the name of a file and select it")
   line = info_read_in_echo_area (_("Find file: "));
   if (!line)
     {
-      info_abort_key (active_window, 1);
+      info_abort ();
       return;
     }
 
@@ -4070,6 +4070,8 @@ show_isearch_prompt (int dir, unsigned char *string,
   display_cursor_at_point (active_window);
 }
 
+COMMAND_FUNCTION info_abort_key;
+
 /* Read and dispatch loop for incremental search mode. */
 static void
 incremental_search (WINDOW *window, int count)
@@ -4428,14 +4430,8 @@ incremental_search (WINDOW *window, int count)
 /* What to do when C-g is pressed in a window. */
 DECLARE_INFO_COMMAND (info_abort_key, _("Cancel current operation"))
 {
-  /* If error printing doesn't oridinarily ring the bell, do it now,
-     since C-g always rings the bell.  Otherwise, let the error printer
-     do it. */
-  if (!info_error_rings_bell_p)
-    terminal_ring_bell ();
-  info_error ("%s", _("Quit"));
+  info_abort ();
 
-  info_initialize_numeric_arg ();
 }
 
 DECLARE_INFO_COMMAND (info_info_version, _("Display version of Info being run"))

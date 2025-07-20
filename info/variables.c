@@ -367,7 +367,7 @@ DECLARE_INFO_COMMAND (set_variable, _("Set the value of an Info variable"))
       /* User aborted? */
       if (!line)
         {
-          info_abort_key (active_window, 0);
+          info_abort ();
           return;
         }
 
@@ -416,7 +416,7 @@ read_variable_name (char *prompt, WINDOW *window)
   /* User aborted? */
   if (!line)
     {
-      info_abort_key (active_window, 0);
+      info_abort ();
       return NULL;
     }
 

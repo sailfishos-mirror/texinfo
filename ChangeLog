@@ -1,5 +1,14 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	info_abort
+
+	* info/session.c (info_abort): New function.  Call in many
+	places instead of info_abort_key.
+	* info/session-cmd.c (info_abort_key): Move body of function
+	into info_abort.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session-cmd.c, info/session.c
 	(info_initialize_numeric_arg): Move to session.c.
 

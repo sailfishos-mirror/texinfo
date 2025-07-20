@@ -264,7 +264,7 @@ DECLARE_INFO_COMMAND (info_index_search,
   /* User aborted? */
   if (!line)
     {
-      info_abort_key (window, 1);
+      info_abort ();
       return;
     }
 
@@ -707,7 +707,7 @@ DECLARE_INFO_COMMAND (info_index_apropos,
   /* User aborted? */
   if (!line)
     {
-      info_abort_key (window, 1);
+      info_abort ();
       return;
     }
 
@@ -940,7 +940,7 @@ DECLARE_INFO_COMMAND (info_virtual_index,
   /* User aborted? */
   if (!line)
     {
-      info_abort_key (window, 1);
+      info_abort ();
       return;
     }
 

@@ -123,12 +123,12 @@ void initialize_terminal_and_keymaps (char *init_file);
 NODE *info_intuit_options_node (NODE *initial_node, char *program);
 
 COMMAND_FUNCTION info_scroll_forward;
-COMMAND_FUNCTION info_abort_key;
 
 NODE *info_follow_menus (NODE *initial_node, char **menus,
                          char **error_msg, int strict);
 
 void menu_digit (WINDOW *window, int key);
+void info_abort (void);
 
 /* Adding numeric arguments. */
 extern int info_explicit_arg;

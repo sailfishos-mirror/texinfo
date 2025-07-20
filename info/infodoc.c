@@ -837,7 +837,7 @@ DECLARE_INFO_COMMAND (info_where_is,
 
   if (!command_name)
     {
-      info_abort_key (active_window, count);
+      info_abort ();
       return;
     }
 
