@@ -1,5 +1,12 @@
 2025-07-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm: homogenize formatting of sub
+	beginning and arguments getting.  Remove unused argument, add
+	prototypes.  Replace object oriented calls of file internal functions.
+	No functional change.
+
+2025-07-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/parse_refold.pl (_text): set length to 0 (empty string
 	as result) if to and from positions are equal.
 
