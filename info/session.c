@@ -20,14 +20,12 @@
 #include "info.h"
 #include "display.h"
 #include "session.h"
+#include "dribble.h"
 #include "util.h"
 #include "nodes.h"
 #include "echo-area.h"
-#include "search.h"
 #include "footnotes.h"
-#include "man.h"
 #include "variables.h"
-#include "configfiles.h"
 
 #ifdef HAVE_SYS_IOCTL_H
 #include <sys/ioctl.h>

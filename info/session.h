@@ -22,7 +22,6 @@
 
 #include "info.h"
 #include "window.h"
-#include "dribble.h"
 
 /* Variable controlling the garbage collection of files briefly visited
    during searches.  Such files are normally gc'ed, unless they were

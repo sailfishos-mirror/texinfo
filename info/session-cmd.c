@@ -29,23 +29,6 @@
 #include "variables.h"
 #include "configfiles.h"
 
-#ifdef HAVE_SYS_IOCTL_H
-#include <sys/ioctl.h>
-#endif
-#ifdef __MINGW32__
-# undef read
-# define read(f,b,s)        w32_read(f,b,s)
-# undef _read
-# define _read(f,b,s)        w32_read(f,b,s)
-extern ssize_t w32_read (int, void *, size_t);
-#endif
-
-#if defined (HAVE_SYS_TIME_H)
-#  include <sys/time.h>
-#  define HAVE_STRUCT_TIMEVAL
-#endif /* HAVE_SYS_TIME_H */
-
-
 
 /* **************************************************************** */
 /*                                                                  */

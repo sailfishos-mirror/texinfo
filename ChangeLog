@@ -1,5 +1,12 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Tidy up include files
+
+	* info/session-cmd.c, info/session.c, info/session.h:
+	Remove some unnecessary #include or #define directives.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Tweak ea_scroll_completions_window
 	
 	* info/echo-area.c (ea_scroll_completions_window):
