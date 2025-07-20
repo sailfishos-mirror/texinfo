@@ -1,5 +1,10 @@
 2025-07-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm: replace object oriented calls of
+	file internal functions.
+
+2025-07-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm: homogenize formatting of sub
 	beginning and arguments getting.  Remove unused argument, add
 	prototypes.  Replace object oriented calls of file internal functions.
