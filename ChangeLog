@@ -1,5 +1,16 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/run-external.c (get_output_from_program):
+	Take extra argument giving full path to executable
+	and pass to execv.
+	* info/configfiles.c (run_info_hook):
+	Avoiding clobbering array argument when calling
+	get_output_from_program.
+	* info/man.c (get_manpage_from_formatter): Update
+	get_output_from_program call.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/nodes.c (info_get_node_of_file_buffer): Do not
 	check for null FILE_BUFFER argument.
 	(info_get_node_with_defaults): Make sure not to call

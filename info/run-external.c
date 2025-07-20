@@ -32,8 +32,8 @@
 static char *read_from_fd (int fd);
 
 int
-get_output_from_program (char *formatter_args[], char **program_output,
-                         int discard_stderr)
+get_output_from_program (char *filename, char *formatter_args[],
+                         char **program_output, int discard_stderr)
 {
   int pipes[2];
   int exit_status = 0;
@@ -69,7 +69,7 @@ get_output_from_program (char *formatter_args[], char **program_output,
 
       dup2 (pipes[1], fileno (stdout));
 
-      execv (formatter_args[0], formatter_args);
+      execv (filename, formatter_args);
 
       /* If we get here, we couldn't exec, so close out the pipe and
          exit. */

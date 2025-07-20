@@ -155,8 +155,7 @@ run_info_hook (const char *hook, char *argv[], char **hook_output)
     return exit_notfound;
 #undef exit_notfound
 
-  argv[0] = hook_file;
-  int exit_status = get_output_from_program (argv, hook_output, 0);
+  int exit_status = get_output_from_program (hook_file, argv, hook_output, 0);
   free (hook_file);
   return exit_status;
 }

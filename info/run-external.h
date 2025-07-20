@@ -18,8 +18,8 @@
 #ifndef INFO_RUN_EXTRERNAL_H
 #define INFO_RUN_EXTRERNAL_H
 
-int get_output_from_program (char *formatter_args[], char **output,
-                             int discard_stderr);
+int get_output_from_program (char *filename, char *formatter_args[],
+                             char **output, int discard_stderr);
 
 #endif
 
