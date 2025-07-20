@@ -1,5 +1,10 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session-cmd.c, info/session.c
+	(info_initialize_numeric_arg): Move to session.c.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session.c, info/session.h: Declare some functions
 	using COMMAND_FUNCTION typedef.
 

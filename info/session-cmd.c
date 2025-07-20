@@ -4512,18 +4512,3 @@ DECLARE_INFO_COMMAND (info_add_digit_to_numeric_arg,
 DECLARE_INFO_COMMAND (info_universal_argument,
                       _("Start (or multiply by 4) the current numeric argument"))
 {} /* Declaration only. */
-
-/* Create a default argument. */
-void
-info_initialize_numeric_arg (void)
-{
-  if (!echo_area_is_active)
-    {
-      info_explicit_arg = 0;
-    }
-  else
-    {
-      ea_explicit_arg = 0;
-    }
-}
-

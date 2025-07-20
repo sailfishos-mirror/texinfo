@@ -1179,6 +1179,17 @@ int info_explicit_arg = 0;
    overwriting this information when "C-u ARG M-x" is typed. */
 int ea_explicit_arg = 0;
 
+/* Create a default argument. */
+void
+info_initialize_numeric_arg (void)
+{
+  if (!echo_area_is_active)
+    info_explicit_arg = 0;
+  else
+    ea_explicit_arg = 0;
+}
+
+
 extern COMMAND_FUNCTION info_universal_argument;
 extern COMMAND_FUNCTION info_add_digit_to_numeric_arg;
 extern COMMAND_FUNCTION info_do_lowercase_version;
