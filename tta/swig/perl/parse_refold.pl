@@ -20,7 +20,12 @@
 # example code that re-fold macros, values and other found in the source
 # marks as Texinfo code.
 
+use strict;
+use warnings;
+
 use lib '.', '.libs', 'blib/arch', 'blib/lib';
+
+use Getopt::Long qw(GetOptions);
 
 # for fileparse
 use File::Basename;
@@ -28,6 +33,13 @@ use File::Basename;
 use File::Spec;
 
 use Texinfo;
+
+Getopt::Long::Configure("gnu_getopt");
+
+my $debug = 0;
+my $result_options = Getopt::Long::GetOptions (
+ 'debug|d' => \$debug,
+);
 
 Texinfo::setup(1);
 
@@ -63,7 +75,9 @@ my $tree = Texinfo::document_tree($document);
 
 #print STDERR "Tree parsed\n";
 
-#print STDERR Texinfo::tree_print_details($tree)."\n\n\n";
+if ($debug) {
+  print STDERR Texinfo::tree_print_details($tree)."\n\n\n";
+}
 
 sub _text($$$;$)
 {
@@ -97,11 +111,12 @@ sub _text($$$;$)
 
 sub _convert($$;$);
 
-sub _handle_source_marks($$)
+sub _handle_source_marks($$$)
 {
-  my ($element, $current_smark) = @_;
+  my ($element, $type, $current_smark) = @_;
   my $result = '';
   my $last_position;
+  my $smark_e_text;
   my $source_marks_nr = Texinfo::element_source_marks_number($element);
   if ($source_marks_nr) {
     for (my $i = 0; $i < $source_marks_nr; $i++) {
@@ -140,6 +155,9 @@ sub _handle_source_marks($$)
           = _convert($source_mark_element, $document, $current_smark);
         $result .= $smark_e_text;
       } else {
+        if ($source_mark_type == $Texinfo::SM_type_delcomment) {
+          $result .= "\x{7F}";
+        }
         my $source_mark_line = $source_mark->swig_line_get();
         if (defined($source_mark_line)) {
           $result .= $source_mark_line;
@@ -197,7 +215,7 @@ sub _convert($$;$) {
         or $category == $Texinfo::TXI_READ_IGNORABLE_TEXT) {
       my ($last_position, $smark_result);
       ($smark_result, $last_position, $current_smark)
-        = _handle_source_marks($element, $current_smark);
+        = _handle_source_marks($element, $type, $current_smark);
       $result .= $smark_result;
       if (!defined($current_smark)) {
         if ($type eq 'spaces') {
@@ -230,7 +248,7 @@ sub _convert($$;$) {
         my $spaces_cmd_before_arg
           = Texinfo::element_attribute_element($element,
                                  'spaces_after_cmd_before_arg');
-        if (defined($spaces_after_cmd_before_arg)) {
+        if (defined($spaces_cmd_before_arg)) {
           ($spaces, $current_smark)
            = _convert($spaces_cmd_before_arg, $document, $current_smark);
           $result .= $spaces;
@@ -282,16 +300,16 @@ sub _convert($$;$) {
           Texinfo::reader_skip_children($reader, $element);
           next;
         }
+      }
+      if ($category == $Texinfo::TXI_READ_ELEMENT_START
+          or $category == $Texinfo::TXI_READ_EMPTY) {
         if (!defined($current_smark)) {
           if ($type eq 'bracketed_arg') {
             $result .= '{';
           }
         }
-      }
-      if ($category == $Texinfo::TXI_READ_ELEMENT_START
-          or $category == $Texinfo::TXI_READ_EMPTY) {
-        if ($type eq 'brace_arg' or $type eq 'line_arg'
-            or $type eq 'block_line_arg') {
+        if ($type eq 'brace_arg' or $type eq 'elided_brace_command_arg'
+            or $type eq 'line_arg' or $type eq 'block_line_arg') {
           $args_stack->[-1]++;
           if (!defined($current_smark)) {
             if ($args_stack->[-1] > 1) {
@@ -330,20 +348,19 @@ sub _convert($$;$) {
           my $comment_e = Texinfo::element_attribute_element($element,
                                              'comment_at_end');
           if ($comment_e) {
+            my $comment;
             ($comment, $current_smark)
                = _convert($comment_e, $current_smark);
             $result .= $comment;
           }
         }
-      }
-    }
-
-    if ($category == $Texinfo::TXI_READ_ELEMENT_END) {
-      if (!defined($current_smark)) {
         if ($type eq 'bracketed_arg') {
           $result .= '}';
         }
       }
+    }
+
+    if ($category == $Texinfo::TXI_READ_ELEMENT_END) {
       if (defined($cmdname)
           and !Texinfo::element_command_is_nobrace($element)) {
         pop @$args_stack;
@@ -353,7 +370,7 @@ sub _convert($$;$) {
         or $category == $Texinfo::TXI_READ_ELEMENT_END) {
       my ($last_position, $smark_result);
       ($smark_result, $last_position, $current_smark)
-         = _handle_source_marks($element, $current_smark);
+         = _handle_source_marks($element, $type, $current_smark);
       $result .= $smark_result;
     }
   }

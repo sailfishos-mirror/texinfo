@@ -1,3 +1,17 @@
+2025-07-20 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/swig/perl/parse_refold.pl, tta/swig/perl/parse_refold.pl
+	(_handle_source_marks): add use strict and use warnings, and
+	command-line debug option.  Pass $type to _handle_source_marks.
+	Fix other issues uncovered by use strict.
+
+	* tta/swig/perl/parse_refold.pl (_convert): also consider
+	elided_brace_command_arg as a command arg separated by comma.
+	Handle empty bracketed_arg.
+
+	* tta/swig/perl/parse_refold.pl (_handle_source_marks): add DEL
+	character for del comment.
+
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert) <definfoenclose>:
