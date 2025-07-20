@@ -23,6 +23,9 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
      |{spaces_after_argument:\\n}
      {cpp_lines.info}
    {empty_line:\\n}
+   >SOURCEMARKS
+   >line_directive<1><p:1>{#line 3 "a_file" \\n}
+   >line_directive<2><p:1>{ # 66 "g_f" 4 \\n}
    {empty_line:\\n}
   *paragraph C2
    *@email C1 g_f:l68
@@ -62,6 +65,8 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   *paragraph C2
    {# 10 25 209\\n}
    {# 1 2\\n}
+   >SOURCEMARKS
+   >line_directive<3><p:6>{# 46\\n}
   {empty_line:\\n}
   *@verbatim C4 g_f:l48
    *arguments_line C1
@@ -178,6 +183,8 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
      >|{spaces_after_argument:\\n}
      >{file_with_cpp_lines.texi}
   {empty_line:\\n}
+  >SOURCEMARKS
+  >line_directive<4><p:1>{#line 8 "inc"\\n}
   {empty_line:\\n}
   *paragraph C2
    *@email C1 inc:l10
@@ -186,6 +193,7 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
    {\\n}
   {empty_line:\\n}
   >SOURCEMARKS
+  >line_directive<5><p:1>{#line 78 "grrr"\\n}
   >include<end;1><p:1>
   *paragraph C2
    *@email C1 g_f:l75
@@ -216,7 +224,10 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{1}
-    *brace_command_context C1
+    *brace_command_context C2
+     {}
+     >SOURCEMARKS
+     >line_directive<6>{#line 25 "footnote"\\n}
      *paragraph C1
       {in footnote}
    {\\n}
@@ -229,7 +240,10 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
     |{spaces_before_argument:\\n}
    |EXTRA
    |global_command_number:{2}
-    *brace_command_context C2
+    *brace_command_context C3
+     {}
+     >SOURCEMARKS
+     >line_directive<7>{#line 35 "footnote2"\\n}
      {empty_line:\\n}
      *paragraph C1
       {in 2footnote}
@@ -238,17 +252,23 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   {empty_line:\\n}
   *paragraph C2
    *@email C2 footnote2:l40
-    *brace_arg C1
+    *brace_arg C2
     |INFO
     |spaces_before_argument:
      |{spaces_before_argument: \\n}
+     {}
+     >SOURCEMARKS
+     >line_directive<8>{#line 50 "email1"\\n}
      {etext1}
-    *brace_arg C1
+    *brace_arg C2
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument:\\n}
+     {}
+     >SOURCEMARKS
+     >line_directive<9>{#line 60 "email2"\\n}
      {etext2}
    {\\n}
   {empty_line:\\n}
@@ -270,37 +290,52 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   {empty_line:\\n}
   *paragraph C2
    *@email C2 email2:l69
-    *brace_arg C1
+    *brace_arg C2
     |INFO
     |spaces_before_argument:
      |{spaces_before_argument: \\n}
+     {}
+     >SOURCEMARKS
+     >line_directive<10>{#line 50 "email11"\\n}
      { mail space}
-    *brace_arg C1
+    *brace_arg C2
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument:\\n}
+     {}
+     >SOURCEMARKS
+     >line_directive<11>{#line 60 "email12"\\n}
      { text space}
    {\\n}
   {empty_line:\\n}
   *paragraph C1
    *@email C1 email12:l64
-    *brace_arg C1
+    *brace_arg C2
     |INFO
     |spaces_before_argument:
      |{spaces_before_argument: \\n}
+     {}
+     >SOURCEMARKS
+     >line_directive<12>{#line 80 "email3"\\n}
      {empty_line:\\n}
   *paragraph C1
    {etext3,\\n}
   {empty_line:\\n}
+  >SOURCEMARKS
+  >line_directive<13><p:1>{#line 60 "email4"\\n}
   {empty_line:\\n}
   *paragraph C1
    {etext4\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   {empty_line:\\n}
+  >SOURCEMARKS
+  >line_directive<14><p:1>{#line 70 "email3"\\n}
   {empty_line:\\n}
+  >SOURCEMARKS
+  >line_directive<15><p:1>{#line 5 "accentêd"\\n}
   {empty_line:\\n}
   *@documentlanguage C1 accentêd:l7
   |INFO

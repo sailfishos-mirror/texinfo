@@ -48,6 +48,8 @@ $result_tree_text{'cpp_directives_after_macros'} = '*document_root C1
       |{spaces_after_argument:\\n}
       {macro}
    {empty_line:\\n}
+   >SOURCEMARKS
+   >line_directive<1><p:1>{  #line 98 "a_test_after_spaces"\\n}
    {empty_line:\\n}
    {spaces_before_paragraph:  }
    >SOURCEMARKS

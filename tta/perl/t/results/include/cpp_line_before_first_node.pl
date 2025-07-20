@@ -8,6 +8,8 @@ use utf8;
 $result_tree_text{'cpp_line_before_first_node'} = '*document_root C2
  *before_node_section C4
   *preamble_before_beginning C2
+  >SOURCEMARKS
+  >line_directive<1>{#line 100 "foo.ptexi"\\n}
    {text_before_beginning:\\input texinfo\\n}
    {text_before_beginning:\\n}
   *preamble_before_content C3

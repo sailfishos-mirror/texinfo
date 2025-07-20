@@ -64,6 +64,8 @@ $result_tree_text{'cpp_line_latin1'} = '*document_root C5
     |{spaces_after_argument:\\n}
     {chap}
   {empty_line:\\n}
+  >SOURCEMARKS
+  >line_directive<1><p:1>{#line 100 "foo.ptèxi"\\n}
   {empty_line:\\n}
   {empty_line:\\n}
   {empty_line:\\n}

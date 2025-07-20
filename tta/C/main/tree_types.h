@@ -27,6 +27,8 @@
 /* the *_none enums are not necessarily used, they may also
    be there to avoid using 0, for a code easier to debug */
 
+/* the expanded_conditional_command source mark is used in arrays
+   dimensions, keep it in the end or change code */
 #define SM_TYPES_LIST \
    sm_type(include) \
    sm_type(setfilename) \
@@ -36,7 +38,9 @@
    sm_type(linemacro_expansion) \
    sm_type(value_expansion) \
    sm_type(ignored_conditional_block) \
+   sm_type(line_directive) \
    sm_type(expanded_conditional_command) \
+
 
 enum source_mark_type {
    SM_type_none,

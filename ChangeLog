@@ -1,5 +1,15 @@
 2025-07-20 Patrice Dumas  <pertusus@free.fr>
 
+	Add source marks for cpp line directives
+
+	* tta/C/main/tree_types.h (SM_TYPES_LIST), tta/C/parsetexi/parser.c
+	(check_line_directive, parse_texi), tta/perl/Texinfo/ParserNonXS.pm
+	(_check_line_directive, _parse_texi): add line_directive source mark
+	for cpp line directives in _check_line_directive.  Pass current
+	element to _check_line_directive.
+
+2025-07-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm: replace object oriented calls of
 	file internal functions.
 

@@ -2642,7 +2642,7 @@ funexit:
 
 /* Check for a #line directive. */
 static int
-check_line_directive (const char *line)
+check_line_directive (ELEMENT *current, const char *line)
 {
   int line_no = 0;
   int status = 0;
@@ -2659,8 +2659,12 @@ check_line_directive (const char *line)
   parsed_filename = parse_line_directive (line, &status, &line_no);
   if (status)
     {
+      SOURCE_MARK *source_mark = new_source_mark (SM_type_line_directive);
       save_line_directive (line_no, parsed_filename);
       free (parsed_filename);
+
+      source_mark->line = strdup (line);
+      register_source_mark (current, source_mark);
 
       return 1;
     }
@@ -2696,7 +2700,7 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 
       debug_nonl ("NEW LINE %s", line);
 
-      if (check_line_directive (line))
+      if (check_line_directive (current, line))
         continue;
 
       /* collect leading whitespace and save as an "ET_empty_line" element.

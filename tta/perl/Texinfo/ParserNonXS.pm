@@ -5128,8 +5128,8 @@ sub _parse_texi_regex {
     $asterisk, $form_feed, $menu_only_separator, $misc_text);
 }
 
-sub _check_line_directive($$$) {
-  my ($self, $line, $source_info) = @_;
+sub _check_line_directive($$$$) {
+  my ($self, $current, $line, $source_info) = @_;
 
   if ($self->{'conf'}->{'CPP_LINE_DIRECTIVES'}
       and defined($source_info->{'file_name'})
@@ -5137,6 +5137,9 @@ sub _check_line_directive($$$) {
       and !defined($source_info->{'macro'})
       and $line =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/) {
     _save_line_directive($self, int($2), $5);
+    my $line_directive_source_mark = {'sourcemark_type' => 'line_directive',
+                                      'line' => $line};
+    _register_source_mark($self, $current, $line_directive_source_mark);
     return 1;
   }
   return 0;
@@ -7972,7 +7975,8 @@ sub _parse_texi($$$) {
     #  next;
     #}
 
-    next NEXT_LINE if _check_line_directive($self, $line, $source_info);
+    next NEXT_LINE if _check_line_directive($self, $current, $line,
+                                            $source_info);
 
     # based on whitespace_chars_except_newline in XS parser
     $line =~ s/^([ \t\cK\f]*)//;
