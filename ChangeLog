@@ -2,10 +2,10 @@
 
 	* tta/configure.ac (AC_CANONICAL_HOST), tta/perl/CheckXS/configure.ac
 	(AC_CANONICAL_HOST): call AC_CANONICAL_HOST, as host is used in
-	txi_PERL_CONF (and possibly in other parts of configure.ac). 
+	txi_PERL_CONF (and possibly in other parts of configure.ac).
 
-	* tta/m4/txi_perl_conf.m4: add more messages to show final Perl libper
-	l and link flags.
+	* tta/m4/txi_perl_conf.m4: add more messages to show final libperl and
+	Perl link flags.
 
 2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
 
@@ -53,7 +53,7 @@
 
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/C/convert/swig_interface.c (element_attribute_string) 
+	* tta/C/convert/swig_interface.c (element_attribute_string)
 	(set_element_attribute_string), tta/C/main/build_perl_info.c
 	(build_element_attribute), tta/C/main/tree_types.h (AI_KEYS_LIST):
 	remove AI_key_command_name, this information is internal to the C code
@@ -105,7 +105,7 @@
 	(expand_linemacro_arguments), tta/perl/Texinfo/ParserNonXS.pm
 	(_expand_linemacro_arguments): use a new type for user-defined
 	linemacro arguments, linemacro_arg as it is not delimited by commas
-	like line_arg.  
+	like line_arg.
 
 2025-07-19 Patrice Dumas  <pertusus@free.fr>
 
@@ -11475,7 +11475,7 @@
 	* doc/texinfo.tex (\opnr, \cpnr): unconditionally use \sf
 	font for opening or closing parenthesis, regardless of
 	whether an &keyword has been seen and whether we are at
-	the first level of parenthesis. 
+	the first level of parenthesis.
 	
 	The purpose of this was unknown but it was not correct for input
 	such as:
