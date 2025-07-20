@@ -63,6 +63,7 @@ AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = 
 
 AC_PATH_PROG([PERL], [perl])
 
+AC_CANONICAL_HOST
 # setup perl_conf*, XSUBPP* and XS_VERSION variables to build Perl XS modules
 txi_PERL_CONF
 

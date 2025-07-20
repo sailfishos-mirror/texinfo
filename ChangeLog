@@ -1,3 +1,12 @@
+2025-07-20 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/configure.ac (AC_CANONICAL_HOST), tta/perl/CheckXS/configure.ac
+	(AC_CANONICAL_HOST): call AC_CANONICAL_HOST, as host is used in
+	txi_PERL_CONF (and possibly in other parts of configure.ac). 
+
+	* tta/m4/txi_perl_conf.m4: add more messages to show final Perl libper
+	l and link flags.
+
 2025-07-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/util.c, info/infodoc.c (get_internal_info_window):

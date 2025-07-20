@@ -16,6 +16,7 @@ AC_CONFIG_MACRO_DIRS([build-aux/m4 ../../m4])
 
 AC_PATH_PROG([PERL], [perl])
 
+AC_CANONICAL_HOST
 txi_PERL_CONF
 
 AC_ARG_VAR([PERL_EXT_CFLAGS], [Compiler flags for a Perl extension])

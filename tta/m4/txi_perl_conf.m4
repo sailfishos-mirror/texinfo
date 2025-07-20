@@ -5,6 +5,9 @@ dnl gives unlimited permission to copy and/or distribute it,
 dnl with or without modifications, as long as this notice is preserved.
 dnl This file is offered as-is, without any warranty.
 
+dnl Note that $host is used, therefore AC_CANONICAL_HOST should be called
+dnl before.
+
 # fetch_conf is a shell function defined in txi_PERL_CONF
 AC_DEFUN([txi_LOOKUP_PERL_CONF],
          [AC_MSG_CHECKING([Perl configuration value $1])
@@ -78,6 +81,7 @@ perl_conf_EMBED_CFLAGS=$PERL_CONF_cccdlflags
 
 # perllibs: The list of libraries needed by Perl only
 txi_LOOKUP_PERL_CONF_VALUES([[libperl], [perllibs]])
+AC_MSG_CHECKING([libperl link])
 # Change libperl.so into -lperl to indicate a library dependency to
 # libtool.
 # Special case for Cygwin to change e.g. cygperl5_22.dll into -lperl
@@ -85,6 +89,7 @@ PERL_CONF_libperl=`echo $PERL_CONF_libperl \
              | sed -e 's/^lib/-l/' \
                    -e 's/\..*//' \
                    -e 's/^cygperl.*/-lperl/' `
+AC_MSG_RESULT([$PERL_CONF_libperl])
 
 txi_LOOKUP_PERL_CONF_VALUES([[archlibexp], [privlibexp]])
 # perl_inc in ExtUtils::Embed
@@ -97,6 +102,7 @@ AM_MISSING_PROG([XSUBPP], [xsubpp])
 XSUBPPARGS="-typemap ${PERL_CONF_privlibexp}/ExtUtils/typemap"
 AC_SUBST([XSUBPPARGS], [$XSUBPPARGS])
 
+AC_MSG_CHECKING([Platform Perl link for $host])
 # Use the -no-undefined flag on MS-Windows.  See info node
 # `(gnulib)Libtool and Windows'.  The -L and -l options in
 # platform_PERL_LIBADD show where to find the undefined symbols when
@@ -108,6 +114,7 @@ case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
   platform_LDFLAGS='-no-undefined'
   ;;
 esac
+AC_MSG_RESULT([$perl_conf_LDFLAGS])
 
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
