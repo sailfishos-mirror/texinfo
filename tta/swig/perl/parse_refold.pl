@@ -94,7 +94,7 @@ sub _text($$$;$)
   my $length;
   # FIXME maybe need to check if $to != length($text), and only in that
   # case define length
-  if (defined($to) and $to != $from) {
+  if (defined($to)) {
     $length = $to - $from;
   }
 
@@ -119,6 +119,9 @@ sub _handle_source_marks($$$)
   my $smark_e_text;
   my $source_marks_nr = Texinfo::element_source_marks_number($element);
   if ($source_marks_nr) {
+    if ($debug) {
+      print STDERR "_SOURCEMARKS ($source_marks_nr)\n";
+    }
     for (my $i = 0; $i < $source_marks_nr; $i++) {
       my $source_mark = Texinfo::element_get_source_mark($element, $i);
       my $source_mark_counter = $source_mark->swig_counter_get();
@@ -128,21 +131,32 @@ sub _handle_source_marks($$$)
         if ($source_mark_counter == $current_smark->[1]
             and $current_smark->[0] eq $source_mark_type) {
           $last_position = $source_mark->swig_position_get();
-          #print STDERR "ESM: $source_mark_type;c:$source_mark_counter;p:$last_position\n";
+          if ($debug) {
+            print STDERR "END_SMARK($i): $source_mark_type;".
+               "c:$source_mark_counter;p:$last_position\n";
+          }
           $current_smark = undef;
         }
-        # FIXME what about source marks in source mark elements?
-        next;
       }
 
       my $source_mark_status = $source_mark->swig_status_get();
 
       my $source_mark_position = $source_mark->swig_position_get();
       if (defined($source_mark_position) and $source_mark_position > 0) {
-        # source_mark_position > 0 only in text elements
-        my $text = Texinfo::element_text($element);
-        $result .= _text($text, $last_position, $type,
-                         $source_mark_position);
+        if (!$current_smark) {
+          # source_mark_position > 0 only in text elements
+          my $text = Texinfo::element_text($element);
+          my $text_result = _text($text, $last_position, $type,
+                                  $source_mark_position);
+          if ($debug) {
+            print STDERR "TEXT_SMARK($i) "
+              .(defined($last_position) ? $last_position : '-')
+                .":$source_mark_position"
+                #." '$text_result'\n";
+                ."\n";
+          }
+          $result .= $text_result;
+        }
       }
       $last_position = $source_mark_position;
 
@@ -150,11 +164,15 @@ sub _handle_source_marks($$$)
       # is the flag name, what we are interested in is the element
       my $source_mark_element = $source_mark->swig_element_get();
       if (defined($source_mark_element)) {
-        #print STDERR "!! ".Texinfo::tree_print_details($source_mark_element)."\n";
+        if ($debug) {
+          print STDERR "_E_SMARK($i): "
+           #.Texinfo::tree_print_details($source_mark_element)."\n";
+           ."\n";
+        }
         ($smark_e_text, $current_smark)
           = _convert($source_mark_element, $document, $current_smark);
-        $result .= $smark_e_text;
-      } else {
+        $result .= $smark_e_text if (!$current_smark);
+      } elsif (!$current_smark) {
         if ($source_mark_type == $Texinfo::SM_type_delcomment) {
           $result .= "\x{7F}";
         }
@@ -165,14 +183,25 @@ sub _handle_source_marks($$$)
           $result .= "@\n";
         }
       }
-      if ($source_mark_status eq $Texinfo::SM_status_start
-          # expanded conditional has a start and an end, but the
-          # tree within is the expanded tree and should not be skipped
-          and $source_mark_type
-              != $Texinfo::SM_type_expanded_conditional_command) {
-        #print STDERR "SSM: $source_mark_type;c:$source_mark_counter\n";
-        $current_smark = [$source_mark_type, $source_mark_counter];
+      if (!$current_smark) {
+        if ($source_mark_status eq $Texinfo::SM_status_start
+            # expanded conditional has a start and an end, but the
+            # tree within is the expanded tree and should not be skipped
+            and $source_mark_type
+                != $Texinfo::SM_type_expanded_conditional_command) {
+          if ($debug) {
+            print STDERR "START_SMARK($i): $source_mark_type;"
+              ."c:$source_mark_counter\n";
+          }
+          $current_smark = [$source_mark_type, $source_mark_counter];
+        }
       }
+    }
+    if ($debug) {
+      print STDERR "_OUTSMARKS [p:".
+        (defined($last_position) ? $last_position : 0)."] "
+           ._current_smark($current_smark)."\n";
+      #print STDERR "_HSMARKRESULT: '$result'\n";
     }
   }
   return $result, $last_position, $current_smark;
@@ -188,7 +217,9 @@ sub _current_smark($) {
 sub _convert($$;$) {
   my ($tree, $document, $current_smark) = @_;
 
-  #print STDERR "_CONVERT: "._current_smark($current_smark)."\n";
+  if ($debug) {
+    print STDERR "_CONVERT: "._current_smark($current_smark)."\n";
+  }
   my $descriptor = Texinfo::register_new_reader($tree, $document);
   my $reader = Texinfo::retrieve_reader_descriptor($descriptor);
 
@@ -207,9 +238,11 @@ sub _convert($$;$) {
     my $type = Texinfo::element_type($element);
     $type = '' if (!defined($type));
 
-    #print STDERR "R [".join('|', @$args_stack)."] $category ".
-    #  _current_smark($current_smark)
-    #  .' '.Texinfo::element_print_details($element)."\n";
+    if ($debug) {
+      print STDERR "R [".join('|', @$args_stack)."] $category ".
+        _current_smark($current_smark)
+        .' '.Texinfo::element_print_details($element)."\n";
+    }
 
     if ($category == $Texinfo::TXI_READ_TEXT
         or $category == $Texinfo::TXI_READ_IGNORABLE_TEXT) {
@@ -235,7 +268,7 @@ sub _convert($$;$) {
       # FIXME item_LINE or item?  Probably item, but check
       if ($category != $Texinfo::TXI_READ_ELEMENT_END) {
         if (!defined($current_smark)) {
-          my $alias_of = Texinfo::element_attribute_string($element, 
+          my $alias_of = Texinfo::element_attribute_string($element,
                                                           'alias_of');
           $result .= '@';
           if (defined($alias_of)) {
@@ -375,6 +408,10 @@ sub _convert($$;$) {
     }
   }
 
+  if ($debug) {
+    print STDERR "_END "._current_smark($current_smark)."\n";
+    #print STDERR "RESULT: '$result'\n";
+  }
   return ($result, $current_smark);
 }
 

@@ -314,6 +314,8 @@ text
 @end ifset
 @c WRONG - missing @end ifset.
 '],
+# note that this test tests nested source marks, as the closing conditionals
+# call source mark ends up in ifset source mark spaces.
 ['nested_ifset_ifclear',
 '
 @macro conditionals{}
