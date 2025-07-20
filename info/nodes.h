@@ -195,6 +195,8 @@ int internal_info_node_p (NODE *node);
 /* Make NODE appear to be one especially created by Info, and give it NAME. */
 void name_internal_node (NODE *node, char *name);
 
+NODE *node_from_hook_output (char *hook_name, char *hook_output, int count);
+
 
 
 /* Found in dir.c */

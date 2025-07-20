@@ -1373,3 +1373,25 @@ name_internal_node (NODE *node, char *name)
   node->flags |= N_IsInternal;
 }
 
+/* Use the output from a hook as a node. */
+NODE *
+node_from_hook_output (char *hook_name, char *hook_output, int count)
+{
+  struct text_buffer buf;
+  text_buffer_init (&buf);
+  if (count <= 0)
+    text_buffer_printf (&buf, "Node: %s output,\tUp: (dir)\n\n",
+                        hook_name);
+  else
+    text_buffer_printf (&buf, "Node: %s output <%d>,\tUp: (dir)\n\n",
+                        hook_name, count);
+  text_buffer_printf (&buf, "%s", hook_output);
+  free (hook_output);
+
+  NODE *node = text_buffer_to_node (&buf);
+  char *node_name;
+  xasprintf (&node_name, "%s output", hook_name);
+  name_internal_node (node, node_name);
+  scan_node_contents (node, 0, 0);
+  return node;
+}

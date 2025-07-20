@@ -2145,24 +2145,12 @@ info_select_reference (WINDOW *window, REFERENCE *entry)
       hook_argv[0] = hook_name;
       hook_argv[1] = filename;
       hook_argv[2] = 0;
+
       int status = run_info_hook (hook_name, hook_argv, &hook_output);
       if (status == 0)
         {
-          struct text_buffer buf;
-          text_buffer_init (&buf);
-          text_buffer_printf (&buf,
-                              "Node: %s output <%d>,\tUp: (dir)\n\n",
-                              hook_name, hook_node_index + 1);
-          text_buffer_printf (&buf, "%s", hook_output);
-          free (hook_output);
-
-          node = text_buffer_to_node (&buf);
-          char *node_name;
-          xasprintf (&node_name, "%s output", hook_name);
-          name_internal_node (node, node_name);
-          scan_node_contents (node, 0, 0);
-
-          /* Save this node. */
+          node = node_from_hook_output (hook_name, hook_output,
+                                              hook_node_index + 1);
           add_pointer_to_array (node, hook_node_index,
                                 hook_nodes,
                                 hook_node_slots, 100);

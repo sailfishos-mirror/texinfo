@@ -305,6 +305,7 @@ get_initial_file (int *argc, char ***argv, char **error)
       hook_args[0] = hook_name;
       hook_args[1] = (*argv)[0];
       hook_args[2] = 0;
+
       int status = run_info_hook (hook_name, hook_args, &hook_output);
       if (status == 0)
         {
@@ -314,20 +315,7 @@ get_initial_file (int *argc, char ***argv, char **error)
               exit (EXIT_FAILURE);
             }
 
-          /* Use the output from the hook as a node to display. */
-          struct text_buffer buf;
-          text_buffer_init (&buf);
-          text_buffer_printf (&buf,
-                              "Node: %s output,\tUp: (dir)\n\n", hook_name);
-          text_buffer_printf (&buf, "%s", hook_output);
-          free (hook_output);
-
-          NODE *node = text_buffer_to_node (&buf);
-          char *node_name;
-          xasprintf (&node_name, "%s output", hook_name);
-          name_internal_node (node, node_name);
-          scan_node_contents (node, 0, 0);
-
+          NODE *node = node_from_hook_output (hook_name, hook_output, -1);
           info_session_one_node (node);
           exit (0);
         }
