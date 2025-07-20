@@ -118,6 +118,7 @@ void info_session (REFERENCE **ref_list, char *error);
 void info_session_allfiles (REFERENCE **ref_list, char *user_filename,
                             char *error);
 void info_session_one_node (NODE *node);
+void info_session_quit (void);
 void initialize_terminal_and_keymaps (char *init_file);
 NODE *info_intuit_options_node (NODE *initial_node, char *program);
 

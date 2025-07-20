@@ -56,9 +56,6 @@ static void mouse_event_handler (void);
 /* The place that we are reading input from. */
 static FILE *info_input_stream = NULL;
 
-/* Becomes non-zero when 'q' is typed to an Info window. */
-int quit_info_immediately = 0;
-
 NODE *allfiles_node = 0;
 
 static void
@@ -236,6 +233,15 @@ info_session_one_node (NODE *node)
 
 void info_next_line (WINDOW *, int count);
 void info_prev_line (WINDOW *, int count);
+
+/* Becomes non-zero when 'q' is typed to an Info window. */
+static int quit_info_immediately = 0;
+
+void
+info_session_quit (void)
+{
+  quit_info_immediately = 1;
+}
 
 void
 info_read_and_dispatch (void)

@@ -4484,12 +4484,10 @@ DECLARE_INFO_COMMAND (info_redraw_display, _("Redraw the display"))
 /* Exit from info */
 DECLARE_INFO_COMMAND (info_quit, _("Quit using Info"))
 {
-  extern int quit_info_immediately; /* FIXME */
-
   if (window->next || window->prev)
     info_delete_window (window, count);
   else
-    quit_info_immediately = 1;
+    info_session_quit ();
 }
 
 
