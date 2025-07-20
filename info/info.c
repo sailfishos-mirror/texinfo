@@ -510,8 +510,8 @@ add_initial_nodes (int argc, char **argv, char **error)
       NODE *initial_node; /* Node to start following menus from. */
       NODE *node_via_menus;
 
-      initial_node = info_get_node_with_defaults (ref_list[0]->filename,
-                                                  ref_list[0]->nodename, 0);
+      initial_node = info_get_node (ref_list[0]->filename,
+                                    ref_list[0]->nodename);
       if (!initial_node)
         return;
 
@@ -552,9 +552,8 @@ add_initial_nodes (int argc, char **argv, char **error)
       /* If there are arguments remaining, follow menus inexactly. */
       if (argc != 0)
         {
-          initial_node = info_get_node_with_defaults (ref_list[0]->filename,
-                                                      ref_list[0]->nodename,
-                                                      0);
+          initial_node = info_get_node (ref_list[0]->filename,
+                                        ref_list[0]->nodename);
           free (*error); *error = 0;
           node_via_menus = info_follow_menus (initial_node, argv, error, 0);
           if (node_via_menus)

@@ -1,3 +1,9 @@
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/info.c (add_initial_nodes): Call
+	info_get_node instead of info_get_node_with_defaults with
+	a null final argument.
+
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/run-external.c (get_output_from_program):
