@@ -1,5 +1,12 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/run-external.c (get_output_from_program):
+	When returning exit status of executed program, wrap result
+	from 'wait' function in WEXITSTATUS to get the exit status
+	as intended.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	add node_from_hook_output
 
 	* info/nodes.c (node_from_hook_output): New function.

@@ -113,7 +113,7 @@ get_output_from_program (char *formatter_args[], char **program_output,
     *program_output = output;
   else
     free (output);
-  return exit_status;
+  return WEXITSTATUS(exit_status);
 }
 
 /* Return pointer to bytes read from file descriptor FD.  Return value to be
