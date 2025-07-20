@@ -1007,16 +1007,16 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
     {
       /* Look for the node.  */
       node = info_get_node_of_file_buffer (file_buffer, nodename);
-    }
 
-  /* If the node not found was "Top", try again with different case. */
-  if (!node && (nodename && strcasecmp (nodename, "Top") == 0))
-    {
-      node = info_get_node_of_file_buffer (file_buffer, "Top");
-      if (!node)
-        node = info_get_node_of_file_buffer (file_buffer, "top");
-      if (!node)
-        node = info_get_node_of_file_buffer (file_buffer, "TOP");
+      /* If the node not found was "Top", try again with different case. */
+      if (!node && (nodename && strcasecmp (nodename, "Top") == 0))
+        {
+          node = info_get_node_of_file_buffer (file_buffer, "Top");
+          if (!node)
+            node = info_get_node_of_file_buffer (file_buffer, "top");
+          if (!node)
+            node = info_get_node_of_file_buffer (file_buffer, "TOP");
+        }
     }
 
 cleanup_and_exit:
@@ -1049,11 +1049,6 @@ NODE *
 info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, char *nodename)
 {
   NODE *node = NULL;
-
-  /* If we are unable to find the file, we have to give up.  There isn't
-     anything else we can do. */
-  if (!file_buffer)
-    return NULL;
 
   /* If the file buffer was gc'ed, reload the contents now. */
   if (!file_buffer->contents)

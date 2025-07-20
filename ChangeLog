@@ -1,5 +1,12 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c (info_get_node_of_file_buffer): Do not
+	check for null FILE_BUFFER argument.
+	(info_get_node_with_defaults): Make sure not to call
+	info_get_node_of_file_buffer with a null argument.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Tidy up include files
 
 	* info/session-cmd.c, info/session.c, info/session.h:
