@@ -1,5 +1,16 @@
 2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Tweak ea_scroll_completions_window
+	
+	* info/echo-area.c (ea_scroll_completions_window):
+	Do not delegate to info_scroll_forward.  Since info_scroll_forward
+	checks info_explicit_arg and not ea_explicit_arg, "C-u N M-C-v"
+	would scroll N screens, not N lines.  Call set_window_pagetop
+	directly, instead of via _scroll_forward as is done in
+	info_scroll_forward.
+
+2025-07-20  Gavin Smith <gavinsmith0123@gmail.com>
+
 	info_abort
 
 	* info/session.c (info_abort): New function.  Call in many
