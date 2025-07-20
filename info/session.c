@@ -231,8 +231,8 @@ info_session_one_node (NODE *node)
   close_info_session ();
 }
 
-void info_next_line (WINDOW *, int count);
-void info_prev_line (WINDOW *, int count);
+extern COMMAND_FUNCTION info_next_line;
+extern COMMAND_FUNCTION info_prev_line;
 
 /* Becomes non-zero when 'q' is typed to an Info window. */
 static int quit_info_immediately = 0;
@@ -1179,10 +1179,10 @@ int info_explicit_arg = 0;
    overwriting this information when "C-u ARG M-x" is typed. */
 int ea_explicit_arg = 0;
 
-void info_universal_argument (WINDOW *, int count);
-void info_add_digit_to_numeric_arg (WINDOW *, int count);
-void info_do_lowercase_version (WINDOW *, int count);
-void info_menu_digit (WINDOW *, int count);
+extern COMMAND_FUNCTION info_universal_argument;
+extern COMMAND_FUNCTION info_add_digit_to_numeric_arg;
+extern COMMAND_FUNCTION info_do_lowercase_version;
+extern COMMAND_FUNCTION info_menu_digit;
 
 /* Read a key sequence and look up its command in MAP.  Handle C-u style
    numeric args, as well as M--, and M-digits.  Return argument in COUNT if it

@@ -122,8 +122,8 @@ void info_session_quit (void);
 void initialize_terminal_and_keymaps (char *init_file);
 NODE *info_intuit_options_node (NODE *initial_node, char *program);
 
-void info_scroll_forward (WINDOW *window, int count);
-void info_abort_key (WINDOW *window, int count);
+COMMAND_FUNCTION info_scroll_forward;
+COMMAND_FUNCTION info_abort_key;
 
 NODE *info_follow_menus (NODE *initial_node, char **menus,
                          char **error_msg, int strict);
