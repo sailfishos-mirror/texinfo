@@ -1,3 +1,9 @@
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Add tests of 'follow-strategy' variable
+
+	* info/t/follow-remain.sh, info/t/follow-path.sh: new tests.
+
 2025-07-21 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/parsetexi/macro.c (expand_macro_arguments, handle_macro)

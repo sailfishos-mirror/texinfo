@@ -112,6 +112,8 @@ info_tests_with_pseudotty = \
 	t/echo-area-no-completions.sh \
 	t/empty-infopath.sh \
 	t/end-of-line.sh \
+	t/follow-path.sh \
+	t/follow-remain.sh \
 	t/gc-split.sh \
 	t/goal-column.sh \
 	t/goto-quoted.sh \
