@@ -1,5 +1,10 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c (info_get_node_with_defaults): Eliminate
+	erroneous duplicate variable definition.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/nodes.c (info_get_node_with_defaults, info_get_node):
 	Make info_get_node_with_defaults call info_get_node rather
 	than the other way around.  Move special handling of dir node

@@ -950,7 +950,6 @@ info_get_node_with_defaults (char *filename, char *nodename,
         {
           /* Find the directory in the filename for defaults, and look in
              that directory first. */
-          char *file_in_same_dir;
           char saved_char, *p;
 
           p = defaults->fullpath + strlen (defaults->fullpath);
