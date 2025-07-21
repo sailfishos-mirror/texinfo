@@ -159,9 +159,6 @@ NODE *info_create_node (void);
    If the node cannot be found, return a NULL pointer. */
 NODE *info_get_node (char *filename, char *nodename);
 
-NODE *info_get_node_with_defaults (char *filename, char *nodename,
-                                          NODE *defaults);
-
 NODE *info_node_of_tag (FILE_BUFFER *fb, TAG **tag_ptr);
 NODE *info_node_of_tag_fast (FILE_BUFFER *fb, TAG **tag_ptr);
 

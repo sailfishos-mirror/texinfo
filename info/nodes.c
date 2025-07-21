@@ -922,67 +922,6 @@ get_node_length (SEARCH_BINDING *binding)
   return i - binding->start;
 }
 
-#define FOLLOW_REMAIN 0
-#define FOLLOW_PATH 1
-
-int follow_strategy;
-
-/* Return a pointer to a NODE structure for the Info node (FILENAME)NODENAME,
-   using DEFAULTS for defaults.  If DEFAULTS is null, the defaults are:
-   - If FILENAME is NULL, `dir' is used.
-   - If NODENAME is NULL, `Top' is used.
-   
-   If the node cannot be found, return NULL. */
-NODE *
-info_get_node_with_defaults (char *filename, char *nodename,
-                NODE *defaults)
-{
-  NODE *node = 0;
-  FILE_BUFFER *file_buffer = NULL;
-  char *file_in_same_dir = 0;
-
-  info_recent_file_error = NULL;
-
-  if (filename)
-    {
-      if (follow_strategy == FOLLOW_REMAIN
-          && defaults && defaults->fullpath)
-        {
-          /* Find the directory in the filename for defaults, and look in
-             that directory first. */
-          char saved_char, *p;
-
-          p = defaults->fullpath + strlen (defaults->fullpath);
-          while (p > defaults->fullpath && !IS_SLASH (*p))
-            p--;
-
-          if (p > defaults->fullpath)
-            {
-              saved_char = *p;
-              *p = 0;
-              file_in_same_dir = info_add_extension (defaults->fullpath,
-                                                     filename, 0);
-              *p = saved_char;
-
-              if (file_in_same_dir)
-                filename = file_in_same_dir;
-            }
-        }
-    }
-  else
-    {
-      if (defaults)
-        filename = defaults->fullpath;
-      else
-        filename = "dir";
-    }
-
-  node = info_get_node (filename, nodename);
-
-  free (file_in_same_dir);
-  return node;
-}
-
 /* Return NODE specified with FILENAME_IN and NODENAME_IN.   NODENAME can
    be passed as NULL, in which case the nodename of "Top" is used.  Return
    value should be freed by caller, but none of its fields should be. */
