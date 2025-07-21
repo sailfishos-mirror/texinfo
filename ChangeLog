@@ -1,5 +1,10 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/Makefile.am (ginfo_SOURCES): Remove extraneous \ from
+	file list.  Report from Bruno Haible.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Add tests of 'follow-strategy' variable
 
 	* info/t/follow-remain.sh, info/t/follow-path.sh: new tests.
