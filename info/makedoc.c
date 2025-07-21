@@ -22,8 +22,24 @@
    a header file which describes the contents.  This only does the functions
    declared with DECLARE_INFO_COMMAND. */
 
-#include "info.h"
-#include "doc.h"
+#include "system.h"
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <string.h>
+
+/* From gnulib */
+#include "xalloc.h"
+
+#if !defined (whitespace)
+#  define whitespace(c) ((c == ' ') || (c == '\t'))
+#endif /* !whitespace */
+
+#if !defined (whitespace_or_newline)
+#  define whitespace_or_newline(c) (whitespace (c) \
+                                    || (c == '\n') || (c == '\r'))
+#endif /* !whitespace_or_newline */
+
 
 char *program_name = "makedoc";
 

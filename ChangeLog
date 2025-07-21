@@ -1,5 +1,13 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/makedoc.c: Do not include "doc.c" (file generated
+	by makedoc), as this appears to be unnecessary.  Do not include
+	"info.h" as it is confusing to use the same header for both
+	the ginfo and makedoc programs: instead, include the necessary
+	system headers directly.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/filesys.c (info_add_extension, info_file_of_infodir):
 	Rename function and swap the order of the first two parameters.
 
