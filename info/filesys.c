@@ -25,8 +25,6 @@
 
 /* Local to this file. */
 static char *info_file_in_path (char *filename, struct stat *finfo);
-char *info_add_extension (char *dirname, char *fname,
-                                 struct stat *finfo);
 
 static char *filesys_read_compressed (char *pathname, size_t *filesize);
 
@@ -101,14 +99,14 @@ info_find_fullpath (char *partial, struct stat *finfo)
   if (IS_ABSOLUTE (partial)
       || partial[0] == '.' && IS_SLASH(partial[1]))
     {
-      fullpath = info_add_extension (0, partial, finfo);
+      fullpath = info_file_of_infodir (partial, 0, finfo);
     }
 
   /* Tilde expansion.  Could come from user input in echo area. */
   else if (partial[0] == '~')
     {
       partial = tilde_expand_word (partial);
-      fullpath = info_add_extension (0, partial, finfo);
+      fullpath = info_file_of_infodir (partial, 0, finfo);
     }
 
   /* If just a simple name element, look for it in the path. */
@@ -156,7 +154,7 @@ info_file_find_next_in_path (char *filename, int *path_index, struct stat *finfo
           dirname = expanded_dirname;
         }
 
-      with_extension = info_add_extension (dirname, filename, finfo);
+      with_extension = info_file_of_infodir (filename, dirname, finfo);
 
       if (with_extension)
         {
@@ -228,7 +226,7 @@ info_check_compressed (char *try_filename, struct stat *finfo)
    relative to the current directory, in which case DIRNAME should be
    null.  Return it as a new string; otherwise return a NULL pointer. */
 char *
-info_add_extension (char *dirname, char *filename, struct stat *finfo)
+info_file_of_infodir (char *filename, char *dirname, struct stat *finfo)
 {
   char *try_filename;
   register int i, pre_suffix_length = 0;

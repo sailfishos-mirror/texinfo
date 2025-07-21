@@ -202,7 +202,7 @@ get_initial_file (int *argc, char ***argv, char **error)
           user_filename = s;
         }
       if (IS_ABSOLUTE(user_filename) || HAS_SLASH(user_filename))
-        initial_file = info_add_extension (0, user_filename, 0);
+        initial_file = info_file_of_infodir (user_filename, 0, 0);
       else
         initial_file = info_find_fullpath (user_filename, 0);
 

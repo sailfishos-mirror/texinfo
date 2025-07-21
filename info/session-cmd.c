@@ -1131,8 +1131,8 @@ info_get_node_with_defaults (char *filename, char *nodename, NODE *defaults)
             {
               saved_char = *p;
               *p = 0;
-              file_in_same_dir = info_add_extension (defaults->fullpath,
-                                                     filename, 0);
+              file_in_same_dir = info_file_of_infodir (filename,
+                                   defaults->fullpath, 0);
               *p = saved_char;
 
               if (file_in_same_dir)

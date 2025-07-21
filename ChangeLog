@@ -1,5 +1,10 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/filesys.c (info_add_extension, info_file_of_infodir):
+	Rename function and swap the order of the first two parameters.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/run-external.c: Add missing include <sys/time.h>.  Report
 	from Bruno Haible.
 	* info/man.c: Remove apparently unnecessary include directive.

@@ -269,7 +269,7 @@ dir_entry_of_infodir (char *label, char *searchdir)
     }
 
   entry = info_copy_reference (entry);
-  entry_fullpath = info_add_extension (searchdir, entry->filename, &dummy);
+  entry_fullpath = info_file_of_infodir (entry->filename, searchdir, &dummy);
   if (entry_fullpath)
     {
       free (entry->filename);

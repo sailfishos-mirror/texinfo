@@ -46,7 +46,7 @@ char *info_file_find_next_in_path (char *filename, int *diridx,
 
 char *info_check_compressed (char *try_filename, struct stat *finfo);
 
-char *info_add_extension (char *dirname, char *filename, struct stat *finfo);
+char *info_file_of_infodir (char *dirname, char *filename, struct stat *finfo);
 
 /* Read the contents of PATHNAME, returning a buffer with the contents of
    that file in it, and returning the size of that buffer in FILESIZE.
