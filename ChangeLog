@@ -1,5 +1,10 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c, info/dir.c: remove mention of "localdir" files
+	from comments.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/nodes.c (info_get_node_of_file_buffer):
 	If node is not found, and node name matches "Top" regardless
 	of case, then check through tag table again matching

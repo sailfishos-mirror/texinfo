@@ -1,4 +1,4 @@
-/* dir.c -- how to build a special "dir" node from "localdir" files.
+/* dir.c -- how to build a special "dir" node
 
    Copyright 1993-2025 Free Software Foundation, Inc.
 

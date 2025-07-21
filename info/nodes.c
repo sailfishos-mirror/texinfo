@@ -987,7 +987,7 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
     nodename = xstrdup ("Top");
 
   /* If the file to be looked up is "dir", build the contents from all of
-     the "dir"s and "localdir"s found in INFOPATH. */
+     the "dir"s found in INFOPATH. */
   if (is_dir_name (filename))
     {
       node = get_dir_node ();
