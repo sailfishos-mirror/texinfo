@@ -1007,16 +1007,6 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
     {
       /* Look for the node.  */
       node = info_get_node_of_file_buffer (file_buffer, nodename);
-
-      /* If the node not found was "Top", try again with different case. */
-      if (!node && (nodename && strcasecmp (nodename, "Top") == 0))
-        {
-          node = info_get_node_of_file_buffer (file_buffer, "Top");
-          if (!node)
-            node = info_get_node_of_file_buffer (file_buffer, "top");
-          if (!node)
-            node = info_get_node_of_file_buffer (file_buffer, "TOP");
-        }
     }
 
 cleanup_and_exit:
@@ -1041,10 +1031,9 @@ node_set_body_start (NODE *node)
 }
 
 /* Return a pointer to a NODE structure for the Info node NODENAME in
-   FILE_BUFFER.  NODENAME can be passed as NULL, in which case the
-   nodename of "Top" is used.  If the node cannot be found, return a
-   NULL pointer.  Return value should be freed by caller, but none of its
-   fields should be. */
+   FILE_BUFFER.  If the node cannot be found, return a NULL pointer.
+   Return value should be freed by caller, but none of its fields should
+   be. */
 NODE *
 info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, char *nodename)
 {
@@ -1078,6 +1067,20 @@ info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, char *nodename)
 
       for (i = 0; (tag = file_buffer->tags[i]); i++)
         if (strcmp (nodename, tag->nodename) == 0)
+          {
+            node = info_node_of_tag (file_buffer, &file_buffer->tags[i]);
+            break;
+          }
+    }
+
+  /* For "Top" node only, look for it case-insensitively if not found. */
+  if (!node && !strcasecmp (nodename, "Top"))
+    {
+      TAG *tag;
+      int i;
+
+      for (i = 0; (tag = file_buffer->tags[i]); i++)
+        if (strcasecmp (nodename, tag->nodename) == 0)
           {
             node = info_node_of_tag (file_buffer, &file_buffer->tags[i]);
             break;

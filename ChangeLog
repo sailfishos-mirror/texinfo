@@ -1,5 +1,16 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c (info_get_node_of_file_buffer):
+	If node is not found, and node name matches "Top" regardless
+	of case, then check through tag table again matching
+	case-insensitively.
+	(info_get_node_with_defaults): Remove handling of case of "Top"
+	with list of alternative capitalisations to try.
+	(info_get_node_of_file_buffer): Remove obsolete part of function
+	comment saying that a null nodename can be passed in.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info.c (add_initial_nodes): Call
 	info_get_node instead of info_get_node_with_defaults with
 	a null final argument.
