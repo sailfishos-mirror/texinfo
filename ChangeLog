@@ -7,6 +7,14 @@
 	info_get_node_with_defaults is more focused on handling
 	"-v follow-strategy=remain".
 
+2025-07-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/parsetexi/input.c, tta/C/parsetexi/separator.c
+	(handle_open_brace), tta/perl/Texinfo/ParserNonXS.pm
+	(_process_ignored_raw_format_block_contents, _handle_open_brace): call
+	next_text instead of new_line.  Remove completely new_line, using it
+	leads to badly placed source marks.
+
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/Makefile.am (ginfo_SOURCES): Remove extraneous \ from
@@ -32,7 +40,7 @@
 	bracketed_linemacro_arg better and more simply by recreating the text
 	the source marks are relative to.
 
-	* * tta/swig/perl/parse_refold.pl (_convert): always call _convert
+	* tta/swig/perl/parse_refold.pl (_convert): always call _convert
 	on spaces_before_argument and spaces_after_argument, the text is
 	ignored if in a source mark when processing the line, and the end
 	source mark could be in the spaces.
