@@ -71,8 +71,6 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >{macro_call_arg_text:yy \\n  zz}
-     >>SOURCEMARKS
-     >>linemacro_expansion<end;1><p:4>
   *@table C4 l14:@mymacro
   |INFO
   |spaces_before_argument:
@@ -119,6 +117,7 @@ $result_tree_text{'call_macro_in_linemacro_body'} = '*document_root C1
      {table}
      >SOURCEMARKS
      >macro_expansion<end;1><p:5>
+     >linemacro_expansion<end;1><p:5>
 ';
 
 

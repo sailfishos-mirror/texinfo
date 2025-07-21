@@ -87,8 +87,9 @@ sub _text($$$;$)
 
   $from = 0 if (!defined($from));
 
-  if ($from == 0 and $type eq 'bracketed_linemacro_arg') {
-    $result .= '{';
+  if ($type eq 'bracketed_linemacro_arg') {
+    # recreate the text the source marks are relative too
+    $text = '{'.$text.'}';
   }
 
   my $length;
@@ -102,9 +103,6 @@ sub _text($$$;$)
     $result .= substr($text, $from, $length);
   } else {
     $result .= substr($text, $from);
-    if ($type eq 'bracketed_linemacro_arg') {
-      $result .= '}';
-    }
   }
   return $result;
 }
@@ -152,8 +150,8 @@ sub _handle_source_marks($$$)
             print STDERR "TEXT_SMARK($i) "
               .(defined($last_position) ? $last_position : '-')
                 .":$source_mark_position"
-                #." '$text_result'\n";
-                ."\n";
+                ." '$text_result'\n";
+                #."\n";
           }
           $result .= $text_result;
         }
@@ -201,7 +199,7 @@ sub _handle_source_marks($$$)
       print STDERR "_OUTSMARKS [p:".
         (defined($last_position) ? $last_position : 0)."] "
            ._current_smark($current_smark)."\n";
-      #print STDERR "_HSMARKRESULT: '$result'\n";
+      print STDERR "_HSMARKRESULT: '$result'\n";
     }
   }
   return $result, $last_position, $current_smark;
@@ -354,29 +352,27 @@ sub _convert($$;$) {
     }
     if ($category == $Texinfo::TXI_READ_ELEMENT_START
         or $category == $Texinfo::TXI_READ_EMPTY) {
-      if (!defined($current_smark)) {
-        my $spaces_before_argument
-          = Texinfo::element_attribute_element($element,
-                                 'spaces_before_argument');
-        if (defined($spaces_before_argument)) {
-          ($spaces, $current_smark)
-             = _convert($spaces_before_argument, $document, $current_smark);
-          $result .= $spaces;
-        }
+      my $spaces_before_argument
+        = Texinfo::element_attribute_element($element,
+                               'spaces_before_argument');
+      if (defined($spaces_before_argument)) {
+        ($spaces, $current_smark)
+           = _convert($spaces_before_argument, $document, $current_smark);
+        $result .= $spaces;
       }
     }
     if ($category == $Texinfo::TXI_READ_EMPTY
         or $category == $Texinfo::TXI_READ_ELEMENT_END) {
-      if (!defined($current_smark)) {
-        my $spaces_after_argument
-          = Texinfo::element_attribute_element($element,
-                                 'spaces_after_argument');
-        if (defined($spaces_after_argument)) {
-          ($spaces, $current_smark)
-             = _convert($spaces_after_argument, $document, $current_smark);
-          $result .= $spaces;
-        }
+      my $spaces_after_argument
+        = Texinfo::element_attribute_element($element,
+                               'spaces_after_argument');
+      if (defined($spaces_after_argument)) {
+        ($spaces, $current_smark)
+           = _convert($spaces_after_argument, $document, $current_smark);
+        $result .= $spaces;
+      }
 
+      if (!defined($current_smark)) {
         if ($type eq 'line_arg' or $type eq 'block_line_arg') {
           my $comment_e = Texinfo::element_attribute_element($element,
                                              'comment_at_end');
@@ -410,7 +406,7 @@ sub _convert($$;$) {
 
   if ($debug) {
     print STDERR "_END "._current_smark($current_smark)."\n";
-    #print STDERR "RESULT: '$result'\n";
+    print STDERR "RESULT: '$result'\n";
   }
   return ($result, $current_smark);
 }

@@ -341,7 +341,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
         {
           debug ("MACRO ARG end of line");
           text_append (arg, pline);
-          line = new_line (argument);
+          line = next_text (argument);
           if (!line)
             {
               line_error ("@%s missing closing brace", command_name (cmd));
@@ -493,7 +493,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
             {
               text_append (arg, pline);
 
-              line = new_line (argument);
+              line = next_text (argument);
               if (!line)
                 {
                   line_error ("@%s missing closing brace", command_name (cmd));
@@ -510,7 +510,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                 {
                   /* happens when @ protects the end of line, at the very end
                      of a text fragment and with macro expansion */
-                  line = new_line (argument);
+                  line = next_text (argument);
                   if (!line)
                     {
                       debug ("LINEMACRO ARGS end no EOL");
@@ -880,8 +880,8 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
               if (*line == '\0')
                 {
                 /* If it takes a single line of input, and we don't have a
-                   full line of input already, call new_line. */
-                  line = new_line (arg_elt);
+                   full line of input already, call next_text. */
+                  line = next_text (arg_elt);
                   if (!line)
                     {
                       line = "";

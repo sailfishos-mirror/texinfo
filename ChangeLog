@@ -1,3 +1,22 @@
+2025-07-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/parsetexi/macro.c (expand_macro_arguments, handle_macro)
+	(expand_linemacro_arguments), tta/perl/Texinfo/ParserNonXS.pm
+	(_expand_macro_arguments, _handle_macro, _expand_linemacro_arguments):
+	call _next_text instead of _new_line to have source marks placed
+	correctly with text added gradually to the current element.
+
+2025-07-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/swig/perl/parse_refold.pl (_text): handle
+	bracketed_linemacro_arg better and more simply by recreating the text
+	the source marks are relative to.
+
+	* * tta/swig/perl/parse_refold.pl (_convert): always call _convert
+	on spaces_before_argument and spaces_after_argument, the text is
+	ignored if in a source mark when processing the line, and the end
+	source mark could be in the spaces.
+
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/nodes.c (info_get_node_with_defaults): Use default

@@ -2803,7 +2803,7 @@ sub _expand_macro_arguments($$$$$) {
       print STDERR "MACRO ARG end of line\n" if ($self->{'conf'}->{'DEBUG'});
       $argument_content->{'text'} .= $line;
 
-      ($line, $source_info) = _new_line($self, $argument);
+      ($line, $source_info) = _next_text($self, $current);
       if (!defined($line)) {
         _line_error($self, sprintf(__("\@%s missing closing brace"),
            $name), $source_info_orig);
@@ -2914,7 +2914,7 @@ sub _expand_linemacro_arguments($$$$$) {
       if ($braces_level > 0) {
         $argument_content->{'text'} .= $line;
 
-        ($line, $source_info) = _new_line($self, $argument);
+        ($line, $source_info) = _next_text($self, $argument);
         if (!defined($line)) {
           _line_error($self, sprintf(__("\@%s missing closing brace"),
              $name), $source_info);
@@ -2930,7 +2930,7 @@ sub _expand_linemacro_arguments($$$$$) {
         } else {
           # happens when @ protects the end of line, at the very end
           # of a text fragment and probably with macro expansion
-          ($line, $source_info) = _new_line($self, $argument);
+          ($line, $source_info) = _next_text($self, $argument);
           if (!defined($line)) {
             print STDERR "LINEMACRO ARGS end no EOL\n"
                if ($self->{'conf'}->{'DEBUG'});
@@ -5366,7 +5366,7 @@ sub _handle_macro($$$$$) {
       push @{$macro_call_element->{'contents'}}, $arg_elt;
       while (1) {
         if ($line eq '') {
-          ($line, $source_info) = _new_line($self, $arg_elt);
+          ($line, $source_info) = _next_text($self, $arg_elt);
           if (!defined($line)) {
             $line = '';
             last;
