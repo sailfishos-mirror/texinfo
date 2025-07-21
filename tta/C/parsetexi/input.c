@@ -100,41 +100,6 @@ int value_expansion_nr = 0;
    of cases where this happens */
 int after_end_fetch_nr = -1;
 
-/* Collect text from the input sources until a newline is found.  This is used
-   instead of next_text when we need to be sure we get an entire line of
-   Texinfo input (for example as a line argument to a command), which might
-   not be the case if the input is the result of a macro expansion.
-
-   Return value should not be freed by caller, and becomes invalid after
-   a subsequent call. */
-/* CURRENT is the current container that can be used for source marks. */
-char *
-new_line (ELEMENT *current)
-{
-  static TEXT t;
-  char *new = 0;
-
-  t.end = 0;
-
-  while (1)
-    {
-      new = next_text (current);
-      if (!new)
-        break;
-      text_append (&t, new);
-      free (new);
-
-      if (t.text[t.end - 1] == '\n')
-        break;
-    }
-
-  if (t.end > 0)
-    return t.text;
-  else
-    return 0;
-}
-
-
 /* Return conversion of S according to input_encoding.  This function
    frees S if S is converted. */
 char *

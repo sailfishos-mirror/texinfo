@@ -20,6 +20,14 @@
 
 2025-07-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/input.c, tta/C/parsetexi/separator.c
+	(handle_open_brace), tta/perl/Texinfo/ParserNonXS.pm
+	(_process_ignored_raw_format_block_contents, _handle_open_brace): call
+	next_text instead of new_line.  Remove completely new_line, using it
+	leads to badly placed source marks.
+
+2025-07-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/macro.c (expand_macro_arguments, handle_macro)
 	(expand_linemacro_arguments), tta/perl/Texinfo/ParserNonXS.pm
 	(_expand_macro_arguments, _handle_macro, _expand_linemacro_arguments):

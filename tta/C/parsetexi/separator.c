@@ -72,8 +72,13 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           current = arg;
 
           /* the delimiter may be in macro expansion */
-          if (!*line)
-            line = new_line (current);
+          while (!*line)
+            {
+              line = next_text (current);
+              /* not sure that it may happen, but handle the case if it does */
+              if (!line)
+                line = "";
+            }
           /* Save the deliminating character in 'delimiter'. */
           if (!*line || *line == '\n')
             {

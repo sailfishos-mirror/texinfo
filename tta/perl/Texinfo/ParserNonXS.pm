@@ -2681,29 +2681,6 @@ sub _next_text($;$) {
   }
 }
 
-# collect text and line numbers until an end of line is found.
-sub _new_line($;$) {
-  my ($self, $current) = @_;
-
-  my $new_line = '';
-  my $source_info;
-
-  while (1) {
-    my $new_text;
-    ($new_text, $source_info) = _next_text($self, $current);
-    if (!defined($new_text)) {
-      $new_line = undef if ($new_line eq '');
-      last;
-    }
-
-    $new_line .= $new_text;
-
-    my $chomped_text = $new_text;
-    last if chomp($chomped_text);
-  }
-  return ($new_line, $source_info);
-}
-
 # $MACRO is the element in the tree defining the macro.
 sub _expand_macro_arguments($$$$$) {
   my ($self, $macro, $line, $source_info, $current) = @_;
@@ -6523,9 +6500,14 @@ sub _handle_open_brace($$$$) {
     if ($command eq 'verb') {
       $current->{'type'} = 'brace_container';
       $current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
-      if ($line eq '') {
+      while ($line eq '') {
         # the delimiter may be in macro expansion
-        ($line, $source_info) = _new_line($self, $current);
+        ($line, $source_info) = _next_text($self, $current);
+        # not sure that it may happen, but handle the case if it does
+        if (!defined($line)) {
+          $line = '';
+          last;
+        }
       }
       if ($line =~ /^$/) {
         $current->{'parent'}->{'info'}->{'delimiter'} = '';
@@ -7290,7 +7272,7 @@ sub _process_ignored_raw_format_block_contents($$) {
                                      'parent' => $e_elided_rawpreformatted});
       push @{$e_elided_rawpreformatted->{'contents'}}, $raw_text;
     }
-    ($line, $source_info) = _new_line($self, $e_elided_rawpreformatted);
+    ($line, $source_info) = _next_text($self, $e_elided_rawpreformatted);
   }
   # start a new line for the @end line, this is normally done
   # at the beginning of a line, but not here, as we directly
