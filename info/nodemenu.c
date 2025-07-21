@@ -23,7 +23,6 @@
 #include "nodes.h"
 #include "scan.h"
 #include "echo-area.h"
-#include "variables.h"
 
 static NODE *get_visited_nodes (void);
 

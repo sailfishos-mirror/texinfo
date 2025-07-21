@@ -20,7 +20,6 @@
 #include "info.h"
 #include "session.h"
 #include "scan.h"
-#include "util.h"
 #include "nodes.h"
 #include "footnotes.h"
 

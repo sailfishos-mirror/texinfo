@@ -18,7 +18,6 @@
    Originally written by Brian Fox. */
 
 #include "info.h"
-#include "scan.h"
 #include "util.h"
 #include "nodes.h"
 #include "filesys.h"

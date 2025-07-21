@@ -25,7 +25,6 @@
 #include "scan.h"
 #include "tag.h"
 #include "man.h"
-#include "variables.h"
 
 
 /* Global variables.  */

@@ -20,7 +20,6 @@
 #include "info.h"
 #include "tilde.h"
 #include "filesys.h"
-#include "tag.h"
 #include "session.h"
 
 /* Local to this file. */

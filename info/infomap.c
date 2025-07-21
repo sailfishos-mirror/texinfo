@@ -22,7 +22,6 @@
 #include "funs.h"
 #include "configfiles.h"
 #include "session.h"
-#include "terminal.h"
 #include "variables.h"
 
 void keymap_bind_keyseq (Keymap map, int *keyseq, KEYMAP_ENTRY *keyentry);

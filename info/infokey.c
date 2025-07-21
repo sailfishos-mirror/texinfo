@@ -21,7 +21,6 @@
 #include "doc.h"
 #include "session.h"
 #include "funs.h"
-#include "getopt.h"
 #include "variables.h"
 
 extern char *program_name;  /* in info.c */

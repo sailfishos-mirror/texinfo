@@ -22,7 +22,6 @@
 
 #include "nodes.h"
 #include "window.h"
-#include "search.h"
 
 /* Variable which holds the most recent filename parsed as a result of
    calling info_parse_xxx (). */

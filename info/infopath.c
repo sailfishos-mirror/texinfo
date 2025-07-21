@@ -17,7 +17,6 @@
 */
 
 #include "info.h"
-#include "scan.h"
 #include "util.h"
 #include "session.h"
 #include "filesys.h"

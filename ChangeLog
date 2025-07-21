@@ -1,5 +1,9 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/*.c: review needed header files.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/makedoc.c: Do not include "doc.c" (file generated
 	by makedoc), as this appears to be unnecessary.  Do not include
 	"info.h" as it is confusing to use the same header for both

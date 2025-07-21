@@ -19,8 +19,8 @@
 
 #include "info.h"
 #include "scan.h"
+#include "search.h"
 #include "filesys.h"
-#include "tilde.h"
 
 static void add_menu_to_node (char *contents, size_t size, NODE *node);
 static void insert_text_into_node (NODE *node, size_t start,

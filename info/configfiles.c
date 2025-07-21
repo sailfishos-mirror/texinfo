@@ -19,7 +19,6 @@
 #include "info.h"
 #include "run-external.h"
 
-#include <unistd.h>
 #if defined (HAVE_SYS_WAIT_H)
 #include <sys/wait.h>
 #endif

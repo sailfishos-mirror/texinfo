@@ -18,7 +18,6 @@
    Originally written by Brian Fox Thu May  4 09:17:52 1995. */
 
 #include "info.h"
-#include "signals.h"
 #if defined (HAVE_SYS_WAIT_H)
 #include <sys/wait.h>
 #endif
@@ -27,7 +26,6 @@
 #include "tilde.h"
 #include "nodes.h"
 #include "man.h"
-#include "variables.h"
 #include "util.h"
 #include "run-external.h"
 
