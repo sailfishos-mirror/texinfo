@@ -1,5 +1,11 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/run-external.c: Add missing include <sys/time.h>.  Report
+	from Bruno Haible.
+	* info/man.c: Remove apparently unnecessary include directive.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/nodes.c, info/session-cmd.c (info_get_node_with_defaults):
 	Move to session-cmd.c as that is the only place it is now called.
 
