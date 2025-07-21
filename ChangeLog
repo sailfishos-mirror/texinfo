@@ -1,5 +1,12 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c (info_get_node_with_defaults): Use default
+	"node name" of "intro" for a "manual" of "*manpages*", as
+	before, following a cross-reference to "(*manpages*)", without
+	a node name, oddly landed you at the man page 'top(1)'.
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/nodes.c, info/dir.c: remove mention of "localdir" files
 	from comments.
 

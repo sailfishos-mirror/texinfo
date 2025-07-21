@@ -939,7 +939,7 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
 {
   NODE *node = 0;
   FILE_BUFFER *file_buffer = NULL;
-  char *filename, *nodename;
+  char *filename = 0, *nodename = 0;
 
   info_recent_file_error = NULL;
 
@@ -980,12 +980,6 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
         filename = xstrdup ("dir");
     }
 
-  if (nodename_in && *nodename_in)
-    nodename = xstrdup (nodename_in);
-  else
-    /* If NODENAME is not specified, it defaults to "Top". */
-    nodename = xstrdup ("Top");
-
   /* If the file to be looked up is "dir", build the contents from all of
      the "dir"s found in INFOPATH. */
   if (is_dir_name (filename))
@@ -996,9 +990,16 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
 
   if (strcmp (filename, MANPAGE_FILE_BUFFER_NAME) == 0)
     {
-      node = get_manpage_node (nodename);
+      node = get_manpage_node (nodename_in && *nodename_in
+                                 ? nodename_in : "intro");
       goto cleanup_and_exit;
     }
+
+  if (nodename_in && *nodename_in)
+    nodename = xstrdup (nodename_in);
+  else
+    /* If NODENAME is not specified, it defaults to "Top". */
+    nodename = xstrdup ("Top");
 
   if (!file_buffer)
     file_buffer = info_find_file (filename);
