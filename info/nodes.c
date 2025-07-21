@@ -934,18 +934,17 @@ int follow_strategy;
    
    If the node cannot be found, return NULL. */
 NODE *
-info_get_node_with_defaults (char *filename_in, char *nodename_in,
+info_get_node_with_defaults (char *filename, char *nodename,
                 NODE *defaults)
 {
   NODE *node = 0;
   FILE_BUFFER *file_buffer = NULL;
-  char *filename = 0, *nodename = 0;
+  char *file_in_same_dir = 0;
 
   info_recent_file_error = NULL;
 
-  if (filename_in)
+  if (filename)
     {
-      filename = xstrdup (filename_in);
       if (follow_strategy == FOLLOW_REMAIN
           && defaults && defaults->fullpath)
         {
@@ -967,39 +966,48 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
               *p = saved_char;
 
               if (file_in_same_dir)
-                file_buffer = info_find_file (file_in_same_dir);
-              free (file_in_same_dir);
+                filename = file_in_same_dir;
             }
         }
     }
   else
     {
       if (defaults)
-        filename = xstrdup (defaults->fullpath);
+        filename = defaults->fullpath;
       else
-        filename = xstrdup ("dir");
+        filename = "dir";
     }
+
+  node = info_get_node (filename, nodename);
+
+  free (file_in_same_dir);
+  return node;
+}
+
+/* Return NODE specified with FILENAME_IN and NODENAME_IN.   NODENAME can
+   be passed as NULL, in which case the nodename of "Top" is used.  Return
+   value should be freed by caller, but none of its fields should be. */
+NODE *
+info_get_node (char *filename, char *nodename)
+{
+  FILE_BUFFER *file_buffer = NULL;
+  NODE *node = NULL;
 
   /* If the file to be looked up is "dir", build the contents from all of
      the "dir"s found in INFOPATH. */
   if (is_dir_name (filename))
     {
-      node = get_dir_node ();
-      goto cleanup_and_exit;
+      return get_dir_node ();
     }
-
-  if (strcmp (filename, MANPAGE_FILE_BUFFER_NAME) == 0)
+  else if (strcmp (filename, MANPAGE_FILE_BUFFER_NAME) == 0)
     {
-      node = get_manpage_node (nodename_in && *nodename_in
-                                 ? nodename_in : "intro");
-      goto cleanup_and_exit;
+      return get_manpage_node (nodename && *nodename
+                                 ? nodename : "intro");
     }
 
-  if (nodename_in && *nodename_in)
-    nodename = xstrdup (nodename_in);
-  else
-    /* If NODENAME is not specified, it defaults to "Top". */
-    nodename = xstrdup ("Top");
+  /* If NODENAME is not specified, it defaults to "Top". */
+  if (!nodename || !*nodename)
+    nodename = "Top";
 
   if (!file_buffer)
     file_buffer = info_find_file (filename);
@@ -1010,17 +1018,7 @@ info_get_node_with_defaults (char *filename_in, char *nodename_in,
       node = info_get_node_of_file_buffer (file_buffer, nodename);
     }
 
-cleanup_and_exit:
-  free (filename); free (nodename);
   return node;
-}
-
-/* Return NODE specified with FILENAME_IN and NODENAME_IN.  Return value
-   should be freed by caller, but none of its fields should be. */
-NODE *
-info_get_node (char *filename_in, char *nodename_in)
-{
-  return info_get_node_with_defaults (filename_in, nodename_in, 0);
 }
 
 static void

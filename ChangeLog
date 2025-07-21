@@ -1,5 +1,14 @@
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c (info_get_node_with_defaults, info_get_node):
+	Make info_get_node_with_defaults call info_get_node rather
+	than the other way around.  Move special handling of dir node
+	and manpages to info_get_node.  This means that
+	info_get_node_with_defaults is more focused on handling
+	"-v follow-strategy=remain".
+
+2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/Makefile.am (ginfo_SOURCES): Remove extraneous \ from
 	file list.  Report from Bruno Haible.
 
