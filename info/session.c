@@ -22,6 +22,7 @@
 #include "session.h"
 #include "dribble.h"
 #include "util.h"
+#include "search.h"
 #include "nodes.h"
 #include "echo-area.h"
 #include "footnotes.h"

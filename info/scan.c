@@ -21,6 +21,7 @@
 #include "session.h"
 #include "scan.h"
 #include "util.h"
+#include "search.h"
 #include "tag.h"
 
 #include <langinfo.h>

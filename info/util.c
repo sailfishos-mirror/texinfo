@@ -200,7 +200,7 @@ printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
       text_buffer_add_char (rep, *cur_ptr | 0x40);
       return text_buffer_base (rep);
     }
-  else if (*cur_ptr == DEL)
+  else if (*cur_ptr == 0x7f) /* DEL */
     {
       *pchars = 0;
       *pbytes = 0;

@@ -27,6 +27,7 @@
 #include "nodes.h"
 #include "man.h"
 #include "util.h"
+#include "search.h"
 #include "run-external.h"
 
 #if !defined (_POSIX_VERSION)

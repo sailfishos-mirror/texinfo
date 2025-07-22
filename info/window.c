@@ -22,8 +22,8 @@
 #include "display.h"
 #include "scan.h"
 #include "util.h"
+#include "search.h"
 #include "doc.h"
-#include "tag.h"
 #include "variables.h"
 
 /* The window which describes the screen. */

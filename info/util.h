@@ -1,10 +1,6 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-#include "nodes.h"
-#include "window.h"
-#include "search.h"
-
 #if HAVE_ICONV
 # include <iconv.h>
 #endif

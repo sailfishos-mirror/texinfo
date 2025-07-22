@@ -20,6 +20,7 @@
 #include "info.h"
 #include "scan.h"
 #include "util.h"
+#include "search.h"
 #include "nodes.h"
 #include "session.h"
 #include "echo-area.h"
