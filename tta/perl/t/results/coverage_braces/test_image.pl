@@ -491,10 +491,6 @@ $result_tree_text{'test_image'} = '*document_root C3
   |normalized:{Image-with-commands}
    *arguments_line C2
     *block_line_arg C1
-    >SOURCEMARKS
-    >macro_expansion<start;4>
-     >*macro_call@files-char C1
-      >*brace_arg
      {Image}
     *block_line_arg C1
     |INFO
@@ -502,6 +498,10 @@ $result_tree_text{'test_image'} = '*document_root C3
      |{spaces_after_argument:\\n}
     |spaces_before_argument:
      |{spaces_before_argument: }
+    >SOURCEMARKS
+    >macro_expansion<start;4>
+     >*macro_call@files-char C1
+      >*brace_arg
      {Image with commands}
    *@image C5 l25:@files-char
    |EXTRA

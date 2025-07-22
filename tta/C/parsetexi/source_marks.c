@@ -66,7 +66,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
     {
       ELEMENT *last_child = last_contents_child (e);
       if (last_child->type == ET_arguments_line)
-        mark_element = last_child->e.c->contents.list[0];
+        mark_element = last_contents_child (last_child);
       else
         mark_element = last_child;
       if (type_data[mark_element->type].flags & TF_text

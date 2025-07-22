@@ -156,6 +156,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/conditionals/not_set.pl \
   t/results/conditionals/plaintext_ifinfo.pl \
   t/results/conditionals/plaintext_ifinfo_ifnotplaintext.pl \
+  t/results/conditionals/root_command_in_conditional.pl \
   t/results/conditionals/superfluous_argument_to_end.pl \
   t/results/conditionals/text_on_conditional_line.pl \
   t/results/conditionals/text_on_conditional_line_expanded.pl \

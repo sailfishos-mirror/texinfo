@@ -239,6 +239,11 @@ This is ifnottex text.
   },
   {'EXPANDED_FORMATS' => ['info', 'html', 'tex'],}
 ],
+['root_command_in_conditional',
+'@ifnottex
+@node Getting Started, Tutorial, Top, Top
+@end ifnottex
+'],
 ['commands_in_ifset',
 '
 @ifset notset

@@ -1,5 +1,16 @@
 2025-07-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/source_marks.c (place_source_mark),
+	tta/perl/Texinfo/ParserNonXS.pm (_place_source_mark): place source
+	mark on the last element in arguments_line when there is an argument
+	line. 
+
+	* tta/perl/Makefile.tres, tta/perl/t/55conditionals.t
+	(root_command_in_conditional): add test of root command in expanded
+	conditional.
+
+2025-07-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/macro.c (handle_macro), tta/C/parsetexi/parser.c
 	(process_remaining_on_line), tta/perl/Texinfo/ParserNonXS.pm
 	(_handle_macro, _process_remaining_on_line): pass amias information to

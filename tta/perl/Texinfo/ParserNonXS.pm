@@ -1272,7 +1272,7 @@ sub _place_source_mark($$$) {
   if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
     my $current = $element->{'contents'}->[-1];
     if ($current->{'type'} and $current->{'type'} eq 'arguments_line') {
-      $mark_element = $current->{'contents'}->[0];
+      $mark_element = $current->{'contents'}->[-1];
     } else {
       $mark_element = $current;
     }
