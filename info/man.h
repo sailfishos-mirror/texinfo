@@ -22,7 +22,7 @@
 
 #define MANPAGE_FILE_BUFFER_NAME "*manpages*"
 
-int check_manpage_node (char *pagename);
-extern NODE *get_manpage_node (char *pagename);
+int check_manpage_node (const char *pagename);
+extern NODE *get_manpage_node (const char *pagename);
 
 #endif /* INFO_MAN_H */

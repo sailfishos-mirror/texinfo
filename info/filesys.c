@@ -23,7 +23,7 @@
 #include "session.h"
 
 /* Local to this file. */
-static char *info_file_in_path (char *filename, struct stat *finfo);
+static char *info_file_in_path (const char *filename, struct stat *finfo);
 
 static char *filesys_read_compressed (char *pathname, size_t *filesize);
 
@@ -77,7 +77,7 @@ static COMPRESSION_ALIST compress_suffixes[] = {
    can't find the file, it returns NULL, and sets filesys_error_number.
    Return value should be freed by caller. */
 char *
-info_find_fullpath (char *partial, struct stat *finfo)
+info_find_fullpath (const char *partial, struct stat *finfo)
 {
   char *fullpath = 0;
   struct stat dummy;
@@ -122,7 +122,8 @@ info_find_fullpath (char *partial, struct stat *finfo)
    one that is a regular file, return it as a new string.  Otherwise, return
    a NULL pointer.  Set *FINFO with information about file. */
 char *
-info_file_find_next_in_path (char *filename, int *path_index, struct stat *finfo)
+info_file_find_next_in_path (const char *filename, int *path_index,
+                             struct stat *finfo)
 {
   struct stat dummy;
 
@@ -175,7 +176,7 @@ info_file_find_next_in_path (char *filename, int *path_index, struct stat *finfo
 /* Return full path of first Info file known as FILENAME in
    search path.  If relative to current directory, precede it with './'. */
 static char *
-info_file_in_path (char *filename, struct stat *finfo)
+info_file_in_path (const char *filename, struct stat *finfo)
 {
   int i = 0;
   return info_file_find_next_in_path (filename, &i, finfo);
@@ -225,7 +226,7 @@ info_check_compressed (char *try_filename, struct stat *finfo)
    relative to the current directory, in which case DIRNAME should be
    null.  Return it as a new string; otherwise return a NULL pointer. */
 char *
-info_file_of_infodir (char *filename, char *dirname, struct stat *finfo)
+info_file_of_infodir (const char *filename, char *dirname, struct stat *finfo)
 {
   char *try_filename;
   register int i, pre_suffix_length = 0;
@@ -556,7 +557,7 @@ filesys_error_string (char *filename, int error_num)
    in combination.  */
 
 int
-is_dir_name (char *filename)
+is_dir_name (const char *filename)
 {
   unsigned i;
 

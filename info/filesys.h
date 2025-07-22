@@ -36,17 +36,18 @@ char *infopath_next (int *idx);
 /* Expand the filename in PARTIAL to make a real name for this operating
    system.  This looks in INFO_PATHS in order to find the correct file.
    If it can't find the file, it returns NULL. */
-char *info_find_fullpath (char *partial, struct stat *finfo);
+char *info_find_fullpath (const char *partial, struct stat *finfo);
 
 /* Scan the list of directories in PATH looking for FILENAME.  If we find
    one that is a regular file, return it as a new string.  Otherwise, return
    a NULL pointer. */
-char *info_file_find_next_in_path (char *filename, int *diridx,
+char *info_file_find_next_in_path (const char *filename, int *diridx,
                                    struct stat *finfo);
 
 char *info_check_compressed (char *try_filename, struct stat *finfo);
 
-char *info_file_of_infodir (char *filename, char *dirname, struct stat *finfo);
+char *info_file_of_infodir (const char *filename, char *dirname,
+                            struct stat *finfo);
 
 /* Read the contents of PATHNAME, returning a buffer with the contents of
    that file in it, and returning the size of that buffer in FILESIZE.
@@ -63,7 +64,7 @@ char *filesys_error_string (char *filename, int error_num);
 extern int filesys_error_number;
 
 /* Return true if FILENAME is `dir', with a possible compression suffix.  */
-int is_dir_name (char *filename);
+int is_dir_name (const char *filename);
 
 /* The default value of INFOPATH. */
 #ifdef __DJGPP__

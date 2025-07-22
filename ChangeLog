@@ -1,5 +1,17 @@
 2025-07-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	const for info
+
+	* info/nodes.c (info_get_node): Declare first argument, filename,
+	as const.  Make consequent changes throughout the program,
+	likewise declaring parameters as const.
+
+	Using const could have a benefit for the readability of this C
+	program as the person reading the code knows that a const pointer
+	does not need to be passed to 'free'.
+
+2025-07-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/util.c, info/display.c (printed_representation):
 	Move to display.c.
 

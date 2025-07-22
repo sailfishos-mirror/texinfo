@@ -141,9 +141,9 @@ extern size_t info_loaded_files_slots;
    already, or it may not.  If it does not already appear, find the file,
    and add it to the list of loaded files.  If the file cannot be found,
    return a NULL FILE_BUFFER *. */
-FILE_BUFFER *info_find_file (char *filename);
+FILE_BUFFER *info_find_file (const char *filename);
 
-FILE_BUFFER *check_loaded_file (char *filename);
+FILE_BUFFER *check_loaded_file (const char *filename);
 
 FILE_BUFFER *info_find_subfile (char *filename);
 
@@ -152,12 +152,7 @@ TAG *info_create_tag (void);
 /* Return a pointer to a new NODE structure. */
 NODE *info_create_node (void);
 
-/* Return a pointer to a NODE structure for the Info node (FILENAME)NODENAME.
-   FILENAME can be passed as NULL, in which case the filename of "dir" is used.
-   NODENAME can be passed as NULL, in which case the nodename of "Top" is used.
-   
-   If the node cannot be found, return a NULL pointer. */
-NODE *info_get_node (char *filename, char *nodename);
+NODE *info_get_node (const char *filename, char *nodename);
 
 NODE *info_node_of_tag (FILE_BUFFER *fb, TAG **tag_ptr);
 NODE *info_node_of_tag_fast (FILE_BUFFER *fb, TAG **tag_ptr);

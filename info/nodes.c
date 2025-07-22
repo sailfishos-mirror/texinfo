@@ -583,7 +583,7 @@ static void info_reload_file_buffer_contents (FILE_BUFFER *fb);
 
 /* Try to find a file in our list of already loaded files. */
 FILE_BUFFER *
-check_loaded_file (char *filename)
+check_loaded_file (const char *filename)
 {
   int is_fullpath, i;
   FILE_BUFFER *file_buffer;
@@ -640,7 +640,7 @@ check_loaded_file (char *filename)
    and add it to the list of loaded files.  If the file cannot be found,
    return a NULL FILE_BUFFER *. */
 FILE_BUFFER *
-info_find_file (char *filename)
+info_find_file (const char *filename)
 {
   FILE_BUFFER *file_buffer;
   char *fullpath;
@@ -925,7 +925,7 @@ get_node_length (SEARCH_BINDING *binding)
    be passed as NULL, in which case the nodename of "Top" is used.  Return
    value should be freed by caller, but none of its fields should be. */
 NODE *
-info_get_node (char *filename, char *nodename)
+info_get_node (const char *filename, char *nodename)
 {
   FILE_BUFFER *file_buffer = NULL;
   NODE *node = NULL;

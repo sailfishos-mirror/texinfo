@@ -43,7 +43,7 @@ static char const * const exec_extensions[] = { "", NULL };
 #endif
 
 static REFERENCE **xrefs_of_manpage (NODE *node);
-static char *get_manpage_contents (char *pagename);
+static char *get_manpage_contents (const char *pagename);
 static char *find_man_formatter (void);
 
 /* We store the contents of retrieved man pages in here. */
@@ -57,7 +57,7 @@ size_t manpage_node_slots = 0;
    the contents of the man page.  This is faster if we are running
    "info --where" and we don't need the contents. */
 int
-check_manpage_node (char *pagename)
+check_manpage_node (const char *pagename)
 {
   pid_t child;
   int pid_status = 0;
@@ -102,7 +102,7 @@ check_manpage_node (char *pagename)
    Solaris (update whatis database). */
 
 int
-check_manpage_node (char *pagename)
+check_manpage_node (const char *pagename)
 {
   NODE *man_node = get_manpage_node (pagename);
   if (man_node)
@@ -116,7 +116,7 @@ check_manpage_node (char *pagename)
 #endif /* !PIPE_USE_FORK */
 
 NODE *
-get_manpage_node (char *pagename)
+get_manpage_node (const char *pagename)
 {
   NODE *node = 0, **n, *node2 = 0;
   char *page;
@@ -240,7 +240,7 @@ static char *manpage_pagename = NULL;
 static char *manpage_section  = NULL;
 
 static void
-get_page_and_section (char *pagename)
+get_page_and_section (const char *pagename)
 {
   register int i;
 
@@ -321,7 +321,7 @@ clean_manpage (char *manpage)
 static char *get_manpage_from_formatter (char *formatter_args[]);
 
 static char *
-get_manpage_contents (char *pagename)
+get_manpage_contents (const char *pagename)
 {
   static char *formatter_args[4] = { NULL };
   char *formatted_page;
