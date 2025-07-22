@@ -2,6 +2,13 @@
 
 	const for info
 
+	* info/nodes.c (info_get_node, info_get_node_of_file_buffer):
+	Declare nodename argument as const.
+
+2025-07-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	const for info
+
 	* info/nodes.c (info_get_node): Declare first argument, filename,
 	as const.  Make consequent changes throughout the program,
 	likewise declaring parameters as const.

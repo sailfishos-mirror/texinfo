@@ -921,11 +921,11 @@ get_node_length (SEARCH_BINDING *binding)
   return i - binding->start;
 }
 
-/* Return NODE specified with FILENAME_IN and NODENAME_IN.   NODENAME can
+/* Return NODE specified with FILENAME and NODENAME.   NODENAME can
    be passed as NULL, in which case the nodename of "Top" is used.  Return
    value should be freed by caller, but none of its fields should be. */
 NODE *
-info_get_node (const char *filename, char *nodename)
+info_get_node (const char *filename, const char *nodename)
 {
   FILE_BUFFER *file_buffer = NULL;
   NODE *node = NULL;
@@ -971,7 +971,7 @@ node_set_body_start (NODE *node)
    Return value should be freed by caller, but none of its fields should
    be. */
 NODE *
-info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, char *nodename)
+info_get_node_of_file_buffer (FILE_BUFFER *file_buffer, const char *nodename)
 {
   NODE *node = NULL;
 
