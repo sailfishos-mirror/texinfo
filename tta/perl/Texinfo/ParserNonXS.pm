@@ -3299,7 +3299,7 @@ sub _split_delimiters($$$$) {
     if ($remaining_source_marks and scalar(@$remaining_source_marks)) {
       my $source_marks_str
        = join ('|', map {_debug_show_source_mark($_)} (@$remaining_source_marks));
-      _bug_message($self, 
+      _bug_message($self,
           "Remaining source mark in _split_delimiters: $source_marks_str",
                           $source_info, $current);
     }
@@ -3345,7 +3345,7 @@ sub _split_def_args($$$$) {
     if ($remaining_source_marks and scalar(@$remaining_source_marks)) {
       my $source_marks_str
        = join ('|', map {_debug_show_source_mark($_)} @$remaining_source_marks);
-      _bug_message($self, 
+      _bug_message($self,
           "Remaining source mark in _split_def_args: $source_marks_str",
                           $source_info, $current);
     }
@@ -3961,7 +3961,7 @@ sub _end_line_misc_line($$$) {
       }
     }
     if (not $line_arg or not $line_arg->{'contents'}) {
-      _line_error($self, 
+      _line_error($self,
         sprintf(__("empty argument in \@%s"),
           $current->{'cmdname'}), $current->{'source_info'});
     }
@@ -4127,7 +4127,7 @@ sub _end_line_misc_line($$$) {
     if (!$current->{'parent'} or !$current->{'parent'}->{'parent'}
         or !$current->{'parent'}->{'parent'}->{'cmdname'}
         or $current->{'parent'}->{'parent'}->{'cmdname'} ne 'multitable') {
-      _line_error($self, 
+      _line_error($self,
           sprintf(__("\@%s only meaningful on a \@multitable line"),
              $command), $source_info);
     }
@@ -5655,7 +5655,7 @@ sub _handle_other_command($$$$$) {
       }
       if (!defined($line_context)
           or !$heading_spec_commands{$line_context}) {
-        _line_error($self, 
+        _line_error($self,
           sprintf(__("\@%s should only appear in heading or footing"),
                 $command), $source_info);
       }
@@ -5669,7 +5669,7 @@ sub _handle_other_command($$$$$) {
       if ($command eq "\n") {
         if (_top_context($self) eq 'ct_line'
             and defined($self->{'context_command_stack'}->[-1])) {
-          _line_warn($self, 
+          _line_warn($self,
             "\@ should not occur at end of argument to line command",
             $source_info);
         }
@@ -5714,7 +5714,7 @@ sub _handle_other_command($$$$$) {
       # @multitable
       } elsif ($parent = _item_multitable_parent($current)) {
         if (!$parent->{'extra'}->{'max_columns'}) {
-          _line_warn($self, 
+          _line_warn($self,
              sprintf(__("\@%s in empty multitable"),
                      $command), $source_info);
         } elsif ($command eq 'tab') {
@@ -5946,7 +5946,7 @@ sub _handle_line_command($$$$$$) {
       my $parent = $current;
       while ($parent) {
         if ($parent->{'cmdname'} and $parent->{'cmdname'} eq 'copying') {
-          _line_error($self, 
+          _line_error($self,
              sprintf(__("\@%s not allowed inside `\@copying' block"),
                      $command), $source_info);
           $ignored = 1;
@@ -6156,7 +6156,7 @@ sub _handle_line_command($$$$$$) {
       } elsif ($command eq 'subentry') {
         my $parent = $current->{'parent'};
         if (!_is_index_element($self, $parent)) {
-          _line_warn($self, 
+          _line_warn($self,
             sprintf(__("\@%s should only appear in an index entry"),
                     $command), $source_info);
         }
@@ -6477,7 +6477,7 @@ sub _handle_brace_command($$$$) {
   # can only be sortas, which cannot be definfoenclose'd
   if ($in_index_commands{$command}
       and !_is_index_element($self, $current->{'parent'})) {
-    _line_warn($self, 
+    _line_warn($self,
       sprintf(__("\@%s should only appear in an index entry"),
               $command), $source_info);
   } else {
@@ -6531,7 +6531,7 @@ sub _handle_open_brace($$$$) {
       }
       if ($line =~ /^$/) {
         $current->{'parent'}->{'info'}->{'delimiter'} = '';
-        _line_error($self, 
+        _line_error($self,
             __("\@verb without associated character"), $source_info);
       } else {
         $line =~ s/^(.)//;
@@ -6786,7 +6786,7 @@ sub _handle_close_brace($$$) {
     } elsif ($closed_cmdname eq 'image') {
       my $image = $brace_command;
       if (!$image->{'contents'}->[0]->{'contents'}) {
-        _line_error($self, 
+        _line_error($self,
            __("\@image missing filename argument"), $source_info);
       }
       my $document = $self->{'document'};
@@ -6811,7 +6811,7 @@ sub _handle_close_brace($$$) {
              or ($brace_commands{$closed_cmdname}
                  and $brace_commands{$closed_cmdname} eq 'inline')) {
       if (!$brace_command->{'contents'}->[0]->{'contents'}) {
-        _line_warn($self, 
+        _line_warn($self,
            sprintf(__("\@%s missing first argument"),
                    $closed_cmdname), $source_info);
       }
@@ -7642,7 +7642,7 @@ sub _process_remaining_on_line($$$$) {
           if (not exists($self->{'values'}->{$value})) {
             _abort_empty_line($self, $current);
 
-            _line_warn($self, 
+            _line_warn($self,
                sprintf(__("undefined flag: %s"), $value), $source_info);
 
             # caller should expand something along
@@ -7693,7 +7693,7 @@ sub _process_remaining_on_line($$$$) {
     if ((!$last_element or !$last_element->{'type'}
          or $last_element->{'type'} ne 'empty_line')
         and $begin_line_commands{$command}) {
-      _line_warn($self, 
+      _line_warn($self,
           sprintf(__("\@%s should only appear at the beginning of a line"),
                   $command), $source_info);
     }
