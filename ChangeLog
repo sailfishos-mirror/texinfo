@@ -1,3 +1,9 @@
+2025-07-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/scan.c, info/util.c: Move include of <wchar.h>
+	and conditional redefinition of wcwidth to util.c, as that
+	is the file where wcwidth is used.
+
 2025-07-21  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/*.c: review needed header files.

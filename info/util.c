@@ -18,6 +18,17 @@
 #include "info.h"
 #include "util.h"
 
+#include <wchar.h>
+#ifdef __MINGW32__
+/* MinGW uses a replacement nl_langinfo, see pcterm.c.  */
+# define nl_langinfo rpl_nl_langinfo
+extern char * rpl_nl_langinfo (nl_item);
+/* MinGW uses its own replacement wcwidth, see pcterm.c for the
+   reasons.  Since Gnulib's wchar.h might redirect wcwidth to
+   rpl_wcwidth, we explicitly undo that here.  */
+#undef wcwidth
+#endif
+
 /* wrapper for asprintf */
 static int
 xvasprintf (char **ptr, const char *template, va_list ap)
