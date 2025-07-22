@@ -173,6 +173,8 @@ $result_tree_text{'glossary'} = '*document_root C5
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >{macro_call_arg_text:text1, arg1 }
+      >>SOURCEMARKS
+      >>macro_arg_escape_backslash<1><p:5>
    >expanded_conditional_command<start;1><p:4>
     >*@ifhtml C1 glossary.texi:l42:@gentry
      >*arguments_line C1

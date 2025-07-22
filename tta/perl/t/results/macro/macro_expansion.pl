@@ -164,11 +164,17 @@ $result_tree_text{'macro_expansion'} = '*document_root C1
     >*macro_call@macroone C2
      >*brace_arg C1
       >{macro_call_arg_text:first , arg}
+      >>SOURCEMARKS
+      >>macro_arg_escape_backslash<1><p:6>
      >*brace_arg C1
      >|INFO
      >|spaces_before_argument:
       >|{spaces_before_argument: }
       >{macro_call_arg_text:{} \\ }
+      >>SOURCEMARKS
+      >>macro_arg_escape_backslash<2>
+      >>macro_arg_escape_backslash<3><p:1>
+      >>macro_arg_escape_backslash<4><p:3>
   *@verbatim C3 l17:@macroone
    *arguments_line C1
     *block_line_arg

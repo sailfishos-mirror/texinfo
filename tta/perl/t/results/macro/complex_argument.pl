@@ -73,6 +73,10 @@ $result_tree_text{'complex_argument'} = '*document_root C1
    >*macro_call@macrothree C1
     >*brace_arg C1
      >{macro_call_arg_text:@verb{% @macrotwo %}\\n@c @macrofour\\n@pagesizes 4 @macrofour{}\\n@headings doubleafter @macrofour{}\\n@verbatim\\n@macrotwo\\n@end verbatim\\n@ignore\\n@macrofour\\n@end ignore\\n@macro macroseven {truc}\\n@emph{\\truc\\}\\n@end macro\\nmacroseven defined\\n@ifinfo\\n@macrofour\\n@end ifinfo\\n@iftex\\n@macrotwo{aa,bb}\\n@end iftex\\n@macrofour{}\\n}
+     >>SOURCEMARKS
+     >>macro_arg_escape_backslash<1><p:192>
+     >>macro_arg_escape_backslash<2><p:197>
+     >>macro_arg_escape_backslash<3><p:280>
   *paragraph C11
    *@verb C1 l38:@macrothree
    |INFO

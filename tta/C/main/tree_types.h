@@ -29,6 +29,7 @@
 
 /* the expanded_conditional_command source mark is used in arrays
    dimensions, keep it in the end or change code */
+/* keep in sync with swig/texinfo.i */
 #define SM_TYPES_LIST \
    sm_type(include) \
    sm_type(setfilename) \
@@ -39,6 +40,7 @@
    sm_type(value_expansion) \
    sm_type(ignored_conditional_block) \
    sm_type(line_directive) \
+   sm_type(macro_arg_escape_backslash) \
    sm_type(expanded_conditional_command) \
 
 

@@ -314,7 +314,10 @@ typedef struct SOURCE_INFO {
    sm_type(linemacro_expansion) \
    sm_type(value_expansion) \
    sm_type(ignored_conditional_block) \
+   sm_type(line_directive) \
+   sm_type(macro_arg_escape_backslash) \
    sm_type(expanded_conditional_command) \
+
 
 enum source_mark_type {
    SM_type_none,

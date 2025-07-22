@@ -173,6 +173,9 @@ sub _handle_source_marks($$$)
       } elsif (!$current_smark) {
         if ($source_mark_type == $Texinfo::SM_type_delcomment) {
           $result .= "\x{7F}";
+        } elsif ($source_mark_type
+                   == $Texinfo::SM_type_macro_arg_escape_backslash) {
+          $result .= '\\';
         }
         my $source_mark_line = $source_mark->swig_line_get();
         if (defined($source_mark_line)) {
@@ -372,17 +375,18 @@ sub _convert($$;$) {
         $result .= $spaces;
       }
 
-      if (!defined($current_smark)) {
-        if ($type eq 'line_arg' or $type eq 'block_line_arg') {
-          my $comment_e = Texinfo::element_attribute_element($element,
-                                             'comment_at_end');
-          if ($comment_e) {
-            my $comment;
-            ($comment, $current_smark)
-               = _convert($comment_e, $current_smark);
-            $result .= $comment;
-          }
+      if ($type eq 'line_arg' or $type eq 'block_line_arg') {
+        my $comment_e = Texinfo::element_attribute_element($element,
+                                           'comment_at_end');
+        if ($comment_e) {
+          my $comment;
+          ($comment, $current_smark)
+             = _convert($comment_e, $document, $current_smark);
+          $result .= $comment;
         }
+      }
+
+      if (!defined($current_smark)) {
         if ($type eq 'bracketed_arg') {
           $result .= '}';
         }

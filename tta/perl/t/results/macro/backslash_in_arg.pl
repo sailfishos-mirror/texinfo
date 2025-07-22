@@ -76,6 +76,8 @@ $result_tree_text{'backslash_in_arg'} = '*document_root C3
    >*macro_call@funindex C1
     >*brace_arg C1
      >{macro_call_arg_text:\\r}
+     >>SOURCEMARKS
+     >>macro_arg_escape_backslash<1>
    *line_arg C1
    |INFO
    |spaces_after_argument:

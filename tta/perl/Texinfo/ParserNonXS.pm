@@ -2720,6 +2720,9 @@ sub _expand_macro_arguments($$$$$) {
           my $protected_char = $1;
           if ($protected_char !~ /[\\{},]/) {
             $argument_content->{'text'} .= '\\';
+          } else {
+            _register_source_mark($self, $argument,
+                     {'sourcemark_type' => 'macro_arg_escape_backslash'});
           }
           $argument_content->{'text'} .= $protected_char;
           if ($protected_char eq ',') {

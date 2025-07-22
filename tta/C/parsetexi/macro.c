@@ -360,6 +360,13 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
         case '\\':
           if (!strchr ("\\{},", sep[1]))
             text_append_n (arg, sep, 1);
+          else
+            {
+              SOURCE_MARK *escape_backslash_source_mark
+                = new_source_mark (SM_type_macro_arg_escape_backslash);
+              register_source_mark (argument, escape_backslash_source_mark);
+
+            }
           if (sep[1])
             {
               text_append_n (arg, &sep[1], 1);
