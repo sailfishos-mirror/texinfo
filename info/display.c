@@ -480,6 +480,116 @@ display_process_line (WINDOW *win,
   *iter_inout = iter;
 }
 
+static struct text_buffer printed_rep = { 0 };
+
+/* Return pointer to string that is the printed representation of character
+   (or other logical unit) at ITER if it were printed at screen column
+   PL_CHARS.  Use ITER_SETBYTES (util.h) on ITER if we need to advance
+   past a unit that the multibyte iteractor doesn't know about (like an ANSI
+   escape sequence).  If ITER points at an end-of-line character, set *DELIM to
+   this character.  *PCHARS gets the number of screen columns taken up by
+   outputting the return value, and *PBYTES the number of bytes in returned
+   string.  Return value is not null-terminated.  Return value must not be
+   freed by caller. */
+char *
+printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
+                        int *pchars, int *pbytes)
+{
+  struct text_buffer *rep = &printed_rep;
+
+  char *cur_ptr = (char *) mbi_cur_ptr (*iter);
+  int cur_len = mb_len (mbi_cur (*iter));
+
+  text_buffer_reset (&printed_rep);
+
+  if (mb_isprint (mbi_cur (*iter)))
+    {
+      /* cur.wc gives a wchar_t object.  See mbiter.h in the
+         gnulib/lib directory. */
+      *pchars = wcwidth ((*iter).cur.wc);
+      *pbytes = cur_len;
+      return cur_ptr;
+    }
+  else if (cur_len == 1)
+    {
+      if (*cur_ptr == '\n' || *cur_ptr == '\r')
+        {
+          /* If this is a CRLF line ending, ignore this character. */
+          if (*cur_ptr == '\r' && cur_ptr[1] == '\n')
+            {
+              *pchars = 0;
+              *pbytes = 0;
+              return cur_ptr;
+            }
+
+          *pchars = 1;
+          *pbytes = cur_len;
+          *delim = *cur_ptr;
+          text_buffer_add_char (rep, ' ');
+          return cur_ptr;
+        }
+      else if (ansi_escape (*iter, &cur_len))
+        {
+          *pchars = 0;
+          *pbytes = cur_len;
+          ITER_SETBYTES (*iter, cur_len);
+
+          return cur_ptr;
+        }
+      else if (*cur_ptr == '\t')
+        {
+          int i = 0;
+
+          /* compute the number of columns to the next tab stop, assuming
+             8 columns for a tab.
+
+             To determine the next tab stop, add 8 to the current column,
+             and then subtract the remainder of the division by 8.
+
+             (n & 0xf8) does (n - n mod 8) in one step as the binary
+             representation of 0xf8 is 1111 1000 so the result has
+             to be a multiple of 8.
+             TODO this doesn't work if there are more than 255 columns.
+           */
+          *pchars = ((pl_chars + 8) & 0xf8) - pl_chars;
+          *pbytes = *pchars;
+
+          /* We must output spaces instead of the tab because a tab may
+             not clear characters already on the screen. */
+          for (i = 0; i < *pbytes; i++)
+            text_buffer_add_char (rep, ' ');
+          return text_buffer_base (rep);
+        }
+    }
+
+  /* Show CTRL-x as "^X".  */
+  if (iscntrl ((unsigned char) *cur_ptr) && *(unsigned char *)cur_ptr < 127)
+    {
+      *pchars = 2;
+      *pbytes = 2;
+      text_buffer_add_char (rep, '^');
+      text_buffer_add_char (rep, *cur_ptr | 0x40);
+      return text_buffer_base (rep);
+    }
+  else if (*cur_ptr == 0x7f) /* DEL */
+    {
+      *pchars = 0;
+      *pbytes = 0;
+      return text_buffer_base (rep);
+    }
+  else
+    {
+      /* Original byte was not recognized as anything.  Display its octal
+         value.  This could happen in the C locale for bytes above 128,
+         or for bytes 128-159 in an ISO-8859-1 locale.  Don't output the bytes
+         as they are, because they could have special meaning to the
+         terminal. */
+      *pchars = 4;
+      *pbytes = 4;
+      text_buffer_printf (rep, "\\%o", *(unsigned char *)cur_ptr);
+      return text_buffer_base (rep);
+    }
+}
 /* Update the part of WIN containing text from a node, i.e. not the blank
    part at the end or a modeline.
    Print each line in the window into our local buffer, and then

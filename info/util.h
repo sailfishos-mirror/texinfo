@@ -14,12 +14,6 @@ char *filename_non_directory (char *pathname);
 
 int ansi_escape (mbi_iterator_t iter, int *plen);
 
-/* Return a pointer to a string which is the printed representation
-   of CHARACTER if it were printed at HPOS. */
-char *printed_representation (mbi_iterator_t *iter,
-                                     int *delim, size_t pl_chars,
-                                     int *pchars, int *pbytes);
-
 
 struct text_buffer
 {

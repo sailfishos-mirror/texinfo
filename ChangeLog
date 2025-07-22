@@ -1,5 +1,10 @@
 2025-07-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/util.c, info/display.c (printed_representation):
+	Move to display.c.
+
+2025-07-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/*.c, info/*.h: continue review of needed header files.
 	* info/util.c (printed_representation):: Use 0x7f for a byte
 	value instead of preprocessor symbol.
