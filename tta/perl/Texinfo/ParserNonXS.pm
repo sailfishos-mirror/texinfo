@@ -2992,8 +2992,8 @@ sub _expand_macro_body($$$$) {
         my $arg = $1;
         my $formal_arg_index = _lookup_macro_parameter($macro, $arg);
         if (defined($formal_arg_index)) {
-          if ($formal_arg_index < scalar(@$args)
-              and scalar(@$args) and $args->[$formal_arg_index]
+          if ($args and scalar(@$args) and $formal_arg_index < scalar(@$args)
+              and $args->[$formal_arg_index]
               and $args->[$formal_arg_index]->{'contents'}) {
             $result .= $args->[$formal_arg_index]->{'contents'}->[0]->{'text'};
           }
@@ -5271,8 +5271,8 @@ sub _new_value_element($$;$$) {
   return $value_elt;
 }
 
-sub _handle_macro($$$$$) {
-  my ($self, $current, $line, $source_info, $command) = @_;
+sub _handle_macro($$$$$$) {
+  my ($self, $current, $line, $source_info, $command, $from_alias) = @_;
 
   my $expanded_macro = $self->{'macros'}->{$command}->{'element'};
 
@@ -5314,6 +5314,12 @@ sub _handle_macro($$$$$) {
                        {'type' => $expanded_macro->{'cmdname'}.'_call',
                         'cmdname' => $command,
                         'contents' => []});
+
+  if ($from_alias) {
+    $macro_call_element->{'info'} = {}
+       if (!$macro_call_element->{'info'});
+    $macro_call_element->{'info'}->{'alias_of'} = $from_alias;
+  }
 
   if ($expanded_macro->{'cmdname'} eq 'linemacro') {
     ($line, $source_info)
@@ -5381,19 +5387,41 @@ sub _handle_macro($$$$$) {
     }
   }
 
+  # Keep the macro_call_element in the tree in source mark even if
+  # the macro body is not expanded, in case there are source marks
+  # in the macro_call_element.  If the macrobody is not expanded
+  # the state of the source mark is not set to start, and there is
+  # no source mark for an end of the macro call added.  The location
+  # of the source marks could be wrong, but it is more important to
+  # have an end for each started sourcemarks, even if the location is
+  # approximate.
+
+  delete $macro_call_element->{'contents'}
+     if (scalar(@{$macro_call_element->{'contents'}}) == 0);
+
+  my $sourcemark_type;
+  if ($expanded_macro->{'cmdname'} eq 'linemacro') {
+    $sourcemark_type = 'linemacro_expansion';
+  } else {
+    $sourcemark_type = 'macro_expansion';
+  }
+  my $macro_source_mark = {'sourcemark_type' => $sourcemark_type};
+  $macro_source_mark->{'element'} = $macro_call_element;
+  _register_source_mark($self, $current, $macro_source_mark);
+
   if ($error) {
     $self->{'macro_expansion_nr'}--;
+    print STDERR "DROPPING CALL OF MACRO $command\n"
+      if ($self->{'conf'}->{'DEBUG'});
     # goto funexit in XS parser
     return (undef, $line, $source_info);
   }
 
+  $macro_source_mark->{'status'} = 'start';
 
   my $expanded = _expand_macro_body($self,
                             $self->{'macros'}->{$command},
                             $macro_call_element->{'contents'}, $source_info);
-
-  delete $macro_call_element->{'contents'}
-     if (scalar(@{$macro_call_element->{'contents'}}) == 0);
 
   my $expanded_macro_text;
   if (defined($expanded)) {
@@ -5406,17 +5434,6 @@ sub _handle_macro($$$$$) {
 
   print STDERR "MACROBODY: $expanded_macro_text".'||||||'."\n"
     if ($self->{'conf'}->{'DEBUG'});
-
-  my $sourcemark_type;
-  if ($expanded_macro->{'cmdname'} eq 'linemacro') {
-    $sourcemark_type = 'linemacro_expansion';
-  } else {
-    $sourcemark_type = 'macro_expansion';
-  }
-  my $macro_source_mark = {'sourcemark_type' => $sourcemark_type,
-                           'status' => 'start'};
-  $macro_source_mark->{'element'} = $macro_call_element;
-  _register_source_mark($self, $current, $macro_source_mark);
 
   # first put the line that was interrupted by the macro call
   # on the input pending text stack
@@ -7374,14 +7391,8 @@ sub _process_remaining_on_line($$$$) {
         substr($arg_line, 0, $command_length) = '';
 
         ($macro_call_element, $arg_line, $source_info)
-          = _handle_macro($self, $current, $arg_line, $source_info, $command);
-        if ($macro_call_element) {
-          if ($from_alias) {
-            $macro_call_element->{'info'} = {}
-               if (!$macro_call_element->{'info'});
-            $macro_call_element->{'info'}->{'alias_of'} = $from_alias;
-          }
-        }
+          = _handle_macro($self, $current, $arg_line, $source_info, $command,
+                          $from_alias);
         $line = $arg_line;
         if ($macro_call_element) {
           # directly get the following input (macro expansion text) instead

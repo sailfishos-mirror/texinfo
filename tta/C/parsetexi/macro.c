@@ -779,7 +779,8 @@ wipe_macros (void)
    The returned element is an out of tree element holding the call
    arguments also associated to the macro expansion source mark */
 ELEMENT *
-handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
+handle_macro (ELEMENT *current, const char **line_inout,
+              enum command_id cmd, enum command_id from_alias)
 {
   const char *line, *p;
   MACRO *macro_record;
@@ -940,16 +941,38 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
         }
     }
 
+  /* Keep the macro_call_element in the tree in source mark even if
+     the macro body is not expanded, in case there are source marks
+     in the macro_call_element.  If the macrobody is not expanded
+     the state of the source mark is not set to start, and there is
+     no source mark for an end of the macro call added.  The location
+     of the source marks could be wrong, but it is more important to
+     have an end for each started sourcemarks, even if the location is
+     approximate. */
+
+  if (from_alias != CM_NONE)
+     macro_call_element->e.c->string_info[sit_alias_of]
+       = strdup (command_name (from_alias));
+
+  if (macro->e.c->cmd == CM_linemacro)
+    macro_source_mark = new_source_mark (SM_type_linemacro_expansion);
+  else
+    macro_source_mark = new_source_mark (SM_type_macro_expansion);
+  macro_source_mark->element = macro_call_element;
+  register_source_mark (current, macro_source_mark);
+
+  macro_call_element->e.c->string_info[sit_command_name]
+    = strdup (command_name(cmd));
+
   if (error)
     {
       macro_expansion_nr--;
-      destroy_element_and_children (macro_call_element);
+      debug ("DROPPING CALL OF MACRO %s", command_name(cmd));
       macro_call_element = 0;
       goto funexit;
     }
 
-  macro_call_element->e.c->string_info[sit_command_name]
-    = strdup (command_name(cmd));
+  macro_source_mark->status = SM_status_start;
 
   text_init (&expanded);
   expand_macro_body (macro_record, macro_call_element, &expanded);
@@ -968,14 +991,6 @@ handle_macro (ELEMENT *current, const char **line_inout, enum command_id cmd)
     }
 
   debug ("MACROBODY: %s||||||", expanded_macro_text);
-
-  if (macro->e.c->cmd == CM_linemacro)
-    macro_source_mark = new_source_mark (SM_type_linemacro_expansion);
-  else
-    macro_source_mark = new_source_mark (SM_type_macro_expansion);
-  macro_source_mark->status = SM_status_start;
-  macro_source_mark->element = macro_call_element;
-  register_source_mark (current, macro_source_mark);
 
   /* first put the line that was interrupted by the macro call
      on the input pending text stack */

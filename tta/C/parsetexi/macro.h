@@ -37,7 +37,7 @@ void new_macro (const char *name, const ELEMENT *macro);
 ELEMENT *parse_macro_command_line (enum command_id, const char **line_inout,
                                    ELEMENT *parent);
 ELEMENT *handle_macro (ELEMENT *current, const char **line_inout,
-                       enum command_id cmd_id);
+                       enum command_id cmd_id, enum command_id from_alias);
 void delete_macro (const char *name);
 void unset_macro_record (MACRO *m);
 MACRO *lookup_macro (enum command_id cmd);

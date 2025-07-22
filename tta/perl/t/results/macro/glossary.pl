@@ -478,6 +478,9 @@ $result_tree_text{'glossary'} = '*document_root C5
     >*brace_arg
   >macro_expansion<start;6>
    >*macro_call@glossarytext
+  >macro_expansion<7>
+   >*macro_call@glossarytext C1
+    >*brace_arg
   {ignorable_spaces_after_command: }
   *paragraph C4
   >SOURCEMARKS

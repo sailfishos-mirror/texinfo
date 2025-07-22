@@ -33,6 +33,9 @@ $result_tree_text{'line_after_recursive_call'} = '*document_root C1
    >macro_expansion<start;1>
     >*macro_call@mac
    { xxx\\n}
+   >SOURCEMARKS
+   >macro_expansion<2>
+    >*macro_call@mac
    {fff}
    >SOURCEMARKS
    >macro_expansion<end;1><p:3>

@@ -583,6 +583,12 @@ c\arg\d}
 @item l1 @tab t1 @tab t2 @tab t3 @tab t4
 @end multitable
 '],
+# Since the delimiter does not appear in a text element, but as a separate
+# information, the source mark is not well placed and appears to be in the
+# following text, after the delimiter.   It is not documented nor obvious
+# that this Texinfo code is incorrect, but it leans more towards being 
+# incorrect than correct, so it is ok to have an incorrect placement of source
+# marks.
 ['macro_for_verb',
 '@macro verbopen {}
 @verb{
@@ -1555,8 +1561,9 @@ X\arg\X
 '],
 # this is invalid, @-command names are not supposed to be split across 
 # macro expansions.  However it works fine in texi2any, and this test
-# is more for the source marks, to verify that the source mark that is
-# inside the command do not end up with a negative position
+# is more for the source marks.  The source mark is not well placed, as it
+# cannot be well placed, but we make sure that the source mark that is
+# inside the command do not end up with a negative position.
 ['macro_expansion_in_set_comment_command',
 '@macro mymac {a}
 @set flag \a\ @com

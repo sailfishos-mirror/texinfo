@@ -40,6 +40,20 @@ $result_tree_text{'recursive_linemacro_in_body'} = '*document_root C1
     >|spaces_before_argument:
      >|{spaces_before_argument: }
      >{macro_call_arg_text:b c}
+  >linemacro_expansion<2>
+   >*linemacro_call@anorecurse C2
+   >|INFO
+   >|spaces_before_argument:
+    >|{spaces_before_argument: }
+    >*linemacro_arg C1
+     >{bracketed_linemacro_arg:aa}
+    >*linemacro_arg C1
+    >|INFO
+    >|spaces_before_argument:
+     >|{spaces_before_argument: }
+     >{macro_call_arg_text:d b c}
+     >>SOURCEMARKS
+     >>linemacro_expansion<end;1><p:5>
 ';
 
 

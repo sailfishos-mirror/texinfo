@@ -1,5 +1,23 @@
 2025-07-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/macro.c (handle_macro), tta/C/parsetexi/parser.c
+	(process_remaining_on_line), tta/perl/Texinfo/ParserNonXS.pm
+	(_handle_macro, _process_remaining_on_line): pass amias information to
+	handle_macro and set the information in this function.
+
+	* tta/C/parsetexi/macro.c (handle_macro),
+	tta/perl/Texinfo/ParserNonXS.pmm (_handle_macro): keep the
+	macro_call_element in the tree in source mark even if the macro body
+	is not expanded, in case there are source marks in the
+	macro_call_element.  If the macrobody is not expanded the state of the
+	source mark is not set to start, and there is no source mark for an
+	end of the macro call added.
+
+	* tta/perl/t/60macro.t: add/improve comments explaining why
+	incorrectly placed source marks are correct.
+
+2025-07-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.tres, tta/perl/t/02coverage.t
 	(braces_for_line_command), tta/perl/t/init_files_tests.t
 	(sc_formatting_with_css): move test of line @-command with braces out

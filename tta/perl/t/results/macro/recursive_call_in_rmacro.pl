@@ -329,6 +329,9 @@ $result_tree_text{'recursive_call_in_rmacro'} = '*document_root C1
   >macro_expansion<start;100>
    >*rmacro_call@rec C1
     >*brace_arg
+  >macro_expansion<101>
+   >*rmacro_call@rec C1
+    >*brace_arg
   >macro_expansion<end;100>
   >macro_expansion<end;99>
   >macro_expansion<end;98>

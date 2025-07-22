@@ -1940,13 +1940,9 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
       static char *allocated_line;
 
       line = line_after_command;
-      macro_call_element = handle_macro (current, &line, cmd);
+      macro_call_element = handle_macro (current, &line, cmd, from_alias);
       if (macro_call_element)
         {
-          if (from_alias != CM_NONE)
-            macro_call_element->e.c->string_info[sit_alias_of]
-              = strdup (command_name (from_alias));
-
           /* directly get the following input (macro expansion text) instead
              of going through the next call of process_remaining_on_line and
              the processing of empty text.  No difference in output, more

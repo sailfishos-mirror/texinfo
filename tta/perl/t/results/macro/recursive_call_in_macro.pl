@@ -31,6 +31,10 @@ $result_tree_text{'recursive_call_in_macro'} = '*document_root C1
   >macro_expansion<start;1>
    >*macro_call@anorecurse C1
     >*brace_arg
+  >macro_expansion<2>
+   >*macro_call@anorecurse C1
+    >*brace_arg C1
+     >{macro_call_arg_text:arg}
   >macro_expansion<end;1>
 ';
 
