@@ -23,7 +23,34 @@
 use strict;
 use warnings;
 
-use lib '.', '.libs', 'blib/arch', 'blib/lib';
+# for fileparse
+use File::Basename;
+use File::Spec;
+
+BEGIN {
+  my ($real_command_name, $command_directory, $command_suffix)
+     = fileparse($0, '.pl');
+  my $updir = File::Spec->updir();
+
+  # to find Texinfo.pm
+  my $srcdir = $ENV{'srcdir'};
+  if (!defined($srcdir)) {
+    $srcdir = $command_directory;
+  }
+  unshift @INC, $srcdir;
+
+  # To find the XS extension
+  my $t2a_builddir = $ENV{'t2a_builddir'};
+  if (!defined($t2a_builddir) and defined($srcdir)) {
+    # this is correct for in-source builds only.
+    $t2a_builddir = join('/', ($srcdir, $updir, $updir));
+  }
+  if (defined($t2a_builddir)) {
+    unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+  }
+  # with Perl build system, in-source paths
+  # push @INC, 'blib/arch', 'blib/lib';
+}
 
 use Getopt::Long qw(GetOptions);
 

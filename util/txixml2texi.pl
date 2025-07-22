@@ -23,7 +23,7 @@ use strict;
 use warnings;
 
 use Getopt::Long qw(GetOptions);
-# for dirname.
+# for dirname and fileparse.
 use File::Basename;
 use File::Spec;
 use Encode;

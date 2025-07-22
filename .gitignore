@@ -452,6 +452,7 @@ contrib/perldoc-all/*.aux
 contrib/perldoc-all/perldoc-all.??
 contrib/perldoc-all/perldoc-all.???
 
+contrib/mass_test/refold_checks
 contrib/mass_test/compare_C_HTML
 contrib/mass_test/compare_native_HTML
 contrib/mass_test/download

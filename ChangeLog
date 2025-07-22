@@ -1,5 +1,14 @@
 2025-07-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/parse_refold.pl (BEGIN): find modules when called from
+	outside of the current directory.
+
+	* contrib/mass_test/check_refold.sh: add script to check difference
+	between call of parse_refold.pl and original file for the manuals in
+	mass_test.
+
+2025-07-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/source_marks.c (place_source_mark),
 	tta/perl/Texinfo/ParserNonXS.pm (_place_source_mark): place source
 	mark on the last element in arguments_line when there is an argument
