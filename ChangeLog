@@ -1,5 +1,19 @@
 2025-07-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/swig_interface.c (document_global_information),
+	tta/swig/texinfo.i (GLOBAL_INFO): add an interface to global
+	information.
+
+	* tta/swig/perl/parse_refold.pl: use global information interface to
+	get the input encoding.  SWIG always uses sv_setpvn returning bytes
+	and C encodes in UTF-8, so convert to characters by decoding from
+	UTF-8.  Encode output in document enoding, using ISO-8859-1 for
+	US-ASCII such as to support old manuals in which US-ASCII can be
+	specified although the encoding corresponds to any 8bit encoding
+	compatible with ISO-8859-1. 
+
+2025-07-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/parse_refold.pl (BEGIN): find modules when called from
 	outside of the current directory.
 

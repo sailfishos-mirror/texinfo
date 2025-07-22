@@ -27,6 +27,8 @@ use warnings;
 use File::Basename;
 use File::Spec;
 
+use Encode;
+
 BEGIN {
   my ($real_command_name, $command_directory, $command_suffix)
      = fileparse($0, '.pl');
@@ -105,6 +107,22 @@ my $tree = Texinfo::document_tree($document);
 if ($debug) {
   print STDERR Texinfo::tree_print_details($tree)."\n\n\n";
 }
+
+my $global_info = Texinfo::document_global_information($document);
+
+#my $include_directories = $global_info->swig_included_files_get();
+#
+#my $include_directories_nr
+#   = Texinfo::string_list_strings_number($include_directories);
+#for (my $i = 0; $i < $include_directories_nr; $i++) {
+#  my $include_dir
+#     = Texinfo::string_list_string_by_index($include_directories, $i);
+#  print STDERR "IDIR: $include_dir\n";
+#}
+
+my $encoding = $global_info->swig_input_encoding_name_get();
+# not actually possible, encoding is set to in the default case.
+$encoding = 'UTF-8' if (!defined($encoding));
 
 sub _text($$$;$)
 {
@@ -445,7 +463,26 @@ sub _convert($$;$) {
 my ($result, $current_smark) = _convert($tree, $document);
 
 if (defined($current_smark)) {
-  warn "Source mark not closed\n";
+  warn "REMARK: Source mark not closed\n";
 }
 
-print "$result";
+# SWIG always uses sv_setpvn returning bytes and C encodes in UTF-8, so we
+# convert to Perl characters before outputting by decoding from UTF-8
+$result = Encode::decode('UTF-8', $result);
+
+# We encode the output strings to the document encoding
+
+# To support old manuals in which US-ASCII can be specified although
+# the encoding corresponds to any 8bit encoding compatible with ISO-8859-1,
+# we convert US-ASCII as ISO-8859-1 to avoid errors for characters in
+# ISO-8859-1 but not in US-ASCII.
+my $out_encoding;
+if (lc($encoding) eq 'us-ascii') {
+  $out_encoding = 'iso-8859-1';
+} else {
+  $out_encoding = $encoding;
+}
+
+binmode(STDOUT, ":encoding($out_encoding)");
+
+print STDOUT "$result";

@@ -23,7 +23,7 @@
 %{
 #include <stddef.h>
 #include <stdlib.h>
-/* not necessarly used, but could be for debugging */
+/* not necessarily used, but could be for debugging */
 #include <stdio.h>
 
 #include "element_types.h"
@@ -281,6 +281,16 @@ int float_list_floats_number (FLOAT_INFORMATION_LIST *float_list);
 
 FLOAT_INFORMATION_LIST *get_float_type_floats_information (
                         DOCUMENT *document, const char *float_type);
+
+/* Only document-wide interesting information */
+typedef struct GLOBAL_INFO {
+    char *input_file_name;
+    char *input_directory;
+    char *input_encoding_name;
+    STRING_LIST included_files;
+} GLOBAL_INFO;
+
+GLOBAL_INFO *document_global_information (DOCUMENT *document);
 
 
 // Base data structures

@@ -893,3 +893,9 @@ get_float_type_floats_information (DOCUMENT *document, const char *float_type)
     }
   return 0;
 }
+
+GLOBAL_INFO *
+document_global_information (DOCUMENT *document)
+{
+  return &document->global_info;
+}

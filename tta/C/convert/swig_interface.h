@@ -93,4 +93,6 @@ int float_list_floats_number (FLOAT_INFORMATION_LIST *float_list);
 FLOAT_INFORMATION_LIST *get_float_type_floats_information (
                         DOCUMENT *document, const char *float_type);
 
+GLOBAL_INFO *document_global_information (DOCUMENT *document);
+
 #endif
