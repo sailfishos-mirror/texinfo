@@ -9,6 +9,9 @@ $result_tree_text{'sc_formatting_with_css'} = '*document_root C1
  *before_node_section C5
   *preamble_before_content C2
    *@settitle C1 l1
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
     *line_arg C3
     |INFO
     |spaces_after_argument:
@@ -51,7 +54,7 @@ $result_tree_text{'sc_formatting_with_css'} = '*document_root C1
 ';
 
 
-$result_texis{'sc_formatting_with_css'} = '@settitleIn title @sc{my string} NEXT
+$result_texis{'sc_formatting_with_css'} = '@settitle In title @sc{my string} NEXT
 
 @sc{in sc}. OUT.
 
@@ -69,22 +72,7 @@ SMALL CASE IN EXAMPLE MORE text.
 
 ';
 
-$result_errors{'sc_formatting_with_css'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 1,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 1,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'sc_formatting_with_css'} = [];
 
 
 $result_nodes_list{'sc_formatting_with_css'} = '';

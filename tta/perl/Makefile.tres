@@ -314,6 +314,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage/arg_in_brace_no_arg_command.pl \
   t/results/coverage/at_after_accent_command.pl \
   t/results/coverage/block_commands.pl \
+  t/results/coverage/braces_for_line_command.pl \
   t/results/coverage/bye_on_end_command_line.pl \
   t/results/coverage/cartouche.pl \
   t/results/coverage/cartouche_in_example.pl \

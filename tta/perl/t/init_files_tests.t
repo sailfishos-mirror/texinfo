@@ -219,7 +219,7 @@ $documentation_examples_text,
 {'TEXI2HTML' => 1, 'CONTENTS_OUTPUT_LOCATION' => 'inline'},
 ],
 ['sc_formatting_with_css',
-'@settitle{In title @sc{my string} NEXT}
+'@settitle In title @sc{my string} NEXT
 
 @sc{in sc}. OUT.
 

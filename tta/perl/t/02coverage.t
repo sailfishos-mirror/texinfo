@@ -755,6 +755,9 @@ text in group
 '@unknwon
 @#
 '],
+['braces_for_line_command',
+'@settitle{In title @sc{my string} NEXT}
+'],
 ['command_in_end_ignored_raw_in_command',
 '@html
 In html
