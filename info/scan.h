@@ -65,6 +65,9 @@ void info_free_references (REFERENCE **references);
 /* Create new REFERENCE structure. */
 REFERENCE *info_new_reference (char *filename, char *nodename);
 
+/* Free a NODE object that is suitable for being placed in a window. */
+void free_history_node (NODE *node);
+
 /* Search for sequences of whitespace or newlines in STRING, replacing
    all such sequences with just a single space.  Remove whitespace from
    start and end of string. */

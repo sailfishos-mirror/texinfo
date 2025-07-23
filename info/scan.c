@@ -363,6 +363,21 @@ info_new_reference (char *filename, char *nodename)
   return r;
 }
 
+/* Free a NODE object that is suitable for being placed in a window. */
+void
+free_history_node (NODE *n)
+{
+  if (n && (n->flags & N_IsInternal))
+    {
+      free (n->contents);
+      info_free_references (n->references);
+      free (n->next); free (n->prev); free (n->up);
+      free (n->nodename);
+    }
+  free (n);
+}
+
+
 
 /* Search for sequences of whitespace or newlines in STRING, replacing
    all such sequences with just a single space.  Remove whitespace from

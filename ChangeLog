@@ -1,5 +1,10 @@
 2025-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session.c, info/scan.c (free_history_node):
+	Move to scan.c, as this is a slightly "lower-level" source file.
+
+2025-07-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	No <!-- ... --> for <style>.
 
 	* tta/C/convert/format_html.c (html_default_format_css_lines),
