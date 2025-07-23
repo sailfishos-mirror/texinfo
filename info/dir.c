@@ -219,7 +219,7 @@ insert_text_into_node (NODE *node, size_t start, char *text, size_t textlen)
 
 /* Return directory entry.  Return value should not be freed or modified. */
 REFERENCE *
-lookup_dir_entry (char *label, int sloppy)
+lookup_dir_entry (const char *label, int sloppy)
 {
   REFERENCE *entry;
 
@@ -234,7 +234,7 @@ lookup_dir_entry (char *label, int sloppy)
 /* Look up entry in "dir" in search directory.  Return
    value is a pointer to a newly allocated REFERENCE. */
 REFERENCE *
-dir_entry_of_infodir (char *label, char *searchdir)
+dir_entry_of_infodir (const char *label, const char *searchdir)
 {
   char *dir_fullpath;
   int len;

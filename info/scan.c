@@ -208,7 +208,7 @@ read_quoted_string (char *start, char *terminator, size_t lines, char **output)
    be freed by caller.  If SLOPPY, allow initial matches, like
    "Buffers" for a LABEL "buffer". */
 REFERENCE *
-info_get_menu_entry_by_label (NODE *node, char *label, int sloppy)
+info_get_menu_entry_by_label (NODE *node, const char *label, int sloppy)
 {
   register int i;
   int best_guess = -1;

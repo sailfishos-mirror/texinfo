@@ -674,7 +674,7 @@ info_find_file (const char *filename)
 /* Find a subfile of a split file.  This differs from info_load_file in
    that it does not fill in a tag table for the file. */
 FILE_BUFFER *
-info_find_subfile (char *fullpath)
+info_find_subfile (const char *fullpath)
 {
   char *with_extension = 0;
   int i;
@@ -1271,8 +1271,8 @@ info_node_of_tag_fast (FILE_BUFFER *fb, TAG **tag_ptr)
 
 /* Return "(FILENAME)NODENAME" for NODE, or just "NODENAME" if NODE's
    filename is not set.  Return value should not be freed. */
-char *
-node_printed_rep (NODE *node)
+const char *
+node_printed_rep (const NODE *node)
 {
   static char *rep;
 
@@ -1289,7 +1289,7 @@ node_printed_rep (NODE *node)
 
 /* Return non-zero if NODE is one especially created by Info. */
 int
-internal_info_node_p (NODE *node)
+internal_info_node_p (const NODE *node)
 {
   return (node != NULL) && (node->flags & N_IsInternal);
 }

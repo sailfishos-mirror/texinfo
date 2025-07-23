@@ -46,7 +46,7 @@ char *info_file_find_next_in_path (const char *filename, int *diridx,
 
 char *info_check_compressed (char *try_filename, struct stat *finfo);
 
-char *info_file_of_infodir (const char *filename, char *dirname,
+char *info_file_of_infodir (const char *filename, const char *dirname,
                             struct stat *finfo);
 
 /* Read the contents of PATHNAME, returning a buffer with the contents of

@@ -226,7 +226,8 @@ info_check_compressed (char *try_filename, struct stat *finfo)
    relative to the current directory, in which case DIRNAME should be
    null.  Return it as a new string; otherwise return a NULL pointer. */
 char *
-info_file_of_infodir (const char *filename, char *dirname, struct stat *finfo)
+info_file_of_infodir (const char *filename, const char *dirname,
+                      struct stat *finfo)
 {
   char *try_filename;
   register int i, pre_suffix_length = 0;

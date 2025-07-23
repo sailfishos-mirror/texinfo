@@ -1,4 +1,4 @@
-/* nodes.h -- How we represent nodes internally.
+/* nodes.h -- definitions for nodes.c and dir.c
 
    Copyright 1993-2025 Free Software Foundation, Inc.
 
@@ -143,7 +143,7 @@ extern size_t info_loaded_files_slots;
 
 FILE_BUFFER *check_loaded_file (const char *filename);
 FILE_BUFFER *info_find_file (const char *filename);
-FILE_BUFFER *info_find_subfile (char *filename);
+FILE_BUFFER *info_find_subfile (const char *filename);
 
 FILE_BUFFER *make_file_buffer (void);
 
@@ -154,16 +154,16 @@ NODE *info_get_node_of_file_buffer (FILE_BUFFER *file_buffer,
                                            const char *nodename);
 NODE *info_node_of_tag (FILE_BUFFER *fb, TAG **tag_ptr);
 NODE *info_node_of_tag_fast (FILE_BUFFER *fb, TAG **tag_ptr);
-char *node_printed_rep (NODE *node);
+const char *node_printed_rep (const NODE *node);
 
-int internal_info_node_p (NODE *node);
+int internal_info_node_p (const NODE *node);
 void name_internal_node (NODE *node, char *name);
 NODE *node_from_hook_output (char *hook_name, char *hook_output, int count);
 
 
 /* Found in dir.c */
 NODE *get_dir_node (void);
-REFERENCE *lookup_dir_entry (char *label, int sloppy);
-REFERENCE *dir_entry_of_infodir (char *label, char *searchdir);
+REFERENCE *lookup_dir_entry (const char *label, int sloppy);
+REFERENCE *dir_entry_of_infodir (const char *label, const char *searchdir);
 
 #endif /* not NODES_H */

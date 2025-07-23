@@ -42,7 +42,7 @@ void scan_node_contents (NODE *node, FILE_BUFFER *fb, TAG **tag_ptr);
 /* Get the menu entry associated with LABEL in NODE.  Return a
    pointer to the reference if found, or NULL.  If SLOPPY, accept
    initial substrings and check insensitively to case. */
-REFERENCE *info_get_menu_entry_by_label (NODE *node, char *label,
+REFERENCE *info_get_menu_entry_by_label (NODE *node, const char *label,
                                                 int sloppy);
 
 /* A utility function for concatenating REFERENCE **.  Returns a new
