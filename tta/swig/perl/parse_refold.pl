@@ -23,9 +23,13 @@
 use strict;
 use warnings;
 
+use Carp qw(cluck confess);
+
 # for fileparse
 use File::Basename;
 use File::Spec;
+
+use File::Path;
 
 use Encode;
 
@@ -61,7 +65,12 @@ use File::Basename;
 
 use File::Spec;
 
+use Cwd;
+
 use Texinfo;
+
+my ($real_command_name, $command_directory, $command_suffix)
+   = fileparse($0, '.pl');
 
 Getopt::Long::Configure("gnu_getopt");
 
@@ -72,9 +81,19 @@ my $result_options = Getopt::Long::GetOptions (
 
 Texinfo::setup(1);
 
+my $curdir = File::Spec->curdir();
+
 my $input_file;
-if (scalar(@ARGV)) {
+my $output_dir;
+my $args_nr = scalar(@ARGV);
+if ($args_nr) {
   $input_file = $ARGV[0];
+  if ($args_nr > 1) {
+    $output_dir = $ARGV[1];
+    if ($output_dir !~ /\S/) {
+      $output_dir = $curdir;
+    }
+  }
 } else {
   warn "Need arg\n";
   exit 1;
@@ -82,7 +101,29 @@ if (scalar(@ARGV)) {
 
 my ($input_filename, $input_directory, $suffix) = fileparse($input_file);
 
-my $curdir = File::Spec->curdir();
+if (defined($output_dir)) {
+  my $compared_dir = $input_directory;
+  if (!defined($compared_dir) or $compared_dir eq '') {
+    $compared_dir = $curdir;
+  }
+  if (Cwd::abs_path($compared_dir) eq Cwd::abs_path($output_dir)) {
+    die "$real_command_name: ERROR: $compared_dir: $output_dir: input and output directories are the same\n";
+  }
+}
+
+if (defined($output_dir)) {
+  if (! -d $output_dir) {
+    my $errors;
+    my @created = File::Path::mkpath($output_dir, {'error' => \$errors});
+    if (defined($errors) and scalar(@$errors)) {
+      foreach my $error (@$errors) {
+        my ($file, $message) = each %$error;
+        warn "Error creating $file: $message\n";
+      }
+      die "$real_command_name: ERROR: $output_dir: error creating directory\n";
+    }
+  }
+}
 
 if (defined($input_directory) and $input_directory ne ''
     and $input_directory ne $curdir) {
@@ -96,7 +137,7 @@ my ($document, $status) = Texinfo::parse_file($input_file);
 Texinfo::output_parser_error_messages($document);
 
 if ($status) {
-  warn "ERROR processing $input_file\n";
+  warn "$real_command_name: ERROR: processing $input_file\n";
   exit 1;
 }
 
@@ -124,8 +165,73 @@ my $encoding = $global_info->swig_input_encoding_name_get();
 # not actually possible, encoding is set to in the default case.
 $encoding = 'UTF-8' if (!defined($encoding));
 
-sub _text($$$;$)
-{
+# To support old manuals in which US-ASCII can be specified although
+# the encoding corresponds to any 8bit encoding compatible with ISO-8859-1,
+# we convert US-ASCII as ISO-8859-1 to avoid errors for characters in
+# ISO-8859-1 but not in US-ASCII.
+my $out_encoding;
+if (lc($encoding) eq 'us-ascii') {
+  $out_encoding = 'iso-8859-1';
+} else {
+  $out_encoding = $encoding;
+}
+
+# SWIG always uses sv_setpvn returning bytes and C encodes in UTF-8, so we
+# convert to Perl characters by decoding from UTF-8
+sub _decode($) {
+  my $text = shift;
+  return Encode::decode('UTF-8', $text);
+}
+
+sub _current_smark($) {
+  my $current_smark = shift;
+
+  return defined($current_smark) ?
+             "$current_smark->[0]:$current_smark->[1]" : '-';
+}
+
+my %files_done;
+
+sub _write_output($) {
+  my $spec = shift;
+
+  my ($file_name, $result, $counter, $s_mark) = @$spec;
+
+  my ($input_filename, $input_directory, $suffix) = fileparse($file_name);
+
+  return if ($files_done{$input_filename});
+
+  $files_done{$input_filename} = 1;
+
+  my $out_file;
+  my $filehandle;
+  if (defined($output_dir)) {
+    $out_file = join('/', ($output_dir, $input_filename));
+    if (!open($filehandle, '>', $out_file)) {
+      warn "$real_command_name: ERROR: open $out_file: $!\n";
+      return;
+    }
+  } else {
+    $filehandle = \*STDOUT;
+  }
+
+  my $output = $$result;
+
+  # We encode the output strings to the document encoding
+
+  binmode($filehandle, ":encoding($out_encoding)");
+
+  print $filehandle "$output";
+
+  if (defined($out_file)) {
+    if (!close($filehandle)) {
+      warn("$real_command_name: ERROR: closing $out_file: $!\n");
+    }
+  }
+  return;
+}
+
+sub _text($$$;$) {
   my ($text, $from, $type, $to) = @_;
 
   my $result = '';
@@ -152,12 +258,11 @@ sub _text($$$;$)
   return $result;
 }
 
-sub _convert($$;$);
+sub _convert($$$;$);
 
-sub _handle_source_marks($$$)
-{
-  my ($element, $type, $current_smark) = @_;
-  my $result = '';
+sub _handle_source_marks($$$$) {
+  my ($element, $type, $inputs, $current_smark) = @_;
+  my $result = $inputs->[-1]->[1];
   my $last_position;
   my $smark_e_text;
   my $source_marks_nr = Texinfo::element_source_marks_number($element);
@@ -188,7 +293,7 @@ sub _handle_source_marks($$$)
       if (defined($source_mark_position) and $source_mark_position > 0) {
         if (!$current_smark) {
           # source_mark_position > 0 only in text elements
-          my $text = Texinfo::element_text($element);
+          my $text = _decode(Texinfo::element_text($element));
           my $text_result = _text($text, $last_position, $type,
                                   $source_mark_position);
           if ($debug) {
@@ -198,7 +303,7 @@ sub _handle_source_marks($$$)
                 ." '$text_result'\n";
                 #."\n";
           }
-          $result .= $text_result;
+          $$result .= $text_result;
         }
       }
       $last_position = $source_mark_position;
@@ -212,24 +317,50 @@ sub _handle_source_marks($$$)
            #.Texinfo::tree_print_details($source_mark_element)."\n";
            ."\n";
         }
-        ($smark_e_text, $current_smark)
-          = _convert($source_mark_element, $document, $current_smark);
-        $result .= $smark_e_text if (!$current_smark);
+
+        ($result, $current_smark)
+          = _convert($source_mark_element, $document, $inputs, $current_smark);
       } elsif (!$current_smark) {
         if ($source_mark_type == $Texinfo::SM_type_delcomment) {
-          $result .= "\x{7F}";
+          $$result .= "\x{7F}";
         } elsif ($source_mark_type
                    == $Texinfo::SM_type_macro_arg_escape_backslash) {
-          $result .= '\\';
+          $$result .= '\\';
         }
-        my $source_mark_line = $source_mark->swig_line_get();
+        my $source_mark_line = _decode($source_mark->swig_line_get());
         if (defined($source_mark_line)) {
-          $result .= $source_mark_line;
+          $$result .= $source_mark_line;
         } elsif ($source_mark_type == $Texinfo::SM_type_defline_continuation) {
-          $result .= "@\n";
+          $$result .= "@\n";
         }
       }
-      if (!$current_smark) {
+      if ($source_mark_type eq $Texinfo::SM_type_include) {
+        if ($source_mark_status eq $Texinfo::SM_status_start) {
+          my $file_name
+           = Texinfo::element_attribute_string($source_mark_element,
+                                               'text_arg');
+          if ($debug) {
+            print STDERR "INCLUDE($i) '$file_name' "
+              ."c:$source_mark_counter;s_m:".
+                        _current_smark($current_smark)."\n";
+          }
+          my $result_text = '';
+          $result = \$result_text;
+          push @$inputs, [$file_name, $result, $source_mark_counter,
+                          $current_smark];
+          $current_smark = undef;
+        } elsif ($source_mark_status eq $Texinfo::SM_status_end) {
+          my $previous_input = pop @$inputs;
+          if ($debug) {
+            print STDERR "END_INCLUDE($i) c:$source_mark_counter"
+                     ."|$previous_input->[2];s_m:".
+                        _current_smark($inputs->[-1]->[3])." \n";
+          }
+          _write_output($previous_input);
+          $result = $inputs->[-1]->[1];
+          $current_smark = $inputs->[-1]->[3];
+        }
+      } elsif (!$current_smark) {
         if ($source_mark_status eq $Texinfo::SM_status_start
             # expanded conditional has a start and an end, but the
             # tree within is the expanded tree and should not be skipped
@@ -247,21 +378,18 @@ sub _handle_source_marks($$$)
       print STDERR "_OUTSMARKS [p:".
         (defined($last_position) ? $last_position : 0)."] "
            ._current_smark($current_smark)."\n";
-      print STDERR "_HSMARKRESULT: '$result'\n";
     }
   }
   return $result, $last_position, $current_smark;
 }
 
-sub _current_smark($) {
-  my $current_smark = shift;
+sub _convert($$$;$) {
+  my ($tree, $document, $inputs, $current_smark) = @_;
 
-  return defined($current_smark) ?
-             "$current_smark->[0]:$current_smark->[1]" : '-';
-}
-
-sub _convert($$;$) {
-  my ($tree, $document, $current_smark) = @_;
+  if (ref($inputs) ne 'ARRAY' or ref($inputs->[-1]) ne 'ARRAY') {
+    confess();
+  }
+  my $result = $inputs->[-1]->[1];
 
   if ($debug) {
     print STDERR "_CONVERT: "._current_smark($current_smark)."\n";
@@ -269,10 +397,7 @@ sub _convert($$;$) {
   my $descriptor = Texinfo::register_new_reader($tree, $document);
   my $reader = Texinfo::retrieve_reader_descriptor($descriptor);
 
-  my $spaces;
   my $args_stack = [];
-
-  my $result = '';
 
   while (1) {
     my $next_token = Texinfo::reader_read($reader);
@@ -293,9 +418,8 @@ sub _convert($$;$) {
     if ($category == $Texinfo::TXI_READ_TEXT
         or $category == $Texinfo::TXI_READ_IGNORABLE_TEXT) {
       my ($last_position, $smark_result);
-      ($smark_result, $last_position, $current_smark)
-        = _handle_source_marks($element, $type, $current_smark);
-      $result .= $smark_result;
+      ($result, $last_position, $current_smark)
+        = _handle_source_marks($element, $type, $inputs, $current_smark);
       if (!defined($current_smark)) {
         if ($type eq 'spaces') {
           my ($inserted, $status)
@@ -303,8 +427,8 @@ sub _convert($$;$) {
                                                        'inserted');
           next if ($inserted);
         }
-        my $text = Texinfo::element_text($element);
-        $result .= _text($text, $last_position, $type);
+        my $text = _decode(Texinfo::element_text($element));
+        $$result .= _text($text, $last_position, $type);
       }
       next;
     }
@@ -316,11 +440,11 @@ sub _convert($$;$) {
         if (!defined($current_smark)) {
           my $alias_of = Texinfo::element_attribute_string($element,
                                                           'alias_of');
-          $result .= '@';
+          $$result .= '@';
           if (defined($alias_of)) {
-            $result .= $alias_of;
+            $$result .= $alias_of;
           } else {
-            $result .= $cmdname;
+            $$result .= $cmdname;
           }
         }
 
@@ -328,9 +452,9 @@ sub _convert($$;$) {
           = Texinfo::element_attribute_element($element,
                                  'spaces_after_cmd_before_arg');
         if (defined($spaces_cmd_before_arg)) {
-          ($spaces, $current_smark)
-           = _convert($spaces_cmd_before_arg, $document, $current_smark);
-          $result .= $spaces;
+          ($result, $current_smark)
+           = _convert($spaces_cmd_before_arg, $document,
+                      $inputs, $current_smark);
         }
       }
 
@@ -342,10 +466,10 @@ sub _convert($$;$) {
             if (Texinfo::element_type(
                   Texinfo::element_get_child($element, 0))
                        ne 'following_arg') {
-              $result .= '{';
+              $$result .= '{';
             }
             if ($cmdname eq 'verb') {
-              $result
+              $$result
              .= Texinfo::element_attribute_string($element, 'delimiter');
             }
           }
@@ -359,13 +483,14 @@ sub _convert($$;$) {
             or $type eq 'macro_call' or $type eq 'rmacro_call') {
           if (!defined($current_smark)) {
             if ($cmdname eq 'verb') {
-              $result
-             .= Texinfo::element_attribute_string($element, 'delimiter');
+              $$result
+               .= _decode(
+                 Texinfo::element_attribute_string($element, 'delimiter'));
             }
             if (Texinfo::element_type(
                   Texinfo::element_get_child($element, 0))
                        ne 'following_arg') {
-              $result .= '}';
+              $$result .= '}';
             }
           }
         }
@@ -384,7 +509,7 @@ sub _convert($$;$) {
           or $category == $Texinfo::TXI_READ_EMPTY) {
         if (!defined($current_smark)) {
           if ($type eq 'bracketed_arg') {
-            $result .= '{';
+            $$result .= '{';
           }
         }
         if ($type eq 'brace_arg' or $type eq 'elided_brace_command_arg'
@@ -392,7 +517,7 @@ sub _convert($$;$) {
           $args_stack->[-1]++;
           if (!defined($current_smark)) {
             if ($args_stack->[-1] > 1) {
-              $result .= ',';
+              $$result .= ',';
             }
           }
         }
@@ -404,9 +529,9 @@ sub _convert($$;$) {
         = Texinfo::element_attribute_element($element,
                                'spaces_before_argument');
       if (defined($spaces_before_argument)) {
-        ($spaces, $current_smark)
-           = _convert($spaces_before_argument, $document, $current_smark);
-        $result .= $spaces;
+        ($result, $current_smark)
+           = _convert($spaces_before_argument, $document,
+                      $inputs, $current_smark);
       }
     }
     if ($category == $Texinfo::TXI_READ_EMPTY
@@ -415,9 +540,9 @@ sub _convert($$;$) {
         = Texinfo::element_attribute_element($element,
                                'spaces_after_argument');
       if (defined($spaces_after_argument)) {
-        ($spaces, $current_smark)
-           = _convert($spaces_after_argument, $document, $current_smark);
-        $result .= $spaces;
+        ($result, $current_smark)
+           = _convert($spaces_after_argument, $document,
+                      $inputs, $current_smark);
       }
 
       if ($type eq 'line_arg' or $type eq 'block_line_arg') {
@@ -425,15 +550,14 @@ sub _convert($$;$) {
                                            'comment_at_end');
         if ($comment_e) {
           my $comment;
-          ($comment, $current_smark)
-             = _convert($comment_e, $document, $current_smark);
-          $result .= $comment;
+          ($result, $current_smark)
+             = _convert($comment_e, $document, $inputs, $current_smark);
         }
       }
 
       if (!defined($current_smark)) {
         if ($type eq 'bracketed_arg') {
-          $result .= '}';
+          $$result .= '}';
         }
       }
     }
@@ -447,42 +571,23 @@ sub _convert($$;$) {
     if ($category == $Texinfo::TXI_READ_EMPTY
         or $category == $Texinfo::TXI_READ_ELEMENT_END) {
       my ($last_position, $smark_result);
-      ($smark_result, $last_position, $current_smark)
-         = _handle_source_marks($element, $type, $current_smark);
-      $result .= $smark_result;
+      ($result, $last_position, $current_smark)
+         = _handle_source_marks($element, $type, $inputs, $current_smark);
     }
   }
 
   if ($debug) {
     print STDERR "_END "._current_smark($current_smark)."\n";
-    print STDERR "RESULT: '$result'\n";
+    print STDERR "RESULT: '$$result'\n";
   }
   return ($result, $current_smark);
 }
-
-my ($result, $current_smark) = _convert($tree, $document);
+my $result_text = '';
+my $inputs = [[$input_filename, \$result_text, -1, undef]];
+my ($result, $current_smark) = _convert($tree, $document, $inputs);
 
 if (defined($current_smark)) {
   warn "REMARK: Source mark not closed\n";
 }
 
-# SWIG always uses sv_setpvn returning bytes and C encodes in UTF-8, so we
-# convert to Perl characters before outputting by decoding from UTF-8
-$result = Encode::decode('UTF-8', $result);
-
-# We encode the output strings to the document encoding
-
-# To support old manuals in which US-ASCII can be specified although
-# the encoding corresponds to any 8bit encoding compatible with ISO-8859-1,
-# we convert US-ASCII as ISO-8859-1 to avoid errors for characters in
-# ISO-8859-1 but not in US-ASCII.
-my $out_encoding;
-if (lc($encoding) eq 'us-ascii') {
-  $out_encoding = 'iso-8859-1';
-} else {
-  $out_encoding = $encoding;
-}
-
-binmode(STDOUT, ":encoding($out_encoding)");
-
-print STDOUT "$result";
+_write_output($inputs->[0]);

@@ -44,7 +44,7 @@ for manual_proj_dir in manuals/*/ ; do
         echo "doing $file"
 
         err_file=${err_dir}/${bfile}.err
-        ../../tta/swig/perl/parse_refold.pl $file > $out_dir/$bfile_ext 2>$err_file
+        ../../tta/swig/perl/parse_refold.pl $file $out_dir 2>$err_file
         if test -s $err_file ; then :
         else rm -f $err_file
         fi
