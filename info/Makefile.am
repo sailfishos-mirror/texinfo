@@ -114,6 +114,7 @@ info_tests_with_pseudotty = \
 	t/end-of-line.sh \
 	t/follow-path.sh \
 	t/follow-remain.sh \
+	t/follow-remain-other-dir.sh \
 	t/gc-split.sh \
 	t/goal-column.sh \
 	t/goto-quoted.sh \
