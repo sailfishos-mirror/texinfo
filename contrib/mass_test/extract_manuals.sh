@@ -172,7 +172,7 @@ for dir in download/www.gnu.org/software/*/manual/ ; do
   fi
 done
 
-# A fix for a manual to avoid errors. It was not generalized as too many
+# A fix for a manual to avoid errors. It was not generalized as many
 # manuals have errors. Instead texi2any is called such as to continue
 # even if there are errors.
 echo '@macro FIXME {arg}
@@ -181,11 +181,19 @@ echo '@macro FIXME {arg}
 ' > manuals/anubis/anubis/rendition.texi
 
 # files with CRLF EOL found with
-# file manuals/*/*/*.texi | grep CRLF
+# file manuals/*/*/*.texi* | grep CRLF
 
 # remove CR in end of lines.
-for file in manuals/orgadoc/*/*.texi manuals/remotecontrol/*/version.texi; do
+for file in manuals/orgadoc/*/*.texi manuals/remotecontrol/*/version.texi manuals/jtw/jtw/abc.texinfo; do
   sed 's/\r$//' $file > $file.$$
   rm -f $file
   mv $file.$$ $file
 done
+
+# add documentencoding when needed
+for file in manuals/parted/parted/parted-pt_BR.texi manuals/epsilon/epsilon/epsilon.texi ; do
+  sed '/^@setfilename/a @documentencoding ISO-8859-1' $file > $file.$$
+  rm -f $file
+  mv $file.$$ $file
+done
+

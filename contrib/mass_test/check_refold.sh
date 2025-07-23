@@ -35,23 +35,36 @@ for manual_proj_dir in manuals/*/ ; do
     rm -rf $out_dir
     mkdir -p $out_dir
 
-    for file in $manual_dir/*.texi* ; do
-      if grep -q -s '^ *@node \+[tT][Oo][Pp] *\(,.*\)\?$' $file; then
-        one_manual_found=yes
-        bfile_ext=`basename $file`
-        bfile=`echo $bfile_ext | sed 's/\.texi.*$//'`
-
-        echo "doing $file"
-
-        err_file=${err_dir}/${bfile}.err
-        ../../tta/swig/perl/parse_refold.pl $file $out_dir 2>$err_file
-        if test -s $err_file ; then :
-        else rm -f $err_file
-        fi
+    if test $manual_dir_name = lightning ; then
+      # special case, main manual is not the manual with Top
+      file=$manual_dir/lightning.texi
+      bfile_ext=`basename $file`
+      bfile=`echo $bfile_ext | sed 's/\.texi.*$//'`
+      err_file=${err_dir}/${bfile}.err
+      ../../tta/swig/perl/parse_refold.pl $file $out_dir 2>$err_file
+      if test -s $err_file ; then :
+      else rm -f $err_file
       fi
-    done
-    if test $one_manual_found = 'no' ; then
-      echo "WARNING: $manual_dir: no manual" 1>&2
+    else
+      for file in $manual_dir/*.texi* ; do
+        if grep -q -s '^ *@node \+[tT][Oo][Pp] *\(,.*\)\?$' $file; then
+          one_manual_found=yes
+          bfile_ext=`basename $file`
+          bfile=`echo $bfile_ext | sed 's/\.texi.*$//'`
+
+          echo "doing $file"
+
+          err_file=${err_dir}/${bfile}.err
+          # -I is for the gcc manual
+          ../../tta/swig/perl/parse_refold.pl -I manuals/$proj_dir/include/ $file $out_dir 2>$err_file
+          if test -s $err_file ; then :
+          else rm -f $err_file
+          fi
+        fi
+      done
+      if test $one_manual_found = 'no' ; then
+        echo "WARNING: $manual_dir: no manual" 1>&2
+      fi
     fi
   done
 done

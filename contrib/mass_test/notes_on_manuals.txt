@@ -1,0 +1,117 @@
+Notes on Texinfo files not caught by parse_refold.pl, either because they lack
+a top or because they are not referenced with @include.
+
+auctex/auctex
+ copying.texi: short text not referenced
+ history.texi: referenced as @file{history.texi}
+
+autogen/autogen
+ autogen-intro.texi: inserted into agdoc.texi
+ autogen.texi: main manual, very short, mainly @include agdoc.texi
+ bitmaps.texi: inserted into agdoc.texi
+ fdl.texi: refered to as @url in agdoc.texi, not included
+ libopts.texi: inserted into agdoc.texi
+ snprintfv.texi: inserted into agdoc.texi
+
+complexity/complexity
+ gpl-3.0.texi: not referenced
+
+cpio/cpio
+ genfile.texi: supposed to be part of the paxutils manual, not referenced 
+
+cpio/cpio
+gnulib/gnulib
+ parse-datetime.texi: full manual without top (also in recutils)
+
+emacs/elisp
+emacs/emacs
+ back.texi: separate information for a book
+ book-spine.texi: separate information for a book
+
+emacs/emacs
+ vc-xtra.texi: included in emacs-xtra.texi in @iftex 
+
+findutils/find and others
+ gpl-3.0.texi and other licence files: not referenced
+
+gama/gama
+see https://lists.gnu.org/archive/html/bug-gama/2025-07/msg00000.html
+
+glibc/libc
+ libcbook.texi: includes the main file after a command, ok to ignore
+ install-plain.texi: used to generate a file
+
+gnulib/gnulib
+ install.texi, licences files: references for files that are to be used
+                               in other projects
+
+guile/guile
+ api-undocumented.texi: docstrings not referenced on purpose
+ goops-tutorial.texi: comments only attribution file 
+ new-docstrings.texi: docstrings
+ tools.texi: not referenced
+ libguile-pkg-config.texi: not referenced
+
+guile-gnome/guile-gnome*/
+ overrides.texi: empty file
+ {defuns,section}-*.xml.texi: not referenced.
+
+libidn/libidn
+libtasn1/libtasn1
+ *-help.texi: @verbatiminclude'd file
+
+libunistring/libunistring
+gettext/gettext
+gnulib/gnulib
+ relocatable.texi: not referenced
+
+lightning/lightning
+ body.texi: contains Top but no macros, normally included by lightning.texi
+            (special condition in script).
+
+liquidwar6/liquidwar6
+ liquidwar6-doxygen.texi: not referenced
+
+mailutils/mailutils:
+ *.texi: many Texinfo files are not referenced
+
+proxyknife/proxyknife
+ feature.texi: not referenced
+
+pspp/pspp:
+ installing.texi: not referenced
+
+radius/radius
+ raduse.texi: not referenced, @include commented out in programs.texi
+
+recutils/recutils
+ regexprops-generic.texi: not referenced
+
+sqltutor/sqltutor
+ postgis.texi: empty
+
+texinfo/texinfo
+ short-sample-zh.texi: example
+ texi2any_internals_indices.texi: incorporated in a manual
+ texinfo-tex-test.texi: used for tests 
+
+units/units
+ UnitsMKS.texinfo: no Top
+ UnitsWin.texinfo: no Top
+
+
+Notes on some errors in manuals
+Corrected in extract_manuals.sh 
+epsilon/epsilon
+ epsilon.texi: ISO-8859 text, no documentencoding
+
+parted/parted
+ parted-pt_BR.texi: ISO-8859 text, no documentencoding
+
+cflow/cflow
+ cflow.texi: missing @include version.texi and rendition.texi
+
+mailutils/mailutils:
+ mailutils.texi: missing rendition.texi
+
+

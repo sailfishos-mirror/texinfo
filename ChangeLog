@@ -1,5 +1,14 @@
 2025-07-23 Patrice Dumas  <pertusus@free.fr>
 
+	* contrib/mass_test/check_refold.sh: improve.
+
+	* contrib/mass_test/extract_manuals.sh: more fix of CRLF.  Add
+	@documentencoding ISO-8859-1 for two manuals.
+
+	* contrib/mass_test/notes_on_manuals.txt: add.
+
+2025-07-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/parse_refold.pl: add -I option.
 
 	* tta/swig/perl/parse_refold.pl: set texi2any formats to be expanded.
