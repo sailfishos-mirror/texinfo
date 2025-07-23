@@ -162,9 +162,7 @@ $result_converted{'html'}->{'verbatim_in_multitable_in_example'} = '<!DOCTYPE ht
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.example {margin-left: 3.2em}
--->
 </style>
 
 

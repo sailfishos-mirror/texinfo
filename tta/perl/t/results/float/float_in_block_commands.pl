@@ -250,10 +250,8 @@ $result_converted{'html'}->{'float_in_block_commands'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.example {margin-left: 3.2em}
 table.cartouche {border-style: solid; border-radius: 0.5em}
--->
 </style>
 
 

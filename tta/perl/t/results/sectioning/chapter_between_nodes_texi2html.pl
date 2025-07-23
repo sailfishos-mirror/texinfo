@@ -274,7 +274,6 @@ $result_converted{'html'}->{'chapter_between_nodes_texi2html'} = '<!DOCTYPE html
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span.program-in-footer {font-size: smaller}
 span:hover a.copiable-link {visibility: visible}
@@ -290,7 +289,6 @@ th.description-direction-about {border-width: thin; border-bottom-style: solid; 
 th.example-direction-about {border-width: thin; border-bottom-style: solid; border-left-style: solid}
 th.name-direction-about {border-width: thin; border-bottom-style: solid; border-right-style: solid; border-left-style: solid}
 ul.toc-numbered-mark {list-style: none}
--->
 </style>
 
 

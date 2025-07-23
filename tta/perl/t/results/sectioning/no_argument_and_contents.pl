@@ -120,11 +120,9 @@ $result_converted{'html'}->{'no_argument_and_contents'} = '<!DOCTYPE html>
 
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
--->
 </style>
 
 

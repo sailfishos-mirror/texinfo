@@ -96,10 +96,8 @@ $result_converted{'html'}->{'recursive_self_section_reference'} = '<!DOCTYPE htm
 
 <link href="#sharp" rel="start" title="sharp">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

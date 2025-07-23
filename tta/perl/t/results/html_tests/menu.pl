@@ -649,14 +649,12 @@ $result_converted{'html'}->{'menu'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 pre.menu-comment-preformatted {font-family: serif}
 pre.menu-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
 ul.mark-bullet {list-style-type: disc}
--->
 </style>
 
 

@@ -197,10 +197,8 @@ $result_converted{'html'}->{'text_on_display_command_line'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.display {margin-left: 3.2em}
 pre.display-preformatted {font-family: inherit}
--->
 </style>
 
 

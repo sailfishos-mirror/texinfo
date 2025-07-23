@@ -9768,7 +9768,7 @@ sub _default_format_css_lines($;$)
                  and !@$css_rule_lines
                  and (!defined($css_refs) or !@$css_refs);
 
-  my $css_text = "<style type=\"text/css\">\n<!--\n";
+  my $css_text = "<style type=\"text/css\">\n";
   $css_text .= join('', @$css_import_lines) . "\n"
     if (@$css_import_lines);
   foreach my $element_class (@$css_element_classes) {
@@ -9778,7 +9778,7 @@ sub _default_format_css_lines($;$)
   }
   $css_text .= join('', @$css_rule_lines) . "\n"
     if (@$css_rule_lines);
-  $css_text .= "-->\n</style>\n";
+  $css_text .= "</style>\n";
   foreach my $ref (@$css_refs) {
     $css_text .= $self->close_html_lone_element(
          '<link rel="stylesheet" type="text/css" href="'.

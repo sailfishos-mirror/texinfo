@@ -121,10 +121,8 @@ $result_converted{'html'}->{'menu_entry_no_entry'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 pre.menu-comment-preformatted {font-family: serif}
 th.menu-comment {text-align:left}
--->
 </style>
 
 

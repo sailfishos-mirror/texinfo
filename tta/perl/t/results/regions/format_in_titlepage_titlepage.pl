@@ -160,11 +160,9 @@ $result_converted{'html'}->{'format_in_titlepage_titlepage'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.format-preformatted {font-family: inherit}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

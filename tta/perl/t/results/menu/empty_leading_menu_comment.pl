@@ -111,14 +111,12 @@ $result_converted{'html'}->{'empty_leading_menu_comment'} = '<!DOCTYPE html>
 
 <link href="#first" rel="start" title="first">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.menu-comment-preformatted {font-family: serif}
 span:hover a.copiable-link {visibility: visible}
 td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
--->
 </style>
 
 

@@ -137,10 +137,8 @@ $result_converted{'html'}->{'info_js_dir_html'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

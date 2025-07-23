@@ -268,10 +268,8 @@ $result_converted{'html'}->{'in_menu_only_special_ascii_spaces_node'} = '<!DOCTY
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

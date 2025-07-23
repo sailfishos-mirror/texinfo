@@ -491,11 +491,9 @@ $result_converted{'html'}->{'things_before_setfilename'} = '<!DOCTYPE html>
 <link href="#Top" rel="index" title="Top">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
--->
 </style>
 
 

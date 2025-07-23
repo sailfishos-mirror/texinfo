@@ -570,10 +570,8 @@ $result_converted{'html'}->{'special_spaces_in_nodes'} = '<!DOCTYPE html>
 
 <link href="#Top_2002" rel="start" title="Top ">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

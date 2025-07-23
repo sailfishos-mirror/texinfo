@@ -223,10 +223,8 @@ $result_converted{'html'}->{'line_breaks'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.center {text-align:center}
 h1.settitle {text-align:center}
--->
 </style>
 
 

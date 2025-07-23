@@ -161,11 +161,9 @@ $result_converted{'html'}->{'character_number_leading_toc_stoc'} = '<!DOCTYPE ht
 
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
--->
 </style>
 
 

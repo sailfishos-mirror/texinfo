@@ -129,10 +129,8 @@ $result_converted{'html'}->{'ref_to_top'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="ToP">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

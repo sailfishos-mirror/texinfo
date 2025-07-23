@@ -75,10 +75,8 @@ $result_converted{'html'}->{'quote_dash_in_display'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.display {margin-left: 3.2em}
 pre.display-preformatted {font-family: inherit}
--->
 </style>
 
 

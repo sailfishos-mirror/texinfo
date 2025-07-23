@@ -181,9 +181,7 @@ $result_converted{'html'}->{'comments_in_example'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.example {margin-left: 3.2em}
--->
 </style>
 
 

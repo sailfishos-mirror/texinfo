@@ -76,9 +76,7 @@ $result_converted{'html'}->{'empty_lines_at_beginning_no_setfilename_no_element'
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.center {text-align:center}
--->
 </style>
 
 

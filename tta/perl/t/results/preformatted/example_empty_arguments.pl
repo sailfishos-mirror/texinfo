@@ -158,9 +158,7 @@ $result_converted{'html'}->{'example_empty_arguments'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.example {margin-left: 3.2em}
--->
 </style>
 
 

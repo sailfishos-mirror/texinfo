@@ -1332,12 +1332,10 @@ $result_converted{'html'}->{'complex_float'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
 span:hover a.copiable-link {visibility: visible}
 ul.mark-minus {list-style-type: "\\2212"}
--->
 </style>
 
 

@@ -90,10 +90,8 @@ $result_converted{'html'}->{'node_up_direction_for_top_with_manual'} = '<!DOCTYP
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

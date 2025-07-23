@@ -30,6 +30,8 @@ See the manual for detailed information.
   . DUMP_TREE should now be a file name, or - to output to standard error
   . rename space direction ' ' to 'Space'
   . HTML output:
+      . do not wrap the contents of <style> elements in an HTML comment,
+        as this is no longer needed for browser compatibility
       . use last @printindex for the Index direction
       . only output 'accesskey' attributes when splitting by node
       . you can set FORMAT_MENU to 'menu_no_detailmenu' to omit an

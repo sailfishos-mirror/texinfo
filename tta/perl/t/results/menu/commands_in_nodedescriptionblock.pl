@@ -562,7 +562,6 @@ $result_converted{'html'}->{'commands_in_nodedescriptionblock'} = '<!DOCTYPE htm
 <link href="#Top" rel="start" title="Top">
 <link href="#node2" rel="index" title="node2">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
@@ -572,7 +571,6 @@ td.menu-entry-destination {vertical-align: top}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.index-letter-header-printindex {text-align: left; font-size: 150%; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
--->
 </style>
 
 

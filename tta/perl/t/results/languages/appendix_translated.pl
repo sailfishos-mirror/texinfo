@@ -177,11 +177,9 @@ $result_converted{'html'}->{'appendix_translated'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <link href="#SEC_Contents" rel="contents" title="Índice general">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
--->
 </style>
 
 

@@ -304,14 +304,12 @@ $result_converted{'html'}->{'text_block_before_defline'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
--->
 </style>
 
 

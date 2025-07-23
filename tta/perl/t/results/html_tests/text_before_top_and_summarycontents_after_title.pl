@@ -143,11 +143,9 @@ $result_converted{'html'}->{'text_before_top_and_summarycontents_after_title'} =
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
--->
 </style>
 
 

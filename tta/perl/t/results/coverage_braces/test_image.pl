@@ -1098,11 +1098,9 @@ In text f@i-le..  a@<"%@  < & @ % " . -->
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

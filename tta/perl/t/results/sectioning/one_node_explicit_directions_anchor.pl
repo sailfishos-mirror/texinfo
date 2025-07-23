@@ -136,10 +136,8 @@ $result_converted{'html'}->{'one_node_explicit_directions_anchor'} = '<!DOCTYPE 
 
 <link href="#one-node" rel="start" title="one node">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

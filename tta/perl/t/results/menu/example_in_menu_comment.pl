@@ -130,13 +130,11 @@ $result_converted{'html'}->{'example_in_menu_comment'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
 td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 th.menu-comment {text-align:left}
--->
 </style>
 
 

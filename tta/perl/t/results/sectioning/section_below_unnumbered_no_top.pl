@@ -92,10 +92,8 @@ $result_converted{'html'}->{'section_below_unnumbered_no_top'} = '<!DOCTYPE html
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

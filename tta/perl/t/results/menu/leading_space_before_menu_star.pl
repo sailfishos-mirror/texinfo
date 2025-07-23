@@ -92,12 +92,10 @@ $result_converted{'html'}->{'leading_space_before_menu_star'} = '<!DOCTYPE html>
 
 <link href="#a-node" rel="start" title="a node">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.menu-comment-preformatted {font-family: serif}
 span:hover a.copiable-link {visibility: visible}
 th.menu-comment {text-align:left}
--->
 </style>
 
 

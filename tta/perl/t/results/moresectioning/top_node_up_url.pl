@@ -188,10 +188,8 @@ $result_converted{'html'}->{'top_node_up_url'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <link href="http://www.gnu.org/manual/" rel="up" title="@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

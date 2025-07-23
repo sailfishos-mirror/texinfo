@@ -277,14 +277,12 @@ $result_converted{'html'}->{'block_commands_in_menu_description'} = '<!DOCTYPE h
 
 <link href="#first" rel="start" title="first">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 pre.menu-preformatted {font-family: serif}
 span:hover a.copiable-link {visibility: visible}
 td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 ul.mark-bullet {list-style-type: disc}
--->
 </style>
 
 

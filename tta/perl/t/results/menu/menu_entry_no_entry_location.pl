@@ -126,10 +126,8 @@ $result_converted{'html'}->{'menu_entry_no_entry_location'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
--->
 </style>
 
 

@@ -101,9 +101,7 @@ $result_converted{'html'}->{'mathjax_with_texinfo'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-<!--
 pre.displaymath {font-style: italic; font-family: serif; display: flex; justify-content: center}
--->
 </style>
 
 <script type=\'text/javascript\'>

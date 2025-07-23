@@ -3847,7 +3847,7 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
       return;
     }
 
-  text_append (result, "<style type=\"text/css\">\n<!--\n");
+  text_append (result, "<style type=\"text/css\">\n");
 
   if (css_import_lines->number > 0)
     {
@@ -3881,7 +3881,7 @@ html_default_format_css_lines (CONVERTER *self, const char *filename,
       text_append_n (result, "\n", 1);
     }
 
-  text_append (result, "-->\n</style>\n");
+  text_append (result, "</style>\n");
 
   if (css_refs)
     {

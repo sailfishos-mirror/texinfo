@@ -182,10 +182,8 @@ $result_converted{'html'}->{'today_in_copying'} = '<!DOCTYPE html>
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

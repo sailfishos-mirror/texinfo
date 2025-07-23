@@ -266,10 +266,8 @@ $result_converted{'html'}->{'two_footnotes_in_nodes_separate_no_header'} = '<!DO
 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
--->
 </style>
 
 

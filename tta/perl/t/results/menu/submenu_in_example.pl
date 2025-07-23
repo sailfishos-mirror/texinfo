@@ -329,10 +329,8 @@ $result_converted{'html'}->{'submenu_in_example'} = '<!DOCTYPE html>
 
 <link href="#first" rel="start" title="first">
 <style type="text/css">
-<!--
 div.example {margin-left: 3.2em}
 pre.menu-comment-preformatted {font-family: serif}
--->
 </style>
 
 
