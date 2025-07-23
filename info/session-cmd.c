@@ -510,10 +510,10 @@ DECLARE_INFO_COMMAND (info_end_of_node, _("Move to the end of this node"))
 
 int info_scroll_behaviour = IS_Continuous;
 
-void _scroll_forward (WINDOW *window, int count, int nodeonly);
-void _scroll_backward (WINDOW *window, int count, int nodeonly);
+static void _scroll_forward (WINDOW *window, int count, int nodeonly);
+static void _scroll_backward (WINDOW *window, int count, int nodeonly);
 
-void
+static void
 _scroll_forward (WINDOW *window, int count, int nodeonly)
 {
   if (count < 0)
@@ -538,7 +538,7 @@ _scroll_forward (WINDOW *window, int count, int nodeonly)
     }
 }
 
-void
+static void
 _scroll_backward (WINDOW *window, int count, int nodeonly)
 {
   if (count < 0)

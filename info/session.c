@@ -570,9 +570,6 @@ info_gather_typeahead (int wait)
 
 static int get_input_key_internal (void);
 
-void _scroll_forward (WINDOW *window, int count, int nodeonly);
-void _scroll_backward (WINDOW *window, int count, int nodeonly);
-
 /* Whether to process or skip mouse events in the input stream. */
 unsigned char mouse_cb, mouse_cx, mouse_cy;
 
@@ -588,10 +585,10 @@ mouse_event_handler (void)
       switch (mouse_cb & 0x03)
         {
         case 0: /* Mouse button 4 (scroll up). */
-          _scroll_backward (active_window, 3, 1);
+          set_window_pagetop (active_window, active_window->pagetop - 3);
           break;
         case 1: /* Mouse button 5 (scroll down). */
-          _scroll_forward (active_window, 3, 1);
+          set_window_pagetop (active_window, active_window->pagetop + 3);
           break;
         }
     }
