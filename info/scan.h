@@ -37,8 +37,6 @@ void info_parse_node (char *string);
 size_t read_quoted_string (char *start, char *terminator, size_t lines,
                            char **output);
 
-void scan_node_contents (NODE *node, FILE_BUFFER *fb, TAG **tag_ptr);
-
 /* Get the menu entry associated with LABEL in NODE.  Return a
    pointer to the reference if found, or NULL.  If SLOPPY, accept
    initial substrings and check insensitively to case. */
@@ -73,6 +71,6 @@ void free_history_node (NODE *node);
    start and end of string. */
 void canonicalize_whitespace (char *string);
 
-
+void scan_node_contents (NODE *node, FILE_BUFFER *fb, TAG **tag_ptr);
 
 #endif /* not SCAN_H */

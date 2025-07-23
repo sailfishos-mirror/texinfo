@@ -40,7 +40,7 @@ char *info_parsed_nodename = NULL;
 /* Read a filename surrounded by "(" and ")", accounting for matching
    characters, and place it in *FILENAME if FILENAME is not null.  Return
    length of read filename.  On error, set *FILENAME to null and return 0.  */
-size_t
+static size_t
 read_bracketed_filename (char *string, char **filename)
 {
   register size_t i = 0;
@@ -484,7 +484,7 @@ static iconv_t iconv_to_utf8;
 
 #endif /* HAVE_ICONV */
 
-void
+static void
 init_conversion (FILE_BUFFER *fb)
 {
   char *target_encoding;
@@ -539,7 +539,8 @@ init_conversion (FILE_BUFFER *fb)
 #endif /* HAVE_ICONV */
 }
 
-void close_conversion (void)
+static void
+close_conversion (void)
 {
 #if HAVE_ICONV
   if (convert_encoding_p)
@@ -565,7 +566,7 @@ static size_t saved_offset;
 static char *saved_inptr;
 static long saved_difference;
 
-void
+static void
 save_conversion_state (void)
 {
   saved_offset = text_buffer_off (&output_buf);
@@ -574,7 +575,7 @@ save_conversion_state (void)
 }
 
 /* Go back to the saved state of the output stream. */
-void
+static void
 reset_conversion (void)
 {
   text_buffer_off (&output_buf) = saved_offset;
