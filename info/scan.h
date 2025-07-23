@@ -46,13 +46,14 @@ const REFERENCE *info_get_menu_entry_by_label (const NODE *node,
 /* A utility function for concatenating REFERENCE **.  Returns a new
    REFERENCE ** which is the concatenation of REF1 and REF2.  The REF1
    and REF2 arrays are freed, but their contents are not. */
-REFERENCE **info_concatenate_references (REFERENCE **ref1, REFERENCE **ref2);
+REFERENCE **info_concatenate_references (REFERENCE * const *ref1,
+                                         REFERENCE * const *ref2);
 
 /* Copy an existing reference into new memory.  */
 REFERENCE *info_copy_reference (const REFERENCE *src);
 
 /* Copy a list of existing references into new memory.  */
-REFERENCE **info_copy_references (REFERENCE **ref1);
+REFERENCE **info_copy_references (REFERENCE * const *ref1);
 
 /* Free the data associated with a single REF */
 void info_reference_free (REFERENCE *ref);
@@ -61,7 +62,7 @@ void info_reference_free (REFERENCE *ref);
 void info_free_references (REFERENCE **references);
 
 /* Create new REFERENCE structure. */
-REFERENCE *info_new_reference (char *filename, char *nodename);
+REFERENCE *info_new_reference (const char *filename, const char *nodename);
 
 /* Free a NODE object that is suitable for being placed in a window. */
 void free_history_node (NODE *node);

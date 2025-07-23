@@ -238,7 +238,8 @@ info_get_menu_entry_by_label (const NODE *node, const char *label, int sloppy)
 /* A utility function for concatenating REFERENCE **.  Returns a new
    REFERENCE ** which is the concatenation of REF1 and REF2.  */
 REFERENCE **
-info_concatenate_references (REFERENCE **ref1, REFERENCE **ref2)
+info_concatenate_references (REFERENCE * const *ref1,
+                             REFERENCE * const *ref2)
 {
   register int i, j;
   REFERENCE **result;
@@ -297,7 +298,7 @@ info_copy_reference (const REFERENCE *src)
 /* Copy a list of references, copying in reference in turn with
    info_copy_reference. */
 REFERENCE **
-info_copy_references (REFERENCE **ref1)
+info_copy_references (REFERENCE * const *ref1)
 {
   int i;
   REFERENCE **result;
@@ -350,7 +351,7 @@ info_free_references (REFERENCE **references)
 
 /* Return new REFERENCE with filename and nodename fields set. */
 REFERENCE *
-info_new_reference (char *filename, char *nodename)
+info_new_reference (const char *filename, const char *nodename)
 {
   REFERENCE *r = xmalloc (sizeof (REFERENCE));
   r->label = 0;
