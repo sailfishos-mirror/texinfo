@@ -2177,7 +2177,7 @@ sub _close_current($$$;$$) {
       } else {
         _line_error($self, sprintf(__("no matching `\@end %s'"),
                                    $command),
-                           $source_info);
+                           $current->{'source_info'});
       }
       _pop_block_command_contexts($self, $current, $source_info);
       # empty non-closed block commands at the end of the document

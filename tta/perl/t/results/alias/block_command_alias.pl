@@ -73,7 +73,7 @@ $result_errors{'block_command_alias'} = [
   {
     'error_line' => 'no matching `@end lisp\'
 ',
-    'line_nr' => 5,
+    'line_nr' => 3,
     'text' => 'no matching `@end lisp\'',
     'type' => 'error'
   }

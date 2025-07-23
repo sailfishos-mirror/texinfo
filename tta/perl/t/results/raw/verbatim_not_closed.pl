@@ -41,7 +41,7 @@ $result_errors{'verbatim_not_closed'} = [
   {
     'error_line' => 'no matching `@end verbatim\'
 ',
-    'line_nr' => 6,
+    'line_nr' => 1,
     'text' => 'no matching `@end verbatim\'',
     'type' => 'error'
   }

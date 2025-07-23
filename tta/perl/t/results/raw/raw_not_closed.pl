@@ -36,7 +36,7 @@ $result_errors{'raw_not_closed'} = [
   {
     'error_line' => 'no matching `@end html\'
 ',
-    'line_nr' => 4,
+    'line_nr' => 1,
     'text' => 'no matching `@end html\'',
     'type' => 'error'
   }

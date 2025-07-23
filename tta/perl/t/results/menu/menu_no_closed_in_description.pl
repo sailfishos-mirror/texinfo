@@ -39,7 +39,7 @@ $result_errors{'menu_no_closed_in_description'} = [
   {
     'error_line' => 'no matching `@end menu\'
 ',
-    'line_nr' => 2,
+    'line_nr' => 1,
     'text' => 'no matching `@end menu\'',
     'type' => 'error'
   }

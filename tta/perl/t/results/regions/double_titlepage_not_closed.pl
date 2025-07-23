@@ -61,14 +61,14 @@ $result_errors{'double_titlepage_not_closed'} = [
   {
     'error_line' => 'no matching `@end titlepage\'
 ',
-    'line_nr' => 8,
+    'line_nr' => 6,
     'text' => 'no matching `@end titlepage\'',
     'type' => 'error'
   },
   {
     'error_line' => 'no matching `@end titlepage\'
 ',
-    'line_nr' => 8,
+    'line_nr' => 1,
     'text' => 'no matching `@end titlepage\'',
     'type' => 'error'
   }

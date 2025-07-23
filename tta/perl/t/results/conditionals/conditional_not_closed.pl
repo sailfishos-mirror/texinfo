@@ -29,7 +29,7 @@ $result_errors{'conditional_not_closed'} = [
   {
     'error_line' => 'no matching `@end ifhtml\'
 ',
-    'line_nr' => 2,
+    'line_nr' => 1,
     'text' => 'no matching `@end ifhtml\'',
     'type' => 'error'
   }

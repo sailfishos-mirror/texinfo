@@ -418,8 +418,9 @@ close_current (ELEMENT *current,
             }
           else
             {
-              line_error ("no matching `@end %s'",
-                          command_name(cmd));
+              line_error_ext (MSG_error, 0, &current->e.c->source_info,
+                              "no matching `@end %s'",
+                              command_name(cmd));
 
             }
           pop_block_command_contexts (cmd);

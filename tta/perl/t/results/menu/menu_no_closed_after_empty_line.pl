@@ -48,7 +48,7 @@ $result_errors{'menu_no_closed_after_empty_line'} = [
   {
     'error_line' => 'no matching `@end menu\'
 ',
-    'line_nr' => 4,
+    'line_nr' => 1,
     'text' => 'no matching `@end menu\'',
     'type' => 'error'
   }

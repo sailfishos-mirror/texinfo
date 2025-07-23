@@ -31,7 +31,7 @@ $result_errors{'command_in_end_ignored_raw_one_char_before_command'} = [
   {
     'error_line' => 'no matching `@end html\'
 ',
-    'line_nr' => 3,
+    'line_nr' => 1,
     'text' => 'no matching `@end html\'',
     'type' => 'error'
   }

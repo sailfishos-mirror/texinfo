@@ -34,7 +34,7 @@ $result_errors{'nested_ignore_comment_no_eol'} = [
   {
     'error_line' => 'no matching `@end ignore\'
 ',
-    'line_nr' => 2,
+    'line_nr' => 1,
     'text' => 'no matching `@end ignore\'',
     'type' => 'error'
   }

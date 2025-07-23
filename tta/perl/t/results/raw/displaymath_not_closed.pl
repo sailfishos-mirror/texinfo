@@ -29,7 +29,7 @@ $result_errors{'displaymath_not_closed'} = [
   {
     'error_line' => 'no matching `@end displaymath\'
 ',
-    'line_nr' => 2,
+    'line_nr' => 1,
     'text' => 'no matching `@end displaymath\'',
     'type' => 'error'
   }

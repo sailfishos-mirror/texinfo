@@ -143,7 +143,7 @@ $result_errors{'not_closed'} = [
   {
     'error_line' => 'no matching `@end deffn\'
 ',
-    'line_nr' => 3,
+    'line_nr' => 1,
     'text' => 'no matching `@end deffn\'',
     'type' => 'error'
   }

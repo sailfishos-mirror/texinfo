@@ -56,7 +56,7 @@ $result_errors{'command_in_end_expanded_raw_in_command'} = [
   {
     'error_line' => 'no matching `@end tex\'
 ',
-    'line_nr' => 3,
+    'line_nr' => 1,
     'text' => 'no matching `@end tex\'',
     'type' => 'error'
   }

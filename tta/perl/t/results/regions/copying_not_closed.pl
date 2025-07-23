@@ -31,7 +31,7 @@ $result_errors{'copying_not_closed'} = [
   {
     'error_line' => 'no matching `@end copying\'
 ',
-    'line_nr' => 3,
+    'line_nr' => 1,
     'text' => 'no matching `@end copying\'',
     'type' => 'error'
   }

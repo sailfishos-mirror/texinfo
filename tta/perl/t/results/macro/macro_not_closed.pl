@@ -28,7 +28,7 @@ $result_errors{'macro_not_closed'} = [
   {
     'error_line' => 'no matching `@end macro\'
 ',
-    'line_nr' => 2,
+    'line_nr' => 1,
     'text' => 'no matching `@end macro\'',
     'type' => 'error'
   }

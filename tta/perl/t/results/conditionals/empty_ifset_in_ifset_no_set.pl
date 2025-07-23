@@ -38,7 +38,7 @@ $result_errors{'empty_ifset_in_ifset_no_set'} = [
   {
     'error_line' => 'no matching `@end ifset\'
 ',
-    'line_nr' => 6,
+    'line_nr' => 2,
     'text' => 'no matching `@end ifset\'',
     'type' => 'error'
   }

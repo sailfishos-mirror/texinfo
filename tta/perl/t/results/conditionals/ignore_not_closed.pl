@@ -30,7 +30,7 @@ $result_errors{'ignore_not_closed'} = [
   {
     'error_line' => 'no matching `@end ignore\'
 ',
-    'line_nr' => 3,
+    'line_nr' => 1,
     'text' => 'no matching `@end ignore\'',
     'type' => 'error'
   }

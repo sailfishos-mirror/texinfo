@@ -52,7 +52,7 @@ $result_errors{'nested_ignore'} = [
   {
     'error_line' => 'no matching `@end ignore\'
 ',
-    'line_nr' => 14,
+    'line_nr' => 1,
     'text' => 'no matching `@end ignore\'',
     'type' => 'error'
   }

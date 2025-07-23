@@ -59,7 +59,7 @@ $result_errors{'end_bad_end_argument_and_superfluous_arg'} = [
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'line_nr' => 3,
+    'line_nr' => 1,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'
   }

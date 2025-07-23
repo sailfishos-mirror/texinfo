@@ -34,7 +34,7 @@ $result_errors{'not_closed_item'} = [
   {
     'error_line' => 'no matching `@end itemize\'
 ',
-    'line_nr' => 2,
+    'line_nr' => 1,
     'text' => 'no matching `@end itemize\'',
     'type' => 'error'
   }

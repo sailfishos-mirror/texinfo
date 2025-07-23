@@ -352,35 +352,35 @@ $result_errors{'command_in_end'} = [
   {
     'error_line' => 'no matching `@end verbatim\'
 ',
-    'line_nr' => 31,
+    'line_nr' => 29,
     'text' => 'no matching `@end verbatim\'',
     'type' => 'error'
   },
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'line_nr' => 31,
+    'line_nr' => 13,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'
   },
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'line_nr' => 31,
+    'line_nr' => 9,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'
   },
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'line_nr' => 31,
+    'line_nr' => 5,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'
   },
   {
     'error_line' => 'no matching `@end quotation\'
 ',
-    'line_nr' => 31,
+    'line_nr' => 1,
     'text' => 'no matching `@end quotation\'',
     'type' => 'error'
   }

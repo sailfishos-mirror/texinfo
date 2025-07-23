@@ -48,7 +48,7 @@ $result_errors{'multitable_not_closed_item'} = [
   {
     'error_line' => 'no matching `@end multitable\'
 ',
-    'line_nr' => 2,
+    'line_nr' => 1,
     'text' => 'no matching `@end multitable\'',
     'type' => 'error'
   }
