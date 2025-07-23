@@ -25,6 +25,9 @@ use warnings;
 
 use Carp qw(cluck confess);
 
+# to determine the path separator
+use Config;
+
 # for fileparse
 use File::Basename;
 use File::Spec;
@@ -32,6 +35,10 @@ use File::Spec;
 use File::Path;
 
 use Encode;
+
+use Getopt::Long qw(GetOptions);
+
+use Cwd;
 
 BEGIN {
   my ($real_command_name, $command_directory, $command_suffix)
@@ -58,25 +65,24 @@ BEGIN {
   # push @INC, 'blib/arch', 'blib/lib';
 }
 
-use Getopt::Long qw(GetOptions);
-
-# for fileparse
-use File::Basename;
-
-use File::Spec;
-
-use Cwd;
-
 use Texinfo;
 
 my ($real_command_name, $command_directory, $command_suffix)
    = fileparse($0, '.pl');
+
+# determine the path separators
+my $path_separator = $Config{'path_sep'};
+$path_separator = ':' if (!defined($path_separator));
+my $quoted_path_separator = quotemeta($path_separator);
+
+my @include_dirs = ();
 
 Getopt::Long::Configure("gnu_getopt");
 
 my $debug = 0;
 my $result_options = Getopt::Long::GetOptions (
  'debug|d' => \$debug,
+ 'I=s' => sub { push @include_dirs, split(/$quoted_path_separator/, $_[1]); },
 );
 
 Texinfo::setup(1);
@@ -125,11 +131,28 @@ if (defined($output_dir)) {
   }
 }
 
-if (defined($input_directory) and $input_directory ne ''
-    and $input_directory ne $curdir) {
-  Texinfo::parser_conf_clear_INCLUDE_DIRECTORIES();
-  Texinfo::parser_conf_add_include_directory($curdir);
-  Texinfo::parser_conf_add_include_directory($input_directory);
+my $canon_input_dir;
+if (!defined($input_directory) or $input_directory eq '') {
+  $input_directory = $curdir;
+  $canon_input_dir = $curdir;
+} else {
+  $canon_input_dir = File::Spec->canonpath($input_directory);
+}
+
+my @prepended_include_directories = ($curdir);
+push @prepended_include_directories, $input_directory
+      if ($canon_input_dir ne $curdir);
+
+unshift @include_dirs, @prepended_include_directories;
+
+Texinfo::parser_conf_clear_INCLUDE_DIRECTORIES();
+foreach my $dir (@include_dirs) {
+  Texinfo::parser_conf_add_include_directory($dir);
+}
+
+Texinfo::parser_conf_clear_expanded_formats();
+foreach my $format ('info', 'plaintext', 'html', 'latex', 'docbook', 'xml') {
+  Texinfo::parser_conf_add_expanded_format($format);
 }
 
 my ($document, $status) = Texinfo::parse_file($input_file);
@@ -470,7 +493,8 @@ sub _convert($$$;$) {
             }
             if ($cmdname eq 'verb') {
               $$result
-             .= Texinfo::element_attribute_string($element, 'delimiter');
+                .= _decode(
+                   Texinfo::element_attribute_string($element, 'delimiter'));
             }
           }
           push @$args_stack, 0;
