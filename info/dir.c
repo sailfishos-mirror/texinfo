@@ -216,11 +216,11 @@ insert_text_into_node (NODE *node, size_t start, char *text, size_t textlen)
   node->nodelen += textlen;
 }
 
-/* Return directory entry.  Return value should not be freed or modified. */
-REFERENCE *
+/* Return directory entry. */
+const REFERENCE *
 lookup_dir_entry (const char *label, int sloppy)
 {
-  REFERENCE *entry;
+  const REFERENCE *entry;
 
   if (!dir_node)
     dir_node = build_dir_node ();
@@ -232,7 +232,7 @@ lookup_dir_entry (const char *label, int sloppy)
 
 /* Look up entry in "dir" in search directory.  Return
    value is a pointer to a newly allocated REFERENCE. */
-REFERENCE *
+const REFERENCE *
 dir_entry_of_infodir (const char *label, const char *searchdir)
 {
   char *dir_fullpath;
@@ -243,7 +243,8 @@ dir_entry_of_infodir (const char *label, const char *searchdir)
   char *entry_fullpath;
 
   NODE *dir_node;
-  REFERENCE *entry;
+  const REFERENCE *entry;
+  REFERENCE *entry2;
 
   if (IS_ABSOLUTE(searchdir))
     len = xasprintf (&dir_fullpath, "%s/dir%s", searchdir, PADDING);
@@ -268,15 +269,15 @@ dir_entry_of_infodir (const char *label, const char *searchdir)
       /* A dir entry with no filename is unlikely, but not impossible. */
     }
 
-  entry = info_copy_reference (entry);
-  entry_fullpath = info_file_of_infodir (entry->filename, searchdir, &dummy);
+  entry2 = info_copy_reference (entry);
+  entry_fullpath = info_file_of_infodir (entry2->filename, searchdir, &dummy);
   if (entry_fullpath)
     {
-      free (entry->filename);
-      entry->filename = entry_fullpath;
+      free (entry2->filename);
+      entry2->filename = entry_fullpath;
     }
 
   free_history_node (dir_node);
-  return entry;
+  return entry2;
 }
 

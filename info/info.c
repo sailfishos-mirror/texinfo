@@ -173,7 +173,7 @@ static void init_messages (void);
 static void
 get_initial_file (int *argc, char ***argv, char **error)
 {
-  REFERENCE *entry;
+  const REFERENCE *entry;
 
   /* If --file was not used and there is a slash in the first non-option
      argument (e.g. "info subdir/file.info"), do not search the dir files
@@ -610,10 +610,11 @@ info_find_matching_files (char *filename)
   for (searchdir = infopath_first (&i); searchdir;
        searchdir = infopath_next (&i))
     {
-      REFERENCE *new_ref = dir_entry_of_infodir (filename, searchdir);
+      const REFERENCE *new_ref = dir_entry_of_infodir (filename, searchdir);
 
       if (new_ref)
-        add_pointer_to_array (new_ref, ref_index, ref_list, ref_slots, 2);
+        add_pointer_to_array (info_copy_reference (new_ref),
+                              ref_index, ref_list, ref_slots, 2);
     }
 
   /* Look for files with matching names. */

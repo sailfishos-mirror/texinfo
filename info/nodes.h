@@ -163,7 +163,8 @@ NODE *node_from_hook_output (char *hook_name, char *hook_output, int count);
 
 /* Found in dir.c */
 NODE *get_dir_node (void);
-REFERENCE *lookup_dir_entry (const char *label, int sloppy);
-REFERENCE *dir_entry_of_infodir (const char *label, const char *searchdir);
+const REFERENCE *lookup_dir_entry (const char *label, int sloppy);
+const REFERENCE *dir_entry_of_infodir (const char *label,
+                                       const char *searchdir);
 
 #endif /* not NODES_H */

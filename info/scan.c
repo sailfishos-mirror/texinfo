@@ -207,8 +207,8 @@ read_quoted_string (char *start, char *terminator, size_t lines, char **output)
    pointer to the ENTRY if found, or null.  Return value should not
    be freed by caller.  If SLOPPY, allow initial matches, like
    "Buffers" for a LABEL "buffer". */
-REFERENCE *
-info_get_menu_entry_by_label (NODE *node, const char *label, int sloppy)
+const REFERENCE *
+info_get_menu_entry_by_label (const NODE *node, const char *label, int sloppy)
 {
   register int i;
   int best_guess = -1;
@@ -280,7 +280,7 @@ info_concatenate_references (REFERENCE **ref1, REFERENCE **ref2)
 
 /* Copy a reference structure.  Copy each field into new memory.  */
 REFERENCE *
-info_copy_reference (REFERENCE *src)
+info_copy_reference (const REFERENCE *src)
 {
   REFERENCE *dest = xmalloc (sizeof (REFERENCE));
   dest->label = src->label ? xstrdup (src->label) : NULL;

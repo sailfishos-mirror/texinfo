@@ -1,5 +1,19 @@
 2025-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	const for info
+	
+	* info/scan.c (info_get_menu_entry_by_label, info_copy_reference)
+	* info/session-cmd.c (info_select_reference)
+	* info/dir.c (lookup_dir_entry, dir_entry_of_infodir)
+	Declare more parameters and return values as const.
+
+	* info/session-cmd.c (info_intuit_options_node): Avoid modifying
+	field in REFERENCE object returned by info_get_menu_entry_by_label.
+	* info/info.c (info_find_matching_files): Copy REFERENCE before
+	adding it to a list.
+
+2025-07-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	info/scan.h
 
 	* info/scan.c (read_bracketed_filename, init_conversion)

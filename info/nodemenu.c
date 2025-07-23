@@ -267,7 +267,7 @@ DECLARE_INFO_COMMAND (select_visited_node,
     info_abort ();
   else if (*line)
     {
-      REFERENCE *entry;
+      const REFERENCE *entry;
 
       /* Find the selected label in the references. */
       entry = info_get_menu_entry_by_label (node, line, 0);

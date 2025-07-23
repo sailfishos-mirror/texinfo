@@ -1163,7 +1163,7 @@ size_t hook_node_slots = 0;
    in it.  If the node is selected, the window and node are remembered.
    Display an error message if reference couldn't be selected and return 0. */
 int
-info_select_reference (WINDOW *window, REFERENCE *entry)
+info_select_reference (WINDOW *window, const REFERENCE *entry)
 {
   NODE *node;
   char *file_system_error = NULL;
@@ -1898,7 +1898,7 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
 
   for (; *menus; menus++)
     {
-      REFERENCE *entry;
+      const REFERENCE *entry;
       char *arg = *menus; /* Remember the name of the menu entry we want. */
 
       debug (3, ("looking for %s in %s:%s", arg, initial_node->fullpath,
@@ -2611,7 +2611,7 @@ info_intuit_options_node (NODE *node, char *program)
   while (1)
     {
       const char **try_node;
-      REFERENCE *entry = NULL;
+      const REFERENCE *entry = NULL;
 
       /* If no menu in this node, stop here.  Perhaps this node
          is the one they need.  */
@@ -2638,12 +2638,10 @@ info_intuit_options_node (NODE *node, char *program)
 
       /* Go down into menu, and repeat. */
 
-      if (!entry->filename)
-        entry->filename = xstrdup (filename);
-
       {
         NODE *node2;
-        node2 = info_get_node (entry->filename, entry->nodename);
+        node2 = info_get_node (entry->filename ? entry->filename : filename,
+                               entry->nodename);
         if (!node2)
           break;
         free_history_node (node);
