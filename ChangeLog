@@ -1,5 +1,12 @@
 2025-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.h: review to match order of nodes.c.  remove
+	several comments about functions duplicating what was in the
+	*.c files.  move a couple of declarations to other header
+	files as those symbols weren't actually defined in nodes.c.
+
+2025-07-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session-cmd.c (_scroll_forward, _scroll_backward):
 	declare as static.
 	* info/session.c (mouse_event_handler): Call set_window_pagetop

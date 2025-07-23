@@ -131,64 +131,34 @@ typedef struct {
 #define F_Subfile      0x08     /* File buffer is a subfile of a split file. */
 #define F_Gone         0x10     /* File is no more. */
 
+/* When non-zero, this is a string describing the most recent file error. */
+extern char *info_recent_file_error;
+
+void build_tags_and_nodes (FILE_BUFFER *file_buffer);
+
 /* Array of FILE_BUFFER * which represents the currently loaded info files. */
 extern FILE_BUFFER **info_loaded_files;
 extern size_t info_loaded_files_index;
 extern size_t info_loaded_files_slots;
 
-/* Locate the file named by FILENAME, and return the information structure
-   describing this file.  The file may appear in our list of loaded files
-   already, or it may not.  If it does not already appear, find the file,
-   and add it to the list of loaded files.  If the file cannot be found,
-   return a NULL FILE_BUFFER *. */
-FILE_BUFFER *info_find_file (const char *filename);
-
 FILE_BUFFER *check_loaded_file (const char *filename);
-
+FILE_BUFFER *info_find_file (const char *filename);
 FILE_BUFFER *info_find_subfile (char *filename);
 
-TAG *info_create_tag (void);
-
-/* Return a pointer to a new NODE structure. */
-NODE *info_create_node (void);
-
-NODE *info_get_node (const char *filename, const char *nodename);
-
-NODE *info_node_of_tag (FILE_BUFFER *fb, TAG **tag_ptr);
-NODE *info_node_of_tag_fast (FILE_BUFFER *fb, TAG **tag_ptr);
-
-/* Return a pointer to a NODE structure for the Info node NODENAME in
-   FILE_BUFFER.  NODENAME can be passed as NULL, in which case the
-   nodename of "Top" is used.  If the node cannot be found, return a
-   NULL pointer. */
-NODE *info_get_node_of_file_buffer (FILE_BUFFER *file_buffer,
-                                           const char *nodename);
-
-/* Grovel FILE_BUFFER->contents finding tags and nodes, and filling in the
-   various slots.  This can also be used to rebuild a tag or node table. */
-void build_tags_and_nodes (FILE_BUFFER *file_buffer);
-
-void free_history_node (NODE *n);
-
-/* When non-zero, this is a string describing the most recent file error. */
-extern char *info_recent_file_error;
-
-/* Create a new, empty file buffer. */
 FILE_BUFFER *make_file_buffer (void);
 
-/* Non-zero means don't try to be smart when searching for nodes.  */
-extern int strict_node_location_p;
-
+TAG *info_create_tag (void);
+NODE *info_create_node (void);
+NODE *info_get_node (const char *filename, const char *nodename);
+NODE *info_get_node_of_file_buffer (FILE_BUFFER *file_buffer,
+                                           const char *nodename);
+NODE *info_node_of_tag (FILE_BUFFER *fb, TAG **tag_ptr);
+NODE *info_node_of_tag_fast (FILE_BUFFER *fb, TAG **tag_ptr);
 char *node_printed_rep (NODE *node);
 
-/* Return non-zero if NODE is one especially created by Info. */
 int internal_info_node_p (NODE *node);
-
-/* Make NODE appear to be one especially created by Info, and give it NAME. */
 void name_internal_node (NODE *node, char *name);
-
 NODE *node_from_hook_output (char *hook_name, char *hook_output, int count);
-
 
 
 /* Found in dir.c */

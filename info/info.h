@@ -119,6 +119,9 @@ extern int vi_keys_p;
 /* Non-zero means don't remove ANSI escape sequences from man pages.  */
 extern int raw_escapes_p;
 
+/* Non-zero means don't try to be smart when searching for nodes.  */
+extern int strict_node_location_p;
+
 /* Error message defines. */
 extern const char *msg_cant_find_node;
 extern const char *msg_cant_file_node;

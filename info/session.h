@@ -84,6 +84,7 @@ char *program_name_from_file_name (char *file_name);
 void info_delete_window_internal (WINDOW *window);
 
 void forget_window_and_nodes (WINDOW *window);
+void free_history_node (NODE *n);
 void forget_node (WINDOW *win);
 int forget_node_fast (WINDOW *win);
 
