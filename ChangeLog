@@ -1,5 +1,9 @@
 2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: update a couple of items for Info.
+
+2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Save directory name with file record
 
 	* info/nodes.h (FILE_BUFFER): Add 'infodir' field.
