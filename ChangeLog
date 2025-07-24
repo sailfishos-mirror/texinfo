@@ -1,3 +1,14 @@
+2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Check infodir in loaded file list
+
+	* info/nodes.c (check_loaded_file_in_infodir):
+	New function to check both directory and filename in
+	list of loaded files.
+	* info/session-cmd.c (filename_for_xref): Use it before
+	calling info_file_of_infodir.  This means we avoid repeatedly
+	checking the filesystem for the same file.
+
 2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: update a couple of items for Info.

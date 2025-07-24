@@ -634,6 +634,25 @@ check_loaded_file (const char *filename)
   return 0;
 }
 
+/* Check if we have loaded a manual called FILENAME inside the INFODIR
+   directory. */
+FILE_BUFFER *
+check_loaded_file_in_infodir (const char *filename, const char *infodir)
+{
+  int i;
+  FILE_BUFFER *file_buffer;
+  if (info_loaded_files)
+    {
+      for (i = 0; (file_buffer = info_loaded_files[i]); i++)
+        if (   (FILENAME_CMP (filename, file_buffer->filename) == 0)
+            && (FILENAME_CMP (infodir, file_buffer->infodir) == 0))
+          {
+            return file_buffer;
+          }
+    }
+  return NULL;
+}
+
 /* Locate the file named by FILENAME, and return the information structure
    describing this file.  The file may appear in our list of loaded files
    already, or it may not.  If it does not already appear, find the file,

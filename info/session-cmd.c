@@ -1127,13 +1127,22 @@ filename_for_xref (char *filename_in, NODE *defaults)
             {
               saved_char = *p;
               *p = 0;
-              free (file_in_same_dir);
-              file_in_same_dir = info_file_of_infodir (filename_in,
-                                   defaults->fullpath, 0);
-              *p = saved_char;
-
-              if (file_in_same_dir)
-                filename = file_in_same_dir;
+              FILE_BUFFER *fb = check_loaded_file_in_infodir (filename_in,
+                                                          defaults->fullpath);
+              if (fb)
+                {
+                  filename = fb->fullpath;
+                  *p = saved_char;
+                }
+              else
+                {
+                  free (file_in_same_dir);
+                  file_in_same_dir = info_file_of_infodir (filename_in,
+                                       defaults->fullpath, 0);
+                  *p = saved_char;
+                  if (file_in_same_dir)
+                    filename = file_in_same_dir;
+                }
             }
         }
     }

@@ -143,6 +143,8 @@ extern size_t info_loaded_files_index;
 extern size_t info_loaded_files_slots;
 
 FILE_BUFFER *check_loaded_file (const char *filename);
+FILE_BUFFER *check_loaded_file_in_infodir (const char *filename,
+                                           const char *infodir);
 FILE_BUFFER *info_find_file (const char *filename);
 FILE_BUFFER *info_find_subfile (const char *filename);
 
