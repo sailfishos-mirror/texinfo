@@ -1103,7 +1103,7 @@ int follow_strategy;
 /* Return file name to use to look for node NODENAME.
    Return value becomes invalid after a subsequent call. */
 static const char *
-filename_for_xref (char *filename_in, char *nodename, NODE *defaults)
+filename_for_xref (char *filename_in, NODE *defaults)
 {
   static char *file_in_same_dir;
   char *filename = filename_in;
@@ -1166,7 +1166,7 @@ info_get_node_with_defaults (char *filename, char *nodename, NODE *defaults)
           || !strcmp (filename, MANPAGE_FILE_BUFFER_NAME)))
     fullpath = filename;
   else
-    fullpath = filename_for_xref (filename, nodename, defaults);
+    fullpath = filename_for_xref (filename, defaults);
 
   if (fullpath)
     return info_get_node (fullpath, nodename);
@@ -1185,18 +1185,62 @@ size_t hook_node_slots = 0;
 int
 info_select_reference (WINDOW *window, const REFERENCE *entry)
 {
-  NODE *node;
+  FILE_BUFFER *file_buffer = 0;
+  NODE *node = 0;
   char *file_system_error = NULL;
 
-  /* We need to copy everything from entry because the call to
-     info_get_node_with_defaults can free it if it came from
-     the tag table of a file. */
   char *filename = entry->filename;
   char *nodename = entry->nodename;
   char *label = entry->label;
   int line_number = entry->line_number;
 
-  node = info_get_node_with_defaults (filename, nodename, window->node);
+  /* Deal with references to dir node or a man page first. */
+  if (filename && is_dir_name (filename))
+    {
+      node = get_dir_node ();
+      goto put_node_in_window;
+    }
+  else if (filename && strcmp (filename, MANPAGE_FILE_BUFFER_NAME) == 0)
+    {
+      node = get_manpage_node (nodename && *nodename
+                                ? nodename : "intro");
+      goto put_node_in_window;
+    }
+
+  const char *fullpath = filename_for_xref (filename, window->node);
+  if (fullpath)
+    file_buffer = info_find_file (fullpath);
+
+  if (!file_buffer)
+    {
+      char *hook_output = 0;
+      char *hook_name = "node-not-found-interactive";
+      char *hook_argv[3];
+      hook_argv[0] = hook_name;
+      hook_argv[1] = filename;
+      hook_argv[2] = 0;
+
+      int status = run_info_hook (hook_name, hook_argv, &hook_output);
+      if (status == 0)
+        {
+          node = node_from_hook_output (hook_name, hook_output,
+                                              hook_node_index + 1);
+          add_pointer_to_array (node, hook_node_index,
+                                hook_nodes,
+                                hook_node_slots, 100);
+          goto put_node_in_window;
+        }
+    }
+
+  if (file_buffer)
+    {
+      /* If NODENAME is not specified, it defaults to "Top". */
+      if (!nodename || !*nodename)
+        nodename = "Top";
+
+      /* Look for the node.  */
+      node = info_get_node_of_file_buffer (file_buffer, nodename);
+    }
 
   /* Try something a little weird.  If the node couldn't be found, and the
      reference was of the form "foo::", see if the entry->label can be found
@@ -1217,26 +1261,7 @@ info_select_reference (WINDOW *window, const REFERENCE *entry)
         }
     }
 
-  if (!node && filename)
-    {
-      char *hook_output = 0;
-      char *hook_name = "node-not-found-interactive";
-      char *hook_argv[3];
-      hook_argv[0] = hook_name;
-      hook_argv[1] = filename;
-      hook_argv[2] = 0;
-
-      int status = run_info_hook (hook_name, hook_argv, &hook_output);
-      if (status == 0)
-        {
-          node = node_from_hook_output (hook_name, hook_output,
-                                              hook_node_index + 1);
-          add_pointer_to_array (node, hook_node_index,
-                                hook_nodes,
-                                hook_node_slots, 100);
-        }
-    }
-
+ put_node_in_window:
   if (!node)
     {
       if (file_system_error)

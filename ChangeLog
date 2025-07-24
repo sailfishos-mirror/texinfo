@@ -1,5 +1,17 @@
 2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Don't run hook if file for manual is found but node isn't.
+
+	* info/session-cmd.c (info_select_reference): Inline some code
+	from info_get_node_with_defaults and info_get_node.  Only
+	trigger the 'node-not-found-interactive' hook if the manual
+	is not found, not if a node is not found within a manual that
+	is found.
+
+	* info/session-cmd.c (filename_for_xref): Remove an unused argument.
+
+2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session-cmd.c (filename_for_xref): New function, splitting
 	out logic from info_get_node_with_defaults.
 	(info_get_node_with_defaults): Use it.  Omit calling it if
