@@ -22,18 +22,28 @@ use strict;
 
 use Test::More;
 
+# for fileparse
+use File::Basename;
+use File::Spec;
+
 plan tests => 2;
 
 BEGIN {
+  my ($real_command_name, $command_directory, $command_suffix)
+              = fileparse($0, '.pl');
+  my $updir = File::Spec->updir();
+
   # to find Texinfo.pm
   my $srcdir = $ENV{'srcdir'};
-  if (defined($srcdir)) {
-    unshift @INC, $srcdir;
+  if (!defined($srcdir)) {
+    $command_directory = File::Spec->curdir()
+      if (!defined($command_directory) or $command_directory eq '');
+    $srcdir = join('/', ($command_directory, $updir));
   }
+  unshift @INC, $srcdir;
   # To find the XS extension
   my $t2a_builddir = $ENV{'t2a_builddir'};
   if (!defined($t2a_builddir) and defined($srcdir)) {
-    my $updir = File::Spec->updir();
     # this is correct for in-source builds only.
     $t2a_builddir = join('/', ($srcdir, $updir, $updir));
   }

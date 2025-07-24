@@ -1,5 +1,13 @@
 2025-07-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/t/30source_marks.t (BEGIN): find the source directory
+	by using the command location if there is no information in the
+	environment.
+
+	* tta/swig/README: update.
+
+2025-07-24 Patrice Dumas  <pertusus@free.fr>
+
 	Check linking with libperl
 
 	* tta/configure.ac (libperl_link, LIBPERL_LINK), tta/swig/Makefile.am
