@@ -1,0 +1,34 @@
+This directory contains
+* scripts to get from internet and extract Texinfo manuals. Some manuals are
+  modified/fixed after extraction too.
+* comparison of Perl, Perl with XS, and C texi2any implementation results. 
+* comparison of input manual and manual recreated by parse_refold.pl, which
+  should be exactly the same barring errors in manuals.
+
+
+Preparing manuals
+=================
+
+get_manuals.sh: download manuals
+extract_manuals.sh: extract manuals and postprocess some of them, fixing/adding
+
+Comparison of Perl and C results
+================================
+
+Following two scripts are called by other scripts:
+generate_perlVSC.sh: output HTML with texi2any.pl
+generate_C.sh: output HTML with ctexi2any
+
+setup_reference_perlVSC.sh: pure Perl HTML output with texi2any.pl
+output_ConvertXS_perlVSC.sh: Perl with XS extension HTML output
+output_convert_C.sh: C main program HTML output (with embedded Perl)
+
+check_perlVSC.sh: compare Perl and XS, and XS and C (with embedded Perl)
+
+Comparison of recreated manual
+==============================
+
+check_refold.sh: call parse_refold.pl and compare output with initial
+manual.
+notes_on_manuals.txt: notes explaining why refolded manuals may be
+different/missing.

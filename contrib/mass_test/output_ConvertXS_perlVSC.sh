@@ -1,5 +1,5 @@
 #! /bin/sh
-# Setup HTML output using C in conversion
+# Setup HTML output using XS in conversion
 #
 # Copyright 2024-2025 Free Software Foundation, Inc.
 #
@@ -14,6 +14,7 @@
 
 set -e
 
+# Note that it is the default nowadays
 TEXINFO_XS_CONVERT=1
 export TEXINFO_XS_CONVERT
 

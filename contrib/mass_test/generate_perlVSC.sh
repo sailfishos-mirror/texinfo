@@ -1,5 +1,5 @@
 #! /bin/sh
-# Output HTML
+# Output HTML with texi2any.pl
 #
 # Copyright 2024-2025 Free Software Foundation, Inc.
 #
