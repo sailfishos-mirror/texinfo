@@ -121,114 +121,50 @@ extern WINDOW *the_echo_area;   /* THE_ECHO_AREA is a window in THE_SCREEN. */
 
 extern int show_malformed_multibyte_p; /* Show malformed multibyte sequences */
 
- /* Make the modeline member for WINDOW. */
-void window_make_modeline (WINDOW *window);
-
-/* Initalize the window system by creating THE_SCREEN and THE_ECHO_AREA.
-   Create the first window ever, and make it permanent.
-   You pass WIDTH and HEIGHT; the dimensions of the total screen size. */
 void window_initialize_windows (int width, int height);
-
-/* Make a new window by splitting an existing one. If the window could
-   not be made return a null pointer.  The active window is not changed .*/
-WINDOW *window_make_window (void);
-
-/* Delete WINDOW from the list of known windows.  If this window was the
-   active window, make the next window in the chain be the active window,
-   or the previous window in the chain if there is no next window. */
-void window_delete_window (WINDOW *window);
-
-/* Set WINDOW to display NODE. */
-void window_set_node_of_window (WINDOW *window, NODE *node);
-
-/* Tell the window system that the size of the screen has changed.  This
-   causes lots of interesting things to happen.  The permanent windows
-   are resized, as well as every visible window.  You pass WIDTH and HEIGHT;
-   the dimensions of the total screen size. */
 void window_new_screen_size (int width, int height);
-
-/* Change the height of WINDOW by AMOUNT.  This also automagically adjusts
-   the previous and next windows in the chain.  If there is only one user
-   window, then no change takes place. */
+WINDOW *window_make_window (void);
 void window_change_window_height (WINDOW *window, int amount);
 
-void set_window_pagetop (WINDOW *window, int desired_top);
-
-/* Adjust the pagetop of WINDOW such that the cursor point will be visible. */
-void window_adjust_pagetop (WINDOW *window);
-
-/* Tile all of the windows currently displayed in the global variable
-   WINDOWS.  If argument DO_INTERNALS is non-zero, tile windows displaying
-   internal nodes as well. */
 #define DONT_TILE_INTERNALS 0
 #define TILE_INTERNALS      1
 void window_tile_windows (int style);
 
-/* Toggle the state of line wrapping in WINDOW.  This can do a bit of fancy
-   redisplay. */
 void window_toggle_wrap (WINDOW *window);
+void window_set_node_of_window (WINDOW *window, NODE *node);
+void window_delete_window (WINDOW *window);
 
-/* For every window in CHAIN, set the flags member to have FLAG set. */
 void window_mark_chain (WINDOW *chain, int flag);
-
-/* For every window in CHAIN, clear the flags member of FLAG. */
 void window_unmark_chain (WINDOW *chain, int flag);
 
-/* Make WINDOW start displaying at PERCENT percentage of its node. */
+long window_log_to_phys_line (WINDOW *window, long ln);
+void set_window_pagetop (WINDOW *window, int desired_top);
+void window_adjust_pagetop (WINDOW *window);
+long window_line_of_point (WINDOW *window);
+long window_get_cursor_column (WINDOW *window);
+void window_make_modeline (WINDOW *window);
 void window_goto_percentage (WINDOW *window, int percent);
 
-/* Build a new node which has AP printed according to FORMAT as the
-   contents. */
-NODE *build_message_node (const char *format, va_list ap);
+void free_echo_area (void);
+void window_clear_echo_area (void);
+void vwindow_message_in_echo_area (const char *format, va_list ap);
+void window_message_in_echo_area (const char *format, ...)
+  TEXINFO_PRINTFLIKE(1,2);
+void message_in_echo_area (const char *format, ...)
+  TEXINFO_PRINTFLIKE(1,2);
+void unmessage_in_echo_area (void);
 
+NODE *build_message_node (const char *format, va_list ap);
 NODE *format_message_node (const char *format, ...)
   TEXINFO_PRINTFLIKE(1,2);
 
 struct text_buffer;
 NODE *text_buffer_to_node (struct text_buffer *tb);
 
-/* Make a message appear in the echo area, built from arguments formatted
-   according to FORMAT.
-
-   The message appears immediately.  If there was
-   already a message appearing in the echo area, it is removed. */
-void window_message_in_echo_area (const char *format, ...)
-  TEXINFO_PRINTFLIKE(1,2);
-
-void vwindow_message_in_echo_area (const char *format, va_list ap);
-
-void free_echo_area (void);
-
-/* Place a temporary message in the echo area built from arguments
-   formatted as per FORMAT.
-
-   The message appears immediately, but does not destroy
-   any existing message.  A future call to unmessage_in_echo_area ()
-   restores the old contents. */
-void message_in_echo_area (const char *format, ...)
-  TEXINFO_PRINTFLIKE(1,2);
-
-void unmessage_in_echo_area (void);
-
-/* Clear the echo area, removing any message that is already present.
-   The echo area is cleared immediately. */
-void window_clear_echo_area (void);
-
-/* Return the index of the line containing point. */
-long window_line_of_point (WINDOW *window);
-
-/* Get and return the printed column offset of the cursor in this window. */
-long window_get_cursor_column (WINDOW *window);
-
-void window_compute_line_map (WINDOW *win);
-
-size_t window_point_to_column (WINDOW *win, long point, long *np);
-
-void window_line_map_init (WINDOW *win);
-
-long window_log_to_phys_line (WINDOW *window, long ln);
-
 void calculate_line_starts (WINDOW *window);
 
+void window_line_map_init (WINDOW *win);
+void window_compute_line_map (WINDOW *win);
+size_t window_point_to_column (WINDOW *win, long point, long *np);
 
 #endif /* not INFO_WINDOW_H */

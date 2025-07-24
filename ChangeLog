@@ -1,5 +1,18 @@
 2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	review info/window.h
+
+	* info/window.h: Reorder to match order of window.c, and remove
+	duplicative comments.
+
+	* info/window.c (window_initialize_windows): Remove part of
+	comment discussing non-existent "deleter" parameter.
+	(window_message_in_echo_area, message_in_echo_area):
+	Remove obsolete parts of comment from when these were not a variadic
+	functions.
+
+2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/window.h: Remove declaration for 'window_scroll_step'
 	that is duplicated in variables.h.
 

@@ -75,12 +75,9 @@ window_initialize_windows (int width, int height)
 }
 
 /* Given that the size of the screen has changed to WIDTH and HEIGHT
-   from whatever it was before (found in the_screen->height, ->width),
+   from whatever it was before (found in the_screen->height, ->width)
    change the size (and possibly location) of each window in the screen.
-   If a window would become too small, call the function DELETER on it,
-   after deleting the window from our chain of windows.  If DELETER is NULL,
-   nothing extra is done.  The last window can never be deleted, but it can
-   become invisible. */
+   The last window can never be deleted, but it can become invisible. */
 void
 window_new_screen_size (int width, int height)
 {
@@ -1010,10 +1007,10 @@ vwindow_message_in_echo_area (const char *format, va_list ap)
   display_update_one_window (the_echo_area);
 }
 
-/* Make a message appear in the echo area, built from FORMAT, ARG1 and ARG2.
-   The arguments are treated similar to printf () arguments, but not all of
-   printf () hair is present.  The message appears immediately.  If there was
-   already a message appearing in the echo area, it is removed. */
+/* Make a message appear in the echo area, built from FORMAT and any extra
+   arguments.  The arguments are treated similar to printf () arguments.
+   The message appears immediately.  If there was already a message
+   appearing in the echo area, it is removed. */
 void
 window_message_in_echo_area (const char *format, ...)
 {
@@ -1024,14 +1021,14 @@ window_message_in_echo_area (const char *format, ...)
   va_end (ap);
 }
 
-/* Place a temporary message in the echo area built from FORMAT, ARG1
-   and ARG2.  The message appears immediately, but does not destroy
-   any existing message.  A future call to unmessage_in_echo_area ()
-   restores the old contents. */
 static NODE **old_echo_area_nodes = NULL;
 static size_t old_echo_area_nodes_index = 0;
 static size_t old_echo_area_nodes_slots = 0;
 
+/* Place a temporary message in the echo area built from FORMAT.
+   The message appears immediately, but does not destroy
+   any existing message.  A future call to unmessage_in_echo_area ()
+   restores the old contents. */
 void
 message_in_echo_area (const char *format, ...)
 {
