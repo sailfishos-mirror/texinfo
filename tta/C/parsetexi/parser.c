@@ -335,12 +335,19 @@ char *global_documentlanguage = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
 
-/* Record the information from a command of global effect. */
+/* Record the information from a command of global effect.  Use the CMD_IN
+   for the command id if given, otherwise use the current element command id.
+ */
 int
-register_global_command (ELEMENT *current)
+register_global_command (ELEMENT *current, enum command_id cmd_in)
 {
+  enum command_id cmd;
   GLOBAL_COMMANDS *global_commands = &parsed_document->global_commands;
-  enum command_id cmd = current->e.c->cmd;
+  if (cmd_in != CM_NONE)
+    cmd = cmd_in;
+  else
+    cmd = current->e.c->cmd;
+
   if (cmd == CM_summarycontents)
     cmd = CM_shortcontents;
 
@@ -408,7 +415,13 @@ register_global_command (ELEMENT *current)
       if (where)
         {
           if (*where)
-            line_warn ("multiple @%s", command_name(cmd));
+            {
+              if (current->e.c->cmd != cmd)
+                line_warn ("multiple %s (@%s)", command_name(cmd),
+                           command_name(current->e.c->cmd));
+              else
+                line_warn ("multiple @%s", command_name(cmd));
+            }
           else
             *where = current;
         }

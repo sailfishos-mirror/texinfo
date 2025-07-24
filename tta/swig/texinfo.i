@@ -127,6 +127,8 @@ setup (int texinfo_uninstalled, const char *converterdatadir_in,
 // swig_interface.h
 const char *element_command_data_type (ELEMENT *element);
 
+// TODO add %Texinfo::Common::command_equivalent_set_flag
+
 
 // Parser
 
@@ -550,6 +552,7 @@ char *convert_contents_to_texinfo (const ELEMENT *e);
 
 // utils.h
 ELEMENT *get_label_element (const ELEMENT *e);
+// TODO add a wrapper around utils.c informative_command_value?
 
 // manipulate_indices.h
 ELEMENT *index_content_element (const ELEMENT *element,

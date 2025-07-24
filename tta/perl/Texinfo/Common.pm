@@ -121,6 +121,18 @@ our %null_device_file = (
   $default_null_device => 1
 );
 
+# equivalence between a @set flag and an @@-command
+our %set_flag_command_equivalent = (
+  'txicodequoteundirected' => 'codequoteundirected',
+  'txicodequotebacktick'   => 'codequotebacktick',
+#  'txideftypefnnl'         => 'deftypefnnewline',
+);
+
+our %command_equivalent_set_flag;
+foreach my $flag (keys(%set_flag_command_equivalent)) {
+  $command_equivalent_set_flag{$set_flag_command_equivalent{$flag}} = $flag;
+}
+
 
 # Customization options
 
@@ -1113,27 +1125,64 @@ sub informative_command_value($)
 {
   my $element = shift;
 
-  my $cmdname = $element->{'cmdname'};
+  my ($cmdname, $value) = element_value_equivalent($element);
+
+  if (defined($cmdname)) {
+    return ($cmdname, $value);
+  }
+
+  $cmdname = $element->{'cmdname'};
+  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
     if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
-      return 1;
+      return $cmdname, 1;
     } elsif ($element->{'contents'}) {
-      return join(' ', map {$_->{'text'}} @{$element->{'contents'}});
+      return $cmdname, join(' ', map {$_->{'text'}} @{$element->{'contents'}});
     }
   } elsif ($element->{'extra'}
            and exists($element->{'extra'}->{'text_arg'})) {
-    return $element->{'extra'}->{'text_arg'};
+    return $cmdname, $element->{'extra'}->{'text_arg'};
   } elsif ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
            and exists($element->{'extra'}->{'misc_args'}->[0])) {
-    return $element->{'extra'}->{'misc_args'}->[0];
+    return $cmdname, $element->{'extra'}->{'misc_args'}->[0];
   } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line'
            and $element->{'contents'}->[0]->{'contents'}
            and scalar(@{$element->{'contents'}->[0]->{'contents'}})
            and exists($element->{'contents'}->[0]->{'contents'}->[0]->{'text'})) {
-    return $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
+    return $cmdname, $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
   }
-  return undef;
+  return undef, undef;
+}
+
+# Handle @set txicodequoteundirected as an
+# alternative to @codequoteundirected.
+sub element_value_equivalent($) {
+  my $element = shift;
+  my $cmdname = $element->{'cmdname'};
+
+  if ($cmdname eq 'set' or $cmdname eq 'clear') {
+    my $misc_args;
+    if (defined($element->{'extra'})
+        and defined($element->{'extra'}->{'misc_args'})) {
+      $misc_args = $element->{'extra'}->{'misc_args'};
+      if (scalar(@$misc_args)) {
+        my $flag = $misc_args->[0];
+        my $equivalent_cmdname = $set_flag_command_equivalent{$flag};
+        if (defined($equivalent_cmdname)) {
+          my $value;
+          if ($cmdname eq 'set') {
+            $value = 'on';
+          } else {
+            $value = 'off';
+          }
+          return ($equivalent_cmdname, $value);
+        }
+      }
+    }
+  }
+
+  return (undef, undef);
 }
 
 # REMARK documentencoding handling is not reverted by resetting a value with
@@ -1144,10 +1193,7 @@ sub set_informative_command_value($$)
   my $self = shift;
   my $element = shift;
 
-  my $cmdname = $element->{'cmdname'};
-  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
-
-  my $value = informative_command_value($element);
+  my ($cmdname, $value) = informative_command_value($element);
 
   if (defined($value)) {
     my $set = $self->set_conf($cmdname, $value);

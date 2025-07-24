@@ -31,7 +31,8 @@
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
-/* for whitespace_chars read_flag_len item_line_parent */
+/* for whitespace_chars read_flag_len item_line_parent
+   element_value_equivalent */
 #include "utils.h"
 #include "manipulate_tree.h"
 #include "command_stack.h"
@@ -451,7 +452,7 @@ handle_other_command (ELEMENT *current, const char **line_inout,
         }
       else  /* NOBRACE_other */
         {
-          register_global_command (command_e);
+          register_global_command (command_e, 0);
           if (close_preformatted_command (cmd))
             current = begin_preformatted (current);
         }
@@ -781,7 +782,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       STRING_LIST *args = 0;
       ELEMENT *line_args = new_element (ET_line_arg);
       ELEMENT *text_element = new_text_element (ET_rawline_text);
-      enum command_id equivalent_cmd = 0;
+      enum command_id global_cmd = CM_NONE;
       const char *comment_text = 0;
       int special_arg = 0;
       int ignored = 0;
@@ -844,64 +845,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       args = parse_rawline_command (text_element->e.text->text, cmd,
                                     &comment_text, &special_arg);
 
-      /* Handle @set txicodequoteundirected as an
-         alternative to @codequoteundirected. */
-      if ((cmd == CM_set || cmd == CM_clear)
-          && args && args->number > 0
-          && strlen(args->list[0]) > 0)
-        {
-          if (!strcmp (args->list[0],
-                       "txicodequoteundirected"))
-            equivalent_cmd = CM_codequoteundirected;
-          else if (!strcmp (args->list[0],
-                            "txicodequotebacktick"))
-            equivalent_cmd = CM_codequotebacktick;
-        }
-
-      if (equivalent_cmd)
-        {
-          char *arg = 0;
-          ELEMENT *removed_text_element;
-          ELEMENT *e;
-          ELEMENT *spaces_before
-            = new_text_element (ET_spaces_before_argument);
-          ELEMENT *spaces_after = new_text_element (ET_spaces_after_argument);
-          /* put in extra "misc_args" */
-          STRING_LIST *args_list = new_string_list ();
-          command_e = new_command_element (ET_line_command, equivalent_cmd);
-
-          destroy_strings_list (args);
-
-          if (cmd == CM_set)
-            arg = "on";
-          else
-            arg = "off";
-
-          /* Now manufacture the parse tree for the equivalent
-             command and add it to the tree. */
-
-          add_string (arg, args_list);
-
-          command_e->e.c->source_info = current_source_info;
-
-          add_to_element_contents (command_e, line_args);
-          add_extra_misc_args (command_e, AI_key_misc_args, args_list);
-          text_append (spaces_before->e.text, " ");
-          command_e->elt_info[eit_spaces_before_argument] = spaces_before;
-
-          text_append (spaces_after->e.text, "\n");
-          line_args->elt_info[eit_spaces_after_argument] = spaces_after;
-
-          removed_text_element = pop_element_from_contents (line_args);
-          destroy_element (removed_text_element);
-
-          e = new_text_element (ET_normal_text);
-          text_append (e->e.text, arg);
-          add_to_element_contents (line_args, e);
-
-          add_to_element_contents (current, command_e);
-        }
-      else if (!ignored)
+      if (!ignored)
         {
           command_e = new_command_element (ET_line_command, cmd);
           add_to_element_contents (current, command_e);
@@ -968,6 +912,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           if (args)
             add_extra_misc_args (command_e, AI_key_misc_args, args);
+
+          element_value_equivalent (command_e, &global_cmd);
         }
 
 
@@ -981,7 +927,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         }
 
       if (command_e)
-        register_global_command (command_e);
+        register_global_command (command_e, global_cmd);
 
       current_source_info = next_source_info;
 
@@ -1259,7 +1205,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
     }
 
   if (command_e)
-    register_global_command (command_e);
+    register_global_command (command_e, 0);
   if (cmd == CM_dircategory)
     add_to_element_list (&parsed_document->global_commands
                                              .dircategory_direntry,
@@ -1431,7 +1377,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
   if (command_data(cmd).flags & CF_contain_basic_inline)
     push_command (&nesting_context.basic_inline_stack_block, cmd);
 
-  register_global_command (block);
+  register_global_command (block, 0);
   start_empty_line_after_command (bla_element, &line, block);
 
   *line_inout = line;

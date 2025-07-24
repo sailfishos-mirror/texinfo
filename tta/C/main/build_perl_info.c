@@ -2076,8 +2076,9 @@ build_global_info (DOCUMENT *document,
 
   if (global_commands.setfilename)
     {
+      enum command_id cmd;
       const char *setfilename_text
-        = informative_command_value (global_commands.setfilename);
+        = informative_command_value (global_commands.setfilename, &cmd);
       if (setfilename_text)
       hv_store (hv, "setfilename", strlen ("setfilename"),
                 newSVpv_utf8 (setfilename_text, 0), 0);
@@ -2087,7 +2088,9 @@ build_global_info (DOCUMENT *document,
                                        CM_documentlanguage, CL_preamble);
   if (document_language)
     {
-      const char *language = informative_command_value (document_language);
+      enum command_id cmd;
+      const char *language
+        = informative_command_value (document_language, &cmd);
       hv_store (hv, "documentlanguage", strlen ("documentlanguage"),
                 newSVpv (language, 0), 0);
     }

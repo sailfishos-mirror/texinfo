@@ -2167,13 +2167,55 @@ get_cmd_global_uniq_command (const GLOBAL_COMMANDS *global_commands_ref,
    }
 }
 
+/* Handle @set txicodequoteundirected as an
+   alternative to @codequoteundirected. */
+const char *
+element_value_equivalent (const ELEMENT *element, enum command_id *cmd_out)
+{
+  enum command_id cmd = element_builtin_data_cmd (element);
+  *cmd_out = CM_NONE;
+
+  if (cmd == CM_set || cmd == CM_clear)
+    {
+      const STRING_LIST *misc_args
+        = lookup_extra_misc_args (element, AI_key_misc_args);
+      if (misc_args && misc_args->number > 0)
+        {
+          if (!strcmp (misc_args->list[0], "txicodequoteundirected"))
+            *cmd_out = CM_codequoteundirected;
+          else if (!strcmp (misc_args->list[0], "txicodequotebacktick"))
+             *cmd_out = CM_codequotebacktick;
+          if (*cmd_out)
+            {
+              if (cmd == CM_set)
+                return "on";
+              else
+                return "off";
+            }
+        }
+    }
+  return 0;
+}
+
 char *
-informative_command_value (const ELEMENT *element)
+informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
 {
   const STRING_LIST *misc_args;
   char *text_arg;
+  enum command_id cmd;
+  char *value;
 
-  enum command_id cmd = element_builtin_data_cmd (element);
+  /* keeping const would be preferable, but see below it is not possible */
+  value = (char *)element_value_equivalent (element, cmd_out);
+  if (*cmd_out)
+    return value;
+
+  cmd = element_builtin_data_cmd (element);
+
+  if (cmd == CM_summarycontents)
+    cmd = CM_shortcontents;
+
+  *cmd_out = cmd;
   if (builtin_command_data[cmd].flags & CF_line
       && builtin_command_data[cmd].data == LINE_lineraw)
     {

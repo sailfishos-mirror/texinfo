@@ -122,7 +122,7 @@ extern char *global_documentlanguage;
 enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };
 extern enum kbd_enum global_kbdinputstyle;
 
-int register_global_command (ELEMENT *current);
+int register_global_command (ELEMENT *current, enum command_id cmd_in);
 
 extern COUNTER count_remaining_args, count_items, count_cells;
 void reset_parser_counters (void);

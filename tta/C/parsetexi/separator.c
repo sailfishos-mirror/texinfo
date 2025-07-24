@@ -534,7 +534,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                 }
             }
         }
-      register_global_command (brace_command);
+      register_global_command (brace_command, 0);
 
       /* this should set current to brace_command->parent */
       current = close_brace_command (brace_command, 0, 0, 0);

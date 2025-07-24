@@ -239,7 +239,9 @@ set_document_options (DOCUMENT *document, const OPTIONS_LIST *program_options,
                                    CM_documentlanguage, CL_preamble);
   if (document_language)
     {
-      const char *language = informative_command_value (document_language);
+      enum command_id cmd;
+      const char *language = informative_command_value (document_language,
+                                                        &cmd);
       OPTION *documentlanguage_option
         = &document_options.options->documentlanguage;
       option_set_conf (documentlanguage_option, -1, language);

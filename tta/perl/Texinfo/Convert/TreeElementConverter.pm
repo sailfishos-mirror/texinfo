@@ -471,16 +471,50 @@ sub tree_element_headings_list($)
 
 # informative commands
 
+sub _tree_element_element_value_equivalent($)
+{
+  my $element = shift;
+  my $cmdname = $element->{'cmdname'};
+
+  if ($cmdname eq 'set' or $cmdname eq 'clear') {
+    my $misc_args;
+    if ($element->get_attribute('misc_args')
+        and exists($element->get_attribute('misc_args')->[0])) {
+      my $flag = $element->get_attribute('misc_args')->[0];
+      my $equivalent_cmdname
+        = $Texinfo::Common::set_flag_command_equivalent{$flag};
+      if (defined($equivalent_cmdname)) {
+        my $value;
+        if ($cmdname eq 'set') {
+          $value = 'on';
+        } else {
+          $value = 'off';
+        }
+        return ($equivalent_cmdname, $value);
+      }
+    }
+  }
+
+  return (undef, undef);
+
+}
+
 # same as in Texinfo::Common, but using the TreeElement interface
 sub _tree_element_informative_command_value($)
 {
   my $element = shift;
 
-  my $cmdname = $element->{'cmdname'};
+  my ($cmdname, $value) = _tree_element_element_value_equivalent($element);
+  if (defined($cmdname)) {
+    return ($cmdname, $value);
+  }
+
+  $cmdname = $element->{'cmdname'};
+  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
     if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
-      return 1;
+      return $cmdname, 1;
     } else {
       my $contents = $element->get_children();
       if ($contents) {
@@ -488,21 +522,21 @@ sub _tree_element_informative_command_value($)
         foreach my $content (@$contents) {
           push @strings, $content->{'text'};
         }
-        return join(' ', @strings);
+        return $cmdname, join(' ', @strings);
       }
     }
   } elsif ($element->get_attribute('text_arg')) {
-    return $element->get_attribute('text_arg');
+    return $cmdname, $element->get_attribute('text_arg');
   } elsif ($element->get_attribute('misc_args')
            and exists($element->get_attribute('misc_args')->[0])) {
-    return $element->get_attribute('misc_args')->[0];
+    return $cmdname, $element->get_attribute('misc_args')->[0];
   } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line') {
     my $arg = $element->get_child(0);
     if ($arg->children_number()) {
-      return $arg->get_child(0)->{'text'};
+      return $cmdname, $arg->get_child(0)->{'text'};
     }
   }
-  return undef;
+  return undef, undef;
 }
 
 # same as in Texinfo::Common, but using the TreeElement interface
@@ -511,10 +545,7 @@ sub tree_element_set_informative_command_value($$)
   my $self = shift;
   my $element = shift;
 
-  my $cmdname = $element->{'cmdname'};
-  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
-
-  my $value = _tree_element_informative_command_value($element);
+  my ($cmdname, $value) = _tree_element_informative_command_value($element);
 
   if (defined($value)) {
     my $set = $self->set_conf($cmdname, $value);

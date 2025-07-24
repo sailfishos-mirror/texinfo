@@ -281,7 +281,10 @@ const ELEMENT *get_global_document_command (
                                       const GLOBAL_COMMANDS *global_commands,
                                       enum command_id cmd,
                                       enum command_location command_location);
-char *informative_command_value (const ELEMENT *element);
+const char *element_value_equivalent (const ELEMENT *element,
+                                      enum command_id *cmd_out);
+char *informative_command_value (const ELEMENT *element,
+                                 enum command_id *cmd_out);
 const ELEMENT_LIST *get_cmd_global_multi_command (
                                     const GLOBAL_COMMANDS *global_commands_ref,
                                     enum command_id cmd);

@@ -694,16 +694,13 @@ set_informative_command_value (OPTION **sorted_options,
                                const ELEMENT *element)
 {
   const char *value = 0;
+  enum command_id cmd;
 
-  value = informative_command_value (element);
+  value = informative_command_value (element, &cmd);
 
   if (value)
     {
       OPTION *option;
-      enum command_id cmd = element_builtin_cmd (element);
-      if (cmd == CM_summarycontents)
-        cmd = CM_shortcontents;
-
       option = get_converter_command_option (sorted_options, cmd);
       if (option)
         {

@@ -120,7 +120,11 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
   if (converter->conf->setfilename.o.string)
     setfilename = converter->conf->setfilename.o.string;
   else if (global_commands && global_commands->setfilename)
-    setfilename = informative_command_value (global_commands->setfilename);
+    {
+      enum command_id cmd;
+      setfilename
+        = informative_command_value (global_commands->setfilename, &cmd);
+    }
 
   if (!converter->conf->OUTFILE.o.string)
     {

@@ -847,7 +847,11 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
   if (self->conf->setfilename.o.string)
     setfilename = self->conf->setfilename.o.string;
   else if (global_commands && global_commands->setfilename)
-    setfilename = informative_command_value (global_commands->setfilename);
+    {
+      enum command_id cmd;
+      setfilename
+        = informative_command_value (global_commands->setfilename, &cmd);
+    }
 
   /* PREFIX overrides both setfilename and the input file base name */
   if (self->conf->PREFIX.o.string)

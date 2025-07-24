@@ -364,13 +364,6 @@ foreach my $def_command(keys %def_map) {
 }
 
 
-# equivalence between a @set flag and an @@-command
-my %set_flag_command_equivalent = (
-  'txicodequoteundirected' => 'codequoteundirected',
-  'txicodequotebacktick'   => 'codequotebacktick',
-#  'txideftypefnnl'         => 'deftypefnnewline',
-);
-
 # could be moved to Texinfo::Common if needed more generally
 # same order as in XS parser
 my @set_flag_index_char_ignore = (
@@ -928,7 +921,8 @@ sub get_parser_info($) {
                                                    'documentlanguage',
                                                    'preamble');
   if ($document_language) {
-    $document->{'global_info'}->{'documentlanguage'}
+    my $informative_cmdname;
+    $informative_cmdname, $document->{'global_info'}->{'documentlanguage'}
       = Texinfo::Common::informative_command_value($document_language);
   }
 }
@@ -1201,33 +1195,43 @@ sub _bug_message($$;$$) {
        $line_message.$message_context_stack.$current_element_message;
 }
 
-sub _register_global_command($$$) {
-  my ($self, $current, $source_info) = @_;
+sub _register_global_command($$$;$) {
+  my ($self, $current, $source_info, $cmdname) = @_;
 
   my $document = $self->{'document'};
 
-  my $command = $current->{'cmdname'};
-
-  if ($command eq 'summarycontents') {
-    $command = 'shortcontents';
+  my $command_name;
+  if (defined($cmdname)) {
+    $command_name = $cmdname;
+  } else {
+    $command_name = $current->{'cmdname'};
   }
-  if ($global_multiple_commands{$command}) {
-    push @{$document->{'commands_info'}->{$command}}, $current;
+
+  if ($command_name eq 'summarycontents') {
+    $command_name = 'shortcontents';
+  }
+  if ($global_multiple_commands{$command_name}) {
+    push @{$document->{'commands_info'}->{$command_name}}, $current;
     $current->{'source_info'} = $source_info if (!$current->{'source_info'});
     $current->{'extra'} = {} if (!$current->{'extra'});
     $current->{'extra'}->{'global_command_number'}
-      = scalar(@{$document->{'commands_info'}->{$command}});
+      = scalar(@{$document->{'commands_info'}->{$command_name}});
     return 1;
-  } elsif ($global_unique_commands{$command}) {
+  } elsif ($global_unique_commands{$command_name}) {
     # setfilename ignored in an included file
     $current->{'source_info'} = $source_info if (!$current->{'source_info'});
-    if ($command eq 'setfilename'
+    if ($command_name eq 'setfilename'
         and _in_include($self)) {
-    } elsif (exists ($document->{'commands_info'}->{$current->{'cmdname'}})) {
-      _line_warn($self, sprintf(__('multiple @%s'),
-                               $current->{'cmdname'}), $source_info);
+    } elsif (exists ($document->{'commands_info'}->{$command_name})) {
+      if ($command_name ne $current->{'cmdname'}) {
+        _line_warn($self, sprintf(__('multiple %s (@%s)'),
+                       $command_name, $current->{'cmdname'}), $source_info);
+      } else {
+        _line_warn($self, sprintf(__('multiple @%s'),
+                                $command_name), $source_info);
+      }
     } else {
-      $document->{'commands_info'}->{$current->{'cmdname'}} = $current;
+      $document->{'commands_info'}->{$command_name} = $current;
     }
     return 1;
   }
@@ -5990,43 +5994,8 @@ sub _handle_line_command($$$$$$) {
       = _parse_rawline_command($self, $text_element->{'text'}, $command,
                                $source_info);
 
-    # if using the @set txi* instead of a proper @-command, replace
-    # by the tree obtained with the @-command.  Even though
-    # _end_line is called below, as $current is not line_arg
-    # there should not be anything done in addition than what is
-    # done for @clear or @set.
-    if (($command eq 'set' or $command eq 'clear')
-         and $args and scalar(@$args) >= 1
-         and $set_flag_command_equivalent{$args->[0]}) {
-      my $arg;
-      if ($command eq 'set') {
-        $arg = 'on';
-      } else {
-        $arg = 'off';
-      }
-      # note that those commands are line 'specific' type.
-      $command = $set_flag_command_equivalent{$args->[0]};
-      $command_e = Texinfo::TreeElement::new({'cmdname' => $command,
-                    'parent' => $current,
-                    'source_info' => $source_info,
-                    'extra' => {'misc_args' => [$arg],},
-                    'info' => {'spaces_before_argument'
-                        => Texinfo::TreeElement::new({'text' => ' ',
-                                'type' => 'spaces_before_argument'})}});
-      $misc_line_args->{'parent'} = $command_e;
-      $misc_line_args->{'info'} = {'spaces_after_argument'
-                    => Texinfo::TreeElement::new({'text' => "\n",
-                                'type' => 'spaces_after_argument'})};
-      $command_e->{'contents'} = [$misc_line_args];
-      # FIXME could forget about source marks here.  Maybe do a dynamic
-      # replacement of @set?
-      $text_element = undef;
-      $misc_line_args->{'contents'} = [
-        Texinfo::TreeElement::new({ 'text' => $arg,
-                                    'parent' => $misc_line_args, }),
-      ];
-      push @{$current->{'contents'}}, $command_e;
-    } elsif (!$ignored) {
+    my $global_command;
+    if (!$ignored) {
       $command_e = Texinfo::TreeElement::new({'cmdname' => $command,
                                               'parent' => $current});
 
@@ -6087,6 +6056,10 @@ sub _handle_line_command($$$$$$) {
          $command_e->{'extra'} = {'misc_args' => $args,};
       }
       push @{$current->{'contents'}}, $command_e;
+
+      my $value;
+      ($global_command, $value)
+        = Texinfo::Common::element_value_equivalent($command_e);
     }
 
     if ($command eq 'raisesections') {
@@ -6094,7 +6067,7 @@ sub _handle_line_command($$$$$$) {
     } elsif ($command eq 'lowersections') {
       $self->{'sections_level_modifier'}--;
     }
-    _register_global_command($self, $command_e, $source_info)
+    _register_global_command($self, $command_e, $source_info, $global_command)
       if defined($command_e);
 
     $line = '';

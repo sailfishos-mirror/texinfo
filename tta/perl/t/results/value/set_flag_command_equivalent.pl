@@ -7,18 +7,18 @@ use utf8;
 
 $result_tree_text{'set_flag_command_equivalent'} = '*document_root C1
  *before_node_section C5
-  *@codequoteundirected C1 l1
+  *@set C1 l1
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{1}
-  |misc_args:A{on}
+  |misc_args:A{txicodequoteundirected|}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {on}
+    {rawline_text:txicodequoteundirected}
   {empty_line:\\n}
   *paragraph C1
    {.\\n}
@@ -29,26 +29,26 @@ $result_tree_text{'set_flag_command_equivalent'} = '*document_root C1
       >{txicodequoteundirected}
    >value_expansion<end;1>
   {empty_line:\\n}
-  *@codequoteundirected C1 l5
+  *@clear C1 l5
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
   |EXTRA
   |global_command_number:{2}
-  |misc_args:A{off}
+  |misc_args:A{txicodequoteundirected}
    *line_arg C1
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {off}
+    {rawline_text:txicodequoteundirected}
 ';
 
 
-$result_texis{'set_flag_command_equivalent'} = '@codequoteundirected on
+$result_texis{'set_flag_command_equivalent'} = '@set txicodequoteundirected
 
 .
 
-@codequoteundirected off
+@clear txicodequoteundirected
 ';
 
 

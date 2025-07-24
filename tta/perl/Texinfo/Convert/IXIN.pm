@@ -100,6 +100,8 @@ my %additional_setting_commands;
 # but are considered to be settings.
 # FIXME some seem to be missing, 'smallbook', 'afourpaper', 'afivepaper',
 # 'afourlatex', 'afourwide', 'bsixpaper'
+# 'codequoteundirected', 'codequotebacktick'.  If selected, set and clear
+# should be too as synonyms with txicode* flags.
 foreach my $command ('pagesizes', 'everyheading', 'everyfooting',
                      'evenheading', 'evenfooting', 'oddheading', 'oddfooting',
                      'documentencoding', 'documentlanguage') {
@@ -462,9 +464,8 @@ sub output_ixin($$)
   my %settings;
   foreach my $setting_command_name (keys(%setting_commands)) {
     my $setting_command = $setting_commands{$setting_command_name};
-    $setting_command_name = 'shortcontents'
-        if ($setting_command_name eq 'summarycontents');
-    my $value = Texinfo::Common::informative_command_value($setting_command);
+    my $setting_command_name, $value
+      = Texinfo::Common::informative_command_value($setting_command);
     #print STDERR "$setting_command_name $value\n";
     # do not register settings if set at the default value.
     if (defined($value)
@@ -540,7 +541,8 @@ sub output_ixin($$)
     if (defined($end_of_nodes_setting_commands{$normalized_node_name})) {
       foreach my $setting_command_name (keys(%{$end_of_nodes_setting_commands{$normalized_node_name}})) {
         # FIXME should use get_conf instead?
-        my $value = Texinfo::Common::_informative_command_value_informative_command_value(
+        # FIXME does not exist anymore
+        my $value = Texinfo::Common::_informative_command_value(
           $end_of_nodes_setting_commands{$normalized_node_name}->{$setting_command_name});
         if ((defined($settings{$setting_command_name})
              and $settings{$setting_command_name} eq $value)
