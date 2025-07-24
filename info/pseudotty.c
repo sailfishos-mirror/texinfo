@@ -32,6 +32,7 @@
 #include <sys/types.h>
 #include <sys/select.h>
 #include <stdlib.h>
+#include <string.h>
 
 #if defined __sun || defined __hpux /* Solaris, HP-UX */
 #include <stropts.h>
