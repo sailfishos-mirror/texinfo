@@ -1,3 +1,8 @@
+2025-07-24 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (%informative_commands): fix
+	use of command_equivalent_set_flag.
+
 2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	review info/window.h
@@ -39,15 +44,15 @@
 	(set_informative_command_value),
 	tta/perl/Texinfo/Convert/TreeElementConverter.pm
 	(_tree_element_informative_command_value)
-	(tree_element_set_informative_command_value): call element_value_equivalent in
-	informative_command_value and return the command being actually
-	modified.  Update callers.
+	(tree_element_set_informative_command_value): call
+	element_value_equivalent in informative_command_value and return the
+	command being actually modified.  Update callers.
 
 	* tta/C/parsetexi/parser.c (register_global_command),
-	tta/perl/Texinfo/ParserNonXS.pm (_register_global_command): add an optional
-	argument to give the command to store as.  This is useful if the
-	actual element is an alternative to another command, as is the case for
-	@set/@clear command with a texicode* flag.  Update callers.
+	tta/perl/Texinfo/ParserNonXS.pm (_register_global_command): add an
+	optional argument to give the command to store as.  This is useful if
+	the actual element is an alternative to another command, as is the
+	case for @set/@clear command with a texicode* flag.  Update callers.
 
 	* tta/C/parsetexi/handle_commands.c (handle_line_command),
 	tta/perl/Texinfo/ParserNonXS.pm (_handle_line_command): keep @set or

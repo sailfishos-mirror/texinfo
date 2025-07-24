@@ -215,7 +215,7 @@ my %informative_commands;
 foreach my $informative_command
      (keys (%Texinfo::Common::document_settable_at_commands)) {
   $informative_commands{$informative_command} = 1;
-  if (Texinfo::common::command_equivalent_set_flag($informative_command) {
+  if ($Texinfo::common::command_equivalent_set_flag{$informative_command}) {
     $informative_commands{'clear'} = 1;
     $informative_commands{'set'} = 1;
   }
