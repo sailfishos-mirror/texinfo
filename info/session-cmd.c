@@ -1242,25 +1242,6 @@ info_select_reference (WINDOW *window, const REFERENCE *entry)
       node = info_get_node_of_file_buffer (file_buffer, nodename);
     }
 
-  /* Try something a little weird.  If the node couldn't be found, and the
-     reference was of the form "foo::", see if the entry->label can be found
-     as a file, with a node of "Top". */
-  if (!node)
-    {
-      if (info_recent_file_error)
-        file_system_error = xstrdup (info_recent_file_error);
-
-      if (nodename && label && !strcmp (nodename, label))
-        {
-          free (file_system_error);
-          file_system_error = NULL;
-
-          node = info_get_node (label, "Top");
-          if (!node && info_recent_file_error)
-            file_system_error = xstrdup (info_recent_file_error);
-        }
-    }
-
  put_node_in_window:
   if (!node)
     {

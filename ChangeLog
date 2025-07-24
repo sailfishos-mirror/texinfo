@@ -1,5 +1,17 @@
 2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
 
+	No file fallback for "foo::" reference.
+	
+	* info/session-cmd.c (info_select_reference):
+	Remove code for a reference that looks like "* foo::" checking
+	for a manual called foo if a node foo is not found.
+	
+	This reverses change announced in NEWS for Info 2.11 (1995).
+	However, this functionality does not appear to be present in
+	Emacs Info (checked with Emacs 27.1) so presumably is not important.
+
+2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Don't run hook if file for manual is found but node isn't.
 
 	* info/session-cmd.c (info_select_reference): Inline some code
