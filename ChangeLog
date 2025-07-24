@@ -1,5 +1,14 @@
 2025-07-24 Patrice Dumas  <pertusus@free.fr>
 
+	Check linking with libperl
+
+	* tta/configure.ac (libperl_link, LIBPERL_LINK), tta/swig/Makefile.am
+	(SUBDIRS): check linking with libperl.  If not possible and XS is
+	enabled, do not build the Python SWIG interface as it requires linking
+	with libperl.
+
+2025-07-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/parse_refold.pl (_handle_source_marks): retrieve the
 	correct current source mark at the end of an include file.
 

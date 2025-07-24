@@ -15,7 +15,14 @@ SUBDIRS += perl
 endif
 
 if SWIG_PYTHON_INTERFACE
+if DISABLE_XS
 SUBDIRS += python
+else
+# linking with libperl is needed if there is C Perl code in Texinfo libraries
+if LIBPERL_LINK
+SUBDIRS += python
+endif
+endif
 endif
 
 DIST_SUBDIRS = perl python
