@@ -65,14 +65,31 @@ AM_T_LOG_FLAGS = -w
 
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; t2a_srcdir="$(top_srcdir)"; export t2a_srcdir; t2a_builddir="$(top_builddir)"; export t2a_builddir;
 
-test_files = t/30source_marks.t
+t_test_files = t/30source_marks.t
+
+other_test_files = \
+ test_scripts/test_macro_expand.sh \
+ test_scripts/test_non_ascii_in_macro.sh \
+ test_scripts/test_texinfo_manual.sh
+
+# test_scripts/test_includes.sh
+
+TESTS = $(other_test_files)
 
 if SWIG_PERL_TESTS
-TESTS = $(test_files)
+TESTS += $(t_test_files)
 endif
 
-EXTRA_DIST = $(test_files) \
-              test_refold.sh
+EXTRA_DIST = \
+ $(t_test_files) $(other_test_files) \
+ test_refold.sh \
+ parse_refold.pl \
+ tests/test_macro_expand/test_macro_expand.texi \
+ tests/test_non_ascii_in_macro/test_non_ascii_in_macro.texi \
+ tests/test_includes/test_includes.texi \
+ tests/test_includes/i1.texi \
+ tests/test_includes/i2.texi \
+ tests/test_includes/i3.texi
 
 MAINTAINERCLEANFILES = Texinfo.pm
 

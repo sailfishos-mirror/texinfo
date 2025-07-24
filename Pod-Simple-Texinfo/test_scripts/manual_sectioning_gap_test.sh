@@ -1,4 +1,10 @@
 #! /bin/sh
+#
+# Copyright 2010-2025 Free Software Foundation, Inc.
+#
+# Copying and distribution of this file, with or without modification,
+# are permitted in any medium without royalty provided the copyright
+# notice and this notice are preserved.
 
 # tests the code in pod2texi.pl _parsed_manual_tree with gaps in sectioning
 # and manual name prepended.

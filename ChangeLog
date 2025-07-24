@@ -1,5 +1,14 @@
 2025-07-24 Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/test_scripts/*.sh: add copyright notices.
+
+	* tta/swig/perl/Makefile.am (t_test_files, other_test_files)
+	(TESTS, EXTRA_DIST), tta/swig/perl/tests/*,
+	tta/swig/perl/test_scripts/*.sh: add tests of parse_refold.pl and add
+	parse_refold.pl to EXTRA_DIST.
+
+2025-07-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (%informative_commands): fix
 	use of command_equivalent_set_flag.
 

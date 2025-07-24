@@ -430,6 +430,8 @@ tta/swig/perl/pm_to_blib
 tta/swig/perl/perl_texinfo_wrap.c
 tta/swig/perl/t/*.trs
 tta/swig/perl/t/*.log
+tta/swig/perl/test_scripts/*.trs
+tta/swig/perl/test_scripts/*.log
 tta/swig/perl/Texinfo.bs
 tta/swig/perl/Texinfo.pm
 tta/swig/python/__pycache__
