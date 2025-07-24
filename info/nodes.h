@@ -112,6 +112,7 @@ typedef struct {
    are NULL terminated. */
 typedef struct {
   char *filename;               /* The filename used to find this file. */
+  char *infodir;                /* Name of directory containing file. */
   char *fullpath;               /* The full pathname of this info file. */
   struct stat finfo;            /* Information about this file. */
   char *contents;               /* The contents of this particular file. */

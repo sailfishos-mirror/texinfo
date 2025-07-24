@@ -740,8 +740,25 @@ info_load_file (char *fullpath, int is_subfile)
      in the various members. */
   file_buffer = make_file_buffer ();
   file_buffer->fullpath = xstrdup (fullpath);
-  file_buffer->filename = filename_non_directory (file_buffer->fullpath);
-  file_buffer->filename = xstrdup (file_buffer->filename);
+
+  char *base_name = filename_non_directory (file_buffer->fullpath);
+  file_buffer->filename = xstrdup (base_name);
+
+  /* Find end of directory component of fullpath */
+  char *p = base_name;
+  if (p > file_buffer->fullpath)
+    p--;
+  while (IS_SLASH(*p) && p > file_buffer->fullpath)
+    p--;
+  if (*p != '\0')
+    p++;
+
+  file_buffer->infodir = xmalloc (p - file_buffer->fullpath + 1);
+
+  memcpy (file_buffer->infodir, file_buffer->fullpath,
+          p - file_buffer->fullpath);
+  file_buffer->infodir[p - file_buffer->fullpath] = '\0';
+
   /* Strip off a file extension, so we can find it again in info_find_file. */
   {
     char *p = strchr (file_buffer->filename, '.');
@@ -766,6 +783,7 @@ info_load_file (char *fullpath, int is_subfile)
         {
           free (file_buffer->fullpath);
           free (file_buffer->filename);
+          free (file_buffer->infodir);
           free (file_buffer->contents);
           free (file_buffer->encoding);
           free (file_buffer);
@@ -847,6 +865,8 @@ forget_info_file (FILE_BUFFER *file_buffer)
   file_buffer->flags |= F_Gone;
   file_buffer->filename[0] = '\0';
   file_buffer->fullpath = "";
+  free (file_buffer->infodir);
+  file_buffer->infodir = 0;
   memset (&file_buffer->finfo, 0, sizeof (struct stat));
 }
 
