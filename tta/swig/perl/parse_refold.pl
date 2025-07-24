@@ -17,11 +17,15 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
-# example code that re-fold macros, values and other found in the source
-# marks as Texinfo code.
+# Parse a Texinfo manual and walk the tree to output the original Texinfo
+# code by re-folding macros, values and other similar constructs found
+# in the source marks as Texinfo code.  Also output include files separately.
 
 use strict;
 use warnings;
+
+# To check if there is no erroneous autovivification
+#no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck confess);
 
@@ -131,6 +135,8 @@ if (defined($output_dir)) {
   }
 }
 
+
+# Parse the input file
 my $canon_input_dir;
 if (!defined($input_directory) or $input_directory eq '') {
   $input_directory = $curdir;
@@ -171,6 +177,7 @@ my $tree = Texinfo::document_tree($document);
 if ($debug) {
   print STDERR Texinfo::tree_print_details($tree)."\n\n\n";
 }
+
 
 my $global_info = Texinfo::document_global_information($document);
 
@@ -213,6 +220,7 @@ sub _current_smark($) {
              "$current_smark->[0]:$current_smark->[1]" : '-';
 }
 
+# used to avoid outputting again an include file already included
 my %files_done;
 
 sub _write_output($) {
@@ -380,8 +388,8 @@ sub _handle_source_marks($$$$) {
                         _current_smark($inputs->[-1]->[3])." \n";
           }
           _write_output($previous_input);
+          $current_smark = $previous_input->[3];
           $result = $inputs->[-1]->[1];
-          $current_smark = $inputs->[-1]->[3];
         }
       } elsif (!$current_smark) {
         if ($source_mark_status eq $Texinfo::SM_status_start
@@ -455,6 +463,7 @@ sub _convert($$$;$) {
       }
       next;
     }
+
     my $cmdname = Texinfo::element_cmdname($element);
 
     if (defined($cmdname)) {

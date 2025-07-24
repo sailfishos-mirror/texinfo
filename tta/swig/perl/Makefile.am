@@ -70,9 +70,8 @@ t_test_files = t/30source_marks.t
 other_test_files = \
  test_scripts/test_macro_expand.sh \
  test_scripts/test_non_ascii_in_macro.sh \
+ test_scripts/test_includes.sh \
  test_scripts/test_texinfo_manual.sh
-
-# test_scripts/test_includes.sh
 
 TESTS = $(other_test_files)
 

@@ -1,5 +1,12 @@
 2025-07-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/parse_refold.pl (_handle_source_marks): retrieve the
+	correct current source mark at the end of an include file.
+
+	* tta/swig/perl/Makefile.am (other_test_files): add test_includes.sh.
+
+2025-07-24 Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/test_scripts/*.sh: add copyright notices.
 
 	* tta/swig/perl/Makefile.am (t_test_files, other_test_files)
