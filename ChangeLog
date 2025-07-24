@@ -1,3 +1,10 @@
+2025-07-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/session-cmd.c (filename_for_xref): New function, splitting
+	out logic from info_get_node_with_defaults.
+	(info_get_node_with_defaults): Use it.  Omit calling it if
+	we have a dir or manpage reference.
+
 2025-07-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/t/follow-remain-other-dir.sh: new test

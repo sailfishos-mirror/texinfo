@@ -1100,21 +1100,17 @@ DECLARE_INFO_COMMAND (info_toggle_wrap,
 
 int follow_strategy;
 
-/* Return a pointer to a NODE structure for the Info node (FILENAME)NODENAME.
-   DEFAULTS is the node giving the default filename (and file directory in
-   the case of follow-strategy=remain).  DEFAULTS is typically the node
-   currently being displayed to the user.
-   If the node cannot be found, return NULL. */
-static NODE *
-info_get_node_with_defaults (char *filename, char *nodename, NODE *defaults)
+/* Return file name to use to look for node NODENAME.
+   Return value becomes invalid after a subsequent call. */
+static const char *
+filename_for_xref (char *filename_in, char *nodename, NODE *defaults)
 {
-  NODE *node = 0;
-  FILE_BUFFER *file_buffer = NULL;
-  char *file_in_same_dir = 0;
+  static char *file_in_same_dir;
+  char *filename = filename_in;
 
   info_recent_file_error = NULL;
 
-  if (filename)
+  if (filename_in)
     {
       if (follow_strategy == FOLLOW_REMAIN
           && defaults && defaults->fullpath)
@@ -1131,7 +1127,8 @@ info_get_node_with_defaults (char *filename, char *nodename, NODE *defaults)
             {
               saved_char = *p;
               *p = 0;
-              file_in_same_dir = info_file_of_infodir (filename,
+              free (file_in_same_dir);
+              file_in_same_dir = info_file_of_infodir (filename_in,
                                    defaults->fullpath, 0);
               *p = saved_char;
 
@@ -1148,10 +1145,33 @@ info_get_node_with_defaults (char *filename, char *nodename, NODE *defaults)
         filename = "dir";
     }
 
-  node = info_get_node (filename, nodename);
+  return filename;
+}
 
-  free (file_in_same_dir);
-  return node;
+/* Return a pointer to a NODE structure for the Info node (FILENAME)NODENAME.
+   DEFAULTS is the node giving the default filename (and file directory in
+   the case of follow-strategy=remain).  DEFAULTS is typically the node
+   currently being displayed to the user.
+   If the node cannot be found, return NULL. */
+static NODE *
+info_get_node_with_defaults (char *filename, char *nodename, NODE *defaults)
+{
+  NODE *node = 0;
+  FILE_BUFFER *file_buffer = NULL;
+  char *file_in_same_dir = 0;
+
+  const char *fullpath;
+  if (filename
+      && (is_dir_name (filename)
+          || !strcmp (filename, MANPAGE_FILE_BUFFER_NAME)))
+    fullpath = filename;
+  else
+    fullpath = filename_for_xref (filename, nodename, defaults);
+
+  if (fullpath)
+    return info_get_node (fullpath, nodename);
+
+  return NULL;
 }
 
 /* We store any nodes created by hooks in here. */
