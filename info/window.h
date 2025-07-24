@@ -121,12 +121,6 @@ extern WINDOW *the_echo_area;   /* THE_ECHO_AREA is a window in THE_SCREEN. */
 
 extern int show_malformed_multibyte_p; /* Show malformed multibyte sequences */
 
-/* Global variable control redisplay of scrolled windows.  If non-zero, it
-   is the desired number of lines to scroll the window in order to make
-   point visible.  A user might set this to 1 for smooth scrolling.  If
-   set to zero, the line containing point is centered within the window. */
-extern int window_scroll_step;
-
  /* Make the modeline member for WINDOW. */
 void window_make_modeline (WINDOW *window);
 
