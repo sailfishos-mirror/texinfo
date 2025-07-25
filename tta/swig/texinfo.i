@@ -43,7 +43,9 @@
 #include "manipulate_indices.h"
 #include "reader_api.h"
 #include "texinfo.h"
+#include "convert_to_text.h"
 #include "swig_element_data.h"
+#include "swig_text_options.h"
 #include "swig_interface.h"
 %}
 
@@ -511,15 +513,28 @@ void txi_destroy_document (DOCUMENT *document);
 
 // Conversion
 
+// To Texinfo
+
 // convert_to_texinfo.h
 %newobject convert_to_texinfo;
 char *convert_to_texinfo (const ELEMENT *e);
 %newobject convert_contents_to_texinfo;
 char *convert_contents_to_texinfo (const ELEMENT *e);
 
+// To plain text
+
+%include "swig_text_options.h"
+
+// convert_to_text.h
+void text_set_options_encoding (TEXT_OPTIONS *text_options, char *encoding);
+void text_reset_options_encoding (TEXT_OPTIONS *text_options);
+void text_set_language (TEXT_OPTIONS *text_options, const char *lang);
+
+%newobject convert_to_text;
+char *convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options);
 
 // Tree representation
-// Very relevant for debugging, noreason to use otherwise
+// Very relevant for debugging, no reason to use otherwise
 
 // manipulate_tree.h
 %newobject tree_print_details;

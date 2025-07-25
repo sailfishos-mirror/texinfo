@@ -65,7 +65,8 @@ AM_T_LOG_FLAGS = -w
 
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; t2a_srcdir="$(top_srcdir)"; export t2a_srcdir; t2a_builddir="$(top_builddir)"; export t2a_builddir;
 
-t_test_files = t/30source_marks.t
+t_test_files = t/30source_marks.t \
+   t/40convert_to_text.t
 
 other_test_files = \
  test_scripts/test_macro_expand.sh \
@@ -80,6 +81,7 @@ TESTS += $(t_test_files)
 endif
 
 EXTRA_DIST = \
+ _Texinfo_Tests.pm \
  $(t_test_files) $(other_test_files) \
  test_refold.sh \
  parse_refold.pl \

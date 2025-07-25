@@ -555,6 +555,7 @@ libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 C_libtexinfo_main_sources = \
                        convert/swig_element_data.h \
+                       convert/swig_text_options.h \
                        convert/swig_interface.c \
                        convert/swig_interface.h \
                        convert/texinfo.c \

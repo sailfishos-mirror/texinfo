@@ -38,7 +38,9 @@
 #include "utils.h"
 #include "builtin_commands.h"
 #include "document.h"
+#include "convert_to_text.h"
 #include "swig_element_data.h"
+#include "swig_text_options.h"
 #include "swig_interface.h"
 
 #define cm_flag(name) \
@@ -899,4 +901,44 @@ GLOBAL_INFO *
 document_global_information (DOCUMENT *document)
 {
   return &document->global_info;
+}
+
+TEXT_OPTIONS *
+document_text_options (DOCUMENT *document)
+{
+  TEXT_OPTIONS *result;
+  if (document->options)
+    result = copy_options_for_convert_text (document->options);
+  else
+    result = new_text_options ();
+  return result;
+}
+
+#define tico_option_name(name) \
+void \
+text_options_set_##name (TEXT_OPTIONS *text_options, int i) \
+{ \
+  text_options->name = i; \
+}
+ TEXT_INDICATOR_CONVERTER_OPTIONS
+#undef tico_option_name
+
+void
+text_options_clear_expanded_formats (TEXT_OPTIONS *text_options)
+{
+  clear_expanded_formats (text_options->expanded_formats);
+}
+
+void
+text_options_add_expanded_format (TEXT_OPTIONS *text_options,
+                                  const char *format)
+{
+  add_expanded_format (text_options->expanded_formats, format);
+}
+
+void
+text_options_set_encoding (TEXT_OPTIONS *text_options, const char *encoding)
+{
+  free (text_options->encoding);
+  text_options->encoding = strdup (encoding);
 }

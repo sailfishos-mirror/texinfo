@@ -91,7 +91,7 @@ destroy_text_options (TEXT_OPTIONS *text_options)
 
 /* the string and strlist options need to be copied, in case they are
    deallocated if options are reset */
-static TEXT_OPTIONS *
+TEXT_OPTIONS *
 copy_options_for_convert_text (OPTIONS *options)
 {
   TEXT_OPTIONS *text_options = new_text_options ();
