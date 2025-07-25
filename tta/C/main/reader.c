@@ -70,8 +70,8 @@ initialize_reader (READER *reader, ELEMENT *tree, DOCUMENT *document)
    of the list, in that case the reader should be destroyed by calling
    destroy_reader.
  */
-READER *
-txi_new_reader (ELEMENT *tree, DOCUMENT *document)
+static READER *
+new_reader (ELEMENT *tree, DOCUMENT *document)
 {
   READER *new_reader;
 
@@ -116,7 +116,7 @@ txi_register_new_reader (ELEMENT *tree, DOCUMENT *document)
         fatal ("realloc failed");
     }
 
-  reader_list[reader_number] = txi_new_reader (tree, document);
+  reader_list[reader_number] = new_reader (tree, document);
 
   reader_number++;
 
@@ -254,7 +254,7 @@ txi_reader_skip_children (READER *reader, const ELEMENT *element)
   return &reader->token;
 }
 
-void
+static void
 destroy_reader (READER *reader)
 {
   destroy_list (reader->stack[0].sequence);
@@ -268,7 +268,7 @@ txi_reader_collect_commands_list (ELEMENT *tree,
 {
   CONST_ELEMENT_LIST *collected_commands_list = new_const_element_list ();
 
-  READER *reader = txi_new_reader (tree, 0);
+  READER *reader = new_reader (tree, 0);
   const READER_TOKEN *next;
 
   while (1)

@@ -26,7 +26,7 @@ extern const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[];
   tt_type(regenerate_master_menu) \
   tt_type(relate_index_entries_to_table_items)
 
-
+/* sync relevant flags with swig/texinfo.i */
 /* document tree transformations selection flags */
 #define STTF_complete_tree_nodes_menus              0x0001
 #define STTF_complete_tree_nodes_missing_menu       0x0002

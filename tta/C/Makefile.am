@@ -115,6 +115,7 @@ C_libtexinfo_sources = \
 		      main/manipulate_tree.h \
 		      main/reader.c \
 		      main/reader.h \
+		      main/reader_api.h \
 		      main/node_name_normalization.c \
 		      main/node_name_normalization.h \
 		      main/command_stack.c \

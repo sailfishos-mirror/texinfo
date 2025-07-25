@@ -6,14 +6,23 @@
  
 #include "tree_types.h"
 #include "document_types.h"
+#include "reader_api.h"
 
-READER *retrieve_reader_descriptor (size_t reader_descriptor);
-size_t txi_register_new_reader (ELEMENT *tree, DOCUMENT *document);
+typedef struct READER_CONTEXT {
+    ssize_t index;
+    ELEMENT_LIST *sequence;
+} READER_CONTEXT;
 
-READER *txi_new_reader (ELEMENT *tree, DOCUMENT *document);
-const READER_TOKEN *txi_reader_read (READER *reader);
-const READER_TOKEN *txi_reader_skip_children (READER *reader,
-                                              const ELEMENT *element);
+typedef struct READER {
+    size_t top;
+    size_t space;
+    READER_CONTEXT *stack;
+    READER_TOKEN token;
+
+    /* not intrisically needed, but if the elements are registered in
+       the document, may allow for faster access */
+    struct DOCUMENT *document;
+} READER;
 
 CONST_ELEMENT_LIST *txi_reader_collect_commands_list (ELEMENT *tree,
                                                 const COMMAND_STACK *commands);

@@ -15,6 +15,9 @@
 #include "translations.h"
 #include "convert_to_text.h"
 
+/* do not depend on READER structure implementation details */
+struct READER;
+
 /* in options_get_perl.c */
 void html_fill_sv_options (OPTIONS *options, const CONVERTER *converter);
 
@@ -40,7 +43,7 @@ OUTPUT_UNIT_LIST *get_sv_output_units (const DOCUMENT *document,
 
 void apply_sv_parser_conf (SV *parser_sv);
 
-READER *get_sv_reader_reader (SV *sv_in);
+struct READER *get_sv_reader_reader (SV *sv_in);
 
 void add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
                               enum sv_string_type type);

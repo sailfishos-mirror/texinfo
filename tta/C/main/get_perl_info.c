@@ -48,7 +48,7 @@
 #include "parser_conf.h"
 #include "document.h"
 #include "create_buttons.h"
-#include "reader.h"
+#include "reader_api.h"
 #include "output_unit.h"
 #include "get_perl_info.h"
 
@@ -313,11 +313,11 @@ get_sv_output_units (const DOCUMENT *document,
   return output_units;
 }
 
-READER *
+struct READER *
 get_sv_reader_reader (SV *sv_in)
 {
   size_t reader_descriptor;
-  READER *reader = 0;
+  struct READER *reader = 0;
 
   dTHX;
 

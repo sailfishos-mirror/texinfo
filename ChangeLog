@@ -1,5 +1,21 @@
 2025-07-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (C_libtexinfo_sources),
+	tta/C/main/get_perl_info.c, tta/C/main/reader.h (READER_CONTEXT)
+	(READER), tta/C/main/reader_api.h (retrieve_reader_descriptor)
+	(txi_register_new_reader, txi_reader_read, txi_reader_skip_children),
+	tta/C/main/tree_types.h, tta/swig/texinfo.i: move READER and
+	READER_CONTEXT types to reader.h.  Add a new file, reader_api.h with
+	the functions needed to use the reader, retrieve_reader_descriptor,
+	txi_register_new_reader, txi_reader_read and txi_reader_skip_children,
+	but no definition of READER struct.
+
+	* tta/C/main/reader.c (destroy_reader, new_reader): rename
+	txi_new_reader as new_reader.  Declare destroy_reader and new_reader
+	static.
+
+2025-07-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (C_libtexinfo_sources), tta/C/main/tree_types.h,
 	tta/C/main/source_mark_types.h (SM_TYPES_LIST, enum source_mark_type)
 	(enum source_mark_status, SOURCE_MARK): move source mark type and

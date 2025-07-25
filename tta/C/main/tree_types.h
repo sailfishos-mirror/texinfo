@@ -512,6 +512,7 @@ typedef struct LANG_TRANSLATION {
     LANG_TRANSLATION_TREE_LIST *translations;
 } LANG_TRANSLATION;
 
+/* used for targets */
 struct BUCKET;
 struct BUCKET_ARENA;
 typedef struct C_HASHMAP {
@@ -535,25 +536,9 @@ enum reader_token_category {
   #undef trt_cat
 };
 
-typedef struct READER_CONTEXT {
-    ssize_t index;
-    ELEMENT_LIST *sequence;
-} READER_CONTEXT;
-
 typedef struct READER_TOKEN {
     const ELEMENT *element;
     enum reader_token_category category;
 } READER_TOKEN;
-
-typedef struct READER {
-    size_t top;
-    size_t space;
-    READER_CONTEXT *stack;
-    READER_TOKEN token;
-
-    /* not intrisically needed, but if the elements are registered in
-       the document, may allow for faster access */
-    struct DOCUMENT *document;
-} READER;
 
 #endif

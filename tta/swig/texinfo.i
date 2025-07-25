@@ -40,7 +40,7 @@
 #include "manipulate_tree.h"
 #include "document.h"
 #include "manipulate_indices.h"
-#include "reader.h"
+#include "reader_api.h"
 #include "texinfo.h"
 #include "swig_element_data.h"
 #include "swig_interface.h"
@@ -229,6 +229,8 @@ ELEMENT *document_tree (DOCUMENT *document)
 }
 %}
 
+// tree_types.h
+// without the index entries
 typedef struct INDEX {
     char *name;
     char *prefix;
@@ -473,10 +475,10 @@ typedef struct READER_TOKEN {
     enum reader_token_category category;
 } READER_TOKEN;
 
-READER *new_reader (ELEMENT *tree, DOCUMENT *document);
+struct READER *new_reader (ELEMENT *tree, DOCUMENT *document);
 
 %{
-READER *
+struct READER *
 new_reader (ELEMENT *tree, DOCUMENT *document)
 {
   size_t reader_descriptor = txi_register_new_reader (tree, document);
@@ -484,11 +486,13 @@ new_reader (ELEMENT *tree, DOCUMENT *document)
 }
 %}
 
-const READER_TOKEN *reader_read (READER *reader);
+%inline %{
+const READER_TOKEN *reader_read (struct READER *reader);
+%}
 
 %{
 const READER_TOKEN *
-reader_read (READER *reader)
+reader_read (struct READER *reader)
 {
   if (!reader)
     return 0;
@@ -498,7 +502,7 @@ reader_read (READER *reader)
 %}
 
 %rename(reader_skip_children) txi_reader_skip_children;
-const READER_TOKEN *txi_reader_skip_children (READER *reader,
+const READER_TOKEN *txi_reader_skip_children (struct READER *reader,
                                               const ELEMENT *element);
 
 
