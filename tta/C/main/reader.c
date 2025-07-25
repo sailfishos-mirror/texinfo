@@ -21,14 +21,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "reader_types.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "types_data.h"
+#include "reader_api.h"
 #include "tree.h"
 #include "debug.h"
 #include "base_utils.h"
 #include "reader.h"
-
 
 
 static READER **reader_list;

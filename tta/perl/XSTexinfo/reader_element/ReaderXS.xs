@@ -25,6 +25,7 @@
 
 #undef context
 
+#include "reader_types.h"
 #include "element_types.h"
 #include "types_data.h"
 #include "tree_types.h"
@@ -33,6 +34,7 @@
 #include "builtin_commands.h"
 #include "tree.h"
 #include "command_stack.h"
+#include "reader_api.h"
 #include "reader.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"

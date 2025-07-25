@@ -4,6 +4,7 @@
  
 #include <stddef.h>
  
+#include "reader_types.h"
 #include "tree_types.h"
 #include "document_types.h"
 

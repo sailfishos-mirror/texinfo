@@ -4,9 +4,9 @@
  
 #include <stddef.h>
  
+#include "reader_types.h"
 #include "tree_types.h"
 #include "document_types.h"
-#include "reader_api.h"
 
 typedef struct READER_CONTEXT {
     ssize_t index;
@@ -20,7 +20,7 @@ typedef struct READER {
     READER_TOKEN token;
 
     /* not intrisically needed, but if the elements are registered in
-       the document, may allow for faster access */
+       the document, may allow for easier/faster access */
     struct DOCUMENT *document;
 } READER;
 
