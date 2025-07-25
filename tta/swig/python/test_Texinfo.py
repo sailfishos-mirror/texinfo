@@ -54,7 +54,10 @@ def sectioning_command_output(element):
 
 if __name__ == '__main__':
     sys.stderr.write("Starting\n")
-    Texinfo.setup(1)
+    # FIXME there is an error with Perl embedding:
+    # python: symbol lookup error: ..../Cwd.so: undefined symbol: Perl_xs_handshake
+    # Therefore, so do not to start an embedded interpreter at runtime.
+    Texinfo.setup(1, 0)
     sys.stderr.write("Texinfo interface is now setup\n")
     input_file_name = '../../../doc/texinfo.texi'
     #input_file_name = '../../../tta/perl/t/input_files/simplest.texi'

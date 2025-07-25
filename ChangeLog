@@ -1,5 +1,13 @@
 2025-07-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/texinfo.i (setup): add embed_perl argument to be able to
+	set at runtime.
+
+	* tta/swig/python/test_Texinfo.py: disable Perl interpreter embedding
+	as it does not work (for me).
+
+2025-07-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/m4/txi_perl_conf.m4: change a message.
 
 	Minor changes in spacing, TODO, POD, comments, messages, move code

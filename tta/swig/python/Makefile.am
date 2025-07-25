@@ -39,6 +39,8 @@ else
 # libperl).  This is needed for linking, even if no C Perl code is run.  Note
 # that this case is unlikely, as in general, if liberl is present,
 # PERL_EMBEDDED is set.
+# Note that this case corresponds to LIBPERL_LINK set, as checked in the
+# parent directory.
 if ! DISABLE_XS
 _Texinfo_la_LIBADD += $(perl_conf_LIBS)
 endif
