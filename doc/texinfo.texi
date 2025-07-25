@@ -62,9 +62,6 @@ Texts.  A copy of the license is included in the section entitled
 @set txiindexlessthanignore
 @set txiindexhyphenignore
 
-@clear txicodevaristt
-
-
 @titlepage
 @title Texinfo
 @subtitle The GNU Documentation Format
@@ -3053,7 +3050,6 @@ the line and follow the name with two colons.
 @need 800
 For example, write
 
-@set txicodevaristt
 @example
 * Name::                        @var{description}
 @end example
@@ -3091,7 +3087,6 @@ before the node name.  Some examples:
 @@end menu
 @end group
 @end example
-@clear txicodevaristt
 
 For example, to refer directly to the @samp{Outlining} and
 @samp{Rebinding} nodes in the @cite{Emacs Manual}, you could write a
