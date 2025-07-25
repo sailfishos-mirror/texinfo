@@ -4,6 +4,7 @@
 
 #include <stddef.h>
 
+#include "source_mark_types.h"
 #include "tree_types.h"
 
 char *next_text (ELEMENT *current);

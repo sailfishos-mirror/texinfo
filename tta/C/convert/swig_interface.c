@@ -28,6 +28,7 @@
 #include <string.h>
 
 #include "types_data.h"
+#include "source_mark_types.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "text.h"

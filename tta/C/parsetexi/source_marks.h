@@ -16,6 +16,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include "source_mark_types.h"
 #include "tree_types.h"
 
 SOURCE_MARK *new_source_mark (enum source_mark_type type);

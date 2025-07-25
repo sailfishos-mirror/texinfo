@@ -23,6 +23,7 @@
 
 #include "command_ids.h"
 #include "element_types.h"
+#include "source_mark_types.h"
 #include "tree_types.h"
 #include "types_data.h"
 #include "text.h"

@@ -23,6 +23,7 @@
 #include <inttypes.h>
 #include "unistr.h"
 
+#include "source_mark_types.h"
 #include "tree_types.h"
 #include "command_ids.h"
 #include "types_data.h"

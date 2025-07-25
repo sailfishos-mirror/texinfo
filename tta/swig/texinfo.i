@@ -26,6 +26,7 @@
 /* not necessarily used, but could be for debugging */
 #include <stdio.h>
 
+#include "source_mark_types.h"
 #include "element_types.h"
 #include "types_data.h"
 #include "tree_types.h"
@@ -320,43 +321,7 @@ typedef struct SOURCE_INFO {
     char *macro;
 } SOURCE_INFO;
 
-#define SM_TYPES_LIST \
-   sm_type(include) \
-   sm_type(setfilename) \
-   sm_type(delcomment) \
-   sm_type(defline_continuation) \
-   sm_type(macro_expansion) \
-   sm_type(linemacro_expansion) \
-   sm_type(value_expansion) \
-   sm_type(ignored_conditional_block) \
-   sm_type(line_directive) \
-   sm_type(macro_arg_escape_backslash) \
-   sm_type(expanded_conditional_command) \
-
-
-enum source_mark_type {
-   SM_type_none,
-  #define sm_type(name) SM_type_ ## name,
-   SM_TYPES_LIST
-  #undef sm_type
-};
-
-enum source_mark_status {
-   SM_status_none,
-   SM_status_start,
-   SM_status_end,
-};
-
-typedef struct SOURCE_MARK {
-    enum source_mark_type type;
-    enum source_mark_status status;
-    size_t position;
-    int counter;
-    struct ELEMENT *element; /* needed for elements removed
-                                from the tree */
-    char *line;  /* used when the information is not available as
-                    an element, for DEL comments, for instance */
-} SOURCE_MARK;
+%include "source_mark_types.h"
 
 // Tree Element interface
 

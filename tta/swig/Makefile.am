@@ -30,8 +30,9 @@ DIST_SUBDIRS = perl python
 BUILT_SOURCES = python/python_texinfo_wrap.c \
                 perl/perl_texinfo_wrap.c
 
-SWIG_include_directories = -I$(srcdir)/../C/convert
-SWIG_header_dependencies = $(srcdir)/../C/convert/swig_element_data.h
+SWIG_include_directories = -I$(srcdir)/../C/main -I$(srcdir)/../C/convert
+SWIG_header_dependencies = $(srcdir)/../C/main/source_mark_types.h \
+                           $(srcdir)/../C/convert/swig_element_data.h
 
 # tell Make how to create the generated SWIG files
 $(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_dependencies)

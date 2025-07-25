@@ -23,39 +23,10 @@
 #include "command_ids.h"
 #include "element_types.h"
 #include "text.h"
+#include "source_mark_types.h"
 
 /* the *_none enums are not necessarily used, they may also
    be there to avoid using 0, for a code easier to debug */
-
-/* the expanded_conditional_command source mark is used in arrays
-   dimensions, keep it in the end or change code */
-/* keep in sync with swig/texinfo.i */
-#define SM_TYPES_LIST \
-   sm_type(include) \
-   sm_type(setfilename) \
-   sm_type(delcomment) \
-   sm_type(defline_continuation) \
-   sm_type(macro_expansion) \
-   sm_type(linemacro_expansion) \
-   sm_type(value_expansion) \
-   sm_type(ignored_conditional_block) \
-   sm_type(line_directive) \
-   sm_type(macro_arg_escape_backslash) \
-   sm_type(expanded_conditional_command) \
-
-
-enum source_mark_type {
-   SM_type_none,
-  #define sm_type(name) SM_type_ ## name,
-   SM_TYPES_LIST
-  #undef sm_type
-};
-
-enum source_mark_status {
-   SM_status_none,
-   SM_status_start,
-   SM_status_end,
-};
 
 /* Indices into array returned by new_directions in main/tree.c. */
 /* need to be in the same order as explicit nodes directions */
@@ -269,17 +240,6 @@ typedef struct ASSOCIATED_INFO {
     size_t info_number;
     size_t info_space;
 } ASSOCIATED_INFO;
-
-typedef struct SOURCE_MARK {
-    enum source_mark_type type;
-    enum source_mark_status status;
-    size_t position;
-    int counter;
-    struct ELEMENT *element; /* needed for elements removed
-                                from the tree */
-    char *line;  /* used when the information is not available as
-                    an element, for DEL comments, for instance */
-} SOURCE_MARK;
 
 typedef struct SOURCE_MARK_LIST {
     struct SOURCE_MARK **list;

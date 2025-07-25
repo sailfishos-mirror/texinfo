@@ -21,6 +21,7 @@
 #include <inttypes.h>
 
 #include "text.h"
+#include "source_mark_types.h"
 #include "tree_types.h"
 #include "document_types.h"
 

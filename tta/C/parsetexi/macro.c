@@ -21,6 +21,8 @@
 #include <stdio.h>
 
 #include "text.h"
+#include "element_types.h"
+#include "source_mark_types.h"
 #include "tree_types.h"
 /* for VALUE */
 #include "document_types.h"

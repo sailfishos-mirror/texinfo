@@ -1,5 +1,15 @@
 2025-07-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (C_libtexinfo_sources), tta/C/main/tree_types.h,
+	tta/C/main/source_mark_types.h (SM_TYPES_LIST, enum source_mark_type)
+	(enum source_mark_status, SOURCE_MARK): move source mark type and
+	enums to a separate file, source_mark_types.h.
+
+	* tta/swig/Makefile.am (SWIG_include_directories)
+	(SWIG_header_dependencies), tta/swig/texinfo.i: use source_mark_types.
+
+2025-07-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/texinfo.i (setup): add embed_perl argument to be able to
 	set at runtime.
 

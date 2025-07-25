@@ -22,6 +22,8 @@
 #include <errno.h>
 
 #include "text.h"
+#include "source_mark_types.h"
+#include "tree_types.h"
 /* for fatal */
 #include "base_utils.h"
 /* for xasprintf and other */

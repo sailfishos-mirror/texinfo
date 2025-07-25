@@ -22,6 +22,7 @@
 #include <stddef.h>
 
 #include "command_ids.h"
+#include "source_mark_types.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "counter.h"

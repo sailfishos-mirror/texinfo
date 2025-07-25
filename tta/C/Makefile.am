@@ -76,6 +76,7 @@ endif
 C_libtexinfo_sources = \
 		      main/tree_types.h \
 		      main/document_types.h \
+		      main/source_mark_types.h \
 		      main/tree.c \
 		      main/tree.h \
 		      main/text.c \

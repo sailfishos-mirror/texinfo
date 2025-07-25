@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stddef.h>
 
+#include "source_mark_types.h"
 #include "tree_types.h"
 #include "types_data.h"
 /* for fatal */

@@ -2,6 +2,7 @@
 #ifndef SWIG_INTERFACE_H
 #define SWIG_INTERFACE_H
 
+#include "source_mark_types.h"
 #include "tree_types.h"
 #include "document_types.h"
 
