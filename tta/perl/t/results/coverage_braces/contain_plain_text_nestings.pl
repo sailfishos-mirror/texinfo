@@ -397,9 +397,11 @@ $result_converted{'html_text'}->{'contain_plain_text_nestings'} = '<div class="t
 </p>
 <div class="printindex cp-printindex">
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_symbol-1"> </th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-ii">ii</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-ii-1">ii</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 </div>
 </div>

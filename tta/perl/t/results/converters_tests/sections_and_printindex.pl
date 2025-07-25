@@ -309,9 +309,11 @@ $result_converted{'html_text'}->{'sections_and_printindex'} = '<div class="top-l
 
 <div class="printindex cp-printindex">
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="sec_cp_letter-E">E</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-entry1">entry1</a></td><td class="printindex-index-section"><a href="#node">node</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-entry2">entry2</a></td><td class="printindex-index-section"><a href="#sec">sec</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 </div>
 

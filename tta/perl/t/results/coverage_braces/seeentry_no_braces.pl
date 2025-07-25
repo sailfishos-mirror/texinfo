@@ -198,8 +198,10 @@ $result_converted{'html_text'}->{'seeentry_no_braces'} = '<div class="top-level-
 
 <div class="printindex cp-printindex">
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-A">A</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-aa">aa</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 </div>
 

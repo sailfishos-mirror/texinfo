@@ -1061,12 +1061,15 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="unnumbered_cp_letter-C">C</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-chapter">chapter</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-Chapter2">Chapter2</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="unnumbered_cp_letter-S">S</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second-1">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="unnumbered_cp_letter-T">T</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section-1">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
@@ -1076,9 +1079,11 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <tr><td class="printindex-index-entry"><a href="#index-top-section-5">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section1">top section1</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-truc">truc</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="unnumbered_cp_letter-U">U</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered">unnumbered</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered-after-text">unnumbered after text</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#unnumbered_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -1114,12 +1119,15 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="unnumbered_cp_letter-C">C</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-chapter">chapter</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-Chapter2">Chapter2</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="unnumbered_cp_letter-S">S</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second-1">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="unnumbered_cp_letter-T">T</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section-1">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
@@ -1129,9 +1137,11 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <tr><td class="printindex-index-entry"><a href="#index-top-section-5">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section1">top section1</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-truc">truc</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="unnumbered_cp_letter-U">U</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered">unnumbered</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered-after-text">unnumbered after text</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#unnumbered_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -1172,12 +1182,15 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="top-_0028chapter_0029-section_cp_letter-C">C</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-chapter">chapter</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-Chapter2">Chapter2</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="top-_0028chapter_0029-section_cp_letter-S">S</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second-1">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="top-_0028chapter_0029-section_cp_letter-T">T</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section-1">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
@@ -1187,9 +1200,11 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <tr><td class="printindex-index-entry"><a href="#index-top-section-5">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section1">top section1</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-truc">truc</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="top-_0028chapter_0029-section_cp_letter-U">U</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered">unnumbered</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered-after-text">unnumbered after text</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#top-_0028chapter_0029-section_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -1227,12 +1242,15 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="second_cp_letter-C">C</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-chapter">chapter</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-Chapter2">Chapter2</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="second_cp_letter-S">S</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second-1">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="second_cp_letter-T">T</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section-1">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
@@ -1242,9 +1260,11 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <tr><td class="printindex-index-entry"><a href="#index-top-section-5">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section1">top section1</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-truc">truc</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="second_cp_letter-U">U</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered">unnumbered</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered-after-text">unnumbered after text</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#second_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -1271,12 +1291,15 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="second_cp_letter-C">C</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-chapter">chapter</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-Chapter2">Chapter2</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="second_cp_letter-S">S</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second-1">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="second_cp_letter-T">T</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section-1">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
@@ -1286,9 +1309,11 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <tr><td class="printindex-index-entry"><a href="#index-top-section-5">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section1">top section1</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-truc">truc</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="second_cp_letter-U">U</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered">unnumbered</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered-after-text">unnumbered after text</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#second_cp_letter-C"><b>C</b></a>
  &nbsp; 
@@ -1322,12 +1347,15 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Chapter_cp_letter-C">C</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-chapter">chapter</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-Chapter2">Chapter2</a></td><td class="printindex-index-section"><a href="#Chapter">1 Chapter</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Chapter_cp_letter-S">S</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second-1">second</a></td><td class="printindex-index-section"><a href="#second">second</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Chapter_cp_letter-T">T</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section-1">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
@@ -1337,9 +1365,11 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <tr><td class="printindex-index-entry"><a href="#index-top-section-5">top section</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-top-section1">top section1</a></td><td class="printindex-index-section"><a href="#top-_0028chapter_0029-section">top (chapter) section</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-truc">truc</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Chapter_cp_letter-U">U</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered">unnumbered</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-unnumbered-after-text">unnumbered after text</a></td><td class="printindex-index-section"><a href="#unnumbered">unnumbered</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Chapter_cp_letter-C"><b>C</b></a>
  &nbsp; 

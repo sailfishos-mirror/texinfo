@@ -518,8 +518,10 @@ see <a class="pxref" href="#a-in-paragraph-in-top">a in paragraph in top</a>
 
 <div class="printindex cp-printindex">
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chapter_cp_letter-C">C</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-chap-index">chap index</a></td><td class="printindex-index-section"><a href="#chapter">chapter</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 </div>
 

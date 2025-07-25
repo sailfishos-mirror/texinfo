@@ -570,7 +570,7 @@ span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
-th.index-letter-header-printindex {text-align: left; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
+th.index-letter-header-printindex {text-align: left; padding-bottom: 0.5em; padding-top: 0.5em}
 </style>
 
 
@@ -626,11 +626,14 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex vr-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-A">A</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-copying-a-of-copying"><code>a de copying</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="chap_vr_letter-B">B</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-BBB-of-fr"><code>BBB de fr</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-BBB-of-hr"><code>BBB od hr</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex vr-letters-footer-printindex"><tr><th>Preskoči na: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_vr_letter-A"><b>A</b></a>
  &nbsp; 

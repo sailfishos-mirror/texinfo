@@ -10836,6 +10836,11 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           text_append (&result_index_entries, formatted_letter);
           text_append_n (&result_index_entries, "</th></tr>\n", 11);
           text_append (&result_index_entries, entries_text.text);
+          text_append_n (&result_index_entries, "<tr><td colspan=\"2\">", 20);
+          if (self->conf->DEFAULT_RULE.o.string)
+            text_append (&result_index_entries,
+                         self->conf->DEFAULT_RULE.o.string);
+          text_append_n (&result_index_entries, "</td></tr>\n", 11);
         }
       else
         {
@@ -10986,6 +10991,11 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
   text_append (result, attribute_class);
   free (attribute_class);
   text_append_n (result, ">\n", 2);
+
+  text_append_n (result, "<tr><td colspan=\"2\">", 20);
+  if (self->conf->DEFAULT_RULE.o.string)
+    text_append (result, self->conf->DEFAULT_RULE.o.string);
+  text_append_n (result, "</td></tr>\n", 11);
 
   text_append (result, result_index_entries.text);
   text_append_n (result, "</table>\n", 9);

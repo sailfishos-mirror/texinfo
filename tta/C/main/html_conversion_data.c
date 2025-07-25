@@ -47,7 +47,7 @@ const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {
     {"td.menu-entry-description", "vertical-align: top; padding-left: 1em"},
     {"th.entries-header-printindex", "text-align:left"},
     {"th.sections-header-printindex", "text-align:left; padding-left: 1em"},
-    {"th.index-letter-header-printindex", "text-align: left; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid"},
+    {"th.index-letter-header-printindex", "text-align: left; padding-bottom: 0.5em; padding-top: 0.5em"},
     {"th.menu-comment", "text-align:left"},
     {"td.category-def", "text-align:right"},
     {"td.call-def", "text-align:left"},

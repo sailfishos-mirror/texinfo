@@ -809,31 +809,42 @@ $result_converted{'html_text'}->{'various_vtable_command_as_argument'} = '<div c
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex vr-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_symbol-1">:</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-_003auu_003a"><code>:uu:</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_symbol-2">?</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-_003fnn_003f"><code>?nn?</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_letter-A">A</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-a-_002b-b"><code>a + b</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-aa"><code>aa</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-ac"><code>a<sup class="sup">c</sup></code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-anchor-1"><code>anchor 1</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-anchor-2"><code>anchor 2</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_letter-B">B</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-bb"><code>bb</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_letter-C">C</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-caa"><code>caa</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
 <tr><td class="printindex-index-entry"><a href="#index-cbb"><code>cbb</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_letter-D">D</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-docbook"><code>docbook</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_letter-F">F</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-first"><code>first</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_letter-H">H</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-html"><code>html</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_letter-S">S</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-second"><code>second</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex vr-letter-header-printindex" colspan="2" id="Indices_vr_letter-T">T</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-titi"><code>titi</code></a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex vr-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Indices_vr_symbol-1"><b>:</b></a>
  &nbsp; 

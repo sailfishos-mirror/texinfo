@@ -569,7 +569,7 @@ td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
-th.index-letter-header-printindex {text-align: left; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
+th.index-letter-header-printindex {text-align: left; padding-bottom: 0.5em; padding-top: 0.5em}
 </style>
 
 
@@ -634,8 +634,10 @@ where the max column could be. in&nbsp;w<!-- /@w -->.
 
 <div class="printindex cp-printindex">
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="node2_cp_letter-I">I</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-in-nodedescriptionblock">in nodedescriptionblock</a></td><td class="printindex-index-section"><a href="#node1">node1</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 </div>
 

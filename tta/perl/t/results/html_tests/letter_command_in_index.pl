@@ -218,7 +218,7 @@ a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
-th.index-letter-header-printindex {text-align: left; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
+th.index-letter-header-printindex {text-align: left; padding-bottom: 0.5em; padding-top: 0.5em}
 </style>
 
 
@@ -258,12 +258,16 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
  &nbsp; 
 </td></tr></table>
 <table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-E">E</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-e">&ecirc;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-L-1">&#321;</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-l">&#322;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 <tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="chap_cp_letter-TH-2">&THORN;</th></tr>
 <tr><td class="printindex-index-entry"><a href="#index-TH">&THORN;</a></td><td class="printindex-index-section"><a href="#chap">chap</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
 <table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#chap_cp_letter-E"><b>E</b></a>
  &nbsp; 

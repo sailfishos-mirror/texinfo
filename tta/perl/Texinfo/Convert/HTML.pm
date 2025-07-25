@@ -6493,6 +6493,9 @@ sub _convert_printindex_command($$$$)
   # FIXME not part of the API
   $self->_new_document_context($cmdname);
 
+  my $rule = $self->get_conf('DEFAULT_RULE');
+  $rule = '' if (!defined($rule));
+
   my %formatted_letters;
   # Next do the entries to determine the letters that are not empty
   my @letter_entries;
@@ -6897,7 +6900,8 @@ sub _convert_printindex_command($$$$)
         $self->html_attribute_class('th', ["index-letter-header-$cmdname",
                                      "$index_name-letter-header-$cmdname"])
            ." colspan=\"2\" id=\"$letter_id{$letter}\">".$formatted_letter
-        . "</th></tr>\n" . $entries_text;
+        . "</th></tr>\n" . $entries_text
+        . "<tr><td colspan=\"2\">${rule}</td></tr>\n";
       push @letter_entries, $letter_entry;
     }
   }
@@ -6960,6 +6964,7 @@ sub _convert_printindex_command($$$$)
    .= $self->html_attribute_class('table', ["index-entries-$cmdname",
                                     "$index_name-entries-$cmdname"]).">\n";
   $result .= $result_index_entries;
+  $result .= "<tr><td colspan=\"2\">${rule}</td></tr>\n";
   $result .= "</table>\n";
 
   $self->_pop_document_context();
