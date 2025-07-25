@@ -1,5 +1,10 @@
 2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Hooks): update to reflect last
+	change.
+
+2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove node-not-found-interactive hook as separate hook
 
 	* info/session-cmd.c (info_select_reference): In case of

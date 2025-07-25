@@ -2558,97 +2558,70 @@ To define a hook, you place an executable program by the same name
 in the directory @code{@env{$XDG_CONFIG_DIRS}/texinfo/info-hooks},
 where @env{$XDG_CONFIG_DIRS} is one of the XDG directories described
 in the previous chapter (@pxref{Custom Key Bindings}).
-Currently, Info has the following hooks:
+Currently, Info has the following hook:
 
 @table @code
-@item manual-not-found
-This hook runs if a manual is not found when Info is run.  The program is
-passed one argument on the command line, which is the name of the manual.
-It should print any messages for the user on standard error.
-
-For example, if the hook is implemented as a shell script, it could
-look like this:
-
-@example
-#!/bin/sh
-
-echo "Manual '$1' not found" >&2
-
-exit 0
-@end example
+@item manual-not-found [--interactive] @var{manual}
+This hook runs if a manual is not found.  The program is
+passed the name of the manual on the command line.  If run during
+an interactive Info session (for example, when the user is following
+a cross-reference to a non-existent Info manual), the hook is
+passed the @code{--interactive} argument as the first argument.
 
 The hook should exit with a status of zero to indicate success.
+If the exit status of the hook is non-zero (perhaps if the hook program
+encountered some problem), Info keeps on running as before,
+exiting with its usual error message if the hook is run at startup time.
 
-If the hook runs successfully and does not print anything on its
-standard output, Info exits.
+When run at startup time, if the hook runs successfully and does not
+print anything on its standard output, Info exits.  The hook should
+print any messages for the user on standard error.
 
 If the hook prints anything to standard output, Info creates a node
-with this output, and starts an interactive session displaying this node.
-For example, the following hook script tries to find a man page, and if
+with this output, and displays this node to the user in an interactive
+session.
+
+For example, the following hook script creates a node with a short
+message for the user.  It additionally tries to find a man page, and if
 it succeeds, creates an Info menu allowing the user to navigate to that
 man page from within Info:
 
 @example
 #!/bin/sh
 
+interactive=0
+if test x$1 = x--interactive ; then
+  shift
+  interactive=1
+fi
+
+echo "Manual '$1' not found" >&2
+
 manpage_exists=0
 if man -w "$1" >/dev/null ; then
   manpage_exists=1
 fi
 
-if test $manpage_exists = 1 ; then
-  msg="An Info manual called '$1' was not found on your
-system.
+msg="An Info manual called '$1' was not found on your system.
 
 See <https://www.gnu.org/doc/> in a web browser to get
 information on GNU project documentation.
+"
 
-You could try loading the man page instead, using the link
+if test $manpage_exists = 1 ; then
+msg="$@{msg@}
+You could try loading the man page instead, with the link
 below:
 
 * Menu:
 
 * (*manpages*)$1::	$1 man page
 "
-
-  echo "$msg"
 fi
 
-exit 0
-@end example
-
-
-If the exit status of the hook is non-zero (perhaps if the hook program
-encountered some problem), Info keeps on running as before, probably
-exiting with its usual error message.
-
-@item node-not-found-interactive
-This hook runs if the user attempts to load a node while they are
-using Info and the node can't be found.  The name of the manual is
-passed as a command-line argument.  Info uses any text that the hook
-prints to standard output to create a new node, and diplays this node
-to the user.
-
-For example:
-
-@example
-#!/bin/sh
-
-msg="You were looking for the '$1' manual, but it's not
-installed on your system.
-
-You could try downloading the Info manual from:
-https://www.gnu.org/manual/manual.html
-
-Or you could try checking if a man page by that name exists:
-
-* Menu:
-
-* (*manpages*)$1::      Man page
-
-"
-
 echo "$msg"
+
+exit 0
 @end example
 
 @noindent (The hook would be need to be more sophisticated than
