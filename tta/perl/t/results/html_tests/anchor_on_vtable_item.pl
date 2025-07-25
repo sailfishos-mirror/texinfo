@@ -342,7 +342,6 @@ $result_converted{'html'}->{'anchor_on_vtable_item'} = '<!DOCTYPE html>
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
-table.index-entries-printindex {border-spacing: 0 0.5em}
 td.printindex-index-entry {vertical-align: top}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.index-letter-header-printindex {text-align: left; padding-bottom: 0.5em; padding-top: 0.5em; border-width: thin; border-top-style: solid}
