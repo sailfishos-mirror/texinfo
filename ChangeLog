@@ -1,5 +1,11 @@
 2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Functions Commands, Typed Functions):
+	Place discussion of the style of fonts used within @deffn and
+	@deftypefn inside @ignore blocks.
+
+2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Hooks): update to reflect last
 	change.
 

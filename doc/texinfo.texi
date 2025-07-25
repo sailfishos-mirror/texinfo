@@ -10993,9 +10993,13 @@ Move point forward @@var@{nchars@} characters.
 This shows a rather terse definition for a ``command'' named
 @code{forward-char} with one argument, @var{nchars}.
 
+@ignore
+@c do not be specific about font differences between @deffn/@deftypefn
+@c as this might change in the future
 Where the output format allows, @code{@@deffn} uses a typewriter font
 for @var{name}, and a slanted font for the rest of the @var{arguments},
 as would be produced by @code{@@var}.
+@end ignore
 
 Within the text of the description, write an argument name
 explicitly with @code{@@var} to refer to the value of the argument.
@@ -11084,9 +11088,13 @@ When using @code{@@deftypefn} command and variations,
 you should mark parameter names with
 @code{@@var} to distinguish these from data type names, keywords, and
 other parts of the literal syntax of the programming language.
+@ignore
+@c do not be specific about font differences between @deffn/@deftypefn
+@c as this might change in the future
 Where the output format allows,
 all output on the definition line is in a typewriter font by default.
 @code{@@var} uses an appropriate font where it occurs.
+@end ignore
 
 If you are describing a procedure in a language that has packages,
 such as Ada, you might consider using @code{@@deftypefn} in the
