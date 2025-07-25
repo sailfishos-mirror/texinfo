@@ -67,4 +67,18 @@ sub is_diff($$$)
   }
 }
 
+# also in tta/perl/t/test_utils.pl
+sub protect_perl_string($)
+{
+  my $string = shift;
+  #if (!defined($string)) {
+  #  cluck();
+  #}
+  $string =~ s/\\/\\\\/g;
+  $string =~ s/'/\\'/g;
+  # \r can be mangled upon reading if at end of line
+  $string =~ s/\r/'."\\r".'/g;
+  return $string;
+}
+
 1;

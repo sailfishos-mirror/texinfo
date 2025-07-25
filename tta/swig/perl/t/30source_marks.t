@@ -20,66 +20,28 @@
 
 use strict;
 
-use Test::More;
-
-# for fileparse
-use File::Basename;
-use File::Spec;
-
-plan tests => 2;
+# to find _Texinfo_Tests in source
+use lib '.';
 
 BEGIN {
-  my ($real_command_name, $command_directory, $command_suffix)
-              = fileparse($0, '.pl');
-  my $updir = File::Spec->updir();
-
-  # to find Texinfo.pm
+  # to find _Texinfo_Tests in out of source builds
   my $srcdir = $ENV{'srcdir'};
-  if (!defined($srcdir)) {
-    $command_directory = File::Spec->curdir()
-      if (!defined($command_directory) or $command_directory eq '');
-    $srcdir = join('/', ($command_directory, $updir));
-  }
-  unshift @INC, $srcdir;
-  # To find the XS extension
-  my $t2a_builddir = $ENV{'t2a_builddir'};
-  if (!defined($t2a_builddir) and defined($srcdir)) {
-    # this is correct for in-source builds only.
-    $t2a_builddir = join('/', ($srcdir, $updir, $updir));
-  }
-  if (defined($t2a_builddir)) {
-    unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+  if (defined($srcdir)) {
+    unshift @INC, $srcdir;
   }
 }
 
-eval { require Text::Diff; Text::Diff->import('diff'); };
+use _Texinfo_Tests;
 
-my $text_diff_loading_error = $@;
+use Test::More;
+
+plan tests => 2;
 
 use Texinfo;
 
 Texinfo::setup(1);
 
 ok(1, 'modules loading');
-
-sub is_diff($$$)
-{
-  my $result = shift;
-  my $reference = shift;
-  my $test_name = shift;
-
-  #if (!$test_differences_loading_error) {
-  #  eq_or_diff_text($result, $reference, $test_name);
-  #} elsif ($text_diff_loading_error) {
-  if ($text_diff_loading_error or !defined($reference)
-      or ref($reference) ne '' or !defined($result)) {
-    is($result, $reference, $test_name);
-  } else {
-    ok($result eq $reference, $test_name)
-       or note((diff(\$result, \$reference)));
-    #is($result, $reference, $test_name) or note(diff(\$result, \$reference));
-  }
-}
 
 # TODO the @lm line leads to expected error messages.  Currently the API
 # only allows to print error messages, not to get them, so no way to
@@ -128,20 +90,6 @@ Texinfo::output_parser_error_messages($document);
 my $tree = Texinfo::document_tree($document);
 my $reader = Texinfo::new_reader($tree, $document);
 
-# also in tta/perl/t/test_utils.pl
-sub protect_perl_string($)
-{
-  my $string = shift;
-  #if (!defined($string)) {
-  #  cluck();
-  #}
-  $string =~ s/\\/\\\\/g;
-  $string =~ s/'/\\'/g;
-  # \r can be mangled upon reading if at end of line
-  $string =~ s/\r/'."\\r".'/g;
-  return $string;
-}
-
 my %expanded_source_mark_types;
 foreach my $type ($Texinfo::SM_type_defline_continuation,
  $Texinfo::SM_type_macro_expansion, $Texinfo::SM_type_linemacro_expansion,
@@ -150,8 +98,6 @@ foreach my $type ($Texinfo::SM_type_defline_continuation,
  $Texinfo::SM_type_expanded_conditional_command) {
   $expanded_source_mark_types{$type} = 1;
 }
-
-#my $v = Texinfo::READER_TOKEN->new();
 
 my $result = '';
 
@@ -211,7 +157,7 @@ while (1) {
   }
 }
 
-#my $result_string = protect_perl_string($result);
+#my $result_string = _Texinfo_Tests::protect_perl_string($result);
 #print STDERR "'$result_string'\n";
 
 my $reference = '[T: View toto.  And then mine and yours . .\\n]|4
@@ -251,6 +197,6 @@ bracketed_arg|1
  0: c:4; s:2; p:0|
 ';
 
-is_diff($result, $reference, 'source marks representation');
+_Texinfo_Tests::is_diff($result, $reference, 'source marks representation');
 
 1;
