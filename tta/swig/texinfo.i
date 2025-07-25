@@ -56,7 +56,7 @@ reset_parser (0);
 %}
 
 // if embed_perl is negative (the default value), the value set at compile
-// for Perl embedding with EMBED_PERL is used.
+// time for Perl embedding with EMBED_PERL is used.
 void
 setup (int texinfo_uninstalled=0, int embed_perl=-1,
        const char *converterdatadir_in=0, const char *t2a_builddir_in=0,
@@ -126,6 +126,23 @@ setup (int texinfo_uninstalled, int embed_perl,
   free (t2a_srcdir);
 }
 %}
+
+
+// Access to lists used in different places
+
+// swig_interface.h
+
+ELEMENT *element_list_element_by_index (ELEMENT_LIST *element_list, int index);
+int element_list_elements_number (ELEMENT_LIST *element_list);
+
+const ELEMENT *const_element_list_element_by_index (
+                                              CONST_ELEMENT_LIST *element_list,
+                                              int index);
+int const_element_list_elements_number (CONST_ELEMENT_LIST *element_list);
+
+char *string_list_string_by_index (STRING_LIST *string_list, int index);
+int string_list_strings_number (STRING_LIST *string_list);
+
 
 // Information on elements
 
@@ -230,25 +247,7 @@ ELEMENT *document_tree (DOCUMENT *document)
 }
 %}
 
-// tree_types.h
-// without the index entries
-typedef struct INDEX {
-    char *name;
-    char *prefix;
-    int in_code;
-
-    struct INDEX *merged_in; /* Index this index is merged into, if any. */
-} INDEX;
-
-typedef struct INDEX_ENTRY {
-    char *index_name; /* kept with the entry as the indices may be merged */
-    int number; /* position in the original index.  May be different in
-                   merged index */
-    ELEMENT *entry_element;
-    ELEMENT *entry_associated_element; /* set if the entry is reassociated to
-                                          another element */
-} INDEX_ENTRY;
-
+// targets.h
 %inline %{
 ELEMENT *get_element_by_identifier (DOCUMENT *document,
                                     const char *identifier);
@@ -269,6 +268,26 @@ const ELEMENT_LIST *document_global_command_list (DOCUMENT *document,
                                                   const char *cmdname);
 
 // index sorting and associated data
+
+// tree_types.h
+// without the index entries
+typedef struct INDEX {
+    char *name;
+    char *prefix;
+    int in_code;
+
+    struct INDEX *merged_in; /* Index this index is merged into, if any. */
+} INDEX;
+
+typedef struct INDEX_ENTRY {
+    char *index_name; /* kept with the entry as the indices may be merged */
+    int number; /* position in the original index.  May be different in
+                   merged index */
+    ELEMENT *entry_element;
+    ELEMENT *entry_associated_element; /* set if the entry is reassociated to
+                                          another element */
+} INDEX_ENTRY;
+
 INDEX_ENTRY *sorted_index_entries_by_index (
                      const INDEX_SORTED_BY_INDEX *index_sorted, int index);
 int sorted_index_entries_number (const INDEX_SORTED_BY_INDEX *index_sorted);
@@ -279,6 +298,7 @@ const INDEX_SORTED_BY_INDEX *get_index_sorted_by_index (DOCUMENT *document,
                            const char *collation_language=0,
                            const char *collation_locale=0);
 
+// listoffloats
 typedef struct {
     ELEMENT *float_element;
     const SECTION_RELATIONS *float_section;
@@ -291,6 +311,7 @@ int float_list_floats_number (FLOAT_INFORMATION_LIST *float_list);
 FLOAT_INFORMATION_LIST *get_float_type_floats_information (
                         DOCUMENT *document, const char *float_type);
 
+// Document-wide information
 /* Only document-wide interesting information */
 typedef struct GLOBAL_INFO {
     char *input_file_name;
@@ -302,20 +323,9 @@ typedef struct GLOBAL_INFO {
 GLOBAL_INFO *document_global_information (DOCUMENT *document);
 
 
-// Base data structures
+// Tree Element interface
 
-// swig_interface.h
-
-ELEMENT *element_list_element_by_index (ELEMENT_LIST *element_list, int index);
-int element_list_elements_number (ELEMENT_LIST *element_list);
-
-const ELEMENT *const_element_list_element_by_index (
-                                              CONST_ELEMENT_LIST *element_list,
-                                              int index);
-int const_element_list_elements_number (CONST_ELEMENT_LIST *element_list);
-
-char *string_list_string_by_index (STRING_LIST *string_list, int index);
-int string_list_strings_number (STRING_LIST *string_list);
+// Access to tree element information
 
 // tree_types.h
 typedef struct SOURCE_INFO {
@@ -325,8 +335,6 @@ typedef struct SOURCE_INFO {
 } SOURCE_INFO;
 
 %include "source_mark_types.h"
-
-// Tree Element interface
 
 // swig_interface.h
 const char *element_type (ELEMENT *element);
@@ -355,7 +363,6 @@ INDEX *index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry);
 
 const STRING_LIST *element_misc_args (ELEMENT *element);
 
-
 // New element and element modification
 
 // swig_interface.h
@@ -378,7 +385,7 @@ int set_element_attribute_element (ELEMENT *element, const char *attribute,
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 
 
-// Nodes, sections and heading relations
+// Nodes, sections and headings relations
 
 // Data structures
 
@@ -460,7 +467,9 @@ sectioning_root_children (DOCUMENT *document)
 
 // reader_api.h
 
+%inline %{
 struct READER *new_reader (ELEMENT *tree, DOCUMENT *document);
+%}
 
 %{
 struct READER *
@@ -500,7 +509,6 @@ const READER_TOKEN *txi_reader_skip_children (struct READER *reader,
 void txi_destroy_document (DOCUMENT *document);
 
 
-
 // Conversion
 
 // convert_to_texinfo.h
@@ -510,16 +518,8 @@ char *convert_to_texinfo (const ELEMENT *e);
 char *convert_contents_to_texinfo (const ELEMENT *e);
 
 
-// Helper functions.  Not sure which ones to keep?
-
-// utils.h
-ELEMENT *get_label_element (const ELEMENT *e);
-// TODO add a wrapper around utils.c informative_command_value?
-// or let it be re-implemented in the diverse languages?
-
-// manipulate_indices.h
-ELEMENT *index_content_element (const ELEMENT *element,
-                                int prefer_reference_element=0);
+// Tree representation
+// Very relevant for debugging, noreason to use otherwise
 
 // manipulate_tree.h
 %newobject tree_print_details;
@@ -546,4 +546,21 @@ element_print_details (ELEMENT *element, const char *fname_encoding,
 }
 %}
 
+
+// Helper functions
+// TODO move to another module/file?
+
+// These could also be re-implemented in the different languages.
+// Which one to add/remove?
+
+// We do not want to care at all about API stability for those.
+
+// utils.h
+ELEMENT *get_label_element (const ELEMENT *e);
+// TODO add a wrapper around utils.c informative_command_value?
+// or let it be re-implemented in the diverse languages?
+
+// manipulate_indices.h
+ELEMENT *index_content_element (const ELEMENT *element,
+                                int prefer_reference_element=0);
 // TODO add a wrapper around new_complete_menu_master_menu?
