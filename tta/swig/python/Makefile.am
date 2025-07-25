@@ -34,10 +34,10 @@ _Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo.la $(top_builddir)/C/libtexinf
 if PERL_EMBEDDED
 _Texinfo_la_LIBADD += $(PERL_EXTUTILS_EMBED_ldopts)
 else
-# in contrast with XS extensions, here we need an explicit link against
-# libperl as there is no Perl process involved.  This is needed for linking,
-# even though no C Perl code is used at all in that case.
-# Note that this case is unlikely, as in general, if liberl is present,
+# We need an explicit link against libperl as there is no Perl process involved
+# (Perl C code used through XS extensions can use the Perl interpreter
+# libperl).  This is needed for linking, even if no C Perl code is run.  Note
+# that this case is unlikely, as in general, if liberl is present,
 # PERL_EMBEDDED is set.
 if ! DISABLE_XS
 _Texinfo_la_LIBADD += $(perl_conf_LIBS)

@@ -119,7 +119,14 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
           free (message);
         }
       else if (status < 0)
-        fprintf (stderr, "WARNING: no embedded interpreter available\n");
+        {
+          fprintf (stderr, "WARNING: no interpreter embedding code built\n");
+          /* no need to call set_no_perl_interpreter, it is the default in
+             that case */
+          messages_and_encodings_setup ();
+          setup_texinfo_main (texinfo_uninstalled, converterdatadir,
+                              t2a_builddir, t2a_srcdir);
+        }
       free (load_modules_path);
     }
   else

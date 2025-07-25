@@ -35,15 +35,6 @@ static READER **reader_list;
 static size_t reader_number;
 static size_t reader_space;
 
-READER *
-retrieve_reader_descriptor (size_t reader_descriptor)
-{
-  if (reader_descriptor <= reader_number
-      && reader_list[reader_descriptor -1] != 0)
-    return reader_list[reader_descriptor -1];
-  return 0;
-}
-
 static READER *
 allocate_reader (void)
 {
@@ -61,6 +52,10 @@ allocate_reader (void)
   return new_reader;
 }
 
+/* The DOCUMENT is not used, it is only stored in the reader, such that
+   it is possible to get it back later on.  This may be useful because
+   there is no easy way to obtain the document from the tree.
+ */
 static void
 initialize_reader (READER *reader, ELEMENT *tree, DOCUMENT *document)
 {
@@ -71,6 +66,10 @@ initialize_reader (READER *reader, ELEMENT *tree, DOCUMENT *document)
   reader->document = document;
 }
 
+/* Used in the readers list code.  May also be used for a reader outside
+   of the list, in that case the reader should be destroyed by calling
+   destroy_reader.
+ */
 READER *
 txi_new_reader (ELEMENT *tree, DOCUMENT *document)
 {
@@ -86,7 +85,11 @@ txi_new_reader (ELEMENT *tree, DOCUMENT *document)
   return new_reader;
 }
 
-/* descriptor starts at 1, 0 is an error */
+/* Get a reader from the readers list.  Reader at each slot is allocated
+   only once.  A reader is automatically re-usable at the end of a tree.
+   The list and the allocated readers are never freed.
+   Returns a reader descriptor that can be used to retrieve the reader.
+ */
 size_t
 txi_register_new_reader (ELEMENT *tree, DOCUMENT *document)
 {
@@ -118,6 +121,16 @@ txi_register_new_reader (ELEMENT *tree, DOCUMENT *document)
   reader_number++;
 
   return reader_number;
+}
+
+/* descriptor starts at 1, 0 is an error */
+READER *
+retrieve_reader_descriptor (size_t reader_descriptor)
+{
+  if (reader_descriptor <= reader_number
+      && reader_list[reader_descriptor -1] != 0)
+    return reader_list[reader_descriptor -1];
+  return 0;
 }
 
 static void

@@ -64,10 +64,12 @@ if __name__ == '__main__':
     Texinfo.parser_conf_add_include_directory(input_dir)
     document, status = Texinfo.parse_file(input_file_name)
     Texinfo.output_parser_error_messages(document)
+    sys.stderr.write("Parsing done ("+str(status)+")\n")
 
     Texinfo.set_document_options(document)
     Texinfo.complete_document(document, Texinfo.STTF_nodes_tree | Texinfo.STTF_floats | Texinfo.STTF_setup_index_entries_sort_strings, 0)
     Texinfo.output_document_error_messages(document)
+    sys.stderr.write("Structuring done\n")
 
     toplevel_sections = Texinfo.sectioning_root_children(document)
     if toplevel_sections:

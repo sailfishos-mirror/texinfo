@@ -2306,6 +2306,7 @@ directions.
 
 =item check_node_tree_menu_structure($document)
 X<C<check_node_tree_menu_structure>>
+
 Check consistency of menus, sectioning and nodes directions.
 
 =item @children_nodes = get_node_node_childs_from_sectioning($node_relations)

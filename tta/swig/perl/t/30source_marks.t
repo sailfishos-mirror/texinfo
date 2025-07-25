@@ -126,8 +126,7 @@ text before @onearg  another arg@comment am I there?
 Texinfo::output_parser_error_messages($document);
 
 my $tree = Texinfo::document_tree($document);
-my $descriptor = Texinfo::register_new_reader($tree, $document);
-my $reader = Texinfo::retrieve_reader_descriptor($descriptor);
+my $reader = Texinfo::new_reader($tree, $document);
 
 # also in tta/perl/t/test_utils.pl
 sub protect_perl_string($)

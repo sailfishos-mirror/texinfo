@@ -7,6 +7,12 @@ Todo list and notes for texi2any/tta/swig
   notice and this notice are preserved.
 
 
+Missing from the SWIG interface
+
+Access to index sorted by letter
+Iteration over attributes names to discover element attributes.
+Changing source marks.
+
 Documentation
 
 set_document_options: set novalidate, documentlanguage

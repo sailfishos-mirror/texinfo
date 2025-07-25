@@ -81,7 +81,7 @@ perl_conf_EMBED_CFLAGS=$PERL_CONF_cccdlflags
 
 # perllibs: The list of libraries needed by Perl only
 txi_LOOKUP_PERL_CONF_VALUES([[libperl], [perllibs]])
-AC_MSG_CHECKING([libperl link])
+AC_MSG_CHECKING([libperl link flags])
 # Change libperl.so into -lperl to indicate a library dependency to
 # libtool.
 # Special case for Cygwin to change e.g. cygperl5_22.dll into -lperl

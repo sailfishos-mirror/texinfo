@@ -425,8 +425,7 @@ sub _convert($$$;$) {
   if ($debug) {
     print STDERR "_CONVERT: "._current_smark($current_smark)."\n";
   }
-  my $descriptor = Texinfo::register_new_reader($tree, $document);
-  my $reader = Texinfo::retrieve_reader_descriptor($descriptor);
+  my $reader = Texinfo::new_reader($tree, $document);
 
   my $args_stack = [];
 

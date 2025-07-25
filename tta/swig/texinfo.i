@@ -48,7 +48,7 @@
 // Initialization
 
 %init %{
-txi_general_output_strings_setup(0);
+txi_general_output_strings_setup (0);
 
 reset_parser (0);
 %}
@@ -127,13 +127,11 @@ setup (int texinfo_uninstalled, const char *converterdatadir_in,
 // swig_interface.h
 const char *element_command_data_type (ELEMENT *element);
 
-// TODO add %Texinfo::Common::command_equivalent_set_flag
-
 
 // Parser
 
 // api.h
-// status is 0 in case of success
+// OUTPUT status is 0 if the input file could be read
 DOCUMENT *parse_file (const char *input_file_path, int *OUTPUT);
 DOCUMENT *parse_piece (const char *, int line_nr=1);
 DOCUMENT *parse_string (const char *, int line_nr=1);
@@ -505,18 +503,18 @@ typedef struct READER_TOKEN {
     enum reader_token_category category;
 } READER_TOKEN;
 
-READER *retrieve_reader_descriptor (size_t reader_descriptor);
+READER *new_reader (ELEMENT *tree, DOCUMENT *document);
 
-%rename(register_new_reader) txi_register_new_reader;
-size_t txi_register_new_reader (ELEMENT *tree, DOCUMENT *document);
+%{
+READER *
+new_reader (ELEMENT *tree, DOCUMENT *document)
+{
+  size_t reader_descriptor = txi_register_new_reader (tree, document);
+  return retrieve_reader_descriptor (reader_descriptor);
+}
+%}
 
-%rename(new_reader) txi_new_reader;
-READER *txi_new_reader (ELEMENT *tree, DOCUMENT *document);
 const READER_TOKEN *reader_read (READER *reader);
-
-%rename(reader_skip_children) txi_reader_skip_children;
-const READER_TOKEN *txi_reader_skip_children (READER *reader,
-                                              const ELEMENT *element);
 
 %{
 const READER_TOKEN *
@@ -528,6 +526,11 @@ reader_read (READER *reader)
   return txi_reader_read (reader);
 }
 %}
+
+%rename(reader_skip_children) txi_reader_skip_children;
+const READER_TOKEN *txi_reader_skip_children (READER *reader,
+                                              const ELEMENT *element);
+
 
 // Finish
 
@@ -553,6 +556,7 @@ char *convert_contents_to_texinfo (const ELEMENT *e);
 // utils.h
 ELEMENT *get_label_element (const ELEMENT *e);
 // TODO add a wrapper around utils.c informative_command_value?
+// or let it be re-implemented in the diverse languages?
 
 // manipulate_indices.h
 ELEMENT *index_content_element (const ELEMENT *element,

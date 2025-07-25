@@ -879,8 +879,8 @@ Returns an array reference containing information on each section.
 =item $sectioning_root = sectioning_root($document)
 
 Return the sectioning root information.  It is an hash reference with the
-I<$sections_list> key, an array reference of the top level sectioning
-commands tree elements.
+I<sections_list> key, an array reference of the top level sectioning
+commands relations.
 
 =back
 
@@ -1103,13 +1103,13 @@ C<global_information>.
 =head2 Methods for Perl and C code interactions
 
 The parsing of Texinfo code, structuring and transformations of the document
-and tree called through Texinfo Perl modules may be done by pure Perl modules or
-by C code called through XS interfaces.  In general, it makes no difference
-whether pure Perl or C code is used.  When the document and tree are
-modified by C code, the Perl data are automatically rebuilt when
-calling the accessors described previously.  In some cases, however, specific
-functions need to be called to pass information from C to Perl or perform
-actions related to C data.
+and tree called through Texinfo Perl modules may be done by pure Perl modules
+or by Perl XS extensions in native code (written in C).
+In general, it makes no difference whether pure Perl or C code is used.  When
+the document and tree are modified through native code based on C code, the
+Perl data are automatically rebuilt when calling the accessors described
+previously.  In some cases, however, specific functions need to be called to
+pass information from C data to Perl or perform actions related to C data.
 
 When the tree is directly accessed in Perl (not through a document)
 but is modified by C code, when the Perl tree holds only a reference to
