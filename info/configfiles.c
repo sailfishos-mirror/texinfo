@@ -154,7 +154,8 @@ run_info_hook (const char *hook, char *argv[], char **hook_output)
     return exit_notfound;
 #undef exit_notfound
 
-  int exit_status = get_output_from_program (hook_file, argv, hook_output, 0);
+  int exit_status = get_output_from_program (hook_file, argv, hook_output,
+                                             info_windows_initialized_p);
   free (hook_file);
   return exit_status;
 }

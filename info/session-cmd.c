@@ -1223,11 +1223,10 @@ info_select_reference (WINDOW *window, const REFERENCE *entry)
   if (!file_buffer)
     {
       char *hook_output = 0;
-      char *hook_name = "node-not-found-interactive";
-      char *hook_argv[3];
-      hook_argv[0] = hook_name;
-      hook_argv[1] = filename;
-      hook_argv[2] = 0;
+      char *hook_name = "manual-not-found";
+      char *hook_argv[4] = {
+        hook_name, "--interactive", filename, 0
+      };
 
       int status = run_info_hook (hook_name, hook_argv, &hook_output);
       if (status == 0)

@@ -1,5 +1,16 @@
 2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove node-not-found-interactive hook as separate hook
+
+	* info/session-cmd.c (info_select_reference): In case of
+	manual not found, run 'manual-not-found' hook with an extra
+	"--interactive" argument, rather than a separate
+	"node-not-found-interactive" hook.
+	* info/configfiles.c (run_info_hook): Suppress stderr output
+	from hook only if info_windows_initialized_p.
+
+2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/pseudotty.c: Readd #include <string.h> as it is
 	needed for a declaration of 'memset', used via FD_ZERO, on
 	some systems.  Reports from Bruno Haible and Collin Funk.
