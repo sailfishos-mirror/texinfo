@@ -1,3 +1,33 @@
+2025-07-25 Patrice Dumas  <pertusus@free.fr>
+
+	Add tta/C/main/reader_types.h
+
+2025-07-25 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/Makefile.am (C_libtexinfo_main_sources),
+	tta/C/swig_text_options.h, tta/C/convert/swig_interface.c
+	(document_text_options, text_options_set_*)
+	(text_options_clear_expanded_formats)
+	(text_options_add_expanded_format, text_options_set_encoding),
+	tta/C/main/convert_to_text.c (copy_options_for_convert_text),
+	tta/swig/texinfo.i: add copy_options_for_convert_text to interface.
+	Setup an interface that can be used to set text options from document
+	options and with functions.  Use in texinfo.i.
+    
+	* tta/swig/texinfo.i: add interface to convert to text.
+    
+	* tta/swig/perl/Makefile.am (EXTRA_DIST),
+	tta/swig/perl/_Texinfo_Tests.pm: add an internal module to be used for
+	common code for tests.
+    
+	* tta/swig/perl/Makefile.am (t_test_files),
+	tta/swig/perl/t/40convert_to_text.t: add a test of conversion to text
+	through the Perl SWIG interface.
+
+2025-07-25 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/swig/texinfo.i: move code around, change in comments.
+
 2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/data/default_css_element_class_styles.csv
