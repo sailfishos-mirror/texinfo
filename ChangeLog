@@ -1,5 +1,13 @@
 2025-07-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/t/30source_marks.t: use _Texinfo_Tests.
+
+	* tta/swig/perl/_Texinfo_Tests.pm (protect_perl_string),
+	tta/swig/perl/t/30source_marks.t: move protect_perl_string to
+	_Texinfo_Tests.pm.
+
+2025-07-25 Patrice Dumas  <pertusus@free.fr>
+
 	Add tta/C/main/reader_types.h
 
 2025-07-25 Patrice Dumas  <pertusus@free.fr>
