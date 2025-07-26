@@ -6056,7 +6056,13 @@ sub _handle_line_command($$$$$$) {
                # for commands without argument
         _raw_line_command_arg_spaces($command_e, $text_element,
                                      $misc_line_args);
-        # TODO warn about bogus arguments for command without arg?
+        if (!$commands_args_number{$command}) {
+          # For commands without argument, a bogus argument is in
+          # text_element.
+          _line_warn($self, sprintf(__(
+                       "remaining argument on \@%s line: %s"),
+                         $command, $text_element->{'text'}), $source_info);
+        }
       }
 
       if (defined($args)) {

@@ -540,10 +540,24 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @afourpaper line: on line following afourpaper
+',
+    'line_nr' => 2,
+    'text' => 'remaining argument on @afourpaper line: on line following afourpaper',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @smallbook should only appear at the beginning of a line
 ',
     'line_nr' => 3,
     'text' => '@smallbook should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @smallbook line: on line following smallbook
+',
+    'line_nr' => 3,
+    'text' => 'remaining argument on @smallbook line: on line following smallbook',
     'type' => 'warning'
   },
   {
@@ -645,10 +659,24 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @raisesections line: on line following raisesections
+',
+    'line_nr' => 14,
+    'text' => 'remaining argument on @raisesections line: on line following raisesections',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @lowersections should only appear at the beginning of a line
 ',
     'line_nr' => 15,
     'text' => '@lowersections should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @lowersections line: on line following lowersections
+',
+    'line_nr' => 15,
+    'text' => 'remaining argument on @lowersections line: on line following lowersections',
     'type' => 'warning'
   },
   {
@@ -673,6 +701,13 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @afourpaper line: on line following afourpaper
+',
+    'line_nr' => 17,
+    'text' => 'remaining argument on @afourpaper line: on line following afourpaper',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: multiple @afourpaper
 ',
     'line_nr' => 17,
@@ -687,10 +722,24 @@ $result_errors{'many_lines'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @afourlatex line: on line following afourlatex
+',
+    'line_nr' => 18,
+    'text' => 'remaining argument on @afourlatex line: on line following afourlatex',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @afourwide should only appear at the beginning of a line
 ',
     'line_nr' => 19,
     'text' => '@afourwide should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @afourwide line: on line following afourwide
+',
+    'line_nr' => 19,
+    'text' => 'remaining argument on @afourwide line: on line following afourwide',
     'type' => 'warning'
   },
   {
@@ -852,6 +901,13 @@ $result_errors{'many_lines'} = [
 ',
     'line_nr' => 41,
     'text' => '@finalout should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @finalout line: a word after finalout
+',
+    'line_nr' => 45,
+    'text' => 'remaining argument on @finalout line: a word after finalout',
     'type' => 'warning'
   }
 ];

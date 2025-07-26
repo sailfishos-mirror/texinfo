@@ -201,6 +201,13 @@ $result_errors{'also_not_line'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @page line: page at beginning of line
+',
+    'line_nr' => 10,
+    'text' => 'remaining argument on @page line: page at beginning of line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
     'line_nr' => 14,
@@ -226,6 +233,13 @@ $result_errors{'also_not_line'} = [
 ',
     'line_nr' => 16,
     'text' => '@novalidate should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @novalidate line: something
+',
+    'line_nr' => 16,
+    'text' => 'remaining argument on @novalidate line: something',
     'type' => 'warning'
   },
   {

@@ -1671,6 +1671,13 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @page line: @@noindent @value{noindent_macro} @@refill @value{refill_macro} something
+',
+    'line_nr' => 118,
+    'text' => 'remaining argument on @page line: @@noindent @value{noindent_macro} @@refill @value{refill_macro} something',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @noindent is useless inside of a paragraph
 ',
     'line_nr' => 121,
@@ -1685,10 +1692,24 @@ $result_errors{'value_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @page line: page at beginning of line
+',
+    'line_nr' => 124,
+    'text' => 'remaining argument on @page line: page at beginning of line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @page should only appear at the beginning of a line
 ',
     'line_nr' => 128,
     'text' => '@page should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @page line: @@noindent @value{noindent_macro}    @@refill @value{refill_macro}
+',
+    'line_nr' => 128,
+    'text' => 'remaining argument on @page line: @@noindent @value{noindent_macro}    @@refill @value{refill_macro}',
     'type' => 'warning'
   },
   {

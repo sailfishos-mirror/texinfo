@@ -56,7 +56,16 @@ $result_texts{'macro_for_ignored_line_command'} = '
 
 ';
 
-$result_errors{'macro_for_ignored_line_command'} = [];
+$result_errors{'macro_for_ignored_line_command'} = [
+  {
+    'error_line' => 'warning: remaining argument on @page line: on the line (possibly involving @pagemacro)
+',
+    'line_nr' => 5,
+    'macro' => 'pagemacro',
+    'text' => 'remaining argument on @page line: on the line',
+    'type' => 'warning'
+  }
+];
 
 
 $result_nodes_list{'macro_for_ignored_line_command'} = '';

@@ -1954,6 +1954,14 @@ $result_errors{'macro_in_misc_commands'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @page line: on page line (possibly involving @pagemacro)
+',
+    'line_nr' => 162,
+    'macro' => 'pagemacro',
+    'text' => 'remaining argument on @page line: on page line',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
 ',
     'line_nr' => 163,
@@ -1983,6 +1991,14 @@ $result_errors{'macro_in_misc_commands'} = [
     'line_nr' => 168,
     'macro' => 'noindentmacro',
     'text' => '@noindent is useless inside of a paragraph',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @page line: page at beginning of line (possibly involving @pagemacro)
+',
+    'line_nr' => 169,
+    'macro' => 'pagemacro',
+    'text' => 'remaining argument on @page line: page at beginning of line',
     'type' => 'warning'
   },
   {

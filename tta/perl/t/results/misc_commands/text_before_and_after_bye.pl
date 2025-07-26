@@ -39,6 +39,13 @@ $result_errors{'text_before_and_after_bye'} = [
     'line_nr' => 1,
     'text' => '@bye should only appear at the beginning of a line',
     'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @bye line: on bye line
+',
+    'line_nr' => 1,
+    'text' => 'remaining argument on @bye line: on bye line',
+    'type' => 'warning'
   }
 ];
 

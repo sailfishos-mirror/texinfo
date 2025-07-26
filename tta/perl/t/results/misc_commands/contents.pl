@@ -116,10 +116,24 @@ $result_errors{'contents'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @contents line: line following first content
+',
+    'line_nr' => 2,
+    'text' => 'remaining argument on @contents line: line following first content',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @contents should only appear at the beginning of a line
 ',
     'line_nr' => 3,
     'text' => '@contents should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @contents line: line following second content
+',
+    'line_nr' => 3,
+    'text' => 'remaining argument on @contents line: line following second content',
     'type' => 'warning'
   },
   {
@@ -130,6 +144,13 @@ $result_errors{'contents'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @shortcontents line: eol
+',
+    'line_nr' => 7,
+    'text' => 'remaining argument on @shortcontents line: eol',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @shortcontents should only appear at the beginning of a line
 ',
     'line_nr' => 8,
@@ -137,10 +158,24 @@ $result_errors{'contents'} = [
     'type' => 'warning'
   },
   {
+    'error_line' => 'warning: remaining argument on @shortcontents line: eol
+',
+    'line_nr' => 8,
+    'text' => 'remaining argument on @shortcontents line: eol',
+    'type' => 'warning'
+  },
+  {
     'error_line' => 'warning: @summarycontents should only appear at the beginning of a line
 ',
     'line_nr' => 9,
     'text' => '@summarycontents should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => 'warning: remaining argument on @summarycontents line: line following summarycontents
+',
+    'line_nr' => 9,
+    'text' => 'remaining argument on @summarycontents line: line following summarycontents',
     'type' => 'warning'
   }
 ];

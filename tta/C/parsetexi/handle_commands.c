@@ -915,6 +915,14 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 {
                   raw_line_command_arg_spaces (command_e, text_element,
                                                line_args);
+                  if (command_data (data_cmd).args_number == 0)
+                    {
+                   /* For commands without argument, a bogus argument is in
+                      text_element. */
+                      line_warn ("remaining argument on @%s line: %s",
+                                 command_name(cmd),
+                                 text_element->e.text->text);
+                    }
                 }
             }
 

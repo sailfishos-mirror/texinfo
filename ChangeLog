@@ -1,5 +1,11 @@
 2025-07-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/handle_commands.c (handle_line_command),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_line_command): warn if a
+	rawline @-command without argument has non-space argument.
+
+2025-07-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/handle_commands.c (handle_line_command), 
 	tta/perl/Texinfo/ParserNonXS.pm (_handle_line_command): warn if a
 	lineraw command without argument has non-space argument before
