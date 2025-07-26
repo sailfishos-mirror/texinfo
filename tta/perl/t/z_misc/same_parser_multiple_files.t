@@ -27,11 +27,39 @@ use Texinfo::Convert::HTML;
 # same parser.
 
 # NOTE the references need to be updated manually, by copying
-# out_* directories files
+# out_* directories files or by running this test with the -g option.
 
 
 
-# NOTE same as in t/no_structure_test.t
+my $arg_generate;
+use Getopt::Long qw(GetOptions);
+Getopt::Long::Configure("gnu_getopt");
+my $result_options = Getopt::Long::GetOptions (
+ 'generate|g' => \$arg_generate
+);
+
+use File::Copy;
+
+# NOTE same as in t/z_misc/no_structure_test.t
+sub _update_test_results_dir($$)
+{
+ my $reference_dir = shift;
+ my $results_dir = shift;
+
+ if (-d $reference_dir) {
+   unlink_dir_files($reference_dir);
+ } else {
+   mkdir ($reference_dir);
+ }
+ my @results_files = glob("$results_dir/*");
+ for my $file (@results_files) {
+   warn "copy $file to $reference_dir\n";
+   File::Copy::copy $file, $reference_dir
+      if -f $file;
+ }
+}
+
+# NOTE same as in t/z_misc/no_structure_test.t
 sub _do_format_test_file($$$$$$)
 {
   my $test_name = shift;
@@ -58,6 +86,10 @@ sub _do_format_test_file($$$$$$)
          or diag(join("\n", @$errors));
   } else {
     print STDERR "\n$format $test_name: \n$results_dir\n";
+  }
+
+  if ($arg_generate) {
+    _update_test_results_dir ($reference_dir, $results_dir);
   }
 }
 

@@ -1,5 +1,17 @@
 2025-07-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	-g option for two t/z_misc tests
+
+	* tta/perl/t/z_misc/same_parser_multiple_files.t,
+	* tta/perl/t/z_misc/no_structure_test.t
+	(_update_test_results_dir, _do_format_test_file):
+	Recognise -g option given to test program and copy the
+	output files to the reference directory if given.  This is
+	an aid for updating the results of these tests, which are
+	not covered by maintain/all_tests generate.
+
+2025-07-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/data/default_css_element_class_styles.csv
 	(th.index-letter-header-printindex): Specify "font-size: large".
 
