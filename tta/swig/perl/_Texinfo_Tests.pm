@@ -81,4 +81,22 @@ sub protect_perl_string($)
   return $string;
 }
 
+sub get_parser_error_messages($)
+{
+  my $document = shift;
+
+  my @error_messages;
+  my ($parser_error_msgs, $error_nr)
+     = Texinfo::get_parser_error_messages($document);
+  if (defined($parser_error_msgs)) {
+    my $msgs_nr = Texinfo::messages_list_messages_number($parser_error_msgs);
+    for (my $i = 0; $i < $msgs_nr; $i++) {
+      my $error_msg
+         = Texinfo::messages_list_message_by_index($parser_error_msgs, $i);
+      push @error_messages, $error_msg->swig_formatted_get();
+    }
+  }
+  return \@error_messages;
+}
+
 1;

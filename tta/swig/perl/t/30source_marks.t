@@ -88,19 +88,9 @@ text before @onearg  another arg@comment am I there?
 
 #Texinfo::output_parser_error_messages($document);
 
-# TODO put in _Texinfo_Tests
-my @error_messages;
-my ($parser_error_msgs, $error_nr)
-   = Texinfo::get_parser_error_messages($document);
-if (defined($parser_error_msgs)) {
-  my $msgs_nr = Texinfo::messages_list_messages_number($parser_error_msgs);
-  for (my $i = 0; $i < $msgs_nr; $i++) {
-    my $error_msg
-       = Texinfo::messages_list_message_by_index($parser_error_msgs, $i);
-    push @error_messages, $error_msg->swig_formatted_get();
-  }
-}
-#foreach my $message (@error_messages) {
+my $error_messages = _Texinfo_Tests::get_parser_error_messages($document);
+
+#foreach my $message (@$error_messages) {
 #  print STDERR "'"._Texinfo_Tests::protect_perl_string($message)."',\n";
 #}
 
@@ -109,7 +99,7 @@ my @reference_messages = ('28: misplaced { (possibly involving @lm)
 '28: misplaced } (possibly involving @lm)
 ',
 );
-ok(Data::Compare::Compare(\@error_messages, \@reference_messages), 'errors');
+ok(Data::Compare::Compare($error_messages, \@reference_messages), 'errors');
 
 
 my $tree = Texinfo::document_tree($document);

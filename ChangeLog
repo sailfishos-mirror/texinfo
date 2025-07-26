@@ -1,5 +1,11 @@
 2025-07-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/_Texinfo_Tests.pm (get_parser_error_messages),
+	tta/swig/perl/t/30source_marks.t: add get_parser_error_messages based
+	on 30source_marks.t code and use it in 30source_marks.t.
+
+2025-07-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (C_libtexinfo_main_sources),
 	tta/C/convert/swig_error_messages_types.h (FORMATTED_ERROR_MESSAGE) 
 	(FORMATTED_ERROR_MESSAGE_LIST), tta/C/convert/swig_interface.c
