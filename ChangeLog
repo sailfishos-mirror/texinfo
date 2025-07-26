@@ -1,5 +1,23 @@
 2025-07-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/Makefile.am (EXTRA_DIST): add TODO.
+
+	* tta/swig/TODO b/tta/swig/TODO: update.
+
+	* tta/swig/perl/parse_refold.pl (BEGIN): handle better the MakeMaker
+	based build system.
+
+	* tta/swig/perl/parse_refold.pl: remove obsolete FIXME.
+
+	* tta/swig/perl/MANIFEST, tta/swig/perl/MANIFEST.SKIP,
+	tta/swig/perl/Makefile.PL: remove -DEMBED_PERL flag.  Update and
+	Improve MakeMaker based build system. 
+
+	* tta/swig/perl/Makefile.am (scripts_test_files): rename
+	other_test_files as scripts_test_files.
+
+2025-07-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/_Texinfo_Tests.pm (get_parser_error_messages),
 	tta/swig/perl/t/30source_marks.t: add get_parser_error_messages based
 	on 30source_marks.t code and use it in 30source_marks.t.

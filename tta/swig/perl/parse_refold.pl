@@ -63,10 +63,14 @@ BEGIN {
     $t2a_builddir = join('/', ($srcdir, $updir, $updir));
   }
   if (defined($t2a_builddir)) {
-    unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+    my $libs_directory = join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+    if (-d $libs_directory) {
+      unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+    } elsif (-d 'blib' and -f 'Makefile.PL') {
+      # with Perl build system, in-source paths
+      unshift @INC, 'blib/arch', 'blib/lib';
+    }
   }
-  # with Perl build system, in-source paths
-  # push @INC, 'blib/arch', 'blib/lib';
 }
 
 use Texinfo;
@@ -275,8 +279,6 @@ sub _text($$$;$) {
   }
 
   my $length;
-  # FIXME maybe need to check if $to != length($text), and only in that
-  # case define length
   if (defined($to)) {
     $length = $to - $from;
   }
@@ -466,7 +468,6 @@ sub _convert($$$;$) {
     my $cmdname = Texinfo::element_cmdname($element);
 
     if (defined($cmdname)) {
-      # FIXME item_LINE or item?  Probably item, but check
       if ($category != $Texinfo::TXI_READ_ELEMENT_END) {
         if (!defined($current_smark)) {
           my $alias_of = Texinfo::element_attribute_string($element,

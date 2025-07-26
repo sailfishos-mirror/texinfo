@@ -43,4 +43,4 @@ $(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_depend
 $(srcdir)/perl/perl_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_dependencies)
 	$(SWIG) $(SWIG_include_directories) -perl -outdir $(srcdir)/perl -o $@ $<
 
-EXTRA_DIST = README texinfo.i
+EXTRA_DIST = README texinfo.i TODO

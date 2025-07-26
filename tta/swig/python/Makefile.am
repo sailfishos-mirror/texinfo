@@ -8,6 +8,10 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# We do not include the config.h file in the C wrapper, since it may
+# cause errors when mixed with the language specific headers.
+# NOTE a disadvantage of passing defines through flags and not through a file
+# is that a change in value does not trigger remaking the output file.
 AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
        -DPACKAGE_VERSION_CONFIG=\"$(PACKAGE_VERSION)\"
 
@@ -45,7 +49,7 @@ if ! DISABLE_XS
 _Texinfo_la_LIBADD += $(perl_conf_LIBS)
 endif
 endif
-# TODO same as ctexi2any, not sure whether it is needed or not
+# Same as ctexi2any, not sure whether it is needed or not
 _Texinfo_la_LIBADD += $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 _Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi -I$(txi_libs_srcdir)/convert ${PYTHON_CPPFLAGS}
 

@@ -10,7 +10,6 @@
 ^Makefile\.old$
 ^MakeMaker-\d
 ^MANIFEST\.bak$
-^MANIFEST\.SKIP$
 ^MYMETA\.
 ^pm_to_blib$
 ^pod2htm.*
@@ -24,3 +23,10 @@
 ^\.deps/
 ^\.libs/
 ^Texinfo[\._]la
+^test-suite.log
+^t/.*\.log$
+^t/.*\.trs$
+^test_scripts/.*\.log$
+^test_scripts/.*\.trs$
+^test_refold.sh$
+^check_refold_tree

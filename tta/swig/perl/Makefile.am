@@ -8,6 +8,8 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# We pass through flags as the config.h file should not be mixed with
+# Perl headers.
 # NOTE a disadvantage of passing defines through flags and not through a file
 # is that a change in value does not trigger remaking the output file.
 AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
@@ -17,8 +19,6 @@ AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
 # mess up the Perl stack).  According to perlembed documentation, it could be
 # possible to have two perl interpreters running, but the example only shows
 # interpreters that the C code embedding Perl has control over.
-# TODO it would be nice to still find a way to have correctly sorted indices,
-# maybe by adding some pure Perl code using the SWIG interface.
 
 #if PERL_EMBEDDED
 #AM_CPPFLAGS += -DEMBED_PERL
@@ -54,7 +54,7 @@ Texinfo_la_CFLAGS = $(perl_conf_CFLAGS)
 # Flags specially recognized by libtool.  For dlopened modules, here XS.
 Texinfo_la_LDFLAGS = -avoid-version -module $(perl_conf_LDFLAGS)
 Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo.la $(top_builddir)/C/libtexinfo-main.la $(platform_PERL_LIBADD)
-# TODO same as ctexi2any, not sure whether it is needed or not
+# Same as ctexi2any, not sure whether it is needed or not
 Texinfo_la_LIBADD += $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 TEST_EXTENSIONS = .t
@@ -68,13 +68,13 @@ AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; t2a_srcdir="$(top_srcd
 t_test_files = t/30source_marks.t \
    t/40convert_to_text.t
 
-other_test_files = \
+scripts_test_files = \
  test_scripts/test_macro_expand.sh \
  test_scripts/test_non_ascii_in_macro.sh \
  test_scripts/test_includes.sh \
  test_scripts/test_texinfo_manual.sh
 
-TESTS = $(other_test_files)
+TESTS = $(scripts_test_files)
 
 if SWIG_PERL_TESTS
 TESTS += $(t_test_files)
@@ -82,7 +82,7 @@ endif
 
 EXTRA_DIST = \
  _Texinfo_Tests.pm \
- $(t_test_files) $(other_test_files) \
+ $(t_test_files) $(scripts_test_files) \
  test_refold.sh \
  parse_refold.pl \
  tests/test_macro_expand/test_macro_expand.texi \
