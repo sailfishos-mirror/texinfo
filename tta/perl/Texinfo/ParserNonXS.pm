@@ -6031,19 +6031,26 @@ sub _handle_line_command($$$$$$) {
                if (!defined($command_e->{'info'}));
           $command_e->{'info'}->{'spaces_before_argument'}
                                             = $text_element;
-        } elsif ($text_element->{'text'} =~ s/^(\s+)//) {
-          my $spaces_text = $1;
-          my $spaces_before =
-            _new_element_at_begin_reloc($text_element, $spaces_text,
+        } else {
+          if ($text_element->{'text'} =~ s/^(\s+)//) {
+            my $spaces_text = $1;
+            my $spaces_before =
+              _new_element_at_begin_reloc($text_element, $spaces_text,
                                            'spaces_before_argument');
 
-          $command_e->{'info'} = {}
-               if (!defined($command_e->{'info'}));
-          $command_e->{'info'}->{'spaces_before_argument'}
-                         = $spaces_before;
-          # note that for commands without argument, a bogus argument
-          # is kept in text_element here.
-          # TODO warn about bogus arguments for command without arg?
+            $command_e->{'info'} = {}
+                 if (!defined($command_e->{'info'}));
+            $command_e->{'info'}->{'spaces_before_argument'}
+                           = $spaces_before;
+          }
+
+          if (!$commands_args_number{$command}) {
+            # For commands without argument, a bogus argument is in
+            # text_element.
+            _line_warn($self, sprintf(__(
+                         "remaining argument on \@%s line: %s"),
+                           $command, $text_element->{'text'}), $source_info);
+          }
         }
       } else { # no comment or with an argument, possibly bogus
                # for commands without argument

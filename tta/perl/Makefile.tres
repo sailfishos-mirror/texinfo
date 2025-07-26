@@ -1669,6 +1669,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/comment_without_line.pl \
   t/results/misc_commands/comments_in_text.pl \
   t/results/misc_commands/contents.pl \
+  t/results/misc_commands/contents_arg_and_comment.pl \
   t/results/misc_commands/defindex_too_much_args.pl \
   t/results/misc_commands/definfoenclose.pl \
   t/results/misc_commands/definfoenclose_nestings.pl \

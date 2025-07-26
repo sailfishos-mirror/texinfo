@@ -146,6 +146,9 @@ shortcontents @shortcontents eol
 shortcontents @shortcontents eol
 summarycontents @summarycontents line following summarycontents
 '],
+['contents_arg_and_comment',
+'@contents aa @comment v
+'],
 ['invalid_kbdinputstyle',
 'kbdinputstyle @kbdinputstyle wrong arg on line following kbdinputstyle
 '],
