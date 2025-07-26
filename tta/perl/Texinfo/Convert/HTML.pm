@@ -11077,7 +11077,12 @@ sub _prepare_output_units_global_targets($$$$)
       if (defined($node_texi_name)
           and not defined($self->global_direction_text($direction))) {
           # FIXME check that relative directions are not replaced by
-          # global_units_directions?  It may not be an issue.
+          # global_units_directions (as done in C)?  It may not be an issue.
+
+        # Determine the document unit corresponding to the direction
+        # node name Texinfo code
+
+        # Parse the customized direction node name Texinfo code
         my $node_element;
         my $parser = Texinfo::Parser::parser({'NO_INDEX' => 1,
                                               'NO_USER_COMMANDS' => 1,});
@@ -11092,6 +11097,8 @@ sub _prepare_output_units_global_targets($$$$)
             warn $error_message->{'error_line'};
           }
         }
+
+        # convert to identifier and determine the node element target
         if ($tree) {
           my $normalized_node
        = Texinfo::Convert::NodeNameNormalization::convert_to_identifier($tree);

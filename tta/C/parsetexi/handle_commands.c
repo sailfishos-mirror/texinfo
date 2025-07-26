@@ -197,7 +197,7 @@ skip_to_comment_if_comment_or_spaces (const char *after_argument,
 /* Process argument to raw line command. */
 static STRING_LIST *
 parse_rawline_command (const char *line, enum command_id cmd,
-                       const char **comment_text, int *special_arg)
+                       const char **comment_text)
 {
 #define ADD_ARG(string, len) do { \
   tmp_string = strndup (string, len); \
@@ -211,7 +211,6 @@ parse_rawline_command (const char *line, enum command_id cmd,
   const char *r = 0;
   char *value = 0;
 
-  *special_arg = 1;
   *comment_text = 0;
   int has_comment = 0;
 
@@ -400,7 +399,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
       free (value);
       break;
     default:
-      *special_arg = 0;
+      break;
     }
 
   return args;
@@ -785,7 +784,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
       ELEMENT *text_element = new_text_element (ET_rawline_text);
       enum command_id global_cmd = CM_NONE;
       const char *comment_text = 0;
-      int special_arg = 0;
       int ignored = 0;
       SOURCE_INFO next_source_info;
 
@@ -844,7 +842,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         next_source_info = current_source_info;
 
       args = parse_rawline_command (text_element->e.text->text, cmd,
-                                    &comment_text, &special_arg);
+                                    &comment_text);
 
       if (!ignored)
         {

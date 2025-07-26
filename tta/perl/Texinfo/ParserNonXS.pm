@@ -5990,7 +5990,7 @@ sub _handle_line_command($$$$$$) {
       $next_source_info = $source_info;
     }
 
-    my ($args, $comment_text, $special_arg)
+    my ($args, $comment_text)
       = _parse_rawline_command($self, $text_element->{'text'}, $command,
                                $source_info);
 
@@ -8074,7 +8074,6 @@ sub _parse_rawline_command($$$$) {
 
   my $args;
 
-  my $special_arg = 1;
   my $comment_text;
 
   if ($command eq 'set') {
@@ -8149,10 +8148,8 @@ sub _parse_rawline_command($$$$) {
       "\@clickstyle should only accept an \@-command as argument, not `%s'"),
                                  $line), $source_info);
     }
-  } else {
-    $special_arg = 0;
   }
-  return ($args, $comment_text, $special_arg);
+  return ($args, $comment_text);
 }
 
 # at the end of an @-command line with arguments, parse the resulting

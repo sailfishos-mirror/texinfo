@@ -5141,6 +5141,11 @@ html_prepare_output_units_global_targets (CONVERTER *self)
               fatal ("Replacing relative direction?");
             }
 
+          /* Determine the document unit corresponding to the direction
+             node name Texinfo code */
+
+          /* Parse the customized direction node name Texinfo code */
+          /* same as creating a new parser in Perl */
           reset_parser_conf ();
           parser_conf_set_NO_INDEX (1);
           parser_conf_set_NO_USER_COMMANDS (1);
@@ -5165,6 +5170,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
           label_tree = unregister_document_merge_with_document (
                                    label_document, self->document);
 
+          /* convert to identifier and determine the node element target */
           if (label_tree)
             {
               char *normalized_node = convert_to_identifier (label_tree);
