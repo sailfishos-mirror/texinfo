@@ -5,6 +5,7 @@
 #include "source_mark_types.h"
 #include "tree_types.h"
 #include "document_types.h"
+#include "swig_error_messages_types.h"
 
 struct TEXT_OPTIONS;
 
@@ -97,5 +98,21 @@ FLOAT_INFORMATION_LIST *get_float_type_floats_information (
                         DOCUMENT *document, const char *float_type);
 
 GLOBAL_INFO *document_global_information (DOCUMENT *document);
+
+FORMATTED_ERROR_MESSAGE_LIST *get_parser_error_messages (DOCUMENT *document,
+                                  const char *message_encoding,
+                                  int no_warn, int use_filename,
+                                  int *count);
+
+FORMATTED_ERROR_MESSAGE_LIST *get_document_error_messages (DOCUMENT *document,
+                                  const char *message_encoding,
+                                  int no_warn, int use_filename,
+                                  int *count);
+
+int messages_list_messages_number (FORMATTED_ERROR_MESSAGE_LIST *messages_list);
+FORMATTED_ERROR_MESSAGE *messages_list_message_by_index (
+                      FORMATTED_ERROR_MESSAGE_LIST *messages_list, int index);
+
+void destroy_error_messages_list (FORMATTED_ERROR_MESSAGE_LIST *error_messages);
 
 #endif

@@ -30,9 +30,11 @@
 #include "text.h"
 #include "tree_types.h"
 #include "document_types.h"
+/* ENCODING_CONVERSION */
+#include "converter_types.h"
 /* for fatal */
 #include "base_utils.h"
-/* for ENCODING_CONVERSION output_conversions get_encoding_conversion */
+/* for output_conversions get_encoding_conversion */
 #include "utils.h"
 #include "errors.h"
 
@@ -352,7 +354,7 @@ message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
 /* setup error message by adding file information and converting the
    error line to message encoding */
 /* if USE_FILENAME is set, remove file information directories */
-static void
+void
 error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,
                     ENCODING_CONVERSION *conversion, TEXT *text)
 {

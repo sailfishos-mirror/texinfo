@@ -1,3 +1,23 @@
+2025-07-26 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/Makefile.am (C_libtexinfo_main_sources),
+	tta/C/convert/swig_error_messages_types.h (FORMATTED_ERROR_MESSAGE) 
+	(FORMATTED_ERROR_MESSAGE_LIST), tta/C/convert/swig_interface.c
+	(get_error_messages_list_messages, get_parser_error_messages)
+	(get_document_error_messages, messages_list_message_by_index)
+	(messages_list_messages_number), tta/C/main/errors.c
+	(error_message_text): make error_message_text extern.  Add interface
+	to error messages, with formatted error message added.  With the
+	functions get_parser_error_messages, get_document_error_messages,
+	messages_list_message_by_index and messages_list_messages_number.  
+
+	* tta/swig/Makefile.am (SWIG_header_dependencies), tta/swig/texinfo.i:
+	add interface to get formatted error messages.
+
+	* tta/configure.ac (swig_perl_tests),
+	tta/swig/perl/t/30source_marks.t: use formatted error messages
+	interface.
+
 2025-07-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Use <hr> in index formatting

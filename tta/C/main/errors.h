@@ -5,9 +5,11 @@
 #include <stddef.h>
 #include <stdarg.h>
 
+#include "text.h"
 #include "tree_types.h"
 #include "options_data.h"
 #include "document_types.h"
+#include "converter_types.h"
 
 void wipe_error_message_list (ERROR_MESSAGE_LIST *error_messages);
 void clear_error_message_list (ERROR_MESSAGE_LIST *error_messages);
@@ -48,6 +50,10 @@ void message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
                                  const OPTIONS *conf, int continuation,
                                  const char *format, ...);
 
+size_t count_errors (ERROR_MESSAGE_LIST *error_messages);
+
+void error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,
+                         ENCODING_CONVERSION *conversion, TEXT *text);
 size_t output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                               const char *message_encoding,
                               int no_warn, int use_filename);

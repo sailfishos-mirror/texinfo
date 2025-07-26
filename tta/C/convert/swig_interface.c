@@ -31,12 +31,15 @@
 #include "source_mark_types.h"
 #include "tree_types.h"
 #include "document_types.h"
+#include "swig_error_messages_types.h"
+#include "converter_types.h"
 #include "text.h"
 #include "tree.h"
 #include "extra.h"
 /* get_cmd_global_uniq_command lookup_index_entry */
 #include "utils.h"
 #include "builtin_commands.h"
+#include "errors.h"
 #include "document.h"
 #include "convert_to_text.h"
 #include "swig_element_data.h"
@@ -903,6 +906,8 @@ document_global_information (DOCUMENT *document)
   return &document->global_info;
 }
 
+
+
 TEXT_OPTIONS *
 document_text_options (DOCUMENT *document)
 {
@@ -941,4 +946,123 @@ text_options_set_encoding (TEXT_OPTIONS *text_options, const char *encoding)
 {
   free (text_options->encoding);
   text_options->encoding = strdup (encoding);
+}
+
+
+
+static FORMATTED_ERROR_MESSAGE_LIST *
+get_error_messages_list_messages (ERROR_MESSAGE_LIST *error_messages,
+                                  const char *message_encoding,
+                                  int no_warn, int use_filename,
+                                  int *count)
+{
+  ENCODING_CONVERSION *conversion = 0;
+  size_t error_nrs = count_errors (error_messages);
+  FORMATTED_ERROR_MESSAGE_LIST *result = 0;
+  size_t i;
+  size_t error_messages_nr = error_messages->number;
+  TEXT text;
+  size_t msg_idx = 0;
+
+  *count = (int)error_nrs;
+
+  if (error_messages_nr == 0)
+    return 0;
+
+  if (message_encoding)
+    conversion = get_encoding_conversion (message_encoding,
+                                          &output_conversions);
+
+  result = (FORMATTED_ERROR_MESSAGE_LIST *) malloc
+                                   (sizeof (FORMATTED_ERROR_MESSAGE_LIST));
+  result->list = (FORMATTED_ERROR_MESSAGE *)
+      malloc (error_messages_nr * sizeof (FORMATTED_ERROR_MESSAGE));
+
+  text_init (&text);
+
+  for (i = 0; i < error_messages_nr; i++)
+    {
+      const ERROR_MESSAGE *error_msg = &error_messages->list[i];
+      FORMATTED_ERROR_MESSAGE *result_msg;
+      if (error_msg->type == MSG_warning && no_warn > 0)
+        continue;
+
+      result_msg = &result->list[msg_idx];
+
+      result_msg->message = strdup (error_msg->message);
+      if (error_msg->error_line)
+        result_msg->error_line = strdup (error_msg->error_line);
+
+      result_msg->source_info = error_msg->source_info;
+      result_msg->continuation = error_msg->continuation;
+      result_msg->type = error_msg->type;
+
+      text_reset (&text);
+      error_message_text (error_msg, use_filename, conversion, &text);
+      result_msg->formatted = strdup (text.text);
+      msg_idx++;
+    }
+  free (text.text);
+
+  result->number = msg_idx;
+
+  clear_error_message_list (error_messages);
+
+  return result;
+}
+
+FORMATTED_ERROR_MESSAGE_LIST *
+get_parser_error_messages (DOCUMENT *document,
+                                  const char *message_encoding,
+                                  int no_warn, int use_filename,
+                                  int *count)
+{
+  return get_error_messages_list_messages (&document->parser_error_messages,
+                                           message_encoding,
+                                           no_warn, use_filename, count);
+}
+
+FORMATTED_ERROR_MESSAGE_LIST *
+get_document_error_messages (DOCUMENT *document,
+                                  const char *message_encoding,
+                                  int no_warn, int use_filename,
+                                  int *count)
+{
+  return get_error_messages_list_messages (&document->error_messages,
+                                           message_encoding,
+                                           no_warn, use_filename, count);
+}
+
+FORMATTED_ERROR_MESSAGE *
+messages_list_message_by_index (
+                        FORMATTED_ERROR_MESSAGE_LIST *messages_list, int index)
+{
+  if (!messages_list || messages_list->number == 0)
+    return 0;
+
+  if (index < 0 || (size_t) index >= messages_list->number)
+    return 0;
+
+  return &messages_list->list[index];
+}
+
+int
+messages_list_messages_number (FORMATTED_ERROR_MESSAGE_LIST *messages_list)
+{
+  return messages_list->number;
+}
+
+void
+destroy_error_messages_list (FORMATTED_ERROR_MESSAGE_LIST *error_messages)
+{
+  size_t j;
+  for (j = 0; j < error_messages->number; j++)
+    {
+      free (error_messages->list[j].message);
+      free (error_messages->list[j].error_line);
+      free (error_messages->list[j].formatted);
+    }
+
+  free (error_messages->list);
+  free (error_messages);
 }

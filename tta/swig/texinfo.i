@@ -145,6 +145,14 @@ int const_element_list_elements_number (CONST_ELEMENT_LIST *element_list);
 char *string_list_string_by_index (STRING_LIST *string_list, int index);
 int string_list_strings_number (STRING_LIST *string_list);
 
+%include "swig_error_messages_types.h"
+
+int messages_list_messages_number (FORMATTED_ERROR_MESSAGE_LIST *messages_list);
+FORMATTED_ERROR_MESSAGE *messages_list_message_by_index (
+                      FORMATTED_ERROR_MESSAGE_LIST *messages_list, int index);
+
+void destroy_error_messages_list (FORMATTED_ERROR_MESSAGE_LIST *error_messages);
+
 
 // Information on elements
 
@@ -189,11 +197,22 @@ void parser_conf_set_LOCALE_ENCODING (const char *value);
 void parser_conf_set_COMMAND_LINE_ENCODING (const char *value);
 void parser_conf_set_accept_internalvalue (int value);
 
-%rename(output_parser_error_messages) txi_output_parser_error_messages;
+// Only one of the next two function should be called as both clear the
+// document errors list.
+
 // texinfo.h
+// Output the error messages on stderr
+%rename(output_parser_error_messages) txi_output_parser_error_messages;
 size_t txi_output_parser_error_messages (DOCUMENT *document,
                                   const char *message_encoding=0,
                                   int no_warn=0, int use_filename=0);
+
+// swig_interface.h
+// Get the error messages.  Call destroy_error_messages_list when done.
+FORMATTED_ERROR_MESSAGE_LIST *get_parser_error_messages (DOCUMENT *document,
+                                  const char *message_encoding=0,
+                                  int no_warn=0, int use_filename=0,
+                                  int *OUTPUT);
 
 
 // Structuring
@@ -229,12 +248,22 @@ void set_document_options (DOCUMENT *document,
 void txi_complete_document (DOCUMENT *document, unsigned long flags,
                             int format_menu);
 
-%rename(output_document_error_messages) txi_output_document_error_messages;
+// Only one of the next two function should be called as both clear the
+// document errors list.
 
+// texinfo.h
+// Output the error messages on stderr
+%rename(output_document_error_messages) txi_output_document_error_messages;
 size_t txi_output_document_error_messages (DOCUMENT *document,
                                     const char *message_encoding=0,
                                     int no_warn=0, int use_filename=0);
 
+// swig_interface.h
+// Get the error messages.  Call destroy_error_messages_list when done.
+FORMATTED_ERROR_MESSAGE_LIST *get_document_error_messages (DOCUMENT *document,
+                                  const char *message_encoding=0,
+                                  int no_warn=0, int use_filename=0,
+                                  int *OUTPUT);
 
 // Document interface
 
@@ -350,8 +379,9 @@ SOURCE_INFO *element_source_info (ELEMENT *element);
 int element_source_marks_number (ELEMENT *element);
 SOURCE_MARK *element_get_source_mark (ELEMENT *element, int index);
 
-// TODO would be better to return None/NULL if not set and
-// a value otherwise, but may not be portable across languages.
+// It would have been better to return None/undef/nil if not set and
+// a value otherwise, but it does not seems to be possible, likely because
+// not all languages have a value such as None.
 // if OUTPUT is not 0, the value is undefined.
 int element_attribute_integer (const ELEMENT *element, const char *attribute,
                                int *OUTPUT);
@@ -568,7 +598,7 @@ element_print_details (ELEMENT *element, const char *fname_encoding,
 // These could also be re-implemented in the different languages.
 // Which one to add/remove?
 
-// We do not want to care at all about API stability for those.
+// We do not care at all about API stability for those functions.
 
 // utils.h
 ELEMENT *get_label_element (const ELEMENT *e);

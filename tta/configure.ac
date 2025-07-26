@@ -746,7 +746,7 @@ AC_ARG_ENABLE([installvendorlib],
 
 swig_perl_tests=no
 if test x$enable_xs != xno ; then
-  if $PERL -e "use Test::More;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+  if $PERL -e "use Test::More; use Data::Compare;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
     then
       swig_perl_tests=yes
   fi
