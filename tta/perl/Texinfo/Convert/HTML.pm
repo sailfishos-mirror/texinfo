@@ -6963,8 +6963,8 @@ sub _convert_printindex_command($$$$)
   $result
    .= $self->html_attribute_class('table', ["index-entries-$cmdname",
                                     "$index_name-entries-$cmdname"]).">\n";
-  $result .= $result_index_entries;
   $result .= "<tr><td colspan=\"2\">${rule}</td></tr>\n";
+  $result .= $result_index_entries;
   $result .= "</table>\n";
 
   $self->_pop_document_context();

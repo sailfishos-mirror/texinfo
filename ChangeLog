@@ -1,5 +1,12 @@
 2025-07-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command): fix
+	order of hr output with regard to index entries.
+
+	Update missed test results. 
+
+2025-07-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/handle_commands.c (parse_rawline_command), 
 	tta/perl/Texinfo/ParserNonXS.pm (_parse_rawline_command): remove
 	special_arg unused return value.  Update caller.
