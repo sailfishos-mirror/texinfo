@@ -1928,14 +1928,10 @@ end_line (ELEMENT *current)
             in a style brace @-command */
           current = end_paragraph (current, 0, 0);
         }
-      /* TODO Would it be better to have empty line close brace commands
-         in more contexts than paragraph and base?  Empty line cannot happen
-         in some contexts, so a decision needs to be made where empty lines
-         are ok and do not stop the context:
-         ct_preformatted, ct_rawpreformatted, ct_math and ct_inlineraw.
-         It could possibly make sense not to close every brace command,
-         inlineraw for instance may not be closed by an empty line, at least
-         in some contexts.
+      /* TODO Close brace commands in more contexts?  Other contexts here could
+         be ct_preformatted, ct_rawpreformatted, ct_math, ct_inlineraw.
+         There are t.*.t tests with empty line in brace command in each of
+         these contexts.
        */
       else if (current_context () == ct_base)
         { /* closes no_paragraph brace commands that are not context brace

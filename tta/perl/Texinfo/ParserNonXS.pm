@@ -3321,7 +3321,7 @@ sub _split_def_args($$$$) {
   } elsif (defined($root->{'text'})) {
     my @elements;
     my $type;
-    # FIXME how to handle non ascii space?  As space or in argument?
+    # NOTE Non-ascii space is considered as argument here
     my @split_text = split /(?<=\s)(?=\S)|(?<=\S)(?=\s)/, $root->{'text'};
     if ($split_text[0] =~ /^\s*$/) {
       $type = 'spaces';
@@ -4787,15 +4787,14 @@ sub _end_line($$$) {
       # in a paragraph, but not directly.  For instance an empty line
       # in a style brace @-command
       $current = _end_paragraph($self, $current, $source_info);
-    # FIXME not sure about this one, could be better to close
-    # brace commands in more contexts.  Should make sure that
-    # it is ok before, for instance, it is not sure that CM_inlineraw
-    # should be closed that way, as it does not seems that the
-    # ct_inlineraw context is popped.
     } elsif (_top_context($self) eq 'ct_base') {
       # closes no_paragraph brace commands that are not context brace
       # commands but contain a new line, anchor for example
       $current = _close_all_style_commands($self, $current, $source_info);
+    # TODO Close brace commands in more contexts?  Other contexts here could
+    # be ct_preformatted, ct_rawpreformatted, ct_math, ct_inlineraw.
+    # There are t.*.t tests with empty line in brace command in each of
+    # these contexts.
     }
 
   # end of a menu line.
@@ -8246,7 +8245,7 @@ sub _parse_line_command_args($$$) {
 
   } elsif ($command eq 'definfoenclose') {
     # REMACRO
-    # FIXME how to handle non ascii space?  As space or in argument?
+    # NOTE Non-ascii space is considered as argument here
     if ($self->{'conf'}->{'NO_USER_COMMANDS'}) {
       # do nothing
     } elsif ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
