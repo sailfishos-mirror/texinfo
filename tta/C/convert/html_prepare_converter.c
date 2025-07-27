@@ -32,6 +32,7 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "html_conversion_data.h"
+#include "html_css_data.h"
 /* bug fatal isascii_alnum isascii_alpha read_var_len */
 #include "base_utils.h"
 /* new_element */

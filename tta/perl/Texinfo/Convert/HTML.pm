@@ -72,6 +72,7 @@ use Texinfo::Options;
 use Texinfo::CommandsValues;
 use Texinfo::UnicodeData;
 use Texinfo::HTMLData;
+use Texinfo::HTMLDataCSS;
 
 use Texinfo::TreeElement;
 
@@ -3026,7 +3027,7 @@ sub converter_defaults($;$)
 }
 
 my %default_css_element_class_styles
-  = %{ Texinfo::HTMLData::get_base_default_css_info() };
+  = %{ Texinfo::HTMLDataCSS::get_base_default_css_info() };
 
 $default_css_element_class_styles{'pre.format-preformatted'}
   = $default_css_element_class_styles{'pre.display-preformatted'};

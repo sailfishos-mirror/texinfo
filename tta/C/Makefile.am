@@ -109,6 +109,8 @@ C_libtexinfo_sources = \
 		      main/customization_options.h \
 		      main/html_conversion_data.c \
 		      main/html_conversion_data.h \
+		      main/html_css_data.c \
+		      main/html_css_data.h \
 		      main/floats.c \
 		      main/floats.h \
 		      main/manipulate_tree.c \
@@ -245,6 +247,8 @@ BUILT_SOURCES = main/accent_tables_8bit_codepoints.c \
                 main/command_ids.h \
                 main/html_conversion_data.c \
                 main/html_conversion_data.h \
+                main/html_css_data.c \
+                main/html_css_data.h \
                 main/element_types.c \
                 main/element_types.h \
                 main/global_commands_types.h \
@@ -360,12 +364,11 @@ translated_source_files: $(srcdir)/main/html_conversion_data.c
 products_code_convert_data = $(srcdir)/main/html_conversion_data.c \
                              $(srcdir)/main/html_conversion_data.h
 
-$(srcdir)/stamp.code_convert_data: main/command_data.c $(srcdir)/../data/default_css_element_class_styles.csv $(srcdir)/../data/default_direction_strings.csv $(srcdir)/../data/default_special_unit_info.csv $(srcdir)/../data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
+$(srcdir)/stamp.code_convert_data: main/command_data.c $(srcdir)/../data/default_direction_strings.csv $(srcdir)/../data/default_special_unit_info.csv $(srcdir)/../data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
 	@rm -f tmp.code_convert_data
 	@touch tmp.code_convert_data
 	$(PERL) $(srcdir)/../maintain/generate_code_convert_data.pl \
 	        < $(srcdir)/main/command_data.c \
-	            $(srcdir)/../data/default_css_element_class_styles.csv \
 	            $(srcdir)/../data/default_direction_strings.csv \
 	            $(srcdir)/../data/default_special_unit_info.csv \
 	            $(srcdir)/../data/html_style_commands_element.csv \
@@ -377,6 +380,24 @@ $(products_code_convert_data): $(srcdir)/stamp.code_convert_data
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/stamp.code_convert_data
 EXTRA_DIST += stamp.code_convert_data
 MAINTAINERCLEANFILES += $(products_code_convert_data)
+
+# Order matters
+products_css_data = $(srcdir)/main/html_css_data.c \
+                    $(srcdir)/main/html_css_data.h
+
+$(srcdir)/stamp.css_data: $(srcdir)/../data/default_css_element_class_styles.csv $(srcdir)/../maintain/generate_css_data.pl
+	@rm -f tmp.css_data
+	@touch tmp.css_data
+	$(PERL) $(srcdir)/../maintain/generate_css_data.pl \
+	            $(srcdir)/../data/default_css_element_class_styles.csv \
+	            C $(products_css_data)
+	@mv -f tmp.css_data $@
+
+$(products_css_data): $(srcdir)/stamp.css_data
+	@test -f $@ || rm -f $(srcdir)/stamp.css_data
+	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/stamp.css_data
+EXTRA_DIST += stamp.css_data
+MAINTAINERCLEANFILES += $(products_css_data)
 
 
 ################################# common Perl C code shared library used

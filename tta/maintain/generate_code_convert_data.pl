@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# ../maintain/generate_code_convert_data.pl ../data/default_css_element_class_styles.csv ../data/default_direction_strings.csv ../data/default_special_unit_info.csv ../data/html_style_commands_element.csv perl Texinfo/HTMLData.pm
+# ../maintain/generate_code_convert_data.pl ../data/default_direction_strings.csv ../data/default_special_unit_info.csv ../data/html_style_commands_element.csv perl Texinfo/HTMLData.pm
 
 use strict;
 
@@ -30,53 +30,19 @@ use Text::Wrap;
 
 my $program_name = basename($0);
 
-my $base_default_css_element_class_styles_file = $ARGV[0];
-
-open (BDCSS, "<$base_default_css_element_class_styles_file")
-  or die "open $base_default_css_element_class_styles_file failed: $!";
-
-my $default_direction_strings_file = $ARGV[1];
+my $default_direction_strings_file = $ARGV[0];
 open (DDS, "<$default_direction_strings_file")
   or die "open $default_direction_strings_file failed: $!";
 
-my $default_special_unit_info_file = $ARGV[2];
+my $default_special_unit_info_file = $ARGV[1];
 open (DSUI, "<$default_special_unit_info_file")
   or die "open $default_special_unit_info_file failed: $!";
 
-my $style_commands_element_file = $ARGV[3];
+my $style_commands_element_file = $ARGV[2];
 open (SCE, "<$style_commands_element_file")
   or die "open $style_commands_element_file failed: $!";
 
-
-my @header;
-while (1) {
-  my $header_line = <BDCSS>;
-  chomp($header_line);
-  #print STDERR "$header_line\n";
-  @header = split(/\|/, $header_line);
-  if (scalar(@header) > 1) {
-    last;
-  }
-}
-
-my ($selector_index, $style_index, $notes_index);
-my $header_index = 0;
-foreach my $header (@header) {
-  if ($header eq 'selector') {
-    $selector_index = $header_index;
-  } elsif ($header eq 'style') {
-    $style_index = $header_index;
-  } elsif ($header eq 'notes') {
-    $notes_index = $header_index;
-  }
-  $header_index++;
-}
-if (!defined($selector_index) or !defined($style_index)
-    or !defined($notes_index)) {
-  die "missing header column ($selector_index, $style_index, $notes_index)\n";
-}
-
-my $lang = $ARGV[4];
+my $lang = $ARGV[3];
 
 my $perl_format = 0;
 my $C_format = 0;
@@ -86,7 +52,7 @@ if ($lang eq 'perl') {
   $C_format = 1;
 }
 
-my $out_file = $ARGV[5];
+my $out_file = $ARGV[4];
 
 die "Need an output file\n" if (!defined($out_file));
 
@@ -95,8 +61,6 @@ open(OUT, ">$out_file") or die "Open $out_file: $!\n";
 my $initial_notes_tab;
 my $subsequent_notes_tab;
 
-my $base_default_css_element_class_styles_base_name
-  = basename($base_default_css_element_class_styles_file);
 if ($perl_format) {
   $initial_notes_tab = ' # ';
   $subsequent_notes_tab = ' # ';
@@ -106,14 +70,10 @@ if ($perl_format) {
   print OUT "package Texinfo::HTMLData;\n\n";
 
   print OUT "use Texinfo::Common;\n\n";
-
-  print OUT "# Generated from $base_default_css_element_class_styles_base_name\n";
-  print OUT "my %base_default_css_element_class_styles = (\n";
-
 } else {
   # C format
 
-  my $header_file = $ARGV[6];
+  my $header_file = $ARGV[5];
 
   die "Need an output header\n" if (!defined($header_file));
 
@@ -128,55 +88,11 @@ if ($perl_format) {
   print OUT "#include \"html_conversion_data.h\"\n";
   print OUT "#include \"tree_types.h\"\n";
   print OUT "#include \"converter_types.h\"\n\n";
-
-  print OUT "/* Generated from $base_default_css_element_class_styles_base_name */\n";
-  print OUT "const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {\n";
-}
-
-my $css_element_class_style_nr = 0;
-while (<BDCSS>) {
-  chomp;
-  my @data = split (/\|/);
-  my $notes = $data[$notes_index];
-  if (defined($notes) and $notes ne '') {
-    my $lines;
-    if ($perl_format) {
-      $lines = wrap($initial_notes_tab, $subsequent_notes_tab, ($notes));
-      print OUT $lines."\n";
-    } else {
-      $lines = wrap($initial_notes_tab, $subsequent_notes_tab, ($notes . ' */'));
-      print OUT "/* $lines\n";
-    }
-  }
-  my $selector = $data[$selector_index];
-  if (!defined($selector) or $selector eq '') {
-    die "$base_default_css_element_class_styles_file: Bad selector\n";
-  }
-  my $style = $data[$style_index];
-  if (!defined($style) or $style eq '') {
-    die "$base_default_css_element_class_styles_file: Bad style\n";
-  }
-  $css_element_class_style_nr++;
-  if ($perl_format) {
-    print OUT "    '$selector'    => '$style',\n";
-  } else {
-    print OUT "    {\"$selector\", \"$style\"},\n";
-  }
 }
 
 my $C_header_string = 'CONVERSION_DATA_H';
 if ($perl_format) {
-
-  print OUT ");\n\n";
-
-  print OUT 'sub get_base_default_css_info() {'."\n"
-  .'  return \%base_default_css_element_class_styles;'."\n"
-  ."}\n\n";
 } else {
-
-  print OUT "    {0, 0}\n";
-  print OUT "};\n\n";
-
   print HDR "/* Automatically generated from $program_name */\n\n";
   print HDR "#ifndef $C_header_string\n"
          ."#define $C_header_string\n\n";
@@ -184,9 +100,6 @@ if ($perl_format) {
    .'    const char *converted;'."\n"
    .'    const char *to_convert;'."\n"
    .'} HTML_DEFAULT_DIRECTION_STRING_TRANSLATED;'."\n\n";
-
-  print HDR "#define BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR "
-               ."$css_element_class_style_nr\n\n";
 }
 
 
@@ -697,7 +610,7 @@ foreach my $header (@sce_header) {
   $sce_header_index++;
 }
 if (!defined($sce_command_index) or !defined($sce_html_element_index)
-    or !defined($notes_index)) {
+    or !defined($sce_notes_index)) {
   die "missing header column ($sce_command_index, "
                    ."$sce_html_element_index, $sce_notes_index)\n";
 }

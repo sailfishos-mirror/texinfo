@@ -65,6 +65,7 @@ maintenance_files = \
   maintain/language-subtag-registry \
   maintain/generate_code_convert_data.pl \
   maintain/generate_code_commands_values.pl \
+  maintain/generate_css_data.pl \
   maintain/regenerate_cmd_tests.sh \
   maintain/regenerate_converters_documentation.sh \
   maintain/regenerate_docstr.sh \

@@ -380,12 +380,16 @@ $(srcdir)/Texinfo/CommandsValues.pm: ../data/commands_values.txt $(srcdir)/../ma
 # avoid make failing in po* directories.
 translated_source_files: $(srcdir)/Texinfo/HTMLData.pm
 
-$(srcdir)/Texinfo/HTMLData.pm: ../data/default_css_element_class_styles.csv ../data/default_direction_strings.csv ../data/default_special_unit_info.csv ../data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
+$(srcdir)/Texinfo/HTMLData.pm: ../data/default_direction_strings.csv ../data/default_special_unit_info.csv ../data/html_style_commands_element.csv $(srcdir)/../maintain/generate_code_convert_data.pl
 	$(srcdir)/../maintain/generate_code_convert_data.pl \
-	      $(srcdir)/../data/default_css_element_class_styles.csv \
 	      $(srcdir)/../data/default_direction_strings.csv \
 	      $(srcdir)/../data/default_special_unit_info.csv \
 	      $(srcdir)/../data/html_style_commands_element.csv \
+	      perl $@
+
+$(srcdir)/Texinfo/HTMLDataCSS.pm: ../data/default_css_element_class_styles.csv $(srcdir)/../maintain/generate_css_data.pl
+	$(srcdir)/../maintain/generate_css_data.pl \
+	      $(srcdir)/../data/default_css_element_class_styles.csv \
 	      perl $@
 
 install-exec-hook:
