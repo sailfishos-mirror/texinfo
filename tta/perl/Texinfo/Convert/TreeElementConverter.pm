@@ -24,7 +24,9 @@
 # The functions correspond to functions in Texinfo::Convert::Converter,
 # Texinfo::Common, Texinfo::Convert::Utils and Texinfo::Structuring.
 
-# This module is not used in texi2any converters.
+# This module is not used in texi2any converters.  Using the TreeElement
+# interface is slow in Perl and using the XS interface requires careful code
+# and many functions replacements.  The SWIG interface should be used instead.
 
 package Texinfo::Convert::TreeElementConverter;
 

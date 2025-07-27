@@ -36,19 +36,21 @@
 #include <libintl.h>
 #endif
 
+/* HTML_GLOBAL_DIRECTIONS_LIST RUD_DIRECTIONS_TYPES_LIST
+   RUD_FILE_DIRECTIONS_TYPES */
 #include "html_conversion_data.h"
 /* also for xvasprintf */
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
 #include "tree_types.h"
+#include "types_data.h"
 #include "global_commands_types.h"
 #include "option_types.h"
 #include "options_data.h"
 /* for CL_* */
 #include "document_types.h"
 #include "converter_types.h"
-#include "types_data.h"
 /* isascii_alnum isascii_alpha isascii_upper */
 #include "base_utils.h"
 #include "tree.h"
@@ -2661,6 +2663,7 @@ html_get_direction_index (const CONVERTER *converter, const char *direction)
   return -1;
 }
 
+/* here because it is used in main/build_perl_info.c */
 const char *
 direction_unit_direction_name (int direction, const CONVERTER *converter)
 {

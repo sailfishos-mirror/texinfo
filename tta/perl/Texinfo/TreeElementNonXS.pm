@@ -15,6 +15,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# This module has an implementation as XS extension.
+
+# The new() method of this module should be used for each creation
+# of a Texinfo tree element.
+
+# Except for the new() method, nothing in texi2any uses this module, because
+# calling accessors instead of accessing hash keys is much slower in Perl, and
+# also because using the XS interface requires careful code and many
+# functions replacements.  The SWIG interface should be used instead.
+
 package Texinfo::TreeElement;
 
 use strict;
@@ -25,6 +35,11 @@ use warnings;
 
 # check that autovivification do not happen incorrectly.
 #no autovivification qw(fetch delete exists store strict);
+
+# TODO debug functions in Texinfo::Common cannot be used when the TreeElement
+# interface only is used, they should be reimplemented with use of accessors.
+# Could have been a good place for those functions (debug_print_element,
+# debug_print_element_details and similar functions).
 
 sub new($)
 {
@@ -83,8 +98,8 @@ sub get_children($)
   return $element->{'contents'};
 }
 
-# following accessors need to be used when the C tree data is not fully
-# built to Perl
+# Accessors that need to be used when the C tree data is not fully
+# built to Perl such as to use the XS interface if loaded
 sub parent($)
 {
   my $element = shift;

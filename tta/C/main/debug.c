@@ -26,7 +26,7 @@
 #include "types_data.h"
 /* element_command_name */
 #include "builtin_commands.h"
-/* for ai_key_names */
+/* associated_info_table */
 #include "tree.h"
 /* for directions_length and direction_names */
 #include "utils.h"

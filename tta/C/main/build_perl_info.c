@@ -56,7 +56,7 @@
 #include "tree_types.h"
 #include "global_commands_types.h"
 #include "option_types.h"
-/* for GLOBAL_INFO ERROR_MESSAGE CL_* */
+/* for GLOBAL_INFO ERROR_MESSAGE CL_* RUD_type* */
 #include "document_types.h"
 /* CONVERTER sv_string_type CONVERTER_INITIALIZATION_INFO */
 #include "converter_types.h"
@@ -64,16 +64,19 @@
 #include "xs_utils.h"
 /* fatal */
 #include "base_utils.h"
-/* for ai_key_names elt_info_names */
+/* for associated_info_table elt_info_names find_associated_info_key
+   add_to_element_list */
 #include "tree.h"
 /* for lookup_extra */
 #include "extra.h"
 /* for element_command_name */
 #include "builtin_commands.h"
+/* for c_hashmap_iterator_next_value */
 #include "hashmap.h"
 /* for xasprintf get_encoding_conversion output_conversions
    direction_names expanded_formats_number output_unit_type_names
-   informative_command_value get_global_document_command */
+   informative_command_value get_global_document_command
+   direction_unit_direction_name */
 #include "utils.h"
 /* find_option_string */
 #include "customization_options.h"

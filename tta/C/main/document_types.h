@@ -22,6 +22,7 @@
 #include "tree_types.h"
 #include "option_types.h"
 #include "global_commands_types.h"
+/* RUD_DIRECTIONS_TYPES_LIST RUD_FILE_DIRECTIONS_TYPES */
 #include "html_conversion_data.h"
 /*
 #include "options_types.h"
