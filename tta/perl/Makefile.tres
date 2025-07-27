@@ -413,6 +413,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/coverage_braces/empty_line_in_anchor.pl \
   t/results/coverage_braces/empty_line_in_braces_in_math.pl \
   t/results/coverage_braces/empty_line_in_braces_in_math_at_begin_line.pl \
+  t/results/coverage_braces/empty_line_in_command_in_math.pl \
   t/results/coverage_braces/empty_line_in_email.pl \
   t/results/coverage_braces/empty_line_in_math.pl \
   t/results/coverage_braces/empty_ref.pl \

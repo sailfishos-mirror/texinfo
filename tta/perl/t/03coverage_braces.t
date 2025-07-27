@@ -396,6 +396,10 @@ c}d}'],
 
 } c
 }'],
+['empty_line_in_command_in_math',
+'@math{a @code{in code
+
+after line} b}'],
 ['unknown_command_with_braces',
 'Unknown thing @thing{}
 
