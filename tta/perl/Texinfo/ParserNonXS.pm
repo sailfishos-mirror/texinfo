@@ -905,12 +905,12 @@ sub get_parser_info($) {
   my $global_commands = $document->{'commands_info'};
 
   # information based on commands commonly needed.
-  if ($global_commands->{'novalidate'}) {
+  if (exists($global_commands->{'novalidate'})) {
     $document->{'global_info'}->{'novalidate'} = 1;
   }
 
-  if ($global_commands->{'setfilename'}
-      and $global_commands->{'setfilename'}->{'extra'}
+  if (exists($global_commands->{'setfilename'})
+      and exists($global_commands->{'setfilename'}->{'extra'})
       and defined($global_commands->{'setfilename'}->{'extra'}->{'text_arg'})) {
     $document->{'global_info'}->{'setfilename'}
       = $global_commands->{'setfilename'}->{'extra'}->{'text_arg'};
@@ -966,15 +966,15 @@ sub _rearrange_tree_beginning($$) {
 
   # Put everything before @setfilename in a special type.  This allows to
   # ignore everything before @setfilename.
-  if ($document->global_commands_information()->{'setfilename'}
-      and $document->global_commands_information()->{'setfilename'}->{'parent'}
-                                                 eq $before_node_section) {
+  my $setfilename = $document->global_commands_information()->{'setfilename'}; 
+  if (defined($setfilename)
+      and $setfilename->{'parent'} eq $before_node_section) {
     my $before_setfilename
       = Texinfo::TreeElement::new({'type' => 'preamble_before_setfilename',
                                    'parent' => $before_node_section,
                                    'contents' => []});
     while (@{$before_node_section->{'contents'}}
-        and (!$before_node_section->{'contents'}->[0]->{'cmdname'}
+        and (!exists($before_node_section->{'contents'}->[0]->{'cmdname'})
           or $before_node_section->{'contents'}->[0]->{'cmdname'} ne 'setfilename')) {
       my $content = shift @{$before_node_section->{'contents'}};
       $content->{'parent'} = $before_setfilename;
@@ -997,15 +997,16 @@ sub _add_preamble_before_content($) {
     = Texinfo::TreeElement::new({'type' => 'preamble_before_content',
                                  'parent' => $before_node_section,});
   my @first_types;
-  if ($before_node_section->{'contents'}) {
+  if (exists($before_node_section->{'contents'})) {
     while (@{$before_node_section->{'contents'}}) {
       my $next_content = $before_node_section->{'contents'}->[0];
-      if ($next_content->{'type'}
+      if (exists($next_content->{'type'})
           and ($next_content->{'type'} eq 'preamble_before_beginning'
                or $next_content->{'type'} eq 'preamble_before_setfilename')) {
         push @first_types, shift @{$before_node_section->{'contents'}};
-      } elsif (($next_content->{'type'} and $next_content->{'type'} eq 'paragraph')
-               or ($next_content->{'cmdname'} and
+      } elsif ((exists($next_content->{'type'})
+                and $next_content->{'type'} eq 'paragraph')
+               or (exists($next_content->{'cmdname'}) and
                    not $Texinfo::Commands::preamble_commands{
                                               $next_content->{'cmdname'}})) {
         last;
@@ -1013,7 +1014,7 @@ sub _add_preamble_before_content($) {
         my $content = shift @{$before_node_section->{'contents'}};
         $content->{'parent'} = $informational_preamble;
         $informational_preamble->{'contents'} = []
-            if (!$informational_preamble->{'contents'});
+            if (!exists($informational_preamble->{'contents'}));
         push @{$informational_preamble->{'contents'}}, $content;
       }
     }
@@ -1065,8 +1066,6 @@ sub _parse_texi_document($) {
 
 sub errors($) {
   my $self = shift;
-
-  my $error_messages = $self->{'error_messages'};
 
   my $errors_output = [@{$self->{'error_messages'}}];
 
@@ -1186,7 +1185,7 @@ sub _bug_message($$;$$) {
   my @context_stack = _get_context_stack($self);
   my $message_context_stack = "context_stack: (@context_stack)\n";
   my $current_element_message = '';
-  if ($current) {
+  if (defined($current)) {
     $current_element_message = "current: "
                     .Texinfo::Common::debug_print_element($current);
   }
@@ -1212,17 +1211,19 @@ sub _register_global_command($$$;$) {
   }
   if ($global_multiple_commands{$command_name}) {
     push @{$document->{'commands_info'}->{$command_name}}, $current;
-    $current->{'source_info'} = $source_info if (!$current->{'source_info'});
-    $current->{'extra'} = {} if (!$current->{'extra'});
+    $current->{'source_info'} = $source_info
+       if (!exists($current->{'source_info'}));
+    $current->{'extra'} = {} if (!exists($current->{'extra'}));
     $current->{'extra'}->{'global_command_number'}
       = scalar(@{$document->{'commands_info'}->{$command_name}});
     return 1;
   } elsif ($global_unique_commands{$command_name}) {
     # setfilename ignored in an included file
-    $current->{'source_info'} = $source_info if (!$current->{'source_info'});
+    $current->{'source_info'} = $source_info
+      if (!exists($current->{'source_info'}));
     if ($command_name eq 'setfilename'
         and _in_include($self)) {
-    } elsif (exists ($document->{'commands_info'}->{$command_name})) {
+    } elsif (exists($document->{'commands_info'}->{$command_name})) {
       if ($command_name ne $current->{'cmdname'}) {
         _line_warn($self, sprintf(__('multiple %s (@%s)'),
                        $command_name, $current->{'cmdname'}), $source_info);
@@ -1242,9 +1243,9 @@ sub _register_global_command($$$;$) {
 sub _register_source_mark($$$) {
   my ($self, $element, $source_mark) = @_;
 
-  if (!defined($source_mark->{'counter'})) {
+  if (!exists($source_mark->{'counter'})) {
     my $counter_name = $source_mark->{'sourcemark_type'};
-    if (!$self->{'source_mark_counters'}->{$counter_name}) {
+    if (!exists($self->{'source_mark_counters'}->{$counter_name})) {
       $self->{'source_mark_counters'}->{$counter_name} = 0;
     }
     $self->{'source_mark_counters'}->{$counter_name} += 1;
@@ -1257,10 +1258,10 @@ sub _register_source_mark($$$) {
 sub _debug_show_source_mark($) {
   my $source_mark = shift;
   return "$source_mark->{'sourcemark_type'} c: "
-   .(defined($source_mark->{'counter'}) ? $source_mark->{'counter'}: 'UNDEF')
-    ." p: ".(defined($source_mark->{'position'})
+   .(exists($source_mark->{'counter'}) ? $source_mark->{'counter'}: 'UNDEF')
+    ." p: ".(exists($source_mark->{'position'})
              ? $source_mark->{'position'}: 0)." "
-     .(defined($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF');
+     .(exists($source_mark->{'status'}) ? $source_mark->{'status'}: 'UNDEF');
 }
 
 # $ELEMENT should be the parent container.
@@ -1273,23 +1274,25 @@ sub _place_source_mark($$$) {
   $source_mark->{'position'} = 0;
   # the element that holds the source mark
   my $mark_element;
-  if ($element->{'contents'} and scalar(@{$element->{'contents'}}) > 0) {
+  if (exists($element->{'contents'})
+      and scalar(@{$element->{'contents'}}) > 0) {
     my $current = $element->{'contents'}->[-1];
-    if ($current->{'type'} and $current->{'type'} eq 'arguments_line') {
+    if (exists($current->{'type'})
+        and $current->{'type'} eq 'arguments_line') {
       $mark_element = $current->{'contents'}->[-1];
     } else {
       $mark_element = $current;
     }
     # if there is no text, the source mark is supposed to be
     # at the end of/after the element
-    if (defined($mark_element->{'text'}) and $mark_element->{'text'} ne '') {
+    if (exists($mark_element->{'text'}) and $mark_element->{'text'} ne '') {
       $source_mark->{'position'} = length($mark_element->{'text'});
     }
-  } elsif ($element->{'cmdname'}
+  } elsif (exists($element->{'cmdname'})
            and defined($self->{'brace_commands'}->{$element->{'cmdname'}})) {
     # can only be before the opening brace
-    $element->{'info'} = {} if (!$element->{'info'});
-    if (!$element->{'info'}->{'spaces_after_cmd_before_arg'}) {
+    $element->{'info'} = {} if (!exists($element->{'info'}));
+    if (!exists($element->{'info'}->{'spaces_after_cmd_before_arg'})) {
       $element->{'info'}->{'spaces_after_cmd_before_arg'}
         = Texinfo::TreeElement::new({'text' => '',
                                      'type' => 'spaces_after_cmd_before_arg'});
@@ -1304,7 +1307,7 @@ sub _place_source_mark($$$) {
     # 'text' is here to have merge_text work as expected
     $mark_element
       = Texinfo::TreeElement::new({'parent' => $element, 'text' => ''});
-    $element->{'contents'} = [] unless (defined($element->{'contents'}));
+    $element->{'contents'} = [] unless (exists($element->{'contents'}));
     push @{$element->{'contents'}}, $mark_element;
     $add_element_string = 'add';
   }
@@ -1317,7 +1320,7 @@ sub _place_source_mark($$$) {
       .' '.Texinfo::Common::debug_print_element($element)."\n"
         if ($self->{'conf'}->{'DEBUG'});
 
-  if (!$mark_element->{'source_marks'}) {
+  if (!exists($mark_element->{'source_marks'})) {
     $mark_element->{'source_marks'} = [];
   }
   push @{$mark_element->{'source_marks'}}, $source_mark;
@@ -1328,8 +1331,8 @@ sub _transfer_source_marks($$) {
 
   if (!defined($from_e)) {confess()};
 
-  if ($from_e->{'source_marks'}) {
-    if (!$element->{'source_marks'}) {
+  if (exists($from_e->{'source_marks'})) {
+    if (!exists($element->{'source_marks'})) {
       $element->{'source_marks'} = [];
     }
     push @{$element->{'source_marks'}}, @{$from_e->{'source_marks'}};
@@ -1422,7 +1425,7 @@ sub _in_begin_paragraph($$) {
   # (ct_line, ct_def), preformatted (ct_preformatted).
   my ($self, $current) = @_;
   return ($begin_paragraph_contexts{_top_context($self)}
-          and not ($current->{'type'}
+          and not (exists($current->{'type'})
                    and $type_without_paragraph{$current->{'type'}}));
 }
 
@@ -1432,19 +1435,19 @@ sub _begin_paragraph($$) {
 
   # find whether an @indent precedes the paragraph
   my $indent;
-  if ($current->{'contents'}) {
+  if (exists($current->{'contents'})) {
     my $index = scalar(@{$current->{'contents'}}) -1;
     while ($index >= 0
-          and !($current->{'contents'}->[$index]->{'type'}
+          and !(exists($current->{'contents'}->[$index]->{'type'})
             and ($current->{'contents'}->[$index]->{'type'} eq 'empty_line'
                  or $current->{'contents'}->[$index]->{'type'} eq 'paragraph'))
-          and !($current->{'contents'}->[$index]->{'cmdname'}
+          and !(exists($current->{'contents'}->[$index]->{'cmdname'})
                 and $close_paragraph_commands
                          {$current->{'contents'}->[$index]->{'cmdname'}})) {
-      if ($current->{'contents'}->[$index]->{'cmdname'}
-        and ($current->{'contents'}->[$index]->{'cmdname'} eq 'indent'
-            or $current->{'contents'}->[$index]->{'cmdname'} eq 'noindent')) {
-        $indent = $current->{'contents'}->[$index]->{'cmdname'};
+      my $cmdname = $current->{'contents'}->[$index]->{'cmdname'};
+      if (defined($cmdname)
+          and ($cmdname eq 'indent' or $cmdname eq 'noindent')) {
+        $indent = $cmdname;
         last;
       }
       $index--;
@@ -1483,15 +1486,10 @@ sub _command_warn($$$;@) {
   my $current = shift;
   my $message = shift;
 
-  my $source_info;
-
-  if ($current->{'source_info'}) {
-    $source_info = $current->{'source_info'};
-  }
   if (@_) {
-    _line_warn($self, sprintf($message, @_), $source_info);
+    _line_warn($self, sprintf($message, @_), $current->{'source_info'});
   } else {
-    _line_warn($self, $message, $source_info);
+    _line_warn($self, $message, $current->{'source_info'});
   }
 }
 
@@ -1500,17 +1498,10 @@ sub _command_error($$$;@) {
   my $current = shift;
   my $message = shift;
 
-  my $source_info;
-
-  # use the beginning of the @-command for the error message
-  # line number if available.
-  if ($current->{'source_info'}) {
-    $source_info = $current->{'source_info'};
-  }
   if (@_) {
-    _line_error($self, sprintf($message, @_), $source_info);
+    _line_error($self, sprintf($message, @_), $current->{'source_info'});
   } else {
-    _line_error($self, $message, $source_info);
+    _line_error($self, $message, $current->{'source_info'});
   }
 }
 
@@ -1545,7 +1536,7 @@ sub _close_brace_command($$$;$$$) {
   # without argument, maybe only at the end of a document.
   #die ("$current->{'cmdname'} no args\n") if (!$current->{'contents'});
 
-  if ($self->{'basic_inline_commands'}
+  if (defined($self->{'basic_inline_commands'})
       and $self->{'basic_inline_commands'}->{$current->{'cmdname'}}) {
     my $popped = pop @{$self->{'nesting_context'}->{'basic_inline_stack'}};
     if (!defined($popped)) {
@@ -1619,14 +1610,15 @@ sub _kbd_formatted_as_code($) {
 sub _in_paragraph($$) {
   my ($self, $current) = @_;
 
-  while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
+  while (exists($current->{'parent'})
+         and exists($current->{'parent'}->{'cmdname'})
          and exists($self->{'brace_commands'}
                                       ->{$current->{'parent'}->{'cmdname'}})
          and $self->{'brace_commands'}
                            ->{$current->{'parent'}->{'cmdname'}} ne 'context') {
     $current = $current->{'parent'}->{'parent'};
   }
-  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+  if (exists($current->{'type'}) and $current->{'type'} eq 'paragraph') {
     return 1;
   } else {
     return 0;
@@ -1638,10 +1630,11 @@ sub _close_all_style_commands($$$;$$) {
   my ($self, $current, $source_info, $closed_block_command,
       $interrupting_command) = @_;
 
-  while ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-          and exists($self->{'brace_commands'}
+  while (exists($current->{'parent'})
+         and exists($current->{'parent'}->{'cmdname'})
+         and exists($self->{'brace_commands'}
                                       ->{$current->{'parent'}->{'cmdname'}})
-          and $self->{'brace_commands'}
+         and $self->{'brace_commands'}
                            ->{$current->{'parent'}->{'cmdname'}} ne 'context') {
     print STDERR "CLOSING(all_style_commands) "
       ."\@$current->{'parent'}->{'cmdname'}\n"
@@ -1662,7 +1655,7 @@ sub _end_paragraph($$$;$$) {
   $current = _close_all_style_commands($self, $current, $source_info,
                                        $closed_block_command,
                                        $interrupting_command);
-  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+  if (exists($current->{'type'}) and $current->{'type'} eq 'paragraph') {
     print STDERR "CLOSE PARA\n" if ($self->{'conf'}->{'DEBUG'});
     $current = _close_container($self, $current, $source_info);
   }
@@ -1678,10 +1671,11 @@ sub _end_paragraph_preformatted($$$;$$) {
   $current = _close_all_style_commands($self, $current, $source_info,
                                        $closed_block_command,
                                        $interrupting_command);
-  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+  if (exists($current->{'type'}) and $current->{'type'} eq 'paragraph') {
     print STDERR "CLOSE PARA\n" if ($self->{'conf'}->{'DEBUG'});
     $current = _close_container($self, $current, $source_info);
-  } elsif ($current->{'type'} and $current->{'type'} eq 'preformatted') {
+  } elsif (exists($current->{'type'})
+           and $current->{'type'} eq 'preformatted') {
     print STDERR "CLOSE PREFORMATTED\n" if ($self->{'conf'}->{'DEBUG'});
     $current = _close_container($self, $current, $source_info);
   }
@@ -1691,9 +1685,9 @@ sub _end_paragraph_preformatted($$$;$$) {
 sub _is_container_empty($) {
   my $current = shift;
 
-  if (not $current->{'contents'}
-      and (not defined($current->{'text'}) or $current->{'text'} eq '')
-      and not $current->{'info'}) {
+  if (not exists($current->{'contents'})
+      and (not exists($current->{'text'}) or $current->{'text'} eq '')
+      and not exists($current->{'info'})) {
     return 1;
   }
   return 0;
@@ -1703,9 +1697,10 @@ sub _remove_empty_content($$) {
   my ($self, $current) = @_;
 
   # remove an empty content that only holds source marks
-  if ($current->{'contents'} and scalar(@{$current->{'contents'}}) == 1) {
+  if (exists($current->{'contents'})
+      and scalar(@{$current->{'contents'}}) == 1) {
     my $child_element = $current->{'contents'}->[0];
-    if (not defined($child_element->{'cmdname'})
+    if (not exists($child_element->{'cmdname'})
         and _is_container_empty($child_element)) {
       _transfer_source_marks($child_element, $current);
       print STDERR "REMOVE empty child "
@@ -1722,7 +1717,7 @@ sub _close_container($$$) {
 
   _remove_empty_content($self, $current);
 
-  if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+  if (exists($current->{'type'}) and $current->{'type'} eq 'paragraph') {
     _pop_context($self, ['ct_paragraph'], $source_info, $current);
   }
 
@@ -1731,21 +1726,22 @@ sub _close_container($$$) {
   if (_is_container_empty($current)) {
     print STDERR "CONTAINER EMPTY "
       .Texinfo::Common::debug_print_element($current, 1)
-      .' ('.($current->{'source_marks'}
+      .' ('.(exists($current->{'source_marks'})
             ? scalar(@{$current->{'source_marks'}}) : 0)." source marks)\n"
         if ($self->{'conf'}->{'DEBUG'});
     # Keep the element only if there are source marks
-    if (!$current->{'source_marks'}) {
+    if (!exists($current->{'source_marks'})) {
       $element_to_remove = $current;
     }
   }
   $current = $current->{'parent'};
 
   if ($element_to_remove
+      # FIXME check if this is needed
       # this is to avoid removing empty containers in args,
       # happens with brace commands not closed at the end of
       # a manual
-      and $current->{'contents'}
+      and exists($current->{'contents'})
       and scalar(@{$current->{'contents'}})
       and $current->{'contents'}->[-1] eq $element_to_remove) {
     print STDERR "REMOVE empty type "
@@ -1765,7 +1761,7 @@ sub _end_preformatted($$$;$$) {
                                        $closed_block_command,
                                        $interrupting_command);
 
-  if ($current->{'type'} and $current->{'type'} eq 'preformatted') {
+  if (exists($current->{'type'}) and $current->{'type'} eq 'preformatted') {
     print STDERR "CLOSE PREFORMATTED\n" if ($self->{'conf'}->{'DEBUG'});
     $current = _close_container($self, $current, $source_info);
   }
@@ -1779,14 +1775,15 @@ sub _check_no_text($) {
 
   my $after_paragraph = 0;
   foreach my $content (@{$current->{'contents'}}) {
-    if ($content->{'type'} and $content->{'type'} eq 'paragraph') {
+    if (exists($content->{'type'}) and $content->{'type'} eq 'paragraph') {
       $after_paragraph = 1;
       last;
-    } elsif ($content->{'type'} and $content->{'type'} eq 'preformatted') {
+    } elsif (exists($content->{'type'})
+             and $content->{'type'} eq 'preformatted') {
       foreach my $preformatted_content (@{$content->{'contents'}}) {
-        if ((defined($preformatted_content->{'text'})
+        if ((exists($preformatted_content->{'text'})
              and $preformatted_content->{'text'} =~ /\S/)
-            or ($preformatted_content->{'cmdname'}
+            or (exists($preformatted_content->{'cmdname'})
                 and ($preformatted_content->{'cmdname'} ne 'c'
                      and $preformatted_content->{'cmdname'} ne 'comment')
                 and !($preformatted_content->{'type'}
@@ -1811,9 +1808,9 @@ sub _gather_previous_item($$;$$) {
   my ($self, $current, $next_command, $source_info) = @_;
 
   # nothing to do in this case.
-  if ($current->{'contents'}->[-1]->{'type'}
+  if (exists($current->{'contents'}->[-1]->{'type'})
       and $current->{'contents'}->[-1]->{'type'} eq 'before_item') {
-    if ($next_command and $next_command eq 'itemx') {
+    if (defined($next_command) and $next_command eq 'itemx') {
       _line_error($self, sprintf(__("\@itemx should not begin \@%s"),
                                 $current->{'cmdname'}), $source_info);
     }
@@ -1835,7 +1832,7 @@ sub _gather_previous_item($$;$$) {
   # >= 2 because first content is the arguments_line
   for (my $position = $contents_count; $position >= 2; $position--) {
     my $content_element = $current->{'contents'}->[$position - 1];
-    if ($content_element->{'cmdname'}
+    if (defined($content_element->{'cmdname'})
         and ($content_element->{'cmdname'} eq 'item'
              or ($content_element->{'cmdname'} eq 'itemx'))) {
       $begin = $position;
@@ -1852,7 +1849,7 @@ sub _gather_previous_item($$;$$) {
     # following @item.
     for (my $position = $contents_count; $position >= $begin +1; $position--) {
       my $content_element = $current->{'contents'}->[$position - 1];
-      if (!$content_element->{'type'}
+      if (!exists($content_element->{'type'})
           or $content_element->{'type'} ne 'index_entry_command') {
         $end = $position;
         last;
@@ -1896,12 +1893,13 @@ sub _gather_previous_item($$;$$) {
     my $contents_count = scalar(@{$current->{'contents'}});
     my $term_begin;
     for (my $i = $begin - 1; $i >= 0; $i--) {
-      if ($current->{'contents'}->[$i]->{'type'}
+      my $cur_type = $current->{'contents'}->[$i]->{'type'};
+      if (defined($cur_type)
            # reached the beginning of the table
-           and ($current->{'contents'}->[$i]->{'type'} eq 'before_item'
+           and ($cur_type eq 'before_item'
                 # reached the previous table entry
-                or $current->{'contents'}->[$i]->{'type'} eq 'table_entry')) {
-        if ($current->{'contents'}->[$i]->{'type'} eq 'before_item') {
+                or $cur_type eq 'table_entry')) {
+        if ($cur_type eq 'before_item') {
           # register the before_item if we reached it in order to
           # reparent some before_item content to the first item
           $before_item = $current->{'contents'}->[$i];
@@ -1917,22 +1915,22 @@ sub _gather_previous_item($$;$$) {
       @{$new_contents} = splice @{$current->{'contents'}},
                                 $term_begin, $begin - $term_begin;
       $table_term->{'contents'} = $new_contents;
-      for my $child (@{$new_contents}) {
+      foreach my $child (@{$new_contents}) {
         $child->{'parent'} = $table_term;
       }
     }
-    if (defined($before_item) and $before_item->{'contents'}
+    if (defined($before_item) and exists($before_item->{'contents'})
         and scalar(@{$before_item->{'contents'}})) {
       print STDERR "REPARENT before_item content\n"
          if ($self->{'conf'}->{'DEBUG'});
       # reparent any trailing index entries in the before_item to the
       # beginning of table term
-      while ($before_item->{'contents'}
+      while (exists($before_item->{'contents'})
              and scalar(@{$before_item->{'contents'}})
-             and (($before_item->{'contents'}->[-1]->{'type'}
+             and ((exists($before_item->{'contents'}->[-1]->{'type'})
                    and $before_item->{'contents'}->[-1]->{'type'}
                      eq 'index_entry_command')
-                  or ($before_item->{'contents'}->[-1]->{'cmdname'}
+                  or (exists($before_item->{'contents'}->[-1]->{'cmdname'})
                    and ($before_item->{'contents'}->[-1]->{'cmdname'}
                            eq 'c'
                         or $before_item->{'contents'}->[-1]->{'cmdname'}
@@ -1942,7 +1940,7 @@ sub _gather_previous_item($$;$$) {
         $element->{'parent'} = $table_term;
       }
     }
-    if ($table_after_terms) {
+    if (defined($table_after_terms)) {
       # $table_after_terms necessarily with contents if defined
       push @{$table_entry->{'contents'}}, $table_after_terms;
       $table_after_terms->{'parent'} = $table_entry;
@@ -1950,7 +1948,7 @@ sub _gather_previous_item($$;$$) {
     splice @{$current->{'contents'}}, $term_begin, 0, $table_entry;
   } else {
     # Gathering 'inter_item' between @item and @itemx
-    if ($table_after_terms) {
+    if (defined($table_after_terms)) {
       my $after_paragraph = _check_no_text($table_after_terms);
       # Text between @item and @itemx is only allowed in a few cases:
       # comments, empty lines, or index entries.
@@ -1972,7 +1970,7 @@ sub _gather_def_item($$;$) {
 
   my $type;
   # means that we are between a @def*x and a @def
-  if ($next_command
+  if (defined($next_command)
       and $next_command ne 'defline' and $next_command ne 'deftypeline') {
     $type = 'inter_def_item';
   } else {
@@ -1982,12 +1980,12 @@ sub _gather_def_item($$;$) {
   # This may happen for a construct like
   # @deffnx a b @section
   # but otherwise the end of line will lead to the command closing
-  return if (!$current->{'cmdname'} or $current->{'cmdname'} =~ /x$/);
+  return if (!exists($current->{'cmdname'}) or $current->{'cmdname'} =~ /x$/);
 
   my $contents_count = scalar(@{$current->{'contents'}});
   # For @defline at the beginning of @defblock.
   return if scalar($contents_count == 1
-                   and $current->{'contents'}->[0]->{'type'}
+                   and exists($current->{'contents'}->[0]->{'type'})
             and $current->{'contents'}->[0]->{'type'} eq 'arguments_line');
 
   my $def_item = Texinfo::TreeElement::new({'type' => $type,
@@ -1996,9 +1994,9 @@ sub _gather_def_item($$;$) {
   # remove everything that is not a def_line to put it in the def_item,
   # starting from the end.
   for (my $i = 0; $i < $contents_count; $i++) {
-    if (($current->{'contents'}->[-1]->{'extra'}
-         and $current->{'contents'}->[-1]->{'extra'}->{'def_command'})
-        or ($current->{'contents'}->[-1]->{'type'}
+    if ((exists($current->{'contents'}->[-1]->{'extra'})
+         and exists($current->{'contents'}->[-1]->{'extra'}->{'def_command'}))
+        or (exists($current->{'contents'}->[-1]->{'type'})
             and $current->{'contents'}->[-1]->{'type'} eq 'arguments_line')) {
       last;
     } else {
@@ -2023,17 +2021,17 @@ sub _gather_def_item($$;$) {
 sub _close_command_cleanup($$) {
   my ($self, $current) = @_;
 
-  return unless ($current->{'cmdname'});
+  return unless (exists($current->{'cmdname'}));
   # remove the dynamic counters in multitable, they are not of use in the final
   # tree.  Also determine the multitable_body and multitable_head with
   # @item or @headitem rows.
   if ($current->{'cmdname'} eq 'multitable') {
-    if ($current->{'contents'}) {
+    if (exists($current->{'contents'})) {
       my $in_head_or_rows;
       my @contents = @{$current->{'contents'}};
       $current->{'contents'} = [];
       foreach my $row (@contents) {
-        if ($row->{'type'} and $row->{'type'} eq 'row') {
+        if (exists($row->{'type'}) and $row->{'type'} eq 'row') {
           delete $row->{'cells_count'};
           if ($row->{'contents'}->[0]->{'cmdname'} eq 'headitem') {
             if (!$in_head_or_rows) {
@@ -2058,7 +2056,7 @@ sub _close_command_cleanup($$) {
         }
       }
     }
-  } elsif ($block_commands{$current->{'cmdname'}}
+  } elsif (exists($block_commands{$current->{'cmdname'}})
            and $block_commands{$current->{'cmdname'}} eq 'item_container') {
     delete $current->{'items_count'};
   }
@@ -2071,7 +2069,7 @@ sub _close_command_cleanup($$) {
     _gather_def_item($self, $current);
   }
 
-  if ($block_commands{$current->{'cmdname'}}
+  if (exists($block_commands{$current->{'cmdname'}})
       and $block_commands{$current->{'cmdname'}} eq 'item_line') {
     # At this point the end command hasn't been added to the command contents.
     # so checks cannot be done at this point.
@@ -2089,11 +2087,11 @@ sub _close_command_cleanup($$) {
   if ($blockitem_commands{$current->{'cmdname'}}) {
     # > 1 for the arguments_line
     if (scalar(@{$current->{'contents'}} > 1)
-        and $current->{'contents'}->[1]->{'type'}
+        and exists($current->{'contents'}->[1]->{'type'})
         and $current->{'contents'}->[1]->{'type'} eq 'before_item') {
       my $before_item = $current->{'contents'}->[1];
       if (_is_container_empty($before_item)
-          and not $before_item->{'source_marks'}) {
+          and not exists($before_item->{'source_marks'})) {
         # remove empty before_item, leaving out the arguments_line
         splice(@{$current->{'contents'}}, 1, 1);
       } else {
@@ -2104,9 +2102,9 @@ sub _close_command_cleanup($$) {
         if (scalar(@{$current->{'contents'}}) == 2) {
           # no @*item, only before_item.  Warn if before_item is not empty
           my $empty_before_item = 1;
-          if ($before_item->{'contents'}) {
+          if (exists($before_item->{'contents'})) {
             foreach my $before_item_content (@{$before_item->{'contents'}}) {
-              if (!$before_item_content->{'cmdname'}
+              if (!exists($before_item_content->{'cmdname'})
                  or ($before_item_content->{'cmdname'} ne 'c'
                       and $before_item_content->{'cmdname'} ne 'comment')) {
                 $empty_before_item = 0;
@@ -2161,7 +2159,7 @@ sub _close_current($$$;$$) {
       $interrupting_command) = @_;
 
   # Element is a command
-  if ($current->{'cmdname'}) {
+  if (exists($current->{'cmdname'})) {
     my $command = $current->{'cmdname'};
     print STDERR "CLOSING(close_current) \@$command\n"
          if ($self->{'conf'}->{'DEBUG'});
@@ -2186,7 +2184,8 @@ sub _close_current($$$;$$) {
       _pop_block_command_contexts($self, $current, $source_info);
       # empty non-closed block commands at the end of the document
       delete $current->{'contents'}
-        if ($current->{'contents'} and scalar(@{$current->{'contents'}}) == 0);
+        if (exists($current->{'contents'})
+            and scalar(@{$current->{'contents'}}) == 0);
       $current = $current->{'parent'};
       if ($block_commands{$command} eq 'conditional') {
         # In ignored conditional.
@@ -2197,14 +2196,14 @@ sub _close_current($$$;$$) {
       # with invalid content.
       $current = $current->{'parent'};
     }
-  } elsif ($current->{'type'}) {
+  } elsif (exists($current->{'type'})) {
     print STDERR "CLOSING type $current->{'type'}\n"
                              if ($self->{'conf'}->{'DEBUG'});
     if ($current->{'type'} eq 'bracketed_arg') {
       # unclosed bracketed argument
       _command_error($self, $current, __("misplaced {"));
-      if ($current->{'contents'}
-          and $current->{'contents'}->[0]->{'type'}
+      if (exists($current->{'contents'})
+          and exists($current->{'contents'}->[0]->{'type'})
           and $current->{'contents'}->[0]->{'type'}
                         eq 'internal_spaces_before_argument') {
         # remove spaces element from tree and update extra values
@@ -2230,7 +2229,7 @@ sub _close_current($$$;$$) {
       $current = _close_container($self, $current, $source_info);
     }
   } else { # Should never go here.
-    $current = $current->{'parent'} if ($current->{'parent'});
+    $current = $current->{'parent'} if (exists($current->{'parent'}));
     _bug_message($self, "No type nor cmdname when closing",
                         $source_info, $current);
   }
@@ -2246,7 +2245,7 @@ sub _close_commands($$$;$$) {
 
   # should correspond to a bogus brace @-commands without argument
   # followed by spaces only, and not by newline, at the end of the document
-  if ($current->{'cmdname'}
+  if (exists($current->{'cmdname'})
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
     _line_error($self, sprintf(__("\@%s expected braces"),
                        $current->{'cmdname'}), $source_info);
@@ -2258,12 +2257,12 @@ sub _close_commands($$$;$$) {
                                          $interrupting_command);
 
         # stop if the command is found
-  while (!($closed_block_command and $current->{'cmdname'}
+  while (!(defined($closed_block_command) and exists($current->{'cmdname'})
            and $current->{'cmdname'} eq $closed_block_command)
          # Stop if at the root
-         and $current->{'parent'}
+         and exists($current->{'parent'})
          # Stop if at a type at the root
-         and not ($current->{'type'}
+         and not (exists($current->{'type'})
                   and $current->{'type'} eq 'before_node_section')
      # Stop if in a root command
      # or in a context brace_commands and searching for a specific
@@ -2271,9 +2270,10 @@ sub _close_commands($$$;$$) {
      # This second condition means that a footnote is not closed when
      # looking for the end of a block command, but is closed when
      # completly closing the stack.
-         and !($current->{'cmdname'}
+         and !(exists($current->{'cmdname'})
                and ($root_commands{$current->{'cmdname'}}
-                    or ($closed_block_command and $current->{'parent'}->{'cmdname'}
+                    or (defined($closed_block_command)
+                        and exists($current->{'parent'}->{'cmdname'})
                         and exists($brace_commands{$current->{'parent'}->{'cmdname'}})
                         and $brace_commands{
                                 $current->{'parent'}->{'cmdname'}} eq 'context')))) {
@@ -2284,7 +2284,7 @@ sub _close_commands($$$;$$) {
   }
 
   my $closed_element;
-  if ($closed_block_command and $current->{'cmdname'}
+  if (defined($closed_block_command) and exists($current->{'cmdname'})
       and $current->{'cmdname'} eq $closed_block_command) {
 
     _pop_block_command_contexts($self, $current, $source_info,
@@ -2302,7 +2302,7 @@ sub _close_commands($$$;$$) {
       _close_ignored_block_conditional($self, $current);
     }
 
-  } elsif ($closed_block_command) {
+  } elsif (defined($closed_block_command)) {
     _line_error($self, sprintf(__("unmatched `%c%s'"),
                        ord('@'), "end $closed_block_command"), $source_info);
   }
@@ -2322,7 +2322,7 @@ sub _merge_text($$$;$) {
   # Also, elements without anything in them are only brace_container
   # or menu_entry_name, otherwise there is always some kind of element
   # leading added for leading spaces when the element is created
-  if (!$current->{'contents'}) {
+  if (!exists($current->{'contents'})) {
     my $new_element
       = Texinfo::TreeElement::new({ 'text' => $text, 'parent' => $current });
     _transfer_source_marks($transfer_marks_element, $new_element)
@@ -2343,7 +2343,7 @@ sub _merge_text($$$;$) {
     if ($text =~ /^(\s+)/) {
       $leading_spaces = $1;
     }
-    if ($last_element->{'type'}) {
+    if (exists($last_element->{'type'})) {
       my $last_elt_type = $last_element->{'type'};
       if ($leading_space_types{$last_elt_type}) {
         if ($leading_spaces) {
@@ -2414,13 +2414,13 @@ sub _merge_text($$$;$) {
 
   # if a paragraph was started we know that there is no leading
   # text to merge with
-  if (!$paragraph
-      and $last_element
+  if (!defined($paragraph)
+      and defined($last_element)
       and exists($last_element->{'text'})
       and $last_element->{'text'} !~ /\n/) {
     # Transfer source marks
-    if ($transfer_marks_element
-        and $transfer_marks_element->{'source_marks'}) {
+    if (defined($transfer_marks_element)
+        and exists($transfer_marks_element->{'source_marks'})) {
       my $additional_length = length($current->{'contents'}->[-1]->{'text'});
       foreach my $source_mark (@{$transfer_marks_element->{'source_marks'}}) {
         $source_mark->{'position'} += $additional_length;
@@ -2437,8 +2437,8 @@ sub _merge_text($$$;$) {
     my $new_element
      = Texinfo::TreeElement::new({ 'text' => $text, 'parent' => $current });
     _transfer_source_marks($transfer_marks_element, $new_element)
-      if ($transfer_marks_element);
-    if (!defined($current->{'contents'})) {
+      if (defined($transfer_marks_element));
+    if (!exists($current->{'contents'})) {
       $current->{'contents'} = [];
     }
     push @{$current->{'contents'}}, $new_element;
@@ -2452,10 +2452,12 @@ sub _merge_text($$$;$) {
 sub _item_container_parent($) {
   my $current = shift;
 
-  if ((($current->{'cmdname'} and $current->{'cmdname'} eq 'item')
-       or ($current->{'type'} and $current->{'type'} eq 'before_item'))
-      and ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
-           and $block_commands{$current->{'parent'}->{'cmdname'}}
+  if (((exists($current->{'cmdname'}) and $current->{'cmdname'} eq 'item')
+       or (exists($current->{'type'})
+           and $current->{'type'} eq 'before_item'))
+      and (exists($current->{'parent'})
+           and exists($current->{'parent'}->{'cmdname'})
+           and defined($block_commands{$current->{'parent'}->{'cmdname'}})
            and $block_commands{$current->{'parent'}->{'cmdname'}} eq 'item_container')) {
     return ($current->{'parent'});
   }
@@ -2466,12 +2468,12 @@ sub _item_container_parent($) {
 sub _item_line_parent($) {
   my $current = shift;
 
-  if ($current->{'type'} and $current->{'type'} eq 'before_item'
-      and $current->{'parent'}) {
+  if (exists($current->{'type'}) and $current->{'type'} eq 'before_item'
+      and exists($current->{'parent'})) {
     $current = $current->{'parent'};
   }
-  return $current if ($current->{'cmdname'}
-                      and $block_commands{$current->{'cmdname'}}
+  return $current if (exists($current->{'cmdname'})
+                      and defined($block_commands{$current->{'cmdname'}})
                       and $block_commands{$current->{'cmdname'}} eq 'item_line');
   return undef;
 }
@@ -2480,15 +2482,18 @@ sub _item_line_parent($) {
 sub _item_multitable_parent($) {
   my $current = shift;
 
-  if (($current->{'cmdname'} and ($current->{'cmdname'} eq 'headitem'
-       or $current->{'cmdname'} eq 'item' or $current->{'cmdname'} eq 'tab'))
-      and $current->{'parent'} and $current->{'parent'}->{'parent'}) {
+  if ((exists($current->{'cmdname'})
+       and ($current->{'cmdname'} eq 'headitem'
+            or $current->{'cmdname'} eq 'item'
+            or $current->{'cmdname'} eq 'tab'))
+      and exists($current->{'parent'})
+      and exists($current->{'parent'}->{'parent'})) {
     $current = $current->{'parent'}->{'parent'};
-  } elsif ($current->{'type'} and $current->{'type'} eq 'before_item'
-            and $current->{'parent'}) {
+  } elsif (exists($current->{'type'}) and $current->{'type'} eq 'before_item'
+           and exists($current->{'parent'})) {
     $current = $current->{'parent'};
   }
-  return $current if ($current->{'cmdname'}
+  return $current if (exists($current->{'cmdname'})
                       and $current->{'cmdname'} eq 'multitable');
   return undef;
 }
@@ -2513,7 +2518,7 @@ sub _save_line_directive($$$) {
   my ($self, $line_nr, $file_name) = @_;
 
   my $input = $self->{'input'}->[0];
-  return if !$input;
+  return if (!defined($input));
   $input->{'input_source_info'}->{'line_nr'} = $line_nr if $line_nr;
   # need to convert to bytes for file name
   if (defined($file_name)) {
@@ -2542,7 +2547,7 @@ sub _next_text($;$) {
                   or defined($input->{'value_flag'}));
         return ($next_line, { %{$input->{'input_source_info'}} });
       }
-    } elsif ($input->{'fh'}) {
+    } elsif (exists($input->{'fh'})) {
       my $fh = $input->{'fh'};
       my $input_line = <$fh>;
       # Encode::decode tends to consume the input line, so duplicate it
@@ -2621,7 +2626,7 @@ sub _next_text($;$) {
       } elsif (defined($input->{'macro_name'})) {
         $self->{'macro_expansion_nr'}--;
       }
-    } elsif ($input->{'fh'}) {
+    } elsif (exists($input->{'fh'})) {
       # Don't close STDIN
       if ($input->{'input_source_info'}->{'file_name'} ne '-') {
         if (!close($input->{'fh'})) {
@@ -2646,7 +2651,7 @@ sub _next_text($;$) {
       delete $input->{'fh'};
     }
 
-    if (defined($input->{'input_source_mark'})) {
+    if (exists($input->{'input_source_mark'})) {
       if (defined($current)) {
         my $end_source_mark;
         if ($input->{'input_source_mark'}->{'sourcemark_type'} eq 'delcomment') {
@@ -2709,7 +2714,7 @@ sub _expand_macro_arguments($$$$$) {
 
   $line =~ s/^{(\s*)//;
   if ($1 ne '') {
-    $argument->{'info'} = {} if (!$argument->{'info'});
+    $argument->{'info'} = {} if (!exists($argument->{'info'}));
     $argument->{'info'}->{'spaces_before_argument'}
       = Texinfo::TreeElement::new({'text' => $1,
                       'type' => 'spaces_before_argument'});
@@ -2790,7 +2795,7 @@ sub _expand_macro_arguments($$$$$) {
       ($line, $source_info) = _next_text($self, $current);
       if (!defined($line)) {
         _line_error($self, sprintf(__("\@%s missing closing brace"),
-           $name), $source_info_orig);
+                                   $name), $source_info_orig);
         _remove_empty_content($self, $argument);
         return ("\n", $source_info);
       }
@@ -2800,7 +2805,7 @@ sub _expand_macro_arguments($$$$$) {
       and (scalar(@{$current->{'contents'}} > 1)
            or $current->{'contents'}->[0]->{'contents'})) {
     _line_error($self, sprintf(__(
-               "macro `%s' declared without argument called with an argument"),
+           "macro `%s' declared without argument called with an argument"),
                                 $name), $source_info);
   }
   print STDERR "END MACRO ARGS EXPANSION\n" if ($self->{'conf'}->{'DEBUG'});
@@ -2823,7 +2828,7 @@ sub _expand_linemacro_arguments($$$$$) {
   push @{$argument->{'contents'}}, $argument_content;
   # based on whitespace_chars_except_newline in XS parser
   if ($line =~ s/^([ \t\cK\f]+)//) {
-    $current->{'info'} = {} if (!$current->{'info'});
+    $current->{'info'} = {} if (!exists($current->{'info'}));
     $current->{'info'}->{'spaces_before_argument'}
       = Texinfo::TreeElement::new({'text' => $1,
                            'type' => 'spaces_before_argument'});
@@ -2901,7 +2906,7 @@ sub _expand_linemacro_arguments($$$$$) {
         ($line, $source_info) = _next_text($self, $argument);
         if (!defined($line)) {
           _line_error($self, sprintf(__("\@%s missing closing brace"),
-             $name), $source_info);
+                                     $name), $source_info);
           $line = '';
           last;
         }
@@ -2928,7 +2933,7 @@ sub _expand_linemacro_arguments($$$$$) {
   my $arg_idx = 0;
   foreach my $argument (@{$current->{'contents'}}) {
     my $argument_content = $argument->{'contents'}->[0];
-    if ($argument_content->{'extra'}
+    if (exists($argument_content->{'extra'})
         and defined($argument_content->{'extra'}->{'toplevel_braces_nr'})) {
       my $toplevel_braces_nr = $argument_content->{'extra'}->{'toplevel_braces_nr'};
       delete $argument_content->{'extra'};
@@ -2937,23 +2942,14 @@ sub _expand_linemacro_arguments($$$$$) {
       # bracketed_linemacro_arg contains text directly.  In
       # bracketed_linemacro_arg, source mark locations are relative to the
       # beginning of the string with an opening brace prepended.
-      if ($toplevel_braces_nr == 1 and $argument_content->{'text'} =~ /^\{(.*)\}$/s) {
+      if ($toplevel_braces_nr == 1
+          and $argument_content->{'text'} =~ /^\{(.*)\}$/s) {
         print STDERR "TURN to bracketed $arg_idx "
           .Texinfo::Common::debug_print_element($argument_content)."\n"
             if ($self->{'conf'}->{'DEBUG'});
         $argument_content->{'text'} = $1;
         $argument_content->{'type'} = 'bracketed_linemacro_arg';
-      # this message could be added to see all the arguments
-      #} else {
-      #  print STDERR "NOT bracketed with bracket $arg_idx "
-      #    .Texinfo::Common::debug_print_element($argument_content)."\n"
-      #      if ($self->{'conf'}->{'DEBUG'});
       }
-    # this message could be added to see all the arguments
-    #} else {
-    #  print STDERR "LVL0 no brace $arg_idx "
-    #     .Texinfo::Common::debug_print_element($argument_content)."\n"
-    #        if ($self->{'conf'}->{'DEBUG'});
     }
     $arg_idx++;
   }
@@ -3031,23 +3027,23 @@ sub _set_non_ignored_space_in_index_before_command($) {
 
   my $pending_spaces_element = 0;
   foreach my $element (@{$content->{'contents'}}) {
-    if ($element->{'type'}
+    if (exists($element->{'type'})
         and $element->{'type'} eq 'internal_spaces_before_brace_in_index') {
       # set to "spaces_at_end" in case there are only spaces after
       $element->{'type'} = 'spaces_at_end';
       $pending_spaces_element = $element;
     } elsif ($pending_spaces_element
-             and not (($element->{'cmdname'}
+             and not ((exists($element->{'cmdname'})
                        and $in_index_commands{$element->{'cmdname'}})
-                      or ($element->{'type'}
+                      or (exists($element->{'type'})
                    and $element->{'type'} eq 'spaces_after_close_brace'))
              and (! _check_empty_expansion([$element]))) {
       delete $pending_spaces_element->{'type'};
       $pending_spaces_element = 0;
     }
-    if ($element->{'cmdname'}
+    if (exists($element->{'cmdname'})
         and $element->{'cmdname'} eq 'subentry'
-        and $element->{'contents'}) {
+        and exists($element->{'contents'})) {
       _set_non_ignored_space_in_index_before_command(
                                         $element->{'contents'}->[0]);
     }
@@ -3085,9 +3081,9 @@ sub _move_last_space_to_element($$) {
 sub _abort_empty_line($$) {
   my ($self, $current) = @_;
 
-  if ($current->{'contents'}) {
+  if (exists($current->{'contents'})) {
     my $last_element = $current->{'contents'}->[-1];
-    if ($last_element->{'type'}) {
+    if (exists($last_element->{'type'})) {
       my $type = $last_element->{'type'};
       if ($leading_space_types{$type}) {
         if ($self->{'conf'}->{'DEBUG'}) {
@@ -3111,14 +3107,16 @@ sub _abort_empty_line($$) {
           # paragraph does not happen often either.  The situation in which it
           # happens is a macro expansion to an empty string right after an
           # @-command opening (block or brace command).
-          foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
-            _place_source_mark($self, $current, $source_mark);
+          if (exists($popped_element->{'source_marks'})) { 
+            foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
+              _place_source_mark($self, $current, $source_mark);
+            }
           }
           delete $popped_element->{'source_marks'};
         } elsif ($type eq 'empty_line') {
           # exactly the same condition as to begin a paragraph
           if ($begin_paragraph_contexts{_top_context($self)}
-              and not ($current->{'type'}
+              and not (exists($current->{'type'})
                       and $type_without_paragraph{$current->{'type'}})) {
             $last_element->{'type'} = 'spaces_before_paragraph';
           } else {
@@ -3144,7 +3142,7 @@ sub _isolate_trailing_spaces_element($;$) {
     if (defined($type)) {
       $new_space_element->{'type'} = $type;
     }
-    if ($element->{'source_marks'}) {
+    if (exists($element->{'source_marks'})) {
       my $current_position = length($element->{'text'});
       Texinfo::Common::relocate_source_marks(
                           $element->{'source_marks'}, $new_space_element,
@@ -3159,9 +3157,9 @@ sub _isolate_trailing_spaces_element($;$) {
 sub _isolate_trailing_space($$) {
   my ($current, $spaces_type) = @_;
 
-  if ($current->{'contents'}) {
+  if (exists($current->{'contents'})) {
     my $last_element = $current->{'contents'}->[-1];
-    if (defined($last_element->{'text'})
+    if (exists($last_element->{'text'})
         and $last_element->{'text'} ne '') {
       if ($last_element->{'text'} !~ /\S/) {
         $last_element->{'type'} = $spaces_type;
@@ -3181,21 +3179,21 @@ sub _isolate_trailing_space($$) {
 sub _isolate_last_space($$) {
   my ($self, $current) = @_;
 
-  return if (!$current->{'contents'});
+  return if (!exists($current->{'contents'}));
 
   # $current->{'type'} is always set, to line_arg, block_line_arg,
   # brace_container, brace_arg, bracketed_arg or menu_entry_node
 
   # Store a final comment command in the 'info' hash, except for brace
   # commands
-  if (not ($current->{'type'}
+  if (not (exists($current->{'type'})
            and ($current->{'type'} eq 'brace_container'
                 or $current->{'type'} eq 'brace_arg'))
       and scalar(@{$current->{'contents'}}) >= 1
-      and $current->{'contents'}->[-1]->{'cmdname'}
+      and exists($current->{'contents'}->[-1]->{'cmdname'})
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
-    $current->{'info'} = {} if (!$current->{'info'});
+    $current->{'info'} = {} if (!exists($current->{'info'}));
     $current->{'info'}->{'comment_at_end'}
                            = _pop_element_from_contents($self, $current);
     # TODO @c should probably not be allowed inside most brace commands
@@ -3205,21 +3203,22 @@ sub _isolate_last_space($$) {
   my $debug_str;
   if ($self->{'conf'}->{'DEBUG'}) {
     $debug_str = 'p '.Texinfo::Common::debug_print_element($current, 1).'; c ';
-    if ($current->{'contents'}) {
+    if (exists($current->{'contents'})) {
       $debug_str .=
          Texinfo::Common::debug_print_element($current->{'contents'}->[-1]);
     }
   }
 
-  if ($current->{'contents'}) {
+  if (exists($current->{'contents'})) {
     my $last_element = $current->{'contents'}->[-1];
-    if (defined($last_element->{'text'})
+    if (exists($last_element->{'text'})
         and $last_element->{'text'} ne '') {
       # Store final spaces in 'spaces_after_argument'.
       if ($last_element->{'text'} !~ /\S/) {
         my $e_type = $last_element->{'type'};
-        if (!$e_type or !$trailing_space_types{$e_type}) {
-          my $spaces_after_argument = _pop_element_from_contents($self, $current);
+        if (!defined($e_type) or !$trailing_space_types{$e_type}) {
+          my $spaces_after_argument
+            = _pop_element_from_contents($self, $current);
           delete $spaces_after_argument->{'parent'};
           $spaces_after_argument->{'type'} = 'spaces_after_argument';
           $current->{'info'} = {} if (!exists($current->{'info'}));
@@ -3258,11 +3257,11 @@ sub _isolate_last_space($$) {
 sub _split_element_delimiters($$$) {
   my ($self, $element, $source_info) = @_;
 
-  if ($element->{'type'}
+  if (exists($element->{'type'})
       and ($element->{'type'} eq 'spaces'
            or $element->{'type'} eq 'bracketed_arg')) {
     return $element;
-  } elsif (!defined($element->{'text'})) {
+  } elsif (!exists($element->{'text'})) {
     my $new
       = Texinfo::TreeElement::new({'type' => 'def_line_arg',
                                    'parent' => $element->{'parent'},
@@ -3297,7 +3296,7 @@ sub _split_element_delimiters($$$) {
         last;
       }
     }
-    if (defined($element->{'source_marks'})) {
+    if (exists($element->{'source_marks'})) {
       if (scalar(@{$element->{'source_marks'}})) {
         my $source_marks_str
           = join ('|', map {_debug_show_source_mark($_)}
@@ -3305,8 +3304,9 @@ sub _split_element_delimiters($$$) {
         _bug_message($self,
   "Remaining source mark in _split_element_delimiters: $source_marks_str",
                           $source_info, $element->{'parent'});
+        $element->{'source_marks'} = undef;
       }
-      $element->{'source_marks'} = undef;
+      delete $element->{'source_marks'};
     }
     $element = undef;
     return @elements;
@@ -3317,10 +3317,10 @@ sub _split_element_delimiters($$$) {
 sub _split_element_def_args($$$) {
   my ($self, $element, $source_info) = @_;
 
-  if ($element->{'type'} and $element->{'type'} eq 'spaces'
-      and $element->{'info'} and $element->{'info'}->{'inserted'}) {
+  if (exists($element->{'type'}) and $element->{'type'} eq 'spaces'
+      and exists($element->{'info'}) and $element->{'info'}->{'inserted'}) {
     return $element;
-  } elsif (defined($element->{'text'})) {
+  } elsif (exists($element->{'text'})) {
     my @elements;
     my $type;
     # NOTE Non-ascii space is considered as argument here
@@ -3334,7 +3334,7 @@ sub _split_element_def_args($$$) {
       $current_position = Texinfo::Common::relocate_source_marks(
                                $element->{'source_marks'}, $e,
                                $current_position, length($t));
-      if ($type) {
+      if (defined($type)) {
         $e->{'type'} = $type;
         $type = undef;
       } else {
@@ -3343,7 +3343,7 @@ sub _split_element_def_args($$$) {
       $e->{'parent'} = $element->{'parent'};
       push @elements, $e;
     }
-    if (defined($element->{'source_marks'})) {
+    if (exists($element->{'source_marks'})) {
       if (scalar(@{$element->{'source_marks'}})) {
         my $source_marks_str
          = join ('|', map {_debug_show_source_mark($_)}
@@ -3351,12 +3351,14 @@ sub _split_element_def_args($$$) {
         _bug_message($self,
           "Remaining source mark in _split_element_def_args: $source_marks_str",
                           $source_info, $element->{'parent'});
+        $element->{'source_marks'} = undef;
       }
-      $element->{'source_marks'} = undef;
+      delete $element->{'source_marks'};
     }
     $element = undef;
     return @elements;
-  } elsif ($element->{'type'} and $element->{'type'} eq 'bracketed_arg') {
+  } elsif (exists($element->{'type'})
+           and $element->{'type'} eq 'bracketed_arg') {
     _isolate_last_space($self, $element);
   }
   return $element;
@@ -3368,13 +3370,13 @@ sub _next_bracketed_or_word_agg($$) {
 
   my $num = 0;
   while (1) {
-    if (!$current->{'contents'}
+    if (!exists($current->{'contents'})
         or $$index_ref == scalar(@{$current->{'contents'}})) {
       last;
     }
     my $element = $current->{'contents'}->[$$index_ref];
-    if ($element->{'type'} and ($element->{'type'} eq 'spaces'
-                                or $element->{'type'} eq 'delimiter')) {
+    if (exists($element->{'type'}) and ($element->{'type'} eq 'spaces'
+                                        or $element->{'type'} eq 'delimiter')) {
       last if ($num > 0);
 
       $$index_ref++;
@@ -3389,7 +3391,7 @@ sub _next_bracketed_or_word_agg($$) {
 
   if ($num == 1) {
     my $element = $current->{'contents'}->[$$index_ref -1];
-    if ($element->{'type'} and ($element->{'type'} eq 'bracketed_arg'
+    if (exists($element->{'type'}) and ($element->{'type'} eq 'bracketed_arg'
                                 or $element->{'type'} eq 'def_line_arg'
                        or $element->{'type'} eq 'untranslated_def_line_arg')) {
       # there is only one bracketed element
@@ -3414,7 +3416,7 @@ sub _next_bracketed_or_word_agg($$) {
 sub _parse_def($$$$) {
   my ($self, $command, $current, $source_info) = @_;
 
-  return {} if (!$current->{'contents'});
+  return {} if (!exists($current->{'contents'}));
   my $contents = $current->{'contents'};
 
   my @new_contents;
@@ -3521,13 +3523,15 @@ sub _parse_def($$$$) {
   for (my $j = 0; $j < scalar(@args_results); $j++) {
     my $content = $args_results[$j];
     my $def_type;
-    if ($content->{'type'} and $content->{'type'} eq 'spaces') {
-    } elsif ($content->{'type'} and $content->{'type'} eq 'delimiter') {
+    if (exists($content->{'type'}) and $content->{'type'} eq 'spaces') {
+    } elsif (exists($content->{'type'})
+            and $content->{'type'} eq 'delimiter') {
       $type = $set_type_not_arg;
-    } elsif ($content->{'type'} and $content->{'type'} eq 'def_line_arg'
-             and $content->{'contents'}
+    } elsif (exists($content->{'type'})
+             and $content->{'type'} eq 'def_line_arg'
+             and exists($content->{'contents'})
              and scalar(@{$content->{'contents'}}) == 1
-             and $content->{'contents'}->[0]->{'cmdname'}
+             and exists($content->{'contents'}->[0]->{'cmdname'})
              and $content->{'contents'}->[0]->{'cmdname'} ne 'code') {
       $def_type = 'def_arg';
       $type = $set_type_not_arg;
@@ -3570,7 +3574,7 @@ sub _enter_index_entry($$$$) {
   my $index_name = $self->{'command_index'}->{$command_container};
   my $index = $document->{'indices'}->{$index_name};
 
-  if (!defined($index->{'index_entries'})) {
+  if (!exists($index->{'index_entries'})) {
     $index->{'index_entries'} = [];
   }
 
@@ -3581,24 +3585,24 @@ sub _enter_index_entry($$$$) {
                       'entry_number'         => $number,
                     };
 
-  $element->{'extra'} = {} if (!defined($element->{'extra'}));
+  $element->{'extra'} = {} if (!exists($element->{'extra'}));
 
   # gather set txiindex*ignore information
   foreach my $set_variable_and_symbol (@set_flag_index_char_ignore) {
     my ($set_variable, $ignored_char) = @{$set_variable_and_symbol};
     if (exists($self->{'values'}->{$set_variable})) {
       $element->{'extra'}->{'index_ignore_chars'} = ''
-         if (!defined($element->{'extra'}->{'index_ignore_chars'}));
+         if (!exists($element->{'extra'}->{'index_ignore_chars'}));
       $element->{'extra'}->{'index_ignore_chars'} .= $ignored_char;
     }
   }
   if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
     $element->{'extra'}->{'element_region'}
       = $self->{'nesting_context'}->{'regions_stack'}->[-1];
-  } elsif ($self->{'current_node'}) {
+  } elsif (defined($self->{'current_node'})) {
     $element->{'extra'}->{'element_node'}
       = $self->{'current_node'}->{'element'}->{'extra'}->{'normalized'};
-  } elsif (!$self->{'current_section'}) {
+  } elsif (!defined($self->{'current_section'})) {
     # NOTE depending on the location, format and presence of @printindex,
     # an index entry out of node and sections may be correctly formatted (or
     # rightfully ignored).  For example if there is no printindex and the index
@@ -3628,7 +3632,7 @@ sub _parse_float_type($$) {
   $normalized
        = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
                                                                   $element);
-  $current->{'extra'} = {} if (!$current->{'extra'});
+  $current->{'extra'} = {} if (!exists($current->{'extra'}));
   $current->{'extra'}->{'float_type'} = $normalized;
   return $normalized;
 }
@@ -3637,7 +3641,7 @@ sub _in_include($) {
   my $self = shift;
 
   foreach my $input (@{$self->{'input'}}[0..$#{$self->{'input'}}-1]) {
-    if (not $input->{'th'}) {
+    if (not exists($input->{'th'})) {
       return 1;
     }
   }
@@ -3654,23 +3658,23 @@ sub _text_contents_to_plain_text($) {
   my ($text, $superfluous_arg) = ('', 0);
 
   return ($text, $superfluous_arg)
-    unless($e->{'contents'});
+    unless(exists($e->{'contents'}));
 
   for my $c (@{$e->{'contents'}}) {
     # Allow @@, @{ and @} to give a way for @, { and } to appear in
     # filenames (although it's not a good idea to use these characters
     # in filenames).
-    if (defined($c->{'text'})) {
+    if (exists($c->{'text'})) {
       $text .= $c->{'text'};
-    } elsif ($c->{'cmdname'}
+    } elsif (exists($c->{'cmdname'})
         and ($c->{'cmdname'} eq '@'
              or $c->{'cmdname'} eq 'atchar')) {
       $text .= '@';
-    } elsif ($c->{'cmdname'}
+    } elsif (exists($c->{'cmdname'})
         and ($c->{'cmdname'} eq '{'
              or $c->{'cmdname'} eq 'lbracechar')) {
       $text .= '{';
-    } elsif ($c->{'cmdname'}
+    } elsif (exists($c->{'cmdname'})
         and ($c->{'cmdname'} eq '}'
              or $c->{'cmdname'} eq 'rbracechar')) {
       $text .= '}';
@@ -3689,7 +3693,7 @@ sub _add_to_relations_list($$$) {
 
   my $relations_info = {'element' => $element};
   push @{$document->{$list_key}}, $relations_info;
-  $element->{'extra'} = {} if (!$element->{'extra'});
+  $element->{'extra'} = {} if (!exists($element->{'extra'}));
   $element->{'extra'}->{$number_key} = scalar(@{$document->{$list_key}});
   return $relations_info;
 }
@@ -3698,7 +3702,7 @@ sub _add_to_relations_list($$$) {
 sub _associate_title_command_anchor($$$) {
   my ($current_node_relations, $current, $section_relations) = @_;
 
-  if (not $current_node_relations->{'associated_title_command'}) {
+  if (not exists($current_node_relations->{'associated_title_command'})) {
     $current_node_relations->{'associated_title_command'} = $current;
     $section_relations->{'associated_anchor_command'}
                         = $current_node_relations;
@@ -3708,7 +3712,8 @@ sub _associate_title_command_anchor($$$) {
 sub _get_current_node_relations($$) {
   my ($self, $document) = @_;
 
-  if ($self->{'current_node'} and $self->{'current_node'}->{'extra'}
+  if (defined($self->{'current_node'})
+      and exists($self->{'current_node'}->{'extra'})
       and $self->{'current_node'}->{'extra'}->{'node_number'}) {
     my $current_node = $self->{'current_node'};
     my $nodes_list = $document->nodes_list();
@@ -3726,7 +3731,7 @@ sub _end_line_misc_line($$$) {
 
   my $command_element;
   my $line_arg;
-  if ($current->{'parent'}->{'type'}
+  if (exists($current->{'parent'}->{'type'})
       and $current->{'parent'}->{'type'} eq 'arguments_line') {
     $command_element = $current->{'parent'}->{'parent'};
     my $arguments_line = $command_element->{'contents'}->[0];
@@ -3748,8 +3753,8 @@ sub _end_line_misc_line($$$) {
   }
   _isolate_last_space($self, $current);
 
-  if ($current->{'parent'}->{'extra'}
-      and $current->{'parent'}->{'extra'}->{'def_command'}) {
+  if (exists($current->{'parent'}->{'extra'})
+      and exists($current->{'parent'}->{'extra'}->{'def_command'})) {
     $current = _end_line_def_line($self, $current, $source_info);
     return $current;
   }
@@ -3770,7 +3775,7 @@ sub _end_line_misc_line($$$) {
   if ($arg_spec eq 'specific') {
     my $args = _parse_line_command_args($self, $current, $source_info);
     if (defined($args)) {
-      $current->{'extra'} = {} if (!defined($current->{'extra'}));
+      $current->{'extra'} = {} if (!exists($current->{'extra'}));
       $current->{'extra'}->{'misc_args'} = $args;
     }
   } elsif ($arg_spec eq 'text') {
@@ -3784,7 +3789,7 @@ sub _end_line_misc_line($$$) {
       }
       # if there is superfluous arg, a more suitable error is issued below.
     } else {
-      $current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'} = {} if (!exists($current->{'extra'}));
       $current->{'extra'}->{'text_arg'} = $text;
       if ($command eq 'end') {
         # REMACRO
@@ -3917,7 +3922,7 @@ sub _end_line_misc_line($$$) {
 
             $self->{'input_file_encoding'} = $perl_encoding;
             foreach my $input (@{$self->{'input'}}) {
-              if ($input->{'fh'}) {
+              if (exists($input->{'fh'})) {
                 $input->{'file_input_encoding'} = $perl_encoding;
               }
             }
@@ -3954,7 +3959,8 @@ sub _end_line_misc_line($$$) {
       if (defined($arg_label_manual_info)) {
         # 'node_content' 'manual_content'
         foreach my $label_info (keys(%$arg_label_manual_info)) {
-          $node_line_arg->{'extra'} = {} if (!$node_line_arg->{'extra'});
+          $node_line_arg->{'extra'} = {}
+               if (!exists($node_line_arg->{'extra'}));
           $node_line_arg->{'extra'}->{$label_info}
             = $arg_label_manual_info->{$label_info};
         }
@@ -3966,7 +3972,7 @@ sub _end_line_misc_line($$$) {
         }
       }
     }
-    if (not $line_arg or not $line_arg->{'contents'}) {
+    if (not defined($line_arg) or not exists($line_arg->{'contents'})) {
       _line_error($self,
         sprintf(__("empty argument in \@%s"),
           $current->{'cmdname'}), $current->{'source_info'});
@@ -3975,13 +3981,13 @@ sub _end_line_misc_line($$$) {
                                          $current, $source_info);
 
     my $node_relations;
-    if ($current->{'extra'}
+    if (exists($current->{'extra'})
         and defined($current->{'extra'}->{'normalized'})) {
       $node_relations
         = _add_to_relations_list($document, 'node', $current);
       $self->{'current_node'} = $node_relations;
     }
-    if ($self->{'current_part'}) {
+    if (defined($self->{'current_part'})) {
       my $part_relations = $self->{'current_part'};
       if (not $part_relations->{'part_associated_section'}
           and $node_relations) {
@@ -4001,13 +4007,13 @@ sub _end_line_misc_line($$$) {
     }
     # Handle all the other 'line' commands.  Here just check that they
     # have an argument.  Empty @top and @xrefname are allowed
-    if (!$line_arg->{'contents'} and $command ne 'top'
+    if (!exists($line_arg->{'contents'}) and $command ne 'top'
         and $command ne 'xrefname') {
       _command_warn($self, $current,
              __("\@%s missing argument"), $command);
     } else {
       if (($command eq 'item' or $command eq 'itemx')
-          and $current->{'parent'}->{'cmdname'}
+          and exists($current->{'parent'}->{'cmdname'})
           and ($current->{'parent'}->{'cmdname'} eq 'ftable'
                or $current->{'parent'}->{'cmdname'} eq 'vtable')) {
         _enter_index_entry($self, $current->{'parent'}->{'cmdname'},
@@ -4033,13 +4039,14 @@ sub _end_line_misc_line($$$) {
     # Reparent the "@end" element to be a child of the block element.
     my $end = _pop_element_from_contents($self, $current);
     if ($block_commands{$end_command} ne 'conditional'
-        or ($current->{'cmdname'} and $current->{'cmdname'} eq $end_command)
-        or (not @{$self->{'conditional_stack'}}
+        or (exists($current->{'cmdname'})
+            and $current->{'cmdname'} eq $end_command)
+        or (not scalar(@{$self->{'conditional_stack'}})
             or $self->{'conditional_stack'}->[-1]->[0] ne $end_command)) {
       my $closed_command;
       ($closed_command, $current)
          = _close_commands($self, $current, $source_info, $end_command);
-      if ($closed_command) {
+      if (defined($closed_command)) {
         _close_command_cleanup($self, $closed_command);
         $end->{'parent'} = $closed_command;
         push @{$closed_command->{'contents'}}, $end;
@@ -4047,7 +4054,7 @@ sub _end_line_misc_line($$$) {
         # block command not found for @end
       }
       # closing a menu command, but still in a menu. Open a menu_comment
-      if ($closed_command
+      if (defined($closed_command)
           and $block_commands{$closed_command->{'cmdname'}} eq 'menu'
           and defined(_current_context_command($self))
           and $block_commands{_current_context_command($self)} eq 'menu') {
@@ -4058,11 +4065,12 @@ sub _end_line_misc_line($$$) {
                                          'parent' => $current,
                                          'contents' => [] });
         $current = $current->{'contents'}->[-1];
-      } elsif ($closed_command and $closed_command->{'cmdname'} eq 'float') {
+      } elsif (defined($closed_command)
+               and $closed_command->{'cmdname'} eq 'float') {
         my $caption;
         my $shortcaption;
         foreach my $content (@{$closed_command->{'contents'}}) {
-          if ($content->{'cmdname'}) {
+          if (exists($content->{'cmdname'})) {
             if ($content->{'cmdname'} eq 'caption') {
               if ($caption) {
                 _command_warn($self, $content,
@@ -4124,14 +4132,16 @@ sub _end_line_misc_line($$$) {
   }
 
   if ($command eq 'setfilename'
-      and ($self->{'current_node'} or $self->{'current_section'})) {
+      and (defined($self->{'current_node'})
+           or defined($self->{'current_section'}))) {
     _command_warn($self, $misc_cmd,
              __("\@%s after the first element"), $command);
   # columnfractions
   } elsif ($command eq 'columnfractions') {
     # in a multitable, we are in a block_line_arg
-    if (!$current->{'parent'} or !$current->{'parent'}->{'parent'}
-        or !$current->{'parent'}->{'parent'}->{'cmdname'}
+    if (!exists($current->{'parent'})
+        or !exists($current->{'parent'}->{'parent'})
+        or !exists($current->{'parent'}->{'parent'}->{'cmdname'})
         or $current->{'parent'}->{'parent'}->{'cmdname'} ne 'multitable') {
       _line_error($self,
           sprintf(__("\@%s only meaningful on a \@multitable line"),
@@ -4150,16 +4160,16 @@ sub _end_line_misc_line($$$) {
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
       # associate section with the current node as its title.
-      if ($self->{'current_node'}) {
+      if (defined($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
         _associate_title_command_anchor($node_relations, $command_element,
                                         $section_relations);
-        if (!$node_relations->{'associated_section'}) {
+        if (!exists($node_relations->{'associated_section'})) {
           $node_relations->{'associated_section'} = $section_relations;
           $section_relations->{'associated_node'} = $node_relations;
         }
       }
-      if ($self->{'current_part'}) {
+      if (defined($self->{'current_part'})) {
         my $part_relations = $self->{'current_part'};
         $section_relations->{'associated_part'} = $part_relations;
         $part_relations->{'part_associated_section'} = $section_relations;
@@ -4172,9 +4182,9 @@ sub _end_line_misc_line($$$) {
       $self->{'current_section'} = $section_relations;
     } elsif ($command eq 'part') {
       $self->{'current_part'} = $section_relations;
-      if ($self->{'current_node'}) {
+      if (defined($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
-        if (!$node_relations->{'associated_section'}) {
+        if (!exists($node_relations->{'associated_section'})) {
           _line_warn($self, sprintf(__(
       "\@node precedes \@%s, but parts may not be associated with nodes"),
                                     $command), $source_info);
@@ -4186,7 +4196,7 @@ sub _end_line_misc_line($$$) {
            or $data_cmdname eq 'xrefname') {
     my $heading_relations = _add_to_relations_list($document, 'heading',
                                                    $command_element);
-    if ($self->{'current_node'}) {
+    if (defined($self->{'current_node'})) {
       _associate_title_command_anchor($self->{'current_node'},
                                     $command_element, $heading_relations);
     }
@@ -4226,12 +4236,12 @@ sub _end_line_def_line($$$) {
       my $arg = $name_element->{'contents'}->[0];
       $index_entry = $name_element
        # empty bracketed
-        unless ($arg->{'type'}
+        unless (exists($arg->{'type'})
                 and $arg->{'type'} eq 'bracketed_arg'
-                and (!$arg->{'contents'}
+                and (!exists($arg->{'contents'})
                      or (!scalar(@{$arg->{'contents'}}))
                      or (scalar(@{$arg->{'contents'}}) == 1
-                        and defined($arg->{'contents'}->[0]->{'text'})
+                        and exists($arg->{'contents'}->[0]->{'text'})
                         and $arg->{'contents'}->[0]->{'text'} !~ /\S/)));
     }
     if (defined($index_entry)) {
@@ -4258,8 +4268,8 @@ sub _end_line_def_line($$$) {
         my $element_copy
           = Texinfo::ManipulateTree::copy_treeNonXS($index_entry);
         delete $element_copy->{'type'};
-        if ($element_copy->{'contents'}
-            and $element_copy->{'contents'}->[0]->{'type'}
+        if (exists($element_copy->{'contents'})
+            and exists($element_copy->{'contents'}->[0]->{'type'})
             and $element_copy->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
           $element_copy->{'contents'}->[0]->{'type'} = 'brace_arg';
         }
@@ -4289,14 +4299,14 @@ sub _end_line_starting_block($$$) {
   my $document = $self->{'document'};
 
   my $command;
-  if ($current->{'parent'}->{'extra'}
-        and $current->{'parent'}->{'extra'}->{'def_command'}) {
-    $command = $current->{'parent'}->{'parent'}->{'cmdname'}
+  if (exists($current->{'parent'}->{'extra'})
+      and exists($current->{'parent'}->{'extra'}->{'def_command'})) {
+    $command = $current->{'parent'}->{'parent'}->{'cmdname'};
   } else {
-    if ($current->{'parent'}->{'cmdname'}) {
+    if (exists($current->{'parent'}->{'cmdname'})) {
       $command = $current->{'parent'}->{'cmdname'};
-    } elsif ($current->{'parent'}->{'parent'}
-             and $current->{'parent'}->{'parent'}->{'cmdname'}) {
+    } elsif (exists($current->{'parent'}->{'parent'})
+             and exists($current->{'parent'}->{'parent'}->{'cmdname'})) {
       $command = $current->{'parent'}->{'parent'}->{'cmdname'};
     }
   }
@@ -4307,8 +4317,8 @@ sub _end_line_starting_block($$$) {
   }
   _isolate_last_space($self, $current);
 
-  if ($current->{'parent'}->{'extra'}
-        and $current->{'parent'}->{'extra'}->{'def_command'}) {
+  if (exists($current->{'parent'}->{'extra'})
+      and exists($current->{'parent'}->{'extra'}->{'def_command'})) {
     $current = _end_line_def_line($self, $current, $source_info);
     return $current;
   }
@@ -4323,34 +4333,35 @@ sub _end_line_starting_block($$$) {
 
   # @multitable args
   if ($command eq 'multitable'
-      and $current->{'contents'} and $current->{'contents'}->[0]
-      and $current->{'contents'}->[0]->{'cmdname'}
+      and exists($current->{'contents'})
+      and exists($current->{'contents'}->[0]->{'cmdname'})
       and $current->{'contents'}->[0]->{'cmdname'} eq 'columnfractions') {
     my $multitable = $current->{'parent'}->{'parent'};
     my $columnfractions = $current->{'contents'}->[0];
     my $max_column = 0;
 
-    if ($columnfractions->{'extra'}
-        and defined($columnfractions->{'extra'}->{'misc_args'})) {
+    if (exists($columnfractions->{'extra'})
+        and exists($columnfractions->{'extra'}->{'misc_args'})) {
       $max_column = scalar(@{$columnfractions->{'extra'}->{'misc_args'}});
     }
 
-    $multitable->{'extra'} = {} if (!$multitable->{'extra'});
+    $multitable->{'extra'} = {} if (!exists($multitable->{'extra'}));
     $multitable->{'extra'}->{'max_columns'} = $max_column;
   } elsif ($command eq 'multitable') {
     my $multitable = $current->{'parent'}->{'parent'};
     # determine max columns based on prototypes
     my $max_columns = 0;
-    if ($current->{'contents'}) {
+    if (exists($current->{'contents'})) {
       foreach my $content (@{$current->{'contents'}}) {
-        if ($content->{'type'} and $content->{'type'} eq 'bracketed_arg') {
+        if (exists($content->{'type'})
+            and $content->{'type'} eq 'bracketed_arg') {
           $max_columns++;
-        } elsif ($content->{'text'}) {
+        } elsif (exists($content->{'text'})) {
           # TODO this should be a warning or an error - all prototypes
           # on a @multitable line should be in braces, as documented in the
           # Texinfo manual.
         } else {
-          if (!$content->{'cmdname'}
+          if (!exists($content->{'cmdname'})
                 or ($content->{'cmdname'} ne 'c'
                     and $content->{'cmdname'} ne 'comment')) {
             _command_warn($self, $multitable,
@@ -4361,7 +4372,7 @@ sub _end_line_starting_block($$$) {
         }
       }
     }
-    $multitable->{'extra'} = {} if (!$multitable->{'extra'});
+    $multitable->{'extra'} = {} if (!exists($multitable->{'extra'}));
     $multitable->{'extra'}->{'max_columns'} = $max_columns;
     if (!$max_columns) {
       _command_warn($self, $multitable,
@@ -4369,7 +4380,8 @@ sub _end_line_starting_block($$$) {
     }
   }
   $current = $current->{'parent'};
-  if ($current->{'type'} and $current->{'type'} eq 'arguments_line') {
+  if (exists($current->{'type'})
+      and $current->{'type'} eq 'arguments_line') {
     $current = $current->{'parent'};
   }
   delete $current->{'remaining_args'};
@@ -4397,13 +4409,13 @@ sub _end_line_starting_block($$$) {
   } elsif ($blockitem_commands{$command}) {
     if ($command eq 'enumerate') {
       my $spec = '1';
-      if ($block_line_arg->{'contents'}) {
+      if (exists($block_line_arg->{'contents'})) {
         if (scalar(@{$block_line_arg->{'contents'}}) > 1) {
           _command_error($self, $current,
                       __("superfluous argument to \@%s"), $command);
         }
         my $arg = $block_line_arg->{'contents'}->[0];
-        if (!defined($arg->{'text'})
+        if (!exists($arg->{'text'})
             or $arg->{'text'} !~ /^((\d+)|([[:alpha:]]))$/) {
           _command_error($self, $current,
                       __("bad argument to \@%s"), $command);
@@ -4411,17 +4423,17 @@ sub _end_line_starting_block($$$) {
           $spec = $arg->{'text'};
         }
       }
-      $current->{'extra'} = {} if (!$current->{'extra'});
+      $current->{'extra'} = {} if (!exists($current->{'extra'}));
       $current->{'extra'}->{'enumerate_specification'} = $spec;
     } elsif ($command eq 'itemize') {
     # Check if command_as_argument isn't an accent command
-      if ($block_line_arg->{'contents'}
+      if (exists($block_line_arg->{'contents'})
           and scalar(@{$block_line_arg->{'contents'}}) == 1) {
         my $arg = $block_line_arg->{'contents'}->[0];
-        if ($arg->{'cmdname'}
-            and (!$arg->{'contents'} or !scalar(@{$arg->{'contents'}})
+        if (exists($arg->{'cmdname'})
+            and (!exists($arg->{'contents'})
                  or (scalar(@{$arg->{'contents'}}) == 1
-                     and !$arg->{'contents'}->[0]->{'contents'}))) {
+                     and !exists($arg->{'contents'}->[0]->{'contents'})))) {
           my $cmdname = $arg->{'cmdname'};
           if ($accent_commands{$cmdname}) {
             _command_warn($self, $current,
@@ -4436,7 +4448,7 @@ sub _end_line_starting_block($$$) {
       # if the command as argument does not have braces but it is
       # not a mark (noarg) command, warn
       if (defined($command_as_argument)
-          and !$command_as_argument->{'contents'}
+          and !exists($command_as_argument->{'contents'})
           and $brace_commands{$command_as_argument->{'cmdname'}} ne 'noarg') {
         my $cmdname = $command_as_argument->{'cmdname'};
         _command_warn($self, $current, __("\@%s expected braces"),
@@ -4445,9 +4457,8 @@ sub _end_line_starting_block($$$) {
     } elsif ($block_commands{$command} eq 'item_line') {
       my $command_as_argument
         = Texinfo::Common::block_line_argument_command($block_line_arg);
-      if (!$command_as_argument) {
-        if ($block_line_arg->{'contents'}
-            and scalar(@{$block_line_arg->{'contents'}})) {
+      if (!defined($command_as_argument)) {
+        if (exists($block_line_arg->{'contents'})) {
           # expand the contents to avoid surrounding spaces
           my $texi_arg
             = Texinfo::Convert::Texinfo::convert_to_texinfo(
@@ -4462,7 +4473,7 @@ sub _end_line_starting_block($$$) {
                                 $command);
         }
       }
-      if ($command_as_argument
+      if (defined($command_as_argument)
           and $self->{'brace_commands'}->{$command_as_argument->{'cmdname'}}
                                                                 eq 'noarg') {
         _command_error($self, $current,
@@ -4478,8 +4489,7 @@ sub _end_line_starting_block($$$) {
     $current = $current->{'contents'}->[-1];
   } elsif (not $commands_args_number{$command}
            and not exists($variadic_commands{$command})
-           and $block_line_arg->{'contents'}
-           and scalar(@{$block_line_arg->{'contents'}})) {
+           and defined($block_line_arg->{'contents'})) {
     # expand the contents to avoid surrounding spaces
     my $texi_arg = Texinfo::Convert::Texinfo::convert_to_texinfo(
            Texinfo::TreeElement::new(
@@ -4494,9 +4504,9 @@ sub _end_line_starting_block($$$) {
     if ($command eq 'ifclear' or $command eq 'ifset'
         or $command eq 'ifcommanddefined'
         or $command eq 'ifcommandnotdefined') {
-      if ($block_line_arg->{'contents'}
+      if (exists($block_line_arg->{'contents'})
           and scalar(@{$block_line_arg->{'contents'}} == 1)) {
-        if (defined($block_line_arg->{'contents'}->[0]->{'text'})) {
+        if (exists($block_line_arg->{'contents'}->[0]->{'text'})) {
           my $name = $block_line_arg->{'contents'}->[0]->{'text'};
           if ($name !~ /\S/) {
             _line_error($self, sprintf(
@@ -4520,10 +4530,10 @@ sub _end_line_starting_block($$$) {
               if ($name =~ /^[[:alnum:]][[:alnum:]\-]*$/) {
                 my $command_is_defined = (
                   exists($all_commands{$name})
-                  or $self->{'macros'}->{$name}
-                  or $self->{'definfoenclose'}->{$name}
+                  or defined($self->{'macros'}->{$name})
+                  or defined($self->{'definfoenclose'}->{$name})
                   or exists($self->{'aliases'}->{$name})
-                  or $self->{'index_entry_commands'}->{$name}
+                  or defined($self->{'index_entry_commands'}->{$name})
                 );
                 if (($command_is_defined
                      and $command eq 'ifcommanddefined')
@@ -4604,16 +4614,16 @@ sub _end_line_menu_entry($$$) {
   my $empty_menu_entry_node = 0;
   my $end_comment;
   if ($current->{'type'} eq 'menu_entry_node') {
-    if ($current->{'contents'}
-        and $current->{'contents'}->[-1]->{'cmdname'}
+    if (exists($current->{'contents'})
+        and exists($current->{'contents'}->[-1]->{'cmdname'})
         and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
              or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
       $end_comment = _pop_element_from_contents($self, $current);
     }
-    if (not $current->{'contents'}
+    if (not exists($current->{'contents'})
          # empty if only the end of line or spaces, including non ascii spaces
          or (scalar(@{$current->{'contents'}}) == 1
-             and defined($current->{'contents'}->[-1]->{'text'})
+             and exists($current->{'contents'}->[-1]->{'text'})
              and $current->{'contents'}->[-1]->{'text'} !~ /\S/)) {
       $empty_menu_entry_node = 1;
       push @{$current->{'contents'}}, $end_comment if ($end_comment);
@@ -4626,8 +4636,8 @@ sub _end_line_menu_entry($$$) {
     print STDERR "FINALLY NOT MENU ENTRY\n" if ($self->{'conf'}->{'DEBUG'});
     my $menu = $current->{'parent'}->{'parent'};
     my $menu_entry = _pop_element_from_contents($self, $menu);
-    if ($menu->{'contents'}
-        and $menu->{'contents'}->[-1]->{'type'}
+    if (exists($menu->{'contents'})
+        and exists($menu->{'contents'}->[-1]->{'type'})
         and $menu->{'contents'}->[-1]->{'type'} eq 'menu_entry') {
       my $entry = $menu->{'contents'}->[-1];
       my $description;
@@ -4648,16 +4658,16 @@ sub _end_line_menu_entry($$$) {
                                      'parent' => $entry, });
         $description_or_menu_comment = $entry->{'contents'}->[-1];
       }
-    } elsif ($menu->{'contents'} and scalar(@{$menu->{'contents'}})
-             and $menu->{'contents'}->[-1]->{'type'}
+    } elsif (exists($menu->{'contents'})
+             and exists($menu->{'contents'}->[-1]->{'type'})
              and $menu->{'contents'}->[-1]->{'type'} eq 'menu_comment') {
       $description_or_menu_comment = $menu->{'contents'}->[-1];
       $menu_type_reopened = 'menu_comment';
     }
     if ($description_or_menu_comment) {
       $current = $description_or_menu_comment;
-      if ($current->{'contents'}->[-1]
-          and $current->{'contents'}->[-1]->{'type'}
+      if (exists($current->{'contents'})
+          and exists($current->{'contents'}->[-1]->{'type'})
           and $current->{'contents'}->[-1]->{'type'} eq 'preformatted') {
         $current = $current->{'contents'}->[-1];
       } else {
@@ -4684,12 +4694,12 @@ sub _end_line_menu_entry($$$) {
     # source marks tested in t/*macro.t macro_in_menu_comment_like_entry
     while (@{$menu_entry->{'contents'}}) {
       my $arg = shift @{$menu_entry->{'contents'}};
-      if (defined($arg->{'text'})) {
+      if (exists($arg->{'text'})) {
         $current = _merge_text($self, $current, $arg->{'text'}, $arg);
       } elsif ($arg->{'contents'}) {
         while (@{$arg->{'contents'}}) {
           my $content = shift @{$arg->{'contents'}};
-          if (defined($content->{'text'})) {
+          if (exists($content->{'text'})) {
             $current = _merge_text($self, $current, $content->{'text'},
                                    $content);
             $content = undef;
@@ -4698,6 +4708,7 @@ sub _end_line_menu_entry($$$) {
             push @{$current->{'contents'}}, $content;
           }
         }
+        $arg->{'contents'} = undef;
       }
       $arg = undef;
     }
@@ -4723,9 +4734,9 @@ sub _end_line($$$) {
   my $current_old = $current;
 
   my $prev_element_type;
-  if ($current->{'contents'}) {
+  if (exists($current->{'contents'})) {
     my $prev_element = $current->{'contents'}->[-1];
-    if ($prev_element->{'type'}) {
+    if (exists($prev_element->{'type'})) {
       $prev_element_type = $prev_element->{'type'};
     }
   }
@@ -4736,23 +4747,22 @@ sub _end_line($$$) {
     print STDERR "END EMPTY LINE in "
         . Texinfo::Common::debug_print_element($current)."\n"
           if ($self->{'conf'}->{'DEBUG'});
-    if ($current->{'type'} and $current->{'type'} eq 'paragraph') {
+    if (exists($current->{'type'}) and $current->{'type'} eq 'paragraph') {
       # Remove empty_line element.
       my $empty_line = _pop_element_from_contents($self, $current);
       print STDERR "CLOSE PARA\n" if ($self->{'conf'}->{'DEBUG'});
       $current = _close_container($self, $current, $source_info);
       push @{$current->{'contents'}}, $empty_line;
       $empty_line->{'parent'} = $current;
-    } elsif ($current->{'type'}
+    } elsif (exists($current->{'type'})
              and $current->{'type'} eq 'preformatted'
-             and $current->{'parent'}->{'type'}
+             and exists($current->{'parent'}->{'type'})
              and $current->{'parent'}->{'type'} eq 'menu_entry_description')  {
       # happens for an empty line following a menu_description
       my $empty_line = _pop_element_from_contents($self, $current);
       my $preformatted = $current;
       $current = $current->{'parent'};
-      if (not $preformatted->{'contents'} or
-          not scalar(@{$preformatted->{'contents'}})) {
+      if (not exists($preformatted->{'contents'})) {
         my $empty_preformatted = _pop_element_from_contents($self, $current);
         # it should not be possible to have associated source marks
         # as the source marks are either associated to the menu description
@@ -4800,18 +4810,18 @@ sub _end_line($$$) {
     }
 
   # end of a menu line.
-  } elsif ($current->{'type'}
-    and ($current->{'type'} eq 'menu_entry_name'
-     or $current->{'type'} eq 'menu_entry_node')) {
+  } elsif (exists($current->{'type'})
+           and ($current->{'type'} eq 'menu_entry_name'
+                or $current->{'type'} eq 'menu_entry_node')) {
     $current = _end_line_menu_entry($self, $current, $source_info);
   # block command lines
-  } elsif ($current->{'type'}
+  } elsif (exists($current->{'type'})
             and $current->{'type'} eq 'block_line_arg') {
     $current = _end_line_starting_block($self, $current, $source_info);
 
   # misc command line arguments
   # Never go here if lineraw/noarg/...
-  } elsif ($current->{'type'} and $current->{'type'} eq 'line_arg') {
+  } elsif (exists($current->{'type'}) and $current->{'type'} eq 'line_arg') {
     $current = _end_line_misc_line($self, $current, $source_info);
   } elsif (defined($prev_element_type)
            and ($prev_element_type eq 'internal_spaces_before_argument'
@@ -4836,7 +4846,7 @@ sub _end_line($$$) {
     # should correspond to a bogus brace @-commands without argument
     # followed by spaces only, and not by newline, at the end of the document
     # on a line/def command
-    if ($current->{'cmdname'}
+    if (exists($current->{'cmdname'})
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
       _line_error($self, sprintf(__("\@%s expected braces"),
                          $current->{'cmdname'}), $source_info);
@@ -4845,12 +4855,13 @@ sub _end_line($$$) {
 
     if ($top_context eq 'ct_def') {
       while ($current->{'parent'}
-            and !($current->{'parent'}->{'extra'}
-                  and $current->{'parent'}->{'extra'}->{'def_command'})) {
+            and
+             !(exists($current->{'parent'}->{'extra'})
+               and exists($current->{'parent'}->{'extra'}->{'def_command'}))) {
         $current = _close_current($self, $current, $source_info);
       }
     } else {
-      while ($current->{'parent'} and !($current->{'type'}
+      while (exists($current->{'parent'}) and !(exists($current->{'type'})
              and ($current->{'type'} eq 'block_line_arg'
                   or $current->{'type'} eq 'line_arg'))) {
         $current = _close_current($self, $current, $source_info);
@@ -4909,7 +4920,7 @@ sub _start_empty_line_after_command($$$$) {
 sub _check_register_target_element_label($$$$) {
   my ($self, $label_element, $target_element, $source_info) = @_;
 
-  if ($label_element and $label_element->{'contents'}) {
+  if ($label_element and exists($label_element->{'contents'})) {
     my ($label_info, $modified_node_content)
       = Texinfo::Common::parse_node_manual($label_element);
     if ($label_info and $label_info->{'manual_content'}) {
@@ -4930,7 +4941,7 @@ sub _check_register_target_element_label($$$$) {
     Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}))),
                                  $target_element->{'source_info'});
     } else {
-      $target_element->{'extra'} = {} if (!$target_element->{'extra'});
+      $target_element->{'extra'} = {} if (!exists($target_element->{'extra'}));
       $target_element->{'extra'}->{'normalized'} = $normalized;
     }
   }
@@ -4945,13 +4956,13 @@ sub _check_empty_expansion($) {
   my $current = shift;
 
   foreach my $content (@$current) {
-    if (!(($content->{'cmdname'}
+    if (!((exists($content->{'cmdname'})
            and ($content->{'cmdname'} eq ' ' or $content->{'cmdname'} eq "\t"
                 or $content->{'cmdname'} eq "\n"
                 or $content->{'cmdname'} eq 'c'
                 or $content->{'cmdname'} eq 'comment'
                 or $content->{'cmdname'} eq ':'))
-           or (defined($content->{'text'}) and $content->{'text'} !~ /\S/))) {
+           or (exists($content->{'text'}) and $content->{'text'} !~ /\S/))) {
       return 0;
     }
   }
@@ -4964,14 +4975,14 @@ sub _register_extra_menu_entry_information($$;$) {
   my $menu_entry_node;
   foreach my $arg (@{$current->{'contents'}}) {
     if ($arg->{'type'} eq 'menu_entry_name') {
-      if (not $arg->{'contents'} or scalar(@{$arg->{'contents'}}) == 0) {
+      if (not exists($arg->{'contents'})) {
         _line_warn($self, sprintf(__("empty menu entry name in `%s'"),
                    Texinfo::Convert::Texinfo::convert_to_texinfo($current)),
                           $source_info);
       }
     } elsif ($arg->{'type'} eq 'menu_entry_node') {
       _isolate_trailing_space($arg, 'space_at_end_menu_node');
-      if (! $arg->{'contents'}) {
+      if (! exists($arg->{'contents'})) {
         my $format_menu = $self->{'conf'}->{'FORMAT_MENU'};
         if ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
           _line_error($self, __("empty node name in menu entry"), $source_info);
@@ -4982,7 +4993,7 @@ sub _register_extra_menu_entry_information($$;$) {
           = Texinfo::Common::parse_node_manual($arg, 1);
         if (defined($parsed_entry_node)) {
           foreach my $label_info (keys(%$parsed_entry_node)) {
-            $arg->{'extra'} = {} if (!$arg->{'extra'});
+            $arg->{'extra'} = {} if (!exists($arg->{'extra'}));
             $arg->{'extra'}->{$label_info}
               = $parsed_entry_node->{$label_info};
           }
@@ -5025,11 +5036,11 @@ sub _enter_menu_entry_node($$$) {
 sub _parent_of_command_as_argument($) {
   my $current = shift;
 
-  return ($current and $current->{'type'}
+  return ($current and exists($current->{'type'})
       and $current->{'type'} eq 'block_line_arg'
-      and $current->{'parent'}
-      and $current->{'parent'}->{'parent'}
-      and $current->{'parent'}->{'parent'}->{'cmdname'}
+      and exists($current->{'parent'})
+      and exists($current->{'parent'}->{'parent'})
+      and exists($current->{'parent'}->{'parent'}->{'cmdname'})
       and ($current->{'parent'}->{'parent'}->{'cmdname'} eq 'itemize'
            or ($block_commands{$current->{'parent'}->{'parent'}->{'cmdname'}}
                and $block_commands{$current->{'parent'}->{'parent'}->{'cmdname'}}
@@ -5050,7 +5061,7 @@ sub _register_command_as_argument($$) {
                 if ($self->{'conf'}->{'DEBUG'});
 
     $command_element->{'extra'} = {}
-       if (!defined($command_element->{'extra'}));
+       if (!exists($command_element->{'extra'}));
     $command_element->{'extra'}->{'command_as_argument_kbd_code'} = 1;
   }
 }
@@ -5137,15 +5148,15 @@ sub _check_valid_nesting($$$$) {
   my $invalid_parent;
   # error messages for forbidden constructs, like @node in @r,
   # block command on line command, @xref in @anchor or node...
-  if ($current->{'parent'}) {
+  if (exists($current->{'parent'})) {
     my $parent_command;
-    if ($current->{'parent'}->{'type'}
+    if (exists($current->{'parent'}->{'type'})
         and $current->{'parent'}->{'type'} eq 'arguments_line') {
       $parent_command = $current->{'parent'}->{'parent'};
     } else {
       $parent_command = $current->{'parent'};
     }
-    if ($parent_command->{'cmdname'}) {
+    if (exists($parent_command->{'cmdname'})) {
       if (defined($self->{'valid_nestings'}
                                    ->{$parent_command->{'cmdname'}})
           and !$self->{'valid_nestings'}
@@ -5153,18 +5164,18 @@ sub _check_valid_nesting($$$$) {
           # we make sure that we are on a root @-command line and
           # not in contents
           and (!$root_commands{$parent_command->{'cmdname'}}
-               or ($current->{'type'}
+               or (exists($current->{'type'})
                    and $current->{'type'} eq 'line_arg'))
           # we make sure that we are on a block @-command line and
           # not in contents
           and (!defined($block_commands{$parent_command->{'cmdname'}})
-               or ($current->{'type'}
+               or (exists($current->{'type'})
                    and $current->{'type'} eq 'block_line_arg'))
           # we make sure that we are on an @item/@itemx line and
           # not in an @enumerate, @multitable or @itemize @item.
           and (($parent_command->{'cmdname'} ne 'itemx'
                 and $parent_command->{'cmdname'} ne 'item')
-               or ($current->{'type'}
+               or (exists($current->{'type'})
                         and $current->{'type'} eq 'line_arg'))) {
         $invalid_parent = $parent_command->{'cmdname'};
       }
@@ -5270,7 +5281,7 @@ sub _new_value_element($$;$$) {
             Texinfo::TreeElement::new({'text' => $flag,
                                        'parent' => $brace_container});
   if ($spaces_element) {
-    $value_elt->{'info'} = {} if (!$value_elt->{'info'});
+    $value_elt->{'info'} = {} if (!exists($value_elt->{'info'}));
     $value_elt->{'info'}->{'spaces_after_cmd_before_arg'} = $spaces_element;
   }
   return $value_elt;
@@ -5322,7 +5333,7 @@ sub _handle_macro($$$$$$) {
 
   if ($from_alias) {
     $macro_call_element->{'info'} = {}
-       if (!$macro_call_element->{'info'});
+       if (!exists($macro_call_element->{'info'}));
     $macro_call_element->{'info'}->{'alias_of'} = $from_alias;
   }
 
@@ -5336,7 +5347,8 @@ sub _handle_macro($$$$$$) {
       if ($line =~ s/^(\s+)//) {
         my $spaces_element = Texinfo::TreeElement::new({'text' => $1,
                                      'type' => 'spaces_after_cmd_before_arg'});
-        $macro_call_element->{'info'} = {} if (!$macro_call_element->{'info'});
+        $macro_call_element->{'info'} = {}
+            if (!exists($macro_call_element->{'info'}));
         $macro_call_element->{'info'}->{'spaces_after_cmd_before_arg'}
           = $spaces_element;
       }
@@ -5364,16 +5376,18 @@ sub _handle_macro($$$$$$) {
           }
         } else {
           # based on whitespace_chars_except_newline in XS parser
-          if (not $arg_elt->{'contents'} and $line =~ s/^([ \t\cK\f]+)//) {
+          if (not exists($arg_elt->{'contents'})
+              and $line =~ s/^([ \t\cK\f]+)//) {
             my $internal_space = Texinfo::TreeElement::new({'text' => $1,
                                       'type' => 'spaces_before_argument'});
             $macro_call_element->{'info'} = {}
-                if (!$macro_call_element->{'info'});
+                if (!exists($macro_call_element->{'info'}));
             $macro_call_element->{'info'}->{'spaces_before_argument'}
                = $internal_space;
           } else {
             my $has_end_of_line = chomp $line;
-            if (not $arg_elt->{'contents'}) {
+            if (not exists($arg_elt->{'contents'})) {
+              $arg_elt->{'contents'} = [];
               push @{$arg_elt->{'contents'}},
                     Texinfo::TreeElement::new({'text' => $line,
                                                'parent' => $arg_elt});
@@ -5471,19 +5485,19 @@ sub _handle_menu_entry_separators($$$$$$) {
   my $retval = 1;
 
   my $last_element;
-  if ($current->{'contents'}) {
+  if (exists($current->{'contents'})) {
     $last_element = $current->{'contents'}->[-1];
   }
 
   # maybe a menu entry beginning: a * at the beginning of a menu line
-  if ($current->{'type'}
+  if (exists($current->{'type'})
       and $current->{'type'} eq 'preformatted'
-      and $current->{'parent'}->{'type'}
+      and exists($current->{'parent'}->{'type'})
       and ($current->{'parent'}->{'type'} eq 'menu_comment'
            or $current->{'parent'}->{'type'} eq 'menu_entry_description')
       and $asterisk
-      and $last_element
-      and $last_element->{'type'}
+      and defined($last_element)
+      and exists($last_element->{'type'})
       and $last_element->{'type'} eq 'empty_line'
       and $last_element->{'text'} eq '') {
     print STDERR "MENU STAR\n" if ($self->{'conf'}->{'DEBUG'});
@@ -5491,8 +5505,8 @@ sub _handle_menu_entry_separators($$$$$$) {
     $last_element->{'type'} = 'internal_menu_star';
     $last_element->{'text'} = '*';
   # a space after a * at the beginning of a menu line
-  } elsif ($last_element
-           and $last_element->{'type'}
+  } elsif (defined($last_element)
+           and exists($last_element->{'type'})
            and $last_element->{'type'} eq 'internal_menu_star') {
     if ($$line_ref !~ /^\s+/) {
       print STDERR "ABORT MENU STAR before: "
@@ -5506,7 +5520,7 @@ sub _handle_menu_entry_separators($$$$$$) {
       my $star_leading_spaces = '*' . $1;
 
       if ($current->{'type'} eq 'preformatted'
-          and $current->{'parent'}->{'type'}
+          and exists($current->{'parent'}->{'type'})
           and $current->{'parent'}->{'type'} eq 'menu_comment') {
         # close preformatted
         $current = _close_container($self, $current, $source_info);
@@ -5552,9 +5566,9 @@ sub _handle_menu_entry_separators($$$$$$) {
   # entry name (. must be followed by a space to stop the node).
   } elsif ($menu_separator
            # if menu separator is not ':', it is [,\t.]
-           and (($menu_separator ne ':' and $current->{'type'}
+           and (($menu_separator ne ':' and exists($current->{'type'})
                  and $current->{'type'} eq 'menu_entry_node')
-                or ($menu_separator eq ':' and $current->{'type'}
+                or ($menu_separator eq ':' and exists($current->{'type'})
                     and $current->{'type'} eq 'menu_entry_name'))) {
     substr($$line_ref, 0, 1) = '';
     $current = $current->{'parent'};
@@ -5563,8 +5577,8 @@ sub _handle_menu_entry_separators($$$$$$) {
                                      'text' => $menu_separator,
                                      'parent' => $current });
   # after a separator in menu
-  } elsif ($last_element
-           and $last_element->{'type'}
+  } elsif (defined($last_element)
+           and exists($last_element->{'type'})
            and $last_element->{'type'} eq 'menu_entry_separator') {
     my $separator = $last_element->{'text'};
     print STDERR "AFTER menu_entry_separator $separator\n"
@@ -5724,7 +5738,7 @@ sub _handle_other_command($$$$$) {
                      $command), $source_info);
         } elsif ($command eq 'tab') {
           my $row = $parent->{'contents'}->[-1];
-          die if (!$row->{'type'});
+          die if (!exists($row->{'type'}));
           if ($row->{'type'} eq 'before_item') {
             _line_error($self, __("\@tab before \@item"), $source_info);
           } elsif ($row->{'cells_count'} >= $parent->{'extra'}->{'max_columns'}) {
@@ -5795,7 +5809,6 @@ sub _handle_other_command($$$$$) {
 sub _new_element_at_begin_reloc($$;$) {
   my ($text_element, $spaces_text, $type) = @_;
 
-  my $remaining_source_marks = $text_element->{'source_marks'};
   my $new_e;
   if (defined($type)) {
     $new_e = Texinfo::TreeElement::new({'text' => $spaces_text,
@@ -5803,13 +5816,14 @@ sub _new_element_at_begin_reloc($$;$) {
   } else {
     $new_e = Texinfo::TreeElement::new({'text' => $spaces_text});
   }
-  if (defined($remaining_source_marks)) {
+  if (exists($text_element->{'source_marks'})) {
+    my $remaining_source_marks = $text_element->{'source_marks'};
     my $text_len = length($spaces_text);
     my $current_position
       = Texinfo::Common::relocate_source_marks($remaining_source_marks,
                                           $new_e, 0, $text_len);
-    if (scalar(@$remaining_source_marks)) {
-      foreach my $source_mark (@$remaining_source_marks) {
+    if (scalar(@{$remaining_source_marks})) {
+      foreach my $source_mark (@{$remaining_source_marks}) {
         $source_mark->{'position'} -= $text_len;
       }
     } else {
@@ -5823,19 +5837,19 @@ sub _raw_line_command_arg_spaces($$$) {
   my ($command_e, $text_element, $line_args) = @_;
 
   if (chomp($text_element->{'text'})) {
-    $line_args->{'info'} = {} if (!defined($line_args->{'info'}));
+    $line_args->{'info'} = {} if (!exists($line_args->{'info'}));
     $line_args->{'info'}->{'spaces_after_argument'}
                     = Texinfo::TreeElement::new({'text' => "\n",
                                 'type' => 'spaces_after_argument'});
   }
   if ($text_element->{'text'} =~ s/^(\s+)//) {
-    $line_args->{'info'} = {} if (!defined($line_args->{'info'}));
+    $line_args->{'info'} = {} if (!exists($line_args->{'info'}));
     my $spaces_text = $1;
     my $spaces_before
       = _new_element_at_begin_reloc($text_element, $spaces_text,
                                     'spaces_before_argument');
 
-    $command_e->{'info'} = {} if (!defined($command_e->{'info'}));
+    $command_e->{'info'} = {} if (!exists($command_e->{'info'}));
     $command_e->{'info'}->{'spaces_before_argument'} = $spaces_before;
   }
 }
@@ -5876,8 +5890,8 @@ sub _add_comment_at_end($$$) {
   # remove comment text from initial text and relocate source marks
   $text_element->{'text'} = substr($text_element->{'text'},
                                0, $text_len - $comment_len);
-  my $remaining_source_marks = $text_element->{'source_marks'};
-  if ($remaining_source_marks) {
+  if (exists($text_element->{'source_marks'})) {
+    my $remaining_source_marks = $text_element->{'source_marks'};
     # the source marks are first relocated with the leading
     # @c/@comment string
     Texinfo::Common::relocate_source_marks($remaining_source_marks,
@@ -5900,7 +5914,7 @@ sub _add_comment_at_end($$$) {
   _raw_line_command_arg_spaces($comment, $comment_text_element,
                                $comment_line_args);
 
-  $line_args->{'info'} = {} if (!defined($line_args->{'info'}));
+  $line_args->{'info'} = {} if (!exists($line_args->{'info'}));
   $line_args->{'info'}->{'comment_at_end'} = $comment;
 }
 
@@ -5920,7 +5934,7 @@ sub _handle_line_command($$$$$$) {
     # root command or in before_node_section, both being in the document
     # root container, so that there is a parent for $current, the document
     # root container.
-    if (!defined($current->{'parent'})) {
+    if (!exists($current->{'parent'})) {
       if ($current->{'type'} ne 'root_line') {
         _bug_message($self, "no parent element", $source_info, $current);
         die;
@@ -5949,8 +5963,9 @@ sub _handle_line_command($$$$$$) {
     my $ignored = 0;
     if ($command eq 'insertcopying') {
       my $parent = $current;
-      while ($parent) {
-        if ($parent->{'cmdname'} and $parent->{'cmdname'} eq 'copying') {
+      while (defined($parent)) {
+        if (exists($parent->{'cmdname'})
+            and $parent->{'cmdname'} eq 'copying') {
           _line_error($self,
              sprintf(__("\@%s not allowed inside `\@copying' block"),
                      $command), $source_info);
@@ -6029,7 +6044,7 @@ sub _handle_line_command($$$$$$) {
           delete $text_element->{'parent'};
           $text_element->{'type'} = 'spaces_before_argument';
           $command_e->{'info'} = {}
-               if (!defined($command_e->{'info'}));
+               if (!exists($command_e->{'info'}));
           $command_e->{'info'}->{'spaces_before_argument'}
                                             = $text_element;
         } else {
@@ -6040,7 +6055,7 @@ sub _handle_line_command($$$$$$) {
                                            'spaces_before_argument');
 
             $command_e->{'info'} = {}
-                 if (!defined($command_e->{'info'}));
+                 if (!exists($command_e->{'info'}));
             $command_e->{'info'}->{'spaces_before_argument'}
                            = $spaces_before;
           }
@@ -6127,14 +6142,13 @@ sub _handle_line_command($$$$$$) {
       $command_e = Texinfo::TreeElement::new({ 'cmdname' => $command,
                                       'source_info' => {%$source_info} });
       if ($command eq 'nodedescription') {
-        if ($self->{'current_node'}) {
+        if (defined($self->{'current_node'})) {
           my $node_relations = $self->{'current_node'};
-          if ($node_relations->{'node_description'}) {
+          if (exists($node_relations->{'node_description'})) {
             _line_warn($self, __("multiple node \@nodedescription"),
                                   $source_info);
           } else {
-            $node_relations->{'node_description'}
-              = $command_e;
+            $node_relations->{'node_description'} = $command_e;
           }
         } else {
           _line_warn($self, __("\@nodedescription outside of any node"),
@@ -6150,7 +6164,8 @@ sub _handle_line_command($$$$$$) {
         my $subentry_level = 1;
         my $current = $parent;
         while ($subentry_level < 3) {
-          if ($current->{'cmdname'} and $current->{'cmdname'} eq 'subentry') {
+          if (exists($current->{'cmdname'})
+              and $current->{'cmdname'} eq 'subentry') {
             $subentry_level++;
             $current = $current->{'parent'}->{'parent'};
           } else {
@@ -6239,12 +6254,12 @@ sub _handle_line_command($$$$$$) {
     if ($command eq 'author') {
       my $parent = $current;
       my $found;
-      while ($parent->{'parent'}) {
+      while (exists($parent->{'parent'})) {
         $parent = $parent->{'parent'};
-        last if ($parent->{'type'}
-                and $parent->{'type'} eq 'brace_command_context');
+        last if (exists($parent->{'type'})
+                 and $parent->{'type'} eq 'brace_command_context');
         my $parent_cmdname = $parent->{'cmdname'};
-        if ($parent_cmdname
+        if (defined($parent_cmdname)
             and ($parent_cmdname eq 'titlepage'
                  or $parent_cmdname eq 'quotation'
                  or $parent_cmdname eq 'smallquotation')) {
@@ -6257,16 +6272,16 @@ sub _handle_line_command($$$$$$) {
      "\@author not meaningful outside `\@titlepage' and `\@quotation' environments"),
                            $current->{'source_info'});
       }
-    } elsif ($command eq 'dircategory' and $self->{'current_node'}) {
+    } elsif ($command eq 'dircategory' and defined($self->{'current_node'})) {
         _line_warn($self, __("\@dircategory after first node"),
                      $source_info);
     } elsif ($command eq 'printindex') {
       # Record that @printindex occurs in this node so we know it
       # is an index node.
-      if ($self->{'current_node'}) {
+      if (defined($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
         $node_relations->{'element'}->{'extra'} = {}
-           if (!$node_relations->{'element'}->{'extra'});
+           if (!exists($node_relations->{'element'}->{'extra'}));
         $node_relations->{'element'}->{'extra'}->{'isindex'} = 1;
       }
     }
@@ -6276,7 +6291,7 @@ sub _handle_line_command($$$$$$) {
     } elsif ($root_commands{$data_cmdname}) {
       # arguments_line type element
       my $arguments_line = $current->{'contents'}->[0];
-      if (!$arguments_line->{'type'}
+      if (!exists($arguments_line->{'type'})
           or $arguments_line->{'type'} ne 'arguments_line') {
         confess(
   "root command first content is not arguments_line type: $arguments_line->{'type'}");
@@ -6304,7 +6319,7 @@ sub _handle_block_command($$$$$) {
   # a menu command closes a menu_comment, but not the other
   # block commands. This won't catch menu commands buried in
   # other formats (that are incorrect anyway).
-  if ($block_commands{$command} eq 'menu' and $current->{'type'}
+  if ($block_commands{$command} eq 'menu' and exists($current->{'type'})
       and ($current->{'type'} eq 'menu_comment'
            or $current->{'type'} eq 'menu_entry_description')) {
 
@@ -6313,7 +6328,7 @@ sub _handle_block_command($$$$$) {
       $current = _close_container($self, $current, $source_info);
     } else { # menu_entry_description
       $current = _close_container($self, $current, $source_info);
-      if ($current->{'type'} and $current->{'type'} eq 'menu_entry') {
+      if (exists($current->{'type'}) and $current->{'type'} eq 'menu_entry') {
         $current = $current->{'parent'};
       } else {
         _bug_message($self, "menu description parent not a menu_entry",
@@ -6365,7 +6380,7 @@ sub _handle_block_command($$$$$) {
       _push_context($self, 'ct_preformatted', $command);
       push @{$self->{'document'}->{'commands_info'}->{'dircategory_direntry'}},
            $block if ($command eq 'direntry');
-      if ($self->{'current_node'}) {
+      if (defined($self->{'current_node'})) {
         if ($command eq 'direntry') {
           my $format_menu = $self->{'conf'}->{'FORMAT_MENU'};
           if ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
@@ -6373,11 +6388,11 @@ sub _handle_block_command($$$$$) {
                       $source_info);
           }
         } elsif ($command eq 'menu') {
-          if (!(defined($current->{'cmdname'}))
+          if (!(exists($current->{'cmdname'}))
               or $root_commands{$current->{'cmdname'}}) {
             my $node_relations = $self->{'current_node'};
             $node_relations->{'menus'} = []
-              if (!defined($node_relations->{'menus'}));
+              if (!exists($node_relations->{'menus'}));
             push @{$node_relations->{'menus'}}, $block;
           } else {
             _line_warn($self, __("\@menu in invalid context"),
@@ -6390,14 +6405,13 @@ sub _handle_block_command($$$$$) {
     # been initialized automatically.
       $block->{'items_count'} = 0;
     } elsif ($command eq 'nodedescriptionblock') {
-      if ($self->{'current_node'}) {
+      if (defined($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
-        if ($node_relations->{'node_long_description'}) {
+        if (exists($node_relations->{'node_long_description'})) {
           _line_warn($self, __("multiple node \@nodedescriptionblock"),
                             $source_info);
         } else {
-          $node_relations->{'node_long_description'}
-            = $block;
+          $node_relations->{'node_long_description'} = $block;
         }
       } else {
         _line_warn($self, __("\@nodedescriptionblock outside of any node"),
@@ -6409,8 +6423,7 @@ sub _handle_block_command($$$$$) {
     my $remaining_args = 0;
     if ($commands_args_number{$command}) {
       if ($commands_args_number{$command} - 1 > 0) {
-        $remaining_args
-          = $commands_args_number{$command} - 1;
+        $remaining_args = $commands_args_number{$command} - 1;
       }
     } elsif ($variadic_commands{$command}) {
       $remaining_args = -1; # unlimited args
@@ -6470,14 +6483,14 @@ sub _handle_brace_command($$$$) {
   } else {
     if ($self->{'definfoenclose'}->{$command}) {
       $command_e->{'type'} = 'definfoenclose_command';
-      $command_e->{'extra'} = {} if (!$command_e->{'extra'});
+      $command_e->{'extra'} = {} if (!exists($command_e->{'extra'}));
       $command_e->{'extra'}->{'begin'}
         = $self->{'definfoenclose'}->{$command}->[0];
       $command_e->{'extra'}->{'end'}
         = $self->{'definfoenclose'}->{$command}->[1];
     } elsif ($command eq 'kbd'
              and _kbd_formatted_as_code($self)) {
-      $command_e->{'extra'} = {} if (!$command_e->{'extra'});
+      $command_e->{'extra'} = {} if (!exists($command_e->{'extra'}));
       $command_e->{'extra'}->{'code'} = 1;
     }
   }
@@ -6488,7 +6501,7 @@ sub _handle_brace_command($$$$) {
 sub _handle_open_brace($$$$) {
   my ($self, $current, $line, $source_info) = @_;
 
-  if ($current->{'cmdname'}
+  if (exists($current->{'cmdname'})
        and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
     my $command = $current->{'cmdname'};
 
@@ -6502,11 +6515,12 @@ sub _handle_open_brace($$$$) {
     $current->{'contents'} = [$arg];
     $current = $arg;
     push @{$self->{'nesting_context'}->{'basic_inline_stack'}}, $command
-      if ($self->{'basic_inline_commands'}
+      if (defined($self->{'basic_inline_commands'})
           and $self->{'basic_inline_commands'}->{$command});
     if ($command eq 'verb') {
       $current->{'type'} = 'brace_container';
-      $current->{'parent'}->{'info'} = {} if (!$current->{'parent'}->{'info'});
+      $current->{'parent'}->{'info'} = {}
+         if (!exists($current->{'parent'}->{'info'}));
       while ($line eq '') {
         # the delimiter may be in macro expansion
         ($line, $source_info) = _next_text($self, $current);
@@ -6528,15 +6542,17 @@ sub _handle_open_brace($$$$) {
       $current->{'type'} = 'brace_command_context';
       if ($command eq 'caption' or $command eq 'shortcaption') {
         $self->{'nesting_context'}->{'caption'} += 1;
-        if (!$current->{'parent'}->{'parent'}
-            or !$current->{'parent'}->{'parent'}->{'cmdname'}
+        if (!exists($current->{'parent'}->{'parent'})
+            or !exists($current->{'parent'}->{'parent'}->{'cmdname'})
             or $current->{'parent'}->{'parent'}->{'cmdname'} ne 'float') {
           my $float_e = $current->{'parent'};
-          while ($float_e->{'parent'} and !($float_e->{'cmdname'}
-                                      and $float_e->{'cmdname'} eq 'float')) {
+          while (exists($float_e->{'parent'})
+                 and !(exists($float_e->{'cmdname'})
+                       and $float_e->{'cmdname'} eq 'float')) {
             $float_e = $float_e->{'parent'};
           }
-          if (!($float_e->{'cmdname'} and $float_e->{'cmdname'} eq 'float')) {
+          if (!(exists($float_e->{'cmdname'})
+                and $float_e->{'cmdname'} eq 'float')) {
             _line_error($self, sprintf(__(
                "\@%s is not meaningful outside `\@float' environment"),
                                        $command), $source_info);
@@ -6591,12 +6607,13 @@ sub _handle_open_brace($$$$) {
           ? $current->{'parent'}->{'remaining_args'} : '0')
       .' '.Texinfo::Common::debug_print_element($current)."\n"
        if ($self->{'conf'}->{'DEBUG'});
-  } elsif ($current->{'parent'}
-            and (($current->{'parent'}->{'parent'}
-                  and $current->{'parent'}->{'parent'}->{'cmdname'}
-                  and $current->{'parent'}->{'parent'}->{'cmdname'} eq 'multitable')
-                 or ($current->{'parent'}->{'extra'}
-                     and $current->{'parent'}->{'extra'}->{'def_command'}))) {
+  } elsif (exists($current->{'parent'})
+           and
+           ((exists($current->{'parent'}->{'parent'})
+             and exists($current->{'parent'}->{'parent'}->{'cmdname'})
+             and $current->{'parent'}->{'parent'}->{'cmdname'} eq 'multitable')
+            or (exists($current->{'parent'}->{'extra'})
+                and exists($current->{'parent'}->{'extra'}->{'def_command'})))) {
     _abort_empty_line($self, $current);
     push @{$current->{'contents'}},
        Texinfo::TreeElement::new({ 'type' => 'bracketed_arg',
@@ -6618,7 +6635,7 @@ sub _handle_open_brace($$$$) {
     print STDERR "BRACKETED in def/multitable\n"
                              if ($self->{'conf'}->{'DEBUG'});
   # lone braces accepted right in a rawpreformatted
-  } elsif ($current->{'type'}
+  } elsif (exists($current->{'type'})
            and $current->{'type'} eq 'rawpreformatted') {
     print STDERR "LONE OPEN BRACE in rawpreformatted\n"
        if ($self->{'conf'}->{'DEBUG'});
@@ -6656,7 +6673,7 @@ sub _handle_close_brace($$$) {
   print STDERR "CLOSE BRACE\n" if ($self->{'conf'}->{'DEBUG'});
   # For footnote and caption closing, when there is a paragraph inside.
   # This makes the brace command the parent element.
-  if ($current->{'parent'} and $current->{'parent'}->{'type'}
+  if (exists($current->{'parent'}) and exists($current->{'parent'}->{'type'})
       and $current->{'parent'}->{'type'} eq 'brace_command_context'
       and $current->{'type'} eq 'paragraph') {
     _abort_empty_line($self, $current);
@@ -6665,16 +6682,17 @@ sub _handle_close_brace($$$) {
     $current = _close_container($self, $current, $source_info);
   }
 
-  if ($current->{'type'} and $current->{'type'} eq 'balanced_braces') {
+  if (exists($current->{'type'}) and $current->{'type'} eq 'balanced_braces') {
     # balanced_braces happens in non paragraph context only, so merge_text
     # should not change $current
     $current = _merge_text($self, $current, '}');
     $current = $current->{'parent'};
-  } elsif ($current->{'type'} and $current->{'type'} eq 'bracketed_arg') {
+  } elsif (exists($current->{'type'})
+           and $current->{'type'} eq 'bracketed_arg') {
     _abort_empty_line($self, $current);
     $current = $current->{'parent'};
-  } elsif ($current->{'parent'}
-           and $current->{'parent'}->{'cmdname'}
+  } elsif (exists($current->{'parent'})
+           and exists($current->{'parent'}->{'cmdname'})
            and exists($self->{'brace_commands'}
                                  ->{$current->{'parent'}->{'cmdname'}})) {
     _abort_empty_line($self, $current);
@@ -6694,14 +6712,14 @@ sub _handle_close_brace($$$) {
         or $closed_cmdname eq 'namedanchor') {
       $brace_command->{'source_info'} = {%$source_info};
       my $anchor_id_element = $brace_command->{'contents'}->[0];
-      if (! $anchor_id_element->{'contents'}) {
+      if (! exists($anchor_id_element->{'contents'})) {
         _line_error($self, sprintf(__("empty argument in \@%s"),
                                    $closed_cmdname), $source_info);
       } else {
         _check_register_target_element_label($self, $anchor_id_element,
                                              $brace_command, $source_info);
         # the @anchor element_region information is not used in converters
-        if ($self->{'nesting_context'}
+        if (exists($self->{'nesting_context'})
             and $self->{'nesting_context'}->{'regions_stack'}
             and scalar(@{$self->{'nesting_context'}->{'regions_stack'}}) > 0) {
           $anchor_id_element->{'extra'} = {} if (!$anchor_id_element->{'extra'});
@@ -6712,8 +6730,8 @@ sub _handle_close_brace($$$) {
     } elsif ($ref_commands{$closed_cmdname}) {
       my $ref = $brace_command;
       my @args;
-      for $a (@{$ref->{'contents'}}) {
-        if ($a->{'contents'}) {
+      foreach my $a (@{$ref->{'contents'}}) {
+        if (exists($a->{'contents'})) {
           push @args, $a->{'contents'};
         } else {
           push @args, undef;
@@ -6736,13 +6754,13 @@ sub _handle_close_brace($$$) {
           = Texinfo::Common::parse_node_manual($arg_label, 1);
         if (defined($ref_label_info)) {
           foreach my $label_info (keys(%$ref_label_info)) {
-            $arg_label->{'extra'} = {} if (!$arg_label->{'extra'});
+            $arg_label->{'extra'} = {} if (!exists($arg_label->{'extra'}));
             $arg_label->{'extra'}->{$label_info}
               = $ref_label_info->{$label_info};
           }
           if (!$link_or_inforef
                 and !defined($args[3]) and !defined($args[4])
-                and !$ref_label_info->{'manual_content'}
+                and !exists($ref_label_info->{'manual_content'})
               or $link_or_inforef and !defined($args[2])) {
             # we use the @*ref command here and not the label command
             # to have more information for messages
@@ -6772,19 +6790,19 @@ sub _handle_close_brace($$$) {
       }
     } elsif ($closed_cmdname eq 'image') {
       my $image = $brace_command;
-      if (!$image->{'contents'}->[0]->{'contents'}) {
+      if (!exists($image->{'contents'}->[0]->{'contents'})) {
         _line_error($self,
            __("\@image missing filename argument"), $source_info);
       }
       my $document = $self->{'document'};
       if (defined($document->{'global_info'}->{'input_encoding_name'})) {
-        $image->{'extra'} = {} if (!$image->{'extra'});
+        $image->{'extra'} = {} if (!exists($image->{'extra'}));
         $image->{'extra'}->{'input_encoding_name'}
            = $document->{'global_info'}->{'input_encoding_name'};
       }
     } elsif ($closed_cmdname eq 'dotless') {
       my $dotless = $brace_command;
-      if ($current->{'contents'}) {
+      if (exists($current->{'contents'})) {
         my $text = $current->{'contents'}->[0]->{'text'};
         if (!defined($text)
           or ($text ne 'i' and $text ne 'j')) {
@@ -6797,21 +6815,21 @@ sub _handle_close_brace($$$) {
     } elsif ($explained_commands{$closed_cmdname}
              or ($brace_commands{$closed_cmdname}
                  and $brace_commands{$closed_cmdname} eq 'inline')) {
-      if (!$brace_command->{'contents'}->[0]->{'contents'}) {
+      if (!exists($brace_command->{'contents'}->[0]->{'contents'})) {
         _line_warn($self,
            sprintf(__("\@%s missing first argument"),
                    $closed_cmdname), $source_info);
       }
     } elsif ($closed_cmdname eq 'errormsg') {
       my $arg_text = '';
-      if ($current->{'contents'}
-          and defined($current->{'contents'}->[0]->{'text'})) {
+      if (exists($current->{'contents'})
+          and exists($current->{'contents'}->[0]->{'text'})) {
         $arg_text = $current->{'contents'}->[0]->{'text'};
       }
       _line_error($self, $arg_text, $source_info);
     } elsif ($closed_cmdname eq 'U') {
       my $arg_text;
-      if ($current->{'contents'}) {
+      if (exists($current->{'contents'})) {
         $arg_text = $current->{'contents'}->[0]->{'text'};
       }
       if (!defined($arg_text) or $arg_text eq '') {
@@ -6846,22 +6864,22 @@ sub _handle_close_brace($$$) {
         }
       }
     } elsif (_parent_of_command_as_argument($brace_command->{'parent'})
-             and !$current->{'contents'}) {
+             and !exists($current->{'contents'})) {
       _register_command_as_argument($self, $brace_command);
     } elsif ($brace_command_type eq 'noarg') {
-      if ($current->{'contents'}) {
+      if (exists($current->{'contents'})) {
         _line_warn($self, sprintf(__(
                           "command \@%s does not accept arguments"),
                                $closed_cmdname), $source_info);
       }
     } elsif ($closed_cmdname eq 'sortas') {
       my $subindex_element = $brace_command->{'parent'}->{'parent'};
-      if ($subindex_element
+      if (defined($subindex_element)
           and _is_index_element($self, $subindex_element)) {
         my ($arg, $superfluous_arg) = _text_contents_to_plain_text($current);
         if (defined($arg)) {
           $subindex_element->{'extra'} = {}
-            if (!defined($subindex_element->{'extra'}));
+            if (!exists($subindex_element->{'extra'}));
           $subindex_element->{'extra'}->{$closed_cmdname} = $arg;
         }
       }
@@ -6883,7 +6901,7 @@ sub _handle_close_brace($$$) {
     $current = _begin_preformatted($self, $current)
        if ($close_preformatted_commands{$closed_cmdname});
   # lone braces accepted right in a rawpreformatted
-  } elsif ($current->{'type'}
+  } elsif (exists($current->{'type'})
            and $current->{'type'} eq 'rawpreformatted') {
     $current = _merge_text($self, $current, '}');
   } else {
@@ -6906,7 +6924,8 @@ sub _handle_comma($$$$) {
   #                          and $type ne 'line_arg');
   my $command_element;
   my $argument = $current->{'parent'};
-  if ($argument->{'type'} and $argument->{'type'} eq 'arguments_line') {
+  if (exists($argument->{'type'})
+      and $argument->{'type'} eq 'arguments_line') {
     $command_element = $argument->{'parent'};
   } else {
     $command_element = $current->{'parent'};
@@ -6917,12 +6936,12 @@ sub _handle_comma($$$$) {
   if ($brace_commands{$command_element->{'cmdname'}}
       and $brace_commands{$command_element->{'cmdname'}} eq 'inline') {
     my $expandp = 0;
-    $command_element->{'extra'} = {} if (!$command_element->{'extra'});
-    if (! $command_element->{'extra'}->{'format'}) {
+    $command_element->{'extra'} = {} if (!exists($command_element->{'extra'}));
+    if (! exists($command_element->{'extra'}->{'format'})) {
       my $inline_type;
       # get the first argument, which is also $current, which was before the comma
       # and put it in extra format
-      if ($current->{'contents'}) {
+      if (exists($current->{'contents'})) {
         $inline_type = $current->{'contents'}->[0]->{'text'};
       }
 
@@ -7085,7 +7104,7 @@ sub _new_macro($$$) {
   return if $self->{'conf'}->{'NO_USER_COMMANDS'};
 
   my $macrobody;
-  if (defined($current->{'contents'})) {
+  if (exists($current->{'contents'})) {
     $macrobody =
        Texinfo::Convert::Texinfo::convert_to_texinfo(
          Texinfo::TreeElement::new({ 'contents' => $current->{'contents'} }));
@@ -7135,7 +7154,7 @@ sub _process_macro_block_contents($$) {
                 __("\@end %s should only appear at the beginning of a line"),
                                    $current->{'cmdname'}), $source_info);
         }
-        if ($current->{'extra'}
+        if (exists($current->{'extra'})
             and defined($current->{'extra'}->{'macro_name'})) {
           my $name = $current->{'extra'}->{'macro_name'};
           if (exists($self->{'macros'}->{$name})) {
@@ -7152,7 +7171,7 @@ sub _process_macro_block_contents($$) {
                               "redefining Texinfo language command: \@%s"),
                                       $name), $current->{'source_info'});
           }
-          if (!($current->{'extra'}
+          if (!(exists($current->{'extra'})
                 and $current->{'extra'}->{'invalid_syntax'})) {
             _new_macro($self, $name, $current);
           }
@@ -7448,7 +7467,7 @@ sub _process_remaining_on_line($$$$) {
   #
   # Need to be done as early as possible such that no other condition
   # prevail and lead to a missed command
-  if ($current->{'cmdname'}
+  if (exists($current->{'cmdname'})
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
       and not $self->{'brace_commands'}->{$current->{'cmdname'}} eq 'accent'
       and !$open_brace
@@ -7470,7 +7489,7 @@ sub _process_remaining_on_line($$$$) {
   # having an element in info that holds something more complex
   # than text and source marks.
   if ($command
-      and $current->{'cmdname'}
+      and exists($current->{'cmdname'})
       and defined($self->{'brace_commands'}->{$current->{'cmdname'}})) {
     _line_error($self, sprintf(__("\@%s expected braces"),
                        $current->{'cmdname'}), $source_info);
@@ -7504,9 +7523,9 @@ sub _process_remaining_on_line($$$$) {
   # This condition can only happen immediately after the command opening,
   # otherwise the current element is in the 'contents' and not right in the
   # command container.
-  if ($current->{'cmdname'}
-        and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
-        and !$open_brace) {
+  if (exists($current->{'cmdname'})
+      and defined($self->{'brace_commands'}->{$current->{'cmdname'}})
+      and !$open_brace) {
 
     print STDERR "BRACE CMD: no brace after \@$current->{'cmdname'}"
        ."||| "._debug_protect_eol($line)."\n"
@@ -7538,11 +7557,11 @@ sub _process_remaining_on_line($$$$) {
         }
         $additional_newline = 1;
       }
-      if (!$current->{'info'}
-          or !$current->{'info'}->{'spaces_after_cmd_before_arg'}) {
+      if (!exists($current->{'info'})
+          or !exists($current->{'info'}->{'spaces_after_cmd_before_arg'})) {
         $line =~ s/^(\s+)//;
         my $spaces_after_command = $1;
-        $current->{'info'} = {} if (!$current->{'info'});
+        $current->{'info'} = {} if (!exists($current->{'info'}));
         $current->{'info'}->{'spaces_after_cmd_before_arg'}
           = Texinfo::TreeElement::new({'text' => $spaces_after_command,
                                   'type' => 'spaces_after_cmd_before_arg'});
@@ -7674,10 +7693,10 @@ sub _process_remaining_on_line($$$$) {
     # warn on not appearing at line beginning.  Need to do before closing
     # paragraph as it also closes the empty line
     my $last_element;
-    if ($current->{'contents'}) {
+    if (exists($current->{'contents'})) {
       $last_element = $current->{'contents'}->[-1];
     }
-    if ((!$last_element or !$last_element->{'type'}
+    if ((!defined($last_element) or !exists($last_element->{'type'})
          or $last_element->{'type'} ne 'empty_line')
         and $begin_line_commands{$command}) {
       _line_warn($self,
@@ -7741,7 +7760,7 @@ sub _process_remaining_on_line($$$$) {
       # we can only be in an ignored format_raw if we are directly in
       # the command, as a rawpreformatted container is immediatly added in a non
       # ignored format_raw.  Followed by a comment
-      if ($current->{'cmdname'}
+      if (exists($current->{'cmdname'})
           and $block_commands{$current->{'cmdname'}}
           and $block_commands{$current->{'cmdname'}} eq 'format_raw') {
         ($line, $source_info)
@@ -7750,7 +7769,7 @@ sub _process_remaining_on_line($$$$) {
       # in a 'raw' verbatim or ignore or ignored conditional followed by
       # a comment
       } elsif ($retval == $GET_A_NEW_LINE
-          and $current->{'cmdname'}
+          and exists($current->{'cmdname'})
           and $block_commands{$current->{'cmdname'}}
           and ($block_commands{$current->{'cmdname'}} eq 'raw'
                or $block_commands{$current->{'cmdname'}} eq 'conditional')) {
@@ -7758,7 +7777,8 @@ sub _process_remaining_on_line($$$$) {
         $retval = $STILL_MORE_TO_PROCESS;
       }
     } elsif (exists($block_commands{$data_cmdname})) {
-      if ($command eq 'macro' or $command eq 'rmacro' or $command eq 'linemacro') {
+      if ($command eq 'macro' or $command eq 'rmacro'
+          or $command eq 'linemacro') {
         $command_element = _parse_macro_command_line($self, $command, $line,
                                                      $current, $source_info);
         push @{$current->{'contents'}}, $command_element;
@@ -7776,7 +7796,7 @@ sub _process_remaining_on_line($$$$) {
     }
 
     if (defined($from_alias) and $command_element) {
-      $command_element->{'info'} = {} if (!$command_element->{'info'});
+      $command_element->{'info'} = {} if (!exists($command_element->{'info'}));
       $command_element->{'info'}->{'alias_of'} = $from_alias;
     }
   } elsif ($open_brace) {
@@ -7784,7 +7804,8 @@ sub _process_remaining_on_line($$$$) {
     ($current, $line)
        = _handle_open_brace($self, $current, $line, $source_info);
     # in @verb. type should be 'brace_container'
-    if ($current->{'parent'} and $current->{'parent'}->{'cmdname'}
+    if (exists($current->{'parent'})
+        and exists($current->{'parent'}->{'cmdname'})
         and $current->{'parent'}->{'cmdname'} eq 'verb') {
       my $char = quotemeta($current->{'parent'}->{'info'}->{'delimiter'});
       while (1) {
@@ -7812,22 +7833,23 @@ sub _process_remaining_on_line($$$$) {
 
   } elsif ($comma) {
     substr ($line, 0, 1) = '';
-    if (($current->{'parent'}
+    if ((exists($current->{'parent'})
          and $current->{'parent'}->{'remaining_args'})
-        or ($current->{'parent'} and $current->{'parent'}->{'parent'}
+        or (exists($current->{'parent'})
+            and exists($current->{'parent'}->{'parent'})
             and $current->{'parent'}->{'parent'}->{'remaining_args'})) {
       ($current, $line, $source_info)
          = _handle_comma($self, $current, $line, $source_info);
-    } elsif ($current->{'type'}
+    } elsif (exists($current->{'type'})
              and $current->{'type'} eq 'line_arg'
              # this avoids detecting the comma in @cindex as being on the
              # node line in the following case:
              # @node some node
              #
              # @cindex a, b
-             and !$current->{'parent'}->{'cmdname'}
-             and $current->{'parent'}->{'parent'}
-             and $current->{'parent'}->{'parent'}->{'cmdname'}
+             and !exists($current->{'parent'}->{'cmdname'})
+             and exists($current->{'parent'}->{'parent'})
+             and exists($current->{'parent'}->{'parent'}->{'cmdname'})
              and $current->{'parent'}->{'parent'}->{'cmdname'} eq 'node') {
       _line_warn($self, __("superfluous arguments for node"), $source_info);
     } else {
@@ -7839,7 +7861,7 @@ sub _process_remaining_on_line($$$$) {
           .Texinfo::Common::debug_print_element($current, 1).": "
            ._debug_protect_eol($line)."\n"
       if ($self->{'conf'}->{'DEBUG'});
-    if ($current->{'type'}
+    if (exists($current->{'type'})
         and $current->{'type'} eq 'paragraph') {
       # A form feed stops and restart a paragraph.
       $current = _close_container($self, $current, $source_info);
@@ -7890,14 +7912,14 @@ sub _process_remaining_on_line($$$$) {
     # we can only be in an ignored format_raw if we are directly in
     # the command, as a rawpreformatted container is immediatly added in a non
     # ignored format_raw
-    if ($current->{'cmdname'}
+    if (exists($current->{'cmdname'})
         and $block_commands{$current->{'cmdname'}}
         and $block_commands{$current->{'cmdname'}} eq 'format_raw') {
       ($line, $source_info)
          = _process_ignored_raw_format_block_contents($self, $current);
     # in a 'raw' verbatim or ignore or ignored conditional followed by an
     # end of line
-    } elsif ($current->{'cmdname'}
+    } elsif (exists($current->{'cmdname'})
              and $block_commands{$current->{'cmdname'}}
              and ($block_commands{$current->{'cmdname'}} eq 'raw'
                   or $block_commands{$current->{'cmdname'}} eq 'conditional')) {
@@ -7986,8 +8008,8 @@ sub _parse_texi($$$) {
         # If we are after an opening brace or comma or after an empty
         # string, there won't be any more output to abort those unfinished
         # constructs, so we call abort_empty_line here
-        if (not ($current->{'contents'}
-                 and $current->{'contents'}->[-1]->{'type'}
+        if (not (exists($current->{'contents'})
+                 and exists($current->{'contents'}->[-1]->{'type'})
                  and $current->{'contents'}->[-1]->{'type'} eq 'empty_line'
                  and $current->{'contents'}->[-1]->{'text'} ne '')) {
           _abort_empty_line($self, $current);
@@ -8045,13 +8067,13 @@ sub _parse_texi($$$) {
   # check that there is only one empty input remaining and remove
   # it such that it is not re-used by following parser calls.
   my $empty_last_input = shift(@{$self->{'input'}});
-  if ($empty_last_input->{'th'} or $empty_last_input->{'fh'}
-      or $empty_last_input->{'source_mark'}
+  if (exists($empty_last_input->{'th'}) or exists($empty_last_input->{'fh'})
+      or exists($empty_last_input->{'source_mark'})
       or scalar(@{$self->{'input'}})) {
     my $msg = '';
-    $msg .= 'th set, ' if ($empty_last_input->{'th'});
-    $msg .= 'fh set, ' if ($empty_last_input->{'fh'});
-    $msg .= 'mark, ' if ($empty_last_input->{'source_mark'});
+    $msg .= 'th set, ' if (exists($empty_last_input->{'th'}));
+    $msg .= 'fh set, ' if (exists($empty_last_input->{'fh'}));
+    $msg .= 'mark, ' if (exists($empty_last_input->{'source_mark'}));
     $msg .= scalar(@{$self->{'input'}}).' input, '
       if (scalar(@{$self->{'input'}}));
 
@@ -8060,9 +8082,9 @@ sub _parse_texi($$$) {
   }
 
   # update merged_in for merging hapening after first index merge
-  foreach my $index_name (keys (%{$document->{'indices'}})) {
+  foreach my $index_name (keys(%{$document->{'indices'}})) {
     my $index_info = $document->{'indices'}->{$index_name};
-    if ($index_info->{'merged_in'}) {
+    if (exists($index_info->{'merged_in'})) {
       my $ultimate_idx
            = Texinfo::Common::ultimate_index($document->{'indices'},
                                                          $index_info);
@@ -8126,7 +8148,7 @@ sub _parse_rawline_command($$$$) {
     if ($line =~ /^\s+([[:alnum:]][[:alnum:]\-]*)\s*(\@(comment|c)((\@|\s+).*)?)?$/) {
       my $arg = $1;
       $args = [$arg];
-      delete $self->{'macros'}->{$1};
+      delete $self->{'macros'}->{$arg};
       $comment_text = $2 if (defined($3));
       print STDERR "UNMACRO $arg\n" if ($self->{'conf'}->{'DEBUG'});
     } elsif ($line !~ /\S/) {
@@ -8140,7 +8162,7 @@ sub _parse_rawline_command($$$$) {
     if ($line =~ /^\s*@([[:alnum:]][[:alnum:]\-]*)(\{\})?\s*/) {
       $args = ['@'.$1];
       my $as_existing_command = $1;
-      #handle as if @alias click=$1 had been given
+      # handle as if @alias click=$1 had been given
       if (exists($self->{'aliases'}->{$as_existing_command})
           and $self->{'aliases'}->{$as_existing_command} ne 'click') {
         $as_existing_command = $self->{'aliases'}->{$as_existing_command};
@@ -8183,20 +8205,6 @@ sub _parse_line_command_args($$$) {
   } else {
     $line_arg = $line_command->{'contents'}->[0];
   }
-
-  # Not in XS parser.  Could be added if deemded interesting, but
-  # arguments are already checked below.
-  #if ($self->{'conf'}->{'DEBUG'}) {
-  #  print STDERR "MISC ARGS \@$command\n";
-  #  if ($arg->{'contents'}) {
-  #    my $idx = 0;
-  #    foreach my $content (@{$arg->{'contents'}}) {
-  #      print STDERR "   -> $idx "
-  #         .Texinfo::Common::debug_print_element($content, 0)."\n";
-  #      $idx++;
-  #    }
-  #  }
-  #}
 
   if (!$line_arg->{'contents'}) {
     _command_error($self, $line_command,
@@ -8247,9 +8255,9 @@ sub _parse_line_command_args($$$) {
 
   } elsif ($command eq 'definfoenclose') {
     # REMACRO
-    # NOTE Non-ascii space is considered as argument here
     if ($self->{'conf'}->{'NO_USER_COMMANDS'}) {
       # do nothing
+    # NOTE Non-ascii space is considered as argument here
     } elsif ($line =~ s/^([[:alnum:]][[:alnum:]\-]*)\s*,\s*([^\s,]*)\s*,\s*([^\s,]*)$//) {
       $args = [$1, $2, $3 ];
       my ($cmd_name, $begin, $end) = ($1, $2, $3);
@@ -8361,11 +8369,11 @@ sub _parse_line_command_args($$$) {
         my $index_to = $document->{'indices'}->{$index_name_to};
         _line_error($self, sprintf(__("unknown source index in \@%s: %s"),
                                    $command, $index_name_from), $source_info)
-          unless $index_from;
+          unless (defined($index_from));
         _line_error($self, sprintf(__("unknown destination index in \@%s: %s"),
                                    $command, $index_name_to), $source_info)
-          unless $index_to;
-        if ($index_from and $index_to) {
+          unless (defined($index_to));
+        if (defined($index_from) and defined($index_to)) {
           my $current_to
                = Texinfo::Common::ultimate_index($document->{'indices'},
                                                          $index_to);
@@ -8399,7 +8407,7 @@ sub _parse_line_command_args($$$) {
                                     $name), $source_info);
       } else {
         my $idx = $document->{'indices'}->{$name};
-        if ($idx->{'merged_in'}) {
+        if (exists($idx->{'merged_in'})) {
           my $ultimate_idx
             = Texinfo::Common::ultimate_index($document->{'indices'}, $idx);
           _line_warn($self, sprintf(__(

@@ -820,17 +820,18 @@ sub block_line_argument_command($)
 {
   my $block_line_arg = shift;
 
-  if ($block_line_arg->{'contents'}
+  if (exists($block_line_arg->{'contents'})
       and scalar(@{$block_line_arg->{'contents'}}) == 1) {
     my $arg = $block_line_arg->{'contents'}->[0];
-    if ($arg->{'cmdname'}
-        and (!$arg->{'contents'} or !scalar(@{$arg->{'contents'}})
+    if (exists($arg->{'cmdname'})
+        and (!exists($arg->{'contents'})
              or (scalar(@{$arg->{'contents'}}) == 1
-                 and !$arg->{'contents'}->[0]->{'contents'}))) {
+                 and !exists($arg->{'contents'}->[0]->{'contents'})))) {
       my $cmdname = $arg->{'cmdname'};
       if (($Texinfo::Commands::brace_commands{$cmdname}
            and !$Texinfo::Commands::accent_commands{$cmdname})
-          or ($arg->{'type'} and $arg->{'type'} eq 'definfoenclose_command')) {
+          or (exists($arg->{'type'})
+              and $arg->{'type'} eq 'definfoenclose_command')) {
         return $arg;
       }
     }
@@ -847,7 +848,7 @@ sub itemize_line_prepended_element($)
   my $arg = block_line_argument_command($block_line_arg);
   if ($arg) {
     return $arg;
-  } elsif (!$block_line_arg->{'contents'}) {
+  } elsif (!exists($block_line_arg->{'contents'})) {
     return $default_bullet_command;
   } else {
     return $block_line_arg;
@@ -876,7 +877,7 @@ sub item_line_block_line_argument_command($)
     my $brace_category = $Texinfo::Commands::brace_commands{$arg->{'cmdname'}};
     # $Texinfo::Commands::brace_commands{} is undef
     # for definfoenclose'd commands
-    if ($brace_category and $brace_category eq 'noarg') {
+    if (defined($brace_category) and $brace_category eq 'noarg') {
       $arg = undef;
     }
   }
