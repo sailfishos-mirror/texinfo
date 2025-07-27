@@ -1,5 +1,10 @@
 2025-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Makefile.am: Add Texinfo/HTMLDataCSS.pm to
+	and dist_modules_DATA and MAINTAINERCLEANFILES.
+
+2025-07-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Add maintain/generate_css_data.pl
 
 	* tta/maintain/generate_css_data.pl: New.  Generate source code

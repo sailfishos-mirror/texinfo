@@ -81,6 +81,7 @@ dist_modules_DATA = \
  Texinfo/CommandsValues.pm \
  Texinfo/CommandsValues.pod \
  Texinfo/HTMLData.pm \
+ Texinfo/HTMLDataCSS.pm \
  Texinfo/DebugTree.pm \
  Texinfo/Document.pm \
  Texinfo/DocumentXS.pm \
@@ -414,4 +415,5 @@ distclean-local:
 
 CLEANFILES = texi2any makeinfo load_txi_modules Texinfo/ModulePath.pm
 MAINTAINERCLEANFILES = Texinfo/Commands.pm Texinfo/CommandsValues.pm \
-                       Texinfo/HTMLData.pm Texinfo/Options.pm
+                       Texinfo/HTMLData.pm Texinfo/HTMLDataCSS.pm \
+                       Texinfo/Options.pm
