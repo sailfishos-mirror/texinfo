@@ -3167,7 +3167,7 @@ sub _isolate_trailing_space($$) {
         $last_element->{'type'} = $spaces_type;
       } else {
         my $new_space_element = _isolate_trailing_spaces_element($last_element);
-        if ($new_space_element) {
+        if (defined($new_space_element)) {
           $new_space_element->{'type'} = $spaces_type;
           $new_space_element->{'parent'} = $current;
           push @{$current->{'contents'}}, $new_space_element;
@@ -3234,7 +3234,7 @@ sub _isolate_last_space($$) {
         my $new_space_element
           = _isolate_trailing_spaces_element($last_element,
                                              'spaces_after_argument');
-        if ($new_space_element) {
+        if (defined($new_space_element)) {
           $current->{'info'} = {} if (!exists($current->{'info'}));
           $current->{'info'}->{'spaces_after_argument'} = $new_space_element;
         } else {
@@ -3273,12 +3273,7 @@ sub _split_delimiters($$$$) {
     my $type;
     my $chars = quotemeta '[](),';
     my $text = $root->{'text'};
-    my $remaining_source_marks;
     my $current_position = 0;
-    if ($root->{'source_marks'}) {
-      $remaining_source_marks = [@{$root->{'source_marks'}}];
-      delete $root->{'source_marks'};
-    }
     while (1) {
       if ($text =~ s/^([^$chars]+)//) {
         my $new = Texinfo::TreeElement::new({'type' => 'def_line_arg',
@@ -3287,25 +3282,29 @@ sub _split_delimiters($$$$) {
              Texinfo::TreeElement::new({'text' => $1, 'parent' => $new})];
         push @elements, $new;
         $current_position = Texinfo::Common::relocate_source_marks(
-                              $remaining_source_marks, $new->{'contents'}->[0],
+                              $root->{'source_marks'}, $new->{'contents'}->[0],
                               $current_position, length($1));
       } elsif ($text =~ s/^([$chars])//) {
         push @elements,
           Texinfo::TreeElement::new({'text' => $1, 'type' => 'delimiter',
                                      'parent' => $root->{'parent'}});
         $current_position = Texinfo::Common::relocate_source_marks(
-                                 $remaining_source_marks, $elements[-1],
+                                 $root->{'source_marks'}, $elements[-1],
                                  $current_position, length($1));
       } else {
         last;
       }
     }
-    if ($remaining_source_marks and scalar(@$remaining_source_marks)) {
-      my $source_marks_str
-       = join ('|', map {_debug_show_source_mark($_)} (@$remaining_source_marks));
-      _bug_message($self,
+    if (defined($root->{'source_marks'})) {
+      if (scalar(@{$root->{'source_marks'}})) {
+        my $source_marks_str
+          = join ('|', map {_debug_show_source_mark($_)}
+             (@{$root->{'source_marks'}}));
+        _bug_message($self,
           "Remaining source mark in _split_delimiters: $source_marks_str",
                           $source_info, $current);
+      }
+      $root->{'source_marks'} = undef;
     }
     return @elements;
   }
@@ -3326,16 +3325,11 @@ sub _split_def_args($$$$) {
     if ($split_text[0] =~ /^\s*$/) {
       $type = 'spaces';
     }
-    my $remaining_source_marks;
     my $current_position = 0;
-    if ($root->{'source_marks'}) {
-      $remaining_source_marks = [@{$root->{'source_marks'}}];
-      $root->{'source_marks'} = undef;
-    }
     foreach my $t (@split_text) {
       my $e = Texinfo::TreeElement::new({'text' => $t});
       $current_position = Texinfo::Common::relocate_source_marks(
-                               $remaining_source_marks, $e,
+                               $root->{'source_marks'}, $e,
                                $current_position, length($t));
       if ($type) {
         $e->{'type'} = $type;
@@ -3346,12 +3340,16 @@ sub _split_def_args($$$$) {
       $e->{'parent'} = $root->{'parent'};
       push @elements, $e;
     }
-    if ($remaining_source_marks and scalar(@$remaining_source_marks)) {
-      my $source_marks_str
-       = join ('|', map {_debug_show_source_mark($_)} @$remaining_source_marks);
-      _bug_message($self,
+    if (defined($root->{'source_marks'})) {
+      if (scalar(@{$root->{'source_marks'}})) {
+        my $source_marks_str
+         = join ('|', map {_debug_show_source_mark($_)}
+                      @{$root->{'source_marks'}});
+        _bug_message($self,
           "Remaining source mark in _split_def_args: $source_marks_str",
                           $source_info, $current);
+      }
+      $root->{'source_marks'} = undef;
     }
     return @elements;
   } elsif ($root->{'type'} and $root->{'type'} eq 'bracketed_arg') {
