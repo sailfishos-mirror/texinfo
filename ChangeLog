@@ -1,5 +1,18 @@
 2025-07-27 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_split_element_delimiters)
+	(_split_element_def_args): rename _split_delimiters as
+	_split_element_delimiters and _split_def_args as
+	_split_element_def_args to make clear that these functions do
+	something different from the C functions.
+	Use parent instead of passing it as argument. 
+	Fix a wrong parent.
+	Rename $root as $element.
+	Undef explicitly element when it is not used anymore to clarify the
+	code (and maybe help release/reuse memory).
+
+2025-07-27 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm (_split_delimiters)
 	(_split_def_args): use directly element source marks.
 

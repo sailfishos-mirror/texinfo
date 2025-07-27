@@ -3255,73 +3255,76 @@ sub _isolate_last_space($$) {
 
 # split non-space text elements into strings without [ ] ( ) , and single
 # character strings with one of them
-sub _split_delimiters($$$$) {
-  my ($self, $root, $current, $source_info) = @_;
+sub _split_element_delimiters($$$) {
+  my ($self, $element, $source_info) = @_;
 
-  if ($root->{'type'}
-      and ($root->{'type'} eq 'spaces' or $root->{'type'} eq 'bracketed_arg')) {
-    return $root;
-  } elsif (!defined($root->{'text'})) {
+  if ($element->{'type'}
+      and ($element->{'type'} eq 'spaces'
+           or $element->{'type'} eq 'bracketed_arg')) {
+    return $element;
+  } elsif (!defined($element->{'text'})) {
     my $new
       = Texinfo::TreeElement::new({'type' => 'def_line_arg',
-                                   'parent' => $current,
-                                   'contents' => [$root]});
-    $root->{'parent'} = $current;
+                                   'parent' => $element->{'parent'},
+                                   'contents' => [$element]});
+    $element->{'parent'} = $new;
     return $new;
   } else {
     my @elements;
     my $type;
     my $chars = quotemeta '[](),';
-    my $text = $root->{'text'};
+    my $text = $element->{'text'};
     my $current_position = 0;
     while (1) {
       if ($text =~ s/^([^$chars]+)//) {
         my $new = Texinfo::TreeElement::new({'type' => 'def_line_arg',
-                                           'parent' => $root->{'parent'}});
+                                           'parent' => $element->{'parent'}});
         $new->{'contents'} = [
              Texinfo::TreeElement::new({'text' => $1, 'parent' => $new})];
         push @elements, $new;
         $current_position = Texinfo::Common::relocate_source_marks(
-                              $root->{'source_marks'}, $new->{'contents'}->[0],
+                              $element->{'source_marks'},
+                              $new->{'contents'}->[0],
                               $current_position, length($1));
       } elsif ($text =~ s/^([$chars])//) {
         push @elements,
           Texinfo::TreeElement::new({'text' => $1, 'type' => 'delimiter',
-                                     'parent' => $root->{'parent'}});
+                                     'parent' => $element->{'parent'}});
         $current_position = Texinfo::Common::relocate_source_marks(
-                                 $root->{'source_marks'}, $elements[-1],
+                                 $element->{'source_marks'}, $elements[-1],
                                  $current_position, length($1));
       } else {
         last;
       }
     }
-    if (defined($root->{'source_marks'})) {
-      if (scalar(@{$root->{'source_marks'}})) {
+    if (defined($element->{'source_marks'})) {
+      if (scalar(@{$element->{'source_marks'}})) {
         my $source_marks_str
           = join ('|', map {_debug_show_source_mark($_)}
-             (@{$root->{'source_marks'}}));
+             (@{$element->{'source_marks'}}));
         _bug_message($self,
-          "Remaining source mark in _split_delimiters: $source_marks_str",
-                          $source_info, $current);
+  "Remaining source mark in _split_element_delimiters: $source_marks_str",
+                          $source_info, $element->{'parent'});
       }
-      $root->{'source_marks'} = undef;
+      $element->{'source_marks'} = undef;
     }
+    $element = undef;
     return @elements;
   }
 }
 
 # split text elements into whitespace and non-whitespace
-sub _split_def_args($$$$) {
-  my ($self, $root, $current, $source_info) = @_;
+sub _split_element_def_args($$$) {
+  my ($self, $element, $source_info) = @_;
 
-  if ($root->{'type'} and $root->{'type'} eq 'spaces'
-      and $root->{'info'} and $root->{'info'}->{'inserted'}) {
-    return $root;
-  } elsif (defined($root->{'text'})) {
+  if ($element->{'type'} and $element->{'type'} eq 'spaces'
+      and $element->{'info'} and $element->{'info'}->{'inserted'}) {
+    return $element;
+  } elsif (defined($element->{'text'})) {
     my @elements;
     my $type;
     # NOTE Non-ascii space is considered as argument here
-    my @split_text = split /(?<=\s)(?=\S)|(?<=\S)(?=\s)/, $root->{'text'};
+    my @split_text = split /(?<=\s)(?=\S)|(?<=\S)(?=\s)/, $element->{'text'};
     if ($split_text[0] =~ /^\s*$/) {
       $type = 'spaces';
     }
@@ -3329,7 +3332,7 @@ sub _split_def_args($$$$) {
     foreach my $t (@split_text) {
       my $e = Texinfo::TreeElement::new({'text' => $t});
       $current_position = Texinfo::Common::relocate_source_marks(
-                               $root->{'source_marks'}, $e,
+                               $element->{'source_marks'}, $e,
                                $current_position, length($t));
       if ($type) {
         $e->{'type'} = $type;
@@ -3337,25 +3340,26 @@ sub _split_def_args($$$$) {
       } else {
         $type = 'spaces';
       }
-      $e->{'parent'} = $root->{'parent'};
+      $e->{'parent'} = $element->{'parent'};
       push @elements, $e;
     }
-    if (defined($root->{'source_marks'})) {
-      if (scalar(@{$root->{'source_marks'}})) {
+    if (defined($element->{'source_marks'})) {
+      if (scalar(@{$element->{'source_marks'}})) {
         my $source_marks_str
          = join ('|', map {_debug_show_source_mark($_)}
-                      @{$root->{'source_marks'}});
+                      @{$element->{'source_marks'}});
         _bug_message($self,
-          "Remaining source mark in _split_def_args: $source_marks_str",
-                          $source_info, $current);
+          "Remaining source mark in _split_element_def_args: $source_marks_str",
+                          $source_info, $element->{'parent'});
       }
-      $root->{'source_marks'} = undef;
+      $element->{'source_marks'} = undef;
     }
+    $element = undef;
     return @elements;
-  } elsif ($root->{'type'} and $root->{'type'} eq 'bracketed_arg') {
-    _isolate_last_space($self, $root);
+  } elsif ($element->{'type'} and $element->{'type'} eq 'bracketed_arg') {
+    _isolate_last_space($self, $element);
   }
-  return $root;
+  return $element;
 }
 
 # the index is set past the gathered or aggregated element.
@@ -3471,7 +3475,7 @@ sub _parse_def($$$$) {
   # to take args), everything happens as if arg_type was set to 'arg'.
   $arg_types_nr = scalar(@args);
 
-  @contents = map (_split_def_args($self, $_, $current, $source_info),
+  @contents = map (_split_element_def_args($self, $_, $source_info),
                    @contents );
   @new_contents = @contents;
 
@@ -3502,7 +3506,7 @@ sub _parse_def($$$$) {
     $current->{'contents'}->[0]->{'info'} = {'inserted' => 1};
   }
 
-  my @args_results = map (_split_delimiters($self, $_, $current, $source_info),
+  my @args_results = map (_split_element_delimiters($self, $_, $source_info),
                           splice(@{$current->{'contents'}}, $contents_idx,
                                  scalar(@{$current->{'contents'}}) - $contents_idx));
 
