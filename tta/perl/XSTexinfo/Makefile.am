@@ -209,11 +209,9 @@ CLEANFILES += reader_element/ReaderXS.c
 EXTRA_DIST += reader_element/ReaderXS.xs
 
 # locate include files under out-of-source builds.
-#ReaderXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
 ReaderXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
 ReaderXS_la_CFLAGS = $(XSLIBS_CFLAGS)
-ReaderXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(platform_PERL_LIBADD)
-#ReaderXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+ReaderXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 ReaderXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## IndicesXS
