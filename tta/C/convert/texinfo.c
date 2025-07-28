@@ -84,9 +84,10 @@ txi_find_tree_transformation (const char *transformation_name)
   return 0;
 }
 
-/* to be called before loading init files to get the opportunity to
-   start an embedded interpreter, and also do the basic initialization
-   if not done through the interpreter */
+/* Start an embedded interpreter or initialize an existing interpreter,
+   or do the basic initialization if not done through an interpreter.
+   To be called before loading init files.
+ */
 void
 txi_setup_main_load_interpreter (int use_interpreter,
                       int texinfo_uninstalled,
@@ -132,7 +133,9 @@ txi_setup_main_load_interpreter (int use_interpreter,
       free (load_modules_path);
     }
   else if (use_interpreter > 0)
-    {
+    {/* assume that there is already a Perl interpreter loaded, but the
+        texi2any Perl modules are not loaded and load some modules.
+        Used from the Perl SWIG interface */
       call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
                                       updirs, converterdatadir,
                                       converterlibdir);

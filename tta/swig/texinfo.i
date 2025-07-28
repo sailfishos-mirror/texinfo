@@ -57,10 +57,10 @@ txi_general_output_strings_setup (0);
 reset_parser (0);
 %}
 
-// if embed_perl is negative (the default value), the value set at compile
-// time for Perl embedding with EMBED_PERL is used.
+// if use_interpreter is negative (the default value), the value set
+// at compile is used.
 void
-setup (int texinfo_uninstalled=0, int embed_perl=-1, int updirs=3,
+setup (int texinfo_uninstalled=0, int use_interpreter=-1, int updirs=3,
        const char *converterdatadir_in=0,
        const char *converterlibdir_in=0,
        const char *t2a_builddir_in=0,
@@ -68,7 +68,7 @@ setup (int texinfo_uninstalled=0, int embed_perl=-1, int updirs=3,
 
 %{
 void
-setup (int texinfo_uninstalled, int embed_perl, int updirs,
+setup (int texinfo_uninstalled, int use_interpreter, int updirs,
        const char *converterdatadir_in,
        const char *converterlibdir_in,
        const char *t2a_builddir_in,
@@ -79,13 +79,16 @@ setup (int texinfo_uninstalled, int embed_perl, int updirs,
   char *t2a_builddir = 0;
   const char *converterdatadir;
   const char *converterlibdir;
-  int do_embed_perl = 0;
+  int do_use_interpreter = 0;
 #ifdef EMBED_PERL
-  do_embed_perl = 1;
+  do_use_interpreter = 1;
+#endif
+#ifdef USE_PERL_INTERPRETER
+  do_use_interpreter = 2;
 #endif
 
-  if (embed_perl >= 0)
-    do_embed_perl = embed_perl;
+  if (use_interpreter >= 0)
+    do_use_interpreter = use_interpreter;
 
   if (texinfo_uninstalled)
     {
@@ -129,7 +132,7 @@ setup (int texinfo_uninstalled, int embed_perl, int updirs,
   else
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
-  txi_setup_main_load_interpreter (do_embed_perl, texinfo_uninstalled,
+  txi_setup_main_load_interpreter (do_use_interpreter, texinfo_uninstalled,
                                    converterdatadir, converterlibdir,
                                    t2a_builddir, t2a_srcdir, updirs,
                                    0, 0, 0,

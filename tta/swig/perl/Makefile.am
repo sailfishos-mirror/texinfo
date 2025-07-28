@@ -20,10 +20,10 @@ AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DLIBDIR=\"$(libdir)\" \
 # mess up the Perl stack).  According to perlembed documentation, it could be
 # possible to have two perl interpreters running, but the example only shows
 # interpreters that the C code embedding Perl has control over.
+#
+# Instead, use the existing Perl interpreter.
 
-#if PERL_EMBEDDED
-#AM_CPPFLAGS += -DEMBED_PERL
-#endif
+AM_CPPFLAGS += -DUSE_PERL_INTERPRETER
 
 txi_libs_srcdir = $(srcdir)/../../C
 

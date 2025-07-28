@@ -37,6 +37,8 @@ use Test::More;
  
 plan tests => 2;
  
+# Load texi2any Perl modules
+# to find Texinfo::ModulePath in build directory
 use lib '../../perl/';
 use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 use Texinfo::Parser;
@@ -44,11 +46,11 @@ use Texinfo::Document;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Common;
 
-
+# load SWIG interface Perl module
 use _Texinfo_Tests;
 use Texinfo;
  
-Texinfo::setup(1, 2);
+Texinfo::setup(1);
 
 # first two blocks based on t/z_misc/test_sort.t 
 my $index_entries = '

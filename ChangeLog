@@ -1,5 +1,14 @@
 2025-07-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (AM_CPPFLAGS), tta/swig/texinfo.i (setup),
+	tta/swig/perl/t/20index_sort.t: set the compile-time default for the
+	Perl SWIG Interface to use an existing interpreter, by setting the
+	USE_PERL_INTERPRETER define.
+
+	* tta/swig/texinfo.i (setup): rename *embed_perl as *use_interpreter.
+
+2025-07-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/_Texinfo_Tests.pm: add Texinfo as a link from
 	.libs/auto to .libs, such that with .libs in @INC, XSLoader finds the
 	Texinfo.so object file.
