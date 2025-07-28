@@ -12,7 +12,8 @@
 # Perl headers.
 # NOTE a disadvantage of passing defines through flags and not through a file
 # is that a change in value does not trigger remaking the output file.
-AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
+AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DLIBDIR=\"$(libdir)\" \
+       -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
        -DPACKAGE_VERSION_CONFIG=\"$(PACKAGE_VERSION)\"
 
 # Never embed a perl interpreter as there is already one running (tested to
@@ -65,7 +66,9 @@ AM_T_LOG_FLAGS = -w
 
 AM_TESTS_ENVIRONMENT = srcdir="$(srcdir)"; export srcdir; t2a_srcdir="$(top_srcdir)"; export t2a_srcdir; t2a_builddir="$(top_builddir)"; export t2a_builddir;
 
-t_test_files = t/30source_marks.t \
+t_test_files = \
+   t/20index_sort.t \
+   t/30source_marks.t \
    t/40convert_to_text.t
 
 scripts_test_files = \

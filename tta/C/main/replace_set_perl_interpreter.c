@@ -20,12 +20,12 @@
 
 /* in xs_utils.h */
 void
-set_no_perl_interpreter (int value)
+set_use_perl_interpreter (int value)
 {
 }
 
 int
-get_no_perl_interpreter (void)
+get_use_perl_interpreter (void)
 {
-  return 1;
+  return 0;
 }

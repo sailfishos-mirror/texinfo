@@ -108,3 +108,10 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
   return result;
 }
 
+int
+call_eval_load_texinfo_modules (int texinfo_uninstalled,
+          const char *t2a_builddir, int updirs, const char *converterdatadir,
+          const char *converterlibdir)
+{
+  return 0;
+}

@@ -53,9 +53,10 @@
 #include "convert_utils.h"
 #include "converter.h"
 #include "html_converter_api.h"
+#include "call_perl_function.h"
 #include "call_conversion_perl.h"
 #include "call_embed_perl.h"
-/* set_no_perl_interpreter */
+/* set_use_perl_interpreter */
 #include "xs_utils.h"
 #include "api_to_perl.h"
 #include "texinfo.h"
@@ -87,16 +88,17 @@ txi_find_tree_transformation (const char *transformation_name)
    start an embedded interpreter, and also do the basic initialization
    if not done through the interpreter */
 void
-txi_setup_main_load_interpreter (int embedded_interpreter,
+txi_setup_main_load_interpreter (int use_interpreter,
                       int texinfo_uninstalled,
                       const char *converterdatadir,
+                      const char *converterlibdir,
                       const char *t2a_builddir,
-                      const char *t2a_srcdir,
+                      const char *t2a_srcdir, int updirs,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
                       const char *version_checked)
 {
   const char *load_txi_modules_basename = "load_txi_modules";
-  if (embedded_interpreter)
+  if (use_interpreter == 1)
     {
       char *load_modules_path;
       int status;
@@ -121,13 +123,20 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
       else if (status < 0)
         {
           fprintf (stderr, "WARNING: no interpreter embedding code built\n");
-          /* no need to call set_no_perl_interpreter, it is the default in
+          /* no need to call set_use_perl_interpreter 0, it is the default in
              that case */
           messages_and_encodings_setup ();
           setup_texinfo_main (texinfo_uninstalled, converterdatadir,
                               t2a_builddir, t2a_srcdir);
         }
       free (load_modules_path);
+    }
+  else if (use_interpreter > 0)
+    {
+      call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
+                                      updirs, converterdatadir,
+                                      converterlibdir);
+      set_use_perl_interpreter (use_interpreter);
     }
   else
     {
@@ -139,7 +148,7 @@ txi_setup_main_load_interpreter (int embedded_interpreter,
       setup_texinfo_main (texinfo_uninstalled, converterdatadir,
                           t2a_builddir, t2a_srcdir);
 
-      set_no_perl_interpreter (1);
+      set_use_perl_interpreter (0);
     }
 }
 

@@ -26,7 +26,7 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "document_types.h"
-/* non_perl_* */
+/* non_perl_* get_use_perl_interpreter */
 #include "xs_utils.h"
 #include "call_perl_function.h"
 
@@ -72,7 +72,7 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text,
 
   /* this happens if the customization variable TEST is set while there
      is no embedded Perl */
-  if (get_no_perl_interpreter ())
+  if (get_use_perl_interpreter () <= 0)
     return 0;
 
   dSP;
@@ -123,7 +123,7 @@ call_translations_translate_string (const char *string, const char *in_lang,
 
   /* this happens if USE_LIBINTL_PERL_IN_XS is set while there is no
      embedded Perl */
-  if (get_no_perl_interpreter ())
+  if (get_use_perl_interpreter () <= 0)
     return 0;
 
   dSP;
@@ -171,7 +171,7 @@ call_setup_collator (int use_unicode_collation, const char *locale_lang)
 
   /* this happens if XS_STRXFRM_COLLATION_LOCALE=undef while there is
      no embedded Perl */
-  if (get_no_perl_interpreter ())
+  if (get_use_perl_interpreter () <= 0)
     return 0;
 
   dSP;
@@ -257,4 +257,111 @@ call_collator_getSortKey (const void *collator_sv, const char *string)
 
   return result;
 }
+
+/* Used to load the Texinfo modules similar to texi2any.pl or
+   load_txi_modules.pl, but trimmed down and from C.  This is used
+   from the SWIG Perl interface to allow calls to Perl functions from C */
+
+static void
+call_modulepath_init (int updirs, const char *lib_dir,
+                      const char *converterxsdir, const char *converterdatadir)
+{
+  int count;
+
+  dTHX;
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 5);
+
+  /* call to Modulepath init for the in-build case */
+  if (updirs >= 0)
+    {
+      PUSHs(newSV (0));
+      PUSHs(newSV (0));
+      PUSHs(newSV (0));
+      PUSHs(sv_2mortal (newSVpv ("updirs", 0)));
+      PUSHs(sv_2mortal (newSViv (updirs)));
+    }
+  else
+    {
+      /* call to Modulepath init for the installed modules case */
+      PUSHs(sv_2mortal (newSVpv_byte (lib_dir, 0)));
+      PUSHs(sv_2mortal (newSVpv_byte (converterxsdir, 0)));
+      PUSHs(sv_2mortal (newSVpv_byte (converterdatadir, 0)));
+      PUSHs(sv_2mortal (newSVpv ("installed", 0)));
+      PUSHs(sv_2mortal (newSViv (1)));
+    }
+  PUTBACK;
+
+  count = call_pv ("Texinfo::ModulePath::init",
+                   G_DISCARD|G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 0)
+    croak ("ModulePath init should return 0 item\n");
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+}
+
+/* Initializations similar to those in texi2any.pl or load_txi_modules.pl
+   but simplified, as we want to initialize only the modules called from
+   litexinfo. */
+int
+call_eval_load_texinfo_modules (int texinfo_uninstalled,
+          const char *t2a_builddir, int updirs, const char *converterdatadir,
+          const char *converterlibdir)
+{
+  SV *sv_inc_str;
+  char *str;
+  AV *INC;
+
+  dTHX;
+
+  INC = get_av ("INC", 0);
+
+  if (!INC)
+    return 0;
+
+  av_unshift (INC, 1);
+
+  if (texinfo_uninstalled)
+    sv_inc_str = newSVpvf("%s/perl", t2a_builddir);
+  else
+    sv_inc_str = newSVpv_byte(converterdatadir, 0);
+  av_store (INC, 0, sv_inc_str);
+
+  str = "require Texinfo::ModulePath;\n";
+
+  eval_pv (str, TRUE);
+
+  if (texinfo_uninstalled)
+    call_modulepath_init (updirs, 0, 0, 0);
+  else
+    call_modulepath_init (-1, converterdatadir, converterlibdir,
+                          converterdatadir);
+
+  str = "use Texinfo::Document;\n"
+        "use Texinfo::Translations;\n"
+        "use Texinfo::Convert::NodeNameNormalization;\n"
+        "use Texinfo::Indices;\n";
+  eval_pv (str, TRUE);
+
+  /* TODO add more from load_txi_modules.pl, such as loading messages
+     for error messages translation and loading translated strings
+     from LocaleData?
+     Should be done when it is possible to test.
+   */
+
+  return 1;
+}
+
 

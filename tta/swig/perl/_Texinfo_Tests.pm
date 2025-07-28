@@ -41,7 +41,19 @@ if (!defined($t2a_builddir) and defined($srcdir)) {
   $t2a_builddir = join('/', ($srcdir, $updir, $updir));
 }
 if (defined($t2a_builddir)) {
-  unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+  my $xsdir = join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+  unshift @INC, $xsdir;
+  # XSLoader searches in auto/Texinfo, so make a symlink from
+  # auto/Texinfo to ../ to get back to .libs
+  my $autodir = join('/', ($xsdir, 'auto'));
+  if (!-d $autodir) {
+    mkdir ($autodir) or die "Failed to mkdir $autodir: $!\n";;
+  }
+  my $loaddir = join('/', ($autodir, 'Texinfo'));
+  if (-e $loaddir) {
+    unlink($loaddir) or die "Failed to remove file $loaddir: $!\n";
+  }
+  symlink($updir, $loaddir);
 }
 
 eval { require Text::Diff; Text::Diff->import('diff'); };

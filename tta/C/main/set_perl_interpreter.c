@@ -15,17 +15,22 @@
 
 #include "xs_utils.h"
 
+/* there is a separate file for two functions only to be able to replace
+   the functions by replacing the file in case building XS extensions
+   is disabled.
+ */
+
 /* to set if Perl code is compiled in, but there is no Perl interpreter */
-static int no_perl_interpreter = 0;
+static int use_perl_interpreter = 0;
 
 void
-set_no_perl_interpreter (int value)
+set_use_perl_interpreter (int value)
 {
-  no_perl_interpreter = value;
+  use_perl_interpreter = value;
 }
 
 int
-get_no_perl_interpreter (void)
+get_use_perl_interpreter (void)
 {
-  return no_perl_interpreter;
+  return use_perl_interpreter;
 }

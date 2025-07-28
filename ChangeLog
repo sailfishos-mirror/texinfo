@@ -1,3 +1,36 @@
+2025-07-28 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/swig/perl/_Texinfo_Tests.pm: add Texinfo as a link from
+	.libs/auto to .libs, such that with .libs in @INC, XSLoader finds the
+	Texinfo.so object file.
+
+	* tta/C/main/replace_set_perl_interpreter.c,
+	tta/C/main/set_perl_interpreter.c (set_use_perl_interpreter)
+	(get_use_perl_interpreter): change the logic, by having a positive
+	value if a Perl interpreter is present.  Rename
+	get_no_perl_interpreter as get_use_perl_interpreter and
+	set_no_perl_interpreter as set_use_perl_interpreter.  Update callers.
+
+	* tta/C/main/call_perl_function.c (call_modulepath_init)
+	(call_eval_load_texinfo_modules): add a function to add to @INC, call
+	Texinfo::ModulePath::init and load Texinfo texi2any Perl modules.
+	Similar to texi2any.pl or load_txi_modules.pl initialization code,
+	but trimmed down.
+
+	* tta/C/convert/texinfo.c (txi_setup_main_load_interpreter): call
+	call_eval_load_texinfo_modules if use_interpreter is > 1, add
+	corresponding arguments, update callers.
+
+	* tta/swig/python/Makefile.am (AM_CPPFLAGS), tta/swig/perl/Makefile.am
+	(AM_CPPFLAGS), tta/swig/texinfo.i: add LIBDIR in defines, add
+	embed_perl and updirs arguments to setup, pass new arguments to
+	txi_setup_main_load_interpreter.
+
+	* tta/configure.ac (swig_perl_tests), tta/swig/perl/Makefile.am
+	(t_test_files), tta/swig/perl/t/20index_sort.t: add test of index
+	sorting with the comparison with texi2any Perl modules sorting.  Calls
+	Texinfo::setup with use_interpreter set to 2.
+
 2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/convert/convert_html.c (copy_file_to):
@@ -96,7 +129,7 @@
 	_split_element_delimiters and _split_def_args as
 	_split_element_def_args to make clear that these functions do
 	something different from the C functions.
-	Use parent instead of passing it as argument. 
+	Use parent instead of passing it as argument.
 	Fix a wrong parent.
 	Rename $root as $element.
 	Undef explicitly element when it is not used anymore to clarify the

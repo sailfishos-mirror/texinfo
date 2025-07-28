@@ -12,8 +12,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-# Original author: Patrice Dumas <pertusus@free.fr>
 
 # NOTE this test is more important that it seems at first glance, since
 # it is the only test of conversion of elements in source marks to Texinfo.

@@ -12,7 +12,8 @@
 # cause errors when mixed with the language specific headers.
 # NOTE a disadvantage of passing defines through flags and not through a file
 # is that a change in value does not trigger remaking the output file.
-AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
+AM_CPPFLAGS = -DDATADIR=\"$(datadir)\" -DLIBDIR=\"$(libdir)\" \
+       -DCONVERTER_CONFIG=\"$(CONVERTER)\" \
        -DPACKAGE_VERSION_CONFIG=\"$(PACKAGE_VERSION)\"
 
 if PERL_EMBEDDED

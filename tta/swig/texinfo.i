@@ -60,20 +60,25 @@ reset_parser (0);
 // if embed_perl is negative (the default value), the value set at compile
 // time for Perl embedding with EMBED_PERL is used.
 void
-setup (int texinfo_uninstalled=0, int embed_perl=-1,
-       const char *converterdatadir_in=0, const char *t2a_builddir_in=0,
+setup (int texinfo_uninstalled=0, int embed_perl=-1, int updirs=3,
+       const char *converterdatadir_in=0,
+       const char *converterlibdir_in=0,
+       const char *t2a_builddir_in=0,
        const char *t2a_srcdir_in=0);
 
 %{
 void
-setup (int texinfo_uninstalled, int embed_perl,
-       const char *converterdatadir_in, const char *t2a_builddir_in,
+setup (int texinfo_uninstalled, int embed_perl, int updirs,
+       const char *converterdatadir_in,
+       const char *converterlibdir_in,
+       const char *t2a_builddir_in,
        const char *t2a_srcdir_in)
 {
   const char *version_for_embedded_interpreter_check;
   char *t2a_srcdir = 0;
   char *t2a_builddir = 0;
   const char *converterdatadir;
+  const char *converterlibdir;
   int do_embed_perl = 0;
 #ifdef EMBED_PERL
   do_embed_perl = 1;
@@ -113,6 +118,10 @@ setup (int texinfo_uninstalled, int embed_perl,
         converterdatadir = converterdatadir_in;
       else
         converterdatadir = DATADIR "/" CONVERTER_CONFIG;
+      if (converterlibdir_in)
+        converterlibdir = converterlibdir_in;
+      else
+        converterlibdir = LIBDIR "/" CONVERTER_CONFIG;
     }
 
   if (texinfo_uninstalled)
@@ -121,7 +130,8 @@ setup (int texinfo_uninstalled, int embed_perl,
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
   txi_setup_main_load_interpreter (do_embed_perl, texinfo_uninstalled,
-                                   converterdatadir, t2a_builddir, t2a_srcdir,
+                                   converterdatadir, converterlibdir,
+                                   t2a_builddir, t2a_srcdir, updirs,
                                    0, 0, 0,
                                    version_for_embedded_interpreter_check);
   free (t2a_builddir);

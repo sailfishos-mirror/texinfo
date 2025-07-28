@@ -1116,7 +1116,7 @@ main (int argc, char *argv[], char *env[])
      and setup by the interpreter */
   txi_setup_main_load_interpreter (embedded_interpreter,
                         texinfo_uninstalled,
-                        converterdatadir, t2a_builddir, t2a_srcdir,
+                        converterdatadir, 0, t2a_builddir, t2a_srcdir, 0,
                         &argc, &argv, &env,
                         version_for_embedded_interpreter_check);
 
