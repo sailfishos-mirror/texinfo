@@ -1,5 +1,15 @@
 2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Indent index entries.
+
+	* tta/data/default_css_element_class_styles.csv
+	(td.printindex-index-entry, td.printindex-index-subentry-level-1)
+	(td.printindex-index-subentry-level-2):
+	Add 1.5 em of indent.  This can help to make the letter headers
+	more conspicuous when skimming through an index quickly.
+
+2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Combined CSS class for index subentries
 
 	* tta/C/convert/format_html.c (html_convert_printindex_command),
