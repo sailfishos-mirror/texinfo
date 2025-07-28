@@ -156,11 +156,11 @@ var actions = {
         var entry = entries[i];
         var entry_cl = entry.classList;
         var text = entry.textContent;
-        if (entry_cl.contains("index-entry-level-2"))
+        if (entry_cl.contains("printindex-index-subentry-level-2"))
           {
             text = text0 + "; " + text1 + "; " + text;
           }
-        else if (entry_cl.contains("index-entry-level-1"))
+        else if (entry_cl.contains("printindex-index-subentry-level-1"))
           {
             text1 = text;
             text = text0 + "; " + text;
@@ -1495,7 +1495,9 @@ init_iframe ()
       {
         /* Scan links that should be added to the index.  */
         var index_entries = document.querySelectorAll
-          ("td.printindex-index-entry");
+          ("td.printindex-index-entry"
+           + ", td.printindex-index-subentry-level-1"
+           + ", td.printindex-index-subentry-level-2");
         store.dispatch (actions.cache_index_links (index_entries));
       }
 
