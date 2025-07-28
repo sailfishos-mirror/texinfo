@@ -119,7 +119,7 @@ $result_converted{'html'}->{'index_and_node_same_name'} = '<!DOCTYPE html>
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 span:hover a.copiable-link {visibility: visible}
-td.printindex-index-entry {vertical-align: top}
+td.printindex-index-entry {vertical-align: top; padding-left: 1.5em}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
 th.index-letter-header-printindex {text-align: left; font-size: large; padding-bottom: 0.5em; padding-top: 0.5em}
 </style>
