@@ -1,3 +1,8 @@
+2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/C/convert/convert_html.c (copy_file_to):
+	Call fwrite with the correct buffer size.
+
 2025-07-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/maintain/all_tests.sh: call -g on t/z_misc/*.t files which

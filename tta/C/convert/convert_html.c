@@ -2693,7 +2693,7 @@ copy_file_to (CONVERTER *self,
     {
       nread = fread (buf, sizeof(char), sizeof(buf), src);
 
-      nwritten = fwrite (buf, sizeof(char), nread/2, dest);
+      nwritten = fwrite (buf, sizeof(char), nread, dest);
       if (nwritten != nread)
         {
           message_list_document_error (&self->error_messages,
