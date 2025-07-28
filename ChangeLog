@@ -1,5 +1,15 @@
 2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Less recommendation of @menu
+
+	* doc/texinfo.texi (Short Sample Texinfo File):
+	Remove @menu block from example.  Add equivalent
+	@nodedescription lines for the menu descriptions.
+	(The Top Node): Explain that the @menu block is optional.
+	(GNU Sample Texts): Remove @menu from example input.
+
+2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Update info.js for new index output
 
 	* js/info.js (init_iframe) <on_load>:

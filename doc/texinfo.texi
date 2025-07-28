@@ -968,14 +968,8 @@ Copyright @@copyright@{@} 2025 Free Software Foundation, Inc.
 This manual is for GNU Sample
 (version @@value@{VERSION@}, @@value@{UPDATED@}).
 
-@@menu
-* First Chapter::    The first chapter is the
-                      only chapter in this sample.
-* Index::            Complete index.
-@@end menu
-
-
 @@node First Chapter
+@@nodedescription The first chapter is the only chapter in this sample.
 @@chapter First Chapter
 
 @@cindex chapter, first
@@ -1008,6 +1002,7 @@ Second section of first chapter.
 
 
 @@node Index
+@@nodedescription Complete Index
 @@unnumbered Index
 
 @@printindex cp
@@ -1935,8 +1930,8 @@ main text of the document.
 
 
 @node The Top Node
-@nodedescription Creating the `Top' node and master menu.
-@section The `Top' Node and Master Menu
+@nodedescription Creating the `Top' node
+@section The `Top' Node
 @cindex Top node
 @cindex Node, @samp{Top}
 @anchor{Top Node Example}@c
@@ -1954,9 +1949,14 @@ We repeat the short description from the beginning of
 the @samp{@@copying} text, but there's no need to repeat the copyright
 information, so we don't use @samp{@@insertcopying} here.
 
-The `Top' node contains a top-level @dfn{menu} listing the chapters,
-and possibly a @dfn{detailed menu} listing all the nodes in the
-entire document.
+In the Info output (and sometimes HTML output), the `Top' node usually
+contains a top-level @dfn{menu} listing the chapters, and possibly a
+@dfn{detailed menu} listing all the nodes in the entire document.  It
+is not usually necessary to give such a menu in the Texinfo source, as
+@command{texi2any} generates these menus automatically.  However, the
+following example shows how you would use the @code{@@menu} command to
+give a menu in the `Top' node:
+
 
 @cindex Top node example
 @example
@@ -1973,10 +1973,6 @@ This is a short sample Texinfo file.
 @@end menu
 @end group
 @end example
-
-@menu
-* Master Menu Parts::
-@end menu
 
 
 @node Master Menu Parts
@@ -21546,12 +21542,6 @@ Texts.  A copy of the license is included in the section entitled
 @top GNU Sample
 
 This manual is for GNU Sample (version @value{VERSION}, @value{UPDATED}).
-
-@menu
-* Invoking sample::
-* GNU Free Documentation License::
-* Index::
-@end menu
 
 @node Invoking sample
 @chapter Invoking sample
