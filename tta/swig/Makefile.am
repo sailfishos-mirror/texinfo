@@ -27,6 +27,8 @@ endif
 
 DIST_SUBDIRS = perl python
 
+if SWIG_INTERFACES
+
 BUILT_SOURCES = python/python_texinfo_wrap.c \
                 perl/perl_texinfo_wrap.c
 
@@ -42,5 +44,6 @@ $(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_depend
 
 $(srcdir)/perl/perl_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_dependencies)
 	$(SWIG) $(SWIG_include_directories) -perl -outdir $(srcdir)/perl -o $@ $<
+endif
 
 EXTRA_DIST = README texinfo.i TODO

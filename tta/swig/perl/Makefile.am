@@ -40,13 +40,13 @@ $(top_builddir)/../tta/C/libtexinfo-main.la:
 # installsitearch or installvendorarch/auto/$module
 # The .pm that load the XS modules seem to be in
 # installsitearch or installvendorarch/
-dist_perllib_DATA = Texinfo.pm
+nodist_perllib_DATA = Texinfo.pm
 
 module = Texinfo
 archlibdir = $(perlarchdir)/auto/$(module)
 archlib_LTLIBRARIES = Texinfo.la
 
-Texinfo_la_SOURCES = perl_texinfo_wrap.c
+nodist_Texinfo_la_SOURCES = perl_texinfo_wrap.c
 
 # XS_VERSION is used in version check in the bootstrap function created
 # by xsubpp in C code generated from .xs, and called in XSLoader.pm
