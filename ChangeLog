@@ -1,3 +1,28 @@
+2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Combined CSS class for index subentries
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command),
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command):
+	For index subentries, output 'printindex-index-subentry-level-1'
+	or 'printindex-index-subentry-level-2' class, and do not output
+	'index-entry-level-1', 'index-entry-level-2', or
+	'printindex-index-entry'.  For the output of @seeentry, always
+	output 'printindex-index-see-entry' as an additional class.
+
+	* tta/data/default_css_element_class_styles.csv
+	(td.index-entry-level-1, td.printindex-index-subentry-level-1)
+	(td.index-entry-level-2, td.printindex-index-subentry-level-2):
+	Rename and add "vertical-align: top" in order to be consistent
+	with 'td.printindex-index-entry'.
+
+	This is to make it easier to control the indentation of
+	index entries in an index.  Previously, 'printindex-index-entry' was
+	output on index subentries too, which meant that customising
+	'padding-left' would override the setting for all index subentries.
+	Using completely different classes avoids any trouble with the
+	relative priorities of CSS rules.
+
 2025-07-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Makefile.am: Add Texinfo/HTMLDataCSS.pm to

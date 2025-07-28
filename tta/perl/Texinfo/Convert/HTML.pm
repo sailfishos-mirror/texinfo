@@ -6627,10 +6627,12 @@ sub _convert_printindex_command($$$$)
                                        $convert_info);
         }
         $entry = '<code>' .$entry .'</code>' if ($in_code);
-        my @td_entry_classes = ("$cmdname-index-entry");
-        # indent
-        if ($level > 0) {
-          push @td_entry_classes, "index-entry-level-$level";
+        my @td_entry_classes = ();
+        if ($level == 0) {
+          push @td_entry_classes, "$cmdname-index-entry";
+        } elsif ($level > 0) {
+          # indent
+          push @td_entry_classes, "$cmdname-index-subentry-level-$level";
         }
         $entries_text .= '<tr>'
          # TODO same class used for leading entry rows here and
@@ -6667,7 +6669,6 @@ sub _convert_printindex_command($$$$)
         # for @seealso, to appear where chapter/node ususally appear
         my $reference = '';
         my $delimiter = '';
-        my $entry_class;
         my $section_class;
         if ($seeentry) {
           my $result_tree;
@@ -6696,7 +6697,6 @@ sub _convert_printindex_command($$$$)
           } else {
             $entry = $self->convert_tree($result_tree, $convert_info);
           }
-          $entry_class = "$cmdname-index-see-entry";
           $section_class = "$cmdname-index-see-entry-section";
         } else {
           # TRANSLATORS: refer to another index entry
@@ -6723,14 +6723,18 @@ sub _convert_printindex_command($$$$)
           }
           $entry = '<code>' .$entry .'</code>' if ($in_code);
           $delimiter = $self->get_conf('INDEX_ENTRY_COLON');
-          # TODO add the information that the entry column is with see also?
-          $entry_class = "$cmdname-index-entry";
           $section_class = "$cmdname-index-see-also";
         }
 
-        my @td_entry_classes = ($entry_class);
-        if ($last_entry_level > 0) {
-          push @td_entry_classes, "index-entry-level-$last_entry_level";
+        my @td_entry_classes = ();
+        if ($seeentry) {
+          push @td_entry_classes, "$cmdname-index-see-entry";
+        }
+        if ($last_entry_level == 0) {
+          push @td_entry_classes, "$cmdname-index-entry";
+        } elsif ($last_entry_level > 0) {
+          push @td_entry_classes,
+               "$cmdname-index-subentry-level-$last_entry_level";
         }
         $entries_text .= '<tr>'
          .$self->html_attribute_class('td', \@td_entry_classes).'>'
@@ -6776,10 +6780,12 @@ sub _convert_printindex_command($$$$)
         }
         my $entry_href = $self->command_href($target_element);
         my $formatted_entry = "<a href=\"$entry_href\">$entry</a>";
-        my @td_entry_classes = ("$cmdname-index-entry");
-        # subentry
-        if ($last_entry_level > 0) {
-          push @td_entry_classes, "index-entry-level-$last_entry_level";
+        my @td_entry_classes = ();
+        if ($last_entry_level == 0) {
+          push @td_entry_classes, "$cmdname-index-entry";
+        } elsif ($last_entry_level > 0) {
+          # subentry
+          push @td_entry_classes, "$cmdname-index-subentry-level-$last_entry_level";
         }
         $entries_text .= '<tr>'
           .$self->html_attribute_class('td', \@td_entry_classes).'>'

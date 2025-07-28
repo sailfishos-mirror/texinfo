@@ -10341,13 +10341,15 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                     }
                   free (convert_info);
 
-                  add_string (cmd_index_entry_class, entry_classes);
-                  if (level > 0)
+                  if (level == 0)
+                    add_string (cmd_index_entry_class, entry_classes);
+                  else if (level > 0)
                     {
                       /* indent */
                       char *index_entry_level;
-                      xasprintf (&index_entry_level, "index-entry-level-%d",
-                                                     level);
+                      xasprintf (&index_entry_level,
+                                 "%s-index-subentry-level-%d",
+                                 builtin_command_name (cmd), level);
                       add_string (index_entry_level, entry_classes);
                       free (index_entry_level);
                     }
@@ -10440,7 +10442,6 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   destroy_element_and_children (result_tree);
                   free (convert_info);
 
-                  add_string (entry_class_seeentry, entry_classes);
                   add_string (section_class_seeentry, section_classes);
                 }
               else
@@ -10490,21 +10491,24 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   free (conv_str_entry);
                   free (conv_str_reference);
 
-                  add_string (cmd_index_entry_class, entry_classes);
                   add_string (section_class_seealso, section_classes);
                 }
 
-              destroy_named_string_element_list (substrings);
-
-              text_append_n (&entries_text, "<tr>", 4);
-              if (last_entry_level > 0)
+              if (seeentry)
+                add_string (entry_class_seeentry, entry_classes);
+              if (last_entry_level == 0)
+                add_string (cmd_index_entry_class, entry_classes);
+             else if (last_entry_level > 0)
                 {
                   char *index_entry_level;
-                  xasprintf (&index_entry_level, "index-entry-level-%d",
-                                                 last_entry_level);
+                  xasprintf (&index_entry_level,
+                             "%s-index-subentry-level-%d",
+                             builtin_command_name (cmd), last_entry_level);
                   add_string (index_entry_level, entry_classes);
                   free (index_entry_level);
                 }
+              destroy_named_string_element_list (substrings);
+              text_append_n (&entries_text, "<tr>", 4);
               attribute_class = html_attribute_class (self, "td", entry_classes);
               text_append (&entries_text, attribute_class);
               clear_strings_list (entry_classes);
@@ -10587,12 +10591,14 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   entry_href
                     = html_command_href (self, target_element, 0, 0, 0);
 
-                  add_string (cmd_index_entry_class, entry_classes);
-                  if (last_entry_level > 0)
+                  if (last_entry_level == 0)
+                    add_string (cmd_index_entry_class, entry_classes);
+                  else if (last_entry_level > 0)
                     {
                       char *index_entry_level;
-                      xasprintf (&index_entry_level, "index-entry-level-%d",
-                                                     last_entry_level);
+                      xasprintf (&index_entry_level,
+                                 "%s-index-subentry-level-%d",
+                                 builtin_command_name (cmd), last_entry_level);
                       add_string (index_entry_level, entry_classes);
                       free (index_entry_level);
                     }
