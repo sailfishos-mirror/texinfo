@@ -1,5 +1,16 @@
 2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Smaller index letter headers.
+	
+	* tta/data/default_css_element_class_styles.csv
+	(th.index-letter-header-printindex): Remove
+	"font-size: large; padding-bottom: 0.5em; padding-top: 0.5em".
+	
+	This makes the HTML index formatting close in appearance to
+	the formatting of the last release and earlier.
+
+2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Indent index entries.
 
 	* tta/data/default_css_element_class_styles.csv
