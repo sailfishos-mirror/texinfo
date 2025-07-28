@@ -20,8 +20,9 @@
    is disabled.
  */
 
-/* to set if Perl code is compiled in, but there is no Perl interpreter */
-static int use_perl_interpreter = 0;
+/* to set to 0 if Perl code is compiled in, but there is no Perl
+   interpreter */
+static int use_perl_interpreter = 1;
 
 void
 set_use_perl_interpreter (int value)
