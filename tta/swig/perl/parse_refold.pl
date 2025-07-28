@@ -49,7 +49,8 @@ BEGIN {
      = fileparse($0, '.pl');
   my $updir = File::Spec->updir();
 
-  # to find Texinfo.pm
+  # Nothing needed in source directory for now, but keep the include there
+  # nonetheless
   my $srcdir = $ENV{'srcdir'};
   if (!defined($srcdir)) {
     $srcdir = $command_directory;
@@ -65,6 +66,9 @@ BEGIN {
   if (defined($t2a_builddir)) {
     my $libs_directory = join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
     if (-d $libs_directory) {
+      # for Texinfo.pm
+      unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl'));
+      # for XS
       unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
     } elsif (-d 'blib' and -f 'Makefile.PL') {
       # with Perl build system, in-source paths
@@ -93,7 +97,12 @@ my $result_options = Getopt::Long::GetOptions (
  'I=s' => sub { push @include_dirs, split(/$quoted_path_separator/, $_[1]); },
 );
 
-Texinfo::setup(1);
+# do not use a Perl interpreter, as it is not needed anywhere in the called
+# functions.  If used, the updirs argument should also be given as it is
+# 2 and not the default.
+Texinfo::setup(1, 0);
+# With an interpreter
+#Texinfo::setup(1, 2, 2);
 
 my $curdir = File::Spec->curdir();
 

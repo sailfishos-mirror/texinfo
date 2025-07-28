@@ -26,7 +26,8 @@ my ($real_command_name, $command_directory, $command_suffix)
               = fileparse($0, '.pl');
 my $updir = File::Spec->updir();
 
-# to find Texinfo.pm
+# Nothing needed in source directory for now, but keep the include there
+# nonetheless
 my $srcdir = $ENV{'srcdir'};
 if (!defined($srcdir)) {
   $command_directory = File::Spec->curdir()
@@ -34,6 +35,7 @@ if (!defined($srcdir)) {
   $srcdir = join('/', ($command_directory, $updir));
 }
 unshift @INC, $srcdir;
+
 # To find the XS extension
 my $t2a_builddir = $ENV{'t2a_builddir'};
 if (!defined($t2a_builddir) and defined($srcdir)) {
@@ -43,6 +45,8 @@ if (!defined($t2a_builddir) and defined($srcdir)) {
 if (defined($t2a_builddir)) {
   my $xsdir = join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
   if (-d $xsdir) {
+    # for Texinfo.pm
+    unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl'));
     unshift @INC, $xsdir;
     # XSLoader searches in auto/Texinfo, so make a symlink from
     # auto/Texinfo to ../ to get back to .libs

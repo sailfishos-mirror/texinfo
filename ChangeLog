@@ -1,5 +1,15 @@
 2025-07-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/_Texinfo_Tests.pm, tta/swig/perl/parse_refold.pl: put
+	swig/perl directory in @INC to find Texinfo.pm in out of source
+	builds.
+
+	* tta/swig/perl/parse_refold.pl: update call of Texinfo::setup to
+	avoid using a Perl interpreter, as it is not needed, and the default
+	paths do not allow to find the texi2any modules.
+
+2025-07-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/_Texinfo_Tests.pm: do not create directory and link if
 	the .libs directory does not exist, assuming that the MakeMaker build
 	system is used in that case.
