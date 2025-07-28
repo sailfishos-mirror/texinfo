@@ -1407,7 +1407,10 @@ init_sidebar ()
             var div = document.createElement ("div");
             a.appendChild (div);
             var span = document.createElement ("span");
-            span.textContent = h1.textContent;
+            span.innerHTML = h1.innerHTML;
+            var anchor = span.querySelector("a.copiable-link");
+            if (anchor)
+              anchor.parentNode.removeChild(anchor);
             div.appendChild (span);
           }
       }
