@@ -63,6 +63,11 @@ else
       echo "$file" >&2
       $PERL -w $file -g
     done
+    for fname in no_structure_test same_parser_multiple_files; do
+      file=${srcdir}/t/z_misc/${fname}.t
+      echo "$file" >&2
+      $PERL -w $file -g
+    done
   elif [ "$command" = 'output' ]; then
     for file in ${srcdir}/t/*.t; do
       $PERL -w $file -o
