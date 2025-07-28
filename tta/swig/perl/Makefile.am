@@ -27,12 +27,27 @@ AM_CPPFLAGS += -DUSE_PERL_INTERPRETER
 
 txi_libs_srcdir = $(srcdir)/../../C
 
+if SWIG_INTERFACES
+
+BUILT_SOURCES = perl_texinfo_wrap.c Texinfo.pm
+
 $(top_builddir)/../tta/C/libtexinfo.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo.la
 
 $(top_builddir)/../tta/C/libtexinfo-main.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main.la
 
+SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert
+SWIG_header_dependencies = \
+                 $(txi_libs_srcdir)/main/source_mark_types.h \
+                 $(txi_libs_srcdir)/convert/swig_element_data.h \
+                 $(txi_libs_srcdir)/convert/swig_text_options.h \
+                 $(txi_libs_srcdir)/convert/swig_error_messages_types.h
+
+perl_texinfo_wrap.c Texinfo.pm: $(srcdir)/../texinfo.i $(SWIG_header_dependencies)
+	$(SWIG) $(SWIG_include_directories) -perl -o perl_texinfo_wrap.c $<
+
+endif
 
 # as explained on the Dynaloader documentation (but it is hard to
 # find more general information on the expected directories layout), the
@@ -95,7 +110,7 @@ EXTRA_DIST = \
  tests/test_includes/i2.texi \
  tests/test_includes/i3.texi
 
-MAINTAINERCLEANFILES = Texinfo.pm
+CLEANFILES = Texinfo.pm perl_texinfo_wrap.c
 
 # remove leftovers of Perl MakeMaker based build system
 clean-local:

@@ -22,11 +22,27 @@ endif
 
 txi_libs_srcdir = $(srcdir)/../../C
 
+if SWIG_INTERFACES
+
+BUILT_SOURCES = python_texinfo_wrap.c Texinfo.py
+
 $(top_builddir)/../tta/C/libtexinfo.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo.la
 
 $(top_builddir)/../tta/C/libtexinfo-main.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main.la
+
+SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert
+SWIG_header_dependencies = \
+                 $(txi_libs_srcdir)/main/source_mark_types.h \
+                 $(txi_libs_srcdir)/convert/swig_element_data.h \
+                 $(txi_libs_srcdir)/convert/swig_text_options.h \
+                 $(txi_libs_srcdir)/convert/swig_error_messages_types.h
+
+python_texinfo_wrap.c Texinfo.py: $(srcdir)/../texinfo.i $(SWIG_header_dependencies)
+	$(SWIG) $(AX_SWIG_PYTHON_OPT) $(SWIG_include_directories) -o python_texinfo_wrap.c $<
+
+endif
 
 # Ask autotools to install the generated Python file
 nodist_python_PYTHON = Texinfo.py
@@ -59,4 +75,4 @@ clean-local:
 
 EXTRA_DIST = test_Texinfo.py
 
-MAINTAINERCLEANFILES = Texinfo.py
+CLEANFILES = Texinfo.py python_texinfo_wrap.c

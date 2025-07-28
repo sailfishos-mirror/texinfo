@@ -8,7 +8,7 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-SUBDIRS = .
+SUBDIRS =
 
 if ! DISABLE_XS
 SUBDIRS += perl
@@ -26,24 +26,5 @@ endif
 endif
 
 DIST_SUBDIRS = perl python
-
-if SWIG_INTERFACES
-
-BUILT_SOURCES = python/python_texinfo_wrap.c \
-                perl/perl_texinfo_wrap.c
-
-SWIG_include_directories = -I$(srcdir)/../C/main -I$(srcdir)/../C/convert
-SWIG_header_dependencies = $(srcdir)/../C/main/source_mark_types.h \
-                           $(srcdir)/../C/convert/swig_element_data.h \
-                           $(srcdir)/../C/convert/swig_text_options.h \
-                           $(srcdir)/../C/convert/swig_error_messages_types.h
-
-# tell Make how to create the generated SWIG files
-$(srcdir)/python/python_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_dependencies)
-	$(SWIG) $(AX_SWIG_PYTHON_OPT) $(SWIG_include_directories) -outdir $(srcdir)/python -o $@ $<
-
-$(srcdir)/perl/perl_texinfo_wrap.c: $(srcdir)/texinfo.i $(SWIG_header_dependencies)
-	$(SWIG) $(SWIG_include_directories) -perl -outdir $(srcdir)/perl -o $@ $<
-endif
 
 EXTRA_DIST = README texinfo.i TODO

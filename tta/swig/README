@@ -12,10 +12,7 @@ The build system is integrated with the main Texinfo build system based on
 autoconf, automake and libtool.
 
 Two interfaces are available, a Python and a Perl interface.  The interfaces
-are setup from the main directory, the per-language source files being created
-in each language subdirectory.  The interfaces binary files are built only if
-possible, if all the prerequisites are available.  They are built each in its
-own subdirectory.
+are setup and built their own subdirectories.
 
 There is a MakeMaker based distribution in the perl directory, but it
 is not suitable for installing as the relinking needed to find the Texinfo C
