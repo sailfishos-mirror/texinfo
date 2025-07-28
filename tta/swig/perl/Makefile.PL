@@ -14,7 +14,7 @@ WriteMakefile(
         'PM' => {'Texinfo.pm' => '$(INST_LIB)/Texinfo.pm'},
         'VERSION' => '7.2',
         'OBJECT' =>'$(O_FILES)',
-        'INC' => '-I../../C/main -I../../C/parsetexi -I../../C/convert -DDATADIR=\\"/usr/share/local/\\" -DCONVERTER_CONFIG=\\"texi2any\\" -DPACKAGE_VERSION_CONFIG=\\"7.2dev\\"',
+        'INC' => '-I../../C/main -I../../C/parsetexi -I../../C/convert -DDATADIR=\\"/usr/local/share\\" -DLIBDIR=\\"/usr/local/lib\\" -DCONVERTER_CONFIG=\\"texi2any\\" -DPACKAGE_VERSION_CONFIG=\\"7.2dev\\" -DUSE_PERL_INTERPRETER',
         'test' => {TESTS => 't/*.t'},
         'LICENSE'      => 'gpl_3',
         'AUTHOR'       => 'Patrice Dumas <bug-texinfo@gnu.org>',
