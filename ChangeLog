@@ -1,5 +1,9 @@
 2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: mention info.js fix
+
+2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.js (on_keydown): Check that no modifiers (namely,
 	Alt, Ctrl nor Meta) are pressed.  This means specifically that
 	C-l can still select the location bar and C-r can refresh the page.
