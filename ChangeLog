@@ -1,3 +1,9 @@
+2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/run-external.c (get_output_from_program) [!PIPE_USE_FORK]:
+	Check if return value of pclose is -1 before using WEXITSTATUS etc.
+	on it.  Report from Patrice.
+
 2025-07-29 Patrice Dumas  <pertusus@free.fr>
 
 	Code cleanups based on compiler warnings

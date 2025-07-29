@@ -112,7 +112,15 @@ get_output_from_program (char *filename, char *formatter_args[],
     if (fpipe == 0)
       return 127;
     output = read_from_fd (fileno (fpipe));
-    exit_status = pclose (fpipe);
+    int pclose_status = pclose (fpipe);
+    if (pclose_status != -1)
+      exit_status = pclose_status;
+    else
+      {
+        /* unknown error */
+        free (output);
+        return 127;
+      }
   }
 #endif /* !PIPE_USE_FORK */
 
