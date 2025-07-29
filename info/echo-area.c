@@ -1408,7 +1408,12 @@ DECLARE_INFO_COMMAND (ea_scroll_completions_window, _("Scroll the completions wi
 
   /* NB similar to session-cmd.c:info_scroll_forward, but takes no
      account of any "M-x info_scroll_forward_set_window" setting. */
-  set_window_pagetop (compwin, compwin->pagetop + count);
+  int lines;
+  if (ea_explicit_arg)
+    lines = count;
+  else
+    lines = (window->height - 2) * count;
+  set_window_pagetop (compwin, compwin->pagetop + lines);
 }
 
 /* Function which gets called when an Info window is deleted while the

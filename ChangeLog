@@ -1,5 +1,11 @@
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/echo-area.c (ea_scroll_completions_window):
+	Reinstate removed lines but use result as intended in call
+	to set_window_pagetop.
+
+2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/man.c (get_manpage_from_formatter): Keep on going
 	if return value from 'get_output_from_program' is non-zero,
 	in line with following comment.
