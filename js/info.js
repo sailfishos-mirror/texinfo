@@ -62,7 +62,7 @@ var config = {
     a dispatch method which accepts actions as parameter.  This method is
     the only way to update the state.
     @typedef {function (Action): void} Action_consumer
-    @type {{dispatch: Action_consumer, state?: any, listeners?: any[]}}.  */
+    @type {{dispatch: Action_consumer, state?: any}}.  */
 var store;
 
 var section_names = [
@@ -72,13 +72,13 @@ var section_names = [
   'subsubsection', 'unnumberedsubsubsec', 'subsubheading',
   'appendixsubsubsec' ];
 
-/** Create a Store that calls its listeners at each state change.
+/** Create a store.
     @arg {function (Object, Action): Object} reducer
     @arg {Object} state  */
 function
 Store (reducer, state)
 {
-  this.listeners = [];
+  this.components = {};
   this.reducer = reducer;
   this.state = state;
 }
@@ -91,9 +91,8 @@ Store.prototype.dispatch = function dispatch (action) {
       this.state = new_state;
       if (window["INFO_DEBUG"])
         console.log ("state: ", new_state);
-      this.listeners.forEach (function (listener) {
-        listener (new_state);
-      });
+
+      this.components.render(new_state);
     }
 };
 
@@ -1211,7 +1210,7 @@ init_index_page ()
     components.add (new Help_page ());
     components.add (new Minibuffer ());
     components.add (new Echo_area ());
-    store.listeners.push (components.render.bind (components));
+    store.components = components;
 
     if (window.location.hash)
       {

@@ -1,3 +1,18 @@
+2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Eliminate "listeners" abstraction
+
+	* js/info.js (Store): Do not set 'listeners' array.
+	(Store.prototype.dispatch): Call 'render' function directly
+	rather than looping over 'listeners'.
+	(init_index_page) <on_load>: Save 'components' array on
+	'store' object, rather than adding a single function to 'listeners'.
+
+	Historically, the "listeners" paradigm was inspired by the
+	"Redux" library (private May 2017 discussion).	However,
+	it appears to be unnecessary here as there was only only one
+	listener.
+
 2025-07-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/ext/latex2html.pm (l2h_finish): warn if unlink did not
