@@ -1664,7 +1664,7 @@ on_keydown (event)
 {
   if (is_escape_key (event.key))
     store.dispatch ({ type: "unfocus" });
-  else
+  else if (!event.altKey && !event.ctrlKey && !event.metaKey)
     {
       var val = on_keydown.dict[event.key];
       if (val)
