@@ -1,5 +1,10 @@
 2025-07-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/tex4ht.pm (tex4ht_prepare): warn if there was an error
+	with close.
+
+2025-07-29 Patrice Dumas  <pertusus@free.fr>
+
 	Remove the Texinfo::TeX4HT customization package
 
 	* NEWS, tta/perl/ext/tex4ht.pm (tex4ht_prepare)

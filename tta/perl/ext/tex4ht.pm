@@ -299,8 +299,11 @@ sub tex4ht_prepare($$)
         } else {
           print $fh "\n\@bye\n";
         }
-        # FIXME check close error
-        close ($fh);
+        if (!close ($fh)) {
+          $self->converter_document_warn(
+                  sprintf(__("tex4ht.pm: error on closing %s: %s"),
+                                        $tex4ht_file_path_name, $!));
+        }
       }
     }
   }
