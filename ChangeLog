@@ -1,3 +1,17 @@
+2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fewer functions called 'render'
+
+	* js/info.js
+	(Help_page.prototype.render, Minibuffer.prototype.render)
+	(Echo_area.prototype.render, Sidebar.prototype.render)
+	(Pages.prototype.render):
+	Rather than defining all of these as "function render", use the
+	names help_page_render, minibuffer_render, echo_area_render,
+	sidebar_render, and pages_render respectively.
+
+	This makes the output of "console.trace()" easier to understand.
+
 2025-07-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/ext/tex4ht.pm (tex4ht_prepare): warn if there was an error

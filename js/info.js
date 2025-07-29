@@ -573,7 +573,7 @@ init_index_page ()
     this.element = div;
   }
 
-  Help_page.prototype.render = function render (state) {
+  Help_page.prototype.render = function help_page_render (state) {
     if (!state.help)
       this.element.style.display = "none";
     else
@@ -750,7 +750,7 @@ init_index_page ()
     this.toid = null;
   }
 
-  Minibuffer.prototype.render = function render (state) {
+  Minibuffer.prototype.render = function minibuffer_render (state) {
     if (!state.warning)
       {
         this.warn.setAttribute ("hidden", "true");
@@ -792,7 +792,7 @@ init_index_page ()
     this.toid = null;
   }
 
-  Echo_area.prototype.render = function render (state) {
+  Echo_area.prototype.render = function echo_area_render (state) {
     if (!state.echo)
       {
         this.element.setAttribute ("hidden", "true");
@@ -866,7 +866,7 @@ init_index_page ()
   }
 
   /* Render 'sidebar' according to STATE which is a new state. */
-  Sidebar.prototype.render = function render (state) {
+  Sidebar.prototype.render = function sidebar_render (state) {
     /* Update sidebar to highlight the title corresponding to
        'state.current'.*/
     let currently_showing = document.body.getAttribute("show-sidebar");
@@ -925,7 +925,7 @@ init_index_page ()
     return div;
   };
 
-  Pages.prototype.render = function render (state) {
+  Pages.prototype.render = function pages_render (state) {
     var that = this;
 
     /* Create div elements for pages corresponding to newly added
