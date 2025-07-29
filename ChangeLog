@@ -112,7 +112,7 @@
 	<div>.	We get the ID from the window location.  This is more
 	reliable than the "window-title" action as that seemed to try
 	to use whichever node was currently being displayed, which was
-	wrong when the index nodes were read in at start up.  This lead
+	wrong when the index nodes were read in at start up.  This led
 	to a "title" attribute being set incorrectly on some element in
 	the Top node, which would lead to a tool-tip appearing with the
 	title of whichever Index node was read in last.
