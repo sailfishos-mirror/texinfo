@@ -78,7 +78,7 @@ var section_names = [
 function
 Store (reducer, state)
 {
-  this.components = {};
+  this.components = [];
   this.reducer = reducer;
   this.state = state;
 }
@@ -92,8 +92,7 @@ Store.prototype.dispatch = function dispatch (action) {
       if (window["INFO_DEBUG"])
         console.log ("state: ", new_state);
 
-      this.components.components
-          .forEach (function (cmpt) { cmpt.render (new_state); });
+      this.components.forEach (function (cmpt) { cmpt.render (new_state); });
 
       /* Ensure that focus is on the current node unless some component is
          focused.  */
@@ -1189,23 +1188,20 @@ init_index_page ()
     for (var ch = document.body.firstChild; ch; ch = document.body.firstChild)
       index_div.appendChild (ch);
 
-    /* Aggregation of all the sub-components.  */
-    var components = {
-      element: document.body,
-      components: [],
+    var components = [];
+    function add_component (component) {
+      components.push (component);
+      document.body.appendChild (component.element);
+    }
 
-      add: function add (component) {
-        this.components.push (component);
-        this.element.appendChild (component.element);
-      },
-    };
     var pages = new Pages (index_div);
-    components.add (pages);
+    add_component (pages);
     var contents_node = pages.add_div(config.CONTENTS_ID);
-    components.add (new Sidebar (contents_node));
-    components.add (new Help_page ());
-    components.add (new Minibuffer ());
-    components.add (new Echo_area ());
+    add_component (new Sidebar (contents_node));
+    add_component (new Help_page ());
+    add_component (new Minibuffer ());
+    add_component (new Echo_area ());
+
     store.components = components;
 
     if (window.location.hash)

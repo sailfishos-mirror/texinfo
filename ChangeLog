@@ -1,5 +1,12 @@
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.js (on_load):
+	Store "components" as an array rather than as a hash
+	called "components" containing an array called "components".
+	(Store.prototype.dispatch): Update.
+
+2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@sp): Include argument within @code in
 	section title.
 
