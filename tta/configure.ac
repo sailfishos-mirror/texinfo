@@ -652,12 +652,6 @@ AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 
 # SWIG interfaces
 
-# FIXME if enable_xs=yes and embedded_perl=no, the interface will need
-# to build against libperl explicitely, it was verified for Python.
-# libperl may not be available even if enable_xs=yes.
-# Therefore it would be nice to check a link against libperl here.
-# It is not the case for the Perl SWIG interface.
-
 AC_ARG_WITH([swig],
    AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: check)]),
    [],
@@ -676,8 +670,6 @@ if test $with_swig != 'no' ; then
 fi
 
 AM_CONDITIONAL([SWIG_INTERFACES], [test "x$with_swig" = "xyes"])
-
-# TODO add --enable-swig-python?
 
 with_swig_python=no
 if test $with_swig = 'yes' ; then
@@ -755,6 +747,8 @@ if test x$enable_xs != xno ; then
     perlarchdir='${libdir}/perl5'
     perllibdir='${libdir}/perl5'
   else
+    # We replace $PERL_CONF_siteprefix by ${prefix} to obey user prefix
+    # as specified in the GNU Standards and to have make distcheck work.
     if test $perl_install_mode = site ; then
       txi_LOOKUP_PERL_CONF([siteprefix])
 

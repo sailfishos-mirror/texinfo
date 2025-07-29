@@ -276,7 +276,7 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
           last;
         }
       }
-      close (CONFIGURE);
+      close(CONFIGURE);
     }
     # This should never be used, but is a safety value
     $configured_version = $hardcoded_version if (!defined($configured_version));
@@ -327,7 +327,7 @@ if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
           last;
         }
       }
-      close (CONFIGURE);
+      close(CONFIGURE);
     }
   }
 }
@@ -2167,7 +2167,7 @@ while(@input_files) {
       print $internal_links_fh $internal_links_text;
 
       if ($internal_links_file_name ne '-') {
-        if (!close ($internal_links_fh)) {
+        if (!close($internal_links_fh)) {
       warn(sprintf(__("%s: error on closing internal links file %s: %s")."\n",
                       $real_command_name, $internal_links_file_name, $!));
           $error_internal_links_file = 1;

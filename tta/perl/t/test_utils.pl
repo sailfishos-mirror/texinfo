@@ -1101,8 +1101,8 @@ sub test($$)
 
   foreach my $format (@tested_formats) {
     if (defined($formats{$format})) {
-      # FIXME is it ok in term of priority?  If a key is in both, last
-      # one is kept, which means priority for init_files_options.
+      # If a key is in both, last one is kept, which means priority for
+      # init_files_options.
       my $format_converter_options = {%$converter_options,
                                       %$init_files_options};
       my $format_type = $format;

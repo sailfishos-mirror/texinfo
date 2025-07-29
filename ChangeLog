@@ -1,3 +1,15 @@
+2025-07-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/ext/latex2html.pm (l2h_to_latex, l2h_retrieve_from_html)
+	(l2h_init_cache, l2h_store_cache): check close error condition and
+	warn.
+
+	* tta/perl/ext/latex2html.pm (l2h_process)
+	(l2h_change_image_file_names, l2h_retrieve_from_html): handle empty 
+	destination_directory.
+
+	* tta/perl/t/test_utils.pl: change in spacing.
+
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/echo-area.c (ea_scroll_completions_window):
