@@ -1,3 +1,10 @@
+2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/run-external.c (get_output_from_program):
+	Use WIFEXITED on exit status from wait or popen before
+	using WEXITSTATUS.  Return 127 as a general error code
+	if WIFEXITED is false.  Report from Patrice.
+
 2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Remove annoying tooltip for Top node with info.js

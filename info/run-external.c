@@ -34,6 +34,10 @@
 
 static char *read_from_fd (int fd);
 
+/* Run program FILENAME with arguments FORMATTER_ARGS.  Save what it
+   prints to stdout in *PROGRAM_OUTPUT if PROGRAM_OUTPUT is non-null.
+   If DISCARD_STDERR, try to hide output printed to stderr.  Return exit
+   status of program or 127 if there was a problem with running it. */
 int
 get_output_from_program (char *filename, char *formatter_args[],
                          char **program_output, int discard_stderr)
@@ -116,7 +120,7 @@ get_output_from_program (char *filename, char *formatter_args[],
     *program_output = output;
   else
     free (output);
-  return WEXITSTATUS(exit_status);
+  return WIFEXITED(exit_status) ? WEXITSTATUS(exit_status) : 127;
 }
 
 /* Return pointer to bytes read from file descriptor FD.  Return value to be
