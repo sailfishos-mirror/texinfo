@@ -10528,7 +10528,7 @@ reasons, namely that it produces an @samp{\hbox}).
 
 @node @code{@@sp}
 @nodedescription Inserting blank lines.
-@section @code{@@sp} @var{n}: Insert Blank Lines
+@section @code{@@sp @var{n}}: Insert Blank Lines
 
 @anchor{sp}@c old name
 @findex sp
