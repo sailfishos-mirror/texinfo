@@ -128,7 +128,14 @@ get_output_from_program (char *filename, char *formatter_args[],
     *program_output = output;
   else
     free (output);
+
+#if defined (HAVE_SYS_WAIT_H)
   return WIFEXITED(exit_status) ? WEXITSTATUS(exit_status) : 127;
+#else
+  /* This block is most likely used if we are coming from popen above,
+     as is the case on MinGW. */
+  return exit_status;
+#endif
 }
 
 /* Return pointer to bytes read from file descriptor FD.  Return value to be

@@ -1,5 +1,11 @@
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/run-external.c (get_output_from_program):
+	Enclose use of WIFEXITED and WEXITSTATUS in HAVE_SYS_WAIT_H
+	check.  Report from Patrice.
+
+2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/run-external.c (get_output_from_program) [!PIPE_USE_FORK]:
 	Check if return value of pclose is -1 before using WEXITSTATUS etc.
 	on it.  Report from Patrice.
