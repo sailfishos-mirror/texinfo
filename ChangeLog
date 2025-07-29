@@ -1,5 +1,12 @@
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.js (Store.prototype.dispatch):
+	Inline contents of "render" function.
+	(init_index_page) <on_load>: Remove "render" as a property
+	of "components" object referencing a function.
+
+2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Eliminate "listeners" abstraction
 
 	* js/info.js (Store): Do not set 'listeners' array.

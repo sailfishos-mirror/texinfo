@@ -92,7 +92,25 @@ Store.prototype.dispatch = function dispatch (action) {
       if (window["INFO_DEBUG"])
         console.log ("state: ", new_state);
 
-      this.components.render(new_state);
+      this.components.components
+          .forEach (function (cmpt) { cmpt.render (new_state); });
+
+      /* Ensure that focus is on the current node unless some component is
+         focused.  */
+      if (!new_state.focus)
+        {
+          var link = linkid_split (new_state.current);
+          var elem = document.getElementById (link.pageid);
+          if (link.pageid !== config.TOP_ID && link.pageid !== config.CONTENTS_ID)
+            elem.querySelector ("iframe").focus ();
+          else
+            {
+              /* Move the focus to top DOM.  */
+              document.documentElement.focus ();
+              /* Allow the spacebar scroll in the main page to work.  */
+              elem.focus ();
+            }
+        }
     }
 };
 
@@ -1180,28 +1198,6 @@ init_index_page ()
         this.components.push (component);
         this.element.appendChild (component.element);
       },
-
-      render: function render (state) {
-        this.components
-            .forEach (function (cmpt) { cmpt.render (state); });
-
-        /* Ensure that focus is on the current node unless some component is
-           focused.  */
-        if (!state.focus)
-          {
-            var link = linkid_split (state.current);
-            var elem = document.getElementById (link.pageid);
-            if (link.pageid !== config.TOP_ID && link.pageid !== config.CONTENTS_ID)
-              elem.querySelector ("iframe").focus ();
-            else
-              {
-                /* Move the focus to top DOM.  */
-                document.documentElement.focus ();
-                /* Allow the spacebar scroll in the main page to work.  */
-                elem.focus ();
-              }
-          }
-      }
     };
     var pages = new Pages (index_div);
     components.add (pages);
