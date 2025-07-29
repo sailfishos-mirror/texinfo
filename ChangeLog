@@ -1,3 +1,19 @@
+2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Make clicking on links on Top node not so broken
+
+	* js/info.js (config) <TOP_ID>: Change from "top" to "index".
+	Links in the Top node are still rewritten to have href attributes
+	that look like "index.html#index.toc-Nodes" and the value "index"
+	is needed to make sure that the check for the Top node in
+	'resolve_page' works.  This reverses change on 2024-10-07 (before
+	which TOP_ID was called "INDEX_ID".)
+	
+	Before this, clicking on links in a short table of contents, or
+	clicking on the copiable anchor in the manual title, would lead
+	"index.html" to be loaded in the main iframe and two copies of the
+	navigation interface would be visible.
+
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fewer functions called 'render'

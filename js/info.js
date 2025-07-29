@@ -31,7 +31,7 @@
 var config = {
   EXT: ".html",
   TOP_NAME: "index.html",
-  TOP_ID: "top",
+  TOP_ID: "index",
   CONTENTS_ID: "SEC_Contents",
   MAIN_ANCHORS: ["Top"],
   WARNING_TIMEOUT: 3000,
@@ -1052,6 +1052,7 @@ init_index_page ()
   resolve_page (linkid, visible)
   {
     var msg;
+    console.log ("LINK ID " + linkid);
     var link = linkid_split (linkid);
     var pageid = link.pageid;
     var div = document.getElementById (link.pageid);
@@ -1078,6 +1079,9 @@ init_index_page ()
           {
             iframe = document.createElement ("iframe");
             iframe.classList.add ("node");
+            console.log ("PAGE ID " + pageid);
+            console.log ("LINKID_TO_URL OF PAGE ID " + linkid_to_url(pageid));
+            console.trace();
             iframe.setAttribute ("src", linkid_to_url (pageid));
             div.appendChild (iframe);
             iframe.addEventListener ("load", function () {
@@ -1472,7 +1476,10 @@ init_sidebar ()
         if (elem)
           elem.scrollIntoView (true);
         else
+          {
+            console.trace();
           debug ("sidebar - no elem " + pageid);
+          }
       }
   }
 
