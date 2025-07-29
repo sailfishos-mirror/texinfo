@@ -366,12 +366,6 @@ get_manpage_from_formatter (char *formatter_args[])
 
   int status = get_output_from_program (formatter_args[0], formatter_args,
                                         &formatted_page, 1);
-  if (status != 0)
-    {
-      free (formatted_page);
-      return 0;
-    }
-
   if (!formatted_page)
     return 0;
 
