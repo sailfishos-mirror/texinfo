@@ -1,3 +1,8 @@
+2025-07-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/ext/latex2html.pm (l2h_retrieve_from_html): do not modify
+	image file names.  Remove l2h_change_image_file_names. 
+
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* js/info.js (on_load):

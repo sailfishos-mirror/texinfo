@@ -9,8 +9,6 @@
 # This program is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-#
-# Originally written by Patrice Dumas.
 
 # Test that a non-breaking space in UTF-8 is output as character, while it
 # is an entity in koi8-r as there is no non-breaking space in that encoding.

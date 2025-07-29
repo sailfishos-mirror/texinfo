@@ -11,7 +11,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="sing_8.svg"
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="sing_l2h_img8.svg"
  ALT="$\displaystyle \partial_t \eta (t) = g(\eta(t),\varphi(t))$">
 </DIV>
  &rdquo;|;
@@ -21,7 +21,7 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
  $- -a {\frac{1}{2}} -$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_1.svg"
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_l2h_img1.svg"
  ALT="$--a {\frac{1}{2}} -$"></SPAN>|;
 
 $l2h_cache_key = q/$--a- {\frac{1}{2}}$/;
@@ -29,7 +29,7 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
  $- -a- {\frac{1}{2}}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_9.svg"
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_l2h_img9.svg"
  ALT="$--a- {\frac{1}{2}}$"></SPAN>|;
 
 $l2h_cache_key = q/\[TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}} 
@@ -42,7 +42,7 @@ TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}}
  -->
 
 <IMG
- STYLE="height: 1.94ex; vertical-align: -0.12ex; " SRC="sing_11.svg"
+ STYLE="height: 1.94ex; vertical-align: -0.12ex; " SRC="sing_l2h_img11.svg"
  ALT="$\displaystyle TeX LaTeX \star{} \mathord{\text{\aa{}}} \circledR{} ^{\circ{}}
 $">
 </DIV>
@@ -64,7 +64,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 3.14ex; vertical-align: -0.51ex; " SRC="sing_10.svg"
+ STYLE="height: 3.14ex; vertical-align: -0.51ex; " SRC="sing_l2h_img10.svg"
  ALT="$\displaystyle \ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \...
 ...}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \check{a}
@@ -92,7 +92,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="sing_4.svg"
+ STYLE="height: 2.85ex; vertical-align: -0.77ex; " SRC="sing_l2h_img4.svg"
  ALT="$\displaystyle \imath{} \jmath{}
 \mathord{\text{\l{}}} \textsl{\c{c}}
 \par\texts...
@@ -115,7 +115,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="sing_3.svg"
+ STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="sing_l2h_img3.svg"
  ALT="$\displaystyle \mathbf{\lq\lq simple-double--three---four----''} \hbox{aa}
 \lq \hbox{}\lq simple-double-\hbox{}-three---four----'\hbox{}'
 $">
@@ -132,7 +132,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="sing_7.svg"
+ STYLE="height: 1.84ex; vertical-align: -0.12ex; " SRC="sing_l2h_img7.svg"
  ALT="$\displaystyle \mathbf{b} \mathit{i} \mathrm{r} sc \mathsf{sansserif} \mathit{slanted}
 $">
 </DIV>
@@ -154,7 +154,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="sing_6.svg"
+ STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="sing_l2h_img6.svg"
  ALT="$\displaystyle \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedbl...
 ...eft{}}}
 \mathord{\text{\guilsinglright{}}} \euro{} \rightarrow{} \leq{} \geq{}
@@ -172,7 +172,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 1.51ex; vertical-align: -0.12ex; " SRC="sing_12.svg"
+ STYLE="height: 1.51ex; vertical-align: -0.12ex; " SRC="sing_l2h_img12.svg"
  ALT="$\displaystyle \mathtt{t}
 $">
 </DIV>
@@ -200,7 +200,7 @@ u
  -->
 
 <IMG
- STYLE="height: 3.03ex; vertical-align: -0.91ex; " SRC="sing_5.svg"
+ STYLE="height: 3.03ex; vertical-align: -0.91ex; " SRC="sing_l2h_img5.svg"
  ALT="$\displaystyle \rightarrow{}
 u
 \bullet{} \copyright{} \dots{} \dots{} \equiv{}
@@ -223,7 +223,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\rig
  -->
 
 <IMG
- STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="sing_2.svg"
+ STYLE="height: 5.44ex; vertical-align: -2.28ex; " SRC="sing_l2h_img2.svg"
  ALT="$\displaystyle disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $">
