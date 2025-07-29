@@ -1165,10 +1165,6 @@ filename_for_xref (char *filename_in, NODE *defaults)
 static NODE *
 info_get_node_with_defaults (char *filename, char *nodename, NODE *defaults)
 {
-  NODE *node = 0;
-  FILE_BUFFER *file_buffer = NULL;
-  char *file_in_same_dir = 0;
-
   const char *fullpath;
   if (filename
       && (is_dir_name (filename)
@@ -1200,7 +1196,6 @@ info_select_reference (WINDOW *window, const REFERENCE *entry)
 
   char *filename = entry->filename;
   char *nodename = entry->nodename;
-  char *label = entry->label;
   int line_number = entry->line_number;
 
   /* Deal with references to dir node or a man page first. */

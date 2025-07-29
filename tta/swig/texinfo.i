@@ -77,8 +77,8 @@ setup (int texinfo_uninstalled, int use_interpreter, int updirs,
   const char *version_for_embedded_interpreter_check;
   char *t2a_srcdir = 0;
   char *t2a_builddir = 0;
-  const char *converterdatadir;
-  const char *converterlibdir;
+  const char *converterdatadir = 0;
+  const char *converterlibdir = 0;
   int do_use_interpreter = 0;
 #ifdef EMBED_PERL
   do_use_interpreter = 1;

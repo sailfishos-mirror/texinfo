@@ -189,7 +189,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
   while (1)
     {
       long point = 0;
-      long line_start = 0;
       int line_number = 0;
 
       char *func, *doc;
@@ -200,7 +199,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
           if (buffer[offset] == '\n')
             {
               line_number++;
-              line_start = offset + 1;
             }
 
           if (strncmp (buffer + offset, decl_str, decl_len) == 0)
@@ -220,7 +218,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
           if (buffer[point] == '\n')
             {
               line_number++;
-              line_start = point + 1;
             }
           else if (buffer[point] == '(')
             break;
@@ -235,7 +232,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
           else if (buffer[point] == '\n')
             {
               line_number++;
-              line_start = point + 1;
             }
         }
 
@@ -285,7 +281,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
           if (buffer[point] == '\n')
             {
               line_number++;
-              line_start = point + 1;
             }
 
           if (buffer[point] == '"')
@@ -301,7 +296,6 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
           if (buffer[offset] == '\n')
             {
               line_number++;
-              line_start = offset + 1;
             }
 
           if (buffer[offset] == '\\')

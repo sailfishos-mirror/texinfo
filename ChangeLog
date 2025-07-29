@@ -1,3 +1,19 @@
+2025-07-29 Patrice Dumas  <pertusus@free.fr>
+
+	Code cleanups based on compiler warnings
+
+	* info/echo-area.c (ea_scroll_completions_window): remove unused lines
+	variable and associated code.
+
+	* info/makedoc.c (process_one_file): remove line_start variable, set
+	but not used.
+
+	* info/session-cmd.c (info_get_node_with_defaults)
+	(info_select_reference): remove unused variables.
+
+	* tta/swig/texinfo.i (setup): initialize variables to silence compiler
+	warning (they are not used anywhere if texinfo_uninstalled is set).
+
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/run-external.c (get_output_from_program):
