@@ -1,7 +1,7 @@
 2025-07-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/ext/latex2html.pm (l2h_retrieve_from_html): do not modify
-	image file names.  Remove l2h_change_image_file_names. 
+	image file names.  Remove l2h_change_image_file_names.
 
 2025-07-29  Gavin Smith <gavinsmith0123@gmail.com>
 
@@ -49,7 +49,7 @@
 	warn.
 
 	* tta/perl/ext/latex2html.pm (l2h_process)
-	(l2h_change_image_file_names, l2h_retrieve_from_html): handle empty 
+	(l2h_change_image_file_names, l2h_retrieve_from_html): handle empty
 	destination_directory.
 
 	* tta/perl/t/test_utils.pl: change in spacing.
@@ -375,7 +375,7 @@
 
 2025-07-26 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/C/parsetexi/handle_commands.c (handle_line_command), 
+	* tta/C/parsetexi/handle_commands.c (handle_line_command),
 	tta/perl/Texinfo/ParserNonXS.pm (_handle_line_command): warn if a
 	lineraw command without argument has non-space argument before
 	a comment on the line.
@@ -389,11 +389,11 @@
 	* tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command): fix
 	order of hr output with regard to index entries.
 
-	Update missed test results. 
+	Update missed test results.
 
 2025-07-26 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/C/parsetexi/handle_commands.c (parse_rawline_command), 
+	* tta/C/parsetexi/handle_commands.c (parse_rawline_command),
 	tta/perl/Texinfo/ParserNonXS.pm (_parse_rawline_command): remove
 	special_arg unused return value.  Update caller.
 
@@ -430,7 +430,7 @@
 
 	* tta/swig/perl/MANIFEST, tta/swig/perl/MANIFEST.SKIP,
 	tta/swig/perl/Makefile.PL: remove -DEMBED_PERL flag.  Update and
-	Improve MakeMaker based build system. 
+	Improve MakeMaker based build system.
 
 	* tta/swig/perl/Makefile.am (scripts_test_files): rename
 	other_test_files as scripts_test_files.
@@ -444,7 +444,7 @@
 2025-07-26 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/Makefile.am (C_libtexinfo_main_sources),
-	tta/C/convert/swig_error_messages_types.h (FORMATTED_ERROR_MESSAGE) 
+	tta/C/convert/swig_error_messages_types.h (FORMATTED_ERROR_MESSAGE)
 	(FORMATTED_ERROR_MESSAGE_LIST), tta/C/convert/swig_interface.c
 	(get_error_messages_list_messages, get_parser_error_messages)
 	(get_document_error_messages, messages_list_message_by_index)
@@ -452,7 +452,7 @@
 	(error_message_text): make error_message_text extern.  Add interface
 	to error messages, with formatted error message added.  With the
 	functions get_parser_error_messages, get_document_error_messages,
-	messages_list_message_by_index and messages_list_messages_number.  
+	messages_list_message_by_index and messages_list_messages_number.
 
 	* tta/swig/Makefile.am (SWIG_header_dependencies), tta/swig/texinfo.i:
 	add interface to get formatted error messages.
@@ -498,13 +498,13 @@
 	tta/swig/texinfo.i: add copy_options_for_convert_text to interface.
 	Setup an interface that can be used to set text options from document
 	options and with functions.  Use in texinfo.i.
-    
+
 	* tta/swig/texinfo.i: add interface to convert to text.
-    
+
 	* tta/swig/perl/Makefile.am (EXTRA_DIST),
 	tta/swig/perl/_Texinfo_Tests.pm: add an internal module to be used for
 	common code for tests.
-    
+
 	* tta/swig/perl/Makefile.am (t_test_files),
 	tta/swig/perl/t/40convert_to_text.t: add a test of conversion to text
 	through the Perl SWIG interface.
@@ -587,7 +587,7 @@
 	* tta/swig/perl/parse_refold.pl, tta/swig/perl/t/30source_marks.t,
 	tta/swig/texinfo.i (new_reader): wrap txi_register_new_reader and
 	retrieve_reader_descriptor in a new_reader interface and do not
-	provide with an interface through txi_new_reader.  Update callers. 
+	provide with an interface through txi_new_reader.  Update callers.
 
 2025-07-25  Gavin Smith <gavinsmith0123@gmail.com>
 
@@ -893,7 +893,7 @@
 	UTF-8.  Encode output in document enoding, using ISO-8859-1 for
 	US-ASCII such as to support old manuals in which US-ASCII can be
 	specified although the encoding corresponds to any 8bit encoding
-	compatible with ISO-8859-1. 
+	compatible with ISO-8859-1.
 
 2025-07-22 Patrice Dumas  <pertusus@free.fr>
 
@@ -909,7 +909,7 @@
 	* tta/C/parsetexi/source_marks.c (place_source_mark),
 	tta/perl/Texinfo/ParserNonXS.pm (_place_source_mark): place source
 	mark on the last element in arguments_line when there is an argument
-	line. 
+	line.
 
 	* tta/perl/Makefile.tres, tta/perl/t/55conditionals.t
 	(root_command_in_conditional): add test of root command in expanded
