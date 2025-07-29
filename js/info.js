@@ -205,6 +205,10 @@ var actions = {
     return { type: "window-title", title: title };
   },
 
+  window_title_of_linkid: function (title, linkid) {
+    return { type: "window-title-of-linkid", title: title, linkid: linkid };
+  },
+
   /** Search EXP in the whole manual.
       @arg {RegExp|string} exp*/
   search: function (exp) {
@@ -468,6 +472,10 @@ updater (state, action)
     case "window-title":
       {
         result.window_title = action.title;
+        return result;
+      }
+    case "window-title-of-linkid":
+      {
         return result;
       }
     case "warning":
@@ -932,12 +940,19 @@ init_index_page ()
         this.prev_id = state.current;
         this.prev_div = div;
       }
-      if (state.action.type === "window-title") {
-          div.setAttribute("title", state.action.title);
+    if (state.action.type === "window-title")
+      {
+        div.setAttribute("title", state.action.title);
       }
-      let title = div.getAttribute("title") || this.main_title;
-      if (title && document.title !== title)
-          document.title = title;
+    else if (state.action.type === "window-title-of-linkid")
+      {
+        var update_div =  document.getElementById (state.action.linkid);
+        if (update_div)
+          update_div.setAttribute("title", state.action.title);
+      }
+    let title = div.getAttribute("title") || this.main_title;
+    if (title && document.title !== title)
+        document.title = title;
 
     if (state.search
         && (this.prev_search !== state.search)
@@ -1492,7 +1507,7 @@ init_iframe ()
     links[linkid] = navigation_links (document);
     store.dispatch (actions.cache_links (links));
     if (document.title)
-       store.dispatch (actions.window_title (document.title));
+      store.dispatch (actions.window_title_of_linkid (document.title, linkid));
 
     if (linkid_contains_index (linkid))
       {

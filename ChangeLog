@@ -1,5 +1,29 @@
 2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove annoying tooltip for Top node with info.js
+	
+	(updater): Add new action type "window-title-of-linkid".
+	Not much is done in this function.
+	(Pages.prototype.render): This called indirectly and is where a
+	lot of the real processing is done after the main "store"
+	receives an action.  Handle "window-title-of-linkid" action.
+	
+	(init_iframe) <on_load>: Initiate "window-title-of-linkid"
+	action.  This contains the ID of the node as well as the new
+	title to use, leading the "title" to be updated on the correct
+	<div>.	We get the ID from the window location.  This is more
+	reliable than the "window-title" action as that seemed to try
+	to use whichever node was currently being displayed, which was
+	wrong when the index nodes were read in at start up.  This lead
+	to a "title" attribute being set incorrectly on some element in
+	the Top node, which would lead to a tool-tip appearing with the
+	title of whichever Index node was read in last.
+
+	(actions) (window_title_of_linkid): Add for "window-title-of-linkid"
+	message.
+
+2025-07-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info.js (init_sidebar) <add_header>:
 	Remove 'a.copiable-link' element from main title in sidebar.
 	This often contains a large ¶ symbol which is unnecessary.
