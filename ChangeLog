@@ -1,5 +1,10 @@
 2025-07-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/latex2html.pm (l2h_finish): warn if unlink did not
+	succeed.
+
+2025-07-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/latex2html.pm (l2h_to_latex, l2h_retrieve_from_html)
 	(l2h_init_cache, l2h_store_cache): check close error condition and
 	warn.

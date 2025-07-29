@@ -783,10 +783,19 @@ sub l2h_finish($)
         # file names to latex2html
         my $file_name = decode('UTF-8', $file);
         if ($file_name =~ /^$quoted_l2h_name/) {
-          # FIXME error condition not checked
           my $removed_file
             = join('/', ($destination_directory_string, $file));
-          unlink $removed_file;
+          if (!unlink($removed_file)) {
+            my $file_path_name;
+            if ($destination_directory ne '') {
+              $file_path_name = join('/', ($destination_directory, $file_name));
+            } else {
+              $file_path_name = $file_name;
+            }
+            $self->converter_document_warn(sprintf(__(
+                        "l2h: could not unlink file %s: %s"),
+                                           $file_path_name, $!));
+          }
         }
       }
     }
