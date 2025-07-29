@@ -49,7 +49,8 @@ texinfo_set_from_init_file('PRE_BODY_CLOSE', "\n");
 texinfo_set_from_init_file('PROGRAM_NAME_IN_ABOUT', 0);
 
 # if using tex4ht, must be in latex mode due to \textbf
-$Texinfo::TeX4HT::STYLE='latex';
+texinfo_set_from_init_file('T4H_TEX_CONVERSION', 'latex');
+texinfo_set_from_init_file('T4H_MATH_CONVERSION', 'latex');
 
 # title is already in the manual
 #$print_title = \&T2H_DEFAULT_print_title;

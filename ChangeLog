@@ -1,5 +1,18 @@
 2025-07-29 Patrice Dumas  <pertusus@free.fr>
 
+	Remove the Texinfo::TeX4HT customization package
+
+	* NEWS, tta/perl/ext/tex4ht.pm (tex4ht_prepare)
+	(tex4ht_process_format): remove the Texinfo::TeX4HT customization
+	package, replace by the defaults.  If customization is needed, it
+	should be implemented through customization variables.
+
+	* tta/perl/t/init/t2h_singular.init: replace the use of long gone
+	Texinfo::TeX4HT STYLE by setting T4H_TEX_CONVERSION and
+	T4H_MATH_CONVERSION to latex.
+
+2025-07-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/latex2html.pm (l2h_retrieve_from_html): do not modify
 	image file names.  Remove l2h_change_image_file_names.
 

@@ -53,6 +53,7 @@ See the manual for detailed information.
         names generated for the converted manual content.
       . USE_NEXT_HEADING_FOR_LONE_NODE removed.  Former effect
         is now always on.
+  . Remove the Texinfo::TeX4HT customization package.
   . XML output:
       . use HTML entities names for @H and @dotaccent accents types
 

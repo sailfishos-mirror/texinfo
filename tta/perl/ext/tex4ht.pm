@@ -22,13 +22,9 @@
 # Originally written by Patrice Dumas.
 #
 #-##############################################################################
-# To customize the command and the options, you can set the
+# To customize, you can set the
 # T4H_MATH_CONVERSION, T4H_TEX_CONVERSION and T4H_LATEX_CONVERSION
-# customization variables and/or change
-# $Texinfo::TeX4HT::tex4ht_command_tex
-#    and $Texinfo::TeX4HT::tex4ht_options_tex
-# $Texinfo::TeX4HT::tex4ht_command_latex, $Texinfo::TeX4HT::tex4ht_command_texi
-#    and $Texinfo::TeX4HT::tex4ht_options_latex and $Texinfo::TeX4HT::tex4ht_options_texi
+# customization variables
 
 use strict;
 
@@ -55,33 +51,6 @@ texinfo_register_command_formatting('math', \&tex4ht_convert_command);
 texinfo_register_command_formatting('tex', \&tex4ht_convert_command);
 texinfo_register_command_formatting('latex', \&tex4ht_convert_command);
 texinfo_register_command_formatting('displaymath', \&tex4ht_convert_command);
-
-{
-
-package Texinfo::TeX4HT;
-
-use vars qw(
-$tex4ht_command_tex
-$tex4ht_command_latex
-$tex4ht_command_texi
-$tex4ht_options_tex
-$tex4ht_options_latex
-$tex4ht_options_texi
-);
-
-if (!defined($tex4ht_command_tex)) {
-  $tex4ht_command_tex = 'httex';
-}
-
-if (!defined($tex4ht_command_latex)) {
-  $tex4ht_command_latex = 'htlatex';
-}
-
-if (!defined($tex4ht_command_texi)) {
-  $tex4ht_command_texi = 'httexi';
-}
-
-}
 
 my %commands;
 # style of output
@@ -110,15 +79,15 @@ sub tex4ht_prepare($$)
   return 0 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
-  $formats{'tex'} = {'exec' => $Texinfo::TeX4HT::tex4ht_command_tex,
+  $formats{'tex'} = {'exec' => 'httex',
                      'commands' => [],
                      'results' => {}};
-  $formats{'latex'} = {'exec' => $Texinfo::TeX4HT::tex4ht_command_latex,
+  $formats{'latex'} = {'exec' => 'htlatex',
                        'commands' => [],
                        'results' => {}};
-  $formats{'texi'} = {'exec' => $Texinfo::TeX4HT::tex4ht_command_texi,
+  $formats{'texi'} = {'exec' => 'httexi',
                       'commands' => [],
-                     'results' => {}};
+                      'results' => {}};
 
   my $math_conversion = $self->get_conf('T4H_MATH_CONVERSION');
   if (defined($math_conversion) and !$formats{$math_conversion}) {
@@ -390,13 +359,6 @@ sub tex4ht_process_format($$) {
 
   # run tex4ht
   my $options = '';
-  if ($format eq 'tex' and defined($Texinfo::TeX4HT::tex4ht_options_tex)) {
-    $options = $Texinfo::TeX4HT::tex4ht_options_tex;
-  } elsif ($format eq 'latex' and defined($Texinfo::TeX4HT::tex4ht_options_latex)) {
-    $options = $Texinfo::TeX4HT::tex4ht_options_latex;
-  } elsif ($format eq 'texi' and defined($Texinfo::TeX4HT::tex4ht_options_texi)) {
-    $options = $Texinfo::TeX4HT::tex4ht_options_texi;
-  }
 
   my $cmd = "$formats{$format}->{'exec'} $formats{$format}->{'basefile_name'} $options";
   my $encoding = $self->get_conf('MESSAGE_ENCODING');
