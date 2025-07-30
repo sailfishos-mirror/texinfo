@@ -33,6 +33,95 @@ An earlier document on this issue, from Per Bothner in 2016:
 
 http://per.bothner.com/blog/2016/texinfo-roadmap/
 
+* Coordinate with other projects
+
+It's hard to make progress on this due to the need to coordinate with
+different projects.  It's a chicken-and-egg problem: an HTML Info
+program could not be released until people had documentation installed
+where the program could read it, but people are also not motivated
+to install documentation in a place that no program would use it.
+
+Changes would be needed in other projects
+
+* Distributions (Guix, Debian...) - Install HTML documentation
+* Automake - rules for generating and installing HTML documentation
+* Emacs - Info mode
+* GNOME/other desktop environments - see if work on webkitgtk-info
+or other could be integrated into other help systems like yelp
+or DevHelp.
+  - there was some discussion (December 2024) at
+  https://gitlab.gnome.org/GNOME/yelp/-/issues/220 (although that
+  bug tracker is often inaccessible due to their anti-bot measures).
+
+* Location of locally installed HTML files
+
+The current code under js/infog looks for MANUAL under
+/usr/share/texinfo/html/MANUAL_html and
+/usr/local/share/texinfo/html/MANUAL_html.
+Users or distributions would need to copy/symlink the manuals to this
+location.  The /usr/share/texinfo/html directory is akin to the
+/usr/share/info/dir file in the Info system.
+
+Currently infog only supports "split" installed HTML manuals
+(meaning a collection of smaller HTML files rather than one large HTML file).
+
+The GNU coding standards specify a 'docdir' directory for a package.  For
+example, '/usr/local/share/doc/YOURPKG'.  It would be natural to install
+Texinfo HTML documentation under '/usr/local/share/doc/YOURPKG/html'.
+
+However, we did not use /usr/local/share/doc because
+manual names are distinct from package names.  For example,
+"emacs" would be the package name for many manuals ("tramp",
+"org", "calc", etc.).  Hence, a user might not find the tramp
+manual under /usr/local/share/doc/tramp/html but somewhere under
+/usr/local/share/doc/emacs.
+
+The location of files is needed for users to find a manual by name
+and to follow cross-references between manuals.
+
+Debian alse has some guidance on where HTML documentation could
+be installed -
+
+https://www.debian.org/doc/debian-policy/ch-docs.html#additional-documentation
+
+- but file locations on Debian are not completely consistent (e.g. the
+make manual is under /usr/share/doc/make-doc/make.html, while gdb
+is under /usr/share/doc/gdb-doc/html/gdb).
+
+%
+
+It was also an issue as to how to get the manual name from a link.
+In recent Texinfo releases, links to other manuals are annotated with the
+"data-manual" attribute.  This solves the problem of getting the manual
+name.
+
+Texinfo manuals are put on the web with a variety of URL formats and
+it is not possible to reliably get a manual name from a URL or even
+to tell if a URL is to a Texinfo manual or to some other webpapge.  It's
+unlikely we could persuade everybody to change their URL formats to
+be something a browser could parse reliably to get the manual name.  Here
+are some examples of URL's and the manual names:
+
+https://www.gnu.org/software/trans-coord/manual/cvs/html_node/ - "cvs"
+https://gmplib.org/manual/ - "gmp"
+http://lilypond.org/doc/v2.22/Documentation/internals/ - "lilypond-internals"
+https://gcc.gnu.org/onlinedocs/gfortran/ - "gfortran"
+
+
+Prior to this, we mooted the idea of outputting links in HTML documents
+differently if they were to be installed locally rather than put on the web.
+For example, link to "../auth/index.html" instead of
+"https://www.gnu.org/software/emacs/manual/html_node/auth/index.html".  With
+the right installation standards, this would have allowed inter-manual
+links to work in regular web browsers (although only for a single
+installation location).
+
+* Where to store non-English manuals
+
+Possibly in a subdirectory named with the language code
+
+
+
 * Requirements
 
 Simply using the system web browser to access HTML manuals is not
@@ -117,93 +206,4 @@ From a private email (October 2020):
 (Since that email was written some use has been made of injected
 JavaScript.)
 
-
-* Location of locally installed HTML files
-
-
-The current code under js/infog looks for MANUAL under
-/usr/share/texinfo/html/MANUAL_html and
-/usr/local/share/texinfo/html/MANUAL_html.
-Users or distributions would need to copy/symlink the manuals to this
-location.  The /usr/share/texinfo/html directory is akin to the
-/usr/share/info/dir file in the Info system.
-
-Currently infog only supports "split" installed HTML manuals
-(meaning a collection of smaller HTML files rather than one large HTML file).
-
-The GNU coding standards specify a 'docdir' directory for a package.  For
-example, '/usr/local/share/doc/YOURPKG'.  It would be natural to install
-Texinfo HTML documentation under '/usr/local/share/doc/YOURPKG/html'.
-
-However, we did not use /usr/local/share/doc because
-manual names are distinct from package names.  For example,
-"emacs" would be the package name for many manuals ("tramp",
-"org", "calc", etc.).  Hence, a user might not find the tramp
-manual under /usr/local/share/doc/tramp/html but somewhere under
-/usr/local/share/doc/emacs.
-
-The location of files is needed for users to find a manual by name
-and to follow cross-references between manuals.
-
-Debian alse has some guidance on where HTML documentation could
-be installed -
-
-https://www.debian.org/doc/debian-policy/ch-docs.html#additional-documentation
-
-- but file locations on Debian are not completely consistent (e.g. the
-make manual is under /usr/share/doc/make-doc/make.html, while gdb
-is under /usr/share/doc/gdb-doc/html/gdb).
-
-
-%
-
-It was also an issue as to how to get the manual name from a link.
-In recent Texinfo releases, links to other manuals are annotated with the
-"data-manual" attribute.  This solves the problem of getting the manual
-name.
-
-Texinfo manuals are put on the web with a variety of URL formats and
-it is not possible to reliably get a manual name from a URL or even
-to tell if a URL is to a Texinfo manual or to some other webpapge.  It's
-unlikely we could persuade everybody to change their URL formats to
-be something a browser could parse reliably to get the manual name.  Here
-are some examples of URL's and the manual names:
-
-https://www.gnu.org/software/trans-coord/manual/cvs/html_node/ - "cvs"
-https://gmplib.org/manual/ - "gmp"
-http://lilypond.org/doc/v2.22/Documentation/internals/ - "lilypond-internals"
-https://gcc.gnu.org/onlinedocs/gfortran/ - "gfortran"
-
-
-Prior to this, we mooted the idea of outputting links in HTML documents
-differently if they were to be installed locally rather than put on the web.
-For example, link to "../auth/index.html" instead of
-"https://www.gnu.org/software/emacs/manual/html_node/auth/index.html".  With
-the right installation standards, this would have allowed inter-manual
-links to work in regular web browsers (although only for a single
-installation location).
-
-* Where to store non-English manuals
-
-Possibly in a subdirectory named with the language code
-
-* Coordinate with other projects
-
-It's hard to make progress on this due to the need to coordinate with
-different projects.  It's a chicken-and-egg problem: an HTML Info
-program could not be released until people had documentation installed
-where the program could read it, but people are also not motivated
-to install documentation in a place that no program would use it.
-
-Changes would be needed in other projects
-
-* Distributions (Guix, Debian...) - Install HTML documentation
-* Automake - rules for generating and installing HTML documentation
-* Emacs - Info mode
-* GNOME/other desktop environments - see if work on webkitgtk-info
-or other could be integrated into other help systems like yelp
-or DevHelp.
-  - there was some discussion (December 2024) at
-  https://gitlab.gnome.org/GNOME/yelp/-/issues/220 (although that
-  bug tracker is often inaccessible due to their anti-bot measures).
 
