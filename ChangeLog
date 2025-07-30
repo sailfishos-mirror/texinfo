@@ -1,5 +1,10 @@
 2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.js (resolve_page): remove debugging code committed
+	by accident.
+
+2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.js: remove commented-out block of code checking
 	screen width.  This was commented out on 2021-02-24 when
 	a button to hide the sidebar was added.

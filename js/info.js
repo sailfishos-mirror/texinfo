@@ -1052,8 +1052,6 @@ init_index_page ()
           {
             iframe = document.createElement ("iframe");
             iframe.classList.add ("node");
-            console.log ("PAGE ID " + pageid);
-            console.log ("LINKID_TO_URL OF PAGE ID " + linkid_to_url(pageid));
             console.trace();
             iframe.setAttribute ("src", linkid_to_url (pageid));
             div.appendChild (iframe);
