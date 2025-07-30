@@ -1,5 +1,15 @@
 2025-07-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/StructTransfXS.pm: do not set $XS_package, it is not
+	used anywhere.
+
+	Do not set Texinfo::XSLoader::init return value if not used.
+
+	* tta/swig/perl/t/40convert_to_text.t: minor changes in code and
+	comment.
+
+2025-07-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c: remove html_translate_string, it is
 	not used anymore.
 

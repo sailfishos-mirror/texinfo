@@ -25,7 +25,7 @@ our $VERSION = '7.2dev';
 use Texinfo::XSLoader;
 
 BEGIN {
-  my $package = Texinfo::XSLoader::init (
+  Texinfo::XSLoader::init (
       "Texinfo::DocumentXS",
       undef,
       "DocumentXS",

@@ -17,6 +17,8 @@
 # instantiated objects are also used to carry information for the
 # XS modules, mainly to be able to find the document information
 # in memory.
+# Also note that the initialization of the C library is done by
+# this module XS code when XS extensions are used.
 
 package Texinfo::Document;
 

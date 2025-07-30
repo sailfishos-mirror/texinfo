@@ -23,11 +23,9 @@ our $VERSION = '7.2dev';
 
 use Texinfo::XSLoader;
 
-our $XS_package;
-
 BEGIN {
   if (Texinfo::XSLoader::XS_structuring_enabled()) {
-    $XS_package = Texinfo::XSLoader::init (
+    Texinfo::XSLoader::init (
       "Texinfo::StructTransfXS",
       undef,
       "StructuringTransfoXS",
