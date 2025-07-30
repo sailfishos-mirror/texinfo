@@ -163,35 +163,8 @@ var actions = {
     return { type: "cache-links", links: links };
   },
 
-  /** @arg {NodeListOf<Element>} entries */
-  cache_index_links: function (entries) {
-    var dict = {};
-    var text0 = "", text1 = ""; // for subentries
-    for (var i = 0; i < entries.length; i += 1)
-      {
-        var entry = entries[i];
-        var entry_cl = entry.classList;
-        var text = entry.textContent;
-        if (entry_cl.contains("printindex-index-subentry-level-2"))
-          {
-            text = text0 + "; " + text1 + "; " + text;
-          }
-        else if (entry_cl.contains("printindex-index-subentry-level-1"))
-          {
-            text1 = text;
-            text = text0 + "; " + text;
-          }
-        else
-          {
-            text0 = text;
-          }
-
-        var link = entry.firstChild;
-        if (link && link.nodeName == 'A')
-          {
-            dict[text] = href_hash (link_href (link));
-          }
-      }
+  /* Send list of index entries. */
+  cache_index_links: function (dict) {
     return { type: "cache-index-links", links: dict };
   },
 
@@ -1052,7 +1025,6 @@ init_index_page ()
   resolve_page (linkid, visible)
   {
     var msg;
-    console.log ("LINK ID " + linkid);
     var link = linkid_split (linkid);
     var pageid = link.pageid;
     var div = document.getElementById (link.pageid);
@@ -1476,10 +1448,7 @@ init_sidebar ()
         if (elem)
           elem.scrollIntoView (true);
         else
-          {
-            console.trace();
           debug ("sidebar - no elem " + pageid);
-          }
       }
   }
 
@@ -1514,7 +1483,36 @@ init_iframe ()
           ("td.printindex-index-entry"
            + ", td.printindex-index-subentry-level-1"
            + ", td.printindex-index-subentry-level-2");
-        store.dispatch (actions.cache_index_links (index_entries));
+
+        var dict = {};
+        var text0 = "", text1 = ""; // for subentries
+        for (var i = 0; i < index_entries.length; i += 1)
+          {
+            var entry = index_entries[i];
+            var entry_cl = entry.classList;
+            var text = entry.textContent;
+            if (entry_cl.contains("printindex-index-subentry-level-2"))
+              {
+                text = text0 + "; " + text1 + "; " + text;
+              }
+            else if (entry_cl.contains("printindex-index-subentry-level-1"))
+              {
+                text1 = text;
+                text = text0 + "; " + text;
+              }
+            else
+              {
+                text0 = text;
+              }
+
+            var link = entry.firstChild;
+            if (link && link.nodeName == 'A')
+              {
+                dict[text] = href_hash (link_href (link));
+              }
+          }
+
+        store.dispatch (actions.cache_index_links (dict));
       }
 
     add_icons ();

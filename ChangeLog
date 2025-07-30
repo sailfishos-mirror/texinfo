@@ -1,5 +1,11 @@
 2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.js (init_iframe) <on_load>, (actions.cache_index_links):
+	Inline most of actions.cache_index_links into on_load.  This way
+	actions.cache_index_links is focused on the structure of the message.
+
+2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: mention info.js fix
 
 2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
