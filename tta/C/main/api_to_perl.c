@@ -36,7 +36,7 @@
 #include "option_types.h"
 #include "converter_types.h"
 #include "document_types.h"
-/* non_perl_* get_use_perl_interpreter */
+/* non_perl_* has_perl_interpreter */
 #include "xs_utils.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -82,7 +82,7 @@ call_switch_to_global_locale (void)
 {
   dTHX;
 
-  if (get_use_perl_interpreter () <= 0)
+  if (!has_perl_interpreter ())
     return;
 
 #if PERL_VERSION > 27 || (PERL_VERSION == 27 && PERL_SUBVERSION > 8)
@@ -96,7 +96,7 @@ call_sync_locale (void)
 {
   dTHX;
 
-  if (get_use_perl_interpreter () <= 0)
+  if (!has_perl_interpreter ())
     return;
 
 #if PERL_VERSION > 27 || (PERL_VERSION == 27 && PERL_SUBVERSION > 8)

@@ -47,7 +47,8 @@ noinst_LTLIBRARIES += libperlcall_utils.la
 
 libperlcall_utils_la_SOURCES = \
 		main/xs_utils.c \
-		main/xs_utils.h
+		main/xs_utils.h \
+		main/use_interpreter_types.h
 
 if ! DISABLE_XS
 libperlcall_utils_la_SOURCES += main/set_perl_interpreter.c
@@ -55,7 +56,7 @@ else
 libperlcall_utils_la_SOURCES += main/replace_set_perl_interpreter.c
 endif
 
-libperlcall_utils_la_CPPFLAGS = $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
+libperlcall_utils_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libperlcall_utils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 
 ########################## shared common, parser and structure library

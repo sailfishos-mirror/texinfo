@@ -35,6 +35,7 @@
    is not set */
 #include "gettext.h"
 
+#include "use_interpreter_types.h"
 #include "document_types.h"
 #include "option_types.h"
 #include "options_defaults.h"
@@ -89,7 +90,7 @@ txi_find_tree_transformation (const char *transformation_name)
    To be called before loading init files.
  */
 void
-txi_setup_main_load_interpreter (int use_interpreter,
+txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
                       int texinfo_uninstalled,
                       const char *converterdatadir,
                       const char *converterlibdir,
@@ -99,7 +100,7 @@ txi_setup_main_load_interpreter (int use_interpreter,
                       const char *version_checked)
 {
   const char *load_txi_modules_basename = "load_txi_modules";
-  if (use_interpreter == 1)
+  if (use_interpreter == txi_interpreter_use_embedded)
     {
       char *load_modules_path;
       int status;
@@ -124,7 +125,8 @@ txi_setup_main_load_interpreter (int use_interpreter,
       else if (status < 0)
         {
           fprintf (stderr, "WARNING: no interpreter embedding code built\n");
-          /* no need to call set_use_perl_interpreter 0, it is the default in
+          /* no need to call set_use_perl_interpreter
+             txi_interpreter_use_no_interpreter, it is the default in
              that case */
           messages_and_encodings_setup ();
           setup_texinfo_main (texinfo_uninstalled, converterdatadir,
@@ -132,7 +134,7 @@ txi_setup_main_load_interpreter (int use_interpreter,
         }
       free (load_modules_path);
     }
-  else if (use_interpreter > 0)
+  else if (use_interpreter == txi_interpreter_use_interpreter)
     {/* assume that there is already a Perl interpreter loaded, but the
         texi2any Perl modules are not loaded and load some modules.
         Used from the Perl SWIG interface */
@@ -166,7 +168,7 @@ txi_setup_main_load_interpreter (int use_interpreter,
       setup_texinfo_main (texinfo_uninstalled, converterdatadir,
                           t2a_builddir, t2a_srcdir);
 
-      set_use_perl_interpreter (0);
+      set_use_perl_interpreter (txi_interpreter_use_no_interpreter);
     }
 }
 
@@ -263,18 +265,18 @@ txi_general_output_strings_setup (int use_external_translate_string)
 }
 
 int
-txi_load_init_file (const char *file, int embedded_interpreter)
+txi_load_init_file (const char *file, enum interpreter_use embedded_interpreter)
 {
   int status = 0;
-  if (embedded_interpreter)
+  if (embedded_interpreter == txi_interpreter_use_embedded)
     status = call_config_GNUT_load_init_file (file);
   return status;
 }
 
 void
-txi_stop_interpreter (int embedded_interpreter)
+txi_stop_interpreter (enum interpreter_use embedded_interpreter)
 {
-  if (embedded_interpreter)
+  if (embedded_interpreter == txi_interpreter_use_embedded)
     call_finish_perl ();
 }
 

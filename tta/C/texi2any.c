@@ -44,6 +44,7 @@
 #endif
 
 #include "text.h"
+#include "use_interpreter_types.h"
 #include "option_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -155,7 +156,8 @@ static OPTIONS_LIST *init_files_options;
 
 static char *program_file;
 
-static int embedded_interpreter = 0;
+static enum interpreter_use embedded_interpreter
+   = txi_interpreter_use_no_interpreter;
 
 /* texi2any */
 static void
@@ -638,7 +640,7 @@ locate_and_load_init_file (const char *filename, STRING_LIST *directories,
       else
         {
           char *decoded_filename = GNUT_decode_input ((char *) filename);
-          if (!embedded_interpreter)
+          if (embedded_interpreter != txi_interpreter_use_embedded)
             fprintf (stderr, "WARNING: no interpreter, cannot load: %s\n",
                      filename);
           else
@@ -675,7 +677,7 @@ locate_and_load_extension_file (const char *filename, STRING_LIST *directories)
       else
         {
           char *decoded_filename = GNUT_decode_input ((char *) filename);
-          if (!embedded_interpreter)
+          if (embedded_interpreter != txi_interpreter_use_embedded)
             fprintf (stderr, "WARNING: no interpreter, cannot load: %s\n",
                      filename);
           else
@@ -1060,13 +1062,13 @@ main (int argc, char *argv[], char *env[])
     }
 
 #ifdef EMBED_PERL
-  embedded_interpreter = 1;
+  embedded_interpreter = txi_interpreter_use_embedded;
   default_is_html = 0;
 #endif
 
   perl_embed_env = getenv ("TEXINFO_C_EMBED_PERL");
   if (perl_embed_env && !strcmp (perl_embed_env, "0"))
-    embedded_interpreter = 0;
+    embedded_interpreter = txi_interpreter_use_no_interpreter;
 
   if (texinfo_uninstalled)
     {
@@ -2079,7 +2081,7 @@ main (int argc, char *argv[], char *env[])
       store_value (&values, "TEXI2HTML", "1");
     }
 
-  if (!embedded_interpreter)
+  if (embedded_interpreter != txi_interpreter_use_embedded)
     /* it is the best we have without an embedded interpreter */
     add_option_value (&program_options, "XS_STRXFRM_COLLATION_LOCALE", 0,
                       "en_US");
@@ -2324,7 +2326,7 @@ main (int argc, char *argv[], char *env[])
 
       if (external_module)
         {
-          if (!embedded_interpreter)
+          if (embedded_interpreter != txi_interpreter_use_embedded)
             {
               fprintf (stderr, "ERROR: no interpreter for %s\n",
                        external_module);
@@ -3101,7 +3103,8 @@ main (int argc, char *argv[], char *env[])
                 = sort_element_count_option->o.string;
             }
 
-          if (sort_element_count_file_name && !embedded_interpreter)
+          if (sort_element_count_file_name
+              && embedded_interpreter != txi_interpreter_use_embedded)
             {
               fprintf (stderr,
                        "ERROR: no interpreter for SORT_ELEMENT_COUNT\n");

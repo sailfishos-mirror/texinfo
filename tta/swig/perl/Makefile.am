@@ -39,6 +39,7 @@ $(top_builddir)/../tta/C/libtexinfo-main.la:
 
 SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert
 SWIG_header_dependencies = \
+                 $(txi_libs_srcdir)/main/use_interpreter_types.h \
                  $(txi_libs_srcdir)/main/source_mark_types.h \
                  $(txi_libs_srcdir)/convert/swig_element_data.h \
                  $(txi_libs_srcdir)/convert/swig_text_options.h \

@@ -1,4 +1,7 @@
-/* Copyright 2024-2025 Free Software Foundation, Inc.
+/* use_interpreter_types.h - types for interpreter use */
+#ifndef USE_INTEPRETER_TYPES_H
+#define USE_INTEPRETER_TYPES_H
+/* Copyright 2025 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -11,23 +14,13 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-/* replace setting and getting Perl interpreter information to always unset
-   and replace functions when called from pure C code */
+enum interpreter_use {
+   txi_interpreter_use_none = -1,
+   txi_interpreter_use_no_interpreter,
+   txi_interpreter_use_embedded,
+   txi_interpreter_use_interpreter,
+};
 
-#include "use_interpreter_types.h"
-
-#include "xs_utils.h"
-
-/* in xs_utils.h */
-void
-set_use_perl_interpreter (enum interpreter_use value)
-{
-}
-
-int
-has_perl_interpreter (void)
-{
-  return 0;
-}
+#endif

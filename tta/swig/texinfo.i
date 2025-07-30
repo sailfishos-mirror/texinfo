@@ -26,6 +26,7 @@
 /* not necessarily used, but could be for debugging */
 #include <stdio.h>
 
+#include "use_interpreter_types.h"
 #include "source_mark_types.h"
 #include "element_types.h"
 #include "types_data.h"
@@ -57,19 +58,23 @@ txi_general_output_strings_setup (0);
 reset_parser (0);
 %}
 
+%include "use_interpreter_types.h"
+
 // if use_interpreter is negative (the default value), the value set
 // at compile is used.
 void
-setup (int texinfo_uninstalled=0, int use_interpreter=-1, int updirs=3,
-       const char *converterdatadir_in=0,
+setup (int texinfo_uninstalled=0,
+       enum interpreter_use use_interpreter=txi_interpreter_use_none,
+       int updirs=3, const char *converterdatadir_in=0,
        const char *converterlibdir_in=0,
        const char *t2a_builddir_in=0,
        const char *t2a_srcdir_in=0);
 
 %{
 void
-setup (int texinfo_uninstalled, int use_interpreter, int updirs,
-       const char *converterdatadir_in,
+setup (int texinfo_uninstalled,
+       enum interpreter_use use_interpreter,
+       int updirs, const char *converterdatadir_in,
        const char *converterlibdir_in,
        const char *t2a_builddir_in,
        const char *t2a_srcdir_in)
@@ -79,15 +84,15 @@ setup (int texinfo_uninstalled, int use_interpreter, int updirs,
   char *t2a_builddir = 0;
   const char *converterdatadir = 0;
   const char *converterlibdir = 0;
-  int do_use_interpreter = 0;
+  enum interpreter_use do_use_interpreter = txi_interpreter_use_no_interpreter;
 #ifdef EMBED_PERL
-  do_use_interpreter = 1;
+  do_use_interpreter = txi_interpreter_use_embedded;
 #endif
 #ifdef USE_PERL_INTERPRETER
-  do_use_interpreter = 2;
+  do_use_interpreter = txi_interpreter_use_interpreter;
 #endif
 
-  if (use_interpreter >= 0)
+  if (use_interpreter != txi_interpreter_use_none)
     do_use_interpreter = use_interpreter;
 
   if (texinfo_uninstalled)

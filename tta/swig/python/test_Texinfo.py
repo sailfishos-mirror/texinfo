@@ -57,7 +57,8 @@ if __name__ == '__main__':
     # FIXME there is an error with Perl embedding:
     # python: symbol lookup error: ..../Cwd.so: undefined symbol: Perl_xs_handshake
     # Therefore, so do not to start an embedded interpreter at runtime.
-    Texinfo.setup(1, 0)
+    #Texinfo.setup(1)
+    Texinfo.setup(1, Texinfo.txi_interpreter_use_no_interpreter)
     sys.stderr.write("Texinfo interface is now setup\n")
     input_file_name = '../../../doc/texinfo.texi'
     #input_file_name = '../../../tta/perl/t/input_files/simplest.texi'

@@ -26,7 +26,7 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "document_types.h"
-/* non_perl_* get_use_perl_interpreter */
+/* non_perl_* has_perl_interpreter */
 #include "xs_utils.h"
 #include "call_perl_function.h"
 
@@ -72,7 +72,7 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text,
 
   /* this happens if the customization variable TEST is set while there
      is no embedded Perl */
-  if (get_use_perl_interpreter () <= 0)
+  if (!has_perl_interpreter ())
     return 0;
 
   dSP;
@@ -123,7 +123,7 @@ call_translations_translate_string (const char *string, const char *in_lang,
 
   /* this happens if USE_LIBINTL_PERL_IN_XS is set while there is no
      embedded Perl */
-  if (get_use_perl_interpreter () <= 0)
+  if (!has_perl_interpreter ())
     return 0;
 
   dSP;
@@ -171,7 +171,7 @@ call_setup_collator (int use_unicode_collation, const char *locale_lang)
 
   /* this happens if XS_STRXFRM_COLLATION_LOCALE=undef while there is
      no embedded Perl */
-  if (get_use_perl_interpreter () <= 0)
+  if (!has_perl_interpreter ())
     return 0;
 
   dSP;

@@ -13,6 +13,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#include "use_interpreter_types.h"
+
 #include "xs_utils.h"
 
 /* there is a separate file for two functions only to be able to replace
@@ -22,16 +24,19 @@
 
 /* to set to 0 if Perl code is compiled in, but there is no Perl
    interpreter */
-static int use_perl_interpreter = 1;
+static enum interpreter_use use_perl_interpreter
+  = txi_interpreter_use_embedded;
 
 void
-set_use_perl_interpreter (int value)
+set_use_perl_interpreter (enum interpreter_use value)
 {
   use_perl_interpreter = value;
 }
 
 int
-get_use_perl_interpreter (void)
+has_perl_interpreter (void)
 {
-  return use_perl_interpreter;
+  return (use_perl_interpreter == txi_interpreter_use_embedded
+          || use_perl_interpreter == txi_interpreter_use_interpreter);
+
 }
