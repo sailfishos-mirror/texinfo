@@ -152,32 +152,60 @@ setup (int texinfo_uninstalled,
 
 // swig_interface.h
 
-ELEMENT *element_list_element_by_index (ELEMENT_LIST *element_list, int index);
-int element_list_elements_number (ELEMENT_LIST *element_list);
+%rename(element_list_element_by_index) txi_ext_element_list_element_by_index;
+ELEMENT *txi_ext_element_list_element_by_index (ELEMENT_LIST *element_list,
+                                                int index);
+%rename(element_list_elements_number) txi_ext_element_list_elements_number;
+int txi_ext_element_list_elements_number (ELEMENT_LIST *element_list);
 
-const ELEMENT *const_element_list_element_by_index (
+%rename(const_element_list_element_by_index) txi_ext_const_element_list_element_by_index;
+const ELEMENT *txi_ext_const_element_list_element_by_index (
                                               CONST_ELEMENT_LIST *element_list,
                                               int index);
-int const_element_list_elements_number (CONST_ELEMENT_LIST *element_list);
+%rename(const_element_list_elements_number) txi_ext_const_element_list_elements_number;
+int txi_ext_const_element_list_elements_number (CONST_ELEMENT_LIST *element_list);
 
-char *string_list_string_by_index (STRING_LIST *string_list, int index);
-int string_list_strings_number (STRING_LIST *string_list);
+%rename(string_list_string_by_index) txi_ext_string_list_string_by_index;
+char *txi_ext_string_list_string_by_index (STRING_LIST *string_list, int index);
+%rename(string_list_strings_number) txi_ext_string_list_strings_number;
+int txi_ext_string_list_strings_number (STRING_LIST *string_list);
 
 %include "swig_error_messages_types.h"
 
-int messages_list_messages_number (FORMATTED_ERROR_MESSAGE_LIST *messages_list);
-FORMATTED_ERROR_MESSAGE *messages_list_message_by_index (
+%rename(messages_list_messages_number) txi_ext_messages_list_messages_number;
+int txi_ext_messages_list_messages_number (FORMATTED_ERROR_MESSAGE_LIST *messages_list);
+%rename(messages_list_message_by_index) txi_ext_messages_list_message_by_index;
+FORMATTED_ERROR_MESSAGE *txi_ext_messages_list_message_by_index (
                       FORMATTED_ERROR_MESSAGE_LIST *messages_list, int index);
 
-void destroy_error_messages_list (FORMATTED_ERROR_MESSAGE_LIST *error_messages);
+%rename(destroy_error_messages_list) txi_ext_destroy_error_messages_list;
+void txi_ext_destroy_error_messages_list (FORMATTED_ERROR_MESSAGE_LIST *error_messages);
 
 
 // Information on elements
 
+%include "swig_element_types.h"
+
+#define cm_flag(name) \
+  %rename(element_command_is_##name) txi_ext_element_command_is_##name;
+TXI_CM_FLAGS_LIST
+#undef cm_flag
+
+#define cm_oflag(name) \
+  %rename(element_command_is_##name) txi_ext_element_command_is_##name;
+TXI_CM_OTHER_FLAGS_LIST
+#undef cm_oflag
+
+#define ty_flag(name) \
+  %rename(element_type_is_##name) txi_ext_element_type_is_##name;
+TXI_TY_FLAGS_LIST
+#undef ty_flag
+
 %include "swig_element_data.h"
 
 // swig_interface.h
-const char *element_command_data_type (ELEMENT *element);
+%rename (element_command_data_type) txi_ext_element_command_data_type;
+const char *txi_ext_element_command_data_type (ELEMENT *element);
 
 
 // Parser
@@ -227,7 +255,9 @@ size_t txi_output_parser_error_messages (DOCUMENT *document,
 
 // swig_interface.h
 // Get the error messages.  Call destroy_error_messages_list when done.
-FORMATTED_ERROR_MESSAGE_LIST *get_parser_error_messages (DOCUMENT *document,
+%rename(get_parser_error_messages) txi_ext_get_parser_error_messages;
+FORMATTED_ERROR_MESSAGE_LIST *txi_ext_get_parser_error_messages (
+                                  DOCUMENT *document,
                                   const char *message_encoding=0,
                                   int no_warn=0, int use_filename=0,
                                   int *OUTPUT);
@@ -278,7 +308,9 @@ size_t txi_output_document_error_messages (DOCUMENT *document,
 
 // swig_interface.h
 // Get the error messages.  Call destroy_error_messages_list when done.
-FORMATTED_ERROR_MESSAGE_LIST *get_document_error_messages (DOCUMENT *document,
+%rename(get_document_error_messages) txi_ext_get_document_error_messages;
+FORMATTED_ERROR_MESSAGE_LIST *txi_ext_get_document_error_messages (
+                                  DOCUMENT *document,
                                   const char *message_encoding=0,
                                   int no_warn=0, int use_filename=0,
                                   int *OUTPUT);
@@ -311,10 +343,12 @@ get_element_by_identifier (DOCUMENT *document, const char *identifier)
 %}
 
 // swig_interface.h
-ELEMENT *document_global_unique_command (DOCUMENT *document,
-                                         const char *cmdname);
-const ELEMENT_LIST *document_global_command_list (DOCUMENT *document,
-                                                  const char *cmdname);
+%rename(document_global_unique_command) txi_ext_document_global_unique_command;
+ELEMENT *txi_ext_document_global_unique_command (DOCUMENT *document,
+                                                 const char *cmdname);
+%rename(document_global_command_list) txi_ext_document_global_command_list;
+const ELEMENT_LIST *txi_ext_document_global_command_list (DOCUMENT *document,
+                                                          const char *cmdname);
 
 // index sorting and associated data
 
@@ -337,11 +371,16 @@ typedef struct INDEX_ENTRY {
                                           another element */
 } INDEX_ENTRY;
 
-INDEX_ENTRY *sorted_index_entries_by_index (
+%rename(sorted_index_entries_by_index) txi_ext_sorted_index_entries_by_index;
+INDEX_ENTRY *txi_ext_sorted_index_entries_by_index (
                      const INDEX_SORTED_BY_INDEX *index_sorted, int index);
-int sorted_index_entries_number (const INDEX_SORTED_BY_INDEX *index_sorted);
+%rename(sorted_index_entries_number) txi_ext_sorted_index_entries_number;
+int txi_ext_sorted_index_entries_number (
+                     const INDEX_SORTED_BY_INDEX *index_sorted);
 
-const INDEX_SORTED_BY_INDEX *get_index_sorted_by_index (DOCUMENT *document,
+%rename(get_index_sorted_by_index) txi_ext_get_index_sorted_by_index;
+const INDEX_SORTED_BY_INDEX *txi_ext_get_index_sorted_by_index (
+                           DOCUMENT *document,
                            const char *index_name,
                            int use_unicode_collation=1,
                            const char *collation_language=0,
@@ -353,12 +392,15 @@ typedef struct {
     const SECTION_RELATIONS *float_section;
 } FLOAT_INFORMATION;
 
-FLOAT_INFORMATION *float_list_float_by_index (
+%rename(float_list_float_by_index) txi_ext_float_list_float_by_index;
+FLOAT_INFORMATION *txi_ext_float_list_float_by_index (
                          FLOAT_INFORMATION_LIST *float_list, int index);
-int float_list_floats_number (FLOAT_INFORMATION_LIST *float_list);
+%rename(float_list_floats_number) txi_ext_float_list_floats_number;
+int txi_ext_float_list_floats_number (FLOAT_INFORMATION_LIST *float_list);
 
-FLOAT_INFORMATION_LIST *get_float_type_floats_information (
-                        DOCUMENT *document, const char *float_type);
+%rename(get_float_type_floats_information) txi_ext_get_float_type_floats_information;
+FLOAT_INFORMATION_LIST *txi_ext_get_float_type_floats_information (
+                            DOCUMENT *document, const char *float_type);
 
 // Document-wide information
 /* Only document-wide interesting information */
@@ -369,7 +411,8 @@ typedef struct GLOBAL_INFO {
     STRING_LIST included_files;
 } GLOBAL_INFO;
 
-GLOBAL_INFO *document_global_information (DOCUMENT *document);
+%rename(document_global_information) txi_ext_document_global_information;
+GLOBAL_INFO *txi_ext_document_global_information (DOCUMENT *document);
 
 
 // Tree Element interface
@@ -386,50 +429,76 @@ typedef struct SOURCE_INFO {
 %include "source_mark_types.h"
 
 // swig_interface.h
-const char *element_type (ELEMENT *element);
-const char *element_text (ELEMENT *element);
+%rename(element_type) txi_ext_element_type;
+const char *txi_ext_element_type (ELEMENT *element);
+%rename(element_text) txi_ext_element_text;
+const char *txi_ext_element_text (ELEMENT *element);
 // returns the macro name for user-defined macro calls too
-const char *element_cmdname (ELEMENT *element);
-int element_children_number (ELEMENT *element);
-ELEMENT *element_get_child (ELEMENT *element, int index);
-ELEMENT *element_parent (ELEMENT *element);
-SOURCE_INFO *element_source_info (ELEMENT *element);
-int element_source_marks_number (ELEMENT *element);
-SOURCE_MARK *element_get_source_mark (ELEMENT *element, int index);
+%rename(element_cmdname) txi_ext_element_cmdname;
+const char *txi_ext_element_cmdname (ELEMENT *element);
+%rename(element_children_number) txi_ext_element_children_number;
+int txi_ext_element_children_number (ELEMENT *element);
+%rename(element_get_child) txi_ext_element_get_child;
+ELEMENT *txi_ext_element_get_child (ELEMENT *element, int index);
+%rename(element_parent) txi_ext_element_parent;
+ELEMENT *txi_ext_element_parent (ELEMENT *element);
+%rename(element_source_info) txi_ext_element_source_info;
+SOURCE_INFO *txi_ext_element_source_info (ELEMENT *element);
+%rename(element_source_marks_number) txi_ext_element_source_marks_number;
+int txi_ext_element_source_marks_number (ELEMENT *element);
+%rename(element_get_source_mark) txi_ext_element_get_source_mark;
+SOURCE_MARK *txi_ext_element_get_source_mark (ELEMENT *element, int index);
 
 // It would have been better to return None/undef/nil if not set and
 // a value otherwise, but it does not seems to be possible, likely because
 // not all languages have a value such as None.
 // if OUTPUT is not 0, the value is undefined.
-int element_attribute_integer (const ELEMENT *element, const char *attribute,
-                               int *OUTPUT);
-const char *element_attribute_string (const ELEMENT *element,
-                                      const char *attribute);
-ELEMENT *element_attribute_element (const ELEMENT *element,
-                                    const char *attribute);
+%rename(element_attribute_integer) txi_ext_element_attribute_integer;
+int txi_ext_element_attribute_integer (const ELEMENT *element,
+                                       const char *attribute,
+                                       int *OUTPUT);
+%rename(element_attribute_string) txi_ext_element_attribute_string;
+const char *txi_ext_element_attribute_string (const ELEMENT *element,
+                                             const char *attribute);
+%rename(element_attribute_element) txi_ext_element_attribute_element;
+ELEMENT *txi_ext_element_attribute_element (const ELEMENT *element,
+                                            const char *attribute);
 
-INDEX_ENTRY *element_index_entry (DOCUMENT *document, ELEMENT *element);
-INDEX *index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry);
+%rename(element_index_entry) txi_ext_element_index_entry;
+INDEX_ENTRY *txi_ext_element_index_entry (DOCUMENT *document,
+                                          ELEMENT *element);
+%rename(index_entry_index_info) txi_ext_index_entry_index_info;
+INDEX *txi_ext_index_entry_index_info (DOCUMENT *document,
+                                       INDEX_ENTRY *index_entry);
 
-const STRING_LIST *element_misc_args (ELEMENT *element);
+%rename(element_misc_args) txi_ext_element_misc_args;
+const STRING_LIST *txi_ext_element_misc_args (ELEMENT *element);
 
 // New element and element modification
 
 // swig_interface.h
 // is_text_element is used to disambiguate between text element and
 // container element when the type is empty
-ELEMENT *store_new_element (DOCUMENT *document, const char *type_name,
-                            const char *command_name, int is_text_element);
+%rename(store_new_element) txi_ext_store_new_element;
+ELEMENT *txi_ext_store_new_element (DOCUMENT *document, const char *type_name,
+                                const char *command_name, int is_text_element);
 
-void element_reset_text (ELEMENT *element);
-void element_append_text (ELEMENT *element, const char *text);
+%rename(element_reset_text) txi_ext_element_reset_text;
+void txi_ext_element_reset_text (ELEMENT *element);
+%rename(element_append_text) txi_ext_element_append_text;
+void txi_ext_element_append_text (ELEMENT *element, const char *text);
 
-int set_element_attribute_integer (ELEMENT *element,
-                                   const char *attribute, int value);
-int set_element_attribute_string (ELEMENT *element, const char *attribute,
-                                  const char *value);
-int set_element_attribute_element (ELEMENT *element, const char *attribute,
-                                   ELEMENT *value);
+%rename(set_element_attribute_integer) txi_ext_set_element_attribute_integer;
+int txi_ext_set_element_attribute_integer (ELEMENT *element,
+                                           const char *attribute, int value);
+%rename(set_element_attribute_string) txi_ext_set_element_attribute_string;
+int txi_ext_set_element_attribute_string (ELEMENT *element,
+                                          const char *attribute,
+                                          const char *value);
+%rename(set_element_attribute_element) txi_ext_set_element_attribute_element;
+int txi_ext_set_element_attribute_element (ELEMENT *element,
+                                           const char *attribute,
+                                           ELEMENT *value);
 
 // tree.h
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
@@ -440,9 +509,11 @@ void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
 // Data structures
 
 // swig_interface.h
-SECTION_RELATIONS *section_relation_list_section_relation_by_index (
+%rename(section_relation_list_section_relation_by_index) txi_ext_section_relation_list_section_relation_by_index;
+SECTION_RELATIONS *txi_ext_section_relation_list_section_relation_by_index (
                 SECTION_RELATIONS_LIST *section_relation_list, int index);
-int section_relation_list_section_relations_number (
+%rename(section_relation_list_section_relations_number) txi_ext_section_relation_list_section_relations_number;
+int txi_ext_section_relation_list_section_relations_number (
                            SECTION_RELATIONS_LIST *section_relation_list);
 
 typedef struct NODE_RELATIONS {
@@ -483,16 +554,25 @@ typedef struct SECTION_RELATIONS {
 
 // functions
 
-NODE_RELATIONS *get_node_relations (ELEMENT *element, DOCUMENT *document);
-SECTION_RELATIONS *get_section_relations (ELEMENT *element, DOCUMENT *document);
-HEADING_RELATIONS *get_heading_relations (ELEMENT *element, DOCUMENT *document);
+%rename(get_node_relations) txi_ext_get_node_relations;
+NODE_RELATIONS *txi_ext_get_node_relations (ELEMENT *element,
+                                            DOCUMENT *document);
+%rename(get_section_relations) txi_ext_get_section_relations;
+SECTION_RELATIONS *txi_ext_get_section_relations (ELEMENT *element,
+                                                  DOCUMENT *document);
+%rename(get_heading_relations) txi_ext_get_heading_relations;
+HEADING_RELATIONS *txi_ext_get_heading_relations (ELEMENT *element,
+                                                  DOCUMENT *document);
 
-const ELEMENT *node_relation_node_direction (NODE_RELATIONS *node,
-                                             const char *direction);
-const SECTION_RELATIONS *section_relation_section_direction (
+%rename(node_relation_node_direction) txi_ext_node_relation_node_direction;
+const ELEMENT *txi_ext_node_relation_node_direction (NODE_RELATIONS *node,
+                                                     const char *direction);
+%rename(section_relation_section_direction) txi_ext_section_relation_section_direction;
+const SECTION_RELATIONS *txi_ext_section_relation_section_direction (
                                               SECTION_RELATIONS *section,
                                               const char *direction);
-const SECTION_RELATIONS *section_relation_toplevel_direction (
+%rename(section_relation_toplevel_direction) txi_ext_section_relation_toplevel_direction;
+const SECTION_RELATIONS *txi_ext_section_relation_toplevel_direction (
                                      SECTION_RELATIONS *section,
                                      const char *direction);
 
@@ -570,6 +650,18 @@ char *convert_to_texinfo (const ELEMENT *e);
 char *convert_contents_to_texinfo (const ELEMENT *e);
 
 // To plain text
+
+%include "swig_text_options_types.h"
+
+%rename(text_options_set_encoding) txi_ext_text_options_set_encoding;
+%rename(text_options_clear_expanded_formats) txi_ext_text_options_clear_expanded_formats;
+%rename(text_options_add_expanded_format) txi_ext_text_options_add_expanded_format;
+%rename(document_text_options) txi_ext_document_text_options;
+
+#define tico_option_name(name) \
+%rename(text_options_set_##name) txi_ext_text_options_set_##name;
+ TEXT_INDICATOR_CONVERTER_OPTIONS
+#undef tico_option_name
 
 %include "swig_text_options.h"
 

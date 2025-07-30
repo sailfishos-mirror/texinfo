@@ -924,6 +924,11 @@ dblatex -o texinfo-dblatex.pdf texinfo.xml
 
 Open a specific info file in Emacs Info reader: C-u C-h i
 
+Count reference of the SV
+Devel::Peek::SvREFCNT
+Count reference of the object pointed to
+Devel::Refcount::refcount
+
 In tta/tests/, generate Texinfo file for Texinfo TeX coverage
 ../perl/texi2any.pl --force --error=100000 -c TEXINFO_OUTPUT_FORMAT=plaintexinfo -D valid layout/formatting.texi > formatting_valid.texi
 

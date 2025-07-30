@@ -48,7 +48,7 @@
 
 #define cm_flag(name) \
 int \
-element_command_is_##name (ELEMENT *element) \
+txi_ext_element_command_is_##name (ELEMENT *element) \
 { \
   enum command_id cmd; \
  \
@@ -62,7 +62,7 @@ element_command_is_##name (ELEMENT *element) \
 
 #define cm_oflag(name) \
 int \
-element_command_is_##name (ELEMENT *element) \
+txi_ext_element_command_is_##name (ELEMENT *element) \
 { \
   enum command_id cmd; \
  \
@@ -74,25 +74,25 @@ element_command_is_##name (ELEMENT *element) \
   TXI_CM_OTHER_FLAGS_LIST
 #undef cm_oflag
 
-const char *brace_command_data_type_name[] = {
+static const char *brace_command_data_type_name[] = {
 #define tcc_cmd_category(type, cat, uppercat) #type,
    TXI_CMD_CATEGORY_BRACE
 #undef tcc_cmd_category
 };
 
-const char *nobrace_command_data_type_name[] = {
+static const char *nobrace_command_data_type_name[] = {
 #define tcc_cmd_category(type, cat, uppercat) #type,
    TXI_CMD_CATEGORY_NOBRACE
 #undef tcc_cmd_category
 };
 
-const char *block_command_data_type_name[] = {
+static const char *block_command_data_type_name[] = {
 #define tcc_cmd_category(type, cat, uppercat) #type,
    TXI_CMD_CATEGORY_BLOCK
 #undef tcc_cmd_category
 };
 
-const char *line_command_data_type_name[] = {
+static const char *line_command_data_type_name[] = {
 #define tcc_cmd_category(type, cat, uppercat) #type,
    TXI_CMD_CATEGORY_LINE
 #undef tcc_cmd_category
@@ -100,7 +100,7 @@ const char *line_command_data_type_name[] = {
 
 #define ty_flag(name)  \
 int \
-element_type_is_##name (ELEMENT *element) \
+txi_ext_element_type_is_##name (ELEMENT *element) \
 { \
   return type_data[element->type].flags & TF_##name; \
 }
@@ -109,7 +109,7 @@ element_type_is_##name (ELEMENT *element) \
 
 
 const char *
-element_command_data_type (ELEMENT *element)
+txi_ext_element_command_data_type (ELEMENT *element)
 {
   if (type_data[element->type].flags & TF_text)
     return 0;
@@ -131,7 +131,7 @@ element_command_data_type (ELEMENT *element)
 }
 
 const char *
-element_type (ELEMENT *element)
+txi_ext_element_type (ELEMENT *element)
 {
   if (element->type)
     {
@@ -147,7 +147,7 @@ element_type (ELEMENT *element)
 }
 
 const char *
-element_text (ELEMENT *element)
+txi_ext_element_text (ELEMENT *element)
 {
   if (type_data[element->type].flags & TF_text)
     return element->e.text->text;
@@ -156,7 +156,7 @@ element_text (ELEMENT *element)
 }
 
 const char *
-element_cmdname (ELEMENT *element)
+txi_ext_element_cmdname (ELEMENT *element)
 {
   if (!(type_data[element->type].flags & TF_text))
     return element_command_name (element);
@@ -165,7 +165,7 @@ element_cmdname (ELEMENT *element)
 }
 
 ELEMENT *
-element_list_element_by_index (ELEMENT_LIST *element_list, int index)
+txi_ext_element_list_element_by_index (ELEMENT_LIST *element_list, int index)
 {
   if (!element_list || element_list->number == 0)
     return 0;
@@ -180,13 +180,13 @@ element_list_element_by_index (ELEMENT_LIST *element_list, int index)
 }
 
 int
-element_list_elements_number (ELEMENT_LIST *element_list)
+txi_ext_element_list_elements_number (ELEMENT_LIST *element_list)
 {
   return element_list->number;
 }
 
 const ELEMENT *
-const_element_list_element_by_index (CONST_ELEMENT_LIST *element_list,
+txi_ext_const_element_list_element_by_index (CONST_ELEMENT_LIST *element_list,
                                      int index)
 {
   if (!element_list || element_list->number == 0)
@@ -202,13 +202,13 @@ const_element_list_element_by_index (CONST_ELEMENT_LIST *element_list,
 }
 
 int
-const_element_list_elements_number (CONST_ELEMENT_LIST *element_list)
+txi_ext_const_element_list_elements_number (CONST_ELEMENT_LIST *element_list)
 {
   return element_list->number;
 }
 
 char *
-string_list_string_by_index (STRING_LIST *string_list, int index)
+txi_ext_string_list_string_by_index (STRING_LIST *string_list, int index)
 {
   if (!string_list || string_list->number == 0)
     return 0;
@@ -223,13 +223,13 @@ string_list_string_by_index (STRING_LIST *string_list, int index)
 }
 
 int
-string_list_strings_number (STRING_LIST *string_list)
+txi_ext_string_list_strings_number (STRING_LIST *string_list)
 {
   return string_list->number;
 }
 
 int
-element_children_number (ELEMENT *element)
+txi_ext_element_children_number (ELEMENT *element)
 {
   if (type_data[element->type].flags & TF_text)
     return 0;
@@ -238,16 +238,17 @@ element_children_number (ELEMENT *element)
 }
 
 ELEMENT *
-element_get_child (ELEMENT *element, int index)
+txi_ext_element_get_child (ELEMENT *element, int index)
 {
   if (type_data[element->type].flags & TF_text)
     return 0;
 
-  return element_list_element_by_index (&element->e.c->contents, index);
+  return txi_ext_element_list_element_by_index (&element->e.c->contents,
+                                                index);
 }
 
 int
-element_source_marks_number (ELEMENT *element)
+txi_ext_element_source_marks_number (ELEMENT *element)
 {
   if (element->source_mark_list)
     return element->source_mark_list->number;
@@ -256,7 +257,7 @@ element_source_marks_number (ELEMENT *element)
 }
 
 SOURCE_MARK *
-element_get_source_mark (ELEMENT *element, int index)
+txi_ext_element_get_source_mark (ELEMENT *element, int index)
 {
   SOURCE_MARK_LIST *source_mark_list = element->source_mark_list;
 
@@ -273,13 +274,13 @@ element_get_source_mark (ELEMENT *element, int index)
 }
 
 ELEMENT *
-element_parent (ELEMENT *element)
+txi_ext_element_parent (ELEMENT *element)
 {
   return element->parent;
 }
 
 SOURCE_INFO *
-element_source_info (ELEMENT *element)
+txi_ext_element_source_info (ELEMENT *element)
 {
   if (type_data[element->type].flags & TF_text)
     return 0;
@@ -288,8 +289,9 @@ element_source_info (ELEMENT *element)
 }
 
 int
-element_attribute_integer (const ELEMENT *element, const char *attribute,
-                           int *ret)
+txi_ext_element_attribute_integer (const ELEMENT *element,
+                                   const char *attribute,
+                                   int *ret)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
 
@@ -327,7 +329,8 @@ element_attribute_integer (const ELEMENT *element, const char *attribute,
 }
 
 const char *
-element_attribute_string (const ELEMENT *element, const char *attribute)
+txi_ext_element_attribute_string (const ELEMENT *element,
+                                  const char *attribute)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
 
@@ -374,7 +377,8 @@ element_attribute_string (const ELEMENT *element, const char *attribute)
 }
 
 ELEMENT *
-element_attribute_element (const ELEMENT *element, const char *attribute)
+txi_ext_element_attribute_element (const ELEMENT *element,
+                                   const char *attribute)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
 
@@ -413,7 +417,7 @@ element_attribute_element (const ELEMENT *element, const char *attribute)
 
 
 INDEX_ENTRY *
-element_index_entry (DOCUMENT *document, ELEMENT *element)
+txi_ext_element_index_entry (DOCUMENT *document, ELEMENT *element)
 {
   const INDEX_ENTRY_LOCATION *index_entry_info
            = lookup_extra_index_entry (element,
@@ -436,7 +440,7 @@ element_index_entry (DOCUMENT *document, ELEMENT *element)
 }
 
 INDEX *
-index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry)
+txi_ext_index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry)
 {
   const char *entry_index_name = index_entry->index_name;
   return  indices_info_index_by_name (&document->indices_info,
@@ -444,7 +448,7 @@ index_entry_index_info (DOCUMENT *document, INDEX_ENTRY *index_entry)
 }
 
 const STRING_LIST *
-element_misc_args (ELEMENT *element)
+txi_ext_element_misc_args (ELEMENT *element)
 {
   return lookup_extra_misc_args (element, AI_key_misc_args);
 }
@@ -453,8 +457,8 @@ element_misc_args (ELEMENT *element)
 /* New element and element modification */
 
 ELEMENT *
-store_new_element (DOCUMENT *document, const char *type_name,
-                   const char *command_name, int is_text_element)
+txi_ext_store_new_element (DOCUMENT *document, const char *type_name,
+                           const char *command_name, int is_text_element)
 {
   ELEMENT *e = new_element_from_names (type_name, command_name,
                                        is_text_element);
@@ -466,7 +470,7 @@ store_new_element (DOCUMENT *document, const char *type_name,
 }
 
 void
-element_reset_text (ELEMENT *element)
+txi_ext_element_reset_text (ELEMENT *element)
 {
   if (type_data[element->type].flags & TF_text)
     {
@@ -476,14 +480,14 @@ element_reset_text (ELEMENT *element)
 }
 
 void
-element_append_text (ELEMENT *element, const char *text)
+txi_ext_element_append_text (ELEMENT *element, const char *text)
 {
   if (type_data[element->type].flags & TF_text)
     text_append (element->e.text, text);
 }
 
 int
-set_element_attribute_integer (ELEMENT *element,
+txi_ext_set_element_attribute_integer (ELEMENT *element,
                                const char *attribute, int value)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
@@ -517,8 +521,8 @@ set_element_attribute_integer (ELEMENT *element,
 }
 
 int
-set_element_attribute_string (ELEMENT *element, const char *attribute,
-                              const char *value)
+txi_ext_set_element_attribute_string (ELEMENT *element, const char *attribute,
+                                      const char *value)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
 
@@ -576,8 +580,8 @@ set_element_attribute_string (ELEMENT *element, const char *attribute,
 }
 
 int
-set_element_attribute_element (ELEMENT *element, const char *attribute,
-                               ELEMENT *value)
+txi_ext_set_element_attribute_element (ELEMENT *element, const char *attribute,
+                                       ELEMENT *value)
 {
   enum ai_key_name key = find_associated_info_key (attribute);
 
@@ -619,7 +623,7 @@ set_element_attribute_element (ELEMENT *element, const char *attribute,
 }
 
 SECTION_RELATIONS *
-section_relation_list_section_relation_by_index (
+txi_ext_section_relation_list_section_relation_by_index (
                 SECTION_RELATIONS_LIST *section_relation_list, int index)
 {
   if (!section_relation_list || section_relation_list->number == 0)
@@ -634,14 +638,14 @@ section_relation_list_section_relation_by_index (
   return section_relation_list->list[index];
 }
 
-int section_relation_list_section_relations_number (
+int txi_ext_section_relation_list_section_relations_number (
                            SECTION_RELATIONS_LIST *section_relation_list)
 {
   return section_relation_list->number;
 }
 
 NODE_RELATIONS *
-get_node_relations (ELEMENT *element, DOCUMENT *document)
+txi_ext_get_node_relations (ELEMENT *element, DOCUMENT *document)
 {
   int status;
   int node_number;
@@ -661,7 +665,7 @@ get_node_relations (ELEMENT *element, DOCUMENT *document)
 }
 
 SECTION_RELATIONS *
-get_section_relations (ELEMENT *element, DOCUMENT *document)
+txi_ext_get_section_relations (ELEMENT *element, DOCUMENT *document)
 {
   int status;
   int section_number;
@@ -684,7 +688,7 @@ get_section_relations (ELEMENT *element, DOCUMENT *document)
 }
 
 HEADING_RELATIONS *
-get_heading_relations (ELEMENT *element, DOCUMENT *document)
+txi_ext_get_heading_relations (ELEMENT *element, DOCUMENT *document)
 {
   int status;
   int heading_number;
@@ -705,7 +709,7 @@ get_heading_relations (ELEMENT *element, DOCUMENT *document)
 }
 
 static size_t
-direction_name_number (const char *direction)
+txi_ext_direction_name_number (const char *direction)
 {
   size_t d;
 
@@ -721,14 +725,15 @@ direction_name_number (const char *direction)
 }
 
 const ELEMENT *
-node_relation_node_direction (NODE_RELATIONS *node, const char *direction)
+txi_ext_node_relation_node_direction (NODE_RELATIONS *node,
+                                      const char *direction)
 {
   size_t d_number;
 
   if (!node->node_directions)
     return 0;
 
-  d_number = direction_name_number (direction);
+  d_number = txi_ext_direction_name_number (direction);
 
   if (!d_number)
     return 0;
@@ -737,15 +742,15 @@ node_relation_node_direction (NODE_RELATIONS *node, const char *direction)
 }
 
 const SECTION_RELATIONS *
-section_relation_section_direction (SECTION_RELATIONS *section,
-                                     const char *direction)
+txi_ext_section_relation_section_direction (SECTION_RELATIONS *section,
+                                            const char *direction)
 {
   size_t d_number;
 
   if (!section->section_directions)
     return 0;
 
-  d_number = direction_name_number (direction);
+  d_number = txi_ext_direction_name_number (direction);
 
   if (!d_number)
     return 0;
@@ -754,15 +759,15 @@ section_relation_section_direction (SECTION_RELATIONS *section,
 }
 
 const SECTION_RELATIONS *
-section_relation_toplevel_direction (SECTION_RELATIONS *section,
-                                     const char *direction)
+txi_ext_section_relation_toplevel_direction (SECTION_RELATIONS *section,
+                                             const char *direction)
 {
   size_t d_number;
 
   if (!section->toplevel_directions)
     return 0;
 
-  d_number = direction_name_number (direction);
+  d_number = txi_ext_direction_name_number (direction);
 
   if (!d_number)
     return 0;
@@ -771,7 +776,8 @@ section_relation_toplevel_direction (SECTION_RELATIONS *section,
 }
 
 ELEMENT *
-document_global_unique_command (DOCUMENT *document, const char *cmdname)
+txi_ext_document_global_unique_command (DOCUMENT *document,
+                                        const char *cmdname)
 {
   ELEMENT *element = 0;
   enum command_id cmd = lookup_builtin_command (cmdname);
@@ -785,7 +791,8 @@ document_global_unique_command (DOCUMENT *document, const char *cmdname)
 }
 
 const ELEMENT_LIST *
-document_global_command_list (DOCUMENT *document, const char *cmdname)
+txi_ext_document_global_command_list (DOCUMENT *document,
+                                      const char *cmdname)
 {
   enum command_id cmd = lookup_builtin_command (cmdname);
 
@@ -803,7 +810,8 @@ document_global_command_list (DOCUMENT *document, const char *cmdname)
 
 
 INDEX_ENTRY *
-sorted_index_entries_by_index (const INDEX_SORTED_BY_INDEX *index_sorted,
+txi_ext_sorted_index_entries_by_index (
+               const INDEX_SORTED_BY_INDEX *index_sorted,
                                int index)
 {
   if (!index_sorted || index_sorted->entries_number == 0)
@@ -816,16 +824,16 @@ sorted_index_entries_by_index (const INDEX_SORTED_BY_INDEX *index_sorted,
 }
 
 int
-sorted_index_entries_number (const INDEX_SORTED_BY_INDEX *index_sorted)
+txi_ext_sorted_index_entries_number (const INDEX_SORTED_BY_INDEX *index_sorted)
 {
   return index_sorted->entries_number;
 }
 
 const INDEX_SORTED_BY_INDEX *
-get_index_sorted_by_index (DOCUMENT *document, const char *index_name,
-                           int use_unicode_collation,
-                           const char *collation_language,
-                           const char *collation_locale)
+txi_ext_get_index_sorted_by_index (DOCUMENT *document, const char *index_name,
+                                   int use_unicode_collation,
+                                   const char *collation_language,
+                                   const char *collation_locale)
 {
   const INDEX_SORTED_BY_INDEX *idx;
   const INDEX_SORTED_BY_INDEX *index_sorted = 0;
@@ -857,7 +865,8 @@ get_index_sorted_by_index (DOCUMENT *document, const char *index_name,
 }
 
 FLOAT_INFORMATION *
-float_list_float_by_index (FLOAT_INFORMATION_LIST *float_list, int index)
+txi_ext_float_list_float_by_index (FLOAT_INFORMATION_LIST *float_list,
+                                   int index)
 {
   if (!float_list || float_list->number == 0)
     return 0;
@@ -872,13 +881,14 @@ float_list_float_by_index (FLOAT_INFORMATION_LIST *float_list, int index)
 }
 
 int
-float_list_floats_number (FLOAT_INFORMATION_LIST *float_list)
+txi_ext_float_list_floats_number (FLOAT_INFORMATION_LIST *float_list)
 {
   return float_list->number;
 }
 
 FLOAT_INFORMATION_LIST *
-get_float_type_floats_information (DOCUMENT *document, const char *float_type)
+txi_ext_get_float_type_floats_information (DOCUMENT *document,
+                                           const char *float_type)
 {
   size_t i;
   const LISTOFFLOATS_TYPE_LIST *listoffloats = &document->listoffloats;
@@ -901,7 +911,7 @@ get_float_type_floats_information (DOCUMENT *document, const char *float_type)
 }
 
 GLOBAL_INFO *
-document_global_information (DOCUMENT *document)
+txi_ext_document_global_information (DOCUMENT *document)
 {
   return &document->global_info;
 }
@@ -909,7 +919,7 @@ document_global_information (DOCUMENT *document)
 
 
 TEXT_OPTIONS *
-document_text_options (DOCUMENT *document)
+txi_ext_document_text_options (DOCUMENT *document)
 {
   TEXT_OPTIONS *result;
   if (document->options)
@@ -921,7 +931,7 @@ document_text_options (DOCUMENT *document)
 
 #define tico_option_name(name) \
 void \
-text_options_set_##name (TEXT_OPTIONS *text_options, int i) \
+txi_ext_text_options_set_##name (TEXT_OPTIONS *text_options, int i) \
 { \
   text_options->name = i; \
 }
@@ -929,20 +939,21 @@ text_options_set_##name (TEXT_OPTIONS *text_options, int i) \
 #undef tico_option_name
 
 void
-text_options_clear_expanded_formats (TEXT_OPTIONS *text_options)
+txi_ext_text_options_clear_expanded_formats (TEXT_OPTIONS *text_options)
 {
   clear_expanded_formats (text_options->expanded_formats);
 }
 
 void
-text_options_add_expanded_format (TEXT_OPTIONS *text_options,
-                                  const char *format)
+txi_ext_text_options_add_expanded_format (TEXT_OPTIONS *text_options,
+                                          const char *format)
 {
   add_expanded_format (text_options->expanded_formats, format);
 }
 
 void
-text_options_set_encoding (TEXT_OPTIONS *text_options, const char *encoding)
+txi_ext_text_options_set_encoding (TEXT_OPTIONS *text_options,
+                                   const char *encoding)
 {
   free (text_options->encoding);
   text_options->encoding = strdup (encoding);
@@ -951,10 +962,10 @@ text_options_set_encoding (TEXT_OPTIONS *text_options, const char *encoding)
 
 
 static FORMATTED_ERROR_MESSAGE_LIST *
-get_error_messages_list_messages (ERROR_MESSAGE_LIST *error_messages,
-                                  const char *message_encoding,
-                                  int no_warn, int use_filename,
-                                  int *count)
+txi_ext_get_error_messages_list_messages (ERROR_MESSAGE_LIST *error_messages,
+                                          const char *message_encoding,
+                                          int no_warn, int use_filename,
+                                          int *count)
 {
   ENCODING_CONVERSION *conversion = 0;
   size_t error_nrs = count_errors (error_messages);
@@ -1012,29 +1023,30 @@ get_error_messages_list_messages (ERROR_MESSAGE_LIST *error_messages,
 }
 
 FORMATTED_ERROR_MESSAGE_LIST *
-get_parser_error_messages (DOCUMENT *document,
+txi_ext_get_parser_error_messages (DOCUMENT *document,
                                   const char *message_encoding,
                                   int no_warn, int use_filename,
                                   int *count)
 {
-  return get_error_messages_list_messages (&document->parser_error_messages,
+  return txi_ext_get_error_messages_list_messages (
+                                           &document->parser_error_messages,
                                            message_encoding,
                                            no_warn, use_filename, count);
 }
 
 FORMATTED_ERROR_MESSAGE_LIST *
-get_document_error_messages (DOCUMENT *document,
+txi_ext_get_document_error_messages (DOCUMENT *document,
                                   const char *message_encoding,
                                   int no_warn, int use_filename,
                                   int *count)
 {
-  return get_error_messages_list_messages (&document->error_messages,
+  return txi_ext_get_error_messages_list_messages (&document->error_messages,
                                            message_encoding,
                                            no_warn, use_filename, count);
 }
 
 FORMATTED_ERROR_MESSAGE *
-messages_list_message_by_index (
+txi_ext_messages_list_message_by_index (
                         FORMATTED_ERROR_MESSAGE_LIST *messages_list, int index)
 {
   if (!messages_list || messages_list->number == 0)
@@ -1047,13 +1059,15 @@ messages_list_message_by_index (
 }
 
 int
-messages_list_messages_number (FORMATTED_ERROR_MESSAGE_LIST *messages_list)
+txi_ext_messages_list_messages_number (
+                   FORMATTED_ERROR_MESSAGE_LIST *messages_list)
 {
   return messages_list->number;
 }
 
 void
-destroy_error_messages_list (FORMATTED_ERROR_MESSAGE_LIST *error_messages)
+txi_ext_destroy_error_messages_list (
+                  FORMATTED_ERROR_MESSAGE_LIST *error_messages)
 {
   size_t j;
   for (j = 0; j < error_messages->number; j++)
