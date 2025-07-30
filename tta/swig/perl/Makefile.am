@@ -50,6 +50,25 @@ perl_texinfo_wrap.c Texinfo.pm: $(srcdir)/../texinfo.i $(SWIG_header_dependencie
 
 endif
 
+all-local: .libs/auto/Texinfo
+
+# SWIG generated Texinfo.pm XS loading code calls Dynaloader bootstrap,
+# which searches first in @INC directories auto/Texinfo/ subdirectories.
+# .libs is first in @INC, but it is not enough to have the XS extension
+# from .libs loaded first because of this search in auto/Texinfo/.
+# To make sure that the XS extension in builddir .libs is found before
+# installed XS extensions in some dir in @INC with an auto/Texinfo subdir
+# do a link from auto/Texinfo to .libs, such that the extension
+# in .libs/auto/Texinfo, loaded first is the extension in .libs in build
+# directory.
+
+.libs/auto/Texinfo:
+	$(MKDIR_P) .libs/auto
+	$(LN_S) .. .libs/auto/Texinfo
+
+# We do not add an explicit clean action as .libs is already removed with
+# clean.
+
 # as explained on the Dynaloader documentation (but it is hard to
 # find more general information on the expected directories layout), the
 # .so should be installed in
@@ -64,7 +83,7 @@ archlib_LTLIBRARIES = Texinfo.la
 
 nodist_Texinfo_la_SOURCES = perl_texinfo_wrap.c
 
-# XS_VERSION is used in version check in the bootstrap function created
+# XS_VERSION could be used in version check in the bootstrap function created
 # by xsubpp in C code generated from .xs, and called in XSLoader.pm
 Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(XS_VERSION)\" -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi -I$(txi_libs_srcdir)/convert $(perl_conf_CPPFLAGS)
 Texinfo_la_CFLAGS = $(perl_conf_CFLAGS)

@@ -1,5 +1,13 @@
 2025-07-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (all-local, .libs/auto/Texinfo),
+	tta/swig/perl/_Texinfo_Tests.pm: add the all-local rule to setup the
+	link from .libs/auto/Texinfo to .libs to have in-build XS extension
+	found before other extensions in @INC auto/Texinfo subdirectories.
+	Remove from _Texinfo_Tests.pm the code doing the link. 
+
+2025-07-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (libperlcall_utils_la_SOURCES)
 	(libperlcall_utils_la_CPPFLAGS), tta/C/main/use_interpreter_types.h
 	(enum interpreter_use): add enum interpreter_use.
