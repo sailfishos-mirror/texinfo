@@ -18,9 +18,17 @@
 
 use strict;
 
+# for cmp_deeply
+use Test::Deep;
+
+use Data::Compare ();
+use Test::More;
+
+plan tests => 2;
+
 # to find _Texinfo_Tests in source
 use lib '.';
- 
+
 BEGIN {
   # to find _Texinfo_Tests in out of source builds
   my $srcdir = $ENV{'srcdir'};
@@ -28,15 +36,7 @@ BEGIN {
     unshift @INC, $srcdir;
   }
 }
- 
-# for cmp_deeply
-use Test::Deep;
 
-use Data::Compare ();
-use Test::More;
- 
-plan tests => 2;
- 
 # Load texi2any Perl modules
 # to find Texinfo::ModulePath in build directory
 use lib '../../perl/';
@@ -49,15 +49,15 @@ use Texinfo::Common;
 # load SWIG interface Perl module
 use _Texinfo_Tests;
 use Texinfo;
- 
+
 Texinfo::setup(1);
 
-# first two blocks based on t/z_misc/test_sort.t 
+# first two blocks based on t/z_misc/test_sort.t
 my $index_entries = '
- 
+
 @cindex !
 @cindex e
-@cindex E                             
+@cindex E
 @cindex ``
 @cindex @~e
 @cindex
@@ -86,7 +86,7 @@ my $index_entries = '
 ';
 
 my $texi = '@node Top
- 
+
 '.$index_entries;
 
 my $index_name = 'cp';
@@ -100,7 +100,7 @@ my $parser = Texinfo::Parser::parser();
 
 my $doc = $parser->parse_texi_text($texi);
 my $sorted_indices
-   = Texinfo::Document::sorted_indices_by_index($doc, undef, 1, undef); 
+   = Texinfo::Document::sorted_indices_by_index($doc, undef, 1, undef);
 my $sorted_entries = $sorted_indices->{$index_name};
 my @reference_index_entries_texi;
 foreach my $index_entry (@$sorted_entries) {
@@ -121,18 +121,18 @@ my $document = Texinfo::parse_text($texi);
 #Texinfo::output_parser_error_messages($document);
 
 my $error_messages = _Texinfo_Tests::get_parser_error_messages($document);
- 
+
 #foreach my $message (@$error_messages) {
 #  print STDERR "'"._Texinfo_Tests::protect_perl_string($message)."',\n";
 #}
- 
+
 my @reference_messages = ('10: warning: @cindex missing argument
 ',
 '18: warning: @subentry missing argument
 ',
 );
 ok(Data::Compare::Compare($error_messages, \@reference_messages), 'errors');
-  
+
 
 my $sorted_index = Texinfo::get_index_sorted_by_index($document, $index_name);
 

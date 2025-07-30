@@ -132,21 +132,7 @@ html_custom_translate_string (CONVERTER *self, const char *string,
   return 0;
 }
 
-char *
-html_translate_string (CONVERTER *self, const char *string,
-                       const char *lang,
-                       const char *translation_context)
-{
-  char *result = html_custom_translate_string (self, string, lang,
-                                               translation_context);
-
-  if (!result)
-    return translate_string (string, lang, translation_context);
-  else
-    return result;
-}
-
-TRANSLATION_TREE *
+static TRANSLATION_TREE *
 html_cache_translate_string (CONVERTER *self, const char *string,
                              LANG_TRANSLATION *lang_translation,
                              const char *translation_context)
@@ -220,7 +206,8 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                                          translation_context);
 }
 
-/* same as gdt_tree with html_translate_string called instead of translate_string */
+/* same as gdt_tree with html_cache_translate_string called instead of
+   cache_translate_string */
 ELEMENT *
 html_gdt_tree (const char *string, CONVERTER *self,
                LANG_TRANSLATION *lang_translation,
@@ -747,13 +734,6 @@ html_translate_names (CONVERTER *self)
           int add_cmd = 0;
           for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
             {
-              /* beware that Perl can be called through html_cdt_*
-                 here, possibly in the middle of being called from Perl.
-                 TODO there could be something up with the order of processing
-                 of the translated commands, in link with going through Perl
-                 or not, if translation of @-commands depends on @-commands
-                 also translated
-               */
               HTML_NO_ARG_COMMAND_CONVERSION *format_spec
                 = &self->html_no_arg_command_conversion[cmd][cctx];
               if (format_spec->translated_converted
@@ -776,8 +756,9 @@ html_translate_names (CONVERTER *self)
                                        self, 0, 0);
                     }
                   else
-                    translated_tree = converter_translated_command_tree (self, cmd,
-                                                                    &html_cdt_tree);
+                    translated_tree
+                        = converter_translated_command_tree (self, cmd,
+                                                             &html_cdt_tree);
 
                   if (translated_tree)
                     {

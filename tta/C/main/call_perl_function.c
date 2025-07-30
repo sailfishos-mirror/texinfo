@@ -314,7 +314,7 @@ call_modulepath_init (int updirs, const char *lib_dir,
 
 /* Initializations similar to those in texi2any.pl or load_txi_modules.pl
    but simplified, as we want to initialize only the modules called from
-   litexinfo. */
+   libtexinfo. */
 int
 call_eval_load_texinfo_modules (int texinfo_uninstalled,
           const char *t2a_builddir, int updirs, const char *converterdatadir,
@@ -355,10 +355,9 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
         "use Texinfo::Indices;\n";
   eval_pv (str, TRUE);
 
-  /* TODO add more from load_txi_modules.pl, such as loading messages
-     for error messages translation and loading translated strings
-     from LocaleData?
-     Should be done when it is possible to test.
+  /* TODO add more from load_txi_modules.pl when there is code to test?
+     For example loading messages for error messages translation and
+     loading translated strings from LocaleData?
    */
 
   return 1;

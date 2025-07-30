@@ -410,16 +410,20 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
     }
 }
 
-/* TODO the extra elements references can be out of the children of
+/* TODO not to be done for now, without extra_type pointing outside used.
+
+   The extra elements references can be out of the children of
    the copied tree if the copied tree is not a tree root.  In that case,
    destroying the copied tree won't destroy the extra elements copied
    that are not among the children of the copied element.
    ADDED_ROOT_ELEMENTS argument is supposed to help with this, but
    it does not allow to solve the issue as currently the added trees
    returned can still refer to other trees.
-   The other_trees argument to copy_tree_internal could be used
+   The other_trees argument to copy_tree_internal intended use was
    to force a larger tree to be copied to handle that situation.
-   For now it is not used like that, if 0 extra elements
+   However, other_trees is not used for that purpose for now, as
+   it is passed but nothing is ever put in the list.  It is merely
+   used as an indicator; if NULL, elements in extra information
    that could point outside of the tree are not copied.
 
    The current setup should work as long as the function is only
@@ -427,9 +431,18 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
    other_trees is set.  It is the caller responsibility to call
    copy_tree with ADDED_ROOT_ELEMENTS set only for complete
    self-contained trees.
+
+   As a last note, extra_types that could point outside of the tree
+   may appear in the tree only if there is extra information
+   with this type.  Code could still be there for extra_types that
+   cannot appear anywhere.  See AI_KEYS_LIST in tree_types.h for the list
+   of possible extra information.  In 2025 there were none of those
+   extra_types in extra information, which means that there is nothing to be
+   actually improved here.  These extra_types could be used again in the
+   future, however.
  */
 ELEMENT *
-copy_tree (ELEMENT *current, ELEMENT_LIST *added_root_elements)
+copy_tree (ELEMENT *element, ELEMENT_LIST *added_root_elements)
 {
   size_t i;
   ELEMENT_LIST *other_trees = 0;
@@ -438,19 +451,24 @@ copy_tree (ELEMENT *current, ELEMENT_LIST *added_root_elements)
       other_trees = new_list ();
     }
 
-  ELEMENT *copy = copy_tree_internal (current, other_trees);
-  remove_element_copy_info (current, added_root_elements);
+  ELEMENT *tree_copy = copy_tree_internal (element, other_trees);
+  remove_element_copy_info (element, added_root_elements);
+
+  /* remove the main tree copy from added_root_elements in case it
+     was recorded there as an additional root element */
   if (added_root_elements)
     {
       for (i = added_root_elements->number; i > 0; i--)
         {
-          if (added_root_elements->list[i-1] == copy)
+          if (added_root_elements->list[i-1] == tree_copy)
             remove_from_element_list (added_root_elements, i-1);
         }
     }
+
   if (other_trees)
     destroy_list (other_trees);
-  return copy;
+
+  return tree_copy;
 }
 
 ELEMENT *
@@ -901,12 +919,23 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
 
 
-/* does nothing as there are no reference to tree elements
-   in the tree extra information currently, consistently no command
-   is selected, so this function has no effect.
+/* set_element_tree_numbers does nothing as there are no reference
+   to tree elements in the tree extra information currently, consistently
+   no command is selected, so this function has no effect.
   */
+/* since it has no effect set to a noop and rename the function
+   implementing the code that would have been useful otherwise */
+
 uintptr_t
 set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
+{
+  return 0;
+}
+
+/* implementaiton to reuse if references to tree elements in the tree
+   extra information is readded */
+uintptr_t
+unused_set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 {
   size_t i;
   int elt_info_nr = type_data[element->type].elt_info_number;
@@ -932,10 +961,11 @@ set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
           if (element->flags & EF_copy)
             fprintf (stderr, "WARNING: can't number, copy is set: %p '%s'\n",
                              element, debug_str);
-          /* TODO this happens in tests.  It may have been because of a bug
+          /* TODO not possible for now, but this has happened in tests in
+             the past.  It may have been because of a bug
              where the element was numbered instead of the elt_info.
-             If/when this code can be tested again, the bug should
-             be removed.
+             If/when this code can be tested again, it should be checked
+             if this bug is still there and if yes, it should be removed.
           else
             fprintf (stderr, "WARNING: already numbered: %p E%"
                                  PRIuPTR " '%s'\n", element,
@@ -1752,8 +1782,8 @@ tree_print_details (ELEMENT *tree, const char *fname_encoding,
 
 
 /* the caller should make sure that the tree is not a text element */
-/* TODO there is no recursion in elements_oot, nor in modified elements.
-   Should this be added in modify_tree, or be left to &OPERATION?
+/* TODO add recursion in elements_oot, or in modified elements?
+   It is not clear whether this should be in modify_tree, or in &OPERATION.
  */
 ELEMENT *
 modify_tree (ELEMENT *tree,

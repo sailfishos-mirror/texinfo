@@ -1,5 +1,10 @@
 use strict;
 
+use Test::More;
+use Encode;
+
+BEGIN { plan tests => 1; }
+
 # to find _Texinfo_Tests in source
 use lib '.';
 
@@ -12,11 +17,6 @@ BEGIN {
 }
 
 use _Texinfo_Tests;
-
-use Test::More;
-use Encode;
-
-BEGIN { plan tests => 1; }
 
 use Texinfo;
 

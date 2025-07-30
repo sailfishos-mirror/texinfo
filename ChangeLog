@@ -1,3 +1,21 @@
+2025-07-30 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_html.c: remove html_translate_string, it is
+	not used anymore.
+
+	* tta/C/main/manipulate_tree.c (copy_tree): rename copy variable as
+	copy_tree and current variable as element.
+
+	* tta/C/main/manipulate_tree.c (set_element_tree_numbers): make a
+	simple no-op as it does nothing currently, and rename the
+	implementation.
+
+	Changes in comments and TODO
+
+	* tta/swig/perl/t/*.t: move code around.
+
+	* tta/swig/perl/t/20index_sort.t: change in spacing.
+
 2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* js/info.css (.highlight): Change background (used for search

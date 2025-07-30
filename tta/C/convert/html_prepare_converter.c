@@ -5207,7 +5207,7 @@ html_prepare_output_units_global_targets (CONVERTER *self)
     {
       int i;
       fprintf (stderr, "GLOBAL DIRECTIONS:\n");
-      /* TODO show all the global directions, included the ones added */
+      /* TODO show all the global directions, with those added by the user */
       for (i = 0; i < D_Last+1; i++)
         {
           if (self->global_units_directions[i])
@@ -5949,27 +5949,6 @@ html_prepare_units_directions_files (CONVERTER *self,
   prepare_special_units_directions (self, special_units);
 
   units_file_directions (output_units);
-
-  /* TODO do something like that?  It would be somewhat redundant
-     with the detailed print of the tree in the main program done
-     with DEBUG high enough.
-     It could have made sense to use DUMP_STRUCTURE but it is already
-     used in main program, so it is not possible.
-   */
-  /*
-  if (1 || self->conf->DEBUG.o.integer >= 30)
-    {
-      int use_filename = 0;
-      char *output_units_output;
-
-      if (self->conf->TEST.o.integer > 0)
-        use_filename = 1;
-      output_units_output = print_output_units_tree_details (output_units,
-                                      self->document->tree, use_filename);
-      fprintf (stderr, "%s", output_units_output);
-      free (output_units_output);
-    }
-  */
 
   self->document->modified_information |= F_DOCM_output_units;
 

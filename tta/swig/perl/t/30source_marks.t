@@ -18,6 +18,11 @@
 
 use strict;
 
+use Data::Compare ();
+use Test::More;
+
+plan tests => 3;
+
 # to find _Texinfo_Tests in source
 use lib '.';
 
@@ -30,11 +35,6 @@ BEGIN {
 }
 
 use _Texinfo_Tests;
-
-use Data::Compare ();
-use Test::More;
-
-plan tests => 3;
 
 use Texinfo;
 
