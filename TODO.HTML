@@ -36,27 +36,42 @@ http://per.bothner.com/blog/2016/texinfo-roadmap/
 * Requirements
 
 Simply using the system web browser to access HTML manuals is not
-acceptable as an Info replacement.
+a full Info replacement.  The following features would be missing:
 
-Search in the document's indices should be allowed.
+- Search in the document's indices should be allowed.
 
-There should also be facility for handling intermanual-links and searching
-a path for manuals installed in multiple locations on a system.
+- There should also be facility for handling intermanual-links and searching
+  a path for manuals installed in multiple locations on a system.
 
 * Browser software
+
+There have been two browsing systems developed specially for reading
+the texi2any HTML output:
+
+- info.js
+- webkitgtk-info
+
+(However, the current Texinfo developers (as of July 2025) have little
+capacity to push forward development (or adoption) of either system.)
+
+On info.js:
 
 > In attempt to bring some of the benefits of the Info viewers to HTML
 > documentation in web browsers, in 2017, as part of Google Summer of
 > Code, Matthieu Lirzin worked on a JavaScript interface that works with
 > the HTML that texi2any produces.  His work is substantially complete.
-> A manual with this interface added is at
-> https://www.gnu.org/software/texinfo/manual/texinfo-html/Overview.html.
-> All the important keyboard commands that work in the Info viewers are
+> ...All the important keyboard commands that work in the Info viewers are
 > implemented, including index lookup.
 
-However, this system is only appropriate for online manuals, not for
-locally installed manuals.  The reason for this is that it only handles
-one manual at a time and does not handle searching for a manual.
+This system is contained within the 'info.js' file (under js/ in
+the Texinfo sources), and is added to texi2any HTML output with
+the INFO_JS_DIR variable.
+
+However, this system is only fully appropriate for online manuals,
+not for locally installed manuals.  The reason for this is that it only
+handles one manual at a time and does not handle searching for a manual.
+
+On webkitgtk-info:
 
 Another system has been developed using the embedded WebKitGTK browser,
 under the 'infog' directory in the Texinfo sources.
@@ -188,4 +203,7 @@ Changes would be needed in other projects
 * GNOME/other desktop environments - see if work on webkitgtk-info
 or other could be integrated into other help systems like yelp
 or DevHelp.
+  - there was some discussion (December 2024) at
+  https://gitlab.gnome.org/GNOME/yelp/-/issues/220 (although that
+  bug tracker is often inaccessible due to their anti-bot measures).
 
