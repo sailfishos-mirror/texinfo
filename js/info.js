@@ -2227,17 +2227,6 @@ if (features && !(features.es5
     return;
   }
 
-/* Until we have a responsive design implemented, fallback to basic
-   HTML navigation for small screen.  */
-  /*
-if (window.screen.availWidth < config.SCREEN_MIN_WIDTH)
-  {
-    window.onload =
-      error ("screen width is too small to display the table of content");
-    return;
-  }
-*/
-
 register_polyfills ();
 /* Let the config provided by the user mask the default one.  */
 config = Object.assign (config, user_config);
