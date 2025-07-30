@@ -483,6 +483,10 @@ updater (state, action)
 | Context initializers.  |
 `-----------------------*/
 
+/*-----------------------.
+| Top-level index page.  |
+`-----------------------*/
+
 /** Initialize the index page of the manual which manages the state of the
     application.  */
 function
@@ -1229,7 +1233,11 @@ init_index_page ()
     on_message: on_message,
     on_popstate: on_popstate
   };
-}
+} /* init_index_page */
+
+/*----------------------------------------.
+| Sidebar showing the table of contents.  |
+`----------------------------------------*/
 
 /** Initialize the iframe which contains the lateral table of content.  */
 function
@@ -1455,7 +1463,11 @@ init_sidebar ()
     on_load: on_load,
     on_message: on_message
   };
-}
+} /* init_sidebar */
+
+/*-----------------------------------------.
+| Iframes containing pages of the manual.  |
+`-----------------------------------------*/
 
 /** Initialize iframes which contain pages of the manual.  */
 function
@@ -1582,7 +1594,7 @@ init_iframe ()
     on_load: on_load,
     on_message: on_message
   };
-}
+} /* init_iframe */
 
 /*-------------------------
 | Common event handlers.  |
@@ -1787,9 +1799,9 @@ register_polyfills ()
   /* eslint-enable no-extend-native */
 }
 
-/*---------------------.
-| Common utilitaries.  |
-`---------------------*/
+/*-------------------.
+| Common utilities.  |
+`-------------------*/
 
 /** Check portably if KEY correspond to "Escape" key value.
     @arg {string} key */
