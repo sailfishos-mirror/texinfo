@@ -6,6 +6,7 @@ we could avoid having the same discussions over and over again.  Anybody
 raising the question could be referred to this file so they could be
 aware of the current situation.
 
+
 * Why?
 
 (Excerpt from mail to bug-texinfo@gnu.org in April 2019).
@@ -33,6 +34,7 @@ An earlier document on this issue, from Per Bothner in 2016:
 
 http://per.bothner.com/blog/2016/texinfo-roadmap/
 
+
 * Coordinate with other projects
 
 It's hard to make progress on this due to the need to coordinate with
@@ -43,15 +45,16 @@ to install documentation in a place that no program would use it.
 
 Changes would be needed in other projects
 
-* Distributions (Guix, Debian...) - Install HTML documentation
-* Automake - rules for generating and installing HTML documentation
-* Emacs - Info mode
-* GNOME/other desktop environments - see if work on webkitgtk-info
+- Distributions (Guix, Debian...) - Install HTML documentation
+- Automake - rules for generating and installing HTML documentation
+- Emacs - Info mode
+- GNOME/other desktop environments - see if work on webkitgtk-info
 or other could be integrated into other help systems like yelp
 or DevHelp.
   - there was some discussion (December 2024) at
   https://gitlab.gnome.org/GNOME/yelp/-/issues/220 (although that
   bug tracker is often inaccessible due to their anti-bot measures).
+
 
 * Location of locally installed HTML files
 
@@ -116,10 +119,10 @@ the right installation standards, this would have allowed inter-manual
 links to work in regular web browsers (although only for a single
 installation location).
 
+
 * Where to store non-English manuals
 
 Possibly in a subdirectory named with the language code
-
 
 
 * Requirements
@@ -131,6 +134,7 @@ a full Info replacement.  The following features would be missing:
 
 - There should also be facility for handling intermanual-links and searching
   a path for manuals installed in multiple locations on a system.
+
 
 * Browser software
 
