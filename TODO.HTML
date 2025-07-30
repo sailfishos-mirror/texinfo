@@ -43,7 +43,7 @@ program could not be released until people had documentation installed
 where the program could read it, but people are also not motivated
 to install documentation in a place that no program would use it.
 
-Changes would be needed in other projects
+Changes could be needed in other projects
 
 - Distributions (Guix, Debian...) - Install HTML documentation
 - Automake - rules for generating and installing HTML documentation
@@ -53,47 +53,68 @@ or other could be integrated into other help systems like yelp
 or DevHelp.
   - there was some discussion (December 2024) at
   https://gitlab.gnome.org/GNOME/yelp/-/issues/220 (although that
-  bug tracker is often inaccessible due to their anti-bot measures).
+  issue tracker is often inaccessible due to their anti-bot measures).
+
+A possible first step is to encourage installation of Texinfo-derived
+HTML documentation and add support to whatever programs people use
+to read locally-installed documentation on their systems.  (Better
+support for indices and search paths could be added later.)
+
+So that these Info features could be added later, installed HTML
+manuals should be installed in standardised locations and contain
+needed information.  There should be some degree of stability in
+the HTML produced by texi2any to allow such features and the Texinfo
+project should agree and document what this stability entails (e.g.
+inter-manual links, identifying index nodes).
 
 
 * Location of locally installed HTML files
 
-The current code under js/infog looks for MANUAL under
-/usr/share/texinfo/html/MANUAL_html and
-/usr/local/share/texinfo/html/MANUAL_html.
-Users or distributions would need to copy/symlink the manuals to this
-location.  The /usr/share/texinfo/html directory is akin to the
-/usr/share/info/dir file in the Info system.
-
-Currently infog only supports "split" installed HTML manuals
-(meaning a collection of smaller HTML files rather than one large HTML file).
+The location of files is needed for users to find a manual by name
+and to follow cross-references between manuals.
 
 The GNU coding standards specify a 'docdir' directory for a package.  For
 example, '/usr/local/share/doc/YOURPKG'.  It would be natural to install
 Texinfo HTML documentation under '/usr/local/share/doc/YOURPKG/html'.
 
-However, we did not use /usr/local/share/doc because
-manual names are distinct from package names.  For example,
+However, manual names are distinct from package names.  For example,
 "emacs" would be the package name for many manuals ("tramp",
 "org", "calc", etc.).  Hence, a user might not find the tramp
 manual under /usr/local/share/doc/tramp/html but somewhere under
 /usr/local/share/doc/emacs.
 
-The location of files is needed for users to find a manual by name
-and to follow cross-references between manuals.
+We propose that HTML manuals should be sought in a directory named
+datadir/texinfo/html/MANUAL or datadir/texinfo/html/MANUAL_html, where
+datadir is as defined in the GNU Coding Standards.  (For example,
+datadir could take the values "/usr/share" or "/usr/local/share".)
+
+$XDG_DATA_DIRS/texinfo/html should also be checked where
+XDG_DATA_DIRS is as defined in the "XDG Base Directory Specification"
+(https://specifications.freedesktop.org/basedir-spec/latest/).
+
+Users or distributions would install manuals by copying/symlinking the
+manuals to this location.  (The /usr/share/texinfo/html directory is akin
+to the /usr/share/info/dir file in the Info system.)  For example,
+HTML manuals could be symlinked from locations under /usr/share/doc to
+be accessed by manual name under /use/share/texinfo/html in a standard
+format.
 
 Debian alse has some guidance on where HTML documentation could
-be installed -
+be installed, specifying /usr/share/doc/PACKAGE or /usr/share/doc/PACKAGE-doc
+as installation directories:
 
 https://www.debian.org/doc/debian-policy/ch-docs.html#additional-documentation
 
-- but file locations on Debian are not completely consistent (e.g. the
+File locations on Debian are not completely consistent; e.g. the
 make manual is under /usr/share/doc/make-doc/make.html, while gdb
-is under /usr/share/doc/gdb-doc/html/gdb).
+is under /usr/share/doc/gdb-doc/html/gdb.
 
-%
 
-It was also an issue as to how to get the manual name from a link.
+* Getting names of manuals from links
+
+It was also an issue as to how to get the manual name from a link from
+one Texinfo manual to another Texinfo manual.
+
 In recent Texinfo releases, links to other manuals are annotated with the
 "data-manual" attribute.  This solves the problem of getting the manual
 name.
@@ -109,7 +130,6 @@ https://www.gnu.org/software/trans-coord/manual/cvs/html_node/ - "cvs"
 https://gmplib.org/manual/ - "gmp"
 http://lilypond.org/doc/v2.22/Documentation/internals/ - "lilypond-internals"
 https://gcc.gnu.org/onlinedocs/gfortran/ - "gfortran"
-
 
 Prior to this, we mooted the idea of outputting links in HTML documents
 differently if they were to be installed locally rather than put on the web.
@@ -143,6 +163,9 @@ the texi2any HTML output:
 
 - info.js
 - webkitgtk-info
+
+info.js has acquired a small number of users and is fairly
+feature-complete.
 
 (However, the current Texinfo developers (as of July 2025) have little
 capacity to push forward development (or adoption) of either system.)
@@ -209,5 +232,13 @@ From a private email (October 2020):
 
 (Since that email was written some use has been made of injected
 JavaScript.)
+
+Use of datadir and XDG directories as described above is (as of July 2025)
+incomplete, but would be straighforward to add.
+
+Currently infog only supports "split" installed HTML manuals
+(meaning a collection of smaller HTML files rather than one large HTML file).
+
+
 
 
