@@ -652,10 +652,13 @@ init_index_page ()
     if (!features || features.datalistelem)
       {
         var datalist = create_datalist (data);
-        datalist.setAttribute ("id", this.id + "-data");
-        this.data = data;
-        this.datalist = datalist;
-        this.element.appendChild (datalist);
+        if (!document.getElementById (this.id + "-data"))
+          {
+            datalist.setAttribute ("id", this.id + "-data");
+            this.data = data;
+            this.datalist = datalist;
+            this.element.appendChild (datalist);
+          }
       }
     this.element.removeAttribute ("hidden");
     this.input.focus ();

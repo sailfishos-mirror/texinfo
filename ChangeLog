@@ -1,5 +1,14 @@
 2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Don't accumulate <datalist> elements under text input box
+
+	* js/info.js (Text_input.prototype.show): Check if <datalist>
+	element already exists before creating it.  Previously, multiple
+	<datalist> elements would accumulate within the <index type=search>
+	as 'i' was repeatedly used.
+
+2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.js (init_iframe) <on_load>, (actions.cache_index_links):
 	Inline most of actions.cache_index_links into on_load.  This way
 	actions.cache_index_links is focused on the structure of the message.
