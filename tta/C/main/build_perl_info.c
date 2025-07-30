@@ -2224,11 +2224,9 @@ build_minimal_document (DOCUMENT *document)
     {
       HV *hv_tree = newHV ();
       HV *hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-      /* retain a reference in C code */
-      /* TODO we do not retain a reference yet.  Maybe noinc would be better,
-         as the reference may never be released, but it requires
-         investigation to check that it is indeed retained later on */
-      SV *tree_sv = newRV_inc ((SV *) hv_tree);
+      /* at this point there is no reference retained in C as the reference
+         on Perl object is not already stored in C element structure data */ 
+      SV *tree_sv = newRV_noinc ((SV *) hv_tree);
       sv_bless (tree_sv, hv_stash);
 
       hv_store (hv, "tree", strlen ("tree"), tree_sv, 0);

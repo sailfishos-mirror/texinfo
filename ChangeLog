@@ -1,5 +1,11 @@
 2025-07-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_minimal_document): do not retain
+	a reference to the document tree root element in C before registering
+	the Perl object in the C element structure.
+
+2025-07-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (C_libtexinfo_main_sources),
 	tta/C/convert/swig_element_types.h (TXI_CM_FLAGS_LIST)
 	(TXI_CM_OTHER_FLAGS_LIST, TXI_TY_FLAGS_LIST),
