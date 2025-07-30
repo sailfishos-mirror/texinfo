@@ -73,19 +73,17 @@ var section_names = [
   'appendixsubsubsec' ];
 
 /** Create a store.
-    @arg {function (Object, Action): Object} reducer
     @arg {Object} state  */
 function
-Store (reducer, state)
+Store (state)
 {
   this.components = [];
-  this.reducer = reducer;
   this.state = state;
 }
 
 /** @arg {Action} action */
 Store.prototype.dispatch = function dispatch (action) {
-  var new_state = this.reducer (this.state, action);
+  var new_state = updater (this.state, action);
   if (new_state !== this.state)
     {
       this.state = new_state;
@@ -2267,7 +2265,7 @@ if (inside_top_page)
       text_input: null
     };
 
-    store = new Store (updater, initial_state);
+    store = new Store (initial_state);
     var index = init_index_page ();
     var sidebar = init_sidebar ();
     window.addEventListener ("DOMContentLoaded", function () {

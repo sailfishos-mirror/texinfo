@@ -1,3 +1,12 @@
+2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Reduce info.js indirection
+
+	* js/info.js (Store): Do not pass "reducer" argument to
+	constructor.  There is only one Store object and it is only
+	ever used with the 'updater' function.
+	(Store.prototype.dispatch): Hardcode use of 'updater'.
+
 2025-07-30 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/perl/Makefile.am (all-local, .libs/auto/Texinfo),
