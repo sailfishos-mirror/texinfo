@@ -1,5 +1,23 @@
 2025-07-30 Patrice Dumas  <pertusus@free.fr>
 
+	Initialize the C library when Texinfo modules are loaded but not XS
+
+	* tta/perl/Texinfo/DocumentXS.pm ($XS_package): set $XS_package as
+	Texinfo::XSLoader::init return value.
+
+	* tta/C/main/call_perl_function.c (call_eval_load_texinfo_modules):
+	return -1 (or croak) if the Perl modules could not be used.  Return
+	the Texinfo::DocumentXS::XSLoader true or false value if the modules
+	could be used, such that the caller knows if the Document XS module
+	was loaded.  It is in this XS module that the C library is
+	initialized.
+
+	* tta/C/convert/texinfo.c (txi_setup_main_load_interpreter): check the
+	return value of call_eval_load_texinfo_modules and initialize the C
+	library and set use interpreter accordingly.
+
+2025-07-30 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/StructTransfXS.pm: do not set $XS_package, it is not
 	used anywhere.
 

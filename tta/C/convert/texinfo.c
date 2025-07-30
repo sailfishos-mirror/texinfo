@@ -136,10 +136,25 @@ txi_setup_main_load_interpreter (int use_interpreter,
     {/* assume that there is already a Perl interpreter loaded, but the
         texi2any Perl modules are not loaded and load some modules.
         Used from the Perl SWIG interface */
-      call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
+      int loaded
+         = call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
                                       updirs, converterdatadir,
                                       converterlibdir);
-      set_use_perl_interpreter (use_interpreter);
+      if (loaded <= 0)
+        {
+          /* XS was not loaded, the C library is not initialized, do it now */
+          messages_and_encodings_setup ();
+          setup_texinfo_main (texinfo_uninstalled, converterdatadir,
+                              t2a_builddir, t2a_srcdir);
+        }
+
+      if (loaded < 0)
+        /* Unexpected failure loading Perl modules, consider that there is no
+           Perl interpreter
+         */
+        set_use_perl_interpreter (0);
+      else
+        set_use_perl_interpreter (use_interpreter);
     }
   else
     {

@@ -315,12 +315,17 @@ call_modulepath_init (int updirs, const char *lib_dir,
 /* Initializations similar to those in texi2any.pl or load_txi_modules.pl
    but simplified, as we want to initialize only the modules called from
    libtexinfo. */
+/* return -1 (or croak) if the modules could not be loaded.
+   return 0 if DocumentXS XS extension was not loaded.
+   return 1 if DocumentXS XS extension was loaded.
+ */
 int
 call_eval_load_texinfo_modules (int texinfo_uninstalled,
           const char *t2a_builddir, int updirs, const char *converterdatadir,
           const char *converterlibdir)
 {
   SV *sv_inc_str;
+  SV *document_loader_sv;
   char *str;
   AV *INC;
 
@@ -329,7 +334,7 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
   INC = get_av ("INC", 0);
 
   if (!INC)
-    return 0;
+    return -1;
 
   av_unshift (INC, 1);
 
@@ -355,12 +360,15 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
         "use Texinfo::Indices;\n";
   eval_pv (str, TRUE);
 
+  /* should be false if DocumentXS was not loaded */
+  document_loader_sv = get_sv ("Texinfo::DocumentXS::XSLoader", 0);
+
   /* TODO add more from load_txi_modules.pl when there is code to test?
      For example loading messages for error messages translation and
      loading translated strings from LocaleData?
    */
 
-  return 1;
+  return SvTRUE (document_loader_sv);
 }
 
 
