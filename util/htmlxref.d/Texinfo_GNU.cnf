@@ -1,6 +1,6 @@
 # Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
-htmlxrefversion=2025-07-31.01; # UTC
+htmlxrefversion=2025-07-31.02; # UTC
 
 # Copyright 2010-2025 Free Software Foundation, Inc.
 # 
@@ -183,6 +183,9 @@ emacs		node	${EMACS}/html_node/emacs/
  #
  eieio		mono	${EMACS}/html_mono/eieio.html
  eieio		node	${EMACS}/html_node/eieio/
+ #
+ eintr		mono	${EMACS}/html_mono/eintr.html
+ eintr		node	${EMACS}/html_node/eintr/
  #
  elisp		mono	${EMACS}/html_mono/elisp.html
  elisp		node	${EMACS}/html_node/elisp/
