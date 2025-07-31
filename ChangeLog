@@ -1,5 +1,10 @@
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/info-hooks/gnu-manuals-locations: add link for R
+	manuals (no link for Info manuals).
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/info-hooks/gnu-manuals-locations: add link for mit-scheme
 	manuals (no link for Info manuals).
 

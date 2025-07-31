@@ -232,11 +232,13 @@ recutils                https://www.gnu.org/software/recutils/manual
 reftex                  https://www.gnu.org/software/emacs/manual/index.html
 remember                https://www.gnu.org/software/emacs/manual/index.html
 remotecontrol           https://www.gnu.org/software/remotecontrol/manual
-R-exts
-R-FAQ
-R-intro
-R-ints
-R-lang
+R-admin                 https://cran.r-project.org/manuals.html
+R-data                  https://cran.r-project.org/manuals.html
+R-exts                  https://cran.r-project.org/manuals.html
+R-FAQ                   https://cran.r-project.org/manuals.html
+R-intro                 https://cran.r-project.org/manuals.html
+R-ints                  https://cran.r-project.org/manuals.html
+R-lang                  https://cran.r-project.org/manuals.html
 rluserman
 rottlog                 https://www.gnu.org/software/rottlog/manual
 rush
