@@ -7,14 +7,14 @@
 # This is used in the example 'manual-not-found' hook for Info which can
 # be used if a GNU/Linux distribution does not provide its own hook.
 
-3dldf
-ada-mode
+3dldf                   https://www.gnu.org/software/3dldf/manual/user_ref/
+ada-mode                https://elpa.gnu.org/packages/doc/ada-mode.html
 alive                   https://www.gnu.org/software/alive/manual
 anubis                  https://www.gnu.org/software/anubis/manual
 artanis                 https://www.gnu.org/software/artanis/manual
-as
-aspell
-assuan
+as                      https://sourceware.org/binutils/docs/
+aspell                  http://aspell.net/man-html/index.html
+assuan                  https://www.gnupg.org/documentation/manuals/assuan/
 atk
 auctex
 auth                    https://www.gnu.org/software/emacs/manual/index.html
@@ -25,8 +25,8 @@ automake                https://www.gnu.org/software/automake/manual
 autotype                https://www.gnu.org/software/emacs/manual/index.html
 avl
 bash                    https://www.gnu.org/software/bash/manual
-bfd
-binutils
+bfd                     https://sourceware.org/binutils/docs/
+binutils                https://sourceware.org/binutils/docs/
 bison                   https://www.gnu.org/software/bison/manual
 bovine                  https://www.gnu.org/software/emacs/manual/index.html
 bpel2owfn
@@ -55,7 +55,7 @@ dejagnu
 dico
 diffutils               https://www.gnu.org/software/diffutils/manual
 dired-x                 https://www.gnu.org/software/emacs/manual/index.html
-dirmngr
+dirmngr                 https://www.gnupg.org/documentation/manuals/dirmngr/
 easejs
 ebrowse                 https://www.gnu.org/software/emacs/manual/index.html
 ed
@@ -87,7 +87,7 @@ gcal                    https://www.gnu.org/software/gcal/manual
 gcc
 gccint
 gconf
-gcrypt
+gcrypt                  https://www.gnupg.org/documentation/manuals/gcrypt/
 gdb
 gdbm
 gdk
@@ -112,19 +112,17 @@ gnucobqr
 gnucobsp
 gnu-crypto
 gnulib                  https://www.gnu.org/software/gnulib/manual
-gnun
-gnupg
+gnupg                   https://www.gnupg.org/documentation/manuals/gnupg/
 gnuprologjava
 gnus
 gnus                    https://www.gnu.org/software/emacs/manual/index.html
 #gnutls                 https://www.gnu.org/software/gnutls/manual
 gobject
 gperf                   https://www.gnu.org/software/gperf/manual
-gpgme
+gpgme                   https://www.gnupg.org/documentation/manuals/gpgme/
 gpr-mode
-gprof
-gprof
-gprofng
+gprof                   https://sourceware.org/binutils/docs/
+gprofng                 https://sourceware.org/binutils/docs/
 grep                    https://www.gnu.org/software/grep/manual
 groff                   https://www.gnu.org/software/groff/manual
 grub
@@ -154,12 +152,11 @@ idutils                 https://www.gnu.org/software/idutils/manual
 inetutils               https://www.gnu.org/software/inetutils/manual
 info                    https://www.gnu.org/software/emacs/manual/index.html
 info-stnd
-ksba
-ld
-libc
+ksba                    https://www.gnupg.org/documentation/manuals/ksba/
+ld                      https://sourceware.org/binutils/docs/
 libc                    https://www.gnu.org/software/libc/manual
 libextractor            https://www.gnu.org/software/libextractor/manual
-libgcrypt
+libgcrypt               https://www.gnupg.org/documentation/manuals/gcrypt/
 libglade
 libgnome
 libgnomecanvas
