@@ -1,5 +1,18 @@
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Separate footnote markers with commas
+
+	* doc/texinfo.tex (\dofootnote): Use \aftergroup to output a
+	small penalty after the footnote.
+	(\footnote): Check \lastpenalty and output a comma before our
+	footnote marker if it appears that we are immediately after
+	another footnote marker.
+	* NEWS: mention
+	
+	Suggestion from Werner Lemberg.
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.d/Texinfo_GNU.cnf (ada-mode, music-glossary):
 	Corrections.
 

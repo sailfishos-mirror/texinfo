@@ -64,6 +64,7 @@ See the manual for detailed information.
   . use Unicode in PDF outline for input documents encoded in UTF-8
   . '@set xrefautomaticsectiontitle on' does not affect cross-references
      to anchors, matching the HTML output
+  . separate adjacent footnote markers with commas, e.g. '1, 2' not '1 2'
 
 * info
   . info manual not found hook
