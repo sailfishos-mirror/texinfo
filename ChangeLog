@@ -2,6 +2,13 @@
 
 	Separate footnote markers with commas
 
+	* doc/texinfo.tex (\dofootnote): Do not reuse definition for
+	the footnote marker, as this could include a separating comma.
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Separate footnote markers with commas
+
 	* doc/texinfo.tex (\dofootnote): Use \aftergroup to output a
 	small penalty after the footnote.
 	(\footnote): Check \lastpenalty and output a comma before our

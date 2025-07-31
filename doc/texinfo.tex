@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-07-31.18}
+\def\texinfoversion{2025-07-31.19}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -9695,7 +9695,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
   % Hang the footnote text off the number.  Use \everypar in case the
   % footnote extends for more than one paragraph.
   \everypar = {\hang}%
-  \textindent{\thisfootno}%
+  \textindent{$^{\the\footnoteno}$}%
   %
   % Don't crash into the line above the footnote text.  Since this
   % expands into a box, it must come within the paragraph, lest it
