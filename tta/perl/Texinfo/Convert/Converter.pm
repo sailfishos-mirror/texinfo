@@ -1609,6 +1609,7 @@ sub float_name_caption($$)
   return ($caption_element, $prepended);
 }
 
+# $ELEMENT should be an item, itemx or headitem command element
 sub table_item_content_tree_noxs($$)
 {
   my $self = shift;
@@ -2044,7 +2045,7 @@ sub xml_accent($$$;$$$)
   my $accent = $command->{'cmdname'};
 
   if ($in_upper_case and $text =~ /^\w$/) {
-    $text = uc ($text);
+    $text = uc($text);
   }
 
   # do not return a dotless i or j as such if it is further composed

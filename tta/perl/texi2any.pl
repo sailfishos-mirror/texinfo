@@ -54,6 +54,8 @@ use Storable;
 
 use Data::Dumper;
 
+#use Devel::Cycle;
+
 Getopt::Long::Configure("gnu_getopt");
 
 my ($real_command_name, $command_directory, $command_suffix);
@@ -2287,6 +2289,8 @@ while(@input_files) {
   }
 
   $converter->destroy();
+
+  #find_cycle($document);
  NEXT:
   if (get_conf('TEST')) {
     # This takes a lot of time and is unnecessary when there is
@@ -2295,6 +2299,7 @@ while(@input_files) {
     # $document.
     Texinfo::Document::destroy_document($document) if defined($document);
   }
+  #find_cycle($document);
 }
 
 foreach my $unclosed_file (keys(%main_unclosed_files)) {

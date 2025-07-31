@@ -236,6 +236,10 @@ destroy_element (ELEMENT *e)
       void *hv = get_sv_hv (e->sv);
       unregister_perl_data (hv);
       unregister_perl_data (e->sv);
+       /*
+      fprintf (stderr, "ELT: sv: %d hv: %d\n", get_refcount (e->sv),
+                       get_refcount (hv));
+        */
       e->sv = 0;
     }
 

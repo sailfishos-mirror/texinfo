@@ -2225,7 +2225,7 @@ build_minimal_document (DOCUMENT *document)
       HV *hv_tree = newHV ();
       HV *hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
       /* at this point there is no reference retained in C as the reference
-         on Perl object is not already stored in C element structure data */ 
+         on Perl object is not already stored in C element structure data */
       SV *tree_sv = newRV_noinc ((SV *) hv_tree);
       sv_bless (tree_sv, hv_stash);
 
