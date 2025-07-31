@@ -1,6 +1,6 @@
 # Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
-htmlxrefversion=2025-07-31.02; # UTC
+htmlxrefversion=2025-07-31.04; # UTC
 
 # Copyright 2010-2025 Free Software Foundation, Inc.
 # 
@@ -340,7 +340,7 @@ emacs-muse	node	${GS}/emacs-muse/manual/html_node/
 
 emms		node	${GS}/emms/manual/
 
-ada-mode	mono	https://elpa.gnu.org/packages/ada-mode.html
+ada-mode	mono	https://elpa.gnu.org/packages/doc/ada-mode.html
 
 gpr-mode	mono	https://elpa.gnu.org/packages/doc/gpr-mode.html
 
@@ -576,7 +576,7 @@ LILYPOND = http://lilypond.org/doc/stable/Documentation
  lilypond-snippets 	node ${LILYPOND}/snippets/
  lilypond-usage		node ${LILYPOND}/usage/
  lilypond-web		node ${LILYPOND}/web/
- music-glossary		node ${LILYPOND}/music-glossary/
+ music-glossary		node ${LILYPOND}/glossary/
 
 liquidwar6	mono	${GS}/liquidwar6/manual/liquidwar6.html
 liquidwar6	node	${GS}/liquidwar6/manual/html_node/

@@ -1,5 +1,10 @@
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.d/Texinfo_GNU.cnf (ada-mode, music-glossary):
+	Corrections.
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/info-hooks/gnu-manuals-locations: add locations for
 	gcc manuals.  no links to Info files, so reference the top-level
 	documentation index that gives links to more formats including
