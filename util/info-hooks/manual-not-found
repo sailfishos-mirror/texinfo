@@ -1,0 +1,50 @@
+#!/bin/sh
+
+interactive=0
+if test x$1 = x--interactive ; then
+  shift
+  interactive=1
+fi
+
+echo "Manual '$1' not found" >&2
+
+pwd=`pwd`
+hook_dir=`dirname $0`
+
+url_msg="See <https://www.gnu.org/doc/> in a web browser to get information
+on GNU project documentation."
+
+if test -f "$hook_dir/gnu-manuals-locations" ; then
+  lookup_file=$hook_dir/gnu-manuals-locations
+  url=`cat "$lookup_file" | perl -wanle '$F[0] eq "'$1'" && print $F[1]'`
+  if test -n "$url" ; then
+    url_msg="You could try visiting the following URL in a web browser to download
+the Info manual, or to read the '$1' manual in other formats:\n\n$url"
+  fi
+fi
+
+manpage_exists=0
+if man -w "$1" >/dev/null ; then
+  manpage_exists=1
+fi
+
+msg="An Info manual called '$1' was not found on your system.
+
+$url_msg
+"
+
+if test $interactive = 0; then
+if test $manpage_exists = 1 ; then
+msg="${msg}
+You could try loading the manpage instead, with the link below:
+
+* Menu:
+
+* (*manpages*)$1::	$1 man page
+"
+fi
+fi
+
+echo "$msg"
+
+exit 0
