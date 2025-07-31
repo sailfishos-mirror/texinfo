@@ -192,13 +192,13 @@ mdk                     https://www.gnu.org/software/mdk/manual
 message                 https://www.gnu.org/software/emacs/manual/index.html
 mh-e                    https://www.gnu.org/software/emacs/manual/index.html
 microhttpd-tutorial
-mit-scheme-blowfish
-mit-scheme-ffi
-mit-scheme-gdbm
-mit-scheme-imail
-mit-scheme-ref
-mit-scheme-sos
-mit-scheme-user
+mit-scheme-blowfish     https://www.gnu.org/software/mit-scheme/
+mit-scheme-ffi          https://www.gnu.org/software/mit-scheme/
+mit-scheme-gdbm         https://www.gnu.org/software/mit-scheme/
+mit-scheme-imail        https://www.gnu.org/software/mit-scheme/
+mit-scheme-ref          https://www.gnu.org/software/mit-scheme/
+mit-scheme-sos          https://www.gnu.org/software/mit-scheme/
+mit-scheme-user         https://www.gnu.org/software/mit-scheme/
 moe
 motti
 mpfr
