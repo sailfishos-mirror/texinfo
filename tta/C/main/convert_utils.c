@@ -540,7 +540,7 @@ expand_verbatiminclude (const char *input_file_name_encoding,
           conversion
            = get_encoding_conversion (input_encoding, &input_conversions);
           verbatiminclude = new_command_element (ET_block_command, CM_verbatim);
-          verbatiminclude->parent = current->parent;
+          verbatiminclude->e.c->parent = current->e.c->parent;
           while (1)
             {
               size_t n;
@@ -559,7 +559,7 @@ expand_verbatiminclude (const char *input_file_name_encoding,
               free (line);
               raw = new_text_element (ET_raw);
               text_append (raw->e.text, text);
-              add_to_element_contents (verbatiminclude, raw);
+              add_to_contents_as_array (verbatiminclude, raw);
               free (text);
             }
           if (fclose (stream) == EOF)
@@ -909,7 +909,7 @@ itemize_line_prepended_element (const ELEMENT *block_line_arg)
 const ELEMENT *
 item_itemize_prepended (const ELEMENT *element)
 {
-  const ELEMENT *itemize = element->parent;
+  const ELEMENT *itemize = element->e.c->parent;
   const ELEMENT *arguments_line = itemize->e.c->contents.list[0];
   return itemize_line_prepended_element (
                       arguments_line->e.c->contents.list[0]);
@@ -952,10 +952,10 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
 
   /* not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
      in @table */
-  if (element->parent->type != ET_table_term)
+  if (element->e.c->parent->type != ET_table_term)
     return 0;
 
-  table_command = element->parent->parent->parent;
+  table_command = element->e.c->parent->e.c->parent->e.c->parent;
 
   /* arguments_line type element */
   arguments_line = table_command->e.c->contents.list[0];

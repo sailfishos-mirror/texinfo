@@ -205,7 +205,7 @@ print_caption_shortcaption (const ELEMENT *element, const ELEMENT *float_e,
   if (element->e.c->contents.number > 0)
     caption_texi = convert_to_texinfo (element->e.c->contents.list[0]);
 
-  caption_float = element->parent;
+  caption_float = element->e.c->parent;
   if (!caption_float || caption_float != float_e)
     fprintf (stderr, "BUG: @%s %s; %s: caption_float != float_e: %s\n",
                      builtin_command_name (element->e.c->cmd),

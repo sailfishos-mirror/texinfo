@@ -1,3 +1,40 @@
+2025-08-01 Patrice Dumas  <pertusus@free.fr>
+
+	Remove parent information for text elements 
+
+	* tta/C/structuring_transfo/transformations.c
+	(protect_hashchar_at_line_beginning_internal),
+	tta/perl/Texinfo/Transformations.pm
+	(_protect_hashchar_at_line_beginning): instead of processing text
+	elements, process elements with contents, such that it is easier to
+	find the position of the text with regard to end of lines.
+
+	* tta/C/main/tree.c (add_element_to_element_contents)
+	(insert_into_contents_as_array): add insert_into_contents_as_array. 
+	Add add_element_to_element_contents that works both for text elements
+	and other types of elements.
+
+	* tta/C/main/tree_types.h (CONTAINER, ELEMENT),
+	tta/C/parsetexi/debug_parser.c (print_element_debug_parser),
+	tta/C/main/build_perl_info.c (element_to_perl_hash),
+	tta/C/convert/swig_interface.c (txi_ext_element_parent),
+	tta/C/main/debug.c (print_element_debug), tta/C/*/*.c,
+	tta/perl/Texinfo/*.pm, tta/perl/Texinfo/ParserNonXS.pm
+	(_split_element_delimiters, _split_element_def_args),
+	tta/perl/XSTexinfo/reader_element/TreeElementXS.xs: do not set parent
+	for text elements, considering that the structure information should
+	be with the parent already.  Use add_to_contents_as_array and
+	insert_into_contents_as_array to add text elements to contents, move
+	the parent field from ELEMENT to CONTAINER, check if text element, or,
+	in Perl, if there is already a parent to determine if the parent
+	should be set.
+
+	* tta/C/main/manipulate_tree.c (protect_text),
+	tta/perl/Texinfo/ManipulateTree.pm (_protect_text): do not set the
+	parent of the added @comma or @asis commands.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (element_print_details): add.
+
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Separate footnote markers with commas

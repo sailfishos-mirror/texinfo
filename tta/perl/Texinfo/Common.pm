@@ -651,8 +651,7 @@ sub parse_node_manual($;$)
     if ($first->{'text'} ne '(') {
       if ($modify_node) {
         $opening_brace
-          = Texinfo::TreeElement::new({'text' => '(',
-                                 'parent' => $label_contents_container});
+          = Texinfo::TreeElement::new({'text' => '('});
       }
       my $brace_text = $first->{'text'};
       $brace_text =~ s/^\(//;
@@ -690,7 +689,6 @@ sub parse_node_manual($;$)
               # remove the original first element and prepend the
               # split "(" and text elements
               shift @$contents;
-              $new_first->{'parent'} = $label_contents_container;
               unshift @$contents, $new_first;
               unshift @$contents, $opening_brace;
               $idx++;
@@ -715,7 +713,6 @@ sub parse_node_manual($;$)
               = Texinfo::TreeElement::new({ 'text' => $before });
             push @$manual, $last_manual_element;
             if ($modify_node) {
-              $last_manual_element->{'parent'} = $content->{'parent'};
               splice(@$contents, $idx, 0, $last_manual_element);
               $idx++;
               $current_position = relocate_source_marks(
@@ -725,8 +722,7 @@ sub parse_node_manual($;$)
           }
           if ($modify_node) {
             my $closing_brace
-              = Texinfo::TreeElement::new({'text' => ')',
-                                   'parent' => $content->{'parent'}});
+              = Texinfo::TreeElement::new({'text' => ')'});
             splice(@$contents, $idx, 0, $closing_brace);
             $idx++;
             $current_position = relocate_source_marks(
@@ -737,8 +733,7 @@ sub parse_node_manual($;$)
           my $spaces_after = $1;
           if ($spaces_after and $modify_node) {
             my $spaces_element
-              = Texinfo::TreeElement::new({'text' => $spaces_after,
-                                           'parent' => $content->{'parent'}});
+              = Texinfo::TreeElement::new({'text' => $spaces_after,});
             splice(@$contents, $idx, 0, $spaces_element);
             $idx++;
             $current_position = relocate_source_marks(
@@ -751,7 +746,6 @@ sub parse_node_manual($;$)
               = Texinfo::TreeElement::new({'text' => $after});
             push @$node_content, $leading_node_content;
             if ($modify_node) {
-              $leading_node_content->{'parent'} = $content->{'parent'};
               splice(@$contents, $idx, 0, $leading_node_content);
               $current_position = relocate_source_marks(
                            $content->{'source_marks'}, $leading_node_content,

@@ -83,7 +83,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           if (!*line || *line == '\n')
             {
               line_error ("@verb without associated character");
-              current->parent->e.c->string_info[sit_delimiter]
+              current->e.c->parent->e.c->string_info[sit_delimiter]
                 = strdup ("");
             }
           else
@@ -92,7 +92,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               int char_len = 1;
               while ((line[char_len] & 0xC0) == 0x80)
                 char_len++;
-              current->parent->e.c->string_info[sit_delimiter]
+              current->e.c->parent->e.c->string_info[sit_delimiter]
                 = strndup (line, char_len);
               line += char_len;
             }
@@ -109,12 +109,12 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
             {
               const char *caption_cmdname = command_name(cmd);
               nesting_context.caption++;
-              if (!current->parent->parent
-                  || current->parent->parent->e.c->cmd != CM_float)
+              if (!current->e.c->parent->e.c->parent
+                  || current->e.c->parent->e.c->parent->e.c->cmd != CM_float)
                 {
-                  const ELEMENT *float_e = current->parent;
-                  while (float_e->parent && float_e->e.c->cmd != CM_float)
-                    float_e = float_e->parent;
+                  const ELEMENT *float_e = current->e.c->parent;
+                  while (float_e->e.c->parent && float_e->e.c->cmd != CM_float)
+                    float_e = float_e->e.c->parent;
                   if (float_e->e.c->cmd != CM_float)
                     {
                       line_error ("@%s is not meaningful outside "
@@ -143,8 +143,8 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
                 = new_text_element (ET_internal_spaces_before_context_argument);
             }
 
-          add_to_element_contents (current, space_e);
-          internal_space_holder = current->parent;
+          add_to_contents_as_array (current, space_e);
+          internal_space_holder = current->e.c->parent;
 
           n = strspn (line, whitespace_chars_except_newline);
           if (n > 0)
@@ -162,7 +162,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               ELEMENT *e;
               arg = new_element (ET_brace_arg);
               e = new_text_element (ET_internal_spaces_before_argument);
-              add_to_element_contents (arg, e);
+              add_to_contents_as_array (arg, e);
               internal_space_holder = arg;
 
               if (cmd == CM_inlineraw)
@@ -176,15 +176,17 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           current = arg;
         }
       debug_nonl ("OPENED @%s, remaining: %d ",
-                  command_name (current->parent->e.c->cmd),
-                  counter_value (&count_remaining_args, current->parent) > 0 ?
-                   counter_value (&count_remaining_args, current->parent) : 0);
+                  command_name (current->e.c->parent->e.c->cmd),
+                  counter_value (&count_remaining_args,
+                                 current->e.c->parent) > 0 ?
+                   counter_value (&count_remaining_args,
+                                  current->e.c->parent) : 0);
       debug_parser_print_element (current, 0); debug ("");
     }
-  else if (current->parent
-           && ((current->parent->parent
-                && current->parent->parent->e.c->cmd == CM_multitable)
-               || current->parent->flags & EF_def_line))
+  else if (current->e.c->parent
+           && ((current->e.c->parent->e.c->parent
+                && current->e.c->parent->e.c->parent->e.c->cmd == CM_multitable)
+               || current->e.c->parent->flags & EF_def_line))
     {
       ELEMENT *b, *e;
       abort_empty_line (current);
@@ -197,7 +199,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       current->e.c->source_info = current_source_info;
 
       e = new_text_element (ET_internal_spaces_before_argument);
-      add_to_element_contents (current, e);
+      add_to_contents_as_array (current, e);
       debug ("BRACKETED in def/multitable");
       internal_space_holder = current;
     }
@@ -221,7 +223,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
       add_to_element_contents (current, b);
       current = b;
       text_append (open_brace->e.text, "{");
-      add_to_element_contents (current, open_brace);
+      add_to_contents_as_array (current, open_brace);
       debug ("BALANCED BRACES in math/rawpreformatted/inlineraw");
     }
   else
@@ -261,7 +263,8 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
 
   /* For footnote and caption closing, when there is a paragraph inside.
      This makes the brace command the parent element. */
-  if (current->parent && current->parent->type == ET_brace_command_context
+  if (current->e.c->parent
+      && current->e.c->parent->type == ET_brace_command_context
       && current->type == ET_paragraph)
     {
       abort_empty_line (current);
@@ -273,16 +276,16 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
     {/* balanced_braces happens in non paragraph context only, so merge_text
         should not change current */
       current = merge_text (current, "}", 1, 0);
-      current = current->parent;
+      current = current->e.c->parent;
     }
   else if (current->type == ET_bracketed_arg)
     {
       abort_empty_line (current);
-      current = current->parent;
+      current = current->e.c->parent;
     }
-  else if (command_flags(current->parent) & CF_brace)
+  else if (command_flags(current->e.c->parent) & CF_brace)
     {
-      ELEMENT *brace_command = current->parent;
+      ELEMENT *brace_command = current->e.c->parent;
       enum command_id closed_cmd = brace_command->e.c->cmd;
 
       abort_empty_line (current);
@@ -503,7 +506,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
                 }
             }
         }
-      else if (parent_of_command_as_argument (brace_command->parent)
+      else if (parent_of_command_as_argument (brace_command->e.c->parent)
                && current->e.c->contents.number == 0)
         {
           register_command_as_argument (brace_command);
@@ -518,16 +521,17 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
       else if (closed_cmd == CM_sortas)
         {
           ELEMENT *subindex_elt;
-          if (current->parent->parent
-              && current->parent->parent->parent
-              && ((command_flags(current->parent->parent->parent)
+          if (current->e.c->parent->e.c->parent
+              && current->e.c->parent->e.c->parent->e.c->parent
+              && ((command_flags(current->e.c->parent->e.c->parent->e.c->parent)
                     & CF_index_entry_command)
-                  || current->parent->parent->parent->e.c->cmd == CM_subentry))
+                  || current->e.c->parent->e.c->parent->e.c->parent->e.c->cmd
+                                          == CM_subentry))
             {
               int superfluous_arg;
               char *arg = text_contents_to_plain_text (current,
                                                        &superfluous_arg);
-              subindex_elt = current->parent->parent->parent;
+              subindex_elt = current->e.c->parent->e.c->parent->e.c->parent;
               if (arg && *arg)
                 {
                   add_extra_string (subindex_elt, AI_key_sortas, arg);
@@ -536,7 +540,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         }
       register_global_command (brace_command, 0);
 
-      /* this should set current to brace_command->parent */
+      /* this should set current to brace_command->e.c->parent */
       current = close_brace_command (brace_command, 0, 0, 0);
 
       if (closed_cmd == CM_anchor
@@ -550,7 +554,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         {
           ELEMENT *e;
           e = new_text_element (ET_spaces_after_close_brace);
-          add_to_element_contents (current, e);
+          add_to_contents_as_array (current, e);
         }
 
       if (close_preformatted_command (closed_cmd))
@@ -585,10 +589,10 @@ handle_comma (ELEMENT *current, const char **line_inout)
   isolate_last_space (current);
 
   type = current->type;
-  command_element = current->parent;
-  argument = current->parent;
+  command_element = current->e.c->parent;
+  argument = current->e.c->parent;
   if (argument->type == ET_arguments_line)
-    command_element = argument->parent;
+    command_element = argument->e.c->parent;
   else
     command_element = argument;
 
@@ -661,7 +665,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
               elided_arg_elt = new_element (ET_elided_brace_command_arg);
               add_to_element_contents (command_element, elided_arg_elt);
               arg_text_e = new_text_element (ET_raw);
-              add_to_element_contents (elided_arg_elt, arg_text_e);
+              add_to_contents_as_array (elided_arg_elt, arg_text_e);
 
               new_current = elided_arg_elt;
 
@@ -743,7 +747,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
           elided_arg_elt = new_element (ET_elided_brace_command_arg);
           add_to_element_contents (command_element, elided_arg_elt);
           arg_text_e = new_text_element (ET_raw);
-          add_to_element_contents (elided_arg_elt, arg_text_e);
+          add_to_contents_as_array (elided_arg_elt, arg_text_e);
 
           new_current = elided_arg_elt;
 
@@ -785,7 +789,7 @@ handle_comma (ELEMENT *current, const char **line_inout)
   add_to_element_contents (argument, new_arg);
 
   spaces_before_e = new_text_element (ET_internal_spaces_before_argument);
-  add_to_element_contents (new_arg, spaces_before_e);
+  add_to_contents_as_array (new_arg, spaces_before_e);
   internal_space_holder = new_arg;
   new_current = new_arg;
 

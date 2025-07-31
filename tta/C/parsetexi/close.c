@@ -39,8 +39,8 @@
 #include "def.h"
 #include "parser.h"
 
-/* Return CURRENT->parent.  The other arguments are used if an error message
-   should be printed. */
+/* Return CURRENT->e.c->parent.  The other arguments are used if an error
+   message should be printed. */
 ELEMENT *
 close_brace_command (ELEMENT *current,
                      enum command_id closed_block_cmd,
@@ -105,7 +105,7 @@ close_brace_command (ELEMENT *current,
                       command_name(current->e.c->cmd),
                       delimiter);
     }
-  current = current->parent;
+  current = current->e.c->parent;
   return current;
 }
 
@@ -116,13 +116,14 @@ close_all_style_commands (ELEMENT *current,
                           enum command_id closed_block_cmd,
                           enum command_id interrupting_cmd)
 {
-  while (current->parent
-         && (command_flags(current->parent) & CF_brace)
-         && !(command_data(current->parent->e.c->cmd).data == BRACE_context))
+  while (current->e.c->parent
+         && (command_flags(current->e.c->parent) & CF_brace)
+         && !(command_data(current->e.c->parent->e.c->cmd).data
+                                                  == BRACE_context))
     {
       debug ("CLOSING(all_style_commands) @%s",
-             command_name(current->parent->e.c->cmd));
-      current = close_brace_command (current->parent,
+             command_name(current->e.c->parent->e.c->cmd));
+      current = close_brace_command (current->e.c->parent,
                            closed_block_cmd, interrupting_cmd, 1);
     }
 
@@ -201,7 +202,7 @@ close_container (ELEMENT *current)
     }
     */
 
-  current = current->parent;
+  current = current->e.c->parent;
   if (element_to_remove)
     {
       ELEMENT *last_child = last_contents_child (current);
@@ -383,7 +384,7 @@ close_ignored_block_conditional (ELEMENT *current)
     = new_source_mark (SM_type_ignored_conditional_block);
   ELEMENT *conditional = pop_element_from_contents (current);
 
-  conditional->parent = 0;
+  conditional->e.c->parent = 0;
   source_mark->element = conditional;
   register_source_mark (current, source_mark);
 }
@@ -425,7 +426,7 @@ close_current (ELEMENT *current,
 
             }
           pop_block_command_contexts (cmd);
-          current = current->parent;
+          current = current->e.c->parent;
           /* In ignored conditional. */
           if (command_data(cmd).data == BLOCK_conditional)
             close_ignored_block_conditional (current);
@@ -434,7 +435,7 @@ close_current (ELEMENT *current,
         {
           /* @item and @tab commands are closed here, as well as line commands
              with invalid content. */
-          current = current->parent;
+          current = current->e.c->parent;
         }
     }
   else if (current->type != ET_NONE)
@@ -453,8 +454,8 @@ close_current (ELEMENT *current,
              do not want to modify */
           /* current = merge_text (current, "}", 0); */
           text_append_n (close_brace->e.text, "}", 1);
-          add_to_element_contents (current, close_brace);
-          current = current->parent;
+          add_to_contents_as_array (current, close_brace);
+          current = current->e.c->parent;
           break;
         case ET_bracketed_arg:
           command_error (current, "misplaced {");
@@ -465,7 +466,7 @@ close_current (ELEMENT *current,
               /* remove spaces element from tree and update extra values */
               move_last_space_to_element (current);
             }
-          current = current->parent;
+          current = current->e.c->parent;
           break;
         case ET_line_arg:
           current = end_line_misc_line (current);
@@ -482,8 +483,8 @@ close_current (ELEMENT *current,
     {
       /* should never get here */
       fprintf (stderr, "BUG? closing container without type\n");
-      if (current->parent)
-        current = current->parent;
+      if (current->e.c->parent)
+        current = current->e.c->parent;
     }
 
   return current;
@@ -510,13 +511,13 @@ close_commands (ELEMENT *current, enum command_id closed_block_cmd,
     {
       line_error ("@%s expected braces",
                   command_name(current->e.c->cmd));
-      current = current->parent;
+      current = current->e.c->parent;
     }
 
   current = end_paragraph_preformatted (current, closed_block_cmd,
                                         interrupting_cmd);
 
-  while (current->parent
+  while (current->e.c->parent
          && (!closed_block_cmd || current->e.c->cmd != closed_block_cmd)
      /* Stop if in a root command. */
          && !(current->e.c->cmd && command_flags(current) & CF_root)
@@ -531,7 +532,7 @@ close_commands (ELEMENT *current, enum command_id closed_block_cmd,
     {
       pop_block_command_contexts (current->e.c->cmd);
       *closed_element = current;
-      current = current->parent;
+      current = current->e.c->parent;
 
       if (command_data((*closed_element)->e.c->cmd).data == BLOCK_conditional)
         /* In ignored conditional. */

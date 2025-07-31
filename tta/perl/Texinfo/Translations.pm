@@ -591,8 +591,7 @@ sub complete_indices($;$)
             $index_entry = gdt('{name} on {class}', $current_lang_translations,
                                {'name' => $name_copy, 'class' => $class_copy},
                                $debug_level);
-            $text_element = Texinfo::TreeElement::new({'text' => ' on ',
-                                      'parent' => $index_entry_normalized});
+            $text_element = Texinfo::TreeElement::new({'text' => ' on '});
           } elsif ($def_command eq 'defcv'
                    or $def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
@@ -604,8 +603,7 @@ sub complete_indices($;$)
                                $current_lang_translations,
                                {'name' => $name_copy, 'class' => $class_copy},
                                $debug_level);
-            $text_element = Texinfo::TreeElement::new({'text' => ' of ',
-                                       'parent' => $index_entry_normalized});
+            $text_element = Texinfo::TreeElement::new({'text' => ' of '});
           }
           $ref_name_copy->{'parent'} = $index_entry_normalized;
           $ref_class_copy->{'parent'} = $index_entry_normalized;

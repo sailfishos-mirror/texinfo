@@ -72,7 +72,7 @@ protect_first_parenthesis (ELEMENT *element)
       if (*p == '(')
         {
           ELEMENT *new_command
-           = new_asis_command_with_text ("(", content->parent, content->type);
+           = new_asis_command_with_text ("(", element, content->type);
           ELEMENT *removed = 0;
           /* count UTF-8 encoded Unicode characters for source marks locations */
           uint8_t *u8_text = 0;
@@ -271,7 +271,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
               add_to_element_contents (line_arg, line_content);
 
               text_append (empty_line->e.text, "\n");
-              add_to_element_contents (new_section, empty_line);
+              add_to_contents_as_array (new_section, empty_line);
 
               insert_section_into_section_relations_list (
                                                  &document->sections_list,
@@ -281,7 +281,7 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
                                  section_idx +1);
 
               add_to_element_list (new_sections, new_section);
-              new_section->parent = root;
+              new_section->e.c->parent = root;
             }
           insert_list_slice_into_contents (root, idx_current_section+1,
                                           new_sections, 0,
@@ -361,7 +361,7 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
               ELEMENT *child = definition->e.c->contents.list[j];
               if (child->type == ET_index_entry_command)
                 {
-                  child->parent = term;
+                  child->e.c->parent = term;
                   nr_index_entry_command++;
                 }
               else
@@ -515,7 +515,8 @@ move_index_entries_after_items (ELEMENT *current, DOCUMENT *document)
                 item_container = item;
 
               for (k = last_entry_idx; k < contents_nr; k++)
-                previous_ending_container->e.c->contents.list[k]->parent
+     /* can only be index_entry_command or comment as gathered just above */
+                previous_ending_container->e.c->contents.list[k]->e.c->parent
                   = item_container;
 
               if (item_container->e.c->contents.number
@@ -608,7 +609,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
   if (node_tree->e.c->contents.number <= 0)
     {
       ELEMENT *empty_text = new_text_element (ET_normal_text);
-      add_to_element_contents (node_tree, empty_text);
+      add_to_contents_as_array (node_tree, empty_text);
       empty_node = 1;
     }
 
@@ -670,13 +671,17 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
                                   node_tree->e.c->contents.number);
 
       for (i = 0; i < node_line_arg->e.c->contents.number; i++)
-        node_line_arg->e.c->contents.list[i]->parent = node_line_arg;
+        {
+          ELEMENT *content = node_line_arg->e.c->contents.list[i];
+          if (!(type_data[content->type].flags & TF_text))
+            content->e.c->parent = node_line_arg;
+        }
 
       if (appended_number)
         {
           appended_text = new_text_element (ET_normal_text);
           text_printf (appended_text->e.text, " %d", appended_number);
-          add_to_element_contents (node_line_arg, appended_text);
+          add_to_contents_as_array (node_line_arg, appended_text);
         }
       normalized = convert_contents_to_identifier (node_line_arg);
 
@@ -760,7 +765,8 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
            /* following for index entries */
       else if (current->e.c->cmd == CM_item || current->e.c->cmd == CM_itemx
                || current->type == ET_index_entry_command
-               || (current->parent && current->parent->flags & EF_def_line))
+               || (current->e.c->parent
+                   && current->e.c->parent->flags & EF_def_line))
         {
           const char *element_node
             = lookup_extra_string (current, AI_key_element_node);
@@ -855,7 +861,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   ELEMENT *top_node_text = new_text_element (ET_normal_text);
                   new_node_tree = new_element (ET_NONE);
                   text_append (top_node_text->e.text, "Top");
-                  add_to_element_contents (new_node_tree, top_node_text);
+                  add_to_contents_as_array (new_node_tree, top_node_text);
                 }
               else
                 {
@@ -886,7 +892,7 @@ insert_nodes_for_sectioning_commands (DOCUMENT *document)
                   add_extra_integer (added_node, AI_key_node_number,
                                      node_idx);
                   section_relations->associated_node = new_node_relations;
-                  added_node->parent = content->parent;
+                  added_node->e.c->parent = content->e.c->parent;
                   /* reassociate index entries and menus that are
                      in the sectioning command contents */
                   new_previous.list[0] = new_node_relations;
@@ -936,7 +942,7 @@ reference_to_arg_internal (const char *type,
          by the caller */
       ELEMENT_LIST *container = new_list ();
       ELEMENT *new = new_element (ET_NONE);
-      new->parent = e->parent;
+      new->e.c->parent = e->e.c->parent;
       add_to_element_list (container, new);
       if (e->e.c->cmd == CM_inforef || e->e.c->cmd == CM_link)
         arguments_order = ref_3_args_order;
@@ -962,7 +968,11 @@ reference_to_arg_internal (const char *type,
                                               removed, 0,
                                               removed->e.c->contents.number);
                   for (i = 0; i < new->e.c->contents.number; i++)
-                    new->e.c->contents.list[i]->parent = new;
+                    {
+                      ELEMENT *content = new->e.c->contents.list[i];
+                      if (!(type_data[content->type].flags & TF_text))
+                        content->e.c->parent = new;
+                    }
                   destroy_element (removed);
                   break;
                 }
@@ -1008,7 +1018,7 @@ prepend_new_menu_in_node_section (NODE_RELATIONS *node_relations,
 
   add_to_element_contents (section, current_menu);
   text_append (empty_line->e.text, "\n");
-  add_to_element_contents (section, empty_line);
+  add_to_contents_as_array (section, empty_line);
 
   add_to_const_element_list (node_relations->menus, current_menu);
 }
@@ -1106,7 +1116,7 @@ complete_node_menu (NODE_RELATIONS *node_relations,
                                                        pending, 0,
                                                        pending->number);
                       for (k = 0; k < pending->number; k++)
-                        pending->list[k]->parent = current_menu;
+                        pending->list[k]->e.c->parent = current_menu;
 
                       pending->number = 0;
                     }
@@ -1138,7 +1148,7 @@ complete_node_menu (NODE_RELATIONS *node_relations,
               insert_list_slice_into_contents (current_menu, 0,
                                                pending, 0,
                                                pending->number);
-              current_menu->parent = section;
+              current_menu->e.c->parent = section;
               new_block_command (current_menu);
               prepend_new_menu_in_node_section (node_relations, section,
                                                 current_menu);
@@ -1157,7 +1167,7 @@ complete_node_menu (NODE_RELATIONS *node_relations,
                                         pending, 0, pending->number);
             }
           for (j = 0; j < pending->number; j++)
-            pending->list[j]->parent = current_menu;
+            pending->list[j]->e.c->parent = current_menu;
 
         }
 
@@ -1376,7 +1386,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
   if (last_content && last_content->e.c->cmd == CM_end)
     index--;
 
-  new_detailmenu_e->parent = last_menu;
+  new_detailmenu_e->e.c->parent = last_menu;
 
   if (index)
     {
@@ -1394,7 +1404,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
         {
           ELEMENT *empty_line = new_text_element (ET_empty_line);
           text_append (empty_line->e.text, "\n");
-          add_to_element_contents (preformatted, empty_line);
+          add_to_contents_as_array (preformatted, empty_line);
         }
       else if (last_element->type == ET_menu_entry)
         {
@@ -1410,7 +1420,7 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
           preformatted = new_element (ET_preformatted);
           add_to_element_contents (menu_comment, preformatted);
           text_append (after_line->e.text, "\n");
-          add_to_element_contents (preformatted, after_line);
+          add_to_contents_as_array (preformatted, after_line);
         }
     }
   /* insert master menu */
@@ -1422,174 +1432,175 @@ regenerate_master_menu (DOCUMENT *document, int use_sections)
 
 ELEMENT_LIST *
 protect_hashchar_at_line_beginning_internal (const char *type,
-                                             ELEMENT *current,
+                                             ELEMENT *parent,
                                              void *argument)
 {
-  if ((current->type == ET_normal_text || current->type == ET_raw)
-       && current->e.text->end > 0)
+  size_t i;
+  size_t parent_contents_nr;
+
+  if (type_data[parent->type].flags & TF_text
+      || parent->e.c->contents.number == 0)
+    return 0;
+
+  parent_contents_nr = parent->e.c->contents.number;
+  for (i = 0; i < parent_contents_nr; i++)
     {
-      char *filename;
-      int line_no = 0;
-      int status = 0;
-      filename = parse_line_directive (current->e.text->text, &status, &line_no);
-
-      if (status)
+      ELEMENT *current = parent->e.c->contents.list[i];
+      if ((current->type == ET_normal_text || current->type == ET_raw)
+           && current->e.text->end > 0)
         {
-     /*
-      find the $current element index in parent to check if first or preceded
-      by a new line
-      */
-          ELEMENT *parent = current->parent;
-          size_t i;
+          char *filename;
+          int line_no = 0;
+          int status = 0;
+          filename = parse_line_directive (current->e.text->text, &status, &line_no);
 
-          if (filename)
-            free (filename);
-
-          for (i = 0; i < parent->e.c->contents.number; i++)
+          if (status)
             {
-              if (parent->e.c->contents.list[i] == current)
+              if (filename)
+                free (filename);
+
+              int do_protect = 0;
+              if (i == 0
+                  || (i == 1
+                      && parent->e.c->contents.list[0]->type == ET_arguments_line))
+                do_protect = 1;
+              else
                 {
-                  int do_protect = 0;
-                  if (i == 0
-                      || (i == 1
-                 && parent->e.c->contents.list[0]->type == ET_arguments_line))
-                    do_protect = 1;
+                  ELEMENT *previous = parent->e.c->contents.list[i-1];
+                  if (type_data[previous->type].flags & TF_text
+                      && previous->e.text->end > 0)
+                    {
+                      int end = previous->e.text->end;
+                      if (previous->e.text->text[end -1] == '\n')
+                        do_protect = 1;
+                    }
+                }
+              if (do_protect)
+                {
+              /* do not actually protect in raw block command, but warn */
+                  if (current->type == ET_raw)
+                    {
+                      ELEMENT *parent_for_warn = parent;
+                      while (parent_for_warn)
+                        {
+                          if (parent_for_warn->e.c->cmd
+                              && parent_for_warn->e.c->source_info.line_nr)
+                            {
+                              DOCUMENT *document = (DOCUMENT *) argument;
+                              const OPTIONS *options = document->options;
+
+                              message_list_command_warn (
+                                &document->error_messages,
+                                (options && options->DEBUG.o.integer > 0),
+                                parent_for_warn, 0,
+                                "could not protect hash character in @%s",
+                              builtin_command_name (parent_for_warn->e.c->cmd));
+                              break;
+                            }
+                          parent_for_warn = parent_for_warn->e.c->parent;
+                        }
+                    }
                   else
                     {
-                      ELEMENT *previous = parent->e.c->contents.list[i-1];
-                      if (type_data[previous->type].flags & TF_text
-                          && previous->e.text->end > 0)
-                         {
-                           int end = previous->e.text->end;
-                           if (previous->e.text->text[end -1] == '\n')
-                             do_protect = 1;
-                         }
-                    }
-                  if (do_protect)
-                    {
-                  /* do not actually protect in raw block command, but warn */
-                      if (current->type == ET_raw)
-                        {
-                          ELEMENT *parent_for_warn = parent;
-                          while (parent_for_warn)
-                            {
-                              if (parent_for_warn->e.c->cmd
-                                  && parent_for_warn->e.c->source_info.line_nr)
-                                {
-                                  DOCUMENT *document = (DOCUMENT *) argument;
-                                  const OPTIONS *options = document->options;
+                      char *current_text = strdup (current->e.text->text);
+                      char *p = current_text;
+                      size_t leading_spaces_nr;
+                      ELEMENT *leading_spaces
+                           = new_text_element (ET_normal_text);
+                      ELEMENT *hashchar
+                       = new_command_element (ET_brace_command,
+                                              CM_hashchar);
+                      ELEMENT *arg = new_element (ET_brace_container);
+                      /* count UTF-8 encoded Unicode characters for
+                         source marks locations */
+                      uint8_t *u8_text = 0;
+                      size_t current_position;
+                      const uint8_t *u8_p;
+                      size_t u8_len;
+                      SOURCE_MARK_LIST *source_mark_list;
 
-                                  message_list_command_warn (
-                                    &document->error_messages,
-                             (options && options->DEBUG.o.integer > 0),
-                                    parent_for_warn, 0,
-                                    "could not protect hash character in @%s",
-                                builtin_command_name (parent_for_warn->e.c->cmd));
-                                  break;
-                                }
-                              parent_for_warn = parent_for_warn->parent;
-                            }
-                          return 0;
+                      if (current->source_mark_list)
+                        {
+                          source_mark_list = current->source_mark_list;
+                          current->source_mark_list = 0;
+
+                          u8_text = utf8_from_string (p);
+                          u8_p = u8_text;
+
+                          current_position = 0;
+                        }
+
+                      /* NOTE not exactly the perl code, but use similar
+                         code as line directive parsing so should be ok */
+
+                      leading_spaces_nr = strspn (p, " \t");
+                      if (leading_spaces_nr)
+                        {
+                          p += leading_spaces_nr;
+                          *p = '\0'; /* as a side note, it replaces the # */
+                          text_append (leading_spaces->e.text, current_text);
+                        }
+
+                      if (u8_text)
+                        {
+                          u8_len = u8_mbsnlen (u8_p, leading_spaces_nr);
+                          u8_p += u8_len;
+
+                          current_position
+                            = relocate_source_marks (source_mark_list,
+                                                     leading_spaces,
+                                                 current_position, u8_len);
+                        }
+
+                      if (leading_spaces_nr
+                          || leading_spaces->source_mark_list)
+                        {
+                          insert_into_contents_as_array (parent,
+                                                         leading_spaces, i);
+                          parent_contents_nr++;
+                          i++;
                         }
                       else
+                        destroy_element (leading_spaces);
+
+                      /* advance past # */
+                      p++;
+
+                      hashchar->e.c->parent = parent;
+                      add_to_element_contents (hashchar, arg);
+
+                      insert_into_contents (parent, hashchar, i);
+                      parent_contents_nr++;
+                      i++;
+
+                      if (u8_text)
                         {
-                          ELEMENT_LIST *container = new_list ();
-                          char *current_text = strdup (current->e.text->text);
-                          char *p = current_text;
-                          size_t leading_spaces_nr;
-                          ELEMENT *leading_spaces
-                               = new_text_element (ET_normal_text);
-                          ELEMENT *hashchar
-                           = new_command_element (ET_brace_command,
-                                                  CM_hashchar);
-                          ELEMENT *arg = new_element (ET_brace_container);
-                          /* count UTF-8 encoded Unicode characters for
-                             source marks locations */
-                          uint8_t *u8_text = 0;
-                          size_t current_position;
-                          const uint8_t *u8_p;
-                          size_t u8_len;
-                          SOURCE_MARK_LIST *source_mark_list;
+                          u8_len = u8_mbsnlen (u8_p, 1);
+                          u8_p += u8_len;
 
-                          if (current->source_mark_list)
-                            {
-                              source_mark_list = current->source_mark_list;
-                              current->source_mark_list = 0;
+                          current_position
+                            = relocate_source_marks (source_mark_list,
+                                                     hashchar,
+                                                 current_position, u8_len);
+                        }
 
-                              u8_text = utf8_from_string (p);
-                              u8_p = u8_text;
+                      text_reset (current->e.text);
+                      text_append (current->e.text, p);
+                      free (current_text);
 
-                              current_position = 0;
-                            }
+                      if (u8_text)
+                        {
+                          /* relocate all the remaining source marks */
+                          u8_len = u8_mbsnlen (u8_p, u8_strlen (u8_p));
+                          u8_p += u8_len;
 
-                          /* NOTE not exactly the perl code, but use similar
-                             code as line directive parsing so should be ok */
+                          current_position
+                            = relocate_source_marks (source_mark_list,
+                                      current, current_position, u8_len);
 
-                          leading_spaces->parent = parent;
-                          leading_spaces_nr = strspn (p, " \t");
-                          if (leading_spaces_nr)
-                            {
-                              p += leading_spaces_nr;
-                              *p = '\0'; /* as a side note, it replaces the # */
-                              text_append (leading_spaces->e.text, current_text);
-                            }
-
-                          if (u8_text)
-                            {
-                              u8_len = u8_mbsnlen (u8_p, leading_spaces_nr);
-                              u8_p += u8_len;
-
-                              current_position
-                                = relocate_source_marks (source_mark_list,
-                                                         leading_spaces,
-                                                     current_position, u8_len);
-                            }
-
-                          if (leading_spaces_nr
-                              || leading_spaces->source_mark_list)
-                            add_to_element_list (container, leading_spaces);
-                          else
-                            destroy_element (leading_spaces);
-
-                          /* advance past # */
-                          p++;
-
-                          hashchar->parent = parent;
-                          add_to_element_contents (hashchar, arg);
-                          add_to_element_list (container, hashchar);
-
-                          if (u8_text)
-                            {
-                              u8_len = u8_mbsnlen (u8_p, 1);
-                              u8_p += u8_len;
-
-                              current_position
-                                = relocate_source_marks (source_mark_list,
-                                                         hashchar,
-                                                     current_position, u8_len);
-                            }
-
-                          text_reset (current->e.text);
-                          text_append (current->e.text, p);
-                          free (current_text);
-
-                          if (u8_text)
-                            {
-                              /* relocate all the remaining source marks */
-                              u8_len = u8_mbsnlen (u8_p, u8_strlen (u8_p));
-                              u8_p += u8_len;
-
-                              current_position
-                                = relocate_source_marks (source_mark_list,
-                                          current, current_position, u8_len);
-
-                              free (source_mark_list->list);
-                              free (source_mark_list);
-                              free (u8_text);
-                            }
-
-                          add_to_element_list (container, current);
-                          return container;
+                          free (source_mark_list->list);
+                          free (source_mark_list);
+                          free (u8_text);
                         }
                     }
                 }

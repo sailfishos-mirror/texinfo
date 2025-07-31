@@ -220,8 +220,7 @@ sub fill_gaps_in_sectioning_in_document($;$)
         $line_arg->{'contents'} = [$line_content];
         $new_section->{'contents'} = [$arguments_line,
             Texinfo::TreeElement::new({'type' => 'empty_line',
-                                       'text' => "\n",
-                                       'parent' => $new_section})];
+                                       'text' => "\n"})];
 
         my $new_section_relations = {'element' => $new_section};
         splice(@{$sections_list}, $section_idx+1, 0, $new_section_relations);
@@ -300,14 +299,15 @@ sub _reference_to_arg($$$)
             = Texinfo::TreeElement::new({'contents' => $arg->{'contents'},
                                          'parent' => $current->{'parent'}});
           foreach my $content (@{$arg->{'contents'}}) {
-            $content->{'parent'} = $result;
+            $content->{'parent'} = $result if (exists($content->{'parent'}));;
           }
+          $current = undef;
           return [$result];
         }
       }
     }
-    return Texinfo::TreeElement::new({'text' => '',
-                                      'parent' => $current->{'parent'}});
+    $current = undef;
+    return Texinfo::TreeElement::new({'text' => ''});
   } else {
     return undef;
   }
@@ -414,7 +414,7 @@ sub _new_node($$)
             Texinfo::TreeElement::new({'text' => " $appended_number"});
     }
     foreach my $content (@{$node_line_arg->{'contents'}}) {
-      $content->{'parent'} = $node_line_arg;
+      $content->{'parent'} = $node_line_arg if (exists($content->{'parent'}));
     }
 
     $normalized
@@ -595,8 +595,7 @@ sub _prepend_new_menu_in_node_section($$$)
   $current_menu->{'parent'} = $section;
   push @{$section->{'contents'}},
         Texinfo::TreeElement::new({'type' => 'empty_line',
-                                   'text' => "\n",
-                                   'parent' => $section});
+                                   'text' => "\n",});
   push @{$node_relations->{'menus'}}, $current_menu;
 }
 
@@ -829,8 +828,7 @@ sub regenerate_master_menu($;$)
         my $preformatted = $last_element->{'contents'}->[-1];
         my $empty_line
           = Texinfo::TreeElement::new({'type' => 'empty_line',
-                                       'text' => "\n",
-                                       'parent' => $preformatted});
+                                       'text' => "\n",});
         push @{$preformatted->{'contents'}}, $empty_line;
       }
     } elsif ($last_element->{'type'}
@@ -847,8 +845,7 @@ sub regenerate_master_menu($;$)
                                      'parent' => $menu_comment});
       push @{$menu_comment->{'contents'}}, $preformatted;
       my $empty_line = Texinfo::TreeElement::new(
-               {'type' => 'after_menu_description_line', 'text' => "\n",
-                'parent' => $preformatted});
+               {'type' => 'after_menu_description_line', 'text' => "\n",});
       push @{$preformatted->{'contents'}}, $empty_line;
     }
   }
@@ -926,79 +923,77 @@ sub menu_to_simple_menu($)
 sub _protect_hashchar_at_line_beginning($$$)
 {
   my $type = shift;
-  my $current = shift;
+  my $parent = shift;
   my $argument = shift;
 
   my $document = $argument;
 
-  if ($current->{'text'} and
-      $current->{'text'} =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/
-      and $current->{'parent'} and $current->{'parent'}->{'contents'}) {
-    # find the $current element index in parent to check if first or preceded
-    # by a new line
-    my $parent = $current->{'parent'};
-    for (my $i = 0; $i < scalar(@{$parent->{'contents'}}); $i++) {
-      if ($parent->{'contents'}->[$i] eq $current) {
-        # protect if first in container, or if after a newline
-        if ($i == 0
-            or ($i == 1 and $parent->{'contents'}->[0]->{'type'}
-                and $parent->{'contents'}->[0]->{'type'} eq 'arguments_line')
-            or ($parent->{'contents'}->[$i-1]->{'text'}
-                and $parent->{'contents'}->[$i-1]->{'text'} =~ /\n$/)) {
-          # do not actually protect in raw block command, but warn
-          if ($current->{'type'} and $current->{'type'} eq 'raw') {
-            my $parent_for_warn = $parent;
-            while ($parent_for_warn) {
-              if ($parent_for_warn->{'cmdname'}
-                  and $parent_for_warn->{'source_info'}) {
-                if ($document) {
-                  $document->document_line_warn(sprintf(__(
-                      "could not protect hash character in \@%s"),
-                           $parent_for_warn->{'cmdname'}),
-                                     $parent_for_warn->{'source_info'}, 0);
-                }
-                last;
+  return undef if (exists($parent->{'text'})
+                   or !exists($parent->{'contents'}));
+
+  my $parent_contents_nr = scalar(@{$parent->{'contents'}});
+  for (my $i = 0; $i < $parent_contents_nr; $i++) {
+    my $current = $parent->{'contents'}->[$i];
+    if ($current->{'text'} and
+      $current->{'text'} =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/) {
+      # protect if first in container, or if after a newline
+      if ($i == 0
+          or ($i == 1 and $parent->{'contents'}->[0]->{'type'}
+              and $parent->{'contents'}->[0]->{'type'} eq 'arguments_line')
+          or ($parent->{'contents'}->[$i-1]->{'text'}
+              and $parent->{'contents'}->[$i-1]->{'text'} =~ /\n$/)) {
+        # do not actually protect in raw block command, but warn
+        if ($current->{'type'} and $current->{'type'} eq 'raw') {
+          my $parent_for_warn = $parent;
+          while ($parent_for_warn) {
+            if ($parent_for_warn->{'cmdname'}
+                and $parent_for_warn->{'source_info'}) {
+              if ($document) {
+                $document->document_line_warn(sprintf(__(
+                    "could not protect hash character in \@%s"),
+                         $parent_for_warn->{'cmdname'}),
+                                   $parent_for_warn->{'source_info'}, 0);
               }
-              $parent_for_warn = $parent_for_warn->{'parent'};
+              last;
             }
-            return undef;
-          } else {
-            my @result = ();
-            my $remaining_source_marks;
-            my $current_position = 0;
-            if ($current->{'source_marks'}) {
-              $remaining_source_marks = [@{$current->{'source_marks'}}];
-              delete $current->{'source_marks'};
-            }
-
-            $current->{'text'} =~ s/^(\s*)#//;
-
-            my $e = Texinfo::TreeElement::new({'text' => $1,
-                                               'parent' => $parent});
-            $current_position = Texinfo::Common::relocate_source_marks(
-                                        $remaining_source_marks, $e,
-                                        $current_position, length($1));
-            if ($e->{'text'} ne '' or $e->{'source_marks'}) {
-              push @result, $e;
-            }
-
-            $e = Texinfo::TreeElement::new({'cmdname' => 'hashchar',
-                                            'parent' => $parent});
-            my $arg = Texinfo::TreeElement::new({'type' => 'brace_container',
-                                                 'parent' => $e});
-            $e->{'contents'} = [$arg];
-            $current_position = Texinfo::Common::relocate_source_marks(
-                                          $remaining_source_marks, $e,
-                                          $current_position, 1);
-            push @result, $e;
-
-            $current_position = Texinfo::Common::relocate_source_marks(
-                                          $remaining_source_marks, $current,
-                                          $current_position,
-                                          length($current->{'text'}));
-            push @result, $current;
-            return \@result;
+            $parent_for_warn = $parent_for_warn->{'parent'};
           }
+        } else {
+          my $remaining_source_marks;
+          my $current_position = 0;
+          if ($current->{'source_marks'}) {
+            $remaining_source_marks = [@{$current->{'source_marks'}}];
+            delete $current->{'source_marks'};
+          }
+
+          $current->{'text'} =~ s/^(\s*)#//;
+
+          my $e = Texinfo::TreeElement::new({'text' => $1,});
+          $current_position = Texinfo::Common::relocate_source_marks(
+                                      $remaining_source_marks, $e,
+                                      $current_position, length($1));
+          if ($e->{'text'} ne '' or $e->{'source_marks'}) {
+            splice @{$parent->{'contents'}}, $i, 0, $e;
+            $i++;
+            $parent_contents_nr++;
+          }
+
+          $e = Texinfo::TreeElement::new({'cmdname' => 'hashchar',
+                                          'parent' => $parent});
+          my $arg = Texinfo::TreeElement::new({'type' => 'brace_container',
+                                               'parent' => $e});
+          $e->{'contents'} = [$arg];
+          $current_position = Texinfo::Common::relocate_source_marks(
+                                        $remaining_source_marks, $e,
+                                        $current_position, 1);
+          splice @{$parent->{'contents'}}, $i, 0, $e;
+          $i++;
+          $parent_contents_nr++;
+
+          $current_position = Texinfo::Common::relocate_source_marks(
+                                        $remaining_source_marks, $current,
+                                        $current_position,
+                                        length($current->{'text'}));
         }
       }
     }

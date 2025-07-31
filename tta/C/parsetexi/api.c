@@ -207,7 +207,7 @@ parse_piece (const char *string, int line_nr)
   ELEMENT *before_node_section, *document_root;
 
   before_node_section = setup_document_root_and_before_node_section ();
-  document_root = before_node_section->parent;
+  document_root = before_node_section->e.c->parent;
 
   input_push_text (strdup (string), line_nr, 0, 0);
   parse_texi (document_root, before_node_section);

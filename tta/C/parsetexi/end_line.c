@@ -703,7 +703,8 @@ end_line_def_line (ELEMENT *current)
   if (top_context != ct_def)
     fatal ("def context expected");
 
-  def_cmdname = lookup_extra_string (current->parent, AI_key_def_command);
+  def_cmdname = lookup_extra_string (current->e.c->parent,
+                                     AI_key_def_command);
   def_command = lookup_command (def_cmdname);
 
   debug_nonl ("END DEF LINE %s; current ",
@@ -713,7 +714,7 @@ end_line_def_line (ELEMENT *current)
   parse_def (def_command, current);
 
   /* def_line */
-  current = current->parent;
+  current = current->e.c->parent;
 
   /* Record the index entry if def_line_container is not empty. */
   for (i = 0; i < def_line_container->e.c->contents.number; i++)
@@ -794,7 +795,7 @@ end_line_def_line (ELEMENT *current)
       command_warn (current, "missing category for @%s", def_cmdname);
     }
 
-  current = current->parent;
+  current = current->e.c->parent;
   current = begin_preformatted (current);
 
   return current;
@@ -810,12 +811,13 @@ end_line_starting_block (ELEMENT *current)
 
   enum command_id command = CM_NONE;
 
-  if (current->parent->flags & EF_def_line)
-    command = current->parent->parent->e.c->cmd;
-  else if (current->parent->e.c->cmd)
-    command = current->parent->e.c->cmd;
-  else if (current->parent->parent && current->parent->parent->e.c->cmd)
-    command = current->parent->parent->e.c->cmd;
+  if (current->e.c->parent->flags & EF_def_line)
+    command = current->e.c->parent->e.c->parent->e.c->cmd;
+  else if (current->e.c->parent->e.c->cmd)
+    command = current->e.c->parent->e.c->cmd;
+  else if (current->e.c->parent->e.c->parent
+           && current->e.c->parent->e.c->parent->e.c->cmd)
+    command = current->e.c->parent->e.c->parent->e.c->cmd;
 
   /* Should never happen */
   if (command == CM_NONE)
@@ -825,7 +827,7 @@ end_line_starting_block (ELEMENT *current)
       (void) pop_command (&nesting_context.basic_inline_stack_block);
   isolate_last_space (current);
 
-  if (current->parent->flags & EF_def_line)
+  if (current->e.c->parent->flags & EF_def_line)
     return end_line_def_line (current);
 
   if (pop_context () != ct_line)
@@ -843,7 +845,7 @@ end_line_starting_block (ELEMENT *current)
       const ELEMENT *columnfractions = current->e.c->contents.list[0];
       const STRING_LIST *misc_args
           = lookup_extra_misc_args (columnfractions, AI_key_misc_args);
-      ELEMENT *multitable = current->parent->parent;
+      ELEMENT *multitable = current->e.c->parent->e.c->parent;
       int max_columns = 0;
 
       if (misc_args)
@@ -857,7 +859,7 @@ end_line_starting_block (ELEMENT *current)
       /* NOTE max_columns could overflow, as in general INT_MAX < SIZE_MAX.
          We ignore as this would be for unrealistic column numbers */
       int max_columns = 0;
-      ELEMENT *multitable = current->parent->parent;
+      ELEMENT *multitable = current->e.c->parent->e.c->parent;
 
       for (i = 0; i < current->e.c->contents.number; i++)
         {
@@ -898,9 +900,9 @@ end_line_starting_block (ELEMENT *current)
       }
     }
 
-  current = current->parent;
+  current = current->e.c->parent;
   if (current->type == ET_arguments_line)
-    current = current->parent;
+    current = current->e.c->parent;
   if (counter_value (&count_remaining_args, current) != -1)
     counter_pop (&count_remaining_args);
 
@@ -1132,9 +1134,8 @@ end_line_starting_block (ELEMENT *current)
         {
           ELEMENT *e;
           SOURCE_MARK *source_mark;
-          current = current->parent;
+          current = current->e.c->parent;
           e = pop_element_from_contents (current);
-          e->parent = 0;
           source_mark = new_source_mark (SM_type_expanded_conditional_command);
           source_mark->status = SM_status_start;
           source_mark->element = e;
@@ -1203,17 +1204,17 @@ end_line_misc_line (ELEMENT *current)
   ELEMENT *command_element;
   ELEMENT *line_arg = 0;
 
-  if (current->parent->type == ET_arguments_line)
+  if (current->e.c->parent->type == ET_arguments_line)
     {
       const ELEMENT *arguments_line;
 
-      command_element = current->parent->parent;
+      command_element = current->e.c->parent->e.c->parent;
       arguments_line = command_element->e.c->contents.list[0];
       line_arg = arguments_line->e.c->contents.list[0];
     }
   else
     {
-      command_element = current->parent;
+      command_element = current->e.c->parent;
       line_arg = command_element->e.c->contents.list[0];
     }
 
@@ -1228,7 +1229,7 @@ end_line_misc_line (ELEMENT *current)
     (void) pop_command (&nesting_context.basic_inline_stack_on_line);
   isolate_last_space (current);
 
-  if (current->parent->flags & EF_def_line)
+  if (current->e.c->parent->flags & EF_def_line)
     return end_line_def_line (current);
 
   current = command_element;
@@ -1617,12 +1618,12 @@ end_line_misc_line (ELEMENT *current)
         }
       else
         {
-          if ((current->parent->e.c->cmd == CM_ftable
-               || current->parent->e.c->cmd == CM_vtable)
+          if ((current->e.c->parent->e.c->cmd == CM_ftable
+               || current->e.c->parent->e.c->cmd == CM_vtable)
               && (current->e.c->cmd == CM_item
                   || current->e.c->cmd == CM_itemx))
             {
-              enter_index_entry (current->parent->e.c->cmd,
+              enter_index_entry (current->e.c->parent->e.c->cmd,
                                  current);
             }
           else if (command_flags(current) & CF_index_entry_command)
@@ -1643,7 +1644,7 @@ end_line_misc_line (ELEMENT *current)
         }
     }
 
-  current = current->parent;
+  current = current->e.c->parent;
   if (end_command) /* Set above */
     {
       /* More processing of @end */
@@ -1741,7 +1742,7 @@ end_line_misc_line (ELEMENT *current)
           end_source_mark = new_source_mark (cond_source_mark->type);
           end_source_mark->counter = cond_source_mark->counter;
           end_source_mark->status = SM_status_end;
-          end_elt->parent = 0;
+          end_elt->e.c->parent = 0;
           end_source_mark->element = end_elt;
           register_source_mark (current, end_source_mark);
         }
@@ -1769,7 +1770,7 @@ end_line_misc_line (ELEMENT *current)
                from the tree (case of a before_item, for example), and also
                because it seems incorrect to consider that there is a specific
                parent in the tree. */
-              source_mark->element->parent = 0;
+              source_mark->element->e.c->parent = 0;
               register_source_mark (current, source_mark);
             }
         }
@@ -1782,8 +1783,8 @@ end_line_misc_line (ELEMENT *current)
   else if (cmd == CM_columnfractions)
     {
       /* Check if in multitable. */
-      if (!current->parent || !current->parent->parent
-          || current->parent->parent->e.c->cmd != CM_multitable)
+      if (!current->e.c->parent || !current->e.c->parent->e.c->parent
+          || current->e.c->parent->e.c->parent->e.c->cmd != CM_multitable)
         {
           line_error ("@columnfractions only meaningful on a @multitable line");
         }
@@ -1888,10 +1889,10 @@ end_line (ELEMENT *current)
           current = close_container (current);
 
           /* Add empty_line to higher-level element. */
-          add_to_element_contents (current, e);
+          add_to_contents_as_array (current, e);
         }
       else if (current->type == ET_preformatted
-               && current->parent->type == ET_menu_entry_description)
+               && current->e.c->parent->type == ET_menu_entry_description)
         {
           /* happens for an empty line following a menu_description */
           ELEMENT *empty_line, *e;
@@ -1900,13 +1901,13 @@ end_line (ELEMENT *current)
             {
               /* it should not be possible to have source marks associated
                  to that container */
-              current = current->parent;
+              current = current->e.c->parent;
               destroy_element (pop_element_from_contents (current));
             }
           else
-            current = current->parent;
+            current = current->e.c->parent;
 
-          current = current->parent->parent;
+          current = current->e.c->parent->e.c->parent;
           e = new_element (ET_menu_comment);
           add_to_element_contents (current, e);
 
@@ -1919,7 +1920,7 @@ end_line (ELEMENT *current)
           text_append (e->e.text, empty_line->e.text->text);
           transfer_source_marks (empty_line, e, 0);
           destroy_element (empty_line);
-          add_to_element_contents (current, e);
+          add_to_contents_as_array (current, e);
 
           debug ("MENU: END DESCRIPTION, OPEN COMMENT");
         }
@@ -1981,20 +1982,20 @@ end_line (ELEMENT *current)
         {
           line_error ("@%s expected braces",
                       command_name(current->e.c->cmd));
-          current = current->parent;
+          current = current->e.c->parent;
         }
 
       if (current_context () == ct_def)
         {
-          while (current->parent
-                 && !(current->parent->flags & EF_def_line))
+          while (current->e.c->parent
+                 && !(current->e.c->parent->flags & EF_def_line))
             {
               current = close_current (current, 0, 0);
             }
         }
       else
         {
-          while (current->parent
+          while (current->e.c->parent
                  && current->type != ET_line_arg
                  && current->type != ET_block_line_arg)
             {

@@ -896,8 +896,8 @@ item_line_parent (ELEMENT *current)
 {
   enum command_id cmd;
 
-  if (current->type == ET_before_item && current->parent)
-    current = current->parent;
+  if (current->type == ET_before_item && current->e.c->parent)
+    current = current->e.c->parent;
 
   /* this code handles current being a user defined command even tough
      it is not clear that it may happen */
@@ -2278,11 +2278,11 @@ static int
 in_preamble (ELEMENT *element)
 {
   ELEMENT *current_element = element;
-  while (current_element->parent)
+  while (current_element->e.c->parent)
     {
-      if (current_element->parent->type == ET_preamble_before_content)
+      if (current_element->e.c->parent->type == ET_preamble_before_content)
         return 1;
-      current_element = current_element->parent;
+      current_element = current_element->e.c->parent;
     }
   return 0;
 }

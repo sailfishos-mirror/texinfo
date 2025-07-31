@@ -127,8 +127,8 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
   /* A "*" at the start of a line beginning a menu entry. */
   if (*line == '*'
       && current->type == ET_preformatted
-      && (current->parent->type == ET_menu_comment
-          || current->parent->type == ET_menu_entry_description)
+      && (current->e.c->parent->type == ET_menu_comment
+          || current->e.c->parent->type == ET_menu_entry_description)
       && current->e.c->contents.number > 0
       && last_element->type == ET_empty_line
       && last_element->e.text->end == 0)
@@ -159,7 +159,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       leading_spaces = strspn (line, whitespace_chars);
 
       if (current->type == ET_preformatted
-          && current->parent->type == ET_menu_comment)
+          && current->e.c->parent->type == ET_menu_comment)
         {
           /* Close ET_preformatted, and ET_menu_comment. */
           current = close_container (current);
@@ -184,7 +184,7 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       destroy_element (menu_star_element);
       entry_name = new_element (ET_menu_entry_name);
       add_to_element_contents (current, menu_entry);
-      add_to_element_contents (menu_entry, leading_text);
+      add_to_contents_as_array (menu_entry, leading_text);
       add_to_element_contents (menu_entry, entry_name);
       current = entry_name;
 
@@ -212,10 +212,10 @@ handle_menu_entry_separators (ELEMENT **current_inout, const char **line_inout)
       char menu_separator = *line;
       line++;
 
-      current = current->parent;
+      current = current->e.c->parent;
       e = new_text_element (ET_menu_entry_separator);
       text_append_n (e->e.text, &menu_separator, 1);
-      add_to_element_contents (current, e);
+      add_to_contents_as_array (current, e);
 
       /* Note, if a '.' is not followed by whitespace, we revert was was
          done here below. */
@@ -334,7 +334,7 @@ end_line_menu_entry (ELEMENT *current)
     {
       ELEMENT *menu, *menu_entry, *description_or_menu_comment = 0;
       debug ("FINALLY NOT MENU ENTRY");
-      menu = current->parent->parent;
+      menu = current->e.c->parent->e.c->parent;
       menu_entry = pop_element_from_contents (menu);
       if (menu->e.c->contents.number > 0
           && last_contents_child (menu)->type == ET_menu_entry)
@@ -431,7 +431,7 @@ end_line_menu_entry (ELEMENT *current)
   else
     {
       debug ("MENU ENTRY END LINE");
-      current = current->parent;
+      current = current->e.c->parent;
       current = enter_menu_entry_node (current);
       if (end_comment)
         add_to_element_contents (current, end_comment);

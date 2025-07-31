@@ -96,7 +96,9 @@ gather_def_item (ELEMENT *current, enum command_id next_command)
       for (j = contents_count; j > pos; j--)
         {
           ELEMENT *e = contents_child_by_index (current, j-1);
-          e->parent = def_item;
+          /* no normal text element, but at least empty lines text elements */
+          if (!(type_data[e->type].flags & TF_text))
+            e->e.c->parent = def_item;
         }
       remove_slice_from_contents (current, pos, contents_count);
       add_to_element_contents (current, def_item);
@@ -153,7 +155,7 @@ next_bracketed_or_word_agg (ELEMENT *current, size_t *i)
   new = new_element (ET_def_line_arg);
   for (j = 0; j < num; j++)
     {
-      add_to_element_contents (new,
+      add_element_to_element_contents (new,
                                remove_from_contents (current, *i - num));
       /* Note: if we did a lot of this could write a special
          "splicing" function. */
@@ -225,7 +227,7 @@ split_delimiters (ELEMENT *current, size_t starting_idx)
       else if (e->type != ET_normal_text)
         {
           new = new_element (ET_def_line_arg);
-          new->parent = e->parent;
+          new->e.c->parent = e->e.c->parent;
           add_to_element_contents (new, e);
           current->e.c->contents.list[i] = new;
           continue;
@@ -256,7 +258,7 @@ split_delimiters (ELEMENT *current, size_t starting_idx)
                                             current_position, u8_len);
                 }
 
-              insert_into_contents (current, new, i++);
+              insert_into_contents_as_array (current, new, i++);
               if (!*++p)
                 break;
               continue;
@@ -277,9 +279,9 @@ split_delimiters (ELEMENT *current, size_t starting_idx)
             }
 
           new = new_element (ET_def_line_arg);
-          add_to_element_contents (new, new_text);
+          add_to_contents_as_array (new, new_text);
 
-          insert_into_contents (current, new, i++);
+          insert_into_contents_as_array (current, new, i++);
           if (!*(p += len))
             break;
         }
@@ -348,7 +350,7 @@ split_def_args (ELEMENT *current, size_t starting_idx)
                 = relocate_source_marks (e->source_mark_list, new,
                                          current_position, u8_len);
             }
-          insert_into_contents (current, new, i++);
+          insert_into_contents_as_array (current, new, i++);
           if (!*(p += len))
             break;
         }
@@ -394,7 +396,7 @@ parse_def (enum command_id command, ELEMENT *current)
       insert_into_contents (current, e, contents_idx);
       e1 = new_text_element (ET_normal_text);
       text_append_n (e1->e.text, category, strlen (category));
-      add_to_element_contents (e, e1);
+      add_to_contents_as_array (e, e1);
       if (global_documentlanguage && *global_documentlanguage)
         {
           e->type = ET_untranslated_def_line_arg;
@@ -409,7 +411,7 @@ parse_def (enum command_id command, ELEMENT *current)
       e = new_text_element (ET_spaces);
       text_append_n (e->e.text, " ", 1);
       e->flags |= EF_inserted;
-      insert_into_contents (current, e, contents_idx + 1);
+      insert_into_contents_as_array (current, e, contents_idx + 1);
     }
 
  /* Read arguments as CATEGORY [CLASS] [TYPE] NAME [ARGUMENTS]. */
@@ -434,6 +436,12 @@ parse_def (enum command_id command, ELEMENT *current)
       arg_types_nr++;
     }
 
+  /* Fill in everything up to the args, collecting adjacent non-whitespace
+    elements into a single element, e.g 'a@i{b}c' with
+    next_bracketed_or_word_agg and putting the container returned by
+    next_bracketed_or_word_agg in another container corresponding to
+    the place on the def line (name, category...).
+   */
   for (i = 0; i < arg_types_nr; i++)
     {
       ELEMENT *e = next_bracketed_or_word_agg (current, &contents_idx);
@@ -443,7 +451,7 @@ parse_def (enum command_id command, ELEMENT *current)
           enum element_type arg_type = arguments_types_list[i];
           ELEMENT *new_def_type = new_element (arg_type);
 
-          new_def_type->parent = e->parent;
+          new_def_type->e.c->parent = e->e.c->parent;
           current->e.c->contents.list[contents_idx - 1] = new_def_type;
           add_to_element_contents (new_def_type, e);
         }
@@ -498,7 +506,9 @@ parse_def (enum command_id command, ELEMENT *current)
           type *= set_type_not_arg;
         }
       ELEMENT *new_def_type = new_element (def_arg_type);
-      new_def_type->parent = e->parent;
+      new_def_type->e.c->parent = e->e.c->parent;
+      /* can only be def_line_arg or bracketed_arg, the
+         delimiter and space text elements are handled above. */
       add_to_element_contents (new_def_type, e);
       current->e.c->contents.list[i] = new_def_type;
     }

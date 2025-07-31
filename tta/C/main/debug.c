@@ -112,14 +112,15 @@ print_element_debug (const ELEMENT *e, int print_parent)
         text_printf (&text, "@%s", debug_element_command_name (e));
       if (e->e.c->contents.number)
         text_printf (&text, "[C%d]", e->e.c->contents.number);
-    }
-  if (print_parent && e->parent)
-    {
-      text_append (&text, " <- ");
-      if (e->parent->e.c->cmd)
-        text_printf (&text, "@%s", debug_element_command_name (e->parent));
-      if (e->parent->type)
-        text_printf (&text, "(%s)", type_data[e->parent->type].name);
+      if (print_parent && e->e.c->parent)
+        {
+          text_append (&text, " <- ");
+          if (e->e.c->parent->e.c->cmd)
+            text_printf (&text, "@%s",
+                         debug_element_command_name (e->e.c->parent));
+          if (e->e.c->parent->type)
+            text_printf (&text, "(%s)", type_data[e->e.c->parent->type].name);
+        }
     }
   return text.text;
 }

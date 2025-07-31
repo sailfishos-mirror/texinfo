@@ -242,11 +242,13 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
 
   for (i = 0; i < e_l->number; i++)
     {
-      if (!e_l->list[i]->sv)
+      ELEMENT *element = e_l->list[i];
+      if (!element->sv)
         {
-          if (e_l->list[i]->parent)
+          if (type_data[element->type].flags & TF_text
+              || element->e.c->parent)
             {
-              new_element_perl_data (e_l->list[i]);
+              new_element_perl_data (element);
             }
           else
             {
@@ -254,7 +256,7 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
                  extra_contents should be in-tree.  Checked in 2023.
                */
               static TEXT message;
-              char *debug_str = print_element_debug (e_l->list[i], 1);
+              char *debug_str = print_element_debug (element, 1);
               text_init (&message);
               text_printf (&message,
                 "BUG: build_perl_array oot %d: %s\n", i, debug_str);
@@ -263,10 +265,10 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
               non_perl_free (message.text);
               /* Out-of-tree element */
               /* WARNING: This is possibly recursive. */
-              element_to_perl_hash (e_l->list[i], avoid_recursion);
+              element_to_perl_hash (element, avoid_recursion);
             }
         }
-      av_store (av, (SSize_t) i, newSVsv ((SV *) e_l->list[i]->sv));
+      av_store (av, (SSize_t) i, newSVsv ((SV *) element->sv));
     }
   return sv;
 }
@@ -288,7 +290,7 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
       if (!e_l->list[i]->sv)
         {
           ELEMENT *f = (ELEMENT *)e_l->list[i];
-          if (f->parent)
+          if (type_data[f->type].flags & TF_text || f->e.c->parent)
             {
               new_element_perl_data (f);
             }
@@ -374,7 +376,7 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
             {
               /* recast to a non const element, as we need to modify it */
               ELEMENT *f = (ELEMENT *)e;
-              if (e->parent)
+              if (type_data[e->type].flags & TF_text || e->e.c->parent)
                 {
                   new_element_perl_data (f);
                 }
@@ -978,15 +980,25 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
       PERL_HASH(HSH_macro, "macro", strlen ("macro"));
     }
 
-  if (e->parent)
+  if (e->flags & EF_inserted)
+    store_info_integer (e, 1, "inserted", &info_hv);
+
+  build_base_element (e, element_hv);
+
+  store_source_mark_list (e);
+
+  if (type_data[e->type].flags & TF_text)
+    return;
+
+  if (e->e.c->parent)
     {
-      if (!e->parent->sv)
+      if (!e->e.c->parent->sv)
         {
           static TEXT message;
           char *debug_str = print_element_debug (e, 1);
           text_init (&message);
           text_printf (&message, "parent %p sv not set in %s '%s'\n",
-                            e->parent, debug_str, convert_to_texinfo (e));
+                            e->e.c->parent, debug_str, convert_to_texinfo (e));
           fatal (message.text);
           non_perl_free (debug_str);
         }
@@ -995,19 +1007,9 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
          references.  See:
        https://lists.gnu.org/archive/html/bug-texinfo/2025-06/msg00018.html
        */
-      sv = newSVsv ((SV *) e->parent->sv);
+      sv = newSVsv ((SV *) e->e.c->parent->sv);
       hv_store (element_hv, "parent", strlen ("parent"), sv, HSH_parent);
     }
-
-  store_source_mark_list (e);
-
-  if (e->flags & EF_inserted)
-    store_info_integer (e, 1, "inserted", &info_hv);
-
-  build_base_element (e, element_hv);
-
-  if (type_data[e->type].flags & TF_text)
-    return;
 
 #define store_flag(flag) \
   if (e->flags & EF_##flag) \

@@ -94,7 +94,7 @@ place_source_mark (ELEMENT *e, SOURCE_MARK *source_mark)
     {
       /* add an empty element used for source marks */
       mark_element = new_text_element (ET_normal_text);
-      add_to_element_contents (e, mark_element);
+      add_to_contents_as_array (e, mark_element);
       add_element_string = "add";
     }
 

@@ -1213,9 +1213,9 @@ html_get_tree_root_element (CONVERTER *self, const ELEMENT *command,
           result->root = current;
           return result;
         }
-      else if (current->parent)
+      else if (current->e.c->parent)
         {
-          current = current->parent;
+          current = current->e.c->parent;
         }
       else
         {
@@ -2085,9 +2085,9 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   text_append_n (open_p->e.text, "(", 1);
   text_append_n (close_p->e.text, ")", 1);
 
-  add_to_element_contents (root_code, open_p);
+  add_to_contents_as_array (root_code, open_p);
   add_to_contents_as_array (root_code, manual_content);
-  add_to_element_contents (root_code, close_p);
+  add_to_contents_as_array (root_code, close_p);
   if (node_content)
     add_to_contents_as_array (root_code, node_content);
 
@@ -6831,11 +6831,11 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
   /* corresponds to perl exists unicode_accented_letters{accent}->{text} */
       && (!strcmp (text_set, "i") || !strcmp (text_set, "j")))
     {
-      if (element->parent && element->parent->parent
-          && element->parent->parent->e.c->cmd)
+      if (element->e.c->parent && element->e.c->parent->e.c->parent
+          && element->e.c->parent->e.c->parent->e.c->cmd)
         {
           enum command_id p_cmd
-            = element_builtin_cmd (element->parent->parent);
+            = element_builtin_cmd (element->e.c->parent->e.c->parent);
           if (builtin_command_data[p_cmd].flags & CF_accent
               && p_cmd != CM_tieaccent)
             {
@@ -9497,7 +9497,8 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
- if (element->parent && element_builtin_cmd (element->parent) == CM_itemize)
+ if (element->e.c->parent
+     && element_builtin_cmd (element->e.c->parent) == CM_itemize)
     {
       if (content
           && content[strspn (content, whitespace_chars)] != '\0')
@@ -9505,8 +9506,8 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
           text_printf (result, "<li>%s</li>", content);
         }
     }
-  else if (element->parent
-           && element_builtin_cmd (element->parent) == CM_enumerate)
+  else if (element->e.c->parent
+           && element_builtin_cmd (element->e.c->parent) == CM_enumerate)
     {
       if (content
           && content[strspn (content, whitespace_chars)] != '\0')
@@ -9595,7 +9596,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
             destroy_tree_added_elements (self, tree);
         }
     }
-  else if (element->parent->type == ET_row)
+  else if (element->e.c->parent->type == ET_row)
     {
       conversion_function_cmd_conversion (self,
                   &self->current_commands_conversion_function[CM_tab],
@@ -9656,7 +9657,7 @@ html_convert_tab_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  row = element->parent;
+  row = element->e.c->parent;
   first_row_cmd = element_builtin_cmd (row->e.c->contents.list[0]);
   if (first_row_cmd == CM_headitem)
     html_element = "th";
@@ -9665,7 +9666,7 @@ html_convert_tab_command (CONVERTER *self, const enum command_id cmd,
   text_append_n (result, html_element, 2);
 
   cell_nr = (size_t) lookup_extra_integer (element, AI_key_cell_number, &status);
-  multitable = row->parent->parent;
+  multitable = row->e.c->parent->e.c->parent;
 
   columnfractions = multitable_columnfractions (multitable);
 
@@ -11593,7 +11594,8 @@ html_convert_preformatted_type (CONVERTER *self, const enum element_type type,
   /* menu_entry_description is always in a preformatted container
      in the tree, as the whole menu is meant to be an
      environment where spaces and newlines are preserved. */
-  if (element->parent && element->parent->type == ET_menu_entry_description)
+  if (element->e.c->parent
+      && element->e.c->parent->type == ET_menu_entry_description)
     {
       if (!html_inside_preformatted (self))
         {
@@ -11618,9 +11620,9 @@ html_convert_preformatted_type (CONVERTER *self, const enum element_type type,
 
   /* this may happen with lines without textual content
      between a def* and def*x. */
-  if (element->parent)
+  if (element->e.c->parent)
     {
-      enum command_id p_cmd = element_builtin_cmd (element->parent);
+      enum command_id p_cmd = element_builtin_cmd (element->e.c->parent);
       if (builtin_command_data[p_cmd].flags & CF_def || p_cmd == CM_defblock)
         {
           in_def = 1;
@@ -12358,7 +12360,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
   if (element->e.c->cmd)
     original_def_cmd = element->e.c->cmd;
   else
-    original_def_cmd = element->parent->e.c->cmd;
+    original_def_cmd = element->e.c->parent->e.c->cmd;
 
   if (builtin_command_data[original_def_cmd].flags & CF_def_alias)
     {
@@ -12384,7 +12386,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
     def_cmd = element->e.c->cmd;
   else
   /* the parent is the def both for def* def_line and def*x */
-    def_cmd = element->parent->e.c->cmd;
+    def_cmd = element->e.c->parent->e.c->cmd;
 
   if (builtin_command_data[def_cmd].flags & CF_def_alias)
     {

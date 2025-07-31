@@ -36,12 +36,12 @@ item_multitable_parent (ELEMENT *current)
       || current->e.c->cmd == CM_item
       || current->e.c->cmd == CM_tab)
     {
-      if (current->parent && current->parent->parent)
-        current = current->parent->parent;
+      if (current->e.c->parent && current->e.c->parent->e.c->parent)
+        current = current->e.c->parent->e.c->parent;
     }
   else if (current->type == ET_before_item)
     {
-      current = current->parent;
+      current = current->e.c->parent;
     }
 
   if (current->e.c->cmd == CM_multitable)
@@ -120,7 +120,12 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
      table_after_terms. */
   insert_slice_into_contents (table_after_terms, 0, current, begin_idx, end_pos);
   for (i = 0; i < table_after_terms->e.c->contents.number; i++)
-    contents_child_by_index (table_after_terms, i)->parent = table_after_terms;
+    {
+      ELEMENT *content = contents_child_by_index (table_after_terms, i);
+      /* there is no normal text, but text elements at least for empty lines */
+      if (!(type_data[content->type].flags & TF_text))
+        content->e.c->parent = table_after_terms;
+    }
   remove_slice_from_contents (current, begin_idx, end_pos);
 
   if (type == ET_table_definition)
@@ -163,7 +168,14 @@ gather_previous_item (ELEMENT *current, enum command_id next_command)
       insert_slice_into_contents (table_term, 0, current,
                                   term_begin_idx, begin_idx);
       for (i = 0; i < table_term->e.c->contents.number; i++)
-        contents_child_by_index (table_term, i)->parent = table_term;
+        {
+          ELEMENT *content = contents_child_by_index (table_term, i);
+        /* there can only be @item and @itemx here, as everything
+           else following was already gathered, and everything else before
+           was also gathered in table_* containers by previous
+           calls to the function */
+          content->e.c->parent = table_term;
+        }
       remove_slice_from_contents (current, term_begin_idx, begin_idx);
       if (before_item && before_item_content_nr > 0)
         {

@@ -527,7 +527,7 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                       add_to_element_contents
                                    (index_entry_normalized, ref_name_copy);
-                      add_to_element_contents
+                      add_to_contents_as_array
                                    (index_entry_normalized, text_element);
                       add_to_element_contents
                                    (index_entry_normalized, ref_class_copy);

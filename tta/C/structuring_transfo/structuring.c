@@ -78,7 +78,7 @@ new_block_command (ELEMENT *element)
   add_to_element_contents (end, end_args);
 
   text_append (command_name_text->e.text, command_name);
-  add_to_element_contents (end_args, command_name_text);
+  add_to_contents_as_array (end_args, command_name_text);
 
   add_to_element_contents (element, end);
 }
@@ -2158,7 +2158,8 @@ new_node_menu_entry (const NODE_RELATIONS *node_relations, int use_sections)
       for (i = 0; i < menu_entry_name->e.c->contents.number; i++)
         {
           ELEMENT *content = menu_entry_name->e.c->contents.list[i];
-          content->parent = menu_entry_name;
+          if (!(type_data[content->type].flags & TF_text))
+            content->e.c->parent = menu_entry_name;
         }
       /*
       colons could be doubly protected, but it is probably better
@@ -2174,7 +2175,8 @@ new_node_menu_entry (const NODE_RELATIONS *node_relations, int use_sections)
   for (i = 0; i < menu_entry_node->e.c->contents.number; i++)
     {
       ELEMENT *content = menu_entry_node->e.c->contents.list[i];
-      content->parent = menu_entry_node;
+      if (!(type_data[content->type].flags & TF_text))
+        content->e.c->parent = menu_entry_node;
     }
 
   /* do not protect here, as it could already be protected, and
@@ -2187,12 +2189,12 @@ new_node_menu_entry (const NODE_RELATIONS *node_relations, int use_sections)
   add_to_element_contents (description, preformatted);
   description_text = new_text_element (ET_normal_text);
   text_append (description_text->e.text, "\n");
-  add_to_element_contents (preformatted, description_text);
+  add_to_contents_as_array (preformatted, description_text);
 
   menu_entry_leading_text = new_text_element (ET_menu_entry_leading_text);
   text_append (menu_entry_leading_text->e.text, "* ");
 
-  add_to_element_contents (entry, menu_entry_leading_text);
+  add_to_contents_as_array (entry, menu_entry_leading_text);
 
   if (use_sections)
     {
@@ -2201,16 +2203,16 @@ new_node_menu_entry (const NODE_RELATIONS *node_relations, int use_sections)
       text_append (menu_entry_separator->e.text, ": ");
       text_append (menu_entry_after_node->e.text, ".");
       add_to_element_contents (entry, menu_entry_name);
-      add_to_element_contents (entry, menu_entry_separator);
+      add_to_contents_as_array (entry, menu_entry_separator);
       add_to_element_contents (entry, menu_entry_node);
-      add_to_element_contents (entry, menu_entry_after_node);
+      add_to_contents_as_array (entry, menu_entry_after_node);
     }
   else
     {
       ELEMENT *menu_entry_separator = new_text_element (ET_menu_entry_separator);
       add_to_element_contents (entry, menu_entry_node);
       text_append (menu_entry_separator->e.text, "::");
-      add_to_element_contents (entry, menu_entry_separator);
+      add_to_contents_as_array (entry, menu_entry_separator);
     }
 
   add_to_element_contents (entry, description);
@@ -2259,12 +2261,16 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
     {
       ELEMENT *empty_line_before = new_text_element (ET_empty_line);
       text_append (empty_line_before->e.text, "\n");
-      add_to_element_contents (preformatted, empty_line_before);
+      add_to_contents_as_array (preformatted, empty_line_before);
       index_in_preformatted = 1;
     }
 
   for (i = 0; i < inserted_element->e.c->contents.number; i++)
-    inserted_element->e.c->contents.list[i]->parent = preformatted;
+    {
+      ELEMENT *content = inserted_element->e.c->contents.list[i];
+      if (!(type_data[content->type].flags & TF_text))
+        content->e.c->parent = preformatted;
+    }
 
   insert_slice_into_contents (preformatted, index_in_preformatted,
                               inserted_element,
@@ -2272,8 +2278,8 @@ insert_menu_comment_content (ELEMENT_LIST *element_list, size_t position,
 
   text_append (empty_line_first_after->e.text, "\n");
   text_append (empty_line_second_after->e.text, "\n");
-  add_to_element_contents (preformatted, empty_line_first_after);
-  add_to_element_contents (preformatted, empty_line_second_after);
+  add_to_contents_as_array (preformatted, empty_line_first_after);
+  add_to_contents_as_array (preformatted, empty_line_second_after);
 
   insert_into_element_list (element_list, menu_comment, position);
 }
@@ -2602,7 +2608,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                         {
                           size_t k;
                           for (k = 0; k < down_menus->number; k++)
-                            down_menus->list[k]->parent = new_detailmenu_e;
+                            down_menus->list[k]->e.c->parent = new_detailmenu_e;
                           insert_list_slice_into_contents (new_detailmenu_e,
                                            new_detailmenu_e->e.c->contents.number,
                                            down_menus, 0, down_menus->number);
@@ -2623,8 +2629,7 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
         = new_detailmenu_e->e.c->contents.list[0]->e.c->contents.list[0];
 
       text_append (new_line->e.text, "\n");
-      new_line->parent = first_preformatted;
-      insert_into_contents (first_preformatted, new_line, 0);
+      insert_into_contents_as_array (first_preformatted, new_line, 0);
 
       if (options)
         {
@@ -2635,7 +2640,11 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
                         options->DEBUG.o.integer, 0);
 
           for (i = 0; i < master_menu_title->e.c->contents.number; i++)
-            master_menu_title->e.c->contents.list[i]->parent = first_preformatted;
+            {
+              ELEMENT *content = master_menu_title->e.c->contents.list[i];
+              if (!(type_data[content->type].flags & TF_text))
+                content->e.c->parent = first_preformatted;
+            }
 
           insert_slice_into_contents (first_preformatted, 0,
                                       master_menu_title, 0,
@@ -2647,9 +2656,8 @@ new_detailmenu (ERROR_MESSAGE_LIST *error_messages,
           ELEMENT *master_menu_title_string = new_text_element (ET_normal_text);
           text_append (master_menu_title_string->e.text,
                        " --- The Detailed Node Listing ---");
-          master_menu_title_string->parent = first_preformatted;
-          insert_into_contents (first_preformatted,
-                                master_menu_title_string, 0);
+          insert_into_contents_as_array (first_preformatted,
+                                         master_menu_title_string, 0);
         }
 
       new_block_command (new_detailmenu_e);
@@ -2704,7 +2712,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
                   add_to_element_contents (menu_node, menu_comment);
                   add_to_element_contents (menu_comment, preformatted);
                   text_append_n (empty_line->e.text, "\n", 1);
-                  add_to_element_contents (preformatted, empty_line);
+                  add_to_contents_as_array (preformatted, empty_line);
 
                   add_to_element_contents (menu_node, detailmenu);
                 }

@@ -60,11 +60,11 @@ item_container_parent (const ELEMENT *current)
 {
   if ((current->e.c->cmd == CM_item
        || current->type == ET_before_item)
-      && current->parent
-      && ((current->parent->e.c->cmd == CM_itemize
-           || current->parent->e.c->cmd == CM_enumerate)))
+      && current->e.c->parent
+      && ((current->e.c->parent->e.c->cmd == CM_itemize
+           || current->e.c->parent->e.c->cmd == CM_enumerate)))
     {
-      return current->parent;
+      return current->e.c->parent;
     }
   return 0;
 }
@@ -116,11 +116,12 @@ check_no_text (const ELEMENT *current)
 int
 in_paragraph (ELEMENT *current)
 {
-  while (current->parent
-         && (command_flags(current->parent) & CF_brace)
-         && !(command_data(current->parent->e.c->cmd).data == BRACE_context))
+  while (current->e.c->parent
+         && (command_flags(current->e.c->parent) & CF_brace)
+         && !(command_data(current->e.c->parent->e.c->cmd).data
+                                                 == BRACE_context))
     {
-      current = current->parent->parent;
+      current = current->e.c->parent->e.c->parent;
     }
   if (current->type == ET_paragraph)
     return 1;
@@ -696,7 +697,7 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
 
   comment_e = new_command_element (ET_line_command, cmd);
   add_to_element_contents (comment_e, comment_line_args);
-  add_to_element_contents (comment_line_args, comment_text_element);
+  add_to_contents_as_array (comment_line_args, comment_text_element);
 
   text_append (comment_text_element->e.text, q);
 
@@ -762,7 +763,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
          in the root, but in another container */
       if (current->type != ET_root_line)
         {
-          current = current->parent;
+          current = current->e.c->parent;
           if (!current)
             fatal ("no parent element");
         }
@@ -799,11 +800,11 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   ignored = 1;
                   break;
                 }
-              p = p->parent;
+              p = p->e.c->parent;
             }
         }
       /* prepare tree to gather source marks */
-      add_to_element_contents (line_args, text_element);
+      add_to_contents_as_array (line_args, text_element);
       text_append (text_element->e.text, line);
 
       /* If the current input is the result of a macro expansion,
@@ -857,7 +858,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
             {
   /* nothing else than spaces.  Reuse the text element as space element. */
               pop_element_from_contents (line_args);
-              text_element->parent = 0;
               text_element->type = ET_spaces_after_argument;
               line_args->elt_info[eit_spaces_after_argument] = text_element;
             }
@@ -883,7 +883,6 @@ handle_line_command (ELEMENT *current, const char **line_inout,
          /* nothing else than spaces after removing the comment.  Reuse the
             text element as space element kept in info */
                       pop_element_from_contents (line_args);
-                      text_element->parent = 0;
                       text_element->type = ET_spaces_before_argument;
                       command_e->elt_info[eit_spaces_before_argument]
                         = text_element;
@@ -1025,7 +1024,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
           else if (cmd == CM_subentry)
             {
               int subentry_level = 1;
-              const ELEMENT *parent = current->parent;
+              const ELEMENT *parent = current->e.c->parent;
               const ELEMENT *current = parent;
 
               if (!(command_flags(parent) & CF_index_entry_command)
@@ -1039,7 +1038,7 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                   if (current->e.c->cmd == CM_subentry)
                     {
                        subentry_level++;
-                       current = current->parent->parent;
+                       current = current->e.c->parent->e.c->parent;
                     }
                   else
                     break;
@@ -1169,9 +1168,9 @@ handle_line_command (ELEMENT *current, const char **line_inout,
         {
           ELEMENT *parent = current;
           int found = 0;
-          while (parent->parent)
+          while (parent->e.c->parent)
             {
-              parent = parent->parent;
+              parent = parent->e.c->parent;
               enum command_id parent_cmd = parent->e.c->cmd;
               if (parent->type == ET_brace_command_context)
                 break;
@@ -1263,7 +1262,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
         {
           current = close_container (current);
           if (current->type == ET_menu_entry)
-            current = current->parent;
+            current = current->e.c->parent;
           else
             {
               bug_message ("menu description parent not a menu_entry: %s",
@@ -1430,8 +1429,8 @@ handle_brace_command (ELEMENT *current, const char **line_inout,
   /* sortas cannot be definfoenclose'd */
   if (cmd == CM_sortas)
     {
-      if (!(command_flags(current->parent) & CF_index_entry_command)
-          && current->parent->e.c->cmd != CM_subentry)
+      if (!(command_flags(current->e.c->parent) & CF_index_entry_command)
+          && current->e.c->parent->e.c->cmd != CM_subentry)
         {
           line_warn ("@%s should only appear in an index entry",
                      command_name(cmd));

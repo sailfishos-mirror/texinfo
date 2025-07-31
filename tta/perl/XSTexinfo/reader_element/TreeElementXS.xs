@@ -311,10 +311,11 @@ parent (SV *element_sv)
             const ELEMENT *element
               = get_sv_element_element (element_sv, document);
 
-            if (element->parent)
+            if (!(type_data[element->type].flags & TF_text)
+                && element->e.c->parent)
               {
-                register_element_handle_in_sv (element->parent, document);
-                RETVAL = newSVsv ((SV *)element->parent->sv);
+                register_element_handle_in_sv (element->e.c->parent, document);
+                RETVAL = newSVsv ((SV *)element->e.c->parent->sv);
               }
             else
               RETVAL = newSV (0);
@@ -430,7 +431,7 @@ add_to_element_contents (SV *parent_element_sv, SV *element_sv)
             ELEMENT *parent_element
               = get_sv_element_element (parent_element_sv, document);
             ELEMENT *element = get_sv_element_element (element_sv, document);
-            add_to_element_contents (parent_element, element);
+            add_element_to_element_contents (parent_element, element);
           }
 
         const char *key = "contents";
@@ -449,6 +450,7 @@ add_to_element_contents (SV *parent_element_sv, SV *element_sv)
 
         av_push (contents_av, SvREFHVCNT_inc (element_sv));
 
+        /* TODO do not do that for text elements */
         hv_store (element_hv, "parent", strlen ("parent"),
-                  newSVsv (element_sv), 0);
+                  newSVsv (parent_element_sv), 0);
 

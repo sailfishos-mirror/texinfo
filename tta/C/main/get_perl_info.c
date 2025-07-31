@@ -608,7 +608,7 @@ new_element_from_sv (DOCUMENT *document, const SV *element_hash,
                 element = (ELEMENT *)find_element_from_sv (converter, 0,
                                                            *content_sv, 0);
               if (element)
-                add_to_element_contents (e, element);
+                add_element_to_element_contents (e, element);
               else
                 fatal ("No C element");
             }

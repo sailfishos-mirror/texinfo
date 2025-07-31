@@ -1011,11 +1011,12 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           return;
         }
       else if (element->e.c->cmd == CM_item
-               && element->parent->e.c->cmd == CM_enumerate)
+               && element->e.c->parent->e.c->cmd == CM_enumerate)
         {
           int status;
-          char *enumerate_specification = lookup_extra_string (element->parent,
-                                               AI_key_enumerate_specification);
+          char *enumerate_specification
+              = lookup_extra_string (element->e.c->parent,
+                                     AI_key_enumerate_specification);
           int item_number = lookup_extra_integer (element, AI_key_item_number,
                                                   &status);
           char *spec = enumerate_item_representation (enumerate_specification,
@@ -1114,8 +1115,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
         text_options->code_state--;
     }
   if (element->type == ET_menu_entry
-      && element->parent->type != ET_preformatted
-      && element->parent->type != ET_rawpreformatted)
+      && element->e.c->parent->type != ET_preformatted
+      && element->e.c->parent->type != ET_rawpreformatted)
     {
       if (result->end == 0 || result->text[result->end - 1] != '\n')
         ADD("\n");

@@ -149,7 +149,7 @@ parse_macro_command_line (enum command_id cmd, const char **line_inout,
 
   macro_line = new_text_element (ET_macro_line);
   text_append (macro_line->e.text, line);
-  add_to_element_contents (arguments, macro_line);
+  add_to_contents_as_array (arguments, macro_line);
 
   pline += strspn (pline, whitespace_chars);
   name = read_command_name (&pline);
@@ -316,7 +316,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                                                        AI_key_misc_args);
 
   add_to_element_contents (current, argument);
-  add_to_element_contents (argument, argument_content);
+  add_to_contents_as_array (argument, argument_content);
   arg = argument_content->e.text;
 
   args_total = formal_args_list->number;
@@ -411,7 +411,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
                   argument_content
                     = new_text_element (ET_macro_call_arg_text);
                   add_to_element_contents (current, argument);
-                  add_to_element_contents (argument, argument_content);
+                  add_to_contents_as_array (argument, argument_content);
                   arg = argument_content->e.text;
                   pline += strspn (pline, whitespace_chars);
                   if (pline - p)
@@ -470,7 +470,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                                                        AI_key_misc_args);
 
   add_to_element_contents (current, argument);
-  add_to_element_contents (argument, argument_content);
+  add_to_contents_as_array (argument, argument_content);
   arg = argument_content->e.text;
 
   static COUNTER argument_brace_groups;
@@ -608,7 +608,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               counter_push (&argument_brace_groups, argument_content, 0);
 
               add_to_element_contents (current, argument);
-              add_to_element_contents (argument, argument_content);
+              add_to_contents_as_array (argument, argument_content);
               arg = argument_content->e.text;
 
               text_append_n (spaces_element->e.text, pline,
@@ -926,7 +926,7 @@ handle_macro (ELEMENT *current, const char **line_inout,
                       if (arg_elt->e.c->contents.number == 0)
                         {
                           ELEMENT *e = new_text_element (ET_normal_text);
-                          add_to_element_contents (arg_elt, e);
+                          add_to_contents_as_array (arg_elt, e);
                         }
                       text_append_n (arg_elt->e.c->contents.list[0]->e.text,
                                      line, (p - line));

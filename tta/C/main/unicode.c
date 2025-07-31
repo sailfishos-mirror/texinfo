@@ -149,8 +149,10 @@ unicode_accent (const char *text, const ELEMENT *e)
 
   if (e->e.c->cmd == CM_dotless)
     {
-      if (!e->parent || !e->parent->parent || !e->parent->parent->e.c->cmd
-          || !unicode_diacritics[element_builtin_cmd (e->parent->parent)].text)
+      if (!e->e.c->parent || !e->e.c->parent->e.c->parent
+          || !e->e.c->parent->e.c->parent->e.c->cmd
+          || !unicode_diacritics[element_builtin_cmd (
+                                e->e.c->parent->e.c->parent)].text)
         {
           if (!strcmp (text, "i"))
             /* dotless i in UTF-8 */

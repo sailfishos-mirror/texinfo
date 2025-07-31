@@ -276,7 +276,10 @@ txi_ext_element_get_source_mark (ELEMENT *element, int index)
 ELEMENT *
 txi_ext_element_parent (ELEMENT *element)
 {
-  return element->parent;
+  if (type_data[element->type].flags & TF_text)
+    return 0;
+
+  return element->e.c->parent;
 }
 
 SOURCE_INFO *

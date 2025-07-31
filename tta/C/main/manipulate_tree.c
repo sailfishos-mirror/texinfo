@@ -234,7 +234,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees)
     {
       ELEMENT *added = copy_tree_internal (current->e.c->contents.list[i],
                                            other_trees);
-      add_to_element_contents (new, added);
+      add_element_to_element_contents (new, added);
     }
 
   if (elt_info_nr > 0)
@@ -352,7 +352,7 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
 
   elt_info_nr = type_data[current->type].elt_info_number;
   new_elt = current->elt_info[elt_info_nr];
-  if (!new_elt->parent && !(type_data[new_elt->type].flags & TF_text))
+  if (!(type_data[new_elt->type].flags & TF_text) && !new_elt->e.c->parent)
     {
       if (added_root_elements)
         {
@@ -777,8 +777,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
                       /* remove the original first element and prepend the
                          split "(" and text elements */
                       remove_from_contents (node, 0); /* remove first element */
-                      insert_into_contents (node, new_first, 0);
-                      insert_into_contents (node, opening_brace, 0);
+                      insert_into_contents_as_array (node, new_first, 0);
+                      insert_into_contents_as_array (node, opening_brace, 0);
                       idx++;
                       if (first->source_mark_list)
                         {
@@ -813,7 +813,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   add_to_contents_as_array (manual, last_manual_element);
                   if (modify_node)
                     {
-                      insert_into_contents (node, last_manual_element, idx++);
+                      insert_into_contents_as_array (node,
+                                                   last_manual_element, idx++);
                       current_position
                         = relocate_source_marks (e->source_mark_list,
                                                  last_manual_element,
@@ -828,7 +829,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                 {
                   ELEMENT *closing_brace = new_text_element (ET_normal_text);
                   text_append_n (closing_brace->e.text, ")", 1);
-                  insert_into_contents (node, closing_brace, idx++);
+                  insert_into_contents_as_array (node, closing_brace, idx++);
                   current_position
                     = relocate_source_marks (e->source_mark_list,
                                              closing_brace,
@@ -845,7 +846,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
                 {
                   ELEMENT *spaces_element = new_text_element (ET_normal_text);
                   text_append_n (spaces_element->e.text, p, q - p);
-                  insert_into_contents (node, spaces_element, idx++);
+                  insert_into_contents_as_array (node, spaces_element, idx++);
                   current_position
                     = relocate_source_marks (e->source_mark_list,
                                              spaces_element,
@@ -866,7 +867,8 @@ parse_node_manual (ELEMENT *node, int modify_node)
                   add_to_contents_as_array (node_content, leading_node_content);
                   if (modify_node)
                     {
-                      insert_into_contents (node, leading_node_content, idx);
+                      insert_into_contents_as_array (node,
+                                                    leading_node_content, idx);
                       current_position
                         = relocate_source_marks (e->source_mark_list,
                                                  leading_node_content,
@@ -1849,10 +1851,11 @@ new_asis_command_with_text (const char *text, ELEMENT *parent,
   ELEMENT *new_command = new_command_element (ET_brace_command, CM_asis);
   ELEMENT *brace_container = new_element (ET_brace_container);
   ELEMENT *text_elt = new_text_element (type);
-  new_command->parent = parent;
+  if (parent)
+    new_command->e.c->parent = parent;
   add_to_element_contents (new_command, brace_container);
   text_append (text_elt->e.text, text);
-  add_to_element_contents (brace_container, text_elt);
+  add_to_contents_as_array (brace_container, text_elt);
   return new_command;
 }
 
@@ -1886,7 +1889,6 @@ protect_text (ELEMENT *current, const char *to_protect)
         {
           size_t leading_nr = strcspn (p, to_protect);
           ELEMENT *text_elt = new_text_element (current->type);
-          text_elt->parent = current->parent;
           if (leading_nr)
             {
               text_append_n (text_elt->e.text, p, leading_nr);
@@ -1926,7 +1928,6 @@ protect_text (ELEMENT *current, const char *to_protect)
                                               CM_comma);
                       ELEMENT *brace_container
                            = new_element (ET_brace_container);
-                      comma->parent = current->parent;
                       add_to_element_contents (comma, brace_container);
                       add_to_element_list (container, comma);
                       if (u8_text)
@@ -1947,7 +1948,7 @@ protect_text (ELEMENT *current, const char *to_protect)
                   ELEMENT *new_command;
                   char saved = p[to_protect_nr];
                   p[to_protect_nr] = '\0';
-                  new_command = new_asis_command_with_text (p, current->parent,
+                  new_command = new_asis_command_with_text (p, 0,
                                                             current->type);
                   add_to_element_list (container, new_command);
                   if (u8_text)

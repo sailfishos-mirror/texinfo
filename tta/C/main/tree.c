@@ -368,21 +368,35 @@ add_to_element_list (ELEMENT_LIST *list, ELEMENT *e)
   list->list[list->number++] = e;
 }
 
+/* should not be used for text elements */
 void
 add_to_element_contents (ELEMENT *parent, ELEMENT *e)
 {
   ELEMENT_LIST *list = &parent->e.c->contents;
   add_to_element_list (list, e);
-  e->parent = parent;
+  e->e.c->parent = parent;
 }
 
-/* Special purpose function for when we are only using PARENT as an
-   array, and we don't want to overwrite E->parent. */
+/* For text elements that do not have parent set or special purpose
+   function for when we are only using PARENT as an
+   array, and we don't want to overwrite or set E->e.c->parent. */
 void
 add_to_contents_as_array (ELEMENT *parent, ELEMENT *e)
 {
   ELEMENT_LIST *list = &parent->e.c->contents;
   add_to_element_list (list, e);
+}
+
+/* to be used when it is not known whether the element is a text
+   element, which has no parent set, or another element with parent */
+void
+add_element_to_element_contents (ELEMENT *parent, ELEMENT *e)
+{
+  ELEMENT_LIST *list = &parent->e.c->contents;
+  add_to_element_list (list, e);
+
+  if (!(type_data[e->type].flags & TF_text))
+    e->e.c->parent = parent;
 }
 
 /* Add the element E into the LIST at index WHERE. */
@@ -406,7 +420,15 @@ insert_into_contents (ELEMENT *parent, ELEMENT *e, size_t where)
 {
   ELEMENT_LIST *list = &parent->e.c->contents;
   insert_into_element_list (list, e, where);
-  e->parent = parent;
+  e->e.c->parent = parent;
+}
+
+/* do not set parent, mainly for text elements */
+void
+insert_into_contents_as_array (ELEMENT *parent, ELEMENT *e, size_t where)
+{
+  ELEMENT_LIST *list = &parent->e.c->contents;
+  insert_into_element_list (list, e, where);
 }
 
 /* Insert elements to TO at position WHERE from FROM from START inclusive

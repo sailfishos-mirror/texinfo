@@ -251,6 +251,7 @@ typedef struct SOURCE_MARK_LIST {
 struct OUTPUT_UNIT;
 
 typedef struct CONTAINER {
+    struct ELEMENT *parent;
     ELEMENT_LIST contents;
     SOURCE_INFO source_info;
 
@@ -263,7 +264,6 @@ typedef struct CONTAINER {
 
 typedef struct ELEMENT {
     enum element_type type;
-    struct ELEMENT *parent;
     SOURCE_MARK_LIST *source_mark_list;
 
     union {

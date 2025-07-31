@@ -22,9 +22,11 @@ const ELEMENT **new_directions (void);
 void add_to_const_element_list (CONST_ELEMENT_LIST *list, const ELEMENT *e);
 void add_to_element_list (ELEMENT_LIST *list, ELEMENT *e);
 void add_to_element_contents (ELEMENT *parent, ELEMENT *e);
+void add_element_to_element_contents (ELEMENT *parent, ELEMENT *e);
 void add_to_contents_as_array (ELEMENT *parent, ELEMENT *e);
 void insert_into_element_list (ELEMENT_LIST *list, ELEMENT *e, size_t where);
 void insert_into_contents (ELEMENT *parent, ELEMENT *e, size_t where);
+void insert_into_contents_as_array (ELEMENT *parent, ELEMENT *e, size_t where);
 void add_element_if_not_in_list (ELEMENT_LIST *list, ELEMENT *e);
 void insert_list_slice_into_list (ELEMENT_LIST *to, size_t where,
                                   const ELEMENT_LIST *from,

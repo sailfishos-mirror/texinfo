@@ -182,7 +182,7 @@ sub _copy_tree($;$)
       $new->{$key} = [];
       foreach my $child (@{$current->{$key}}) {
         my $added = _copy_tree($child, $other_trees);
-        $added->{'parent'} = $new;
+        $added->{'parent'} = $new unless(exists($added->{'text'}));
         push @{$new->{$key}}, $added;
       }
     }
@@ -266,7 +266,8 @@ sub _remove_element_copy_info($;$$)
     return;
   }
 
-  if (!defined($current->{'text'} and !$current->{'_copy'}->{'parent'})) {
+  if (!exists($current->{'text'})
+      and !exists($current->{'_copy'}->{'parent'})) {
     if ($added_root_elements) {
       push @$added_root_elements, $current->{'_copy'};
     }
@@ -507,16 +508,20 @@ sub _print_text_element($$$;$$)
   my $use_filename = shift;
 
   my $result = '';
-  if ($element->{'info'} and $element->{'info'}->{'inserted'}) {
+  if (exists($element->{'info'}) and $element->{'info'}->{'inserted'}) {
     $result .= '(i)';
   }
 
   my $element_text = _debug_protect_eol($element->{'text'});
 
-  if ($element->{'type'}) {
+  if (exists($element->{'type'})) {
     $result .= "{$element->{'type'}:${element_text}}";
   } else {
     $result .= "{${element_text}}";
+  }
+  # this is for debug, text element should not have parent
+  if (exists($element->{'parent'})) {
+    $result .= "p";
   }
   $result .= "\n";
 
@@ -773,7 +778,6 @@ sub print_element_base($$$;$$)
     my $text_result
       = _print_text_element($element, $level, $prepended,
                             $fname_encoding, $use_filename);
-    #$result .= "$element:".refcount($element).": ";
     $result .= $text_result;
     return $result;
   }
@@ -835,7 +839,7 @@ sub print_element_details($$$$;$$)
       = print_element_base($element, $level, $prepended,
                            $fname_encoding, $use_filename);
 
-  if (defined($element->{'text'})) {
+  if (exists($element->{'text'})) {
     my $source_marks_result;
     ($current_nr, $source_marks_result)
       = _print_source_marks($element, $level, $prepended, $current_nr,
@@ -886,6 +890,17 @@ sub print_element_details($$$$;$$)
   $result .= $source_marks_result;
 
   return ($current_nr, $result);
+}
+
+# only used for debugging
+sub element_print_details($;$$)
+{
+  my $element = shift;
+  my $fname_encoding = shift;
+  my $use_filename = shift;
+
+  return print_element_details($element, 0, 0, 0, $fname_encoding,
+                               $use_filename);
 }
 
 sub print_tree_details($$$$;$$)
@@ -1050,13 +1065,15 @@ sub _new_asis_command_with_text($$;$)
   my $parent = shift;
   my $text_type = shift;
   my $new_command
-    = Texinfo::TreeElement::new({'cmdname' => 'asis', 'parent' => $parent });
+    = Texinfo::TreeElement::new({'cmdname' => 'asis'});
+  if (defined($parent)) {
+    $new_command->{'parent'} = $parent;
+  }
   push @{$new_command->{'contents'}},
         Texinfo::TreeElement::new({'type' => 'brace_container',
                                    'parent' => $new_command});
   push @{$new_command->{'contents'}->[0]->{'contents'}},
-    Texinfo::TreeElement::new({'text' => $text,
-                               'parent' => $new_command->{'contents'}->[0]});
+    Texinfo::TreeElement::new({'text' => $text,});
   if (defined($text_type)) {
     $new_command->{'contents'}->[0]->{'contents'}->[0]->{'type'} = $text_type;
   }
@@ -1070,8 +1087,8 @@ sub _protect_text($$)
 
   #print STDERR "_protect_text: $to_protect: $current "
   #                         .debug_print_element($current, 1)."\n";
-  if (defined($current->{'text'}) and $current->{'text'} =~ /$to_protect/
-      and !(defined($current->{'type'})
+  if (exists($current->{'text'}) and $current->{'text'} =~ /$to_protect/
+      and !(exists($current->{'type'})
             and ($current->{'type'} eq 'raw'
                  or $current->{'type'} eq 'rawline_text'))) {
     my @result = ();
@@ -1088,19 +1105,17 @@ sub _protect_text($$)
         # Note that it includes for completeness the case of $1 eq ''
         # although it is unclear that source marks may happen in that case
         # as they are rather associated to the previous element.
-        my $e = Texinfo::TreeElement::new({'text' => $1,
-                                           'parent' => $current->{'parent'}});
-        $e->{'type'} = $current->{'type'} if defined($current->{'type'});
+        my $e = Texinfo::TreeElement::new({'text' => $1,});
+        $e->{'type'} = $current->{'type'} if (exists($current->{'type'}));
         $current_position = Texinfo::Common::relocate_source_marks(
                                         $remaining_source_marks, $e,
                                         $current_position, length($1));
-        if ($e->{'text'} ne '' or $e->{'source_marks'}) {
+        if ($e->{'text'} ne '' or exists($e->{'source_marks'})) {
           push @result, $e;
         }
         if ($to_protect eq quotemeta(',')) {
           for (my $i = 0; $i < length($2); $i++) {
-            my $e = Texinfo::TreeElement::new({'cmdname' => 'comma',
-                                         'parent' => $current->{'parent'}});
+            my $e = Texinfo::TreeElement::new({'cmdname' => 'comma'});
             my $brace_container
               = Texinfo::TreeElement::new({'type' => 'brace_container',
                                            'parent' => $e});
@@ -1111,7 +1126,7 @@ sub _protect_text($$)
             push @result, $e;
           }
         } else {
-          my $new_asis = _new_asis_command_with_text($2, $current->{'parent'},
+          my $new_asis = _new_asis_command_with_text($2, undef,
                                                     $current->{'type'});
           my $e = $new_asis->{'contents'}->[0]->{'contents'}->[0];
           $current_position = Texinfo::Common::relocate_source_marks(
@@ -1120,8 +1135,7 @@ sub _protect_text($$)
           push @result, $new_asis;
         }
       } else {
-        my $e = Texinfo::TreeElement::new({'text' => $remaining_text,
-                                           'parent' => $current->{'parent'}});
+        my $e = Texinfo::TreeElement::new({'text' => $remaining_text,});
         $e->{'type'} = $current->{'type'} if defined($current->{'type'});
         $current_position = Texinfo::Common::relocate_source_marks(
                                       $remaining_source_marks, $e,
@@ -1213,7 +1227,7 @@ sub protect_first_parenthesis($)
         $remaining_source_marks = [@{$content->{'source_marks'}}];
         delete $content->{'source_marks'};
       }
-      my $new_asis = _new_asis_command_with_text('(', $content->{'parent'},
+      my $new_asis = _new_asis_command_with_text('(', $element,
                                                  $content->{'type'});
       my $e = $new_asis->{'contents'}->[0]->{'contents'}->[0];
       $current_position = Texinfo::Common::relocate_source_marks(
@@ -1245,14 +1259,23 @@ sub move_index_entries_after_items($)
     #print STDERR "Before proceeding: $previous $item->{'cmdname'} (@{$previous->{'contents'}})\n" if ($previous and $previous->{'contents'});
     if (defined($previous) and $item->{'cmdname'}
         and $item->{'cmdname'} eq 'item'
-        and $previous->{'contents'} and scalar(@{$previous->{'contents'}})) {
+        and exists($previous->{'contents'})) {
 
       my $previous_ending_container;
       if ($previous->{'contents'}->[-1]->{'type'}
           and ($previous->{'contents'}->[-1]->{'type'} eq 'paragraph'
                or $previous->{'contents'}->[-1]->{'type'} eq 'preformatted')) {
+        # for preformatted, happens if in @itemize/enumerate in @example
+        # or similar.
+        # for paragraph happens if there is a paragraph at the end
+        # of the previous item, and it could be possible for this
+        # paragraph to end with an inline index command.
+        # TODO check that there are all the cases in tests, with
+        # paragraph or preformatted, and with an idex entry+comment
+        # to gather or not.
         $previous_ending_container = $previous->{'contents'}->[-1];
       } else {
+        # possible index commands out of paragraph
         $previous_ending_container = $previous;
       }
 
@@ -1275,8 +1298,8 @@ sub move_index_entries_after_items($)
 
       if ($last_entry_idx >= 0) {
         my $item_container;
-        if ($item->{'contents'} and $item->{'contents'}->[0]
-            and $item->{'contents'}->[0]->{'type'}
+        if (exists($item->{'contents'})
+            and exists($item->{'contents'}->[0]->{'type'})
             and $item->{'contents'}->[0]->{'type'} eq 'preformatted') {
           $item_container = $item->{'contents'}->[0];
         } else {
@@ -1284,15 +1307,16 @@ sub move_index_entries_after_items($)
         }
 
         for (my $i = $last_entry_idx; $i < $contents_nr; $i++) {
-          $previous_ending_container->{'contents'}->[$i]->{'parent'}
-               = $item_container;
+          # can only be index_entry_command or comment as gathered just above
+          my $content = $previous_ending_container->{'contents'}->[$i];
+          $content->{'parent'} = $item_container;
         }
 
         my $insertion_idx = 0;
-        if ($item_container->{'contents'}
-            and $item_container->{'contents'}->[0]
+        if (exists($item_container->{'contents'})
+            and exists($item_container->{'contents'}->[0]->{'type'})
             and $item_container->{'contents'}->[0]->{'type'}
-            and $item_container->{'contents'}->[0]->{'type'} eq 'ignorable_spaces_after_command') {
+                                eq 'ignorable_spaces_after_command') {
           # insert after leading spaces, and add an end of line if there
           # is none
           $insertion_idx = 1;
@@ -1366,7 +1390,8 @@ sub _relate_index_entries_to_table_items_in($$)
       $definition = $table_entry->{'contents'}->[1];
       my $nr_index_entry_command = 0;
       foreach my $child (@{$definition->{'contents'}}) {
-        if ($child->{'type'} and $child->{'type'} eq 'index_entry_command') {
+        if (exists($child->{'type'})
+            and $child->{'type'} eq 'index_entry_command') {
           $child->{'parent'} = $term;
           $nr_index_entry_command++;
         } else {
