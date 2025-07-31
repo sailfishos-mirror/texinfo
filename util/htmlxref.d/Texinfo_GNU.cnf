@@ -1,6 +1,6 @@
 # Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
-htmlxrefversion=2025-05-25.20; # UTC
+htmlxrefversion=2025-07-31.01; # UTC
 
 # Copyright 2010-2025 Free Software Foundation, Inc.
 # 
@@ -62,7 +62,7 @@ autoconf	node	${GS}/autoconf/manual/html_node/
 
 autogen		mono	${GS}/autogen/manual/autogen.html
 autogen		chapter	${GS}/autogen/manual/html_chapter/
-autogen		node	${GS}/autoconf/manual/html_node/
+autogen		node	${GS}/autogen/manual/html_node/
 
 automake	mono	${GS}/automake/manual/automake.html
 automake	node	${GS}/automake/manual/html_node/

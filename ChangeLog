@@ -1,5 +1,11 @@
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.d/Texinfo_GNU.cnf (autogen): Fix node URL,
+	changing "autoconf" to "autogen".  (Wrong ever since this entry
+	was added.)
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Add example hook program and supporting data file
 	
 	* util/info-hooks/manual-not-found,
