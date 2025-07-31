@@ -2538,6 +2538,8 @@ is bound to each command.
 @chapter Hooks for when a Manual is not Found
 @nodedescription If an Info manual is not installed.
 
+@cindex Hooks
+@cindex Manual not found, recovering
 Sometimes an Info manual might exist, but not be installed on a user's
 system.  By default, if Info cannot find a manual given on the command
 line, Info prints an error message.  The user would not be told about
@@ -2548,16 +2550,22 @@ man pages, or even random Internet forums.
 Info provides @dfn{hooks} that can improve this situation.
 A hook might check for information on the availability of a manual and
 give the user advice on how to install it, such as how to download
-it from the Internet or via their operating system package manager.
+it from the Internet, or via their operating system package manager.
 Hooks are intended to offer similar functionality to the
 @samp{command_not_found_handle} function of the Bash shell (@pxref{Command
 Search and Execution,,, bash, The GNU Bash Reference Manual}), which
 is used to advise on uninstalled programs.
 
+@c avoid the terminology "hook script" as a "script" properly refers
+@c to a program that automates a task a user would otherwise do by
+@c issuing commands manually, whereas it is not possible for a user to
+@c enter and run shell commands at the time of a hook running.
+
 To define a hook, you place an executable program by the same name
 in the directory @code{@env{$XDG_CONFIG_DIRS}/texinfo/info-hooks},
 where @env{$XDG_CONFIG_DIRS} is one of the XDG directories described
 in the previous chapter (@pxref{Custom Key Bindings}).
+
 Currently, Info has the following hook:
 
 @table @code
@@ -2628,6 +2636,13 @@ exit 0
 this to be useful in practice.)
 @end table
 
+Hooks are run with the full file name used to run them in the
+first entry of their @samp{argv} array (i.e.@: the program name
+in @samp{argv[0]} in a C program, or @code{$0} in a @command{bash} command.)
+If a hook program needs additional data files, a hook program can
+extract the directory part of this file name to find the name of the
+directory wherein to seek such files.
+(See also @ref{Finding Program Files,,, standards, The GNU Coding Standards}.)
 
 
 @node MS-DOS/Windows keybindings

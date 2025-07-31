@@ -1,3 +1,11 @@
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Info hooks documentation
+
+	* doc/info-stnd.texi (Hooks): Describe how to get data files
+	for a hook.  Add index entries.  In a comment, add exhortation
+	not to use the collocation "hook script".
+
 2025-07-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* TODO.HTML: discuss possible way forward for use of locally
