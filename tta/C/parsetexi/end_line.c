@@ -1136,6 +1136,7 @@ end_line_starting_block (ELEMENT *current)
           SOURCE_MARK *source_mark;
           current = current->e.c->parent;
           e = pop_element_from_contents (current);
+          e->e.c->parent = 0;
           source_mark = new_source_mark (SM_type_expanded_conditional_command);
           source_mark->status = SM_status_start;
           source_mark->element = e;

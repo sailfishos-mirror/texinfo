@@ -1,5 +1,11 @@
 2025-08-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/parsetexi/end_line.c (end_line_starting_block): re-add setting
+	parent of element used in expanded conditional source mark to 0, that
+	was erroneously removed.
+
+2025-08-01 Patrice Dumas  <pertusus@free.fr>
+
 	Remove parent information for text elements 
 
 	* tta/C/structuring_transfo/transformations.c
