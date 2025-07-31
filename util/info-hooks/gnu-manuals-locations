@@ -37,8 +37,8 @@ cd-text                 https://www.gnu.org/software/libcdio/cd-text-format.html
 cflow                   https://www.gnu.org/software/cflow/manual
 chess                   https://www.gnu.org/software/chess/manual
 cl                      https://www.gnu.org/software/emacs/manual/index.html
-clutter                 https://www.gnu.org/software/guile-gnome/docs/clutter/index.html
 clutter-glx             https://www.gnu.org/software/guile-gnome/docs/clutter-glx/index.html
+clutter                 https://www.gnu.org/software/guile-gnome/docs/clutter/index.html
 combine                 https://www.gnu.org/software/combine/manual
 complexity              https://www.gnu.org/software/complexity/manual
 corba                   https://www.gnu.org/software/guile-gnome/docs/corba/index.html
@@ -46,8 +46,8 @@ coreutils               https://www.gnu.org/software/coreutils/manual
 cpio                    https://www.gnu.org/software/cpio/manual
 cpp                     https://gcc.gnu.org/onlinedoc
 cppinternals            https://gcc.gnu.org/onlinedoc
-cssc
-cvs
+cssc                    https://www.gnu.org/software/cssc/manual/index.html
+cvs                     https://www.gnu.org/software/trans-coord/manual/cvs/
 dbus                    https://www.gnu.org/software/emacs/manual/index.html
 ddd
 ddrescue
@@ -174,12 +174,12 @@ libstdc++               https://gcc.gnu.org/onlinedoc
 libtasn1                https://www.gnu.org/software/libtasn1/manual
 libtool                 https://www.gnu.org/software/libtool/manual
 lightning               https://www.gnu.org/software/lightning/manual
-lilypond-internals
-lilypond-learning
-lilypond-notation
-lilypond-snippets
-lilypond-usage
-lilypond-web
+lilypond-internals	https://lilypond.org/doc/stable/Documentation/web/internal
+lilypond-learning	https://lilypond.org/doc/stable/Documentation/web/learning
+lilypond-notation 	https://lilypond.org/doc/stable/Documentation/web/notation
+lilypond-snippets 	https://lilypond.org/doc/stable/Documentation/web/snippets
+lilypond-usage		https://lilypond.org/doc/stable/Documentation/web/usage
+lilypond-web		https://lilypond.org/doc/stable/Documentation/web/web
 liquidwar6              https://www.gnu.org/software/liquidwar6/manual
 lispintro
 lsh
@@ -204,7 +204,7 @@ motti
 mpfr
 mtools
 multiboot
-music-glossary
+music-glossary		https://lilypond.org/doc/stable/Documentation/web/glossary
 nano
 nettle
 newsticker              https://www.gnu.org/software/emacs/manual/index.html
