@@ -44,13 +44,13 @@ complexity              https://www.gnu.org/software/complexity/manual
 corba                   https://www.gnu.org/software/guile-gnome/docs/corba/index.html
 coreutils               https://www.gnu.org/software/coreutils/manual
 cpio                    https://www.gnu.org/software/cpio/manual
-cpp                     https://gcc.gnu.org/onlinedoc
-cppinternals            https://gcc.gnu.org/onlinedoc
+cpp                     https://gcc.gnu.org/onlinedocs
+cppinternals            https://gcc.gnu.org/onlinedocs
 cssc                    https://www.gnu.org/software/cssc/manual/index.html
 cvs                     https://www.gnu.org/software/trans-coord/manual/cvs/
 dbus                    https://www.gnu.org/software/emacs/manual/index.html
 ddd
-ddrescue
+ddrescue                https://www.gnu.org/software/ddrescue
 dejagnu
 dico
 diffutils               https://www.gnu.org/software/diffutils/manual
@@ -58,7 +58,7 @@ dired-x                 https://www.gnu.org/software/emacs/manual/index.html
 dirmngr                 https://www.gnupg.org/documentation/manuals/dirmngr/
 easejs
 ebrowse                 https://www.gnu.org/software/emacs/manual/index.html
-ed
+ed                      https://www.gnu.org/software/ed
 ede                     https://www.gnu.org/software/emacs/manual/index.html
 ediff                   https://www.gnu.org/software/emacs/manual/index.html
 edt                     https://www.gnu.org/software/emacs/manual/index.html
@@ -84,8 +84,8 @@ gama                    https://www.gnu.org/software/gama/manual
 gawk
 gawkinet
 gcal                    https://www.gnu.org/software/gcal/manual
-gcc                     https://gcc.gnu.org/onlinedoc
-gccint                  https://gcc.gnu.org/onlinedoc
+gcc                     https://gcc.gnu.org/onlinedocs
+gccint                  https://gcc.gnu.org/onlinedocs
 gconf
 gconf                   https://www.gnu.org/software/guile-gnome/docs/gconf/index.html
 gcrypt                  https://www.gnupg.org/documentation/manuals/gcrypt/
@@ -94,26 +94,27 @@ gdbm
 gdk
 gdk                     https://www.gnu.org/software/guile-gnome/docs/gdk/index.html
 gettext                 https://www.gnu.org/software/gettext/manual
-gfc-internals           https://gcc.gnu.org/onlinedoc
+gfc-internals           https://gcc.gnu.org/onlinedocs
 gforth
-gfortran                https://gcc.gnu.org/onlinedoc
+gfortran                https://gcc.gnu.org/onlinedocs
 glib                    https://www.gnu.org/software/guile-gnome/docs/glib/index.html
 global
 gmediaserver
 gmp
-gnat_rm                 https://gcc.gnu.org/onlinedoc
-gnat-style              https://gcc.gnu.org/onlinedoc
-gnat_ugn                https://gcc.gnu.org/onlinedoc
+gnat_rm                 https://gcc.gnu.org/onlinedocs
+gnat-style              https://gcc.gnu.org/onlinedocs
+gnat_ugn                https://gcc.gnu.org/onlinedocs
 gnome-vfs               https://www.gnu.org/software/guile-gnome/docs/gnome-vfs/index.html
 gnu-arch
 gnubg                   https://www.gnu.org/software/gnubg/manual
 gnubik                  https://www.gnu.org/software/gnubik/manual
-gnu-c-manual
+gnu-c-manual            https://www.gnu.org/software/gnu-c-manual
 gnucobpg
 gnucobqr
 gnucobsp
 gnu-crypto
 gnulib                  https://www.gnu.org/software/gnulib/manual
+gnun                    https://www.gnu.org/software/trans-coord/manual/gnun/
 gnupg                   https://www.gnupg.org/documentation/manuals/gnupg/
 gnuprologjava
 gnus                    https://www.gnu.org/software/emacs/manual/index.html
@@ -152,7 +153,7 @@ ido                     https://www.gnu.org/software/emacs/manual/index.html
 idutils                 https://www.gnu.org/software/idutils/manual
 inetutils               https://www.gnu.org/software/inetutils/manual
 info                    https://www.gnu.org/software/emacs/manual/index.html
-info-stnd
+info-stnd               https://www.gnu.org/software/texinfo/manual/info-stnd/
 ksba                    https://www.gnupg.org/documentation/manuals/ksba/
 ld                      https://sourceware.org/binutils/docs/
 libcdio                 https://www.gnu.org/software/libcdio/libcdio.html
@@ -163,14 +164,14 @@ libglade                https://www.gnu.org/software/guile-gnome/docs/libglade/i
 libgnomecanvas          https://www.gnu.org/software/guile-gnome/docs/libgnomecanvas/index.html
 libgnome                https://www.gnu.org/software/guile-gnome/docs/libgnome/index.html
 libgnomeui              https://www.gnu.org/software/guile-gnome/docs/libgnomeui/index.html
-libgomp                 https://gcc.gnu.org/onlinedoc
-libiberty               https://gcc.gnu.org/onlinedoc
+libgomp                 https://gcc.gnu.org/onlinedocs
+libiberty               https://gcc.gnu.org/onlinedocs
 libidn
 libidn                  https://www.gnu.org/software/libidn/manual
 libmatheval
 libmicrohttpd
 librejs                 https://www.gnu.org/software/librejs/manual
-libstdc++               https://gcc.gnu.org/onlinedoc
+libstdc++               https://gcc.gnu.org/onlinedocs
 libtasn1                https://www.gnu.org/software/libtasn1/manual
 libtool                 https://www.gnu.org/software/libtool/manual
 lightning               https://www.gnu.org/software/lightning/manual
@@ -185,7 +186,7 @@ lispintro
 lsh
 m4                      https://www.gnu.org/software/m4/manual
 mailutils               https://www.gnu.org/software/mailutils/manual
-maintain
+maintain                https://www.gnu.org/prep/maintain
 mairix-el               https://www.gnu.org/software/emacs/manual/index.html
 make                    https://www.gnu.org/software/make/manual
 mdk                     https://www.gnu.org/software/mdk/manual
@@ -199,7 +200,7 @@ mit-scheme-imail        https://www.gnu.org/software/mit-scheme/
 mit-scheme-ref          https://www.gnu.org/software/mit-scheme/
 mit-scheme-sos          https://www.gnu.org/software/mit-scheme/
 mit-scheme-user         https://www.gnu.org/software/mit-scheme/
-moe
+moe                     https://www.gnu.org/software/moe
 motti
 mpfr
 mtools
@@ -209,7 +210,7 @@ nano
 nettle
 newsticker              https://www.gnu.org/software/emacs/manual/index.html
 nxml-mode               https://www.gnu.org/software/emacs/manual/index.html
-ocrad
+ocrad                   https://www.gnu.org/software/ocrad
 octave-mode             https://www.gnu.org/software/emacs/manual/index.html
 org                     https://www.gnu.org/software/emacs/manual/index.html
 pango                   https://www.gnu.org/software/guile-gnome/docs/pango/index.html
@@ -261,15 +262,15 @@ sqltutor                https://www.gnu.org/software/sqltutor/manual
 src-highlite
 srecode                 https://www.gnu.org/software/emacs/manual/index.html
 stabs
-standards
-swbis
+standards               https://www.gnu.org/prep/standards
+swbis                   https://www.gnu.org/software/swbis/#documentation
 tar                     https://www.gnu.org/software/tar/manual
-termcap
+termcap                 https://www.gnu.org/software/termutils/manual/termcap-1.3/termcap.html
 teseq                   https://www.gnu.org/software/teseq/manual
-texi2any_api
-texi2any_internals
-texinfo
-thales
+texi2any_api            https://www.gnu.org/software/texinfo/manual/texi2any_api/
+texi2any_internals      https://www.gnu.org/software/texinfo/manual/texi2any_internals/
+texinfo                 https://www.gnu.org/software/texinfo/manual/texinfo/
+thales                  https://www.gnu.org/software/thales/manual/
 todo-mode               https://www.gnu.org/software/emacs/manual/index.html
 tramp                   https://www.gnu.org/software/emacs/manual/index.html
 units                   https://www.gnu.org/software/units/manual
@@ -277,11 +278,11 @@ url                     https://www.gnu.org/software/emacs/manual/index.html
 use-package             https://www.gnu.org/software/emacs/manual/index.html
 vc-dwim                 https://www.gnu.org/software/vc-dwim/manual
 vhdl-mode               https://www.gnu.org/software/emacs/manual/index.html
-vip
 vip                     https://www.gnu.org/software/emacs/manual/index.html
+viper                   https://www.gnu.org/software/emacs/manual/index.html
 wdiff                   https://www.gnu.org/software/wdiff/manual
 websocket4j             https://www.gnu.org/software/websocket4j/manual
-web-trans
+web-trans               https://www.gnu.org/software/trans-coord/manual/web-trans/
 wget                    https://www.gnu.org/software/wget/manual
 widget                  https://www.gnu.org/software/emacs/manual/index.html
 wisent                  https://www.gnu.org/software/emacs/manual/index.html
