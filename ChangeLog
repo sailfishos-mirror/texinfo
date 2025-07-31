@@ -1,5 +1,10 @@
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/info-hooks/gnu-manuals-locations: add URLs for
+	more manuals that follow the usual pattern under www.gnu.org/software.
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.d/Texinfo_GNU.cnf (autogen): Fix node URL,
 	changing "autoconf" to "autogen".  (Wrong ever since this entry
 	was added.)

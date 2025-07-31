@@ -9,43 +9,43 @@
 
 3dldf
 ada-mode
-alive
-anubis			https://www.gnu.org/software/anubis/manual/
-artanis
+alive                   https://www.gnu.org/software/alive/manual
+anubis                  https://www.gnu.org/software/anubis/manual
+artanis                 https://www.gnu.org/software/artanis/manual
 as
 aspell
 assuan
 atk
 auctex
 auth
-autoconf
-autogen
+autoconf                https://www.gnu.org/software/autoconf/manual
+autogen                 https://www.gnu.org/software/autogen/manual
 automake-history
-automake
+automake                https://www.gnu.org/software/automake/manual
 autotype
 avl
-bash
+bash                    https://www.gnu.org/software/bash/manual
 bfd
 binutils
-bison
+bison                   https://www.gnu.org/software/bison/manual
 bovine
 bpel2owfn
 calc
-ccd2cue
+ccd2cue                 https://www.gnu.org/software/ccd2cue/manual
 ccmode
 cd-text
-cflow
-chess
+cflow                   https://www.gnu.org/software/cflow/manual
+chess                   https://www.gnu.org/software/chess/manual
 cl
-clutter-glx
 clutter
-combine
-complexity
+clutter-glx
+combine                 https://www.gnu.org/software/combine/manual
+complexity              https://www.gnu.org/software/complexity/manual
 corba
-coreutils
-cpio
-cppinternals
+coreutils               https://www.gnu.org/software/coreutils/manual
+cpio                    https://www.gnu.org/software/cpio/manual
 cpp
+cppinternals
 cssc
 cvs
 dbus
@@ -53,23 +53,23 @@ ddd
 ddrescue
 dejagnu
 dico
-diffutils
+diffutils               https://www.gnu.org/software/diffutils/manual
 dired-x
 dirmngr
 easejs
 ebrowse
+ed
 ede
 ediff
-ed
 edt
 eglot
 eieio
 elisp
+emacs
+emacs
 emacs-gnutls
 emacs-mime
-emacs
-emacs-muse
-emacs
+emacs-muse              https://www.gnu.org/software/emacs-muse/manual
 emms
 epa
 erc
@@ -81,18 +81,18 @@ findutils
 flex
 flymake
 forms
-gama
-gawkinet
+gama                    https://www.gnu.org/software/gama/manual
 gawk
-gcal
-gccint
+gawkinet
+gcal                    https://www.gnu.org/software/gcal/manual
 gcc
+gccint
 gconf
 gcrypt
-gdbm
 gdb
+gdbm
 gdk
-gettext
+gettext                 https://www.gnu.org/software/gettext/manual
 gfc-internals
 gforth
 gfortran
@@ -105,93 +105,92 @@ gnat-style
 gnat_ugn
 gnome-vfs
 gnu-arch
-gnubg
-gnubik
+gnubg                   https://www.gnu.org/software/gnubg/manual
+gnubik                  https://www.gnu.org/software/gnubik/manual
 gnu-c-manual
 gnucobpg
 gnucobqr
 gnucobsp
 gnu-crypto
-gnulib
+gnulib                  https://www.gnu.org/software/gnulib/manual
 gnun
 gnupg
 gnuprologjava
-gnuschool
 gnus
-gnutls
+gnuschool
+#gnutls                 https://www.gnu.org/software/gnutls/manual
 gobject
-gperf
+gperf                   https://www.gnu.org/software/gperf/manual
 gpgme
 gpr-mode
 gprof
-gprofng
 gprof
-grep
-groff
-grub-dev
+gprofng
+grep                    https://www.gnu.org/software/grep/manual
+groff                   https://www.gnu.org/software/groff/manual
 grub
-gsasl
-gsl
-gsrc
-gss
+grub-dev
+gsasl                   https://www.gnu.org/software/gsasl/manual
+gsl                     https://www.gnu.org/software/gsl/manual
+gsrc                    https://www.gnu.org/software/gsrc/manual
+gss                     https://www.gnu.org/software/gss/manual
+gst
 gst-base
 gst-libs
-gst
 gtk
 gtypist
-guile-gtk
 guile
-guile-rpc
-guix
-gv
-gzip
-hello
+guile                   https://www.gnu.org/software/guile/manual
+guile-rpc               https://www.gnu.org/software/guile-rpc/manual
+guix                    https://www.gnu.org/software/guix/manual
+gv                      https://www.gnu.org/software/gv/manual
+gzip                    https://www.gnu.org/software/gzip/manual
+hello                   https://www.gnu.org/software/hello/manual
 help2man
 history
 htmlfontify
 idlwave
 ido
-idutils
-inetutils
+idutils                 https://www.gnu.org/software/idutils/manual
+inetutils               https://www.gnu.org/software/inetutils/manual
 info
 info-stnd
-iwf_mh
 ksba
 ld
-libcdio
 libc
-libextractor
+libc                    https://www.gnu.org/software/libc/manual
+libextractor            https://www.gnu.org/software/libextractor/manual
 libgcrypt
 libglade
-libgnomecanvas
 libgnome
+libgnomecanvas
 libgnomeui
 libgomp
 libiberty
-libidn2
 libidn
+libidn                  https://www.gnu.org/software/libidn/manual
 libmatheval
 libmicrohttpd
-librejs
+librejs                 https://www.gnu.org/software/librejs/manual
 libstdc++
-libtasn1
-libtool
-lightning
+libtasn1                https://www.gnu.org/software/libtasn1/manual
+libtool                 https://www.gnu.org/software/libtool/manual
+lightning               https://www.gnu.org/software/lightning/manual
 lilypond-internals
 lilypond-learning
 lilypond-notation
 lilypond-snippets
 lilypond-usage
 lilypond-web
-liquidwar6
+liquidwar6              https://www.gnu.org/software/liquidwar6/manual
 lispintro
 lsh
-m4
-mailutils
+m4                      https://www.gnu.org/software/m4/manual
+mailutils               https://www.gnu.org/software/mailutils/manual
 maintain
 mairix-el
-make
-mdk
+make                    https://www.gnu.org/software/make/manual
+mdk                     https://www.gnu.org/software/mdk/manual
 message
 mh-e
 microhttpd-tutorial
@@ -215,76 +214,76 @@ nxml-mode
 ocrad
 octave-mode
 org
-pangocairo
 pango
-parted
+pangocairo
+parted                  https://www.gnu.org/software/parted/manual
 pascal
 pcl-cvs
 pgg
 pies
-plotutils
-proxyknife
-pspp
-pyconfigure
+plotutils               https://www.gnu.org/software/plotutils/manual/en
+proxyknife              https://www.gnu.org/software/proxyknife/manual
+pspp                    https://www.gnu.org/software/pspp/manual
+pyconfigure             https://www.gnu.org/software/pyconfigure/manual
 R-admin
 rcirc
-rcs
+rcs                     https://www.gnu.org/software/rcs/manual
 R-data
 readline
-recutils
+recutils                https://www.gnu.org/software/recutils/manual
 reftex
 remember
-remotecontrol
+remotecontrol           https://www.gnu.org/software/remotecontrol/manual
 R-exts
 R-FAQ
 R-intro
 R-ints
 R-lang
 rluserman
-rottlog
+rottlog                 https://www.gnu.org/software/rottlog/manual
 rush
 sasl
-scantest
 sc
-screen
-sed
+scantest
+screen                  https://www.gnu.org/software/screen/manual
+sed                     https://www.gnu.org/software/sed/manual
 semantic
 ses
-sharutils
-shepherd
+sharutils               https://www.gnu.org/software/sharutils/manual
+shepherd                https://www.gnu.org/software/shepherd/manual
 sieve
 smtpmail
 sos
 source-highlight
-sourceinstall
+sourceinstall           https://www.gnu.org/software/sourceinstall/manual
 speedbar
-sqltutor
+sqltutor                https://www.gnu.org/software/sqltutor/manual
 src-highlite
 srecode
 stabs
 standards
 swbis
-tar
+tar                     https://www.gnu.org/software/tar/manual
 termcap
-teseq
+teseq                   https://www.gnu.org/software/teseq/manual
 texi2any_api
 texi2any_internals
 texinfo
 thales
 todo-mode
 tramp
-units
+units                   https://www.gnu.org/software/units/manual
 url
 use-package
-vc-dwim
+vc-dwim                 https://www.gnu.org/software/vc-dwim/manual
 vhdl-mode
-viper
 vip
-wdiff
-websocket4j
+viper
+wdiff                   https://www.gnu.org/software/wdiff/manual
+websocket4j             https://www.gnu.org/software/websocket4j/manual
 web-trans
-wget
+wget                    https://www.gnu.org/software/wget/manual
 widget
 wisent
 woman
-xboard
+xboard                  https://www.gnu.org/software/xboard/manual
