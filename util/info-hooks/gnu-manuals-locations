@@ -15,7 +15,7 @@ artanis                 https://www.gnu.org/software/artanis/manual
 as                      https://sourceware.org/binutils/docs/
 aspell                  http://aspell.net/man-html/index.html
 assuan                  https://www.gnupg.org/documentation/manuals/assuan/
-atk
+atk                     https://www.gnu.org/software/guile-gnome/docs/atk/index.html
 auctex
 auth                    https://www.gnu.org/software/emacs/manual/index.html
 autoconf                https://www.gnu.org/software/autoconf/manual
@@ -37,11 +37,11 @@ cd-text
 cflow                   https://www.gnu.org/software/cflow/manual
 chess                   https://www.gnu.org/software/chess/manual
 cl                      https://www.gnu.org/software/emacs/manual/index.html
-clutter
-clutter-glx
+clutter                 https://www.gnu.org/software/guile-gnome/docs/clutter/index.html
+clutter-glx             https://www.gnu.org/software/guile-gnome/docs/clutter-glx/index.html
 combine                 https://www.gnu.org/software/combine/manual
 complexity              https://www.gnu.org/software/complexity/manual
-corba
+corba                   https://www.gnu.org/software/guile-gnome/docs/corba/index.html
 coreutils               https://www.gnu.org/software/coreutils/manual
 cpio                    https://www.gnu.org/software/cpio/manual
 cpp
@@ -87,22 +87,24 @@ gcal                    https://www.gnu.org/software/gcal/manual
 gcc
 gccint
 gconf
+gconf                   https://www.gnu.org/software/guile-gnome/docs/gconf/index.html
 gcrypt                  https://www.gnupg.org/documentation/manuals/gcrypt/
 gdb
 gdbm
 gdk
+gdk                     https://www.gnu.org/software/guile-gnome/docs/gdk/index.html
 gettext                 https://www.gnu.org/software/gettext/manual
 gfc-internals
 gforth
 gfortran
-glib
+glib                    https://www.gnu.org/software/guile-gnome/docs/glib/index.html
 global
 gmediaserver
 gmp
 gnat_rm
 gnat-style
 gnat_ugn
-gnome-vfs
+gnome-vfs               https://www.gnu.org/software/guile-gnome/docs/gnome-vfs/index.html
 gnu-arch
 gnubg                   https://www.gnu.org/software/gnubg/manual
 gnubik                  https://www.gnu.org/software/gnubik/manual
@@ -114,10 +116,9 @@ gnu-crypto
 gnulib                  https://www.gnu.org/software/gnulib/manual
 gnupg                   https://www.gnupg.org/documentation/manuals/gnupg/
 gnuprologjava
-gnus
 gnus                    https://www.gnu.org/software/emacs/manual/index.html
-#gnutls                 https://www.gnu.org/software/gnutls/manual
-gobject
+gnutls                  https://gnutls.org/documentation.html
+gobject                 https://www.gnu.org/software/guile-gnome/docs/gobject/index.html
 gperf                   https://www.gnu.org/software/gperf/manual
 gpgme                   https://www.gnupg.org/documentation/manuals/gpgme/
 gpr-mode
@@ -134,7 +135,7 @@ gss                     https://www.gnu.org/software/gss/manual
 gst
 gst-base
 gst-libs
-gtk
+gtk                     https://www.gnu.org/software/guile-gnome/docs/gtk/index.html
 gtypist
 guile
 guile                   https://www.gnu.org/software/guile/manual
@@ -157,10 +158,10 @@ ld                      https://sourceware.org/binutils/docs/
 libc                    https://www.gnu.org/software/libc/manual
 libextractor            https://www.gnu.org/software/libextractor/manual
 libgcrypt               https://www.gnupg.org/documentation/manuals/gcrypt/
-libglade
-libgnome
-libgnomecanvas
-libgnomeui
+libglade                https://www.gnu.org/software/guile-gnome/docs/libglade/index.html
+libgnome                https://www.gnu.org/software/guile-gnome/docs/libgnome/index.html
+libgnomecanvas          https://www.gnu.org/software/guile-gnome/docs/libgnomecanvas/index.html
+libgnomeui              https://www.gnu.org/software/guile-gnome/docs/libgnomeui/index.html
 libgomp
 libiberty
 libidn
@@ -210,8 +211,8 @@ nxml-mode               https://www.gnu.org/software/emacs/manual/index.html
 ocrad
 octave-mode             https://www.gnu.org/software/emacs/manual/index.html
 org                     https://www.gnu.org/software/emacs/manual/index.html
-pango
-pangocairo
+pango                   https://www.gnu.org/software/guile-gnome/docs/pango/index.html
+pangocairo              https://www.gnu.org/software/guile-gnome/docs/pangocairo/index.html
 parted                  https://www.gnu.org/software/parted/manual
 pascal
 pcl-cvs                 https://www.gnu.org/software/emacs/manual/index.html

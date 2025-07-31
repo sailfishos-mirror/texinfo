@@ -1,6 +1,11 @@
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
-	* util/htmlxref.d/Texinfo_GNU.cnf: continue to add links,
+	* util/info-hooks/gnu-manuals-locations: continue to add links,
+	including for guile-gnome.
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/info-hooks/gnu-manuals-locations: continue to add links,
 	including for gnupg and binutils manuals.  note some manuals
 	don't have downloads for Info files so we just link to the
 	HTML version of the documentation instead.
