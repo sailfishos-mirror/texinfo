@@ -1,5 +1,10 @@
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/info-hooks/gnu-manuals-locations (emacs, eintr, elisp):
+	add specific links.
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.d/Texinfo_GNU.cnf (eintr): Add.
 
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>

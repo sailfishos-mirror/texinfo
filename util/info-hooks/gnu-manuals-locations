@@ -64,10 +64,9 @@ ediff                   https://www.gnu.org/software/emacs/manual/index.html
 edt                     https://www.gnu.org/software/emacs/manual/index.html
 eglot                   https://www.gnu.org/software/emacs/manual/index.html
 eieio                   https://www.gnu.org/software/emacs/manual/index.html
-elisp                   https://www.gnu.org/software/emacs/manual/index.html
-emacs
-emacs
-emacs                   https://www.gnu.org/software/emacs/manual/index.html
+eintr                   https://www.gnu.org/software/emacs/manual/eintr.html
+elisp                   https://www.gnu.org/software/emacs/manual/elisp.html
+emacs                   https://www.gnu.org/software/emacs/manual/emacs.html
 emacs-mime              https://www.gnu.org/software/emacs/manual/index.html
 emacs-muse              https://www.gnu.org/software/emacs-muse/manual
 emms
