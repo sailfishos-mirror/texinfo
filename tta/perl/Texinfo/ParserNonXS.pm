@@ -8934,7 +8934,7 @@ An array reference holding the list of children of the element.
 
 =item parent
 
-The parent element.
+The parent element.  Not set for text elements.
 
 =item source_info
 

@@ -37,8 +37,8 @@
 # Other flags:
 #  with_command: type corresponding to @-command with name determined dynamically.
 #                Index commands (that can be added with defindex, for
-#                example), definfienclos'ed commands, user-defined macro calls.
-#                Mainly used in C specific code for memory management to and when
+#                example), definfoenclose'd commands, user-defined macro calls.
+#                Mainly used in C specific code for memory management and when
 #                passing to Perl.
 #  c_only: element type associated to @-commands appearing only in C, needed
 #          because each correspond to a different need for associated info

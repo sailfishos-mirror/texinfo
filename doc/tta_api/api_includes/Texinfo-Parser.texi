@@ -452,7 +452,7 @@ An array reference holding the list of children of the element.
 @item parent
 @anchor{Texinfo@asis{::}Parser parent}
 
-The parent element.
+The parent element.  Not set for text elements.
 
 @item source_info
 @anchor{Texinfo@asis{::}Parser source_info}
