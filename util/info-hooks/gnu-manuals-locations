@@ -17,26 +17,26 @@ aspell
 assuan
 atk
 auctex
-auth
+auth                    https://www.gnu.org/software/emacs/manual/index.html
 autoconf                https://www.gnu.org/software/autoconf/manual
 autogen                 https://www.gnu.org/software/autogen/manual
 automake-history
 automake                https://www.gnu.org/software/automake/manual
-autotype
+autotype                https://www.gnu.org/software/emacs/manual/index.html
 avl
 bash                    https://www.gnu.org/software/bash/manual
 bfd
 binutils
 bison                   https://www.gnu.org/software/bison/manual
-bovine
+bovine                  https://www.gnu.org/software/emacs/manual/index.html
 bpel2owfn
-calc
+calc                    https://www.gnu.org/software/emacs/manual/index.html
 ccd2cue                 https://www.gnu.org/software/ccd2cue/manual
-ccmode
+ccmode                  https://www.gnu.org/software/emacs/manual/index.html
 cd-text
 cflow                   https://www.gnu.org/software/cflow/manual
 chess                   https://www.gnu.org/software/chess/manual
-cl
+cl                      https://www.gnu.org/software/emacs/manual/index.html
 clutter
 clutter-glx
 combine                 https://www.gnu.org/software/combine/manual
@@ -48,39 +48,39 @@ cpp
 cppinternals
 cssc
 cvs
-dbus
+dbus                    https://www.gnu.org/software/emacs/manual/index.html
 ddd
 ddrescue
 dejagnu
 dico
 diffutils               https://www.gnu.org/software/diffutils/manual
-dired-x
+dired-x                 https://www.gnu.org/software/emacs/manual/index.html
 dirmngr
 easejs
-ebrowse
+ebrowse                 https://www.gnu.org/software/emacs/manual/index.html
 ed
-ede
-ediff
-edt
-eglot
-eieio
-elisp
+ede                     https://www.gnu.org/software/emacs/manual/index.html
+ediff                   https://www.gnu.org/software/emacs/manual/index.html
+edt                     https://www.gnu.org/software/emacs/manual/index.html
+eglot                   https://www.gnu.org/software/emacs/manual/index.html
+eieio                   https://www.gnu.org/software/emacs/manual/index.html
+elisp                   https://www.gnu.org/software/emacs/manual/index.html
 emacs
 emacs
-emacs-gnutls
-emacs-mime
+emacs                   https://www.gnu.org/software/emacs/manual/index.html
+emacs-mime              https://www.gnu.org/software/emacs/manual/index.html
 emacs-muse              https://www.gnu.org/software/emacs-muse/manual
 emms
-epa
-erc
-ert
-eshell
-eudc
-eww
+epa                     https://www.gnu.org/software/emacs/manual/index.html
+erc                     https://www.gnu.org/software/emacs/manual/index.html
+ert                     https://www.gnu.org/software/emacs/manual/index.html
+eshell                  https://www.gnu.org/software/emacs/manual/index.html
+eudc                    https://www.gnu.org/software/emacs/manual/index.html
+eww                     https://www.gnu.org/software/emacs/manual/index.html
 findutils
 flex
-flymake
-forms
+flymake                 https://www.gnu.org/software/emacs/manual/index.html
+forms                   https://www.gnu.org/software/emacs/manual/index.html
 gama                    https://www.gnu.org/software/gama/manual
 gawk
 gawkinet
@@ -117,7 +117,7 @@ gnun
 gnupg
 gnuprologjava
 gnus
-gnuschool
+gnus                    https://www.gnu.org/software/emacs/manual/index.html
 #gnutls                 https://www.gnu.org/software/gnutls/manual
 gobject
 gperf                   https://www.gnu.org/software/gperf/manual
@@ -148,12 +148,12 @@ gzip                    https://www.gnu.org/software/gzip/manual
 hello                   https://www.gnu.org/software/hello/manual
 help2man
 history
-htmlfontify
-idlwave
-ido
+htmlfontify             https://www.gnu.org/software/emacs/manual/index.html
+idlwave                 https://www.gnu.org/software/emacs/manual/index.html
+ido                     https://www.gnu.org/software/emacs/manual/index.html
 idutils                 https://www.gnu.org/software/idutils/manual
 inetutils               https://www.gnu.org/software/inetutils/manual
-info
+info                    https://www.gnu.org/software/emacs/manual/index.html
 info-stnd
 ksba
 ld
@@ -188,11 +188,11 @@ lsh
 m4                      https://www.gnu.org/software/m4/manual
 mailutils               https://www.gnu.org/software/mailutils/manual
 maintain
-mairix-el
+mairix-el               https://www.gnu.org/software/emacs/manual/index.html
 make                    https://www.gnu.org/software/make/manual
 mdk                     https://www.gnu.org/software/mdk/manual
-message
-mh-e
+message                 https://www.gnu.org/software/emacs/manual/index.html
+mh-e                    https://www.gnu.org/software/emacs/manual/index.html
 microhttpd-tutorial
 mit-scheme-blowfish
 mit-scheme-ffi
@@ -209,30 +209,30 @@ multiboot
 music-glossary
 nano
 nettle
-newsticker
-nxml-mode
+newsticker              https://www.gnu.org/software/emacs/manual/index.html
+nxml-mode               https://www.gnu.org/software/emacs/manual/index.html
 ocrad
-octave-mode
-org
+octave-mode             https://www.gnu.org/software/emacs/manual/index.html
+org                     https://www.gnu.org/software/emacs/manual/index.html
 pango
 pangocairo
 parted                  https://www.gnu.org/software/parted/manual
 pascal
-pcl-cvs
-pgg
+pcl-cvs                 https://www.gnu.org/software/emacs/manual/index.html
+pgg                     https://www.gnu.org/software/emacs/manual/index.html
 pies
 plotutils               https://www.gnu.org/software/plotutils/manual/en
 proxyknife              https://www.gnu.org/software/proxyknife/manual
 pspp                    https://www.gnu.org/software/pspp/manual
 pyconfigure             https://www.gnu.org/software/pyconfigure/manual
 R-admin
-rcirc
+rcirc                   https://www.gnu.org/software/emacs/manual/index.html
 rcs                     https://www.gnu.org/software/rcs/manual
 R-data
 readline
 recutils                https://www.gnu.org/software/recutils/manual
-reftex
-remember
+reftex                  https://www.gnu.org/software/emacs/manual/index.html
+remember                https://www.gnu.org/software/emacs/manual/index.html
 remotecontrol           https://www.gnu.org/software/remotecontrol/manual
 R-exts
 R-FAQ
@@ -242,24 +242,24 @@ R-lang
 rluserman
 rottlog                 https://www.gnu.org/software/rottlog/manual
 rush
-sasl
+sasl                    https://www.gnu.org/software/emacs/manual/index.html
 sc
-scantest
+sc                      https://www.gnu.org/software/emacs/manual/index.html
 screen                  https://www.gnu.org/software/screen/manual
 sed                     https://www.gnu.org/software/sed/manual
-semantic
-ses
+semantic                https://www.gnu.org/software/emacs/manual/index.html
+ses                     https://www.gnu.org/software/emacs/manual/index.html
 sharutils               https://www.gnu.org/software/sharutils/manual
 shepherd                https://www.gnu.org/software/shepherd/manual
-sieve
-smtpmail
+sieve                   https://www.gnu.org/software/emacs/manual/index.html
+smtpmail                https://www.gnu.org/software/emacs/manual/index.html
 sos
 source-highlight
 sourceinstall           https://www.gnu.org/software/sourceinstall/manual
-speedbar
+speedbar                https://www.gnu.org/software/emacs/manual/index.html
 sqltutor                https://www.gnu.org/software/sqltutor/manual
 src-highlite
-srecode
+srecode                 https://www.gnu.org/software/emacs/manual/index.html
 stabs
 standards
 swbis
@@ -270,20 +270,20 @@ texi2any_api
 texi2any_internals
 texinfo
 thales
-todo-mode
-tramp
+todo-mode               https://www.gnu.org/software/emacs/manual/index.html
+tramp                   https://www.gnu.org/software/emacs/manual/index.html
 units                   https://www.gnu.org/software/units/manual
-url
-use-package
+url                     https://www.gnu.org/software/emacs/manual/index.html
+use-package             https://www.gnu.org/software/emacs/manual/index.html
 vc-dwim                 https://www.gnu.org/software/vc-dwim/manual
-vhdl-mode
+vhdl-mode               https://www.gnu.org/software/emacs/manual/index.html
 vip
-viper
+vip                     https://www.gnu.org/software/emacs/manual/index.html
 wdiff                   https://www.gnu.org/software/wdiff/manual
 websocket4j             https://www.gnu.org/software/websocket4j/manual
 web-trans
 wget                    https://www.gnu.org/software/wget/manual
-widget
-wisent
-woman
+widget                  https://www.gnu.org/software/emacs/manual/index.html
+wisent                  https://www.gnu.org/software/emacs/manual/index.html
+woman                   https://www.gnu.org/software/emacs/manual/index.html
 xboard                  https://www.gnu.org/software/xboard/manual
