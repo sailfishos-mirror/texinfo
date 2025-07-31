@@ -44,8 +44,8 @@ complexity              https://www.gnu.org/software/complexity/manual
 corba                   https://www.gnu.org/software/guile-gnome/docs/corba/index.html
 coreutils               https://www.gnu.org/software/coreutils/manual
 cpio                    https://www.gnu.org/software/cpio/manual
-cpp
-cppinternals
+cpp                     https://gcc.gnu.org/onlinedoc
+cppinternals            https://gcc.gnu.org/onlinedoc
 cssc
 cvs
 dbus                    https://www.gnu.org/software/emacs/manual/index.html
@@ -84,8 +84,8 @@ gama                    https://www.gnu.org/software/gama/manual
 gawk
 gawkinet
 gcal                    https://www.gnu.org/software/gcal/manual
-gcc
-gccint
+gcc                     https://gcc.gnu.org/onlinedoc
+gccint                  https://gcc.gnu.org/onlinedoc
 gconf
 gconf                   https://www.gnu.org/software/guile-gnome/docs/gconf/index.html
 gcrypt                  https://www.gnupg.org/documentation/manuals/gcrypt/
@@ -94,16 +94,16 @@ gdbm
 gdk
 gdk                     https://www.gnu.org/software/guile-gnome/docs/gdk/index.html
 gettext                 https://www.gnu.org/software/gettext/manual
-gfc-internals
+gfc-internals           https://gcc.gnu.org/onlinedoc
 gforth
-gfortran
+gfortran                https://gcc.gnu.org/onlinedoc
 glib                    https://www.gnu.org/software/guile-gnome/docs/glib/index.html
 global
 gmediaserver
 gmp
-gnat_rm
-gnat-style
-gnat_ugn
+gnat_rm                 https://gcc.gnu.org/onlinedoc
+gnat-style              https://gcc.gnu.org/onlinedoc
+gnat_ugn                https://gcc.gnu.org/onlinedoc
 gnome-vfs               https://www.gnu.org/software/guile-gnome/docs/gnome-vfs/index.html
 gnu-arch
 gnubg                   https://www.gnu.org/software/gnubg/manual
@@ -155,22 +155,22 @@ info                    https://www.gnu.org/software/emacs/manual/index.html
 info-stnd
 ksba                    https://www.gnupg.org/documentation/manuals/ksba/
 ld                      https://sourceware.org/binutils/docs/
-libc                    https://www.gnu.org/software/libc/manual
 libcdio                 https://www.gnu.org/software/libcdio/libcdio.html
+libc                    https://www.gnu.org/software/libc/manual
 libextractor            https://www.gnu.org/software/libextractor/manual
 libgcrypt               https://www.gnupg.org/documentation/manuals/gcrypt/
 libglade                https://www.gnu.org/software/guile-gnome/docs/libglade/index.html
-libgnome                https://www.gnu.org/software/guile-gnome/docs/libgnome/index.html
 libgnomecanvas          https://www.gnu.org/software/guile-gnome/docs/libgnomecanvas/index.html
+libgnome                https://www.gnu.org/software/guile-gnome/docs/libgnome/index.html
 libgnomeui              https://www.gnu.org/software/guile-gnome/docs/libgnomeui/index.html
-libgomp
-libiberty
+libgomp                 https://gcc.gnu.org/onlinedoc
+libiberty               https://gcc.gnu.org/onlinedoc
 libidn
 libidn                  https://www.gnu.org/software/libidn/manual
 libmatheval
 libmicrohttpd
 librejs                 https://www.gnu.org/software/librejs/manual
-libstdc++
+libstdc++               https://gcc.gnu.org/onlinedoc
 libtasn1                https://www.gnu.org/software/libtasn1/manual
 libtool                 https://www.gnu.org/software/libtool/manual
 lightning               https://www.gnu.org/software/lightning/manual
