@@ -1,6 +1,10 @@
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/info-hooks/gnu-manuals-locations: continue to add links,
+
+2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/info-hooks/gnu-manuals-locations: continue to add links,
 	including for guile-gnome.
 
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>

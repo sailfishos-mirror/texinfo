@@ -16,24 +16,24 @@ as                      https://sourceware.org/binutils/docs/
 aspell                  http://aspell.net/man-html/index.html
 assuan                  https://www.gnupg.org/documentation/manuals/assuan/
 atk                     https://www.gnu.org/software/guile-gnome/docs/atk/index.html
-auctex
+auctex                  https://www.gnu.org/software/auctex/documentation.html
 auth                    https://www.gnu.org/software/emacs/manual/index.html
 autoconf                https://www.gnu.org/software/autoconf/manual
 autogen                 https://www.gnu.org/software/autogen/manual
-automake-history
+automake-history        https://www.gnu.org/software/automake/history/
 automake                https://www.gnu.org/software/automake/manual
 autotype                https://www.gnu.org/software/emacs/manual/index.html
-avl
+avl                     https://adtinfo.org/
 bash                    https://www.gnu.org/software/bash/manual
 bfd                     https://sourceware.org/binutils/docs/
 binutils                https://sourceware.org/binutils/docs/
 bison                   https://www.gnu.org/software/bison/manual
 bovine                  https://www.gnu.org/software/emacs/manual/index.html
-bpel2owfn
+bpel2owfn               https://www.gnu.org/software/bpel2owfn/manual.html
 calc                    https://www.gnu.org/software/emacs/manual/index.html
 ccd2cue                 https://www.gnu.org/software/ccd2cue/manual
 ccmode                  https://www.gnu.org/software/emacs/manual/index.html
-cd-text
+cd-text                 https://www.gnu.org/software/libcdio/cd-text-format.html
 cflow                   https://www.gnu.org/software/cflow/manual
 chess                   https://www.gnu.org/software/chess/manual
 cl                      https://www.gnu.org/software/emacs/manual/index.html
@@ -156,6 +156,7 @@ info-stnd
 ksba                    https://www.gnupg.org/documentation/manuals/ksba/
 ld                      https://sourceware.org/binutils/docs/
 libc                    https://www.gnu.org/software/libc/manual
+libcdio                 https://www.gnu.org/software/libcdio/libcdio.html
 libextractor            https://www.gnu.org/software/libextractor/manual
 libgcrypt               https://www.gnupg.org/documentation/manuals/gcrypt/
 libglade                https://www.gnu.org/software/guile-gnome/docs/libglade/index.html
