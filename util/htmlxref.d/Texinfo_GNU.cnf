@@ -1,6 +1,6 @@
 # Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
-htmlxrefversion=2025-07-31.04; # UTC
+htmlxrefversion=2025-08-01.00; # UTC
 
 # Copyright 2010-2025 Free Software Foundation, Inc.
 # 
@@ -134,10 +134,7 @@ ddrescue	mono	${GS}/ddrescue/manual/ddrescue_manual.html
 dejagnu         node    ${GS}/dejagnu/manual/
 
 DICO = https://www.gnu.org.ua/software/dico/manual
-dico		mono	${DICO}/dico.html
-dico		chapter	${DICO}/html_chapter/
-dico		section	${DICO}/html_section/
-dico		node	${DICO}/html_node/
+dico		node	${DICO}
 
 diffutils	mono	${GS}/diffutils/manual/diffutils.html
 diffutils	node	${GS}/diffutils/manual/html_node/
@@ -186,6 +183,9 @@ emacs		node	${EMACS}/html_node/emacs/
  #
  eintr		mono	${EMACS}/html_mono/eintr.html
  eintr		node	${EMACS}/html_node/eintr/
+ # possibly an old name
+ lispintro	mono	${EMACS}/html_mono/eintr.html
+ lispintro	node	${EMACS}/html_node/eintr/
  #
  elisp		mono	${EMACS}/html_mono/elisp.html
  elisp		node	${EMACS}/html_node/elisp/
@@ -580,9 +580,6 @@ LILYPOND = http://lilypond.org/doc/stable/Documentation
 
 liquidwar6	mono	${GS}/liquidwar6/manual/liquidwar6.html
 liquidwar6	node	${GS}/liquidwar6/manual/html_node/
-
-lispintro	mono	${GS}/emacs/emacs-lisp-intro/html_mono/emacs-lisp-intro.html
-lispintro	node	${GS}/emacs/emacs-lisp-intro/html_node/index.html
 
 LSH = http://www.lysator.liu.se/~nisse/lsh
   lsh		mono	${LSH}/lsh.html
