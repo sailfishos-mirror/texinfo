@@ -1,6 +1,6 @@
 # Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
-htmlxrefversion=2025-08-01.01; # UTC
+htmlxrefversion=2025-08-01.22; # UTC
 
 # Copyright 2010-2025 Free Software Foundation, Inc.
 # 
@@ -601,9 +601,9 @@ mdk		node	${GS}/mdk/manual/html_node/
 # GNU Metadata Exchange Utilities.  Documentation is the IWF Metadata
 # Harvester documentation, which is the package the GNU Metadata Exchange
 # Utilities is derived from.
-METAEXCHANGE = https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc/texinfo
- iwf_mh		node	${METAEXCHANGE}/iwf_mh.html
- scantest	node	${METAEXCHANGE}/scantest.html
+METAEXCHANGE = https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc
+ iwf_mh         mono    ${METAEXCHANGE}/texinfo/iwf_mh.html
+ scantest       mono    ${METAEXCHANGE}/scantest/scantest.html
 
 MIT_SCHEME = ${GS}/mit-scheme/documentation/stable
  mit-scheme-ref	  mono	${MIT_SCHEME}/mit-scheme-ref.html

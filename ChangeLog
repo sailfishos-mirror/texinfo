@@ -1,5 +1,9 @@
 2025-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.d/Texinfo_GNU.cnf (iwf_mh, scantest): fix.
+
+2025-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@pxref):
 	Attempt at clarifying why "see @ref" may often be better
 	than "@pxref".
