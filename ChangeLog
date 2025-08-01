@@ -1,5 +1,12 @@
 2025-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/htmlxref.d/Texinfo_GNU.cnf (mit-scheme-*):
+	Unify the two blocks of mit-scheme-* manuals.  A second
+	block was added on 2022-11-12 not taking into account
+	an existing block.
+
+2025-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.d/Texinfo_GNU.cnf (dico): seems only to
 	be available by node now.
 	(lispintro): Make synonymous with eintr.

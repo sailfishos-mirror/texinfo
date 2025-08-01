@@ -1,6 +1,6 @@
 # Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
-htmlxrefversion=2025-08-01.00; # UTC
+htmlxrefversion=2025-08-01.01; # UTC
 
 # Copyright 2010-2025 Free Software Foundation, Inc.
 # 
@@ -587,25 +587,6 @@ LSH = http://www.lysator.liu.se/~nisse/lsh
 m4		mono	${GS}/m4/manual/m4.html
 m4		node	${GS}/m4/manual/html_node/
 
-MITGNUSCHEME = ${GS}/mit-scheme/documentation/stable
-mit-scheme-user	mono	${MITGNUSCHEME}/mit-scheme-user.html
-mit-scheme-user	node	${MITGNUSCHEME}/mit-scheme-user/
- #
- mit-scheme-ref	mono	${MITGNUSCHEME}/mit-scheme-ref.html
- mit-scheme-ref	node	${MITGNUSCHEME}/mit-scheme-ref/
- #
- mit-scheme-ffi	mono	${MITGNUSCHEME}/mit-scheme-ffi.html
- mit-scheme-ffi	node	${MITGNUSCHEME}/mit-scheme-ffi/
- #
- mit-scheme-sos	mono	${MITGNUSCHEME}/mit-scheme-sos.html
- mit-scheme-sos	node	${MITGNUSCHEME}/mit-scheme-sos/
- #
- mit-scheme-imail	mono	${MITGNUSCHEME}/mit-scheme-imail.html
- #
- mit-scheme-blowfish	mono	${MITGNUSCHEME}/mit-scheme-blowfish.html
- #
- mit-scheme-gdbm	mono	${MITGNUSCHEME}/mit-scheme-gdbm.html
-
 mailutils	mono	${GS}/mailutils/manual/mailutils.html
 mailutils	chapter	${GS}/mailutils/manual/html_chapter/
 mailutils	section	${GS}/mailutils/manual/html_section/
@@ -625,10 +606,21 @@ METAEXCHANGE = https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc/texinfo
  scantest	node	${METAEXCHANGE}/scantest.html
 
 MIT_SCHEME = ${GS}/mit-scheme/documentation/stable
+ mit-scheme-ref	  mono	${MIT_SCHEME}/mit-scheme-ref.html
  mit-scheme-ref	  node	${MIT_SCHEME}/mit-scheme-ref/
+ #
+ mit-scheme-ffi	  mono	${MIT_SCHEME}/mit-scheme-ffi.html
+ mit-scheme-ffi	  node	${MIT_SCHEME}/mit-scheme-ffi/
+ #
+ mit-scheme-user  mono	${MIT_SCHEME}/mit-scheme-user.html
  mit-scheme-user  node	${MIT_SCHEME}/mit-scheme-user/
- sos		  node	${MIT_SCHEME}/mit-scheme-sos/
+ #
+ mit-scheme-sos	  mono	${MIT_SCHEME}/mit-scheme-sos.html
+ mit-scheme-sos	  node	${MIT_SCHEME}/mit-scheme-sos/
+ #
  mit-scheme-imail mono	${MIT_SCHEME}/mit-scheme-imail.html
+ mit-scheme-gdbm  mono	${MIT_SCHEME}/mit-scheme-gdbm.html
+ mit-scheme-blowfish mono	${MIT_SCHEME}/mit-scheme-blowfish.html
 
 moe		mono	${GS}/moe/manual/moe_manual.html
 
