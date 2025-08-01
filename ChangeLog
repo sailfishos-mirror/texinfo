@@ -1,5 +1,11 @@
 2025-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@pxref):
+	Attempt at clarifying why "see @ref" may often be better
+	than "@pxref".
+
+2025-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.d/Texinfo_GNU.cnf (mit-scheme-*):
 	Unify the two blocks of mit-scheme-* manuals.  A second
 	block was added on 2022-11-12 not taking into account

@@ -4373,13 +4373,17 @@ in Info and
 @noindent
 in a printed manual.
 
+The effect of @samp{@@pxref@{@var{node-name}@}} is identical to that of
+@samp{@@ref@{@var{node-name}@}} in Info output.  Hence, it may be
+preferable, when not inside parentheses, to write
+@samp{see @@ref@{@var{node-name}@}} rather
+than @samp{@@pxref@{@var{node-name}@}} when you want the word ``see''
+to occur in the output, as Info readers cannot reliably insert this
+word based on the @samp{*note} cross-reference marker.
+
 In past versions of Texinfo, it was not allowed to write punctuation
 after a @code{@@pxref}, so it could be used @emph{only} before a
 right parenthesis.  This is no longer the case.
-The effect of @samp{@@pxref@{@var{node-name}@}} is similar to that of
-@samp{see @@ref@{@var{node-name}@}}.  However, in many circumstances the
-latter is preferable, as this makes it clear in the Info output that 
-the word ``see'' should be present.
 
 
 @node @code{@@anchor}
