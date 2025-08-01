@@ -132,18 +132,18 @@ gsasl                   https://www.gnu.org/software/gsasl/manual
 gsl                     https://www.gnu.org/software/gsl/manual
 gsrc                    https://www.gnu.org/software/gsrc/manual
 gss                     https://www.gnu.org/software/gss/manual
-gst
-gst-base
-gst-libs
+gst                     https://www.gnu.org/software/smalltalk/manual/
+gst-base                https://www.gnu.org/software/smalltalk/manual-base/
+gst-libs                https://www.gnu.org/software/smalltalk/manual-libs/
 gtk                     https://www.gnu.org/software/guile-gnome/docs/gtk/index.html
-gtypist
+gtypist                 https://www.gnu.org/software/gtypist/#documentation
 guile                   https://www.gnu.org/software/guile/manual
 guile-rpc               https://www.gnu.org/software/guile-rpc/manual
 guix                    https://www.gnu.org/software/guix/manual
 gv                      https://www.gnu.org/software/gv/manual
 gzip                    https://www.gnu.org/software/gzip/manual
 hello                   https://www.gnu.org/software/hello/manual
-help2man
+help2man                https://www.gnu.org/software//help2man/help2man.html
 history                 https://tiswww.cwru.edu/php/chet/readline/rltop.html#Documentation
 htmlfontify             https://www.gnu.org/software/emacs/manual/index.html
 idlwave                 https://www.gnu.org/software/emacs/manual/index.html
@@ -152,6 +152,8 @@ idutils                 https://www.gnu.org/software/idutils/manual
 inetutils               https://www.gnu.org/software/inetutils/manual
 info                    https://www.gnu.org/software/emacs/manual/index.html
 info-stnd               https://www.gnu.org/software/texinfo/manual/info-stnd/
+iwf_mh                  https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc/texinfo
+scantest                https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc/scantest
 ksba                    https://www.gnupg.org/documentation/manuals/ksba/
 ld                      https://sourceware.org/binutils/docs/
 libcdio                 https://www.gnu.org/software/libcdio/libcdio.html
@@ -164,10 +166,10 @@ libgnome                https://www.gnu.org/software/guile-gnome/docs/libgnome/i
 libgnomeui              https://www.gnu.org/software/guile-gnome/docs/libgnomeui/index.html
 libgomp                 https://gcc.gnu.org/onlinedocs
 libiberty               https://gcc.gnu.org/onlinedocs
-libidn
 libidn                  https://www.gnu.org/software/libidn/manual
-libmatheval
-libmicrohttpd
+libmatheval             https://www.gnu.org/software/libmatheval/manual/
+libmicrohttpd           https://www.gnu.org/software/libmicrohttpd/manual/
+microhttpd-tutorial     https://www.gnu.org/software/libmicrohttpd/#documentation
 librejs                 https://www.gnu.org/software/librejs/manual
 libstdc++               https://gcc.gnu.org/onlinedocs
 libtasn1                https://www.gnu.org/software/libtasn1/manual
@@ -180,7 +182,7 @@ lilypond-snippets 	https://lilypond.org/doc/stable/Documentation/web/snippets
 lilypond-usage		https://lilypond.org/doc/stable/Documentation/web/usage
 lilypond-web		https://lilypond.org/doc/stable/Documentation/web/web
 liquidwar6              https://www.gnu.org/software/liquidwar6/manual
-lsh
+lsh                     http://www.lysator.liu.se/~nisse/lsh/
 m4                      https://www.gnu.org/software/m4/manual
 mailutils               https://www.gnu.org/software/mailutils/manual
 maintain                https://www.gnu.org/prep/maintain
@@ -189,7 +191,6 @@ make                    https://www.gnu.org/software/make/manual
 mdk                     https://www.gnu.org/software/mdk/manual
 message                 https://www.gnu.org/software/emacs/manual/index.html
 mh-e                    https://www.gnu.org/software/emacs/manual/index.html
-microhttpd-tutorial
 mit-scheme-blowfish     https://www.gnu.org/software/mit-scheme/
 mit-scheme-ffi          https://www.gnu.org/software/mit-scheme/
 mit-scheme-gdbm         https://www.gnu.org/software/mit-scheme/
@@ -198,9 +199,9 @@ mit-scheme-ref          https://www.gnu.org/software/mit-scheme/
 mit-scheme-sos          https://www.gnu.org/software/mit-scheme/
 mit-scheme-user         https://www.gnu.org/software/mit-scheme/
 moe                     https://www.gnu.org/software/moe
-motti
-mpfr
-mtools
+motti                   https://www.gnu.org/software/motti/#documentation
+mpfr                    https://www.mpfr.org/mpfr-current/
+mtools                  https://www.gnu.org/software/mtools/#doc
 multiboot               https://www.gnu.org/software/grub/manual/multiboot
 music-glossary          https://lilypond.org/doc/stable/Documentation/web/glossary
 nano                    https://www.nano-editor.org/docs.php

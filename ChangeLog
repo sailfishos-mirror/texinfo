@@ -1,3 +1,8 @@
+2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/info-hooks/gnu-manuals-locations: add links for
+	remaining manuals.
+
 2025-08-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/htmlxref.d/Texinfo_GNU.cnf (iwf_mh, scantest): fix.
