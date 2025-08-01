@@ -1,3 +1,8 @@
+2025-08-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/info-hooks/gnu-manuals-locations: continue
+	adding links.
+
 2025-07-31  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/info-hooks/gnu-manuals-locations: fix gcc links
