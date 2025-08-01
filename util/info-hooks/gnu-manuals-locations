@@ -65,6 +65,7 @@ edt                     https://www.gnu.org/software/emacs/manual/index.html
 eglot                   https://www.gnu.org/software/emacs/manual/index.html
 eieio                   https://www.gnu.org/software/emacs/manual/index.html
 eintr                   https://www.gnu.org/software/emacs/manual/eintr.html
+lispintro               https://www.gnu.org/software/emacs/manual/eintr.html
 elisp                   https://www.gnu.org/software/emacs/manual/elisp.html
 emacs                   https://www.gnu.org/software/emacs/manual/emacs.html
 emacs-mime              https://www.gnu.org/software/emacs/manual/index.html
@@ -143,7 +144,7 @@ gv                      https://www.gnu.org/software/gv/manual
 gzip                    https://www.gnu.org/software/gzip/manual
 hello                   https://www.gnu.org/software/hello/manual
 help2man
-history
+history                 https://tiswww.cwru.edu/php/chet/readline/rltop.html#Documentation
 htmlfontify             https://www.gnu.org/software/emacs/manual/index.html
 idlwave                 https://www.gnu.org/software/emacs/manual/index.html
 ido                     https://www.gnu.org/software/emacs/manual/index.html
@@ -179,7 +180,6 @@ lilypond-snippets 	https://lilypond.org/doc/stable/Documentation/web/snippets
 lilypond-usage		https://lilypond.org/doc/stable/Documentation/web/usage
 lilypond-web		https://lilypond.org/doc/stable/Documentation/web/web
 liquidwar6              https://www.gnu.org/software/liquidwar6/manual
-lispintro
 lsh
 m4                      https://www.gnu.org/software/m4/manual
 mailutils               https://www.gnu.org/software/mailutils/manual
@@ -203,8 +203,8 @@ mpfr
 mtools
 multiboot               https://www.gnu.org/software/grub/manual/multiboot
 music-glossary          https://lilypond.org/doc/stable/Documentation/web/glossary
-nano
-nettle
+nano                    https://www.nano-editor.org/docs.php
+nettle                  https://www.lysator.liu.se/~nisse/nettle/
 newsticker              https://www.gnu.org/software/emacs/manual/index.html
 nxml-mode               https://www.gnu.org/software/emacs/manual/index.html
 ocrad                   https://www.gnu.org/software/ocrad
@@ -213,19 +213,17 @@ org                     https://www.gnu.org/software/emacs/manual/index.html
 pango                   https://www.gnu.org/software/guile-gnome/docs/pango/index.html
 pangocairo              https://www.gnu.org/software/guile-gnome/docs/pangocairo/index.html
 parted                  https://www.gnu.org/software/parted/manual
-pascal
+pascal                  https://www.gnu-pascal.de/gpc/h-index.html
 pcl-cvs                 https://www.gnu.org/software/emacs/manual/index.html
 pgg                     https://www.gnu.org/software/emacs/manual/index.html
-pies
+pies                    https://www.gnu.org.ua/software/pies/manual
 plotutils               https://www.gnu.org/software/plotutils/manual/en
 proxyknife              https://www.gnu.org/software/proxyknife/manual
 pspp                    https://www.gnu.org/software/pspp/manual
 pyconfigure             https://www.gnu.org/software/pyconfigure/manual
-R-admin
 rcirc                   https://www.gnu.org/software/emacs/manual/index.html
 rcs                     https://www.gnu.org/software/rcs/manual
-R-data
-readline
+readline                https://tiswww.cwru.edu/php/chet/readline/rltop.html#Documentation
 recutils                https://www.gnu.org/software/recutils/manual
 reftex                  https://www.gnu.org/software/emacs/manual/index.html
 remember                https://www.gnu.org/software/emacs/manual/index.html
@@ -237,11 +235,10 @@ R-FAQ                   https://cran.r-project.org/manuals.html
 R-intro                 https://cran.r-project.org/manuals.html
 R-ints                  https://cran.r-project.org/manuals.html
 R-lang                  https://cran.r-project.org/manuals.html
-rluserman
+rluserman               https://tiswww.cwru.edu/php/chet/readline/rltop.html#Documentation
 rottlog                 https://www.gnu.org/software/rottlog/manual
-rush
+rush                    https://www.gnu.org.ua/software/rush/manual.html
 sasl                    https://www.gnu.org/software/emacs/manual/index.html
-sc
 sc                      https://www.gnu.org/software/emacs/manual/index.html
 screen                  https://www.gnu.org/software/screen/manual
 sed                     https://www.gnu.org/software/sed/manual
