@@ -1,5 +1,10 @@
 2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/info-hooks/manual-not-found: Skip comments and blank
+	lines in data file.
+
+2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/info-hooks/gnu-manuals-locations: add links for
 	remaining manuals.
 
