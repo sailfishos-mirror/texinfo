@@ -4379,7 +4379,10 @@ preferable, when not inside parentheses, to write
 @samp{see @@ref@{@var{node-name}@}} rather
 than @samp{@@pxref@{@var{node-name}@}} when you want the word ``see''
 to occur in the output, as Info readers cannot reliably insert this
-word based on the @samp{*note} cross-reference marker.
+word based on the @samp{*note} cross-reference marker (for example,
+using the @code{Info-hide-note-references} variable; see
+@ref{Help-Inv, Help-Inv, Invisible text in Emacs Info, info, Info: An
+Introduction}).
 
 In past versions of Texinfo, it was not allowed to write punctuation
 after a @code{@@pxref}, so it could be used @emph{only} before a
