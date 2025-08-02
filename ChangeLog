@@ -1,5 +1,9 @@
 2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Hooks): Mention sample hook in util/info-hooks.
+
+2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@pxref): mention Info-hide-not-references
 	variable in Emacs Info.
 
