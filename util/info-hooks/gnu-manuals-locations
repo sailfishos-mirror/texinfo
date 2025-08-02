@@ -143,6 +143,7 @@ gnucobqr                https://gnucobol.sourceforge.io/guides.html
 gnucobsp                https://gnucobol.sourceforge.io/guides.html
 gnu-crypto              https://www.gnu.org/software/gnu-crypto/#documentation
 gnulib                  https://www.gnu.org/software/gnulib/manual
+gnuschool               https://www.gnu.org/software/gnuschool/
 gnun                    https://www.gnu.org/software/trans-coord/manual/gnun/
   web-trans             https://www.gnu.org/software/trans-coord/manual/web-trans/
 gnupg                   https://www.gnupg.org/documentation/manuals/gnupg/
@@ -170,6 +171,7 @@ gst                     https://www.gnu.org/software/smalltalk/manual/
   gst-libs              https://www.gnu.org/software/smalltalk/manual-libs/
 gtypist                 https://www.gnu.org/software/gtypist/#documentation
 guile                   https://www.gnu.org/software/guile/manual
+guile-gtk               https://www.gnu.org/software/guile-gtk/docs/
 guile-rpc               https://www.gnu.org/software/guile-rpc/manual
 guix                    https://www.gnu.org/software/guix/manual
 gobject                 https://www.gnu.org/software/guile-gnome/docs/gobject/index.html
@@ -195,12 +197,13 @@ help2man                https://www.gnu.org/software//help2man/help2man.html
 idutils                 https://www.gnu.org/software/idutils/manual
 inetutils               https://www.gnu.org/software/inetutils/manual
 iwf_mh                  https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc/texinfo
-scantest                https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc/scantest
+  scantest              https://ftp.gwdg.de/pub/gnu2/iwfmdh/doc/scantest
 libcdio                 https://www.gnu.org/software/libcdio/libcdio.html
   cd-text               https://www.gnu.org/software/libcdio/cd-text-format.html
 libc                    https://www.gnu.org/software/libc/manual
 libextractor            https://www.gnu.org/software/libextractor/manual
 libidn                  https://www.gnu.org/software/libidn/manual
+libidn2                 https://www.gnu.org/software/libidn/libidn2/manual/
 libmatheval             https://www.gnu.org/software/libmatheval/manual/
 libmicrohttpd           https://www.gnu.org/software/libmicrohttpd/manual/
   microhttpd-tutorial   https://www.gnu.org/software/libmicrohttpd/#documentation
