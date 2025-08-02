@@ -1,5 +1,11 @@
 2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/info-hooks/gnu-manuals-locations,
+	* util/info-hooks/gnu-manuals-locations.dat: rename.
+	* util/Makefile.am: distrubute files in util/info-hooks.
+
+2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/info-hooks/gnu-manuals-locations: add missed manuals.
 
 2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
