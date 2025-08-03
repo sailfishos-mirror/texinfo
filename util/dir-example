@@ -6,6 +6,10 @@ This particular dir file is merely made available for your hacking
 rms suggested that we follow the categories of the Free Software
   Directory (http://www.gnu.org/directory/) where possible, including
   `minimal' capitalization, that is, just the first word and proper nouns.
+  (However, the FSD doesn't use these categories any more.  The list of
+  package manuals at https://www.gnu.org/manual/manual.html is quite
+  well-organized so worth checking.)
+
 If you have dir entries for Texinfo manuals you'd like to be added here,
   please send them to bug-texinfo@gnu.org
 
@@ -24,20 +28,6 @@ Not all of the topics shown below may be available on this system.
 
 * Menu:
 
-Basics
-* BC: (bc).                     Arbitrary precision calculator language.
-* Bash: (bash).                 The GNU Bourne-Again SHell.
-* Common options: (coreutils)Common options.
-* Coreutils: (coreutils).       Core GNU (file, text, shell) utilities.
-* DC: (dc).                     Postfix desk calculator.
-* Date input formats: (coreutils)Date input formats.
-* Ed: (ed).                     The GNU line editor
-* File permissions: (coreutils)File permissions.  Access modes.
-* Finding files: (find).        Operating on files matching certain criteria.
-* Gcal: (gcal).                 GNU calendar program.
-* Hello: (hello).               Hello, GNU world.
-* Time: (time).                 Measuring program resource usage.
-
 Text creation and manipulation
 * Diffutils: (diffutils).       Comparing and merging files.
 * Gawk: (gawk).                 A text scanning and processing language.
@@ -46,6 +36,7 @@ Text creation and manipulation
 * Word differences: (wdiff).    GNU wdiff and diff related tools.
 * grep: (grep).                 Print lines matching a pattern.
 * sed: (sed).                   Stream EDitor.
+* Ed: (ed).                     The GNU line editor
 
 Texinfo documentation system
 * Info: (info).                 How to use the documentation browsing system.
@@ -64,6 +55,9 @@ Archiving
 * Xorrecord: (xorrecord).       Emulates CD/DVD/BD program cdrecord
 * Xorriso: (xorriso).           Burns ISO 9660 on CD, DVD, BD.
 * Xorrisofs: (xorrisofs).       Emulates ISO 9660 program mkisofs
+
+Business and productivity
+* Gcal: (gcal).                 GNU calendar program.
 
 Compression
 * Gzip: (gzip).                 General (de)compression of files (lzw).
@@ -84,6 +78,10 @@ Network applications
 * Gawkinet: (gawkinet).         TCP/IP Internetworking With `gawk'.
 * Inetutils: (inetutils).       GNU networking utilities.
 * Wget: (wget).                 Non-interactive network downloader.
+
+Mathematics
+* BC: (bc).                     Arbitrary precision calculator language.
+* DC: (dc).                     Postfix desk calculator.
 
 Printing
 * PreScript: (a2ps) PreScript.     Input language for a2ps
@@ -296,6 +294,9 @@ Science
 * R FAQ: (R-FAQ).               The R statistical language FAQ.
 
 System administration
+* Bash: (bash).                 The GNU Bourne-Again SHell.
+* Finding files: (find).        Operating on files matching certain criteria.
+* Time: (time).                 Measuring program resource usage.
 * GSRC: (gsrc).                 Building the GNU Source Release Collection.
 
 TeX
@@ -332,6 +333,13 @@ GNU organization
 * Maintaining Findutils: (find-maint). Maintaining GNU findutils.
 * Quality code: (qualitycode).  GNU code quality recommendations.
 * Standards: (standards).       GNU coding standards.
+* Hello: (hello).               Hello, GNU world.
+
+GNU Core Utilities
+* Common options: (coreutils)Common options.
+* Coreutils: (coreutils).       Core GNU (file, text, shell) utilities.
+* Date input formats: (coreutils)Date input formats.
+* File permissions: (coreutils)File permissions.  Access modes.
 
 Individual utilities
 * aclocal-invocation: (automake)aclocal Invocation. Generating aclocal.m4.
