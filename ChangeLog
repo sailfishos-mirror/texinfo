@@ -1,3 +1,8 @@
+2025-08-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: mention that we now create extra redirection pages
+	if --transliterate-file-names is given.
+
 2025-08-02  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/info-stnd.texi (Hooks): Mention sample hook in util/info-hooks.
