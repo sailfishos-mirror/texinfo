@@ -30,6 +30,9 @@ See the manual for detailed information.
   . DUMP_TREE should now be a file name, or - to output to standard error
   . rename space direction ' ' to 'Space'
   . HTML output:
+      . the default setting of WORDS_IN_PAGE has changed from 300 to 200.
+        this means that a navigation panel is more likely to be output at
+        the bottom of fairly short nodes.
       . do not wrap the contents of <style> elements in an HTML comment,
         as this is no longer needed for browser compatibility
       . use last @printindex for the Index direction

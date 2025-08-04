@@ -8568,6 +8568,8 @@ sub _default_format_element_footer($$$$;$)
           # TODO starting in Perl v5.14 could be replaced by \s\cK (with /a)
           # TODO starting in Perl v5.18 could be replaced by \s (with /a)
           my @cnt = split(/[\t\n\f\r \cK]+/, $content);
+          warn "CONTENT |$content|\n";
+          warn "WIP ", scalar(@cnt), "\n";
           if (scalar(@cnt) < $self->get_conf('WORDS_IN_PAGE')) {
             $no_footer_word_count = 1;
           }

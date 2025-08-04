@@ -18674,7 +18674,12 @@ typically one of the preferred IANA encoding names.
 When output is split at nodes (@pxref{HTML Splitting}), the
 @code{WORDS_IN_PAGE} customization variable value specifies the approximate
 minimum page length at which a navigation panel is placed at the bottom of a
-page.
+page.  It is not possible for you to calibrate this value very precisely
+for exact results: this is because the count of words used for the check
+is based on the HTML output for the node so far (including any navigation
+bar at the top of the page), which yields a value somewhat greater
+than the number of words that would be visible to the user in their
+web browser.
 
 The appearance of the navigation panel is affected by the following
 customization variables, all false in the default case:
@@ -19559,7 +19564,7 @@ When output is split by nodes, specifies the approximate
 minimum page length at which a navigation panel is placed at the
 bottom of a page.  To avoid ever having the navigation buttons at the
 bottom of a page, set this to a sufficiently large number.  The
-default is 300.
+default is 200.
 
 @item XREF_USE_FLOAT_LABEL
 If set, for the float name in cross-references, use the

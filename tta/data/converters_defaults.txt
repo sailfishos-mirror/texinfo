@@ -129,7 +129,7 @@ USE_LINKS              1
 USE_NODES              1
 USE_NODE_DIRECTIONS    undef
 USE_TITLEPAGE_FOR_TITLE  1
-WORDS_IN_PAGE          300
+WORDS_IN_PAGE          200
 # for internal cross references
 XREF_USE_NODE_NAME_ARG  undef
 XREF_USE_FLOAT_LABEL    0

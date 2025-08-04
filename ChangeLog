@@ -1,5 +1,19 @@
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Change default for WORDS_IN_PAGE
+
+	* tta/data/converters_defaults.txt (WORDS_IN_PAGE): Change
+	default from 300 to 200.  This means the navigation panel is
+	more likely to be output at the bottom of fairly short nodes,
+	hopefully reducing user confusion.
+	* doc/texinfo.texi (Customization of Navigation and Headers):
+	Explain why WORDS_IN_PAGE is only approximate.
+	(HTML Customization Variables List) <WORDS_IN_PAGE>: update for
+	new default.
+	* NEWS: mention.
+
+2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/info-hooks/manual-not-found: update name of data file.
 
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
@@ -24,7 +38,7 @@
 	This had been in that location since commit on 2003-04-18.  See
 	https://lists.gnu.org/archive/html/bug-texinfo/2003-04/msg00092.html.
 	This has not been a problem in practice as the following test
-	only needs to succed to find extra libraries to link with on rare
+	only needs to succeed to find extra libraries to link with on rare
 	occasions.
 
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
