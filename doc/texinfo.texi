@@ -1318,40 +1318,74 @@ specification, which is why they are implemented with comments.
 @section Directory Category
 
 @findex dircategory
-@cindex Dir categories, choosing
-@cindex Categories, choosing
 Use the @code{@@dircategory} command to specify a category
-for the manual.  Here are a few examples of category names:
-@c from util/dir-example
-@c we used to recommend looking at Free Software Directory categories
-@c but these have changed
+for the manual.
 
-@display
-Basics
-Text creation and manipulation
-Archiving
-Compression
-Database
-Editors
-Emacs
-Email
-Graphics
-Localization
-Network applications
-Printing
-Science
-Software development
-Software libraries
-Version control
-@end display
-
-@code{@@dircategory} commands are usually followed by a
+@code{@@dircategory} commands are usually followed by
 @code{@@direntry} blocks, which are used by @command{install-info}.
-@xref{Installing Dir Entries}, for details.
+@xref{Installing Dir Entries}, for an example of how these commands
+are used.
 
 The first @code{@@dircategory} command in a manual is the category for
 the entire manual.  Subsequent uses of @code{@@dircategory} set the category
 for following @code{@@direntry} blocks only.
+
+@cindex Dir categories, choosing
+@cindex Categories, choosing
+There is no consistency in the use of directory categories across
+manuals, and there is unlikely ever to be, as authors work on Texinfo
+documentation independently with no central co-ordination that would
+result in such consistency.
+
+It is possible for users or operating system distributions to edit
+categories in Info or Texinfo files, if a logical organization
+within @code{dir} files is something that they value.
+
+Authors of manuals may consider using some of the following categories
+for manuals.  For a package that installs many manuals (such as Emacs),
+it may be a good idea to use package-specific category, or categories,
+to group its manuals.
+
+@c from util/dir-example and https://www.gnu.org/manual/manual.html
+@c
+@c we used to recommend looking at Free Software Directory categories
+@c but these have changed
+
+@display
+Archiving
+Audio
+Business and productivity
+Compression
+Database
+Dictionaries
+Documentation translation
+Editors
+Education
+Email
+Fonts
+Games
+Graphics
+Health
+Interface
+Internet applications
+Live communications
+Localization
+Mathematics
+Music
+Network applications
+Printing
+Security
+Science
+Software development
+Software libraries
+Spreadsheets
+System administration
+Telephony
+Text creation and manipulation
+Version control
+Video
+Web authoring
+@end display
 
 
 @node Document Permissions
@@ -16783,6 +16817,7 @@ Info directory file.  Use @code{@@dircategory} to specify a category
 for the manual, which determines which part of the Info directory to
 put it in.  @xref{Directory Category}.
 
+@c NB this is referenced from node "Directory Category"
 Here is how these commands are used in this manual:
 
 @example

@@ -1,5 +1,13 @@
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Directory Category):
+	Note that dircategories will never be consistent but user can
+	edit them if they like.  Mention the possibility of package-
+	specific categories.  Add some suggested category names to list.
+	Remove "Emacs" and "Basics".
+
+2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/dir-example: some changes to categories to move towards
 	categories used at https://www.gnu.org/manual/manual.html.  Eliminate
 	"Basics" category.  Add reference to https://www.gnu.org/manual/manual.html.
