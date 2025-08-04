@@ -220,6 +220,12 @@ if test -z "$TERMLIBS" \
   have_termlib=no
 fi
 
+# Do not use <ncurses/termcap.h> unless we're linking with ncurses.
+if test "x$termlib" = xncurses; then
+  # Use AC_CHECK_HEADERS so the HAVE_*_H symbol gets defined.
+  AC_CHECK_HEADERS(ncurses/termcap.h)
+fi
+
 # Checks for variables.
 # HP-UX 9 (at least) needs -lncurses which defines termcap variables PC etc.
 AC_MSG_CHECKING(for library with termcap variables)
@@ -262,13 +268,6 @@ if test -n "$ac_cv_var_ospeed" \
 fi
 AC_SUBST(TERMLIBS)#
 AM_CONDITIONAL(HAVE_TERMLIBS, [[test "x$TERMLIBS" != x]])
-
-# Do not use <ncurses/termcap.h> unless we're linking with ncurses.
-# Must come after the termlib tests.
-if test "x$termlib" = xncurses; then
-  # Use AC_CHECK_HEADERS so the HAVE_*_H symbol gets defined.
-  AC_CHECK_HEADERS(ncurses/termcap.h)
-fi
 
 # For teTeX and TeX Live.
 AC_CANONICAL_HOST

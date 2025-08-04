@@ -1,5 +1,16 @@
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* configure.ac: Move AC_CHECK_HEADERS of "ncurses/termcap.h"
+	before test that uses it (with #ifdef HAVE_NCURSES_TERMCAP_H).
+
+	This had been in that location since commit on 2003-04-18.  See
+	https://lists.gnu.org/archive/html/bug-texinfo/2003-04/msg00092.html.
+	This has not been a problem in practice as the following test
+	only needs to succed to find extra libraries to link with on rare
+	occasions.
+
+2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac: In AC_LANG_PROGRAM used in AC_LINK_IFELSE used
 	in terminal library check, provide first argument, which appears
 	in the test program outside of the 'main' function.  Including
