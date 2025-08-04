@@ -231,7 +231,7 @@ for trylib in $termlib ${TERMLIB_VARIANTS}; do
    else
      LIBS="$oldLIBS -l$termlib"
    fi
-   AC_LINK_IFELSE([AC_LANG_PROGRAM([], [[#ifdef HAVE_NCURSES_TERMCAP_H
+   AC_LINK_IFELSE([AC_LANG_PROGRAM([[#ifdef HAVE_NCURSES_TERMCAP_H
 #include <ncurses/termcap.h>
 #else
 #ifdef HAVE_TERMCAP_H
@@ -244,7 +244,8 @@ char PC;
 short ospeed;
 #endif
 #endif
-/* Make sure all variables actually exist.  AIX 4.3 has ospeed but no BC.
+]],
+[[/* Make sure all variables actually exist.  AIX 4.3 has ospeed but no BC.
    --Andreas Ley <andy@rz.uni-karlsruhe.de> 24 Aug 2000.  */
 BC++;
 UP++;

@@ -1,5 +1,13 @@
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* configure.ac: In AC_LANG_PROGRAM used in AC_LINK_IFELSE used
+	in terminal library check, provide first argument, which appears
+	in the test program outside of the 'main' function.  Including
+	header files inside 'main' appears not to work well for this test,
+	as all libraries tested failed.
+
+2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac: check for libtinfow and libncursesw in addition to
 	libtinfo and libncurses.
 	
