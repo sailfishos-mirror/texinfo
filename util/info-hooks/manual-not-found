@@ -14,8 +14,8 @@ hook_dir=`dirname $0`
 url_msg="See <https://www.gnu.org/doc/> in a web browser to get information
 on GNU project documentation."
 
-if test -f "$hook_dir/gnu-manuals-locations" ; then
-  lookup_file=$hook_dir/gnu-manuals-locations
+if test -f "$hook_dir/gnu-manuals-locations.dat" ; then
+  lookup_file=$hook_dir/gnu-manuals-locations.dat
 
   url=`cat "$lookup_file" | perl -wanle \
     '$_ !~ /^#|^\s*$/ && $F[0] eq "'$1'" && print $F[1]'`

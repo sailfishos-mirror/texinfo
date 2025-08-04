@@ -1,5 +1,9 @@
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/info-hooks/manual-not-found: update name of data file.
+
+2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac:
 	Rename variable from ac_cv_var_ospeed to ac_cv_var_extratermlib
 	as we are not checking only the 'ospeed' variable.
