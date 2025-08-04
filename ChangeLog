@@ -1,5 +1,19 @@
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* configure.ac:
+	Rename variable from ac_cv_var_ospeed to ac_cv_var_extratermlib
+	as we are not checking only the 'ospeed' variable.
+
+	Remove comment:
+	/* Make sure all variables actually exist.  AIX 4.3 has ospeed but no BC.
+        --Andreas Ley <andy@rz.uni-karlsruhe.de> 24 Aug 2000.  */
+        
+        This comment was added when more variables, including BC, were added
+        to the test.  Since this change is not apparent from looking at
+        the current state of the file, the comment is not useful.
+
+2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac: Move AC_CHECK_HEADERS of "ncurses/termcap.h"
 	before test that uses it (with #ifdef HAVE_NCURSES_TERMCAP_H).
 

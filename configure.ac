@@ -226,10 +226,10 @@ if test "x$termlib" = xncurses; then
   AC_CHECK_HEADERS(ncurses/termcap.h)
 fi
 
-# Checks for variables.
-# HP-UX 9 (at least) needs -lncurses which defines termcap variables PC etc.
+# Checks if another library needs to be linked.  HP-UX 9 (at least)
+# needs -lncurses which defines termcap variables PC etc.
 AC_MSG_CHECKING(for library with termcap variables)
-AC_CACHE_VAL(ac_cv_var_ospeed,
+AC_CACHE_VAL(ac_cv_var_extratermlib,
 [oldLIBS=$LIBS
 for trylib in $termlib ${TERMLIB_VARIANTS}; do
    if test "x$trylib" != "x$termlib"; then
@@ -251,20 +251,19 @@ short ospeed;
 #endif
 #endif
 ]],
-[[/* Make sure all variables actually exist.  AIX 4.3 has ospeed but no BC.
-   --Andreas Ley <andy@rz.uni-karlsruhe.de> 24 Aug 2000.  */
+[[
 BC++;
 UP++;
 PC++;
 return ospeed != 0;
-]])], [ac_cv_var_ospeed=$trylib; break])
+]])], [ac_cv_var_extratermlib=$trylib; break])
 done
 LIBS=$oldLIBS
 ])
-AC_MSG_RESULT($ac_cv_var_ospeed)
-if test -n "$ac_cv_var_ospeed" \
-   && test "x$termlib" != "x$ac_cv_var_ospeed"; then
-  TERMLIBS="${TERMLIBS} -l${ac_cv_var_ospeed}"
+AC_MSG_RESULT($ac_cv_var_extratermlib)
+if test -n "$ac_cv_var_extratermlib" \
+   && test "x$termlib" != "x$ac_cv_var_extratermlib"; then
+  TERMLIBS="${TERMLIBS} -l${ac_cv_var_extratermlib}"
 fi
 AC_SUBST(TERMLIBS)#
 AM_CONDITIONAL(HAVE_TERMLIBS, [[test "x$TERMLIBS" != x]])
