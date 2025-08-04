@@ -206,7 +206,7 @@ AM_CONDITIONAL(TOOLS_ONLY, [[test "x$tools_only" = x1]])
 # rather ncurses.  So we check for it.
 TERMLIBS=
 # Check for termlib before termcap because Solaris termcap needs libucb.
-TERMLIB_VARIANTS="tinfo ncurses curses termlib termcap terminfo"
+TERMLIB_VARIANTS="tinfo tinfow ncurses ncursesw curses termlib termcap terminfo"
 for termlib in ${TERMLIB_VARIANTS}; do
   AC_CHECK_LIB(${termlib}, tgetent,
      [TERMLIBS="${TERMLIBS} -l${termlib}"; break])
