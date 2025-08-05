@@ -51,68 +51,49 @@ static char *dir_contents;
 static NODE *
 build_dir_node (void)
 {
-  char *this_dir;
   int path_index = 0;
+  char *dir_filename = info_file_find_next_in_path ("dir", &path_index, 0);
+  if (!dir_filename)
+    goto emergency_dir;
 
-  NODE *node;
+  FILE_BUFFER *dir_fb = info_find_file (dir_filename);
+  free (dir_filename);
+  NODE *dir_node = info_get_node_of_file_buffer (dir_fb, "Top");
+  if (!dir_node)
+    goto emergency_dir;
 
-  node = info_create_node ();
-  node->nodename = xstrdup ("Top");
-  node->fullpath = xstrdup ("dir");
-  node->contents = xstrdup (
-
- "File: dir,	Node: Top,	This is the top of the INFO tree.\n"
- "\n"
- "This is the Info main menu (aka directory node).\n"
- "A few useful Info commands:\n"
- "\n"
- "  'q' quits;\n"
- "  'H' lists all Info commands;\n"
- "  'h' starts the Info tutorial;\n"
- "  'mTexinfo RET' visits the Texinfo manual, etc.\n"
-  );
-
-  node->nodelen = strlen (node->contents);
-
-  for (this_dir = infopath_first (&path_index); this_dir;
-       this_dir = infopath_next (&path_index))
+  char *next_dir_file;
+  while ((next_dir_file = info_file_find_next_in_path ("dir", &path_index, 0)))
     {
-      char *result;
-      char *fullpath;
-      int len;
-      size_t filesize;
-      struct stat finfo;
-      int compressed;
-      char *contents;
+      FILE_BUFFER *next_dir_fb = info_find_file (next_dir_file);
+      if (!next_dir_fb)
+        continue;
+      NODE *next_dir_node = info_get_node_of_file_buffer (next_dir_fb, "Top");
+      if (!next_dir_node)
+        continue;
 
-/* Space for an appended compressed file extension, like ".gz". */
-#define PADDING "XXXXXXXXX"
-
-      len = xasprintf (&fullpath, "%s/dir%s", this_dir, PADDING);
-      fullpath[len - strlen(PADDING)] = '\0';
-
-      result = info_check_compressed (fullpath, &finfo);
-      if (!result)
-        {
-          free (fullpath);
-          continue;
-        }
-
-      contents = filesys_read_info_file (fullpath, &filesize,
-                                         &finfo, &compressed);
-      if (contents)
-        {
-          add_menu_to_node (contents, filesize, node);
-          free (contents);
-        }
-
-      free (fullpath);
+      if (next_dir_node->contents)
+        add_menu_to_node (next_dir_node->contents, next_dir_node->nodelen,
+                          dir_node);
+      free (next_dir_file);
+      free (next_dir_node);
     }
 
-  node->flags |= N_IsDir;
-  dir_contents = node->contents;
-  scan_node_contents (node, 0, 0);
-  return node;
+  dir_node->flags |= N_IsDir;
+  scan_node_contents (dir_node, 0, 0);
+  return dir_node;
+
+emergency_dir:
+  dir_node = info_create_node ();
+  dir_node->nodename = xstrdup ("Top");
+  dir_node->fullpath = xstrdup ("dir");
+  dir_node->contents = xstrdup ("File: dir,	Node: Top\n"
+    "\n"
+    "No dir file was found on your system.\n");
+  dir_node->nodelen = strlen (dir_node->contents);
+  dir_node->flags |= N_IsDir;
+  scan_node_contents (dir_node, 0, 0);
+  return dir_node;
 }
 
 /* Given CONTENTS and NODE, add the menu found in CONTENTS to the menu
@@ -211,8 +192,10 @@ insert_text_into_node (NODE *node, size_t start, char *text, size_t textlen)
   memcpy (contents, node->contents, start);
   memcpy (contents + start, text, textlen);
   memcpy (contents + start + textlen, node->contents + start, end - start + 1);
-  free (node->contents);
+  if (node->flags & N_WasRewritten)
+    free (node->contents);
   node->contents = contents;
+  node->flags |= N_WasRewritten;
   node->nodelen += textlen;
 }
 
@@ -246,11 +229,14 @@ dir_entry_of_infodir (const char *label, const char *searchdir)
   const REFERENCE *entry;
   REFERENCE *entry2;
 
+/* Space for an appended compressed file extension, like ".gz". */
+#define PADDING "XXXXXXXXX"
   if (IS_ABSOLUTE(searchdir))
     len = xasprintf (&dir_fullpath, "%s/dir%s", searchdir, PADDING);
   else
     len = xasprintf (&dir_fullpath, "./%s/dir%s", searchdir, PADDING);
   dir_fullpath[len - strlen(PADDING)] = '\0';
+#undef PADDING
 
   result = info_check_compressed (dir_fullpath, &dummy);
   if (!result)

@@ -1,3 +1,16 @@
+2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Don't replace text from dir node
+
+	* info/dir.c (build_dir_node): Don't supply our own introduction
+	to the dir node.  Just use what was in the user's dir node.
+	Use higher-level functions to access the dir files.  This also
+	means that "dir.info" will work as a dir file.
+	(insert_text_into_node): Free memory appropriately.
+	* info/filesys.c (info_file_find_next_in_path): Change comment
+	slightly.
+	* NEWS: mention
+
 2025-08-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Change default for WORDS_IN_PAGE

@@ -76,6 +76,8 @@ See the manual for detailed information.
   . info manual not found hook
   . list all customizable variables in help buffer including how they
     got their values
+  . reuse introductory text in dir file rather than supplying our own
+    text, as was the case in older version of info and is the case in Emacs
   . removed fallback if a node is not found in a cross-reference to
     searching for a file of the same name.  e.g. "* Foo::" in a menu
     would go to a file called "Foo", if no node called "Foo" was found.

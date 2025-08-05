@@ -173,8 +173,8 @@ info_file_find_next_in_path (const char *filename, int *path_index,
   return NULL;
 }
 
-/* Return full path of first Info file known as FILENAME in
-   search path.  If relative to current directory, precede it with './'. */
+/* Return full path of first Info file known as FILENAME in search path as a
+   new string.  If relative to current directory, precede it with './'. */
 static char *
 info_file_in_path (const char *filename, struct stat *finfo)
 {
