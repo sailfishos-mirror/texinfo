@@ -1,5 +1,9 @@
 2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/dir.c (build_dir_node): free memory in one situation
+
+2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Don't replace text from dir node
 
 	* info/dir.c (build_dir_node): Don't supply our own introduction

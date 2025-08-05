@@ -66,6 +66,7 @@ build_dir_node (void)
   while ((next_dir_file = info_file_find_next_in_path ("dir", &path_index, 0)))
     {
       FILE_BUFFER *next_dir_fb = info_find_file (next_dir_file);
+      free (next_dir_file);
       if (!next_dir_fb)
         continue;
       NODE *next_dir_node = info_get_node_of_file_buffer (next_dir_fb, "Top");
@@ -75,7 +76,6 @@ build_dir_node (void)
       if (next_dir_node->contents)
         add_menu_to_node (next_dir_node->contents, next_dir_node->nodelen,
                           dir_node);
-      free (next_dir_file);
       free (next_dir_node);
     }
 
