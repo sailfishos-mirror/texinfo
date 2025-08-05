@@ -1,3 +1,8 @@
+2025-08-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/dir.c (build_dir_node): Output labels for the list
+	of dir files.  Restructure code slightly so it is easier to follow.
+
 2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/dir.c (build_dir_node): Add section to menu listing
