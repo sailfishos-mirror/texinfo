@@ -18,6 +18,7 @@
    Originally written by Brian Fox. */
 
 #include "info.h"
+#include "util.h"
 #include "scan.h"
 #include "search.h"
 #include "filesys.h"
@@ -51,33 +52,57 @@ static char *dir_contents;
 static NODE *
 build_dir_node (void)
 {
-  int path_index = 0;
+  int path_index = 0, multiple_dir = 0;
   char *dir_filename = info_file_find_next_in_path ("dir", &path_index, 0);
   if (!dir_filename)
     goto emergency_dir;
 
   FILE_BUFFER *dir_fb = info_find_file (dir_filename);
-  free (dir_filename);
   NODE *dir_node = info_get_node_of_file_buffer (dir_fb, "Top");
   if (!dir_node)
-    goto emergency_dir;
+    {
+      free (dir_filename);
+      goto emergency_dir;
+    }
 
-  char *next_dir_file;
+  struct text_buffer buf;
+  text_buffer_init (&buf);
+  text_buffer_printf (&buf, "%s\n\n", INFO_MENU_LABEL);
+  text_buffer_printf (&buf, "%s", _("Dir files used for this node\n\n"));
+  text_buffer_printf (&buf, "* (%s)Top::\n", dir_filename);
+  free (dir_filename);
+
+  char *next_dir_file = 0;
   while ((next_dir_file = info_file_find_next_in_path ("dir", &path_index, 0)))
     {
+      multiple_dir = 1;
       FILE_BUFFER *next_dir_fb = info_find_file (next_dir_file);
-      free (next_dir_file);
       if (!next_dir_fb)
-        continue;
+        {
+          free (next_dir_file);
+          continue;
+        }
       NODE *next_dir_node = info_get_node_of_file_buffer (next_dir_fb, "Top");
       if (!next_dir_node)
-        continue;
+        {
+          free (next_dir_file);
+          continue;
+        }
+
+      text_buffer_printf (&buf, "* (%s)Top::\n", next_dir_file);
+      free (next_dir_file);
 
       if (next_dir_node->contents)
         add_menu_to_node (next_dir_node->contents, next_dir_node->nodelen,
                           dir_node);
       free (next_dir_node);
     }
+
+  /* Add a menu of dir files at the end of the composite dir node, if
+     more than one was used. */
+  if (multiple_dir)
+    add_menu_to_node (text_buffer_base(&buf), text_buffer_off(&buf), dir_node);
+  text_buffer_free (&buf);
 
   dir_node->flags |= N_IsDir;
   dir_node->fullpath = xstrdup ("dir");

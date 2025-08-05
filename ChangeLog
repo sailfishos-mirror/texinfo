@@ -1,5 +1,11 @@
 2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/dir.c (build_dir_node): Add section to menu listing
+	all the dir files used to make this dir node, if there were
+	more than one.
+
+2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/dir.c (build_dir_node): Use "dir" as file name,
 	not the path to the first dir file found.
 
