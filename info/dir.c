@@ -80,6 +80,7 @@ build_dir_node (void)
     }
 
   dir_node->flags |= N_IsDir;
+  dir_node->fullpath = xstrdup ("dir");
   scan_node_contents (dir_node, 0, 0);
   return dir_node;
 

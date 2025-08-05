@@ -1,5 +1,10 @@
 2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/dir.c (build_dir_node): Use "dir" as file name,
+	not the path to the first dir file found.
+
+2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/dir.c (build_dir_node): free memory in one situation
 
 2025-08-05  Gavin Smith <gavinsmith0123@gmail.com>
