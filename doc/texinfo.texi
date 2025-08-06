@@ -2324,6 +2324,10 @@ proper nouns are capitalized.  Either way is fine; we recommend just
 being consistent.
 
 @item
+Node names should not contain user-defined macros.  @xref{Macro Details}
+for other constraints on the use of macros.
+
+@item
 In HTML output, any characters in the node name other than plain ASCII 
 letters, numbers or spaces will be changed in the file name.  
 (@xref{HTML Xref Node Name Expansion}.)
@@ -13323,6 +13327,9 @@ White space is ignored at the beginnings of lines.
 @item
 Macros can't be reliably used in the argument to accent commands
 (@pxref{Inserting Accents}).
+
+@item
+Macros should not be used in node names.  @xref{Node Names}.
 
 @item
 The backslash escape for commas in macro arguments does not work;
