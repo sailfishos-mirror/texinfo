@@ -1,5 +1,15 @@
 2025-08-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	detailmenu generation
+
+	* tta/perl/Texinfo/Structuring.pm (_print_down_menus):
+	Check for presence of a 'menu_entry_name' element in a menu,
+	and if found, do not use it to make a detailmenu.
+	(NB no XS override exists for this function.)
+	* tta/perl/t/10menu.t (missing_detailmenu_menu_entry_names): new test.
+
+2025-08-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/Texinfo/Convert/HTML.pm: remove debugging code
 	committed by mistake.
 

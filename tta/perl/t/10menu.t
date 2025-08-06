@@ -264,6 +264,42 @@ Chap 2
 @node unnumberedsec
 @unnumberedsec unnumberedsec
 '],
+['missing_detailmenu_menu_entry_names',
+'@node Top
+@top top
+
+text
+
+@node C1
+@chapter C1
+
+@menu
+* C1 Sec1::   desc 1
+* C1 Sec2::   desc 2
+
+@end menu
+
+@node C1 Sec1
+@section C1 Sec1
+
+@node C1 Sec2
+@section C1 Sec2
+
+@node C2
+@chapter C2
+
+@menu
+* Sec1: C2 Sec1.   dont re-use this entry for master menu
+* C2 Sec2::
+
+@end menu
+
+@node C2 Sec1
+@section C2 Sec1
+
+@node C2 Sec2
+@section C2 Sec2
+'],
 ['reference_to_external_manual',
 '
 @node first

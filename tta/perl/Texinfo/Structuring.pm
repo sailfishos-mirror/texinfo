@@ -2142,8 +2142,29 @@ sub _print_down_menus($$$$$$;$)
   my $node_relations = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
 
   if ($node_relations->{'menus'} and scalar(@{$node_relations->{'menus'}})) {
-    @menus = @{$node_relations->{'menus'}};
-  } else {
+    # Re-use a menu unless it has an entry that looks like
+    # "* label: node.".   The separate label may not give enough
+    # detail when used in the Top node, e.g. just "Menu" for the
+    # "Info Format Menu" node in the Texinfo manual.
+    my $menu_entry_name_found = 0;
+    for my $menu (@{$node_relations->{'menus'}}) {
+      next if !$menu->{'contents'};
+      for my $entry (@{$menu->{'contents'}}) {
+        next if !$entry->{'contents'};
+        for my $entry_content (@{$entry->{'contents'}}) {
+          if (defined($entry_content->{'type'})
+                and $entry_content->{'type'} eq 'menu_entry_name') {
+            $menu_entry_name_found = 1;
+          }
+        }
+      }
+    }
+    if (!$menu_entry_name_found) {
+      @menus = @{$node_relations->{'menus'}};
+    }
+  }
+
+  if (!@menus) {
     my $current_menu
       = new_complete_node_menu($node_relations,
                                undef, undef, $use_sections);
