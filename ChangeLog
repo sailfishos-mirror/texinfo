@@ -1,5 +1,10 @@
 2025-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/t/z_misc/do_master_menu.t: update as re-using labels
+	for the master menu is no longer supported
+
+2025-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS: run gnulib-tool --remove-import getcwd
 
 2025-08-07  Gavin Smith <gavinsmith0123@gmail.com>

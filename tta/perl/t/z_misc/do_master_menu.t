@@ -51,7 +51,7 @@ sub _get_in($;$)
 
 Menu comment
 
-* label: sec2.  D2 
+* sec2::.  D2 
 @end menu
 
 @node sec0
@@ -146,7 +146,7 @@ chap
 * sec0::
 * sec1::  D1
  GGG
-* label: sec2.  D2 
+* sec2::.  D2 
 
 sec0
 
