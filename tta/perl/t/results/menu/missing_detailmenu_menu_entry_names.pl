@@ -600,7 +600,7 @@ C1
 
 C2
 
-</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#C2-Sec1" accesskey="5">C2 Sec1</a>:</td><td class="menu-entry-description">
+</pre></th></tr><tr><td class="menu-entry-destination">&bull; <a href="#C2-Sec1" accesskey="5">Sec1</a>:</td><td class="menu-entry-description">dont re-use this entry for master menu
 </td></tr>
 <tr><td class="menu-entry-destination">&bull; <a href="#C2-Sec2" accesskey="6">C2 Sec2</a>:</td><td class="menu-entry-description">
 </td></tr>
