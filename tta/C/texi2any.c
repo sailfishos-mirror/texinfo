@@ -1003,61 +1003,27 @@ main (int argc, char *argv[], char *env[])
     texinfo_uninstalled = 1;
   else
     {
-      /* determine if uninstalled by looking at the absolute directory
-         and checking the last directories.  It is not perfectly robust
-         but we do not have anything better */
-      char *abs_command_directory = 0;
-      if (!command_directory || !file_name_is_absolute (command_directory))
+      /* If the environment variable is not set, check if a source code
+         file exists in the directory above the directory containing the
+         executable.  If so, we are running the uninstalled program.
+         Note the uninstalled program is built as .libs/ctexi2any, and
+         is always ran via the libtool wrapper script, using the
+         absolute file name.
+         See the GNU Coding Standards ("Finding Program Files") for
+         for guidance on checking whether a program is uninstalled. */
+      if (command_directory)
         {
-          size_t space = 512;
-          char *cwd;
 
-          while (1)
-            {
-              cwd = getcwd (NULL, space);
-              if (!cwd)
-                {
-                  if (errno == ERANGE)
-                    {
-                      size_t max_size = (size_t)-1;
-                      if (space > max_size / 2 -1)
-                        break;
-                      space *= 2;
-                    }
-                  else
-                    break;
-                }
-              else
-                break;
-            }
-          if (cwd)
-            {
-              if (command_directory)
-                {
-                  xasprintf (&abs_command_directory, "%s/%s",
-                             cwd, command_directory);
-                }
-              else
-                abs_command_directory = strdup (cwd);
-              free (cwd);
-            }
-        }
-      else
-        abs_command_directory = strdup (command_directory);
+          char *check_file;
+          const char *updir_file = "texi2any.c";
+          int status;
+          struct stat finfo;
 
-      if (abs_command_directory)
-        {
-          STRING_LIST *file_directories
-            = splitdir (abs_command_directory);
-          free (abs_command_directory);
-          size_t nr = file_directories->number;
-          char **list = file_directories->list;
-
-          if (nr > 3 && !strcmp (list[nr -1], ".libs")
-                     && !strcmp (list[nr -2], "C")
-                     && !strcmp (list[nr -3], "tta"))
+          xasprintf (&check_file, "%s/../%s", command_directory, updir_file);
+          status = stat (check_file, &finfo);
+          if (status == 0 && S_ISREG (finfo.st_mode))
             texinfo_uninstalled = 1;
-          destroy_strings_list (file_directories);
+          free (check_file);
         }
     }
 

@@ -1,5 +1,17 @@
 2025-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	ctexi2any remove use of getcwd
+
+	* tta/C/texi2any.c (main): If TEXINFO_DEV_SOURCE is not set, check if
+	program is uninstalled by checking directory above program directory
+	in argv[0] contains a file that should be in that directory.  argv[0]
+	should always contain a directory name because the executable is run
+	via the libtool wrapper script.
+	This is simpler, and avoids calling getcwd, which requires gnulib
+	modules to be installed.
+
+2025-08-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Node Names, Macro Details): Document that
 	user-defined macros should not appear within node names.  Report
 	from Werner Lembrg, bug-texinfo, 2025-02-05.
