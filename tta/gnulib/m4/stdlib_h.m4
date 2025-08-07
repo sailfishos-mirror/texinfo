@@ -1,5 +1,5 @@
 # stdlib_h.m4
-# serial 83
+# serial 82
 dnl Copyright (C) 2007-2024 Free Software Foundation, Inc.
 dnl This file is free software; the Free Software Foundation
 dnl gives unlimited permission to copy and/or distribute it,
@@ -41,17 +41,17 @@ AC_DEFUN_ONCE([gl_STDLIB_H],
   AC_REQUIRE([gt_LOCALE_EN_UTF8])
   AC_CACHE_CHECK([whether MB_CUR_MAX is correct],
     [gl_cv_macro_MB_CUR_MAX_good],
-    [AC_LINK_IFELSE(
-     [AC_LANG_PROGRAM([[#include <stdlib.h>
-                      ]],
-                      [[return !!MB_CUR_MAX;]])],
-     [dnl Initial guess, used when cross-compiling or when no suitable locale
+    [
+      dnl Initial guess, used when cross-compiling or when no suitable locale
       dnl is present.
-      # Guess no on Solaris and Haiku, yes otherwise.
-      AS_CASE([$host_os],
-        [solaris* | haiku*],
-          [gl_cv_macro_MB_CUR_MAX_good="guessing no"],
-          [gl_cv_macro_MB_CUR_MAX_good="guessing yes"])
+changequote(,)dnl
+      case "$host_os" in
+                           # Guess no on Solaris and Haiku.
+        solaris* | haiku*) gl_cv_macro_MB_CUR_MAX_good="guessing no" ;;
+                           # Guess yes otherwise.
+        *)                 gl_cv_macro_MB_CUR_MAX_good="guessing yes" ;;
+      esac
+changequote([,])dnl
       if test "$LOCALE_EN_UTF8" != none; then
         AC_RUN_IFELSE(
           [AC_LANG_SOURCE([[
@@ -71,17 +71,11 @@ int main ()
           [gl_cv_macro_MB_CUR_MAX_good=no],
           [:])
       fi
-     ],
-     [gl_cv_macro_MB_CUR_MAX_good="link failed - so no"])
     ])
-  AS_CASE([$gl_cv_macro_MB_CUR_MAX_good],
-    [*yes],
-      [],
-    ["link failed - so no"],
-      [# 4 suffices as a workaround in Android NDK 16,
-       # the only known platform with the bug.
-       REPLACE_MB_CUR_MAX=4],
-      [REPLACE_MB_CUR_MAX="(-1)"])
+  case "$gl_cv_macro_MB_CUR_MAX_good" in
+    *yes) ;;
+    *) REPLACE_MB_CUR_MAX=1 ;;
+  esac
 
   AC_CHECK_DECLS_ONCE([ecvt])
   if test $ac_cv_have_decl_ecvt = no; then
