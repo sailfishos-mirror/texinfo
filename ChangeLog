@@ -1,5 +1,10 @@
 2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* TODO: add desideratum re info index lookup for manuals documenting
+	many programs, such as coreutils.
+
+2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/info-hooks, info/info-hooks-example: Move directory.
 	* doc/info-stnd.texi (Hooks): update
 

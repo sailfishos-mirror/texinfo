@@ -112,6 +112,21 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Verify/proofread Documentation of the HTML customization.
 
 * Info:
+  - try to use the right index entry for invocations like 'info cp -- -s'.
+    since cp is in the coreutils manual, this uses -s from the indices of
+    that manual.  however, coreutils.info documents many programs, so this
+    goes to the wrong place. (one version had 31 different index entries
+    documenting an '-s' option.)  however, it should be possible to use
+    the correct index entry by checking for index entries in the initial
+    node, and possibly its subnodes via menus, *first*.  this should
+    mean that we correctly find the index entry, which looks like:
+
+      * -s <15>:                      cp invocation.       (line  337)
+
+   and not
+
+      * -s:                           cat invocation.      (line   36)
+
   - If K is describe-key, K M-left changes the node as M-left is
     analysed as multiple keys
   - unnecessary screen redrawing when scroll-last-node=Stop and you
