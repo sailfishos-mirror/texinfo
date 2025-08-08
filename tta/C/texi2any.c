@@ -1003,7 +1003,7 @@ main (int argc, char *argv[], char *env[])
     texinfo_uninstalled = 1;
   else
     {
-      /* If the environment variable is not set, check if a source code
+      /* If the environment variable is not set, check if a built
          file exists in the directory above the directory containing the
          executable.  If so, we are running the uninstalled program.
          Note the uninstalled program is built as .libs/ctexi2any, and
@@ -1015,7 +1015,7 @@ main (int argc, char *argv[], char *env[])
         {
 
           char *check_file;
-          const char *updir_file = "texi2any.c";
+          const char *updir_file = "libtexinfo.la";
           int status;
           struct stat finfo;
 

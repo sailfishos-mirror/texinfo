@@ -1,5 +1,11 @@
 2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/texi2any.c (main): Check for the existence of a built
+	file relative to executable location, rather than a source code file,
+	as this could be an out-of-source build.  Report from Patrice.
+
+2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info-hooks-example/manual-not-found: if nothing known
 	about a manual, exit unsucessfully to allow Info to continue.
 	this means we display a manpage immediately, if one exists,  rather
