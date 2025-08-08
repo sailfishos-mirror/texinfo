@@ -1,5 +1,12 @@
 2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info-hooks-example/manual-not-found: if nothing known
+	about a manual, exit unsucessfully to allow Info to continue.
+	this means we display a manpage immediately, if one exists,  rather
+	than the hook output.
+
+2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* TODO: add desideratum re info index lookup for manuals documenting
 	many programs, such as coreutils.
 

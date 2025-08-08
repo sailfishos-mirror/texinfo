@@ -11,8 +11,7 @@ echo "Manual '$1' not found" >&2
 pwd=`pwd`
 hook_dir=`dirname $0`
 
-url_msg="See <https://www.gnu.org/doc/> in a web browser to get information
-on GNU project documentation."
+url_msg=
 
 if test -f "$hook_dir/gnu-manuals-locations.dat" ; then
   lookup_file=$hook_dir/gnu-manuals-locations.dat
@@ -20,10 +19,13 @@ if test -f "$hook_dir/gnu-manuals-locations.dat" ; then
   url=`cat "$lookup_file" | perl -wanle \
     '$_ !~ /^#|^\s*$/ && $F[0] eq "'$1'" && print $F[1]'`
 
-  if test -n "$url" ; then
-    url_msg="You could try visiting the following URL in a web browser to download
-the Info manual, or to read the '$1' manual in other formats:\n\n$url"
+  if test -z "$url" ; then
+    # If we don't know anything about this manual, just revert to Info's
+    # default behaviour, probably trying to load the manpage.
+    exit 1
   fi
+  url_msg="You could try visiting the following URL in a web browser to download
+the Info manual, or to read the '$1' manual in other formats:\n\n$url"
 fi
 
 manpage_exists=0
