@@ -18175,7 +18175,7 @@ environment variable)
 
 All files found are used, with earlier entries overriding later ones.
 The Texinfo distribution includes files that are installed in
-@file{@var{datadir}/texinfo/htmlxref.d}, one of the last of the
+@file{@var{datadir}/texinfo/htmlxref.d}, in one of the last of the
 above directories:
 
 @table @file

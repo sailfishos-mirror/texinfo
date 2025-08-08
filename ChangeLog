@@ -1,3 +1,8 @@
+2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (HTML Xref Configuration):
+	Adjust wording slightly re htmlxref.d location.
+
 2025-08-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/t/z_misc/do_master_menu.t: update as re-using labels
