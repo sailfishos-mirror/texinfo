@@ -1,5 +1,10 @@
 2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/info-hooks, info/info-hooks-example: Move directory.
+	* doc/info-stnd.texi (Hooks): update
+
+2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (HTML Xref Configuration):
 	Adjust wording slightly re htmlxref.d location.
 

@@ -206,8 +206,11 @@ CLEANFILES += pseudotty
 endif
 
 EXTRA_DIST += $(info_tests) $(info_tests_with_pseudotty) $(XFAIL_TESTS) \
+  info-hooks-example/manual-not-found \
+  info-hooks-example/gnu-manuals-locations.dat \
   t/README t/infodir \
   t/Init-test.inc \
   t/config/texinfo/infokey t/node-target
+
 dist-hook:
 	rm -rf `find $(distdir)/t/infodir -name '*~'`

@@ -43,7 +43,6 @@ nobase_dist_pkgdata_DATA = htmlxref.d/Texinfo_GNU.cnf \
 EXTRA_DIST = README detexinfo dir-example \
   pdftexi2dvi \
   texi2dvi texi2pdf \
-  info-hooks/manual-not-found info-hooks/gnu-manuals-locations.dat \
   $(dist_pkgdata_DATA) texi-elements-by-size \
   txixml2texi.pl $(w32_bat) $(TESTS)
 
