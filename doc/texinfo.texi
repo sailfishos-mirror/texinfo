@@ -1549,10 +1549,101 @@ to output the permission text within normal text.
 @nodedescription Creating the title and copyright pages.
 @section Title and Copyright Pages
 
-In hard copy output, the manual's name and author are usually printed on
-a title page.  Copyright information is usually printed on the back 
-(verso) of the title page.  This segment must be enclosed between
-@code{@@titlepage} and @code{@@end titlepage} commands:
+The first page of a printed book is usually the @dfn{title page},
+which contains the name of the book and the author.  Copyright and
+publication information is usually printed on the next page; we refer
+to this page as the @dfn{copyright page}.  As this is on the back (verso)
+of the title page, this page is also known as the @dfn{title verso}.
+
+@cindex Document metadata
+Texinfo provides commands for you to provide the document title, any
+subtitle, the name of the author (or names of several authors), and copying
+and publication information for the document.  This @dfn{metadata}
+is used for the contents of the title page and copyright page.
+Likewise, this information appears in the output in some form for other
+output formats, even if not displayed as a title page.
+
+Texinfo provides at least three different ways to provide this metadata
+and to generate the title and copyright pages, which are described in
+the following subsections.
+
+In HTML, the best way to get a title page
+similar to printed manuals is to set the @code{NO_TOP_NODE_OUTPUT}
+customization variable (@pxref{@code{NO_TOP_NODE_OUTPUT}}).
+
+
+@node Document Metadata
+@nodedescriptionblock
+The @code{@@documentinfo}, @code{@@copying}, @code{@@publication}, and
+@code{@@maketitle} commands.
+@end nodedescriptionblock
+@subsection Document Metadata and the @code{@@maketitle} Command
+
+The simplest way to define document metadata used for the title page is
+using the @code{@@documentinfo} command.  Here is a template:
+
+@example
+@group
+@@documentinfo
+@@title @var{name-of-manual-when-printed}
+@@subtitle @var{subtitle-if-any}
+@@subtitle @var{second-subtitle}
+@@author @var{author}
+@@end documentinfo
+@end group
+@end example
+
+You should only use the @code{@@title} command once within the
+@code{@@documentinfo} block.  You can use the @code{@@subtitle} command more
+than once, and the order that any @code{@@subtitle} commands appear in the
+block is kept when the Texinfo file is processed.  Likewise, you can
+use @code{@@author} more than once.  (However, the order of @code{@@title},
+@code{@@subtitle}, and @code{@@author} commands relative to each other is
+not significant.)
+
+The information for the copyright page appears within the @code{@@copying}
+and @code{@@publication} commands.  @xref{Document Permissions} for more
+discussion of @code{@@copying}.
+
+@findex publication
+The @code{@@publication} command works very similarly to @code{@@copying}.
+The Texinfo processors save the contents of this block when they encounter
+it in the Texinfo source.  You use this command to provide information
+about the publication of the document, such as the address of the
+publisher, or ISBN@.  You use this block for information that would go an
+``imprint'' or ``colophon'' in a printed book.
+
+@findex maketitle
+Finally, to actually output the title and copyright pages, you use the
+@code{@@maketitle} command.  Write this command on a line by itself.
+This draws together the available information to produce these two pages.
+
+These commands would be used like this:
+
+@example
+@@copying
+@var{copying-info}
+@@end copying
+@@publication
+Published by @var{publisher-name}
+@var{publisher-address}
+@@end publication
+@@maketitle
+@end example
+
+
+@node @code{@@titlepage}
+@nodedescription Create a title for the printed document.
+@subsection @code{@@titlepage}
+
+@anchor{titlepage}@c old name
+@cindex Title page
+@findex titlepage
+
+An alternative to using the @code{@@maketitle} to create title and copyright
+pages is to the @code{@@titlepage} command.  Any material enclosed between
+@code{@@titlepage} and @code{@@end titlepage} lines is directly output
+for a printed manuals.  Here is a basic example:
 
 @example
 @group
@@ -1573,20 +1664,6 @@ a title page.  Copyright information is usually printed on the back
 We use the @code{@@insertcopying} command to
 include the permission text from the previous section, instead of
 writing it out again.
-
-The title and copyright pages appear in printed manuals, but not in
-most other output formats.  In HTML, the best way to get a title page
-similar to printed manuals is to set the @code{NO_TOP_NODE_OUTPUT}
-customization variable (@pxref{@code{NO_TOP_NODE_OUTPUT}}).
-
-
-@node @code{@@titlepage}
-@nodedescription Create a title for the printed document.
-@subsection @code{@@titlepage}
-
-@anchor{titlepage}@c old name
-@cindex Title page
-@findex titlepage
 
 Start the material for the title page and following copyright page
 with @code{@@titlepage} on a line by itself and end it with

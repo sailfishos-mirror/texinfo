@@ -1,3 +1,10 @@
+2025-08-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: mention new title page commands
+	* doc/texinfo.texi
+	(Titlepage & Copyright Page, Document Metadata, @titlepage):
+	Start work on documentation.
+
 2025-08-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/texi2any.c (main): Check for the existence of a built
