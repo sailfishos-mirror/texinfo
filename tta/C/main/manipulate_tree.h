@@ -55,6 +55,8 @@ uintptr_t print_tree_details (ELEMENT *element, int level,
                               const char *fname_encoding, int use_filename);
 char *tree_print_details (ELEMENT *tree, const char *fname_encoding,
                           int use_filename);
+char *element_print_details (ELEMENT *element, const char *fname_encoding,
+                             int use_filename);
 char *element_number_or_error (const ELEMENT *element);
 char *root_command_element_string (const ELEMENT *element);
 

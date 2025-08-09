@@ -1781,6 +1781,22 @@ tree_print_details (ELEMENT *tree, const char *fname_encoding,
   return result.text;
 }
 
+/* for debugging */
+char *
+element_print_details (ELEMENT *element, const char *fname_encoding,
+                       int use_filename)
+{
+  TEXT result;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  print_element_details (element, 0, 0, 0, &result, fname_encoding,
+                         use_filename);
+
+  return result.text;
+}
+
 
 
 /* the caller should make sure that the tree is not a text element */
