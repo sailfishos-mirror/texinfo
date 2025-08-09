@@ -385,7 +385,7 @@ our %def_no_var_arg_commands;
 our %def_aliases;
 foreach my $def_command(keys %def_map) {
   if (ref($def_map{$def_command}) eq 'HASH') {
-    my ($real_command) = keys (%{$def_map{$def_command}});
+    my ($real_command) = keys(%{$def_map{$def_command}});
     $def_aliases{$def_command} = $real_command;
     $def_aliases{$def_command.'x'} = $real_command.'x';
   }
@@ -416,7 +416,7 @@ our %level_to_structuring_command;
   $level_to_structuring_command{'centerchap'} = $unnumbered;
 
   foreach my $command (keys (%command_structuring_level)) {
-    next if defined($level_to_structuring_command{$command});
+    next if (exists($level_to_structuring_command{$command}));
     if ($command =~ /^appendix/) {
       $level_to_structuring_command{$command} = $appendices;
     } elsif ($command =~ /^unnumbered/ or $command eq 'top') {
@@ -532,7 +532,7 @@ sub _count_opened_tree_braces($$)
 sub ultimate_index($$) {
   my $indices_information = shift;
   my $index = shift;
-  while ($index->{'merged_in'}) {
+  while (exists($index->{'merged_in'})) {
     $index = $indices_information->{$index->{'merged_in'}};
   }
   return $index;
@@ -562,14 +562,14 @@ sub relocate_source_marks($$$$)
   for (my $i = 0; $i < scalar(@$source_marks); $i++) {
     my $source_mark = $source_marks->[$i];
     if (($begin_position == 0
-         and (!defined($source_mark->{'position'})
+         and (!exists($source_mark->{'position'})
               # this should never happen
               or $source_mark->{'position'} == 0))
-        or (defined($source_mark->{'position'})
+        or (exists($source_mark->{'position'})
             and $source_mark->{'position'} > $begin_position
             and $source_mark->{'position'} <= $end_position)) {
       unshift @indices_to_remove, $i;
-      if (defined($e->{'text'})) {
+      if (exists($e->{'text'})) {
         if ($source_mark->{'position'}) {
           $source_mark->{'position'}
              = $source_mark->{'position'} - $begin_position;
@@ -588,9 +588,9 @@ sub relocate_source_marks($$$$)
         }
         delete $source_mark->{'position'};
       }
-      $e->{'source_marks'} = [] if (! defined($e->{'source_marks'}));
+      $e->{'source_marks'} = [] if (! exists($e->{'source_marks'}));
       push @{$e->{'source_marks'}}, $source_mark;
-    } elsif (defined($source_marks->[$i]->{'position'})
+    } elsif (exists($source_marks->[$i]->{'position'})
              and $source_marks->[$i]->{'position'} > $end_position) {
       # only correct if positions are always monotonically increasing
       # but should be the case for now
@@ -639,8 +639,7 @@ sub parse_node_manual($;$)
   my $result;
   my $node_content = [];
 
-  if ($contents->[0] and $contents->[0]->{'text'}
-      and $contents->[0]->{'text'} =~ /^\(/) {
+  if (exists($contents->[0]->{'text'}) and $contents->[0]->{'text'} =~ /^\(/) {
     my ($new_first, $opening_brace);
     $manual = [];
     my $braces_count = 1; # Number of ( seen minus number of ) seen.
@@ -667,7 +666,7 @@ sub parse_node_manual($;$)
       } else {
         $content = $contents->[$idx];
       }
-      if (!defined($content->{'text'}) or $content->{'text'} !~ /\)/) {
+      if (!exists($content->{'text'}) or $content->{'text'} !~ /\)/) {
         push @$manual, $content;
         $braces_count = _count_opened_tree_braces($content, $braces_count);
         # This is an error, braces were closed in a command
@@ -679,20 +678,19 @@ sub parse_node_manual($;$)
         ($before, $after, $braces_count) = _find_end_brace($content->{'text'},
                                                               $braces_count);
         if ($braces_count == 0) {
-          my @remaining_source_marks;
           my $current_position = 0;
           # At this point, we are sure that there is a manual part,
           # so the pending removal/addition of elements at the beginning
           # of the manual can proceed (if modify_node).
           if ($modify_node) {
             if ($opening_brace) {
-              # remove the original first element and prepend the
+              # remove the original $first first element and prepend the
               # split "(" and text elements
               shift @$contents;
               unshift @$contents, $new_first;
               unshift @$contents, $opening_brace;
               $idx++;
-              if ($first->{'source_marks'}) {
+              if (exists($first->{'source_marks'})) {
                 my $current_position = relocate_source_marks(
                                    $first->{'source_marks'}, $opening_brace,
                                    0, length($opening_brace->{'text'}));
@@ -706,7 +704,6 @@ sub parse_node_manual($;$)
 
           # remove the closing ), it is not in manual_content
           $before =~ s/(\))$//;
-          my $end_paren = $1;
           if ($before ne '') {
             # text before ), part of the manual name
             my $last_manual_element
@@ -775,7 +772,7 @@ sub parse_node_manual($;$)
   }
 
   if (scalar(@$node_content)) {
-    $result = Texinfo::TreeElement::new({}) if (!$result);
+    $result = Texinfo::TreeElement::new({}) if (!defined($result));
     $result->{'node_content'}
       = Texinfo::TreeElement::new({'contents' => $node_content});
   }
@@ -796,7 +793,7 @@ sub multitable_columnfractions($)
   my $arguments_line = $multitable->{'contents'}->[0];
   my $block_line_arg = $arguments_line->{'contents'}->[0];
   my $columnfractions;
-  if ($block_line_arg->{'contents'}
+  if (exists($block_line_arg->{'contents'})
       and $block_line_arg->{'contents'}->[0]->{'cmdname'}
       and $block_line_arg->{'contents'}->[0]->{'cmdname'}
                                               eq 'columnfractions') {
@@ -840,7 +837,7 @@ sub itemize_line_prepended_element($)
   my $block_line_arg = shift;
 
   my $arg = block_line_argument_command($block_line_arg);
-  if ($arg) {
+  if (defined($arg)) {
     return $arg;
   } elsif (!exists($block_line_arg->{'contents'})) {
     return $default_bullet_command;
@@ -867,7 +864,7 @@ sub item_line_block_line_argument_command($)
 
   my $arg = block_line_argument_command($block_line_arg);
 
-  if ($arg) {
+  if (defined($arg)) {
     my $brace_category = $Texinfo::Commands::brace_commands{$arg->{'cmdname'}};
     # $Texinfo::Commands::brace_commands{} is undef
     # for definfoenclose'd commands
@@ -886,7 +883,7 @@ sub block_item_line_command($)
 
   my $arg = item_line_block_line_argument_command($block_line_arg);
 
-  if (!$arg) {
+  if (!defined($arg)) {
     $arg = $default_asis_command;
   }
   return $arg;
@@ -900,7 +897,7 @@ sub find_float_caption_shortcaption($)
   my $shortcaption;
 
   foreach my $content (@{$float->{'contents'}}) {
-    if ($content->{'cmdname'}) {
+    if (exists($content->{'cmdname'})) {
       if ($content->{'cmdname'} eq 'caption') {
         $caption = $content unless($caption);
         last if $shortcaption;
@@ -923,7 +920,8 @@ sub collect_subentries($$)
 
   my $line_arg = $current->{'contents'}->[0];
   foreach my $content (@{$line_arg->{'contents'}}) {
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
+    if (exists($content->{'cmdname'})
+        and $content->{'cmdname'} eq 'subentry') {
       push @$subentries, $content;
       collect_subentries($content, $subentries);
     }
@@ -941,11 +939,12 @@ sub index_entry_referred_entry($$)
 
   my $line_arg = $element->{'contents'}->[0];
 
-  if ($line_arg->{'contents'}) {
+  if (exists($line_arg->{'contents'})) {
     foreach my $content (@{$line_arg->{'contents'}}) {
-      if ($content->{'cmdname'}) {
+      if (exists($content->{'cmdname'})) {
         if ($content->{'cmdname'} eq $referred_cmdname) {
-          return $content->{'contents'}->[0] if ($content->{'contents'});
+          return $content->{'contents'}->[0]
+                                 if (exists($content->{'contents'}));
         } elsif ($content->{'cmdname'} eq 'subentry') {
           return index_entry_referred_entry($content, $referred_cmdname);
         }
@@ -1039,7 +1038,7 @@ sub associated_processing_encoding($)
   my $element = shift;
 
   my $encoding = $element->{'extra'}->{'input_encoding_name'}
-    if ($element->{'extra'});
+    if (exists($element->{'extra'}));
 
   return processing_output_encoding($encoding);
 }
@@ -1132,18 +1131,18 @@ sub informative_command_value($)
   if ($Texinfo::Commands::line_commands{$cmdname} eq 'lineraw') {
     if (not $Texinfo::Commands::commands_args_number{$cmdname}) {
       return $cmdname, 1;
-    } elsif ($element->{'contents'}) {
+    } elsif (exists($element->{'contents'})) {
       return $cmdname, join(' ', map {$_->{'text'}} @{$element->{'contents'}});
     }
-  } elsif ($element->{'extra'}
+  } elsif (exists($element->{'extra'})
            and exists($element->{'extra'}->{'text_arg'})) {
     return $cmdname, $element->{'extra'}->{'text_arg'};
-  } elsif ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
+  } elsif (exists($element->{'extra'})
+           and exists($element->{'extra'}->{'misc_args'})
            and exists($element->{'extra'}->{'misc_args'}->[0])) {
     return $cmdname, $element->{'extra'}->{'misc_args'}->[0];
   } elsif ($Texinfo::Commands::line_commands{$cmdname} eq 'line'
-           and $element->{'contents'}->[0]->{'contents'}
-           and scalar(@{$element->{'contents'}->[0]->{'contents'}})
+           and exists($element->{'contents'}->[0]->{'contents'})
            and exists($element->{'contents'}->[0]->{'contents'}->[0]->{'text'})) {
     return $cmdname, $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
   }
@@ -1158,8 +1157,8 @@ sub element_value_equivalent($) {
 
   if ($cmdname eq 'set' or $cmdname eq 'clear') {
     my $misc_args;
-    if (defined($element->{'extra'})
-        and defined($element->{'extra'}->{'misc_args'})) {
+    if (exists($element->{'extra'})
+        and exists($element->{'extra'}->{'misc_args'})) {
       $misc_args = $element->{'extra'}->{'misc_args'};
       if (scalar(@$misc_args)) {
         my $flag = $misc_args->[0];
@@ -1201,8 +1200,8 @@ sub _in_preamble($)
 {
   my $element = shift;
   my $current_element = $element;
-  while ($current_element->{'parent'}) {
-    if (defined($current_element->{'parent'}->{'type'})
+  while (exists($current_element->{'parent'})) {
+    if (exists($current_element->{'parent'}->{'type'})
         and $current_element->{'parent'}->{'type'} eq 'preamble_before_content') {
       return 1;
     }
@@ -1231,7 +1230,7 @@ sub get_global_document_command($$$)
   }
 
   my $element;
-  if ($global_commands_information
+  if (defined($global_commands_information)
       and $global_commands_information->{$global_command}) {
     if (ref($global_commands_information->{$global_command}) eq 'ARRAY') {
       if ($command_location eq 'last') {
@@ -1292,7 +1291,7 @@ sub lookup_index_entry($$)
 
   if ($indices_information->{$entry_index_name}) {
     $index_info = $indices_information->{$entry_index_name};
-    if ($index_info->{'index_entries'}
+    if (exists($index_info->{'index_entries'})
         and $index_info->{'index_entries'}->[$entry_number-1]) {
       return ($index_info->{'index_entries'}->[$entry_number-1], $index_info);
     }
@@ -1330,13 +1329,13 @@ sub set_output_encoding($$)
   my $document = shift;
 
   my $document_information;
-  if ($document) {
+  if (defined($document)) {
     $document_information = $document->global_information();
   }
   $customization_information->set_conf('OUTPUT_ENCODING_NAME',
                $document_information->{'input_encoding_name'})
-     if ($document_information
-         and $document_information->{'input_encoding_name'});
+     if (defined($document_information)
+         and exists($document_information->{'input_encoding_name'}));
 }
 
 # $DOCUMENT is the parsed Texinfo document.  It is optional, but it
@@ -1368,8 +1367,8 @@ sub input_file_name_encoding($$$;$$)
       }
 
       $encoding = $document_info->{'input_encoding_name'}
-        if ($document_info
-          and defined($document_info->{'input_encoding_name'}));
+        if (defined($document_info)
+          and exists($document_info->{'input_encoding_name'}));
     }
   } else {
     $encoding = $locale_encoding;
@@ -1387,7 +1386,8 @@ sub section_level($)
   my $section = shift;
   my $level = $command_structuring_level{$section->{'cmdname'}};
   # correct level according to raise/lowersections
-  if ($section->{'extra'} and $section->{'extra'}->{'level_modifier'}) {
+  if (exists($section->{'extra'})
+      and $section->{'extra'}->{'level_modifier'}) {
     $level -= $section->{'extra'}->{'level_modifier'};
     if ($level < $min_level) {
       if ($command_structuring_level{$section->{'cmdname'}} < $min_level) {
@@ -1448,17 +1448,18 @@ sub is_content_empty($;$)
     return 1;
   }
   foreach my $content (@{$tree->{'contents'}}) {
-    if (defined($content->{'text'})) {
+    if (exists($content->{'text'})) {
       if ($content->{'text'} =~ /\S/) {
         return 0;
       } else {
         next;
       }
     }
-    next if ($content->{'type'}
+    next if (exists($content->{'type'})
              and $content->{'type'} eq 'arguments_line');
-    if ($content->{'cmdname'}) {
-      if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
+    if (exists($content->{'cmdname'})) {
+      if (exists($content->{'type'})
+          and $content->{'type'} eq 'index_entry_command') {
         if ($do_not_ignore_index_entries) {
           return 0;
         } else {
@@ -1485,7 +1486,7 @@ sub is_content_empty($;$)
         return 0;
       }
     }
-    if ($content->{'type'}) {
+    if (exists($content->{'type'})) {
       if ($content->{'type'} eq 'paragraph') {
         return 0;
       }
@@ -1521,12 +1522,12 @@ foreach my $command (
 sub element_inline_or_block($)
 {
   my $current = shift;
-  my $e_type = $current->{'type'};
-  if ($e_type and $inline_types{$e_type}) {
+  if (exists($current->{'type'}) and $inline_types{$current->{'type'}}) {
     return 1;
   } else {
     my $cmdname = $current->{'cmdname'};
-    if ($cmdname and exists($not_inline_commands{$cmdname})) {
+    if (exists($current->{'cmdname'})
+        and exists($not_inline_commands{$current->{'cmdname'}})) {
       return 0;
     }
   }
@@ -1546,7 +1547,7 @@ sub element_is_inline($;$)
     return ($inline_or_block) if (defined($inline_or_block));
   }
 
-  while ($current->{'parent'}) {
+  while (exists($current->{'parent'})) {
     $current = $current->{'parent'};
     my $inline_or_block = element_inline_or_block($current);
     return ($inline_or_block) if (defined($inline_or_block));
@@ -1603,10 +1604,10 @@ sub index_content_element($;$)
   my $element = shift;
   my $prefer_reference_element = shift;
 
-  if (defined($element->{'extra'})
-      and defined($element->{'extra'}->{'def_command'})) {
+  if (exists($element->{'extra'})
+      and exists($element->{'extra'}->{'def_command'})) {
     if ($prefer_reference_element
-        and defined($element->{'extra'}->{'def_index_ref_element'})) {
+        and exists($element->{'extra'}->{'def_index_ref_element'})) {
       return $element->{'extra'}->{'def_index_ref_element'};
     } else {
       return $element->{'extra'}->{'def_index_element'};
@@ -1639,7 +1640,7 @@ sub split_custom_heading_command_contents($)
     my $current_content = $element->{'contents'}->[$i];
     #print STDERR "$nr_split_contents : "
     #          .debug_print_element($current_content)."\n";
-    if (defined($current_content->{'cmdname'})
+    if (exists($current_content->{'cmdname'})
         and $current_content->{'cmdname'} eq '|') {
       if ($nr_split_contents < 2) {
         $heading_element = {'contents' => []};
@@ -1663,15 +1664,15 @@ sub find_parent_root_command($$)
 
   my $root_command;
   while (1) {
-    if ($current->{'cmdname'}) {
+    if (exists($current->{'cmdname'})) {
       if ($Texinfo::Commands::root_commands{$current->{'cmdname'}}) {
         return $current;
-      } elsif ($Texinfo::Commands::block_commands{$current->{'cmdname'}}
+      } elsif (exists($Texinfo::Commands::block_commands{$current->{'cmdname'}})
                and $Texinfo::Commands::block_commands{$current->{'cmdname'}} eq 'region') {
         if ($current->{'cmdname'} eq 'copying' and $self and $self->{'document'}) {
           my $global_commands = $self->{'document'}->global_commands_information();
           if (defined($global_commands)
-              and defined($global_commands->{'insertcopying'})) {
+              and exists($global_commands->{'insertcopying'})) {
             foreach my $insertcopying(@{$global_commands->{'insertcopying'}}) {
               my $root_command
                 = find_parent_root_command($self, $insertcopying);
@@ -1683,7 +1684,7 @@ sub find_parent_root_command($$)
         }
       }
     }
-    if (defined($current->{'parent'})) {
+    if (exists($current->{'parent'})) {
       $current = $current->{'parent'};
     } else {
       return undef;
@@ -1718,15 +1719,13 @@ sub _collect_commands_in_tree($$)
   my $current = shift;
   my $commands_hash = shift;
 
-  if (defined($current->{'cmdname'})
+  if (exists($current->{'cmdname'})
       and defined($commands_hash->{$current->{'cmdname'}})) {
     push @{$commands_hash->{$current->{'cmdname'}}}, $current;
   }
-  foreach my $key ('contents') {
-    if ($current->{$key}) {
-      foreach my $child (@{$current->{$key}}) {
-        _collect_commands_in_tree($child, $commands_hash);
-      }
+  if (exists($current->{'contents'})) {
+    foreach my $child (@{$current->{'contents'}}) {
+      _collect_commands_in_tree($child, $commands_hash);
     }
   }
 }
@@ -1752,16 +1751,14 @@ sub _collect_commands_list_in_tree($$$)
   my $commands_hash = shift;
   my $collected_commands_list = shift;
 
-  if (defined($current->{'cmdname'})
+  if (exists($current->{'cmdname'})
       and defined($commands_hash->{$current->{'cmdname'}})) {
     push @{$collected_commands_list}, $current;
   }
-  foreach my $key ('contents') {
-    if ($current->{$key}) {
-      foreach my $child (@{$current->{$key}}) {
-        _collect_commands_list_in_tree($child, $commands_hash,
-                                       $collected_commands_list);
-      }
+  if (exists($current->{'contents'})) {
+    foreach my $child (@{$current->{'contents'}}) {
+      _collect_commands_list_in_tree($child, $commands_hash,
+                                     $collected_commands_list);
     }
   }
 }
@@ -1773,13 +1770,13 @@ sub _collect_commands_list_in_tree($$$)
 sub get_label_element($)
 {
   my $current = shift;
-  return undef if (!defined($current->{'cmdname'}));
+  return undef if (!exists($current->{'cmdname'}));
   if ($current->{'cmdname'} eq 'node') {
     # first content of arguments_line type element
     return $current->{'contents'}->[0]->{'contents'}->[0];
   } elsif (($current->{'cmdname'} eq 'anchor'
             or $current->{'cmdname'} eq 'namedanchor')
-           and $current->{'contents'} and scalar(@{$current->{'contents'}})) {
+           and exists($current->{'contents'})) {
     return $current->{'contents'}->[0];
   } elsif ($current->{'cmdname'} eq 'float'
            and scalar(@{$current->{'contents'}->[0]->{'contents'}}) >= 2) {
@@ -1818,12 +1815,12 @@ sub _parent_string($)
 {
   my $current = shift;
   my $parent_string;
-  if ($current->{'parent'}) {
+  if (exists($current->{'parent'})) {
     my $parent = $current->{'parent'};
     my $parent_cmd = '';
     my $parent_type = '';
-    $parent_cmd = "\@$parent->{'cmdname'}" if (defined($parent->{'cmdname'}));
-    $parent_type = "($parent->{'type'})" if (defined($parent->{'type'}));
+    $parent_cmd = "\@$parent->{'cmdname'}" if (exists($parent->{'cmdname'}));
+    $parent_type = "($parent->{'type'})" if (exists($parent->{'type'}));
     $parent_string = " <- $parent_cmd$parent_type";
   }
   return $parent_string
@@ -1863,8 +1860,8 @@ sub debug_print_element($;$)
   my $text = '';
   my $args = '';
   my $contents = '';
-  $type = "($current->{'type'})" if (defined($current->{'type'}));
-  if (defined($current->{'text'})) {
+  $type = "($current->{'type'})" if (exists($current->{'type'}));
+  if (exists($current->{'text'})) {
     if ($current->{'text'} eq '') {
       $text = "[T]";
     } else {
@@ -1873,7 +1870,7 @@ sub debug_print_element($;$)
       $text = "[T: $text_str]";
     }
   } else {
-    if (defined($current->{'cmdname'})) {
+    if (exists($current->{'cmdname'})) {
       $cmd = '@' . debug_command_name($current->{'cmdname'});
     }
     $contents = "[C".scalar(@{$current->{'contents'}}).']'
@@ -1897,13 +1894,13 @@ sub debug_print_element_details($;$)
   foreach my $key (keys (%$current)) {
     $string .= "   $key: $current->{$key}\n";
   }
-  if ($current->{'extra'}) {
+  if (defined($current->{'extra'})) {
     $string .= " EXTRA\n";
     foreach my $key (keys (%{$current->{'extra'}})) {
       $string .= "  $key: $current->{'extra'}->{$key}\n";
     }
   }
-  if ($current->{'info'}) {
+  if (exists($current->{'info'})) {
     $string .= " INFO\n";
     foreach my $key (keys (%{$current->{'info'}})) {
       $string .= "  $key: $current->{'info'}->{$key}\n";
@@ -1926,7 +1923,7 @@ sub debug_print_output_unit
   # Should never happen
   $type = 'UNDEF' if (!defined($type));
   my $node_unit_cmd = '';
-  if ($current->{'unit_node'}) {
+  if (exists($current->{'unit_node'})) {
     my $node_element = $current->{'unit_node'}->{'element'};
     $node_unit_cmd = '{N';
     if ($node_element eq $current->{'unit_command'}) {
@@ -1937,7 +1934,7 @@ sub debug_print_output_unit
                                                 $node_element).'}';
   }
   my $section_unit_cmd = '';
-  if ($current->{'unit_section'}) {
+  if (exists($current->{'unit_section'})) {
     my $section_element = $current->{'unit_section'}->{'element'};
     $section_unit_cmd = '{S';
     if ($section_element eq $current->{'unit_command'}) {
@@ -1948,16 +1945,16 @@ sub debug_print_output_unit
                                                $section_element).'}';
   }
   my $fname = '';
-  if (defined($current->{'unit_filename'})) {
+  if (exists($current->{'unit_filename'})) {
     $fname = "{F:$current->{'unit_filename'}}";
   }
   my $variety = '';
-  if (defined($current->{'special_unit_variety'})) {
+  if (exists($current->{'special_unit_variety'})) {
     $variety = "{V:$current->{'special_unit_variety'}}";
   }
   my $contents = '';
   $contents = "{C".scalar(@{$current->{'unit_contents'}}).'}'
-    if $current->{'unit_contents'};
+    if (exists($current->{'unit_contents'}));
   return "{$type}$fname$variety$contents$node_unit_cmd$section_unit_cmd";
 }
 
