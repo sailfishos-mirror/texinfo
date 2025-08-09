@@ -1692,31 +1692,30 @@ the copyright page is produced.  (The @code{@@titlepage} command might
 perhaps have been better named the @code{@@titleandadditionalpages}
 command, but that would have been rather long!)
 
-One method uses the @code{@@title}, @code{@@subtitle}, and
-@code{@@author} commands to create a title page.  With this method,
-you do not specify any of the actual formatting of the title page.
-You specify the text you want, and Texinfo does the formatting.
-The usual formatting consist of black rules under
-the title and author lines and the subtitle text set flush to the
-right-hand side of the page.
-
-Texinfo also provides a second method for creating a title page.
-using typesetting commands that are not to be used in the main text.
-This method uses the @code{@@titlefont}, @code{@@sp}, and @code{@@center} 
-commands to generate a title page in which the words on the page are
-centered.
+The following subsubsections explain the two ways that the @code{@@titlepage}
+command might be used within a Texinfo document to produce a title page,
+the first closer to the previous method with @code{@@documentinfo},
+the second with more explicit formatting.
 
 
 @node @code{@@title @@subtitle @@author}
 @nodedescriptionblock
 The @code{@@title}, @code{@@subtitle}, and @code{@@author} commands.
 @end nodedescriptionblock
-@subsection @code{@@title}, @code{@@subtitle}, and @code{@@author}
+@subsubsection @code{@@title}, @code{@@subtitle}, and @code{@@author}
 
 @anchor{title subtitle author}@c old name
 @findex title
 @findex subtitle
 @findex author
+
+One way to use @code{@@titlepage} is to use @code{@@title}, @code{@@subtitle},
+and @code{@@author} commands inside the @code{@@titlepage} block.  With this
+method, you do not specify any of the actual formatting of the title page.
+You specify the text you want, and Texinfo does the formatting.
+The usual formatting consist of black rules under
+the title and author lines and the subtitle text set flush to the
+right-hand side of the page.
 
 You can use the @code{@@title}, @code{@@subtitle}, and @code{@@author}
 commands to create a title page in which the vertical and horizontal
@@ -1794,15 +1793,18 @@ A template for this method looks like this:
 @nodedescriptionblock
 The @code{@@titlefont}, @code{@@center}, and @code{@@sp} commands.
 @end nodedescriptionblock
-@subsection @code{@@titlefont}, @code{@@center}, and @code{@@sp}
+@subsubsection @code{@@titlefont}, @code{@@center}, and @code{@@sp}
 
 @anchor{titlefont center sp}@c old name
 @findex titlefont
 @findex center
 @findex sp @r{(titlepage line spacing)}
 
-You can also use the @code{@@titlefont}, @code{@@sp}, and @code{@@center}
-commands to create a title page for a printed document.
+Texinfo also provides a second method for creating a title page.
+using typesetting commands that are not to be used in the main text.
+This method uses the @code{@@titlefont}, @code{@@sp}, and @code{@@center} 
+commands to generate a title page in which the words on the page are
+centered.
 
 Use the @code{@@titlefont} command to select a large font suitable for
 the title itself.  You can use @code{@@titlefont} more than once if you

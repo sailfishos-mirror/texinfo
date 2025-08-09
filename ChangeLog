@@ -1,5 +1,11 @@
 2025-08-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi
+	(@title @subtitle @author, @titlefont @center @sp):
+	Make these sub-sections of the '@titlepage' node..
+
+2025-08-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Titlepage & Copyright Page): Move discussion
 	of @settitle here.
 	(Title Page Version): Create new node for discussion of version
