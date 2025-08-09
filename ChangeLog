@@ -1,5 +1,10 @@
 2025-08-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Copyright, @titlepage, Document Permissions):
+	Move material out of 'Copyright' node and delete node.
+
+2025-08-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi
 	(@title @subtitle @author, @titlefont @center @sp):
 	Make these sub-sections of the '@titlepage' node..

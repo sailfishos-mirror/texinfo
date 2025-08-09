@@ -1416,6 +1416,20 @@ Therefore, Texinfo provides a command (@code{@@copying}) to declare
 this text once, and another command (@code{@@insertcopying}) to
 insert the text at appropriate points.
 
+For plain text output, you must insert the copyright information
+explicitly if you want it to appear, as it it not otherwise output.
+For instance, you could have the following near the start of the Texinfo
+file:
+
+@example
+@@ifplaintext
+@@insertcopying
+@@end ifplaintext
+@end example
+
+You could include other title-like information for the plain text
+output in the same place.
+
 If the document is a software manual, the software is typically under a
 different license---for GNU and many other free software packages,
 software is usually released under the GNU GPL, and manuals are
@@ -1549,11 +1563,18 @@ to output the permission text within normal text.
 @nodedescription Creating the title and copyright pages.
 @section Title and Copyright Pages
 
+@cindex Copyright page
+@cindex Printed permissions
+@cindex Permissions, printed
 The first page of a printed book is usually the @dfn{title page},
 which contains the name of the book and the author.  Copyright and
 publication information is usually printed on the next page; we refer
 to this page as the @dfn{copyright page}.  As this is on the back (verso)
 of the title page, this page is also known as the @dfn{title verso}.
+@ignore
+(By international treaty, the copyright notice for a book must be either
+on the title page or on the back of the title page.)
+@end ignore
 
 @cindex Document metadata
 Texinfo provides commands for you to provide the document title, any
@@ -1653,7 +1674,7 @@ Published by @var{publisher-name}
 An alternative to using the @code{@@maketitle} to create title and copyright
 pages is to use the @code{@@titlepage} command.  Any material enclosed between
 @code{@@titlepage} and @code{@@end titlepage} lines is directly output
-for a printed manuals.  Here is a basic example:
+for a printed manual.  Here is a basic example:
 
 @example
 @group
@@ -1670,11 +1691,6 @@ for a printed manuals.  Here is a basic example:
 @end group
 @end example
 
-@noindent
-We use the @code{@@insertcopying} command to
-include the permission text from the previous section, instead of
-writing it out again.
-
 Start the material for the title page and following copyright page
 with @code{@@titlepage} on a line by itself and end it with
 @code{@@end titlepage} on a line by itself.
@@ -1684,6 +1700,8 @@ numbering (@pxref{Heading Generation}).  All the
 material that you want to appear on unnumbered pages should be put
 between the @code{@@titlepage} and @code{@@end titlepage} commands.
 
+@anchor{Copyright}
+@subsubheading Copyright Page
 @findex page@r{, within @code{@@titlepage}}
 By using the @code{@@page} command, you can force a page break within the
 region delineated by the @code{@@titlepage} and @code{@@end titlepage}
@@ -1691,6 +1709,50 @@ commands and thereby create more than one unnumbered page.  This is how
 the copyright page is produced.  (The @code{@@titlepage} command might
 perhaps have been better named the @code{@@titleandadditionalpages}
 command, but that would have been rather long!)
+
+@findex vskip @r{@TeX{} vertical skip}
+@cindex filll @r{@TeX{} dimension}
+To push the copyright notice and the other text on the copyright page
+towards the bottom of the page, use the following incantation after
+@code{@@page}:
+
+@example
+@@vskip 0pt plus 1filll
+@end example
+
+@noindent
+The @code{@@vskip} command inserts whitespace in the @TeX{} output; it
+is ignored in all other output formats.  The @samp{0pt plus 1filll}
+means to put in zero points of mandatory whitespace, and as much
+optional whitespace as needed to push the following text to the bottom
+of the page.  Note the use of three @samp{l}s in the word
+@samp{filll}; this is correct.
+
+To insert the copyright text itself, write @code{@@insertcopying}
+next (@pxref{Document Permissions}):
+
+@example
+@@insertcopying
+@end example
+
+Follow the copying text by the publisher, ISBN numbers, cover art
+credits, and other such information.
+
+Here is an example putting all this together:
+
+@example
+@@titlepage
+@dots{}
+@@page
+@@vskip 0pt plus 1filll
+@@insertcopying
+
+Published by @dots{}
+
+Cover art by @dots{}
+@@end titlepage
+@end example
+
 
 The following subsubsections explain the two ways that the @code{@@titlepage}
 command might be used within a Texinfo document to produce a title page,
@@ -1879,80 +1941,6 @@ the documentation and the software with the same words.} for the manual.
 This helps readers keep track of which manual is for which version of
 the program.  (The `Top' node should also contain this information; see
 @ref{The Top Node}.)
-
-
-@node Copyright
-@nodedescriptionblock
-How to write the copyright notice and include copying permissions.
-@end nodedescriptionblock
-@subsection Copyright Page
-@cindex Copyright page
-@cindex Printed permissions
-@cindex Permissions, printed
-
-By international treaty, the copyright notice for a book must be either
-on the title page or on the back of the title page.  When the copyright
-notice is on the back of the title page, that page is customarily not
-numbered.  Therefore, in Texinfo, the information on the copyright page
-should be within @code{@@titlepage} and @code{@@end titlepage}
-commands.
-
-@findex vskip @r{@TeX{} vertical skip}
-@cindex filll @r{@TeX{} dimension}
-Use the @code{@@page} command to cause a page break.  To push the
-copyright notice and the other text on the copyright page towards the
-bottom of the page, use the following incantation after @code{@@page}:
-
-@example
-@@vskip 0pt plus 1filll
-@end example
-
-@noindent
-The @code{@@vskip} command inserts whitespace in the @TeX{} output; it
-is ignored in all other output formats.  The @samp{0pt plus 1filll}
-means to put in zero points of mandatory whitespace, and as much
-optional whitespace as needed to push the following text to the bottom
-of the page.  Note the use of three @samp{l}s in the word
-@samp{filll}; this is correct.
-
-To insert the copyright text itself, write @code{@@insertcopying}
-next (@pxref{Document Permissions}):
-
-@example
-@@insertcopying
-@end example
-
-Follow the copying text by the publisher, ISBN numbers, cover art
-credits, and other such information.
-
-Here is an example putting all this together:
-
-@example
-@@titlepage
-@dots{}
-@@page
-@@vskip 0pt plus 1filll
-@@insertcopying
-
-Published by @dots{}
-
-Cover art by @dots{}
-@@end titlepage
-@end example
-
-We have one more special case to consider: for plain text output, you
-must insert the copyright information explicitly if you want it to
-appear.  For instance, you could have the following after the copyright
-page:
-
-@example
-@@ifplaintext
-@@insertcopying
-@@end ifplaintext
-@end example
-
-You could include other title-like information for the plain text
-output in the same place.
 
 
 @node Heading Generation
