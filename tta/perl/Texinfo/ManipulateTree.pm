@@ -130,14 +130,13 @@ foreach my $type ('menu', 'node', 'section', 'toplevel') {
 sub _copy_tree($;$);
 sub _copy_tree($;$)
 {
-  my $current = shift;
-  my $other_trees = shift;
+  my ($current, $other_trees) = @_;
 
   # either a duplicate in a tree (should be rare/avoided) or an
   # element referred to in extra/info, either directly or
   # (probably rare) in the extra element tree that has already
   # been seen in the tree
-  if ($current->{'_copy'}) {
+  if (exists($current->{'_copy'})) {
     #print STDERR "RCT $current ".debug_print_element($current)
     # .": $current->{'_counter'}\n";
     return $current->{'_copy'};
@@ -151,44 +150,38 @@ sub _copy_tree($;$)
   $current->{'_copy'} = $new;
 
   if (exists($current->{'text'})) {
-    if ($current->{'info'} and defined($current->{'info'}->{'inserted'})) {
+    if (exists($current->{'info'})
+        and exists($current->{'info'}->{'inserted'})) {
       $new->{'info'} = {'inserted' => $current->{'info'}->{'inserted'}};
     }
     return $new;
   }
 
   my $command_or_type = '';
-  if (defined($current->{'cmdname'})) {
+  if (exists($current->{'cmdname'})) {
     $new->{'cmdname'} = $current->{'cmdname'};
     $command_or_type = '@'.$current->{'cmdname'};
-  } elsif ($current->{'type'}) {
+  } elsif (exists($current->{'type'})) {
     $command_or_type = $current->{'type'};
   }
 
   #print STDERR "CTNEW $current ".debug_print_element($current)." $new\n";
 
-  foreach my $key ('contents') {
-    if ($current->{$key}) {
-      if (ref($current->{$key}) ne 'ARRAY') {
-        my $command_or_type = '';
-        if ($new->{'cmdname'}) {
-          $command_or_type = '@'.$new->{'cmdname'};
-        } elsif ($new->{'type'}) {
-          $command_or_type = $new->{'type'};
-        }
-        print STDERR "BUG: Not an array [$command_or_type] $key ".
-                                             ref($current->{$key})."\n";
-      }
-      $new->{$key} = [];
-      foreach my $child (@{$current->{$key}}) {
-        my $added = _copy_tree($child, $other_trees);
-        $added->{'parent'} = $new unless(exists($added->{'text'}));
-        push @{$new->{$key}}, $added;
-      }
+  if (exists($current->{'contents'})) {
+    if (ref($current->{'contents'}) ne 'ARRAY') {
+      print STDERR "BUG: Not an array [$command_or_type] 'contents' ".
+                                           ref($current->{'contents'})."\n";
+    }
+    $new->{'contents'} = [];
+    foreach my $child (@{$current->{'contents'}}) {
+      my $added = _copy_tree($child, $other_trees);
+      $added->{'parent'} = $new unless(exists($added->{'text'}));
+      push @{$new->{'contents'}}, $added;
     }
   }
+
   foreach my $info_type ('info', 'extra') {
-    next if (!$current->{$info_type});
+    next if (!exists($current->{$info_type}));
     $new->{$info_type} = {};
     foreach my $key (sort(keys(%{$current->{$info_type}}))) {
       my $value = $current->{$info_type}->{$key};
@@ -222,15 +215,15 @@ sub _copy_tree($;$)
         }
         if ($extra_directions{$key}) {
           $new->{$info_type}->{$key} = {};
-          foreach my $direction (sort (keys(%$value))) {
+          foreach my $direction (sort(keys(%$value))) {
             my $target = $value->{$direction};
             $new->{$info_type}->{$key}->{$direction}
               = _copy_tree($target, $other_trees);
           }
         } else {
-          if (not defined($value->{'cmdname'}) and not defined($value->{'type'})
-              and not defined($value->{'text'}) and not defined($value->{'extra'})
-              and not defined($value->{'contents'})
+          if (not exists($value->{'cmdname'}) and not exists($value->{'type'})
+              and not exists($value->{'text'}) and not exists($value->{'extra'})
+              and not exists($value->{'contents'})
               and scalar(keys(%$value))) {
             print STDERR "HASH NOT ELEMENT $info_type [$command_or_type]{$key}\n";
           }
@@ -248,20 +241,18 @@ sub _copy_tree($;$)
 sub _remove_element_copy_info($;$$);
 sub _remove_element_copy_info($;$$)
 {
-  my $current = shift;
-  my $level = shift;
-  my $added_root_elements = shift;
+  my ($current, $level, $added_root_elements) = @_;
 
   my $command_or_type = '';
-  if ($current->{'cmdname'}) {
+  if (exists($current->{'cmdname'})) {
     $command_or_type = '@'.$current->{'cmdname'};
-  } elsif ($current->{'type'}) {
+  } elsif (exists($current->{'type'})) {
     $command_or_type = $current->{'type'};
   }
 
   $level = 0 if (!defined($level));
 
-  if (!$current->{'_copy'}) {
+  if (!exists($current->{'_copy'})) {
     #print STDERR "DONE $current ".debug_print_element($current)."\n";
     return;
   }
@@ -279,18 +270,16 @@ sub _remove_element_copy_info($;$$)
   #print STDERR (' ' x $level)
   #   .Texinfo::Common::debug_print_element($current).": $current\n";
 
-  foreach my $key ('contents') {
-    if ($current->{$key}) {
-      my $index = 0;
-      foreach my $child (@{$current->{$key}}) {
-        _remove_element_copy_info($child, $level, $added_root_elements);
-        $index++;
-      }
+  if (exists($current->{'contents'})) {
+    my $index = 0;
+    foreach my $child (@{$current->{'contents'}}) {
+      _remove_element_copy_info($child, $level, $added_root_elements);
+      $index++;
     }
   }
 
   foreach my $info_type ('info', 'extra') {
-    next if (!$current->{$info_type});
+    next if (!exists($current->{$info_type}));
     foreach my $key (sort(keys(%{$current->{$info_type}}))) {
       my $value = $current->{$info_type}->{$key};
       #print STDERR (' ' x $level) . "K $info_type $key |$value\n";
@@ -317,9 +306,9 @@ sub _remove_element_copy_info($;$$)
                                       $added_root_elements);
           }
         } else {
-          if (not defined($value->{'cmdname'}) and not defined($value->{'type'})
-              and not defined($value->{'text'}) and not defined($value->{'extra'})
-              and not defined($value->{'contents'})
+          if (not exists($value->{'cmdname'}) and not exists($value->{'type'})
+              and not exists($value->{'text'}) and not exists($value->{'extra'})
+              and not exists($value->{'contents'})
               and scalar(keys(%$value))) {
             print STDERR "HASH NOT ELEMENT $info_type [$command_or_type]{$key}\n";
           }
@@ -337,18 +326,17 @@ sub _remove_element_copy_info($;$$)
 # followed and subtree roots should be put in there.
 sub copy_tree($;$)
 {
-  my $current = shift;
-  my $added_root_elements = shift;
+  my ($current, $added_root_elements) = @_;
 
   my $other_trees;
-  if ($added_root_elements) {
+  if (defined($added_root_elements)) {
     $other_trees = {};
   }
 
   my $copy = _copy_tree($current, $other_trees);
   _remove_element_copy_info($current, $copy, $added_root_elements);
 
-  if ($added_root_elements) {
+  if (defined($added_root_elements)) {
     $added_root_elements = [ grep {$_ ne $current} @$added_root_elements ];
   }
 
@@ -358,18 +346,17 @@ sub copy_tree($;$)
 # Never overriden by XS version
 sub copy_treeNonXS($;$)
 {
-  my $current = shift;
-  my $added_root_elements = shift;
+  my ($current, $added_root_elements) = @_;
 
   my $other_trees;
-  if ($added_root_elements) {
+  if (defined($added_root_elements)) {
     $other_trees = {};
   }
 
   my $copy = _copy_tree($current, $other_trees);
   _remove_element_copy_info($current, $copy, $added_root_elements);
 
-  if ($added_root_elements) {
+  if (defined($added_root_elements)) {
     $added_root_elements = [ grep {$_ ne $current} @$added_root_elements ];
   }
 
@@ -378,8 +365,8 @@ sub copy_treeNonXS($;$)
 
 sub copy_contents($;$)
 {
-  my $element = shift;
-  my $type = shift;
+  my ($element, $type) = @_;
+
   # Done for consistenct, but not sure that it is needed
   my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
   my $copy = copy_tree($tmp);
@@ -391,8 +378,8 @@ sub copy_contents($;$)
 
 sub copy_contentsNonXS($;$)
 {
-  my $element = shift;
-  my $type = shift;
+  my ($element, $type) = @_;
+
   my $tmp = {'contents' => $element->{'contents'}};
   my $copy = copy_treeNonXS($tmp);
   if (defined($type)) {
@@ -410,10 +397,9 @@ sub set_element_tree_numbers($$);
 # is selected, so this function has no effect.
 sub set_element_tree_numbers($$)
 {
-  my $element = shift;
-  my $current_nr = shift;
+  my ($element, $current_nr) = @_;
 
-  if (defined($element->{'text'})) {
+  if (exists($element->{'text'})) {
     return $current_nr;
   }
 
@@ -422,7 +408,7 @@ sub set_element_tree_numbers($$)
 
   my $builtin_cmdname;
 
-  if ($type and $type eq 'definfoenclose_command') {
+  if (defined($type) and $type eq 'definfoenclose_command') {
     $builtin_cmdname = 'definfoenclose_command';
   } elsif (defined($cmdname)) {
     $builtin_cmdname = $cmdname;
@@ -439,7 +425,7 @@ sub set_element_tree_numbers($$)
     $current_nr++;
   }
 
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     foreach my $content (@{$element->{'contents'}}) {
       $current_nr = set_element_tree_numbers($content, $current_nr);
     }
@@ -453,14 +439,10 @@ sub print_tree_details($$$$;$$);
 
 sub _print_source_marks($$$$;$$)
 {
-  my $element = shift;
-  my $level = shift;
-  my $prepended = shift;
-  my $current_nr = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($element, $level, $prepended, $current_nr, $fname_encoding,
+      $use_filename) = @_;
 
-  return ($current_nr, '') if (!$element->{'source_marks'});
+  return ($current_nr, '') if (!exists($element->{'source_marks'}));
 
   my $s_mark_prepended;
   if (defined($prepended)) {
@@ -478,15 +460,15 @@ sub _print_source_marks($$$$;$$)
       $result .= "$s_mark->{'status'};";
     }
     $result .= "$s_mark->{'counter'}>";
-    if (defined($s_mark->{'position'})) {
+    if (exists($s_mark->{'position'})) {
       $result .= "<p:$s_mark->{'position'}>";
     }
-    if (defined($s_mark->{'line'})) {
+    if (exists($s_mark->{'line'})) {
       $result .= '{'._debug_protect_eol($s_mark->{'line'}).'}';
     }
     $result .= "\n";
 
-    if ($s_mark->{'element'}) {
+    if (exists($s_mark->{'element'})) {
       my $element_result;
       ($current_nr, $element_result)
        = print_tree_details($s_mark->{'element'}, $level+1,
@@ -501,11 +483,7 @@ sub _print_source_marks($$$$;$$)
 
 sub _print_text_element($$$;$$)
 {
-  my $element = shift;
-  my $level = shift;
-  my $prepended = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($element, $level, $prepended, $fname_encoding, $use_filename) = @_;
 
   my $result = '';
   if (exists($element->{'info'}) and $element->{'info'}->{'inserted'}) {
@@ -532,12 +510,8 @@ my $ADDITIONAL_INFO_PREPEND = '|';
 
 sub _print_element_add_prepend_info($$$$;$$)
 {
-  my $element = shift;
-  my $level = shift;
-  my $prepended = shift;
-  my $current_nr = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($element, $level, $prepended, $current_nr, $fname_encoding,
+      $use_filename) = @_;
 
   my $info_prepended;
   if (defined($prepended)) {
@@ -576,7 +550,7 @@ sub element_number_or_error($)
     cluck("element_number_or_error: not an hash: $element\n");
   }
 
-  if (defined($element->{'_number'})) {
+  if (exists($element->{'_number'})) {
     return "E$element->{'_number'}";
   } else {
     return "MISSING: ".Texinfo::Common::debug_print_element($element);
@@ -587,13 +561,13 @@ sub _print_root_command($)
 {
   my $element = shift;
 
-  if (!defined($element) or !defined($element->{'contents'})) {
+  if (!defined($element) or !exists($element->{'contents'})) {
     confess("_print_root_command: unexpected element");
   }
 
   my $argument_line = $element->{'contents'}->[0];
-  if ($argument_line->{'contents'}
-      and $argument_line->{'contents'}->[0]->{'contents'}) {
+  if (exists($argument_line->{'contents'})
+      and exists($argument_line->{'contents'}->[0]->{'contents'})) {
     my $root_command_texi
       = Texinfo::Convert::Texinfo::convert_to_texinfo(
          Texinfo::TreeElement::new(
@@ -609,9 +583,9 @@ sub root_command_element_string($)
 
   my $root_command_texi = _print_root_command($element);
 
-  if ($element->{'cmdname'} and $element->{'cmdname'} ne 'node') {
-    if ($element->{'extra'}
-        and defined($element->{'extra'}->{'section_heading_number'})
+  if (exists($element->{'cmdname'}) and $element->{'cmdname'} ne 'node') {
+    if (exists($element->{'extra'})
+        and exists($element->{'extra'}->{'section_heading_number'})
         and $element->{'extra'}->{'section_heading_number'} ne '') {
       my $result = $element->{'extra'}->{'section_heading_number'};
       if (defined($root_command_texi)) {
@@ -637,13 +611,8 @@ sub _debug_protect_eol($)
 # and out_of_tree_element_name, therefore no call to element_number_or_error
 sub _print_element_associated_info($$$$$;$$)
 {
-  my $associated_info = shift;
-  my $header = shift;
-  my $level = shift;
-  my $prepended = shift;
-  my $current_nr = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($associated_info, $header, $level, $prepended, $current_nr,
+      $fname_encoding, $use_filename) = @_;
 
   my @keys = sort(keys(%$associated_info));
 
@@ -682,7 +651,7 @@ sub _print_element_associated_info($$$$$;$$)
       if ($extra_directions{$key}) {
         my @directions_strings;
         foreach my $d_key (@node_directions_names) {
-          if ($value->{$d_key}) {
+          if (exists($value->{$d_key})) {
             my $e = $value->{$d_key};
             my $element_str = element_number_or_error($e);
             push @directions_strings, "${d_key}->$element_str";
@@ -723,9 +692,7 @@ sub _print_element_associated_info($$$$$;$$)
 
 sub _print_element_source_info($;$$)
 {
-  my $element = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($element, $fname_encoding, $use_filename) = @_;
 
   my $source_info = $element->{'source_info'};
 
@@ -762,11 +729,7 @@ sub _print_element_source_info($;$$)
 
 sub print_element_base($$$;$$)
 {
-  my $element = shift;
-  my $level = shift;
-  my $prepended = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($element, $level, $prepended, $fname_encoding, $use_filename) = @_;
 
   my $result = ' ' x $level;
 
@@ -774,7 +737,7 @@ sub print_element_base($$$;$$)
     $result .= $prepended;
   }
 
-  if (defined($element->{'text'})) {
+  if (exists($element->{'text'})) {
     my $text_result
       = _print_text_element($element, $level, $prepended,
                             $fname_encoding, $use_filename);
@@ -785,11 +748,11 @@ sub print_element_base($$$;$$)
   $result .= '*';
   #$result .= "$element:".refcount($element).": ";
 
-  if (defined($element->{'_number'})) {
+  if (exists($element->{'_number'})) {
     $result .= "$element->{'_number'} ";
   }
 
-  if (defined($element->{'type'})) {
+  if (exists($element->{'type'})) {
     $result .= $element->{'type'};
   }
 
@@ -799,7 +762,7 @@ sub print_element_base($$$;$$)
   }
 
   my $contents_nr = 0;
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     $contents_nr = scalar(@{$element->{'contents'}});
   }
   if ($contents_nr) {
@@ -809,10 +772,11 @@ sub print_element_base($$$;$$)
   $result .= _print_element_source_info($element, $fname_encoding,
                                         $use_filename);
 
-  if (defined($cmdname) and $Texinfo::Commands::root_commands{$cmdname}) {
+  if (defined($cmdname) and $Texinfo::Commands::root_commands{$cmdname}
+      and exists($element->{'contents'})) {
     my $argument_line = $element->{'contents'}->[0];
-    if ($argument_line->{'contents'}
-        and $argument_line->{'contents'}->[0]->{'contents'}) {
+    if (exists($argument_line->{'contents'})
+        and exists($argument_line->{'contents'}->[0]->{'contents'})) {
       my $root_command_texi
         = Texinfo::Convert::Texinfo::convert_to_texinfo(
             Texinfo::TreeElement::new(
@@ -828,12 +792,8 @@ sub print_element_base($$$;$$)
 
 sub print_element_details($$$$;$$)
 {
-  my $element = shift;
-  my $level = shift;
-  my $prepended = shift;
-  my $current_nr = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($element, $level, $prepended, $current_nr, $fname_encoding,
+      $use_filename) = @_;
 
   my $result
       = print_element_base($element, $level, $prepended,
@@ -849,11 +809,11 @@ sub print_element_details($$$$;$$)
     return ($current_nr, $result);
   }
 
-  my $info = $element->{'info'};
-  if ($info) {
+  if (exists($element->{'info'})) {
+    my $info = $element->{'info'};
     my $result_info;
     foreach my $info_oot (@elt_info_names) {
-      if ($info->{$info_oot}) {
+      if (exists($info->{$info_oot})) {
         $current_nr = set_element_tree_numbers($info->{$info_oot},
                                                $current_nr);
       }
@@ -865,12 +825,12 @@ sub print_element_details($$$$;$$)
     $result .= $result_info;
   }
 
-  my $extra = $element->{'extra'};
-  if ($extra) {
+  if (exists($element->{'extra'})) {
     my $result_info;
+    my $extra = $element->{'extra'};
 
     foreach my $extra_oot (@extra_out_of_tree) {
-      if ($extra->{$extra_oot}) {
+      if (exists($extra->{$extra_oot})) {
         $current_nr = set_element_tree_numbers($extra->{$extra_oot},
                                                $current_nr);
       }
@@ -895,9 +855,7 @@ sub print_element_details($$$$;$$)
 # only used for debugging
 sub element_print_details($;$$)
 {
-  my $element = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($element, $fname_encoding, $use_filename) = @_;
 
   return print_element_details($element, 0, 0, 0, $fname_encoding,
                                $use_filename);
@@ -905,18 +863,14 @@ sub element_print_details($;$$)
 
 sub print_tree_details($$$$;$$)
 {
-  my $element = shift;
-  my $level = shift;
-  my $prepended = shift;
-  my $current_nr = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($element, $level, $prepended, $current_nr, $fname_encoding,
+      $use_filename) = @_;
 
   my $result;
   ($current_nr, $result) = print_element_details($element, $level, $prepended,
                                   $current_nr, $fname_encoding, $use_filename);
 
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     foreach my $content (@{$element->{'contents'}}) {
       my $content_result;
       ($current_nr, $content_result)
@@ -934,21 +888,21 @@ sub remove_element_tree_numbers($)
 {
   my $element = shift;
 
-  if (defined($element->{'text'})) {
+  if (exists($element->{'text'})) {
     return;
   }
 
   delete $element->{'_number'};
 
-  if ($element->{'extra'}) {
+  if (exists($element->{'extra'})) {
     foreach my $extra_oot (@extra_out_of_tree) {
-      if ($element->{'extra'}->{$extra_oot}) {
+      if (exists($element->{'extra'}->{$extra_oot})) {
         remove_element_tree_numbers($element->{'extra'}->{$extra_oot});
       }
     }
   }
 
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     foreach my $content (@{$element->{'contents'}}) {
       remove_element_tree_numbers($content);
     }
@@ -962,9 +916,7 @@ sub remove_element_tree_numbers($)
 # are thus commented out.
 sub tree_print_details($;$$)
 {
-  my $tree = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+  my ($tree, $fname_encoding, $use_filename) = @_;
 
   my $result;
 
@@ -988,9 +940,8 @@ sub tree_print_details($;$$)
 sub modify_tree($$;$);
 sub modify_tree($$;$)
 {
-  my $tree = shift;
-  my $operation = shift;
-  my $argument = shift;
+  my ($tree, $operation, $argument) = @_;
+
   #print STDERR "modify_tree tree: $tree\n";
 
   if (!defined($tree)
@@ -1000,7 +951,7 @@ sub modify_tree($$;$)
     return undef;
   }
 
-  if ($tree->{'contents'}) {
+  if (exists($tree->{'contents'})) {
     my $contents_nr = scalar(@{$tree->{'contents'}});
     for (my $i = 0; $i < $contents_nr; $i++) {
       my $new_contents = &$operation('content',
@@ -1061,14 +1012,14 @@ sub protect_comma_in_document($)
 
 sub _new_asis_command_with_text($$;$)
 {
-  my $text = shift;
-  my $parent = shift;
-  my $text_type = shift;
-  my $new_command
-    = Texinfo::TreeElement::new({'cmdname' => 'asis'});
+  my ($text, $parent, $text_type) = @_;
+
+  my $new_command = Texinfo::TreeElement::new({'cmdname' => 'asis'});
+
   if (defined($parent)) {
     $new_command->{'parent'} = $parent;
   }
+
   push @{$new_command->{'contents'}},
         Texinfo::TreeElement::new({'type' => 'brace_container',
                                    'parent' => $new_command});
@@ -1082,8 +1033,7 @@ sub _new_asis_command_with_text($$;$)
 
 sub _protect_text($$)
 {
-  my $current = shift;
-  my $to_protect = shift;
+  my ($current, $to_protect) = @_;
 
   #print STDERR "_protect_text: $to_protect: $current "
   #                         .debug_print_element($current, 1)."\n";
@@ -1094,12 +1044,7 @@ sub _protect_text($$)
     my @result = ();
     my $remaining_text = $current->{'text'};
 
-    my $remaining_source_marks;
     my $current_position = 0;
-    if ($current->{'source_marks'}) {
-      $remaining_source_marks = [@{$current->{'source_marks'}}];
-      delete $current->{'source_marks'};
-    }
     while ($remaining_text) {
       if ($remaining_text =~ s/^(.*?)(($to_protect)+)//) {
         # Note that it includes for completeness the case of $1 eq ''
@@ -1108,7 +1053,7 @@ sub _protect_text($$)
         my $e = Texinfo::TreeElement::new({'text' => $1,});
         $e->{'type'} = $current->{'type'} if (exists($current->{'type'}));
         $current_position = Texinfo::Common::relocate_source_marks(
-                                        $remaining_source_marks, $e,
+                                        $current->{'source_marks'}, $e,
                                         $current_position, length($1));
         if ($e->{'text'} ne '' or exists($e->{'source_marks'})) {
           push @result, $e;
@@ -1121,7 +1066,7 @@ sub _protect_text($$)
                                            'parent' => $e});
             $e->{'contents'} = [$brace_container];
             $current_position = Texinfo::Common::relocate_source_marks(
-                                          $remaining_source_marks, $e,
+                                          $current->{'source_marks'}, $e,
                                           $current_position, 1);
             push @result, $e;
           }
@@ -1130,20 +1075,21 @@ sub _protect_text($$)
                                                     $current->{'type'});
           my $e = $new_asis->{'contents'}->[0]->{'contents'}->[0];
           $current_position = Texinfo::Common::relocate_source_marks(
-                                          $remaining_source_marks, $e,
+                                          $current->{'source_marks'}, $e,
                                           $current_position, length($2));
           push @result, $new_asis;
         }
       } else {
         my $e = Texinfo::TreeElement::new({'text' => $remaining_text,});
-        $e->{'type'} = $current->{'type'} if defined($current->{'type'});
+        $e->{'type'} = $current->{'type'} if (exists($current->{'type'}));
         $current_position = Texinfo::Common::relocate_source_marks(
-                                      $remaining_source_marks, $e,
+                                      $current->{'source_marks'}, $e,
                                       $current_position, length($remaining_text));
         push @result, $e;
         last;
       }
     }
+    $current = undef;
     #print STDERR "_protect_text: Result: @result\n";
     return \@result;
   } else {
@@ -1154,8 +1100,7 @@ sub _protect_text($$)
 
 sub _protect_colon($$)
 {
-  my $type = shift;
-  my $current = shift;
+  my ($type, $current) = @_;
 
   return _protect_text($current, quotemeta(':'));
 }
@@ -1179,8 +1124,7 @@ sub protect_colon_in_document($)
 
 sub _protect_node_after_label($$)
 {
-  my $type = shift;
-  my $current = shift;
+  my ($type, $current) = @_;
 
   return _protect_text($current, '['. quotemeta(".\t,") .']');
 }
@@ -1205,41 +1149,47 @@ sub protect_node_after_label_in_document($)
 sub protect_first_parenthesis($)
 {
   my $element = shift;
+
   confess("BUG: protect_first_parenthesis element undef")
     if (!defined($element));
   confess("BUG: protect_first_parenthesis not a hash")
     if (ref($element) ne 'HASH' and ref($element) ne 'Texinfo::TreeElement');
   #print STDERR "protect_first_parenthesis: $element->{'contents'}\n";
-  return if (!$element->{'contents'} or !scalar(@{$element->{'contents'}}));
+
+  return if (!exists($element->{'contents'}));
 
   my $current_position = 0;
   my $nr_contents = scalar(@{$element->{'contents'}});
   for (my $i = 0; $i < $nr_contents; $i++) {
     my $content = $element->{'contents'}->[$i];
-    return if (!defined($content->{'text'}));
+    return if (!exists($content->{'text'}));
     if ($content->{'text'} eq '') {
       next;
     }
     if ($content->{'text'} =~ /^\(/) {
-      my $remaining_source_marks;
       my $current_position = 0;
-      if ($content->{'source_marks'}) {
-        $remaining_source_marks = [@{$content->{'source_marks'}}];
-        delete $content->{'source_marks'};
-      }
       my $new_asis = _new_asis_command_with_text('(', $element,
                                                  $content->{'type'});
       my $e = $new_asis->{'contents'}->[0]->{'contents'}->[0];
       $current_position = Texinfo::Common::relocate_source_marks(
-                                       $remaining_source_marks, $e,
+                                       $content->{'source_marks'}, $e,
                                        $current_position, length('('));
+
       if ($content->{'text'} !~ /^\($/) {
         $content->{'text'} =~ s/^\(//;
-        $current_position = Texinfo::Common::relocate_source_marks(
-                                      $remaining_source_marks, $content,
-                                $current_position, length($content->{'text'}));
+        if (exists($content->{'source_marks'})) {
+          if (scalar(@{$content->{'source_marks'}})) {
+            foreach my $source_mark (@{$content->{'source_marks'}}) {
+              $source_mark->{'position'} -= length('(');
+            }
+          } else {
+            delete $content->{'source_marks'};
+          }
+        }
       } else {
+        # remove the $content element, everything is in the @asis text now.
         splice (@{$element->{'contents'}}, $i, 1);
+        $content = undef;
       }
       splice (@{$element->{'contents'}}, $i, 0, $new_asis);
     }
@@ -1252,17 +1202,17 @@ sub move_index_entries_after_items($)
   # enumerate or itemize
   my $current = shift;
 
-  return unless ($current->{'contents'});
+  return unless (exists($current->{'contents'}));
 
   my $previous;
   foreach my $item (@{$current->{'contents'}}) {
     #print STDERR "Before proceeding: $previous $item->{'cmdname'} (@{$previous->{'contents'}})\n" if ($previous and $previous->{'contents'});
-    if (defined($previous) and $item->{'cmdname'}
+    if (defined($previous) and exists($item->{'cmdname'})
         and $item->{'cmdname'} eq 'item'
         and exists($previous->{'contents'})) {
 
       my $previous_ending_container;
-      if ($previous->{'contents'}->[-1]->{'type'}
+      if (exists($previous->{'contents'}->[-1]->{'type'})
           and ($previous->{'contents'}->[-1]->{'type'} eq 'paragraph'
                or $previous->{'contents'}->[-1]->{'type'} eq 'preformatted')) {
         # for preformatted, happens if in @itemize/enumerate in @example
@@ -1285,9 +1235,10 @@ sub move_index_entries_after_items($)
       my $last_entry_idx = -1;
       for (my $i = $contents_nr -1; $i >= 0; $i--) {
         my $content = $previous_ending_container->{'contents'}->[$i];
-        if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
+        if (exists($content->{'type'}) 
+            and $content->{'type'} eq 'index_entry_command') {
           $last_entry_idx = $i;
-        } elsif (not ($content->{'cmdname'}
+        } elsif (not (exists($content->{'cmdname'})
                       and ($content->{'cmdname'} eq 'c'
                            or $content->{'cmdname'} eq 'comment'
                      # subentry is not within the index entry in the tree
@@ -1340,11 +1291,11 @@ sub move_index_entries_after_items($)
 
 sub _move_index_entries_after_items($$)
 {
-  my $type = shift;
-  my $current = shift;
+  my ($type, $current) = @_;
 
-  if ($current->{'cmdname'} and ($current->{'cmdname'} eq 'enumerate'
-                                 or $current->{'cmdname'} eq 'itemize')) {
+  if (exists($current->{'cmdname'})
+      and ($current->{'cmdname'} eq 'enumerate'
+           or $current->{'cmdname'} eq 'itemize')) {
     move_index_entries_after_items($current);
   }
   return undef;
@@ -1369,14 +1320,14 @@ sub move_index_entries_after_items_in_document($)
 
 sub _relate_index_entries_to_table_items_in($$)
 {
-  my $table = shift;
-  my $indices_information = shift;
+  my ($table, $indices_information) = @_;
 
-  return unless $table->{'contents'};
+  return unless(exists($table->{'contents'}));
 
   foreach my $table_entry (@{$table->{'contents'}}) {
-    next unless $table_entry->{'contents'} and $table_entry->{'type'}
-      and $table_entry->{'type'} eq 'table_entry';
+    next unless(exists($table_entry->{'contents'})
+                and exists($table_entry->{'type'})
+                and $table_entry->{'type'} eq 'table_entry');
 
     my $term = $table_entry->{'contents'}->[0];
     my $definition;
@@ -1385,7 +1336,7 @@ sub _relate_index_entries_to_table_items_in($$)
     # Move any index entries from the start of a 'table_definition' to
     # the 'table_term'.
     if (defined($table_entry->{'contents'}->[1])
-        and defined($table_entry->{'contents'}->[1]->{'type'})
+        and exists($table_entry->{'contents'}->[1]->{'type'})
         and $table_entry->{'contents'}->[1]->{'type'} eq 'table_definition') {
       $definition = $table_entry->{'contents'}->[1];
       my $nr_index_entry_command = 0;
@@ -1404,14 +1355,14 @@ sub _relate_index_entries_to_table_items_in($$)
       }
     }
 
-    if (defined($term->{'type'}) and $term->{'type'} eq 'table_term') {
+    if (exists($term->{'type'}) and $term->{'type'} eq 'table_term') {
       # Relate the first index_entry_command in the 'table_term' to
       # the term itself.
 
       my $index_entry;
       my $index_element;
       foreach my $content (@{$term->{'contents'}}) {
-        if ($content->{'type'}
+        if (exists($content->{'type'})
             and $content->{'type'} eq 'index_entry_command') {
           if (!$index_entry) {
             my $index_info;
@@ -1421,7 +1372,8 @@ sub _relate_index_entries_to_table_items_in($$)
                               $content->{'extra'}->{'index_entry'},
                               $indices_information);
           }
-        } elsif ($content->{'cmdname'} and $content->{'cmdname'} eq 'item') {
+        } elsif (exists($content->{'cmdname'})
+                 and $content->{'cmdname'} eq 'item') {
           $item = $content unless $item;
         }
         if ($item and $index_entry) {
@@ -1429,7 +1381,7 @@ sub _relate_index_entries_to_table_items_in($$)
           # holds important information.
           $index_entry->{'entry_associated_element'} = $item;
           # also add a reference from element to index entry in index
-          $item->{'extra'} = {} if (!$item->{'extra'});
+          $item->{'extra'} = {} if (!exists($item->{'extra'}));
           $item->{'extra'}->{'associated_index_entry'}
              = [@{$index_element->{'extra'}->{'index_entry'}}];
           last;
@@ -1443,11 +1395,9 @@ sub _relate_index_entries_to_table_items_in($$)
 # the @item that immediately follows or precedes them.
 sub _relate_index_entries_to_table_items($$$)
 {
-  my $type = shift;
-  my $current = shift;
-  my $indices_information = shift;
+  my ($type, $current, $indices_information) = @_;
 
-  if ($current->{'cmdname'} and $current->{'cmdname'} eq 'table') {
+  if (exists($current->{'cmdname'}) and $current->{'cmdname'} eq 'table') {
     _relate_index_entries_to_table_items_in($current, $indices_information);
   }
   return undef;
@@ -1479,7 +1429,7 @@ sub normalized_menu_entry_internal_node($)
 
   foreach my $content (@{$entry->{'contents'}}) {
     if ($content->{'type'} eq 'menu_entry_node') {
-      if ($content->{'extra'}) {
+      if (exists($content->{'extra'})) {
         if (! $content->{'extra'}->{'manual_content'}) {
           return $content->{'extra'}->{'normalized'};
         }
@@ -1493,8 +1443,7 @@ sub normalized_menu_entry_internal_node($)
 # Return $NODE where $NODE is the node referred to by menu entry $ENTRY.
 sub normalized_entry_associated_internal_node($$)
 {
-  my $entry = shift;
-  my $identifier_target = shift;
+  my ($entry, $identifier_target) = @_;
 
   my $normalized_entry_node = normalized_menu_entry_internal_node($entry);
 
@@ -1509,12 +1458,12 @@ sub normalized_entry_associated_internal_node($$)
 # element.  Otherwise, return the 'menu_entry_node' element.
 sub first_menu_node($$)
 {
-  my $node_relations = shift;
-  my $identifier_target = shift;
-  if ($node_relations->{'menus'}) {
+  my ($node_relations, $identifier_target) = @_;
+
+  if (exists($node_relations->{'menus'})) {
     foreach my $menu (@{$node_relations->{'menus'}}) {
       foreach my $menu_content (@{$menu->{'contents'}}) {
-        if ($menu_content->{'type'}
+        if (exists($menu_content->{'type'})
             and $menu_content->{'type'} eq 'menu_entry') {
           my $menu_node
             = normalized_entry_associated_internal_node($menu_content,
@@ -1524,7 +1473,7 @@ sub first_menu_node($$)
           foreach my $content (@{$menu_content->{'contents'}}) {
             if ($content->{'type'} eq 'menu_entry_node') {
               # a reference to an external manual
-              if ($content->{'extra'}
+              if (exists($content->{'extra'})
                   and $content->{'extra'}->{'manual_content'}) {
                 return $content
               }
@@ -1542,20 +1491,16 @@ sub first_menu_node($$)
 
 sub _print_caption_shortcaption($$$$$)
 {
-  my $element = shift;
-  my $float = shift;
-  my $caption_type = shift;
-  my $type = shift;
-  my $float_number = shift;
+  my ($element, $float, $caption_type, $type, $float_number) = @_;
 
   my $caption_texi = "";
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     $caption_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
                                                 $element->{'contents'}->[0]);
   }
 
   my $caption_float;
-  if ($element->{'parent'} ne $float) {
+  if (!exists($element->{'parent'}) or $element->{'parent'} ne $float) {
     $float_number = 'UNDEF' unless(defined($float_number));
     print STDERR "BUG: \@".${element}->{'cmdname'}." $type; $float_number: "
        . "caption_float != float_e: $caption_texi\n";
