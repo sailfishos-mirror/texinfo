@@ -1681,14 +1681,15 @@ for a printed manual.  Here is a basic example:
 @@titlepage
 @@title Sample Title
 @end group
-
-@group
 @@c The following two commands start the copyright page.
 @@page
 @@vskip 0pt plus 1filll
 @@insertcopying
+
+Published by @dots{}
+
+Cover art by @dots{}
 @@end titlepage
-@end group
 @end example
 
 Start the material for the title page and following copyright page
@@ -1699,6 +1700,16 @@ The @code{@@end titlepage} command starts a new page and turns on page
 numbering (@pxref{Heading Generation}).  All the
 material that you want to appear on unnumbered pages should be put
 between the @code{@@titlepage} and @code{@@end titlepage} commands.
+
+The material before the @samp{@@page} line is used for the title page.
+The following subsubsections explain the two ways that the @code{@@titlepage}
+command might be used within a Texinfo document to produce a title page,
+the first closer to the previous method with @code{@@documentinfo},
+the second with more explicit formatting.
+
+However, the copyright page is always produced in the same way with
+@code{@@titlepage}.
+
 
 @anchor{Copyright}
 @subsubheading Copyright Page
@@ -1735,29 +1746,13 @@ next (@pxref{Document Permissions}):
 @@insertcopying
 @end example
 
+@noindent (This is required for outputting the copying text when
+using @code{@@titlepage}, unlike with @code{@@maketitle} where this
+text is output automatically.)
+
 Follow the copying text by the publisher, ISBN numbers, cover art
 credits, and other such information.
 
-Here is an example putting all this together:
-
-@example
-@@titlepage
-@dots{}
-@@page
-@@vskip 0pt plus 1filll
-@@insertcopying
-
-Published by @dots{}
-
-Cover art by @dots{}
-@@end titlepage
-@end example
-
-
-The following subsubsections explain the two ways that the @code{@@titlepage}
-command might be used within a Texinfo document to produce a title page,
-the first closer to the previous method with @code{@@documentinfo},
-the second with more explicit formatting.
 
 
 @node @code{@@title @@subtitle @@author}

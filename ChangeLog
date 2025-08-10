@@ -1,3 +1,10 @@
+2025-08-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (@titlepage):
+	Mention that @insertcopying is needed for @titlepage.  Mention
+	that the copyright page is always produced in the same way.  Combine
+	two examples.
+
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/Converter.pm (%XS_overrides, destroy)
