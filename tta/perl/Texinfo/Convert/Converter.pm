@@ -467,6 +467,13 @@ sub reset_converter($)
 {
 }
 
+# Should be redefined in converters if needed
+# TODO document
+sub converter_destroy($;$)
+{
+  my ($self, $remove_references) = @_;
+}
+
 # XS function frees memory
 sub destroy($;$)
 {
@@ -490,87 +497,8 @@ sub destroy($;$)
   delete $self->{'translations'};
   delete $self->{'current_lang_translations'};
 
-  # Plaintext (Info)
-  delete $self->{'index_entries_line_location'};
-
-  # LaTeX
-  delete $self->{'index_entries'};
-  delete $self->{'settitle_tree'};
-  delete $self->{'normalized_nodes_associated_section'};
-
-  # HTML and Plaintext
-  delete $self->{'current_node'};
-
-  # HTML only, but part of an internal API
-  if (exists($self->{'global_units_directions'})) {
-    foreach my $direction (keys(%{$self->{'global_units_directions'}})) {
-      delete $self->{'global_units_directions'}->{$direction};
-    }
-  }
-
-  # HTML only
-  if (exists($self->{'converter_info'})) {
-    foreach my $key ('document', 'simpletitle_tree', 'title_tree') {
-      delete $self->{'converter_info'}->{$key};
-    }
-  }
-
-  delete $self->{'current_root_command'};
-
-  # a separate cache used if the user defines the translate_message function.
-  delete $self->{'translation_cache'};
-
-  # remove shared conversion states pointing to elements
-  if (exists($self->{'shared_conversion_state'})) {
-    if (exists($self->{'shared_conversion_state'}->{'nodedescription'})
-        and exists($self->{'shared_conversion_state'}->{'nodedescription'}
-                               ->{'formatted_nodedescriptions'})) {
-      delete $self->{'shared_conversion_state'}->{'nodedescription'}
-                               ->{'formatted_nodedescriptions'};
-    }
-    if (exists($self->{'shared_conversion_state'}->{'quotation'})
-        and exists($self->{'shared_conversion_state'}->{'quotation'}
-                                       ->{'elements_authors'})) {
-      delete $self->{'shared_conversion_state'}->{'quotation'}
-                                       ->{'elements_authors'};
-    }
-  }
-
-  if (exists($self->{'no_arg_commands_formatting'})) {
-    foreach my $cmdname (keys(%{$self->{'no_arg_commands_formatting'}})) {
-      my $no_arg_command_ctx = $self->{'no_arg_commands_formatting'}->{$cmdname};
-      foreach my $context (keys(%{$no_arg_command_ctx})) {
-        my $tree = $no_arg_command_ctx->{$context}->{'translated_tree'};
-        if (defined($tree)) {
-          # always a copy
-          Texinfo::ManipulateTree::tree_remove_parents($tree);
-          if ($remove_references) {
-            delete $no_arg_command_ctx->{$context}->{'translated_tree'};
-            Texinfo::ManipulateTree::tree_remove_references($tree);
-          }
-        }
-      }
-    }
-  }
-
-  # could have been better to remove references to trees only, but it
-  # requires analysing the key names.
-  delete $self->{'special_unit_info'};
-  delete $self->{'translated_special_unit_info'};
-
-  if (exists($self->{'targets'})) {
-    foreach my $command (keys(%{$self->{'targets'}})) {
-      my $target = $self->{'targets'}->{$command};
-      # can be tree elements or results of translations through cdt
-      delete $target->{'tree'};
-      delete $target->{'tree_nonumber'};
-      # tree elements
-      delete $target->{'name_tree'};
-      delete $target->{'name_tree_nonumber'};
-      delete $target->{'root_element_command'};
-      delete $target->{'node_command'};
-    }
-  }
+  # output format converter specific
+  $self->converter_destroy($remove_references);
 
   #find_cycle($self);
   $self = undef;

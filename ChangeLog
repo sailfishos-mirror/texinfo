@@ -1,5 +1,14 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (converter_destroy, destroy),
+	tta/perl/Texinfo/Convert/HTML.pm (converter_destroy),
+	tta/perl/Texinfo/Convert/LaTeX.pm (converter_destroy),
+	tta/perl/Texinfo/Convert/Plaintext.pm (converter_destroy): add
+	converter_destroy to the Perl converter API, called in Converter
+	destroy, defined by each of the converters that need to.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm, tta/perl/Texinfo/ManipulateTree.pm
 	(tree_remove_parents, tree_remove_references): move
 	tree_remove_parents and tree_remove_references to

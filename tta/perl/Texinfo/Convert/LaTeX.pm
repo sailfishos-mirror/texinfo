@@ -857,6 +857,14 @@ sub converter_initialize($)
   return $self;
 }
 
+sub converter_destroy($;$) {
+  my ($self, $remove_references) = @_;
+
+  delete $self->{'index_entries'};
+  delete $self->{'settitle_tree'};
+  delete $self->{'normalized_nodes_associated_section'};
+}
+
 sub conversion_initialization($;$)
 {
   my $self = shift;

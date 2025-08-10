@@ -566,6 +566,13 @@ sub converter_initialize($)
   return $self;
 }
 
+sub converter_destroy($;$) {
+  my ($self, $remove_references) = @_;
+
+  delete $self->{'index_entries_line_location'};
+  delete $self->{'current_node'};
+}
+
 sub conversion_finalization($)
 {
   my $self = shift;
