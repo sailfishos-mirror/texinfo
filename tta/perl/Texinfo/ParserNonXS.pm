@@ -166,10 +166,10 @@ my %parser_document_state_initialization = (
   # parsing information still relevant at the end of the parsing
   'kbdinputstyle' => 'distinct',  #
   'source_mark_counters' => {},   #
-  'current_node'    => undef,     # last seen node relations.
-  'current_section' => undef,     # last seen section relations.
-  'current_part'    => undef,     # last seen part relations.
-  'internal_space_holder' => undef,
+  #'current_node'    => undef,     # last seen node relations.
+  #'current_section' => undef,     # last seen section relations.
+  #'current_part'    => undef,     # last seen part relations.
+  #'internal_space_holder' => undef, # probably not so relevant at the end.
    # the element associated with the last internal spaces element added.
    # We know that there can only be one at a time as a non space
    # character should always lead to abort_empty_line or another
@@ -3092,7 +3092,7 @@ sub _move_last_space_to_element($$) {
   $owning_element->{'info'} = {} if (!exists($owning_element->{'info'}));
   $owning_element->{'info'}->{'spaces_before_argument'}
     = $spaces_before_argument;
-  $self->{'internal_space_holder'} = undef;
+  delete $self->{'internal_space_holder'};
 }
 
 # each time a new line appeared, a container is opened to hold the text
@@ -3624,10 +3624,10 @@ sub _enter_index_entry($$$$) {
   if (@{$self->{'nesting_context'}->{'regions_stack'}} > 0) {
     $element->{'extra'}->{'element_region'}
       = $self->{'nesting_context'}->{'regions_stack'}->[-1];
-  } elsif (defined($self->{'current_node'})) {
+  } elsif (exists($self->{'current_node'})) {
     $element->{'extra'}->{'element_node'}
       = $self->{'current_node'}->{'element'}->{'extra'}->{'normalized'};
-  } elsif (!defined($self->{'current_section'})) {
+  } elsif (!exists($self->{'current_section'})) {
     # NOTE depending on the location, format and presence of @printindex,
     # an index entry out of node and sections may be correctly formatted (or
     # rightfully ignored).  For example if there is no printindex and the index
@@ -3737,7 +3737,7 @@ sub _associate_title_command_anchor($$$) {
 sub _get_current_node_relations($$) {
   my ($self, $document) = @_;
 
-  if (defined($self->{'current_node'})
+  if (exists($self->{'current_node'})
       and exists($self->{'current_node'}->{'extra'})
       and $self->{'current_node'}->{'extra'}->{'node_number'}) {
     my $current_node = $self->{'current_node'};
@@ -4012,7 +4012,7 @@ sub _end_line_misc_line($$$) {
         = _add_to_relations_list($document, 'node', $current);
       $self->{'current_node'} = $node_relations;
     }
-    if (defined($self->{'current_part'})) {
+    if (exists($self->{'current_part'})) {
       my $part_relations = $self->{'current_part'};
       if (not $part_relations->{'part_associated_section'}
           and $node_relations) {
@@ -4157,8 +4157,8 @@ sub _end_line_misc_line($$$) {
   }
 
   if ($command eq 'setfilename'
-      and (defined($self->{'current_node'})
-           or defined($self->{'current_section'}))) {
+      and (exists($self->{'current_node'})
+           or exists($self->{'current_section'}))) {
     _command_warn($self, $misc_cmd,
              __("\@%s after the first element"), $command);
   # columnfractions
@@ -4185,7 +4185,7 @@ sub _end_line_misc_line($$$) {
     # associate the section (not part) with the current node.
     if ($command ne 'node' and $command ne 'part') {
       # associate section with the current node as its title.
-      if (defined($self->{'current_node'})) {
+      if (exists($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
         _associate_title_command_anchor($node_relations, $command_element,
                                         $section_relations);
@@ -4194,7 +4194,7 @@ sub _end_line_misc_line($$$) {
           $section_relations->{'associated_node'} = $node_relations;
         }
       }
-      if (defined($self->{'current_part'})) {
+      if (exists($self->{'current_part'})) {
         my $part_relations = $self->{'current_part'};
         $section_relations->{'associated_part'} = $part_relations;
         $part_relations->{'part_associated_section'} = $section_relations;
@@ -4207,7 +4207,7 @@ sub _end_line_misc_line($$$) {
       $self->{'current_section'} = $section_relations;
     } elsif ($command eq 'part') {
       $self->{'current_part'} = $section_relations;
-      if (defined($self->{'current_node'})) {
+      if (exists($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
         if (!exists($node_relations->{'associated_section'})) {
           _line_warn($self, sprintf(__(
@@ -4221,7 +4221,7 @@ sub _end_line_misc_line($$$) {
            or $data_cmdname eq 'xrefname') {
     my $heading_relations = _add_to_relations_list($document, 'heading',
                                                    $command_element);
-    if (defined($self->{'current_node'})) {
+    if (exists($self->{'current_node'})) {
       _associate_title_command_anchor($self->{'current_node'},
                                     $command_element, $heading_relations);
     }
@@ -6155,7 +6155,7 @@ sub _handle_line_command($$$$$$) {
       $command_e = Texinfo::TreeElement::new({ 'cmdname' => $command,
                                       'source_info' => {%$source_info} });
       if ($command eq 'nodedescription') {
-        if (defined($self->{'current_node'})) {
+        if (exists($self->{'current_node'})) {
           my $node_relations = $self->{'current_node'};
           if (exists($node_relations->{'node_description'})) {
             _line_warn($self, __("multiple node \@nodedescription"),
@@ -6285,13 +6285,13 @@ sub _handle_line_command($$$$$$) {
      "\@author not meaningful outside `\@titlepage' and `\@quotation' environments"),
                            $current->{'source_info'});
       }
-    } elsif ($command eq 'dircategory' and defined($self->{'current_node'})) {
+    } elsif ($command eq 'dircategory' and exists($self->{'current_node'})) {
         _line_warn($self, __("\@dircategory after first node"),
                      $source_info);
     } elsif ($command eq 'printindex') {
       # Record that @printindex occurs in this node so we know it
       # is an index node.
-      if (defined($self->{'current_node'})) {
+      if (exists($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
         $node_relations->{'element'}->{'extra'} = {}
            if (!exists($node_relations->{'element'}->{'extra'}));
@@ -6393,7 +6393,7 @@ sub _handle_block_command($$$$$) {
       _push_context($self, 'ct_preformatted', $command);
       push @{$self->{'document'}->{'commands_info'}->{'dircategory_direntry'}},
            $block if ($command eq 'direntry');
-      if (defined($self->{'current_node'})) {
+      if (exists($self->{'current_node'})) {
         if ($command eq 'direntry') {
           my $format_menu = $self->{'conf'}->{'FORMAT_MENU'};
           if ($format_menu eq 'menu' or $format_menu eq 'menu_no_detailmenu') {
@@ -6418,7 +6418,7 @@ sub _handle_block_command($$$$$) {
     # been initialized automatically.
       $block->{'items_count'} = 0;
     } elsif ($command eq 'nodedescriptionblock') {
-      if (defined($self->{'current_node'})) {
+      if (exists($self->{'current_node'})) {
         my $node_relations = $self->{'current_node'};
         if (exists($node_relations->{'node_long_description'})) {
           _line_warn($self, __("multiple node \@nodedescriptionblock"),
@@ -8022,7 +8022,7 @@ sub _parse_texi($$$) {
   }
  finished_totally:
 
-  $self->{'internal_space_holder'} = undef;
+  delete $self->{'internal_space_holder'};
 
   while (@{$self->{'conditional_stack'}}) {
     my $cond_info = pop @{$self->{'conditional_stack'}};
@@ -8077,9 +8077,9 @@ sub _parse_texi($$$) {
   }
 
   # TODO if the parser can be reused, could avoid doing that or transfer
-  $self->{'current_node'} = undef;
-  $self->{'current_section'} = undef;
-  $self->{'current_part'} = undef;
+  delete $self->{'current_node'};
+  delete $self->{'current_section'};
+  delete $self->{'current_part'};
 
   # update merged_in for merging hapening after first index merge
   foreach my $index_name (keys(%{$document->{'indices'}})) {
@@ -8415,8 +8415,8 @@ sub _parse_line_command_args($$$) {
                                    $name, $ultimate_idx->{'name'}),
                            $source_info);
         }
-        if (!defined($self->{'current_node'})
-            and !defined($self->{'current_section'})
+        if (!exists($self->{'current_node'})
+            and !exists($self->{'current_section'})
             and !scalar(@{$self->{'nesting_context'}->{'regions_stack'}})) {
           _line_warn($self, sprintf(__(
                      "printindex before document beginning: \@printindex %s"),

@@ -1,5 +1,14 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm
+	(%parser_document_state_initialization, _move_last_space_to_element)
+	(_parse_texi): do not initialize current_node, current_section,
+	current_part and internal_space_holder to undef, and delete them to
+	unset them.
+	Update users.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/OutputUnits.pm (units_directions): check that
 	_label_target_unit_element did not return undef before setting
 	a direction.
