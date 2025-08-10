@@ -1,5 +1,10 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm (parse_node_manual): fix return in case
+	there is no contents.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.tres (test_files_generated_list): add
 	missing_detailmenu_menu_entry_names.
 

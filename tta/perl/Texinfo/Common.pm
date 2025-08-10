@@ -614,8 +614,7 @@ sub relocate_source_marks($$$$) {
 sub parse_node_manual($;$) {
   my ($label_contents_container, $modify_node) = @_;
 
-  return (undef, undef)
-     if (!$label_contents_container->{'contents'});
+  return undef if (!exists($label_contents_container->{'contents'}));
 
   my $contents = $label_contents_container->{'contents'};
 
