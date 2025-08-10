@@ -1696,11 +1696,6 @@ Start the material for the title page and following copyright page
 with @code{@@titlepage} on a line by itself and end it with
 @code{@@end titlepage} on a line by itself.
 
-The @code{@@end titlepage} command starts a new page and turns on page
-numbering (@pxref{Heading Generation}).  All the
-material that you want to appear on unnumbered pages should be put
-between the @code{@@titlepage} and @code{@@end titlepage} commands.
-
 The material before the @samp{@@page} line is used for the title page.
 The following subsubsections explain the two ways that the @code{@@titlepage}
 command might be used within a Texinfo document to produce a title page,
