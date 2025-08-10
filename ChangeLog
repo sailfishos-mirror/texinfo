@@ -1,5 +1,11 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_get_current_node_relations):
+	simplify condition, the current node is always registered in
+	nodes_list.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm
 	(%parser_document_state_initialization, _move_last_space_to_element)
 	(_parse_texi): do not initialize current_node, current_section,

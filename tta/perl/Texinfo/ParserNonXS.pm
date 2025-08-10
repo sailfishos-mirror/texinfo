@@ -3737,9 +3737,7 @@ sub _associate_title_command_anchor($$$) {
 sub _get_current_node_relations($$) {
   my ($self, $document) = @_;
 
-  if (exists($self->{'current_node'})
-      and exists($self->{'current_node'}->{'extra'})
-      and $self->{'current_node'}->{'extra'}->{'node_number'}) {
+  if (exists($self->{'current_node'})) {
     my $current_node = $self->{'current_node'};
     my $nodes_list = $document->nodes_list();
     my $node_relations
