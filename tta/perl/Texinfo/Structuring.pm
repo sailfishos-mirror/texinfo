@@ -2121,15 +2121,9 @@ sub new_complete_menu_master_menu($$$$)
 
 # returns menu contents
 sub _print_down_menus($$$$$$;$);
-sub _print_down_menus($$$$$$;$)
-{
-  my $node = shift;
-  my $up_nodes = shift;
-  my $converter = shift;
-  my $document = shift;
-  my $identifier_target = shift;
-  my $nodes_list = shift;
-  my $use_sections = shift;
+sub _print_down_menus($$$$$$;$) {
+  my ($node, $up_nodes, $converter, $document, $identifier_target, $nodes_list,
+      $use_sections) = @_;
 
   # NOTE the menus are not used directly, the entry of the menus are copied
   # and returned in @master_menu_contents.
@@ -2141,20 +2135,25 @@ sub _print_down_menus($$$$$$;$)
 
   my $node_relations = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
 
-  if ($node_relations->{'menus'} and scalar(@{$node_relations->{'menus'}})) {
+  if (exists($node_relations->{'menus'})
+      and scalar(@{$node_relations->{'menus'}})) {
     # Re-use a menu unless it has an entry that looks like
     # "* label: node.".   The separate label may not give enough
     # detail when used in the Top node, e.g. just "Menu" for the
     # "Info Format Menu" node in the Texinfo manual.
     my $menu_entry_name_found = 0;
-    for my $menu (@{$node_relations->{'menus'}}) {
-      next if !$menu->{'contents'};
-      for my $entry (@{$menu->{'contents'}}) {
-        next if !$entry->{'contents'};
-        for my $entry_content (@{$entry->{'contents'}}) {
-          if (defined($entry_content->{'type'})
-                and $entry_content->{'type'} eq 'menu_entry_name') {
+   MENUS:
+    foreach my $menu (@{$node_relations->{'menus'}}) {
+      next if (!exists($menu->{'contents'}));
+      foreach my $entry (@{$menu->{'contents'}}) {
+        next if (!exists($entry->{'contents'})
+                 or !exists($entry->{'type'})
+                 or $entry->{'type'} ne 'menu_entry');
+        foreach my $entry_content (@{$entry->{'contents'}}) {
+          if (exists($entry_content->{'type'})
+              and $entry_content->{'type'} eq 'menu_entry_name') {
             $menu_entry_name_found = 1;
+            last MENUS;
           }
         }
       }
@@ -2178,7 +2177,7 @@ sub _print_down_menus($$$$$$;$)
   my @node_children;
   foreach my $menu (@menus) {
     foreach my $entry (@{$menu->{'contents'}}) {
-      if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
+      if (exists($entry->{'type'}) and $entry->{'type'} eq 'menu_entry') {
         push @master_menu_contents,
                Texinfo::ManipulateTree::copy_treeNonXS($entry);
         # gather node children to recursively print their menus
@@ -2195,7 +2194,7 @@ sub _print_down_menus($$$$$$;$)
     # Prepend node title
     my $node_name_element;
     my $node_relations = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
-    if ($node_relations->{'associated_section'}) {
+    if (exists($node_relations->{'associated_section'})) {
       my $associated_section
         = $node_relations->{'associated_section'}->{'element'};
       my $arguments_line = $associated_section->{'contents'}->[0];

@@ -1,5 +1,14 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Structuring.pm (_print_down_menus): go out of the
+	loops used to find lenu entry names as soon as a menu entry name is
+	found.  Only look in menu_entry.
+
+	* tta/perl/Texinfo/Structuring.pm (_print_down_menus): use exists or
+	defined if the variable value is not used, change arguments code.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm (parse_node_manual): fix return in case
 	there is no contents.
 
