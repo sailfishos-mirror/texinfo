@@ -96,20 +96,17 @@ sub __p($$) {
 # Return the string but do nothing else, used to mark strings to be translated
 # in the Gettext framework.
 # Can be used in other modules.
-sub gdt($)
-{
+sub gdt($) {
   return $_[0];
 }
 
 # First argument is the translation context.
-sub pgdt($$)
-{
+sub pgdt($$) {
   return $_[1];
 }
 
 # to be used when the context needs to be returned too
-sub pgdt_context($$)
-{
+sub pgdt_context($$) {
   return [$_[0], $_[1]];
 }
 
@@ -228,9 +225,9 @@ foreach my $var (keys(%document_settable_at_commands),
   $valid_customization_options{$var} = 1;
 }
 
-sub valid_customization_option($)
-{
+sub valid_customization_option($) {
   my $option = shift;
+
   return $valid_customization_options{$option};
 }
 
@@ -250,16 +247,13 @@ foreach my $output_format_command ('info', 'plaintext',
 my %build_constants;
 
 # should only be called from the main program, not documented
-sub set_build_constant($$)
-{
-  my $key = shift;
-  my $value = shift;
+sub set_build_constant($$) {
+  my ($key, $value) = @_;
 
   $build_constants{$key} = $value;
 }
 
-sub get_build_constant($)
-{
+sub get_build_constant($) {
   my $key = shift;
 
   return $build_constants{$key};
@@ -280,9 +274,9 @@ foreach my $valid_transformation (
   $valid_tree_transformations{$valid_transformation} = 1;
 }
 
-sub valid_tree_transformation ($)
-{
+sub valid_tree_transformation ($) {
   my $transformation = shift;
+
   return 1 if (defined($transformation)
                and $valid_tree_transformations{$transformation});
   return 0;
@@ -488,10 +482,8 @@ sub warn_unknown_language($) {
 # next functions are for code used in Structuring or Indices in addition
 # to Parser.  Also possibly used in Texinfo::Transformations.
 
-sub _find_end_brace($$)
-{
-  my $text = shift;
-  my $braces_count = shift;
+sub _find_end_brace($$) {
+  my ($text, $braces_count) = @_;
 
   my $before = '';
   while ($braces_count > 0 and length($text)) {
@@ -517,10 +509,9 @@ sub _find_end_brace($$)
 # This only counts opening braces, and returns 0 once all the parentheses
 # are closed
 sub _count_opened_tree_braces($$);
-sub _count_opened_tree_braces($$)
-{
-  my $current = shift;
-  my $braces_count = shift;
+sub _count_opened_tree_braces($$) {
+  my ($current, $braces_count) = @_;
+
   if (defined($current->{'text'})) {
     my ($before, $after);
     ($before, $after, $braces_count) = _find_end_brace($current->{'text'},
@@ -530,8 +521,8 @@ sub _count_opened_tree_braces($$)
 }
 
 sub ultimate_index($$) {
-  my $indices_information = shift;
-  my $index = shift;
+  my ($indices_information, $index) = @_;
+
   while (exists($index->{'merged_in'})) {
     $index = $indices_information->{$index->{'merged_in'}};
   }
@@ -542,15 +533,12 @@ sub ultimate_index($$) {
 # $BEGIN_POSITION and $BEGIN_POSITION + $ADDED_LEN to be relative to
 # $BEGIN_POSITION, and move to element $E.
 # return $BEGIN_POSITION + $ADDED_LEN if there were source marks
-sub relocate_source_marks($$$$)
-{
+sub relocate_source_marks($$$$) {
   my $source_marks = shift;
 
   return undef if (!$source_marks);
 
-  my $e = shift;
-  my $begin_position = shift;
-  my $added_len = shift;
+  my ($e, $begin_position, $added_len) = @_;
 
   my $end_position = $begin_position + $added_len;
 
@@ -623,10 +611,8 @@ sub relocate_source_marks($$$$)
 #
 # Could be documented, but only if there is evidence that this function
 # is useful in user-defined code.
-sub parse_node_manual($;$)
-{
-  my $label_contents_container = shift;
-  my $modify_node = shift;
+sub parse_node_manual($;$) {
+  my ($label_contents_container, $modify_node) = @_;
 
   return (undef, undef)
      if (!$label_contents_container->{'contents'});
@@ -786,8 +772,7 @@ sub parse_node_manual($;$)
 
 # TODO document
 # Used in converters
-sub multitable_columnfractions($)
-{
+sub multitable_columnfractions($) {
   my $multitable = shift;
 
   my $arguments_line = $multitable->{'contents'}->[0];
@@ -807,8 +792,7 @@ sub multitable_columnfractions($)
 # @table, @vtable...) if there is only one argument on the line,
 # it is a brace command but not an accent command and it is empty.
 # also used by the tree only interface.
-sub block_line_argument_command($)
-{
+sub block_line_argument_command($) {
   my $block_line_arg = shift;
 
   if (exists($block_line_arg->{'contents'})
@@ -832,8 +816,7 @@ sub block_line_argument_command($)
 
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
-sub itemize_line_prepended_element($)
-{
+sub itemize_line_prepended_element($) {
   my $block_line_arg = shift;
 
   my $arg = block_line_argument_command($block_line_arg);
@@ -846,8 +829,7 @@ sub itemize_line_prepended_element($)
   }
 }
 
-sub item_itemize_prepended($)
-{
+sub item_itemize_prepended($) {
   my $element = shift;
 
   # parent line arguments_line type element
@@ -858,8 +840,7 @@ sub item_itemize_prepended($)
 }
 
 # always return something
-sub item_line_block_line_argument_command($)
-{
+sub item_line_block_line_argument_command($) {
   my $block_line_arg = shift;
 
   my $arg = block_line_argument_command($block_line_arg);
@@ -877,8 +858,7 @@ sub item_line_block_line_argument_command($)
 
 my $default_asis_command = Texinfo::TreeElement::new({'cmdname' => 'asis'});
 
-sub block_item_line_command($)
-{
+sub block_item_line_command($) {
   my $block_line_arg = shift;
 
   my $arg = item_line_block_line_argument_command($block_line_arg);
@@ -889,8 +869,7 @@ sub block_item_line_command($)
   return $arg;
 }
 
-sub find_float_caption_shortcaption($)
-{
+sub find_float_caption_shortcaption($) {
   my $float = shift;
 
   my $caption;
@@ -913,10 +892,8 @@ sub find_float_caption_shortcaption($)
 # TODO document
 # used in Texinfo::Indices and converters
 sub collect_subentries($$);
-sub collect_subentries($$)
-{
-  my $current = shift;
-  my $subentries = shift;
+sub collect_subentries($$) {
+  my ($current, $subentries) = @_;
 
   my $line_arg = $current->{'contents'}->[0];
   foreach my $content (@{$line_arg->{'contents'}}) {
@@ -934,8 +911,7 @@ sub index_entry_referred_entry($$);
 # Used in converters
 sub index_entry_referred_entry($$)
 {
-  my $element = shift;
-  my $referred_cmdname = shift;
+  my ($element, $referred_cmdname) = @_;
 
   my $line_arg = $element->{'contents'}->[0];
 
@@ -968,12 +944,8 @@ sub index_entry_referred_entry($$)
 #
 # Return an array reference with the files found, only one if $ALL_FILES
 # is false, and an array reference with the deprecated directories used.
-sub locate_file_in_dirs($$$;$)
-{
-  my $input_file_path = shift;
-  my $directories = shift;
-  my $all_files = shift;
-  my $deprecated_dirs = shift;
+sub locate_file_in_dirs($$$;$) {
+  my ($input_file_path, $directories, $all_files, $deprecated_dirs) = @_;
 
   my $deprecated_dirs_used;
 
@@ -1013,8 +985,7 @@ sub locate_file_in_dirs($$$;$)
   return undef, undef;
 }
 
-sub processing_output_encoding($)
-{
+sub processing_output_encoding($) {
   my $encoding = shift;
 
   my $perl_encoding;
@@ -1033,8 +1004,7 @@ sub processing_output_encoding($)
   return $perl_encoding;
 }
 
-sub associated_processing_encoding($)
-{
+sub associated_processing_encoding($) {
   my $element = shift;
 
   my $encoding = $element->{'extra'}->{'input_encoding_name'}
@@ -1052,8 +1022,7 @@ sub associated_processing_encoding($)
 #   Otherwise, the -e operator and similar may not work correctly.
 sub encode_file_name($$)
 {
-  my $file_name = shift;
-  my $input_encoding = shift;
+  my ($file_name, $input_encoding) = @_;
 
   my $encoding;
 
@@ -1069,10 +1038,8 @@ sub encode_file_name($$)
   return ($encoded_file_name, $encoding);
 }
 
-sub locate_include_file($;$)
-{
-  my $input_file_path = shift;
-  my $include_directories = shift;
+sub locate_include_file($;$) {
+  my ($input_file_path, $include_directories) = @_;
 
   my $ignore_include_directories = 0;
 
@@ -1115,8 +1082,7 @@ sub locate_include_file($;$)
 }
 
 # TODO document?
-sub informative_command_value($)
-{
+sub informative_command_value($) {
   my $element = shift;
 
   my ($cmdname, $value) = element_value_equivalent($element);
@@ -1153,6 +1119,7 @@ sub informative_command_value($)
 # alternative to @codequoteundirected.
 sub element_value_equivalent($) {
   my $element = shift;
+
   my $cmdname = $element->{'cmdname'};
 
   if ($cmdname eq 'set' or $cmdname eq 'clear') {
@@ -1182,10 +1149,8 @@ sub element_value_equivalent($) {
 # REMARK documentencoding handling is not reverted by resetting a value with
 # set_conf, as the encodings are set using other sources of information
 # (possibly based on @documentencoding) in converter.
-sub set_informative_command_value($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub set_informative_command_value($$) {
+  my ($self, $element) = @_;
 
   my ($cmdname, $value) = informative_command_value($element);
 
@@ -1196,9 +1161,9 @@ sub set_informative_command_value($$)
   return 0;
 }
 
-sub _in_preamble($)
-{
+sub _in_preamble($) {
   my $element = shift;
+
   my $current_element = $element;
   while (exists($current_element->{'parent'})) {
     if (exists($current_element->{'parent'}->{'type'})
@@ -1218,11 +1183,8 @@ sub _in_preamble($)
 # 'last' means setting to the last value for the command in the document.
 #
 # For unique command, the last may be considered to be the same as the first.
-sub get_global_document_command($$$)
-{
-  my $global_commands_information = shift;
-  my $global_command = shift;
-  my $command_location = shift;
+sub get_global_document_command($$$) {
+  my ($global_commands_information, $global_command, $command_location) = @_;
 
   if ($command_location ne 'last' and $command_location ne 'preamble_or_first'
       and $command_location ne 'preamble') {
@@ -1261,12 +1223,9 @@ sub get_global_document_command($$$)
 # Notice that the only effect is to use set_conf (directly or through
 # set_informative_command_value), no @-commands setting side effects are done
 # and associated customization variables are not set/reset either.
-sub set_global_document_command($$$$)
-{
-  my $self = shift;
-  my $global_commands_information = shift;
-  my $global_command = shift;
-  my $command_location = shift;
+sub set_global_document_command($$$$) {
+  my ($self, $global_commands_information, $global_command,
+      $command_location) = @_;
 
   my $element = get_global_document_command($global_commands_information,
                                             $global_command, $command_location);
@@ -1277,10 +1236,8 @@ sub set_global_document_command($$$$)
   return $element;
 }
 
-sub lookup_index_entry($$)
-{
-  my $index_entry_info = shift;
-  my $indices_information = shift;
+sub lookup_index_entry($$) {
+  my ($index_entry_info, $indices_information) = @_;
 
   if (!defined($index_entry_info)) {
     cluck ("BUG: lookup_index_entry: index_entry_info undef\n");
@@ -1301,11 +1258,8 @@ sub lookup_index_entry($$)
 
 # only used from Perl
 # Remove or replace first $REMOVED from $ARRAY
-sub replace_remove_list_element($$;$)
-{
-  my $array = shift;
-  my $removed = shift;
-  my $replacement = shift;
+sub replace_remove_list_element($$;$) {
+  my ($array, $removed, $replacement) = @_;
 
   #if (!defined($array)) {
   #  cluck();
@@ -1323,10 +1277,8 @@ sub replace_remove_list_element($$;$)
   return undef;
 }
 
-sub set_output_encoding($$)
-{
-  my $customization_information = shift;
-  my $document = shift;
+sub set_output_encoding($$) {
+  my ($customization_information, $document) = @_;
 
   my $document_information;
   if (defined($document)) {
@@ -1343,13 +1295,9 @@ sub set_output_encoding($$)
 # The input file encoding can be given as $INPUT_FILE_ENCODING optional
 # argument, it will be used if $DOC_ENCODING_FOR_INPUT_FILE_NAME is
 # undef or set.
-sub input_file_name_encoding($$$;$$)
-{
-  my $name_encoding = shift;
-  my $doc_encoding_for_input_file_name = shift;
-  my $locale_encoding = shift;
-  my $document = shift;
-  my $input_file_encoding = shift;
+sub input_file_name_encoding($$$;$$) {
+  my ($name_encoding, $doc_encoding_for_input_file_name, $locale_encoding,
+      $document, $input_file_encoding) = @_;
 
   my $encoding;
 
@@ -1381,9 +1329,9 @@ my $min_level = $command_structuring_level{'chapter'};
 my $max_level = $command_structuring_level{'subsubsection'};
 
 # Return numbered level of an element, as modified by raise/lowersections
-sub section_level($)
-{
+sub section_level($) {
   my $section = shift;
+
   my $level = $command_structuring_level{$section->{'cmdname'}};
   # correct level according to raise/lowersections
   if (exists($section->{'extra'})
@@ -1406,10 +1354,9 @@ sub section_level($)
 # decomposition used for counting as we start at 0, not 1 for all
 # the factors.  This is in order to get aa and not ba in calling
 # code.
-sub _decompose_integer($$)
-{
-  my $number = shift;
-  my $base = shift;
+sub _decompose_integer($$) {
+  my ($number, $base) = @_;
+
   my @result = ();
 
   while ($number >= 0) {
@@ -1420,10 +1367,8 @@ sub _decompose_integer($$)
   return @result;
 }
 
-sub enumerate_item_representation($$)
-{
-  my $specification = shift;
-  my $number = shift;
+sub enumerate_item_representation($$) {
+  my ($specification, $number) = @_;
 
   if ($specification =~ /^[0-9]+$/) {
     return $specification + $number -1;
@@ -1440,13 +1385,13 @@ sub enumerate_item_representation($$)
 }
 
 sub is_content_empty($;$);
-sub is_content_empty($;$)
-{
-  my $tree = shift;
-  my $do_not_ignore_index_entries = shift;
+sub is_content_empty($;$) {
+  my ($tree, $do_not_ignore_index_entries) = @_;
+
   if (!defined($tree) or !exists($tree->{'contents'})) {
     return 1;
   }
+
   foreach my $content (@{$tree->{'contents'}}) {
     if (exists($content->{'text'})) {
       if ($content->{'text'} =~ /\S/) {
@@ -1519,9 +1464,9 @@ foreach my $command (
 # Return 1 if inline in a running text, 0 if right in top-level or block
 # environment, and undef otherwise.
 # internal, not documented.
-sub element_inline_or_block($)
-{
+sub element_inline_or_block($) {
   my $current = shift;
+
   if (exists($current->{'type'}) and $inline_types{$current->{'type'}}) {
     return 1;
   } else {
@@ -1537,10 +1482,8 @@ sub element_inline_or_block($)
 # return true if in running text context.
 # If $CHECK_CURRENT is set, check the element itself, too, in
 # addition to the parent context.
-sub element_is_inline($;$)
-{
-  my $current = shift;
-  my $check_current = shift;
+sub element_is_inline($;$) {
+  my ($current, $check_current) = @_;
 
   if ($check_current) {
     my $inline_or_block = element_inline_or_block($current);
@@ -1557,9 +1500,9 @@ sub element_is_inline($;$)
 
 
 
-sub normalize_top_node_name($)
-{
+sub normalize_top_node_name($) {
   my $node_name = shift;
+
   if ($node_name =~ /^top$/i) {
     return 'Top';
   }
@@ -1572,10 +1515,8 @@ my $last_encoding;
 
 # Only used in the unmaintained IXIN converter, but could be useful in
 # other converters, so it is better to keep it.
-sub count_bytes($;$)
-{
-  my $string = shift;
-  my $encoding = shift;
+sub count_bytes($;$) {
+  my ($string, $encoding) = @_;
 
   # TODO encoding is unlikely to be ascii, as documentencoding ascii
   # is mapped to output encoding name us-ascii, also it may have been
@@ -1601,8 +1542,7 @@ sub count_bytes($;$)
 # Seems to be used in converter only
 sub index_content_element($;$)
 {
-  my $element = shift;
-  my $prefer_reference_element = shift;
+  my ($element, $prefer_reference_element) = @_;
 
   if (exists($element->{'extra'})
       and exists($element->{'extra'}->{'def_command'})) {
@@ -1618,21 +1558,18 @@ sub index_content_element($;$)
 }
 
 # custom heading command line is split at @|
-sub split_custom_heading_command_contents($)
-{
+sub split_custom_heading_command_contents($) {
   my $element = shift;
-
-  my $result = undef;
-
-  my $nr_split_contents = 0;
 
   my $contents_nr = scalar(@{$element->{'contents'}});
 
   if (!$contents_nr) {
-    return $result;
+    return undef;
   }
 
-  $result = {'contents' => []};
+  my $nr_split_contents = 0;
+
+  my $result = {'contents' => []};
   my $heading_element = {'contents' => []};
   push @{$result->{'contents'}}, $heading_element;
 
@@ -1657,10 +1594,8 @@ sub split_custom_heading_command_contents($)
 
 # not currently used
 sub find_parent_root_command($$);
-sub find_parent_root_command($$)
-{
-  my $self = shift;
-  my $current = shift;
+sub find_parent_root_command($$) {
+  my ($self, $current) = @_;
 
   my $root_command;
   while (1) {
@@ -1700,10 +1635,8 @@ sub find_parent_root_command($$)
 # Used in customization init files code and should be useful in
 # particular in user-defined init files.
 
-sub collect_commands_in_tree($$)
-{
-  my $root = shift;
-  my $commands_list = shift;
+sub collect_commands_in_tree($$) {
+  my ($root, $commands_list) = @_;
 
   my $commands_hash = {};
   foreach my $command_name (@$commands_list) {
@@ -1714,10 +1647,8 @@ sub collect_commands_in_tree($$)
 }
 
 sub _collect_commands_in_tree($$);
-sub _collect_commands_in_tree($$)
-{
-  my $current = shift;
-  my $commands_hash = shift;
+sub _collect_commands_in_tree($$) {
+  my ($current, $commands_hash) = @_;
 
   if (exists($current->{'cmdname'})
       and defined($commands_hash->{$current->{'cmdname'}})) {
@@ -1730,10 +1661,8 @@ sub _collect_commands_in_tree($$)
   }
 }
 
-sub collect_commands_list_in_tree($$)
-{
-  my $root = shift;
-  my $commands_list = shift;
+sub collect_commands_list_in_tree($$) {
+  my ($root, $commands_list) = @_;
 
   my $collected_commands_list = [];
   my $commands_hash = {};
@@ -1745,11 +1674,8 @@ sub collect_commands_list_in_tree($$)
 }
 
 sub _collect_commands_list_in_tree($$$);
-sub _collect_commands_list_in_tree($$$)
-{
-  my $current = shift;
-  my $commands_hash = shift;
-  my $collected_commands_list = shift;
+sub _collect_commands_list_in_tree($$$) {
+  my ($current, $commands_hash, $collected_commands_list) = @_;
 
   if (exists($current->{'cmdname'})
       and defined($commands_hash->{$current->{'cmdname'}})) {
@@ -1767,10 +1693,11 @@ sub _collect_commands_list_in_tree($$$)
 # Common to different module, but not meant to be used in user-defined
 # codes.
 
-sub get_label_element($)
-{
+sub get_label_element($) {
   my $current = shift;
+
   return undef if (!exists($current->{'cmdname'}));
+
   if ($current->{'cmdname'} eq 'node') {
     # first content of arguments_line type element
     return $current->{'contents'}->[0]->{'contents'}->[0];
@@ -1791,13 +1718,8 @@ sub get_label_element($)
 # not given, a document.
 # NOTE it is considered internal and should not be called in user-defined
 # code.  If this changes, should be documented.
-sub converter_or_document_line_warn($$$$;$)
-{
-  my $document = shift;
-  my $converter = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
+sub converter_or_document_line_warn($$$$;$) {
+  my ($document, $converter, $text, $error_location_info, $continuation) = @_;
 
   if (defined($converter)) {
     $converter->converter_line_warn($text, $error_location_info,
@@ -1811,9 +1733,9 @@ sub converter_or_document_line_warn($$$$;$)
 # functions used for debugging.  May be used in other modules.
 # Not documented.
 
-sub _parent_string($)
-{
+sub _parent_string($) {
   my $current = shift;
+
   my $parent_string;
   if (exists($current->{'parent'})) {
     my $parent = $current->{'parent'};
@@ -1826,9 +1748,9 @@ sub _parent_string($)
   return $parent_string
 }
 
-sub debug_command_name($)
-{
+sub debug_command_name($) {
   my $cmdname = shift;
+
   if ($cmdname eq "\n") {
     return '\n';
   } elsif ($cmdname eq "\t") {
@@ -1839,10 +1761,8 @@ sub debug_command_name($)
 }
 
 # informations on a tree element, short version
-sub debug_print_element($;$)
-{
-  my $current = shift;
-  my $print_parent = shift;
+sub debug_print_element($;$) {
+  my ($current, $print_parent) = @_;
 
   if (!defined($current)) {
     return "debug_print_element: UNDEF";
@@ -1885,10 +1805,8 @@ sub debug_print_element($;$)
 }
 
 # for debugging
-sub debug_print_element_details($;$)
-{
-  my $current = shift;
-  my $print_parent = shift;
+sub debug_print_element_details($;$) {
+  my ($current, $print_parent) = @_;
 
   my $string = debug_print_element($current, $print_parent);
   foreach my $key (keys (%$current)) {
@@ -1909,8 +1827,7 @@ sub debug_print_element_details($;$)
   return $string;
 }
 
-sub debug_print_output_unit
-{
+sub debug_print_output_unit($) {
   my $current = shift;
 
   if (!defined($current)) {
@@ -1959,8 +1876,7 @@ sub debug_print_output_unit
 }
 
 # format list for debugging messages
-sub debug_list
-{
+sub debug_list {
   my $label = shift;
   my (@list) = (ref $_[0] && $_[0] =~ /.*ARRAY.*/) ? @{$_[0]} : @_;
 
@@ -1978,8 +1894,7 @@ sub debug_list
 }
 
 # format hash for debugging messages
-sub debug_hash
-{
+sub debug_hash {
   my ($label) = shift;
   my (%hash) = (ref $_[0] && $_[0] =~ /.*HASH.*/) ? %{$_[0]} : @_;
 
@@ -2017,9 +1932,9 @@ foreach my $key (@kept_keys_handle) {
   $kept_keys{$key} = 1;
 }
 sub _filter_print_keys { [grep {$kept_keys{$_}} ( sort keys %{$_[0]} )] };
-sub debug_print_tree($)
-{
+sub debug_print_tree($) {
   my $tree = shift;
+
   local $Data::Dumper::Sortkeys = \&_filter_print_keys;
   local $Data::Dumper::Purity = 1;
   local $Data::Dumper::Indent = 1;

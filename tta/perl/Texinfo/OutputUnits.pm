@@ -115,11 +115,10 @@ sub import {
 # first content (except possibly the first one).  It is important that this
 # function reassociates all the root commands such that the result does not
 # depend on the previous association (if any).
-sub split_by_node($)
-{
+sub split_by_node($) {
   my $document = shift;
-  my $root = $document->tree();
 
+  my $root = $document->tree();
   my $nodes_list = $document->nodes_list();
 
   my $output_units;
@@ -128,16 +127,16 @@ sub split_by_node($)
   push @$output_units, $current;
   my @pending_parts = ();
   foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'part') {
+    if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'part') {
       push @pending_parts, $content;
       next;
     }
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
-        and $content->{'extra'}
-        and defined($content->{'extra'}->{'normalized'})) {
+    if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'node'
+        and exists($content->{'extra'})
+        and exists($content->{'extra'}->{'normalized'})) {
       my $node_relations
         = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
-      if (not $current->{'unit_command'}) {
+      if (not exists($current->{'unit_command'})) {
         $current->{'unit_command'} = $content;
         $current->{'unit_node'} = $node_relations;
       } else {
@@ -145,11 +144,11 @@ sub split_by_node($)
                      'unit_node' => $node_relations,
                     'tree_unit_directions' => {'prev' => $output_units->[-1]}};
         $output_units->[-1]->{'tree_unit_directions'} = {}
-            if (! $output_units->[-1]->{'tree_unit_directions'});
+            if (! exists($output_units->[-1]->{'tree_unit_directions'}));
         $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
         push @$output_units, $current;
       }
-      if ($node_relations->{'associated_section'}) {
+      if (exists($node_relations->{'associated_section'})) {
         $current->{'unit_section'} = $node_relations->{'associated_section'};
       }
     }
@@ -161,7 +160,7 @@ sub split_by_node($)
       @pending_parts = ();
     }
     push @{$current->{'unit_contents'}}, $content;
-    #if (defined($content->{'associated_unit'})) {
+    #if (exists($content->{'associated_unit'})) {
     #  print STDERR "Resetting node associated_unit for $content\n";
     #}
     $content->{'associated_unit'} = $current;
@@ -182,27 +181,27 @@ sub split_by_node($)
 # is no associated node.  It is important that this function reassociates all
 # the root commands such that the result does not depend on the previous
 # association (if any).
-sub split_by_section($)
-{
+sub split_by_section($) {
   my $document = shift;
+
   my $root = $document->tree();
-
-  my $output_units;
-
   my $nodes_list = $document->nodes_list();
   my $sections_list = $document->sections_list();
+
+  my $output_units;
 
   my $current = { 'unit_type' => 'unit' };
   push @$output_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
     my $new_section_relations;
     my $node_relations;
-    if ($content->{'cmdname'}) {
+    if (exists($content->{'cmdname'})) {
       if ($content->{'cmdname'} eq 'node') {
-        if ($content->{'extra'} and $content->{'extra'}->{'node_number'}) {
+        if (exists($content->{'extra'})
+            and $content->{'extra'}->{'node_number'}) {
           $node_relations
             = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
-          if ($node_relations->{'associated_section'}) {
+          if (exists($node_relations->{'associated_section'})) {
             $new_section_relations
               = $node_relations->{'associated_section'};
           }
@@ -211,7 +210,7 @@ sub split_by_section($)
         if ($content->{'cmdname'} eq 'part') {
           my $part_relations
             = $sections_list->[$content->{'extra'}->{'section_number'} -1];
-          if ($part_relations->{'part_associated_section'}) {
+          if (exists($part_relations->{'part_associated_section'})) {
             $new_section_relations
               = $part_relations->{'part_associated_section'};
           }
@@ -227,7 +226,7 @@ sub split_by_section($)
       }
     }
     if ($new_section_relations) {
-      if (not defined($current->{'unit_command'})) {
+      if (not exists($current->{'unit_command'})) {
         $current->{'unit_command'} = $new_section_relations->{'element'};
         $current->{'unit_section'} = $new_section_relations;
         if ($node_relations) {
@@ -242,7 +241,7 @@ sub split_by_section($)
           $current->{'unit_node'} = $node_relations;
         }
         $output_units->[-1]->{'tree_unit_directions'} = {}
-            if (! $output_units->[-1]->{'tree_unit_directions'});
+            if (! exists($output_units->[-1]->{'tree_unit_directions'}));
         $output_units->[-1]->{'tree_unit_directions'}->{'next'} = $current;
         push @$output_units, $current;
       }
@@ -258,19 +257,18 @@ sub split_by_section($)
 
 # remove the association with document units
 # NOTE not documented, but is internally used for tests only.
-sub unsplit($)
-{
+sub unsplit($) {
   my $document = shift;
 
   my $root = $document->tree();
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'}) {
+  if (!exists($root->{'type'}) or $root->{'type'} ne 'document_root'
+      or !exists($root->{'contents'})) {
     return 0;
   }
 
   my $unsplit_needed = 0;
   foreach my $content (@{$root->{'contents'}}) {
-    if ($content->{'associated_unit'}) {
+    if (exists($content->{'associated_unit'})) {
       delete $content->{'associated_unit'};
       $unsplit_needed = 1;
     }
@@ -279,22 +277,17 @@ sub unsplit($)
 }
 
 # does nothing in perl, the XS version reexports the output units
-sub rebuild_output_units($$)
-{
-  my $document = shift;
-  my $output_units = shift;
+sub rebuild_output_units($$) {
+  my ($document, $output_units) = @_;
 }
 
 # Associate top-level units with pages according to the splitting
 # specification.  Set 'first_in_page' on each unit to the unit
 # that is the first in the output page.
-sub split_pages($$$)
-{
-  my $output_units = shift;
-  my $nodes_list = shift;
-  my $split = shift;
+sub split_pages($$$) {
+  my ($output_units, $nodes_list, $split) = @_;
 
-  return if (!$output_units or !scalar(@$output_units));
+  return if (!defined($output_units) or !scalar(@$output_units));
 
   my $split_level;
   if (!$split) {
@@ -313,7 +306,7 @@ sub split_pages($$$)
   my $current_first_in_page;
   foreach my $output_unit (@$output_units) {
     my $level;
-    if ($output_unit->{'unit_section'}) {
+    if (exists($output_unit->{'unit_section'})) {
       $level = $output_unit->{'unit_section'}
                   ->{'element'}->{'extra'}->{'section_level'};
     }
@@ -332,15 +325,16 @@ sub split_pages($$$)
 # if it is a node return the output unit that is supposed to be the
 # target for links to the node.  Otherwise there is no such element (yet),
 # for floats and *anchor, return undef.
-sub _label_target_unit_element($)
-{
+sub _label_target_unit_element($) {
   my $label = shift;
-  if ($label->{'extra'} and $label->{'extra'}->{'manual_content'}) {
+
+  if (exists($label->{'extra'})
+      and exists($label->{'extra'}->{'manual_content'})) {
     # setup an output_unit for consistency with regular output units
     my $external_node_unit = { 'unit_type' => 'external_node_unit',
                                'unit_command' => $label };
     return $external_node_unit;
-  } elsif ($label->{'cmdname'} and $label->{'cmdname'} eq 'node') {
+  } elsif (exists($label->{'cmdname'}) and $label->{'cmdname'} eq 'node') {
     return $label->{'associated_unit'};
   } else {
     # case of a @float or an @*anchor, no target element defined at this stage
@@ -350,35 +344,32 @@ sub _label_target_unit_element($)
 
 # Do output units directions and store them in 'directions'.
 # The directions are only created if pointing to other output units.
-sub units_directions($$$;$)
-{
-  my $identifier_target = shift;
-  my $nodes_list = shift;
-  my $output_units = shift;
-  my $print_debug = shift;
+sub units_directions($$$;$) {
+  my ($identifier_target, $nodes_list, $output_units, $print_debug) = @_;
 
-  return if (!$output_units or !scalar(@$output_units));
+  return if (!defined($output_units) or !scalar(@$output_units));
 
   my $node_top = $identifier_target->{'Top'};
   foreach my $output_unit (@$output_units) {
     my $directions = {};
     $directions->{'This'} = $output_unit;
     $directions->{'Forward'} = $output_unit->{'tree_unit_directions'}->{'next'}
-      if ($output_unit->{'tree_unit_directions'}
-          and $output_unit->{'tree_unit_directions'}->{'next'}
-          and defined($output_unit->{'tree_unit_directions'}->{'next'}
+      if (exists($output_unit->{'tree_unit_directions'})
+          and exists($output_unit->{'tree_unit_directions'}->{'next'})
+          and exists($output_unit->{'tree_unit_directions'}->{'next'}
                                                                ->{'unit_type'})
           and $output_unit->{'tree_unit_directions'}->{'next'}
                                                   ->{'unit_type'} eq 'unit');
     $directions->{'Back'} = $output_unit->{'tree_unit_directions'}->{'prev'}
-      if ($output_unit->{'tree_unit_directions'}
-          and $output_unit->{'tree_unit_directions'}->{'prev'}
-          and defined($output_unit->{'tree_unit_directions'}->{'prev'}
+      if (exists($output_unit->{'tree_unit_directions'})
+          and exists($output_unit->{'tree_unit_directions'}->{'prev'})
+          and exists($output_unit->{'tree_unit_directions'}->{'prev'}
                                                                ->{'unit_type'})
           and $output_unit->{'tree_unit_directions'}->{'prev'}
                                                      ->{'unit_type'} eq 'unit');
     my $node;
-    if ($output_unit->{'unit_node'}) {
+    if (exists($output_unit->{'unit_node'})
+        and exists($output_unit->{'unit_node'}->{'node_directions'})) {
       my $node_relations = $output_unit->{'unit_node'};
       my $node = $node_relations->{'element'};
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
@@ -386,15 +377,15 @@ sub units_directions($$$;$)
         $directions->{$direction->[0]}
            = _label_target_unit_element(
                $node_relations->{'node_directions'}->{$direction->[1]})
-            if ($node_relations->{'node_directions'}
-                and $node_relations->{'node_directions'}->{$direction->[1]});
+          if (exists($node_relations->{'node_directions'}->{$direction->[1]}));
       }
       # Now do NodeForward which is something like the following node.
       my $associated_relations;
       my $argument = $node->{'contents'}->[0];
       my $automatic_directions
         = (scalar(@{$argument->{'contents'}}) <= 1);
-      if ($automatic_directions and $node_relations->{'associated_section'}) {
+      if ($automatic_directions
+          and exists($node_relations->{'associated_section'})) {
         $associated_relations = $node_relations->{'associated_section'};
       }
       my $menu_child
@@ -403,19 +394,19 @@ sub units_directions($$$;$)
       if ($menu_child) {
         $directions->{'NodeForward'}
           = _label_target_unit_element($menu_child);
-      } elsif ($associated_relations
-               and $associated_relations->{'section_children'}
+      } elsif (defined($associated_relations)
+               and exists($associated_relations->{'section_children'})
                and scalar(@{$associated_relations->{'section_children'}})) {
         $directions->{'NodeForward'}
           = $associated_relations
-                  ->{'section_children'}->[0]->{'element'}->{'associated_unit'};
-      } elsif ($node_relations->{'node_directions'}
-               and $node_relations->{'node_directions'}->{'next'}) {
+               ->{'section_children'}->[0]->{'element'}->{'associated_unit'};
+      } elsif (exists($node_relations->{'node_directions'})
+               and exists($node_relations->{'node_directions'}->{'next'})) {
         $directions->{'NodeForward'}
             = _label_target_unit_element(
                   $node_relations->{'node_directions'}->{'next'});
-      } elsif ($node_relations->{'node_directions'}
-               and $node_relations->{'node_directions'}->{'up'}) {
+      } elsif (exists($node_relations->{'node_directions'})
+               and exists($node_relations->{'node_directions'}->{'up'})) {
         my $up = $node_relations->{'node_directions'}->{'up'};
         my @up_list = ($node);
         # the condition with the up_list avoids infinite loops
@@ -423,11 +414,11 @@ sub units_directions($$$;$)
         while (not (grep {$up eq $_} @up_list
                     or ($node_top and $up eq $node_top))) {
           my $up_node_relations;
-          if ($up->{'cmdname'} and $up->{'cmdname'} eq 'node') {
+          if (exists($up->{'cmdname'}) and $up->{'cmdname'} eq 'node') {
             $up_node_relations
               = $nodes_list->[$up->{'extra'}->{'node_number'} -1];
-            if ($up_node_relations->{'node_directions'}
-                and $up_node_relations->{'node_directions'}->{'next'}) {
+            if (exists($up_node_relations->{'node_directions'})
+                and exists($up_node_relations->{'node_directions'}->{'next'})) {
               $directions->{'NodeForward'}
                 = _label_target_unit_element(
                      $up_node_relations->{'node_directions'}->{'next'});
@@ -435,47 +426,47 @@ sub units_directions($$$;$)
             }
           }
           push @up_list, $up;
-          last if (not $up_node_relations
-                   or not $up_node_relations->{'node_directions'}
-                   or not $up_node_relations->{'node_directions'}->{'up'});
+          last if (not defined($up_node_relations)
+                   or not exists($up_node_relations->{'node_directions'})
+                or not exists($up_node_relations->{'node_directions'}->{'up'}));
           $up = $up_node_relations->{'node_directions'}->{'up'};
         }
       }
 
-      if ($directions->{'NodeForward'}
+      if (exists($directions->{'NodeForward'})
           and $directions->{'NodeForward'}->{'unit_type'} eq 'unit'
-          and (!$directions->{'NodeForward'}->{'directions'}
-               or !$directions->{'NodeForward'}->{'directions'}
-                                                  ->{'NodeBack'})) {
+          and (!exists($directions->{'NodeForward'}->{'directions'})
+               or !exists($directions->{'NodeForward'}->{'directions'}
+                                                  ->{'NodeBack'}))) {
         $directions->{'NodeForward'}->{'directions'} = {}
-            if (! $directions->{'NodeForward'}->{'directions'});
+            if (! exists($directions->{'NodeForward'}->{'directions'}));
         $directions->{'NodeForward'}->{'directions'}
                                        ->{'NodeBack'} = $output_unit;
       }
     }
-    if (not $output_unit->{'unit_section'}) {
+    if (not exists($output_unit->{'unit_section'})) {
       # If there is no associated section, find the previous element section.
       # Use the FastForward of this element.
       # Use it as FastBack if the section is top level, or use the FastBack.
       my $section_output_unit;
       my $current_unit = $output_unit;
-      while ($current_unit->{'tree_unit_directions'}
-             and $current_unit->{'tree_unit_directions'}->{'prev'}) {
+      while (exists($current_unit->{'tree_unit_directions'})
+             and exists($current_unit->{'tree_unit_directions'}->{'prev'})) {
         $current_unit = $current_unit->{'tree_unit_directions'}->{'prev'};
         if ($current_unit->{'unit_section'}) {
           $section_output_unit = $current_unit;
           last;
         }
       }
-      if ($section_output_unit) {
+      if (defined($section_output_unit)) {
         my $section = $current_unit->{'unit_section'}->{'element'};
-        if ($section_output_unit->{'directions'}->{'FastForward'}) {
+        if (exists($section_output_unit->{'directions'}->{'FastForward'})) {
           $directions->{'FastForward'}
             = $section_output_unit->{'directions'}->{'FastForward'};
         }
         if ($section->{'extra'}->{'section_level'} <= 1) {
           $directions->{'FastBack'} = $section_output_unit;
-        } elsif ($section_output_unit->{'directions'}->{'FastBack'}) {
+        } elsif (exists($section_output_unit->{'directions'}->{'FastBack'})) {
           $directions->{'FastBack'}
             = $section_output_unit->{'directions'}->{'FastBack'};
         }
@@ -484,18 +475,21 @@ sub units_directions($$$;$)
       my $section_relations = $output_unit->{'unit_section'};
       my $section = $section_relations->{'element'};
       my $section_directions = $section_relations->{'section_directions'};
-      if ($section_directions) {
+      if (exists($section_relations->{'section_directions'})) {
         foreach my $direction(['Up', 'up'], ['Next', 'next'],
                               ['Prev', 'prev']) {
-          my $direction_relation = $section_directions->{$direction->[1]};
+          if (exists($section_relations->{'section_directions'}
+                                                 ->{$direction->[1]})) {
+            my $direction_relation = $section_relations->{'section_directions'}
+                                                   ->{$direction->[1]};
 
-          $directions->{$direction->[0]}
-            = $direction_relation->{'element'}->{'associated_unit'}
-          if ($direction_relation
-              and $direction_relation->{'element'}->{'associated_unit'}
-              and (!$section->{'associated_unit'}
-                   or $direction_relation->{'element'}->{'associated_unit'}
-                        ne $section->{'associated_unit'}));
+            $directions->{$direction->[0]}
+              = $direction_relation->{'element'}->{'associated_unit'}
+               if (exists($direction_relation->{'element'}->{'associated_unit'})
+                   and (!exists($section->{'associated_unit'})
+                        or $direction_relation->{'element'}->{'associated_unit'}
+                           ne $section->{'associated_unit'}));
+          }
         }
       }
 
@@ -503,53 +497,53 @@ sub units_directions($$$;$)
       # element.
       my $up = $section;
       my $up_relations = $section_relations;
-      while ($up->{'extra'}
-             and defined($up->{'extra'}->{'section_level'})
+      while (exists($up->{'extra'})
+             and exists($up->{'extra'}->{'section_level'})
              and $up->{'extra'}->{'section_level'} > 1
-             and $up_relations->{'section_directions'}
-             and $up_relations->{'section_directions'}->{'up'}) {
+             and exists($up_relations->{'section_directions'})
+             and exists($up_relations->{'section_directions'}->{'up'})) {
         $up_relations = $up_relations->{'section_directions'}->{'up'};
         $up = $up_relations->{'element'};
       }
 
-      if ($up->{'extra'}
-          and defined($up->{'extra'}->{'section_level'})
+      if (exists($up->{'extra'})
+          and exists($up->{'extra'}->{'section_level'})
           and $up->{'extra'}->{'section_level'} < 1
-          and $up->{'cmdname'} and $up->{'cmdname'} eq 'top'
-          and $up_relations->{'section_children'}
+          and exists($up->{'cmdname'}) and $up->{'cmdname'} eq 'top'
+          and exists($up_relations->{'section_children'})
           and scalar(@{$up_relations->{'section_children'}})) {
         $directions->{'FastForward'}
            = $up_relations->{'section_children'}->[0]
                                      ->{'element'}->{'associated_unit'};
-      } elsif ($up_relations->{'toplevel_directions'}
-               and $up_relations->{'toplevel_directions'}->{'next'}) {
+      } elsif (exists($up_relations->{'toplevel_directions'})
+               and exists($up_relations->{'toplevel_directions'}->{'next'})) {
         $directions->{'FastForward'}
           = $up_relations->{'toplevel_directions'}->{'next'}
                               ->{'element'}->{'associated_unit'};
-      } elsif ($up_relations->{'section_directions'}
-               and $up_relations->{'section_directions'}->{'next'}) {
+      } elsif (exists($up_relations->{'section_directions'})
+               and exists($up_relations->{'section_directions'}->{'next'})) {
         $directions->{'FastForward'}
           = $up_relations->{'section_directions'}->{'next'}
                               ->{'element'}->{'associated_unit'};
       }
       # if the element isn't at the highest level, fastback is the
       # highest parent element
-      if ($up and $up ne $section
-          and $up->{'associated_unit'}) {
+      if ($up ne $section
+          and exists($up->{'associated_unit'})) {
         $directions->{'FastBack'} = $up->{'associated_unit'};
-      } elsif ($section->{'extra'}
-               and defined($section->{'extra'}->{'section_level'})
+      } elsif (exists($section->{'extra'})
+               and exists($section->{'extra'}->{'section_level'})
                and $section->{'extra'}->{'section_level'} <= 1
-               and $directions->{'FastForward'}) {
+               and exists($directions->{'FastForward'})) {
         # the element is a top level element, we adjust the next
         # toplevel element fastback
         $directions->{'FastForward'}->{'directions'} = {}
-           if (! $directions->{'FastForward'}->{'directions'});
+           if (! exists($directions->{'FastForward'}->{'directions'}));
         $directions->{'FastForward'}->{'directions'}->{'FastBack'}
           = $output_unit;
       }
     }
-    if ($output_unit->{'directions'}) {
+    if (exists($output_unit->{'directions'})) {
       %{$output_unit->{'directions'}}
         = (%{$output_unit->{'directions'}}, %$directions);
     } else {
@@ -566,10 +560,10 @@ sub units_directions($$$;$)
   }
 }
 
-sub units_file_directions($)
-{
+sub units_file_directions($) {
   my $output_units = shift;
-  return if (!$output_units or !@$output_units);
+
+  return if (!defined($output_units) or !scalar(@$output_units));
 
   my $current_filename;
   my $first_unit_in_file;
@@ -577,7 +571,7 @@ sub units_file_directions($)
   # are added to the first element in the file.
   my @first_unit_in_file_directions;
   foreach my $output_unit (@$output_units) {
-    if (defined($output_unit->{'unit_filename'})) {
+    if (exists($output_unit->{'unit_filename'})) {
       my $filename = $output_unit->{'unit_filename'};
       my $current_output_unit = $output_unit;
       if (not defined($current_filename)
@@ -587,11 +581,12 @@ sub units_file_directions($)
             = keys %{$output_unit->{'directions'}};
         $current_filename = $filename;
       }
-      while ($current_output_unit->{'tree_unit_directions'}
-             and $current_output_unit->{'tree_unit_directions'}->{'prev'}) {
+      while (exists($current_output_unit->{'tree_unit_directions'})
+             and exists(
+                  $current_output_unit->{'tree_unit_directions'}->{'prev'})) {
         $current_output_unit
           = $current_output_unit->{'tree_unit_directions'}->{'prev'};
-        if (defined($current_output_unit->{'unit_filename'})) {
+        if (exists($current_output_unit->{'unit_filename'})) {
           if ($current_output_unit->{'unit_filename'} ne $filename) {
             $output_unit->{'directions'}->{'PrevFile'}
                  = $current_output_unit;
@@ -602,11 +597,12 @@ sub units_file_directions($)
         }
       }
       $current_output_unit = $output_unit;
-      while ($current_output_unit->{'tree_unit_directions'}
-             and $current_output_unit->{'tree_unit_directions'}->{'next'}) {
+      while (exists($current_output_unit->{'tree_unit_directions'})
+             and exists(
+                $current_output_unit->{'tree_unit_directions'}->{'next'})) {
         $current_output_unit
           = $current_output_unit->{'tree_unit_directions'}->{'next'};
-        if (defined($current_output_unit->{'unit_filename'})) {
+        if (exists($current_output_unit->{'unit_filename'})) {
           if ($current_output_unit->{'unit_filename'} ne $filename) {
             $output_unit->{'directions'}->{'NextFile'}
                = $current_output_unit;
@@ -637,14 +633,10 @@ sub units_file_directions($)
 # with XS.
 # $UNITS_SPLIT_TYPE: 1 if units are split at node, 0 if units are split
 #                    at sectioning commands.  No output units if undef.
-sub do_units_directions_pages($$;$$)
-{
-  my $document = shift;
-  my $units_split_type = shift;
-  my $split_pages = shift;
-  my $debug = shift;
+sub do_units_directions_pages($$;$$) {
+  my ($document, $units_split_type, $split_pages, $debug) = @_;
 
-  return undef if (!$document or !defined($units_split_type));
+  return undef if (!defined($document) or !defined($units_split_type));
 
   my $output_units;
   if ($units_split_type == 1) {
@@ -653,7 +645,7 @@ sub do_units_directions_pages($$;$$)
     $output_units = split_by_section($document);
   }
   my $nodes_list = $document->nodes_list();
-  if ($output_units) {
+  if (defined($output_units)) {
     my $identifier_target = $document->labels_information();
     units_directions($identifier_target, $nodes_list,
                      $output_units, $debug);
@@ -668,13 +660,14 @@ sub do_units_directions_pages($$;$$)
 
 
 # used in debug messages
-sub output_unit_texi($)
-{
+sub output_unit_texi($) {
   my $output_unit = shift;
-  if (!$output_unit) {
+
+  if (!defined($output_unit)) {
     return "UNDEF OUTPUT UNIT";
   }
-  if (!defined($output_unit->{'unit_type'})) {
+
+  if (!exists($output_unit->{'unit_type'})) {
     # show the output_unit as element, as a possible bug is that
     # an element was passed in argument instead of an output unit
     return "unit $output_unit without type: ".
@@ -699,9 +692,9 @@ sub output_unit_texi($)
                                                          $unit_command);
 }
 
-sub _output_unit_name_string($)
-{
+sub _output_unit_name_string($) {
   my $output_unit = shift;
+
   if ($output_unit->{'unit_type'} eq 'unit') {
     return "[U$output_unit->{'_index'}]";
   } elsif ($output_unit->{'unit_type'} eq 'external_node_unit') {
@@ -725,12 +718,9 @@ my @all_directions_order
     = (@relative_directions_order, @file_directions_order,
        map {'FirstInFile'.$_} @relative_directions_order);
 
-sub print_output_units_details($$;$$)
-{
-  my $output_units = shift;
-  my $current_nr = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+sub print_output_units_details($$;$$) {
+  my ($output_units, $current_nr, $fname_encoding, $use_filename) = @_;
+
   my $result = '';
 
   for (my $i = 0; $i < scalar(@$output_units); $i++) {
@@ -740,12 +730,12 @@ sub print_output_units_details($$;$$)
 
   foreach my $output_unit (@$output_units) {
     $result .= "U$output_unit->{'_index'} $output_unit->{'unit_type'}";
-    if ($output_unit->{'special_unit_variety'}) {
+    if (exists($output_unit->{'special_unit_variety'})) {
       $result .= "-$output_unit->{'special_unit_variety'}";
     }
 
     if ($output_unit->{'unit_type'} ne 'special_unit'
-        and $output_unit->{'unit_command'}) {
+        and exists($output_unit->{'unit_command'})) {
 
       my $additional_info = '';
 
@@ -759,7 +749,7 @@ sub print_output_units_details($$;$$)
       # determine the kind of command by comparing with
       # unit node or unit section.  Also show the texinfo code
       # of the node or section not associated to unit_command.
-      if ($output_unit->{'unit_node'}) {
+      if (exists($output_unit->{'unit_node'})) {
         if ($output_unit->{'unit_node'}->{'element'}
                      eq $output_unit->{'unit_command'}) {
           $node_or_section_indicator = 'N';
@@ -771,7 +761,7 @@ sub print_output_units_details($$;$$)
           $additional_info .= "{n:$node_texi}";
         }
       }
-      if ($output_unit->{'unit_section'}) {
+      if (exists($output_unit->{'unit_section'})) {
         if ($output_unit->{'unit_section'}->{'element'}
                      eq $output_unit->{'unit_command'}) {
           $node_or_section_indicator = 'S';
@@ -787,7 +777,7 @@ sub print_output_units_details($$;$$)
       $result .= $additional_info;
     }
 
-    if (defined($output_unit->{'unit_filename'})) {
+    if (exists($output_unit->{'unit_filename'})) {
       my $file_name = $output_unit->{'unit_filename'};
       if ($use_filename) {
         my ($directories, $suffix);
@@ -799,12 +789,10 @@ sub print_output_units_details($$;$$)
     $result .= "\n";
 
     my @ou_directions_text;
-    if ($output_unit->{'tree_unit_directions'}
-        and ($output_unit->{'tree_unit_directions'}->{'prev'}
-             or $output_unit->{'tree_unit_directions'}->{'next'})) {
+    if (exists($output_unit->{'tree_unit_directions'})) {
       # order should match @node_directions_names
       foreach my $d_name ('next', 'prev') {
-        if ($output_unit->{'tree_unit_directions'}->{$d_name}) {
+        if (exists($output_unit->{'tree_unit_directions'}->{$d_name})) {
           my $direction_output_unit
             = $output_unit->{'tree_unit_directions'}->{$d_name};
           push @ou_directions_text, "${d_name}->"
@@ -813,7 +801,7 @@ sub print_output_units_details($$;$$)
       }
     }
 
-    if ($output_unit->{'first_in_page'}) {
+    if (exists($output_unit->{'first_in_page'})) {
       push @ou_directions_text, 'page' . '->'
          ._output_unit_name_string($output_unit->{'first_in_page'});
     }
@@ -827,10 +815,10 @@ sub print_output_units_details($$;$$)
       $result .= 'unit_directions:D['.join('|', @ou_directions_text)."]\n";
     }
 
-    if ($output_unit->{'directions'}) {
+    if (exists($output_unit->{'directions'})) {
       $result .= "UNIT_DIRECTIONS\n";
       foreach my $direction (@all_directions_order) {
-        if (defined($output_unit->{'directions'}->{$direction})) {
+        if (exists($output_unit->{'directions'}->{$direction})) {
           my $direction_output_unit
             = $output_unit->{'directions'}->{$direction};
           $result .= "${direction}: "
@@ -839,7 +827,7 @@ sub print_output_units_details($$;$$)
       }
     }
 
-    if ($output_unit->{'unit_contents'}) {
+    if (exists($output_unit->{'unit_contents'})) {
       foreach my $element (@{$output_unit->{'unit_contents'}}) {
         my $element_result;
         ($current_nr, $element_result)
@@ -857,12 +845,8 @@ sub print_output_units_details($$;$$)
   return ($current_nr, $result);
 }
 
-sub print_output_units_tree_details($$;$$)
-{
-  my $output_units = shift;
-  my $tree = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+sub print_output_units_tree_details($$;$$) {
+  my ($output_units, $tree, $fname_encoding, $use_filename) = @_;
 
   my $current_nr = 0;
   #$current_nr
@@ -884,12 +868,13 @@ sub print_output_units_tree_details($$;$$)
 sub print_output_unit_directions($)
 {
   my $output_unit = shift;
+
   my $result = 'output unit: '.output_unit_texi($output_unit)."\n";
 
-  if ($output_unit->{'directions'}) {
+  if (exists($output_unit->{'directions'})) {
     #foreach my $direction (sort(keys(%{$output_unit->{'directions'}}))) {
     foreach my $direction (@all_directions_order) {
-      if (defined($output_unit->{'directions'}->{$direction})) {
+      if (exists($output_unit->{'directions'}->{$direction})) {
         $result .= "  $direction: ".
          output_unit_texi($output_unit->{'directions'}->{$direction})."\n";
       }

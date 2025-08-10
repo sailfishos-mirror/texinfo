@@ -128,8 +128,7 @@ foreach my $type ('menu', 'node', 'section', 'toplevel') {
 # that all the references are within one tree.  For now, if undef, the extra
 # references are not followed.
 sub _copy_tree($;$);
-sub _copy_tree($;$)
-{
+sub _copy_tree($;$) {
   my ($current, $other_trees) = @_;
 
   # either a duplicate in a tree (should be rare/avoided) or an
@@ -239,8 +238,7 @@ sub _copy_tree($;$)
 }
 
 sub _remove_element_copy_info($;$$);
-sub _remove_element_copy_info($;$$)
-{
+sub _remove_element_copy_info($;$$) {
   my ($current, $level, $added_root_elements) = @_;
 
   my $command_or_type = '';
@@ -344,8 +342,7 @@ sub copy_tree($;$)
 }
 
 # Never overriden by XS version
-sub copy_treeNonXS($;$)
-{
+sub copy_treeNonXS($;$) {
   my ($current, $added_root_elements) = @_;
 
   my $other_trees;
@@ -363,8 +360,7 @@ sub copy_treeNonXS($;$)
   return $copy;
 }
 
-sub copy_contents($;$)
-{
+sub copy_contents($;$) {
   my ($element, $type) = @_;
 
   # Done for consistenct, but not sure that it is needed
@@ -376,8 +372,7 @@ sub copy_contents($;$)
   return $copy;
 }
 
-sub copy_contentsNonXS($;$)
-{
+sub copy_contentsNonXS($;$) {
   my ($element, $type) = @_;
 
   my $tmp = {'contents' => $element->{'contents'}};
@@ -395,8 +390,7 @@ sub set_element_tree_numbers($$);
 # does nothing as there are no reference to tree elements
 # in the tree extra information currently, consistently no command
 # is selected, so this function has no effect.
-sub set_element_tree_numbers($$)
-{
+sub set_element_tree_numbers($$) {
   my ($element, $current_nr) = @_;
 
   if (exists($element->{'text'})) {
@@ -437,8 +431,7 @@ my $SOURCE_MARK_PREPEND = '>';
 
 sub print_tree_details($$$$;$$);
 
-sub _print_source_marks($$$$;$$)
-{
+sub _print_source_marks($$$$;$$) {
   my ($element, $level, $prepended, $current_nr, $fname_encoding,
       $use_filename) = @_;
 
@@ -481,8 +474,7 @@ sub _print_source_marks($$$$;$$)
   return ($current_nr, $result);
 }
 
-sub _print_text_element($$$;$$)
-{
+sub _print_text_element($$$;$$) {
   my ($element, $level, $prepended, $fname_encoding, $use_filename) = @_;
 
   my $result = '';
@@ -508,8 +500,7 @@ sub _print_text_element($$$;$$)
 
 my $ADDITIONAL_INFO_PREPEND = '|';
 
-sub _print_element_add_prepend_info($$$$;$$)
-{
+sub _print_element_add_prepend_info($$$$;$$) {
   my ($element, $level, $prepended, $current_nr, $fname_encoding,
       $use_filename) = @_;
 
@@ -540,8 +531,7 @@ foreach my $name (@extra_out_of_tree, @elt_info_names) {
 my @node_directions_names = ('next', 'prev', 'up');
 
 # not called for now, see _print_element_associated_info
-sub element_number_or_error($)
-{
+sub element_number_or_error($) {
   my $element = shift;
 
   if (ref($element) eq ''
@@ -557,8 +547,7 @@ sub element_number_or_error($)
   }
 }
 
-sub _print_root_command($)
-{
+sub _print_root_command($) {
   my $element = shift;
 
   if (!defined($element) or !exists($element->{'contents'})) {
@@ -577,8 +566,7 @@ sub _print_root_command($)
   return undef;
 }
 
-sub root_command_element_string($)
-{
+sub root_command_element_string($) {
   my $element = shift;
 
   my $root_command_texi = _print_root_command($element);
@@ -598,9 +586,9 @@ sub root_command_element_string($)
   return $root_command_texi;
 }
 
-sub _debug_protect_eol($)
-{
+sub _debug_protect_eol($) {
   my $line = shift;
+
   $line =~ s/\n/\\n/g;
   $line =~ s/\t/\\t/g;
   $line =~ s/\f/\\f/g;
@@ -609,8 +597,7 @@ sub _debug_protect_eol($)
 
 # currently no ARRAY, and for HASH only 'node_content' 'manual_content'
 # and out_of_tree_element_name, therefore no call to element_number_or_error
-sub _print_element_associated_info($$$$$;$$)
-{
+sub _print_element_associated_info($$$$$;$$) {
   my ($associated_info, $header, $level, $prepended, $current_nr,
       $fname_encoding, $use_filename) = @_;
 
@@ -690,8 +677,7 @@ sub _print_element_associated_info($$$$$;$$)
   return ($current_nr, $result);
 }
 
-sub _print_element_source_info($;$$)
-{
+sub _print_element_source_info($;$$) {
   my ($element, $fname_encoding, $use_filename) = @_;
 
   my $source_info = $element->{'source_info'};
@@ -727,8 +713,7 @@ sub _print_element_source_info($;$$)
   return $result;
 }
 
-sub print_element_base($$$;$$)
-{
+sub print_element_base($$$;$$) {
   my ($element, $level, $prepended, $fname_encoding, $use_filename) = @_;
 
   my $result = ' ' x $level;
@@ -790,8 +775,7 @@ sub print_element_base($$$;$$)
   return $result;
 }
 
-sub print_element_details($$$$;$$)
-{
+sub print_element_details($$$$;$$) {
   my ($element, $level, $prepended, $current_nr, $fname_encoding,
       $use_filename) = @_;
 
@@ -853,16 +837,14 @@ sub print_element_details($$$$;$$)
 }
 
 # only used for debugging
-sub element_print_details($;$$)
-{
+sub element_print_details($;$$) {
   my ($element, $fname_encoding, $use_filename) = @_;
 
   return print_element_details($element, 0, 0, 0, $fname_encoding,
                                $use_filename);
 }
 
-sub print_tree_details($$$$;$$)
-{
+sub print_tree_details($$$$;$$) {
   my ($element, $level, $prepended, $current_nr, $fname_encoding,
       $use_filename) = @_;
 
@@ -884,8 +866,7 @@ sub print_tree_details($$$$;$$)
 
 sub remove_element_tree_numbers($);
 
-sub remove_element_tree_numbers($)
-{
+sub remove_element_tree_numbers($) {
   my $element = shift;
 
   if (exists($element->{'text'})) {
@@ -914,8 +895,7 @@ sub remove_element_tree_numbers($)
 # element numbers to refer to.
 # The calls to set_element_tree_numbers and remove_element_tree_numbers
 # are thus commented out.
-sub tree_print_details($;$$)
-{
+sub tree_print_details($;$$) {
   my ($tree, $fname_encoding, $use_filename) = @_;
 
   my $result;
@@ -938,8 +918,7 @@ sub tree_print_details($;$$)
 # TODO there is no recursion in elements_oot, nor in modified elements.
 # Should this be added in modify_tree, or be left to &OPERATION?
 sub modify_tree($$;$);
-sub modify_tree($$;$)
-{
+sub modify_tree($$;$) {
   my ($tree, $operation, $argument) = @_;
 
   #print STDERR "modify_tree tree: $tree\n";
@@ -985,16 +964,14 @@ sub modify_tree($$;$)
   return $tree;
 }
 
-sub _protect_comma($$)
-{
+sub _protect_comma($$) {
   my $type = shift;
   my $current = shift;
 
   return _protect_text($current, quotemeta(','));
 }
 
-sub protect_comma_in_tree($)
-{
+sub protect_comma_in_tree($) {
   my $tree = shift;
 
   return modify_tree($tree, \&_protect_comma);
@@ -1002,16 +979,14 @@ sub protect_comma_in_tree($)
 
 # Has an XS override. Defined to be able to test Perl and XS. Undocumented
 # on purpose.
-sub protect_comma_in_document($)
-{
+sub protect_comma_in_document($) {
   my $document = shift;
 
   protect_comma_in_tree($document->tree());
   return;
 }
 
-sub _new_asis_command_with_text($$;$)
-{
+sub _new_asis_command_with_text($$;$) {
   my ($text, $parent, $text_type) = @_;
 
   my $new_command = Texinfo::TreeElement::new({'cmdname' => 'asis'});
@@ -1031,8 +1006,7 @@ sub _new_asis_command_with_text($$;$)
   return $new_command;
 }
 
-sub _protect_text($$)
-{
+sub _protect_text($$) {
   my ($current, $to_protect) = @_;
 
   #print STDERR "_protect_text: $to_protect: $current "
@@ -1098,15 +1072,13 @@ sub _protect_text($$)
   }
 }
 
-sub _protect_colon($$)
-{
+sub _protect_colon($$) {
   my ($type, $current) = @_;
 
   return _protect_text($current, quotemeta(':'));
 }
 
-sub protect_colon_in_tree($)
-{
+sub protect_colon_in_tree($) {
   my $tree = shift;
 
   return modify_tree($tree, \&_protect_colon);
@@ -1114,23 +1086,20 @@ sub protect_colon_in_tree($)
 
 # Has an XS override. Defined to be able to test Perl and XS. Undocumented
 # on purpose.
-sub protect_colon_in_document($)
-{
+sub protect_colon_in_document($) {
   my $document = shift;
 
   protect_colon_in_tree($document->tree());
   return;
 }
 
-sub _protect_node_after_label($$)
-{
+sub _protect_node_after_label($$) {
   my ($type, $current) = @_;
 
   return _protect_text($current, '['. quotemeta(".\t,") .']');
 }
 
-sub protect_node_after_label_in_tree($)
-{
+sub protect_node_after_label_in_tree($) {
   my $tree = shift;
 
   return modify_tree($tree, \&_protect_node_after_label);
@@ -1138,16 +1107,14 @@ sub protect_node_after_label_in_tree($)
 
 # Has an XS override. Defined to be able to test Perl and XS. Undocumented
 # on purpose.
-sub protect_node_after_label_in_document($)
-{
+sub protect_node_after_label_in_document($) {
   my $document = shift;
 
   protect_node_after_label_in_tree($document->tree());
   return;
 }
 
-sub protect_first_parenthesis($)
-{
+sub protect_first_parenthesis($) {
   my $element = shift;
 
   confess("BUG: protect_first_parenthesis element undef")
@@ -1197,8 +1164,7 @@ sub protect_first_parenthesis($)
   }
 }
 
-sub move_index_entries_after_items($)
-{
+sub move_index_entries_after_items($) {
   # enumerate or itemize
   my $current = shift;
 
@@ -1289,8 +1255,7 @@ sub move_index_entries_after_items($)
   }
 }
 
-sub _move_index_entries_after_items($$)
-{
+sub _move_index_entries_after_items($$) {
   my ($type, $current) = @_;
 
   if (exists($current->{'cmdname'})
@@ -1303,23 +1268,20 @@ sub _move_index_entries_after_items($$)
 
 # Not documented, should not be generally useful, this is a transformation
 # that makes more sense for a whole document.
-sub move_index_entries_after_items_in_tree($)
-{
+sub move_index_entries_after_items_in_tree($) {
   my $tree = shift;
 
   modify_tree($tree, \&_move_index_entries_after_items);
 }
 
 # For @itemize/@enumerate
-sub move_index_entries_after_items_in_document($)
-{
+sub move_index_entries_after_items_in_document($) {
   my $document = shift;
 
   move_index_entries_after_items_in_tree($document->tree());
 }
 
-sub _relate_index_entries_to_table_items_in($$)
-{
+sub _relate_index_entries_to_table_items_in($$) {
   my ($table, $indices_information) = @_;
 
   return unless(exists($table->{'contents'}));
@@ -1393,8 +1355,7 @@ sub _relate_index_entries_to_table_items_in($$)
 
 # Locate all @tables in the tree, and relate index entries to
 # the @item that immediately follows or precedes them.
-sub _relate_index_entries_to_table_items($$$)
-{
+sub _relate_index_entries_to_table_items($$$) {
   my ($type, $current, $indices_information) = @_;
 
   if (exists($current->{'cmdname'}) and $current->{'cmdname'} eq 'table') {
@@ -1403,8 +1364,7 @@ sub _relate_index_entries_to_table_items($$$)
   return undef;
 }
 
-sub relate_index_entries_to_table_items_in_document($)
-{
+sub relate_index_entries_to_table_items_in_document($) {
   my $document = shift;
 
   my $tree = $document->tree();
@@ -1423,8 +1383,7 @@ sub relate_index_entries_to_table_items_in_document($)
 
 # return $NORMALIZED_ENTRY_NODE, the identifier corresponding to
 # the internal node referred to by menu entry $ENTRY
-sub normalized_menu_entry_internal_node($)
-{
+sub normalized_menu_entry_internal_node($) {
   my $entry = shift;
 
   foreach my $content (@{$entry->{'contents'}}) {
@@ -1441,8 +1400,7 @@ sub normalized_menu_entry_internal_node($)
 }
 
 # Return $NODE where $NODE is the node referred to by menu entry $ENTRY.
-sub normalized_entry_associated_internal_node($$)
-{
+sub normalized_entry_associated_internal_node($$) {
   my ($entry, $identifier_target) = @_;
 
   my $normalized_entry_node = normalized_menu_entry_internal_node($entry);
@@ -1456,8 +1414,7 @@ sub normalized_entry_associated_internal_node($$)
 # In $NODE, find the first menu entry in the first menu.  If the node
 # in the menu refers to a target element in the document, return that
 # element.  Otherwise, return the 'menu_entry_node' element.
-sub first_menu_node($$)
-{
+sub first_menu_node($$) {
   my ($node_relations, $identifier_target) = @_;
 
   if (exists($node_relations->{'menus'})) {
@@ -1489,8 +1446,7 @@ sub first_menu_node($$)
 
 
 
-sub _print_caption_shortcaption($$$$$)
-{
+sub _print_caption_shortcaption($$$$$) {
   my ($element, $float, $caption_type, $type, $float_number) = @_;
 
   my $caption_texi = "";
@@ -1530,8 +1486,7 @@ sub _print_caption_shortcaption($$$$$)
 # Print listoffloats information.  In a separate floats.c file in C,
 # no equivalent in Perl, so use this file.  Used in tests.
 
-sub print_listoffloats_types($)
-{
+sub print_listoffloats_types($) {
   my $listoffloats_list = shift;
 
   return undef if (scalar(keys(%$listoffloats_list)) == 0);

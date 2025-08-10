@@ -1,5 +1,14 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/ManipulateTree.pm,
+	tta/perl/Texinfo/OutputUnits.pm: change formatting of sub arguments
+	passing.  Minor changes in code. 
+
+	* tta/perl/Texinfo/OutputUnits.pm: use exists or defined if the
+	value is not used.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (_protect_text),
 	(protect_first_parenthesis): modify directly the element source marks.
 
