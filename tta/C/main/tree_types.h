@@ -194,10 +194,8 @@ typedef struct CONST_ELEMENT_LIST {
     size_t space;
 } CONST_ELEMENT_LIST;
 
-/* the index name is allocated in the index info main structure that
-   should outlive the INDEX_ENTRY_LOCATION */
 typedef struct INDEX_ENTRY_LOCATION {
-    const char *index_name;
+    char *index_name;
     size_t number; /* position in the original index.  May be different in
                    merged index */
 } INDEX_ENTRY_LOCATION;

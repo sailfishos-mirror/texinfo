@@ -427,7 +427,8 @@ relate_index_entries_to_table_items_in (ELEMENT *table,
                /* also add a reference from element to index entry in index */
                   index_entry = (INDEX_ENTRY_LOCATION *)
                      malloc (sizeof (INDEX_ENTRY_LOCATION));
-                  index_entry->index_name = entry_idx_info->index->name;
+                  index_entry->index_name
+                     = strdup (entry_idx_info->index->name);
                   index_entry->number = entry_idx_info->entry_number;
                   add_extra_index_entry (item, AI_key_associated_index_entry,
                                          index_entry);

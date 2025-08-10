@@ -294,13 +294,11 @@ enter_index_entry (enum command_id index_type_cmd,
       free (ignored_chars.text);
     }
 
-  /* index_entry is an array with two elements.  Use
-     extra_misc_args to pass that information as an array */
+  /* put in extra "misc_args" as an array with two elements in Perl */
   {
-    /* put in extra "misc_args" */
     INDEX_ENTRY_LOCATION *index_entry = (INDEX_ENTRY_LOCATION *)
            malloc (sizeof (INDEX_ENTRY_LOCATION));
-    index_entry->index_name = idx->name;
+    index_entry->index_name = strdup (idx->name);
     index_entry->number = idx->entries_number;
     add_extra_index_entry (element, AI_key_index_entry, index_entry);
   }

@@ -30,8 +30,8 @@
 /* for debug
 #include "debug.h"
  */
- /* for debug
 #include "manipulate_tree.h"
+ /* for debug
   */
 #include "api_to_perl.h"
 #include "tree.h"
@@ -177,6 +177,7 @@ destroy_associated_info (ASSOCIATED_INFO *a)
           destroy_strings_list (k_pair->k.strings_list);
           break;
         case extra_index_entry:
+          free (k_pair->k.index_entry->index_name);
           free (k_pair->k.index_entry);
           break;
         default:

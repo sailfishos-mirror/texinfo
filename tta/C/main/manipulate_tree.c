@@ -170,8 +170,9 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
             KEY_PAIR *k = get_associated_info_key (new_info, key);
             k->k.index_entry = (INDEX_ENTRY_LOCATION *)
                              malloc (sizeof (INDEX_ENTRY_LOCATION));
-            memcpy (k->k.index_entry, k_ref->k.index_entry,
-                    sizeof (INDEX_ENTRY_LOCATION));
+            k->k.index_entry->index_name
+              = strdup (k_ref->k.index_entry->index_name);
+            k->k.index_entry->number = k_ref->k.index_entry->number;
             break;
           }
         case extra_none:
