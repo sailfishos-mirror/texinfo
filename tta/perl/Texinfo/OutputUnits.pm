@@ -374,10 +374,13 @@ sub units_directions($$$;$) {
       my $node = $node_relations->{'element'};
       foreach my $direction(['NodeUp', 'up'], ['NodeNext', 'next'],
                             ['NodePrev', 'prev']) {
-        $directions->{$direction->[0]}
-           = _label_target_unit_element(
-               $node_relations->{'node_directions'}->{$direction->[1]})
-          if (exists($node_relations->{'node_directions'}->{$direction->[1]}));
+        if (exists($node_relations->{'node_directions'}->{$direction->[1]})) {
+          my $target_unit = _label_target_unit_element(
+               $node_relations->{'node_directions'}->{$direction->[1]});
+          if (defined($target_unit)) {
+            $directions->{$direction->[0]} = $target_unit;
+          }
+        }
       }
       # Now do NodeForward which is something like the following node.
       my $associated_relations;
@@ -392,8 +395,10 @@ sub units_directions($$$;$) {
          = Texinfo::ManipulateTree::first_menu_node($node_relations,
                                                     $identifier_target);
       if ($menu_child) {
-        $directions->{'NodeForward'}
-          = _label_target_unit_element($menu_child);
+        my $target_unit = _label_target_unit_element($menu_child);
+        if (defined($target_unit)) {
+          $directions->{'NodeForward'} = $target_unit;
+        }
       } elsif (defined($associated_relations)
                and exists($associated_relations->{'section_children'})
                and scalar(@{$associated_relations->{'section_children'}})) {
@@ -402,9 +407,11 @@ sub units_directions($$$;$) {
                ->{'section_children'}->[0]->{'element'}->{'associated_unit'};
       } elsif (exists($node_relations->{'node_directions'})
                and exists($node_relations->{'node_directions'}->{'next'})) {
-        $directions->{'NodeForward'}
-            = _label_target_unit_element(
+        my $target_unit = _label_target_unit_element(
                   $node_relations->{'node_directions'}->{'next'});
+        if (defined($target_unit)) {
+          $directions->{'NodeForward'} = $target_unit;
+        }
       } elsif (exists($node_relations->{'node_directions'})
                and exists($node_relations->{'node_directions'}->{'up'})) {
         my $up = $node_relations->{'node_directions'}->{'up'};
@@ -419,9 +426,11 @@ sub units_directions($$$;$) {
               = $nodes_list->[$up->{'extra'}->{'node_number'} -1];
             if (exists($up_node_relations->{'node_directions'})
                 and exists($up_node_relations->{'node_directions'}->{'next'})) {
-              $directions->{'NodeForward'}
-                = _label_target_unit_element(
+              my $target_unit = _label_target_unit_element(
                      $up_node_relations->{'node_directions'}->{'next'});
+              if (defined($target_unit)) {
+                $directions->{'NodeForward'} = $target_unit;
+              }
               last;
             }
           }

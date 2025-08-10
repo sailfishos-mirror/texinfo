@@ -1,5 +1,11 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/OutputUnits.pm (units_directions): check that
+	_label_target_unit_element did not return undef before setting
+	a direction.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Structuring.pm (_print_down_menus): go out of the
 	loops used to find lenu entry names as soon as a menu entry name is
 	found.  Only look in menu_entry.
