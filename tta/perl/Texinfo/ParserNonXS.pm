@@ -3653,8 +3653,7 @@ sub _enter_index_entry($$$$) {
 sub _parse_float_type($$) {
   my ($current, $element) = @_;
 
-  my $normalized = '';
-  $normalized
+  my $normalized
        = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
                                                                   $element);
   $current->{'extra'} = {} if (!exists($current->{'extra'}));

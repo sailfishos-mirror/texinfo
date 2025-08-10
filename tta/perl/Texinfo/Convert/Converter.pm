@@ -1660,9 +1660,9 @@ sub float_name_caption($$)
   my ($caption, $shortcaption)
     = Texinfo::Common::find_float_caption_shortcaption($element);
 
-  if ($caption) {
+  if (defined($caption)) {
     $caption_element = $caption;
-  } elsif ($shortcaption) {
+  } elsif (defined($shortcaption)) {
     $caption_element = $shortcaption;
   }
   #if ($self->get_conf('DEBUG')) {
@@ -1676,7 +1676,7 @@ sub float_name_caption($$)
   my $substrings = {};
 
   my $float_number_element;
-  if ($element->{'extra'}
+  if (exists($element->{'extra'})
       and defined($element->{'extra'}->{'float_number'})) {
     $float_number_element = Texinfo::TreeElement::new(
        {'text' => $element->{'extra'}->{'float_number'}});
@@ -1684,14 +1684,14 @@ sub float_name_caption($$)
   }
 
   my $prepended;
-  if ($element->{'extra'} and defined($element->{'extra'}->{'float_type'})
+  if (exists($element->{'extra'})
+      and exists($element->{'extra'}->{'float_type'})
       and $element->{'extra'}->{'float_type'} ne '') {
-    # first content of arguments_line type element
+    # first content of arguments_line type element.
+    # Copy to be able to destroy the tree afterwards.
     $substrings->{'float_type'}
-       = #Texinfo::ManipulateTree::copy_contentsNonXS(
-            $element->{'contents'}->[0]->{'contents'}->[0]
-         #)
-       ;
+       = Texinfo::ManipulateTree::copy_contentsNonXS(
+            $element->{'contents'}->[0]->{'contents'}->[0]);
     if ($caption_element) {
       if ($float_number_element) {
         # TRANSLATORS: added before caption

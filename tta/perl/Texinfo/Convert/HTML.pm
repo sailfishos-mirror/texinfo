@@ -5613,7 +5613,7 @@ sub _convert_float_command($$$$$)
 
   if (in_string($self)) {
     my $prepended_text;
-    if ($prepended) {
+    if (defined($prepended)) {
       $prepended_text
         = $self->convert_tree_new_formatting_context($prepended,
                                                      'float prepended');
@@ -5626,7 +5626,7 @@ sub _convert_float_command($$$$$)
       $caption_text = $self->convert_tree_new_formatting_context(
                          $caption_element->{'contents'}->[0], 'float caption');
     }
-    return $prepended.$content.$caption_text;
+    return $prepended_text.$content.$caption_text;
   }
 
   my $caption_command_name;
@@ -5645,7 +5645,7 @@ sub _convert_float_command($$$$$)
 
   my $prepended_text;
   my $caption_text;
-  if ($prepended) {
+  if (defined($prepended)) {
     # TODO add a span with a class name for the prependend information
     # if not empty?
     $prepended_text = $self->convert_tree_new_formatting_context(
@@ -5654,7 +5654,7 @@ sub _convert_float_command($$$$$)
                    Texinfo::TreeElement::new({'type' => 'brace_container',
                                               'contents' => [$prepended]})]}),
                                'float number type');
-    if ($caption_element) {
+    if (defined($caption_element)) {
       # register the converted prepended tree to be prepended to
       # the first paragraph in caption formatting
       $self->register_pending_formatted_inline_content($caption_command_name,
@@ -5682,6 +5682,7 @@ sub _convert_float_command($$$$$)
     $result .= $self->html_attribute_class('div', ['type-number-float']). '>'
                        . $prepended_text .'</div>';
   }
+
   return $result . '</div>';
 }
 $default_commands_conversion{'float'} = \&_convert_float_command;

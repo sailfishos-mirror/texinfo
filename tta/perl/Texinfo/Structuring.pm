@@ -1677,7 +1677,7 @@ sub number_floats($)
     my $nr_in_chapter = 0;
     foreach my $float_and_section (@{$listoffloats_and_sections->{$style}}) {
       my ($float, $float_section_relations) = @$float_and_section;
-      next if (!$float->{'extra'}
+      next if (!exists($float->{'extra'})
                or !defined($float->{'extra'}->{'normalized'}));
       $float_index++;
       my $number;
@@ -1686,8 +1686,8 @@ sub number_floats($)
         my $up = $up_relations->{'element'};
         my $up_section_directions = $up_relations->{'section_directions'};
         my $up_cmdname;
-        while ($up_section_directions
-               and $up_section_directions->{'up'}
+        while (defined($up_section_directions)
+               and exists($up_section_directions->{'up'})
                and $command_structuring_level{
                  $up_section_directions->{'up'}->{'element'}->{'cmdname'}}) {
           $up_relations = $up_section_directions->{'up'};
@@ -1706,7 +1706,7 @@ sub number_floats($)
         }
       }
       $number = "$float_index" if (!defined($number));
-      $float->{'extra'} = {} if (! $float->{'extra'});
+      $float->{'extra'} = {} if (! exists($float->{'extra'}));
       $float->{'extra'}->{'float_number'} = $number;
     }
   }

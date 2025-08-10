@@ -1,5 +1,22 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (float_name_caption): copy
+	tree in substrings to be able to destroy the tree afterwards.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_float_command): fix
+	variable used in output when in string (which probably never happens).
+
+	* tta/perl/Texinfo/Convert/Converter.pm (float_name_caption),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_float_command),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Structuring.pm (number_floats): use exists or defined
+	if the variable value is not used.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_enter_index_entry): minor change
+	in code.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm (_get_current_node_relations):
 	simplify condition, the current node is always registered in
 	nodes_list.

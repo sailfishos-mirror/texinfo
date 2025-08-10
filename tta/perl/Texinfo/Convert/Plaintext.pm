@@ -4576,14 +4576,14 @@ sub _convert
       my ($caption, $shortcaption)
         = Texinfo::Common::find_float_caption_shortcaption($element);
 
-      if (($element->{'extra'}
+      if ((exists($element->{'extra'})
            and ($element->{'extra'}->{'float_type'} ne ''
                 or defined($element->{'extra'}->{'float_number'})))
            or $caption or $shortcaption) {
         _add_newline_if_needed($self);
         my ($caption, $prepended)
-             = Texinfo::Convert::Converter::float_name_caption($self, $element);
-        if ($prepended) {
+          = Texinfo::Convert::Converter::float_name_caption($self, $element);
+        if (defined($prepended)) {
           $prepended->{'type'} = 'frenchspacing';
           my ($float_number, $columns)
             = $self->convert_line_new_context($prepended);
