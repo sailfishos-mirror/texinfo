@@ -23836,7 +23836,7 @@ bottoms of pages; you cannot create multiline headings or footings.
 Each header or footer line is divided into three parts: a left part, a
 middle part, and a right part.  Any part, or a whole line, may be left
 blank.  Text for the left part of a header or footer line is set
-flushleft; text for the middle part is centered; and, text for the
+flushleft; text for the middle part is centered; and text for the
 right part is set flushright.
 
 

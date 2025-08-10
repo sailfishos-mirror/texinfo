@@ -1,5 +1,9 @@
 2025-08-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Headings): Remove extra comma after "and".
+
+2025-08-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@titlepage): Remove text about "@end titlepage"
 	being required to turn on page numbering, as this is no longer
 	the case.
