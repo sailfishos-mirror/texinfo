@@ -2412,7 +2412,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
                   int use_sections)
 {
   ELEMENT_LIST *master_menu_contents;
-  CONST_ELEMENT_LIST *menus;
+  CONST_ELEMENT_LIST *menus = 0;
   const NODE_RELATIONS *node_relations;
 
   CONST_ELEMENT_LIST *node_menus;
@@ -2429,8 +2429,47 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
   node_menus = node_relations->menus;
 
   if (node_menus && node_menus->number > 0)
-    menus = node_menus;
-  else
+    {
+      /* Re-use a menu unless it has an entry that looks like
+         "* label: node.".   The separate label may not give enough
+         detail when used in the Top node, e.g. just "Menu" for the
+         "Info Format Menu" node in the Texinfo manual.
+       */
+
+      int menu_entry_name_found = 0;
+      for (i = 0; i < node_menus->number; i++)
+        {
+          size_t k;
+          const ELEMENT *menu = node_menus->list[i];
+          for (k = 0; k < menu->e.c->contents.number; k++)
+            {
+              const ELEMENT *menu_content = menu->e.c->contents.list[k];
+              if (menu_content->type == ET_menu_entry)
+                {
+                  size_t l;
+                  for (l = 0; l < menu_content->e.c->contents.number; l++)
+                    {
+                      const ELEMENT *content
+                        = menu_content->e.c->contents.list[l];
+                      if (content->type == ET_menu_entry_name)
+                        {
+                          menu_entry_name_found = 1;
+                          break;
+                        }
+                    }
+                }
+              if (menu_entry_name_found)
+                break;
+            }
+          if (menu_entry_name_found)
+            break;
+        }
+
+      if (!menu_entry_name_found)
+        menus = node_menus;
+    }
+
+  if (!menus)
     {
       /* If there is no menu for the node, we create a temporary menu to be
          able to find and copy entries as if there was already a menu */

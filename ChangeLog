@@ -1,5 +1,16 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	detailmenu generation in C
+
+	* tta/C/structuring_transfo/structuring.c (print_down_menus):
+	implement change in detailmenu generation: check for presence of a
+	'menu_entry_name' element in a menu, and if found, do not use it to
+	make a detailmenu.
+
+	Update test result.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (_prepare_conversion_units),
 	tta/perl/Texinfo/Convert/Info.pm (output),
 	tta/perl/Texinfo/Convert/Plaintext.pm (convert, output),
