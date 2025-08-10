@@ -686,11 +686,12 @@ reset_converter (SV *converter_in)
           reset_converter (self);
 
 void
-destroy (SV *converter_in)
+destroy (SV *converter_in, SV *remove_references_sv=0)
       PREINIT:
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in, 0);
+        /* TODO remove Perl data too */
         if (self)
           destroy_converter (self);
 

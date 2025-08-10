@@ -66,6 +66,13 @@ PROTOTYPES: ENABLE
 void
 reset_parser (int debug_output)
 
+# argument is parser_sv
+# Do nothing in XS, in Perl remove cycles in memory.
+void
+release (SV *)
+    CODE:
+
+
 void
 register_parser_conf (SV *parser_sv)
     PREINIT:

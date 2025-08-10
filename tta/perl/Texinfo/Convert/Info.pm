@@ -126,6 +126,7 @@ sub output($$)
   my $header_bytes = length($header);
   my $complete_header_bytes = $header_bytes;
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
+  $document->register_output_units_lists([$output_units]);
 
   $self->_cache_node_names($output_units);
 

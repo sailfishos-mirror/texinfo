@@ -1006,6 +1006,9 @@ sub test($$)
     $test_customization->set_conf('novalidate', 1);
   }
 
+  $parser->release();
+  $parser = undef;
+
   # Now that all the configuration has been set, register with the
   # document
   my $document_options = $test_customization->get_customization_options_hash();

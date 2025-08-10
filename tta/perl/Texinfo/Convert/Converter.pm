@@ -36,6 +36,8 @@ use Storable;
 
 use Carp qw(cluck confess);
 
+#use Devel::Cycle;
+
 use Texinfo::Convert::ConvertXS;
 use Texinfo::XSLoader;
 
@@ -462,9 +464,113 @@ sub reset_converter($)
 {
 }
 
-# Nothing to do in Perl.  XS function frees memory
-sub destroy($)
+# XS function frees memory
+sub destroy($;$)
 {
+  my ($self, $remove_references) = @_;
+
+  # generic
+  delete $self->{'document'};
+  delete $self->{'document_units'};
+
+  if (exists($self->{'convert_text_options'})) {
+    delete $self->{'convert_text_options'}->{'converter'};
+    delete $self->{'convert_text_options'}->{'translations'};
+    delete $self->{'convert_text_options'}->{'current_lang_translations'};
+  }
+
+  if (exists($self->{'index_formatting_text_options'})) {
+    delete $self->{'index_formatting_text_options'}->{'converter'};
+  }
+
+  # common translations cache
+  delete $self->{'translations'};
+  delete $self->{'current_lang_translations'};
+
+  # Plaintext (Info)
+  delete $self->{'index_entries_line_location'};
+
+  # LaTeX
+  delete $self->{'index_entries'};
+  delete $self->{'settitle_tree'};
+  delete $self->{'normalized_nodes_associated_section'};
+
+  # HTML and Plaintext
+  delete $self->{'current_node'};
+
+  # HTML only, but part of an internal API
+  if (exists($self->{'global_units_directions'})) {
+    foreach my $direction (keys(%{$self->{'global_units_directions'}})) {
+      delete $self->{'global_units_directions'}->{$direction};
+    }
+  }
+
+  # HTML only
+  if (exists($self->{'converter_info'})) {
+    foreach my $key ('document', 'simpletitle_tree', 'title_tree') {
+      delete $self->{'converter_info'}->{$key};
+    }
+  }
+
+  delete $self->{'current_root_command'};
+
+  # a separate cache used if the user defines the translate_message function.
+  delete $self->{'translation_cache'};
+
+  # remove shared conversion states pointing to elements
+  if (exists($self->{'shared_conversion_state'})) {
+    if (exists($self->{'shared_conversion_state'}->{'nodedescription'})
+        and exists($self->{'shared_conversion_state'}->{'nodedescription'}
+                               ->{'formatted_nodedescriptions'})) {
+      delete $self->{'shared_conversion_state'}->{'nodedescription'}
+                               ->{'formatted_nodedescriptions'};
+    }
+    if (exists($self->{'shared_conversion_state'}->{'quotation'})
+        and exists($self->{'shared_conversion_state'}->{'quotation'}
+                                       ->{'elements_authors'})) {
+      delete $self->{'shared_conversion_state'}->{'quotation'}
+                                       ->{'elements_authors'};
+    }
+  }
+
+  if (exists($self->{'no_arg_commands_formatting'})) {
+    foreach my $cmdname (keys(%{$self->{'no_arg_commands_formatting'}})) {
+      my $no_arg_command_ctx = $self->{'no_arg_commands_formatting'}->{$cmdname};
+      foreach my $context (keys(%{$no_arg_command_ctx})) {
+        my $tree = $no_arg_command_ctx->{$context}->{'translated_tree'};
+        if (defined($tree)) {
+          # always a copy
+          Texinfo::Document::tree_remove_parents($tree);
+          if ($remove_references) {
+            delete $no_arg_command_ctx->{$context}->{'translated_tree'};
+            Texinfo::Document::tree_remove_references($tree);
+          }
+        }
+      }
+    }
+  }
+
+  # could have been better to remove references to trees only, but it
+  # requires analysing the key names.
+  delete $self->{'special_unit_info'};
+  delete $self->{'translated_special_unit_info'};
+
+  if (exists($self->{'targets'})) {
+    foreach my $command (keys(%{$self->{'targets'}})) {
+      my $target = $self->{'targets'}->{$command};
+      # can be tree elements or results of translations through cdt
+      delete $target->{'tree'};
+      delete $target->{'tree_nonumber'};
+      # tree elements
+      delete $target->{'name_tree'};
+      delete $target->{'name_tree_nonumber'};
+      delete $target->{'root_element_command'};
+      delete $target->{'node_command'};
+    }
+  }
+
+  #find_cycle($self);
+  $self = undef;
 }
 
 sub XS_get_unclosed_stream($$)
@@ -1582,7 +1688,10 @@ sub float_name_caption($$)
       and $element->{'extra'}->{'float_type'} ne '') {
     # first content of arguments_line type element
     $substrings->{'float_type'}
-       = $element->{'contents'}->[0]->{'contents'}->[0];
+       = #Texinfo::ManipulateTree::copy_contentsNonXS(
+            $element->{'contents'}->[0]->{'contents'}->[0]
+         #)
+       ;
     if ($caption_element) {
       if ($float_number_element) {
         # TRANSLATORS: added before caption

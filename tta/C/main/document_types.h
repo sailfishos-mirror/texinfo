@@ -303,7 +303,7 @@ typedef struct DOCUMENT {
        In general, the lists are created and managed by converters or other
        codes, not by code related to the Texinfo parsed DOCUMENT, the
        DOCUMENT is merely used to store them, since it generally
-       outlive converters.
+       outlives converters.
      */
     OUTPUT_UNIT_LISTS output_units_lists;
     /* this is used if the output units are used outside of converters,

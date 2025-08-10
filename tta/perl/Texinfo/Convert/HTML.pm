@@ -10659,6 +10659,9 @@ sub _prepare_conversion_units($$$)
 
   $self->_set_heading_commands_targets();
 
+  $document->register_output_units_lists([$output_units,
+                                  $special_units, $associated_special_units]);
+
   return ($output_units, $special_units, $associated_special_units);
 }
 

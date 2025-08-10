@@ -62,6 +62,9 @@ use if $] >= 5.014, re => '/a';
 # debug
 use Carp qw(cluck confess);
 #use Data::Dumper;
+#use Devel::FindRef;
+#use Devel::Cycle;
+#use Devel::Refcount;
 
 # to detect if an encoding may be used to open the files
 # to encode/decode in-memory strings used as files
@@ -177,9 +180,12 @@ my %parser_document_state_initialization = (
    # if the internal space element is put in the internal_space_holder.
    # It would be cleaner to unset internal_space_holder in all the
    # cases where the internal space element is removed too, such that
-   # when internal_space_holder is set the previous value is undef and not
+   # when internal_space_holder is set the previous value is unset and not
    # the previous internal_space_holder, which is now irrelevant as
-   # its associated space has disappeared.
+   # its associated space has disappeared.  This would also help when
+   # references are counted as the internal_space_holder holds a reference
+   # untill the next internal_space_holder or the end of document, which
+   # source may not be easy to determine.
 
   'sections_level_modifier' => 0, # modified by raise/lowersections
 
@@ -848,6 +854,21 @@ sub parse_texi_text($$;$) {
 
   get_parser_info($self);
   return $document;
+}
+
+# Cannot always do that right after parsing, because get_parser_info, which
+# can be called later on, uses document.  So it is up to the user.
+# No need to call to reset the parser, this is rather to have Perl release
+# memory when the parser is destroyed.
+# Remove cycles only
+sub release($)
+{
+  my $self = shift;
+
+  $self->{'document'} = undef;
+  # point to elements
+  $self->{'macros'} = {};
+  #find_cycle($self);
 }
 
 
@@ -4921,10 +4942,10 @@ sub _start_empty_line_after_command($$$$) {
 sub _check_register_target_element_label($$$$) {
   my ($self, $label_element, $target_element, $source_info) = @_;
 
-  if ($label_element and exists($label_element->{'contents'})) {
-    my ($label_info, $modified_node_content)
+  if (defined($label_element) and exists($label_element->{'contents'})) {
+    my $label_info
       = Texinfo::Common::parse_node_manual($label_element);
-    if ($label_info and $label_info->{'manual_content'}) {
+    if (defined($label_info) and exists($label_info->{'manual_content'})) {
       _line_error($self, sprintf(__("syntax for an external node used for `%s'"),
        # use contents to avoid leading/trailing spaces
        Texinfo::Convert::Texinfo::convert_to_texinfo(
@@ -8000,6 +8021,9 @@ sub _parse_texi($$$) {
     }
   }
  finished_totally:
+
+  $self->{'internal_space_holder'} = undef;
+
   while (@{$self->{'conditional_stack'}}) {
     my $cond_info = pop @{$self->{'conditional_stack'}};
     my ($cond_command, $cond_source_mark) = @$cond_info;
@@ -8051,6 +8075,11 @@ sub _parse_texi($$$) {
     _bug_message($self, "Non empty last input at the end: $msg\n");
     die;
   }
+
+  # TODO if the parser can be reused, could avoid doing that or transfer
+  $self->{'current_node'} = undef;
+  $self->{'current_section'} = undef;
+  $self->{'current_part'} = undef;
 
   # update merged_in for merging hapening after first index merge
   foreach my $index_name (keys(%{$document->{'indices'}})) {

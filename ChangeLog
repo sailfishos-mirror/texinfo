@@ -1,5 +1,62 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_prepare_conversion_units),
+	tta/perl/Texinfo/Convert/Info.pm (output),
+	tta/perl/Texinfo/Convert/Plaintext.pm (convert, output),
+	tta/perl/Texinfo/Document.pm (new_document)
+	(register_output_units_lists, get_output_units_lists): add the
+	possibility to register output units in document to be able to find
+	them back (similar to C).
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (conversion_finalization):
+	remove count contexts.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (release),
+	tta/perl/XSTexinfo/parser_document/Parsetexi.xs (release),
+	tta/perl/t/test_utils.pl (test, tta/perl/texi2any.pl): add
+	function in Perl to remove keys in parser that could create cycles or
+	refer to elements.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_parse_texi): properly unset
+	internal_space_holder, and current_*.
+
+	* tta/perl/Texinfo/Document.pm (tree_remove_parents): add to remove
+	elements parents in a tree.  This allows to remove cycles in tree,
+	such that Perl can reuse the memory.
+
+	* tta/perl/Texinfo/Document.pm (tree_remove_references): add to remove
+	references to tree elements, work in progress to be able to check that
+	the refcounting in XS/C is done correcty.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (destroy),
+	tta/perl/texi2any.pl: remove cycles in converters.  Add a
+	remove_references argument, if set try to remove references to
+	elements that cannot be accessed through the document too.  Set
+	remove_references in texi2any if TEST is > 1.
+
+	* tta/perl/Texinfo/Document.pm (_remove_section_relations_relations)
+	(_remove_output_units_directions): remove keys in relations and output
+	units that could create cycles in data, such that Perl can reuse the
+	memory.
+
+	* tta/perl/Texinfo/Document.pm (_remove_section_relations_references)
+	(_remove_node_relations_references)
+	(_remove_heading_relations_references)
+	(_remove_output_units_references, remove_document_references)
+	(destroy_document), tta/C/Makefile.am (libtexinfoxs_la_SOURCES),
+	tta/C/main/call_document_perl_functions.c
+	(call_document_remove_document_references),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (destroy_document),
+	tta/perl/texi2any.pl: implement destroy_document in Perl.  In the
+	default case, remove cycles.  With the remove_references argument,
+	remove all references to elements.  Add a call to Perl function from
+	XS to remove Perl data before destroying the C document.
+
+	* tta/perl/Texinfo/ParserNonXS.pm
+	(_check_register_target_element_label): minor change in code.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/ManipulateTree.pm,
 	tta/perl/Texinfo/OutputUnits.pm: change formatting of sub arguments
 	passing.  Minor changes in code. 

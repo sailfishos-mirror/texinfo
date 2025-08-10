@@ -28,7 +28,12 @@ use warnings;
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
-use Carp qw(cluck);
+use Carp qw(cluck confess);
+
+#use Devel::Peek;
+#use Devel::Refcount;
+#use Devel::FindRef;
+#use Devel::Cycle;
 
 use Texinfo::DocumentXS;
 
@@ -154,6 +159,12 @@ sub new_document($)
     'parser_error_messages' => [],
      # error messages for the document for structuring, not for parsing
     'error_messages' => [],
+     # hold output unit lists, such that they can be retrieved.
+     # In general, the lists are created and managed by converters or other
+     # codes, not by code related to the Texinfo parsed Document, the
+     # Document is merely used to store them, since it generally
+     # outlives converters.
+     'output_units_lists' => [],
   };
 
   bless $document;
@@ -248,6 +259,23 @@ sub headings_list($)
   return $self->{'headings_list'};
 }
 
+# In the tests, output units are registered for several formats
+sub register_output_units_lists($$) {
+  my ($self, $output_units_lists) = @_;
+
+  return unless defined($output_units_lists);
+
+  foreach my $output_unit_list (@$output_units_lists) {
+    push @{$self->{'output_units_lists'}}, $output_unit_list
+      unless(!defined($output_unit_list));
+  }
+}
+
+sub get_output_units_lists($) {
+  my $self = shift;
+  return $self->{'output_units_lists'};
+}
+
 # Useful for options used in structuring/tree transformations.
 sub register_document_options($$)
 {
@@ -272,10 +300,327 @@ sub get_conf($$)
   return undef;
 }
 
-# do nothing, only the XS override does something.
-sub destroy_document($)
+
+
+sub tree_remove_parents($);
+
+sub tree_remove_parents($) {
+  my $element = shift;
+
+  confess() if (!defined($element));
+  #print STDERR "TREE t_r_p $element: "
+  #     .Devel::Refcount::refcount($element)."\n";
+  #   .Texinfo::ManipulateTree::element_print_details($element)."\n";
+
+  if (exists($element->{'source_marks'})) {
+    foreach my $source_mark (@{$element->{'source_marks'}}) {
+      if (exists($source_mark->{'element'})) {
+        tree_remove_parents($source_mark->{'element'});
+      }
+    }
+  }
+
+  return if (exists($element->{'text'}));
+
+  delete $element->{'parent'};
+
+  if (exists($element->{'info'})) {
+    foreach my $info_elt_key ('comment_at_end', 'spaces_before_argument',
+                              'spaces_after_cmd_before_arg',
+                              'spaces_after_argument') {
+      # for spaces_* parents can only be in source marks
+      if (exists($element->{'info'}->{$info_elt_key})) {
+        tree_remove_parents($element->{'info'}->{$info_elt_key});
+      }
+    }
+  }
+
+  if (exists($element->{'contents'})) {
+    foreach my $content (@{$element->{'contents'}}) {
+      tree_remove_parents($content);
+    }
+    if (exists($element->{'extra'})) {
+      if (exists($element->{'extra'}->{'def_index_element'})) {
+        tree_remove_parents($element->{'extra'}->{'def_index_element'});
+        if (exists($element->{'extra'}->{'def_index_ref_element'})) {
+          tree_remove_parents($element->{'extra'}->{'def_index_ref_element'});
+        }
+      }
+      # elements also in $element->{'contents'} (without parent when added).
+      #foreach my $key ('node_content', 'manual_content') {
+      #  if (exists($element->{'extra'}->{$key})) {
+      #    tree_remove_parents($element->{'extra'}->{$key});
+      #  }
+      #}
+    }
+  }
+}
+
+sub tree_remove_references($);
+sub tree_remove_references($)
 {
+  my $element = shift;
+
+  if (exists($element->{'source_marks'})) {
+    foreach my $source_mark (@{$element->{'source_marks'}}) {
+      if (exists($source_mark->{'element'})) {
+        tree_remove_references($source_mark->{'element'});
+      }
+      delete $source_mark->{'element'};
+    }
+  }
+
+  if (!exists($element->{'text'})) {
+    if (exists($element->{'info'})) {
+      foreach my $info_elt_key ('comment_at_end', 'spaces_before_argument',
+                                'spaces_after_cmd_before_arg',
+                                'spaces_after_argument') {
+        if (exists($element->{'info'}->{$info_elt_key})) {
+          tree_remove_references($element->{'info'}->{$info_elt_key});
+          delete $element->{'info'}->{$info_elt_key};
+        }
+      }
+    }
+
+    if (exists($element->{'contents'})) {
+      if (exists($element->{'extra'})) {
+        if (exists($element->{'extra'}->{'def_index_element'})) {
+          tree_remove_references($element->{'extra'}->{'def_index_element'});
+          delete $element->{'extra'}->{'def_index_element'};
+          if (exists($element->{'extra'}->{'def_index_ref_element'})) {
+            tree_remove_references(
+              $element->{'extra'}->{'def_index_ref_element'});
+            delete $element->{'extra'}->{'def_index_ref_element'};
+          }
+        }
+        # holds duplicates of the element label contents
+        foreach my $key ('node_content', 'manual_content') {
+          if (exists($element->{'extra'}->{$key})) {
+            delete $element->{'extra'}->{$key}->{'contents'};
+          }
+        }
+      }
+      for (my $i = 0; $i < scalar(@{$element->{'contents'}}); $i++) {
+        tree_remove_references($element->{'contents'}->[$i]);
+      }
+      delete $element->{'contents'};
+    }
+  }
+
+  #print STDERR "RRR $element ".
+  #   Texinfo::ManipulateTree::element_print_details($element)."\n";
+
+  #my $reference_count = Devel::Peek::SvREFCNT($element);
+  #my $object_count = Devel::Refcount::refcount($element);
+  # The $element variable owns one count to reference and to object.
+  # The parent contents hash also holds a count to the object.
+  # plus possibly one reference owned by the C code
+  #if (1) {
+  #if ($reference_count != 1 or $object_count != 2) {
+  #  print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
+  #     .Texinfo::ManipulateTree::element_print_details($element)."\n"
+  #     .Devel::FindRef::track($element)."\n";
+  #}
+}
+
+# remove cycles
+sub _remove_section_relations_relations($) {
+  my $section_relation = shift;
+  foreach my $relation ('associated_anchor_command', 'associated_node',
+                        'part_following_node', 'part_associated_section',
+                        'section_children') {
+    delete $section_relation->{$relation};
+  }
+  foreach my $directions ('section_directions', 'toplevel_directions') {
+    if (exists($section_relation->{$directions})) {
+      delete $section_relation->{$directions}->{'next'};
+    }
+  }
+}
+
+sub _remove_section_relations_references($) {
+  my $section_relation = shift;
+  foreach my $relation ('element') {
+    delete $section_relation->{$relation};
+  }
+}
+
+sub _remove_node_relations_references($) {
+  my $node_relation = shift;
+  foreach my $relation ('element', 'associated_title_command',
+                        'node_description', 'node_long_description',
+                        'menus', 'node_directions') {
+    delete $node_relation->{$relation};
+  }
+}
+
+sub _remove_heading_relations_references($) {
+  my $heading_relation = shift;
+  foreach my $relation ('element') {
+    delete $heading_relation->{$relation};
+  }
+}
+
+# remove cycles in output units
+sub _remove_output_units_directions($) {
   my $document = shift;
+
+  my $output_units_lists = $document->get_output_units_lists();
+
+  my $i = -1;
+  foreach my $output_units_list (@$output_units_lists) {
+    $i++;
+    foreach my $output_unit (@$output_units_list) {
+      delete $output_unit->{'first_in_page'};
+      if (exists($output_unit->{'tree_unit_directions'})) {
+        delete $output_unit->{'tree_unit_directions'}->{'next'};
+      }
+      if (exists($output_unit->{'directions'})) {
+        foreach my $direction (keys(%{$output_unit->{'directions'}})) {
+          delete $output_unit->{'directions'}->{$direction};
+        }
+      }
+      # not necessary to remove cycles in general, as the associated_unit
+      # are removed from elements, however, some elements may not be in the
+      # tree, in practice HTML special units elements.
+      delete $output_unit->{'unit_command'};
+      if (0) {
+        print STDERR " $output_unit ["
+               .(exists($output_unit->{'unit_contents'}) ?
+                  scalar(@{$output_unit->{'unit_contents'}}) : '-')."]: ".
+                     Devel::Peek::SvREFCNT($output_unit).
+         " HV: ".Devel::Refcount::refcount($output_unit)."\n";
+      }
+    }
+  }
+}
+
+# remove references to elements
+sub _remove_output_units_references($) {
+  my $document = shift;
+
+  my $output_units_lists = $document->get_output_units_lists();
+
+  foreach my $output_units_list (@$output_units_lists) {
+    foreach my $output_unit (@$output_units_list) {
+      #delete $output_unit->{'unit_command'};
+      delete $output_unit->{'unit_contents'};
+    }
+  }
+}
+
+# for debugging
+sub _print_tree_elements_ref($$);
+sub _print_tree_elements_ref($$)
+{
+  my ($tree, $level) = @_;
+
+  print STDERR "". (' ' x $level) . $tree."\n";
+
+  if (exists($tree->{'contents'})) {
+    for (my $i = 0; $i < scalar(@{$tree->{'contents'}}); $i++) {
+      _print_tree_elements_ref($tree->{'contents'}->[$i], $level+1);
+    }
+  }
+}
+
+# can also be called from XS
+# If $REMOVE_REFERENCES is not set, removing items objective is to remove
+# cycles such that Perl can reclaim the removed memory.  If
+# $REMOVE_REFERENCES is set, the references to elements are removed, in
+# particular to be able to check that there is no reference remaining
+# other than the reference kept in C code.
+sub remove_document_references($;$) {
+  my ($document, $remove_references) = @_;
+
+  my $tree = $document->{'tree'};
+
+  my $sections_list = $document->{'sections_list'};
+  foreach my $section_relation (@$sections_list) {
+    _remove_section_relations_relations($section_relation);
+  }
+  if ($remove_references) {
+    foreach my $section_relation (@$sections_list) {
+      _remove_section_relations_references($section_relation);
+    }
+    my $nodes_list = $document->{'nodes_list'};
+    foreach my $node_relation (@$nodes_list) {
+      _remove_node_relations_references($node_relation);
+    }
+    my $headings_list = $document->{'headings_list'};
+    foreach my $heading_relation (@$headings_list) {
+      _remove_heading_relations_references($heading_relation);
+    }
+    # Refers to section relations not directly to tree elements
+    #if (exists($document->{'sectioning_root'})) {
+    #}
+  }
+
+  # similar to unsplit
+  # tree may not be defined if the input file was not found
+  if (defined($tree) and exists($tree->{'contents'})) {
+    foreach my $content (@{$tree->{'contents'}}) {
+      delete $content->{'associated_unit'};
+    }
+  }
+
+  if ($remove_references) {
+    delete $document->{'identifiers_target'};
+    delete $document->{'labels_list'};
+    delete $document->{'internal_references'};
+    delete $document->{'commands_info'};
+    delete $document->{'listoffloats_list'};
+
+    foreach my $index_name (keys(%{$document->{'indices'}})) {
+      my $index = $document->{'indices'}->{$index_name};
+      foreach my $index_entry (@{$index->{'index_entries'}}) {
+        delete $index_entry->{'entry_element'};
+        delete $index_entry->{'entry_associated_element'};
+      }
+    }
+  }
+
+  _remove_output_units_directions($document);
+  if ($remove_references) {
+    _remove_output_units_references($document);
+  }
+
+  if (0 and $remove_references) {
+    foreach my $lang (sort(keys(
+                         %{$Texinfo::Translations::translation_cache}))) {
+      my $lang_cache = $Texinfo::Translations::translation_cache->{$lang};
+      foreach my $string (sort(keys(%$lang_cache))) {
+        foreach my $context (sort(keys(%{$lang_cache->{$string}}))) {
+          my ($translation, $trans_tree)
+            = @{$lang_cache->{$string}->{$context}};
+          print STDERR "TRANSL: $string-$context: ";
+          if (defined($trans_tree)) {
+            _print_tree_elements_ref($trans_tree, 0);
+          } else {
+            print STDERR "NOT NEEDED\n";
+          }
+        }
+      }
+    }
+  }
+
+
+  if (defined($tree)) {
+    tree_remove_parents($tree);
+    if ($remove_references) {
+      tree_remove_references($tree);
+      delete $document->{'tree'};
+    }
+  }
+}
+
+sub destroy_document($;$) {
+  my ($document, $remove_references) = @_;
+
+  remove_document_references($document, $remove_references);
+
+  #find_cycle($document);
+  $document = undef;
 }
 
 # The XS override register a reference to the C element in Perl

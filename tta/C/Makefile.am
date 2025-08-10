@@ -416,6 +416,8 @@ libtexinfoxs_la_SOURCES= \
 		      main/build_perl_info.h \
 		      main/get_perl_info.c \
 		      main/get_perl_info.h \
+		      main/call_document_perl_functions.h \
+		      main/call_document_perl_functions.c \
 		      main/options_get_perl.c
 
 # locate include files under out-of-source builds.

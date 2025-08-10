@@ -30,6 +30,9 @@
 /* for debug
 #include "debug.h"
  */
+ /* for debug
+#include "manipulate_tree.h"
+  */
 #include "api_to_perl.h"
 #include "tree.h"
 
@@ -234,12 +237,20 @@ destroy_element (ELEMENT *e)
   if (e->sv)
     {
       void *hv = get_sv_hv (e->sv);
+       /*
+      int sv_refcount = get_refcount (e->sv);
+      int hv_refcount = get_refcount (hv);
+
+      if (sv_refcount != 1 || hv_refcount != 1) {
+        fprintf (stderr, "ELT (%p): sv: %d hv: %d\n", hv, sv_refcount,
+                         hv_refcount);
+        fprintf (stderr, " %s\n", element_print_details (e, 0, 0));
+      } else {
+        fprintf (stderr, " DESTROY refcounts ok\n");
+      }
+        */
       unregister_perl_data (hv);
       unregister_perl_data (e->sv);
-       /*
-      fprintf (stderr, "ELT: sv: %d hv: %d\n", get_refcount (e->sv),
-                       get_refcount (hv));
-        */
       e->sv = 0;
     }
 

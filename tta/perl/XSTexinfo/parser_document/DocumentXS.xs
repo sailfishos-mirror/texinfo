@@ -38,6 +38,7 @@
 #include "document.h"
 #include "translations.h"
 #include "get_perl_info.h"
+#include "call_document_perl_functions.h"
 #include "build_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -145,15 +146,25 @@ build_tree (SV *tree_in, ...)
         RETVAL
 
 void
-destroy_document (SV *document_in)
-    PREINIT:
+destroy_document (SV *document_in, SV *remove_references_sv=0)
+      PROTOTYPE: $;$
+      PREINIT:
         DOCUMENT *document = 0;
-     CODE:
+      CODE:
         /* it is ok not to found a document if there is no
            document descriptor */
         document = get_sv_document_document (document_in, 0);
         if (document)
-          destroy_document (document);
+          {
+            int remove_references = 0;
+            if (remove_references_sv && SvOK (remove_references_sv))
+              remove_references = SvIV (remove_references_sv);
+
+            if (document->options->TEST.o.integer > 0)
+              call_document_remove_document_references (document, remove_references);
+            destroy_document (document);
+          }
+        document_in = &PL_sv_undef;
 
 SV *
 document_errors (SV *document_in)

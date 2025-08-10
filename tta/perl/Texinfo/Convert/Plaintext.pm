@@ -575,6 +575,15 @@ sub conversion_finalization($)
   if ($self->{'encoding_disabled'}) {
     delete $self->{'encoding_disabled'};
   }
+
+  my $count_contexts_nr = scalar(@{$self->{'count_context'}});
+  if ($count_contexts_nr != 1) {
+    $self->present_bug_message("Remaining count_context at finalization (".
+                        $count_contexts_nr . ")\n");
+  }
+  if ($count_contexts_nr > 0) {
+    splice(@{$self->{'count_context'}}, 0, $count_contexts_nr);
+  }
 }
 
 sub count_context_bug_message($$$)
@@ -652,6 +661,7 @@ sub convert($$)
   my $result = '';
 
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
+  $document->register_output_units_lists([$output_units]);
 
   foreach my $output_unit (@$output_units) {
     my $node_text = convert_output_unit($self, $output_unit);
@@ -711,6 +721,8 @@ sub output($$)
   my $nodes_list = $document->nodes_list();
   Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
                                     $self->get_conf('SPLIT'));
+
+  $document->register_output_units_lists([$output_units]);
 
   # There are no XS overrides, the changes are in Perl only, no need
   # to rebuild Perl data from C.

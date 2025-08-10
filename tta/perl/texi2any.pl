@@ -1698,6 +1698,9 @@ if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
   set_from_cmdline('XS_EXTERNAL_FORMATTING', 1);
 }
 
+my $remove_references = 0;
+$remove_references = 1 if (get_conf('TEST') and get_conf('TEST') > 1);
+
 my $file_number = -1;
 my %opened_files;
 my %main_unclosed_files;
@@ -2288,18 +2291,22 @@ while(@input_files) {
     }
   }
 
-  $converter->destroy();
+  $converter->destroy($remove_references);
 
-  #find_cycle($document);
  NEXT:
+  $parser->release();
+  $parser = undef;
+
   if (get_conf('TEST')) {
     # This takes a lot of time and is unnecessary when there is
     # only one input file as the program is about to exit.  Note that
     # this cleanup is only possible while we still have the value of
     # $document.
-    Texinfo::Document::destroy_document($document) if defined($document);
+    $tree = undef;
+
+    Texinfo::Document::destroy_document($document, $remove_references)
+      if defined($document);
   }
-  #find_cycle($document);
 }
 
 foreach my $unclosed_file (keys(%main_unclosed_files)) {
