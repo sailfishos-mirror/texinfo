@@ -302,127 +302,6 @@ sub get_conf($$)
 
 
 
-sub tree_remove_parents($);
-
-sub tree_remove_parents($) {
-  my $element = shift;
-
-  confess() if (!defined($element));
-  #print STDERR "TREE t_r_p $element: "
-  #     .Devel::Refcount::refcount($element)."\n";
-  #   .Texinfo::ManipulateTree::element_print_details($element)."\n";
-
-  if (exists($element->{'source_marks'})) {
-    foreach my $source_mark (@{$element->{'source_marks'}}) {
-      if (exists($source_mark->{'element'})) {
-        tree_remove_parents($source_mark->{'element'});
-      }
-    }
-  }
-
-  return if (exists($element->{'text'}));
-
-  delete $element->{'parent'};
-
-  if (exists($element->{'info'})) {
-    foreach my $info_elt_key ('comment_at_end', 'spaces_before_argument',
-                              'spaces_after_cmd_before_arg',
-                              'spaces_after_argument') {
-      # for spaces_* parents can only be in source marks
-      if (exists($element->{'info'}->{$info_elt_key})) {
-        tree_remove_parents($element->{'info'}->{$info_elt_key});
-      }
-    }
-  }
-
-  if (exists($element->{'contents'})) {
-    foreach my $content (@{$element->{'contents'}}) {
-      tree_remove_parents($content);
-    }
-    if (exists($element->{'extra'})) {
-      if (exists($element->{'extra'}->{'def_index_element'})) {
-        tree_remove_parents($element->{'extra'}->{'def_index_element'});
-        if (exists($element->{'extra'}->{'def_index_ref_element'})) {
-          tree_remove_parents($element->{'extra'}->{'def_index_ref_element'});
-        }
-      }
-      # elements also in $element->{'contents'} (without parent when added).
-      #foreach my $key ('node_content', 'manual_content') {
-      #  if (exists($element->{'extra'}->{$key})) {
-      #    tree_remove_parents($element->{'extra'}->{$key});
-      #  }
-      #}
-    }
-  }
-}
-
-sub tree_remove_references($);
-sub tree_remove_references($)
-{
-  my $element = shift;
-
-  if (exists($element->{'source_marks'})) {
-    foreach my $source_mark (@{$element->{'source_marks'}}) {
-      if (exists($source_mark->{'element'})) {
-        tree_remove_references($source_mark->{'element'});
-      }
-      delete $source_mark->{'element'};
-    }
-  }
-
-  if (!exists($element->{'text'})) {
-    if (exists($element->{'info'})) {
-      foreach my $info_elt_key ('comment_at_end', 'spaces_before_argument',
-                                'spaces_after_cmd_before_arg',
-                                'spaces_after_argument') {
-        if (exists($element->{'info'}->{$info_elt_key})) {
-          tree_remove_references($element->{'info'}->{$info_elt_key});
-          delete $element->{'info'}->{$info_elt_key};
-        }
-      }
-    }
-
-    if (exists($element->{'contents'})) {
-      if (exists($element->{'extra'})) {
-        if (exists($element->{'extra'}->{'def_index_element'})) {
-          tree_remove_references($element->{'extra'}->{'def_index_element'});
-          delete $element->{'extra'}->{'def_index_element'};
-          if (exists($element->{'extra'}->{'def_index_ref_element'})) {
-            tree_remove_references(
-              $element->{'extra'}->{'def_index_ref_element'});
-            delete $element->{'extra'}->{'def_index_ref_element'};
-          }
-        }
-        # holds duplicates of the element label contents
-        foreach my $key ('node_content', 'manual_content') {
-          if (exists($element->{'extra'}->{$key})) {
-            delete $element->{'extra'}->{$key}->{'contents'};
-          }
-        }
-      }
-      for (my $i = 0; $i < scalar(@{$element->{'contents'}}); $i++) {
-        tree_remove_references($element->{'contents'}->[$i]);
-      }
-      delete $element->{'contents'};
-    }
-  }
-
-  #print STDERR "RRR $element ".
-  #   Texinfo::ManipulateTree::element_print_details($element)."\n";
-
-  #my $reference_count = Devel::Peek::SvREFCNT($element);
-  #my $object_count = Devel::Refcount::refcount($element);
-  # The $element variable owns one count to reference and to object.
-  # The parent contents hash also holds a count to the object.
-  # plus possibly one reference owned by the C code
-  #if (1) {
-  #if ($reference_count != 1 or $object_count != 2) {
-  #  print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
-  #     .Texinfo::ManipulateTree::element_print_details($element)."\n"
-  #     .Devel::FindRef::track($element)."\n";
-  #}
-}
-
 # remove cycles
 sub _remove_section_relations_relations($) {
   my $section_relation = shift;
@@ -606,9 +485,9 @@ sub remove_document_references($;$) {
 
 
   if (defined($tree)) {
-    tree_remove_parents($tree);
+    Texinfo::ManipulateTree::tree_remove_parents($tree);
     if ($remove_references) {
-      tree_remove_references($tree);
+      Texinfo::ManipulateTree::tree_remove_references($tree);
       delete $document->{'tree'};
     }
   }

@@ -51,6 +51,9 @@ use Texinfo::Common;
 
 use Texinfo::Report;
 
+use Texinfo::ManipulateTree;
+use Texinfo::Document;
+
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Texinfo;
@@ -540,10 +543,10 @@ sub destroy($;$)
         my $tree = $no_arg_command_ctx->{$context}->{'translated_tree'};
         if (defined($tree)) {
           # always a copy
-          Texinfo::Document::tree_remove_parents($tree);
+          Texinfo::ManipulateTree::tree_remove_parents($tree);
           if ($remove_references) {
             delete $no_arg_command_ctx->{$context}->{'translated_tree'};
-            Texinfo::Document::tree_remove_references($tree);
+            Texinfo::ManipulateTree::tree_remove_references($tree);
           }
         }
       }
