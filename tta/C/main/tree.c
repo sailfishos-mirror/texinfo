@@ -28,11 +28,8 @@
 /* for destroy_strings_list */
 #include "utils.h"
 /* for debug
-#include "debug.h"
  */
-#include "manipulate_tree.h"
- /* for debug
-  */
+#include "debug.h"
 #include "api_to_perl.h"
 #include "tree.h"
 
@@ -243,15 +240,22 @@ destroy_element (ELEMENT *e)
       int hv_refcount = get_refcount (hv);
 
       if (sv_refcount != 1 || hv_refcount != 1) {
-        fprintf (stderr, "ELT (%p): sv: %d hv: %d\n", hv, sv_refcount,
+        fprintf (stderr, "ELT (%p<-%p): sv: %d hv: %d\n", hv, e->sv, sv_refcount,
                          hv_refcount);
-        fprintf (stderr, " %s\n", element_print_details (e, 0, 0));
+        fprintf (stderr, " %s\n", print_element_debug (e, 0));
       } else {
-        fprintf (stderr, " DESTROY refcounts ok\n");
+        fprintf (stderr, "DESTROY (%p<-%p) refcounts ok\n", hv, e->sv);
+        fprintf (stderr, " %s\n", print_element_debug (e, 0));
       }
         */
-      unregister_perl_data (hv);
+      /* this also removes one reference for the associated hv */
       unregister_perl_data (e->sv);
+       /*
+      sv_refcount = get_refcount (e->sv);
+      hv_refcount = get_refcount (hv);
+      fprintf (stderr, "AFTER (%p<-%p): sv: %d hv: %d\n", hv, e->sv, sv_refcount,
+                         hv_refcount);
+        */
       e->sv = 0;
     }
 
@@ -305,6 +309,9 @@ destroy_element_and_children (ELEMENT *e)
     {
       for (i = 0; i < e->e.c->contents.number; i++)
         destroy_element_and_children (e->e.c->contents.list[i]);
+      /* would be needed if a code accessed the contents in destroy_element
+      e->e.c->contents.number = 0;
+       */
     }
 
   destroy_element (e);

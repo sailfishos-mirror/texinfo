@@ -18,6 +18,8 @@ document command_name in texi2any HTML customization API
 
 inline contents_child_by_index in C?
 
+Destroy preprended returned by Texinfo/Convert/Converter.pm float_name_caption?
+
 
 Bugs
 ====

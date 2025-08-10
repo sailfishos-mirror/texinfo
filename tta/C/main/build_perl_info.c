@@ -174,8 +174,9 @@ perl_only_strndup (const char *s, size_t n)
   return ret;
 }
 
-/* Increase both SV and the HV SV refers too.  Similar to newRV_inc regarding
-   reference counting, but for the SV, not the HV.  Note that when this
+/* Increase both SV and the HV SV refers too.  Different from newRV_inc on an HV
+   regarding reference counting, since the HV reference is not consumed when
+   the SV refcount decrease since the SV has two references.  Note that when this
    function is used, the returned SV is the same as the input SV, which means
    that assigning to the one, in Perl, also modifies the other.  In many cases
    we do not want that, and, newSVsv should be used instead to create a new
@@ -207,10 +208,11 @@ new_element_perl_data (ELEMENT *e)
 
   dTHX;
 
+  /* this reference should be retained in C code, which means that each time
+     a reference is transferred it should be duplicated (or aliased) */
   element_hv = newHV ();
   hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-  /* retain a reference in C code */
-  element_sv = newRV_inc ((SV *) element_hv);
+  element_sv = newRV_noinc ((SV *) element_hv);
   sv_bless (element_sv, hv_stash);
 
   e->sv = element_sv;
@@ -228,17 +230,15 @@ void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
    as the contents children are processed before the extra
    information where build_perl_array is called.
  */
-static SV *
+static AV *
 build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
 {
-  SV *sv;
   AV *av;
   size_t i;
 
   dTHX;
 
   av = newAV ();
-  sv = newRV_inc ((SV *) av);
 
   for (i = 0; i < e_l->number; i++)
     {
@@ -270,7 +270,7 @@ build_perl_array (const ELEMENT_LIST *e_l, int avoid_recursion)
         }
       av_store (av, (SSize_t) i, newSVsv ((SV *) element->sv));
     }
-  return sv;
+  return av;
 }
 
 static SV *
@@ -283,7 +283,7 @@ build_perl_const_element_array (const CONST_ELEMENT_LIST *e_l, int avoid_recursi
   dTHX;
 
   av = newAV ();
-  sv = newRV_inc ((SV *) av);
+  sv = newRV_noinc ((SV *) av);
 
   for (i = 0; i < e_l->number; i++)
     {
@@ -334,8 +334,8 @@ static U32 HSH_macro = 0;
 static void
 build_perl_container (ELEMENT *e, int avoid_recursion)
 {
-  SV *sv;
   HV *element_hv;
+  AV *contents_av;
 
   dTHX;
 
@@ -349,9 +349,10 @@ build_perl_container (ELEMENT *e, int avoid_recursion)
       hv_clear (element_hv);
     }
 
-  sv = build_perl_array (&e->e.c->contents, avoid_recursion);
+  contents_av = build_perl_array (&e->e.c->contents, avoid_recursion);
 
-  hv_store (element_hv, "contents", strlen ("contents"), sv, HSH_contents);
+  hv_store (element_hv, "contents", strlen ("contents"),
+            newRV_noinc ((SV *) contents_av), HSH_contents);
 }
 
 static SV *
@@ -364,7 +365,7 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
   dTHX;
 
   hv = newHV ();
-  sv = newRV_inc ((SV *) hv);
+  sv = newRV_noinc ((SV *) hv);
 
   for (d = 0; d < directions_length; d++)
     {
@@ -421,7 +422,7 @@ build_extra_misc_args (const STRING_LIST *l)
                              strlen (l->list[j]));
       av_store (av, j, sv);
     }
-  return newRV_inc ((SV *)av);
+  return newRV_noinc ((SV *)av);
 }
 
 static SV *
@@ -441,9 +442,11 @@ build_extra_index_entry (const INDEX_ENTRY_LOCATION *entry_loc)
   av_store (av, 0, sv);
   sv = newSViv ((IV) entry_loc->number);
   av_store (av, 1, sv);
-  return newRV_inc ((SV *)av);
+  return newRV_noinc ((SV *) av);
 }
 
+/* The SV returned holds one reference in addition to the reference kept in C
+   for object that have a reference kept in C */
 static SV *
 build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
 {
@@ -684,6 +687,10 @@ build_associated_info (HV *extra, const ASSOCIATED_INFO *a,
           (*nr_info)++;
 
           sv = build_key_pair_info (k, avoid_recursion);
+           /*
+          if (sv && SvROK((SV*) sv))
+            fprintf (stderr, "EXTRA %s %p %d\n", key_name, (HV *)SvRV ((SV *) sv), SvREFCNT ((SV *) (HV *)SvRV ((SV *) sv)));
+            */
           if (sv)
             hv_store (extra, key_name, strlen (key_name), sv, 0);
         }
@@ -1083,11 +1090,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           ELEMENT *child = e->e.c->contents.list[i];
           if (!child->sv || !avoid_recursion)
             element_to_perl_hash (child, avoid_recursion);
-      /* we do not transfer the sv ref to the perl av because we consider
-         that contents.list[i]->sv still own a reference, which should only be
-         released when the element is destroyed, by calling
-         unregister_perl_tree_element */
-          sv = SvREFHVCNT_inc ((SV *) child->sv);
+          sv = newSVsv ((SV *) child->sv);
           av_store (av, i, sv);
         }
     }
@@ -1190,9 +1193,7 @@ build_elements_list (const CONST_ELEMENT_LIST *list)
 
   for (i = 0; i < list->number; i++)
     {
-      /* newSVsv could also be used here, depending on why
-         this function is called */
-      sv = SvREFHVCNT_inc (list->list[i]->sv);
+      sv = newSVsv ((SV *) list->list[i]->sv);
       av_store (list_av, i, sv);
     }
 
@@ -2044,6 +2045,7 @@ build_global_info (DOCUMENT *document,
       if (global_info_sv && SvOK (*global_info_sv))
         {
           hv = (HV *) SvRV (*global_info_sv);
+          /* FIXME looks unneeded */
           SvREFCNT_inc ((SV *) hv);
         }
     }
@@ -2341,11 +2343,12 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
                                       document->indices_sort_strings,
                                       hv_index_names);
 
+  /* FIXME why the additional reference, shouldn't it be newRV_noinc? */
 #define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
 
   /* must be kept in sync with Texinfo::Document register keys */
   if (sv_tree)
-    hv_store (hv, "tree", strlen ("tree"), SvREFHVCNT_inc ((SV *) sv_tree), 0);
+    hv_store (hv, "tree", strlen ("tree"), newSVsv ((SV *) sv_tree), 0);
   document->modified_information &= ~F_DOCM_tree;
   STORE("indices", hv_index_names);
   document->modified_information &= ~F_DOCM_index_names;
@@ -2402,9 +2405,11 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
       if (!document->hv)
         {
           document->hv = (void *) hv;
-          SvREFCNT_inc ((SV *)hv);
+          /* Additional reference held by the C code released at document
+             destruction */
+          SvREFCNT_inc ((SV *) hv);
         }
-      else if ((HV *)document->hv != hv)
+      else if ((HV *) document->hv != hv)
         {
           fprintf (stderr,
            "BUG: fill_document_hv: %zu: %p and new %p document hv differ\n",
@@ -2466,7 +2471,7 @@ store_document_texinfo_tree (DOCUMENT *document)
       hv_store (result_hv, "tree_document_descriptor",
                 strlen ("tree_document_descriptor"),
                 newSViv (document->descriptor), 0);
-      hv_store (document->hv, key, strlen (key), SvREFHVCNT_inc (result_sv), 0);
+      hv_store (document->hv, key, strlen (key), newSVsv (result_sv), 0);
       document->modified_information &= ~F_DOCM_tree;
     }
   /* systematically rebuild, as section relations
@@ -3176,6 +3181,7 @@ document_global_information (SV *document_in)
 
 /* Build indices information for Perl */
 
+/* finds index name and entry number index entry SV in Perl data */
 static SV *
 find_idx_name_entry_number_sv (HV *indices_information_hv,
                                const char* index_name, int entry_number,
@@ -3293,6 +3299,14 @@ build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
               hv_store (index_entry_sort_string_hv, "number",
                         strlen ("number"), newSViv (entry->number), 0);
 
+              /* FIXME it may be better to use newSVsv here, to avoid reusing
+                       the same SV, even if it is more efficient, as it is
+                       confusing regarding the number of references and also
+                       leads to the same reference being reused, which is not
+                       expected in Perl code.
+                       the HV is not destroyed because the first SV reference
+                       removed does not lead to the destruction of the SV.
+               */
               SvREFCNT_inc (index_entry_sv);
               hv_store (index_entry_sort_string_hv, "entry",
                         strlen ("entry"), index_entry_sv, 0);
@@ -3365,6 +3379,14 @@ build_sorted_indices_by_index (
 
           if (index_entry_sv)
             {
+              /* FIXME it may be better to use newSVsv here, to avoid reusing
+                       the same SV, even if it is more efficient, as it is
+                       confusing regarding the number of references and also
+                       leads to the same reference being reused, which is not
+                       expected in Perl code.
+                       the HV is not destroyed because the first SV reference
+                       removed does not lead to the destruction of the SV.
+               */
               SvREFCNT_inc (index_entry_sv);
               av_push (entries_av, index_entry_sv);
             }
@@ -3434,6 +3456,14 @@ build_sorted_indices_by_letter (
 
               if (index_entry_sv)
                 {
+              /* FIXME it may be better to use newSVsv here, to avoid reusing
+                       the same SV, even if it is more efficient, as it is
+                       confusing regarding the number of references and also
+                       leads to the same reference being reused, which is not
+                       expected in Perl code.
+                       the HV is not destroyed because the first SV reference
+                       removed does not lead to the destruction of the SV.
+               */
                   SvREFCNT_inc (index_entry_sv);
                   av_push (entries_av, index_entry_sv);
                 }
@@ -3685,6 +3715,14 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
 
   if (text_options->converter && text_options->converter->sv)
     {
+              /* FIXME it may be better to use newSVsv here, to avoid reusing
+                       the same SV, even if it is more efficient, as it is
+                       confusing regarding the number of references and also
+                       leads to the same reference being reused, which is not
+                       expected in Perl code.
+                       the HV is not destroyed because the first SV reference
+                       removed does not lead to the destruction of the SV.
+               */
       SvREFCNT_inc (text_options->converter->sv);
       STORE("converter", text_options->converter->sv);
     }
@@ -3704,6 +3742,14 @@ pass_document_sv_to_converter_sv (SV *converter_sv, SV *document_in)
 
   if (document_in && SvOK (document_in))
     {
+              /* FIXME it may be better to use newSVsv here, to avoid reusing
+                       the same SV, even if it is more efficient, as it is
+                       confusing regarding the number of references and also
+                       leads to the same reference being reused, which is not
+                       expected in Perl code.
+                       the HV is not destroyed because the first SV reference
+                       removed does not lead to the destruction of the SV.
+               */
       SvREFCNT_inc (document_in);
       hv_store (converter_hv, "document", strlen ("document"),
                 document_in, 0);
@@ -3853,6 +3899,7 @@ html_build_buttons_specification (CONVERTER *converter,
       button->sv = button_sv;
 
       /* retain a reference in C */
+      /* FIXME do not retain a reference on the HV? */
       SvREFCNT_inc (button->sv);
 
       av_push (buttons_av, button_sv);
@@ -3938,6 +3985,7 @@ build_sv_option (const OPTION *option, CONVERTER *converter)
           {
             if (!option->o.buttons->av)
               html_build_buttons_specification (converter, option->o.buttons);
+            /* FIXME why an additional reference to AV? */
             return newRV_inc ((SV *) option->o.buttons->av);
           }
         break;
@@ -3975,9 +4023,10 @@ build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
       SV *option_sv = build_sv_option (option, converter);
 
       /* we store all values as they appear, the later overriding earlier
-         values, and do not treat undef nor C option  configured field
+         values, and do not treat undef nor C option configured field
          especially */
       if (SvOK (option_sv))
+        /* FIXME why not newSVsv? */
         SvREFCNT_inc (option_sv);
 
       hv_store (options_hv, key, strlen (key), option_sv, 0);
@@ -4199,6 +4248,8 @@ pass_output_unit_files (SV *converter_sv,
   file_counters_sv = build_file_counters (output_unit_files);
   out_filepaths_sv = build_out_filepaths (output_unit_files);
 
+  /* FIXME why not newSVsv?  Also maybe better to return AV or HV from
+     functions just above */
 #define STORE(key) \
   hv_store (converter_hv, #key, strlen (#key), key##_sv, 0); \
   SvREFCNT_inc (key##_sv);

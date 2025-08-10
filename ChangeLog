@@ -1,5 +1,25 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (new_element_perl_data)
+	(element_to_perl_hash), tta/C/main/tree.c (destroy_element): do not
+	retain an additional reference in new_element_perl_data, and
+	consistently do not remove an HV reference in destroy_element.
+	Call newSVsv instead of SvREFHVCNT_inc in element_to_perl_hash.
+
+	* tta/C/main/build_perl_info.c (build_elements_list)
+	(fill_document_hv, store_document_texinfo_tree): use newSVsv instead
+	of SvREFHVCNT_inc.
+
+	* tta/C/main/build_perl_info.c (build_perl_const_element_array)
+	(build_perl_directions, build_extra_misc_args)
+	(build_extra_index_entry): do not retain an additional reference
+	to the AV/HV.
+
+	* tta/C/main/build_perl_info.c (build_perl_array)
+	(build_perl_container): return an AV.  Update caller.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (_copy_tree, copy_contents)
 	(copy_contentsNonXS): handle an tree without contents in input of
 	copy_contents and copy_contentsNonXS.
