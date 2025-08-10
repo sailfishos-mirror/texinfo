@@ -1596,7 +1596,7 @@ customization variable (@pxref{@code{NO_TOP_NODE_OUTPUT}}).
 @cindex Bastard title page
 @cindex Title page @subentry bastard
 For sufficiently simple documents, and for the bastard title page in
-traditional book frontmatter, Texinfo also provides a command
+traditional book front matter, Texinfo also provides a command
 @code{@@shorttitlepage} which takes the rest of the line as the title.
 The argument is typeset on a page by itself and followed by a blank
 page.  In HTML, @code{@@shorttitlepage} can play the same role as
@@ -23796,7 +23796,7 @@ sets, you can explicit control them with the @code{@@headings} command.
 
 At the beginning of a manual or book, pages are not numbered---for
 example, the title and copyright pages of a book are not numbered.  By
-convention, table of contents and frontmatter pages are numbered with
+convention, table of contents and front matter pages are numbered with
 roman numerals and not in sequence with the rest of the document.
 
 The @code{@@setchapternewpage} has no effect in output formats that do
