@@ -167,8 +167,12 @@ sub _copy_tree($;$) {
   #print STDERR "CTNEW $current ".debug_print_element($current)." $new\n";
 
   if (exists($current->{'contents'})) {
+    if (!defined($current->{'contents'})) {
+      print STDERR "BUG: contents not defined ".Texinfo::Common::debug_print_element($current)."\n";
+      cluck();
+    }
     if (ref($current->{'contents'}) ne 'ARRAY') {
-      print STDERR "BUG: Not an array [$command_or_type] 'contents' ".
+      print STDERR "BUG: Not an array [$command_or_type] $current->{'contents'} 'contents' ".
                                            ref($current->{'contents'})."\n";
     }
     $new->{'contents'} = [];
@@ -363,9 +367,14 @@ sub copy_treeNonXS($;$) {
 sub copy_contents($;$) {
   my ($element, $type) = @_;
 
-  # Done for consistenct, but not sure that it is needed
-  my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
-  my $copy = copy_tree($tmp);
+  my $copy;
+  if (!exists($element->{'contents'})) {
+    $copy = Texinfo::TreeElement::new({});
+  } else {
+    # Done for consistency, but not sure that it is needed
+    my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
+    $copy = copy_tree($tmp);
+  }
   if (defined($type)) {
     $copy->{'type'} = $type;
   }
@@ -375,8 +384,14 @@ sub copy_contents($;$) {
 sub copy_contentsNonXS($;$) {
   my ($element, $type) = @_;
 
-  my $tmp = {'contents' => $element->{'contents'}};
-  my $copy = copy_treeNonXS($tmp);
+  my $copy;
+  if (!exists($element->{'contents'})) {
+    $copy = Texinfo::TreeElement::new({});
+  } else {
+    # Done for consistency, but not sure that it is needed
+    my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
+    $copy = copy_treeNonXS($tmp);
+  }
   if (defined($type)) {
     $copy->{'type'} = $type;
   }
@@ -387,7 +402,7 @@ sub copy_contentsNonXS($;$) {
 
 sub tree_remove_parents($);
 
-# TODO document?
+# TODO add documentation?
 # remove parent key in tree, which allows to remove the cycle going
 # through contents and parents.
 sub tree_remove_parents($) {
@@ -510,6 +525,7 @@ sub tree_remove_references($)
   #if ($reference_count != 1 or $object_count != 2) {
   #  print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
   #     .Texinfo::ManipulateTree::element_print_details($element)."\n"
+       #;
   #     .Devel::FindRef::track($element)."\n";
   #}
 }

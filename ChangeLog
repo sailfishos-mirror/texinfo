@@ -1,5 +1,11 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm (_copy_tree, copy_contents)
+	(copy_contentsNonXS): handle an tree without contents in input of
+	copy_contents and copy_contentsNonXS.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (copy_associated_info),
 	tta/C/main/tree.c (destroy_associated_info), tta/C/main/tree_types.h
 	(INDEX_ENTRY_LOCATION), tta/C/parsetexi/indices.c (enter_index_entry),
