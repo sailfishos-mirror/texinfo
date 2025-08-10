@@ -988,6 +988,7 @@ main (int argc, char *argv[], char *env[])
   char *texinfo_dev_source_env;
   char *command_directory;
   char *program_basename;
+  int remove_references = 0;
 
   memset (&main_program_unclosed_stdout, 0, sizeof (FILE_STREAM));
 
@@ -2425,6 +2426,9 @@ main (int argc, char *argv[], char *env[])
       exit (EXIT_FAILURE);
     }
 
+  if (test_option && test_option->o.integer > 1)
+    remove_references = 1;
+
   /* NOTE there is an effect only if Perl converter is used */
   txi_xs_external_conversion = getenv ("TEXINFO_XS_EXTERNAL_CONVERSION");
   if (txi_xs_external_conversion && strlen (txi_xs_external_conversion)
@@ -3058,7 +3062,7 @@ main (int argc, char *argv[], char *env[])
       txi_converter_reset (converter);
 
       /* destroy converter */
-      txi_converter_destroy (converter);
+      txi_converter_destroy (converter, remove_references);
 
       if (i == 0)
         {
@@ -3192,7 +3196,7 @@ main (int argc, char *argv[], char *env[])
 
               /* destroy converter and sort_element_count_info */
               txi_converter_reset (sort_element_count_info->converter);
-              txi_converter_destroy (sort_element_count_info->converter);
+              txi_converter_destroy (sort_element_count_info->converter, 0);
               free (sort_element_count_info);
 
               error_element_count_file
@@ -3212,7 +3216,7 @@ main (int argc, char *argv[], char *env[])
 
     next_input_file:
       /* destroy document */
-      txi_destroy_document (document);
+      txi_destroy_document (document, remove_references);
 
       free (input_directory);
       free (canon_input_dir);

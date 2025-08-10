@@ -115,7 +115,7 @@ my %XS_overrides = (
   # XS only
   "Texinfo::Convert::Converter::reset_converter"
    => "Texinfo::Convert::ConvertXS::reset_converter",
-  "Texinfo::Convert::Converter::destroy"
+  "Texinfo::Convert::Converter::_XS_destroy"
    => "Texinfo::Convert::ConvertXS::destroy",
 
   "Texinfo::Convert::Converter::XS_get_unclosed_stream"
@@ -474,8 +474,8 @@ sub converter_destroy($;$)
   my ($self, $remove_references) = @_;
 }
 
-# XS function frees memory
-sub destroy($;$)
+# can also be called from XS
+sub converter_perl_release($;$)
 {
   my ($self, $remove_references) = @_;
 
@@ -485,6 +485,7 @@ sub destroy($;$)
 
   if (exists($self->{'convert_text_options'})) {
     delete $self->{'convert_text_options'}->{'converter'};
+    # common translations cache
     delete $self->{'convert_text_options'}->{'translations'};
     delete $self->{'convert_text_options'}->{'current_lang_translations'};
   }
@@ -499,6 +500,20 @@ sub destroy($;$)
 
   # output format converter specific
   $self->converter_destroy($remove_references);
+}
+
+sub _XS_destroy($;$)
+{
+  my ($self, $remove_references) = @_;
+}
+
+sub destroy($;$)
+{
+  my ($self, $remove_references) = @_;
+
+  $self->converter_perl_release($self, $remove_references);
+
+  $self->_XS_destroy($remove_references);
 
   #find_cycle($self);
   $self = undef;

@@ -198,6 +198,45 @@ call_module_converter (const char *module_name,
   return result;
 }
 
+void
+call_object_converter_perl_release (const CONVERTER *self,
+                                    int remove_references)
+{
+  int count;
+
+  dTHX;
+
+  /* TODO: could also be a check of if (!has_perl_interpreter ()) */
+  if (!self->sv)
+    return;
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 2);
+
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
+  PUSHs(sv_2mortal (newSViv (remove_references)));
+  PUTBACK;
+
+  count = call_method ("converter_perl_release",
+                       G_DISCARD|G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 0)
+    croak ("call: object converter_perl_release should return 0 item\n");
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+
+}
+
 /* call converter->output and converter->output_files_information if needed
    and return an OUTPUT_TEXT_FILES_INFO which contains both the resulting text
    and the output files information, if not already in the converter. */
@@ -295,7 +334,7 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
 }
 
 char *
-call_sort_element_counts (CONVERTER *self, DOCUMENT *document,
+call_sort_element_counts (const CONVERTER *self, DOCUMENT *document,
                           int use_sections, int count_words)
 {
   SV *document_sv;

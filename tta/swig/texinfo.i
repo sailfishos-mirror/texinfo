@@ -636,7 +636,7 @@ const READER_TOKEN *txi_reader_skip_children (struct READER *reader,
 
 // texinfo.h
 
-void txi_destroy_document (DOCUMENT *document);
+void txi_destroy_document (DOCUMENT *document, int remove_references=0);
 
 
 // Conversion

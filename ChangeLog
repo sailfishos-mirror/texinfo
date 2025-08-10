@@ -1,5 +1,33 @@
 2025-08-10 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (%XS_overrides, destroy)
+	(_XS_destroy, converter_perl_release): rename destroy as
+	converter_perl_release.  Re-add destroy calling converter_perl_release
+	and _XS_destroy, which is now the XS override.  That way, the Perl
+	data can be released before destroying the C data.
+
+	* tta/C/Makefile.am (libtexinfoxs_la_SOURCES)
+	(libcallperl_libtexinfo_convert_la_SOURCES),
+	tta/perl/Texinfo/Document.pm (%XS_overrides, _XS_destroy_document)
+	(destroy_document), tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(destroy_document): add _XS_destroy_document, called by
+	destroy_document and use it as XS override.  That way, the Perl data
+	can be released before destroying the C data.  Do not call
+	call_document_remove_document_references in destroy_document in
+	DocumentXS.xs.  Move call_document_perl_functions.c to
+	libcallperl_libtexinfo_convert_la_SOURCES.
+
+	* tta/C/convert/call_conversion_perl.c
+	(call_object_converter_perl_release), tta/C/convert/texinfo.c
+	(txi_converter_destroy, txi_destroy_document), tta/C/texi2any.c
+	(main): add call_object_converter_perl_release and call from
+	txi_converter_destroy.  Call call_document_remove_document_references
+	from txi_destroy_document.  Add remove_references argument to
+	txi_destroy_document and txi_destroy_document.  Set remove_references
+	in texi2any.c.
+
+2025-08-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm (converter_destroy, destroy),
 	tta/perl/Texinfo/Convert/HTML.pm (converter_destroy),
 	tta/perl/Texinfo/Convert/LaTeX.pm (converter_destroy),

@@ -416,8 +416,6 @@ libtexinfoxs_la_SOURCES= \
 		      main/build_perl_info.h \
 		      main/get_perl_info.c \
 		      main/get_perl_info.h \
-		      main/call_document_perl_functions.h \
-		      main/call_document_perl_functions.c \
 		      main/options_get_perl.c
 
 # locate include files under out-of-source builds.
@@ -479,6 +477,8 @@ libcallperl_libtexinfo_convert_la_SOURCES = \
                        convert/call_conversion_perl.h
 if ! DISABLE_XS
 libcallperl_libtexinfo_convert_la_SOURCES += \
+                       main/call_document_perl_functions.h \
+                       main/call_document_perl_functions.c \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.c \

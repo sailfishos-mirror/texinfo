@@ -57,7 +57,7 @@ our $VERSION = '7.2dev';
 my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
 
 our %XS_overrides = (
-  "Texinfo::Document::destroy_document"
+  "Texinfo::Document::_XS_destroy_document"
     => "Texinfo::DocumentXS::destroy_document",
   "Texinfo::Document::set_document_global_info",
     => "Texinfo::DocumentXS::set_document_global_info",
@@ -493,10 +493,16 @@ sub remove_document_references($;$) {
   }
 }
 
+sub _XS_destroy_document($;$) {
+  my ($document, $remove_references) = @_;
+}
+
 sub destroy_document($;$) {
   my ($document, $remove_references) = @_;
 
   remove_document_references($document, $remove_references);
+
+  _XS_destroy_document($document, $remove_references);
 
   #find_cycle($document);
   $document = undef;

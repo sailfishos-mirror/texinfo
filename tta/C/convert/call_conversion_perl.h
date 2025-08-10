@@ -13,10 +13,12 @@ CONVERTER_INITIALIZATION_INFO *call_module_converter_defaults (
 
 CONVERTER *call_module_converter (const char *module_name,
                         const CONVERTER_INITIALIZATION_INFO *conf);
+void call_object_converter_perl_release (const CONVERTER *self,
+                                         int remove_references);
 OUTPUT_TEXT_FILES_INFO *call_converter_output (CONVERTER *self,
                                                DOCUMENT *document);
 
-char *call_sort_element_counts (CONVERTER *self,
+char *call_sort_element_counts (const CONVERTER *self,
                           DOCUMENT *document, int use_sections,
                           int count_words);
 

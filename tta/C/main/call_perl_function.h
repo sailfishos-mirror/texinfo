@@ -2,6 +2,7 @@
 #ifndef CALL_PERL_FUNCTION_H
 #define CALL_PERL_FUNCTION_H
 
+/* for BYTES_STRING */
 #include "document_types.h"
 
 char *call_nodenamenormalization_unicode_to_transliterate (const char *text,

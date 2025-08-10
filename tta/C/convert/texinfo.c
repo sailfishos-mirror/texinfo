@@ -57,6 +57,7 @@
 #include "call_perl_function.h"
 #include "call_conversion_perl.h"
 #include "call_embed_perl.h"
+#include "call_document_perl_functions.h"
 /* set_use_perl_interpreter */
 #include "xs_utils.h"
 #include "api_to_perl.h"
@@ -693,8 +694,11 @@ txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
 }
 
 void
-txi_destroy_document (DOCUMENT *document)
+txi_destroy_document (DOCUMENT *document, int remove_references)
 {
+  if (document->options->TEST.o.integer > 0)
+    call_document_remove_document_references (document, remove_references);
+
   destroy_document (document);
 }
 
@@ -705,8 +709,10 @@ txi_converter_reset (CONVERTER *converter)
 }
 
 void
-txi_converter_destroy (CONVERTER *converter)
+txi_converter_destroy (CONVERTER *converter, int remove_references)
 {
+  if (converter->conf->TEST.o.integer > 0)
+    call_object_converter_perl_release (converter, remove_references);
   destroy_converter (converter);
 }
 

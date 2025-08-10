@@ -23,9 +23,12 @@
 
 #undef context
 
+/* for BYTES_STRING */
+#include "document_types.h"
+/*
 #include "tree_types.h"
 #include "converter_types.h"
-#include "document_types.h"
+ */
 /* non_perl_* has_perl_interpreter */
 #include "xs_utils.h"
 #include "call_perl_function.h"
