@@ -13,6 +13,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
+/* ALTIMP perl/Texinfo/Indices.pm */
+
 /* Avoid namespace conflicts. */
 #define context perl_context
 

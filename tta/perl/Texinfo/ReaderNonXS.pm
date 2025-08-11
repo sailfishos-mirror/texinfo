@@ -18,6 +18,9 @@
 # The interface to the Texinfo tree provided in this file is similar to
 # Pod::Simple::PullParser or XML::LibXML::Reader
 
+# ALTIMP Reader.pm
+# ALTIMP XSTexinfo/reader_element/ReaderXS.xs
+
 package Texinfo::Reader;
 
 use strict;

@@ -15,7 +15,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# This module has an implementation as XS extension.
+# This module has an implementation as XS extension:
+# ALTIMP TreeElement.pm
+# ALTIMP XSTexinfo/reader_element/TreeElement.xs
 
 # The new() method of this module should be used for each creation
 # of a Texinfo tree element.

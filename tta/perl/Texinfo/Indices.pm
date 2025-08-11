@@ -21,6 +21,8 @@
 # converters methods that cache the results.  Therefore, the relevant
 # interface is, in the general case, with the document or converter
 # when possible.
+#
+# ALTIMP XSTexinfo/parser_document/IndicesXS.xs
 
 package Texinfo::Indices;
 

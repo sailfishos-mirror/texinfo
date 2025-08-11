@@ -19,6 +19,8 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
+#
+# ALTIMP ../C/texi2any.c
 
 use 5.006;
 

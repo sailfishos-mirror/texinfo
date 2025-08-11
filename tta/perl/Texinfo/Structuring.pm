@@ -19,6 +19,10 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl.
 
+# ALTIMP StructTransfXS.pm
+# ALTIMP XSTexinfo/parser_document/StructuringTransfoXS.xs
+# ALTIMP C/structuring_transfo/structuring.c
+
 package Texinfo::Structuring;
 
 use 5.006;

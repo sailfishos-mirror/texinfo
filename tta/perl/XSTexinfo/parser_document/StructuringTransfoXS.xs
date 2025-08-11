@@ -13,6 +13,11 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
+/* ALTIMP perl/Texinfo/Transformations.pm */
+/* ALTIMP perl/Texinfo/Structuring.pm */
+/* ALTIMP perl/Texinfo/ManipulateTree.pm */
+/* ALTIMP perl/Texinfo/OutputUnits.pm */
+
 /* Avoid namespace conflicts. */
 #define context perl_context
 

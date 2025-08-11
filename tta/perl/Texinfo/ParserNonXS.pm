@@ -18,6 +18,10 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
 
+# ALTIMP Parser.pm
+# ALTIMP XSTexinfo/parser_document/Parsetexi.xs
+# ALTIMP C/parsetexi/*.[ch]
+
 # Since there are different parser implementation, XS and NonXS, it is
 # better to have the Texinfo::Parser packages define only the parser
 # API functions.  Constants, functions useful in both parsers, and other

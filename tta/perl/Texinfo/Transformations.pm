@@ -17,6 +17,9 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl.
+#
+# ALTIMP perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+# ALTIMP C/structuring_transfo/transformations.c
 
 package Texinfo::Transformations;
 

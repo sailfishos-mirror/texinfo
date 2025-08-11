@@ -16,6 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
+#
+# ALTIMP perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
 
 package Texinfo::OutputUnits;
 

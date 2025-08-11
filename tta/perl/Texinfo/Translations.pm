@@ -16,6 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
+#
+# ALTIMP C/main/translations.c
 
 # This code is used for output documents strings translations, not for
 # error messages translations.

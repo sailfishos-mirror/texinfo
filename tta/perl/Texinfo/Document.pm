@@ -19,6 +19,9 @@
 # in memory.
 # Also note that the initialization of the C library is done by
 # this module XS code when XS extensions are used.
+#
+# ALTIMP perl/XSTexinfo/parser_document/DocumentXS.xs
+# ALTIMP C/main/document.c
 
 package Texinfo::Document;
 

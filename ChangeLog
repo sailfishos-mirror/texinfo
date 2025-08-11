@@ -1,5 +1,43 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Add ALTIMP comments to reference alternative implementation files
+
+	* tta/C/main/document.c,
+	* tta/C/parsetexi/errors_parser.c,
+	* tta/C/texi2any.c,
+	* tta/perl/texi2any.pl,
+	* tta/perl/Texinfo/Document.pm,
+	* tta/perl/Texinfo/DocumentXS.pm,
+	* tta/perl/Texinfo/Indices.pm,
+	* tta/perl/Texinfo/IndicesXS.pm,
+	* tta/perl/Texinfo/ManipulateTree.pm,
+	* tta/perl/Texinfo/OutputUnits.pm,
+	* tta/perl/Texinfo/ParserNonXS.pm,
+	* tta/perl/Texinfo/Parser.pm,
+	* tta/perl/Texinfo/ReaderNonXS.pm,
+	* tta/perl/Texinfo/Reader.pm,
+	* tta/perl/Texinfo/Report.pm,
+	* tta/perl/Texinfo/StructTransfXS.pm,
+	* tta/perl/Texinfo/Structuring.pm,
+	* tta/perl/Texinfo/Transformations.pm,
+	* tta/perl/Texinfo/Translations.pm,
+	* tta/perl/Texinfo/TreeElementNonXS.pm,
+	* tta/perl/Texinfo/TreeElement.pm,
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs,
+	* tta/perl/XSTexinfo/parser_document/IndicesXS.xs,
+	* tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs,
+	* tta/perl/XSTexinfo/reader_element/ReaderXS.xs,
+	* tta/perl/XSTexinfo/reader_element/TreeElementXS.xs:
+
+	For .pl and .pm files under tta/perl, add comments referencing
+	other relevant source codes with parts of alternative implementations
+	in C.  This is so someone updating the source code can be aware
+	they exist.
+
+	* tta/README: explain ALTIMP comments
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/README: Add note re Perl/C/XS code maintenance dependency
 
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>

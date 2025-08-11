@@ -16,6 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
+#
+# ALTIMP C/parsetexi/errors_parser.c
 
 package Texinfo::Report;
 

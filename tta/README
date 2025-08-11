@@ -101,6 +101,10 @@ Much of the code is available in two versions, both Perl and C.  Please
 check if any code you are updating needs to be updated in both languages.
 Affected files should have a comment near the top stating if this is the
 case but you can grep the code base for symbol names if that fails.
+You can check for an "ALTIMP" comment giving the name of a source code
+file that is part of an alternative implementation - paths are relative
+either to tta/ or the directory containing the file.
+
 Some, but not all of the C code is also available to Perl code as
 "XSUBs" (external subroutines).  These interfaces are defined in files
 with a .xs file extension.
