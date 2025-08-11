@@ -1274,17 +1274,15 @@ build_node_relations_list (const NODE_RELATIONS_LIST *list)
   return list_av;
 }
 
-static SV *
+static HV *
 build_perl_section_directions (const SECTION_RELATIONS * const *s_d)
 {
-  SV *sv;
   HV *hv;
   size_t d;
 
   dTHX;
 
   hv = newHV ();
-  sv = newRV_inc ((SV *) hv);
 
   for (d = 0; d < directions_length; d++)
     {
@@ -1302,20 +1300,18 @@ build_perl_section_directions (const SECTION_RELATIONS * const *s_d)
             newRV_inc ((SV *) s_d[d]->hv), 0);
         }
     }
-  return sv;
+  return hv;
 }
 
-static SV *
+static AV *
 build_perl_section_relations_array (const SECTION_RELATIONS_LIST *list)
 {
-  SV *sv;
   AV *av;
   size_t i;
 
   dTHX;
 
   av = newAV ();
-  sv = newRV_inc ((SV *) av);
 
   for (i = 0; i < list->number; i++)
     {
@@ -1324,13 +1320,14 @@ build_perl_section_relations_array (const SECTION_RELATIONS_LIST *list)
         relations->hv = newHV ();
       av_store (av, (SSize_t) i, newRV_inc ((SV *) relations->hv));
     }
-  return sv;
+  return av;
 }
 
 static void
 build_section_relations (SECTION_RELATIONS *relations)
 {
   HV *relations_hv;
+  HV *hv;
   SV *sv;
 
   dTHX;
@@ -1351,21 +1348,21 @@ build_section_relations (SECTION_RELATIONS *relations)
   STORE_RELS_INFO_NODE_RELATIONS(part_following_node)
   if (relations->section_directions)
     {
-      sv = build_perl_section_directions (relations->section_directions);
+      hv = build_perl_section_directions (relations->section_directions);
       hv_store (relations_hv, "section_directions",
-                strlen ("section_directions"), sv, 0);
+                strlen ("section_directions"), newRV_noinc ((SV *) hv), 0);
     }
   if (relations->toplevel_directions)
     {
-      sv = build_perl_section_directions (relations->toplevel_directions);
+      hv = build_perl_section_directions (relations->toplevel_directions);
       hv_store (relations_hv, "toplevel_directions",
-                strlen ("toplevel_directions"), sv, 0);
+                strlen ("toplevel_directions"), newRV_noinc ((SV *) hv), 0);
     }
   if (relations->section_children)
     {
-      sv = build_perl_section_relations_array (relations->section_children);
+      AV *av = build_perl_section_relations_array (relations->section_children);
       hv_store (relations_hv, "section_children",
-                strlen ("section_children"), sv, 0);
+                strlen ("section_children"), newRV_noinc ((SV *) av), 0);
     }
 }
 
@@ -1524,7 +1521,7 @@ build_tree_elements_relations_lists (DOCUMENT *document)
       register_document_sections_list_elements (document);
 
       av_list = build_section_relations_list (list);
-      result_sv = newRV_inc ((SV *) av_list);
+      result_sv = newRV_noinc ((SV *) av_list);
       hv_store (document->hv, key, strlen (key), result_sv, 0);
 
       document->modified_information &= ~F_DOCM_sections_list;
@@ -1540,7 +1537,7 @@ build_tree_elements_relations_lists (DOCUMENT *document)
       register_document_nodes_list_elements (document);
 
       av_list = build_node_relations_list (list);
-      result_sv = newRV_inc ((SV *) av_list);
+      result_sv = newRV_noinc ((SV *) av_list);
       hv_store (document->hv, key, strlen (key), result_sv, 0);
 
       document->modified_information &= ~F_DOCM_nodes_list;
@@ -1556,7 +1553,7 @@ build_tree_elements_relations_lists (DOCUMENT *document)
       register_document_headings_list_elements (document);
 
       av_list = build_heading_relations_list (list);
-      result_sv = newRV_inc ((SV *) av_list);
+      result_sv = newRV_noinc ((SV *) av_list);
       hv_store (document->hv, key, strlen (key), result_sv, 0);
 
       document->modified_information &= ~F_DOCM_headings_list;
@@ -2000,15 +1997,10 @@ build_index_data (const INDEX_LIST *indices_info)
   return hv;
 }
 
-/* Return object to be used as global info, retrievable with the
-   'global_information' function.  Reuse the Perl hash associated to
-   the DOCUMENT if it is passed and found */
-static HV *
-build_global_info (DOCUMENT *document,
-                   const GLOBAL_INFO *global_info_ref,
-                   const GLOBAL_COMMANDS *global_commands_ref)
+void
+pass_global_info (HV *hv, const GLOBAL_INFO *global_info_ref,
+                  const GLOBAL_COMMANDS *global_commands_ref)
 {
-  HV *hv = 0;
   const GLOBAL_INFO global_info = *global_info_ref;
   const GLOBAL_COMMANDS global_commands = *global_commands_ref;
   const ELEMENT *document_language;
@@ -2016,16 +2008,6 @@ build_global_info (DOCUMENT *document,
 
   dTHX;
 
-  if (document && document->hv)
-    {
-      const char *key = "global_info";
-      SV **global_info_sv = hv_fetch (document->hv, key, strlen (key), 0);
-      if (global_info_sv && SvOK (*global_info_sv))
-        hv = (HV *) SvRV (*global_info_sv);
-    }
-
-  if (!hv)
-    hv = newHV ();
   if (global_info.input_encoding_name)
     hv_store (hv, "input_encoding_name", strlen ("input_encoding_name"),
               newSVpv (global_info.input_encoding_name, 0), 0);
@@ -2076,8 +2058,6 @@ build_global_info (DOCUMENT *document,
       hv_store (hv, "documentlanguage", strlen ("documentlanguage"),
                 newSVpv (language, 0), 0);
     }
-
-  return hv;
 }
 
 /* Return object to be used as 'commands_info', which holds references
@@ -2194,10 +2174,10 @@ build_minimal_document (DOCUMENT *document)
   /* There is a bug message below if there is already a C document hv */
   hv = newHV ();
 
-  hv_info = build_global_info (0, &document->global_info,
-                               &document->global_commands);
+  hv_info = newHV ();
+  pass_global_info (hv_info, &document->global_info,
+                             &document->global_commands);
 
-#define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
   if (document->tree)
     {
       HV *hv_tree = newHV ();
@@ -2214,10 +2194,10 @@ build_minimal_document (DOCUMENT *document)
                 newSViv (document->descriptor), 0);
     }
 
-  STORE("global_info", hv_info);
+  hv_store (hv, "global_info", strlen ("global_info"),
+            newRV_noinc ((SV *) hv_info), 0);
 
   document->modified_information &= ~F_DOCM_global_info;
-#undef STORE
 
   hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
             newSViv (document->descriptor), 0);
@@ -2252,14 +2232,16 @@ static HV *
 build_sectioning_root (SECTIONING_ROOT *sectioning_root)
 {
   HV *hv = 0;
+  AV *av;
 
   dTHX;
 
   hv = newHV ();
 
-  SV *sv = build_perl_section_relations_array (
+  av = build_perl_section_relations_array (
                             &sectioning_root->section_children);
-  hv_store (hv, "section_children", strlen ("section_children"), sv, 0);
+  hv_store (hv, "section_children", strlen ("section_children"),
+            newRV_noinc ((SV *) av), 0);
 
   hv_store (hv, "section_root_level", strlen ("section_root_level"),
             newSViv (sectioning_root->section_root_level), 0);
@@ -2288,8 +2270,9 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
   if (document->tree)
     sv_tree = build_texinfo_tree (document->tree, 0);
 
-  hv_info = build_global_info (0, &document->global_info,
-                               &document->global_commands);
+  hv_info = newHV ();
+  pass_global_info (hv_info, &document->global_info,
+                             &document->global_commands);
 
   hv_commands_info = build_global_commands (&document->global_commands);
 
@@ -2394,7 +2377,7 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
 }
 
 /* Return a Texinfo::Document perl object corresponding to the
-   C document structure corresponding to DOCUMENT_DESCRIPTOR.
+   C document structure corresponding to DOCUMENT.
    If NO_STORE is set, destroy the C document.
  */
 SV *
@@ -2462,7 +2445,7 @@ store_document_texinfo_tree (DOCUMENT *document)
       AV *av_list
         = build_section_relations_list (&document->sections_list);
       hv_store (document->hv, key, strlen (key),
-                newRV_inc ((SV *) av_list), 0);
+                newRV_noinc ((SV *) av_list), 0);
 
       document->modified_information &= ~F_DOCM_sections_list;
     }
@@ -2473,7 +2456,7 @@ store_document_texinfo_tree (DOCUMENT *document)
       AV *av_list
         = build_node_relations_list (&document->nodes_list);
       hv_store (document->hv, key, strlen (key),
-                newRV_inc ((SV *) av_list), 0);
+                newRV_noinc ((SV *) av_list), 0);
 
       document->modified_information &= ~F_DOCM_nodes_list;
     }
@@ -2484,7 +2467,7 @@ store_document_texinfo_tree (DOCUMENT *document)
       AV *av_list
         = build_heading_relations_list (&document->headings_list);
       hv_store (document->hv, key, strlen (key),
-                newRV_inc ((SV *) av_list), 0);
+                newRV_noinc ((SV *) av_list), 0);
 
       document->modified_information &= ~F_DOCM_headings_list;
     }
@@ -2497,7 +2480,7 @@ store_document_texinfo_tree (DOCUMENT *document)
       document->modified_information &= ~F_DOCM_sectioning_root;
     }
    */
-  return result_sv;
+  return newSVsv (result_sv);
 }
 
 /* Build Output unit and output units lists to Perl*/
@@ -2795,9 +2778,9 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
             {
               HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
 
-              SvREFCNT_inc (*output_units_sv);
               hv_store (converter_hv, "document_units",
-                       strlen ("document_units"), *output_units_sv, 0);
+                        strlen ("document_units"),
+                        newSVsv (*output_units_sv), 0);
             }
 
           converter->document->modified_information &= ~F_DOCM_output_units;
@@ -3115,7 +3098,6 @@ BUILD_PERL_DOCUMENT_LIST(document_global_commands_information,global_commands,"c
 SV *
 document_global_information (SV *document_in)
 {
-  SV *result_sv = 0;
   const char *key = "global_info";
 
   dTHX;
@@ -3126,30 +3108,32 @@ document_global_information (SV *document_in)
     {
       if (document->modified_information & F_DOCM_global_info)
         {
-          HV *result_hv = build_global_info (document,
-                                             &document->global_info,
-                                             &document->global_commands);
-          result_sv = newRV_inc ((SV *) result_hv);
-          hv_store (document->hv, key, strlen (key), result_sv, 0);
-          document->modified_information &= ~F_DOCM_global_info;
-        }
-    }
+          /* Reuse the Perl hash associated to document if found */
+          HV *hv;
+          SV **global_info_sv
+            = hv_fetch (document->hv, key, strlen (key), 0);
 
-  if (!result_sv)
-    {
+          if (global_info_sv && SvOK (*global_info_sv))
+            hv = (HV *) SvRV (*global_info_sv);
+          else
+            {
+              hv = newHV ();
+              hv_store (document->hv, key, strlen (key),
+                        newRV_noinc ((SV *) hv), 0);
+            }
+
+          pass_global_info (hv, &document->global_info,
+                            &document->global_commands);
+          document->modified_information &= ~F_DOCM_global_info;
+          return newRV_inc ((SV *) hv);
+        }
+
       SV **sv_reference = hv_fetch (document->hv, key, strlen (key), 0);
       if (sv_reference && SvOK (*sv_reference))
-        result_sv = *sv_reference;
+        return newSVsv (*sv_reference);
     }
 
-  if (result_sv)
-    {
-      SvREFCNT_inc (result_sv);
-    }
-  else
-    result_sv = newSV (0);
-
-  return result_sv;
+  return newSV (0);
 }
 
 

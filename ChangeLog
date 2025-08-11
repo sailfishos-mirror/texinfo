@@ -1,5 +1,32 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_perl_section_directions)
+	(build_perl_section_relations_array, build_section_relations)
+	(build_sectioning_root): Have build_perl_section_directions and
+	build_perl_section_relations_array return HV and AV.  Do not keep a
+	reference in build_section_relations and build_sectioning_root.
+
+	* tta/C/main/build_perl_info.c (build_tree_elements_relations_lists)
+	(store_document_texinfo_tree): do not keep duperfluous references.
+
+	* tta/C/main/build_perl_info.c (store_document_texinfo_tree):
+	duplicate returned reference.
+
+	* tta/C/main/build_perl_info.c (store_output_units_texinfo_tree): use
+	newSVsv instead of SvREFCNT_inc.
+
+	* tta/C/main/build_perl_info.c (pass_global_info)
+	(build_minimal_document, fill_document_hv)
+	(document_global_information): rename build_global_info as
+	pass_global_info, and have pass_global_info use an HV in argument.
+	Have build_minimal_document and fill_document_hv create the HV before
+	calling pass_global_info.  Modify document_global_information such
+	that the reuse of global info hash is done in this function before
+	calling pass_global_info.  Simplify code based on document->hv
+	necessarily being set.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_state.c,
 	tta/C/convert/call_html_perl_function.c, tta/C/main/build_perl_info.c,
 	tta/perl/XSTexinfo/parser_document/DocumentXS.xs,

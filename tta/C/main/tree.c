@@ -235,10 +235,10 @@ destroy_element (ELEMENT *e)
   if (e->sv)
     {
       void *hv = get_sv_hv (e->sv);
-       /*
       int sv_refcount = get_refcount (e->sv);
       int hv_refcount = get_refcount (hv);
 
+       /*
       if (sv_refcount != 1 || hv_refcount != 1) {
         fprintf (stderr, "ELT (%p<-%p): sv: %d hv: %d\n", hv, e->sv, sv_refcount,
                          hv_refcount);
@@ -247,6 +247,7 @@ destroy_element (ELEMENT *e)
         fprintf (stderr, "DESTROY (%p<-%p) refcounts ok\n", hv, e->sv);
         fprintf (stderr, " %s\n", print_element_debug (e, 0));
       }
+      fprintf (stderr, " %s\n", print_element_debug (e, 0));
         */
       /* this also removes one reference for the associated hv */
       unregister_perl_data (e->sv);
