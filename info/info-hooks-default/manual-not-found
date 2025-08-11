@@ -14,8 +14,6 @@ if test x$1 = x--interactive ; then
   interactive=1
 fi
 
-echo "Manual '$1' not found" >&2
-
 pwd=`pwd`
 hook_dir=`dirname $0`
 
@@ -24,8 +22,8 @@ url_msg=
 if test -f "$hook_dir/gnu-manuals-locations.dat" ; then
   lookup_file=$hook_dir/gnu-manuals-locations.dat
 
-  url=`cat "$lookup_file" | perl -wanle \
-    '$_ !~ /^#|^\s*$/ && $F[0] eq "'$1'" && print $F[1]'`
+  url=`cat "$lookup_file" | awk -v prog="$1" \
+     '/^#/ {} $1 == prog { print $2 ; exit }'`
 
   if test -z "$url" ; then
     # If we don't know anything about this manual, just revert to Info's
