@@ -31,7 +31,8 @@ AM_CPPFLAGS =                                   \
   -DLOCALEDIR=\"$(datadir)/locale\"             \
   -DINFODIR=\"$(infodir)\"                      \
   -DINFODIR2=\"$(datadir)/info\"                \
-  -DSYSCONFDIR=\"$(sysconfdir)\"
+  -DSYSCONFDIR=\"$(sysconfdir)\"                \
+  -DPKGDATADIR=\"$(pkgdatadir)\"
 
 LDADD = $(top_builddir)/gnulib/lib/libgnu.a $(TERMLIBS)
 

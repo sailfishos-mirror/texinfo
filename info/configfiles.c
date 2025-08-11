@@ -127,7 +127,7 @@ locate_init_file_internal (const char *init_file, const char *dot_init_file)
   free (filename);
 #endif
 
-  /* Finally, check through XDG_CONFIG_DIRS. */
+  /* Check through XDG_CONFIG_DIRS. */
   char *xdg_config_dirs = getenv ("XDG_CONFIG_DIRS");
   if (!xdg_config_dirs)
     return 0;
@@ -151,6 +151,16 @@ locate_init_file_internal (const char *init_file, const char *dot_init_file)
     }
 
   free (xdg_config_dirs_split);
+
+  /* Finally, check installed location. */
+#ifdef PKGDATADIR
+  filename = xmalloc (strlen (PKGDATADIR) + 1
+                      + strlen (init_file) + 1);
+  sprintf (filename, "%s/%s", PKGDATADIR, init_file);
+  if (init_file_stat (filename, &finfo) == 0)
+    return filename;
+  free (filename);
+#endif
   return 0;
 }
 
