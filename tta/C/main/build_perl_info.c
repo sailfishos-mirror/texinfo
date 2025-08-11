@@ -2172,11 +2172,8 @@ build_minimal_document (DOCUMENT *document)
      build_minimal_document is only called on documents that were just
      created and do not already have associated hv */
   /* There is a bug message below if there is already a C document hv */
+  /* Reference held by the C code released at document destruction */
   hv = newHV ();
-
-  hv_info = newHV ();
-  pass_global_info (hv_info, &document->global_info,
-                             &document->global_commands);
 
   if (document->tree)
     {
@@ -2193,6 +2190,10 @@ build_minimal_document (DOCUMENT *document)
                 strlen ("tree_document_descriptor"),
                 newSViv (document->descriptor), 0);
     }
+
+  hv_info = newHV ();
+  pass_global_info (hv_info, &document->global_info,
+                             &document->global_commands);
 
   hv_store (hv, "global_info", strlen ("global_info"),
             newRV_noinc ((SV *) hv_info), 0);
@@ -2211,8 +2212,7 @@ build_minimal_document (DOCUMENT *document)
   if (!document->hv)
     {
       document->hv = (void *) hv;
-      /* Additional reference held by the C code released at document
-         destruction */
+      /* a new reference returned to keep the reference held in C */
       SvREFCNT_inc ((SV *) hv);
     }
   else
@@ -2249,7 +2249,7 @@ build_sectioning_root (SECTIONING_ROOT *sectioning_root)
 }
 
 static void
-fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
+fill_document_hv (HV *hv, DOCUMENT *document)
 {
   SV *sv_tree = 0;
   HV *hv_info;
@@ -2344,36 +2344,6 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
       document->modified_information &= ~F_DOCM_indices_sort_strings;
     }
 #undef STORE
-
-  if (no_store)
-    destroy_document (document);
-  else
-    {
-      hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
-                newSViv (document->descriptor), 0);
-
-      if (sv_tree)
-        {
-          HV *hv_tree = (HV *) SvRV ((SV *) sv_tree);
-          hv_store (hv_tree, "tree_document_descriptor",
-                    strlen ("tree_document_descriptor"),
-                    newSViv (document->descriptor), 0);
-        }
-
-      if (!document->hv)
-        {
-          document->hv = (void *) hv;
-          /* Additional reference held by the C code released at document
-             destruction */
-          SvREFCNT_inc ((SV *) hv);
-        }
-      else if ((HV *) document->hv != hv)
-        {
-          fprintf (stderr,
-           "BUG: fill_document_hv: %zu: %p and new %p document hv differ\n",
-                     document->descriptor, document->hv, hv);
-        }
-    }
 }
 
 /* Return a Texinfo::Document perl object corresponding to the
@@ -2390,12 +2360,10 @@ build_document (DOCUMENT *document, int no_store)
   dTHX;
 
   if (document->hv)
-    {
-      hv = document->hv;
-      SvREFCNT_inc ((SV *) hv);
-    }
+    hv = document->hv;
   else
     {
+      /* reference retained in C, unless the document is not stored */
       hv = newHV ();
 
       /* error messages list for document to be used after parsing, for
@@ -2405,7 +2373,29 @@ build_document (DOCUMENT *document, int no_store)
                 newRV_noinc ((SV *) messages_list_av), 0);
     }
 
-  fill_document_hv (hv, document, no_store);
+  fill_document_hv (hv, document);
+
+  if (no_store)
+    destroy_document (document);
+  else
+    {
+      hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
+                newSViv (document->descriptor), 0);
+
+      if (document->tree && document->tree->sv)
+        {
+          HV *hv_tree = (HV *) SvRV ((SV *) document->tree->sv);
+          hv_store (hv_tree, "tree_document_descriptor",
+                    strlen ("tree_document_descriptor"),
+                    newSViv (document->descriptor), 0);
+        }
+
+      if (!document->hv)
+        document->hv = (void *) hv;
+
+      /* a new reference returned to keep the reference held in C */
+      SvREFCNT_inc ((SV *) hv);
+    }
 
   hv_stash = gv_stashpv ("Texinfo::Document", GV_ADD);
   sv = newRV_noinc ((SV *) hv);

@@ -1,5 +1,13 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_minimal_document): move code.
+
+	* tta/C/main/build_perl_info.c (fill_document_hv, build_document):
+	move code related to no_store and setting descriptors in Perl data
+	out of fill_document_hv to build_document.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_info.c,
 	tta/C/convert/build_html_perl_state.c,
 	tta/C/convert/get_converter_perl_info.c, tta/C/main/get_perl_info.c:
