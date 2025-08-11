@@ -1,5 +1,11 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/Makefile.am: List info-hooks-default/manual-not-found
+	in "SCRIPTS" and not "DATA" so that it will be installed with
+	executable permissions.
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/configfiles.c (locate_init_file_internal): Also check
 	under $pkgdatadir (i.e., usually /usr/share/texinfo).
 	* info/Makefile.am (AM_CFLAGS): Propagate value of $pkgdatadir.

@@ -216,6 +216,8 @@ dist-hook:
 
 hooksdir=$(datadir)/texinfo/info-hooks
 
+dist_hooks_SCRIPTS = \
+  info-hooks-default/manual-not-found
+
 dist_hooks_DATA = \
-  info-hooks-default/manual-not-found \
   info-hooks-default/gnu-manuals-locations.dat
