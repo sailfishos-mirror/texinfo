@@ -90,19 +90,8 @@ int forget_node_fast (WINDOW *win);
 /* Tell Info that input is coming from the file FILENAME. */
 void info_set_input_from_file (char *filename);
 
-/* Error and debugging messages */
-extern unsigned debug_level;
+/* Error messages */
 
-#define debug(n,c)							\
-  do									\
-    {									\
-      if (debug_level >= (n))						\
-        info_debug c;							\
-    }									\
-  while (0)
-
-void info_debug (const char *format, ...) TEXINFO_PRINTFLIKE(1,2);
-  
 /* Print args as per FORMAT.  If the window system was initialized,
    then the message is printed in the echo area.  Otherwise, a message is
    output to stderr. */

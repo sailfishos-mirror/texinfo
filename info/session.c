@@ -804,27 +804,6 @@ pause_or_input (void)
 /*                                                                  */
 /* **************************************************************** */
 
-/* Debugging level */
-unsigned debug_level;
-
-static void
-vinfo_debug (const char *format, va_list ap)
-{
-  fprintf (stderr, "%s: ", program_name);
-  vfprintf (stderr, format, ap);
-  fprintf (stderr, "\n");
-  fflush (stderr);
-}
-
-void
-info_debug (const char *format, ...)
-{
-  va_list ap;
-  va_start (ap, format);
-  vinfo_debug (format, ap);
-  va_end (ap);
-}
-
 /* Non-zero means ring terminal bell on errors. */
 int info_error_rings_bell_p = 1;
 

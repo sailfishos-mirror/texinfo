@@ -164,6 +164,30 @@ int info_windows_initialized_p = 0;
 static void info_short_help (void);
 static void init_messages (void);
 
+
+
+/* Debugging messages */
+unsigned debug_level;
+
+static void
+vinfo_debug (const char *format, va_list ap)
+{
+  fprintf (stderr, "%s: ", program_name);
+  vfprintf (stderr, format, ap);
+  fprintf (stderr, "\n");
+  fflush (stderr);
+}
+
+void
+info_debug (const char *format, ...)
+{
+  va_list ap;
+  va_start (ap, format);
+  vinfo_debug (format, ap);
+  va_end (ap);
+}
+
+
 
 /* Find the first file to load (and possibly the first node as well).
    If the --file option is given, use that as the file, otherwise try to
@@ -295,7 +319,6 @@ get_initial_file (int *argc, char ***argv, char **error)
 
   /* Run "manual not found" hook. */
     {
-      debug (3, ("running manual-not-found hook"));
       char *hook_name = "manual-not-found";
       char *hook_output;
 

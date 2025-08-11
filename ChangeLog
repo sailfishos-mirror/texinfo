@@ -1,5 +1,14 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session.c, info/info.c (info_debug): move to info.c.
+	* info/session.h, info/info.h (debug): move to info.h.
+
+	* info/info.c (get_initial_file),
+	* info/configfiles.c (run_info_hook): output debug message in
+	run_info_hook, using name of the hook as a variable.
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info-hooks-example/gnu-manuals-locations.dat,
 	info/info-hooks-default/gnu-manuals-locations.dat,
         info/info-hooks-example/manual-not-found,

@@ -145,6 +145,8 @@ run_info_hook (const char *hook, char *argv[], char **hook_output)
   char *hook_name;
   char *hook_file;
 
+  debug (3, ("running %s hook", hook));
+
   hook_name = xmalloc (strlen (INFO_HOOKS_DIR) + strlen ("/")
                        + strlen (hook) + 1);
   sprintf (hook_name, "%s/%s", INFO_HOOKS_DIR, hook);

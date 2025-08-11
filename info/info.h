@@ -131,6 +131,17 @@ extern const char *msg_no_xref_node;
 extern const char *msg_one_window;
 extern const char *msg_win_too_small;
 
+extern unsigned debug_level;
+#define debug(n,c)							\
+  do									\
+    {									\
+      if (debug_level >= (n))						\
+        info_debug c;							\
+    }									\
+  while (0)
+
+void info_debug (const char *format, ...) TEXINFO_PRINTFLIKE(1,2);
+
 
 /* In infopath.c, but also used in man.c. */
 
