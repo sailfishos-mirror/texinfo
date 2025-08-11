@@ -3294,17 +3294,8 @@ build_indices_sort_strings (const INDICES_SORT_STRINGS *indices_sort_strings,
               hv_store (index_entry_sort_string_hv, "number",
                         strlen ("number"), newSViv (entry->number), 0);
 
-              /* FIXME it may be better to use newSVsv here, to avoid reusing
-                       the same SV, even if it is more efficient, as it is
-                       confusing regarding the number of references and also
-                       leads to the same reference being reused, which is not
-                       expected in Perl code.
-                       the HV is not destroyed because the first SV reference
-                       removed does not lead to the destruction of the SV.
-               */
-              SvREFCNT_inc (index_entry_sv);
               hv_store (index_entry_sort_string_hv, "entry",
-                        strlen ("entry"), index_entry_sv, 0);
+                        strlen ("entry"), newSVsv (index_entry_sv), 0);
 
               sort_string_subentries_av = newAV ();
               hv_store (index_entry_sort_string_hv, "sort_strings",
@@ -3374,16 +3365,7 @@ build_sorted_indices_by_index (
 
           if (index_entry_sv)
             {
-              /* FIXME it may be better to use newSVsv here, to avoid reusing
-                       the same SV, even if it is more efficient, as it is
-                       confusing regarding the number of references and also
-                       leads to the same reference being reused, which is not
-                       expected in Perl code.
-                       the HV is not destroyed because the first SV reference
-                       removed does not lead to the destruction of the SV.
-               */
-              SvREFCNT_inc (index_entry_sv);
-              av_push (entries_av, index_entry_sv);
+              av_push (entries_av, newSVsv (index_entry_sv));
             }
         }
     }
@@ -3451,16 +3433,7 @@ build_sorted_indices_by_letter (
 
               if (index_entry_sv)
                 {
-              /* FIXME it may be better to use newSVsv here, to avoid reusing
-                       the same SV, even if it is more efficient, as it is
-                       confusing regarding the number of references and also
-                       leads to the same reference being reused, which is not
-                       expected in Perl code.
-                       the HV is not destroyed because the first SV reference
-                       removed does not lead to the destruction of the SV.
-               */
-                  SvREFCNT_inc (index_entry_sv);
-                  av_push (entries_av, index_entry_sv);
+                  av_push (entries_av, newSVsv (index_entry_sv));
                 }
             }
         }
@@ -3710,16 +3683,7 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
 
   if (text_options->converter && text_options->converter->sv)
     {
-              /* FIXME it may be better to use newSVsv here, to avoid reusing
-                       the same SV, even if it is more efficient, as it is
-                       confusing regarding the number of references and also
-                       leads to the same reference being reused, which is not
-                       expected in Perl code.
-                       the HV is not destroyed because the first SV reference
-                       removed does not lead to the destruction of the SV.
-               */
-      SvREFCNT_inc (text_options->converter->sv);
-      STORE("converter", text_options->converter->sv);
+      STORE("converter", newSVsv (text_options->converter->sv));
     }
 #undef STORE
 
@@ -3737,17 +3701,8 @@ pass_document_sv_to_converter_sv (SV *converter_sv, SV *document_in)
 
   if (document_in && SvOK (document_in))
     {
-              /* FIXME it may be better to use newSVsv here, to avoid reusing
-                       the same SV, even if it is more efficient, as it is
-                       confusing regarding the number of references and also
-                       leads to the same reference being reused, which is not
-                       expected in Perl code.
-                       the HV is not destroyed because the first SV reference
-                       removed does not lead to the destruction of the SV.
-               */
-      SvREFCNT_inc (document_in);
       hv_store (converter_hv, "document", strlen ("document"),
-                document_in, 0);
+                newSVsv (document_in), 0);
     }
 }
 

@@ -1,5 +1,13 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_indices_sort_strings)
+	(build_sorted_indices_by_index, build_sorted_indices_by_letter)
+	(build_convert_text_options, pass_document_sv_to_converter_sv): use
+	newSVsv instead of SvREFCNT_inc to obtain independent reference on the
+	same object instead of reusing the same reference.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_filenames, build_file_counters)
 	(build_out_filepaths, pass_output_unit_files): return HV from build
 	functions.  Pass all the references.  Note that the functions are
