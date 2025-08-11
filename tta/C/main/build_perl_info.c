@@ -2413,19 +2413,17 @@ build_document (DOCUMENT *document, int no_store)
   return sv;
 }
 
-SV *
+void
 store_document_texinfo_tree (DOCUMENT *document)
 {
-  SV *result_sv = 0;
-  const char *key = "tree";
-
   dTHX;
 
   if (document->modified_information & F_DOCM_tree
       && document->tree)
     {
+      const char *key = "tree";
       SV *result_sv = build_texinfo_tree (document->tree, 0);
-      HV *result_hv = (HV *) SvRV ((SV *)result_sv);
+      HV *result_hv = (HV *) SvRV (result_sv);
       hv_store (result_hv, "tree_document_descriptor",
                 strlen ("tree_document_descriptor"),
                 newSViv (document->descriptor), 0);
@@ -2471,16 +2469,6 @@ store_document_texinfo_tree (DOCUMENT *document)
 
       document->modified_information &= ~F_DOCM_headings_list;
     }
-
-  /*
-  if (document->sectioning_root
-      && document->modified_information & F_DOCM_sectioning_root)
-    {
-      build_sectioning_root (document->sectioning_root);
-      document->modified_information &= ~F_DOCM_sectioning_root;
-    }
-   */
-  return newSVsv (result_sv);
 }
 
 /* Build Output unit and output units lists to Perl*/
@@ -2696,7 +2684,6 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
                          strlen (output_unit->special_unit_variety));
       STORE("special_unit_variety");
     }
-
 #undef STORE
 }
 
@@ -2726,13 +2713,11 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
 /* Can be called to rebuild output units when the converter
    is available, and also when the lists should be built/rebuilt.
  */
-SV *
+void
 store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
                                  SV **special_units_sv,
                                  SV **associated_special_units_sv)
 {
-  SV *result_sv = 0;
-
   dTHX;
 
   if (converter->document)
@@ -2740,8 +2725,7 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
  /* need to setup the Perl tree before rebuilding the output units as
     they refer to Perl root command elements */
 
-      if (converter->document->tree)
-        result_sv = store_document_texinfo_tree (converter->document);
+      store_document_texinfo_tree (converter->document);
 
       if (converter->document->modified_information & F_DOCM_output_units)
         {
@@ -2786,8 +2770,6 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
           converter->document->modified_information &= ~F_DOCM_output_units;
         }
     }
-
-  return result_sv;
 }
 
 /* Can be called to rebuild output units when the converter is not known.
@@ -2795,20 +2777,16 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
    converters.  If converters accessed concurently documents, there may
    be trouble here (and in other codes too).
  */
-SV *
+static void
 store_document_tree_output_units (DOCUMENT *document)
 {
-  SV *result_sv = 0;
-
   dTHX;
 
   if (document)
     {
- /* need to setup the Perl tree before rebuilding the output units as
-    they refer to Perl root command elements */
-
-      if (document->tree)
-        result_sv = store_document_texinfo_tree (document);
+      /* need to setup the Perl tree before rebuilding the output units as
+         they refer to Perl root command elements */
+      store_document_texinfo_tree (document);
 
       /* we hope that there are not two output units lists referring to the
          tree... */
@@ -2830,7 +2808,6 @@ store_document_tree_output_units (DOCUMENT *document)
           document->modified_information &= ~F_DOCM_output_units;
         }
     }
-  return result_sv;
 }
 
 /* return the handle if the element is registered by the call,
@@ -2899,70 +2876,60 @@ register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
 SV *
 document_tree (SV *document_in, int handler_only)
 {
-  SV *result_sv = 0;
-  DOCUMENT *document = 0;
+  DOCUMENT *document;
+  SV **sv_reference = 0;
 
   dTHX;
 
   document = get_sv_document_document (document_in, 0);
 
   if (!handler_only && document)
-    result_sv = store_document_tree_output_units (document);
-
-  if (!result_sv)
     {
-      if (document && document->tree)
+      store_document_tree_output_units (document);
+      if (document->tree && document->tree->sv)
+        return newSVsv (document->tree->sv);
+    }
+
+  if (document && document->tree)
+    {
+      register_element_handle_in_sv (document->tree, document);
+      /* in that case, we do not reuse the "tree" reference
+         in document->hv.  We therefore need to readd everything
+         relevant, in practice only "tree_document_descriptor" */
+      if (document->tree->sv)
         {
-          register_element_handle_in_sv (document->tree, document);
-          /* in that case, we do not reuse the "tree" reference
-             in document->hv.  We therefore need to readd everything
-             relevant, in practice only "tree_document_descriptor" */
-          if (document->tree->sv)
+          const char *document_key = "tree_document_descriptor";
+          HV *element_hv;
+          SV **element_document_descriptor_sv;
+
+          element_hv = (HV *) SvRV ((SV *) document->tree->sv);
+
+          element_document_descriptor_sv
+            = hv_fetch (element_hv, document_key, strlen (document_key), 0);
+
+          if (!element_document_descriptor_sv)
             {
-              const char *document_key = "tree_document_descriptor";
-              HV *element_hv;
-              SV **element_document_descriptor_sv;
-
-              result_sv = document->tree->sv;
-              element_hv = (HV *) SvRV (result_sv);
-
-              element_document_descriptor_sv
-                = hv_fetch (element_hv, document_key, strlen (document_key), 0);
-
-              if (!element_document_descriptor_sv)
-                {
-                  hv_store (element_hv, document_key, strlen (document_key),
-                  newSViv (document->descriptor), 0);
-                }
+              hv_store (element_hv, document_key, strlen (document_key),
+                        newSViv (document->descriptor), 0);
             }
-        }
-
-      if (!result_sv)
-        {
-          SV **sv_reference = 0;
-
-          /* Prefer the tree of the Perl document associated to the C data */
-          if (document)
-            sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
-
-          if (!sv_reference)
-            {
-              HV *document_hv = (HV *) SvRV (document_in);
-              sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
-            }
-
-          if (sv_reference && SvOK (*sv_reference))
-            result_sv = *sv_reference;
+          return newSVsv (document->tree->sv);
         }
     }
 
-  if (result_sv)
+  /* Prefer the tree of the Perl document associated to the C data */
+  if (document)
+    sv_reference = hv_fetch (document->hv, "tree", strlen ("tree"), 0);
+
+  if (!sv_reference)
     {
-      SvREFCNT_inc (result_sv);
-      return result_sv;
+      HV *document_hv = (HV *) SvRV (document_in);
+      sv_reference = hv_fetch (document_hv, "tree", strlen ("tree"), 0);
     }
-  else
-    return newSV (0);
+
+  if (sv_reference && SvOK (*sv_reference))
+    return newSVsv (*sv_reference);
+
+  return newSV (0);
 }
 
 /* Build Texinfo Document registered data to Perl */
