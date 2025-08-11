@@ -29,6 +29,10 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
+# ALTIMP XSTexinfo/convert/ConvertXS.xs
+# ALTIMP C/convert/*.[ch]
+
+
 package Texinfo::Convert::HTML;
 
 # charnames::vianame is not documented in 5.6.0.

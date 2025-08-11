@@ -17,6 +17,8 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
+# ALTIMP perl/XSTexinfo/convert/ConvertXS.xs
+
 package Texinfo::Convert::Converter;
 
 use 5.006;

@@ -1,5 +1,19 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Add further ALTIMP dependencies
+
+	* tta/perl/Texinfo/Convert/Converter.pm,
+	* tta/perl/Texinfo/Convert/HTML.pm,
+	* tta/perl/Texinfo/Convert/PlainTexinfo.pm,
+	* tta/perl/Texinfo/Convert/Texinfo.pm,
+	* tta/perl/Texinfo/Convert/Text.pm,
+	* tta/perl/Texinfo/Convert/Utils.pm,
+	* tta/perl/XSTexinfo/convert/ConvertXS.xs:
+	Add ALTIMP lines.  (No changes needed to *.c files as these
+	already referenced the corresponding Perl modules.)
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Add ALTIMP comments to reference alternative implementation files
 
 	* tta/C/main/document.c,

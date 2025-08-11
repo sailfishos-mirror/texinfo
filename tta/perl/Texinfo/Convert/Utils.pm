@@ -22,6 +22,7 @@
 # it means that the converter argument will not be defined and
 # there will be no error reporting in that case.
 
+# ALTIMP C/main/convert_utils.c
 
 package Texinfo::Convert::Utils;
 

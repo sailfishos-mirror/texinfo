@@ -18,6 +18,9 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
 
+# ALTIMP perl/XSTexinfo/convert/ConvertXS.xs
+# ALTIMP C/main/convert_to_texinfo.c
+
 package Texinfo::Convert::Texinfo;
 
 use 5.006;

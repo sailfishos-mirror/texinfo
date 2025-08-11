@@ -20,6 +20,9 @@
 # This calls Texinfo::Convert::Texinfo::convert_to_texinfo while
 # inheriting standard functions from Texinfo::Convert::Converter.
 
+# ALTIMP perl/XSTexinfo/convert/ConvertXS.xs
+# ALTIMP C/main/convert_to_texinfo.c
+
 package Texinfo::Convert::PlainTexinfo;
 
 use 5.006;
