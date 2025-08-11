@@ -2985,40 +2985,34 @@ document_tree (SV *document_in, int handler_only)
 SV * \
 funcname (SV *document_in) \
 { \
-  SV *result_sv = 0; \
-  const char *key = keyname; \
+  DOCUMENT *document; \
 \
   dTHX;\
 \
-  DOCUMENT *document = get_sv_document_document (document_in, #funcname); \
+  document = get_sv_document_document (document_in, #funcname); \
 \
-  if (document && document->fieldname)\
+  if (document) \
     {\
-      store_document_tree_output_units (document);\
-      if (document->modified_information & flagname)\
-        {\
-          HVAV *result_av_hv = buildname (document->fieldname);\
-          result_sv = newRV_inc ((SV *) result_av_hv);\
-          hv_store (document->hv, key, strlen (key), result_sv, 0);\
-          document->modified_information &= ~flagname;\
+      const char *key = keyname; \
+      if (document->fieldname) \
+        { \
+          store_document_tree_output_units (document);\
+          if (document->modified_information & flagname)\
+            {\
+              HVAV *result_av_hv = buildname (document->fieldname);\
+              SV *result_sv = newRV_noinc ((SV *) result_av_hv);\
+              hv_store (document->hv, key, strlen (key), result_sv, 0);\
+              document->modified_information &= ~flagname;\
+              return newSVsv (result_sv); \
+            }\
         }\
-    }\
 \
-  if (!result_sv)\
-    {\
       SV **sv_reference = hv_fetch (document->hv, key, strlen (key), 0);\
       if (sv_reference && SvOK (*sv_reference))\
-        result_sv = *sv_reference;\
-    }\
+        return newSVsv (*sv_reference);\
+   }\
 \
-  if (result_sv)\
-    {\
-      SvREFCNT_inc (result_sv);\
-    }\
-  else\
-    result_sv = newSV (0);\
-\
-  return result_sv;\
+  return newSV (0);\
 }
 
 /*
@@ -3035,40 +3029,31 @@ BUILD_PERL_DOCUMENT_ITEM(document_sectioning_root,sectioning_root,"sectioning_ro
 SV * \
 funcname (SV *document_in) \
 { \
-  SV *result_sv = 0; \
-  const char *key = keyname; \
+  DOCUMENT *document; \
 \
   dTHX;\
 \
-  DOCUMENT *document = get_sv_document_document (document_in, #funcname); \
+  document = get_sv_document_document (document_in, #funcname); \
 \
   if (document)\
     {\
+      const char *key = keyname; \
       store_document_tree_output_units (document);\
       if (document->modified_information & flagname)\
         {\
           HVAV *result_av_hv = buildname (&document->fieldname);\
-          result_sv = newRV_inc ((SV *) result_av_hv);\
+          SV *result_sv = newRV_noinc ((SV *) result_av_hv);\
           hv_store (document->hv, key, strlen (key), result_sv, 0);\
           document->modified_information &= ~flagname;\
+          return newSVsv (result_sv);\
         }\
-    }\
 \
-  if (!result_sv)\
-    {\
       SV **sv_reference = hv_fetch (document->hv, key, strlen (key), 0);\
       if (sv_reference && SvOK (*sv_reference))\
-        result_sv = *sv_reference;\
+        return newSVsv (*sv_reference);\
     }\
 \
-  if (result_sv)\
-    {\
-      SvREFCNT_inc (result_sv);\
-    }\
-  else\
-    result_sv = newSV (0);\
-\
-  return result_sv;\
+  return newSV (0);\
 }
 
 /*
@@ -3098,14 +3083,16 @@ BUILD_PERL_DOCUMENT_LIST(document_global_commands_information,global_commands,"c
 SV *
 document_global_information (SV *document_in)
 {
-  const char *key = "global_info";
+  DOCUMENT *document;
 
   dTHX;
 
-  DOCUMENT *document = get_sv_document_document (document_in,
-                                     "document_global_information");
+  document = get_sv_document_document (document_in,
+                                       "document_global_information");
   if (document)
     {
+      const char *key = "global_info";
+
       if (document->modified_information & F_DOCM_global_info)
         {
           /* Reuse the Perl hash associated to document if found */
@@ -3427,7 +3414,7 @@ fill_output_units_descriptor_av (const DOCUMENT *document,
       SV *sv;
       OUTPUT_UNIT *output_unit = output_units->list[i];
       output_unit_to_perl_hash (output_unit);
-      /* increase counter for the reference in the array */
+      /* add a reference owned by the C code */
       sv = newRV_inc ((SV *) output_unit->hv);
       av_push (av_output_units, sv);
     }
@@ -3472,7 +3459,7 @@ setup_output_units_handler (const DOCUMENT *document,
             strlen ("output_units_document_descriptor"),
             newSViv ((IV)document->descriptor), 0);
 
-  sv = newRV_inc ((SV *) dummy_output_unit);
+  sv = newRV_noinc ((SV *) dummy_output_unit);
   av_push (av_output_units, sv);
 
   return newRV_noinc ((SV *) av_output_units);
@@ -3768,12 +3755,11 @@ html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
                   button_spec_info_av = newAV ();
                   av_push (button_spec_info_av,
                            newSVpv_utf8 (direction_name, 0));
-              /* not sure that the _inc leads to the same number of references
-                 than with Pure perl defined buttons, but it is needed
-                 as tested  */
+              /* This is needed as tested.  This probably means that get_cv
+                 do not increase the refcount, so it is ok to do it here */
                   av_push (button_spec_info_av,
                            newRV_inc ((SV *) button_function_cv));
-                  return newRV_inc ((SV *) button_spec_info_av);
+                  return newRV_noinc ((SV *) button_spec_info_av);
                 }
             }
         }
@@ -3816,10 +3802,7 @@ html_build_buttons_specification (CONVERTER *converter,
       button->sv = button_sv;
 
       /* retain a reference in C */
-      /* FIXME do not retain a reference on the HV? */
-      SvREFCNT_inc (button->sv);
-
-      av_push (buttons_av, button_sv);
+      av_push (buttons_av, newSVsv (button_sv));
     }
 }
 

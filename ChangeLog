@@ -1,5 +1,21 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (BUILD_PERL_DOCUMENT_ITEM)
+	(BUILD_PERL_DOCUMENT_LIST): change the code to duplicate the returned
+	reference.  Simplify code.
+
+	* tta/C/main/build_perl_info.c (document_global_information):
+	rearrange code.
+
+	* tta/C/main/build_perl_info.c (setup_output_units_handler)
+	(html_build_button): avoid retaining superfluous references.
+
+	* tta/C/main/build_perl_info.c (html_build_buttons_specification):
+	duplicate the returned reference instead of increasing reference
+	count.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_perl_section_directions)
 	(build_perl_section_relations_array, build_section_relations)
 	(build_sectioning_root): Have build_perl_section_directions and
