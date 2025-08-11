@@ -1,5 +1,9 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/README: Add note re Perl/C/XS code maintenance dependency
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking, tta/README: move information about running
 	uninstalled program into tta/README.  Add some headings in the
 	latter file.

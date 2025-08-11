@@ -97,6 +97,14 @@ The conversion of Texinfo to output formats is done in three steps:
 The C converage of steps 1) and 2) is complete.  Many converter backends
 are only available in Perl.
 
+Much of the code is available in two versions, both Perl and C.  Please
+check if any code you are updating needs to be updated in both languages.
+Affected files should have a comment near the top stating if this is the
+case but you can grep the code base for symbol names if that fails.
+Some, but not all of the C code is also available to Perl code as
+"XSUBs" (external subroutines).  These interfaces are defined in files
+with a .xs file extension.
+
 
 If you want to delve into making a new Perl converter backend, the
 documentation in perl/Texinfo/Convert/Converter.pm is a good starting
