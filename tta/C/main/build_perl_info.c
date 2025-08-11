@@ -4137,7 +4137,7 @@ pass_generic_converter_to_converter_sv (SV *converter_sv,
 
 /* API to access output file names associated with output units */
 
-static SV *
+static HV *
 build_filenames (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
   size_t i;
@@ -4162,10 +4162,10 @@ build_filenames (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
         }
     }
 
-  return newRV_noinc ((SV *) hv);
+  return hv;
 }
 
-static SV *
+static HV *
 build_file_counters (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
   size_t i;
@@ -4188,10 +4188,10 @@ build_file_counters (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
         }
     }
 
-  return newRV_noinc ((SV *) hv);
+  return hv;
 }
 
-SV *
+HV *
 build_out_filepaths (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
   size_t i;
@@ -4215,7 +4215,7 @@ build_out_filepaths (const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
         }
     }
 
-  return newRV_noinc ((SV *) hv);
+  return hv;
 }
 
 /* currently unused */
@@ -4227,23 +4227,20 @@ void
 pass_output_unit_files (SV *converter_sv,
                         const FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 {
-  SV *filenames_sv;
-  SV *file_counters_sv;
-  SV *out_filepaths_sv;
+  HV *filenames_hv;
+  HV *file_counters_hv;
+  HV *out_filepaths_hv;
 
   dTHX;
 
   HV *converter_hv = (HV *) SvRV (converter_sv);
 
-  filenames_sv = build_filenames (output_unit_files);
-  file_counters_sv = build_file_counters (output_unit_files);
-  out_filepaths_sv = build_out_filepaths (output_unit_files);
+  filenames_hv = build_filenames (output_unit_files);
+  file_counters_hv = build_file_counters (output_unit_files);
+  out_filepaths_hv = build_out_filepaths (output_unit_files);
 
-  /* FIXME why not newSVsv?  Also maybe better to return AV or HV from
-     functions just above */
 #define STORE(key) \
-  hv_store (converter_hv, #key, strlen (#key), key##_sv, 0); \
-  SvREFCNT_inc (key##_sv);
+  hv_store (converter_hv, #key, strlen (#key), newRV_noinc ((SV *) key##_hv), 0);
   STORE(filenames);
   STORE(file_counters);
   STORE(out_filepaths);

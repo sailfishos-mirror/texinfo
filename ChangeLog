@@ -1,5 +1,12 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_filenames, build_file_counters)
+	(build_out_filepaths, pass_output_unit_files): return HV from build
+	functions.  Pass all the references.  Note that the functions are
+	currently unused and therefore could not be tested.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (html_build_buttons_specification):
 	do not return anything.
 
