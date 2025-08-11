@@ -1,5 +1,10 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/t/config/texinfo/info-hooks/manual-not-found:
+	Add dummy file to stop an installed hook from running.
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/Makefile.am: List info-hooks-default/manual-not-found
 	in "SCRIPTS" and not "DATA" so that it will be installed with
 	executable permissions.
