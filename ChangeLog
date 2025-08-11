@@ -1,5 +1,11 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/configfiles.c (locate_init_file): Report on attempts
+	to find init file with debug macro (at level "-x 1").
+	(run_info_hook): Use "-x 1" level rather than "-x 3".
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/info-stnd.texi (Invoking Info):
 	Index all command line options multiple times if they have
 	synonyms, with each synonym appearing first in the index entry

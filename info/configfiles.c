@@ -26,6 +26,26 @@
 /* To find "infokey file", where user defs are kept and read by Info.  */
 #define PACKAGE      "texinfo"
 
+static char *locate_init_file_internal (const char *, const char *);
+
+char *
+locate_init_file (const char *init_file, const char *dot_init_file)
+{
+  char *result = locate_init_file_internal (init_file, dot_init_file);
+  if (result)
+    debug (1, ("found init file %s", result));
+  else
+    debug (1, ("no init file `%s' found", init_file));
+  return result;
+}
+
+static int
+init_file_stat (const char *filename, struct stat *buf)
+{
+  debug (1, ("checking for init file at %s", filename));
+  return stat (filename, buf);
+}
+
 /* Locate init file.   Check for DOT_INIT_FILE under home directory, then
    for INIT_FILE in XDG locations.
 
@@ -34,8 +54,8 @@
    See the "XDG Base Directory Specification" at
    https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 */
-char *
-locate_init_file (const char *init_file, const char *dot_init_file)
+static char *
+locate_init_file_internal (const char *init_file, const char *dot_init_file)
 {
   struct stat finfo;
   char *xdg_config_home, *homedir;
@@ -63,7 +83,7 @@ locate_init_file (const char *init_file, const char *dot_init_file)
 
       if (filename)
         {
-          if (stat (filename, &finfo) == 0)
+          if (init_file_stat (filename, &finfo) == 0)
             return filename;
           free (filename);
         };
@@ -91,7 +111,7 @@ locate_init_file (const char *init_file, const char *dot_init_file)
                xdg_config_home, PACKAGE, init_file);
       free (xdg_config_home);
 
-      if (stat (filename, &finfo) == 0)
+      if (init_file_stat (filename, &finfo) == 0)
         return filename;
       free (filename);
     }
@@ -102,7 +122,7 @@ locate_init_file (const char *init_file, const char *dot_init_file)
                       + strlen (PACKAGE) + 1
                       + strlen (init_file) + 1);
   sprintf (filename, "%s/xdg/%s/%s", SYSCONFDIR, PACKAGE, init_file);
-  if (stat (filename, &finfo) == 0)
+  if (init_file_stat (filename, &finfo) == 0)
     return filename;
   free (filename);
 #endif
@@ -121,7 +141,7 @@ locate_init_file (const char *init_file, const char *dot_init_file)
                           + strlen (PACKAGE) + 1
                           + strlen (init_file) + 1);
       sprintf (filename, "%s/%s/%s", dir, PACKAGE, init_file);
-      if (stat (filename, &finfo) == 0)
+      if (init_file_stat (filename, &finfo) == 0)
         {
           free (xdg_config_dirs_split);
           return filename;
@@ -145,7 +165,7 @@ run_info_hook (const char *hook, char *argv[], char **hook_output)
   char *hook_name;
   char *hook_file;
 
-  debug (3, ("running %s hook", hook));
+  debug (1, ("running %s hook", hook));
 
   hook_name = xmalloc (strlen (INFO_HOOKS_DIR) + strlen ("/")
                        + strlen (hook) + 1);
