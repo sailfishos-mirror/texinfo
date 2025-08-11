@@ -105,8 +105,8 @@ void pass_converter_text_options (const CONVERTER *converter,
                                   SV *converter_sv);
 
 SV *html_build_direction_icons (const DIRECTION_ICON_LIST *direction_icons);
-SV *html_build_buttons_specification (CONVERTER *converter,
-                                      BUTTON_SPECIFICATION_LIST *buttons);
+void html_build_buttons_specification (CONVERTER *converter,
+                                       BUTTON_SPECIFICATION_LIST *buttons);
 SV *build_sv_option (const OPTION *option, CONVERTER *converter);
 SV *build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
                                         CONVERTER *converter);

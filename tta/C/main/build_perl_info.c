@@ -2043,11 +2043,7 @@ build_global_info (DOCUMENT *document,
       const char *key = "global_info";
       SV **global_info_sv = hv_fetch (document->hv, key, strlen (key), 0);
       if (global_info_sv && SvOK (*global_info_sv))
-        {
-          hv = (HV *) SvRV (*global_info_sv);
-          /* FIXME looks unneeded */
-          SvREFCNT_inc ((SV *) hv);
-        }
+        hv = (HV *) SvRV (*global_info_sv);
     }
 
   if (!hv)
@@ -2343,8 +2339,7 @@ fill_document_hv (HV *hv, DOCUMENT *document, int no_store)
                                       document->indices_sort_strings,
                                       hv_index_names);
 
-  /* FIXME why the additional reference, shouldn't it be newRV_noinc? */
-#define STORE(key, value) hv_store (hv, key, strlen (key), newRV_inc ((SV *) value), 0)
+#define STORE(key, value) hv_store (hv, key, strlen (key), newRV_noinc ((SV *) value), 0)
 
   /* must be kept in sync with Texinfo::Document register keys */
   if (sv_tree)
@@ -3871,7 +3866,7 @@ html_build_button (const CONVERTER *converter, BUTTON_SPECIFICATION *button,
   return newSV (0);
 }
 
-SV *
+void
 html_build_buttons_specification (CONVERTER *converter,
                                   BUTTON_SPECIFICATION_LIST *buttons)
 {
@@ -3880,6 +3875,9 @@ html_build_buttons_specification (CONVERTER *converter,
 
   dTHX;
 
+  /* we retain this reference in C, which should be removed when
+     the converter is destroyed, by creating one when returning
+     a reference on the AV */
   buttons_av = newAV ();
 
   buttons->av = buttons_av;
@@ -3904,9 +3902,6 @@ html_build_buttons_specification (CONVERTER *converter,
 
       av_push (buttons_av, button_sv);
     }
-
-  /* add a refcount to retain one in C */
-  return newRV_inc ((SV *)buttons_av);
 }
 
 SV *
@@ -3985,7 +3980,7 @@ build_sv_option (const OPTION *option, CONVERTER *converter)
           {
             if (!option->o.buttons->av)
               html_build_buttons_specification (converter, option->o.buttons);
-            /* FIXME why an additional reference to AV? */
+            /* add an additional reference to retain one in C */
             return newRV_inc ((SV *) option->o.buttons->av);
           }
         break;
@@ -4025,10 +4020,6 @@ build_sv_options_from_options_list (const OPTIONS_LIST *options_list,
       /* we store all values as they appear, the later overriding earlier
          values, and do not treat undef nor C option configured field
          especially */
-      if (SvOK (option_sv))
-        /* FIXME why not newSVsv? */
-        SvREFCNT_inc (option_sv);
-
       hv_store (options_hv, key, strlen (key), option_sv, 0);
     }
 
@@ -4415,7 +4406,6 @@ latex_build_options_for_convert_to_latex_math (CONVERTER *converter)
       SV *option_sv = build_sv_option (option, converter);
       if (SvOK (option_sv))
         {
-          SvREFCNT_inc (option_sv);
           hv_store (options_latex_math_hv, option_name,
                     strlen (option_name), option_sv, 0);
         }

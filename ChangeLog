@@ -1,5 +1,15 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (html_build_buttons_specification):
+	do not return anything.
+
+	* tta/C/main/build_perl_info.c (build_sv_option, build_global_info)
+	(build_sv_options_from_options_list)
+	(latex_build_options_for_convert_to_latex_math): remove useless
+	increase in reference counts.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_convert_tree_append): add
 	explicit checks to verify that functions references called for
 	conversion are not NULL.
