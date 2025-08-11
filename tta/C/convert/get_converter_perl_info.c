@@ -142,9 +142,12 @@ set_non_customization_sv (HV *converter_hv, SV *init_info_sv,
           SV **value = hv_fetch (init_info_hv, key, strlen (key), 0);
           if (*value)
             {
+              SV *stored_sv;
               if (SvOK (*value))
-                SvREFCNT_inc (*value);
-              hv_store (converter_hv, key, strlen (key), *value, 0);
+                stored_sv = newSVsv (*value);
+              else
+                stored_sv = newSV (0);
+              hv_store (converter_hv, key, strlen (key), stored_sv, 0);
             }
         }
     }

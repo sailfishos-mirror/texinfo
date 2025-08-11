@@ -125,10 +125,8 @@ call_module_converter_defaults (const char *module_name,
   PUSHMARK(SP);
   EXTEND(SP, 2);
 
-  SvREFCNT_inc (options_list_sv);
-
   PUSHs(sv_2mortal (newSVpv (module_name, 0)));
-  PUSHs(sv_2mortal (options_list_sv));
+  PUSHs(sv_2mortal (SvREFCNT_inc (options_list_sv)));
   PUTBACK;
 
   count = call_method ("converter_defaults",
@@ -173,10 +171,8 @@ call_module_converter (const char *module_name,
   PUSHMARK(SP);
   EXTEND(SP, 2);
 
-  SvREFCNT_inc (converter_info_sv);
-
   PUSHs(sv_2mortal (newSVpv (module_name, 0)));
-  PUSHs(sv_2mortal (converter_info_sv));
+  PUSHs(sv_2mortal (SvREFCNT_inc (converter_info_sv)));
   PUTBACK;
 
   count = call_method ("converter",
@@ -244,7 +240,6 @@ OUTPUT_TEXT_FILES_INFO *
 call_converter_output (CONVERTER *self, DOCUMENT *document)
 {
   SV *document_sv;
-  SV *converter_sv;
   int count;
   OUTPUT_TEXT_FILES_INFO *result;
   const char *result_ret;
@@ -258,10 +253,6 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
      check if there is already a document->hv and reuse it.
    */
   document_sv = build_minimal_document (document);
-  SvREFCNT_inc (document_sv);
-
-  converter_sv = (SV *) self->sv;
-  SvREFCNT_inc (converter_sv);
 
   result = (OUTPUT_TEXT_FILES_INFO *)
     non_perl_malloc (sizeof (OUTPUT_TEXT_FILES_INFO));
@@ -274,8 +265,8 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
   PUSHMARK(SP);
   EXTEND(SP, 2);
 
-  PUSHs(sv_2mortal (converter_sv));
-  PUSHs(sv_2mortal (document_sv));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
+  PUSHs(sv_2mortal (SvREFCNT_inc (document_sv)));
   PUTBACK;
 
   count = call_method ("output",
@@ -303,15 +294,13 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
       || self->output_files_information.unclosed_files.number > 0)
     return result;
 
-  SvREFCNT_inc (converter_sv);
-
   ENTER;
   SAVETMPS;
 
   PUSHMARK(SP);
   EXTEND(SP, 1);
 
-  PUSHs(sv_2mortal (converter_sv));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
   count = call_method ("output_files_information",
@@ -338,7 +327,6 @@ call_sort_element_counts (const CONVERTER *self, DOCUMENT *document,
                           int use_sections, int count_words)
 {
   SV *document_sv;
-  SV *converter_sv;
   int count;
   const char *result_ret;
   char *result;
@@ -347,6 +335,7 @@ call_sort_element_counts (const CONVERTER *self, DOCUMENT *document,
 
   dTHX;
 
+  /* get the document and already increase refcount */
   if (document->hv)
     {
       /* reuse if the document hv already exists */
@@ -358,8 +347,6 @@ call_sort_element_counts (const CONVERTER *self, DOCUMENT *document,
       SvREFCNT_inc (document_sv);
     }
 
-  converter_sv = (SV *) self->sv;
-  SvREFCNT_inc (converter_sv);
 
   dSP;
 
@@ -369,7 +356,7 @@ call_sort_element_counts (const CONVERTER *self, DOCUMENT *document,
   PUSHMARK(SP);
   EXTEND(SP, 4);
 
-  PUSHs(sv_2mortal (converter_sv));
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (document_sv));
   PUSHs(sv_2mortal (newSViv (use_sections)));
   PUSHs(sv_2mortal (newSViv (count_words)));

@@ -1096,8 +1096,7 @@ html_get_direction_icons_sv (DIRECTION_ICON_LIST *direction_icons,
   if (!SvOK (icons_sv))
     return;
 
-  SvREFCNT_inc ((SV *) icons_sv);
-  direction_icons->sv = icons_sv;
+  direction_icons->sv = newSVsv (icons_sv);
 
   icons_hv = (HV *)SvRV ((SV *) icons_sv);
 

@@ -94,7 +94,7 @@ switch_perl_lang_translations (HV *converter_hv, const char *lang)
       translations = get_sv ("Texinfo::Translations::translation_cache",
                              0);
       hv_store (converter_hv, "translations", strlen ("translations"),
-                SvREFCNT_inc (translations), 0);
+                newSVsv (translations), 0);
     }
   else
     {

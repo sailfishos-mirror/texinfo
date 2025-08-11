@@ -499,9 +499,8 @@ html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv,
         (converter->document,
          converter->output_units_descriptors[OUDT_associated_special_units]);
 
-      SvREFCNT_inc (*output_units_sv);
       hv_store (converter_hv, "document_units", strlen ("document_units"),
-                *output_units_sv, 0);
+                newSVsv (*output_units_sv), 0);
     }
 
 }
@@ -678,8 +677,7 @@ pass_sv_converter_info (const CONVERTER *converter,
 
   if (info_sv && SvOK (*info_sv))
     {
-      SvREFCNT_inc (*info_sv);
-      return *info_sv;
+      return newSVsv (*info_sv);
     }
 
   /* the linear search is not very efficient, but done only once for
@@ -699,8 +697,7 @@ pass_sv_converter_info (const CONVERTER *converter,
                                    strlen ("document"), 0);
       if (document_sv && SvOK (*document_sv))
         {
-          SvREFCNT_inc (*document_sv);
-          new_sv = *document_sv;
+          new_sv = newSVsv (*document_sv);
         }
     }
   else if (!strcmp (converter_info, "document_name"))
@@ -722,8 +719,7 @@ pass_sv_converter_info (const CONVERTER *converter,
 
       if (expanded_formats_sv && SvOK (*expanded_formats_sv))
         {
-          SvREFCNT_inc (*expanded_formats_sv);
-          new_sv = *expanded_formats_sv;
+          new_sv = newSVsv (*expanded_formats_sv);
         }
     }
   else if (!strcmp (converter_info, "jslicenses"))
@@ -734,8 +730,7 @@ pass_sv_converter_info (const CONVERTER *converter,
       /* probably always true */
       if (info_sv && SvOK (*info_sv))
         {
-          SvREFCNT_inc (*info_sv);
-          return *info_sv;
+          return newSVsv (*info_sv);
         }
     }
   else if (!strcmp (converter_info, "copying_comment"))
@@ -775,8 +770,7 @@ pass_sv_converter_info (const CONVERTER *converter,
           /* probably always true */
           if (info_sv && SvOK (*info_sv))
             {
-              SvREFCNT_inc (*info_sv);
-              return *info_sv;
+              return newSVsv (*info_sv);
             }
         }
     }
@@ -791,10 +785,9 @@ pass_sv_converter_info (const CONVERTER *converter,
 
   if (new_sv)
     {
-      SvREFCNT_inc (new_sv);
       hv_store (converter_info_hv, converter_info,
                 strlen (converter_info), new_sv, 0);
-      return new_sv;
+      return newSVsv (new_sv);
     }
 
   return newSV (0);

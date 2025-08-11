@@ -1,5 +1,17 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_info.c,
+	tta/C/convert/build_html_perl_state.c,
+	tta/C/convert/get_converter_perl_info.c, tta/C/main/get_perl_info.c:
+	use newSVsv instead of SvREFCNT_inc.
+
+	* tta/C/convert/call_conversion_perl.c,
+	tta/C/convert/call_html_perl_function.c: reorganize code to make
+	clearer that the calls to SvREFCNT_inc are associated to subroutine
+	call.  Add casts.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (store_document_texinfo_tree)
 	(store_output_units_texinfo_tree)
 	(store_document_tree_output_units, document_tree): do not return
