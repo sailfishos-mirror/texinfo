@@ -2263,10 +2263,32 @@ main (int argc, char *argv[], char *env[])
       exit (EXIT_SUCCESS);
     }
 
+  /* NOTE there is an effect only if Perl converter is used */
+  txi_xs_external_conversion = getenv ("TEXINFO_XS_EXTERNAL_CONVERSION");
+  if (txi_xs_external_conversion && strlen (txi_xs_external_conversion)
+      && strcmp (txi_xs_external_conversion, "0"))
+    {
+      GNUT_set_from_cmdline (&cmdline_options,
+        program_options.options->XS_EXTERNAL_CONVERSION.number, "1");
+    }
+
+  txi_xs_external_formatting = getenv ("TEXINFO_XS_EXTERNAL_FORMATTING");
+  if (txi_xs_external_formatting && strlen (txi_xs_external_formatting)
+      && strcmp (txi_xs_external_formatting, "0"))
+    GNUT_set_from_cmdline (&cmdline_options,
+        program_options.options->XS_EXTERNAL_FORMATTING.number, "1");
+
   if (format_specification->module)
     {
       if (!strcmp (converted_format, "html"))
         {
+          OPTION *xs_external_formatting_option
+            = GNUT_get_conf (
+                 program_options.options->XS_EXTERNAL_FORMATTING.number);
+          OPTION *xs_external_conversion_option
+            = GNUT_get_conf (
+                 program_options.options->XS_EXTERNAL_CONVERSION.number);
+
           /* setup of need_latex to be kept in sync with setup of
              CONVERT_TO_LATEX_IN_MATH in html_initialize_output_state
              based on HTML_MATH */
@@ -2274,6 +2296,7 @@ main (int argc, char *argv[], char *env[])
           OPTION *convert_to_latex_in_math_option
             = GNUT_get_conf (
               program_options.options->CONVERT_TO_LATEX_IN_MATH.number);
+
           if (!convert_to_latex_in_math_option
               || convert_to_latex_in_math_option->o.integer < 0)
             {
@@ -2285,7 +2308,11 @@ main (int argc, char *argv[], char *env[])
 
           /* to be kept in sync with build_html_perl_info.c
               html_pass_conversion_initialization */
-          if (loaded_init_files_nr > 0 || need_latex)
+          if (loaded_init_files_nr > 0 || need_latex
+              || (xs_external_formatting_option
+                  && xs_external_formatting_option->o.integer > 0)
+              || (xs_external_conversion_option
+                  && xs_external_conversion_option->o.integer > 0))
             external_module = format_specification->module;
         }
       else
@@ -2428,19 +2455,6 @@ main (int argc, char *argv[], char *env[])
 
   if (test_option && test_option->o.integer > 1)
     remove_references = 1;
-
-  /* NOTE there is an effect only if Perl converter is used */
-  txi_xs_external_conversion = getenv ("TEXINFO_XS_EXTERNAL_CONVERSION");
-  if (txi_xs_external_conversion && strlen (txi_xs_external_conversion)
-      && strcmp (txi_xs_external_conversion, "0"))
-    GNUT_set_from_cmdline (&cmdline_options,
-        program_options.options->XS_EXTERNAL_CONVERSION.number, "1");
-
-  txi_xs_external_formatting = getenv ("TEXINFO_XS_EXTERNAL_FORMATTING");
-  if (txi_xs_external_formatting && strlen (txi_xs_external_formatting)
-      && strcmp (txi_xs_external_formatting, "0"))
-    GNUT_set_from_cmdline (&cmdline_options,
-        program_options.options->XS_EXTERNAL_FORMATTING.number, "1");
 
   initialize_options_list (&convert_options);
 

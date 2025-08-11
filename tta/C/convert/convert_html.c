@@ -1415,6 +1415,9 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                        element->e.text->end);
       else
         {
+          if (!self->current_types_conversion_function[ET_text].type_conversion)
+            fatal ("ET_text conversion function NULL");
+
           (*(self->current_types_conversion_function[ET_text].type_conversion))
                     (self, ET_text, element, element->e.text->text,
                                                               &text_result);
@@ -1836,6 +1839,9 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
       if (self->current_types_conversion_function[type].type_conversion)
         {
+          /* FIXME what about c_only types?  Should be checked especially? */
+          if (!self->current_types_conversion_function[type].type_conversion)
+            fatal ("conversion for a type NULL");
           (*self->current_types_conversion_function[type].type_conversion)
                (self, type, element, content_formatted.text, &type_result);
         }
@@ -1888,6 +1894,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
         fprintf (stderr, "UNNAMED empty\n");
       if (self->current_types_conversion_function[0].type_conversion)
         {
+          if (!self->current_types_conversion_function[0].type_conversion)
+            fatal ("ET_NONE conversion function NULL");
           (*self->current_types_conversion_function[0].type_conversion)
                            (self, 0, element, "", result);
         }
