@@ -1,5 +1,12 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Invoking Info):
+	Index all command line options multiple times if they have
+	synonyms, with each synonym appearing first in the index entry
+	text.  This is for ease of lookup of short options.
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session.c, info/info.c (info_debug): move to info.c.
 	* info/session.h, info/info.h (debug): move to info.h.
 

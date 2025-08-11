@@ -1604,6 +1604,7 @@ A complete list of options follows.
 @item --all
 @itemx -a
 @cindex @code{--all} (@code{-a}) command line option
+@cindex @code{-a} (@code{--all}) command line option
 Find all files matching @var{manual}.  Three usage patterns are
 supported, as follows.
 
@@ -1631,6 +1632,7 @@ The @option{--node} option cannot be used together with this option.
 @item --apropos=@var{string}
 @itemx -k @var{string}
 @cindex @code{--apropos} (@code{-k}) command line option
+@cindex @code{-k} (@code{--apropos}) command line option
 @cindex Searching all indices
 @cindex Info files@r{, searching all indices}
 @cindex Apropos@r{, in Info files}
@@ -1647,6 +1649,7 @@ You can invoke the apropos command from inside Info; see
 @item --debug=@var{number}
 @itemx -x @var{number} 
 @cindex @code{--debug} (@code{-x}) command line option
+@cindex @code{-x} (@code{--debug}) command line option
 @cindex debugging
 Print additional debugging information.  The argument specifies the
 verbosity level, so a higher level includes all the information from
@@ -1670,6 +1673,7 @@ Debugging output goes to standard error.
 @item --directory @var{directory-path}
 @itemx -d @var{directory-path}
 @cindex @code{--directory} (@code{-d}) command line option
+@cindex @code{-d} (@code{--directory}) command line option
 @cindex directory path
 @cindex @env{INFOPATH}
 @anchor{INFOPATH}
@@ -1713,6 +1717,7 @@ can be used later to replay the same sequence of commands, see the
 @item --file @var{manual}
 @itemx -f @var{manual}
 @cindex @code{--file} (@code{-f}) command line option
+@cindex @code{-f} (@code{--file}) command line option
 @cindex Info manual, specifying initial
 @cindex initial node, specifying
 @cindex startup node, specifying
@@ -1736,6 +1741,7 @@ is not given.)
 @item --help
 @itemx -h
 @cindex @code{--help} (@code{-h}) command line option
+@cindex @code{-h} (@code{--help}) command line option
 Output a brief description of the available Info command-line options.
 
 @item --index-search @var{string}
@@ -1768,6 +1774,7 @@ of the default location.  @xref{Custom Key Bindings}.
 @item --node @var{nodename}
 @itemx -n @var{nodename}
 @cindex @code{--node} (@code{-n}) command line option
+@cindex @code{-n} (@code{--node}) command line option
 @cindex node, selecting from the command line
 Specify a particular node to visit in the initial file that Info
 loads.  You may specify @code{--node} multiple times: for an interactive
@@ -1783,6 +1790,7 @@ close parentheses and whitespace from the shell; for example:@*
 @item --output @var{file}
 @itemx -o @var{file}
 @cindex @code{--output} (@code{-o}) command line option
+@cindex @code{-o} (@code{--output}) command line option
 @cindex file, outputting to
 @cindex outputting to a file
 Direct output to @var{file}.  Each node that Info visits will be
@@ -1793,6 +1801,7 @@ output to @var{file} instead of interactively viewed.  A value of
 @itemx --raw-escapes, -R
 @anchor {--raw-escapes}
 @cindex @code{--raw-escapes} (@code{-R}) command line option
+@cindex @code{-R} (@code{--raw-escapes}) command line option
 @cindex colors in documents
 @cindex ANSI escape sequences in documents
 By default, Info passes SGR terminal control sequences (also known as
@@ -1835,6 +1844,8 @@ sequences are dropped.
 @itemx --usage
 @itemx -O
 @cindex @code{--show-options} (@code{--usage}, @code{-O}) command line option
+@cindex @code{--usage} (@code{--show-options}, @code{-O}) command line option
+@cindex @code{-O} (@code{--usage}, @code{--show-options}) command line option
 @cindex command-line options, how to find
 @cindex invocation description, how to find
 Look for the node that describes how to invoke the
@@ -1850,6 +1861,7 @@ goto-invocation} command (@pxref{goto-invocation}) from inside Info.
 @item --speech-friendly
 @itemx -b
 @cindex @code{--speech-friendly} (@code{-b}) command line option
+@cindex @code{-b} (@code{--speech-friendly}) command line option
 @cindex speech synthesizers
 On MS-DOS/MS-Windows only, this option causes Info to use standard
 file I/O functions for screen writes.  (By default, Info uses direct
@@ -1879,6 +1891,7 @@ members of an index.  Each node is only output once.
 @item -v @var{name}=@var{value}
 @itemx --variable=@var{name}=@var{value}
 @cindex @code{--variable} (@code{-v}) command line option
+@cindex @code{-v} (@code{--variable}) command line option
 @cindex variable assignment
 Set the @command{info} variable @var{name} to @var{value}.
 @xref{Variables}.
@@ -1902,6 +1915,8 @@ for a more general way of altering GNU Info's key bindings.)
 @itemx --location
 @itemx -w
 @cindex @code{--where} (@code{--location}, @code{-w}) command line option
+@cindex @code{--location} (@code{--where}, @code{-w}) command line option
+@cindex @code{-w} (@code{--location}, @code{--where}) command line option
 @cindex Info manual location
 @cindex Where is an Info manual?
 Show the filename that would be read and exit, instead of actually
