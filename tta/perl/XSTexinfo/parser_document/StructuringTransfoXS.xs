@@ -99,9 +99,7 @@ copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
             hv_store (hv, "tree_document_descriptor",
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document->descriptor), 0);
-            /* not sure that increasing refcount is needed */
-            RETVAL = SvREFHVCNT_inc (sv);
-            /* RETVAL = sv; */
+            RETVAL = newSVsv (sv);
             if (added_root_elements_sv && SvOK (added_root_elements_sv))
               {
                 size_t i;

@@ -113,7 +113,7 @@ build_tree (SV *tree_in, ...)
             ELEMENT *element
               = get_sv_element_element (tree_in, document);
             result_sv = build_texinfo_tree (element, 0);
-            result_sv = SvREFHVCNT_inc ((SV *) result_sv);
+            result_sv = newSVsv ((SV *) result_sv);
           }
         else
           {
@@ -124,7 +124,7 @@ build_tree (SV *tree_in, ...)
                 if (!no_store)
                   {
                     if (document->tree)
-                      result_sv = SvREFHVCNT_inc ((SV *) document->tree->sv);
+                      result_sv = newSVsv ((SV *) document->tree->sv);
                   }
                 else
                   { /* no more document->tree, get from Perl data */
@@ -132,7 +132,7 @@ build_tree (SV *tree_in, ...)
                     SV **tree_sv = hv_fetch (document_hv, "tree",
                                              strlen("tree"), 0);
                     if (tree_sv && SvOK (*tree_sv))
-                      result_sv = SvREFCNT_inc (*tree_sv);
+                      result_sv = newSVsv (*tree_sv);
                   }
               }
           }

@@ -78,9 +78,9 @@ new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
               {
                 HV *hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
              /* this first refcount increase keeps the mortal argument alive */
-                e->sv = sv_bless (SvREFHVCNT_inc (element_hash), hv_stash);
+                e->sv = sv_bless (newSVsv (element_hash), hv_stash);
                 register_sv_element_handle_in_sv (e, e->sv, document);
-                RETVAL = (SvREFHVCNT_inc (e->sv));
+                RETVAL = (newSVsv (e->sv));
               }
             else
               {
@@ -92,7 +92,7 @@ new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
         else
           {
             HV *hv_stash = gv_stashpv ("Texinfo::TreeElement", GV_ADD);
-            RETVAL = sv_bless (SvREFHVCNT_inc (element_hash), hv_stash);
+            RETVAL = sv_bless (newSVsv (element_hash), hv_stash);
           }
     OUTPUT:
          RETVAL
@@ -495,7 +495,7 @@ utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_e
           }
 
         if (result_sv)
-          RETVAL = SvREFHVCNT_inc (result_sv);
+          RETVAL = newSVsv (result_sv);
         else
           RETVAL = newSV (0);
     OUTPUT:
@@ -534,7 +534,7 @@ tree_element_expand_today (SV *test_sv, SV *lang_translations_sv, SV *debug_sv, 
               build_texinfo_tree (e_today, 1);
             register_element_handle_in_sv (e_today, document);
 
-            RETVAL = SvREFHVCNT_inc ((SV *) e_today->sv);
+            RETVAL = newSVsv ((SV *) e_today->sv);
           }
         else
           RETVAL = newSV (0);
@@ -582,7 +582,7 @@ tree_element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
             register_element_handle_in_sv (e_result, document);
             if (replaced_substrings)
               destroy_named_string_element_list (replaced_substrings);
-            RETVAL = SvREFHVCNT_inc ((SV *)e_result->sv);
+            RETVAL = newSVsv ((SV *)e_result->sv);
           }
         else
           RETVAL = newSV (0);

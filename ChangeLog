@@ -1,5 +1,18 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_state.c,
+	tta/C/convert/call_html_perl_function.c, tta/C/main/build_perl_info.c,
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs,
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs,
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs,
+	tta/perl/XSTexinfo/reader_element/TreeElementXS.xs: use newSVsv
+	instead of SvREFHVCNT_inc everywhere.  It is better to have
+	independent references, and additionaly SvREFHVCNT_inc leads to
+	unreleased references as the added SV reference prevents removal of an
+	HV reference.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_indices_sort_strings)
 	(build_sorted_indices_by_index, build_sorted_indices_by_letter)
 	(build_convert_text_options, pass_document_sv_to_converter_sv): use

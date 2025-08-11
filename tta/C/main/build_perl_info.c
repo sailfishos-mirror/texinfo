@@ -174,28 +174,6 @@ perl_only_strndup (const char *s, size_t n)
   return ret;
 }
 
-/* Increase both SV and the HV SV refers too.  Different from newRV_inc on an HV
-   regarding reference counting, since the HV reference is not consumed when
-   the SV refcount decrease since the SV has two references.  Note that when this
-   function is used, the returned SV is the same as the input SV, which means
-   that assigning to the one, in Perl, also modifies the other.  In many cases
-   we do not want that, and, newSVsv should be used instead to create a new
-   reference, similar to newRV_*inc.  In general, there is one place where
-   keeping the same reference is ok, but other references should be
-   copied and not reused.
- */
-SV *
-SvREFHVCNT_inc (SV *sv)
-{
-  HV *hv;
-
-  dTHX;
-
-  hv = (HV *) SvRV (sv);
-  SvREFCNT_inc ((SV *)hv);
-  return SvREFCNT_inc (sv);
-}
-
 
 /* Build Texinfo tree data and Texinfo tree to Perl */
 
@@ -2253,7 +2231,9 @@ build_minimal_document (DOCUMENT *document)
   if (!document->hv)
     {
       document->hv = (void *) hv;
-      SvREFCNT_inc ((SV *)hv);
+      /* Additional reference held by the C code released at document
+         destruction */
+      SvREFCNT_inc ((SV *) hv);
     }
   else
     {

@@ -13,12 +13,6 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-/* Note that in all that file with use SvREFHVCNT_inc and not newSVsv.
-   This is somewhat dangerous, as the caller may reassign the element,
-   modifying also the tree.  However the user is not supposed to do that
-   so it should be ok.
- */
-
 /* Avoid namespace conflicts. */
 #define context perl_context
 
@@ -150,7 +144,7 @@ call_file_id_setting_label_target_name (CONVERTER *self,
       SV *label_element_sv;
 
       if (label_element)
-        label_element_sv = SvREFHVCNT_inc ((SV *) label_element->sv);
+        label_element_sv = newSVsv ((SV *) label_element->sv);
       else
         label_element_sv = newSV (0);
 
@@ -222,7 +216,7 @@ call_file_id_setting_node_file_name (CONVERTER *self,
       EXTEND(SP, 3);
 
       PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
-      PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) target_element->sv)));
+      PUSHs(sv_2mortal (newSVsv ((SV *) target_element->sv)));
       PUSHs(sv_2mortal (newSVpv_utf8 (node_filename, 0)));
       PUTBACK;
 
@@ -291,7 +285,7 @@ call_file_id_setting_sectioning_command_target_name (CONVERTER *self,
       EXTEND(SP, 6);
 
       PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
-      PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) command->sv)));
+      PUSHs(sv_2mortal (newSVsv ((SV *) command->sv)));
       PUSHs(sv_2mortal (newSVpv (target, 0)));
       PUSHs(sv_2mortal (newSVpv (target_contents, 0)));
       PUSHs(sv_2mortal (newSVpv (target_shortcontents, 0)));
@@ -427,7 +421,7 @@ call_file_id_setting_external_target_split_name (CONVERTER *self,
 
       PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newSVpv (normalized, 0)));
-      PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+      PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
       PUSHs(sv_2mortal (newSVpv (target, 0)));
       PUSHs(sv_2mortal (newSVpv_utf8 (directory, 0)));
       PUSHs(sv_2mortal (newSVpv_utf8 (file_name, 0)));
@@ -509,7 +503,7 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
 
       PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
       PUSHs(sv_2mortal (newSVpv (normalized, 0)));
-      PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+      PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
       PUSHs(sv_2mortal (newSVpv (target, 0)));
       PUSHs(sv_2mortal (newSVpv_utf8 (file, 0)));
       PUTBACK;
@@ -871,7 +865,7 @@ call_formatting_function_format_single_footnote (CONVERTER *self,
   EXTEND(SP, 1);
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (footid, 0)));
   PUSHs(sv_2mortal (newSViv ((IV) number_in_doc)));
   PUSHs(sv_2mortal (newSVpv_utf8 (footnote_location_href, 0)));
@@ -1263,7 +1257,7 @@ call_formatting_function_format_button (CONVERTER *self,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (button->sv));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -1340,7 +1334,7 @@ call_formatting_function_format_navigation_panel (CONVERTER *self,
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newRV_inc (buttons->av)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUSHs(sv_2mortal (newSViv ((IV) vertical)));
   PUSHs(sv_2mortal (newSViv ((IV) in_header)));
   PUTBACK;
@@ -1401,7 +1395,7 @@ call_formatting_function_format_navigation_header (CONVERTER *self,
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newRV_inc (buttons->av)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -1466,7 +1460,7 @@ call_formatting_function_format_heading_text (CONVERTER *self,
     classes_sv = newSV (0);
 
   if (element)
-    element_sv = SvREFHVCNT_inc ((SV *) element->sv);
+    element_sv = newSVsv ((SV *) element->sv);
   else
     element_sv = newSV (0);
 
@@ -1531,7 +1525,7 @@ call_formatting_function_format_contents (CONVERTER *self,
   build_tree_to_build (&self->tree_to_build);
 
   if (command)
-    command_sv = SvREFHVCNT_inc ((SV *) command->sv);
+    command_sv = newSVsv ((SV *) command->sv);
   else
     command_sv = newSV (0);
 
@@ -1653,7 +1647,7 @@ call_formatting_function_format_element_header (CONVERTER *self,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (cmdname, 0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) command->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) command->sv)));
   PUSHs(sv_2mortal (newRV_inc (output_unit->hv)));
   PUTBACK;
 
@@ -1713,7 +1707,7 @@ call_formatting_function_format_element_footer (CONVERTER *self,
   /* content == 0 is possible, hope that newSVpv result corresponds to
      undef in that case, but could also need to explicitely use newSV(0) */
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) command->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) command->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -1765,7 +1759,7 @@ call_formatting_function_format_node_redirection_page (CONVERTER *self,
   EXTEND(SP, 3);
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) command->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) command->sv)));
   PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
   PUTBACK;
 
@@ -1829,7 +1823,7 @@ call_types_conversion (CONVERTER *self, const enum element_type type,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (type_data[type].name, 0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   /* content == 0 is possible, hope that newSVpv result corresponds to
      undef in that case, but could also need to explicitely use newSV(0) */
   PUSHs(sv_2mortal (newSVpv_utf8 (content, 0)));
@@ -1884,7 +1878,7 @@ call_types_open (CONVERTER *self, const enum element_type type,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (type_data[type].name, 0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -1937,7 +1931,7 @@ build_html_command_formatted_args (const HTML_ARGS_FORMATTED *args_formatted)
           av_push (av, newRV_noinc ((SV *) arg_formated_hv));
 
           hv_store (arg_formated_hv, "arg_tree", strlen ("arg_tree"),
-                    SvREFHVCNT_inc ((SV *) arg_formatted->arg_tree->sv), 0);
+                    newSVsv ((SV *) arg_formatted->arg_tree->sv), 0);
 
           for (j = 0; j < AFT_type_raw+1; j++)
             {
@@ -1999,7 +1993,7 @@ call_commands_conversion (CONVERTER *self, const enum command_id cmd,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (command_name, 0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUSHs(sv_2mortal (args_formatted_sv));
   /* content == 0 is possible, hope that newSVpv result corresponds to
      undef in that case, but could also need to explicitely use newSV(0) */
@@ -2063,7 +2057,7 @@ call_commands_open (CONVERTER *self, const enum command_id cmd,
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (command_name, 0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUTBACK;
 
   count = call_sv (formatting_reference_sv,
@@ -2292,7 +2286,7 @@ call_button_direction_function (CONVERTER *self,
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUSHs(sv_2mortal (newSVpv (self->main_units_direction_names[direction],
                              0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
 
   PUTBACK;
 
@@ -2377,7 +2371,7 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
   EXTEND(SP, 3);
 
   PUSHs(sv_2mortal (newSV (0)));
-  PUSHs(sv_2mortal (SvREFHVCNT_inc ((SV *) element->sv)));
+  PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
   PUSHs(sv_2mortal (options_latex_math));
   PUTBACK;
 

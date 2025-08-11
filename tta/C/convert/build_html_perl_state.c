@@ -232,7 +232,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                     element_to_perl_hash (translated_tree, 1);
                   hv_store (context_hv, "translated_tree",
                             strlen ("translated_tree"),
-                            SvREFHVCNT_inc ((SV *) translated_tree->sv), 0);
+                            newSVsv ((SV *) translated_tree->sv), 0);
                 }
               else if (hv_exists (context_hv, "translated_tree",
                                   strlen ("translated_tree")))
@@ -280,7 +280,7 @@ build_html_formatting_state (CONVERTER *converter)
         STORE("current_root_command", newSV (0));
       else
         STORE("current_root_command",
-          SvREFHVCNT_inc ((SV *) converter->current_root_command->sv));
+          newSVsv ((SV *) converter->current_root_command->sv));
     }
 
   if (flags & HMSF_current_node)
@@ -289,7 +289,7 @@ build_html_formatting_state (CONVERTER *converter)
         STORE("current_node", newSV (0));
       else
         STORE("current_node",
-           SvREFHVCNT_inc ((SV *) converter->current_node->sv));
+           newSVsv ((SV *) converter->current_node->sv));
     }
 
 #undef STORE

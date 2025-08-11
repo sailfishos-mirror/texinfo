@@ -67,7 +67,7 @@ new (SV *element_hash)
         /* the refcount needs to be increased probably because the
            argument is "mortal" and has its counters decreased upon
            leaving the function */
-        RETVAL = sv_bless (SvREFHVCNT_inc (element_hash), hv_stash);
+        RETVAL = sv_bless (newSVsv (element_hash), hv_stash);
     OUTPUT:
          RETVAL
 
@@ -279,7 +279,7 @@ get_children (SV *element_sv)
                     SV *child_sv;
                     ELEMENT *child = element->e.c->contents.list[i];
                     register_element_handle_in_sv (child, document);
-                    child_sv = SvREFHVCNT_inc ((SV *)child->sv);
+                    child_sv = newSVsv ((SV *)child->sv);
                     av_push (av, child_sv);
                   }
                 RETVAL = newRV_noinc ((SV *)av);
@@ -448,7 +448,7 @@ add_to_element_contents (SV *parent_element_sv, SV *element_sv)
                       newRV_noinc ((SV *)contents_av), 0);
           }
 
-        av_push (contents_av, SvREFHVCNT_inc (element_sv));
+        av_push (contents_av, newSVsv (element_sv));
 
         /* TODO do not do that for text elements */
         hv_store (element_hv, "parent", strlen ("parent"),
