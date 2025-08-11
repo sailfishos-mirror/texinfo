@@ -1,5 +1,12 @@
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (nodist_perllib_DATA)
+	(archlib_LTLIBRARIES, TESTS), tta/swig/python/Makefile.am
+	(nodist_python_PYTHON, pyexec_LTLIBRARIES): do modules only if
+	HAVE_ICONV is set, as otherwise there is no libtexinfo.
+
+2025-08-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_minimal_document): move code.
 
 	* tta/C/main/build_perl_info.c (fill_document_hv, build_document):

@@ -27,17 +27,17 @@ AM_CPPFLAGS += -DUSE_PERL_INTERPRETER
 
 txi_libs_srcdir = $(srcdir)/../../C
 
-if SWIG_INTERFACES
-
-BUILT_SOURCES = perl_texinfo_wrap.c Texinfo.pm
-
 $(top_builddir)/../tta/C/libtexinfo.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo.la
 
 $(top_builddir)/../tta/C/libtexinfo-main.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main.la
 
+if SWIG_INTERFACES
 SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert
+
+BUILT_SOURCES = perl_texinfo_wrap.c Texinfo.pm
+
 SWIG_header_dependencies = \
                  $(txi_libs_srcdir)/main/use_interpreter_types.h \
                  $(txi_libs_srcdir)/main/source_mark_types.h \
@@ -75,11 +75,13 @@ all-local: .libs/auto/Texinfo
 # installsitearch or installvendorarch/auto/$module
 # The .pm that load the XS modules seem to be in
 # installsitearch or installvendorarch/
+if HAVE_ICONV
 nodist_perllib_DATA = Texinfo.pm
 
 module = Texinfo
 archlibdir = $(perlarchdir)/auto/$(module)
 archlib_LTLIBRARIES = Texinfo.la
+endif
 
 nodist_Texinfo_la_SOURCES = perl_texinfo_wrap.c
 
@@ -112,10 +114,12 @@ scripts_test_files = \
  test_scripts/test_includes.sh \
  test_scripts/test_texinfo_manual.sh
 
+if HAVE_ICONV
 TESTS = $(scripts_test_files)
 
 if SWIG_PERL_TESTS
 TESTS += $(t_test_files)
+endif
 endif
 
 EXTRA_DIST = \

@@ -22,15 +22,15 @@ endif
 
 txi_libs_srcdir = $(srcdir)/../../C
 
-if SWIG_INTERFACES
-
-BUILT_SOURCES = python_texinfo_wrap.c Texinfo.py
-
 $(top_builddir)/../tta/C/libtexinfo.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo.la
 
 $(top_builddir)/../tta/C/libtexinfo-main.la:
 	cd $(top_builddir)/C/ && $(MAKE) $(AM_MAKEFLAGS) libtexinfo-main.la
+
+if SWIG_INTERFACES
+
+BUILT_SOURCES = python_texinfo_wrap.c Texinfo.py
 
 SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert
 SWIG_header_dependencies = \
@@ -45,10 +45,13 @@ python_texinfo_wrap.c Texinfo.py: $(srcdir)/../texinfo.i $(SWIG_header_dependenc
 
 endif
 
+if HAVE_ICONV
 # Ask autotools to install the generated Python file
 nodist_python_PYTHON = Texinfo.py
 # This is the Python module
 pyexec_LTLIBRARIES = _Texinfo.la
+endif
+
 nodist__Texinfo_la_SOURCES = python_texinfo_wrap.c
 
 _Texinfo_la_LDFLAGS = -module ${PYTHON_LDFLAGS}
