@@ -1,5 +1,14 @@
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info-hooks-example/gnu-manuals-locations.dat,
+	info/info-hooks-default/gnu-manuals-locations.dat,
+        info/info-hooks-example/manual-not-found,
+        info/info-hooks-default/manual-not-found: Rename subdirectory to
+        info-hooks-default.  Install files by default (not found by info
+        yet).
+
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info-hooks-example/manual-not-found,
 	* info/info-hooks-example/gnu-manuals-locations.dat:
 	Add copyright notice.
