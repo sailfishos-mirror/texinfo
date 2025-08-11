@@ -1,3 +1,9 @@
+2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking, tta/README: move information about running
+	uninstalled program into tta/README.  Add some headings in the
+	latter file.
+
 2025-08-11 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/build_perl_info.c (BUILD_PERL_DOCUMENT_ITEM)

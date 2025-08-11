@@ -208,25 +208,7 @@ are standalone and don't require compilation.  For the same reasons,
 they are officially updated between full Texinfo releases, at
 http://ftpmirror.gnu.org/texinfo.
 
-- Regarding texi2any (aka makeinfo), you can run tta/perl/texi2any.pl
-directly.  This is the original source file for the program, so it's
-convenient to be able to make changes and then run it.
-
-To run the output "tta/perl/texi2any" instead, you can set the environment
-variable TEXINFO_DEV_SOURCE to 1.  Otherwise, it will try to use
-Texinfo's Perl modules in the installed locations.  "tta/perl/texi2any"
-uses the Perl interpreter found by configure, so you might want to run
-that script instead of texi2any.pl if it's different from the default
-interpreter in your environment.
-
-To directly run programs out of source, you should set the t2a_builddir
-variable to the tta/ build directory, in order to have compiled modules
-and translated in-document strings found.  If you use scripts with
-names ending in .pl or .t test files, the source directory obtained
-from the script name might be used to determine the source directories
-and you may not need to set them explicitely.  Otherwise, you could
-need to set the srcdir environment variable, and/or set the t2a_srcdir
-environment variables to the in-source tta/ directory.
+- See tta/README about running texi2any
 
 
 

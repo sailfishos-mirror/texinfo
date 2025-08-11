@@ -1,10 +1,12 @@
-texinfo/tta/README
+tta/README
 
   Copyright 2011-2025 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
   notice and this notice are preserved.
+
+See also README-hacking file at top level.
 
 texi2any is a Perl or C program for converting Texinfo input to diverse
 output formats.  All the code is available in pure Perl, the C code
@@ -15,6 +17,8 @@ embedded Perl initialization code are in the perl/ subdirectory.  The C
 code, including code calling Perl modules, code called by the extension
 interfaces and code loading embedded Perl is in the C/ subdirectory.
 
+
+Module requirements
 
 These modules and libraries are required (all have been standard
 parts of Perl for years, at least since 5.7.3):
@@ -35,6 +39,31 @@ Archive::Zip is needed for the EPUB output format final file creation.
 It is not included in Texinfo; it is detected at runtime and an error is
 issued if it cannot be loaded.
 
+
+About running the Texinfo programs from a development source tree:
+
+Regarding texi2any (aka makeinfo), you can run tta/perl/texi2any.pl
+directly.  This is the original source file for the program, so it's
+convenient to be able to make changes and then run it.
+
+To run the output "tta/perl/texi2any" instead, you can set the environment
+variable TEXINFO_DEV_SOURCE to 1.  Otherwise, it will try to use
+Texinfo's Perl modules in the installed locations.  "tta/perl/texi2any"
+uses the Perl interpreter found by configure, so you might want to run
+that script instead of texi2any.pl if it's different from the default
+interpreter in your environment.
+
+To directly run programs out of source, you should set the t2a_builddir
+variable to the tta/ build directory, in order to have compiled modules
+and translated in-document strings found.  If you use scripts with
+names ending in .pl or .t test files, the source directory obtained
+from the script name might be used to determine the source directories
+and you may not need to set them explicitely.  Otherwise, you could
+need to set the srcdir environment variable, and/or set the t2a_srcdir
+environment variables to the in-source tta/ directory.
+
+
+Running tests:
 
 Tests in perl/t/ test the Perl modules used by the texi2any command/
 To run those tests, you also need:
@@ -50,6 +79,8 @@ be more readable.
 
 The tests in tests/ test the command itself.
 
+
+Internals:
 
 The conversion of Texinfo to output formats is done in three steps:
 1) input Texinfo code parsing into a Texinfo tree representing the
