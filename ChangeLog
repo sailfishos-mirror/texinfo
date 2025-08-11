@@ -1,3 +1,9 @@
+2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/info-stnd.texi (Custom Key Bindings): Update
+	to reflect the fact that pkgdatadir is now also checked.
+	(Hooks): mention default hook
+
 2025-08-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/t/config/texinfo/info-hooks/manual-not-found:

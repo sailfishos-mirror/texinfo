@@ -2335,9 +2335,15 @@ Info then checks for @file{@var{sysconfdir}/xdg/texinfo/infokey}, where
 or @samp{/usr/local/etc}.
 
 @item
-Finally, Info checks through @env{$XDG_CONFIG_DIRS} which is
+Info then checks through @env{$XDG_CONFIG_DIRS} which is
 a colon-separated list of directory names, for a file named
 @file{texinfo/infokey}.
+
+@item
+Finally, Info then checks @var{datadir}/texinfo/infokey (where @var{datadir}
+is specified at compile time, e.g., @file{/usr/local/share}).  (Info
+should not normally find a file at this location as Texinfo's installation
+rules do not copy a file there.)
 
 @end itemize
 
@@ -2577,8 +2583,8 @@ is used to advise on uninstalled programs.
 @c enter and run shell commands at the time of a hook running.
 
 To define a hook, you place an executable program by the same name
-in the directory @code{@env{$XDG_CONFIG_DIRS}/texinfo/info-hooks},
-where @env{$XDG_CONFIG_DIRS} is one of the XDG directories described
+in the directory @code{@var{XDG_CONFIG_DIRS}/texinfo/info-hooks},
+where @var{XDG_CONFIG_DIRS} is one of the XDG directories described
 in the previous chapter (@pxref{Custom Key Bindings}).
 
 Currently, Info has the following hook:
@@ -2650,8 +2656,8 @@ exit 0
 @noindent (The hook would be need to be more sophisticated than
 this to be useful in practice.)
 
-A sample @code{manual-not-found} hook is included in the
-@samp{info/info-hooks-example} directory of the Texinfo distribution.
+Texinfo installs a default sample @code{manual-not-found} hook program
+and data file in its compile-time data directory.
 @end table
 
 Hooks are run with the full file name used to run them in the
