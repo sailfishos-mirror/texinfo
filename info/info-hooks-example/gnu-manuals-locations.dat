@@ -1,5 +1,12 @@
 # gnu-manuals-locations
 #
+# Copyright 2025 Free Software Foundation, Inc.
+# 
+# Copying and distribution of this file, with or without modification,
+# are permitted in any medium without royalty provided the copyright
+# notice and this notice are preserved.
+#
+#
 # List of manuals, originally from GNU manuals listed in htmlxref file.
 # The second whitespace delimited field on each line is the web URL to
 # refer a user to for downloading the Info manual named in the first field.
