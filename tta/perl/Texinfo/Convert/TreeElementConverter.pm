@@ -1489,10 +1489,8 @@ sub _tree_element_encoded_accents($$$$$;$) {
 }
 
 # same as in Texinfo::Convert::Utils, but using TreeElement interface
-sub _tree_element_find_innermost_accent_contents($$)
-{
-  my $self = shift;
-  my $current = shift;
+sub _tree_element_find_innermost_accent_contents($$) {
+  my ($self, $current) = @_;
 
   my @accent_commands = ();
   my $debug = 0;
@@ -1500,7 +1498,7 @@ sub _tree_element_find_innermost_accent_contents($$)
   while (1) {
     my $current_cmdname = $current->{'cmdname'};
     # the following can happen if called with a bad tree
-    if (!$current_cmdname
+    if (!defined($current_cmdname)
         or !$Texinfo::Commands::accent_commands{$current_cmdname}) {
       #print STDERR "BUG: Not an accent command in accent\n";
       cluck "BUG: Not an accent command in accent\n";
@@ -1523,8 +1521,8 @@ sub _tree_element_find_innermost_accent_contents($$)
     my $text_contents = [];
 
     foreach my $content (@$contents) {
-      my $cmdname = $content->{'cmdname'};
-      if ($cmdname) {
+      if (exists($content->{'cmdname'})) {
+        my $cmdname = $content->{'cmdname'};
         if ($Texinfo::Commands::accent_commands{$cmdname}) {
         # if outer accent is tieaccent, keep accent inside and do not try to
         # nest more

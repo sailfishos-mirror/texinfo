@@ -1747,7 +1747,7 @@ sub convert_accents($$$;$$) {
       $in_upper_case) = @_;
 
   my ($contents_element, $stack)
-    = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
+    = Texinfo::Common::find_innermost_accent_contents($accent);
   my $arg_text = '';
   if (defined($contents_element)) {
     $arg_text = $self->convert_tree($contents_element);

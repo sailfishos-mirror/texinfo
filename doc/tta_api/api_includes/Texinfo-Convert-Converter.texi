@@ -525,13 +525,18 @@ Protect special XML characters (&, <, >, ") of @emph{$text}.
 
 Returns an XML comment for @emph{$text}.
 
-@item $result = xml_accent($text, $accent_command, $in_upper_case, $use_numeric_entities)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = xml_accent($text@comma{} $accent_command@comma{} $in_upper_case@comma{} $use_numeric_entities)}
+@item $result = xml_accent($self, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case, $use_numeric_entities)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = xml_accent($self@comma{} $text@comma{} $accent_command@comma{} $index_in_stack@comma{} $accents_stack@comma{} $in_upper_case@comma{} $use_numeric_entities)}
 @cindex @code{xml_accent}
 
+@emph{$self} is an object, in general a converter.
 @emph{$text} is the text appearing within an accent command.  @emph{$accent_command}
 should be a Texinfo tree element corresponding to an accent command taking
-an argument.  @emph{$in_upper_case} is optional, and, if set, the text is put
+an argument.  @emph{$index_in_stack} is the position in the @emph{$accents_stack}
+of the accent command being converted.  It is optional, but if not present
+the formatting cannot take into account the position of the accent in
+the current accents group being converted.
+@emph{$in_upper_case} is optional, and, if set, the text is put
 in upper case.  The function returns the accented letter as XML named entity
 if possible, falling back to numeric entities if there is no named entity
 and returns the argument as last resort.  @emph{$use_numeric_entities}

@@ -122,17 +122,6 @@ reference with include directories where the file specified as
 argument is used to output error messages.  This function returns a
 @code{@@verbatim} tree elements after finding the included file and reading it.
 
-@item ($contents_element, \@@accent_commands) = find_innermost_accent_contents($element)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils ($contents_element@comma{} \@@accent_commands) = find_innermost_accent_contents($element)}
-@cindex @code{find_innermost_accent_contents}
-
-@emph{$element} should be an accent command Texinfo tree element.  Returns
-an element containing the innermost accent @@-command contents,
-normally a text element with one or two letter, and an array reference
-containing the accent commands nested in @emph{$element} (including
-@emph{$element}).  If there is no argument at all for the accent command,
-@emph{$contents_element} is @code{undef}.
-
 @end table
 
 @node Texinfo@asis{::}Convert@asis{::}Utils SEE ALSO

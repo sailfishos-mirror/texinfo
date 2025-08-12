@@ -203,6 +203,7 @@ int string_exists_in_sorted_strings_list (STRING_LIST *strings,
                                           const char *target);
 char *join_strings_list (STRING_LIST *strings);
 
+ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 void destroy_accent_stack (ACCENTS_STACK *accent_stack);
 
 const char *input_file_name_encoding (const char *name_encoding,

@@ -367,7 +367,7 @@ sub text_accents($;$$)
   my $set_case = shift;
 
   my ($contents_element, $stack)
-      = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
+      = Texinfo::Common::find_innermost_accent_contents($accent);
   my $options = {};
   $options->{'enabled_encoding'} = $encoding if (defined($encoding));
   $options->{'set_case'} = $set_case if (defined($set_case));

@@ -58,6 +58,8 @@
 #include "builtin_commands.h"
 #include "debug.h"
 #include "api_to_perl.h"
+/* push_stack_element */
+#include "command_stack.h"
 #include "unicode.h"
 #include "utils.h"
 
@@ -2354,6 +2356,87 @@ get_global_document_command (const GLOBAL_COMMANDS *global_commands,
 }
 
 
+
+ACCENTS_STACK *
+find_innermost_accent_contents (const ELEMENT *element)
+{
+  const ELEMENT *current = element;
+  static ELEMENT_LIST argument;
+  ACCENTS_STACK *accent_stack = (ACCENTS_STACK *)
+         malloc (sizeof (ACCENTS_STACK));
+  memset (accent_stack, 0, sizeof (ACCENTS_STACK));
+
+  while (1)
+    {
+      const ELEMENT *arg;
+      size_t i;
+      enum command_id data_cmd;
+      unsigned long flags;
+
+      if (type_data[current->type].flags & TF_text)
+        return accent_stack;
+
+      data_cmd = element_builtin_data_cmd (current);
+      flags = builtin_command_data[data_cmd].flags;
+
+      /* the following can happen if called with a bad tree */
+      if (!data_cmd || !(flags & CF_accent))
+        return accent_stack;
+
+      push_stack_element (&accent_stack->stack, current);
+      /* A bogus accent, that may happen */
+      if (current->e.c->contents.number <= 0)
+        return accent_stack;
+      arg = current->e.c->contents.list[0];
+      if (arg->e.c->contents.number <= 0)
+        return accent_stack;
+      for (i = 0; i < arg->e.c->contents.number; i++)
+        {
+          ELEMENT *content = arg->e.c->contents.list[i];
+
+          if (! (type_data[content->type].flags & TF_text))
+            {
+              enum command_id content_data_cmd
+                = element_builtin_data_cmd (content);
+              if (content_data_cmd)
+                {
+                  unsigned long content_flags
+                     = builtin_command_data[content_data_cmd].flags;
+                  if (content_flags & CF_accent)
+                    {
+         /* if accent is tieaccent, keep everything and do not try to
+            nest more */
+                      if (current->e.c->cmd != CM_tieaccent)
+                        {
+                          current = content;
+                          argument.number = 0;
+                          break;
+                        }
+                    }
+              /* should be very rare and considered as undefined */
+                  else if (content_data_cmd == CM_c
+                           || content_data_cmd == CM_comment)
+                    {
+                      continue;
+                    }
+                }
+            }
+          add_to_element_list (&argument, content);
+        }
+      if (argument.number > 0)
+        break;
+    }
+  if (argument.number > 0)
+    {
+      accent_stack->argument = new_element (ET_NONE);
+      insert_list_slice_into_contents (accent_stack->argument,
+                             0, &argument, 0, argument.number);
+      argument.number = 0;
+    }
+  return accent_stack;
+}
+
+/* return value to be freed by caller */
 void
 destroy_accent_stack (ACCENTS_STACK *accent_stack)
 {

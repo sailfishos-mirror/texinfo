@@ -44,7 +44,7 @@
 #include "base_utils.h"
 #include "tree.h"
 #include "extra.h"
-/* for ACCENTS_STACK
+/* for ACCENTS_STACK find_innermost_accent_contents
    fatal xasprintf texinfo_input_file_basename ... */
 #include "utils.h"
 #include "customization_options.h"

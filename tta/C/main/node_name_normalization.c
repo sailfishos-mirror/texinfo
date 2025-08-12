@@ -33,7 +33,7 @@
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
-/* for xasprintf whitespace_chars */
+/* for xasprintf whitespace_chars find_innermost_accent_contents */
 #include "utils.h"
 #include "debug.h"
 #include "call_perl_function.h"

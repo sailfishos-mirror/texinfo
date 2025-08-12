@@ -769,6 +769,59 @@ sub parse_node_manual($;$) {
 
 # misc functions used in diverse contexts and useful in converters
 
+# Used in converters
+# find the accent commands stack and the innermost text contents
+sub find_innermost_accent_contents($) {
+  my $current = shift;
+
+  my @accent_commands = ();
+  my $debug = 0;
+ ACCENT:
+  while (1) {
+    my $current_cmdname = $current->{'cmdname'};
+    # the following can happen if called with a bad tree
+    if (!defined($current_cmdname)
+        or !$Texinfo::Commands::accent_commands{$current_cmdname}) {
+      #print STDERR "BUG: Not an accent command in accent\n";
+      cluck "BUG: Not an accent command in accent\n";
+      #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
+      #print STDERR Data::Dumper->Dump([$current]);
+      return (undef, \@accent_commands);
+    }
+    push @accent_commands, $current;
+    # A bogus accent, that may happen
+    if (!exists($current->{'contents'})) {
+      return (undef, \@accent_commands);
+    }
+    my $arg = $current->{'contents'}->[0];
+    if (!exists($arg->{'contents'})) {
+      return (undef, \@accent_commands);
+    }
+    # inside the argument of an accent
+    my $text_contents = [];
+    foreach my $content (@{$arg->{'contents'}}) {
+      if (exists($content->{'cmdname'})) {
+        my $cmdname = $content->{'cmdname'};
+        if ($Texinfo::Commands::accent_commands{$cmdname}) {
+        # if outer accent is tieaccent, keep accent inside and do not try to
+        # nest more
+          if ($current_cmdname ne 'tieaccent') {
+            $current = $content;
+            next ACCENT;
+          }
+        } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
+          next;
+        }
+      }
+      push @$text_contents, $content;
+    }
+    # we go here if there was no nested accent
+    my $element_inside
+        = Texinfo::TreeElement::new({'contents' => $text_contents});
+    return ($element_inside, \@accent_commands);
+  }
+}
+
 # TODO document
 # Used in converters
 sub multitable_columnfractions($) {
@@ -2178,6 +2231,16 @@ appearing on an C<@enumerate> line.  For example
   enumerate_item_representation('c', 3)
 
 is C<e>.
+
+=item ($contents_element, \@accent_commands) = find_innermost_accent_contents($element)
+X<C<find_innermost_accent_contents>>
+
+I<$element> should be an accent command Texinfo tree element.  Returns
+an element containing the innermost accent @-command contents,
+normally a text element with one or two letter, and an array reference
+containing the accent commands nested in I<$element> (including
+I<$element>).  If there is no argument at all for the accent command,
+I<$contents_element> is C<undef>.
 
 =item $command = find_parent_root_command($object, $tree_element)
 X<C<find_parent_root_command>>

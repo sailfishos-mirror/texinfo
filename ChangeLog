@@ -1,5 +1,13 @@
 2025-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/convert_utils.c, tta/C/main/utils.c
+	(find_innermost_accent_contents), tta/perl/Texinfo/Common.pm
+	(find_innermost_accent_contents), tta/perl/Texinfo/Convert/Utils.pm:
+	move find_innermost_accent_contents to Texinfo::Common and to utils.c,
+	now that it is used in conversion to identifiers code.
+
+2025-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Utils.pm: change formatting of functions
 	call code.
 

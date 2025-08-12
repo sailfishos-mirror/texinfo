@@ -100,8 +100,8 @@ sorting rather than presentation.
 
 @end table
 
-@item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command)
-@anchor{Texinfo@asis{::}Convert@asis{::}Text $result_accent_text = ascii_accent_fallback($converter@comma{} $text@comma{} $accent_command)}
+@item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case $converter)
+@anchor{Texinfo@asis{::}Convert@asis{::}Text $result_accent_text = ascii_accent_fallback($converter@comma{} $text@comma{} $accent_command@comma{} $index_in_stack@comma{} $accents_stack@comma{} $in_upper_case $converter)}
 @cindex @code{ascii_accent_fallback}
 
 @emph{$text} is the text appearing within an accent command.  @emph{$accent_command}
@@ -109,7 +109,9 @@ should be a Texinfo tree element corresponding to an accent command taking
 an argument.  The function returns a transliteration of the accented
 character.  The @emph{$converter} argument is ignored, but needed for this
 function to be in argument of functions that need a fallback for accents
-conversion.
+conversion.  The remaining arguments are also ignored and similarly
+may be needed for this function to be in argument of functions that need a
+fallback for accents conversion.
 
 @item set_options_code($text_options)
 @anchor{Texinfo@asis{::}Convert@asis{::}Text set_options_code($text_options)}

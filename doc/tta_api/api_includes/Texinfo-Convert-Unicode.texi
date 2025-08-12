@@ -15,9 +15,9 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
   use Texinfo::Convert::Text qw(convert_to_text);
 
   my ($contents_element, $stack)
-      = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
+      = Texinfo::Common::find_innermost_accent_contents($accent);
 
-  my $formatted_accents = encoded_accents ($converter,
+  my $formatted_accents = encoded_accents($converter,
                  convert_to_text($contents_element), $stack, $encoding,
                         \&Texinfo::Text::ascii_accent_fallback);
 
@@ -80,8 +80,8 @@ their content are passed with @emph{$text} and @emph{$stack}.  @emph{$text} is t
 appearing within nested accent commands.  @emph{$stack} is an array reference
 holding the nested accents texinfo tree elements.  In general, @emph{$text} is
 the formatted contents and @emph{$stack} the stack returned by
-@ref{Texinfo@asis{::}Convert@asis{::}Utils ($contents_element@comma{}
-\@@accent_commands) = find_innermost_accent_contents($element),, Texinfo::Convert::Utils::find_innermost_accent_contents}.  The function
+@ref{Texinfo@asis{::}Common ($contents_element@comma{}
+\@@accent_commands) = find_innermost_accent_contents($element),, Texinfo::Common::find_innermost_accent_contents}.  The function
 tries to convert as much as possible the accents to @emph{$encoding} starting from the
 innermost accent.
 

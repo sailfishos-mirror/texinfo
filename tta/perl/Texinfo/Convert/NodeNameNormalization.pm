@@ -43,8 +43,6 @@ use Texinfo::UnicodeData;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
 
-use Texinfo::Convert::Utils;
-
 # NOTE it is important that there is no dependency to Texinfo::Convert::Text
 # to avoid a dependency loop, in particular for data definition.
 # The loop would be Texinfo::Convert::Text -> Texinfo::Translations
@@ -321,7 +319,7 @@ sub _convert($)
     # commands with braces
     } elsif ($accent_commands{$cmdname}) {
       my ($contents_element, $stack)
-        = Texinfo::Convert::Utils::find_innermost_accent_contents($element);
+        = Texinfo::Common::find_innermost_accent_contents($element);
       return '' if (!defined($contents_element));
       my $accent_text = _convert($contents_element);
       # We pass undef as last resort formatting function, because we know that

@@ -11,13 +11,7 @@
 #include "converter_types.h"
 /* for NAMED_STRING_ELEMENT_LIST */
 #include "translations.h"
-/* for ACCENTS_STACK */
-/*
-#include "utils.h"
- */
 
-/* avoid a dependence on utils.h */
-struct ACCENTS_STACK;
 /* avoid a dependence on translations.h */
 struct NAMED_STRING_ELEMENT_LIST;
 
@@ -46,8 +40,6 @@ ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
                              const char *translation_context)
              );
-
-struct ACCENTS_STACK *find_innermost_accent_contents (const ELEMENT *element);
 
 char *add_heading_number (const ELEMENT *current, char *text,
                           int numbered, LANG_TRANSLATION *lang_translation);

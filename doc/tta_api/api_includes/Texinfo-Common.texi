@@ -250,6 +250,17 @@ appearing on an @code{@@enumerate} line.  For example
 
 is @code{e}.
 
+@item ($contents_element, \@@accent_commands) = find_innermost_accent_contents($element)
+@anchor{Texinfo@asis{::}Common ($contents_element@comma{} \@@accent_commands) = find_innermost_accent_contents($element)}
+@cindex @code{find_innermost_accent_contents}
+
+@emph{$element} should be an accent command Texinfo tree element.  Returns
+an element containing the innermost accent @@-command contents,
+normally a text element with one or two letter, and an array reference
+containing the accent commands nested in @emph{$element} (including
+@emph{$element}).  If there is no argument at all for the accent command,
+@emph{$contents_element} is @code{undef}.
+
 @item $command = find_parent_root_command($object, $tree_element)
 @anchor{Texinfo@asis{::}Common $command = find_parent_root_command($object@comma{} $tree_element)}
 @cindex @code{find_parent_root_command}

@@ -682,7 +682,7 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
   use Texinfo::Convert::Text qw(convert_to_text);
 
   my ($contents_element, $stack)
-      = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
+      = Texinfo::Common::find_innermost_accent_contents($accent);
 
   my $formatted_accents = encoded_accents($converter,
                  convert_to_text($contents_element), $stack, $encoding,
@@ -741,7 +741,7 @@ their content are passed with I<$text> and I<$stack>.  I<$text> is the text
 appearing within nested accent commands.  I<$stack> is an array reference
 holding the nested accents texinfo tree elements.  In general, I<$text> is
 the formatted contents and I<$stack> the stack returned by
-L<Texinfo::Convert::Utils::find_innermost_accent_contents|Texinfo::Convert::Utils/($contents_element,
+L<Texinfo::Common::find_innermost_accent_contents|Texinfo::Common/($contents_element,
 \@accent_commands) = find_innermost_accent_contents($element)>.  The function
 tries to convert as much as possible the accents to I<$encoding> starting from the
 innermost accent.
