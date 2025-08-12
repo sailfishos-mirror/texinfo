@@ -80,15 +80,12 @@ sub import {
 my $messages_textdomain = 'texinfo';
 my $strings_textdomain = 'texinfo_document';
 
-sub _XS_configure($;$$)
-{
+sub _XS_configure($;$$) {
   # do nothing if there is no XS code loaded
 }
 
-sub configure($;$)
-{
-  my $localesdir = shift;
-  my $in_strings_textdomain = shift;
+sub configure($;$) {
+  my ($localesdir, $in_strings_textdomain) = @_;
 
   if (defined($in_strings_textdomain)) {
     $strings_textdomain = $in_strings_textdomain;
@@ -104,32 +101,31 @@ sub configure($;$)
 
 # libintl converts between encodings but doesn't decode them into the
 # perl internal format.
-sub _decode_i18n_string($$)
-{
-  my $string = shift;
-  my $encoding = shift;
+sub _decode_i18n_string($$) {
+  my ($string, $encoding) = @_;
+
   #if (!defined($encoding)) {
   #  confess("_decode_i18n_string $string undef encoding\n");
   #}
   return Encode::decode($encoding, $string);
 }
 
-sub _switch_messages_locale
-{
+sub _switch_messages_locale() {
   my $locale;
+
   our $working_locale;
-  if ($working_locale) {
+  if (defined($working_locale)) {
     $locale = POSIX::setlocale(LC_MESSAGES, $working_locale);
   }
-  if (!$locale) {
+  if (!defined($locale)) {
     $locale = POSIX::setlocale(LC_MESSAGES, "en_US.UTF-8");
   }
-  if (!$locale) {
+  if (!defined($locale)) {
     $locale = POSIX::setlocale(LC_MESSAGES, "en_US")
   }
   # try the output of 'locale -a' (but only once)
   our $locale_command;
-  if (!$locale and !$locale_command) {
+  if (!defined($locale) and !defined($locale_command)) {
     # we ignore the errors as we have a more general warning message below
     # and we are not really interested by locale errors
     $locale_command = "locale -a 2>/dev/null";
@@ -139,11 +135,16 @@ sub _switch_messages_locale
         # Exclude "C", "C.UTF-8" (or similar) and "POSIX"
         next if $try eq 'C' or $try eq 'POSIX' or $try =~ /^C\./;
         $locale = POSIX::setlocale(LC_MESSAGES, $try);
-        last if $locale;
+        last if (defined($locale));
       }
     }
   }
-  if ($locale) {
+  if (defined($locale)) {
+    # NOTE according to perllocale on the setlocal return value:
+    #  "on some platforms the string is opaque, not something that most
+    #   people would be able to decipher as to what locale it means"
+    # Therefore, the following comparisons may not be useful on those
+    # platforms.
     if ($locale ne 'C' and $locale ne 'POSIX' and $locale !~ /^C\./) {
       $working_locale = $locale;
     } elsif (!defined($working_locale)) {
@@ -160,8 +161,7 @@ sub _switch_messages_locale
 
 # TODO document?
 # LANG should not be undef nor an empty string.
-sub translate_string($$;$)
-{
+sub translate_string($$;$) {
   my ($string, $lang, $translation_context) = @_;
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
@@ -241,8 +241,7 @@ our $translation_cache = {};
 # translated to as first element, and as optional second element an hash
 # that is used to hold translations already done for that language.
 # If the language is undef or an empty string, no translation is needed.
-sub cache_translate_string($$;$)
-{
+sub cache_translate_string($$;$) {
   my ($string, $lang_translations, $translation_context) = @_;
 
   #if (!defined($string)) {
@@ -250,7 +249,7 @@ sub cache_translate_string($$;$)
   #}
   my $lang;
   my $translations;
-  if ($lang_translations) {
+  if (defined($lang_translations)) {
     $lang = $lang_translations->[0];
     if (scalar(@$lang_translations) > 1) {
       $translations = $lang_translations->[1];
@@ -267,15 +266,15 @@ sub cache_translate_string($$;$)
   }
   my $strings_cache;
   # use default translated string and tree cache if none was passed
-  if (!$translations) {
-    if (!$translation_cache->{$lang}) {
+  if (!defined($translations)) {
+    if (!exists($translation_cache->{$lang})) {
       $translation_cache->{$lang} = {}
     }
     $translations = $translation_cache->{$lang};
   }
 
-  if ($translations->{$translation_context_str}) {
-    if ($translations->{$translation_context_str}->{$string}) {
+  if (exists($translations->{$translation_context_str})) {
+    if (exists($translations->{$translation_context_str}->{$string})) {
       # return cached translation and tree
       return $translations->{$translation_context_str}->{$string};
     }
@@ -319,15 +318,14 @@ sub cache_translate_string($$;$)
 # of cache_translate_string.  $TRANSLATED_STRING_METHOD takes
 # $CUSTOMIZATION_INFORMATION as first argument in addition to other
 # cache_translate_string arguments.
-sub gdt($;$$$$$$)
-{
+sub gdt($;$$$$$$) {
   my ($string, $lang_translations, $replaced_substrings, $debug_level,
       $translation_context, $customization_information,
       $translate_string_method) = @_;
 
   my $result_tree;
   my $translated_string_tree;
-  if ($translate_string_method) {
+  if (defined($translate_string_method)) {
     $translated_string_tree
            = &$translate_string_method($customization_information,
                                        $string, $lang_translations,
@@ -352,7 +350,7 @@ sub gdt($;$$$$$$)
 
   $result_tree = dclone($translated_string_tree->[1]);
 
-  if ($replaced_substrings) {
+  if (defined($replaced_substrings)) {
     $result_tree = _substitute_substrings_in_tree($result_tree,
                                                   $replaced_substrings);
   }
@@ -370,13 +368,12 @@ sub gdt($;$$$$$$)
 # Get document translation - handle translations of in-document strings.
 # In general for already converted strings that do not need to go through
 # a Texinfo tree.
-sub gdt_string($;$$$$$)
-{
+sub gdt_string($;$$$$$) {
   my ($string, $lang_translations, $replaced_substrings, $translation_context,
       $customization_information, $translate_string_method) = @_;
 
   my $translated_string;
-  if ($translate_string_method) {
+  if (defined($translate_string_method)) {
     $translated_string
            = &$translate_string_method($customization_information,
                                        $string, $lang_translations,
@@ -391,14 +388,12 @@ sub gdt_string($;$$$$$)
   return _replace_substrings ($converted_string, $replaced_substrings);
 }
 
-sub _replace_substrings($;$)
-{
-  my $translated_string = shift;
-  my $replaced_substrings = shift;
+sub _replace_substrings($;$) {
+  my ($translated_string, $replaced_substrings) = @_;
 
   my $translation_result = $translated_string;
 
-  if (defined($replaced_substrings) and ref($replaced_substrings)) {
+  if (defined($replaced_substrings) and ref($replaced_substrings) ne '') {
     my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
     $translation_result
   =~ s/\{($re)\}/defined $replaced_substrings->{$1} ? $replaced_substrings->{$1} : "{$1}"/ge;
@@ -406,11 +401,8 @@ sub _replace_substrings($;$)
   return $translation_result;
 }
 
-sub _replace_convert_substrings($;$$)
-{
-  my $translated_string = shift;
-  my $replaced_substrings = shift;
-  my $debug_level = shift;
+sub _replace_convert_substrings($;$$) {
+  my ($translated_string, $replaced_substrings, $debug_level) = @_;
 
   my $texinfo_line = $translated_string;
 
@@ -421,7 +413,7 @@ sub _replace_convert_substrings($;$$)
   # Using a special command that is invalid unless a special
   # configuration is set means that there should be no clash
   # with @-commands used in translations.
-  if (defined($replaced_substrings) and ref($replaced_substrings)) {
+  if (defined($replaced_substrings) and ref($replaced_substrings) ne '') {
     my $re = join '|', map { quotemeta $_ } keys %$replaced_substrings;
     $texinfo_line =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
@@ -464,18 +456,17 @@ sub _replace_convert_substrings($;$$)
 
 sub _substitute_substrings_in_tree($$);
 sub _substitute_element_array($$) {
-  my $array = shift;
-  my $replaced_substrings = shift;
+  my ($array, $replaced_substrings) = @_;
 
   my $nr = scalar(@$array);
 
   for (my $idx = 0; $idx < $nr; $idx++) {
     my $element = $array->[$idx];
-    if (!defined($element->{'text'})) {
-      if ($element->{'cmdname'}
+    if (!exists($element->{'text'})) {
+      if (exists($element->{'cmdname'})
           and $element->{'cmdname'} eq 'txiinternalvalue') {
         my $name = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
-        if ($replaced_substrings->{$name}) {
+        if (exists($replaced_substrings->{$name})) {
           if ($replaced_substrings->{$name}->{'element_document_descriptor'}) {
             Texinfo::Document::build_tree($replaced_substrings->{$name});
           }
@@ -491,10 +482,9 @@ sub _substitute_element_array($$) {
 # Recursively substitute @txiinternalvalue elements in $TREE with
 # their values given in $REPLACED_SUBSTRINGS.
 sub _substitute_substrings_in_tree($$) {
-  my $tree = shift;
-  my $replaced_substrings = shift;
+  my ($tree, $replaced_substrings) = @_;
 
-  if ($tree->{'contents'}) {
+  if (exists($tree->{'contents'})) {
     _substitute_element_array($tree->{'contents'}, $replaced_substrings);
   }
 
@@ -503,11 +493,11 @@ sub _substitute_substrings_in_tree($$) {
 
 # Same as gdt but with mandatory translation context, used for marking
 # of strings with translation contexts
-sub pgdt($$;$$$$$)
-{
+sub pgdt($$;$$$$$) {
   my ($translation_context, $string,
       $lang_translations, $replaced_substrings, $debug_level,
       $customization_information, $translate_string_method) = @_;
+
   return gdt($string, $lang_translations, $replaced_substrings, $debug_level,
              $translation_context, $customization_information,
              $translate_string_method);
@@ -518,22 +508,22 @@ my $lang_translations = {};
 # For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of ParserNonXS.pm.
-sub complete_indices($;$)
-{
-  my $index_names = shift;
-  my $debug_level = shift;
+sub complete_indices($;$) {
+  my ($index_names, $debug_level) = @_;
+
   my $current_lang;
   my $current_lang_translations;
 
   foreach my $index_name (sort(keys(%{$index_names}))) {
-    next if (not defined($index_names->{$index_name}->{'index_entries'}));
+    next if (not exists($index_names->{$index_name}->{'index_entries'}));
     foreach my $entry (@{$index_names->{$index_name}->{'index_entries'}}) {
       my $main_entry_element = $entry->{'entry_element'};
-      if ($main_entry_element->{'extra'}
-          and $main_entry_element->{'extra'}->{'def_command'}
-          and not $main_entry_element->{'extra'}->{'def_index_element'}) {
+      if (exists($main_entry_element->{'extra'})
+          and exists($main_entry_element->{'extra'}->{'def_command'})
+          and
+           not exists($main_entry_element->{'extra'}->{'def_index_element'})) {
         my ($name, $class);
-        if ($main_entry_element->{'contents'}->[0]->{'contents'}) {
+        if (exists($main_entry_element->{'contents'}->[0]->{'contents'})) {
           foreach my $arg (@{$main_entry_element->{'contents'}->[0]->{'contents'}}) {
             my $type = $arg->{'type'};
             if ($type eq 'def_name') {
@@ -547,7 +537,7 @@ sub complete_indices($;$)
           }
         }
 
-        if ($name and $class) {
+        if (defined($name) and defined($class)) {
           my ($index_entry, $text_element);
           my $index_entry_normalized = Texinfo::TreeElement::new({});
 
@@ -560,8 +550,8 @@ sub complete_indices($;$)
           foreach my $element_copy ($class_copy, $name_copy, $ref_class_copy,
                                     $ref_name_copy) {
             delete $element_copy->{'type'};
-            if ($element_copy->{'contents'}
-                and $element_copy->{'contents'}->[0]->{'type'}
+            if (exists($element_copy->{'contents'})
+                and exists($element_copy->{'contents'}->[0]->{'type'})
            # use brace_arg instead of bracketed_arg to avoid specific def
            # type for the conversion of the index entry, but still have
            # a type that have the same memory layout as bracketed_arg for C
@@ -577,7 +567,7 @@ sub complete_indices($;$)
           $entry_language = '' if (!defined($entry_language));
           if (!defined($current_lang)
               or $entry_language ne $current_lang) {
-            if (!$lang_translations->{$entry_language}) {
+            if (!exists($lang_translations->{$entry_language})) {
               $lang_translations->{$entry_language} = {};
             }
             $current_lang_translations
