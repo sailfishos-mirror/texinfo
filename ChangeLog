@@ -1,5 +1,14 @@
 2025-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (float_type_number)
+	(float_name_caption), tta/perl/Texinfo/Convert/Info.pm (format_ref),
+	tta/perl/Texinfo/Convert/Plaintext.pm (format_ref, _convert): change
+	formatting of functions call code.  Use exists or defined in
+	conditions when the value is not used.  Check for contents in
+	format_ref.
+
+2025-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm: change formatting of functions
 	call code.
  

@@ -1568,10 +1568,8 @@ sub txt_image_text($$$)
   return undef, undef;
 }
 
-sub float_type_number($$)
-{
-  my $self = shift;
-  my $float = shift;
+sub float_type_number($$) {
+  my ($self, $float) = @_;
 
   my $type_element;
   if ($float->{'extra'}->{'float_type'} ne '') {
@@ -1581,7 +1579,7 @@ sub float_type_number($$)
   my $float_number = $float->{'extra'}->{'float_number'};
 
   my $tree;
-  if ($type_element) {
+  if (defined($type_element)) {
     if (defined($float_number)) {
       $tree = $self->cdt("{float_type} {float_number}",
                          {'float_type' => $type_element,
@@ -1599,10 +1597,8 @@ sub float_type_number($$)
   return $tree;
 }
 
-sub float_name_caption($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub float_name_caption($$) {
+  my ($self, $element) = @_;
 
   my $caption_element;
   my ($caption, $shortcaption)
@@ -1640,8 +1636,8 @@ sub float_name_caption($$)
     $substrings->{'float_type'}
        = Texinfo::ManipulateTree::copy_contentsNonXS(
             $element->{'contents'}->[0]->{'contents'}->[0]);
-    if ($caption_element) {
-      if ($float_number_element) {
+    if (defined($caption_element)) {
+      if (defined($float_number_element)) {
         # TRANSLATORS: added before caption
         $prepended = $self->cdt('{float_type} {float_number}: ', $substrings);
       } else {
@@ -1649,14 +1645,14 @@ sub float_name_caption($$)
         $prepended = $self->cdt('{float_type}: ', $substrings);
       }
     } else {
-      if ($float_number_element) {
+      if (defined($float_number_element)) {
         $prepended = $self->cdt("{float_type} {float_number}", $substrings);
       } else {
         $prepended = $self->cdt("{float_type}", $substrings);
       }
     }
-  } elsif ($float_number_element) {
-    if ($caption_element) {
+  } elsif (defined($float_number_element)) {
+    if (defined($caption_element)) {
       # TRANSLATORS: added before caption, no float type
       $prepended = $self->cdt('{float_number}: ', $substrings);
     } else {

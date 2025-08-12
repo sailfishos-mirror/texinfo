@@ -235,10 +235,13 @@ destroy_element (ELEMENT *e)
   if (e->sv)
     {
       void *hv = get_sv_hv (e->sv);
-      int sv_refcount = get_refcount (e->sv);
-      int hv_refcount = get_refcount (hv);
+      int sv_refcount;
+      int hv_refcount;
 
        /*
+      sv_refcount = get_refcount (e->sv);
+      hv_refcount = get_refcount (hv);
+
       if (sv_refcount != 1 || hv_refcount != 1) {
         fprintf (stderr, "ELT (%p<-%p): sv: %d hv: %d\n", hv, e->sv, sv_refcount,
                          hv_refcount);
@@ -254,8 +257,12 @@ destroy_element (ELEMENT *e)
        /*
       sv_refcount = get_refcount (e->sv);
       hv_refcount = get_refcount (hv);
-      fprintf (stderr, "AFTER (%p<-%p): sv: %d hv: %d\n", hv, e->sv, sv_refcount,
-                         hv_refcount);
+      if (sv_refcount != 0 || hv_refcount != 0)
+        {
+           fprintf (stderr, "AFTER (%p<-%p): sv: %d hv: %d\n", hv, e->sv,
+                             sv_refcount, hv_refcount);
+           fprintf (stderr, " %s\n", print_element_debug (e, 0));
+        }
         */
       e->sv = 0;
     }

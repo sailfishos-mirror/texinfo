@@ -2173,17 +2173,18 @@ sub process_printindex($$;$)
   _add_lines_count($self, 1);
 }
 
-sub format_ref($$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $element = shift;
+sub format_ref($$$) {
+  my ($self, $cmdname, $element) = @_;
+
+  # no args may happen with bogus @-commands without argument, maybe only
+  # at the end of a document
+  return if (!exists($element->{'contents'}));
 
   my $formatter = $self->{'formatters'}->[-1];
 
   my @args;
-  for my $arg (@{$element->{'contents'}}) {
-    if (defined $arg->{'contents'}) {
+  foreach my $arg (@{$element->{'contents'}}) {
+    if (exists($arg->{'contents'})) {
       push @args, $arg;
     } else {
       push @args, undef;
@@ -2198,24 +2199,24 @@ sub format_ref($$$)
   my $target_element;
 
   my $identifiers_target;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $identifiers_target = $self->{'document'}->labels_information();
   }
 
-  if ($node_arg and $node_arg->{'extra'}
-      and !$node_arg->{'extra'}->{'manual_content'}
+  if (exists($node_arg->{'extra'})
+      and !exists($node_arg->{'extra'}->{'manual_content'})
       # excludes external nodes, as only internal refs get an extra normalized
       and defined($node_arg->{'extra'}->{'normalized'})
       # exclude external nodes again, in case internal refs get normalized
       and !defined($args[3])
       and !defined($args[4])
-      and $identifiers_target
-      and $identifiers_target->{$node_arg->{'extra'}->{'normalized'}}) {
+      and defined($identifiers_target)
+      and exists($identifiers_target->{$node_arg->{'extra'}->{'normalized'}})) {
     $target_element
       = $identifiers_target->{$node_arg->{'extra'}->{'normalized'}};
     $label_element
       = Texinfo::Common::get_label_element($target_element);
-    if (defined($label_element) and !$label_element->{'contents'}) {
+    if (defined($label_element) and !exists($label_element->{'contents'})) {
       $label_element = undef;
     }
   }
@@ -2226,7 +2227,7 @@ sub format_ref($$$)
   # if it a reference to a float with a label, $arg[1] is
   # set to '$type $number' or '$number' if there is no type.
   if (! defined($args[1])
-      and $target_element and $target_element->{'cmdname'}
+      and defined($target_element) and exists($target_element->{'cmdname'})
       and $target_element->{'cmdname'} eq 'float') {
     my $name = $self->float_type_number($target_element);
     $args[1] = $name;
@@ -2264,9 +2265,9 @@ sub format_ref($$$)
   }
 
   my $tree;
-  if ($node) {
-    if ($file) {
-      if ($name) {
+  if (defined($node)) {
+    if (defined($file)) {
+      if (defined($name)) {
         my $substrings = {'name' => $name, 'file' => $file,
                           'node' => $node};
         if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -2286,8 +2287,8 @@ sub format_ref($$$)
           $tree = $self->cdt('({file}){node}', $substrings);
         }
       }
-    } elsif ($book) {
-      if ($name) {
+    } elsif (defined($book)) {
+      if (defined($name)) {
         my $substrings = {'name' => $name, 'book' => $book,
                           'node' => $node};
         if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -2308,7 +2309,7 @@ sub format_ref($$$)
         }
       }
     } else {
-      if ($name) {
+      if (defined($name)) {
         my $substrings = {'name' => $name,
                           'node' => $node};
         if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
@@ -2330,8 +2331,8 @@ sub format_ref($$$)
       }
     }
   } else {
-    if ($file) {
-      if ($name) {
+    if (defined($file)) {
+      if (defined($name)) {
         my $substrings = {'name' => $name, 'file' => $file};
         if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
           $tree = $self->cdt('See {name}({file})', $substrings);
@@ -2350,8 +2351,8 @@ sub format_ref($$$)
           $tree = $self->cdt('({file})', $substrings);
         }
       }
-    } elsif ($book) {
-      if ($name) {
+    } elsif (defined($book)) {
+      if (defined($name)) {
         my $substrings = {'name' => $name, 'book' => $book};
         if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
           $tree = $self->cdt('See {name} in @cite{{book}}', $substrings);
@@ -2371,7 +2372,7 @@ sub format_ref($$$)
         }
       }
     } else {
-      if ($name) {
+      if (defined($name)) {
         my $substrings = {'name' => $name};
         if ($cmdname eq 'xref' or $cmdname eq 'inforef') {
           $tree = $self->cdt('See {name}', $substrings);
@@ -3244,11 +3245,7 @@ sub _convert
         }
         return;
       } elsif (exists $ref_commands{$cmdname}) {
-        # no args may happen with bogus @-commands without argument, maybe only
-        # at the end of a document
-        if ($element->{'contents'}) {
-          $self->format_ref($cmdname, $element);
-        }
+        $self->format_ref($cmdname, $element);
         return;
       } elsif ($cmdname eq 'image') {
         _stream_output($self,

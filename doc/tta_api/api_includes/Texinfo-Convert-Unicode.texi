@@ -20,8 +20,6 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
   my $formatted_accents = encoded_accents($converter,
                  convert_to_text($contents_element), $stack, $encoding,
                         \&Texinfo::Text::ascii_accent_fallback);
-
-  my $accent_text = unicode_accent('e', $accent_command);
 @end verbatim
 
 @node Texinfo@asis{::}Convert@asis{::}Unicode NOTES
@@ -102,14 +100,15 @@ Return the string width, taking into account the fact that some characters
 have a zero width (like composing accents) while some have a width of 2
 (most chinese characters, for example).
 
-@item $result = unicode_accent($text, $accent_command)
-@anchor{Texinfo@asis{::}Convert@asis{::}Unicode $result = unicode_accent($text@comma{} $accent_command)}
+@item $result = unicode_accent($text, $accent_command, $index_in_stack, $accents_stack)
+@anchor{Texinfo@asis{::}Convert@asis{::}Unicode $result = unicode_accent($text@comma{} $accent_command@comma{} $index_in_stack@comma{} $accents_stack)}
 @cindex @code{unicode_accent}
 
 @emph{$text} is the text appearing within an accent command.  @emph{$accent_command}
 should be a Texinfo tree element corresponding to an accent command taking
-an argument.  The function returns the Unicode representation of the accented
-character.
+an argument.  @emph{$index_in_stack} is the position in the @emph{$accents_stack}
+of the accent command being converted.  The function returns the Unicode
+representation of the accented character.
 
 @item $is_decoded = unicode_point_decoded_in_encoding($encoding, $unicode_point)
 @anchor{Texinfo@asis{::}Convert@asis{::}Unicode $is_decoded = unicode_point_decoded_in_encoding($encoding@comma{} $unicode_point)}

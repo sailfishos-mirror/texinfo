@@ -547,17 +547,16 @@ sub format_error_outside_of_any_node($$)
   }
 }
 
-sub format_ref($$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $element = shift;
+sub format_ref($$$) {
+  my ($self, $cmdname, $element) = @_;
+
+  return if (!exists($element->{'contents'}));
 
   my $formatter = $self->{'formatters'}->[-1];
 
   my @args;
-  for my $arg (@{$element->{'contents'}}) {
-    if (defined $arg->{'contents'}) {
+  foreach my $arg (@{$element->{'contents'}}) {
+    if (exists($arg->{'contents'})) {
       push @args, $arg;
     } else {
       push @args, undef;
@@ -574,24 +573,24 @@ sub format_ref($$$)
   my $target_element;
 
   my $identifiers_target;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $identifiers_target = $self->{'document'}->labels_information();
   }
 
-  if ($node_arg and $node_arg->{'extra'}
-      and !$node_arg->{'extra'}->{'manual_content'}
+  if (exists($node_arg->{'extra'})
+      and !exists($node_arg->{'extra'}->{'manual_content'})
       # excludes external nodes, as only internal refs get an extra normalized
       and defined($node_arg->{'extra'}->{'normalized'})
       # exlude external nodes again, in case internal refs get normalized
       and !defined($args[3])
       and !defined($args[4])
-      and $identifiers_target
-      and $identifiers_target->{$node_arg->{'extra'}->{'normalized'}}) {
+      and defined($identifiers_target)
+      and exists($identifiers_target->{$node_arg->{'extra'}->{'normalized'}})) {
     $target_element
       = $identifiers_target->{$node_arg->{'extra'}->{'normalized'}};
     $label_element
       = Texinfo::Common::get_label_element($target_element);
-    if (defined($label_element) and !$label_element->{'contents'}) {
+    if (defined($label_element) and !exists($label_element->{'contents'})) {
       $label_element = undef;
     }
   }
@@ -602,7 +601,7 @@ sub format_ref($$$)
   # if it a reference to a float with a label, $arg[1] is
   # set to '$type $number' or '$number' if there is no type.
   if (! defined($args[1])
-      and $target_element and $target_element->{'cmdname'}
+      and defined($target_element) and exists($target_element->{'cmdname'})
       and $target_element->{'cmdname'} eq 'float') {
     my $name = $self->float_type_number($target_element);
     $args[1] = $name;
@@ -662,7 +661,7 @@ sub format_ref($$$)
     $file = {'text' => '()'};
   }
 
-  if ($name) {
+  if (defined($name)) {
     # Convert line for sole purpose of checking if the output contains
     # a colon.  Output may differ slightly from the current formatting
     # context (e.g if inside @sc) but this should not make a difference.
@@ -706,9 +705,9 @@ sub format_ref($$$)
   # However, it is slow to do this for every node.  So in the most
   # frequent case when the node name is a simple text element, use
   # that text instead.
-  if ($label_element and $label_element->{'contents'}
+  if (defined($label_element) and exists($label_element->{'contents'})
       and scalar(@{$label_element->{'contents'}}) == 1
-      and defined($label_element->{'contents'}->[0]->{'text'})) {
+      and exists($label_element->{'contents'}->[0]->{'text'})) {
     $node_name = $label_element->{'contents'}->[0]->{'text'};
   } else {
     $self->{'silent'} = 0 if (!defined($self->{'silent'}));
@@ -733,7 +732,7 @@ sub format_ref($$$)
   }
 
   my $check_chars;
-  if ($name) {
+  if (defined($name)) {
     $check_chars = quotemeta ",\t.";
   } else {
     $check_chars = quotemeta ":";
@@ -756,7 +755,7 @@ sub format_ref($$$)
 
   # node name
   $self->_stream_output_add_next($pre_quote)
-         if $pre_quote;
+         if ($pre_quote);
 
   $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
   $self->_convert(Texinfo::TreeElement::new(
@@ -767,15 +766,15 @@ sub format_ref($$$)
   delete $self->{'formatters'}->[-1]->{'suppress_styles'};
 
   $self->_stream_output_add_next($post_quote)
-         if $pre_quote;
+         if ($pre_quote);
 
-  if (!$name) {
+  if (!defined($name)) {
     $self->_stream_output_add_next('::');
   }
 
   # Check if punctuation follows the ref command with a label
   # argument.  If not, add a full stop.
-  if ($name) {
+  if (defined($name)) {
     # Find next element
     my $next;
     my $current_contents = $element->{'parent'}->{'contents'};
@@ -787,7 +786,7 @@ sub format_ref($$$)
       }
     }
 
-    if (!($next and $next->{'text'}
+    if (!(defined($next) and exists($next->{'text'})
           and $next->{'text'} =~ /^[\.,]/)) {
       # In the past, it was explicily described in the manual that
       # some punctuation was automatically added for @pxref only,
@@ -807,7 +806,7 @@ sub format_ref($$$)
       # distinguish if punctuation used in cross reference is
       # part of the text or is added and should be considered as markup.
       if ($cmdname eq 'xref') {
-        if ($next and defined($next->{'text'})
+        if (defined($next) and exists($next->{'text'})
             and $next->{'text'} =~ /\S/) {
           my $text = $next->{'text'};
           $text =~ s/^\s*//;
@@ -828,7 +827,7 @@ sub format_ref($$$)
       # doesn't help at the end of a line nor when a parenthesis
       # follows the ref command).
       push @added, {'cmdname' => ':'};
-      for my $added_element (@added) {
+      foreach my $added_element (@added) {
         $self->_convert($added_element);
       }
     }
@@ -840,7 +839,7 @@ sub format_ref($$$)
       if ($formatter->{'w'} == 0);
   }
   set_space_protection($formatter->{'container'},
-    undef,undef,undef,undef,0); # double_width_no_break
+                       undef,undef,undef,undef,0); # double_width_no_break
 }
 
 my @directions = ('Next', 'Prev', 'Up');

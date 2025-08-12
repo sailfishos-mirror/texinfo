@@ -20,6 +20,8 @@ inline contents_child_by_index in C?
 
 Destroy preprended returned by Texinfo/Convert/Converter.pm float_name_caption?
 
+Document the use of accents stack in the HTML customization API
+
 
 Bugs
 ====
