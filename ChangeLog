@@ -1,5 +1,12 @@
 2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info-hooks-default/manual-not-found,
+	* info/info-hooks-default/manual-not-found.in: Rename.  Generate
+	the former from the latter by substituting the value of @AWK@
+	found by configure.
+
+2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/run-external.c (get_output_from_program): if couldn't
 	exec, then exit subprocess with EXIT_FAILURE rather than EXIT_SUCCESS.
 	* info/configfiles.c (run_info_hook) <debug>: report exit status of

@@ -8,6 +8,12 @@
 # are permitted in any medium without royalty provided the copyright
 # notice and this notice are preserved.
 
+AWK=@AWK@
+
+if test $AWK = '@'AWK@ ; then
+  AWK=awk
+fi
+
 interactive=0
 if test x$1 = x--interactive ; then
   shift
@@ -22,7 +28,7 @@ url_msg=
 if test -f "$hook_dir/gnu-manuals-locations.dat" ; then
   lookup_file=$hook_dir/gnu-manuals-locations.dat
 
-  url=`cat "$lookup_file" | awk -v prog="$1" \
+  url=`cat "$lookup_file" | $AWK -v prog="$1" \
      '/^#/ {} $1 == prog { print $2 ; exit }'`
 
   if test -z "$url" ; then

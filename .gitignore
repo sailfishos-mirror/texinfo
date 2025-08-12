@@ -237,6 +237,7 @@ info/makedoc
 info/pseudotty
 info/t/*.log
 info/t/*.trs
+info/info-hooks-default/manual-not-found
 
 infog/test-infodir/**
 infog/.libs/**
