@@ -1,5 +1,13 @@
 2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/info-hooks-default/manual-not-found.in:
+	Check for variables set in data file and use them for the URL
+	locations.
+	* info/info-hooks-default/gnu-manuals-locations.dat:
+	Use variables to abbreviate the file.
+
+2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info-hooks-default/manual-not-found.in, info/Makefile.am:
 	add message in generated file saying that it was generated.
 

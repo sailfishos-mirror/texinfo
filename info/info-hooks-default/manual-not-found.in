@@ -29,7 +29,12 @@ if test -f "$hook_dir/gnu-manuals-locations.dat" ; then
   lookup_file=$hook_dir/gnu-manuals-locations.dat
 
   url=`cat "$lookup_file" | $AWK -v prog="$1" \
-     '/^#/ {} $1 == prog { print $2 ; exit }'`
+     '/^#/ {}
+      $1 == prog {
+        url=$2 ; for (v in file_vars) gsub("@" v "@",file_vars[v],url) ;
+        print url ; exit }
+      $1 == "@setvar" && NF == 3 { file_vars[$2] = $3 }
+'`
 
   if test -z "$url" ; then
     # If we don't know anything about this manual, just revert to Info's
