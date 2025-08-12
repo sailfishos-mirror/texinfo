@@ -81,7 +81,7 @@ get_output_from_program (char *filename, char *formatter_args[],
       /* If we get here, we couldn't exec, so close out the pipe and
          exit. */
       close (pipes[1]);
-      exit (EXIT_SUCCESS);
+      exit (EXIT_FAILURE);
     }
 #else  /* !PIPE_USE_FORK */
   /* Cannot fork/exec, but can popen/pclose.  */

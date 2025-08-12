@@ -188,6 +188,7 @@ run_info_hook (const char *hook, char *argv[], char **hook_output)
 
   int exit_status = get_output_from_program (hook_file, argv, hook_output,
                                              info_windows_initialized_p);
+  debug (1, ("hook exited with status %d", exit_status));
   free (hook_file);
   return exit_status;
 }
