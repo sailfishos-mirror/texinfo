@@ -686,7 +686,7 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
   my ($contents_element, $stack)
       = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
 
-  my $formatted_accents = encoded_accents ($converter,
+  my $formatted_accents = encoded_accents($converter,
                  convert_to_text($contents_element), $stack, $encoding,
                         \&Texinfo::Text::ascii_accent_fallback);
 

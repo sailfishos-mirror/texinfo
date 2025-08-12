@@ -5749,11 +5749,10 @@ sub _convert_quotation_command($$$$$)
   # TODO there is no easy way to mark with a class the @author
   # @-command.  Add a span or a div (@center is in a div)?
   foreach my $author (@$quotation_authors) {
-    if ($author->{'contents'}->[0]->{'contents'}) {
+    if (exists($author->{'contents'}->[0]->{'contents'})) {
       # TRANSLATORS: quotation author
       my $centered_author = $self->cdt("\@center --- \@emph{{author}}",
          {'author' => $author->{'contents'}->[0]});
-      $centered_author->{'parent'} = $command;
       $result .= $self->convert_tree($centered_author,
                                           'convert quotation author');
     }
@@ -7401,12 +7400,6 @@ sub _convert_preformatted_type($$$$)
   my $result = $self->html_attribute_class('pre', [$pre_class]).'>'
                                                    . $content . '</pre>';
 
-  # this may happen with lines without textual content
-  # between a def* and def*x.
-  if ($element->{'parent'}->{'cmdname'}
-      and $element->{'parent'}->{'cmdname'} =~ /^def/) {
-    $result = '<dd>'.$result.'</dd>';
-  }
   return $result;
 }
 
@@ -14432,10 +14425,10 @@ sub _convert($$;$)
 
   # to help debug and trace
   my $command_type = '';
-  if ($element->{'cmdname'}) {
+  if (exists($element->{'cmdname'})) {
     $command_type = "\@$element->{'cmdname'} ";
   }
-  if (defined($element->{'type'})) {
+  if (exists($element->{'type'})) {
     $command_type .= $element->{'type'};
   }
 
@@ -14447,15 +14440,16 @@ sub _convert($$;$)
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
     my $contexts_str = _debug_print_html_contexts($self);
     print STDERR "ELEMENT($explanation) ".$contexts_str.", ->";
-    print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
-    print STDERR " type: $element->{'type'}" if ($element->{'type'});
-    my $text = $element->{'text'};
-    if (defined($text)) {
-      if ($text ne '') {
+    print STDERR " cmd: $element->{'cmdname'},"
+                               if (exists($element->{'cmdname'}));
+    print STDERR " type: $element->{'type'}" if (exists($element->{'type'}));
+    if (exists($element->{'text'})) {
+      if ($element->{'text'} eq '') {
+        print STDERR ' text(EMPTY)';
+      } else {
+        my $text = $element->{'text'};
         $text =~ s/\n/\\n/;
         print STDERR " text: $text";
-      } else {
-        print STDERR ' text(EMPTY)';
       }
     }
     print STDERR "\n";
@@ -14466,10 +14460,10 @@ sub _convert($$;$)
     return '';
   }
 
-  if (($element->{'type'}
-        and exists ($self->{'types_conversion'}->{$element->{'type'}})
+  if ((exists($element->{'type'})
+        and exists($self->{'types_conversion'}->{$element->{'type'}})
         and !defined($self->{'types_conversion'}->{$element->{'type'}}))
-       or ($element->{'cmdname'}
+       or (exists($element->{'cmdname'})
             and exists($self->{'commands_conversion'}->{$element->{'cmdname'}})
             and !defined($self->{'commands_conversion'}->{$element->{'cmdname'}}))) {
     if ($debug) {
@@ -14479,10 +14473,10 @@ sub _convert($$;$)
   }
 
   # Process text
-  if (defined($element->{'text'})) {
+  if (exists($element->{'text'})) {
     my $result;
     # already converted to html, keep it as is
-    if ($element->{'type'} and $element->{'type'} eq '_converted') {
+    if (exists($element->{'type'}) and $element->{'type'} eq '_converted') {
       $result = $element->{'text'};
     } else {
       $result = &{$self->{'types_conversion'}->{'text'}} ($self,
@@ -14497,17 +14491,17 @@ sub _convert($$;$)
   # commands like @deffnx have both a cmdname and a def_line type.  It is
   # better to consider them as a def_line type, as the whole point of the
   # def_line type is to handle the same the def*x and def* line formatting.
-  if ($element->{'cmdname'}
-      and !(($element->{'type'}
+  if (exists($element->{'cmdname'})
+      and !((exists($element->{'type'})
              and $element->{'type'} eq 'definfoenclose_command')
-            or ($element->{'type'}
+            or (exists($element->{'type'})
                 and $element->{'type'} eq 'index_entry_command'))) {
     my $command_name = $element->{'cmdname'};
 
     my $data_command_name;
     if ($command_name eq 'item'
-        and $element->{'contents'}
-        and $element->{'contents'}->[0]->{'type'}
+        and exists($element->{'contents'})
+        and exists($element->{'contents'}->[0]->{'type'})
         and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
       $data_command_name = 'item_LINE';
     } else {
@@ -14526,7 +14520,7 @@ sub _convert($$;$)
                                                  $command_name, $element);
       }
       my $content_formatted = '';
-      if ($element->{'contents'}
+      if (exists($element->{'contents'})
           and ($root_commands{$command_name}
                or $block_commands{$command_name}
                or $command_name eq 'tab' or $command_name eq 'headitem'
@@ -14548,19 +14542,19 @@ sub _convert($$;$)
       }
       my $args_formatted;
           # contents could be not set for brace commands without braces
-      if (($brace_commands{$command_name} and $element->{'contents'})
+      if (($brace_commands{$command_name} and exists($element->{'contents'}))
           or ($line_commands{$command_name}
               and $line_commands{$command_name} eq 'line')
           or (($command_name eq 'item' or $command_name eq 'itemx')
-              and $element->{'contents'}
-              and $element->{'contents'}->[0]->{'type'}
+              and exists($element->{'contents'})
+              and exists($element->{'contents'}->[0]->{'type'})
               and $element->{'contents'}->[0]->{'type'} eq 'line_arg')
           or ($command_name eq 'quotation'
               or $command_name eq 'smallquotation')
           or $command_name eq 'float'
           or $command_name eq 'cartouche') {
         my $arguments_list;
-        if ($element->{'contents'}->[0]->{'type'}
+        if (exists($element->{'contents'}->[0]->{'type'})
             and $element->{'contents'}->[0]->{'type'} eq 'arguments_line') {
           $arguments_list = $element->{'contents'}->[0]->{'contents'};
         } else {
@@ -14579,7 +14573,7 @@ sub _convert($$;$)
           if ($arg_idx < $spec_nr) {
             $arg_spec = $args_specification[$arg_idx];
           }
-          if (!$arg->{'contents'} or !scalar(@{$arg->{'contents'}})) {
+          if (!exists($arg->{'contents'})) {
             push @$args_formatted, undef;
             next;
           }
@@ -14696,7 +14690,7 @@ sub _convert($$;$)
       }
       return '';
     }
-  } elsif ($element->{'type'}) {
+  } elsif (exists($element->{'type'})) {
 
     my $result = '';
     my $type_name = $element->{'type'};
@@ -14710,11 +14704,11 @@ sub _convert($$;$)
 
     my $content_formatted = '';
     if ($type_name eq 'definfoenclose_command') {
-      if ($element->{'contents'}) {
+      if (exists($element->{'contents'})) {
         $content_formatted = $self->_convert($element->{'contents'}->[0],
                                              "DEFINFOENCLOSE_ARG");
       }
-    } elsif ($element->{'contents'}
+    } elsif (exists($element->{'contents'})
              and $type_name ne 'untranslated_def_line_arg') {
       my $content_idx = 0;
       foreach my $content (@{$element->{'contents'}}) {
@@ -14737,12 +14731,7 @@ sub _convert($$;$)
     print STDERR "DO type ($type_name) => `$result'\n" if $debug;
     return $result;
     # no type, no cmdname, but contents.
-  } elsif ($element->{'contents'}) {
-    # empty contents should be a bug, but it should not have consequences
-    if ($self->get_conf('TEST')
-        and !scalar(@{$element->{'contents'}})) {
-      cluck("Empty contents in UNNAMED HOLDER");
-    }
+  } elsif (exists($element->{'contents'})) {
     # this happens inside accents, for section/node names, for @images.
     my $content_formatted = '';
     my $content_idx = 0;

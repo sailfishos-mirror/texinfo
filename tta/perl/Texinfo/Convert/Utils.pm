@@ -511,7 +511,6 @@ sub expand_verbatiminclude($$$$$;$$)
       }
       $verbatiminclude
         = Texinfo::TreeElement::new({ 'cmdname' => 'verbatim',
-                                      'parent' => $current->{'parent'},
                                       'contents' => [],});
       while (<VERBINCLUDE>) {
         push @{$verbatiminclude->{'contents'}},

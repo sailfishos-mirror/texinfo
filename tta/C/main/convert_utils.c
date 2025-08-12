@@ -540,7 +540,6 @@ expand_verbatiminclude (const char *input_file_name_encoding,
           conversion
            = get_encoding_conversion (input_encoding, &input_conversions);
           verbatiminclude = new_command_element (ET_block_command, CM_verbatim);
-          verbatiminclude->e.c->parent = current->e.c->parent;
           while (1)
             {
               size_t n;

@@ -11550,7 +11550,6 @@ html_convert_preformatted_type (CONVERTER *self, const enum element_type type,
   char *trimmed_content;
   enum command_id in_format_cmd;
   char *pre_class = 0;
-  int in_def = 0;
   char *attribute_class;
   STRING_LIST *classes;
 
@@ -11618,18 +11617,6 @@ html_convert_preformatted_type (CONVERTER *self, const enum element_type type,
   if (!pre_class)
     pre_class = preformatted_class (self);
 
-  /* this may happen with lines without textual content
-     between a def* and def*x. */
-  if (element->e.c->parent)
-    {
-      enum command_id p_cmd = element_builtin_cmd (element->e.c->parent);
-      if (builtin_command_data[p_cmd].flags & CF_def || p_cmd == CM_defblock)
-        {
-          in_def = 1;
-          text_append_n (result, "<dd>", 4);
-        }
-    }
-
   classes = new_string_list ();
   if (pre_class)
     {
@@ -11649,9 +11636,6 @@ html_convert_preformatted_type (CONVERTER *self, const enum element_type type,
   free (trimmed_content);
 
   text_append_n (result, "</pre>", 6);
-
-  if (in_def)
-    text_append_n (result, "</dd>", 5);
 }
 
 void

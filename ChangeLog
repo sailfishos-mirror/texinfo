@@ -1,3 +1,18 @@
+2025-08-12 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/format_html.c (html_convert_preformatted_type),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_preformatted_type):
+	remove condition on parent being def*, it cannot happen anymore, now
+	there is an inter_def_item container.
+
+	* tta/C/main/convert_utils.c (expand_verbatiminclude),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_quotation_command), 
+	tta/perl/Texinfo/Convert/Utils.pm (expand_verbatiminclude): do not
+	generate a parent for element not originally in tree.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert): use exists or defined
+	when the value is not useful.
+
 2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/info-stnd.texi (Hooks): Clarify that argument to
