@@ -3108,6 +3108,10 @@ foreach my $explained_command (keys(%explained_commands)) {
      = [['normal'], ['normal', 'string']];
 }
 
+foreach my $accent_command (keys(%accent_commands)) {
+  $html_default_commands_args{$accent_command} = [[]];
+}
+
 my %kept_line_commands;
 
 my @informative_global_commands = ('documentlanguage', 'footnotestyle',
@@ -14725,7 +14729,7 @@ sub _convert($$;$)
                                                  $type_name,
                                                  $element,
                                                  $content_formatted);
-    } elsif (defined($content_formatted)) {
+    } else {
       $result .= $content_formatted;
     }
     print STDERR "DO type ($type_name) => `$result'\n" if $debug;
@@ -14744,7 +14748,7 @@ sub _convert($$;$)
     return $content_formatted;
   } else {
     print STDERR "UNNAMED empty\n" if $debug;
-    if ($self->{'types_conversion'}->{''}) {
+    if (defined($self->{'types_conversion'}->{''})) {
       return &{$self->{'types_conversion'}->{''}} ($self, $element);
     } else {
       return '';

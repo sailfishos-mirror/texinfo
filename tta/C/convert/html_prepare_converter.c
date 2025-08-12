@@ -385,7 +385,11 @@ html_format_setup (void)
         }
 
       if (builtin_command_data[i].flags & CF_accent)
-        accent_cmd_nr++;
+        {
+          accent_cmd_nr++;
+          html_command_args_flags[i].status = 1;
+          html_command_args_flags[i].flags[0] = F_AFT_none;
+        }
 
       if ((builtin_command_data[i].flags & CF_block
            && builtin_command_data[i].data != BLOCK_format_raw)
