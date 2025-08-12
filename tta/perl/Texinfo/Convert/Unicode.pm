@@ -337,7 +337,10 @@ sub eight_bit_and_unicode_point($$)
   return ($eight_bit, $codepoint);
 }
 
-# format a stack of accents as unicode
+# format a stack of accents as unicode.
+# Since unicode_accent cannot return undef in practice, the use of
+# $format_accent to format the remaining of the stack never happens,
+# see comments in unicode_accent.
 sub _format_unicode_accents_stack($$$$;$) {
   my ($converter, $inner_text, $stack, $format_accent, $set_case) = @_;
 

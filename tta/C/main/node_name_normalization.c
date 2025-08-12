@@ -40,6 +40,7 @@
 #include "unicode.h"
 /* nobrace_symbol_text */
 #include "convert_to_text.h"
+#include "convert_utils.h"
 #include "node_name_normalization.h"
 
 static const char *command_normalization_text[BUILTIN_CMD_NUMBER];
@@ -120,23 +121,30 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
         {
           if (e->e.c->contents.number > 0)
             {
+              ACCENTS_STACK *accent_stack
+                = find_innermost_accent_contents (e);
               TEXT accent_text;
               char *accented_char;
 
-              text_init (&accent_text);
-              convert_to_normalized_internal (e->e.c->contents.list[0],
-                                              &accent_text);
-              accented_char = unicode_accent (accent_text.text, e);
-              if (accented_char)
+              if (!accent_stack->argument)
                 {
-                  ADD(accented_char);
-                  free (accented_char);
+                  destroy_accent_stack (accent_stack);
+                  return;
                 }
-              else
-     /* If this case was possible, the node normalization would not follow the
-        specification, but it is not possible, see unicode_accent. */
-                ADD(accent_text.text);
+
+              text_init (&accent_text);
+              convert_to_normalized_internal (accent_stack->argument,
+                                              &accent_text);
+
+      /* We pass undef as last resort formatting function, because we know that
+         unicode_accent is used, and it cannot fail/return undef. */
+              accented_char = encoded_accents (0, accent_text.text,
+                                        &accent_stack->stack, "utf-8", 0, 0);
+
+              ADD(accented_char);
+              free (accented_char);
               free (accent_text.text);
+              destroy_accent_stack (accent_stack);
             }
           return;
         }

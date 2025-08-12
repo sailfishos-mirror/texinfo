@@ -43,6 +43,8 @@ use Texinfo::UnicodeData;
 # use the hashes and functions
 use Texinfo::Convert::Unicode;
 
+use Texinfo::Convert::Utils;
+
 # NOTE it is important that there is no dependency to Texinfo::Convert::Text
 # to avoid a dependency loop, in particular for data definition.
 # The loop would be Texinfo::Convert::Text -> Texinfo::Translations
@@ -318,16 +320,15 @@ sub _convert($)
       return $result;
     # commands with braces
     } elsif ($accent_commands{$cmdname}) {
-      return '' if (!exists($element->{'contents'}));
-      my $accent_text = _convert($element->{'contents'}->[0]);
+      my ($contents_element, $stack)
+        = Texinfo::Convert::Utils::find_innermost_accent_contents($element);
+      return '' if (!defined($contents_element));
+      my $accent_text = _convert($contents_element);
+      # We pass undef as last resort formatting function, because we know that
+      # unicode_accent is used, and it cannot fail/return undef.
       my $accented_char
-        = Texinfo::Convert::Unicode::unicode_accent($accent_text,
-                                                    $element);
-      if (!defined($accented_char)) {
-        # If this case was possible, the node normalization would not follow the
-        # specification, but it is not possible, see unicode_accent.
-        $accented_char = $accent_text;
-      }
+         = Texinfo::Convert::Unicode::encoded_accents(undef, $accent_text,
+                                                  $stack, 'utf-8', undef);
       return $accented_char;
     } elsif ($Texinfo::Commands::ref_commands{$cmdname}) {
       return '' if (!exists($element->{'contents'}));
