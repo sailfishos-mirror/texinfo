@@ -224,5 +224,7 @@ dist_hooks_DATA = \
   info-hooks-default/gnu-manuals-locations.dat
 
 info-hooks-default/manual-not-found: info-hooks-default/manual-not-found.in
-	sed -e 's,[@]AWK[@],$(AWK),g' <info-hooks-default/manual-not-found.in >$@
+	sed -e 's,[@]AWK[@],$(AWK),g' \
+	    -e 's,# manual-not-found.in,# Automatically generated from manual-not-found.in,' \
+	  <info-hooks-default/manual-not-found.in >$@
 	chmod a+x $@
