@@ -429,11 +429,8 @@ foreach my $misc_context_command('tab', 'item', 'itemx', 'headitem') {
 # similar to texinfo_register_global_direction in Texinfo::Config, to be
 # used to modify global directions after the converter initialization,
 # but before association of global directions with output units
-sub set_global_direction($$;$)
-{
-  my $self = shift;
-  my $direction = shift;
-  my $node_texi_name = shift;
+sub set_global_direction($$;$) {
+  my ($self, $direction, $node_texi_name) = @_;
 
   if (!$self->{'all_directions'}->{$direction}) {
     $self->converter_document_warn(
@@ -441,15 +438,13 @@ sub set_global_direction($$;$)
     return;
   }
   $self->{'customized_global_directions'} = {}
-    if (!$self->{'customized_global_directions'});
+    if (!exists($self->{'customized_global_directions'}));
   $self->{'customized_global_directions'}->{$direction} = $node_texi_name;
   return;
 }
 
-sub _collect_css_element_class($$)
-{
-  my $self = shift;
-  my $element_class = shift;
+sub _collect_css_element_class($$) {
+  my ($self, $element_class) = @_;
 
   #if (not $self->{'document_global_context'}
   #    and not defined($self->{'current_filename'})) {
@@ -461,18 +456,15 @@ sub _collect_css_element_class($$)
       $self->{'document_global_context_css'}->{$element_class} = 1;
     } elsif (defined($self->{'current_filename'})) {
       $self->{'page_css'}->{$self->{'current_filename'}} = {}
-        if (!$self->{'page_css'}->{$self->{'current_filename'}});
+        if (!exists($self->{'page_css'}->{$self->{'current_filename'}}));
       $self->{'page_css'}->{$self->{'current_filename'}}->{$element_class} = 1;
     }
   }
 }
 
 # $classes should be an array reference or undef
-sub html_attribute_class($$;$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $classes = shift;
+sub html_attribute_class($$;$) {
+  my ($self, $element, $classes) = @_;
 
   if (defined($classes) and ref($classes) ne 'ARRAY') {
     confess("html_attribute_class: $classes not an array ref (for $element)");
@@ -518,16 +510,15 @@ sub html_attribute_class($$;$)
 # returns an array of CSS element.class seen in the $FILENAME
 sub html_get_css_elements_classes($;$)
 {
-  my $self = shift;
-  my $filename = shift;
+  my ($self, $filename) = @_;
 
   my %css_elements_classes;
-  if ($self->{'document_global_context_css'}) {
+  if (exists($self->{'document_global_context_css'})) {
     %css_elements_classes = ( %{$self->{'document_global_context_css'}} );
   }
 
-  if (defined($filename) and $self->{'page_css'}
-      and $self->{'page_css'}->{$filename}) {
+  if (defined($filename) and exists($self->{'page_css'})
+      and exists($self->{'page_css'}->{$filename})) {
     %css_elements_classes = ( %css_elements_classes,
                               %{$self->{'page_css'}->{$filename}} );
   }
@@ -541,8 +532,8 @@ sub html_get_css_elements_classes($;$)
 }
 
 sub close_html_lone_element($$) {
-  my $self = shift;
-  my $html_element = shift;
+  my ($self, $html_element) = @_;
+
   if ($self->get_conf('USE_XML_SYNTAX')) {
     return $html_element . '/>';
   }
@@ -553,10 +544,8 @@ my $xml_named_entity_nbsp = '&nbsp;';
 
 my $html_default_entity_nbsp = $xml_named_entity_nbsp;
 
-sub substitute_html_non_breaking_space($$)
-{
-  my $self = shift;
-  my $text = shift;
+sub substitute_html_non_breaking_space($$) {
+  my ($self, $text) = @_;
 
   my $non_breaking_space = $self->get_info('non_breaking_space');
   # using \Q \E on the substitution leads to spurious \
@@ -570,13 +559,8 @@ my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
 # files.  In general the result of image formatting cannot
 # be used to get an image file name path, as the path is not
 # used in the output.
-sub html_image_file_location_name($$$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $image_basefile = shift;
-  my $args = shift;
+sub html_image_file_location_name($$$$$) {
+  my ($self, $cmdname, $command, $image_basefile, $args) = @_;
 
   my @extensions = @image_files_extensions;
 
@@ -622,11 +606,8 @@ sub html_image_file_location_name($$$$$)
           $image_path_encoding);
 }
 
-sub css_add_info($$$)
-{
-  my $self = shift;
-  my $spec = shift;
-  my $css_info = shift;
+sub css_add_info($$$) {
+  my ($self, $spec, $css_info) = @_;
 
   if ($spec eq 'rules') {
     push @{$self->{'css_rule_lines'}}, $css_info;
@@ -635,18 +616,14 @@ sub css_add_info($$$)
   }
 }
 
-sub css_set_selector_style($$$)
-{
-  my $self = shift;
-  my $css_info = shift;
-  my $css_style = shift;
+sub css_set_selector_style($$$) {
+  my ($self, $css_info, $css_style) = @_;
 
   $self->{'css_element_class_styles'}->{$css_info} = $css_style;
 }
 
 sub css_get_info($$) {
-  my $self = shift;
-  my $spec = shift;
+  my ($self, $spec) = @_;
 
   my @empty_array;
 
@@ -668,12 +645,10 @@ sub css_get_info($$) {
   }
 }
 
-sub css_get_selector_style($$)
-{
-  my $self = shift;
-  my $css_info = shift;
+sub css_get_selector_style($$) {
+  my ($self, $css_info) = @_;
 
-  if ($self->{'css_element_class_styles'}->{$css_info}) {
+  if (defined($self->{'css_element_class_styles'}->{$css_info})) {
     return $self->{'css_element_class_styles'}->{$css_info};
   } else {
     return undef;
@@ -684,11 +659,8 @@ my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
 my %default_css_string_formatting_references;
 
-sub html_convert_css_string($$$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $context_str = shift;
+sub html_convert_css_string($$$) {
+  my ($self, $element, $context_str) = @_;
 
   my $saved_commands = {};
   my $saved_types = {};
@@ -742,11 +714,8 @@ my %special_list_mark_css_string_no_arg_command = (
   'minus' => '\2212 ',
 );
 
-sub html_convert_css_string_for_list_mark($$;$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $explanation = shift;
+sub html_convert_css_string_for_list_mark($$;$) {
+  my ($self, $element, $explanation) = @_;
 
   my $saved_css_string_no_arg_command = {};
   foreach my $command (keys(%special_list_mark_css_string_no_arg_command)) {
@@ -765,105 +734,105 @@ sub html_convert_css_string_for_list_mark($$;$)
 
 # API to access converter state for conversion
 
-sub in_math($)
-{
+sub in_math($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'math'};
 }
 
 # set if in menu or preformatted command
-sub in_preformatted_context($)
-{
+sub in_preformatted_context($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'preformatted_context'}->[-1];
 }
 
-sub inside_preformatted($)
-{
+sub inside_preformatted($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'inside_preformatted'};
 }
 
-sub in_upper_case($)
-{
+sub in_upper_case($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                               ->{'upper_case'};
 }
 
-sub in_non_breakable_space($)
-{
+sub in_non_breakable_space($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                          ->{'no_break'};
 }
 
-sub in_space_protected($)
-{
+sub in_space_protected($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                          ->{'space_protected'};
 }
 
-sub in_code($)
-{
+sub in_code($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'monospace'}->[-1];
 }
 
-sub in_string($)
-{
+sub in_string($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'string'};
 }
 
-sub in_verbatim($)
-{
+sub in_verbatim($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'verbatim'};
 }
 
-sub in_raw($)
-{
+sub in_raw($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'raw'};
 }
 
-sub in_multiple_conversions($)
-{
+sub in_multiple_conversions($) {
   my $self = shift;
+
   return $self->{'multiple_conversions'};
 }
 
-sub paragraph_number($)
-{
+sub paragraph_number($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                      ->{'paragraph_number'};
 }
 
-sub preformatted_number($)
-{
+sub preformatted_number($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
                                                   ->{'preformatted_number'};
 }
 
-sub top_block_command($)
-{
+sub top_block_command($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'block_commands'}->[-1];
 }
 
-sub preformatted_classes_stack($)
-{
+sub preformatted_classes_stack($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'preformatted_classes'};
 }
 
-sub in_align($)
-{
+sub in_align($) {
   my $self = shift;
+
   my $context
        = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
   if ($HTML_align_commands{$context}) {
@@ -873,20 +842,17 @@ sub in_align($)
   }
 }
 
-sub in_multi_expanded($)
-{
+sub in_multi_expanded($) {
   my $self = shift;
+
   if (scalar(@{$self->{'multiple_pass'}})) {
     return $self->{'multiple_pass'}->[-1];
   }
   return undef;
 }
 
-sub count_elements_in_filename($$$)
-{
-  my $self = shift;
-  my $spec = shift;
-  my $filename = shift;
+sub count_elements_in_filename($$$) {
+  my ($self, $spec, $filename) = @_;
 
   if (!defined($filename)) {
     confess("count_elements_in_filename: filename undef");
@@ -909,10 +875,8 @@ sub count_elements_in_filename($$$)
   return undef;
 }
 
-sub is_format_expanded($$)
-{
-  my $self = shift;
-  my $format = shift;
+sub is_format_expanded($$) {
+  my ($self, $format) = @_;
 
   return $self->{'expanded_formats'}->{$format};
 }
@@ -959,15 +923,14 @@ sub is_format_expanded($$)
 
 # $COMMAND should be a tree element which is a possible target of a link.
 # return the target information.
-sub _get_target($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub _get_target($$) {
+  my ($self, $command) = @_;
+
   if (!defined($command)) {
     cluck("_get_target command argument not defined");
   }
 
-  if ($self->{'targets'}->{$command}) {
+  if (exists($self->{'targets'}->{$command})) {
     return $self->{'targets'}->{$command};
   }
 
@@ -979,10 +942,10 @@ sub _get_target($$)
 # This returns the id specific of the $COMMAND tree element
 sub command_id($$)
 {
-  my $self = shift;
-  my $command = shift;
+  my ($self, $command) = @_;
+
   my $target = $self->_get_target($command);
-  if ($target) {
+  if (defined($target)) {
     return $target->{'target'};
   } else {
     return undef;
@@ -991,37 +954,32 @@ sub command_id($$)
 
 sub command_contents_target($$$)
 {
-  my $self = shift;
-  my $command = shift;
-  my $contents_or_shortcontents = shift;
+  my ($self, $command, $contents_or_shortcontents) = @_;
+
   $contents_or_shortcontents = 'shortcontents'
     if ($contents_or_shortcontents eq 'summarycontents');
 
   my $target = $self->_get_target($command);
-  if ($target) {
+  if (defined($target)) {
     return $target->{$contents_or_shortcontents .'_target'};
   } else {
     return undef;
   }
 }
 
-sub _get_footnote_location_target($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub _get_footnote_location_target($$) {
+  my ($self, $command) = @_;
 
-  if (defined($self->{'special_targets'})
-      and defined($self->{'special_targets'}->{'footnote_location'})
-      and defined($self->{'special_targets'}->{'footnote_location'}->{$command})) {
+  if (exists($self->{'special_targets'})
+      and exists($self->{'special_targets'}->{'footnote_location'})
+      and exists($self->{'special_targets'}->{'footnote_location'}->{$command})) {
     return $self->{'special_targets'}->{'footnote_location'}->{$command};
   }
   return undef;
 }
 
-sub footnote_location_target($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub footnote_location_target($$) {
+  my ($self, $command) = @_;
 
   my $footnote_location_special_target_info
     = _get_footnote_location_target($self, $command);
@@ -1031,13 +989,11 @@ sub footnote_location_target($$)
   return undef;
 }
 
-sub command_filename($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub command_filename($$) {
+  my ($self, $command) = @_;
 
   my $target = $self->_get_target($command);
-  if ($target) {
+  if (defined($target)) {
     if (exists($target->{'filename'})) {
       return $target->{'filename'};
     }
@@ -1059,13 +1015,11 @@ sub command_filename($$)
   return undef;
 }
 
-sub command_root_element_command($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub command_root_element_command($$) {
+  my ($self, $command) = @_;
 
   my $target = $self->_get_target($command);
-  if ($target) {
+  if (defined($target)) {
     if (not exists($target->{'root_element_command'})) {
       # in contrast with command_filename() we find the root element through
       # the location holding the @footnote command.  It is better, as the
@@ -1073,7 +1027,7 @@ sub command_root_element_command($$)
       # it is better to stay in the document to find a root element.
       my ($root_element, $root_command)
         = $self->_html_get_tree_root_element($command);
-      if ($root_element and $root_element->{'unit_type'} eq 'unit') {
+      if (defined($root_element) and $root_element->{'unit_type'} eq 'unit') {
         $target->{'root_element_command'}
           = $root_element->{'unit_command'};
       } else {
@@ -1085,26 +1039,24 @@ sub command_root_element_command($$)
   return undef;
 }
 
-sub command_node($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub command_node($$) {
+  my ($self, $command) = @_;
 
   my $target = $self->_get_target($command);
-  if ($target) {
+  if (defined($target)) {
     if (not exists($target->{'node_command'})) {
       # this finds a special element for footnote command if
       # such an element exists
       my ($root_element, $root_command)
            = $self->_html_get_tree_root_element($command, 1);
-      if (defined($root_command) and $root_command->{'cmdname'}) {
+      if (defined($root_command) and exists($root_command->{'cmdname'})) {
         if ($root_command->{'cmdname'} eq 'node') {
           $target->{'node_command'} = $root_command;
-        } elsif ($self->{'document'}) {
+        } elsif (exists($self->{'document'})) {
           my $sections_list = $self->{'document'}->sections_list();
           my $section_relations
             = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
-          if ($section_relations->{'associated_node'}) {
+          if (exists($section_relations->{'associated_node'})) {
             $target->{'node_command'}
               = $section_relations->{'associated_node'}->{'element'};
           }
@@ -1118,13 +1070,10 @@ sub command_node($$)
   return undef;
 }
 
+# $SPECIFIED_TARGET can be used to specify explicitly the target
 sub _internal_command_href($$;$$)
 {
-  my $self = shift;
-  my $command = shift;
-  my $source_filename = shift;
-  # to specify explicitly the target
-  my $specified_target = shift;
+  my ($self, $command, $source_filename, $specified_target) = @_;
 
   $source_filename = $self->{'current_filename'} if (!defined($source_filename));
 
@@ -1143,16 +1092,16 @@ sub _internal_command_href($$;$$)
     # @xrefname name for my node
     #
     # @chapter Chapter without directly associated node
-    if ($self->{'document'} and $command->{'extra'}) {
+    if (exists($self->{'document'}) and exists($command->{'extra'})) {
       if ($command->{'extra'}->{'section_number'}) {
         my $sections_list = $self->{'document'}->sections_list();
         my $section_relations
           = $sections_list->[$command->{'extra'}->{'section_number'} -1];
 
-        if ($section_relations->{'associated_node'}) {
+        if (exists($section_relations->{'associated_node'})) {
           $target_command
             = $section_relations->{'associated_node'}->{'element'};
-        } elsif ($section_relations->{'associated_anchor_command'}) {
+        } elsif (exists($section_relations->{'associated_anchor_command'})) {
           $target_command
             = $section_relations->{'associated_anchor_command'}->{'element'};
         }
@@ -1161,7 +1110,7 @@ sub _internal_command_href($$;$$)
         my $heading_relations
           = $headings_list->[$command->{'extra'}->{'heading_number'} -1];
 
-        if ($heading_relations->{'associated_anchor_command'}) {
+        if (exists($heading_relations->{'associated_anchor_command'})) {
           $target_command
             = $heading_relations->{'associated_anchor_command'}->{'element'};
         }
@@ -1169,7 +1118,7 @@ sub _internal_command_href($$;$$)
     }
 
     my $target_information = $self->_get_target($target_command);
-    $target = $target_information->{'target'} if ($target_information);
+    $target = $target_information->{'target'} if (defined($target_information));
   }
   return undef if (!defined($target));
   my $href = '';
@@ -1179,7 +1128,7 @@ sub _internal_command_href($$;$$)
     # Happens if there are no pages, for example if OUTPUT is set to ''
     # as in the test cases.  Also for things in @titlepage when
     # titlepage is not output.
-    if ($self->{'document_units'}->[0]->{'unit_filename'}) {
+    if (exists($self->{'document_units'}->[0]->{'unit_filename'})) {
       # In that case use the first page.
       $target_filename
         = $self->{'document_units'}->[0]->{'unit_filename'};
@@ -1198,16 +1147,16 @@ sub _internal_command_href($$;$$)
         my $possible_empty_target = 0;
         if ($command_root_element_command eq $command) {
           $possible_empty_target = 1;
-        } elsif ($command_root_element_command->{'cmdname'}
+        } elsif (exists($command_root_element_command->{'cmdname'})
                  and $command_root_element_command->{'cmdname'} eq 'node'
-                 and $command_root_element_command->{'extra'}
+                 and exists($command_root_element_command->{'extra'})
                  and $command_root_element_command->{'extra'}->{'node_number'}
-                 and $self->{'document'}) {
+                 and exists($self->{'document'})) {
           my $nodes_list = $self->{'document'}->nodes_list();
           my $node_relations
             = $nodes_list->[$command_root_element_command
                                       ->{'extra'}->{'node_number'} -1];
-          if ($node_relations->{'associated_section'}
+          if (exists($node_relations->{'associated_section'})
        and $node_relations->{'associated_section'}->{'element'} eq $command) {
             $possible_empty_target = 1;
           }
@@ -1231,17 +1180,15 @@ sub _internal_command_href($$;$$)
 }
 
 # Return string for linking to $COMMAND with <a href>
+# $SOURCE_COMMAND is only used for messages
+# $SPECIFIED_TARGET can be set to specify explicitly the target
 sub command_href($$;$$$)
 {
-  my $self = shift;
-  my $command = shift;
-  my $source_filename = shift;
-  # for messages only
-  my $source_command = shift;
-  # to specify explicitly the target
-  my $specified_target = shift;
+  my ($self, $command, $source_filename, $source_command,
+      $specified_target) = @_;
 
-  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+  if (exists($command->{'extra'})
+      and exists($command->{'extra'}->{'manual_content'})) {
     return _external_node_href($self, $command, $source_command);
   }
 
@@ -1257,12 +1204,8 @@ my %contents_command_special_unit_variety = (
 
 # Return string for linking to $CONTENTS_OR_SHORTCONTENTS associated
 # element from $COMMAND with <a href>
-sub command_contents_href($$$;$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $contents_or_shortcontents = shift;
-  my $source_filename = shift;
+sub command_contents_href($$$;$) {
+  my ($self, $command, $contents_or_shortcontents, $source_filename) = @_;
 
   $source_filename = $self->{'current_filename'}
     if (not defined($source_filename));
@@ -1293,13 +1236,9 @@ sub command_contents_href($$$;$)
   return $href;
 }
 
-sub footnote_location_href($$;$$$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $source_filename = shift;
-  my $specified_target = shift;
-  my $target_filename = shift;
+sub footnote_location_href($$;$$$) {
+  my ($self, $command, $source_filename, $specified_target,
+      $target_filename) = @_;
 
   $source_filename = $self->{'current_filename'}
     if (not defined($source_filename));
@@ -1350,24 +1289,21 @@ sub footnote_location_href($$;$$$)
   return $href;
 }
 
-sub _internal_command_tree($$$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $no_number = shift;
+sub _internal_command_tree($$$) {
+  my ($self, $command, $no_number) = @_;
 
   my $target = $self->_get_target($command);
-  if ($target) {
+  if (defined($target)) {
     if (!exists($target->{'tree'})) {
       my $tree;
-      if ($command->{'type'}
+      if (exists($command->{'type'})
           and $command->{'type'} eq 'special_unit_element') {
         my $special_unit_variety
            = $command->{'associated_unit'}->{'special_unit_variety'};
         $tree
           = $self->special_unit_info('heading_tree',
                                       $special_unit_variety);
-      } elsif ($command->{'cmdname'}
+      } elsif (exists($command->{'cmdname'})
                and ($command->{'cmdname'} eq 'node'
                     or $command->{'cmdname'} eq 'anchor'
                     or $command->{'cmdname'} eq 'namedanchor')) {
@@ -1384,7 +1320,8 @@ sub _internal_command_tree($$$)
         }
         $tree = Texinfo::TreeElement::new({'type' => '_code',
                                            'contents' => [$label_element]});
-      } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
+      } elsif (exists($command->{'cmdname'})
+               and ($command->{'cmdname'} eq 'float')) {
         $tree = $self->float_type_number($command);
       } else {
         my $line_arg;
@@ -1396,10 +1333,10 @@ sub _internal_command_tree($$$)
           # @heading* commands
           $line_arg = $command->{'contents'}->[0];
         }
-        if ($line_arg->{'contents'}) {
+        if (exists($line_arg->{'contents'})) {
           my $section_number;
           $section_number = $command->{'extra'}->{'section_heading_number'}
-            if ($command->{'extra'}
+            if (exists($command->{'extra'})
                 and defined($command->{'extra'}->{'section_heading_number'}));
           if ($section_number
               and ($self->get_conf('NUMBER_SECTIONS')
@@ -1429,17 +1366,15 @@ sub _internal_command_tree($$$)
       $target->{'tree'} = $tree;
     }
 
-    return $target->{'tree_nonumber'} if ($no_number
-                                          and $target->{'tree_nonumber'});
+    return $target->{'tree_nonumber'}
+         if ($no_number and exists($target->{'tree_nonumber'}));
     return $target->{'tree'};
   }
   return undef;
 }
 
-sub _external_command_tree($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub _external_command_tree($$) {
+  my ($self, $command) = @_;
 
   my $node_content = $command->{'extra'}->{'node_content'};
   my $tree = Texinfo::TreeElement::new(
@@ -1447,62 +1382,52 @@ sub _external_command_tree($$)
         'contents' => [Texinfo::TreeElement::new({'text' => '('}),
                        $command->{'extra'}->{'manual_content'},
                        Texinfo::TreeElement::new({'text' => ')'})]});
-  if ($node_content) {
-    push @{$tree->{'contents'}}, $node_content;
+  if (exists($command->{'extra'}->{'node_content'})) {
+    push @{$tree->{'contents'}}, $command->{'extra'}->{'node_content'};
   }
   return $tree;
 }
 
-sub command_tree($$;$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $no_number = shift;
+sub command_tree($$;$) {
+  my ($self, $command, $no_number) = @_;
 
   if (!defined($command)) {
     cluck "in command_tree command not defined";
   }
 
-  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+  if (exists($command->{'extra'})
+      and exists($command->{'extra'}->{'manual_content'})) {
     return _external_command_tree($self, $command);
   }
 
   return _internal_command_tree($self, $command, $no_number);
 }
 
-sub _push_referred_command_stack_command($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub _push_referred_command_stack_command($$) {
+  my ($self, $command) = @_;
+
   push @{$self->{'referred_command_stack'}}, $command;
 }
 
-sub _pop_referred_command_stack($)
-{
+sub _pop_referred_command_stack($) {
   my $self = shift;
+
   pop @{$self->{'referred_command_stack'}};
 }
 
-sub _command_is_in_referred_command_stack($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub _command_is_in_referred_command_stack($$) {
+  my ($self, $command) = @_;
 
   return grep {$_ eq $command} @{$self->{'referred_command_stack'}};
 }
 
-sub _convert_command_tree($$$$$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $type = shift;
-  my $selected_tree = shift;
-  my $command_info = shift;
+sub _convert_command_tree($$$$$) {
+  my ($self, $command, $type, $selected_tree, $command_info) = @_;
 
   my $explanation;
   my $context_name;
 
-  if (defined($command->{'cmdname'})) {
+  if (exists($command->{'cmdname'})) {
     my $cmdname = $command->{'cmdname'};
     $context_name = $cmdname;
     $explanation = "$command_info:$type \@$cmdname";
@@ -1536,15 +1461,12 @@ sub _convert_command_tree($$$$$)
   return $result;
 }
 
-sub _internal_command_text($$$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $type = shift;
+sub _internal_command_text($$$) {
+  my ($self, $command, $type) = @_;
 
   my $target = $self->_get_target($command);
-  if ($target) {
-    if (defined($target->{$type})) {
+  if (defined($target)) {
+    if (exists($target->{$type})) {
       return $target->{$type};
     }
     my $command_tree = _internal_command_tree($self, $command, 0);
@@ -1581,11 +1503,8 @@ sub _internal_command_text($$$)
 #  'text_nonumber' - return text, without the section/chapter number
 #  'string' - return simpler text that can be used in element attributes
 #  'string_nonumber' - same as string, without the section/chapter number
-sub command_text($$;$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $type = shift;
+sub command_text($$;$) {
+  my ($self, $command, $type) = @_;
 
   if (!defined($type)) {
     $type = 'text';
@@ -1595,19 +1514,20 @@ sub command_text($$;$)
     cluck "in command_text($type) command not defined";
   }
 
-  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+  if (exists($command->{'extra'})
+      and exists($command->{'extra'}->{'manual_content'})) {
     my $tree = _external_command_tree($self, $command);
     if ($type eq 'string' or $type eq 'string_nonumber') {
       $tree = Texinfo::TreeElement::new({'type' => '_string',
                                          'contents' => [$tree]});
     }
     my $context_str = "command_text $type ";
-    if (defined($command->{'cmdname'})) {
+    if (exists($command->{'cmdname'})) {
       # this never happens, as the external node label tree
       # element is never directly an @-command.  It can be an @-command
       # argument, in a menu, or a reconstituted tree.
       $context_str .= '@'.$command->{'cmdname'};
-    } elsif ($command->{'type'}) {
+    } elsif (exists($command->{'type'})) {
       $context_str .= $command->{'type'};
     }
     # NOTE the multiple pass argument is not unicized, and no global
@@ -1627,20 +1547,17 @@ sub command_text($$;$)
 
 sub _internal_command_name_tree($$$)
 {
-  my $self = shift;
-  my $command = shift;
-  my $no_number = shift;
+  my ($self, $command, $no_number) = @_;
 
   my $target = $self->_get_target($command);
-  if ($target) {
+  if (defined($target)) {
     if (!exists($target->{'name_tree'})) {
       my $tree;
-      if ($command->{'cmdname'}
-          and $command->{'cmdname'} eq 'namedanchor') {
-        if ($command->{'contents'}->[1]
-            and $command->{'contents'}->[1]->{'contents'}) {
-          $tree = $command->{'contents'}->[1];
-        }
+      if (exists($command->{'cmdname'})
+          and $command->{'cmdname'} eq 'namedanchor'
+          and scalar(@{$command->{'contents'}}) > 1
+          and exists($command->{'contents'}->[1]->{'contents'})) {
+        $tree = $command->{'contents'}->[1];
       }
       $target->{'name_tree'} = $tree;
     }
@@ -1653,16 +1570,14 @@ sub _internal_command_name_tree($$$)
   return undef;
 }
 
-sub _internal_command_name($$$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $type = shift;
+sub _internal_command_name($$$) {
+  my ($self, $command, $type) = @_;
+
   my $name_type = "name_$type";
 
   my $target = $self->_get_target($command);
-  if ($target) {
-    if (defined($target->{$name_type})) {
+  if (defined($target)) {
+    if (exists($target->{$name_type})) {
       return $target->{$name_type};
     }
     my $command_name_tree = _internal_command_name_tree($self, $command, 0);
@@ -1675,7 +1590,7 @@ sub _internal_command_name($$$)
     my $selected_tree;
 
     if ($type =~ /^(.*)_nonumber$/
-        and defined($target->{'name_tree_nonumber'})) {
+        and exists($target->{'name_tree_nonumber'})) {
       $selected_tree = $target->{'name_tree_nonumber'};
     } else {
       $selected_tree = $command_name_tree;
@@ -1695,11 +1610,8 @@ sub _internal_command_name($$$)
 #  'text' - return text
 #  'text_nonumber' - return text, without the section/chapter number
 #  'string' - return simpler text that can be used in element attributes
-sub command_name($$;$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $type = shift;
+sub command_name($$;$) {
+  my ($self, $command, $type) = @_;
 
   if (!defined($type)) {
     $type = 'text';
@@ -1709,7 +1621,8 @@ sub command_name($$;$)
     cluck "in command_name($type) command not defined";
   }
 
-  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+  if (exists($command->{'extra'})
+      and exists($command->{'extra'}->{'manual_content'})) {
     return command_text($self, $command, $type);
   }
 
@@ -1722,9 +1635,7 @@ sub command_name($$;$)
 #  'string' - return simpler text that can be used in element attributes
 sub command_description($$;$)
 {
-  my $self = shift;
-  my $command = shift;
-  my $type = shift;
+  my ($self, $command, $type) = @_;
 
   if (!defined($type)) {
     $type = 'text';
@@ -1734,43 +1645,45 @@ sub command_description($$;$)
     cluck "in command_description($type) command not defined";
   }
 
-  if ($command->{'extra'} and $command->{'extra'}->{'manual_content'}) {
+  if (exists($command->{'extra'})
+      and exists($command->{'extra'}->{'manual_content'})) {
     return undef;
   }
 
   my $target = $self->_get_target($command);
-  if ($target) {
+  if (defined($target)) {
     my $cached_type = 'description_'.${type};
-    if (defined($target->{$cached_type})) {
+    if (exists($target->{$cached_type})) {
       return $target->{$cached_type};
     }
 
-    if (($command->{'type'}
+    if ((exists($command->{'type'})
          and $command->{'type'} eq 'special_unit_element')
-        or ($command->{'cmdname'} and ($command->{'cmdname'} eq 'anchor'
-                                       or $command->{'cmdname'} eq 'namedanchor'
-                                       or $command->{'cmdname'} eq 'float'))) {
+        or (exists($command->{'cmdname'})
+            and ($command->{'cmdname'} eq 'anchor'
+                 or $command->{'cmdname'} eq 'namedanchor'
+                 or $command->{'cmdname'} eq 'float'))) {
       $target->{$cached_type} = undef;
       return undef;
     }
     my $node;
 
-    if ($command->{'cmdname'}) {
+    if (exists($command->{'cmdname'})) {
       if ($command->{'cmdname'} eq 'node') {
         $node = $command;
-      } elsif ($self->{'document'}) {
+      } elsif (exists($self->{'document'})) {
         my $sections_list = $self->{'document'}->sections_list();
         my $section_relations
           = $sections_list->[$command->{'extra'}->{'section_number'} -1];
-        if ($section_relations->{'associated_node'}) {
+        if (exists($section_relations->{'associated_node'})) {
           $node = $section_relations->{'associated_node'}->{'element'};
         }
       }
     }
 
-    if (!$node or !$node->{'extra'}
+    if (!defined($node) or !exists($node->{'extra'})
         or !$node->{'extra'}->{'node_number'}
-        or !$self->{'document'}) {
+        or !exists($self->{'document'})) {
       return undef;
     }
 
@@ -1779,14 +1692,12 @@ sub command_description($$;$)
 
     my $node_description;
     my $long_description = 0;
-    if ($node_relations->{'node_description'}) {
+    if (exists($node_relations->{'node_description'})) {
       $node_description = $node_relations->{'node_description'};
-    } elsif ($node_relations->{'node_long_description'}) {
+    } elsif (exists($node_relations->{'node_long_description'})) {
       $node_description = $node_relations->{'node_long_description'};
       $long_description = 1;
-    }
-
-    if (!$node_description) {
+    } else {
       return undef;
     }
 
@@ -1831,18 +1742,17 @@ sub command_description($$;$)
 
 
 # Return the element in the tree that $LABEL refers to.
-sub label_command($$)
-{
-  my $self = shift;
-  my $label = shift;
+sub label_command($$) {
+  my ($self, $label) = @_;
+
   if (!defined($label)) {
     cluck;
   }
   my $identifiers_target;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $identifiers_target = $self->{'document'}->labels_information();
 
-    if ($identifiers_target) {
+    if (defined($identifiers_target)) {
       return $identifiers_target->{$label};
     }
   }
@@ -2890,8 +2800,8 @@ sub _translate_names($)
      = $self->global_direction_unit($special_unit_direction);
     if ($special_unit) {
       my $command = $special_unit->{'unit_command'};
-      if ($command
-          and $self->{'targets'}->{$command}) {
+      if (defined($command)
+          and exists($self->{'targets'}->{$command})) {
         my $target = $self->{'targets'}->{$command};
         foreach my $key ('text', 'string', 'tree', 'description_text',
                          'description_string') {
@@ -7372,7 +7282,7 @@ sub _convert_preformatted_type($$$$)
   # menu_entry_description is always in a preformatted container
   # in the tree, as the whole menu is meant to be an
   # environment where spaces and newlines are preserved.
-  if ($element->{'parent'}->{'type'}
+  if (exists($element->{'parent'}->{'type'})
       and $element->{'parent'}->{'type'} eq 'menu_entry_description') {
     if (!inside_preformatted($self)) {
       # If not in preformatted block command,
@@ -10919,7 +10829,7 @@ sub _prepare_special_units($$)
     next unless ($do_special{$special_unit_variety});
     my $index = $self->special_unit_info('order', $special_unit_variety);
     $special_units_indices{$index} = []
-      if (not exists ($special_units_indices{$index}));
+      if (not exists($special_units_indices{$index}));
     push @{$special_units_indices{$index}}, $special_unit_variety;
   }
   # now sort according to indices
@@ -13126,7 +13036,7 @@ sub convert_output_unit($$;$)
 
   my $unit_type_name = $output_unit->{'unit_type'};
 
-  if (exists ($self->{'output_units_conversion'}->{$unit_type_name})
+  if (exists($self->{'output_units_conversion'}->{$unit_type_name})
       and !defined($self->{'output_units_conversion'}->{$unit_type_name})) {
     if ($debug) {
       print STDERR "IGNORED OU $unit_type_name\n";
@@ -14260,7 +14170,7 @@ sub _open_command_update_context($$)
       $preformatted = 1;
     }
   }
-  if (exists ($composition_context_commands{$command_name})) {
+  if (exists($composition_context_commands{$command_name})) {
     push @{$self->{'document_context'}->[-1]->{'composition_context'}},
                                                            $command_name;
     push @{$self->{'document_context'}->[-1]->{'preformatted_context'}},
@@ -14299,7 +14209,7 @@ sub _convert_command_update_context($$)
   my $self = shift;
   my $command_name = shift;
 
-  if (exists ($composition_context_commands{$command_name})) {
+  if (exists($composition_context_commands{$command_name})) {
     pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
     pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
   }

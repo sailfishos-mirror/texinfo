@@ -1,5 +1,13 @@
 2025-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm: change formatting of functions
+	call code.
+ 
+	* tta/perl/Texinfo/Convert/HTML.pm: use exists or defined in
+	conditions when the value is not used.
+
+2025-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/TreeElementConverter.pm
 	(_tree_element_xml_numeric_entities_accent, tree_element_xml_accents):
 	remove _tree_element_xml_accent now that it is the same as the
