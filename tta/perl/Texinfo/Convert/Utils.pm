@@ -65,13 +65,11 @@ our $VERSION = '7.2dev';
 
 # TODO next four functions not documented anywhere, probably relevant to
 # document both in POD and in HTML Customization API.
-sub output_files_initialize
-{
+sub output_files_initialize {
   return {'unclosed_files' => {}, 'opened_files' => {}};
 }
 
-sub output_files_disable_output_encoding($$)
-{
+sub output_files_disable_output_encoding($$) {
   my ($self, $no_output_encoding) = @_;
 
   $self->{'output_encoding_disabled'} = $no_output_encoding;
@@ -90,12 +88,8 @@ sub output_files_disable_output_encoding($$)
 #  - the opened filehandle, or undef if opening failed,
 #  - the $! error message or undef if opening succeeded.
 #  - 1 if the $FILE_PATH was already opened, which means overwriting.
-sub output_files_open_out($$;$$)
-{
-  my $self = shift;
-  my $file_path = shift;
-  my $use_binmode = shift;
-  my $output_encoding = shift;
+sub output_files_open_out($$;$$) {
+  my ($self, $file_path, $use_binmode, $output_encoding) = @_;
 
   #if (!defined($file_path)) {
   #  cluck('output_files_open_out: file_path undef');
@@ -139,11 +133,11 @@ sub output_files_open_out($$;$$)
   # under MS-Windows, so that Info tag tables will have correct offsets.  This
   # must be done before setting the encoding filters with binmode.
   binmode($filehandle) if $use_binmode;
-  if ($encoding) {
+  if (defined($encoding)) {
     binmode($filehandle, ":encoding($encoding)");
   }
   if ($self) {
-    if ($self->{'unclosed_files'}->{$file_path}) {
+    if (exists($self->{'unclosed_files'}->{$file_path})) {
       warn "BUG: already open: $file_path\n";
     } else {
       $self->{'opened_files'}->{$file_path} = 1;
@@ -156,11 +150,10 @@ sub output_files_open_out($$;$$)
 # see the description of $SELF in comment above output_files_open_out.
 #
 # $FILE_PATH is the file path, it should be a binary string.
-sub output_files_register_closed($$)
-{
-  my $self = shift;
-  my $file_path = shift;
-  if ($self->{'unclosed_files'}->{$file_path}) {
+sub output_files_register_closed($$) {
+  my ($self, $file_path) = @_;
+
+  if (exists($self->{'unclosed_files'}->{$file_path})) {
     delete $self->{'unclosed_files'}->{$file_path};
   } else {
     cluck "BUG: $file_path not opened\n";
@@ -172,16 +165,16 @@ sub output_files_register_closed($$)
 # consistency of the API and clarity of the code.
 #
 # see the description of $SELF in comment above output_files_open_out.
-sub output_files_opened_files($)
-{
+sub output_files_opened_files($) {
   my $self = shift;
+
   return $self->{'opened_files'};
 }
 
 # see the description of $SELF in comment above output_files_open_out.
-sub output_files_unclosed_files($)
-{
+sub output_files_unclosed_files($) {
   my $self = shift;
+
   return $self->{'unclosed_files'};
 }
 # end of output_files API
@@ -189,30 +182,26 @@ sub output_files_unclosed_files($)
 
 
 # TODO document?
-sub switch_lang_translations($$)
-{
-  my $self = shift;
-  my $lang = shift;
+sub switch_lang_translations($$) {
+  my ($self, $lang) = @_;
 
   $lang = '' if (!defined($lang));
 
-  my $current_lang_translation = $self->{'current_lang_translations'};
-  if (defined($current_lang_translation)
-      and defined($current_lang_translation->[0])
-      and $current_lang_translation->[0] eq $lang) {
+  if (exists($self->{'current_lang_translations'})
+      and $self->{'current_lang_translations'}->[0] eq $lang) {
     # Nothing to do
     return;
   }
 
   my $translations;
-  if (!defined($self->{'translations'})) {
+  if (!exists($self->{'translations'})) {
     $translations = $Texinfo::Translations::translation_cache;
     $self->{'translations'} = $translations;
   } else {
     $translations = $self->{'translations'};
   }
 
-  if (!$translations->{$lang}) {
+  if (!exists($translations->{$lang})) {
     $translations->{$lang} = {};
   }
 
@@ -238,13 +227,12 @@ our @month_name =
      Texinfo::Common::gdt('December')
     );
 
-sub definition_arguments_content($)
-{
+sub definition_arguments_content($) {
   my $element = shift;
 
   my ($category, $class, $type, $name, $args);
   return ($category, $class, $type, $name, $args)
-     if (!$element->{'contents'}->[0]->{'contents'});
+     if (!exists($element->{'contents'}->[0]->{'contents'}));
 
   my @args = @{$element->{'contents'}->[0]->{'contents'}};
   while (@args) {
@@ -274,14 +262,10 @@ sub definition_arguments_content($)
 # use the cdt method of the specific converter and not the generic cdt,
 # which is equivalent with the use of gdt in the function.  This should
 # only be relevant for the HTML converter which redefines cdt.
-sub definition_category_tree($;$$$)
-{
-  my $current = shift;
-  my $lang_translations = shift;
-  my $debug = shift;
-  my $converter = shift;
+sub definition_category_tree($;$$$) {
+  my ($current, $lang_translations, $debug, $converter) = @_;
 
-  return undef if (!$current->{'contents'}->[0]->{'contents'});
+  return undef if (!exists($current->{'contents'}->[0]->{'contents'}));
 
   # NOTE we take care of not changing the parent of the tree elements.
   # We could also copy them and set the parent (as in the XS code).
@@ -310,7 +294,7 @@ sub definition_category_tree($;$$$)
       or $def_command eq 'defmethod'
       or $def_command eq 'deftypemethod') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if ($converter) {
+    if (defined($converter)) {
       return $converter->cdt('{category} on @code{{class}}', $substrings);
     } elsif (defined($lang_translations)) {
       # TRANSLATORS: association of a method or operation name with a class
@@ -329,7 +313,7 @@ sub definition_category_tree($;$$$)
            or $def_command eq 'defcv'
            or $def_command eq 'deftypecv') {
     my $substrings = {'category' => $arg_category, 'class' => $arg_class};
-    if ($converter) {
+    if (defined($converter)) {
       return $converter->cdt('{category} of @code{{class}}', $substrings);
     } elsif (defined($lang_translations)) {
       # TRANSLATORS: association of a variable or instance variable with
@@ -346,12 +330,8 @@ sub definition_category_tree($;$$$)
   }
 }
 
-sub expand_today($;$$$)
-{
-  my $test = shift;
-  my $lang_translations = shift;
-  my $debug = shift;
-  my $converter = shift;
+sub expand_today($;$$$) {
+  my ($test, $lang_translations, $debug, $converter) = @_;
 
   if ($test) {
     return Texinfo::TreeElement::new({'text' => 'a sunny day'});
@@ -367,7 +347,7 @@ sub expand_today($;$$$)
 
   my $tree;
 
-  if ($converter) {
+  if (defined($converter)) {
     $tree = $converter->cdt('{month} {day}, {year}',
           { 'month' => $converter->cdt(
                           $Texinfo::Convert::Utils::month_name[$mon]),
@@ -391,8 +371,7 @@ sub expand_today($;$$$)
 }
 
 # find the accent commands stack and the innermost text contents
-sub find_innermost_accent_contents($)
-{
+sub find_innermost_accent_contents($) {
   my $current = shift;
 
   my @accent_commands = ();
@@ -401,7 +380,7 @@ sub find_innermost_accent_contents($)
   while (1) {
     my $current_cmdname = $current->{'cmdname'};
     # the following can happen if called with a bad tree
-    if (!$current_cmdname
+    if (!defined($current_cmdname)
         or !$Texinfo::Commands::accent_commands{$current_cmdname}) {
       #print STDERR "BUG: Not an accent command in accent\n";
       cluck "BUG: Not an accent command in accent\n";
@@ -411,18 +390,18 @@ sub find_innermost_accent_contents($)
     }
     push @accent_commands, $current;
     # A bogus accent, that may happen
-    if (!$current->{'contents'}) {
+    if (!exists($current->{'contents'})) {
       return (undef, \@accent_commands);
     }
     my $arg = $current->{'contents'}->[0];
-    if (!$arg->{'contents'}) {
+    if (!exists($arg->{'contents'})) {
       return (undef, \@accent_commands);
     }
     # inside the argument of an accent
     my $text_contents = [];
     foreach my $content (@{$arg->{'contents'}}) {
-      my $cmdname = $content->{'cmdname'};
-      if ($cmdname) {
+      if (exists($content->{'cmdname'})) {
+        my $cmdname = $content->{'cmdname'};
         if ($Texinfo::Commands::accent_commands{$cmdname}) {
         # if outer accent is tieaccent, keep accent inside and do not try to
         # nest more
@@ -443,15 +422,11 @@ sub find_innermost_accent_contents($)
   }
 }
 
-sub translated_command_tree($$$$;$)
-{
-  my $translated_commands = shift;
-  my $cmdname = shift;
-  my $lang_translations = shift;
-  my $debug = shift;
-  my $converter = shift;
+sub translated_command_tree($$$$;$) {
+  my ($translated_commands, $cmdname, $lang_translations, $debug,
+      $converter) = @_;
 
-  if ($translated_commands
+  if (defined($translated_commands)
       and defined($translated_commands->{$cmdname})) {
     my $to_translate = $translated_commands->{$cmdname};
     if ($converter) {
@@ -466,18 +441,12 @@ sub translated_command_tree($$$$;$)
 
 # $CONVERTER is optional, but without this argument there is no error
 # reporting.
-sub expand_verbatiminclude($$$$$;$$)
-{
-  my $current = shift;
-  my $input_file_name_encoding = shift;
-  my $doc_encoding_for_input_file_name = shift;
-  my $locale_encoding = shift;
-  my $include_directories = shift;
-  my $document = shift;
-  my $converter = shift;
+sub expand_verbatiminclude($$$$$;$$) {
+  my ($current, $input_file_name_encoding, $doc_encoding_for_input_file_name,
+      $locale_encoding, $include_directories, $document, $converter) = @_;
 
-  return undef unless ($current->{'extra'}
-                       and defined($current->{'extra'}->{'text_arg'}));
+  return undef unless (exists($current->{'extra'})
+                       and exists($current->{'extra'}->{'text_arg'}));
 
   my $file_name_text = $current->{'extra'}->{'text_arg'};
 
@@ -496,7 +465,7 @@ sub expand_verbatiminclude($$$$$;$$)
 
   if (defined($file)) {
     if (!open(VERBINCLUDE, $file)) {
-      if ($converter) {
+      if (defined($converter)) {
         my $decoded_file = $file;
         # need to decode to the internal perl codepoints for error message
         $decoded_file = Encode::decode($file_name_encoding, $file)
@@ -517,7 +486,7 @@ sub expand_verbatiminclude($$$$$;$$)
           Texinfo::TreeElement::new({'type' => 'raw', 'text' => $_ });
       }
       if (!close (VERBINCLUDE)) {
-        if ($converter) {
+        if (defined($converter)) {
           my $decoded_file = $file;
           # need to decode to the internal perl codepoints for error message
           $decoded_file = Encode::decode($file_name_encoding, $file)
@@ -529,7 +498,7 @@ sub expand_verbatiminclude($$$$$;$$)
         }
       }
     }
-  } elsif ($converter) {
+  } elsif (defined($converter)) {
     $converter->converter_line_error(
                            sprintf(__("\@%s: could not find %s"),
                                        $current->{'cmdname'}, $file_name_text),
@@ -538,15 +507,11 @@ sub expand_verbatiminclude($$$$$;$$)
   return $verbatiminclude;
 }
 
-sub add_heading_number($$;$$)
-{
-  my $current = shift;
-  my $text = shift;
-  my $numbered = shift;
-  my $lang_translations = shift;
+sub add_heading_number($$;$$) {
+  my ($current, $text, $numbered, $lang_translations) = @_;
 
   my $number;
-  if ($current->{'extra'}
+  if (exists($current->{'extra'})
       and defined($current->{'extra'}->{'section_heading_number'})
       and ($numbered or !defined($numbered))) {
     $number = $current->{'extra'}->{'section_heading_number'};
@@ -587,14 +552,12 @@ sub add_heading_number($$;$$)
 
 sub _find_element_authors_internal($$);
 
-sub _find_element_authors_internal($$)
-{
-  my $element = shift;
-  my $quotation_authors = shift;
+sub _find_element_authors_internal($$) {
+  my ($element, $quotation_authors) = @_;
 
-  return if (defined($element->{'text'}));
+  return if (exists($element->{'text'}));
 
-  if (defined($element->{'cmdname'})) {
+  if (exists($element->{'cmdname'})) {
     my $cmdname = $element->{'cmdname'};
     if ($cmdname eq 'author') {
       push @$quotation_authors, $element;
@@ -609,11 +572,11 @@ sub _find_element_authors_internal($$)
         or exists($Texinfo::Commands::line_commands{$cmdname})) {
       return;
     }
-  } elsif (defined($element->{'type'})
+  } elsif (exists($element->{'type'})
            and $element->{'type'} eq 'arguments_line') {
     return;
   }
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     foreach my $content (@{$element->{'contents'}}) {
       _find_element_authors_internal($content, $quotation_authors);
     }
@@ -622,10 +585,8 @@ sub _find_element_authors_internal($$)
 
 # TODO document.
 # Find authors in element body.
-sub find_element_authors($$)
-{
-  my $element = shift;
-  my $quotation_authors = shift;
+sub find_element_authors($$) {
+  my ($element, $quotation_authors) = @_;
 
   foreach my $content (@{$element->{'contents'}}) {
     _find_element_authors_internal($content, $quotation_authors);
@@ -634,25 +595,23 @@ sub find_element_authors($$)
 
 # Similar to Texinfo::Common::is_content_empty
 # Unused
-sub find_root_command_next_heading_command($$;$$)
-{
-  my $root = shift;
-  my $expanded_format_raw = shift;
-  my $do_not_ignore_contents = shift;
-  my $do_not_ignore_index_entries = shift;
+sub find_root_command_next_heading_command($$;$$) {
+  my ($root, $expanded_format_raw, $do_not_ignore_contents,
+      $do_not_ignore_index_entries) = @_;
 
-  return undef if (!$root->{'contents'});
+  return undef if (!exists($root->{'contents'}));
 
   $expanded_format_raw = {} if (!defined($expanded_format_raw));
 
   foreach my $content (@{$root->{'contents'}}) {
     #print STDERR Texinfo::Common::debug_print_element($content)."\n";
-    if ($content->{'cmdname'}) {
+    if (exists($content->{'cmdname'})) {
       if ($Texinfo::Commands::sectioning_heading_commands{$content->{'cmdname'}}) {
         #print STDERR "HEADING FOUND ASSOCIATED $content->{'cmdname'}\n";
         return $content;
       }
-      if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
+      if (exists($content->{'type'})
+          and $content->{'type'} eq 'index_entry_command') {
         if ($do_not_ignore_index_entries) {
           return undef;
         } else {
@@ -696,7 +655,7 @@ sub find_root_command_next_heading_command($$;$$)
         }
       }
     }
-    if ($content->{'type'}) {
+    if (exists($content->{'type'})) {
       if ($content->{'type'} eq 'paragraph') {
         return undef;
       }
@@ -704,33 +663,29 @@ sub find_root_command_next_heading_command($$;$$)
     # normally should not happen at the top level as text at top
     # level should only contain spaces (empty lines, text before
     # paragraphs).
-    if ($content->{'text'} and $content->{'text'} =~ /\S/) {
+    if (exists($content->{'text'}) and $content->{'text'} =~ /\S/) {
       return undef;
     }
   }
   return undef;
 }
 
-sub encoded_output_file_name($$$$;$)
-{
-  my $file_name = shift;
-  my $output_file_name_encoding = shift;
-  my $doc_encoding_for_output_file_name = shift;
-  my $locale_encoding = shift;
-  my $document = shift;
+sub encoded_output_file_name($$$$;$) {
+  my ($file_name, $output_file_name_encoding,
+      $doc_encoding_for_output_file_name, $locale_encoding, $document) = @_;
 
   my $encoding;
-  if ($output_file_name_encoding) {
+  if (defined($output_file_name_encoding)) {
     $encoding = $output_file_name_encoding;
   } elsif ($doc_encoding_for_output_file_name) {
     my $document_info;
 
-    if ($document) {
+    if (defined($document)) {
       $document_info = $document->global_information();
     }
 
     $encoding = $document_info->{'input_encoding_name'}
-      if ($document_info
+      if (defined($document_info)
           and defined($document_info->{'input_encoding_name'}));
   } else {
     $encoding = $locale_encoding;
@@ -743,14 +698,10 @@ sub encoded_output_file_name($$$$;$)
 # argument, it will be used if $DOC_ENCODING_FOR_INPUT_FILE_NAME is
 # undef or set.
 # Reverse the decoding of the file name from the input encoding.
-sub encoded_input_file_name($$$$;$$)
-{
-  my $file_name = shift;
-  my $input_file_name_encoding = shift;
-  my $doc_encoding_for_input_file_name = shift;
-  my $locale_encoding = shift;
-  my $document = shift;
-  my $input_file_encoding = shift;
+sub encoded_input_file_name($$$$;$$) {
+  my ($file_name, $input_file_name_encoding,
+      $doc_encoding_for_input_file_name, $locale_encoding, $document,
+      $input_file_encoding) = @_;
 
   my $encoding
     = Texinfo::Common::input_file_name_encoding($input_file_name_encoding,
