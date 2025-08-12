@@ -1258,10 +1258,8 @@ my %unicode_accented_letters = %Texinfo::UnicodeData::unicode_accented_letters;
 my %unicode_to_eight_bit = %Texinfo::UnicodeData::unicode_to_eight_bit;
 
 # same as in Texinfo::Convert::Unicode, using the TreeElement interface
-sub _tree_element_unicode_accent($$)
-{
-  my $text = shift;
-  my $command = shift;
+sub _tree_element_unicode_accent($$$$) {
+  my ($text, $command, $index_in_stack, $accents_stack) = @_;
 
   my $accent = $command->{'cmdname'};
 
@@ -1274,11 +1272,9 @@ sub _tree_element_unicode_accent($$)
   # what is going on for that character.
   if ($accent eq 'dotless') {
     if ($unicode_accented_letters{$accent}->{$text}
-        and (!$command->parent()
-             or !$command->parent()->parent()
-             or !$command->parent()->parent()->{'cmdname'}
-             or !$unicode_diacritics{$command->parent()
-                                        ->parent()->{'cmdname'}})) {
+        and ($index_in_stack == 0
+             or !$unicode_diacritics{$accents_stack->[$index_in_stack -1]
+                                                        ->{'cmdname'}})) {
       return chr(hex($unicode_accented_letters{$accent}->{$text}));
     } else {
       return $text;
@@ -1318,7 +1314,7 @@ sub _tree_element_format_unicode_accents_stack($$$$;$) {
   for (; $i >= 0; $i--) {
     my $accent_command = $stack->[$i];
     my $formatted_result
-      = _tree_element_unicode_accent($result, $accent_command);
+      = _tree_element_unicode_accent($result, $accent_command, $i, $stack);
     last if (!defined($formatted_result));
 
     $result = $formatted_result;
@@ -1365,7 +1361,8 @@ sub _tree_element_format_eight_bit_accents_stack($$$$$;$) {
   for (; $i >= 0; $i--) {
     my $accent_command = $stack->[$i];
     my $unicode_formatted
-         = _tree_element_unicode_accent($results_stack[$i+1], $accent_command);
+         = _tree_element_unicode_accent($results_stack[$i+1], $accent_command,
+                                        $i, $stack);
     if (!defined($unicode_formatted)) {
       # decrease a last time as if the loop had been gone through
       $i--;
@@ -1587,19 +1584,12 @@ sub _tree_element_xml_accent($$$;$$$$) {
   # do not return a dotless i or j as such if it is further composed
   # with an accented letter, return the letter as is
   if ($accent eq 'dotless'
-      and $Texinfo::UnicodeData::unicode_accented_letters{$accent}
-      and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})) {
-    my $parent = $command->parent();
-    if ($parent) {
-      my $parent_parent = $parent->parent();
-      if ($parent_parent) {
-        my $out_cmdname = $parent_parent->{'cmdname'};
-        if ($out_cmdname
-            and $Texinfo::UnicodeData::unicode_accented_letters{$out_cmdname}) {
-          return $text;
-        }
-      }
-    }
+      and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent})
+      and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})
+      and ($index_in_stack > 0
+           and $Texinfo::UnicodeData::unicode_accented_letters{
+                     $accents_stack->[$index_in_stack-1]->{'cmdname'}})) {
+    return $text;
   }
 
   if ($use_numeric_entities) {

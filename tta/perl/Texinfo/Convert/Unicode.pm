@@ -251,10 +251,9 @@ foreach my $command (keys(%unicode_accented_letters)) {
   }
 }
 
-sub unicode_accent($$)
+sub unicode_accent($$$$)
 {
-  my $text = shift;
-  my $command = shift;
+  my ($text, $command, $index_in_stack, $accents_stack) = @_;
 
   my $accent = $command->{'cmdname'};
 
@@ -267,11 +266,9 @@ sub unicode_accent($$)
   # what is going on for that character.
   if ($accent eq 'dotless') {
     if ($unicode_accented_letters{$accent}->{$text}
-        and (!$command->{'parent'}
-             or !$command->{'parent'}->{'parent'}
-             or !$command->{'parent'}->{'parent'}->{'cmdname'}
-             or !$unicode_diacritics{$command->{'parent'}
-                                        ->{'parent'}->{'cmdname'}})) {
+        and ($index_in_stack == 0
+             or !$unicode_diacritics{$accents_stack->[$index_in_stack -1]
+                                                       ->{'cmdname'}})) {
       return chr(hex($unicode_accented_letters{$accent}->{$text}));
     } else {
       return $text;
@@ -349,7 +346,8 @@ sub _format_unicode_accents_stack($$$$;$) {
 
   for (; $i >= 0; $i--) {
     my $accent_command = $stack->[$i];
-    my $formatted_result = unicode_accent($result, $accent_command);
+    my $formatted_result
+      = unicode_accent($result, $accent_command, $i, $stack);
     last if (!defined($formatted_result));
 
     $result = $formatted_result;
@@ -395,7 +393,7 @@ sub _format_eight_bit_accents_stack($$$$$;$) {
   for (; $i >= 0; $i--) {
     my $accent_command = $stack->[$i];
     my $unicode_formatted
-      = unicode_accent($results_stack[$i+1], $accent_command);
+      = unicode_accent($results_stack[$i+1], $accent_command, $i, $stack);
     if (!defined($unicode_formatted)) {
       # decrease a last time as if the loop had been gone through
       $i--;
@@ -688,8 +686,6 @@ Texinfo::Convert::Unicode - Representation as Unicode characters
                  convert_to_text($contents_element), $stack, $encoding,
                         \&Texinfo::Text::ascii_accent_fallback);
 
-  my $accent_text = unicode_accent('e', $accent_command);
-
 =head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
@@ -762,13 +758,14 @@ Return the string width, taking into account the fact that some characters
 have a zero width (like composing accents) while some have a width of 2
 (most chinese characters, for example).
 
-=item $result = unicode_accent($text, $accent_command)
+=item $result = unicode_accent($text, $accent_command, $index_in_stack, $accents_stack)
 X<C<unicode_accent>>
 
 I<$text> is the text appearing within an accent command.  I<$accent_command>
 should be a Texinfo tree element corresponding to an accent command taking
-an argument.  The function returns the Unicode representation of the accented
-character.
+an argument.  I<$index_in_stack> is the position in the I<$accents_stack>
+of the accent command being converted.  The function returns the Unicode
+representation of the accented character.
 
 =item $is_decoded = unicode_point_decoded_in_encoding($encoding, $unicode_point)
 X<C<unicode_point_decoded_in_encoding>>

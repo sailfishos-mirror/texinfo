@@ -135,7 +135,8 @@ normalize_NFKD (const char *text)
 }
 
 char *
-unicode_accent (const char *text, const ELEMENT *e)
+unicode_accent (const char *text, const ELEMENT *e, int index_in_stack,
+                const ELEMENT_STACK *stack)
 {
   char *result = 0;
 
@@ -149,10 +150,9 @@ unicode_accent (const char *text, const ELEMENT *e)
 
   if (e->e.c->cmd == CM_dotless)
     {
-      if (!e->e.c->parent || !e->e.c->parent->e.c->parent
-          || !e->e.c->parent->e.c->parent->e.c->cmd
+      if (index_in_stack == 0
           || !unicode_diacritics[element_builtin_cmd (
-                                e->e.c->parent->e.c->parent)].text)
+                                stack->stack[index_in_stack-1])].text)
         {
           if (!strcmp (text, "i"))
             /* dotless i in UTF-8 */
@@ -252,8 +252,8 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
   for (i = stack_nr -1; i >= 0; i--)
     {
       const ELEMENT *accent_command = stack->stack[i];
-      results_stack[i] = unicode_accent (results_stack[i+1],
-                                         accent_command);
+      results_stack[i] = unicode_accent (results_stack[i+1], accent_command,
+                                         i, stack);
       if (!results_stack[i])
         {
           /* decrease a last time as if the loop had been gone through */
@@ -382,7 +382,8 @@ format_unicode_accents_stack_internal (CONVERTER *self, const char *text,
   for (i = stack->top - 1; i >= 0; i--)
     {
       const ELEMENT *accent_command = stack->stack[i];
-      char *formatted_result = unicode_accent (result, accent_command);
+      char *formatted_result = unicode_accent (result, accent_command,
+                                               i, stack);
       if (formatted_result)
         {
           free (result);

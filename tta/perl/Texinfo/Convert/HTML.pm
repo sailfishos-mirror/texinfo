@@ -3909,14 +3909,12 @@ sub _accent_entities_html_accent($$$;$$$$) {
   # do not return a dotless i or j as such if it is further composed
   # with an accented letter, return the letter as is
   if ($accent eq 'dotless') {
-    if ($Texinfo::UnicodeData::unicode_accented_letters{$accent}
+    if (exists($Texinfo::UnicodeData::unicode_accented_letters{$accent})
         and exists($Texinfo::UnicodeData::unicode_accented_letters{
                                                              $accent}->{$text})
-        and ($command->{'parent'}
-             and $command->{'parent'}->{'parent'}
-             and $command->{'parent'}->{'parent'}->{'cmdname'}
+        and ($index_in_stack > 0
              and $Texinfo::UnicodeData::unicode_accented_letters{
-                   $command->{'parent'}->{'parent'}->{'cmdname'} })) {
+                   $accents_stack->[$index_in_stack-1]->{'cmdname'} })) {
       return $text;
     }
   }

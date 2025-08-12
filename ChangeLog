@@ -1,5 +1,22 @@
 2025-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/unicode.c (unicode_accent),
+	tta/perl/Texinfo/Convert/Unicode.pm (unicode_accent),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_tree_element_unicode_accent): add index in
+	accent stack and accent stack as arguments.  Update callers.
+
+	* tta/perl/Texinfo/Convert/Unicode.pm (unicode_accent),
+	tta/C/main/unicode.c (unicode_accent),
+	tta/perl/Texinfo/Convert/Converter.pm (xml_accent),
+	tta/perl/Texinfo/Convert/HTML.pm (_accent_entities_html_accent),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_tree_element_unicode_accent, _tree_element_xml_accent): use position
+	in accent stack instead of parent information to determine if
+	dotless could be composed with the parent accent command.
+
+2025-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_utils.c, tta/C/main/utils.c
 	(find_innermost_accent_contents), tta/perl/Texinfo/Common.pm
 	(find_innermost_accent_contents), tta/perl/Texinfo/Convert/Utils.pm:

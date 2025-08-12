@@ -103,7 +103,6 @@ int unicode_point_decoded_in_encoding (const char *encoding,
 
 char *normalize_NFC (const char *text);
 char *normalize_NFKD (const char *text);
-char *unicode_accent (const char *text, const ELEMENT *e);
 
 char *encoded_accents (CONVERTER *self, const char *text,
   const ELEMENT_STACK *stack, const char *encoding,
