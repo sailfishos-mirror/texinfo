@@ -106,6 +106,7 @@ foreach my $type (
 sub convert_to_identifier($)
 {
   my $root = shift;
+
   my $result = _convert($root);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected($result);
@@ -113,11 +114,9 @@ sub convert_to_identifier($)
   return $result;
 }
 
-sub normalize_transliterate_texinfo($;$$)
-{
-  my $root = shift;
-  my $in_test = shift;
-  my $no_unidecode = shift;
+sub normalize_transliterate_texinfo($;$$) {
+  my ($root, $in_test, $no_unidecode) = @_;
+
   my $result = _convert($root);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected(
@@ -125,11 +124,9 @@ sub normalize_transliterate_texinfo($;$$)
   return $result;
 }
 
-sub transliterate_texinfo($;$$)
-{
-  my $root = shift;
-  my $in_test = shift;
-  my $no_unidecode = shift;
+sub transliterate_texinfo($;$$) {
+  my ($root, $in_test, $no_unidecode) = @_;
+
   my $result = _convert($root);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_transliterate($result, $in_test, $no_unidecode);
@@ -138,9 +135,8 @@ sub transliterate_texinfo($;$$)
 
 sub transliterate_protect_file_name($;$$)
 {
-  my $input_text = shift;
-  my $in_test = shift;
-  my $no_unidecode = shift;
+  my ($input_text, $in_test, $no_unidecode) = @_;
+
   my $result = Unicode::Normalize::NFC($input_text);
   $result = _unicode_to_file_name(
                 _unicode_to_transliterate($result, $in_test, $no_unidecode));
@@ -150,12 +146,14 @@ sub transliterate_protect_file_name($;$$)
 sub convert_to_normalized($)
 {
   my $root = shift;
+
   my $result = _convert($root);
 }
 
 sub _protect_unicode_char($)
 {
   my $char = shift;
+
   if (exists($Texinfo::UnicodeData::unicode_simple_character_map{$char})) {
     return '_' . lc($Texinfo::UnicodeData::unicode_simple_character_map{$char});
   } else {
@@ -170,6 +168,7 @@ sub _protect_unicode_char($)
 sub _unicode_to_protected($)
 {
   my $text = shift;
+
   my $result = '';
   while ($text ne '') {
     if ($text =~ s/^([A-Za-z0-9]+)//) {
@@ -192,6 +191,7 @@ sub _unicode_to_protected($)
 sub _unicode_to_file_name($)
 {
   my $text = shift;
+
   my $result = '';
   while ($text ne '') {
     if ($text =~ s/^([A-Za-z0-9_\.\-]+)//) {
@@ -212,9 +212,8 @@ sub _unicode_to_file_name($)
 
 sub _unicode_to_transliterate($;$$)
 {
-  my $text = shift;
-  my $in_test = shift;
-  my $no_unidecode = shift;
+  my ($text, $in_test, $no_unidecode) = @_;
+
   if (chomp($text)) {
      warn "Bug: end of line to transliterate: $text\n";
   }
@@ -286,30 +285,31 @@ sub _convert($)
 {
   my $element = shift;
 
-  if (defined($element->{'text'})) {
-    return ''
-      if ($element->{'type'} and $ignored_text_types{$element->{'type'}});
+  if (exists($element->{'text'})) {
+    return '' if (exists($element->{'type'})
+                  and $ignored_text_types{$element->{'type'}});
     my $result = $element->{'text'};
     $result =~ s/\s+/ /g;
     return $result;
   }
 
-  return '' if (($element->{'type'} and $ignored_types{$element->{'type'}})
-          or ($element->{'cmdname'}
+  return '' if ((exists($element->{'type'})
+                 and $ignored_types{$element->{'type'}})
+          or (exists($element->{'cmdname'})
              and ($ignored_brace_commands{$element->{'cmdname'}}
                  # here ignore the 'regular' line commands
-                 or ($element->{'contents'} and $element->{'contents'}->[0]
-                     and $element->{'contents'}->[0]->{'type'}
+                 or (exists($element->{'contents'})
+                     and exists($element->{'contents'}->[0]->{'type'})
                      and $element->{'contents'}->[0]->{'type'} eq 'line_arg')
                  # here ignore the root-level line commands, @node and
                  # sectioning commands
-                 or ($element->{'contents'}
-                     and $element->{'contents'}->[0]->{'type'}
-                     and $element->{'contents'}->[0]->{'type'} eq 'arguments_line'
-                     and $element->{'contents'}->[0]->{'contents'}
-             and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'}
-   and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'} eq 'line_arg'))));
-  if ($element->{'cmdname'}) {
+                 or (exists($element->{'contents'})
+                     and exists($element->{'contents'}->[0]->{'type'})
+                   and $element->{'contents'}->[0]->{'type'} eq 'arguments_line'
+                   and exists($element->{'contents'}->[0]->{'contents'})
+           and exists($element->{'contents'}->[0]->{'contents'}->[0]->{'type'})
+ and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'} eq 'line_arg'))));
+  if (exists($element->{'cmdname'})) {
     my $cmdname = $element->{'cmdname'};
     if (defined($normalize_node_nobrace_symbol_text{$cmdname})) {
       return $normalize_node_nobrace_symbol_text{$cmdname};
@@ -318,7 +318,7 @@ sub _convert($)
       return $result;
     # commands with braces
     } elsif ($accent_commands{$cmdname}) {
-      return '' if (!$element->{'contents'});
+      return '' if (!exists($element->{'contents'}));
       my $accent_text = _convert($element->{'contents'}->[0]);
       my $accented_char
         = Texinfo::Convert::Unicode::unicode_accent($accent_text,
@@ -330,6 +330,7 @@ sub _convert($)
       }
       return $accented_char;
     } elsif ($Texinfo::Commands::ref_commands{$cmdname}) {
+      return '' if (!exists($element->{'contents'}));
       my @args_try_order;
       if ($cmdname eq 'inforef' or $cmdname eq 'link') {
         @args_try_order = (0, 1, 2);
@@ -345,16 +346,16 @@ sub _convert($)
       return '';
     # Here all the commands with args are processed, if they have
     # more than one arg the first one is used.
-    } elsif ($element->{'contents'} and $element->{'contents'}->[0]
-           and (($element->{'contents'}->[0]->{'type'}
+    } elsif (exists($element->{'contents'})
+           and ((exists($element->{'contents'}->[0]->{'type'})
                  and ($element->{'contents'}->[0]->{'type'} eq 'brace_container'
-             or $element->{'contents'}->[0]->{'type'} eq 'brace_arg'))
+                      or $element->{'contents'}->[0]->{'type'} eq 'brace_arg'))
                 or $cmdname eq 'math')) {
       return _convert($element->{'contents'}->[0]);
     }
   }
   my $result = '';
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     foreach my $content (@{$element->{'contents'}}) {
       $result .= _convert($content);
     }

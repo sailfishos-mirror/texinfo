@@ -1,5 +1,13 @@
 2025-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/NodeNameNormalization.pm: change formatting
+	of functions call code.
+
+	* tta/perl/Texinfo/Convert/NodeNameNormalization.pm: use exists or
+	defined in conditions when the value is not used.
+
+2025-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm (convert_accents),
 	tta/perl/Texinfo/Convert/TreeElementConverter.pm
 	(_tree_element_format_unicode_accents_stack)
