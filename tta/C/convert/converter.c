@@ -1424,6 +1424,7 @@ char *
 convert_accents (CONVERTER *self, const ELEMENT *accent,
  char *(*convert_tree)(CONVERTER *self, const ELEMENT *tree),
  char *(*format_accent)(CONVERTER *self, const char *text, const ELEMENT *element,
+                        int index_in_stack, const ELEMENT_STACK *stack,
                         int set_case),
   int output_encoded_characters,
   int set_case)
@@ -1460,7 +1461,7 @@ convert_accents (CONVERTER *self, const ELEMENT *accent,
     {
       const ELEMENT *accent_command = stack->stack[i];
       char *formatted_accent = (*format_accent) (self, result, accent_command,
-                                                 set_case);
+                                                 i, stack, set_case);
       free (result);
       result = formatted_accent;
     }

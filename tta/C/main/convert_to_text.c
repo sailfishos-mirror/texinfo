@@ -244,7 +244,8 @@ text_set_language (TEXT_OPTIONS *text_options, const char *lang)
    calling prototype in accent formatting commands */
 static char *
 ascii_accent (CONVERTER *self, const char *text,
-              const ELEMENT *command, int set_case)
+              const ELEMENT *command, int index_in_stack,
+              const ELEMENT_STACK *stack, int set_case)
 {
   const enum command_id cmd = command->e.c->cmd;
   TEXT accent_text;
@@ -296,7 +297,7 @@ ascii_accents_internal (const char *text, const ELEMENT_STACK *stack,
   for (i = stack->top - 1; i >= 0; i--)
     {
       const ELEMENT *accent_command = stack->stack[i];
-      char *formatted_accent = ascii_accent (0, result, accent_command,
+      char *formatted_accent = ascii_accent (0, result, accent_command, 0, 0,
                                              set_case);
       free (result);
       result = formatted_accent;

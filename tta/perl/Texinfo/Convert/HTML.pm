@@ -3896,13 +3896,10 @@ sub _convert_math_command($$$$)
 
 $default_commands_conversion{'math'} = \&_convert_math_command;
 
-sub _accent_entities_html_accent($$$;$$$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
-  my $use_numeric_entities = shift;
+sub _accent_entities_html_accent($$$;$$$$) {
+  my ($self, $text, $command, $index_in_stack, $accents_stack,
+      $in_upper_case, $use_numeric_entities) = @_;
+
   my $accent = $command->{'cmdname'};
 
   if ($in_upper_case and $text =~ /^\w$/) {
@@ -3952,18 +3949,14 @@ sub _accent_entities_html_accent($$$;$$$)
   # should only be the case of @dotless, as other commands have a diacritic
   # associated, and only if the argument is not i nor j.
   return $text;
-  #return $self->xml_accent($text, $command, $in_upper_case,
-  #                         $use_numeric_entities);
 }
 
-sub _accent_entities_numeric_entities_accent($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
+sub _accent_entities_numeric_entities_accent($$$;$$$) {
+  my ($self, $text, $command, $index_in_stack, $accents_stack,
+      $in_upper_case) = @_;
 
-  return _accent_entities_html_accent($self, $text, $command, $in_upper_case, 1);
+  return _accent_entities_html_accent($self, $text, $command, $index_in_stack,
+                                      $accents_stack, $in_upper_case, 1);
 }
 
 sub _convert_accent_command($$$$)
@@ -3988,12 +3981,9 @@ foreach my $command (keys(%accent_commands)) {
   $default_commands_conversion{$command} = \&_convert_accent_command;
 }
 
-sub _css_string_accent($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
+sub _css_string_accent($$$;$$$) {
+  my ($self, $text, $command, $index_in_stack, $accents_stack,
+      $in_upper_case) = @_;
 
   my $accent = $command->{'cmdname'};
 

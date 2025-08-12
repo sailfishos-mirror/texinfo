@@ -233,7 +233,8 @@ char *
 format_eight_bit_accents_stack (CONVERTER *self, const char *text,
                       const ELEMENT_STACK *stack, int encoding_index,
   char *(*format_accent)(CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case),
+                         const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case),
   int set_case)
 {
   int i, j, k;
@@ -255,6 +256,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
                                          accent_command);
       if (!results_stack[i])
         {
+          /* decrease a last time as if the loop had been gone through */
           i--;
           break;
         }
@@ -352,7 +354,7 @@ format_eight_bit_accents_stack (CONVERTER *self, const char *text,
     {
       const ELEMENT *accent_command = stack->stack[j];
       char *formatted_result
-          = (*format_accent) (self, result, accent_command, set_case);
+          = (*format_accent) (self, result, accent_command, i, stack, set_case);
       free (result);
       result = formatted_result;
     }
@@ -370,7 +372,8 @@ char *
 format_unicode_accents_stack_internal (CONVERTER *self, const char *text,
   const ELEMENT_STACK *stack,
   char *(*format_accent)(CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case),
+                         const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case),
   int set_case)
 {
   int i;
@@ -400,7 +403,7 @@ format_unicode_accents_stack_internal (CONVERTER *self, const char *text,
     {
       const ELEMENT *accent_command = stack->stack[i];
       char *formatted_result
-          = (*format_accent) (self, result, accent_command, set_case);
+          = (*format_accent) (self, result, accent_command, i, stack, set_case);
       free (result);
       result = formatted_result;
     }
@@ -411,7 +414,8 @@ char *
 encoded_accents (CONVERTER *self, const char *text, const ELEMENT_STACK *stack,
   const char *encoding,
   char *(*format_accent)(CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case),
+                         const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case),
   int set_case)
 {
   if (encoding)

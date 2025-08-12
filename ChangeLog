@@ -1,5 +1,29 @@
 2025-08-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (convert_accents),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_tree_element_format_unicode_accents_stack)
+	(_tree_element_format_eight_bit_accents_stack)
+	(tree_element_convert_accents), tta/perl/Texinfo/Convert/Unicode.pm
+	(_format_unicode_accents_stack, _format_eight_bit_accents_stack):
+	change the implementation to be more like C code implementation.
+
+	* tta/C/convert/converter.c (convert_accents),
+	tta/C/main/convert_to_text.c (ascii_accents_internal),
+	tta/C/main/unicode.c (format_eight_bit_accents_stack)
+	(format_unicode_accents_stack_internal),
+	tta/perl/Texinfo/Convert/Converter.pm (convert_accents),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/Convert/TreeElementConverter.pm
+	(_tree_element_format_unicode_accents_stack)
+	(_tree_element_format_eight_bit_accents_stack)
+	(tree_element_convert_accents), tta/perl/Texinfo/Convert/Unicode.pm
+	(_format_unicode_accents_stack, _format_eight_bit_accents_stack): pass
+	accent stack and position in stack to accent formatting functions.
+	Update calls and prototypes.
+
+2025-08-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_prepare_converter.c (html_format_setup),
 	tta/perl/Texinfo/Convert/HTML.pm (%html_default_commands_args): no
 	argument formatting for accent commands.

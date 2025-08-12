@@ -1742,13 +1742,9 @@ sub table_item_content_tree_noxs($$)
   return undef;
 }
 
-sub convert_accents($$$;$$)
-{
-  my $self = shift;
-  my $accent = shift;
-  my $format_accents = shift;
-  my $output_encoded_characters = shift;
-  my $in_upper_case = shift;
+sub convert_accents($$$;$$) {
+  my ($self, $accent, $format_accents, $output_encoded_characters,
+      $in_upper_case) = @_;
 
   my ($contents_element, $stack)
     = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
@@ -1768,9 +1764,10 @@ sub convert_accents($$$;$$)
     }
   }
   my $result = $arg_text;
-  foreach my $accent_command (reverse(@$stack)) {
-    $result = &$format_accents ($self, $result, $accent_command,
-                                $in_upper_case);
+  for (my $i = scalar(@$stack) -1; $i >= 0; $i--) {
+    my $accent_command = $stack->[$i];
+    $result = &$format_accents($self, $result, $accent_command, $i,
+                               $stack, $in_upper_case);
   }
   return $result;
 }
@@ -2092,13 +2089,10 @@ sub xml_numeric_entity_accent($$)
   return undef;
 }
 
-sub xml_accent($$$;$$$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
-  my $use_numeric_entities = shift;
+sub xml_accent($$$;$$$$) {
+  my ($self, $text, $command, $index_in_stack, $accents_stack,
+      $in_upper_case, $use_numeric_entities) = @_;
+
   my $accent = $command->{'cmdname'};
 
   if ($in_upper_case and $text =~ /^\w$/) {
@@ -2140,14 +2134,12 @@ sub xml_accent($$$;$$$)
   return $text;
 }
 
-sub _xml_numeric_entities_accent($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
+sub _xml_numeric_entities_accent($$$;$$$) {
+  my ($self, $text, $command, $index_in_stack, $accents_stack,
+      $in_upper_case) = @_;
 
-  return xml_accent($self, $text, $command, $in_upper_case, 1);
+  return xml_accent($self, $text, $command, $index_in_stack,
+                    $accents_stack, $in_upper_case, 1);
 }
 
 sub xml_accents($$;$)
@@ -2656,12 +2648,17 @@ X<C<xml_comment>>
 
 Returns an XML comment for I<$text>.
 
-=item $result = xml_accent($text, $accent_command, $in_upper_case, $use_numeric_entities)
+=item $result = xml_accent($self, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case, $use_numeric_entities)
 X<C<xml_accent>>
 
+I<$self> is an object, in general a converter.
 I<$text> is the text appearing within an accent command.  I<$accent_command>
 should be a Texinfo tree element corresponding to an accent command taking
-an argument.  I<$in_upper_case> is optional, and, if set, the text is put
+an argument.  I<$index_in_stack> is the position in the I<$accents_stack>
+of the accent command being converted.  It is optional, but if not present
+the formatting cannot take into account the position of the accent in
+the current accents group being converted.
+I<$in_upper_case> is optional, and, if set, the text is put
 in upper case.  The function returns the accented letter as XML named entity
 if possible, falling back to numeric entities if there is no named entity
 and returns the argument as last resort.  I<$use_numeric_entities>

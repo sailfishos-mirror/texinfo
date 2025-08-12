@@ -350,11 +350,9 @@ sub _ascii_accents($$;$)
 # with calling conventions of fallback accent formatting functions given
 # to Convert::Converter::convert_accents()
 # or Convert::Unicode::encoded_accents()
-sub ascii_accent_fallback($$$)
-{
-  my $converter = shift;
-  my $text = shift;
-  my $command = shift;
+sub ascii_accent_fallback($$$;$$$) {
+my ($converter, $text, $command, $index_in_stack, $accents_stack,
+    $in_upper_case) = @_;
 
   return _ascii_accent($text, $command);
 }
@@ -1338,7 +1336,7 @@ sorting rather than presentation.
 
 =back
 
-=item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command)
+=item $result_accent_text = ascii_accent_fallback($converter, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case $converter)
 X<C<ascii_accent_fallback>>
 
 I<$text> is the text appearing within an accent command.  I<$accent_command>
@@ -1346,7 +1344,9 @@ should be a Texinfo tree element corresponding to an accent command taking
 an argument.  The function returns a transliteration of the accented
 character.  The I<$converter> argument is ignored, but needed for this
 function to be in argument of functions that need a fallback for accents
-conversion.
+conversion.  The remaining arguments are also ignored and similarly
+may be needed for this function to be in argument of functions that need a
+fallback for accents conversion.
 
 =item set_options_code($text_options)
 

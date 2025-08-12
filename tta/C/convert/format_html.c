@@ -6884,7 +6884,8 @@ html_accent_entities_html_accent_internal (CONVERTER *self, const char *text,
 
 char *
 html_accent_entities_html_accent (CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case)
+                         const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case)
 {
   return html_accent_entities_html_accent_internal (self, text,
                                             element, set_case, 0);
@@ -6892,7 +6893,8 @@ html_accent_entities_html_accent (CONVERTER *self, const char *text,
 
 char *
 html_accent_entities_numeric_entities_accent (CONVERTER *self,
-             const char *text, const ELEMENT *element, int set_case)
+             const char *text, const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case)
 {
   return html_accent_entities_html_accent_internal (self, text,
                                             element, set_case, 1);
@@ -6906,7 +6908,8 @@ html_convert_accent_command (CONVERTER *self, const enum command_id cmd,
 {
   char *accent_text;
   char *(*format_accents)(CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case);
+                         const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case);
 
   int output_encoded_characters = (self->conf->OUTPUT_CHARACTERS.o.integer > 0);
 
@@ -6925,7 +6928,8 @@ html_convert_accent_command (CONVERTER *self, const enum command_id cmd,
 
 char *
 css_string_accent (CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case)
+                         const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case)
 {
   char *text_set = set_case_if_only_word_characters (text, set_case);
 
@@ -7104,7 +7108,8 @@ html_css_string_convert_accent_command (CONVERTER *self,
 {
   char *accent_text;
   char *(*format_accents)(CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case);
+                         const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case);
 
   int output_encoded_characters = (self->conf->OUTPUT_CHARACTERS.o.integer > 0);
 

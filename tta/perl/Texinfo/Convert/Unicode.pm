@@ -338,22 +338,18 @@ sub eight_bit_and_unicode_point($$)
 }
 
 # format a stack of accents as unicode
-sub _format_unicode_accents_stack($$$$;$)
-{
-  my $converter = shift;
-  my $inner_text = shift;
-  my $stack = shift;
-  my $format_accent = shift;
-  my $set_case = shift;
+sub _format_unicode_accents_stack($$$$;$) {
+  my ($converter, $inner_text, $stack, $format_accent, $set_case) = @_;
 
   my $result = $inner_text;
+  my $i = scalar(@$stack) -1;
 
-  while (@$stack) {
-    my $formatted_result = unicode_accent($result, $stack->[-1]);
+  for (; $i >= 0; $i--) {
+    my $accent_command = $stack->[$i];
+    my $formatted_result = unicode_accent($result, $accent_command);
     last if (!defined($formatted_result));
 
     $result = $formatted_result;
-    pop @$stack;
   }
   if ($set_case) {
     if ($set_case > 0) {
@@ -362,21 +358,16 @@ sub _format_unicode_accents_stack($$$$;$)
       $result = lc($result);
     }
   }
-  while (@$stack) {
-    my $accent_command = pop @$stack;
-    $result = &$format_accent($converter, $result, $accent_command, $set_case);
+  for (; $i >= 0; $i--) {
+    my $accent_command = $stack->[$i];
+    $result = &$format_accent($converter, $result, $accent_command, $i,
+                              $stack, $set_case);
   }
   return $result;
 }
 
-sub _format_eight_bit_accents_stack($$$$$;$)
-{
-  my $converter = shift;
-  my $text = shift;
-  my $stack = shift;
-  my $encoding = shift;
-  my $convert_accent = shift;
-  my $set_case = shift;
+sub _format_eight_bit_accents_stack($$$$$;$) {
+  my ($converter, $text, $stack, $encoding, $convert_accent, $set_case) = @_;
 
   my $result = $text;
 
@@ -391,35 +382,45 @@ sub _format_eight_bit_accents_stack($$$$$;$)
   # that we can return the maximum of multiaccented letters that can be
   # rendered with a given eight bit formatting.  undef is stored when
   # there is no corresponding unicode anymore.
-  my $unicode_formatted = $text;
-  my @results_stack = ([$unicode_formatted, undef]);
+  my @results_stack;
+  # we could have used a smaller array here and different code, but
+  # we prefer following the same approach as in C to ease debugging.
+  # Start from the top with the text inside the deepest accent command.
+  $results_stack[scalar(@$stack)] = $text;
+  my $i = scalar(@$stack) -1;
 
-  while (@$stack) {
-    if (defined($unicode_formatted)) {
-      $unicode_formatted
-         = unicode_accent($unicode_formatted, $stack->[-1]);
-      if (defined($unicode_formatted) and $set_case) {
-        if ($set_case > 0) {
-          $unicode_formatted = uc($unicode_formatted);
-        } else {
-          $unicode_formatted = lc($unicode_formatted);
-        }
+  for (; $i >= 0; $i--) {
+    my $accent_command = $stack->[$i];
+    my $unicode_formatted
+      = unicode_accent($results_stack[$i+1], $accent_command);
+    if (!defined($unicode_formatted)) {
+      # decrease a last time as if the loop had been gone through
+      $i--;
+      last;
+    } elsif ($set_case) {
+      if ($set_case > 0) {
+        $unicode_formatted = uc($unicode_formatted);
+      } else {
+        $unicode_formatted = lc($unicode_formatted);
       }
     }
-    push @results_stack, [$unicode_formatted, $stack->[-1]];
-    pop @$stack;
+    $results_stack[$i] = $unicode_formatted;
   }
+  # undo the last decrease of $i
+  $i++;
 
   if ($debug) {
     print STDERR "PARTIAL_RESULTS_STACK:\n";
-    foreach my $partial_result (@results_stack) {
-      my $command = 'TEXT';
-      $command = $partial_result->[1]->{'cmdname'} if ($partial_result->[1]);
-      if (defined($partial_result->[0])) {
-        print STDERR "   -> ".Encode::encode('utf-8', $partial_result->[0])
-                            ."|$command\n";
+    for (my $p = scalar(@$stack); $p >= 0; $p--) {
+      my $cmdname = 'TEXT';
+      if ($p < scalar(@$stack)) {
+        $cmdname = $stack->[$p]->{'cmdname'};
+      }
+      if (defined($results_stack[$p])) {
+        print STDERR "   -> ".Encode::encode('utf-8', $results_stack[$p])
+                            ."|$cmdname\n";
       } else {
-        print STDERR "   -> NO accented character |$command\n";
+        print STDERR "   -> NO accented character |$cmdname\n";
       }
     }
   }
@@ -432,17 +433,19 @@ sub _format_eight_bit_accents_stack($$$$$;$)
 
   my $prev_eight_bit = '';
 
-  while (@results_stack) {
-    my $char = $results_stack[0]->[0];
+  my $j = scalar(@$stack);
+  for (; $j >= $i; $j--) {
+    my $char = $results_stack[$j];
     last if (!defined($char));
 
     my ($new_eight_bit, $codepoint)
       = eight_bit_and_unicode_point($char, $encoding);
     if ($debug) {
-      my $command = 'TEXT';
-      $command = $results_stack[0]->[1]->{'cmdname'}
-        if ($results_stack[0]->[1]);
-      print STDERR "" . Encode::encode('utf-8', $char) . " ($command) "
+      my $cmdname = 'TEXT';
+      if ($j < scalar(@$stack)) {
+        $cmdname = $stack->[$j]->{'cmdname'};
+      }
+      print STDERR "" . Encode::encode('utf-8', $char) . " ($cmdname) "
         . "codepoint: $codepoint "
         ."8bit: ". (defined($new_eight_bit) ? $new_eight_bit : 'UNDEF')
         . " prev: $prev_eight_bit\n";
@@ -469,22 +472,19 @@ sub _format_eight_bit_accents_stack($$$$$;$)
     #    @ubaraccent{a} since there is no composed accent with a and an
     #    underbar.
     last if ($new_eight_bit eq $prev_eight_bit
-             and !($results_stack[0]->[1]->{'cmdname'} eq 'dotless'
+             and !($stack->[$j]->{'cmdname'} eq 'dotless'
                    and $char eq 'i'));
-    $result = $results_stack[0]->[0];
+    $result = $results_stack[$j];
     $prev_eight_bit = $new_eight_bit;
-    shift @results_stack;
   }
 
   # handle the remaining accents, that have not been converted to 8bit
   # compatible unicode
-  shift @results_stack if (scalar(@results_stack)
-                           and !defined($results_stack[0]->[1]));
-  while (@results_stack) {
+  for (; $j >= 0; $j--) {
+    my $accent_command = $stack->[$j];
     $result = &$convert_accent($converter, $result,
-                               $results_stack[0]->[1],
+                               $accent_command, $j, $stack,
                                $set_case);
-    shift @results_stack;
   }
 
   # An important remark is that the final conversion to 8bit is left to
@@ -492,14 +492,8 @@ sub _format_eight_bit_accents_stack($$$$$;$)
   return $result;
 }
 
-sub encoded_accents($$$$$;$)
-{
-  my $converter = shift;
-  my $text = shift;
-  my $stack = shift;
-  my $encoding = shift;
-  my $format_accent = shift;
-  my $set_case = shift;
+sub encoded_accents($$$$$;$) {
+  my ($converter, $text, $stack, $encoding, $format_accent, $set_case) = @_;
 
   if ($encoding) {
     # in case an encoding is directly specified with -c OUTPUT_ENCODING_NAME
@@ -509,10 +503,11 @@ sub encoded_accents($$$$$;$)
     $encoding = lc($encoding);
     if ($encoding eq 'utf-8') {
       return _format_unicode_accents_stack($converter, $text, $stack,
-                                            $format_accent, $set_case);
+                                           $format_accent, $set_case);
     } elsif ($unicode_to_eight_bit{$encoding}) {
-      return _format_eight_bit_accents_stack($converter, $text, $stack, $encoding,
-                               $format_accent, $set_case);
+      return _format_eight_bit_accents_stack($converter, $text, $stack,
+                                             $encoding,
+                                             $format_accent, $set_case);
     }
   }
   return undef;

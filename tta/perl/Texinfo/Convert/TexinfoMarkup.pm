@@ -405,13 +405,10 @@ sub _infoenclose_attribute($$) {
   return @attribute;
 }
 
-sub _accent($$;$$$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $element = shift;
-  my $in_upper_case = shift;
-  my $attributes = shift;
+sub _accent($$$;$$$$) {
+  my ($self, $text, $element, $index_in_stack, $accents_stack,
+      $in_upper_case, $attributes) = @_;
+
   $attributes = [] if (!defined($attributes));
 
   unshift @$attributes, ['type', $accent_types{$element->{'cmdname'}}];
@@ -741,12 +738,12 @@ sub _convert($$;$)
       } else {
         my $attributes = [];
         my $arg;
-        if (!$element->{'contents'}) {
+        if (!exists($element->{'contents'})) {
           $arg = '';
         } else {
           $arg = $self->_convert($element->{'contents'}->[0]);
-          if ($element->{'info'}
-              and $element->{'info'}->{'spaces_after_cmd_before_arg'}) {
+          if (exists($element->{'info'})
+              and exists($element->{'info'}->{'spaces_after_cmd_before_arg'})) {
             push @$attributes, ['spacesaftercmd',
                $element->{'info'}->{'spaces_after_cmd_before_arg'}->{'text'}];
           }
@@ -755,7 +752,8 @@ sub _convert($$;$)
             push @$attributes, ['bracketed', 'off'];
           }
         }
-        return $self->_accent($arg, $element, undef, $attributes);
+        return $self->_accent($arg, $element, undef, undef, undef,
+                              $attributes);
       }
     } elsif ($cmdname eq 'item'
              or $cmdname eq 'itemx'

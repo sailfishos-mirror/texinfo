@@ -108,7 +108,8 @@ char *unicode_accent (const char *text, const ELEMENT *e);
 char *encoded_accents (CONVERTER *self, const char *text,
   const ELEMENT_STACK *stack, const char *encoding,
   char *(*format_accent)(CONVERTER *self, const char *text,
-                         const ELEMENT *element, int set_case),
+                         const ELEMENT *element, int index_in_stack,
+                         const ELEMENT_STACK *stack, int set_case),
   int set_case);
 const char *unicode_brace_no_arg_command (enum command_id cmd,
                                           const char *encoding);
