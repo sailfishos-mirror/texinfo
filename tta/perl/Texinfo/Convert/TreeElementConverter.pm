@@ -1570,57 +1570,12 @@ sub tree_element_convert_accents($$$;$$) {
   return $result;
 }
 
-# same as in Texinfo::Convert::Converter, but using TreeElement interface
-sub _tree_element_xml_accent($$$;$$$$) {
-  my ($self, $text, $command, $index_in_stack, $accents_stack,
-      $in_upper_case, $use_numeric_entities) = @_;
-
-  my $accent = $command->{'cmdname'};
-
-  if ($in_upper_case and $text =~ /^\w$/) {
-    $text = uc($text);
-  }
-
-  # do not return a dotless i or j as such if it is further composed
-  # with an accented letter, return the letter as is
-  if ($accent eq 'dotless'
-      and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent})
-      and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})
-      and ($index_in_stack > 0
-           and $Texinfo::UnicodeData::unicode_accented_letters{
-                     $accents_stack->[$index_in_stack-1]->{'cmdname'}})) {
-    return $text;
-  }
-
-  if ($use_numeric_entities) {
-    my $formatted_accent
-      = Texinfo::Convert::Converter::xml_numeric_entity_accent($accent, $text);
-    if (defined($formatted_accent)) {
-      return $formatted_accent;
-    }
-  } else {
-    return "&${text}$xml_accent_entities{$accent};"
-      if (defined($xml_accent_entities{$accent})
-          and defined($xml_accent_text_with_entities{$accent})
-          and ($text =~ /^[$xml_accent_text_with_entities{$accent}]$/));
-    my $formatted_accent
-      = Texinfo::Convert::Converter::xml_numeric_entity_accent($accent, $text);
-    if (defined($formatted_accent)) {
-      return $formatted_accent;
-    }
-  }
-
-  # There are diacritics for every accent command except for dotless.
-  # We should only get there with dotless if the argument is not recognized.
-  return $text;
-}
-
-# same as in Texinfo::Convert::Converter, but using TreeElement interface
+# same as in Texinfo::Convert::Converter
 sub _tree_element_xml_numeric_entities_accent($$$;$$$) {
   my ($self, $text, $command, $index_in_stack, $accents_stack,
       $in_upper_case) = @_;
 
-  return _tree_element_xml_accent($self, $text, $command, $index_in_stack,
+  return $self->xml_accent($self, $text, $command, $index_in_stack,
                                   $accents_stack, $in_upper_case, 1);
 }
 
@@ -1635,7 +1590,7 @@ sub tree_element_xml_accents($$;$)
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {
     $format_accents = \&_tree_element_xml_numeric_entities_accent;
   } else {
-    $format_accents = \&_tree_element_xml_accent;
+    $format_accents = \&Texinfo::Convert::xml_accent;
   }
 
   return $self->tree_element_convert_accents($accent, $format_accents,
