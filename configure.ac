@@ -103,6 +103,9 @@ AC_SUBST([TI_AWK], [$ac_cv_path_TI_AWK])
 # for generating texindex.awk
 AM_MISSING_PROG(GAWK, gawk)
 
+# For other uses of awk (info hooks)
+AC_PROG_AWK
+
 # Checks for programs.
 AC_PROG_CC
 
