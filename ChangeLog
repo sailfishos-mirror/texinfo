@@ -1,5 +1,10 @@
 2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Installing Dir Entries):
+	Say a bit more about why you would have multiple @direntry's.
+
+2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info-hooks-default/manual-not-found.in:
 	Check for variables set in data file and use them for the URL
 	locations.

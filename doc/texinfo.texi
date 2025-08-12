@@ -16877,15 +16877,27 @@ When you install an Info file onto your system, you can use the program
 Normally the makefile for the package runs @code{install-info}, just
 after copying the Info file into its proper installed location.
 
-
 @findex direntry
 In order for the Info file to work with @code{install-info}, you include
 the commands @code{@@dircategory} and
 @code{@@direntry}@dots{}@code{@@end direntry} in the Texinfo source
-file.  Use @code{@@direntry} to specify the menu entries to add to the
-Info directory file.  Use @code{@@dircategory} to specify a category
+file.
+
+@cindex Invoking nodes, including in dir file
+Use @code{@@dircategory} to specify a category
 for the manual, which determines which part of the Info directory to
-put it in.  @xref{Directory Category}.
+put it in. (@xref{Directory Category}.)
+Use @code{@@direntry} to specify the menu entry, or entries, to add
+to the Info directory file.  Some manuals (such as the manual you are
+reading now, or that of GNU Coreutils; @pxref{Top,,, coreutils, GNU Coreutils})
+will have several entries.
+It is typical to have one dir entry for each program that a package
+installs, usually to the program's `Invoking' node. This lets users
+easily find the documentation for the different programs they can run.
+@c as with the traditional @command{man} system.
+Likewise, a manual for a C library may install a dir entry for each
+function it provides.
+
 
 @c NB this is referenced from node "Directory Category"
 Here is how these commands are used in this manual:
@@ -16932,12 +16944,6 @@ the @samp{--calign}, @samp{--align}, and @samp{--max-width} options in
 If you use @code{@@dircategory} more than once in the Texinfo source,
 each usage specifies the `current' category; any subsequent
 @code{@@direntry} commands will add to that category.
-
-@cindex Invoking nodes, including in dir file
-Each `Invoking' node for every program installed should have a
-corresponding @code{@@direntry}.  This lets users easily find the
-documentation for the different programs they can run, as with the
-traditional @command{man} system.
 
 
 @node Invoking @command{install-info}
