@@ -1,5 +1,10 @@
 2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Hooks): Clarify that argument to
+	hook may not always be the name of a manual.
+
+2025-08-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Installing Dir Entries):
 	Say a bit more about why you would have multiple @direntry's.
 

@@ -2592,7 +2592,7 @@ Currently, Info has the following hook:
 @table @code
 @item manual-not-found [--interactive] @var{manual}
 This hook runs if a manual is not found.  The program is
-passed the name of the manual on the command line.  If run during
+passed the name of the manual or topic on the command line.  If run during
 an interactive Info session (for example, when the user is following
 a cross-reference to a non-existent Info manual), the hook is
 passed the @code{--interactive} argument as the first argument.
@@ -2602,6 +2602,12 @@ If the exit status of the hook is non-zero (perhaps if the hook program
 encountered some problem), Info keeps on running as before,
 exiting with its usual error message if the hook is run at startup time.
 
+If @code{--interactive} is not given, then @var{manual} could be a topic
+that would occur in the dir file, such as the name of a program or
+library function, as well as the name of a Texinfo manual.  For
+example, if Info is run as @samp{info ls} and finds no entry for
+@samp{ls} in the dir file, @var{manual} would have the value @samp{ls}.
+
 When run at startup time, if the hook runs successfully and does not
 print anything on its standard output, Info exits.  The hook should
 print any messages for the user on standard error.
@@ -2610,10 +2616,10 @@ If the hook prints anything to standard output, Info creates a node
 with this output, and displays this node to the user in an interactive
 session.
 
-For example, the following hook script creates a node with a short
-message for the user.  It additionally tries to find a man page, and if
-it succeeds, creates an Info menu allowing the user to navigate to that
-man page from within Info:
+For example, the following shell script is a hook program that creates a
+node with a short message for the user.  It additionally tries to find
+a man page, and if it succeeds, creates an Info menu allowing the user
+to navigate to that man page from within Info:
 
 @example
 #!/bin/sh
