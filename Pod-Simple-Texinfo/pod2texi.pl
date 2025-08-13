@@ -468,6 +468,7 @@ sub _fix_texinfo_manual($$$$;$$)
 sub _do_top_node_menu($)
 {
   my $manual_texi = shift;
+
   my ($texi_parser, $document)
              = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1, 1);
   my $identifier_target = $document->labels_information();

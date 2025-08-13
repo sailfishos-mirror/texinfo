@@ -2376,7 +2376,15 @@ build_document (DOCUMENT *document, int no_store)
   fill_document_hv (hv, document);
 
   if (no_store)
-    destroy_document (document);
+    {
+      /* take ownership of a document reference before having it
+         released by destroy_document, to avoid going through 0 and
+         have a reference to release to the caller.
+       */
+      if (document->hv)
+        SvREFCNT_inc ((SV *) hv);
+      destroy_document (document);
+    }
   else
     {
       hv_store (hv, "document_descriptor", strlen ("document_descriptor"),
