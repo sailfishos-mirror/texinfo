@@ -2363,6 +2363,8 @@ build_document (DOCUMENT *document, int no_store)
     hv = document->hv;
   else
     {
+      /* we go there through parse_texi_line called with no_store set as is
+         the case in Translations.pm */
       /* reference retained in C, unless the document is not stored */
       hv = newHV ();
 
@@ -2377,12 +2379,21 @@ build_document (DOCUMENT *document, int no_store)
 
   if (no_store)
     {
+      if (document->hv)
+   /* This situation happens if a document is built first through
+      parsing Texinfo file or string (as a minimal document) and
+      afterwards build_tree is called with no_store set to 1.  This
+      makes sure that the tree is not associated to C anymore, such
+      that modifications in Perl are not forgotten when a tree
+      unmodified is returned from C.  Pod-Simple-Texinfo is an example
+      where this happens.
+    */
       /* take ownership of a document reference before having it
          released by destroy_document, to avoid going through 0 and
-         have a reference to release to the caller.
+         also to have a reference to release to the caller.
        */
-      if (document->hv)
         SvREFCNT_inc ((SV *) hv);
+
       destroy_document (document);
     }
   else
@@ -2399,6 +2410,10 @@ build_document (DOCUMENT *document, int no_store)
         }
 
       if (!document->hv)
+       /* This situation cannot happen with the current code.  Indeed,
+          the parse_texi* functions lead either to a minimal document
+          being built, with an hv set, or to a Perl only tree, with
+          no_store set (in parse_texi_line only) */
         document->hv = (void *) hv;
 
       /* a new reference returned to keep the reference held in C */

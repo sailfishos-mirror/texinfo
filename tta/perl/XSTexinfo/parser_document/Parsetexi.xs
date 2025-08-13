@@ -154,8 +154,8 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
        /* get hold of errors before calling build_document, as they will be
           destroyed if no_store is set.
 
-          add the errors to the Parser registrar as there is no document
-          returned to get the errors from.
+          add the errors to the Parser as there is no document returned
+          to get the errors from.
         */
             pass_document_parser_errors_to_parser_sv (document,
                                                       parser_sv);
