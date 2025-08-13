@@ -34,6 +34,7 @@ REFERENCE *next_index_match (FILE_BUFFER *fb, char *string,
                              int *found_offset, int *match_offset);
 void report_index_match (int i, int match_offset);
 REFERENCE *look_in_indices (FILE_BUFFER *fb, char *string, int sloppy);
+REFERENCE *index_lookup_from_node (NODE *node, char *string);
 NODE *create_virtual_index (FILE_BUFFER *file_buffer, char *index_search);
 
 #define APROPOS_NONE \

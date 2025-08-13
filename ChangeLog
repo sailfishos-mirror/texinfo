@@ -1,3 +1,11 @@
+2025-08-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Prefer initial node for command-line index lookup
+
+	* info/indices.c (index_lookup_from_node): New function, based on
+	'look_in_indices'.
+	* info/info.c (add_initial_nodes): Call index_lookup_from_node.
+
 2025-08-13 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/build_perl_info.c (build_document): get ownership of the

@@ -567,6 +567,65 @@ look_in_indices (FILE_BUFFER *fb, char *string, int sloppy)
     }
   return nearest;
 }
+
+/* Look for the best match of STRING in the indices of the file
+   containing NODE.
+   This is the same as look_in_indices except an index entry pointing
+   directly to NODE is preferred.  This may make a difference if the
+   search text occurs in multiple index entries.
+
+   TODO: Ideally we would also prefer subnodes via menus for index
+   entries, but this would be more difficult to implement.  We could use
+   logic like in dump_node_to_stream to record all the names of subnodes. */
+REFERENCE *
+index_lookup_from_node (NODE *node, char *string)
+{
+  REFERENCE **index_ptr;
+  REFERENCE *nearest = 0;
+  FILE_BUFFER *fb;
+  fb = info_find_file (node->fullpath);
+  if (!fb)
+    return 0;
+
+  char *node_name = node->nodename;
+
+  /* Remember the search string so we can use it as the default for
+     'virtual-index' or 'next-index-match'. */
+  free (index_search);
+  index_search = xstrdup (string);
+
+  info_indices_of_file_buffer (fb); /* Sets index_index. */
+  if (!index_index)
+    return 0;
+
+  int node_only = 0;
+  for (index_ptr = index_index; *index_ptr; index_ptr++)
+    {
+     if (!strcmp ((*index_ptr)->nodename, node_name))
+        {
+          if (!strcmp (string, (*index_ptr)->label))
+            {
+              nearest = *index_ptr;
+              break;
+            }
+          /* Allow inital matches for index entries in the
+             node only.  This means "-v" will match an index entry
+             like "-v <1>". */
+          if (!memcmp (string, (*index_ptr)->label, strlen (string)))
+            {
+              nearest = *index_ptr;
+              node_only = 1;
+            }
+        }
+      else if (!node_only)
+        {
+          if (!strcmp (string, (*index_ptr)->label))
+            nearest = *index_ptr;
+        }
+    }
+  return nearest;
+}
+
 
 /* **************************************************************** */
 /*                                                                  */

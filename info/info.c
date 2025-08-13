@@ -553,23 +553,21 @@ add_initial_nodes (int argc, char **argv, char **error)
          check for it as an index entry. */
       else if (argc == 1 && argv[0])
         {
-          FILE_BUFFER *fb;
           REFERENCE *match;
 
           debug (3, ("looking in indices"));
-          fb = info_find_file (ref_list[0]->filename);
-          if (fb)
+          initial_node = info_get_node (ref_list[0]->filename,
+                                        ref_list[0]->nodename);
+          match = index_lookup_from_node (initial_node, argv[0]);
+          if (match)
             {
-              match = look_in_indices (fb, argv[0], 0);
-              if (match)
-                {
-                  argv += argc; argc = 0;
-                  free (*error); *error = 0;
+              argv += argc; argc = 0;
+              free (*error); *error = 0;
 
-                  info_reference_free (ref_list[0]);
-                  ref_list[0] = info_copy_reference (match);
-                }
+              info_reference_free (ref_list[0]);
+              ref_list[0] = info_copy_reference (match);
             }
+          free_history_node (initial_node);
         }
 
       /* If there are arguments remaining, follow menus inexactly. */
