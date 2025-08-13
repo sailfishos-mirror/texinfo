@@ -556,8 +556,6 @@ add_initial_nodes (int argc, char **argv, char **error)
           REFERENCE *match;
 
           debug (3, ("looking in indices"));
-          initial_node = info_get_node (ref_list[0]->filename,
-                                        ref_list[0]->nodename);
           match = index_lookup_from_node (initial_node, argv[0]);
           if (match)
             {
@@ -567,14 +565,11 @@ add_initial_nodes (int argc, char **argv, char **error)
               info_reference_free (ref_list[0]);
               ref_list[0] = info_copy_reference (match);
             }
-          free_history_node (initial_node);
         }
 
       /* If there are arguments remaining, follow menus inexactly. */
       if (argc != 0)
         {
-          initial_node = info_get_node (ref_list[0]->filename,
-                                        ref_list[0]->nodename);
           free (*error); *error = 0;
           node_via_menus = info_follow_menus (initial_node, argv, error, 0);
           if (node_via_menus)
@@ -590,6 +585,8 @@ add_initial_nodes (int argc, char **argv, char **error)
               free_history_node (node_via_menus);
             }
         }
+
+      free_history_node (initial_node);
 
       /* If still no nodes found, and there is exactly one argument remaining,
          look in indices sloppily. */

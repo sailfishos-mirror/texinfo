@@ -1918,12 +1918,14 @@ DECLARE_INFO_COMMAND (info_select_reference_this_line,
    in ERROR.  STRICT says whether to accept incomplete strings as
    menu entries, and whether to return the node so far if we can't
    continue at any point (that might be INITIAL_NODE itself), or to
-   return null.  This function frees INITIAL_NODE. */
+   return null. */
 NODE *
-info_follow_menus (NODE *initial_node, char **menus, char **error,
+info_follow_menus (const NODE *initial_node, char **menus, char **error,
                    int strict)
 {
   NODE *node = NULL;
+
+  NODE *cur_node = copy_history_node (initial_node);
 
   for (; *menus; menus++)
     {
@@ -1933,26 +1935,26 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
       debug (3, ("looking for %s in %s:%s", arg, initial_node->fullpath,
                  initial_node->nodename));
 
-      if (!initial_node->references)
+      if (!cur_node->references)
         {
           if (error)
             {
               free (*error);
               xasprintf (error, _("No menu in node '%s'"),
-                        node_printed_rep (initial_node));
+                        node_printed_rep (cur_node));
             }
           debug (3, ("no menu found"));
           if (!strict)
-            return initial_node;
+            return cur_node;
           else
             {
-              free_history_node (initial_node);
+              free_history_node (cur_node);
               return 0;
             }
         }
 
       /* Find the specified menu item. */
-      entry = info_get_menu_entry_by_label (initial_node, arg, !strict);
+      entry = info_get_menu_entry_by_label (cur_node, arg, !strict);
 
       /* If we failed to find the reference: */
       if (!entry)
@@ -1961,14 +1963,14 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
             {
               free (*error);
               xasprintf (error, _("No menu item '%s' in node '%s'"),
-                        arg, node_printed_rep (initial_node));
+                        arg, node_printed_rep (cur_node));
             }
           debug (3, ("no entry found"));
           if (!strict)
-            return initial_node;
+            return cur_node;
           else
             {
-              free_history_node (initial_node);
+              free_history_node (cur_node);
               return 0;
             }
         }
@@ -1977,7 +1979,7 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
 
       /* Try to find this node.  */
       node = info_get_node_with_defaults (entry->filename, entry->nodename,
-                                          initial_node);
+                                          cur_node);
       if (!node)
         {
           debug (3, ("no matching node found"));
@@ -1987,25 +1989,25 @@ info_follow_menus (NODE *initial_node, char **menus, char **error,
               xasprintf (error,
                         _("Unable to find node referenced by '%s' in '%s'"),
                         entry->label,
-                        node_printed_rep (initial_node));
+                        node_printed_rep (cur_node));
             }
           if (strict)
             {
-              free_history_node (initial_node);
+              free_history_node (cur_node);
               return 0;
             }
           else
-            return initial_node;
+            return cur_node;
         }
 
       debug (3, ("node: %s, %s", node->fullpath, node->nodename));
 
       /* Success.  Go round the loop again.  */
-      free_history_node (initial_node);
-      initial_node = node;
+      free_history_node (cur_node);
+      cur_node = node;
     }
 
-  return initial_node;
+  return cur_node;
 }
 
 /* Split STR into individual node names by writing null bytes in wherever
@@ -2075,6 +2077,7 @@ DECLARE_INFO_COMMAND (info_menu_sequence,
           info_set_node_of_window (window, node);
           if (error)
             show_error_node (error);
+          free (dir_node);
         }
 
       free (nodes);

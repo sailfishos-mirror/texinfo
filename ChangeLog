@@ -1,5 +1,14 @@
 2025-08-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/scan.c (copy_history_node): New function.
+	* info/session-cmd.c (info_follow_menus): Do not free first
+	argument and declare as const.  Use copy_history_node to get
+	a NODE to start with.
+	* info/info.c (add_initial_nodes): Update.  This means we can
+	avoid calling info_get_node three times for the same node.
+
+2025-08-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Prefer initial node for command-line index lookup
 
 	* info/indices.c (index_lookup_from_node): New function, based on

@@ -378,6 +378,20 @@ free_history_node (NODE *n)
   free (n);
 }
 
+/* Used to copy a NODE object that we might pass to free_history_node. */
+NODE *
+copy_history_node (const NODE *n)
+{
+  NODE *result = xmalloc (sizeof (*n));
+  memcpy (result, n, sizeof (*n));
+  if (n->flags & N_IsInternal)
+    {
+      /* Don't copy the substructures.  Just zero the object. */
+      memset (result, 0, sizeof (*result));
+    }
+  return result;
+}
+
 
 
 /* Search for sequences of whitespace or newlines in STRING, replacing
