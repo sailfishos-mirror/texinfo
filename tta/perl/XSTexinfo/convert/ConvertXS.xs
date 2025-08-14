@@ -489,7 +489,7 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
                gathered at document initialization.
                Either Perl code or XS code is used, so this is for consistency
                not really for interoperability */
-            /* set to document "sorted_indices_by_index" */
+            /* set to document "sorted_indices_by_index" key value */
             HV *language_document_sorted_indices_hv = 0;
             /* try first to get sorted index cached in document
                "sorted_indices_by_index".
@@ -498,13 +498,13 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
                not found */
             if (language)
               {
-                HV *document_hv = (HV *) self->document->hv;
                 SV *index_entries_by_index_sv
-                 = get_language_document_hv_sorted_indices (document_hv,
-                                    "sorted_indices_by_index", language,
-                                  &language_document_sorted_indices_hv);
+                  = get_language_document_hv_sorted_indices (
+                                      (HV *) self->document->hv,
+                                      "sorted_indices_by_index", language,
+                                      &language_document_sorted_indices_hv);
                 if (index_entries_by_index_sv)
-                  RETVAL = SvREFCNT_inc (index_entries_by_index_sv);
+                  RETVAL = newSVsv (index_entries_by_index_sv);
               }
             if (!RETVAL)
               {
@@ -518,9 +518,9 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
                     HV *indices_information_hv
                       = (HV *) SvRV (indices_information_sv);
                     HV *index_entries_by_index_hv
-                     = build_sorted_indices_by_index (index_entries_by_index,
-                                                      indices_information_hv);
-                    RETVAL = newRV_inc ((SV *) index_entries_by_index_hv);
+                      = build_sorted_indices_by_index (index_entries_by_index,
+                                                       indices_information_hv);
+                    RETVAL = newRV_noinc ((SV *) index_entries_by_index_hv);
                    /* the hash for caching was found or created and the sorting
                       language is set, cache the sorted indices */
                     if (language_document_sorted_indices_hv && language)
@@ -562,8 +562,8 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
                gathered at document initialization.
                Either Perl code or XS code is used, so this is for consistency
                not really for interoperability */
-            /* set to document "sorted_indices_by_letter" */
-            HV *language_document_sorted_indices_hv;
+            /* set to document "sorted_indices_by_letter" key value */
+            HV *language_document_sorted_indices_hv = 0;
             /* try first to get sorted index cached in document
                "sorted_indices_by_letter".
                Gather the hash to use to cache too in
@@ -571,30 +571,29 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
                not found */
             if (language)
               {
-                HV *document_hv = (HV *) self->document->hv;
                 SV *index_entries_by_index_sv
-                 = get_language_document_hv_sorted_indices (document_hv,
-                                    "sorted_indices_by_letter", language,
-                                  &language_document_sorted_indices_hv);
+                  = get_language_document_hv_sorted_indices (
+                                      (HV *) self->document->hv,
+                                      "sorted_indices_by_letter", language,
+                                      &language_document_sorted_indices_hv);
                 if (index_entries_by_index_sv)
-                  RETVAL = SvREFCNT_inc (index_entries_by_index_sv);
+                  RETVAL = newSVsv (index_entries_by_index_sv);
               }
             if (!RETVAL)
               {
                 /* build the sorted indices from C */
                 SV *indices_information_sv
-                 = document_indices_information (*document_sv);
+                  = document_indices_information (*document_sv);
 
                 if (index_entries_by_letter && indices_information_sv
                     && SvOK (indices_information_sv))
                   {
                     HV *indices_information_hv
-                     = (HV *) SvRV (indices_information_sv);
+                      = (HV *) SvRV (indices_information_sv);
                     HV *index_entries_by_letter_hv
-                     = build_sorted_indices_by_letter (index_entries_by_letter,
-                                                       indices_information_hv);
-                    RETVAL
-                     = newRV_inc ((SV *) index_entries_by_letter_hv);
+                      = build_sorted_indices_by_letter (index_entries_by_letter,
+                                                        indices_information_hv);
+                    RETVAL = newRV_noinc ((SV *) index_entries_by_letter_hv);
                     /* the hash for caching was found or created, cache the
                        sorted indices */
                     if (language_document_sorted_indices_hv)
