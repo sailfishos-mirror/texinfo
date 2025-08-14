@@ -1236,6 +1236,23 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
   return current_nr;
 }
 
+/* for debugging */
+char *
+output_units_print_details (OUTPUT_UNIT_LIST *output_units,
+                            const char *fname_encoding, int use_filename)
+{
+  TEXT result;
+  uintptr_t current_nr = 0;
+
+  text_init (&result);
+  text_append (&result, "");
+
+  print_output_units_details (output_units, current_nr, &result,
+                              fname_encoding, use_filename);
+
+  return result.text;
+}
+
 char *
 print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units, ELEMENT *tree,
                                  const char *fname_encoding, int use_filename)
