@@ -1,5 +1,17 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	free_node instead of free
+
+	* info/session-cmd.c (dump_node_to_stream):
+	Consistently call 'free_node' instead of 'free' on NODE
+	object.  It shouuld not make a difference as the node was
+	returned by info_get_node_of_file_buffer and is a replica
+	of an object held in the file buffer data structures, but
+	it should be clearer that the code is correct for somebody
+	reading it.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/nodes.c (free_history_node, free_node): rename.
 	* info/nodes.c (copy_history_node, copy_node): rename.
 

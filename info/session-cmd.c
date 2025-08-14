@@ -2987,7 +2987,7 @@ dump_node_to_stream (FILE_BUFFER *file_buffer,
   /* If we have already dumped this node, don't dump it again. */
   if (info_namelist_add (&dumped_already, node->nodename))
     {
-      free (node);
+      free_node (node);
       return DUMP_SUCCESS;
     }
 
@@ -2996,7 +2996,7 @@ dump_node_to_stream (FILE_BUFFER *file_buffer,
 
   if (write_node_to_stream (node, stream))
     {
-      free (node);
+      free_node (node);
       return DUMP_SYS_ERROR;
     }
 
@@ -3022,14 +3022,14 @@ dump_node_to_stream (FILE_BUFFER *file_buffer,
                 if (dump_node_to_stream (file_buffer, menu[i]->nodename,
                       stream, dump_subnodes) == DUMP_SYS_ERROR)
                   {
-                    free (node);
+                    free_node (node);
                     return DUMP_SYS_ERROR;
                   }
             }
         }
     }
 
-  free (node);
+  free_node (node);
   return DUMP_SUCCESS;
 }
 
