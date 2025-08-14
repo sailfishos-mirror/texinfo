@@ -546,7 +546,7 @@ add_initial_nodes (int argc, char **argv, char **error)
           info_reference_free (ref_list[0]);
           ref_list[0] = info_new_reference (node_via_menus->fullpath,
                                             node_via_menus->nodename);
-          free_history_node (node_via_menus);
+          free_node (node_via_menus);
         }
 
       /* If no nodes found, and there is exactly one argument remaining,
@@ -582,11 +582,11 @@ add_initial_nodes (int argc, char **argv, char **error)
                   ref_list[0] = info_new_reference (node_via_menus->fullpath,
                                                     node_via_menus->nodename);
                 }
-              free_history_node (node_via_menus);
+              free_node (node_via_menus);
             }
         }
 
-      free_history_node (initial_node);
+      free_node (initial_node);
 
       /* If still no nodes found, and there is exactly one argument remaining,
          look in indices sloppily. */

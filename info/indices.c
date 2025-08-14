@@ -199,7 +199,7 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
                 {
                   /* if there was a node with index markers, only gather
                      indices in nodes with index markers. */
-                  free_history_node (node);
+                  free_node (node);
                   continue;
                 }
 
@@ -218,7 +218,7 @@ info_indices_of_file_buffer (FILE_BUFFER *file_buffer)
                   free (old_result);
                   }
                 }
-              free_history_node (node);
+              free_node (node);
             }
         }
       if (last_index_tag)

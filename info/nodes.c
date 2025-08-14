@@ -948,7 +948,7 @@ info_create_node (void)
 /* FIXME we should be a lot clearer about the allocation and deallocation
    of NODE objects. */
 void
-free_history_node (NODE *n)
+free_node (NODE *n)
 {
   if (n && (n->flags & N_IsInternal))
     {
@@ -960,9 +960,9 @@ free_history_node (NODE *n)
   free (n);
 }
 
-/* Used to copy a NODE object that we might pass to free_history_node. */
+/* Used to copy a NODE object that we might pass to free_node. */
 NODE *
-copy_history_node (const NODE *n)
+copy_node (const NODE *n)
 {
   NODE *result = xmalloc (sizeof (*n));
   memcpy (result, n, sizeof (*n));

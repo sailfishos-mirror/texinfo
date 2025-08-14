@@ -1770,7 +1770,7 @@ cleanup_history (WINDOW *window, int start, int end)
   int i;
   for (i = start; i < end; i++)
     {
-      free_history_node (window->hist[i]->node);
+      free_node (window->hist[i]->node);
       free (window->hist[i]);
     }
   memmove (&window->hist[start], &window->hist[end],
@@ -1925,7 +1925,7 @@ info_follow_menus (const NODE *initial_node, char **menus, char **error,
 {
   NODE *node = NULL;
 
-  NODE *cur_node = copy_history_node (initial_node);
+  NODE *cur_node = copy_node (initial_node);
 
   for (; *menus; menus++)
     {
@@ -1948,7 +1948,7 @@ info_follow_menus (const NODE *initial_node, char **menus, char **error,
             return cur_node;
           else
             {
-              free_history_node (cur_node);
+              free_node (cur_node);
               return 0;
             }
         }
@@ -1970,7 +1970,7 @@ info_follow_menus (const NODE *initial_node, char **menus, char **error,
             return cur_node;
           else
             {
-              free_history_node (cur_node);
+              free_node (cur_node);
               return 0;
             }
         }
@@ -1993,7 +1993,7 @@ info_follow_menus (const NODE *initial_node, char **menus, char **error,
             }
           if (strict)
             {
-              free_history_node (cur_node);
+              free_node (cur_node);
               return 0;
             }
           else
@@ -2003,7 +2003,7 @@ info_follow_menus (const NODE *initial_node, char **menus, char **error,
       debug (3, ("node: %s, %s", node->fullpath, node->nodename));
 
       /* Success.  Go round the loop again.  */
-      free_history_node (cur_node);
+      free_node (cur_node);
       cur_node = node;
     }
 
@@ -2631,7 +2631,7 @@ info_intuit_options_node (NODE *node, char *program)
       n = find_invocation_node_by_nodename (fb, program);
       if (n)
         {
-          free_history_node (node);
+          free_node (node);
           node = n;
         }
     }
@@ -2676,7 +2676,7 @@ info_intuit_options_node (NODE *node, char *program)
                                entry->nodename);
         if (!node2)
           break;
-        free_history_node (node);
+        free_node (node);
         node = node2;
       }
     }
@@ -3286,7 +3286,7 @@ info_search_internal (char *string, WINDOW *window,
                  case_sensitive, use_regex, start_off);
 
       if (node != window->node)
-        free_history_node (node);
+        free_node (node);
 
       if (result == search_invalid)
         return 1;

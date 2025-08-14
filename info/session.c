@@ -893,7 +893,7 @@ forget_node_fast (WINDOW *win)
   if (i == 0)
     return 0;
 
-  free_history_node (win->hist[i - 1]->node);
+  free_node (win->hist[i - 1]->node);
   free (win->hist[i - 1]);
   win->hist[i - 1] = 0;
   i = --win->hist_index;
@@ -936,7 +936,7 @@ forget_window_and_nodes (WINDOW *win)
   size_t i;
   for (i = 0; i < win->hist_index; i++)
     {
-      free_history_node (win->hist[i]->node);
+      free_node (win->hist[i]->node);
       free (win->hist[i]);
     }
   free (win->hist);

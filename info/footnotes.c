@@ -168,7 +168,7 @@ make_footnotes_node (NODE *node)
     free (header);
   }
 
-  free_history_node (footnotes_node);
+  free_node (footnotes_node);
   return result;
 }
 

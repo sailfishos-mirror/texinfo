@@ -272,7 +272,7 @@ dir_entry_of_infodir (const char *label, const char *searchdir)
   entry = info_get_menu_entry_by_label (dir_node, label, 1);
   if (!entry || !entry->filename)
     {
-      free_history_node (dir_node);
+      free_node (dir_node);
       return 0;
       /* A dir entry with no filename is unlikely, but not impossible. */
     }
@@ -285,7 +285,7 @@ dir_entry_of_infodir (const char *label, const char *searchdir)
       entry2->filename = entry_fullpath;
     }
 
-  free_history_node (dir_node);
+  free_node (dir_node);
   return entry2;
 }
 

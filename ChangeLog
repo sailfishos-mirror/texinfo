@@ -1,5 +1,10 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c (free_history_node, free_node): rename.
+	* info/nodes.c (copy_history_node, copy_node): rename.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/nodemenu.c (select_visited_node): Call free_history_node
 	instead of free.  This fixes a memory leak.
 

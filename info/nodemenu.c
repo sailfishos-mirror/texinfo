@@ -281,5 +281,5 @@ DECLARE_INFO_COMMAND (select_visited_node,
     }
 
   free (line);
-  free_history_node (node);
+  free_node (node);
 }
