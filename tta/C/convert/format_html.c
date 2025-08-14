@@ -3041,7 +3041,7 @@ html_default_format_heading_text (CONVERTER *self, const enum command_id cmd,
   if (copiable_anchor)
     text_append_n (result, "<span>", 6);
 
- text_append (result, text);
+  text_append (result, text);
 
   if (copiable_anchor)
    {

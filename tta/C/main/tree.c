@@ -259,11 +259,12 @@ destroy_element (ELEMENT *e)
       hv_refcount = get_refcount (hv);
       if (sv_refcount != 0 || hv_refcount != 0)
         {
-           fprintf (stderr, "AFTER (%p<-%p): sv: %d hv: %d\n", hv, e->sv,
-                             sv_refcount, hv_refcount);
-           fprintf (stderr, " %s\n", print_element_debug (e, 0));
+          fprintf (stderr, "AFTER (%p<-%p): sv: %d hv: %d\n", hv, e->sv,
+                            sv_refcount, hv_refcount);
         }
+      fprintf (stderr, " DSV %s\n", print_element_debug (e, 0));
         */
+
       e->sv = 0;
     }
 

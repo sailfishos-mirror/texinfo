@@ -141,10 +141,13 @@ sub output($$)
     } else {
       $math_images_dir = $destination_directory;
     }
-    $self->{'elements_images'}
-     = Texinfo::Convert::LaTeX::convert_math_to_images($self, $document,
+    my $elements_images
+        = Texinfo::Convert::LaTeX::convert_math_to_images($self, $document,
                                                     $document_name.'_info',
                                                     $math_images_dir);
+    if (defined($elements_images)) {
+      $self->{'elements_images'} = $elements_images;
+    }
     #if (defined($elements_images)) {
     #  foreach my $element (%$elements_images) {
     #    print STDERR "$element $elements_images->{$element}\n";

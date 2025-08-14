@@ -622,6 +622,9 @@ destroy_document (DOCUMENT *document)
   size_t document_descriptor = document->descriptor;
   size_t i;
 
+   /*
+  fprintf (stderr, "DOC BEGIN REMOVE\n");
+    */
   destroy_document_information_except_tree (document);
 
   for (i = 0; i < document->additional_elements.number; i++)
@@ -646,7 +649,7 @@ destroy_document (DOCUMENT *document)
     }
 
   /*
-  fprintf (stderr, "REMOVE %zu %p\n", document_descriptor, document);
+  fprintf (stderr, "DOC REMOVED %zu %p\n", document_descriptor, document);
    */
 
   free (document);

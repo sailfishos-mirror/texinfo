@@ -520,8 +520,7 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
                     HV *index_entries_by_index_hv
                      = build_sorted_indices_by_index (index_entries_by_index,
                                                       indices_information_hv);
-                    RETVAL
-                      = newRV_inc ((SV *) index_entries_by_index_hv);
+                    RETVAL = newRV_inc ((SV *) index_entries_by_index_hv);
                    /* the hash for caching was found or created and the sorting
                       language is set, cache the sorted indices */
                     if (language_document_sorted_indices_hv && language)

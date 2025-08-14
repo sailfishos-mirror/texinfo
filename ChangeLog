@@ -1,3 +1,20 @@
+2025-08-14 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/Info.pm (output),
+	tta/perl/Texinfo/Convert/Plaintext.pm (conversion_initialization)
+	(_convert): do not set elements_images key value at all if there are
+	no elements_images.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (converter_destroy): remove
+	elements_images.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (%command_style_map): use a
+	different hash for commands style character than %style_map.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm: use exists or defined in
+	conditions when the value is not used.  Change formatting of functions
+	call code.
+
 2025-08-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/scan.c (copy_history_node): New function.

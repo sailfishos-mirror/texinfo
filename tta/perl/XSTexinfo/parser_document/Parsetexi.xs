@@ -159,10 +159,18 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
         */
             pass_document_parser_errors_to_parser_sv (document,
                                                       parser_sv);
+            /*
+            if (no_store)
+              fprintf (stderr, "BEGIN build Perl tree\n");
+             */
             if (!no_store)
               document_sv = build_minimal_document (document);
             else
               document_sv = build_document (document, 1);
+            /*
+            if (no_store)
+              fprintf (stderr, "REMOVED C doc Perl tree '%s'\n", string);
+             */
             RETVAL = document_tree (document_sv, 0);
           }
       OUTPUT:
