@@ -294,14 +294,12 @@ my %docbook_preformatted_formats = (
 
 my %sectioning_commands_done;
 
-sub converter_defaults($;$)
-{
+sub converter_defaults($;$) {
   return \%defaults;
 }
 
 
-sub converter_initialize($)
-{
+sub converter_initialize($) {
   my $self = shift;
 
   $self->{'context_block_commands'} = {%default_context_block_commands};
@@ -319,12 +317,10 @@ sub converter_initialize($)
   }
 }
 
-sub conversion_initialization($;$)
-{
-  my $self = shift;
-  my $document = shift;
+sub conversion_initialization($;$) {
+  my ($self, $document) = @_;
 
-  if ($document) {
+  if (defined($document)) {
     $self->set_document($document);
   }
 
@@ -335,17 +331,14 @@ sub conversion_initialization($;$)
   %sectioning_commands_done = ();
 }
 
-sub conversion_finalization($)
-{
+sub conversion_finalization($) {
   my $self = shift;
 
   pop @{$self->{'document_context'}};
 }
 
-sub convert($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub convert($$) {
+  my ($self, $document) = @_;
 
   $self->conversion_initialization($document);
 
@@ -360,10 +353,8 @@ sub convert($$)
   return $result;
 }
 
-sub convert_tree($$)
-{
-  my $self = shift;
-  my $root = shift;
+sub convert_tree($$) {
+  my ($self, $root) = @_;
 
   if (scalar(@{$self->{'lang_stack'}}) == 0) {
     push @{$self->{'lang_stack'}}, '';
@@ -371,16 +362,15 @@ sub convert_tree($$)
   return _convert($self, $root);
 }
 
-sub conversion_output_begin($;$$)
-{
-  my $self = shift;
-  my $output_file = shift;
-  my $output_filename = shift;
+sub conversion_output_begin($;$$) {
+  my ($self, $output_file, $output_filename) = @_;
 
-  my $encoding = '';
-  if ($self->get_conf('OUTPUT_ENCODING_NAME')
-      and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
-    $encoding = " encoding=\"".$self->get_conf('OUTPUT_ENCODING_NAME')."\" ";
+  my $encoding;
+  my $encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
+  if (defined($encoding_name) and $encoding_name ne 'utf-8') {
+    $encoding = " encoding=\"$encoding_name\" ";
+  } else {
+    $encoding = '';
   }
 
   my $id;
@@ -412,10 +402,10 @@ sub conversion_output_begin($;$$)
 
   my $legalnotice;
   my $global_commands;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $global_commands = $self->{'document'}->global_commands_information();
   }
-  if ($global_commands and $global_commands->{'copying'}) {
+  if (defined($global_commands) and exists($global_commands->{'copying'})) {
     my $copying_element = $global_commands->{'copying'};
     my $copying_result
      = $self->convert_tree(Texinfo::TreeElement::new(
@@ -426,19 +416,20 @@ sub conversion_output_begin($;$$)
   }
 
   my $fulltitle_command;
-  if ($global_commands) {
+  if (defined($global_commands)) {
     foreach my $title_cmdname ('title', 'shorttitlepage') {
-      if ($global_commands->{$title_cmdname}) {
-        my $command = $global_commands->{$title_cmdname};
-        next if (!$command->{'contents'}->[0]->{'contents'});
-        $fulltitle_command = $command;
+      if (exists($global_commands->{$title_cmdname})
+          and exists($global_commands->{$title_cmdname}->{'contents'}->[0]
+                                                            ->{'contents'})) {
+        $fulltitle_command = $global_commands->{$title_cmdname};
         last;
       }
     }
-    if (!defined($fulltitle_command) and $global_commands->{'titlefont'}) {
+    if (!defined($fulltitle_command)
+        and exists($global_commands->{'titlefont'})) {
       my $command = $global_commands->{'titlefont'}->[0];
-      if ($command and $command->{'contents'}
-          and $command->{'contents'}->[0]->{'contents'}) {
+      if (defined($command) and exists($command->{'contents'})
+          and exists($command->{'contents'}->[0]->{'contents'})) {
         $fulltitle_command = $command;
       }
     }
@@ -448,7 +439,7 @@ sub conversion_output_begin($;$$)
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  if ($global_commands and $global_commands->{'titlepage'}) {
+  if (defined($global_commands) and exists($global_commands->{'titlepage'})) {
     my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
             $global_commands->{'titlepage'}, ['author', 'subtitle']);
 
@@ -498,33 +489,33 @@ sub conversion_output_begin($;$$)
   }
 
   my $settitle_command;
-  if ($global_commands and $global_commands->{'settitle'}) {
-    my $command = $global_commands->{'settitle'};
-    $settitle_command = $command
-      unless (!$command->{'contents'}->[0]->{'contents'});
+  if (defined($global_commands) and exists($global_commands->{'settitle'})
+      and exists($global_commands->{'settitle'}->{'contents'}->[0]
+                                                         ->{'contents'})) {
+    $settitle_command = $global_commands->{'settitle'};
   }
 
   my $titleabbrev_command;
-  if ($fulltitle_command) {
+  if (defined($fulltitle_command)) {
     $titleabbrev_command = $settitle_command;
-  } elsif ($settitle_command) {
+  } elsif (defined($settitle_command)) {
     $fulltitle_command = $settitle_command;
-  } elsif (defined($legalnotice) and $global_commands
-           and $global_commands->{'top'}) {
+  } elsif (defined($legalnotice) and defined($global_commands)
+           and exists($global_commands->{'top'})) {
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
     my $command = $global_commands->{'top'};
     # arguments_line type element
     my $arguments_line = $command->{'contents'}->[0];
     my $line_arg = $arguments_line->{'contents'}->[0];
-    if ($line_arg->{'contents'}) {
+    if (exists($line_arg->{'contents'})) {
       $fulltitle_command = $arguments_line;
     }
   }
 
   my $title_info = '';
 
-  if ($fulltitle_command) {
+  if (defined($fulltitle_command)) {
     foreach my $element_command ([$fulltitle_command, 'title'],
                                  [$titleabbrev_command, 'titleabbrev']) {
       my ($element, $docbook_element) = @$element_command;
@@ -560,9 +551,9 @@ sub conversion_output_begin($;$$)
   return $result;
 }
 
-sub conversion_output_end($)
-{
+sub conversion_output_end($) {
   my $self = shift;
+
   return "</book>\n";
 }
 
@@ -602,26 +593,24 @@ foreach my $special_unnumbered ('acknowledgements', 'colophon',
 }
 
 # element is not texinfo tree element here, but xml element
-sub _docbook_section_element($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _docbook_section_element($$) {
+  my ($self, $element) = @_;
 
-  if ($element->{'extra'}
+  if (exists($element->{'extra'})
       and defined($element->{'extra'}->{'section_level'})) {
     my $heading_level = $element->{'extra'}->{'section_level'};
-    if (exists $docbook_sections{$heading_level}) {
+    if (exists($docbook_sections{$heading_level})) {
       return $docbook_sections{$heading_level};
     }
   }
   my $level_adjusted_cmdname
      = Texinfo::Structuring::section_level_adjusted_command_name($element);
   if ($level_adjusted_cmdname eq 'unnumbered'
-      and $self->{'document'}) {
+      and exists($self->{'document'})) {
     my $sections_list = $self->{'document'}->sections_list();
     my $section_relations
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
-    if ($section_relations->{'associated_node'}) {
+    if (exists($section_relations->{'associated_node'})) {
       my $associated_node = $section_relations->{'associated_node'}->{'element'};
       if ($docbook_special_unnumbered{
               lc($associated_node->{'extra'}->{'normalized'})}) {
@@ -641,14 +630,14 @@ sub _docbook_section_element($$)
   }
 }
 
-sub _index_entry($$)
-{
-  my $self = shift;
-  my $element = shift;
-  if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+sub _index_entry($$) {
+  my ($self, $element) = @_;
+
+  if (exists($element->{'extra'})
+      and exists($element->{'extra'}->{'index_entry'})) {
 
     my $indices_information;
-    if ($self->{'document'}) {
+    if (exists($self->{'document'})) {
       $indices_information = $self->{'document'}->indices_information();
     }
 
@@ -706,9 +695,9 @@ sub _index_entry($$)
   return '';
 }
 
-sub _parse_attribute($)
-{
+sub _parse_attribute($) {
   my $element = shift;
+
   return ('', '') if (!defined($element));
   my $attributes = '';
   if ($element =~ /^(\w+)(\s+.*)/) {
@@ -718,34 +707,31 @@ sub _parse_attribute($)
   return ($element, $attributes);
 }
 
-sub _protect_text($$)
-{
-  my $self = shift;
-  my $text = shift;
+sub _protect_text($$) {
+  my ($self, $text) = @_;
+
   my $result = $self->xml_protect_text($text);
   # form feed not allowed in XML
   $result =~ s/\f/ /g;
   return $result;
 }
 
-sub _format_comment($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _format_comment($$) {
+  my ($self, $element) = @_;
 
   # TODO simplify, use only the text, not the spaces 
   my $command_text = '';
-  if (defined($element->{'info'})
-      and defined($element->{'info'}->{'spaces_before_argument'})) {
+  if (exists($element->{'info'})
+      and exists($element->{'info'}->{'spaces_before_argument'})) {
     $command_text .= $element->{'info'}->{'spaces_before_argument'}->{'text'};
   }
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     my $line_arg = $element->{'contents'}->[0];
-    if ($line_arg->{'contents'}) {
+    if (exists($line_arg->{'contents'})) {
       $command_text .= $line_arg->{'contents'}->[0]->{'text'};
     }
-    if (defined($line_arg->{'info'})
-        and defined($line_arg->{'info'}->{'spaces_after_argument'})) {
+    if (exists($line_arg->{'info'})
+        and exists($line_arg->{'info'}->{'spaces_after_argument'})) {
       $command_text
         .= $line_arg->{'info'}->{'spaces_after_argument'}->{'text'};
     }
@@ -753,25 +739,21 @@ sub _format_comment($$)
   return $self->xml_comment($command_text);
 }
 
-sub _format_comment_or_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _format_comment_or_end_line($$) {
+  my ($self, $element) = @_;
 
   my ($comment, $end_line)
    = $self->comment_or_end_line_nonxs($element);
 
-  if ($comment) {
+  if (defined($comment)) {
     return _format_comment($self, $comment);
   } else {
     return $end_line;
   }
 }
 
-sub _convert_argument_and_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _convert_argument_and_end_line($$) {
+  my ($self, $element) = @_;
 
   my $converted = $self->convert_tree($element->{'contents'}->[0]);
   my $end_line = _format_comment_or_end_line($self, $element);
@@ -779,11 +761,10 @@ sub _convert_argument_and_end_line($$)
   return ($converted, $end_line);
 }
 
-sub _output_anchor($)
-{
+sub _output_anchor($) {
   my $element = shift;
 
-  if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
+  if (exists($element->{'extra'}) and $element->{'extra'}->{'is_target'}) {
     # FIXME DocBook 5 id -> xml:id
     return "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>";
   } else {
@@ -791,9 +772,9 @@ sub _output_anchor($)
   }
 }
 
-sub _new_document_context($)
-{
+sub _new_document_context($) {
   my $self = shift;
+
   push (@{$self->{'document_context'}}, {
                             'monospace' => [0],
                             'upper_case' => [0],
@@ -801,27 +782,22 @@ sub _new_document_context($)
                           });
 }
 
-sub _convert_def_line($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _convert_def_line($$) {
+  my ($self, $element) = @_;
 
   my $result = "<synopsis>";;
   $result .= _index_entry($self, $element);
   _new_document_context($self);
   $self->{'document_context'}->[-1]->{'monospace'}->[0] = 1;
   $self->{'document_context'}->[-1]->{'inline'}++;
-  my $first_child = $element->{'contents'}->[0];
-  my $contents;
-  if ($first_child) {
-    $contents = $first_child->{'contents'};
-  }
-  if ($contents) {
+  if (exists($element->{'contents'})
+      and exists($element->{'contents'}->[0]->{'contents'})) {
     my $def_command = $element->{'extra'}->{'def_command'};
+    my $contents = $element->{'contents'}->[0]->{'contents'};
     foreach my $arg (@$contents) {
       my $type = $arg->{'type'};
-
       my $content = _convert($self, $arg);
+
       if ($type eq 'spaces' or $type eq 'delimiter') {
         $result .= $content;
       } elsif ($type eq 'def_category') {
@@ -855,10 +831,8 @@ my $debug_global_element_nr = 0;
 
 sub _convert($$;$);
 
-sub _convert($$;$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _convert($$;$) {
+  my ($self, $element) = @_;
 
   my $e_type = $element->{'type'};
 
@@ -867,17 +841,18 @@ sub _convert($$;$)
   if (0) { #}
     $debug_element_nr = $debug_global_element_nr++;
     print STDERR "element $debug_element_nr";
-    print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
+    print STDERR " cmd: $element->{'cmdname'},"
+      if (exists($element->{'cmdname'}));
     print STDERR " type: $e_type" if (defined($e_type));
-    my $text = $element->{'text'};
-    if (defined($text)) {
+    if (exists($element->{'text'})) {
+      my $text = $element->{'text'};
       $text =~ s/\n/\\n/;
       print STDERR " text: $text";
     }
     print STDERR "\n";
   }
 
-  if (defined($element->{'text'})) {
+  if (exists($element->{'text'})) {
     return ''
       if (defined($e_type) and $ignored_text_types{$e_type});
 
@@ -906,12 +881,12 @@ sub _convert($$;$)
     return $result_text;
   }
 
-  return '' if ($e_type and $ignored_types{$e_type});
+  return '' if (defined($e_type) and $ignored_types{$e_type});
   #warn " onto main conditional\n";
   my $result = '';
   my $cmdname;
   my @close_format_elements;
-  if (defined($element->{'cmdname'})) {
+  if (exists($element->{'cmdname'})) {
     $cmdname = $element->{'cmdname'};
     #warn "  got cmdname $cmdname\n";
     if (defined($docbook_no_arg_commands_formatting{$cmdname})) {
@@ -925,7 +900,7 @@ sub _convert($$;$)
         $command_name = $cmdname;
       }
       my $translated_tree = $self->translated_command_tree($command_name);
-      if ($translated_tree) {
+      if (defined($translated_tree)) {
         return _convert($self, $translated_tree);
       } else {
         return $docbook_no_arg_commands_formatting{$command_name};
@@ -938,7 +913,7 @@ sub _convert($$;$)
     } elsif ($cmdname eq 'item' or $cmdname eq 'itemx'
              or $cmdname eq 'headitem' or $cmdname eq 'tab') {
       my $parent_cmdname = $element->{'parent'}->{'cmdname'};
-      if ($cmdname eq 'item' and $parent_cmdname
+      if ($cmdname eq 'item' and defined($parent_cmdname)
           and ($parent_cmdname eq 'itemize'
                or $parent_cmdname eq 'enumerate')) {
         $result .= "<listitem>";
@@ -948,11 +923,11 @@ sub _convert($$;$)
           my $prepended_element
             = Texinfo::Common::item_itemize_prepended($element);
 
-          if ($prepended_element) {
+          if (defined($prepended_element)) {
             $command_as_argument_name = $prepended_element->{'cmdname'};
           }
 
-          if (!($command_as_argument_name
+          if (!(defined($command_as_argument_name)
                 and $command_as_argument_name eq 'bullet')) {
             $self->{'pending_prepend'}
               = _convert($self, $prepended_element);
@@ -960,14 +935,13 @@ sub _convert($$;$)
           }
         }
         push @close_format_elements, 'listitem';
-      } elsif (($cmdname eq 'item'
-                or $cmdname eq 'itemx')
-               and $element->{'contents'}
-               and $element->{'contents'}->[0]->{'type'}
+      } elsif (($cmdname eq 'item' or $cmdname eq 'itemx')
+               and exists($element->{'contents'})
+               and exists($element->{'contents'}->[0]->{'type'})
                and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
         $result .= "<term>" if ($cmdname eq 'itemx');
         $result .= _index_entry($self, $element);
-        if ($element->{'contents'}->[0]->{'contents'}) {
+        if (exists($element->{'contents'}->[0]->{'contents'})) {
           my $table_item_tree = $self->table_item_content_tree_noxs($element);
           $table_item_tree = $element->{'contents'}->[0]
             if (!defined($table_item_tree));
@@ -979,10 +953,9 @@ sub _convert($$;$)
         $result .= "</term>";
         return $result;
       } else {
-        unless (($cmdname eq 'item'
-                 or $cmdname eq 'headitem'
+        unless (($cmdname eq 'item' or $cmdname eq 'headitem'
                  or $cmdname eq 'tab')
-                and $element->{'parent'}->{'type'}
+                and exists($element->{'parent'}->{'type'})
                 and $element->{'parent'}->{'type'} eq 'row') {
           warn "BUG: multitable cell command not in a row "
             .Texinfo::Common::debug_print_element($element, 1);
@@ -990,10 +963,11 @@ sub _convert($$;$)
         $result .= "<entry>";
         push @close_format_elements, 'entry';
       }
-    } elsif ($e_type
+    } elsif (defined($e_type)
              and $e_type eq 'index_entry_command') {
       my $end_line;
-      if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+      if (exists($element->{'extra'})
+          and exists($element->{'extra'}->{'index_entry'})) {
         $end_line = _format_comment_or_end_line($self, $element);
         if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
           chomp($end_line);
@@ -1016,7 +990,7 @@ sub _convert($$;$)
       }
       if ($Texinfo::Commands::root_commands{$cmdname}) {
         my $section_relations;
-        if ($cmdname ne 'node' and $self->{'document'}) {
+        if ($cmdname ne 'node' and exists($self->{'document'})) {
           my $sections_list = $self->{'document'}->sections_list();
           $section_relations
             = $sections_list->[$element->{'extra'}->{'section_number'} -1];
@@ -1025,20 +999,20 @@ sub _convert($$;$)
           my $node_element;
           if ($cmdname eq 'node') {
             $node_element = $element;
-          } elsif ($section_relations
-                   and $section_relations->{'part_following_node'}) {
+          } elsif (defined($section_relations)
+                   and exists($section_relations->{'part_following_node'})) {
             # the section is necessarily a part
             $node_element
               = $section_relations->{'part_following_node'}->{'element'};
           }
-          if ($node_element or $cmdname eq 'part') {
-            # $node_element->{'extra'}->{'normalized'} not defined happens for
+          if (defined($node_element) or $cmdname eq 'part') {
+            # $node_element->{'extra'}->{'normalized'} not set happens for
             # empty nodes
-            if ($node_element and $node_element->{'extra'}
-                and $node_element->{'extra'}->{'normalized'}
+            if (defined($node_element) and exists($node_element->{'extra'})
+                and exists($node_element->{'extra'}->{'normalized'})
                 and $node_element->{'extra'}->{'normalized'} eq 'Top') {
               $self->{'in_skipped_node_top'} = 1;
-            } elsif (defined($self->{'in_skipped_node_top'})
+            } elsif (exists($self->{'in_skipped_node_top'})
                      and $self->{'in_skipped_node_top'} == 1) {
               $self->{'in_skipped_node_top'} = -1;
             }
@@ -1046,13 +1020,13 @@ sub _convert($$;$)
         }
         my $anchor;
         my $node_relations;
-        if ($cmdname eq 'node' and $self->{'document'}
-            and $element->{'extra'}
+        if ($cmdname eq 'node' and exists($self->{'document'})
+            and exists($element->{'extra'})
             and $element->{'extra'}->{'node_number'}) {
           my $nodes_list = $self->{'document'}->nodes_list();
           $node_relations
             = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-          if (not $node_relations->{'associated_section'}) {
+          if (not exists($node_relations->{'associated_section'})) {
             $anchor = _output_anchor($element);
             $result .= $anchor . "\n" if ($anchor ne '');
           }
@@ -1063,14 +1037,14 @@ sub _convert($$;$)
           my $opening_section_relations;
           my $part;
           if ($cmdname eq 'node') {
-            if ($node_relations) {
+            if (defined($node_relations)) {
               $opening_section_relations
                 = $node_relations->{'associated_section'};
             }
           } elsif ($cmdname eq 'part') {
             $part = $element;
-            if ($section_relations
-                and $section_relations->{'part_associated_section'}) {
+            if (defined($section_relations)
+                and exists($section_relations->{'part_associated_section'})) {
               $opening_section_relations
                 = $section_relations->{'part_associated_section'};
             }
@@ -1079,8 +1053,8 @@ sub _convert($$;$)
           }
           # FIXME add !$part in condition?
           my $section_element;
-          if ($opening_section_relations) {
-            if ($opening_section_relations->{'associated_part'}) {
+          if (defined($opening_section_relations)) {
+            if (exists($opening_section_relations->{'associated_part'})) {
               $part
                 = $opening_section_relations->{'associated_part'}->{'element'};
             }
@@ -1089,15 +1063,16 @@ sub _convert($$;$)
           my @opened_elements;
           # we need to check if the section was already done in case there is
           # both a node and a part, we do not know in which order they appear.
-          if (not ($section_element
-                   and $sectioning_commands_done{$section_element})) {
-            push @opened_elements, $part if $part;
-            if ($section_element) {
+          if (not (defined($section_element)
+                   and exists($sectioning_commands_done{$section_element}))) {
+            push @opened_elements, $part if defined($part);
+            if (defined($section_element)) {
               push @opened_elements, $section_element;
             }
           }
           foreach my $opened_element (@opened_elements) {
-            if ($section_element and $opened_element eq $section_element) {
+            if (defined($section_element)
+                and $opened_element eq $section_element) {
               $sectioning_commands_done{$section_element} = 1;
             }
             my $section_attribute = '';
@@ -1106,7 +1081,7 @@ sub _convert($$;$)
             # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
             # having a label (empty) is important.
             my $label = '';
-            if ($opened_element->{'extra'}
+            if (exists($opened_element->{'extra'})
                 and defined($opened_element->{'extra'}
                                         ->{'section_heading_number'})
                 and ($self->get_conf('NUMBER_SECTIONS')
@@ -1121,11 +1096,11 @@ sub _convert($$;$)
               $section_attribute .= " label=\"$label\"";
             }
             my $section_relations;
-            if ($self->{'document'}) {
+            if (exists($self->{'document'})) {
               my $sections_list = $self->{'document'}->sections_list();
               $section_relations
             = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
-              if ($section_relations->{'associated_node'}) {
+              if (exists($section_relations->{'associated_node'})) {
                 # FIXME DocBook 5 id -> xml:id
                 $section_attribute
     .= " id=\"$section_relations->{'associated_node'}->{'element'}->{'extra'}->{'normalized'}\"";
@@ -1154,8 +1129,9 @@ sub _convert($$;$)
             # appears after the sectioning command opening, no need for
             # partintro.
             if ($docbook_sectioning_element eq 'part'
-                and not ($section_relations
-                         and $section_relations->{'part_associated_section'})
+                and not (defined($section_relations)
+                         and exists(
+                           $section_relations->{'part_associated_section'}))
                 and !Texinfo::Common::is_content_empty($opened_element)) {
               $result .= "<partintro>\n";
             }
@@ -1195,10 +1171,11 @@ sub _convert($$;$)
         $result .= "\n";
         return $result;
       } elsif ($cmdname eq 'insertcopying') {
-        if ($self->{'document'}) {
+        if (exists($self->{'document'})) {
           my $global_commands
             = $self->{'document'}->global_commands_information();
-          if ($global_commands and $global_commands->{'copying'}) {
+          if (defined($global_commands)
+              and exists($global_commands->{'copying'})) {
             return _convert($self, Texinfo::TreeElement::new(
              {'contents' => $global_commands->{'copying'}->{'contents'}}));
           }
@@ -1214,8 +1191,8 @@ sub _convert($$;$)
           return '';
         }
       } elsif ($cmdname eq 'printindex') {
-        if ($element->{'extra'}
-            and $element->{'extra'}->{'misc_args'}) {
+        if (exists($element->{'extra'})
+            and exists($element->{'extra'}->{'misc_args'})) {
           # FIXME DocBook 5
           #return "<index type=\"$element->{'extra'}->{'misc_args'}->[0]\"></index>\n";
           return "<index role=\"$element->{'extra'}->{'misc_args'}->[0]\">"
@@ -1227,15 +1204,15 @@ sub _convert($$;$)
         # ignore all the other line commands
         return '';
       }
-    } elsif ($e_type
+    } elsif (defined($e_type)
              and $e_type eq 'definfoenclose_command') {
-      if ($element->{'contents'}) {
+      if (exists($element->{'contents'})) {
         my $arg_text = _convert($self, $element->{'contents'}->[0]);
         $result .= $arg_text;
       }
       return $result;
 
-    } elsif ($element->{'contents'}
+    } elsif (exists($element->{'contents'})
              and exists($Texinfo::Commands::brace_commands{$cmdname})) {
       #Texinfo::Common::debug_list(" brace command with args", $element->{'contents'});
       if ($style_commands_formatting{$cmdname}) {
@@ -1248,7 +1225,7 @@ sub _convert($$;$)
         if (defined($default_args_code_style{$cmdname})
             and $default_args_code_style{$cmdname}->[0]) {
            $in_monospace_not_normal = 1;
-        } elsif ($brace_commands{$cmdname}
+        } elsif (exists($brace_commands{$cmdname})
                  and $brace_commands{$cmdname} eq 'style_no_code') {
           $in_monospace_not_normal = 0;
         }
@@ -1294,7 +1271,7 @@ sub _convert($$;$)
       } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
         return _output_anchor($element);
       } elsif ($Texinfo::Commands::ref_commands{$cmdname}) {
-        if ($element->{'contents'}) {
+        if (exists($element->{'contents'})) {
           my $args_nr = scalar(@{$element->{'contents'}});
           my $command_name;
           my $book_element;
@@ -1308,11 +1285,11 @@ sub _convert($$;$)
             $command_name = 'ref';
           } else {
             if ($args_nr >= 5
-                and $element->{'contents'}->[4]->{'contents'}) {
+                and exists($element->{'contents'}->[4]->{'contents'})) {
               $book_element = $element->{'contents'}->[4];
             }
             if ($args_nr >= 3
-                and $element->{'contents'}->[2]->{'contents'}) {
+                and exists($element->{'contents'}->[2]->{'contents'})) {
               my $section_arg = $element->{'contents'}->[2];
               $section_name = _convert($self, $section_arg);
             }
@@ -1320,20 +1297,21 @@ sub _convert($$;$)
           }
           my $manual_file_element;
           if ($args_nr >= $manual_file_index+1
-              and $element->{'contents'}->[$manual_file_index]->{'contents'}) {
+              and exists($element->{'contents'}->[$manual_file_index]
+                                                             ->{'contents'})) {
             $manual_file_element = $element->{'contents'}->[$manual_file_index];
           }
           if (! defined($section_name) and $args_nr >= 2
-              and $element->{'contents'}->[1]->{'contents'}) {
+              and exists($element->{'contents'}->[1]->{'contents'})) {
             my $section_arg = $element->{'contents'}->[1];
             $section_name = _convert($self, $section_arg);
-          } elsif ($element->{'contents'}->[0]->{'contents'}) {
+          } elsif (exists($element->{'contents'}->[0]->{'contents'})) {
             my $node_arg = $element->{'contents'}->[0];
             push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
             $node_name = _convert($self, $node_arg);
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
 
-            if (($book_element or $manual_file_element)
+            if ((defined($book_element) or defined($manual_file_element))
                 and $node_name eq 'Top') {
               $node_name = undef;
             }
@@ -1342,8 +1320,8 @@ sub _convert($$;$)
           my $result;
           push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
           # external book ref
-          if ($book_element) {
-            if ($section_name) {
+          if (defined($book_element)) {
+            if (defined($section_name)) {
               my $substituted_strings = {
                   'section_name' =>
                     Texinfo::TreeElement::new({'type' => '_converted',
@@ -1363,7 +1341,7 @@ sub _convert($$;$)
                  $self->cdt('see section ``{section_name}\'\' in @cite{{book}}',
                              $substituted_strings));
               }
-            } elsif ($node_name) {
+            } elsif (defined($node_name)) {
               my $substituted_strings = {
                  'node_name' =>
                     Texinfo::TreeElement::new({'type' => '_converted',
@@ -1386,20 +1364,17 @@ sub _convert($$;$)
             } else {
               if ($command_name eq 'ref') {
                 $result = _convert($self,
-                  $self->cdt('@cite{{book}}',
-                    {'book' => $book_element }));
+                  $self->cdt('@cite{{book}}', {'book' => $book_element }));
               } elsif ($command_name eq 'xref') {
                 $result = _convert($self,
-                  $self->cdt('See @cite{{book}}',
-                    {'book' => $book_element }));
+                  $self->cdt('See @cite{{book}}', {'book' => $book_element }));
               } elsif ($command_name eq 'pxref') {
-                $result = _convert($self,
-                  $self->cdt('see @cite{{book}}',
-                    {'book' => $book_element }));
+                $result = _convert($self, $self->cdt('see @cite{{book}}',
+                                                  {'book' => $book_element }));
               }
             }
-          } elsif ($manual_file_element) {
-            if ($section_name) {
+          } elsif (defined($manual_file_element)) {
+            if (defined($section_name)) {
               my $substituted_strings = {
                 'section_name' =>
                    Texinfo::TreeElement::new({'type' => '_converted',
@@ -1419,7 +1394,7 @@ sub _convert($$;$)
                $self->cdt('see section ``{section_name}\'\' in @file{{manual}}',
                              $substituted_strings));
               }
-            } elsif ($node_name) {
+            } elsif (defined($node_name)) {
               my $substituted_strings = {
                   'node_name' =>
                     Texinfo::TreeElement::new({'type' => '_converted',
@@ -1459,16 +1434,15 @@ sub _convert($$;$)
           } else {
             my $linkend = '';
             my $node_arg = $element->{'contents'}->[0];
-            if ($node_arg and $node_arg->{'extra'}
+            if (exists($node_arg->{'extra'})
                 and defined($node_arg->{'extra'}->{'normalized'})
-                and !$node_arg->{'extra'}->{'manual_content'}) {
+                and !exists($node_arg->{'extra'}->{'manual_content'})) {
               $linkend = " linkend=\"$node_arg->{'extra'}->{'normalized'}\"";
             }
             my $link_text = $section_name;
             $link_text = $node_name if (! defined($link_text));
             my $argument = "<link${linkend}>".$link_text."</link>";
-            if ($cmdname eq 'ref'
-                or $cmdname eq 'link') {
+            if ($cmdname eq 'ref' or $cmdname eq 'link') {
               $result = _convert($self,
                       $self->cdt('{title_ref}', {'title_ref' =>
                        Texinfo::TreeElement::new({'type' => '_converted',
@@ -1491,8 +1465,8 @@ sub _convert($$;$)
           return '';
         }
       } elsif ($cmdname eq 'image') {
-        if ($element->{'contents'}
-            and $element->{'contents'}->[0]->{'contents'}) {
+        if (exists($element->{'contents'})
+            and exists($element->{'contents'}->[0]->{'contents'})) {
           Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
           Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
@@ -1552,15 +1526,15 @@ sub _convert($$;$)
         }
         return $result;
       } elsif ($cmdname eq 'email') {
-        if ($element->{'contents'}) {
+        if (exists($element->{'contents'})) {
           my $name;
           my $email;
           my $email_text;
           if (scalar(@{$element->{'contents'}}) >= 2
-              and $element->{'contents'}->[1]->{'contents'}) {
+              and exists($element->{'contents'}->[1]->{'contents'})) {
             $name = $element->{'contents'}->[1];
           }
-          if ($element->{'contents'}->[0]->{'contents'}) {
+          if (exists($element->{'contents'}->[0]->{'contents'})) {
             $email = $element->{'contents'}->[0];
             Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
@@ -1574,16 +1548,16 @@ sub _convert($$;$)
             Texinfo::Convert::Text::reset_options_encoding(
                                  $self->{'convert_text_options'});
           }
-          if ($name and $email) {
+          if (defined($name) and defined($email)) {
             # FIXME DocBook 5 ulink -> link
             # There is no possibility to do something similar in DocBook 5.
             # The best is probably either to forget about the name, or
             # follow <email> by the name in parentheses
             my $link_name = _convert($self, $name);
             return "<ulink url=\"mailto:$email_text\">$link_name</ulink>";
-          } elsif ($email) {
+          } elsif (defined($email)) {
             return "<email>$email_text</email>";
-          } elsif ($name) {
+          } elsif (defined($name)) {
             return _convert($self, $name);
           }
         } else {
@@ -1591,10 +1565,10 @@ sub _convert($$;$)
         }
 
       } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
-        if ($element->{'contents'}) {
+        if (exists($element->{'contents'})) {
           my $args_nr = scalar(@{$element->{'contents'}});
           my ($url_text, $url_arg);
-          if ($element->{'contents'}->[0]->{'contents'}) {
+          if (exists($element->{'contents'}->[0]->{'contents'})) {
             $url_arg = $element->{'contents'}->[0];
             Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
@@ -1612,12 +1586,12 @@ sub _convert($$;$)
           }
           my $replacement;
           if ($args_nr >= 2
-              and $element->{'contents'}->[1]->{'contents'}) {
+              and exists($element->{'contents'}->[1]->{'contents'})) {
             $replacement = _convert($self, $element->{'contents'}->[1]);
           }
           if (!defined($replacement) or $replacement eq '') {
             if ($args_nr >= 3
-                and $element->{'contents'}->[2]->{'contents'}) {
+                and exists($element->{'contents'}->[2]->{'contents'})) {
               $replacement = _convert($self, $element->{'contents'}->[2]);
             }
           }
@@ -1632,9 +1606,9 @@ sub _convert($$;$)
         }
 
       } elsif ($cmdname eq 'abbr' or $cmdname eq 'acronym') {
-        if ($element->{'contents'}) {
+        if (exists($element->{'contents'})) {
           my $argument;
-          if ($element->{'contents'}->[0]->{'contents'}) {
+          if (exists($element->{'contents'}->[0]->{'contents'})) {
             my $arg_text = _convert($self, $element->{'contents'}->[0]);
             if ($arg_text ne '') {
               my $format_element;
@@ -1647,7 +1621,7 @@ sub _convert($$;$)
             }
           }
           if (scalar(@{$element->{'contents'}}) >= 2
-              and $element->{'contents'}->[1]->{'contents'}) {
+              and exists($element->{'contents'}->[1]->{'contents'})) {
             if (defined($argument)) {
               my $tree = $self->cdt('{abbr_or_acronym} ({explanation})',
                              {'abbr_or_acronym' =>
@@ -1666,9 +1640,10 @@ sub _convert($$;$)
         return '';
 
       } elsif ($cmdname eq 'U') {
-        if ($element->{'contents'}
-            and $element->{'contents'}->[0]->{'contents'}
-            and $element->{'contents'}->[0]->{'contents'}->[0]->{'text'}) {
+        if (exists($element->{'contents'})
+            and exists($element->{'contents'}->[0]->{'contents'})
+            and exists($element->{'contents'}->[0]->{'contents'}->[0]
+                                                            ->{'text'})) {
           my $arg_text
             = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
 
@@ -1682,7 +1657,8 @@ sub _convert($$;$)
         my $expand = 0;
         if ($Texinfo::Commands::inline_format_commands{$cmdname}) {
           if ($cmdname eq 'inlinefmtifelse'
-              or ($element->{'extra'} and $element->{'extra'}->{'format'}
+              or (exists($element->{'extra'})
+                  and exists($element->{'extra'}->{'format'})
                   and $self->{'expanded_formats'}->{$element->{'extra'}->{'format'}})) {
             $expand = 1;
           }
@@ -1699,7 +1675,7 @@ sub _convert($$;$)
           $arg_index = 2;
         }
         if (scalar(@{$element->{'contents'}}) > $arg_index
-            and $element->{'contents'}->[$arg_index]->{'contents'}) {
+            and exists($element->{'contents'}->[$arg_index]->{'contents'})) {
           $result .= _convert($self, $element->{'contents'}->[$arg_index]);
         }
         if ($cmdname eq 'inlineraw') {
@@ -1733,8 +1709,8 @@ sub _convert($$;$)
       } elsif ($cmdname eq 'enumerate') {
         push @format_elements, 'orderedlist';
         my $numeration;
-        if ($element->{'extra'}
-            and $element->{'extra'}->{'enumerate_specification'}) {
+        if (exists($element->{'extra'})
+            and exists($element->{'extra'}->{'enumerate_specification'})) {
           my $enumerate_specification
             = $element->{'extra'}->{'enumerate_specification'};
           if ($enumerate_specification =~ /^[A-Z]/) {
@@ -1757,7 +1733,7 @@ sub _convert($$;$)
         push @format_elements, "informaltable";
         push @attributes, '';
         my $columns_count;
-        if ($element->{'extra'}
+        if (exists($element->{'extra'})
             and defined($element->{'extra'}->{'max_columns'})) {
           $columns_count = $element->{'extra'}->{'max_columns'};
         } else {
@@ -1770,8 +1746,8 @@ sub _convert($$;$)
         my $columnfractions
           = Texinfo::Common::multitable_columnfractions($element);
         if ($columnfractions) {
-          if ($columnfractions->{'extra'}
-              and $columnfractions->{'extra'}->{'misc_args'}) {
+          if (exists($columnfractions->{'extra'})
+              and exists($columnfractions->{'extra'}->{'misc_args'})) {
             @fractions = @{$columnfractions->{'extra'}->{'misc_args'}};
             $multiply = 100;
           }
@@ -1779,13 +1755,13 @@ sub _convert($$;$)
           # @multitable line arguments_line type element
           my $arguments_line = $element->{'contents'}->[0];
           my $block_line_arg = $arguments_line->{'contents'}->[0];
-          if ($block_line_arg->{'contents'}) {
+          if (exists($block_line_arg->{'contents'})) {
             $multiply = 1;
             foreach my $content (@{$block_line_arg->{'contents'}}) {
-              if ($content->{'type'}
+              if (exists($content->{'type'})
                   and $content->{'type'} eq 'bracketed_arg') {
                 my $prototype_text = '';
-                if ($content->{'contents'}) {
+                if (exists($content->{'contents'})) {
                   Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
                                   $self, $self->{'convert_text_options'});
                   $prototype_text
@@ -1818,7 +1794,7 @@ sub _convert($$;$)
         Texinfo::Convert::Utils::find_element_authors($element,
                                                     $quotation_authors);
         foreach my $author (@$quotation_authors) {
-          if ($author->{'contents'}->[0]->{'contents'}) {
+          if (exists($author->{'contents'}->[0]->{'contents'})) {
             $appended .= '<attribution>'.
                    _convert($self, $author->{'contents'}->[0])
                        ."</attribution>\n";
@@ -1828,7 +1804,7 @@ sub _convert($$;$)
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
-        if ($block_line_arg->{'contents'}) {
+        if (exists($block_line_arg->{'contents'})) {
           my $quotation_arg_text
             = Texinfo::Convert::Text::convert_to_text($block_line_arg,
                                        $self->{'convert_text_options'});
@@ -1847,7 +1823,7 @@ sub _convert($$;$)
         # arguments_line type element
         my $arguments_line = $element->{'contents'}->[0];
         my $block_line_arg = $arguments_line->{'contents'}->[0];
-        if ($block_line_arg->{'contents'}) {
+        if (exists($block_line_arg->{'contents'})) {
           my $title = _convert($self, $block_line_arg);
           if ($title ne '') {
             $appended .= '<title>'.$title.'</title>'."\n";
@@ -1874,10 +1850,10 @@ sub _convert($$;$)
   #warn " end of cmdname\n";
 
 
-  if ($e_type) {
+  if (defined($e_type)) {
 
     if ($container_ignored_if_empty{$e_type}
-        and !$element->{'contents'}) {
+        and !exists($element->{'contents'})) {
       return $result;
     }
 
@@ -1903,7 +1879,7 @@ sub _convert($$;$)
     }
   }
 
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     #warn " have contents $element->{'contents'}\n";
     my $in_code;
     if ($cmdname
@@ -1919,7 +1895,7 @@ sub _convert($$;$)
     if (defined($self->{'pending_prepend'})
         # not restricted enough, includes line_args, for instance
         #and Texinfo::Common::element_is_inline($element, 1)) {
-        and $e_type
+        and defined($e_type)
         and ($e_type eq 'paragraph'
              or $e_type eq 'preformatted')) {
       $result .= $self->{'pending_prepend'};
@@ -1936,7 +1912,7 @@ sub _convert($$;$)
       if ($in_code);
   }
 
-  if ($e_type) {
+  if (defined($e_type)) {
     if (defined($type_elements{$e_type})) {
       $result .= "</$type_elements{$e_type}>";
     } elsif ($e_type eq 'preformatted') {
@@ -1949,7 +1925,7 @@ sub _convert($$;$)
     $result .= "</$format_element>";
   }
 
-  if ($cmdname
+  if (defined($cmdname)
       and exists($Texinfo::Commands::block_commands{$cmdname})) {
     # a pending_prepend still there may happen if a quotation is empty.
     delete $self->{'pending_prepend'};
@@ -1963,32 +1939,32 @@ sub _convert($$;$)
       pop @{$self->{'document_context'}};
     }
 
-  } elsif ($e_type
+  } elsif (defined($e_type)
            and exists($docbook_preformatted_formats{$e_type})) {
     my $format = pop @{$self->{'document_context'}->[-1]->{'preformatted_stack'}};
     die "BUG $format ne $docbook_preformatted_formats{$e_type}"
       if ($format ne $docbook_preformatted_formats{$e_type});
   # close sectioning command
-  } elsif ($cmdname and $cmdname ne 'node'
+  } elsif (defined($cmdname) and $cmdname ne 'node'
            and $Texinfo::Commands::root_commands{$cmdname}) {
     my $section_relations;
     my $sections_list;
-    if ($self->{'document'}) {
+    if (exists($self->{'document'})) {
       $sections_list = $self->{'document'}->sections_list();
       $section_relations
         = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     }
     my $docbook_sectioning_element = _docbook_section_element($self, $element);
     if ($docbook_sectioning_element eq 'part'
-        and not ($section_relations
-                 and $section_relations->{'part_associated_section'})
+        and not (defined($section_relations)
+                 and exists($section_relations->{'part_associated_section'}))
         and !Texinfo::Common::is_content_empty($element)) {
       $result .= "</partintro>\n";
     }
     my $level_adjusted_cmdname
         = Texinfo::Structuring::section_level_adjusted_command_name($element);
-    if (!($section_relations
-          and $section_relations->{'section_children'}
+    if (!(defined($section_relations)
+          and exists($section_relations->{'section_children'})
           and scalar(@{$section_relations->{'section_children'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= "</$docbook_sectioning_element>\n";
@@ -1996,9 +1972,9 @@ sub _convert($$;$)
       my $current = $element;
       my $current_relations
         = $sections_list->[$current->{'extra'}->{'section_number'} -1];
-      while ($current_relations->{'section_directions'}
-             and $current_relations->{'section_directions'}->{'up'}
-             and !$current_relations->{'section_directions'}->{'next'}
+      while (exists($current_relations->{'section_directions'})
+             and exists($current_relations->{'section_directions'}->{'up'})
+             and !exists($current_relations->{'section_directions'}->{'next'})
              and Texinfo::Structuring::section_level_adjusted_command_name(
    $current_relations->{'section_directions'}->{'up'}->{'element'}) ne 'top') {
         $current_relations = $current_relations->{'section_directions'}->{'up'};
@@ -2007,7 +1983,7 @@ sub _convert($$;$)
         pop @{$self->{'lang_stack'}};
       }
     }
-  } elsif ($e_type and $e_type eq 'before_node_section'
+  } elsif (defined($e_type) and $e_type eq 'before_node_section'
            and !$self->get_conf('_DOCBOOK_PIECE')) {
     # ignore text before the first @node or sectioning command
     # as DocBook does not allow content not within some semantic
@@ -2016,9 +1992,9 @@ sub _convert($$;$)
     return '';
   }
 
-  if ($cmdname
+  if (defined($cmdname)
       and $Texinfo::Commands::root_commands{$cmdname}
-      and defined($self->{'in_skipped_node_top'})
+      and exists($self->{'in_skipped_node_top'})
       and $self->{'in_skipped_node_top'} == 1) {
     return '';
   }

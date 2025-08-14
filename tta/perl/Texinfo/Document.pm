@@ -424,7 +424,8 @@ sub remove_document_references($;$) {
   #                                                  $remove_references);
   #}
 
-  if (0 and $remove_references) {
+  #if (0 and $remove_references) {
+  if ($remove_references) {
     foreach my $lang (sort(keys(
                          %{$Texinfo::Translations::translation_cache}))) {
       my $lang_cache = $Texinfo::Translations::translation_cache->{$lang};
