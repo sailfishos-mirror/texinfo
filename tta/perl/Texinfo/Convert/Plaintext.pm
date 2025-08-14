@@ -671,7 +671,8 @@ sub convert($$)
   my $result = '';
 
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
-  $document->register_output_units_lists([$output_units]);
+  #$document->register_output_units_lists([$output_units]);
+  $self->register_output_units_lists([$output_units]);
 
   foreach my $output_unit (@$output_units) {
     my $node_text = convert_output_unit($self, $output_unit);
@@ -732,7 +733,8 @@ sub output($$)
   Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
                                     $self->get_conf('SPLIT'));
 
-  $document->register_output_units_lists([$output_units]);
+  #$document->register_output_units_lists([$output_units]);
+  $self->register_output_units_lists([$output_units]);
 
   # There are no XS overrides, the changes are in Perl only, no need
   # to rebuild Perl data from C.
@@ -1871,6 +1873,7 @@ sub process_printindex($$;$) {
   if (defined($indices_information)) {
     $index_entries = $self->get_converter_indices_sorted_by_index();
   }
+
   if (!defined($index_entries) or !exists($index_entries->{$index_name})
       or !scalar(@{$index_entries->{$index_name}})) {
     return;

@@ -158,10 +158,13 @@ destroy_document (SV *document_in, ...)
         document = get_sv_document_document (document_in, 0);
         if (document)
           {
-             /*
+            /* Not useful, as it is done by converters already
             int remove_references = 0;
             if (remove_references_sv && SvOK (remove_references_sv))
               remove_references = SvIV (remove_references_sv);
+
+            release_output_units_lists_built (&document->output_units_lists,
+                                              remove_references);
               */
 
             destroy_document (document);

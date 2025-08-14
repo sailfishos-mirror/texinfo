@@ -28,6 +28,12 @@ call_module_converter (const char *module_name,
 }
 
 void
+call_object_reset_converter (const CONVERTER *self,
+                             int remove_references)
+{
+}
+
+void
 call_object_converter_perl_release (const CONVERTER *self,
                                     int remove_references)
 {

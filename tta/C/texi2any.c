@@ -3075,7 +3075,7 @@ main (int argc, char *argv[], char *env[])
         }
 
       /* free after output */
-      txi_converter_reset (converter);
+      txi_converter_reset (external_module, converter, remove_references);
 
       /* destroy converter */
       txi_converter_destroy (converter, remove_references);
@@ -3127,6 +3127,8 @@ main (int argc, char *argv[], char *env[])
               char *encoded_sort_element_count_file_name;
               int error_element_count_file = 0;
               char *output_file_name_encoding = 0;
+              const char *elt_count_external_module
+                 = "Texinfo::Convert::TextContent";
 
               /* reuse converter options list memory */
               clear_options_list (&convert_options);
@@ -3145,7 +3147,7 @@ main (int argc, char *argv[], char *env[])
               copy_strings (converter_include_dirs, cmdline_include_dirs);
 
               sort_element_count_info
-               = txi_sort_element_counts ("Texinfo::Convert::TextContent",
+               = txi_sort_element_counts (elt_count_external_module,
                      &convert_options, document,
                      use_sections, (sort_element_count_words_option
                          && sort_element_count_words_option->o.integer > 0));
@@ -3211,7 +3213,8 @@ main (int argc, char *argv[], char *env[])
               free (sort_element_count_text);
 
               /* destroy converter and sort_element_count_info */
-              txi_converter_reset (sort_element_count_info->converter);
+              txi_converter_reset (elt_count_external_module,
+                                   sort_element_count_info->converter, 0);
               txi_converter_destroy (sort_element_count_info->converter, 0);
               free (sort_element_count_info);
 

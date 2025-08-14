@@ -1707,6 +1707,77 @@ get_output_files_information (SV *output_files_sv)
 
 
 
+/* destruction */
+
+/* Same as Texinfo::OutputUnits release_output_units_list */
+void
+release_output_units_list_built (OUTPUT_UNIT_LIST *output_units,
+                                 int remove_references)
+{
+  dTHX;
+
+  size_t j;
+
+  for (j = 0; j < output_units->number; j++)
+    {
+      OUTPUT_UNIT *output_unit = output_units->list[j];
+
+      if (output_unit->hv)
+        {
+          SV **tree_unit_directions_sv;
+          SV **directions_sv;
+          hv_delete (output_unit->hv, "first_in_page",
+                     strlen("first_in_page"), G_DISCARD);
+
+          tree_unit_directions_sv
+            = hv_fetch (output_unit->hv, "tree_unit_directions",
+                        strlen("tree_unit_directions"), 0);
+          if (tree_unit_directions_sv)
+            {
+              HV *tree_unit_directions_hv
+                 = (HV *) SvRV (*tree_unit_directions_sv);
+              hv_delete (tree_unit_directions_hv, "next",
+                         strlen ("next"), G_DISCARD);
+            }
+
+          directions_sv
+            = hv_fetch (output_unit->hv, "directions",
+                        strlen("directions"), 0);
+          if (directions_sv)
+            {
+              HV *directions_hv
+                 = (HV *) SvRV (*directions_sv);
+              hv_clear (directions_hv);
+            }
+
+          hv_delete (output_unit->hv, "unit_command",
+                     strlen("unit_command"), G_DISCARD);
+
+          if (remove_references)
+            hv_delete (output_unit->hv, "unit_contents",
+                       strlen("unit_contents"), G_DISCARD);
+        }
+    }
+}
+
+/* For documents output units lists, not currently called */
+void
+release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists,
+                                  int remove_references)
+{
+  size_t i;
+
+  for (i = 0; i < output_units_lists->number; i++)
+    {
+      OUTPUT_UNIT_LIST *output_units
+         = &output_units_lists->output_units_lists[i];
+
+      release_output_units_list_built (output_units, remove_references);
+    }
+}
+
+
+
 /* the following is only needed in converters, but we still define here
    such that it is available for functions called from C */
 void

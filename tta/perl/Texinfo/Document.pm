@@ -343,54 +343,6 @@ sub _remove_heading_relations_references($) {
   }
 }
 
-# remove cycles in output units
-sub _remove_output_units_directions($) {
-  my $document = shift;
-
-  my $output_units_lists = $document->get_output_units_lists();
-
-  my $i = -1;
-  foreach my $output_units_list (@$output_units_lists) {
-    $i++;
-    foreach my $output_unit (@$output_units_list) {
-      delete $output_unit->{'first_in_page'};
-      if (exists($output_unit->{'tree_unit_directions'})) {
-        delete $output_unit->{'tree_unit_directions'}->{'next'};
-      }
-      if (exists($output_unit->{'directions'})) {
-        foreach my $direction (keys(%{$output_unit->{'directions'}})) {
-          delete $output_unit->{'directions'}->{$direction};
-        }
-      }
-      # not necessary to remove cycles in general, as the associated_unit
-      # are removed from elements, however, some elements may not be in the
-      # tree, in practice HTML special units elements.
-      delete $output_unit->{'unit_command'};
-      if (0) {
-        print STDERR " $output_unit ["
-               .(exists($output_unit->{'unit_contents'}) ?
-                  scalar(@{$output_unit->{'unit_contents'}}) : '-')."]: ".
-                     Devel::Peek::SvREFCNT($output_unit).
-         " HV: ".Devel::Refcount::refcount($output_unit)."\n";
-      }
-    }
-  }
-}
-
-# remove references to elements
-sub _remove_output_units_references($) {
-  my $document = shift;
-
-  my $output_units_lists = $document->get_output_units_lists();
-
-  foreach my $output_units_list (@$output_units_lists) {
-    foreach my $output_unit (@$output_units_list) {
-      #delete $output_unit->{'unit_command'};
-      delete $output_unit->{'unit_contents'};
-    }
-  }
-}
-
 # for debugging
 sub _print_tree_elements_ref($$);
 sub _print_tree_elements_ref($$)
@@ -453,6 +405,8 @@ sub remove_document_references($;$) {
     delete $document->{'commands_info'};
     delete $document->{'listoffloats_list'};
 
+    # the same index_entries are used in sorted_indices_by_*, so
+    # this also removes the references there.
     foreach my $index_name (keys(%{$document->{'indices'}})) {
       my $index = $document->{'indices'}->{$index_name};
       foreach my $index_entry (@{$index->{'index_entries'}}) {
@@ -462,10 +416,13 @@ sub remove_document_references($;$) {
     }
   }
 
-  _remove_output_units_directions($document);
-  if ($remove_references) {
-    _remove_output_units_references($document);
-  }
+  # Done by converters
+  #my $output_units_lists = $document->get_output_units_lists();
+
+  #foreach my $output_units_list (@$output_units_lists) {
+  #  Texinfo::OutputUnits::release_output_units_list($output_units_list,
+  #                                                  $remove_references);
+  #}
 
   if (0 and $remove_references) {
     foreach my $lang (sort(keys(
@@ -485,7 +442,6 @@ sub remove_document_references($;$) {
       }
     }
   }
-
 
   if (defined($tree)) {
     Texinfo::ManipulateTree::tree_remove_parents($tree);

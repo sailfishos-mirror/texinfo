@@ -115,7 +115,7 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::converter_set_global_document_commands",
 
   # XS only
-  "Texinfo::Convert::Converter::reset_converter"
+  "Texinfo::Convert::Converter::_XS_reset_converter"
    => "Texinfo::Convert::ConvertXS::reset_converter",
   "Texinfo::Convert::Converter::_XS_destroy"
    => "Texinfo::Convert::ConvertXS::destroy",
@@ -464,21 +464,54 @@ sub output_tree($$;$)
   return $result;
 }
 
-# Nothing to do in Perl.  XS function resets converter
-sub reset_converter($)
-{
+# No XS needed, as in C the units are necessarily registered to be able to
+# release memory.
+# TODO document
+sub register_output_units_lists($$) {
+  my ($self, $output_units_lists) = @_;
+
+  return unless defined($output_units_lists);
+
+  foreach my $output_unit_list (@$output_units_lists) {
+    push @{$self->{'output_units_lists'}}, $output_unit_list
+      unless(!defined($output_unit_list));
+  }
+}
+
+sub get_output_units_lists($) {
+  my $self = shift;
+
+  return $self->{'output_units_lists'};
+}
+
+sub _XS_reset_converter($;$) {
+  my ($self, $remove_references) = @_;
+}
+
+# TODO the split between destroy and reset could be worked on to be
+# more logical as in C.
+# Possibly called from C main program.
+sub reset_converter($;$) {
+  my ($self, $remove_references) = @_;
+
+  my $output_units_lists = $self->get_output_units_lists();
+
+  foreach my $output_units_list (@$output_units_lists) {
+    Texinfo::OutputUnits::release_output_units_list($output_units_list,
+                                                    $remove_references);
+  }
+
+  $self->_XS_reset_converter($remove_references);
 }
 
 # Should be redefined in converters if needed
 # TODO document
-sub converter_destroy($;$)
-{
+sub converter_destroy($;$) {
   my ($self, $remove_references) = @_;
 }
 
 # can also be called from XS
-sub converter_perl_release($;$)
-{
+sub converter_perl_release($;$) {
   my ($self, $remove_references) = @_;
 
   # generic
@@ -504,13 +537,11 @@ sub converter_perl_release($;$)
   $self->converter_destroy($remove_references);
 }
 
-sub _XS_destroy($;$)
-{
+sub _XS_destroy($;$) {
   my ($self, $remove_references) = @_;
 }
 
-sub destroy($;$)
-{
+sub destroy($;$) {
   my ($self, $remove_references) = @_;
 
   $self->converter_perl_release($self, $remove_references);
@@ -982,7 +1013,7 @@ sub set_output_units_files($$$$$$)
   my $document_name = shift;
 
   # Ensure that the document has pages
-  return undef if (!defined($output_units) or !@$output_units);
+  return undef if (!defined($output_units) or !scalar(@$output_units));
 
   $self->initialize_output_units_files();
 

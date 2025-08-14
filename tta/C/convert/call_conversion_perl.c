@@ -195,6 +195,43 @@ call_module_converter (const char *module_name,
 }
 
 void
+call_object_reset_converter (const CONVERTER *self, int remove_references)
+{
+  int count;
+
+  dTHX;
+
+  /* TODO: could also be a check of if (!has_perl_interpreter ()) */
+  if (!self->sv)
+    return;
+
+  dSP;
+
+  ENTER;
+  SAVETMPS;
+
+  PUSHMARK(SP);
+  EXTEND(SP, 2);
+
+  PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
+  PUSHs(sv_2mortal (newSViv (remove_references)));
+  PUTBACK;
+
+  count = call_method ("reset_converter",
+                       G_DISCARD|G_SCALAR);
+
+  SPAGAIN;
+
+  if (count != 0)
+    croak ("call: object reset_converter should return 0 item\n");
+
+  PUTBACK;
+
+  FREETMPS;
+  LEAVE;
+}
+
+void
 call_object_converter_perl_release (const CONVERTER *self,
                                     int remove_references)
 {
@@ -230,7 +267,6 @@ call_object_converter_perl_release (const CONVERTER *self,
 
   FREETMPS;
   LEAVE;
-
 }
 
 /* call converter->output and converter->output_files_information if needed

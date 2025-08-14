@@ -2211,7 +2211,7 @@ while(@input_files) {
   # Texinfo::Converter::Text does not define it. Alternatively could be
   # a mandated part of the converter API
   if ($converter->can('reset_converter')) {
-    $converter->reset_converter();
+    $converter->reset_converter($remove_references);
   }
 
   if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {

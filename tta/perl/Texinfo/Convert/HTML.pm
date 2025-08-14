@@ -10637,8 +10637,12 @@ sub _prepare_conversion_units($$$)
 
   $self->_set_heading_commands_targets();
 
-  $document->register_output_units_lists([$output_units,
-                                  $special_units, $associated_special_units]);
+  # Better to do it on converter, such that the output units can be
+  # removed after each conversion.
+  #$document->register_output_units_lists([$output_units,
+  #                              $special_units, $associated_special_units]);
+  $self->register_output_units_lists([$output_units,
+                                 $special_units, $associated_special_units]);
 
   return ($output_units, $special_units, $associated_special_units);
 }

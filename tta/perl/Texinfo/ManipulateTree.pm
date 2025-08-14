@@ -94,10 +94,14 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::tree_print_details",
 );
 
+my $destroyed_objects_refcount = 2;
+
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     if ($XS_structuring) {
+      # a reference in C too
+      $destroyed_objects_refcount++;
       for my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
       }
@@ -525,11 +529,11 @@ sub tree_remove_references($)
   # The parent contents hash also holds a count to the object.
   # plus possibly one reference owned by the C code
   #if (1) {
-  #if ($reference_count != 1 or $object_count != 2) {
+  #if ($reference_count != 1 or $object_count != $destroyed_objects_refcount) {
   #  print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
   #     .Texinfo::ManipulateTree::element_print_details($element)."\n"
-       #;
-  #     .Devel::FindRef::track($element)."\n";
+       ;
+       #.Devel::FindRef::track($element)."\n";
   #}
 }
 

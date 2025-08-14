@@ -283,6 +283,42 @@ sub rebuild_output_units($$) {
   my ($document, $output_units) = @_;
 }
 
+# does not actually remove all the directions, but remove enough to
+# remove cycles, such that Perl can remove the remaining.
+# If $REMOVE_REFERENCES is set, remove all references to tree elements.
+# Implementation in C for XS in get_perl_info.c: release_output_units_list_built
+sub release_output_units_list($;$) {
+  my ($output_units_list, $remove_references) = shift;
+
+  foreach my $output_unit (@$output_units_list) {
+    delete $output_unit->{'first_in_page'};
+    if (exists($output_unit->{'tree_unit_directions'})) {
+      delete $output_unit->{'tree_unit_directions'}->{'next'};
+    }
+    if (exists($output_unit->{'directions'})) {
+       foreach my $direction (keys(%{$output_unit->{'directions'}})) {
+        delete $output_unit->{'directions'}->{$direction};
+      }
+    }
+    # not necessary to remove cycles in general, as the associated_unit
+    # are removed from elements, however, some elements may not be in the
+    # tree, in practice HTML special units elements.
+    delete $output_unit->{'unit_command'};
+
+    if ($remove_references) {
+      delete $output_unit->{'unit_contents'};
+    }
+
+    if (0) {
+      print STDERR " $output_unit ["
+             .(exists($output_unit->{'unit_contents'}) ?
+                scalar(@{$output_unit->{'unit_contents'}}) : '-')."]: ".
+                   Devel::Peek::SvREFCNT($output_unit).
+       " HV: ".Devel::Refcount::refcount($output_unit)."\n";
+    }
+  }
+}
+
 # Associate top-level units with pages according to the splitting
 # specification.  Set 'first_in_page' on each unit to the unit
 # that is the first in the output page.

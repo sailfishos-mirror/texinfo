@@ -677,13 +677,21 @@ merge_converter_error_messages_lists (SV *dst_in, SV *src_in)
                                     &src->error_messages);
 
 void
-reset_converter (SV *converter_in)
+reset_converter (SV *converter_in, SV *remove_references_sv=0)
       PREINIT:
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in, 0);
         if (self)
-          reset_converter (self);
+          {
+            int remove_references = 0;
+            if (remove_references_sv && SvOK (remove_references_sv))
+              remove_references = SvIV (remove_references_sv);
+
+            converter_release_output_units_built (self, remove_references);
+
+            reset_converter (self);
+          }
 
 # remove_references_sv
 void

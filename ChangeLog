@@ -1,5 +1,49 @@
 2025-08-14 Patrice Dumas  <pertusus@free.fr>
 
+	Release output units in converter reset, not in document destroy
+
+	* tta/perl/Texinfo/Document.pm, tta/perl/Texinfo/OutputUnits.pm
+	(release_output_units_list): move _remove_output_units_directions and
+	_remove_output_units_references to OutputUnits.pm as
+	release_output_units_list.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (get_output_units_lists)
+	(register_output_units_lists): add registering output units to Perl
+	converter.
+
+	* tta/C/convert/get_converter_perl_info.c
+	(converter_release_output_units_built), tta/C/main/get_perl_info.c
+	(release_output_units_list_built, release_output_units_lists_built):
+	add C functions to be used with XS to release Perl references for the
+	output units lists that are kept in C doing the same as
+	release_output_units_list.
+
+	* tta/perl/XSTexinfo/convert/ConvertXS.xs (reset_converter),
+	tta/perl/texi2any.pl, tta/perl/Texinfo/Convert/Converter.pm
+	(%XS_overrides, _XS_reset_converter, reset_converter),
+	tta/perl/Texinfo/Convert/HTML.pm (_prepare_conversion_units),
+	tta/perl/Texinfo/Convert/Info.pm (output),
+	tta/perl/Texinfo/Convert/Plaintext.pm (convert, output),
+	tta/perl/Texinfo/Document.pm (remove_document_references): add
+	_XS_reset_converter and modify reset_converter to always have both
+	Perl and XS run.  Add remove_references argument to reset_converter.
+	Release output units in converters reset, not in document destroy.
+	Register output units in Perl in converter, not in document.
+
+	* tta/C/convert/call_conversion_perl.c (call_object_reset_converter), 
+	tta/C/convert/texinfo.c (txi_converter_reset), tta/C/texi2any.c
+	(main): add call_object_reset_converter and update txi_converter_reset
+	to release output units in converters reset, not in document destroy.
+
+	* tta/C/convert/texinfo.c (txi_converter_destroy): always call
+	call_object_converter_perl_release to match with Perl.
+
+	* tta/perl/Texinfo/ManipulateTree.pm ($destroyed_objects_refcount):
+	handle automatically the difference in object refcount with XS and
+	without (one more reference with XS).
+
+2025-08-14 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/ConvertXS.xs
 	(get_converter_indices_sorted_by_index)
 	(get_converter_indices_sorted_by_letter): relinquish the reference to

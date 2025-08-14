@@ -5928,7 +5928,7 @@ html_prepare_units_directions_files (CONVERTER *self,
      self->output_units_descriptors[OUDT_associated_special_units]);
   const NODE_RELATIONS_LIST *nodes_list = &self->document->nodes_list;
 
-   self->output_units_descriptors[OUDT_external_nodes_units]
+  self->output_units_descriptors[OUDT_external_nodes_units]
      = external_nodes_units_descriptor;
 
   html_prepare_output_units_global_targets (self);

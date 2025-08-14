@@ -703,16 +703,19 @@ txi_destroy_document (DOCUMENT *document, int remove_references)
 }
 
 void
-txi_converter_reset (CONVERTER *converter)
+txi_converter_reset (const char *external_module, CONVERTER *converter,
+                     int remove_references)
 {
-  reset_converter (converter);
+  if (external_module)
+    call_object_reset_converter (converter, remove_references);
+  else
+    reset_converter (converter);
 }
 
 void
 txi_converter_destroy (CONVERTER *converter, int remove_references)
 {
-  if (converter->conf->TEST.o.integer > 0)
-    call_object_converter_perl_release (converter, remove_references);
+  call_object_converter_perl_release (converter, remove_references);
   destroy_converter (converter);
 }
 

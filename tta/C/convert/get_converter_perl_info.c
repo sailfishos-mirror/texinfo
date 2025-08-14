@@ -40,6 +40,8 @@
 /* retrieve_converter find_perl_converter_class_converter_format
    new_converter converter_set_document new_converter_initialization_info */
 #include "converter.h"
+/* retrieve_output_units */
+#include "output_unit.h"
 #include "get_converter_perl_info.h"
 
 
@@ -183,6 +185,26 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
             {
               add_expanded_format (*expanded_formats, format);
             }
+        }
+    }
+}
+
+void
+converter_release_output_units_built (CONVERTER *converter,
+                                      int remove_references)
+{
+  int i;
+
+  for (i = 0; i < OUDT_external_nodes_units+1; i++)
+    {
+      if (converter->output_units_descriptors[i])
+        {
+          OUTPUT_UNIT_LIST *output_unit_list
+            = retrieve_output_units (converter->document,
+                                     converter->output_units_descriptors[i]);
+          if (output_unit_list)
+            release_output_units_list_built (output_unit_list,
+                                             remove_references);
         }
     }
 }

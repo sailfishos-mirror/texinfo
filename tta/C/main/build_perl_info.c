@@ -3394,7 +3394,7 @@ fill_output_units_descriptor_av (const DOCUMENT *document,
       SV *sv;
       OUTPUT_UNIT *output_unit = output_units->list[i];
       output_unit_to_perl_hash (output_unit);
-      /* add a reference owned by the C code */
+      /* keep the reference owned by the C code */
       sv = newRV_inc ((SV *) output_unit->hv);
       av_push (av_output_units, sv);
     }
