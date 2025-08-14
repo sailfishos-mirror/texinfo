@@ -224,41 +224,36 @@ foreach my $ref_cmd ('pxref', 'xref', 'ref') {
 # ok for most converters.
 
 # Functions that should be defined in specific converters
-sub converter_defaults($;$)
-{
+sub converter_defaults($;$) {
   return \%defaults;
 }
 
 # should be redefined by specific converters
-sub converter_initialize($)
-{
+sub converter_initialize($) {
 }
 
-sub conversion_initialization($;$)
-{
-  my $converter = shift;
-  my $document = shift;
+sub conversion_initialization($;$) {
+  my ($converter, $document) = @_;
 
-  if ($document) {
+  if (defined($document)) {
     $converter->set_document($document);
   }
 }
 
-sub conversion_finalization($)
-{
+sub conversion_finalization($) {
   #my $converter = shift;
 }
 
-sub output_internal_links($)
-{
+sub output_internal_links($) {
   my $self = shift;
+
   return undef;
 }
 
-sub set_document($$)
-{
-  my $converter = shift;
-  my $document = shift;
+sub set_document($$) {
+  my ($converter, $document) = @_;
+
+  confess('set_document: document undef') if (!defined($document));
 
   $converter->{'document'} = $document;
 
@@ -269,15 +264,12 @@ sub set_document($$)
 }
 
 # initialization either in generic XS converter or in Perl
-sub _generic_converter_init($$;$)
-{
-  my $converter = shift;
-  my $format_defaults = shift;
-  my $conf = shift;
+sub _generic_converter_init($$;$) {
+  my ($converter, $format_defaults, $conf) = @_;
 
   my %defaults = %all_converters_defaults;
 
-  if ($format_defaults) {
+  if (defined($format_defaults)) {
     foreach my $key (keys(%$format_defaults)) {
       $defaults{$key} = $format_defaults->{$key};
     }
@@ -324,9 +316,9 @@ sub _generic_converter_init($$;$)
     = Texinfo::Convert::Utils::output_files_initialize();
 
   # setup expanded formats as a hash.
-  my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
   $converter->{'expanded_formats'} = {};
-  if (defined($expanded_formats)) {
+  if (exists($converter->{'conf'}->{'EXPANDED_FORMATS'})) {
+    my $expanded_formats = $converter->{'conf'}->{'EXPANDED_FORMATS'};
     foreach my $expanded_format (@$expanded_formats) {
       $converter->{'expanded_formats'}->{$expanded_format} = 1;
     }
@@ -337,10 +329,8 @@ sub _generic_converter_init($$;$)
 
 # this function is designed so as to be used in specific Converters
 # and not redefined.
-sub converter($;$)
-{
-  my $class = shift;
-  my $conf = shift;
+sub converter($;$) {
+  my ($class, $conf) = @_;
 
   my $converter = {};
 
@@ -355,10 +345,8 @@ sub converter($;$)
   return $converter;
 }
 
-sub convert_output_unit($$)
-{
-  my $self = shift;
-  my $output_unit = shift;
+sub convert_output_unit($$) {
+  my ($self, $output_unit) = @_;
 
   my $result = '';
   foreach my $element (@{$output_unit->{'unit_contents'}}) {
@@ -368,32 +356,25 @@ sub convert_output_unit($$)
 }
 
 # should be redefined by specific converters
-sub conversion_output_begin($;$$)
-{
-  my $self = shift;
-  my $output_file = shift;
-  my $output_filename = shift;
+sub conversion_output_begin($;$$) {
+  my ($self, $output_file, $output_filename) = @_;
 
   return '';
 }
 
-sub conversion_output_end($)
-{
+sub conversion_output_end($) {
   my $self = shift;
 
   return '';
 }
 
-sub output_tree($$;$)
-{
-  my $self = shift;
-  my $document = shift;
-  my $tree_handle_only = shift;
+sub output_tree($$;$) {
+  my ($self, $document, $tree_handle_only) = @_;
 
   $self->conversion_initialization($document);
 
   # to avoid passing undef to XS
-  $tree_handle_only = 0 unless ($tree_handle_only);
+  $tree_handle_only = 0 unless (defined($tree_handle_only));
 
   my $root = $document->tree($tree_handle_only);
 
@@ -428,7 +409,7 @@ sub output_tree($$;$)
                               $self->output_files_information(),
                               $encoded_output_file, undef,
                               $self->get_conf('OUTPUT_ENCODING_NAME'));
-    if (!$fh) {
+    if (!defined($fh)) {
       $self->converter_document_error(
            sprintf(__("could not open %s for writing: %s"),
                                     $output_file, $error_message));
@@ -451,7 +432,7 @@ sub output_tree($$;$)
   # Do not close STDOUT now such that the file descriptor is not reused
   # by open, which uses the lowest-numbered file descriptor not open,
   # for another filehandle.  Closing STDOUT is handled by the caller.
-  if ($fh and $output_file ne '-') {
+  if (defined($fh) and $output_file ne '-') {
     Texinfo::Convert::Utils::output_files_register_closed(
                   $self->output_files_information(), $encoded_output_file);
     if (!close ($fh)) {
@@ -464,8 +445,8 @@ sub output_tree($$;$)
   return $result;
 }
 
-# No XS needed, as in C the units are necessarily registered to be able to
-# release memory.
+# No XS needed, as in C the units are necessarily registered for memory
+# management.
 # TODO document
 sub register_output_units_lists($$) {
   my ($self, $output_units_lists) = @_;
@@ -552,14 +533,13 @@ sub destroy($;$) {
   $self = undef;
 }
 
-sub XS_get_unclosed_stream($$)
-{
+sub XS_get_unclosed_stream($$) {
   return undef;
 }
 
-sub output_files_information($)
-{
+sub output_files_information($) {
   my $self = shift;
+
   return $self->{'output_files'};
 }
 
@@ -568,8 +548,7 @@ sub output_files_information($)
 
 # translations
 
-sub cdt($$;$$)
-{
+sub cdt($$;$$) {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
   return Texinfo::Translations::gdt($string,
@@ -579,8 +558,7 @@ sub cdt($$;$$)
                                     $translation_context);
 }
 
-sub cdt_string($$;$$)
-{
+sub cdt_string($$;$$) {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
   return Texinfo::Translations::gdt_string($string,
@@ -589,8 +567,7 @@ sub cdt_string($$;$$)
                                     $translation_context);
 }
 
-sub pcdt($$;$$)
-{
+sub pcdt($$;$$) {
   my ($self, $translation_context, $string, $replaced_substrings) = @_;
 
   return $self->cdt($string, $replaced_substrings, $translation_context);
@@ -600,12 +577,8 @@ sub pcdt($$;$$)
 
 # errors and warnings
 
-sub converter_line_error($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
+sub converter_line_error($$$;$) {
+  my ($self, $text, $error_location_info, $continuation) = @_;
 
   my $message = Texinfo::Report::format_line_message('error', $text,
                                  $error_location_info, $continuation,
@@ -613,12 +586,8 @@ sub converter_line_error($$$;$)
   push @{$self->{'error_warning_messages'}}, $message;
 }
 
-sub converter_line_warn($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
+sub converter_line_warn($$$;$) {
+  my ($self, $text, $error_location_info, $continuation) = @_;
 
   my $message = Texinfo::Report::format_line_message('warning', $text,
                                    $error_location_info, $continuation,
@@ -626,11 +595,8 @@ sub converter_line_warn($$$;$)
   push @{$self->{'error_warning_messages'}}, $message;
 }
 
-sub converter_document_error($$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $continuation = shift;
+sub converter_document_error($$;$) {
+  my ($self, $text, $continuation) = @_;
 
   my $program_name;
 
@@ -644,11 +610,8 @@ sub converter_document_error($$;$)
   push @{$self->{'error_warning_messages'}}, $message;
 }
 
-sub converter_document_warn($$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $continuation = shift;
+sub converter_document_warn($$;$) {
+  my ($self, $text, $continuation) = @_;
 
   my $program_name;
 
@@ -662,18 +625,16 @@ sub converter_document_warn($$;$)
   push @{$self->{'error_warning_messages'}}, $message;
 }
 
-sub get_converter_errors($)
-{
+sub get_converter_errors($) {
   my $self = shift;
+
   return $self->{'error_warning_messages'};
 }
 
-sub merge_converter_error_messages_lists_noxs($$)
-{
-  my $dst = shift;
-  my $src = shift;
+sub merge_converter_error_messages_lists_noxs($$) {
+  my ($dst, $src) = @_;
 
-  if (!defined($src) or !$src->{'error_warning_messages'}) {
+  if (!defined($src) or !exists($src->{'error_warning_messages'})) {
     return;
   }
 
@@ -682,10 +643,8 @@ sub merge_converter_error_messages_lists_noxs($$)
   @{$src->{'error_warning_messages'}} = ();
 }
 
-sub merge_converter_error_messages_lists($$)
-{
-  my $dst = shift;
-  my $src = shift;
+sub merge_converter_error_messages_lists($$) {
+  my ($dst, $src) = @_;
 
   merge_converter_error_messages_lists_noxs($dst, $src);
 }
@@ -699,10 +658,8 @@ sub merge_converter_error_messages_lists($$)
 # Unknown variables can only happen when called from init files.  From
 # command-line checks are done before.
 
-sub get_conf($$)
-{
-  my $self = shift;
-  my $var_name = shift;
+sub get_conf($$) {
+  my ($self, $var_name) = @_;
 
   if (!Texinfo::Common::valid_customization_option($var_name)) {
     $self->converter_document_error(sprintf(__(
@@ -717,11 +674,8 @@ sub get_conf($$)
   return $self->{'conf'}->{$var_name};
 }
 
-sub set_conf($$$)
-{
-  my $self = shift;
-  my $var_name = shift;
-  my $value = shift;
+sub set_conf($$$) {
+  my ($self, $var_name, $value) = @_;
 
   if (!Texinfo::Common::valid_customization_option($var_name)) {
     $self->converter_document_error(sprintf(__(
@@ -741,11 +695,8 @@ sub set_conf($$$)
   }
 }
 
-sub force_conf($$$)
-{
-  my $self = shift;
-  my $var_name = shift;
-  my $value = shift;
+sub force_conf($$$) {
+  my ($self, $var_name, $value) = @_;
 
   if (!Texinfo::Common::valid_customization_option($var_name)) {
     $self->converter_document_error(sprintf(__(
@@ -771,10 +722,9 @@ sub force_conf($$$)
 # - set_output_units_files, which uses both default file names setting
 #   and output units files API
 
-sub _id_to_filename($$)
-{
-  my $self = shift;
-  my $id = shift;
+sub _id_to_filename($$) {
+  my ($self, $id) = @_;
+
   my $basefilename_length = $self->get_conf('BASEFILENAME_LENGTH');
   if (defined($basefilename_length) and $basefilename_length >= 0) {
     return substr($id, 0, $basefilename_length);
@@ -783,11 +733,8 @@ sub _id_to_filename($$)
   }
 }
 
-sub normalized_sectioning_command_filename($$)
-{
-  my $self = shift;
-  my $command = shift;
-  my $no_unidecode;
+sub normalized_sectioning_command_filename($$) {
+  my ($self, $command, $no_unidecode) = @_;
 
   $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
                         and !$self->get_conf('USE_UNIDECODE'));
@@ -816,11 +763,8 @@ sub normalized_sectioning_command_filename($$)
   return ($normalized_name, $filename);
 }
 
-sub node_information_filename($$$)
-{
-  my $self = shift;
-  my $normalized = shift;
-  my $label_element = shift;
+sub node_information_filename($$$) {
+  my ($self, $normalized, $label_element) = @_;
 
   my $no_unidecode;
   $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
@@ -851,10 +795,8 @@ sub node_information_filename($$$)
   return $filename;
 }
 
-sub top_node_filename($$)
-{
-  my $self = shift;
-  my $document_name = shift;
+sub top_node_filename($$) {
+  my ($self, $document_name) = @_;
 
   if (defined($self->get_conf('TOP_FILE'))
       and $self->get_conf('TOP_FILE') ne '') {
@@ -870,8 +812,7 @@ sub top_node_filename($$)
   return undef;
 }
 
-sub initialize_output_units_files($)
-{
+sub initialize_output_units_files($) {
   my $self = shift;
 
   $self->{'out_filepaths'} = {};
@@ -881,10 +822,8 @@ sub initialize_output_units_files($)
 
 # If CASE_INSENSITIVE_FILENAMES is set, reuse the first
 # filename with the same name insensitive to the case.
-sub register_normalize_case_filename($$)
-{
-  my $self = shift;
-  my $filename = shift;
+sub register_normalize_case_filename($$) {
+  my ($self, $filename) = @_;
 
   if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
     if (exists($self->{'filenames'}->{lc($filename)})) {
@@ -910,11 +849,8 @@ sub register_normalize_case_filename($$)
 }
 
 # Sets $output_unit->{'unit_filename'}.
-sub set_output_unit_file($$$)
-{
-  my $self = shift;
-  my $output_unit = shift;
-  my $filename = shift;
+sub set_output_unit_file($$$) {
+  my ($self, $output_unit, $filename) = @_;
 
   if (!defined($filename)) {
     cluck("set_output_unit_file: filename not defined\n");
@@ -944,12 +880,8 @@ sub set_output_unit_file($$$)
 # to a file path.
 # $FILEPATH can be given explicitly, otherwise it is based on $FILENAME
 # and $DESTINATION_DIRECTORY
-sub set_file_path($$$;$)
-{
-  my $self = shift;
-  my $filename = shift;
-  my $destination_directory = shift;
-  my $filepath = shift;
+sub set_file_path($$$;$) {
+  my ($self, $filename, $destination_directory, $filepath) = @_;
 
   if (!defined($filename)) {
     cluck("set_file_path: filename not defined\n");
@@ -980,18 +912,16 @@ sub set_file_path($$$;$)
   $self->{'out_filepaths'}->{$filename} = $filepath;
 }
 
-sub _get_root_element($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub _get_root_element($$) {
+  my ($self, $command) = @_;
 
   my $current = $command;
 
   while (1) {
-    if ($current->{'associated_unit'}) {
+    if (exists($current->{'associated_unit'})) {
       return $current->{'associated_unit'};
     }
-    if ($current->{'parent'}) {
+    if (exists($current->{'parent'})) {
       $current = $current->{'parent'};
     } else {
       return undef;
@@ -1003,14 +933,9 @@ sub _get_root_element($$)
 # Called in Texinfo::Converter::Plaintext.  The HTML converter defines its
 # own version.
 # set file_counters converter state
-sub set_output_units_files($$$$$$)
-{
-  my $self = shift;
-  my $output_units = shift;
-  my $output_file = shift;
-  my $destination_directory = shift;
-  my $output_filename = shift;
-  my $document_name = shift;
+sub set_output_units_files($$$$$$) {
+  my ($self, $output_units, $output_file, $destination_directory,
+      $output_filename, $document_name) = @_;
 
   # Ensure that the document has pages
   return undef if (!defined($output_units) or !scalar(@$output_units));
@@ -1031,16 +956,16 @@ sub set_output_units_files($$$$$$)
     my $node_top;
 
     my $identifiers_target;
-    if ($self->{'document'}) {
+    if (exists($self->{'document'})) {
       $identifiers_target = $self->{'document'}->labels_information();
     }
 
     $node_top = $identifiers_target->{'Top'}
-                            if ($identifiers_target);
+                            if (defined($identifiers_target));
 
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
-    if ($node_top and defined($top_node_filename)) {
+    if (defined($node_top) and defined($top_node_filename)) {
       my $node_top_unit = $self->_get_root_element($node_top);
       if (!defined($node_top_unit)) {
         print STDERR "No element for top node (".scalar(@$output_units)." units)\n"
@@ -1061,7 +986,7 @@ sub set_output_units_files($$$$$$)
       }
       if (!defined($file_output_unit->{'unit_filename'})) {
         foreach my $root_command (@{$file_output_unit->{'unit_contents'}}) {
-          if ($root_command->{'cmdname'}
+          if (exists($root_command->{'cmdname'})
               and $root_command->{'cmdname'} eq 'node') {
             my $node_filename;
             # double node are not normalized, they are handled here
@@ -1089,7 +1014,8 @@ sub set_output_units_files($$$$$$)
           # use section to do the file name if there is no node
           my $command = $file_output_unit->{'unit_section'};
           if ($command) {
-            if ($command->{'element'}->{'cmdname'} eq 'top' and !$node_top
+            if ($command->{'element'}->{'cmdname'} eq 'top'
+                and !defined($node_top)
                 and defined($top_node_filename)) {
               $self->set_file_path($top_node_filename, $destination_directory);
               $self->set_output_unit_file($file_output_unit, $top_node_filename);
@@ -1102,7 +1028,8 @@ sub set_output_units_files($$$$$$)
             }
           } else {
             # when everything else has failed
-            if ($file_nr == 0 and !$node_top and defined($top_node_filename)) {
+            if ($file_nr == 0 and !defined($node_top)
+                and defined($top_node_filename)) {
               $self->set_file_path($top_node_filename, $destination_directory);
               $self->set_output_unit_file($file_output_unit, $top_node_filename);
             } else {
@@ -1142,11 +1069,8 @@ sub set_output_units_files($$$$$$)
 
 # Generic/overall document methods
 
-sub create_destination_directory($$$)
-{
-  my $self = shift;
-  my $destination_directory_path = shift;
-  my $destination_directory_name = shift;
+sub create_destination_directory($$$) {
+  my ($self, $destination_directory_path, $destination_directory_name) = @_;
 
   if (defined($destination_directory_path)
       and ! -d $destination_directory_path) {
@@ -1161,12 +1085,10 @@ sub create_destination_directory($$$)
 }
 
 # output fo $fh if defined, otherwise return the text.
-sub write_or_return($$$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $fh = shift;
-  if ($fh) {
+sub write_or_return($$$) {
+  my ($self, $text, $fh) = @_;
+
+  if (defined($fh)) {
     print $fh $text;
     return '';
   } else {
@@ -1178,20 +1100,18 @@ my $STDIN_DOCU_NAME = 'stdin';
 
 # this requires a document, and is, in general, used in output(), therefore
 # a document need to be associated to the converter, not only a tree.
-sub determine_files_and_directory($$)
-{
-  my $self = shift;
-  my $output_format = shift;
+sub determine_files_and_directory($$) {
+  my ($self, $output_format) = @_;
 
   # determine input file base name
   my $input_basefile;
   my $document_info;
 
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $document_info = $self->{'document'}->global_information();
   }
 
-  if ($document_info and defined($document_info->{'input_file_name'})) {
+  if (defined($document_info) and exists($document_info->{'input_file_name'})) {
     # 'input_file_name' is not decoded, as it is derived from input
     # file which is not decoded either.  We want to return only
     # decoded character strings such that they can easily be mixed
@@ -1221,7 +1141,8 @@ sub determine_files_and_directory($$)
   my $setfilename;
   if (defined($self->get_conf('setfilename'))) {
     $setfilename = $self->get_conf('setfilename');
-  } elsif ($document_info and defined($document_info->{'setfilename'})) {
+  } elsif (defined($document_info)
+           and exists($document_info->{'setfilename'})) {
     $setfilename = $document_info->{'setfilename'};
   }
 
@@ -1323,11 +1244,8 @@ sub determine_files_and_directory($$)
 
 # Reverse the decoding of the file name from the input encoding.
 # A wrapper around Texinfo::Utils::encoded_input_file_name().
-sub encoded_input_file_name($$;$)
-{
-  my $self = shift;
-  my $file_name = shift;
-  my $input_file_encoding = shift;
+sub encoded_input_file_name($$;$) {
+  my ($self, $file_name, $input_file_encoding) = @_;
 
   my $input_file_name_encoding = $self->get_conf('INPUT_FILE_NAME_ENCODING');
   my $doc_encoding_for_input_file_name
@@ -1341,10 +1259,8 @@ sub encoded_input_file_name($$;$)
 }
 
 # A wrapper around Texinfo::Utils::encoded_output_file_name().
-sub encoded_output_file_name($$)
-{
-  my $self = shift;
-  my $file_name = shift;
+sub encoded_output_file_name($$) {
+  my ($self, $file_name) = @_;
 
   my $output_file_name_encoding = $self->get_conf('OUTPUT_FILE_NAME_ENCODING');
   my $doc_encoding_for_output_file_name
@@ -1357,10 +1273,8 @@ sub encoded_output_file_name($$)
                  $self->{'document'});
 }
 
-sub translated_command_tree($)
-{
-  my $converter = shift;
-  my $cmdname = shift;
+sub translated_command_tree($$) {
+  my ($converter, $cmdname) = @_;
 
   return Texinfo::Convert::Utils::translated_command_tree(
                                   $converter->{'translated_commands'},
@@ -1368,10 +1282,8 @@ sub translated_command_tree($)
 }
 
 # wrapper around Texinfo::Utils::expand_verbatiminclude.
-sub expand_verbatiminclude($$)
-{
-  my $converter = shift;
-  my $current = shift;
+sub expand_verbatiminclude($$) {
+  my ($converter, $current) = @_;
 
   my $input_file_name_encoding
     = $converter->get_conf('INPUT_FILE_NAME_ENCODING');
@@ -1390,8 +1302,7 @@ sub expand_verbatiminclude($$)
               $include_directories, $document, $converter);
 }
 
-sub expand_today($)
-{
+sub expand_today($) {
   my $converter = shift;
 
   my $test = $converter->get_conf('TEST');
@@ -1401,10 +1312,8 @@ sub expand_today($)
 
 # determine the default, with $INIT_CONF if set, or the default common
 # to all the converters
-sub get_command_init($$)
-{
-  my $global_command = shift;
-  my $init_conf = shift;
+sub get_command_init($$) {
+  my ($global_command, $init_conf) = @_;
 
   # Where init_conf values are set, It should be made sure that there are only
   # Texinfo::Common::document_settable_at_commands, we do not check here.
@@ -1428,11 +1337,8 @@ sub get_command_init($$)
 # Notice that the only effect is to use set_conf (directly or through
 # set_global_document_command), no @-commands setting side effects are done
 # and associated customization variables are not set/reset either.
-sub set_global_document_commands($$$)
-{
-  my $self = shift;
-  my $commands_location = shift;
-  my $selected_commands = shift;
+sub set_global_document_commands($$$) {
+  my ($self, $commands_location, $selected_commands) = @_;
 
   my $init_conf = $self->{'commands_init_conf'};
 
@@ -1458,7 +1364,7 @@ sub set_global_document_commands($$$)
     }
   } else {
     my $global_commands;
-    if ($self->{'document'}) {
+    if (exists($self->{'document'})) {
       $global_commands = $self->{'document'}->global_commands_information();
     }
     foreach my $global_command (@{$selected_commands}) {
@@ -1467,7 +1373,7 @@ sub set_global_document_commands($$$)
       }
 
       my $element;
-      if ($global_commands) {
+      if (defined($global_commands)) {
         $element = Texinfo::Common::set_global_document_command($self,
                   $global_commands, $global_command, $commands_location);
       }
@@ -1483,16 +1389,13 @@ sub set_global_document_commands($$$)
   }
 }
 
-sub present_bug_message($$;$)
-{
-  my $self = shift;
-  my $message = shift;
-  my $current = shift;
+sub present_bug_message($$;$) {
+  my ($self, $message, $current) = @_;
 
   my $line_message = '';
   my $current_element_message = '';
-  if ($current) {
-    if ($current->{'source_info'}) {
+  if (defined($current)) {
+    if (exists($current->{'source_info'})) {
       my $source_info = $current->{'source_info'};
       my $file = $source_info->{'file_name'};
       $line_message
@@ -1502,10 +1405,8 @@ sub present_bug_message($$;$)
       }
       $line_message .= "\n";
     }
-    if ($current) {
-      $current_element_message = "current: ".
-        Texinfo::Common::debug_print_element($current, 1);
-    }
+    $current_element_message = "current: ".
+      Texinfo::Common::debug_print_element($current, 1);
   }
   my $additional_information = '';
   if ($line_message.$current_element_message ne '') {
@@ -1517,41 +1418,31 @@ sub present_bug_message($$;$)
 
 # This is used when the formatted text has no comment nor new line, but
 # one want to add the comment or new line from the original arg
-sub comment_or_end_line_nonxs($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub comment_or_end_line_nonxs($$) {
+  my ($self, $element) = @_;
 
-  my $end_line;
-
-  my $last_arg = $element->{'contents'}->[-1];
-
-  my $comment = $last_arg->{'info'}->{'comment_at_end'}
-    if ($last_arg and $last_arg->{'info'});
-
-  if ($comment) {
-    return ($comment, undef);
-  } elsif ($last_arg and $last_arg->{'info'}
-      and $last_arg->{'info'}->{'spaces_after_argument'}) {
-    my $text = $last_arg
-                   ->{'info'}->{'spaces_after_argument'}->{'text'};
-    if (chomp($text)) {
-      $end_line = "\n";
-    } else {
-      $end_line = '';
+  if (exists($element->{'contents'})) {
+    my $last_arg = $element->{'contents'}->[-1];
+    if (exists($last_arg->{'info'})) {
+      if (exists($last_arg->{'info'}->{'comment_at_end'})) {
+        return ($last_arg->{'info'}->{'comment_at_end'}, undef);
+      } elsif (exists($last_arg->{'info'}->{'spaces_after_argument'})) {
+        my $text = $last_arg
+                       ->{'info'}->{'spaces_after_argument'}->{'text'};
+        if (chomp($text)) {
+          return (undef, "\n");
+        }
+      }
     }
-  } else {
-    $end_line = '';
   }
-  return (undef, $end_line);
+  return (undef, '');
 }
 
 
 
 # Specific elements formatting helper functions
 
-sub txt_image_text($$$)
-{
+sub txt_image_text($$$) {
   my ($self, $element, $basefile) = @_;
 
   my ($text_file_name, $file_name_encoding)
@@ -1694,14 +1585,12 @@ sub float_name_caption($$) {
 }
 
 # $ELEMENT should be an item, itemx or headitem command element
-sub table_item_content_tree_noxs($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub table_item_content_tree_noxs($$) {
+  my ($self, $element) = @_;
 
   # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
   # in @table
-  if (!$element->{'parent'}->{'type'}
+  if (!exists($element->{'parent'}->{'type'})
       or $element->{'parent'}->{'type'} ne 'table_term') {
     return undef;
   }
@@ -1714,21 +1603,21 @@ sub table_item_content_tree_noxs($$)
   my $command_as_argument
     = Texinfo::Common::block_item_line_command($block_line_arg);
 
-  if ($command_as_argument) {
+  if (defined($command_as_argument)) {
     my $command_as_argument_cmdname = $command_as_argument->{'cmdname'};
     my $command = Texinfo::TreeElement::new(
                   {'cmdname' => $command_as_argument_cmdname,
                    'source_info' => $element->{'source_info'},});
-    if ($table_command->{'extra'}
+    if (exists($table_command->{'extra'})
         and $table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
       $command->{'extra'} = {'code' => 1};
     }
     # command name for the Texinfo::Commands hashes tests
     my $builtin_cmdname;
-    if ($command_as_argument->{'type'}
+    if (exists($command_as_argument->{'type'})
         and $command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
-      $command->{'extra'} = {} if (!$command->{'extra'});
+      $command->{'extra'} = {} if (!exists($command->{'extra'}));
       $command->{'extra'}->{'begin'}
         = $command_as_argument->{'extra'}->{'begin'};
       $command->{'extra'}->{'end'} = $command_as_argument->{'extra'}->{'end'};
@@ -1806,7 +1695,7 @@ sub _comma_index_subentries_tree($$$$)
 
   my $line_arg = $current->{'contents'}->[0];
   foreach my $content (@{$line_arg->{'contents'}}) {
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
+    if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'subentry') {
       push @$results, Texinfo::TreeElement::new({'text' => $separator,
                                                'type' => 'other_text'});
       _comma_index_subentries_tree($self, $content, $separator, $results);
@@ -1819,8 +1708,7 @@ sub _comma_index_subentries_tree($$$$)
 # index sub-entries specified with @subentry, separated by commas, or by
 # $SEPARATOR, if set
 # TODO remove self.  Put in Convert::Utils?
-sub comma_index_subentries_tree($$;$)
-{
+sub comma_index_subentries_tree($$;$) {
   my ($self, $current, $separator) = @_;
 
   $separator = ', ' if (!defined($separator));
@@ -1829,7 +1717,7 @@ sub comma_index_subentries_tree($$;$)
   # start with the first subentry in the index entry
   my $line_arg = $current->{'contents'}->[0];
   foreach my $content (@{$line_arg->{'contents'}}) {
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'subentry') {
+    if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'subentry') {
       push @contents, Texinfo::TreeElement::new({'text' => $separator,
                                                  'type' => 'other_text'});
       _comma_index_subentries_tree($self, $content, $separator, \@contents);
@@ -1842,15 +1730,14 @@ sub comma_index_subentries_tree($$;$)
   return undef;
 }
 
-sub get_converter_indices_sorted_by_letter($)
-{
+sub get_converter_indices_sorted_by_letter($) {
   my $self = shift;
 
   my $indices_information;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $indices_information = $self->{'document'}->indices_information();
 
-    if ($indices_information) {
+    if (defined($indices_information)) {
       my $use_unicode_collation
         = $self->get_conf('USE_UNICODE_COLLATION');
       my $locale_lang;
@@ -1869,15 +1756,14 @@ sub get_converter_indices_sorted_by_letter($)
   return undef;
 }
 
-sub get_converter_indices_sorted_by_index($)
-{
+sub get_converter_indices_sorted_by_index($) {
   my $self = shift;
 
   my $indices_information;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $indices_information = $self->{'document'}->indices_information();
 
-    if ($indices_information) {
+    if (defined($indices_information)) {
       my $use_unicode_collation
         = $self->get_conf('USE_UNICODE_COLLATION');
       my $locale_lang;
@@ -1900,10 +1786,9 @@ sub get_converter_indices_sorted_by_index($)
 
 # sort_element_counts code
 
-sub _count_converted_text($$)
-{
-  my $converted_text = shift;
-  my $count_words = shift;
+sub _count_converted_text($$) {
+  my ($converted_text, $count_words) = @_;
+
   if ($count_words) {
     my @res = split /\W+/, $converted_text;
     return scalar(@res);
@@ -1915,12 +1800,8 @@ sub _count_converted_text($$)
 
 # This method allows to count words in elements and returns an array
 # and a text already formatted.
-sub sort_element_counts($$;$$)
-{
-  my $converter =  shift;
-  my $document = shift;
-  my $use_sections = shift;
-  my $count_words = shift;
+sub sort_element_counts($$;$$) {
+  my ($converter, $document, $use_sections, $count_words) = @_;
 
   $converter->conversion_initialization($document);
 
@@ -1942,12 +1823,12 @@ sub sort_element_counts($$;$$)
     } else {
       $command_relations = $output_unit->{'unit_node'};
     }
-    if ($command_relations) {
+    if (defined($command_relations)) {
       my $command = $command_relations->{'element'};
       # arguments_line type element
       my $arguments_line = $command->{'contents'}->[0];
       my $line_arg = $arguments_line->{'contents'}->[0];
-      if ($line_arg->{'contents'}) {
+      if (exists($line_arg->{'contents'})) {
         # convert contents to avoid outputting end of lines
         $name = "\@$command->{'cmdname'} "
          .Texinfo::Convert::Texinfo::convert_to_texinfo(
@@ -1989,10 +1870,8 @@ my $xml_numeric_entity_rdquo = '&#'.hex('201D').';'; #8221
 my $xml_numeric_entity_lsquo = '&#'.hex('2018').';'; #8216
 my $xml_numeric_entity_rsquo = '&#'.hex('2019').';'; #8217
 
-sub xml_format_text_with_numeric_entities($$)
-{
-  my $self = shift;
-  my $text = shift;
+sub xml_format_text_with_numeric_entities($$) {
+  my ($self, $text) = @_;
 
   $text =~ s/``/$xml_numeric_entity_ldquo/g;
   $text =~ s/\'\'/$xml_numeric_entity_rdquo/g;
@@ -2004,13 +1883,13 @@ sub xml_format_text_with_numeric_entities($$)
   return $text;
 }
 
-sub xml_protect_text($$)
-{
-  my $self = shift;
-  my $text = shift;
+sub xml_protect_text($$) {
+  my ($self, $text) = @_;
+
   if (!defined($text)) {
     confess('xml_protect_text: undef text in');
   }
+
   $text =~ s/&/&amp;/g;
   $text =~ s/</&lt;/g;
   $text =~ s/>/&gt;/g;
@@ -2040,10 +1919,9 @@ foreach my $no_brace_command
   }
 }
 
-sub xml_comment($$)
-{
-  my $self = shift;
-  my $text = shift;
+sub xml_comment($$) {
+  my ($self, $text) = @_;
+
   chomp $text;
   $text =~ s/--+/-/go;
   return '<!--' . $text . ' -->' . "\n";
@@ -2086,10 +1964,8 @@ our %xml_accent_text_with_entities = (
 #      'ogonek'     => 'aeiuAEIU',
 );
 
-sub xml_numeric_entity_accent($$)
-{
-  my $accent = shift;
-  my $text = shift;
+sub xml_numeric_entity_accent($$) {
+  my ($accent, $text) = @_;
 
   if (exists($Texinfo::UnicodeData::unicode_accented_letters{$accent})
       and exists($Texinfo::UnicodeData::unicode_accented_letters{$accent}->{$text})) {
@@ -2166,11 +2042,8 @@ sub _xml_numeric_entities_accent($$$;$$$) {
                     $accents_stack, $in_upper_case, 1);
 }
 
-sub xml_accents($$;$)
-{
-  my $self = shift;
-  my $accent = shift;
-  my $in_upper_case = shift;
+sub xml_accents($$;$) {
+  my ($self, $accent, $in_upper_case) = @_;
 
   my $format_accents;
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {
