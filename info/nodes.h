@@ -152,6 +152,9 @@ FILE_BUFFER *make_file_buffer (void);
 
 TAG *info_create_tag (void);
 NODE *info_create_node (void);
+void free_history_node (NODE *node);
+NODE *copy_history_node (const NODE *node);
+
 NODE *info_get_node (const char *filename, const char *nodename);
 NODE *info_get_node_of_file_buffer (FILE_BUFFER *file_buffer,
                                            const char *nodename);

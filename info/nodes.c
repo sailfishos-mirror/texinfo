@@ -944,6 +944,37 @@ info_create_node (void)
   return n;
 }
 
+/* Free a NODE object that is suitable for being placed in a window. */
+/* FIXME we should be a lot clearer about the allocation and deallocation
+   of NODE objects. */
+void
+free_history_node (NODE *n)
+{
+  if (n && (n->flags & N_IsInternal))
+    {
+      free (n->contents);
+      info_free_references (n->references);
+      free (n->next); free (n->prev); free (n->up);
+      free (n->nodename);
+    }
+  free (n);
+}
+
+/* Used to copy a NODE object that we might pass to free_history_node. */
+NODE *
+copy_history_node (const NODE *n)
+{
+  NODE *result = xmalloc (sizeof (*n));
+  memcpy (result, n, sizeof (*n));
+  if (n->flags & N_IsInternal)
+    {
+      /* Don't copy the substructures.  Just zero the object. */
+      memset (result, 0, sizeof (*result));
+    }
+  return result;
+}
+
+
 /* Return the length of the node which starts at BINDING. */
 static size_t
 get_node_length (SEARCH_BINDING *binding)

@@ -64,12 +64,6 @@ void info_free_references (REFERENCE **references);
 /* Create new REFERENCE structure. */
 REFERENCE *info_new_reference (const char *filename, const char *nodename);
 
-/* Free a NODE object that is suitable for being placed in a window. */
-void free_history_node (NODE *node);
-
-/* Copy a NODE object that we might pass to free_history_node. */
-NODE *copy_history_node (const NODE *node);
-
 /* Search for sequences of whitespace or newlines in STRING, replacing
    all such sequences with just a single space.  Remove whitespace from
    start and end of string. */
