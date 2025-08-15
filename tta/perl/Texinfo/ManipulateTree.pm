@@ -26,8 +26,8 @@
 # modules but are not generally useful in converters
 # and therefore not public.
 
-# ALTIMP StructTransfXS.pm
 # ALTIMP XSTexinfo/parser_document/StructuringTransfoXS.xs
+# ALTIMP C/main/manipulate_tree.c
 
 package Texinfo::ManipulateTree;
 

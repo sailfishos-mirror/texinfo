@@ -288,7 +288,7 @@ sub rebuild_output_units($$) {
 # If $REMOVE_REFERENCES is set, remove all references to tree elements.
 # Implementation in C for XS in get_perl_info.c: release_output_units_list_built
 sub release_output_units_list($;$) {
-  my ($output_units_list, $remove_references) = shift;
+  my ($output_units_list, $remove_references) = @_;
 
   foreach my $output_unit (@$output_units_list) {
     delete $output_unit->{'first_in_page'};
