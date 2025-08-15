@@ -45,9 +45,13 @@ use strict;
 # debugging
 use Carp qw(cluck confess);
 
-#use Devel::Refcount qw( refcount );
-#use Devel::Peek qw( SvREFCNT );
-#use Devel::FindRef;
+# Next three only needed for debugging, if customization variable TEST
+# is set > 2 (which never happens automatically).
+use Devel::Peek;
+eval { require Devel::Refcount; Devel::Refcount->import(); };
+# SvREFCNT counts are wrong if loaded through eval?
+#eval { require Devel::Peek; Devel::Peek->import(); };
+eval { require Devel::FindRef; Devel::FindRef->import(); };
 
 # for fileparse
 use File::Basename;
@@ -95,13 +99,13 @@ our %XS_overrides = (
 );
 
 my $destroyed_objects_refcount = 2;
+# a reference in C too
+$destroyed_objects_refcount++ if (Texinfo::XSLoader::XS_parser_enabled());
 
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     if ($XS_structuring) {
-      # a reference in C too
-      $destroyed_objects_refcount++;
       for my $sub (keys %XS_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
       }
@@ -464,20 +468,19 @@ sub tree_remove_parents($) {
   }
 }
 
-sub tree_remove_references($);
+sub tree_remove_references($;$);
 # Remove all the references to elements in tree.  The main objective
 # here is not to release memory, as Perl can release memory if there are
 # no cycles, but to be able to check that the reference counting in C/XS is done
 # correctly.  No specific reason to use in code outside of the Texinfo modules,
 # not documented on purpose.
-sub tree_remove_references($)
-{
-  my $element = shift;
+sub tree_remove_references($;$) {
+  my ($element, $test_level) = @_;
 
   if (exists($element->{'source_marks'})) {
     foreach my $source_mark (@{$element->{'source_marks'}}) {
       if (exists($source_mark->{'element'})) {
-        tree_remove_references($source_mark->{'element'});
+        tree_remove_references($source_mark->{'element'}, $test_level);
       }
       delete $source_mark->{'element'};
     }
@@ -489,7 +492,8 @@ sub tree_remove_references($)
                                 'spaces_after_cmd_before_arg',
                                 'spaces_after_argument') {
         if (exists($element->{'info'}->{$info_elt_key})) {
-          tree_remove_references($element->{'info'}->{$info_elt_key});
+          tree_remove_references($element->{'info'}->{$info_elt_key},
+                                 $test_level);
           delete $element->{'info'}->{$info_elt_key};
         }
       }
@@ -498,11 +502,13 @@ sub tree_remove_references($)
     if (exists($element->{'contents'})) {
       if (exists($element->{'extra'})) {
         if (exists($element->{'extra'}->{'def_index_element'})) {
-          tree_remove_references($element->{'extra'}->{'def_index_element'});
+          tree_remove_references($element->{'extra'}->{'def_index_element'},
+                                 $test_level);
           delete $element->{'extra'}->{'def_index_element'};
           if (exists($element->{'extra'}->{'def_index_ref_element'})) {
             tree_remove_references(
-              $element->{'extra'}->{'def_index_ref_element'});
+              $element->{'extra'}->{'def_index_ref_element'},
+                                   $test_level);
             delete $element->{'extra'}->{'def_index_ref_element'};
           }
         }
@@ -514,7 +520,8 @@ sub tree_remove_references($)
         }
       }
       for (my $i = 0; $i < scalar(@{$element->{'contents'}}); $i++) {
-        tree_remove_references($element->{'contents'}->[$i]);
+        tree_remove_references($element->{'contents'}->[$i],
+                               $test_level);
       }
       delete $element->{'contents'};
     }
@@ -523,18 +530,22 @@ sub tree_remove_references($)
   #print STDERR "RRR $element ".
   #   Texinfo::ManipulateTree::element_print_details($element)."\n";
 
-  #my $reference_count = Devel::Peek::SvREFCNT($element);
-  #my $object_count = Devel::Refcount::refcount($element);
-  # The $element variable owns one count to reference and to object.
-  # The parent contents hash also holds a count to the object.
-  # plus possibly one reference owned by the C code
-  #if (1) {
-  #if ($reference_count != 1 or $object_count != $destroyed_objects_refcount) {
-  #  print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
-  #     .Texinfo::ManipulateTree::element_print_details($element)."\n"
-       ;
-       #.Devel::FindRef::track($element)."\n";
-  #}
+  if (defined($test_level) and $test_level > 1) {
+    my $reference_count = Devel::Peek::SvREFCNT($element);
+    my $object_count = Devel::Refcount::refcount($element);
+    # The $element variable owns one count to reference and to object.
+    # The parent contents hash also holds a count to the object.
+    # plus possibly one reference owned by the C code
+    #if (1) {
+    #Devel::Peek::Dump($element);
+    if ($reference_count != 1
+        or $object_count != $destroyed_objects_refcount) {
+      print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
+      .Texinfo::ManipulateTree::element_print_details($element)."\n"
+       #;
+       .Devel::FindRef::track($element)."\n";
+    }
+  }
 }
 
 

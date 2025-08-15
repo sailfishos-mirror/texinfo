@@ -296,10 +296,10 @@ sub release_output_units_list($;$) {
       delete $output_unit->{'tree_unit_directions'}->{'next'};
     }
     if (exists($output_unit->{'directions'})) {
-       foreach my $direction (keys(%{$output_unit->{'directions'}})) {
-        delete $output_unit->{'directions'}->{$direction};
-      }
+      $output_unit->{'directions'} = undef;
+      delete $output_unit->{'directions'};
     }
+
     # not necessary to remove cycles in general, as the associated_unit
     # are removed from elements, however, some elements may not be in the
     # tree, in practice HTML special units elements.

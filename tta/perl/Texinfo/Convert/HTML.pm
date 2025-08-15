@@ -9643,7 +9643,8 @@ sub converter_destroy($;$) {
           Texinfo::ManipulateTree::tree_remove_parents($tree);
           if ($remove_references) {
             delete $no_arg_command_ctx->{$context}->{'translated_tree'};
-            Texinfo::ManipulateTree::tree_remove_references($tree);
+            Texinfo::ManipulateTree::tree_remove_references($tree,
+                                               $self->get_conf('TEST'));
           }
         }
       }
