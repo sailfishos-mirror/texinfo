@@ -531,7 +531,6 @@ parse_texi_document (void)
 
   ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
   ELEMENT *preamble_before_beginning = 0;
-  ELEMENT *document_root = before_node_section->e.c->parent;
 
   /* Put all the empty lines up to a line starting "\input" inside a
      "preamble_before_beginning" element. */
@@ -565,7 +564,7 @@ parse_texi_document (void)
   if (preamble_before_beginning)
     add_to_element_contents (before_node_section, preamble_before_beginning);
 
-  parse_texi (document_root, before_node_section);
+  parse_texi (before_node_section);
 
   /* TODO the document structure lists use more memory than needed
      when space > number.  We could realloc here the diverse lists
@@ -2682,11 +2681,10 @@ check_line_directive (ELEMENT *current, const char *line)
   return 0;
 }
 
-/* Pass in a ROOT_ELT root of "Texinfo tree".  Starting point for adding
-   to the tree is CURRENT_ELT.
+/* Starting point for adding to the tree is CURRENT_ELT.
   */
 void
-parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
+parse_texi (ELEMENT *current_elt)
 {
   ELEMENT *current = current_elt;
   DOCUMENT *document;
@@ -2773,9 +2771,9 @@ parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
       ELEMENT *dummy;
       current = close_commands (current, CM_NONE, &dummy, CM_NONE);
 
-      /* Make sure we are at the very top - we could have stopped at the "top"
-         element, with "document_root" still to go.  (This happens if the file
-         didn't end with "@bye".) */
+      /* Make sure we are at the very top - we could have stopped at a root
+         command element (@node, @top, @section), with "document_root" still
+         to go.  (This happens if the file didn't end with "@bye".) */
       while (current->e.c->parent)
         current = current->e.c->parent;
     }

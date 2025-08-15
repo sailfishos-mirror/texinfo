@@ -1,5 +1,21 @@
 2025-08-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_parse_texi): determine the tree
+	root by going through the current element parent, as in C.
+
+	* tta/C/parsetexi/parser.c (parse_texi),
+	tta/perl/Texinfo/ParserNonXS.pm (_parse_texi): remove unused root
+	argument.  Update callers.
+
+	* tta/perl/Texinfo/ParserNonXS.pm
+	(_setup_document_root_and_before_node_section): return
+	$before_node_section only.  Update callers.
+
+	* tta/perl/Texinfo/Document.pm (_print_tree_elements_ref): print more
+	information.
+
+2025-08-15 Patrice Dumas  <pertusus@free.fr>
+
 	Check unexpected references to tree elements if TEST > 1
 
 	* configure.ac: also check 'use Devel::Peek' (module in Perl core

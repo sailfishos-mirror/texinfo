@@ -1337,9 +1337,11 @@ sub _convert($$;$) {
                  $self->cdt('See section ``{section_name}\'\' in @cite{{book}}',
                              $substituted_strings));
               } elsif ($command_name eq 'pxref') {
-                $result = _convert($self,
-                 $self->cdt('see section ``{section_name}\'\' in @cite{{book}}',
-                             $substituted_strings));
+                my $tree
+                  = $self->cdt('see section ``{section_name}\'\' in @cite{{book}}',
+                             $substituted_strings);
+                #Texinfo::Document::_print_tree_elements_ref($tree, 0);
+                $result = _convert($self, $tree);
               }
             } elsif (defined($node_name)) {
               my $substituted_strings = {

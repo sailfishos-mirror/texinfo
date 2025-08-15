@@ -349,7 +349,15 @@ sub _print_tree_elements_ref($$)
 {
   my ($tree, $level) = @_;
 
-  print STDERR "". (' ' x $level) . $tree."\n";
+  my $parent;
+  if (exists($tree->{'parent'})) {
+    $parent = ' (p)';
+  } else {
+    $parent = '';
+  }
+
+  print STDERR "". (' ' x $level) . $tree
+     . Texinfo::Common::debug_print_element($tree). "${parent}\n";
 
   if (exists($tree->{'contents'})) {
     for (my $i = 0; $i < scalar(@{$tree->{'contents'}}); $i++) {

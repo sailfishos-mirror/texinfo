@@ -195,7 +195,7 @@ parse_string (const char *string, int line_nr)
   root_elt = new_element (ET_root_line);
 
   input_push_text (strdup (string), line_nr, 0, 0);
-  parse_texi (root_elt, root_elt);
+  parse_texi (root_elt);
   return document;
 }
 
@@ -204,13 +204,12 @@ DOCUMENT *
 parse_piece (const char *string, int line_nr)
 {
   DOCUMENT *document = initialize_parsing (ct_base);
-  ELEMENT *before_node_section, *document_root;
+  ELEMENT *before_node_section;
 
   before_node_section = setup_document_root_and_before_node_section ();
-  document_root = before_node_section->e.c->parent;
 
   input_push_text (strdup (string), line_nr, 0, 0);
-  parse_texi (document_root, before_node_section);
+  parse_texi (before_node_section);
   return document;
 }
 

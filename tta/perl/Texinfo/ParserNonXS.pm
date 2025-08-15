@@ -809,9 +809,9 @@ sub parse_texi_piece($$;$) {
 
   _input_push_text($self, $text, $line_nr);
 
-  my ($document_root, $before_node_section)
+  my $before_node_section
      = _setup_document_root_and_before_node_section();
-  _parse_texi($self, $document_root, $before_node_section);
+  _parse_texi($self, $before_node_section);
 
   get_parser_info($self);
 
@@ -830,7 +830,7 @@ sub parse_texi_line($$;$) {
   _input_push_text($self, $text, $line_nr);
 
   my $root = Texinfo::TreeElement::new({'type' => 'root_line'});
-  _parse_texi($self, $root, $root);
+  _parse_texi($self, $root);
   get_parser_info($self);
 
   # add the errors to the Parser error_messages as there is no document
@@ -1053,7 +1053,7 @@ sub _add_preamble_before_content($) {
 sub _parse_texi_document($) {
   my $self = shift;
 
-  my ($document_root, $before_node_section)
+  my $before_node_section
      = _setup_document_root_and_before_node_section();
 
   my $source_info;
@@ -1083,7 +1083,7 @@ sub _parse_texi_document($) {
     }
   }
 
-  my $document = _parse_texi($self, $document_root, $before_node_section);
+  my $document = _parse_texi($self, $before_node_section);
 
   _rearrange_tree_beginning($document, $before_node_section);
 
@@ -5287,7 +5287,7 @@ sub _setup_document_root_and_before_node_section() {
     = Texinfo::TreeElement::new({ 'contents' => [$before_node_section],
                                   'type' => 'document_root' });
   $before_node_section->{'parent'} = $document_root;
-  return ($document_root, $before_node_section);
+  return $before_node_section;
 }
 
 sub _new_value_element($$;$$) {
@@ -7929,8 +7929,8 @@ sub _process_remaining_on_line($$$$) {
 }
 
 # the main subroutine
-sub _parse_texi($$$) {
-  my ($self, $root, $current) = @_;
+sub _parse_texi($$) {
+  my ($self, $current) = @_;
 
   my $source_info;
   my $status;
@@ -8033,6 +8033,13 @@ sub _parse_texi($$$) {
   }
   $current = _close_commands($self, $current, $source_info);
 
+  # Make sure we are at the very top - we could have stopped at a root
+  # command element (@node, @top, @section), with "document_root" still
+  # to go.  (This happens if the file didn't end with "@bye".)
+  while (exists($current->{'parent'})) {
+    $current = $current->{'parent'};
+  }
+
   _pop_context($self, ['ct_base', 'ct_line'], $source_info, $current);
   my @context_stack = _get_context_stack($self);
   if (scalar(@context_stack) != 0) {
@@ -8099,7 +8106,7 @@ sub _parse_texi($$$) {
   Texinfo::Translations::complete_indices($document->{'indices'},
                                           $self->{'conf'}->{'DEBUG'});
 
-  $document->register_tree($root);
+  $document->register_tree($current);
 
   return $document;
 }
