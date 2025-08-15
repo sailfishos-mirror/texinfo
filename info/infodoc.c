@@ -271,8 +271,8 @@ get_internal_info_window (char *name)
   WINDOW *win;
 
   for (win = windows; win; win = win->next)
-    if (internal_info_node_p (win->node) &&
-        (strcmp (win->node->nodename, name) == 0))
+    if (win->node && (win->node->flags & N_IsInternal)
+        && (strcmp (win->node->nodename, name) == 0))
       break;
 
   return win;

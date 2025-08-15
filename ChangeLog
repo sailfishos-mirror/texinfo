@@ -1,5 +1,22 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Review use of N_IsInternal flag.
+
+	* info/nodes.c (internal_info_node_p): Remove function.  It is
+	simple enough that it may as well be inlined into calling sites.
+	(free_node): Comment updated.
+
+	* info/session-cmd.c
+	(forward_move_node_structure, backward_move_node_structure):
+	Also make an exception for "dir" nodes.
+	
+	N_IsInternal still exists but is not used for memory allocation
+	purposes.  It is used for minor user-visible behaviour such as
+	tiling windows, and as an optimisation when searching through
+	lists of nodes.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/session-cmd.c (info_split_window): Check N_Replica
 	flag when deciding whether to duplicate internal data structures.
 

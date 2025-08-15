@@ -215,8 +215,8 @@ DECLARE_INFO_COMMAND (list_visited_nodes,
     {
       node = new->node;
 
-      if (internal_info_node_p (node) &&
-          (strcmp (node->nodename, nodemenu_nodename) == 0))
+      if (node && (node->flags & N_IsInternal)
+          && (strcmp (node->nodename, nodemenu_nodename) == 0))
         break;
     }
 

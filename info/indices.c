@@ -852,8 +852,8 @@ DECLARE_INFO_COMMAND (info_index_apropos,
           {
             node = new->node;
 
-            if (internal_info_node_p (node) &&
-                (strcmp (node->nodename, apropos_list_nodename) == 0))
+            if (node && (node->flags & N_IsInternal)
+                && (strcmp (node->nodename, apropos_list_nodename) == 0))
               break;
           }
 

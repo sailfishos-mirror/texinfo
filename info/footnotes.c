@@ -36,8 +36,8 @@ find_footnotes_window (void)
 
   /* Try to find an existing window first. */
   for (win = windows; win; win = win->next)
-    if (internal_info_node_p (win->node) &&
-        (strcmp (win->node->nodename, footnote_nodename) == 0))
+    if (win->node && (win->node->flags & N_IsInternal)
+        && (strcmp (win->node->nodename, footnote_nodename) == 0))
       break;
 
   return win;

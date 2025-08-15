@@ -896,8 +896,8 @@ completions_window_p (WINDOW *window)
 {
   int result = 0;
 
-  if (internal_info_node_p (window->node) &&
-      (strcmp (window->node->nodename, compwin_name) == 0))
+  if (window->node && (window->node->flags & N_IsInternal)
+      && (strcmp (window->node->nodename, compwin_name) == 0))
     result = 1;
 
   return result;

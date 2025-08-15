@@ -2248,7 +2248,7 @@ int scroll_last_node = SLN_Stop;
 static int
 forward_move_node_structure (WINDOW *window, int behaviour)
 {
-  if (window->node->flags & (N_IsInternal | N_IsManPage))
+  if (window->node->flags & (N_IsInternal | N_IsDir | N_IsManPage))
     return 1;
 
   switch (behaviour)
@@ -2364,7 +2364,7 @@ forward_move_node_structure (WINDOW *window, int behaviour)
 static int
 backward_move_node_structure (WINDOW *window, int behaviour)
 {
-  if (window->node->flags & (N_IsInternal | N_IsManPage))
+  if (window->node->flags & (N_IsInternal | N_IsDir | N_IsManPage))
     return 1;
 
   switch (behaviour)

@@ -944,9 +944,7 @@ info_create_node (void)
   return n;
 }
 
-/* Free a NODE object that is suitable for being placed in a window. */
-/* FIXME we should be a lot clearer about the allocation and deallocation
-   of NODE objects. */
+/* Destroy a NODE object. */
 void
 free_node (NODE *n)
 {
@@ -1365,13 +1363,6 @@ node_printed_rep (const NODE *node)
     }
   else
     return node->nodename;
-}
-
-/* Return non-zero if NODE is one especially created by Info. */
-int
-internal_info_node_p (const NODE *node)
-{
-  return (node != NULL) && (node->flags & N_IsInternal);
 }
 
 /* Make NODE appear to be one especially created by Info. */

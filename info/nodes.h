@@ -163,7 +163,6 @@ NODE *info_node_of_tag (FILE_BUFFER *fb, TAG **tag_ptr);
 NODE *info_node_of_tag_fast (FILE_BUFFER *fb, TAG **tag_ptr);
 const char *node_printed_rep (const NODE *node);
 
-int internal_info_node_p (const NODE *node);
 void name_internal_node (NODE *node, char *name);
 NODE *node_from_hook_output (char *hook_name, char *hook_output, int count);
 
