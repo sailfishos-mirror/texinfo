@@ -72,7 +72,7 @@ void display_scroll_line_starts (WINDOW *window, int old_pagetop,
 
 /* Return a pointer to a string which is the printed representation
    of CHARACTER if it were printed at HPOS. */
-char *printed_representation (mbi_iterator_t *iter,
+const char *printed_representation (mbi_iterator_t *iter,
                                      int *delim, size_t pl_chars,
                                      int *pchars, int *pbytes);
 

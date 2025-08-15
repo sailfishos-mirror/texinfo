@@ -333,7 +333,7 @@ display_process_line (WINDOW *win,
   const char *cur_ptr;
   int pchars = 0; /* Printed chars */
   int pbytes = 0; /* Bytes to output. */
-  char *rep;
+  const char *rep;
   int in_match = 0;
   int in_ref = 0, in_ref_proper = 0;
   RENDITION empty = {0, 0};
@@ -489,9 +489,8 @@ static struct text_buffer printed_rep = { 0 };
    escape sequence).  If ITER points at an end-of-line character, set *DELIM to
    this character.  *PCHARS gets the number of screen columns taken up by
    outputting the return value, and *PBYTES the number of bytes in returned
-   string.  Return value is not null-terminated.  Return value must not be
-   freed by caller. */
-char *
+   string.  Return value is not null-terminated.  */
+const char *
 printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
                         int *pchars, int *pbytes)
 {

@@ -1,5 +1,11 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/display.c (printed_representation): Declare return value
+	as const.  Remove comment saying return value is not to be freed
+	as this is now evident from the type of the return value.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/terminal.c (terminal_put_text, terminal_put_text_hook),
 	(terminal_write_chars, terminal_write_chars_hook):
 	Declare first parameter as const char *.
