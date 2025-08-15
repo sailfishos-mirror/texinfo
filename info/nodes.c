@@ -970,17 +970,14 @@ free_node (NODE *n)
   free (n);
 }
 
-/* Used to copy a NODE object that we might pass to free_node. */
+/* Create a secondary replica of a NODE object that does not own its
+   own substructures. */
 NODE *
-copy_node (const NODE *n)
+replicate_node (const NODE *n)
 {
   NODE *result = xmalloc (sizeof (*n));
   memcpy (result, n, sizeof (*n));
-  if (n->flags & N_IsInternal)
-    {
-      /* Don't copy the substructures.  Just zero the object. */
-      memset (result, 0, sizeof (*result));
-    }
+  result->flags |= N_Replica;
   return result;
 }
 

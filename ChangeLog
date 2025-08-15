@@ -1,5 +1,12 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/nodes.c (copy_node, replicate_node): Rename.  Set N_Replica
+	flag on result.  Do not do anything with the N_IsInternal flag.
+	* info/session-cmd.c (info_follow_menus): Call replicate_node on
+	starting node.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	N_Replica flag
 
 	* info/nodes.h (N_Replica): Add flag for NODE.flags

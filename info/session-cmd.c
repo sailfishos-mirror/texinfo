@@ -1925,7 +1925,7 @@ info_follow_menus (const NODE *initial_node, char **menus, char **error,
 {
   NODE *node = NULL;
 
-  NODE *cur_node = copy_node (initial_node);
+  NODE *cur_node = replicate_node (initial_node);
 
   for (; *menus; menus++)
     {
