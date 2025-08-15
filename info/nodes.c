@@ -990,8 +990,7 @@ get_node_length (SEARCH_BINDING *binding)
 }
 
 /* Return NODE specified with FILENAME and NODENAME.   NODENAME can
-   be passed as NULL, in which case the nodename of "Top" is used.  Return
-   value should be freed by caller, but none of its fields should be. */
+   be passed as NULL, in which case the nodename of "Top" is used.  */
 NODE *
 info_get_node (const char *filename, const char *nodename)
 {

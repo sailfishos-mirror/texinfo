@@ -31,8 +31,7 @@ static NODE *dir_node = 0;
 
 static NODE *build_dir_node (void);
 
-/* Return composite directory node.  Return value should be freed by caller,
-   but none of its fields should be. */
+/* Return composite directory node. */
 NODE *
 get_dir_node (void)
 {
