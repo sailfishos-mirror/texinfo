@@ -1554,10 +1554,8 @@ sub float_name_caption($$) {
       and exists($element->{'extra'}->{'float_type'})
       and $element->{'extra'}->{'float_type'} ne '') {
     # first content of arguments_line type element.
-    # Copy to be able to destroy the tree afterwards.
     $substrings->{'float_type'}
-       = Texinfo::ManipulateTree::copy_contentsNonXS(
-            $element->{'contents'}->[0]->{'contents'}->[0]);
+       = $element->{'contents'}->[0]->{'contents'}->[0];
     if (defined($caption_element)) {
       if (defined($float_number_element)) {
         # TRANSLATORS: added before caption

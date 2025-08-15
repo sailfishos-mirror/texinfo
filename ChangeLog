@@ -1,5 +1,12 @@
 2025-08-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (float_name_caption): revert
+	copying the element before using it in translation, now that the
+	part of the tree corresponding to the translation do not have parent
+	anymore and is removed automatically.
+
+2025-08-15 Patrice Dumas  <pertusus@free.fr>
+
 	Remove parents in translation trees
 
 	* tta/C/main/manipulate_tree.c (tree_remove_parents): implement in C.
