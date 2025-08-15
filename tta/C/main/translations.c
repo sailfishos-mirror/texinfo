@@ -821,6 +821,8 @@ gdt_tree (const char *string, DOCUMENT *document,
       translated_string_tree->tree
         = unregister_document_merge_with_document (translation_document,
                                                    document);
+
+      tree_remove_parents (translated_string_tree->tree);
     }
 
   result_tree = copy_tree (translated_string_tree->tree, 0);

@@ -346,6 +346,11 @@ sub gdt($;$$$$$$) {
       = _replace_convert_substrings($translated_string, $replaced_substrings,
                                     $debug_level);
     push @$translated_string_tree, $tree;
+
+    # remove parents in translated string tree, to avoid cycles such that
+    # this part of the tree is destroyed as soon as the tree root is
+    # out of scope.
+    Texinfo::ManipulateTree::tree_remove_parents($tree);
   }
 
   $result_tree = dclone($translated_string_tree->[1]);

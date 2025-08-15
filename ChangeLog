@@ -1,5 +1,16 @@
 2025-08-15 Patrice Dumas  <pertusus@free.fr>
 
+	Remove parents in translation trees
+
+	* tta/C/main/manipulate_tree.c (tree_remove_parents): implement in C.
+
+	* tta/C/main/translations.c (gdt_tree),
+	tta/perl/Texinfo/Translations.pm (gdt): remove parents in translated
+	string tree, to avoid cycles such that this part of the tree is
+	destroyed as soon as the tree root is out of scope (in Perl).
+
+2025-08-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/OutputUnits.pm (release_output_units_list): fix
 	call.
 

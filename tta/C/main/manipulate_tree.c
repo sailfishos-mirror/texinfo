@@ -513,6 +513,64 @@ copy_container_contents (const ELEMENT *container)
 
 
 void
+tree_remove_parents (ELEMENT *element)
+{
+  size_t i;
+  if (element->source_mark_list)
+    {
+      for (i = 0; i < element->source_mark_list->number; i++)
+        {
+          SOURCE_MARK *source_mark
+             = element->source_mark_list->list[i];
+          if (source_mark->element)
+            tree_remove_parents (source_mark->element);
+        }
+    }
+
+  if (type_data[element->type].flags & TF_text)
+    return;
+
+  element->e.c->parent = 0;
+
+  if (type_data[element->type].elt_info_number > 0)
+    {
+      int j;
+      for (j = 0; j < type_data[element->type].elt_info_number; j++)
+        {
+          if (element->elt_info[j])
+            tree_remove_parents (element->elt_info[j]);
+        }
+    }
+
+  if (element->e.c->contents.number > 0)
+    {
+      for (i = 0; i < element->e.c->contents.number; i++)
+        tree_remove_parents (element->e.c->contents.list[i]);
+    }
+
+  for (i = 0; i < element->e.c->extra_info.info_number; i++)
+    {
+      const KEY_PAIR *k_ref = &element->e.c->extra_info.info[i];
+      enum extra_type k_type = associated_info_table[k_ref->key].type;
+
+      switch (k_type)
+        {
+        case extra_element_oot:
+          {
+            tree_remove_parents (k_ref->k.element);
+            break;
+          }
+        default:
+          break;
+        }
+    }
+}
+
+
+
+/* Source marks low level handling functionsa and relocate_source_marks */
+
+void
 add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
 {
   SOURCE_MARK_LIST *s_mark_list;
