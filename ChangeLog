@@ -1,5 +1,10 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session-cmd.c (info_split_window): Check N_Replica
+	flag when deciding whether to duplicate internal data structures.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/dir.c (get_dir_node),
 	* info/man.c (get_manpage_node):
 	Abbreviate code by calling replicate_node.

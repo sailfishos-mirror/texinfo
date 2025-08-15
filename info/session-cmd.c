@@ -949,11 +949,14 @@ DECLARE_INFO_COMMAND (info_split_window, _("Split the current window"))
       NODE *copy = xmalloc (sizeof (NODE));
       *copy = *window->node; /* Field-by-field copy of structure. */
 
-      if (copy->flags & N_IsInternal)
+      if (copy->flags & N_Replica)
         {
-          /* This allows us to free nodes without checking if these fields
-             are shared by NODE objects in other windows.  For non-internal
-             nodes, this data is stored in the tag table. */
+          /* No problem - we have made a replica of a replica. */
+        }
+      else
+        {
+          /* We must duplicate all internal data structures in case
+             the original node is destroyed. */
           copy->references = info_copy_references (copy->references);
           copy->nodename = xstrdup (copy->nodename);
 
