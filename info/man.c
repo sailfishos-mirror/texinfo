@@ -118,7 +118,7 @@ check_manpage_node (const char *pagename)
 NODE *
 get_manpage_node (const char *pagename)
 {
-  NODE *node = 0, **n, *node_result = 0;
+  NODE *node = 0, **n;
   char *page;
 
   if (manpage_node_index > 0)
@@ -158,10 +158,7 @@ get_manpage_node (const char *pagename)
       node->up = "(dir)";
     }
 
-  node_result = xmalloc (sizeof (NODE));
-  *node_result = *node;
-  node_result->flags |= N_Replica; /* master saved in manpage_nodes list */
-  return node_result;
+  return replicate_node (node); /* master saved in manpage_nodes list */
 }
 
 /* Scan the list of directories in PATH looking for FILENAME.  If we find
