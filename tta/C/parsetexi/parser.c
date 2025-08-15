@@ -451,74 +451,82 @@ rearrange_tree_beginning (ELEMENT *before_node_section,
                           DOCUMENT *document)
 {
   ELEMENT *informational_preamble;
-  /* temporary placeholder */
-  ELEMENT_LIST *first_types = new_list ();
+  size_t first_idx;
 
   /* Put everything before @setfilename in a special type.  This allows to
      ignore everything before @setfilename. */
   if (document->global_commands.setfilename
-      && document->global_commands.setfilename->e.c->parent
-                                          == before_node_section)
+      && before_node_section->e.c->contents.number > 0)
     {
-      ELEMENT *before_setfilename
-         = new_element (ET_preamble_before_setfilename);
-      while (before_node_section->e.c->contents.number > 0)
+      /* setfilename index, also size of the new element (if found) */
+      size_t i = 0;
+      for (; i < before_node_section->e.c->contents.number; i++)
         {
-          ELEMENT *content = before_node_section->e.c->contents.list[0];
-          if (type_data[content->type].flags & TF_text
-              || content->e.c->cmd != CM_setfilename)
-            {/* e should be the same as content */
-              ELEMENT *e = remove_from_contents (before_node_section, 0);
-              add_element_to_element_contents (before_setfilename, e);
-            }
-          else
+          const ELEMENT *content = before_node_section->e.c->contents.list[i];
+          if (!(type_data[content->type].flags & TF_text)
+              && content->e.c->cmd == CM_setfilename)
             break;
         }
-      if (before_setfilename->e.c->contents.number > 0)
-        insert_into_contents (before_node_section, before_setfilename, 0);
-      else
-        destroy_element (before_setfilename);
-    }
+      /* setfilename itself remains in the same element. */
+      if (i > 0 && i < before_node_section->e.c->contents.number)
+        {
+           size_t j;
+           ELEMENT *before_setfilename
+             = new_element (ET_preamble_before_setfilename);
 
-  /* _add_preamble_before_content */
+           insert_slice_into_contents (before_setfilename, 0,
+                                       before_node_section, 0, i);
+           for (j = 0; j < i; j++)
+             {
+               ELEMENT *content = before_setfilename->e.c->contents.list[j];
+               if (!(type_data[content->type].flags & TF_text)
+                   && content->e.c->parent)
+                 content->e.c->parent = before_setfilename;
+             }
+           remove_slice_from_contents (before_node_section, 0, i);
+
+           insert_into_contents (before_node_section, before_setfilename, 0);
+        }
+    }
 
   /* add a preamble for informational commands */
   informational_preamble = new_element (ET_preamble_before_content);
+  /* index of the first element of the preamble */
+  first_idx = 0;
   if (before_node_section->e.c->contents.number > 0)
     {
-      while (before_node_section->e.c->contents.number > 0)
+      /* index following the last element index of the preamble */
+      size_t i = 0;
+      for (; i < before_node_section->e.c->contents.number; i++)
         {
-          ELEMENT *next_content = before_node_section->e.c->contents.list[0];
-          if (next_content->type == ET_preamble_before_beginning
-              || next_content->type == ET_preamble_before_setfilename)
-            add_to_element_list (first_types,
-                            remove_from_contents (before_node_section, 0));
-          else if (next_content->type == ET_paragraph
-                   || (!(type_data[next_content->type].flags & TF_text)
-                       && !(command_data(next_content->e.c->cmd).flags
+          const ELEMENT *content = before_node_section->e.c->contents.list[i];
+          if (content->type == ET_preamble_before_beginning
+              || content->type == ET_preamble_before_setfilename)
+            first_idx = i+1;
+          else if (content->type == ET_paragraph
+                   || (!(type_data[content->type].flags & TF_text)
+                       && !(command_data(content->e.c->cmd).flags
                                                       & CF_preamble)))
             break;
-          else
-            {
-              ELEMENT *e = remove_from_contents (before_node_section, 0);
-              add_element_to_element_contents (informational_preamble, e);
-            }
         }
-    }
-  add_to_element_list (first_types, informational_preamble);
-  if (first_types->number > 0)
-    {
-      int j;
-      for (j = first_types->number -1; j >= 0; j--)
+      if (first_idx < before_node_section->e.c->contents.number
+          && i > first_idx)
         {
-          ELEMENT *e = first_types->list[j];
-          if (type_data[e->type].flags & TF_text)
-            insert_into_contents_as_array (before_node_section, e, 0);
-          else
-            insert_into_contents (before_node_section, e, 0);
+           size_t j;
+           insert_slice_into_contents (informational_preamble, 0,
+                                       before_node_section, first_idx, i);
+           for (j = 0; j < i - first_idx; j++)
+             {
+               ELEMENT *content = informational_preamble->e.c->contents.list[j];
+               if (!(type_data[content->type].flags & TF_text)
+                   && content->e.c->parent)
+                 content->e.c->parent = informational_preamble;
+             }
+           remove_slice_from_contents (before_node_section, first_idx, i);
         }
     }
-  destroy_list (first_types);
+  insert_into_contents (before_node_section, informational_preamble,
+                        first_idx);
 }
 
 

@@ -1,5 +1,17 @@
 2025-08-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_rearrange_tree_beginning): merge
+	_add_preamble_before_content in _rearrange_tree_beginning and remove.
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_rearrange_tree_beginning),
+	tta/C/parsetexi/parser.c (rearrange_tree_beginning): redo a different
+	implementation that determine indices and then splice the contents.
+	Do not take information from the global setfilename command, in case
+	there would be more than one.  In C, add parents only if there were
+	parents to begin with as in Perl.
+
+2025-08-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm (_parse_texi): determine the tree
 	root by going through the current element parent, as in C.
 

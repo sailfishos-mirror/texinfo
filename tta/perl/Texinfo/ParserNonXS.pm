@@ -991,63 +991,70 @@ sub _rearrange_tree_beginning($$) {
 
   # Put everything before @setfilename in a special type.  This allows to
   # ignore everything before @setfilename.
-  my $setfilename = $document->global_commands_information()->{'setfilename'}; 
-  if (defined($setfilename)
-      and $setfilename->{'parent'} eq $before_node_section) {
-    my $before_setfilename
-      = Texinfo::TreeElement::new({'type' => 'preamble_before_setfilename',
-                                   'parent' => $before_node_section,
-                                   'contents' => []});
-    while (scalar(@{$before_node_section->{'contents'}})
-        and (!exists($before_node_section->{'contents'}->[0]->{'cmdname'})
-          or $before_node_section->{'contents'}->[0]->{'cmdname'} ne 'setfilename')) {
-      my $content = shift @{$before_node_section->{'contents'}};
-      $content->{'parent'} = $before_setfilename
-         if (exists($content->{'parent'}));
-      push @{$before_setfilename->{'contents'}}, $content;
+  my $setfilename = $document->global_commands_information()->{'setfilename'};
+  if (defined($setfilename) and exists($before_node_section->{'contents'})) {
+    # setfilename index, also size of the new element (if found)
+    my $i = 0;
+    for (; $i < scalar(@{$before_node_section->{'contents'}}); $i++) {
+      my $content = $before_node_section->{'contents'}->[$i];
+      if (exists($content->{'cmdname'})
+          and $content->{'cmdname'} eq 'setfilename') {
+        last;
+      }
     }
-    unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
-      if (@{$before_setfilename->{'contents'}});
-    delete $before_node_section->{'contents'}
-      if (scalar(@{$before_node_section->{'contents'}}) == 0);
+    # setfilename itself remains in the same element.
+    if ($i > 0 and $i < scalar(@{$before_node_section->{'contents'}})) {
+      my @moved = splice(@{$before_node_section->{'contents'}},
+                               0, $i);
+      my $before_setfilename
+        = Texinfo::TreeElement::new({'type' => 'preamble_before_setfilename',
+                                    'parent' => $before_node_section,
+                                    'contents' => \@moved});
+      foreach my $content (@moved) {
+        $content->{'parent'} = $before_setfilename
+          if (exists($content->{'parent'}));
+      }
+
+      unshift (@{$before_node_section->{'contents'}}, $before_setfilename);
+    }
   }
 
-  _add_preamble_before_content($before_node_section);
-}
-
-sub _add_preamble_before_content($) {
-  my $before_node_section = shift;
-
-  # add a preamble for informational commands
+  # add a preamble for informational commands.  Add it even if empty.
   my $informational_preamble
     = Texinfo::TreeElement::new({'type' => 'preamble_before_content',
                                  'parent' => $before_node_section,});
-  my @first_types;
+  # index of the first element of the preamble
+  my $first_idx = 0;
   if (exists($before_node_section->{'contents'})) {
-    while (scalar(@{$before_node_section->{'contents'}})) {
-      my $next_content = $before_node_section->{'contents'}->[0];
-      if (exists($next_content->{'type'})
-          and ($next_content->{'type'} eq 'preamble_before_beginning'
-               or $next_content->{'type'} eq 'preamble_before_setfilename')) {
-        push @first_types, shift @{$before_node_section->{'contents'}};
-      } elsif ((exists($next_content->{'type'})
-                and $next_content->{'type'} eq 'paragraph')
-               or (exists($next_content->{'cmdname'}) and
+    # index following the last element index of the preamble
+    my $i = 0;
+    for (; $i < scalar(@{$before_node_section->{'contents'}}); $i++) {
+      my $content = $before_node_section->{'contents'}->[$i];
+      if (exists($content->{'type'})
+          and ($content->{'type'} eq 'preamble_before_beginning'
+               or $content->{'type'} eq 'preamble_before_setfilename')) {
+        $first_idx = $i +1;
+      } elsif ((exists($content->{'type'})
+                and $content->{'type'} eq 'paragraph')
+               or (exists($content->{'cmdname'}) and
                    not $Texinfo::Commands::preamble_commands{
-                                              $next_content->{'cmdname'}})) {
+                                              $content->{'cmdname'}})) {
         last;
-      } else {
-        my $content = shift @{$before_node_section->{'contents'}};
+      }
+    }
+    if ($first_idx < scalar(@{$before_node_section->{'contents'}})
+        and $i > $first_idx) {
+      my @moved = splice(@{$before_node_section->{'contents'}},
+                               $first_idx, $i - $first_idx);
+      $informational_preamble->{'contents'} = \@moved;
+      foreach my $content (@moved) {
         $content->{'parent'} = $informational_preamble
-            if (exists($content->{'parent'}));
-        $informational_preamble->{'contents'} = []
-            if (!exists($informational_preamble->{'contents'}));
-        push @{$informational_preamble->{'contents'}}, $content;
+          if (exists($content->{'parent'}));
       }
     }
   }
-  push @first_types, $informational_preamble;
-  unshift (@{$before_node_section->{'contents'}}, @first_types);
+  splice(@{$before_node_section->{'contents'}}, $first_idx, 0,
+         $informational_preamble);
 }
 
 sub _parse_texi_document($) {
@@ -3131,7 +3138,7 @@ sub _abort_empty_line($$) {
           # paragraph does not happen often either.  The situation in which it
           # happens is a macro expansion to an empty string right after an
           # @-command opening (block or brace command).
-          if (exists($popped_element->{'source_marks'})) { 
+          if (exists($popped_element->{'source_marks'})) {
             foreach my $source_mark (@{$popped_element->{'source_marks'}}) {
               _place_source_mark($self, $current, $source_mark);
             }
