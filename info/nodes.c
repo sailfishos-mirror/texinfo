@@ -950,12 +950,22 @@ info_create_node (void)
 void
 free_node (NODE *n)
 {
-  if (n && (n->flags & N_IsInternal))
+  /* If the "replica bit" is set, this is just a shallow copy of a NODE
+     structure kept elsewhere, so we don't deallocate any of the
+     substructures. */
+  if (n && !(n->flags & N_Replica))
     {
       free (n->contents);
       info_free_references (n->references);
       free (n->next); free (n->prev); free (n->up);
       free (n->nodename);
+    }
+  if (n)
+    {
+      /* temporary while we rewrite the program.  abort if neither
+         N_Replica nor N_IsInternal is set. */
+      if (!(n->flags & (N_Replica | N_IsInternal)))
+        abort();
     }
   free (n);
 }
@@ -1270,6 +1280,7 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
     {
       /* Initialize the node from the cache. */
       *node = node_tag->cache;
+      node->flags |= N_Replica;
       if (!node->contents)
         {
           node->contents = subfile->contents + node_tag->nodestart_adjusted;
@@ -1303,6 +1314,8 @@ info_node_of_tag_ext (FILE_BUFFER *fb, TAG **input_tag_ptr, int fast)
             node_tag->cache.contents = 0; /* Pointer into file buffer
                                              is not saved.  */
         }
+      /* Consider the master version to be in node_tag->cache. */
+      node->flags |= N_Replica;
     }
 
   if (is_anchor)

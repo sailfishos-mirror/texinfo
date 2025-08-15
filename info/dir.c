@@ -43,6 +43,7 @@ get_dir_node (void)
 
   node = xmalloc (sizeof (NODE));
   *node = *dir_node;
+  node->flags |= N_Replica; /* master in dir_node */
 
   return node;
 }

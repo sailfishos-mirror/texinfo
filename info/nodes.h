@@ -60,6 +60,7 @@ typedef struct {
 #define N_IsIndex      0x08     /* An index node. */
 #define N_IsDir        0x10     /* A dir node. */
 #define N_Simple       0x20     /* Data about cross-references is missing. */
+#define N_Replica      0x40     /* Does not own internal data structures. */
 
 /* String constants. */
 #define INFO_FILE_LABEL                 "File:"

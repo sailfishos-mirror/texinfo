@@ -1,5 +1,21 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	N_Replica flag
+
+	* info/nodes.h (N_Replica): Add flag for NODE.flags
+	* info/dir.c (get_dir_node),
+	* info/nodes.c (info_node_of_tag_ext),
+	* info/man.c (get_manpage_node): Set N_Replica flag.
+
+	* info/nodes.c (free_node): Check N_Replica instead of
+	N_IsInternal when deciding whether to free internal structures.
+	The purpose of this flag is intended to be more clear than that
+	of N_IsInternal.  Some nodes like the "dir" node are generated
+	by Info, but do not have the "internal" flag on as there is another
+	reference to the storage for the node.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	free_node instead of free
 
 	* info/session-cmd.c (dump_node_to_stream):
