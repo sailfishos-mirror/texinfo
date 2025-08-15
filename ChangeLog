@@ -1,5 +1,10 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/infodoc.c (pretty_keyseq): Declare argument as pointer to
+	const int.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/display.c (printed_representation): Declare return value
 	as const.  Remove comment saying return value is not to be freed
 	as this is now evident from the type of the return value.

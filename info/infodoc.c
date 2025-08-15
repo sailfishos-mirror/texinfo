@@ -636,7 +636,7 @@ pretty_keyname (int key)
 /* Return the pretty printable string which represents KEYSEQ.  Return
    value should not be freed by caller. */
 char *
-pretty_keyseq (int *keyseq)
+pretty_keyseq (const int *keyseq)
 {
   static struct text_buffer rep = { 0 };
 

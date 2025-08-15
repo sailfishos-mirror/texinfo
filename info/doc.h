@@ -63,7 +63,7 @@ extern InfoCommand *named_function (char *name);
 
 extern char *function_documentation (InfoCommand *cmd);
 extern char *pretty_keyname (int key);
-extern char *pretty_keyseq (int *keyseq);
+extern char *pretty_keyseq (const int *keyseq);
 extern char *where_is (Keymap map, InfoCommand *cmd);
 extern char *replace_in_documentation (const char *string,
     int help_is_only_window_p);
