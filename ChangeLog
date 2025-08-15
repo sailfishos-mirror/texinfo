@@ -1,3 +1,8 @@
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/nodes.c (free_node): remove check that either N_IsInternal
+	or N_Replica is set.
+
 2025-08-15 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/Converter.pm (float_name_caption): revert

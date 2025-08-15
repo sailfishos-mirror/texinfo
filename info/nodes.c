@@ -958,13 +958,6 @@ free_node (NODE *n)
       free (n->next); free (n->prev); free (n->up);
       free (n->nodename);
     }
-  if (n)
-    {
-      /* temporary while we rewrite the program.  abort if neither
-         N_Replica nor N_IsInternal is set. */
-      if (!(n->flags & (N_Replica | N_IsInternal)))
-        abort();
-    }
   free (n);
 }
 
