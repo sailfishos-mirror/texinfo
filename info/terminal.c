@@ -60,8 +60,8 @@ void (*terminal_prep_terminal_hook) (void) = NULL;
 void (*terminal_unprep_terminal_hook) (void) = NULL;
 void (*terminal_new_terminal_hook) (char *terminal_name) = NULL;
 void (*terminal_goto_xy_hook) (int x, int y) = NULL;
-void (*terminal_put_text_hook) (char *string) = NULL;
-void (*terminal_write_chars_hook) (char *string, int nchars) = NULL;
+void (*terminal_put_text_hook) (const char *string) = NULL;
+void (*terminal_write_chars_hook) (const char *string, int nchars) = NULL;
 void (*terminal_clear_to_eol_hook) (void) = NULL;
 void (*terminal_clear_screen_hook) (void) = NULL;
 void (*terminal_up_line_hook) (void) = NULL;
@@ -290,7 +290,7 @@ terminal_goto_xy (int x, int y)
 
 /* Print STRING to the terminal at the current position. */
 void
-terminal_put_text (char *string)
+terminal_put_text (const char *string)
 {
   if (terminal_put_text_hook)
     (*terminal_put_text_hook) (string);
@@ -302,7 +302,7 @@ terminal_put_text (char *string)
 
 /* Print NCHARS from STRING to the terminal at the current position. */
 void
-terminal_write_chars (char *string, int nchars)
+terminal_write_chars (const char *string, int nchars)
 {
   if (terminal_write_chars_hook)
     (*terminal_write_chars_hook) (string, nchars);

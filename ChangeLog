@@ -1,5 +1,11 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/terminal.c (terminal_put_text, terminal_put_text_hook),
+	(terminal_write_chars, terminal_write_chars_hook):
+	Declare first parameter as const char *.
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/dir.c (get_dir_node),
 	* info/nodes.c (info_get_node): Remove instructions on freeing
 	return value from comment.  Simply calling 'free_node' should

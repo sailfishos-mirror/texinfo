@@ -71,12 +71,12 @@ extern void terminal_goto_xy (int x, int y);
 extern void (*terminal_goto_xy_hook) (int x, int y);
 
 /* Print STRING to the terminal at the current position. */
-extern void terminal_put_text (char *string);
-extern void (*terminal_put_text_hook) (char *string);
+extern void terminal_put_text (const char *string);
+extern void (*terminal_put_text_hook) (const char *string);
 
 /* Print NCHARS from STRING to the terminal at the current position. */
-extern void terminal_write_chars (char *string, int nchars);
-extern void (*terminal_write_chars_hook) (char *string, int nchars);
+extern void terminal_write_chars (const char *string, int nchars);
+extern void (*terminal_write_chars_hook) (const char *string, int nchars);
 
 /* Clear from the current position of the cursor to the end of the line. */
 extern void terminal_clear_to_eol (void);
