@@ -9643,8 +9643,12 @@ sub converter_destroy($;$) {
           Texinfo::ManipulateTree::tree_remove_parents($tree);
           if ($remove_references) {
             delete $no_arg_command_ctx->{$context}->{'translated_tree'};
-            Texinfo::ManipulateTree::tree_remove_references($tree,
-                                               $self->get_conf('TEST'));
+            # the same tree is in general referenced in the different
+            # contexts, therefore there are more references than expected
+            # by the function.  Also this is not in the tree, so there is no
+            # specific reason why there should be the same number of
+            # references, at least for the element at the root of the tree.
+            Texinfo::ManipulateTree::tree_remove_references($tree, 0);
           }
         }
       }

@@ -525,7 +525,7 @@ sub _XS_destroy($;$) {
 sub destroy($;$) {
   my ($self, $remove_references) = @_;
 
-  $self->converter_perl_release($self, $remove_references);
+  $self->converter_perl_release($remove_references);
 
   $self->_XS_destroy($remove_references);
 
