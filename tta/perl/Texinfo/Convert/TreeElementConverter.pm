@@ -826,17 +826,14 @@ sub table_item_content_tree($$;$)
 }
 
 # same as table_item_content_tree, but using the TreeElement interface
-sub tree_element_table_item_content_tree($$;$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $build_tree = shift;
+sub tree_element_table_item_content_tree($$;$) {
+  my ($self, $element, $build_tree) = @_;
 
   my $parent = $element->parent();
   my $parent_type = $parent->{'type'};
   # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize
   # in @table
-  if (!$parent_type or $parent_type ne 'table_term') {
+  if (!defined($parent_type) or $parent_type ne 'table_term') {
     return undef;
   }
   my $table_command = $parent->parent()->parent();
@@ -858,9 +855,9 @@ sub tree_element_table_item_content_tree($$;$)
     # command name for the Texinfo::Commands hashes tests
     my $builtin_cmdname;
     my $type = $command_as_argument->{'type'};
-    if ($type and $type eq 'definfoenclose_command') {
+    if (defined($type) and $type eq 'definfoenclose_command') {
       $command->{'type'} = $type;
-      $command->{'extra'} = {} if (!$command->{'extra'});
+      $command->{'extra'} = {} if (!exists($command->{'extra'}));
       $command->{'extra'}->{'begin'}
         = $command_as_argument->get_attribute('begin');
       $command->{'extra'}->{'end'}
@@ -893,7 +890,7 @@ sub tree_element_table_item_content_tree($$;$)
     }
     my $arg_element = $self->new_tree_element($arg);
     my $result = $self->new_tree_element($command);
-    $result->add_to_element_contents($arg_element);
+    $result->{'contents'} = [$arg_element];
     return $result;
   }
   return undef;

@@ -1585,6 +1585,8 @@ sub float_name_caption($$) {
 }
 
 # $ELEMENT should be an item, itemx or headitem command element
+# No parent is set in this parallel tree, such that there is no
+# cycle and Perl can release the elements as soon as they are out of scope.
 sub table_item_content_tree_noxs($$) {
   my ($self, $element) = @_;
 
@@ -1631,26 +1633,22 @@ sub table_item_content_tree_noxs($$) {
       # or @math.  We do not really care about the formatting of the result
       # but we want to avoid debug messages, so we setup expected trees
       # for those @-commands.
-      $arg = Texinfo::TreeElement::new({'type' => 'brace_command_context',
-                                        'parent' => $command,});
+      $arg = Texinfo::TreeElement::new({'type' => 'brace_command_context',});
       if ($Texinfo::Commands::math_commands{$builtin_cmdname}) {
         $arg->{'contents'} = [$element->{'contents'}->[0]];
       } else {
         my $paragraph
          = Texinfo::TreeElement::new({'type' => 'paragraph',
-                            'contents' => [$element->{'contents'}->[0]],
-                            'parent' => $arg});
+                            'contents' => [$element->{'contents'}->[0]],});
         $arg->{'contents'} = [$paragraph];
       }
     } elsif ($Texinfo::Commands::brace_commands{$builtin_cmdname}
                                                    eq 'arguments') {
       $arg = Texinfo::TreeElement::new({'type' => 'brace_arg',
-                      'contents' => [$element->{'contents'}->[0]],
-                      'parent' => $command,});
+                      'contents' => [$element->{'contents'}->[0]],});
     } else {
       $arg = Texinfo::TreeElement::new({'type' => 'brace_container',
-                         'contents' => [$element->{'contents'}->[0]],
-                         'parent' => $command,});
+                         'contents' => [$element->{'contents'}->[0]],});
     }
     $command->{'contents'} = [$arg];
     return $command;

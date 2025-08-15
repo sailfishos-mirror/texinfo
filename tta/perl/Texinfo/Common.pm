@@ -891,7 +891,6 @@ sub item_itemize_prepended($) {
   return itemize_line_prepended_element($block_line_arg);
 }
 
-# always return something
 sub item_line_block_line_argument_command($) {
   my $block_line_arg = shift;
 
@@ -910,6 +909,7 @@ sub item_line_block_line_argument_command($) {
 
 my $default_asis_command = Texinfo::TreeElement::new({'cmdname' => 'asis'});
 
+# always return something
 sub block_item_line_command($) {
   my $block_line_arg = shift;
 

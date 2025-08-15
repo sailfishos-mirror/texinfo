@@ -934,7 +934,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
               ELEMENT *paragraph = new_element_added (tree, ET_paragraph);
               add_to_contents_as_array (paragraph,
                                         element->e.c->contents.list[0]);
-              add_to_element_contents (arg, paragraph);
+              add_to_contents_as_array (arg, paragraph);
             }
         }
       else if (builtin_command_data[data_cmd].data == BRACE_arguments)
@@ -947,7 +947,7 @@ table_item_content_tree (CONVERTER *self, const ELEMENT *element)
           arg = new_element_added (tree, ET_brace_container);
           add_to_contents_as_array (arg, element->e.c->contents.list[0]);
         }
-      add_to_element_contents (command, arg);
+      add_to_contents_as_array (command, arg);
       return tree;
     }
   return 0;
