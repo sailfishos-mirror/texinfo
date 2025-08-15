@@ -166,8 +166,11 @@ destroy_document (SV *document_in, ...)
             release_output_units_lists_built (&document->output_units_lists,
                                               remove_references);
               */
-
+            if (document->options->TEST.o.integer > 1)
+              set_check_element_interpreter_refcount ();
             destroy_document (document);
+            if (document->options->TEST.o.integer > 1)
+              unset_check_element_interpreter_refcount ();
           }
 
 SV *

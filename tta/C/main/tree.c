@@ -234,34 +234,28 @@ destroy_element (ELEMENT *e)
   /* remove the reference of the association with the C tree */
   if (e->sv)
     {
-      void *hv = get_sv_hv (e->sv);
-      int sv_refcount;
-      int hv_refcount;
-
-       /*
-      sv_refcount = get_refcount (e->sv);
-      hv_refcount = get_refcount (hv);
-
-      if (sv_refcount != 1 || hv_refcount != 1) {
-        fprintf (stderr, "ELT (%p<-%p): sv: %d hv: %d\n", hv, e->sv, sv_refcount,
-                         hv_refcount);
-        fprintf (stderr, " %s\n", print_element_debug (e, 0));
-      } else {
-        fprintf (stderr, "DESTROY (%p<-%p) refcounts ok\n", hv, e->sv);
-        fprintf (stderr, " %s\n", print_element_debug (e, 0));
-      }
-      fprintf (stderr, " %s\n", print_element_debug (e, 0));
-        */
       /* this also removes one reference for the associated hv */
       unregister_perl_data (e->sv);
-       /*
-      sv_refcount = get_refcount (e->sv);
-      hv_refcount = get_refcount (hv);
-      if (sv_refcount != 0 || hv_refcount != 0)
+
+      /* if set, the references other than the one kept in C should
+         have been released such that after the unregister call just
+         above, the elements references count should be 0, and the
+         messages should be shown if it is not the case.
+       */
+      if (get_check_element_interpreter_refcount ())
         {
-          fprintf (stderr, "AFTER (%p<-%p): sv: %d hv: %d\n", hv, e->sv,
-                            sv_refcount, hv_refcount);
+          void *hv = get_sv_hv (e->sv);
+          int sv_refcount = get_refcount (e->sv);
+          int hv_refcount = get_refcount (hv);
+
+          if (sv_refcount != 0 || hv_refcount != 0)
+            {
+              fprintf (stderr,
+                       "DEBUG Perl refcounts (%p<-%p): sv: %d hv: %d\n",
+                       hv, e->sv, sv_refcount, hv_refcount);
+            }
         }
+        /*
       fprintf (stderr, " DSV %p %s\n", hv, print_element_debug (e, 0));
         */
 

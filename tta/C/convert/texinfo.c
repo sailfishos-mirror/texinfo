@@ -697,9 +697,14 @@ void
 txi_destroy_document (DOCUMENT *document, int remove_references)
 {
   if (document->options->TEST.o.integer > 0)
-    call_document_remove_document_references (document, remove_references);
+    {
+      call_document_remove_document_references (document, remove_references);
+      set_check_element_interpreter_refcount ();
+    }
 
   destroy_document (document);
+  if (document->options->TEST.o.integer > 0)
+    unset_check_element_interpreter_refcount ();
 }
 
 void

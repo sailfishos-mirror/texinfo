@@ -630,6 +630,34 @@ encode_string (char *input_string, const char *encoding, int *status,
 
 
 
+/* set/unset/get indicator.  Set/unset in code calling destroy_document
+   to signal that all the references except the one hold by C code have
+   been released.  Read by destroy_element to output a message if
+   there is a reference count left after releasing the references
+   held by the C code */
+
+static int check_element_interpreter_refcount = 0;
+
+void
+set_check_element_interpreter_refcount (void)
+{
+  check_element_interpreter_refcount++;
+}
+
+void
+unset_check_element_interpreter_refcount (void)
+{
+  check_element_interpreter_refcount--;
+}
+
+int
+get_check_element_interpreter_refcount (void)
+{
+  return check_element_interpreter_refcount;
+}
+
+
+
 /* code related to the EXPANDED_FORMAT structure holding informations on the
    expanded formats (html, info, tex...) */
 

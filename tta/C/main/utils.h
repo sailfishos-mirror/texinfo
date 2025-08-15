@@ -142,6 +142,10 @@ void messages_and_encodings_setup (void);
 
 void setup_structuring_data (void);
 
+void set_check_element_interpreter_refcount (void);
+void unset_check_element_interpreter_refcount (void);
+int get_check_element_interpreter_refcount (void);
+
 void store_value (VALUE_LIST *values, const char *name, const char *value);
 void clear_value (VALUE_LIST *values, const char *name);
 void wipe_values (VALUE_LIST *values);
