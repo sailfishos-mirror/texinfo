@@ -22,6 +22,7 @@
 
 #include "info.h"
 #include "window.h"
+#include "doc.h"
 #include "scan.h"
 
 /* Variable controlling the garbage collection of files briefly visited

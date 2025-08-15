@@ -20,7 +20,6 @@
 #ifndef INFO_WINDOW_H
 #define INFO_WINDOW_H
 
-#include "doc.h"
 #include "nodes.h"
 #include <stdarg.h>
 #include <regex.h>

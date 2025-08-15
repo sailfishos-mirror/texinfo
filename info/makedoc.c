@@ -67,7 +67,7 @@ static char *doc_header_1[] = {
   "   and a string which documents its purpose. */",
   "",
   "#include \"info.h\"",
-  "#include \"window.h\"",
+  "#include \"doc.h\"",
   "#include \"funs.h\"",
   "",
   "InfoCommand function_doc_array[] = {",

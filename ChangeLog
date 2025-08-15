@@ -1,5 +1,14 @@
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/makedoc.c: Do not #include "window.h" in generated
+	doc.c, as this appears only to be needed in order to indirectly
+	include doc.h.  Include doc.h directly.
+	* info/window.h: Do not #include "doc.h" as it is not needed for
+	the definitions in this file.
+	* info/session.h: #include "doc.h".
+
+2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/infodoc.c (pretty_keyseq): Declare argument as pointer to
 	const int.
 
