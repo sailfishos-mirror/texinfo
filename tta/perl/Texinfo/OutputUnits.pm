@@ -43,6 +43,7 @@ use File::Basename;
 use Devel::Peek;
 eval { require Devel::Refcount; Devel::Refcount->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
+eval { require Devel::Cycle; Devel::Cycle->import(); };
 
 use Texinfo::StructTransfXS;
 
@@ -297,14 +298,13 @@ sub release_output_units_list($;$) {
       delete $output_unit->{'directions'};
     }
 
-    # not necessary to remove cycles in general, as the associated_unit
-    # are removed from elements, however, some elements may not be in the
-    # tree, in practice HTML special units elements.
+    # Some elements may not be in the tree, in practice HTML special units
+    # elements, this removes the reference to them.  Also useful to avoid
+    # cycles with tree elements.
     delete $output_unit->{'unit_command'};
 
-    if ($remove_references) {
-      delete $output_unit->{'unit_contents'};
-    }
+    #if ($remove_references) {
+    #}
 
     if (0) {
       # As the other output units go through this loop, the references
@@ -324,7 +324,17 @@ sub release_output_units_list($;$) {
        " HV: ".Devel::Refcount::refcount($output_unit)."\n"
         .Devel::FindRef::track($output_unit)."\n";
     }
+
+    # to remove cycles going through tree elements back through
+    # associated_unit.  Also to remove cycles within tree elements
+    # that preven cycles detection.
+    delete $output_unit->{'unit_contents'};
+    delete $output_unit->{'unit_node'};
+    delete $output_unit->{'unit_section'};
+
+    #find_cycle($output_unit);
   }
+  #find_cycle($output_units_list);
 }
 
 # Associate top-level units with pages according to the splitting

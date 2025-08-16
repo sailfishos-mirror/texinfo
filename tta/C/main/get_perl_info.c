@@ -1755,9 +1755,14 @@ release_output_units_list_built (OUTPUT_UNIT_LIST *output_units,
           hv_delete (output_unit->hv, "unit_command",
                      strlen("unit_command"), G_DISCARD);
 
-          if (remove_references)
-            hv_delete (output_unit->hv, "unit_contents",
-                       strlen("unit_contents"), G_DISCARD);
+          hv_delete (output_unit->hv, "unit_contents",
+                     strlen("unit_contents"), G_DISCARD);
+
+          hv_delete (output_unit->hv, "unit_node",
+                     strlen("unit_node"), G_DISCARD);
+
+          hv_delete (output_unit->hv, "unit_section",
+                     strlen("unit_section"), G_DISCARD);
         }
     }
 }
