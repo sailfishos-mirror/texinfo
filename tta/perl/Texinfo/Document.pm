@@ -343,29 +343,6 @@ sub _remove_heading_relations_references($) {
   }
 }
 
-# for debugging
-sub _print_tree_elements_ref($$);
-sub _print_tree_elements_ref($$)
-{
-  my ($tree, $level) = @_;
-
-  my $parent;
-  if (exists($tree->{'parent'})) {
-    $parent = ' (p)';
-  } else {
-    $parent = '';
-  }
-
-  print STDERR "". (' ' x $level) . $tree
-     . Texinfo::Common::debug_print_element($tree). "${parent}\n";
-
-  if (exists($tree->{'contents'})) {
-    for (my $i = 0; $i < scalar(@{$tree->{'contents'}}); $i++) {
-      _print_tree_elements_ref($tree->{'contents'}->[$i], $level+1);
-    }
-  }
-}
-
 # can also be called from XS
 # If $REMOVE_REFERENCES is not set, removing items objective is to remove
 # cycles such that Perl can reclaim the removed memory.  If
@@ -443,7 +420,7 @@ sub remove_document_references($;$) {
             = @{$lang_cache->{$string}->{$context}};
           print STDERR "TRANSL: $string-$context: ";
           if (defined($trans_tree)) {
-            _print_tree_elements_ref($trans_tree, 0);
+            Texinfo::ManipulateTree::_print_tree_elements_ref($trans_tree, 0);
           } else {
             print STDERR "NOT NEEDED\n";
           }

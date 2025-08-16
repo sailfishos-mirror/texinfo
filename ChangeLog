@@ -1,5 +1,11 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm, tta/perl/Texinfo/ManipulateTree.pm
+	(_print_tree_elements_ref): move _print_tree_elements_ref to
+	ManipulateTree.pm and add refcounts.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (tree_remove_references): do not
 	show any message for the tree root element.
 

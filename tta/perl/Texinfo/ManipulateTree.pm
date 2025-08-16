@@ -411,6 +411,53 @@ sub copy_contentsNonXS($;$) {
 
 
 
+# for debugging
+sub _print_tree_elements_ref($$);
+sub _print_tree_elements_ref($$)
+{
+  my ($element, $level) = @_;
+
+  my $parent;
+  if (exists($element->{'parent'})) {
+    $parent = ' (p)';
+  } else {
+    $parent = '';
+  }
+
+  my $reference_count = Devel::Peek::SvREFCNT($element);
+  my $object_count = Devel::Refcount::refcount($element);
+
+  print STDERR "". (' ' x $level) . $element
+     . Texinfo::Common::debug_print_element($element)
+       . "${parent}{$reference_count;$object_count}\n";
+
+  if (exists($element->{'source_marks'})) {
+    foreach my $source_mark (@{$element->{'source_marks'}}) {
+      if (exists($source_mark->{'element'})) {
+        _print_tree_elements_ref($source_mark->{'element'}, $level+3);
+      }
+    }
+  }
+
+  return if (exists($element->{'text'}));
+
+  if (exists($element->{'info'})) {
+    foreach my $info_elt_key ('comment_at_end', 'spaces_before_argument',
+                              'spaces_after_cmd_before_arg',
+                              'spaces_after_argument') {
+      if (exists($element->{'info'}->{$info_elt_key})) {
+        _print_tree_elements_ref($element->{'info'}->{$info_elt_key}, $level+2);
+      }
+    }
+  }
+
+  if (exists($element->{'contents'})) {
+    for (my $i = 0; $i < scalar(@{$element->{'contents'}}); $i++) {
+      _print_tree_elements_ref($element->{'contents'}->[$i], $level+1);
+    }
+  }
+}
+
 sub tree_remove_parents($);
 
 # TODO add documentation?
@@ -527,7 +574,7 @@ sub tree_remove_references($;$) {
     }
   }
 
-  #print STDERR "RRR $element ".
+  #print STDERR "TRE $element ".
   #   Texinfo::ManipulateTree::element_print_details($element)."\n";
 
   if (defined($test_level) and $test_level > 1) {
@@ -543,7 +590,9 @@ sub tree_remove_references($;$) {
       # The tree root is different, it may not have a count in C if
       # this is only a handler and the tree was not built and it
       # is different from the other elements in term of references.
-      if (!exists($element->{'tree_document_descriptor'})) {
+      if (!exists($element->{'tree_document_descriptor'})
+          and !(exists($element->{'type'})
+                and $element->{'type'} eq 'document_root')) {
         print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
         .Texinfo::ManipulateTree::element_print_details($element)."\n"
        #;
