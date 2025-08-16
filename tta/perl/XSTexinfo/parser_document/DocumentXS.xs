@@ -366,8 +366,9 @@ indices_sort_strings (SV *document_in, ...)
                                              "indices_sort_strings");
         if (document)
           indices_sort_strings
-           = document_indices_sort_strings (document, &document->error_messages,
-                                             document->options);
+           = document_indices_sort_strings (document,
+                                            &document->error_messages,
+                                            document->options);
 
         if (indices_sort_strings)
           {
@@ -385,9 +386,9 @@ indices_sort_strings (SV *document_in, ...)
                     HV *indices_sort_strings_hv
                      = build_indices_sort_strings (indices_sort_strings,
                                                    indices_information_hv);
-
+                    hv_store (document_hv, key, strlen (key),
+                              newRV_noinc ((SV *) indices_sort_strings_hv), 0);
                     result_sv = newRV_inc ((SV *) indices_sort_strings_hv);
-                    hv_store (document_hv, key, strlen (key), result_sv, 0);
                     document->modified_information
                                 &= ~F_DOCM_indices_sort_strings;
                   }
@@ -397,15 +398,13 @@ indices_sort_strings (SV *document_in, ...)
               { /* retrieve previously stored result */
                 SV **sv_stored = hv_fetch (document_hv, key, strlen (key), 0);
                 if (sv_stored && SvOK (*sv_stored))
-                  result_sv = *sv_stored;
+                  result_sv = newSVsv (*sv_stored);
                 /* error out if not found?  Or rebuild? */
               }
           }
+
         if (result_sv)
-          {
-            SvREFCNT_inc (result_sv);
-            RETVAL = result_sv;
-          }
+          RETVAL = result_sv;
         else
           RETVAL = newSV (0);
     OUTPUT:

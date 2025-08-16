@@ -1,5 +1,12 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(indices_sort_strings): setup a new reference with newSVsv when
+	retrieving from the hash.  Do not retain an additional reference on
+	returned SV.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs (document_errors):
 	do not retain a reference on returned SV.
 
