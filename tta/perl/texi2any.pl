@@ -57,6 +57,9 @@ use Storable;
 use Data::Dumper;
 
 #use Devel::Cycle;
+use Devel::Peek;
+eval { require Devel::FindRef; Devel::FindRef->import(); };
+eval { require Devel::Refcount; Devel::Refcount->import(); };
 
 Getopt::Long::Configure("gnu_getopt");
 
@@ -2214,6 +2217,19 @@ while(@input_files) {
     $converter->reset_converter($remove_references);
   }
 
+  # This cannot be done from C/XS, this code is therefore handy
+  # to check that there are not unexpected references
+  #if (exists($converter->{'document_units'})) {
+  #  print STDERR "DOCUMENT UNITS after reset_converter "
+  #                   ."$converter->{'document_units'}\n";
+  #  foreach my $output_unit (@{$converter->{'document_units'}}) {
+  #    # refs are prev, associated_unit of root commands and 'document_units'
+  #    print STDERR " $output_unit ".Devel::Peek::SvREFCNT($output_unit).
+  #     " HV: ".Devel::Refcount::refcount($output_unit)."\n"
+  #      .Devel::FindRef::track($output_unit)."\n";
+  #  }
+  #}
+
   if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {
     require Texinfo::Convert::TextContent;
     my $sort_element_converter_options = { %$main_program_default_options,
@@ -2295,6 +2311,18 @@ while(@input_files) {
   }
 
   $converter->destroy($remove_references);
+
+  # It is not easy to get the output units with XS, after the converter
+  # 'document_units' key has been destroyed.  The best option
+  # is to go through the root commands as seen here:
+  #foreach my $element (@{$tree->{'contents'}}) {
+  #  if (exists($element->{'associated_unit'})) {
+  #    my $output_unit = $element->{'associated_unit'};
+  #    print STDERR " $output_unit ".Devel::Peek::SvREFCNT($output_unit).
+  #     " HV: ".Devel::Refcount::refcount($output_unit)."\n"
+  #      .Devel::FindRef::track($output_unit)."\n";
+  #  }
+  #}
 
  NEXT:
   $parser->release();

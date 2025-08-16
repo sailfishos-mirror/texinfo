@@ -40,6 +40,10 @@ use Carp qw(cluck confess);
 # for fileparse
 use File::Basename;
 
+use Devel::Peek;
+eval { require Devel::Refcount; Devel::Refcount->import(); };
+eval { require Devel::FindRef; Devel::FindRef->import(); };
+
 use Texinfo::StructTransfXS;
 
 use Texinfo::XSLoader;
@@ -310,11 +314,22 @@ sub release_output_units_list($;$) {
     }
 
     if (0) {
+      # As the other output units go through this loop, the references
+      # associated to directions to the $output_unit are removed.  Therefore,
+      # these references are fully removed for the last output unit.
+      #
+      # At the end of the loop, the output units are still referred to
+      # by prev tree output units directions,
+      # by converter global directions (in HTML and without XS), by elements
+      # 'associated_unit', and, depending on the converter and the use of XS,
+      # possibly by the converter list of output units lists and/or the
+      # converter document_units array.
       print STDERR " $output_unit ["
              .(exists($output_unit->{'unit_contents'}) ?
                 scalar(@{$output_unit->{'unit_contents'}}) : '-')."]: ".
                    Devel::Peek::SvREFCNT($output_unit).
-       " HV: ".Devel::Refcount::refcount($output_unit)."\n";
+       " HV: ".Devel::Refcount::refcount($output_unit)."\n"
+        .Devel::FindRef::track($output_unit)."\n";
     }
   }
 }

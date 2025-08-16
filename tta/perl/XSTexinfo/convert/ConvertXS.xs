@@ -955,7 +955,7 @@ html_prepare_conversion_units (SV *converter_in, ...)
         PUSHs(sv_2mortal(special_units_sv));
         PUSHs(sv_2mortal(associated_special_units_sv));
 
-# Called in output, not in convert
+# Not called in convert. Called in output, when it is not overriden
 # the return value is not really used with XS, it is passed to another
 # XS function, but the value is ignored there.
 SV *
@@ -981,7 +981,7 @@ html_prepare_units_directions_files (SV *converter_in, SV *output_units_sv, SV *
     OUTPUT:
         RETVAL
 
-# Called in convert.
+# Called in convert, when it is not overriden.
 # Not called through output, as the Perl function is only called from
 # an overriden function in that case.
 void

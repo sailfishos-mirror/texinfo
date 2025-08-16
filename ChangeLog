@@ -1,5 +1,9 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	add commented out code and text about references to output units
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (free_generic_converter),
 	tta/C/main/output_unit.c (destroy_output_unit): add code showing the
 	refcounts after release, for debugging, not executed.
