@@ -38,7 +38,10 @@ use Storable;
 
 use Carp qw(cluck confess);
 
-#use Devel::Cycle;
+use Devel::Peek;
+eval { require Devel::Refcount; Devel::Refcount->import(); };
+eval { require Devel::FindRef; Devel::FindRef->import(); };
+eval { require Devel::Cycle; Devel::Cycle->import(); };
 
 use Texinfo::Convert::ConvertXS;
 use Texinfo::XSLoader;
@@ -477,9 +480,17 @@ sub reset_converter($;$) {
 
   my $output_units_lists = $self->get_output_units_lists();
 
-  foreach my $output_units_list (@$output_units_lists) {
-    Texinfo::OutputUnits::release_output_units_list($output_units_list,
+  if (defined($output_units_lists)) {
+    foreach my $output_units_list (@$output_units_lists) {
+      Texinfo::OutputUnits::release_output_units_list($output_units_list,
                                                     $remove_references);
+      #foreach my $output_unit (@$output_units_list) {
+      #  my $reference_count = Devel::Peek::SvREFCNT($output_unit);
+      #  my $object_count = Devel::Refcount::refcount($output_unit);
+      #  print STDERR "OUCOUNT $output_unit $reference_count HV: $object_count\n"
+      #   .Devel::FindRef::track($output_unit)."\n";
+      #}
+    }
   }
 
   $self->_XS_reset_converter($remove_references);
@@ -498,6 +509,7 @@ sub converter_perl_release($;$) {
   # generic
   delete $self->{'document'};
   delete $self->{'document_units'};
+  delete $self->{'output_units_lists'};
 
   if (exists($self->{'convert_text_options'})) {
     delete $self->{'convert_text_options'}->{'converter'};
@@ -530,6 +542,7 @@ sub destroy($;$) {
   $self->_XS_destroy($remove_references);
 
   #find_cycle($self);
+
   $self = undef;
 }
 

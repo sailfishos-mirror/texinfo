@@ -1,5 +1,13 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (converter_perl_release):
+	delete 'output_units_lists', to allow for checks of cycles.
+
+	* tta/C/main/get_perl_info.c (release_output_units_list_built): delete
+	directions to be more like Perl code.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (store_output_units_texinfo_tree):
 	transfer the reference on the output units list to the converter hash
 	"document_units".

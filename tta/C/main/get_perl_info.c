@@ -1749,6 +1749,8 @@ release_output_units_list_built (OUTPUT_UNIT_LIST *output_units,
                  = (HV *) SvRV (*directions_sv);
               hv_clear (directions_hv);
             }
+          hv_delete (output_unit->hv, "directions",
+                     strlen("directions"), G_DISCARD);
 
           hv_delete (output_unit->hv, "unit_command",
                      strlen("unit_command"), G_DISCARD);
