@@ -1,5 +1,12 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/texinfo.c (txi_destroy_document),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (destroy_document):
+	use a variable to avoid accessing document after being freed.  Use
+	TEST > 1 for txi_destroy_document too.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs
 	(indices_sort_strings): setup a new reference with newSVsv when
 	retrieving from the hash.  Do not retain an additional reference on

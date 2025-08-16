@@ -158,6 +158,7 @@ destroy_document (SV *document_in, ...)
         document = get_sv_document_document (document_in, 0);
         if (document)
           {
+            int check_counts = (document->options->TEST.o.integer > 1);
             /* Not useful, as it is done by converters already
             int remove_references = 0;
             if (remove_references_sv && SvOK (remove_references_sv))
@@ -166,10 +167,10 @@ destroy_document (SV *document_in, ...)
             release_output_units_lists_built (&document->output_units_lists,
                                               remove_references);
               */
-            if (document->options->TEST.o.integer > 1)
+            if (check_counts)
               set_check_element_interpreter_refcount ();
             destroy_document (document);
-            if (document->options->TEST.o.integer > 1)
+            if (check_counts)
               unset_check_element_interpreter_refcount ();
           }
 

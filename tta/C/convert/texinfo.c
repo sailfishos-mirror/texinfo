@@ -696,14 +696,15 @@ txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
 void
 txi_destroy_document (DOCUMENT *document, int remove_references)
 {
-  if (document->options->TEST.o.integer > 0)
+  int check_counts = (document->options->TEST.o.integer > 1);
+  if (check_counts)
     {
       call_document_remove_document_references (document, remove_references);
       set_check_element_interpreter_refcount ();
     }
 
   destroy_document (document);
-  if (document->options->TEST.o.integer > 0)
+  if (check_counts)
     unset_check_element_interpreter_refcount ();
 }
 
