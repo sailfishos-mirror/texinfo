@@ -809,7 +809,7 @@ setup_info_hv (ELEMENT *e, HV **info_hv)
       HV *element_hv = (HV *) SvRV ((SV*) e->sv);
       *info_hv = (HV *) newHV ();
       hv_store (element_hv, "info", strlen ("info"),
-                newRV_inc ((SV *)*info_hv), HSH_info);
+                newRV_noinc ((SV *)*info_hv), HSH_info);
     }
 }
 
@@ -848,7 +848,7 @@ store_extra_flag (ELEMENT *e, const char *key, HV **extra_hv)
       HV *element_hv = (HV *) SvRV ((SV*) e->sv);
       *extra_hv = (HV *) newHV ();
       hv_store (element_hv, "extra", strlen ("extra"),
-                newRV_inc ((SV *)*extra_hv), HSH_extra);
+                newRV_noinc ((SV *)*extra_hv), HSH_extra);
     }
   hv_store (*extra_hv, key, strlen (key), newSViv (1), 0);
 }
