@@ -56,7 +56,7 @@
 #include "tree_types.h"
 #include "global_commands_types.h"
 #include "option_types.h"
-/* for GLOBAL_INFO ERROR_MESSAGE CL_* RUD_type* */
+/* for GLOBAL_INFO ERROR_MESSAGE CL_* RUD_type* ERROR_MESSAGE_LIST */
 #include "document_types.h"
 /* CONVERTER sv_string_type CONVERTER_INITIALIZATION_INFO */
 #include "converter_types.h"
@@ -1692,23 +1692,18 @@ convert_error (const ERROR_MESSAGE e)
 }
 
 /* Errors */
-AV *
-build_errors (const ERROR_MESSAGE *error_list, size_t error_number)
+void
+pass_errors (const ERROR_MESSAGE_LIST *error_list, AV *av)
 {
-  AV *av;
   size_t i;
 
   dTHX;
 
-  av = newAV ();
-
-  for (i = 0; i < error_number; i++)
+  for (i = 0; i < error_list->number; i++)
     {
-      SV *sv = convert_error (error_list[i]);
+      SV *sv = convert_error (error_list->list[i]);
       av_push (av, sv);
     }
-
-  return av;
 }
 
 /* ERROR_MESSAGES cannot be 0, as it cannot happen when called through
@@ -1729,19 +1724,12 @@ pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages, SV *object_sv)
 
   error_messages_sv = hv_fetch (object_hv, error_messages_key,
                                 strlen (error_messages_key), 0);
-  /* A error_messages is systematically added to document at
+  /* An 'error_messages' is systematically added to document at
      initialization, so the condition should always be true. */
   if (error_messages_sv && SvOK (*error_messages_sv))
     {
       AV *report_av = (AV *) SvRV (*error_messages_sv);
-      size_t i;
-      for (i = 0; i < error_messages->number; i++)
-        {
-          const ERROR_MESSAGE error_msg = error_messages->list[i];
-          SV *sv = convert_error (error_msg);
-
-          av_push (report_av, sv);
-        }
+      pass_errors (error_messages, report_av);
       return newRV_inc ((SV *) report_av);
     }
   return 0;

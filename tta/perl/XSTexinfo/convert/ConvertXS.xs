@@ -650,14 +650,12 @@ get_converter_errors (SV *converter_in)
         CONVERTER *self = 0;
       CODE:
         self = get_sv_converter (converter_in, 0);
+        errors_av = newAV ();
         if (self && self->error_messages.number)
           {
-            errors_av = build_errors (self->error_messages.list,
-                                      self->error_messages.number);
+            pass_errors (&self->error_messages, errors_av);
             wipe_error_message_list (&self->error_messages);
           }
-        else
-          errors_av = newAV ();
 
         RETVAL = newRV_noinc ((SV *) errors_av);
     OUTPUT:
@@ -761,9 +759,8 @@ text_convert_tree (SV *options_in, SV *tree_in)
                 && SvOK (options_in))
               {
                 const char* key = "error_warning_messages";
-                AV *errors_av
-                   = build_errors (text_options->error_messages.list,
-                                      text_options->error_messages.number);
+                AV *errors_av = newAV ();
+                pass_errors (&text_options->error_messages, errors_av);
                 HV *options_hv = (HV *) SvRV (options_in);
                 hv_store (options_hv, key, strlen (key),
                           newRV_noinc ((SV *) errors_av), 0);

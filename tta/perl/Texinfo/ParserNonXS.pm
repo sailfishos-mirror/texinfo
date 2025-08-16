@@ -835,10 +835,11 @@ sub parse_texi_line($$;$) {
 
   # add the errors to the Parser error_messages as there is no document
   # returned to get the errors from.
-  if (!defined($self->{'error_messages'})) {
+  if (!exists($self->{'error_messages'})) {
     $self->{'error_messages'} = [];
   }
-  push @{$self->{'error_messages'}}, @{$document->{'parser_error_messages'}};
+  push @{$self->{'error_messages'}},
+         splice(@{$document->{'parser_error_messages'}});
 
   return $document->tree();
 }
@@ -1100,9 +1101,12 @@ sub _parse_texi_document($) {
 sub errors($) {
   my $self = shift;
 
-  my $errors_output = [@{$self->{'error_messages'}}];
-
-  $self->{'error_messages'} = [];
+  my $errors_output;
+  if (exists($self->{'error_messages'})) {
+    $errors_output = [splice(@{$self->{'error_messages'}})];
+  } else {
+    $errors_output = [];
+  }
 
   return $errors_output;
 }

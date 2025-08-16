@@ -44,7 +44,7 @@ void pass_source_info_hash (const SOURCE_INFO *source_info, HV *hv);
 SV *build_element_attribute (const ELEMENT *element, const char *attribute,
                              DOCUMENT *document);
 
-AV *build_errors (const ERROR_MESSAGE* error_list, size_t error_number);
+void pass_errors (const ERROR_MESSAGE_LIST *error_list, AV *av);
 void pass_document_parser_errors_to_parser_sv (DOCUMENT *document,
                                                SV *parser_sv);
 SV *pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages,

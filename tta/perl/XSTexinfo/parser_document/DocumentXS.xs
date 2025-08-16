@@ -218,18 +218,11 @@ document_parser_errors (SV *document_in)
          */
         document = get_sv_document_document (document_in,
                                              "document_parser_errors");
-        if (document)
+        av = newAV ();
+        if (document && document->parser_error_messages.number)
           {
-            ERROR_MESSAGE_LIST *error_messages
-                  = &document->parser_error_messages;
-            av = build_errors (error_messages->list,
-                               error_messages->number);
-            clear_error_message_list (error_messages);
-          }
-        else
-          {
-            /* Should never happen */
-            av = newAV ();
+            pass_errors (&document->parser_error_messages, av);
+            clear_error_message_list (&document->parser_error_messages);
           }
         RETVAL = newRV_noinc ((SV *) av);
   OUTPUT:
