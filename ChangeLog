@@ -1,5 +1,11 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (store_output_units_texinfo_tree):
+	transfer the reference on the output units list to the converter hash
+	"document_units".
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/texinfo.c (txi_destroy_document),
 	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (destroy_document):
 	use a variable to avoid accessing document after being freed.  Use

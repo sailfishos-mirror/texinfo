@@ -2710,11 +2710,12 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
     {
  /* need to setup the Perl tree before rebuilding the output units as
     they refer to Perl root command elements */
-
       store_document_texinfo_tree (converter->document);
 
       if (converter->document->modified_information & F_DOCM_output_units)
         {
+         /* true if the the output units are already the converter
+            "document_units" value */
           int associated;
 
           if (!output_units_sv && converter->sv)
@@ -2748,9 +2749,10 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
             {
               HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
 
+         /* transfer the reference on the output units array to the hash */
               hv_store (converter_hv, "document_units",
                         strlen ("document_units"),
-                        newSVsv (*output_units_sv), 0);
+                        *output_units_sv, 0);
             }
 
           converter->document->modified_information &= ~F_DOCM_output_units;
