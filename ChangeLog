@@ -1,5 +1,12 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm (errors),
+	tta/perl/Texinfo/Convert/Converter.pm
+	(merge_converter_error_messages_lists_noxs): use splice to get array
+	content and empty the array at the same time.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (pass_errors, pass_errors_to_hv),
 	tta/perl/XSTexinfo/convert/ConvertXS.xs (get_converter_errors)
 	(text_convert_tree), tta/perl/XSTexinfo/parser_document/DocumentXS.xs

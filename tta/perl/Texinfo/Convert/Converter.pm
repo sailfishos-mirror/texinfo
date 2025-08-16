@@ -639,8 +639,7 @@ sub merge_converter_error_messages_lists_noxs($$) {
   }
 
   push @{$dst->{'error_warning_messages'}},
-       @{$src->{'error_warning_messages'}};
-  @{$src->{'error_warning_messages'}} = ();
+       splice(@{$src->{'error_warning_messages'}});
 }
 
 sub merge_converter_error_messages_lists($$) {

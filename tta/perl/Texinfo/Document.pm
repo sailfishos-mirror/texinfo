@@ -518,14 +518,12 @@ sub parser_errors($)
 }
 
 # The XS override pass C error messages to the document
-# error_messages and destroys C associated data.
+# error_messages and remove error messages in C.
 sub errors($)
 {
   my $document = shift;
 
-  my $errors_output = [@{$document->{'error_messages'}}];
-
-  $document->{'error_messages'} = [];
+  my $errors_output = [splice(@{$document->{'error_messages'}})];
 
   return $errors_output;
 }
