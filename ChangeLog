@@ -1,5 +1,22 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (pass_errors_to_hv),
+	tta/perl/XSTexinfo/parser_document/Parsetexi.xs (parse_texi_line):
+	create AV and store if not found.  Remove the corresponding code from
+	pass_document_parser_errors_to_parser_sv.  Inline
+	pass_document_parser_errors_to_parser_sv and remove.
+
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs (document_errors):
+	make sure that the error messages passed to pass_errors_to_hv is not
+	NULL.  Simplify code.
+
+	* tta/perl/XSTexinfo/parser_document/Parsetexi.xs (errors): simplify.
+
+	* tta/perl/t/z_misc/test_parse_texi_line.t (test_line): fix return
+	values of errors().
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm (errors),
 	tta/perl/Texinfo/Convert/Converter.pm
 	(merge_converter_error_messages_lists_noxs): use splice to get array

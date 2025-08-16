@@ -39,7 +39,7 @@ sub test_line($$$$)
     $reference_error_nrs = scalar(@$errors_references);
   }
 
-  my ($error_warnings_list, $error_count) = $parser->errors();
+  my $error_warnings_list = $parser->errors();
   is(scalar(@$error_warnings_list), $reference_error_nrs,
      "error nr $test_name");
 

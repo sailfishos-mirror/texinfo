@@ -1692,6 +1692,8 @@ convert_error (const ERROR_MESSAGE e)
 }
 
 /* Errors */
+/* ERROR_MESSAGES_LIST passed must be non-NULL
+ */
 void
 pass_errors (const ERROR_MESSAGE_LIST *error_list, AV *av)
 {
@@ -1706,16 +1708,14 @@ pass_errors (const ERROR_MESSAGE_LIST *error_list, AV *av)
     }
 }
 
-/* ERROR_MESSAGES cannot be 0, as it cannot happen when called through
-   pass_document_parser_errors_to_parser_sv for parser errors, and
-   for document errors it would mean no XS document found,
-   which cannot happen right now and would probably trigger many warnings.
+/* ERROR_MESSAGES_LIST passed must be non-NULL
  */
 SV *
 pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages, SV *object_sv)
 {
   HV *object_hv;
   SV **error_messages_sv;
+  AV *report_av;
   const char *error_messages_key = "error_messages";
 
   dTHX;
@@ -1725,45 +1725,22 @@ pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages, SV *object_sv)
   error_messages_sv = hv_fetch (object_hv, error_messages_key,
                                 strlen (error_messages_key), 0);
   /* An 'error_messages' is systematically added to document at
-     initialization, so the condition should always be true. */
-  if (error_messages_sv && SvOK (*error_messages_sv))
-    {
-      AV *report_av = (AV *) SvRV (*error_messages_sv);
-      pass_errors (error_messages, report_av);
-      return newRV_inc ((SV *) report_av);
-    }
-  return 0;
-}
-
-void
-pass_document_parser_errors_to_parser_sv (DOCUMENT *document,
-                                          SV *parser_sv)
-{
-  HV *parser_hv;
-  SV **parser_error_messages_sv;
-
-  dTHX;
-
-  parser_hv = (HV *) SvRV (parser_sv);
-
-  /* This cannot happen, the function is called on a document that
-     was just registered
-  if (!document)
-    return;
+     initialization, so the condition should always be true for a Document
+     object_hv.
+     For a Parser, however, it is only added when needed, so it should
+     need to be created here.
    */
-
-  /* Add error error_messages to Parser if needed */
-  parser_error_messages_sv = hv_fetch (parser_hv, "error_messages",
-                                       strlen ("error_messages"), 0);
-  if (!parser_error_messages_sv)
+  if (error_messages_sv)
+    report_av = (AV *) SvRV (*error_messages_sv);
+  else
     {
-      AV *av = newAV ();
-      hv_store (parser_hv, "error_messages", strlen ("error_messages"),
-                newRV_noinc ((SV *) av), 0);
+      report_av = newAV ();
+      hv_store (object_hv, error_messages_key, strlen (error_messages_key),
+                newRV_noinc ((SV *) report_av), 0);
     }
 
-  pass_errors_to_hv (&document->parser_error_messages, parser_sv);
-  clear_error_message_list (&document->parser_error_messages);
+  pass_errors (error_messages, report_av);
+  return newRV_inc ((SV *) report_av);
 }
 
 

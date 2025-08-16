@@ -176,9 +176,7 @@ destroy_document (SV *document_in, ...)
 SV *
 document_errors (SV *document_in)
     PREINIT:
-        DOCUMENT *document = 0;
-        SV *errors_warnings_sv = 0;
-        ERROR_MESSAGE_LIST *error_messages = 0;
+        DOCUMENT *document;
      CODE:
         /* if XS is used, a document should be found.  It could
            also have been possible to abort if a document is not
@@ -187,22 +185,20 @@ document_errors (SV *document_in)
         document = get_sv_document_document (document_in,
                                              "document_errors");
         if (document)
-          error_messages = &document->error_messages;
+          {
+            SV *errors_warnings_sv
+              = pass_errors_to_hv (&document->error_messages, document_in);
 
-        errors_warnings_sv
-          = pass_errors_to_hv (error_messages, document_in);
-        clear_error_message_list (error_messages);
+            clear_error_message_list (&document->error_messages);
 
-        /* NOTE this is incorrect, as the callers do not expect
-           undef errors_warnings_sv.  This should not happen, however,
-           as registrar objects are always associated to documents
-           and the corresponding array reference should always be found
-         */
-        if (!errors_warnings_sv)
-          RETVAL = newSV (0);
+            RETVAL = SvREFCNT_inc (errors_warnings_sv);
+          }
         else
-          RETVAL = SvREFCNT_inc (errors_warnings_sv);
-
+        /* NOTE this is incorrect, as the callers do not expect
+           undef errors_warnings_sv.  This should not happen
+           as a document should always be found.
+         */
+          RETVAL = newSV (0);
   OUTPUT:
       RETVAL
 

@@ -427,6 +427,7 @@ tree_element_find_element_authors (SV *element_sv, SV *quotation_authors_sv)
             destroy_const_element_list (quotation_authors);
           }
 
+# optional argument is converter_sv
 SV *
 utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_encoding_sv, int doc_encoding_for_input_file_name, SV *locale_encoding_sv, SV *include_directories_sv, ...)
       PROTOTYPE: $$$$$;$$
@@ -485,6 +486,10 @@ utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_e
               }
             if (!converter && converter_sv)
               {
+              /* TODO this seems wrong, as it stores in 'error_messages'
+                 while converters use 'error_warning_messages'.
+                 Need to investigate, but this code is not currently used.
+               */
                 pass_errors_to_hv (error_messages, converter_sv);
                 wipe_error_message_list (error_messages);
                 free (error_messages);

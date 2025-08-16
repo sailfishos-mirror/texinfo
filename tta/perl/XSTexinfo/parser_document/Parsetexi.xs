@@ -45,6 +45,8 @@
 #include "parser_conf.h"
 /* build_minimal_document build_document */
 #include "build_perl_info.h"
+/* clear_error_message_list */
+#include "errors.h"
 /* apply_sv_parser_conf */
 #include "get_perl_info.h"
 
@@ -157,8 +159,9 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
           add the errors to the Parser as there is no document returned
           to get the errors from.
         */
-            pass_document_parser_errors_to_parser_sv (document,
-                                                      parser_sv);
+            pass_errors_to_hv (&document->parser_error_messages, parser_sv);
+            clear_error_message_list (&document->parser_error_messages);
+
             /*
             if (no_store)
               fprintf (stderr, "BEGIN build Perl tree\n");
@@ -313,7 +316,6 @@ parser_conf_set_accept_internalvalue (int value)
 SV *
 errors (SV *parser_sv)
     PREINIT:
-        SV *errors_warnings_sv = 0;
         HV *parser_hv;
         SV **error_messages_sv;
     CODE:
@@ -322,25 +324,20 @@ errors (SV *parser_sv)
                                       strlen ("error_messages"), 0);
         if (error_messages_sv)
           {
-            AV *empty_errors_warnings = newAV ();
-            errors_warnings_sv = newSVsv (*error_messages_sv);
+            RETVAL = newSVsv (*error_messages_sv);
 
             /* clear the error_messages array */
-            hv_store (parser_hv, "error_messages",
-                      strlen ("error_messages"),
-                      newRV_noinc ((SV *) empty_errors_warnings), 0);
+            hv_store (parser_hv, "error_messages", strlen ("error_messages"),
+                      newRV_noinc ((SV *) newAV ()), 0);
           }
         else
           {
             fprintf (stderr,
                      "BUG: no error_messages but Parser::errors is called\n");
             abort ();
+            RETVAL = newSV (0);
           }
 
-        if (errors_warnings_sv)
-          RETVAL = errors_warnings_sv;
-        else
-          RETVAL = newSV (0);
       OUTPUT:
         RETVAL
 
