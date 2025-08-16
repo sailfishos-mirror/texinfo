@@ -1,3 +1,9 @@
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/TextContent.pm: use exists or defined
+	conditions when the value is not used.  Change formatting of functions
+	call code.
+
 2025-08-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/makedoc.c: Do not #include "window.h" in generated

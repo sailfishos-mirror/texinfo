@@ -74,8 +74,7 @@ my %defaults = (
   'OUTFILE'              => '-',
 );
 
-sub converter_defaults($;$)
-{
+sub converter_defaults($;$) {
   return \%defaults;
 }
 
@@ -86,8 +85,7 @@ foreach my $def_command (keys(%Texinfo::Commands::def_commands)) {
   }
 }
 
-sub converter_initialize($)
-{
+sub converter_initialize($) {
   my $self = shift;
 
   %{$self->{'formatted_line_commands'}}
@@ -98,26 +96,20 @@ sub converter_initialize($)
   }
 }
 
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub output($$) {
+  my ($self, $document) = @_;
 
   return $self->output_tree($document);
 }
 
-sub convert_tree($$)
-{
-  my $self = shift;
-  my $root = shift;
+sub convert_tree($$) {
+  my ($self, $root) = @_;
 
   return $self->_convert($root);
 }
 
-sub convert($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub convert($$) {
+  my ($self, $document) = @_;
 
   my $root = $document->tree();
 
@@ -126,17 +118,15 @@ sub convert($$)
 
 sub _convert($$);
 
-sub _convert($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _convert($$) {
+  my ($self, $element) = @_;
 
   # determine name used to check command properties
   my $data_cmdname;
-  if ($element->{'cmdname'}) {
+  if (exists($element->{'cmdname'})) {
     if ($element->{'cmdname'} eq 'item'
-        and $element->{'contents'}
-        and $element->{'contents'}->[0]->{'type'}
+        and exists($element->{'contents'})
+        and exists($element->{'contents'}->[0]->{'type'})
         and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
       $data_cmdname = 'item_LINE';
     } else {
@@ -144,32 +134,39 @@ sub _convert($$)
     }
   }
 
-  return '' if (!($element->{'type'} and $element->{'type'} eq 'def_line')
-     and (($element->{'type'} and $ignored_types{$element->{'type'}})
-          or ($element->{'type'} and $element->{'type'} eq 'arguments_line'
-              and $Texinfo::Commands::blockitem_commands{
-                                $element->{'parent'}->{'cmdname'}})
-          or ($element->{'cmdname'}
-             and ($ignored_brace_commands{$element->{'cmdname'}}
-                 or ($ignored_block_commands{$element->{'cmdname'}}
-                     and !(defined($self->{'expanded_formats'})
+  return ''
+  if (!(exists($element->{'type'})
+        and $element->{'type'} eq 'def_line')
+     and ((exists($element->{'type'})
+           and exists($ignored_types{$element->{'type'}}))
+          or (exists($element->{'type'})
+              and $element->{'type'} eq 'arguments_line'
+              and exists($Texinfo::Commands::blockitem_commands{
+                                $element->{'parent'}->{'cmdname'}}))
+          or (exists($element->{'cmdname'})
+             and (exists($ignored_brace_commands{$element->{'cmdname'}})
+                 or (exists($ignored_block_commands{$element->{'cmdname'}})
+                     and !(exists($self->{'expanded_formats'})
                            and $self->{'expanded_formats'}->{$element->{'cmdname'}}))
-                 or ($Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}
-                     and (!$element->{'extra'}->{'format'}
-                          or !$self->{'expanded_formats'}->{$element->{'extra'}->{'format'}}))
+                 or (exists(
+             $Texinfo::Commands::inline_format_commands{$element->{'cmdname'}})
+                     and (!exists($element->{'extra'}->{'format'})
+                          or !$self->{'expanded_formats'}
+                                        ->{$element->{'extra'}->{'format'}}))
                  or ($element->{'cmdname'} eq 'menu'
                      and $self->get_conf('FORMAT_MENU') eq 'nomenu')
              # here ignore most of the line commands
-                 or ($element->{'contents'} and $element->{'contents'}->[0]
-                     and $element->{'contents'}->[0]->{'type'}
+                 or (exists($element->{'contents'})
+                     and exists($element->{'contents'}->[0]->{'type'})
                      and ($element->{'contents'}->[0]->{'type'} eq 'line_arg'
                           or $element->{'contents'}->[0]->{'type'} eq 'rawline_arg')
-                     and !$self->{'formatted_line_commands'}->{$data_cmdname})))));
-  if (defined($element->{'text'})) {
+                     and !exists(
+                      $self->{'formatted_line_commands'}->{$data_cmdname}))))));
+  if (exists($element->{'text'})) {
     return $element->{'text'};
   }
 
-  if (defined($element->{'cmdname'})) {
+  if (exists($element->{'cmdname'})) {
     if (exists($Texinfo::CommandsValues::nobrace_symbol_text{
                                                     $element->{'cmdname'}})) {
       return $Texinfo::CommandsValues::nobrace_symbol_text{
@@ -185,35 +182,37 @@ sub _convert($$)
     } elsif (defined($Texinfo::CommandsValues::text_brace_no_arg_commands{
                                                       $element->{'cmdname'}})) {
       return Texinfo::Convert::Text::brace_no_arg_command($element, undef);
-    } elsif ($Texinfo::Commands::accent_commands{$element->{'cmdname'}}) {
+    } elsif (exists($Texinfo::Commands::accent_commands{$element->{'cmdname'}})) {
       my $result = Texinfo::Convert::Text::text_accents($element,
                   $self->{'convert_text_options'}->{'enabled_encoding'});
       return $result;
     }
   }
   my $result = '';
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     my $contents_nr = scalar(@{$element->{'contents'}});
 
     my $start = 0;
-    if ($element->{'cmdname'}
-        and $Texinfo::Commands::inline_format_commands{$element->{'cmdname'}}) {
+    if (exists($element->{'cmdname'})
+        and exists(
+          $Texinfo::Commands::inline_format_commands{$element->{'cmdname'}})) {
       # TODO there is no test for that code
       $start = 1;
     }
     for (my $i = $start; $i < $contents_nr; $i++) {
       my $content = $element->{'contents'}->[$i];
       $result .= _convert($self, $content);
-      if ($content->{'type'}
+      if (exists($content->{'type'})
           and $content->{'type'} eq 'block_line_arg'
-          and $content->{'info'} and $content->{'info'}->{'spaces_after_argument'}
+          and exists($content->{'info'})
+          and exists($content->{'info'}->{'spaces_after_argument'})
           and $result =~ /\S/) {
         $result .= $content->{'info'}->{'spaces_after_argument'}->{'text'};
       }
     }
   }
 
-  if ($element->{'type'} and $element->{'type'} eq 'line_arg') {
+  if (exists($element->{'type'}) and $element->{'type'} eq 'line_arg') {
     $result .= "\n";
   }
 
