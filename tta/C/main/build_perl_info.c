@@ -639,10 +639,12 @@ build_element_attribute (const ELEMENT *element, const char *attribute,
   return 0;
 }
 
-static void
+static int
 build_associated_info (HV *extra, const ASSOCIATED_INFO *a,
-                       int avoid_recursion, int *nr_info)
+                       int avoid_recursion)
 {
+  int nr_info = 0;
+
   dTHX;
 
   if (a->info_number > 0)
@@ -662,7 +664,7 @@ build_associated_info (HV *extra, const ASSOCIATED_INFO *a,
 
           key_name = associated_info_table[key].name;
 
-          (*nr_info)++;
+          nr_info++;
 
           sv = build_key_pair_info (k, avoid_recursion);
            /*
@@ -673,6 +675,7 @@ build_associated_info (HV *extra, const ASSOCIATED_INFO *a,
             hv_store (extra, key_name, strlen (key_name), sv, 0);
         }
     }
+  return nr_info;
 }
 
 static void
@@ -680,7 +683,7 @@ store_additional_info (const ELEMENT *e, const ASSOCIATED_INFO *a,
                        const char *key, int avoid_recursion, HV **info_hv)
 {
   HV *hv;
-  int nr_info = 0;
+  int nr_info;
 
   dTHX;
 
@@ -689,7 +692,7 @@ store_additional_info (const ELEMENT *e, const ASSOCIATED_INFO *a,
   else
     hv = *info_hv;
 
-  build_associated_info (hv, a, avoid_recursion, &nr_info);
+  nr_info = build_associated_info (hv, a, avoid_recursion);
 
   if (*info_hv == 0)
     {
