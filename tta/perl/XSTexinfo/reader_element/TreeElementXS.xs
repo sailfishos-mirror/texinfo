@@ -350,7 +350,7 @@ source_info (SV *element_sv)
               {
                 const SOURCE_INFO *source_info = &element->e.c->source_info;
                 HV *hv = newHV ();
-                build_source_info_hash (source_info, hv);
+                pass_source_info_hash (source_info, hv);
                 RETVAL = newRV_noinc ((SV *)hv);
               }
             else

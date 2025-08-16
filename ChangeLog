@@ -1,5 +1,18 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (store_extra_additional_info):
+	rename store_additional_info as store_extra_additional_info, remove
+	key argument, hardocde "extra".  Rename info_hv as extra_hv.
+	Update caller.
+
+	* tta/C/main/build_perl_info.c (pass_source_info_hash): rename
+	build_source_info_hash as pass_source_info_hash.
+
+	* tta/C/main/build_perl_info.c (element_to_perl_hash): do not reuse
+	intermediary sv variable.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_element_attribute)
 	(store_additional_info): have build_associated_info return nr_info
 	instad of using a pointer.

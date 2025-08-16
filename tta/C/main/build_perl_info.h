@@ -39,7 +39,7 @@ size_t register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
 
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);
 
-void build_source_info_hash (const SOURCE_INFO *source_info, HV *hv);
+void pass_source_info_hash (const SOURCE_INFO *source_info, HV *hv);
 
 SV *build_element_attribute (const ELEMENT *element, const char *attribute,
                              DOCUMENT *document);

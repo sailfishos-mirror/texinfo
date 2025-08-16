@@ -679,28 +679,28 @@ build_associated_info (HV *extra, const ASSOCIATED_INFO *a,
 }
 
 static void
-store_additional_info (const ELEMENT *e, const ASSOCIATED_INFO *a,
-                       const char *key, int avoid_recursion, HV **info_hv)
+store_extra_additional_info (const ELEMENT *e, const ASSOCIATED_INFO *a,
+                             int avoid_recursion, HV **extra_hv)
 {
   HV *hv;
   int nr_info;
 
   dTHX;
 
-  if (*info_hv == 0)
+  if (*extra_hv == 0)
     hv = newHV ();
   else
-    hv = *info_hv;
+    hv = *extra_hv;
 
   nr_info = build_associated_info (hv, a, avoid_recursion);
 
-  if (*info_hv == 0)
+  if (*extra_hv == 0)
     {
       if (nr_info > 0)
         {
-          *info_hv = hv;
           HV *element_hv = (HV *) SvRV ((SV*) e->sv);
-          hv_store (element_hv, key, strlen (key),
+          *extra_hv = hv;
+          hv_store (element_hv, "extra", strlen ("extra"),
                     newRV_noinc ((SV *)hv), 0);
         }
       else
@@ -862,7 +862,7 @@ store_extra_flag (ELEMENT *e, const char *key, HV **extra_hv)
 }
 
 void
-build_source_info_hash (const SOURCE_INFO *source_info, HV *hv)
+pass_source_info_hash (const SOURCE_INFO *source_info, HV *hv)
 {
 #define STORE(key, sv, hsh) hv_store (hv, key, strlen (key), sv, hsh)
   dTHX;
@@ -943,7 +943,8 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
   fprintf (stderr, "ETPH %p %s\n", e, print_element_debug (e, 0));
     */
   /* e->sv may already exist if there was an extra value elsewhere
-     referring to e, or if the tree is rebuilt more than once. */
+     referring to e (if there are references to in-tree elements in extra,
+     which may not be the case), or if the tree is rebuilt. */
   if (!e->sv)
     {
       element_hv = new_element_perl_data (e);
@@ -1076,13 +1077,12 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
           ELEMENT *child = e->e.c->contents.list[i];
           if (!child->sv || !avoid_recursion)
             element_to_perl_hash (child, avoid_recursion);
-          sv = newSVsv ((SV *) child->sv);
-          av_store (av, i, sv);
+          av_store (av, i, newSVsv ((SV *) child->sv));
         }
     }
 
-  store_additional_info (e, &e->e.c->extra_info, "extra",
-                         avoid_recursion, &extra_hv);
+  store_extra_additional_info (e, &e->e.c->extra_info,
+                               avoid_recursion, &extra_hv);
 
   if (e->e.c->associated_unit)
     {
@@ -1102,7 +1102,7 @@ element_to_perl_hash (ELEMENT *e, int avoid_recursion)
     {
       const SOURCE_INFO *source_info = &e->e.c->source_info;
       HV *hv = newHV ();
-      build_source_info_hash (source_info, hv);
+      pass_source_info_hash (source_info, hv);
       hv_store (element_hv, "source_info", strlen ("source_info"),
                 newRV_noinc ((SV *)hv), HSH_source_info);
     }
@@ -1686,7 +1686,7 @@ convert_error (const ERROR_MESSAGE e)
               newSViv (e.continuation), 0);
 
   if (e.type != MSG_document_error && e.type != MSG_document_warning)
-    build_source_info_hash (&e.source_info, hv);
+    pass_source_info_hash (&e.source_info, hv);
 
   return newRV_noinc ((SV *) hv);
 }
