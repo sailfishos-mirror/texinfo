@@ -1938,7 +1938,28 @@ free_generic_converter (CONVERTER *self)
   free_strings_list (&self->small_strings);
 
   if (self->sv)
-    unregister_perl_data (self->sv);
+    {
+      unregister_perl_data (self->sv);
+      if (0)
+        {
+  /* if an embedded Perl interpreter is used, the reference held by the
+     C code is the last (and only) reference, but when XS modules are used,
+     in general, there are converter hash reference variables, in all the
+     functions down to the main program.
+
+     This can be used for debugging, but no generic check can be done.
+   */
+          void *hv = get_sv_hv (self->sv);
+          int sv_refcount = get_refcount (self->sv);
+          int hv_refcount = get_refcount (hv);
+          if (sv_refcount != 0 || hv_refcount != 0)
+            {
+              fprintf (stderr,
+                       "DEBUG Converter refcounts (%p<-%p): sv: %d hv: %d\n",
+                       hv, self->sv, sv_refcount, hv_refcount);
+            }
+        }
+    }
 }
 
 void

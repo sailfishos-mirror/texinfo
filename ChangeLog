@@ -1,5 +1,11 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (free_generic_converter),
+	tta/C/main/output_unit.c (destroy_output_unit): add code showing the
+	refcounts after release, for debugging, not executed.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm (converter_perl_release):
 	delete 'output_units_lists', to allow for checks of cycles.
 

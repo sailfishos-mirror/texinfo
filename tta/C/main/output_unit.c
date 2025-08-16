@@ -370,7 +370,26 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
   free (output_unit->unit_contents.list);
   free (output_unit->unit_filename);
   if (output_unit->hv)
-    unregister_perl_data (output_unit->hv);
+    {
+      unregister_perl_data (output_unit->hv);
+      if (0)
+        {
+       /* for debugging */
+  /* At this point, the output units should have gone through a code, like
+     release_output_units_list or similar in Perl C, that removes the
+     directions and other keys that lead to cycles.
+
+     They are still referenced by associated_units.
+   */
+          int hv_refcount = get_refcount (output_unit->hv);
+          if (hv_refcount != 0)
+            {
+              fprintf (stderr,
+                       "DEBUG Output unit refcounts %p: %d\n",
+                       output_unit->hv, hv_refcount);
+            }
+        }
+    }
   free (output_unit);
 }
 
