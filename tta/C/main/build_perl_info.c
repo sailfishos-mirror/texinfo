@@ -685,19 +685,24 @@ store_additional_info (const ELEMENT *e, const ASSOCIATED_INFO *a,
   dTHX;
 
   if (*info_hv == 0)
-    /* Use sv_2mortal so that reference count is decremented if
-           the hash is not saved. */
-    hv = (HV *) sv_2mortal ((SV *)newHV ());
+    hv = newHV ();
   else
     hv = *info_hv;
 
   build_associated_info (hv, a, avoid_recursion, &nr_info);
 
-  if (*info_hv == 0 && nr_info > 0)
+  if (*info_hv == 0)
     {
-      HV *element_hv = (HV *) SvRV ((SV*) e->sv);
-      hv_store (element_hv, key, strlen (key),
-                newRV_inc ((SV *)hv), 0);
+      if (nr_info > 0)
+        {
+          *info_hv = hv;
+          HV *element_hv = (HV *) SvRV ((SV*) e->sv);
+          hv_store (element_hv, key, strlen (key),
+                    newRV_noinc ((SV *)hv), 0);
+        }
+      else
+      /* release the hash reference, nothing was store inside */
+        SvREFCNT_dec (hv);
     }
 }
 

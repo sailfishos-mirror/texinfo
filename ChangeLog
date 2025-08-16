@@ -1,5 +1,11 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (store_additional_info): use more
+	straightforward code, creating the HV without sv_2mortal but using
+	SvREFCNT_dec if it remains empty should be released.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (setup_info_hv, store_extra_flags):
 	do not retain a superfluous reference.
 
