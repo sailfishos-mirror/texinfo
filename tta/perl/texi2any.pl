@@ -2282,7 +2282,8 @@ while(@input_files) {
            = merge_opened_files($error_sort_element_count_file,
                       \%opened_files, $sort_element_count_file_opened_file);
 
-    $converter_element_count->destroy();
+    $converter_element_count->reset_converter($remove_references);
+    $converter_element_count->destroy($remove_references);
     # we do not need to go through unclosed files of
     # $sort_elem_files_information as we know that the file is
     # already closed if needed, or registered in main_unclosed_files.

@@ -1807,6 +1807,7 @@ sub sort_element_counts($$;$$) {
   } else {
     $output_units = Texinfo::OutputUnits::split_by_node($document);
   }
+  $converter->register_output_units_lists([$output_units]);
 
   my $max_count = 0;
   my @name_counts_array;

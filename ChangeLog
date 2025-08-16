@@ -1,5 +1,12 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (sort_element_counts),
+	tta/perl/texi2any.pl: register output units created in
+	sort_element_counts.  Call reset_converter on element counts
+	converter.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/TextContent.pm: use exists or defined
 	conditions when the value is not used.  Change formatting of functions
 	call code.
