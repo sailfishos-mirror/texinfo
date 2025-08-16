@@ -186,12 +186,10 @@ document_errors (SV *document_in)
                                              "document_errors");
         if (document)
           {
-            SV *errors_warnings_sv
+            RETVAL
               = pass_errors_to_hv (&document->error_messages, document_in);
 
             clear_error_message_list (&document->error_messages);
-
-            RETVAL = SvREFCNT_inc (errors_warnings_sv);
           }
         else
         /* NOTE this is incorrect, as the callers do not expect

@@ -1,5 +1,10 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/parser_document/DocumentXS.xs (document_errors):
+	do not retain a reference on returned SV.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (pass_errors_to_hv),
 	tta/perl/XSTexinfo/parser_document/Parsetexi.xs (parse_texi_line):
 	create AV and store if not found.  Remove the corresponding code from
