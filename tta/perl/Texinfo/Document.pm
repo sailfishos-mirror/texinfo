@@ -377,11 +377,11 @@ sub remove_document_references($;$) {
 
   # similar to unsplit
   # tree may not be defined if the input file was not found
-  if (defined($tree) and exists($tree->{'contents'})) {
-    foreach my $content (@{$tree->{'contents'}}) {
-      delete $content->{'associated_unit'};
-    }
-  }
+  #if (defined($tree) and exists($tree->{'contents'})) {
+  #  foreach my $content (@{$tree->{'contents'}}) {
+  #    delete $content->{'associated_unit'};
+  #  }
+  #}
 
   if ($remove_references) {
     delete $document->{'identifiers_target'};

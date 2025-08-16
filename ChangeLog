@@ -1,5 +1,11 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm (remove_document_references): do not
+	remove associated_unit anymore, the references from the output units
+	are now all removed.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/OutputUnits.pm (release_output_units_list),
 	tta/C/main/get_perl_info.c (release_output_units_list_built): remove
 	references to tree elements to avoid cycles going through
