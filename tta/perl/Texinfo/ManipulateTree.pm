@@ -540,10 +540,15 @@ sub tree_remove_references($;$) {
     #Devel::Peek::Dump($element);
     if ($reference_count != 1
         or $object_count != $destroyed_objects_refcount) {
-      print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
-      .Texinfo::ManipulateTree::element_print_details($element)."\n"
+      # The tree root is different, it may not have a count in C if
+      # this is only a handler and the tree was not built and it
+      # is different from the other elements in term of references.
+      if (!exists($element->{'tree_document_descriptor'})) {
+        print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
+        .Texinfo::ManipulateTree::element_print_details($element)."\n"
        #;
-       .Devel::FindRef::track($element)."\n";
+        .Devel::FindRef::track($element)."\n";
+      }
     }
   }
 }

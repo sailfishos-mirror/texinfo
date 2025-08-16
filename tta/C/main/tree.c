@@ -254,10 +254,11 @@ destroy_element (ELEMENT *e)
                        "DEBUG Perl refcounts (%p<-%p): sv: %d hv: %d\n",
                        hv, e->sv, sv_refcount, hv_refcount);
             }
+         /*
+          fprintf (stderr, " DSV %p (sv:%d hv:%d) %s\n", hv,
+                  sv_refcount, hv_refcount, print_element_debug (e, 0));
+          */
         }
-        /*
-      fprintf (stderr, " DSV %p %s\n", hv, print_element_debug (e, 0));
-        */
 
       e->sv = 0;
     }

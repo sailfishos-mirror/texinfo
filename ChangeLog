@@ -1,5 +1,13 @@
 2025-08-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm (tree_remove_references): do not
+	show any message for the tree root element.
+
+	* tta/perl/Texinfo/Document.pm (remove_document_references): no
+	special handling of tree root.
+
+2025-08-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm (sort_element_counts),
 	tta/perl/texi2any.pl: register output units created in
 	sort_element_counts.  Call reset_converter on element counts

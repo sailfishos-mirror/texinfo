@@ -455,9 +455,6 @@ sub remove_document_references($;$) {
   if (defined($tree)) {
     Texinfo::ManipulateTree::tree_remove_parents($tree);
     if ($remove_references) {
-      # remove the tree variable to remove a reference count such that
-      # the tree root has the same number of reference as the other tree elements
-      $tree = undef;
       Texinfo::ManipulateTree::tree_remove_references($document->{'tree'},
                                                       $document->get_conf('TEST'));
       delete $document->{'tree'};
