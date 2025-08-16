@@ -438,34 +438,6 @@ unsplit (SV *document_in)
     OUTPUT:
         RETVAL
 
-# not in useful code for now, but could be relevant in the future
-void
-rebuild_output_units (SV *document_in, SV *output_units_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-        size_t output_units_descriptor = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "rebuild_output_units");
-        if (document)
-          {
-    /* need to setup the Perl tree before rebuilding the output units as
-       they refer to Perl root command elements */
-            if (document->tree)
-              store_document_texinfo_tree (document);
-
-            output_units_descriptor
-             = get_sv_output_units_descriptor (output_units_in,
-                                               "rebuild_output_units", 0);
-
-            if (document->output_units_descriptors[OUDT_external_nodes_units])
-              pass_output_units_list (document, 0,
-               document->output_units_descriptors[OUDT_external_nodes_units]);
-            if (output_units_descriptor)
-              pass_output_units_list (document, &output_units_in,
-                                      output_units_descriptor);
-          }
-
 # unused, avoid using
 void
 split_pages (SV *output_units_in, char *split)

@@ -736,10 +736,6 @@ sub output($$)
   #$document->register_output_units_lists([$output_units]);
   $self->register_output_units_lists([$output_units]);
 
-  # There are no XS overrides, the changes are in Perl only, no need
-  # to rebuild Perl data from C.
-  #Texinfo::OutputUnits::rebuild_output_units($document, $output_units);
-
   # determine file names associated with the different pages
   if ($output_file ne '') {
     $self->set_output_units_files($output_units, $output_file,

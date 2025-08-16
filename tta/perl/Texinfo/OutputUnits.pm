@@ -73,8 +73,6 @@ our $VERSION = '7.2dev';
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
 my %XS_overrides = (
-  "Texinfo::OutputUnits::rebuild_output_units"
-    => "Texinfo::StructTransfXS::rebuild_output_units",
   "Texinfo::OutputUnits::unsplit"
     => "Texinfo::StructTransfXS::unsplit",
   "Texinfo::OutputUnits::do_units_directions_pages"
@@ -280,11 +278,6 @@ sub unsplit($) {
     }
   }
   return $unsplit_needed;
-}
-
-# does nothing in perl, the XS version reexports the output units
-sub rebuild_output_units($$) {
-  my ($document, $output_units) = @_;
 }
 
 # does not actually remove all the directions, but remove enough to
