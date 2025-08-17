@@ -20,6 +20,12 @@
    in build_perl_info.c.
  */
 
+/* All the functions defined inline should have their name prefixed by
+   txi_ext_inline_ and use a rename in order to prevent name clashes with
+   names (including future names) in Texinfo C libraries.  Similarly, all
+    the functions defined in convert/swig_* have a txi_ext_ prefix.
+ */
+
 %{
 #include <stddef.h>
 #include <stdlib.h>
@@ -60,8 +66,9 @@ reset_parser (0);
 
 %include "use_interpreter_types.h"
 
+%rename(setup) txi_ext_inline_setup;
 void
-setup (int texinfo_uninstalled=0,
+txi_ext_inline_setup (int texinfo_uninstalled=0,
        enum interpreter_use use_interpreter=txi_interpreter_use_none,
        int updirs=3, const char *converterdatadir_in=0,
        const char *converterlibdir_in=0,
@@ -70,7 +77,7 @@ setup (int texinfo_uninstalled=0,
 
 %{
 void
-setup (int texinfo_uninstalled,
+txi_ext_inline_setup (int texinfo_uninstalled,
        enum interpreter_use use_interpreter,
        int updirs, const char *converterdatadir_in,
        const char *converterlibdir_in,
@@ -315,26 +322,29 @@ FORMATTED_ERROR_MESSAGE_LIST *txi_ext_get_document_error_messages (
 
 // Document interface
 
+%rename(document_tree) txi_ext_inline_document_tree;
 %inline %{
-ELEMENT *document_tree (DOCUMENT *document);
+ELEMENT *txi_ext_inline_document_tree (DOCUMENT *document);
 %}
 
 %{
-ELEMENT *document_tree (DOCUMENT *document)
+ELEMENT *txi_ext_inline_document_tree (DOCUMENT *document)
 {
   return document->tree;
 }
 %}
 
 // targets.h
+%rename(get_element_by_identifier) txi_ext_inline_get_element_by_identifier;
 %inline %{
-ELEMENT *get_element_by_identifier (DOCUMENT *document,
+ELEMENT *txi_ext_inline_get_element_by_identifier (DOCUMENT *document,
                                     const char *identifier);
 %}
 
 %{
 ELEMENT *
-get_element_by_identifier (DOCUMENT *document, const char *identifier)
+txi_ext_inline_get_element_by_identifier (DOCUMENT *document,
+                                          const char *identifier)
 {
   return find_identifier_target (&document->identifiers_target, identifier);
 }
@@ -574,13 +584,14 @@ const SECTION_RELATIONS *txi_ext_section_relation_toplevel_direction (
                                      SECTION_RELATIONS *section,
                                      const char *direction);
 
+%rename(sectioning_root_children) txi_ext_inline_sectioning_root_children;
 %inline %{
-SECTION_RELATIONS_LIST *sectioning_root_children (DOCUMENT *document);
+SECTION_RELATIONS_LIST *txi_ext_inline_sectioning_root_children (DOCUMENT *document);
 %}
 
 %{
 SECTION_RELATIONS_LIST *
-sectioning_root_children (DOCUMENT *document)
+txi_ext_inline_sectioning_root_children (DOCUMENT *document)
 {
   if (!document->sectioning_root)
     return 0;
@@ -595,26 +606,28 @@ sectioning_root_children (DOCUMENT *document)
 
 // reader_api.h
 
+%rename(new_reader) txi_ext_inline_new_reader;
 %inline %{
-struct READER *new_reader (ELEMENT *tree, DOCUMENT *document);
+struct READER *txi_ext_inline_new_reader (ELEMENT *tree, DOCUMENT *document);
 %}
 
 %{
 struct READER *
-new_reader (ELEMENT *tree, DOCUMENT *document)
+txi_ext_inline_new_reader (ELEMENT *tree, DOCUMENT *document)
 {
   size_t reader_descriptor = txi_register_new_reader (tree, document);
   return retrieve_reader_descriptor (reader_descriptor);
 }
 %}
 
+%rename(reader_read) txi_ext_inline_reader_read;
 %inline %{
-const READER_TOKEN *reader_read (struct READER *reader);
+const READER_TOKEN *txi_ext_inline_reader_read (struct READER *reader);
 %}
 
 %{
 const READER_TOKEN *
-reader_read (struct READER *reader)
+txi_ext_inline_reader_read (struct READER *reader)
 {
   if (!reader)
     return 0;

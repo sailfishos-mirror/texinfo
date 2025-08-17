@@ -19,6 +19,10 @@
    directly useful should not be in this file, but, for example in tree.c
    or utils.c.  Therefore, if a function here become used in texi2any it
    should be moved elsewhere.
+
+   All the functions defined here and in swig_* files should have a
+   txi_ext_ prefix to avoid clashing with Texinfo C libraries names
+   (including future names).
  */
 
 #include <config.h>

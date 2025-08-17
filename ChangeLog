@@ -1,5 +1,12 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/texinfo.i (%inline): add a txi_ext_inline_ prefix for all
+	the functions defined inline in the SWIG interface file.  All the
+	functions defined that way should follow this rule.  This is to avoid
+	name clash with Texinfo library functions, including future names.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/texinfo.i (element_print_details): remove implementation,
 	it exists in the library now.
 
