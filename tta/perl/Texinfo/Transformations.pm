@@ -392,6 +392,12 @@ sub _new_node($$)
   while (!defined($node)
          or ($identifier_target and $identifier_target->{$normalized})) {
 
+    if (defined($node)) {
+      # remove cycles to release the previous node, which will not be used
+      # and does not appear in the tree.
+      Texinfo::ManipulateTree::tree_remove_parents($node);
+    }
+
     $node = Texinfo::TreeElement::new({'cmdname' => 'node', 'extra' => {}});
     $node->{'info'} = {'spaces_before_argument'
                          => Texinfo::TreeElement::new({'text' => ' ',
@@ -430,6 +436,9 @@ sub _new_node($$)
         warn "BUG: spaces only node name despite appending $appended_number\n";
         return undef;
       } else {
+        # remove cycles to release this empty node, which is discarded
+        # and does not appear in the tree.
+        Texinfo::ManipulateTree::tree_remove_parents($node);
         $node = undef;
       }
     }
@@ -558,7 +567,8 @@ sub insert_nodes_for_sectioning_commands($)
         $node_idx++;
         $new_node->{'extra'}->{'node_number'} = $node_idx;
         $section_relations->{'associated_node'} = $new_node_relations;
-        $new_node->{'parent'} = $content->{'parent'};
+        $new_node->{'parent'} = $content->{'parent'}
+          if exists($content->{'parent'});
         push @added_nodes, $new_node;
         # reassociate index entries and menus
         Texinfo::ManipulateTree::modify_tree($content, \&_reassociate_to_node,

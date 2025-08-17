@@ -363,7 +363,7 @@ call_sort_element_counts (const CONVERTER *self, DOCUMENT *document,
 
   dTHX;
 
-  /* get the document and already increase refcount */
+  /* get the document and increase refcount */
   if (document->hv)
     {
       /* reuse if the document hv already exists */
@@ -374,7 +374,6 @@ call_sort_element_counts (const CONVERTER *self, DOCUMENT *document,
       document_sv = build_minimal_document (document);
       SvREFCNT_inc (document_sv);
     }
-
 
   dSP;
 

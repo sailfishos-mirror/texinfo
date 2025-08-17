@@ -91,7 +91,7 @@ use Texinfo::TreeElement;
 # Error reporting and counting
 use Texinfo::Report;
 
-# fpr tree copy
+# for tree copy and tree_remove_parents
 use Texinfo::ManipulateTree;
 
 # To register the parsed manual and associated information
@@ -4088,7 +4088,10 @@ sub _end_line_misc_line($$$) {
         $end->{'parent'} = $closed_command;
         push @{$closed_command->{'contents'}}, $end;
       } else {
-        # block command not found for @end
+        # block command not found for @end.  The $end element will
+        # not be reparented and thus does not appear in the tree.
+        # Remove parents to remove cycles and have the $end subtree released.
+        Texinfo::ManipulateTree::tree_remove_parents($end);
       }
       # closing a menu command, but still in a menu. Open a menu_comment
       if (defined($closed_command)

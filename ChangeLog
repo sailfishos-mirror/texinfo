@@ -1,5 +1,13 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_end_line_misc_line),
+	tta/perl/Texinfo/Transformations.pm (_new_node): call
+	tree_remove_parents on nodes that do not end up in the tree to release
+	them, to have Perl reclaim their memory and avoid references to
+	elements in the tree from discarded tree elements.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm ($no_XS_objects_refcount)
 	(tree_remove_references): allow a object refcount of the reference
 	minus one if there is XS, but no XS for structure, as the elements

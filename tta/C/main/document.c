@@ -644,7 +644,9 @@ destroy_document (DOCUMENT *document)
   if (document->hv)
     {
       unregister_perl_data (document->hv);
-      /* fprintf (stderr, "DOC: %d\n", get_refcount (document->hv)); */
+       /*
+      fprintf (stderr, "DOC: %d\n", get_refcount (document->hv));
+        */
       document->hv = 0;
     }
 
