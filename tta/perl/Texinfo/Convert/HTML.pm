@@ -315,12 +315,6 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_translate_names",
 
   # following are not called when output and convert are overriden
-  "Texinfo::Convert::HTML::_prepare_conversion_units"
-   => "Texinfo::Convert::ConvertXS::html_prepare_conversion_units",
-  "Texinfo::Convert::HTML::_prepare_units_directions_files"
-   => "Texinfo::Convert::ConvertXS::html_prepare_units_directions_files",
-  "Texinfo::Convert::HTML::_prepare_output_units_global_targets"
-   => "Texinfo::Convert::ConvertXS::html_prepare_output_units_global_targets",
   "Texinfo::Convert::HTML::_prepare_title_titlepage"
    => "Texinfo::Convert::ConvertXS::html_prepare_title_titlepage",
   "Texinfo::Convert::HTML::_html_convert_convert"

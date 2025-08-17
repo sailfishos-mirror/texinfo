@@ -2,6 +2,18 @@
 
 	* tta/perl/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
 	tta/perl/XSTexinfo/convert/ConvertXS.xs: remove XS overrides for
+	_prepare_conversion_units, _prepare_units_directions_files and
+	_prepare_output_units_global_targets that are not called since output
+	and convert are overriden and use html_pass_conversion_output_units
+	and/or store_output_units_texinfo_tree, which interface changed.
+	Remove html_prepare_output_units_global_targets,
+	html_prepare_conversion_units and html_prepare_units_directions_files
+	from XS.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs: remove XS overrides for
 	_register_id, _id_is_registered and _get_target that are in functions
 	that are themselves overriden and are not likely to stop being so.
 	Remove html_register_id, html_id_is_registered and html_get_target in

@@ -931,78 +931,6 @@ html_conversion_finalization (SV *converter_in)
             html_check_transfer_state_finalization (self);
           }
 
-#  my ($output_units, $special_units, $associated_special_units)
-#    = $self->_prepare_conversion_units($document, $document_name);
-void
-html_prepare_conversion_units (SV *converter_in, ...)
-      PROTOTYPE: $$$
-      PREINIT:
-        CONVERTER *self;
-        SV *output_units_sv;
-        SV *special_units_sv;
-        SV *associated_special_units_sv;
-      PPCODE:
-        self = get_sv_converter (converter_in,
-                                 "html_prepare_conversion_units");
-
-        html_prepare_conversion_units (self);
-
-        html_pass_conversion_output_units (self, converter_in,
-                                     &output_units_sv, &special_units_sv,
-                                     &associated_special_units_sv);
-
-        /* calls Perl customization functions, so need to be done after
-           pass_output_units_list calls to be able to retrieve Perl
-           output units references */
-        html_prepare_conversion_units_targets (self, self->document_name);
-
-        EXTEND(SP, 3);
-        PUSHs(sv_2mortal(output_units_sv));
-        PUSHs(sv_2mortal(special_units_sv));
-        PUSHs(sv_2mortal(associated_special_units_sv));
-
-# Not called in convert. Called in output, when it is not overriden
-# the return value is not really used with XS, it is passed to another
-# XS function, but the value is ignored there.
-SV *
-html_prepare_units_directions_files (SV *converter_in, SV *output_units_sv, SV *special_units_sv, SV *associated_special_units_sv, output_file, destination_directory, output_filename, document_name)
-        const char *output_file = (char *)SvPVutf8_nolen($arg);
-        const char *destination_directory = (char *)SvPVutf8_nolen($arg);
-        const char *output_filename = (char *)SvPVutf8_nolen($arg);
-        const char *document_name = (char *)SvPVutf8_nolen($arg);
-  PREINIT:
-        CONVERTER *self = 0;
-     CODE:
-        self = get_sv_converter (converter_in,
-                                 "html_prepare_units_directions_files");
-        html_prepare_units_directions_files (self,
-                   output_file, destination_directory, output_filename,
-                                document_name);
-
-        if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self, &output_units_sv,
-                             &special_units_sv, &associated_special_units_sv);
-
-        RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
-# Called in convert, when it is not overriden.
-# Not called through output, as the Perl function is only called from
-# an overriden function in that case.
-void
-html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_sv, SV *special_units_sv, SV *associated_special_units_sv)
-  PREINIT:
-        CONVERTER *self = 0;
-     CODE:
-        self = get_sv_converter (converter_in,
-                                 "html_prepare_output_units_global_targets");
-        html_prepare_output_units_global_targets (self);
-
-        if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self, &output_units_sv,
-                      &special_units_sv, &associated_special_units_sv);
-
 # for debugging, to get output units lists in Perl
 void
 get_output_units_lists (SV *converter_in)
@@ -1219,7 +1147,6 @@ html_output (SV *converter_in, SV *document_in)
         output_filename = paths[2];
         document_name = paths[3];
 
-        /* html_prepare_conversion_units */
         html_prepare_conversion_units (self);
 
         /* we do not set arrays for special units nor associated
@@ -1236,7 +1163,6 @@ html_output (SV *converter_in, SV *document_in)
         html_translate_names (self);
         build_html_formatting_state (self);
 
-        /* html_prepare_units_directions_files */
         html_prepare_units_directions_files (self,
                    output_file, destination_directory, output_filename,
                                 document_name);
@@ -1326,7 +1252,6 @@ html_convert (SV *converter_in, SV *document_in)
         html_setup_convert (self);
         html_pass_converter_setup_state (self, converter_in);
 
-        /* html_prepare_conversion_units */
         html_prepare_conversion_units (self);
 
         html_pass_conversion_output_units (self, converter_in,
@@ -1337,7 +1262,6 @@ html_convert (SV *converter_in, SV *document_in)
            output units references */
         html_prepare_conversion_units_targets (self, self->document_name);
 
-        /* html_prepare_output_units_global_targets */
         /* setup global targets.  It is not clearly relevant to have those
            global targets when called as convert, but the Top global
            unit directions is often referred to in code, so at least this
