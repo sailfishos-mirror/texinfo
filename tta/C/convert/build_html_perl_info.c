@@ -438,27 +438,19 @@ pass_html_global_units_directions (SV *converter_sv,
             strlen ("global_units_directions"), global_units_directions_sv, 0);
 }
 
-/* FIXME verify that store_output_units_texinfo_tree the other condition
-   code do the same in term of reference count management
- */
+/* set document_units in converter to a handle that holds a descriptor
+   to be able to retrieve the output unit list C data, without any units
+   list data built */
 void
-html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv)
+set_document_units_handle (CONVERTER *converter, SV *converter_sv)
 {
   dTHX;
 
-  if (converter->external_references_number > 0)
-    {
-      store_output_units_texinfo_tree (converter);
-    }
-  else
-    {
-      HV *converter_hv = (HV *) SvRV (converter_sv);
-      SV *units_array_sv = setup_output_units_handler
-                                      (converter->document,
+  HV *converter_hv = (HV *) SvRV (converter_sv);
+  SV *units_array_sv = setup_output_units_handler (converter->document,
                            converter->output_units_descriptors[OUDT_units]);
-      hv_store (converter_hv, "document_units", strlen ("document_units"),
-                units_array_sv, 0);
-    }
+  hv_store (converter_hv, "document_units", strlen ("document_units"),
+            units_array_sv, 0);
 }
 
 HV *

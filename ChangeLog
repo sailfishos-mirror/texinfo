@@ -1,5 +1,15 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_info.c (set_document_units_handle),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_output, html_convert):
+	add set_document_units_handle based on
+	html_pass_conversion_output_units code to set "document_units" in a
+	converter to a handle that holds a descriptor only, no units list Perl
+	data.  Inline html_pass_conversion_output_units in html_output and
+	html_convert and remove the function.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_info.c
 	(html_pass_conversion_output_units), tta/C/main/build_perl_info.c
 	(store_output_units_texinfo_tree): remove references on output units

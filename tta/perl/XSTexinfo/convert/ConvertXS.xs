@@ -1149,7 +1149,10 @@ html_output (SV *converter_in, SV *document_in)
 
         html_prepare_conversion_units (self);
 
-        html_pass_conversion_output_units (self, converter_in);
+        if (self->external_references_number > 0)
+          store_output_units_texinfo_tree (self);
+        else
+          set_document_units_handle (self, converter_in);
 
         /* calls Perl customization functions, so need to be done after
             pass_output_units_list calls to be able to retrieve Perl
@@ -1251,7 +1254,10 @@ html_convert (SV *converter_in, SV *document_in)
 
         html_prepare_conversion_units (self);
 
-        html_pass_conversion_output_units (self, converter_in);
+        if (self->external_references_number > 0)
+          store_output_units_texinfo_tree (self);
+        else
+          set_document_units_handle (self, converter_in);
 
         /* calls Perl customization functions, so need to be done after
            pass_output_units_list calls to be able to retrieve Perl

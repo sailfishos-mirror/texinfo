@@ -20,7 +20,7 @@ void html_pass_converter_initialization_state (const CONVERTER *converter,
 void html_pass_converter_setup_state (const CONVERTER *converter,
                                       SV *converter_sv);
 
-void html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv);
+void set_document_units_handle (CONVERTER *converter, SV *converter_sv);
 
 SV *build_html_files_source_info
                           (const FILE_SOURCE_INFO_LIST *files_source_info);
