@@ -953,7 +953,6 @@ get_output_units_lists (SV *converter_in)
                                   &associated_special_units_sv,
           self->output_units_descriptors[OUDT_associated_special_units]);
 
-
         EXTEND(SP, 3);
         PUSHs(sv_2mortal(output_units_sv));
         PUSHs(sv_2mortal(special_units_sv));
@@ -1150,13 +1149,13 @@ html_output (SV *converter_in, SV *document_in)
         html_prepare_conversion_units (self);
 
         if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self);
+          store_output_units_texinfo_tree (self, converter_in);
         else
           set_document_units_handle (self, converter_in);
 
         /* calls Perl customization functions, so need to be done after
-            pass_output_units_list calls to be able to retrieve Perl
-            output units references */
+           building output units to be able to retrieve
+           output units references in Perl */
         html_prepare_conversion_units_targets (self, self->document_name);
 
         /* html_translate_names */
@@ -1168,7 +1167,7 @@ html_output (SV *converter_in, SV *document_in)
                                 document_name);
 
         if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self);
+          store_output_units_texinfo_tree (self, converter_in);
 
         /* html_prepare_converted_output_info */
         status = html_prepare_converted_output_info (self, output_file,
@@ -1255,13 +1254,13 @@ html_convert (SV *converter_in, SV *document_in)
         html_prepare_conversion_units (self);
 
         if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self);
+          store_output_units_texinfo_tree (self, converter_in);
         else
           set_document_units_handle (self, converter_in);
 
         /* calls Perl customization functions, so need to be done after
-           pass_output_units_list calls to be able to retrieve Perl
-           output units references */
+           building output units to be able to retrieve
+           output units references in Perl */
         html_prepare_conversion_units_targets (self, self->document_name);
 
         /* setup global targets.  It is not clearly relevant to have those
@@ -1278,7 +1277,7 @@ html_convert (SV *converter_in, SV *document_in)
         html_prepare_output_units_global_targets (self);
 
         if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self);
+          store_output_units_texinfo_tree (self, converter_in);
 
         /* html_translate_names */
         /* setup untranslated strings */
@@ -1774,7 +1773,7 @@ html_current_output_unit (SV *converter_in)
           RETVAL = newSV (0);
         else
           {
-            store_output_units_texinfo_tree (self);
+            store_output_units_texinfo_tree (self, converter_in);
 
             if (!self->current_output_unit->hv)
               {
@@ -2300,7 +2299,7 @@ html_global_direction_unit (SV *converter_in, direction_name)
           {
             if (self->global_units_direction_names.number == 0)
               html_setup_global_units_direction_names (self);
-            store_output_units_texinfo_tree (self);
+            store_output_units_texinfo_tree (self, converter_in);
 
             output_unit
               = html_find_direction_name_global_unit (self, direction_name);

@@ -2696,11 +2696,10 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
     }
 }
 
-/* Can be called to rebuild output units when the converter
-   is available.
+/* Can be called to rebuild output units when the converter is available.
  */
 void
-store_output_units_texinfo_tree (CONVERTER *converter)
+store_output_units_texinfo_tree (CONVERTER *converter, SV *converter_sv)
 {
   dTHX;
 
@@ -2716,20 +2715,17 @@ store_output_units_texinfo_tree (CONVERTER *converter)
           SV *store_output_units = 0;
           int new_output_units;
 
-          if (converter->sv)
-            {
-              HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
-              SV **document_units_sv
-                       = hv_fetch (converter_hv, "document_units",
-                                            strlen ("document_units"), 0);
+          HV *converter_hv = (HV *) SvRV (converter_sv);
+          SV **document_units_sv
+           = hv_fetch (converter_hv, "document_units",
+                               strlen ("document_units"), 0);
 
-              if (document_units_sv && SvOK (*document_units_sv))
-                {
-                  output_units_sv = document_units_sv;
-                }
-              else
-                output_units_sv = &store_output_units;
+          if (document_units_sv && SvOK (*document_units_sv))
+            {
+              output_units_sv = document_units_sv;
             }
+          else
+            output_units_sv = &store_output_units;
 
       /* build external_nodes_units before rebuilding the other
          output units as the external_nodes_units may have never been built,
@@ -2749,8 +2745,6 @@ store_output_units_texinfo_tree (CONVERTER *converter)
 
           if (new_output_units)
             {/* only happens if there was nothing in "document_units" */
-              HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
-
          /* transfer the reference on the output units array to the hash */
               hv_store (converter_hv, "document_units",
                         strlen ("document_units"),
