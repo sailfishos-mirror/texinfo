@@ -1,5 +1,21 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl ($default_test_level, test): set TEST in
+	cutomization options based on $default_test_level, or the test.  Set
+	TEST in format converter options based on $default_test_level.
+	Set $default_test_level to 2.
+
+	* tta/perl/t/test_utils.pl (test): set $remove_references based on
+	TEST customization variable value and pass to reset_converter,
+	destroy and destroy_document.  If remove_references is set, release
+	the output_units setup by the tests.
+
+	* tta/perl/t/test_utils.pl (test): release the $tree reference before
+	destroying the document to avoid a last reference on the tree root
+	when checking with C code that there are no references left.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/texinfo.i (%inline): add a txi_ext_inline_ prefix for all
 	the functions defined inline in the SWIG interface file.  All the
 	functions defined that way should follow this rule.  This is to avoid

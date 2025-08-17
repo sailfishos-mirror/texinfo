@@ -2354,11 +2354,19 @@ while(@input_files) {
   $parser = undef;
 
   if (get_conf('TEST')) {
-    # This takes a lot of time and is unnecessary when there is
-    # only one input file as the program is about to exit.  Note that
+    # Destroying the tree takes a lot of time and is unnecessary when there
+    # is only one input file as the program is about to exit.  Note that
     # this cleanup is only possible while we still have the value of
     # $document.
+
+    # this is needed to avoid a last reference on the tree root when checking
+    # with C code that there are no references left.
     $tree = undef;
+
+    # refcount should be 1 for pure Perl and 2 with XS.
+    #print STDERR " $document ".Devel::Peek::SvREFCNT($document).
+    #   " HV: ".Devel::Refcount::refcount($document)."\n"
+    #    .Devel::FindRef::track($document)."\n";
 
     Texinfo::Document::destroy_document($document, $remove_references)
       if defined($document);

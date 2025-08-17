@@ -140,6 +140,8 @@ Texinfo::Translations::configure($locales_dir);
 
 Locale::Messages::bindtextdomain('texinfo', $locales_dir);
 
+my $default_test_level = 2;
+
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 my $XS_conversion = Texinfo::XSLoader::XS_convert_enabled();
 
@@ -989,6 +991,16 @@ sub test($$)
         = $parser_options->{$parser_and_structuring_option};
     }
   }
+  if (!exists($parser_options->{'TEST'})) {
+    $test_customization_options->{'TEST'} = $default_test_level;
+  } else {
+    $test_customization_options->{'TEST'}
+      = $parser_options->{'TEST'};
+  }
+
+  my $remove_references = 0;
+  my $test_level = $test_customization_options->{'TEST'};
+  $remove_references = 1 if (defined($test_level) and $test_level > 1);
 
   # setup options from test specification (+DEBUG) as if they were
   # command-line options, with high precedence.
@@ -1094,7 +1106,8 @@ sub test($$)
   }
 
   my $converted_text
-      = Texinfo::Convert::Text::convert_to_text($tree, {'TEST' => 1,
+      = Texinfo::Convert::Text::convert_to_text($tree,
+                         {'TEST' => $default_test_level,
                           'expanded_formats' => \%expanded_formats});
 
   # holds conversion function output returned as text for each format.
@@ -1128,7 +1141,7 @@ sub test($$)
       } elsif (!defined($format_converter_options->{'OUTFILE'})) {
         $format_converter_options->{'OUTFILE'} = '';
       }
-      $format_converter_options->{'TEST'} = 1
+      $format_converter_options->{'TEST'} = $default_test_level
         if (!defined($format_converter_options->{'TEST'}));
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'/t/include/'];
@@ -1219,8 +1232,8 @@ sub test($$)
           }
         }
       }
-      $converter->reset_converter();
-      $converter->destroy();
+      $converter->reset_converter($remove_references);
+      $converter->destroy($remove_references);
     }
   }
   my $directions_text;
@@ -1261,6 +1274,10 @@ sub test($$)
     $tree_text
       = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
                                      $tree, $input_file_names_encoding, 1);
+    if ($remove_references) {
+      Texinfo::OutputUnits::release_output_units_list($output_units,
+                                                      $remove_references);
+    }
   } else {
     $tree_text = Texinfo::ManipulateTree::tree_print_details($tree,
                                          $input_file_names_encoding, 1);
@@ -1571,7 +1588,11 @@ sub test($$)
     }
   }
 
-  Texinfo::Document::destroy_document($document);
+  # this is needed to avoid a last reference on the tree root when checking
+  # with C code that there are no references left.
+  $tree = undef;
+
+  Texinfo::Document::destroy_document($document, $remove_references);
 
   return $tests_count;
 }
