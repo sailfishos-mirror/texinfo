@@ -2930,9 +2930,11 @@ main (int argc, char *argv[], char *env[])
                                        converter_init_info);
 
       /* conversion */
+      /* If Perl output conversion is called, a minimal Perl document is
+         built before calling the conversion */
       /* return value can be NULL in case of errors or an empty string, but
          not anything else as parse_file is used with a file */
-      result = txi_converter_output (external_module, converter, document);
+      result = txi_converter_output (converter, document, external_module);
 
       free (result);
       clear_converter_initialization_info (converter_init_info);
@@ -3075,10 +3077,10 @@ main (int argc, char *argv[], char *env[])
         }
 
       /* free after output */
-      txi_converter_reset (external_module, converter, remove_references);
+      txi_converter_reset (converter, external_module, remove_references);
 
       /* destroy converter */
-      txi_converter_destroy (converter, remove_references);
+      txi_converter_destroy (converter, external_module, remove_references);
 
       if (i == 0)
         {
@@ -3213,9 +3215,10 @@ main (int argc, char *argv[], char *env[])
               free (sort_element_count_text);
 
               /* destroy converter and sort_element_count_info */
-              txi_converter_reset (elt_count_external_module,
-                                   sort_element_count_info->converter, 0);
-              txi_converter_destroy (sort_element_count_info->converter, 0);
+              txi_converter_reset (sort_element_count_info->converter,
+                                   elt_count_external_module, 0);
+              txi_converter_destroy (sort_element_count_info->converter,
+                                     elt_count_external_module, 0);
               free (sort_element_count_info);
 
               error_element_count_file

@@ -599,8 +599,8 @@ txi_parse_texi_file (const char *input_file_path, int *status)
 
 /* similar to Texinfo::Convert::XXX->output */
 char *
-txi_converter_output (const char *external_module,
-                      CONVERTER *converter, DOCUMENT *document)
+txi_converter_output (CONVERTER *converter, DOCUMENT *document,
+                      const char *external_module)
 {
   if (external_module)
     {
@@ -709,7 +709,7 @@ txi_destroy_document (DOCUMENT *document, int remove_references)
 }
 
 void
-txi_converter_reset (const char *external_module, CONVERTER *converter,
+txi_converter_reset (CONVERTER *converter, const char *external_module,
                      int remove_references)
 {
   if (external_module)
@@ -719,9 +719,11 @@ txi_converter_reset (const char *external_module, CONVERTER *converter,
 }
 
 void
-txi_converter_destroy (CONVERTER *converter, int remove_references)
+txi_converter_destroy (CONVERTER *converter, const char *external_module,
+                       int remove_references)
 {
-  call_object_converter_perl_release (converter, remove_references);
+  if (external_module)
+    call_object_converter_perl_release (converter, remove_references);
   destroy_converter (converter);
 }
 

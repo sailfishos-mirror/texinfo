@@ -1,5 +1,16 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/texinfo.c (txi_converter_output, txi_converter_reset):
+	change the arguments order.  Update callers.
+
+	* tta/C/convert/texinfo.c (txi_converter_destroy): add external_module
+	argument and call Perl function only if set.  Update caller.
+
+	* tta/C/convert/call_conversion_perl.c (call_object_reset_converter)
+	(call_object_converter_perl_release): remove the check on self->sv.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_state.c (build_html_formatting_state):
 	do not check if converter->sv, the function is only called in
 	situations where it is set.

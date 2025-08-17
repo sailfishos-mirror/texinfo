@@ -99,8 +99,8 @@ CONVERTER *txi_converter_setup (const char *external_module,
                      const char *converted_format,
                      const CONVERTER_INITIALIZATION_INFO *converter_init_info);
 
-char *txi_converter_output (const char *external_module,
-                            CONVERTER *converter, DOCUMENT *document);
+char *txi_converter_output (CONVERTER *converter, DOCUMENT *document,
+                            const char *external_module);
 char *txi_converter_convert (CONVERTER *converter, DOCUMENT *document);
 
 CONVERTER_TEXT_INFO *txi_sort_element_counts (const char *external_module,
@@ -120,9 +120,10 @@ size_t txi_output_converter_error_messages (CONVERTER *converter,
 
 void txi_destroy_document (DOCUMENT *document, int remove_references);
 
-void txi_converter_reset (const char *external_module, CONVERTER *converter,
+void txi_converter_reset (CONVERTER *converter, const char *external_module,
                           int remove_references);
-void txi_converter_destroy (CONVERTER *converter, int remove_references);
+void txi_converter_destroy (CONVERTER *converter, const char *external_module,
+                            int remove_references);
 
 int txi_close_file_stream (const char *program_file,
                            const FILE_STREAM *file_stream);

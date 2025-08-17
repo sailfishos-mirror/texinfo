@@ -2918,7 +2918,7 @@ register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
   return number;
 }
 
-/* Get a reference to the document tree.  Either from C data if the
+/* Get a reference to the document tree.  Either built from C data if the
    document could be found and if HANDLER_ONLY is not set, else from
    a Perl document, if possible the one associated with C data, otherwise
    DOCUMENT_IN.

@@ -201,10 +201,6 @@ call_object_reset_converter (const CONVERTER *self, int remove_references)
 
   dTHX;
 
-  /* TODO: could also be a check of if (!has_perl_interpreter ()) */
-  if (!self->sv)
-    return;
-
   dSP;
 
   ENTER;
@@ -238,10 +234,6 @@ call_object_converter_perl_release (const CONVERTER *self,
   int count;
 
   dTHX;
-
-  /* TODO: could also be a check of if (!has_perl_interpreter ()) */
-  if (!self->sv)
-    return;
 
   dSP;
 
