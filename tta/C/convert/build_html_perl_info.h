@@ -24,9 +24,6 @@ void set_document_units_handle (CONVERTER *converter, SV *converter_sv);
 
 SV *build_html_files_source_info
                           (const FILE_SOURCE_INFO_LIST *files_source_info);
-void pass_html_global_units_directions (SV *converter_sv,
-                       const OUTPUT_UNIT **global_units_directions,
-                   const SPECIAL_UNIT_DIRECTION *special_units_direction_name);
 
 SV *build_replaced_substrings (NAMED_STRING_ELEMENT_LIST *replaced_substrings);
 

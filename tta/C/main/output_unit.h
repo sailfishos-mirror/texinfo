@@ -47,6 +47,6 @@ void do_units_directions_pages (DOCUMENT *document,
 char *print_output_units_tree_details (OUTPUT_UNIT_LIST *output_units,
                                  ELEMENT *tree,
                                  const char *fname_encoding, int use_filename);
-char * output_units_print_details (OUTPUT_UNIT_LIST *output_units,
+char *output_units_print_details (OUTPUT_UNIT_LIST *output_units,
                                 const char *fname_encoding, int use_filename);
 #endif

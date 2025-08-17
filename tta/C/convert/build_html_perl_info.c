@@ -42,7 +42,6 @@
 #include "debug.h"
 #include "convert_to_texinfo.h"
  */
-#include "output_unit.h"
 #include "command_stack.h"
 /* also for perl_only_* wrappers */
 #include "build_perl_info.h"
@@ -52,8 +51,7 @@
    direction_string_context_names html_conversion_context_type_names
  */
 #include "html_converter_types.h"
-/* for html_global_unit_direction_names
-   htmlxref_split_type_names html_setup_global_units_direction_names
+/* for htmlxref_split_type_names
    html_nr_string_directions */
 #include "html_prepare_converter.h"
 #include "build_html_perl_info.h"
@@ -367,75 +365,6 @@ build_html_files_source_info (const FILE_SOURCE_INFO_LIST *files_source_info)
 #undef STORE
     }
   return newRV_noinc ((SV *) hv);
-}
-
-/* currently unused */
-static HV *
-build_html_global_units_directions (const OUTPUT_UNIT **global_units_directions,
-                     const SPECIAL_UNIT_DIRECTION *special_units_direction_name)
-{
-  int i;
-  HV *hv;
-
-  dTHX;
-
-  if (!global_units_directions)
-    return 0;
-
-  hv = newHV ();
-
-  for (i = 0; i < D_Last+1; i++)
-    {
-      if (global_units_directions[i])
-        {
-          const char *direction_name = html_global_unit_direction_names[i];
-          hv_store (hv, direction_name, strlen (direction_name),
-                    newRV_inc ((SV *) global_units_directions[i]->hv), 0);
-        }
-    }
-
-  /* special_units_direction_name is allocated because
-     html_prepare_output_units_global_targets or
-     html_prepare_units_directions_files was called before
-     calling pass_html_global_units_directions */
-  for (i = 0; special_units_direction_name[i].output_unit; i++)
-    {
-      const SPECIAL_UNIT_DIRECTION *special_unit_direction
-       = &special_units_direction_name[i];
-      const char *direction_name = special_unit_direction->direction;
-      const OUTPUT_UNIT *output_unit = special_unit_direction->output_unit;
-      hv_store (hv, direction_name, strlen (direction_name),
-                  newRV_inc ((SV *) output_unit->hv), 0);
-    }
-
-  return hv;
-}
-
-/* currently unused */
-void
-pass_html_global_units_directions (SV *converter_sv,
-                       const OUTPUT_UNIT **global_units_directions,
-                   const SPECIAL_UNIT_DIRECTION *special_units_direction_name)
-{
-  HV *global_units_directions_hv;
-  SV *global_units_directions_sv;
-  HV *converter_hv;
-
-  dTHX;
-
-  converter_hv = (HV *) SvRV (converter_sv);
-
-  global_units_directions_hv
-    = build_html_global_units_directions (global_units_directions,
-                                        special_units_direction_name);
-  if (global_units_directions_hv)
-    global_units_directions_sv
-     = newRV_noinc ((SV *) global_units_directions_hv);
-  else
-    global_units_directions_sv = newSV (0);
-
-  hv_store (converter_hv, "global_units_directions",
-            strlen ("global_units_directions"), global_units_directions_sv, 0);
 }
 
 /* set document_units in converter to a handle that holds a descriptor
