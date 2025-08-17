@@ -682,11 +682,17 @@ reset_converter (SV *converter_in, SV *remove_references_sv=0)
         self = get_sv_converter (converter_in, 0);
         if (self)
           {
+            int remove_output_units_references = 0;
             int remove_references = 0;
+
             if (remove_references_sv && SvOK (remove_references_sv))
               remove_references = SvIV (remove_references_sv);
 
-            converter_release_output_units_built (self, remove_references);
+            if (self->conf->TEST.o.integer > 1)
+              remove_output_units_references = 1;
+
+            converter_release_output_units_built (self,
+                                          remove_output_units_references);
 
             reset_converter (self);
           }
@@ -997,6 +1003,34 @@ html_prepare_output_units_global_targets (SV *converter_in, SV *output_units_sv,
           store_output_units_texinfo_tree (self, &output_units_sv,
                       &special_units_sv, &associated_special_units_sv);
 
+# for debugging, to get output units lists in Perl
+void
+get_output_units_lists (SV *converter_in)
+      PREINIT:
+        CONVERTER *self;
+        SV *output_units_sv = 0;
+        SV *special_units_sv = 0;
+        SV *associated_special_units_sv = 0;
+      PPCODE:
+        self = get_sv_converter (converter_in,
+                                 "get_output_units_lists");
+
+        store_document_tree_output_units (self->document);
+
+        pass_output_units_list (self->document, &output_units_sv,
+                           self->output_units_descriptors[OUDT_units]);
+        pass_output_units_list (self->document, &special_units_sv,
+                     self->output_units_descriptors[OUDT_special_units]);
+        pass_output_units_list (self->document,
+                                  &associated_special_units_sv,
+          self->output_units_descriptors[OUDT_associated_special_units]);
+
+
+        EXTEND(SP, 3);
+        PUSHs(sv_2mortal(output_units_sv));
+        PUSHs(sv_2mortal(special_units_sv));
+        PUSHs(sv_2mortal(associated_special_units_sv));
+
 void
 html_prepare_simpletitle (SV *converter_in)
   PREINIT:
@@ -1159,9 +1193,6 @@ html_output (SV *converter_in, SV *document_in)
         const char *destination_directory;
         const char *output_filename;
         const char *document_name;
-        SV *output_units_sv = 0;
-        SV *special_units_sv = 0;
-        SV *associated_special_units_sv = 0;
       CODE:
         /* html_conversion_initialization */
         self = converter_set_document_from_sv (converter_in, document_in);
@@ -1191,9 +1222,10 @@ html_output (SV *converter_in, SV *document_in)
         /* html_prepare_conversion_units */
         html_prepare_conversion_units (self);
 
+        /* we do not set arrays for special units nor associated
+           special units as the references would not be released */
         html_pass_conversion_output_units (self, converter_in,
-                                     &output_units_sv, &special_units_sv,
-                                     &associated_special_units_sv);
+                                           0, 0, 0);
 
         /* calls Perl customization functions, so need to be done after
             pass_output_units_list calls to be able to retrieve Perl
@@ -1210,8 +1242,7 @@ html_output (SV *converter_in, SV *document_in)
                                 document_name);
 
         if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self, &output_units_sv,
-                             &special_units_sv, &associated_special_units_sv);
+          store_output_units_texinfo_tree (self, 0, 0, 0);
 
         /* html_prepare_converted_output_info */
         status = html_prepare_converted_output_info (self, output_file,
@@ -1280,9 +1311,6 @@ html_convert (SV *converter_in, SV *document_in)
       PREINIT:
         CONVERTER *self;
         char *result;
-        SV *output_units_sv = 0;
-        SV *special_units_sv = 0;
-        SV *associated_special_units_sv = 0;
       CODE:
         /* html_conversion_initialization */
         self = converter_set_document_from_sv (converter_in, document_in);
@@ -1302,8 +1330,7 @@ html_convert (SV *converter_in, SV *document_in)
         html_prepare_conversion_units (self);
 
         html_pass_conversion_output_units (self, converter_in,
-                                     &output_units_sv, &special_units_sv,
-                                     &associated_special_units_sv);
+                                           0, 0, 0);
 
         /* calls Perl customization functions, so need to be done after
            pass_output_units_list calls to be able to retrieve Perl
@@ -1325,8 +1352,7 @@ html_convert (SV *converter_in, SV *document_in)
         html_prepare_output_units_global_targets (self);
 
         if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self, &output_units_sv,
-                      &special_units_sv, &associated_special_units_sv);
+          store_output_units_texinfo_tree (self, 0, 0, 0);
 
         /* html_translate_names */
         /* setup untranslated strings */

@@ -1704,7 +1704,8 @@ if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
 }
 
 my $remove_references = 0;
-$remove_references = 1 if (get_conf('TEST') and get_conf('TEST') > 1);
+my $test_level = get_conf('TEST');
+$remove_references = 1 if (defined($test_level) and $test_level > 1);
 
 my $file_number = -1;
 my %opened_files;
@@ -2211,6 +2212,13 @@ while(@input_files) {
     }
   }
 
+  # To debug the state of the output units lists after the destruction of
+  # the converter with TEST > 1 get output units lists before they are destroyed in XS
+  #my @output_units_lists;
+  #if (defined($test_level) and $test_level > 1) {
+  #  @output_units_lists = $converter->XS_get_output_units_lists();
+  #}
+
   # Texinfo::Converter::Text does not define it. Alternatively could be
   # a mandated part of the converter API
   if ($converter->can('reset_converter')) {
@@ -2218,7 +2226,8 @@ while(@input_files) {
   }
 
   # This cannot be done from C/XS, this code is therefore handy
-  # to check that there are not unexpected references
+  # to check that there are not unexpected references.  No
+  # document_units if TEST > 1, though, so not useful in that case.
   #if (exists($converter->{'document_units'})) {
   #  print STDERR "DOCUMENT UNITS after reset_converter "
   #                   ."$converter->{'document_units'}\n";
@@ -2227,6 +2236,22 @@ while(@input_files) {
   #    print STDERR " $output_unit ".Devel::Peek::SvREFCNT($output_unit).
   #     " HV: ".Devel::Refcount::refcount($output_unit)."\n"
   #      .Devel::FindRef::track($output_unit)."\n";
+  #  }
+  #}
+
+  # To debug with TEST > 1, the output_units_lists need to have been gathered
+  # before.  Then it is possible to go through them:
+  #if (defined($test_level) and $test_level > 1) {
+  #  my $index = -1;
+  #  foreach my $output_unit_list (@output_units_lists) {
+  #    $index++;
+  #    next unless(defined($output_unit_list));
+  #    print STDERR "OUTPUT UNITS LIST $index $output_unit_list\n";
+  #    foreach my $output_unit (@$output_unit_list) {
+  #      print STDERR "FROM XS $output_unit ".Devel::Peek::SvREFCNT($output_unit).
+  #     " HV: ".Devel::Refcount::refcount($output_unit)."\n"
+  #      .Devel::FindRef::track($output_unit)."\n";
+  #    }
   #  }
   #}
 

@@ -372,16 +372,20 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
   if (output_unit->hv)
     {
       unregister_perl_data (output_unit->hv);
-      if (0)
+      if (get_check_element_interpreter_refcount ())
         {
        /* for debugging */
   /* At this point, the output units should have gone through a code, like
      release_output_units_list or similar in Perl C, that removes the
      directions and other keys that lead to cycles.
 
-     They are still referenced by associated_units.
+     They are still referenced by associated_units and next unless
+     the code removing cycles also removed references to output units.
    */
           int hv_refcount = get_refcount (output_unit->hv);
+            /*
+          if (1)
+             */
           if (hv_refcount != 0)
             {
               fprintf (stderr,

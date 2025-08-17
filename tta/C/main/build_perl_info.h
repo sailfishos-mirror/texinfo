@@ -51,6 +51,7 @@ SV *pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages,
 SV *build_document (DOCUMENT *document, int no_store);
 SV *build_minimal_document (DOCUMENT *document);
 
+void store_document_tree_output_units (DOCUMENT *document);
 void store_document_texinfo_tree (DOCUMENT *document);
 void store_output_units_texinfo_tree (CONVERTER *converter,
                                       SV **output_units_sv,
@@ -94,7 +95,7 @@ HV *build_sorted_indices_by_index (
 
 SV *setup_output_units_handler (const DOCUMENT *document,
                                 size_t output_units_descriptor);
-void pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
+int pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
                              size_t output_units_descriptor);
 
 SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);

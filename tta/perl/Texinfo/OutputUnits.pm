@@ -281,9 +281,9 @@ sub unsplit($) {
   return $unsplit_needed;
 }
 
-# does not actually remove all the directions, but remove enough to
-# remove cycles, such that Perl can remove the remaining.
-# If $REMOVE_REFERENCES is set, remove all references to tree elements.
+# Remove cycles, such that Perl can remove the remaining data.
+# If $REMOVE_REFERENCES is set, remove all references to output units
+# (in this function, those that can be reached through output units).
 # Implementation in C for XS in get_perl_info.c: release_output_units_list_built
 sub release_output_units_list($;$) {
   my ($output_units_list, $remove_references) = @_;
@@ -300,13 +300,16 @@ sub release_output_units_list($;$) {
 
     # Some elements may not be in the tree, in practice HTML special units
     # elements, this removes the reference to them.  Also useful to avoid
-    # cycles with tree elements.
+    # cycles with tree elements back through associated_unit (when associated_unit
+    # have not been removed).
+    # Also to remove cycles within tree elements that prevent cycles detection.
     delete $output_unit->{'unit_command'};
-
-    #if ($remove_references) {
-    #}
+    # to remove cycles going through elements
+    delete $output_unit->{'unit_node'};
+    delete $output_unit->{'unit_section'};
 
     if (0) {
+      # With $remove_references not set.
       # As the other output units go through this loop, the references
       # associated to directions to the $output_unit are removed.  Therefore,
       # these references are fully removed for the last output unit.
@@ -325,14 +328,26 @@ sub release_output_units_list($;$) {
         .Devel::FindRef::track($output_unit)."\n";
     }
 
+    if ($remove_references) {
+      if (exists($output_unit->{'unit_contents'})) {
+        foreach my $element (@{$output_unit->{'unit_contents'}}) {
+          delete $element->{'associated_unit'};
+        }
+      }
+      delete $output_unit->{'associated_document_unit'};
+    }
     # to remove cycles going through tree elements back through
-    # associated_unit.  Also to remove cycles within tree elements
-    # that preven cycles detection.
+    # associated_unit (when associated_unit are still there).  Also to
+    # remove cycles within tree elements that prevent cycles detection.
     delete $output_unit->{'unit_contents'};
-    delete $output_unit->{'unit_node'};
-    delete $output_unit->{'unit_section'};
 
     #find_cycle($output_unit);
+
+    if ($remove_references) {
+      if (exists($output_unit->{'tree_unit_directions'})) {
+        delete $output_unit->{'tree_unit_directions'}->{'prev'};
+      }
+    }
   }
   #find_cycle($output_units_list);
 }

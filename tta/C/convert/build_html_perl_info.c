@@ -471,6 +471,11 @@ pass_html_global_units_directions (SV *converter_sv,
             strlen ("global_units_directions"), global_units_directions_sv, 0);
 }
 
+/* FIXME verify that store_output_units_texinfo_tree and the handlers
+   do the same in term of reference count management for the same
+   input arguments
+ */
+/* TODO verify what calls this function and try to simplify */
 void
 html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv,
                                    SV **output_units_sv, SV **special_units_sv,
@@ -490,19 +495,31 @@ html_pass_conversion_output_units (CONVERTER *converter, SV *converter_sv,
     }
   else
     {
-      *output_units_sv = setup_output_units_handler
-        (converter->document, converter->output_units_descriptors[OUDT_units]);
-      *special_units_sv = setup_output_units_handler
-        (converter->document,
-         converter->output_units_descriptors[OUDT_special_units]);
-      *associated_special_units_sv = setup_output_units_handler
-        (converter->document,
-         converter->output_units_descriptors[OUDT_associated_special_units]);
-
+      SV *units_array_sv = setup_output_units_handler
+                                      (converter->document,
+                           converter->output_units_descriptors[OUDT_units]);
       hv_store (converter_hv, "document_units", strlen ("document_units"),
-                newSVsv (*output_units_sv), 0);
-    }
+                units_array_sv, 0);
+      /* NOTE there is no duplication of the reference passed, so the
+         caller should duplicate the reference if it is possible to have
+         it removed.  The reference is owned by the converter_hv
+         "document_units" value */
+      if (output_units_sv)
+        *output_units_sv = units_array_sv;
 
+      /* a new reference is passed */
+      if (special_units_sv)
+        *special_units_sv = setup_output_units_handler
+                                        (converter->document,
+                    converter->output_units_descriptors[OUDT_special_units]);
+
+      /* a new reference is passed */
+      if (associated_special_units_sv)
+        *associated_special_units_sv = setup_output_units_handler
+                                               (converter->document,
+          converter->output_units_descriptors[OUDT_associated_special_units]);
+
+    }
 }
 
 HV *

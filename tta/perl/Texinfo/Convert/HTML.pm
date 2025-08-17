@@ -9592,19 +9592,35 @@ sub converter_initialize($)
   return $self;
 }
 
+# remove data that leads to cycles related to output units.
+# Also remove reference to elements
+# that cannot be accessed anymore if $REMOVE_REFERENCES is set.
+sub converter_reset($;$) {
+  my ($self, $remove_references) = @_;
+
+  my $remove_output_units_references = 0;
+  my $test_level = $self->get_conf('TEST');
+  $remove_output_units_references = 1
+    if (defined($test_level) and $test_level > 1);
+
+  if ($remove_output_units_references) {
+  # part of an internal API
+    if (exists($self->{'global_units_directions'})) {
+      foreach my $direction (keys(%{$self->{'global_units_directions'}})) {
+        delete $self->{'global_units_directions'}->{$direction};
+      }
+    }
+
+    delete $self->{'document_units'};
+  }
+}
+
 # remove data that leads to cycles, and also remove reference to elements
 # that cannot be accessed through document if $REMOVE_REFERENCES is set.
 sub converter_destroy($;$) {
   my ($self, $remove_references) = @_;
 
   delete $self->{'current_node'};
-
-  # part of an internal API
-  if (exists($self->{'global_units_directions'})) {
-    foreach my $direction (keys(%{$self->{'global_units_directions'}})) {
-      delete $self->{'global_units_directions'}->{$direction};
-    }
-  }
 
   if (exists($self->{'converter_info'})) {
     foreach my $key ('document', 'simpletitle_tree', 'title_tree') {
@@ -10987,7 +11003,7 @@ sub _prepare_special_units_directions($$)
   my $self = shift;
   my $special_units = shift;
 
-  return unless $special_units;
+  return unless(defined($special_units));
 
   foreach my $special_unit (@$special_units) {
     $special_unit->{'directions'}->{'This'} = $special_unit;

@@ -117,6 +117,10 @@ my %XS_overrides = (
   "Texinfo::Convert::Converter::set_global_document_commands"
    => "Texinfo::Convert::ConvertXS::converter_set_global_document_commands",
 
+  # for debugging, to get lists normally only available in XS
+  "Texinfo::Convert::Converter::XS_get_output_units_lists"
+   => "Texinfo::Convert::ConvertXS::get_output_units_lists",
+
   # XS only
   "Texinfo::Convert::Converter::_XS_reset_converter"
    => "Texinfo::Convert::ConvertXS::reset_converter",
@@ -468,6 +472,11 @@ sub get_output_units_lists($) {
   return $self->{'output_units_lists'};
 }
 
+# should be redefined by converters if needed
+sub converter_reset($;$) {
+  my ($self, $remove_references) = @_;
+}
+
 sub _XS_reset_converter($;$) {
   my ($self, $remove_references) = @_;
 }
@@ -478,18 +487,50 @@ sub _XS_reset_converter($;$) {
 sub reset_converter($;$) {
   my ($self, $remove_references) = @_;
 
+  my $remove_output_units_references = 0;
+  my $test_level = $self->get_conf('TEST');
+  $remove_output_units_references = 1
+    if (defined($test_level) and $test_level > 1);
+
+  $self->converter_reset($remove_references);
+
+  # only returns something if the converter is a converter in pure Perl.
+  # Otherwise, corresponding Perl arrays do not necessarily exist,
+  # but it is possible to go through Perl output units and do the
+  # same as release_output_units_list, and then check the reference
+  # counts when releasing the reference to Perl objects held by C code.
   my $output_units_lists = $self->get_output_units_lists();
 
   if (defined($output_units_lists)) {
+    # need to go through all the output unit lists before checking
+    # reference counts, as there could be cross references, in practice
+    # associated_document_unit from associated special units
+    # to output units.
     foreach my $output_units_list (@$output_units_lists) {
       Texinfo::OutputUnits::release_output_units_list($output_units_list,
-                                                    $remove_references);
-      #foreach my $output_unit (@$output_units_list) {
-      #  my $reference_count = Devel::Peek::SvREFCNT($output_unit);
-      #  my $object_count = Devel::Refcount::refcount($output_unit);
-      #  print STDERR "OUCOUNT $output_unit $reference_count HV: $object_count\n"
-      #   .Devel::FindRef::track($output_unit)."\n";
-      #}
+                                         $remove_output_units_references);
+    }
+    #if (1) {
+    if ($remove_output_units_references) {
+      foreach my $output_units_list (@$output_units_lists) {
+        foreach my $output_unit (@$output_units_list) {
+          my $reference_count = Devel::Peek::SvREFCNT($output_unit);
+          my $object_count = Devel::Refcount::refcount($output_unit);
+          # only one object count corresponding to the output unit
+          # Two references, the $output_unit variable and the reference in the
+          # output_units_list array
+          #if (1) {
+          if ($reference_count != 2 or $object_count != 1) {
+            print STDERR "DEBUG output unit refcount $output_unit ".
+             "$reference_count HV: $object_count\n"
+                 .Devel::FindRef::track($output_unit)."\n";
+          }
+        }
+      }
+    }
+    if ($remove_output_units_references) {
+      # remove the output units lists to remove the references to output units
+      splice(@$output_units_lists);
     }
   }
 
@@ -548,6 +589,10 @@ sub destroy($;$) {
 
 sub XS_get_unclosed_stream($$) {
   return undef;
+}
+
+sub XS_get_output_units_lists($) {
+  return (undef, undef, undef);
 }
 
 sub output_files_information($) {

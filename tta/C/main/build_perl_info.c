@@ -2699,8 +2699,11 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
 /* Can be called to rebuild output units when the converter
    is available, and also when the lists should be built/rebuilt.
  */
+/* FIXME no way to transmit whether an array created was passed back
+   or the input array was reused. */
 void
-store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
+store_output_units_texinfo_tree (CONVERTER *converter,
+                                 SV **output_units_sv_out,
                                  SV **special_units_sv,
                                  SV **associated_special_units_sv)
 {
@@ -2714,19 +2717,47 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
 
       if (converter->document->modified_information & F_DOCM_output_units)
         {
-         /* true if the the output units are already the converter
-            "document_units" value */
-          int associated;
+          SV **output_units_sv = 0;
+          SV *store_output_units = 0;
+          int new_output_units;
 
-          if (!output_units_sv && converter->sv)
+          if (converter->sv)
             {
               HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
-              output_units_sv = hv_fetch (converter_hv, "document_units",
-                                          strlen ("document_units"), 0);
+              SV **document_units_sv
+                       = hv_fetch (converter_hv, "document_units",
+                                            strlen ("document_units"), 0);
+
+              if (document_units_sv && SvOK (*document_units_sv))
+                {
+                  output_units_sv = document_units_sv;
+                  if (output_units_sv_out)
+                    {
+                        if (*output_units_sv_out
+                            && SvOK (*output_units_sv_out)
+                            && *output_units_sv_out != *document_units_sv)
+                        {
+                          fprintf (stderr,
+              "WARNING: reset units in input with \"document_units\"\n");
+                        }
+                      *output_units_sv_out = *document_units_sv;
+                    }
+                }
+              else if (output_units_sv_out && (*output_units_sv_out)
+                       && SvOK (*output_units_sv_out))
+                {
+                  hv_store (converter_hv, "document_units",
+                            strlen ("document_units"),
+                            *output_units_sv_out, 0);
+                  output_units_sv = output_units_sv_out;
+                }
+              else if (!output_units_sv_out)
+                output_units_sv = &store_output_units;
             }
 
-          associated = output_units_sv && (*output_units_sv)
-                           && SvOK (*output_units_sv);
+          if (!output_units_sv)
+            /* possibly NULL */
+            output_units_sv = output_units_sv_out;
 
       /* build external_nodes_units before rebuilding the other
          output units as the external_nodes_units may have never been built,
@@ -2737,7 +2768,8 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
           output_units_list_to_perl_hash (converter->document,
             converter->output_units_descriptors[OUDT_external_nodes_units]);
 
-          pass_output_units_list (converter->document, output_units_sv,
+          new_output_units
+           = pass_output_units_list (converter->document, output_units_sv,
                            converter->output_units_descriptors[OUDT_units]);
           pass_output_units_list (converter->document, special_units_sv,
                       converter->output_units_descriptors[OUDT_special_units]);
@@ -2745,8 +2777,10 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
                                   associated_special_units_sv,
            converter->output_units_descriptors[OUDT_associated_special_units]);
 
-          if (!associated && (*output_units_sv) && converter->sv)
-            {
+          if (new_output_units)
+            {/* only happens if there was nothing in "document_units"
+                and output_units_sv_out or *output_units_sv_out were
+                0 in input */
               HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
 
          /* transfer the reference on the output units array to the hash */
@@ -2765,7 +2799,7 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV **output_units_sv,
    converters.  If converters accessed concurently documents, there may
    be trouble here (and in other codes too).
  */
-static void
+void
 store_document_tree_output_units (DOCUMENT *document)
 {
   dTHX;
@@ -3420,7 +3454,16 @@ setup_output_units_handler (const DOCUMENT *document,
   return newRV_noinc ((SV *) av_output_units);
 }
 
-void
+/* If OUTPUT_UNITS_SV is NULL, the output units are rebuilt but no
+   array is setup.
+   Else,
+    if *OUTPUT_UNITS_SV is NULL, a new array is setup and passed
+     unless there are no output units, in which case undef is passed.
+    otherwise, the *OUTPUT_UNITS_SV array is reused and it is an
+     error if there are no output units.
+   Return 1 if a new array was created, 0 otherwise.
+ */
+int
 pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
                         size_t output_units_descriptor)
 {
@@ -3428,12 +3471,15 @@ pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
 
   dTHX;
 
+  /* this means that the caller wants output units to be rebuilt,
+     but no array */
   if (!output_units_sv)
     {
       output_units_list_to_perl_hash (document, output_units_descriptor);
-      return;
+      return 0;
     }
 
+  /* TODO clearer code */
   if ((*output_units_sv) && SvOK (*output_units_sv))
     {
       av_output_units = (AV *) SvRV (*output_units_sv);
@@ -3476,7 +3522,11 @@ pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
         }
     }
   else if (!(*output_units_sv))
-    *output_units_sv = newRV_noinc ((SV *) av_output_units);
+    {
+      *output_units_sv = newRV_noinc ((SV *) av_output_units);
+      return 1;
+    }
+  return 0;
 }
 
 
