@@ -1,5 +1,13 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_info.c
+	(html_pass_conversion_output_units), tta/C/main/build_perl_info.c
+	(store_output_units_texinfo_tree): remove references on output units
+	list arguments.  Update callers, which had already the arguments set
+	to 0 only.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
 	tta/perl/XSTexinfo/convert/ConvertXS.xs: remove XS overrides for
 	_prepare_conversion_units, _prepare_units_directions_files and

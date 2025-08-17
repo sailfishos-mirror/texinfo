@@ -2697,15 +2697,10 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
 }
 
 /* Can be called to rebuild output units when the converter
-   is available, and also when the lists should be built/rebuilt.
+   is available.
  */
-/* FIXME no way to transmit whether an array created was passed back
-   or the input array was reused. */
 void
-store_output_units_texinfo_tree (CONVERTER *converter,
-                                 SV **output_units_sv_out,
-                                 SV **special_units_sv,
-                                 SV **associated_special_units_sv)
+store_output_units_texinfo_tree (CONVERTER *converter)
 {
   dTHX;
 
@@ -2731,56 +2726,29 @@ store_output_units_texinfo_tree (CONVERTER *converter,
               if (document_units_sv && SvOK (*document_units_sv))
                 {
                   output_units_sv = document_units_sv;
-                  if (output_units_sv_out)
-                    {
-                        if (*output_units_sv_out
-                            && SvOK (*output_units_sv_out)
-                            && *output_units_sv_out != *document_units_sv)
-                        {
-                          fprintf (stderr,
-              "WARNING: reset units in input with \"document_units\"\n");
-                        }
-                      *output_units_sv_out = *document_units_sv;
-                    }
                 }
-              else if (output_units_sv_out && (*output_units_sv_out)
-                       && SvOK (*output_units_sv_out))
-                {
-                  hv_store (converter_hv, "document_units",
-                            strlen ("document_units"),
-                            *output_units_sv_out, 0);
-                  output_units_sv = output_units_sv_out;
-                }
-              else if (!output_units_sv_out)
+              else
                 output_units_sv = &store_output_units;
             }
-
-          if (!output_units_sv)
-            /* possibly NULL */
-            output_units_sv = output_units_sv_out;
 
       /* build external_nodes_units before rebuilding the other
          output units as the external_nodes_units may have never been built,
          while other units were already built without directions
          information in html_prepare_conversion_units.
        */
-
           output_units_list_to_perl_hash (converter->document,
             converter->output_units_descriptors[OUDT_external_nodes_units]);
 
           new_output_units
            = pass_output_units_list (converter->document, output_units_sv,
                            converter->output_units_descriptors[OUDT_units]);
-          pass_output_units_list (converter->document, special_units_sv,
+          output_units_list_to_perl_hash (converter->document,
                       converter->output_units_descriptors[OUDT_special_units]);
-          pass_output_units_list (converter->document,
-                                  associated_special_units_sv,
-           converter->output_units_descriptors[OUDT_associated_special_units]);
+          output_units_list_to_perl_hash (converter->document,
+            converter->output_units_descriptors[OUDT_associated_special_units]);
 
           if (new_output_units)
-            {/* only happens if there was nothing in "document_units"
-                and output_units_sv_out or *output_units_sv_out were
-                0 in input */
+            {/* only happens if there was nothing in "document_units" */
               HV *converter_hv = (HV *) SvRV ((SV *)converter->sv);
 
          /* transfer the reference on the output units array to the hash */

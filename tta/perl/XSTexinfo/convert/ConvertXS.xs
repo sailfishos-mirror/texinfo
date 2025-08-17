@@ -1149,10 +1149,7 @@ html_output (SV *converter_in, SV *document_in)
 
         html_prepare_conversion_units (self);
 
-        /* we do not set arrays for special units nor associated
-           special units as the references would not be released */
-        html_pass_conversion_output_units (self, converter_in,
-                                           0, 0, 0);
+        html_pass_conversion_output_units (self, converter_in);
 
         /* calls Perl customization functions, so need to be done after
             pass_output_units_list calls to be able to retrieve Perl
@@ -1168,7 +1165,7 @@ html_output (SV *converter_in, SV *document_in)
                                 document_name);
 
         if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self, 0, 0, 0);
+          store_output_units_texinfo_tree (self);
 
         /* html_prepare_converted_output_info */
         status = html_prepare_converted_output_info (self, output_file,
@@ -1254,8 +1251,7 @@ html_convert (SV *converter_in, SV *document_in)
 
         html_prepare_conversion_units (self);
 
-        html_pass_conversion_output_units (self, converter_in,
-                                           0, 0, 0);
+        html_pass_conversion_output_units (self, converter_in);
 
         /* calls Perl customization functions, so need to be done after
            pass_output_units_list calls to be able to retrieve Perl
@@ -1276,7 +1272,7 @@ html_convert (SV *converter_in, SV *document_in)
         html_prepare_output_units_global_targets (self);
 
         if (self->external_references_number > 0)
-          store_output_units_texinfo_tree (self, 0, 0, 0);
+          store_output_units_texinfo_tree (self);
 
         /* html_translate_names */
         /* setup untranslated strings */
@@ -1772,7 +1768,7 @@ html_current_output_unit (SV *converter_in)
           RETVAL = newSV (0);
         else
           {
-            store_output_units_texinfo_tree (self, 0, 0, 0);
+            store_output_units_texinfo_tree (self);
 
             if (!self->current_output_unit->hv)
               {
@@ -2298,7 +2294,7 @@ html_global_direction_unit (SV *converter_in, direction_name)
           {
             if (self->global_units_direction_names.number == 0)
               html_setup_global_units_direction_names (self);
-            store_output_units_texinfo_tree (self, 0, 0, 0);
+            store_output_units_texinfo_tree (self);
 
             output_unit
               = html_find_direction_name_global_unit (self, direction_name);

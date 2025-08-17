@@ -53,10 +53,7 @@ SV *build_minimal_document (DOCUMENT *document);
 
 void store_document_tree_output_units (DOCUMENT *document);
 void store_document_texinfo_tree (DOCUMENT *document);
-void store_output_units_texinfo_tree (CONVERTER *converter,
-                                      SV **output_units_sv,
-                                      SV **special_units_sv,
-                                      SV **associated_special_units_sv);
+void store_output_units_texinfo_tree (CONVERTER *converter);
 
 SV *document_tree (SV *document_in, int handler_only);
 SV *document_indices_information (SV *document_in);
