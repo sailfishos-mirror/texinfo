@@ -1,5 +1,12 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm ($no_XS_objects_refcount)
+	(tree_remove_references): allow a object refcount of the reference
+	minus one if there is XS, but no XS for structure, as the elements
+	added for structure may be Perl only.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl ($default_test_level, test): set TEST in
 	cutomization options based on $default_test_level, or the test.  Set
 	TEST in format converter options based on $default_test_level.

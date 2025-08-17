@@ -99,8 +99,16 @@ our %XS_overrides = (
 );
 
 my $destroyed_objects_refcount = 2;
-# a reference in C too
-$destroyed_objects_refcount++ if (Texinfo::XSLoader::XS_parser_enabled());
+my $no_XS_objects_refcount;
+if (Texinfo::XSLoader::XS_parser_enabled()) {
+  # a reference in C too
+  $destroyed_objects_refcount++;
+  if (!$XS_structuring) {
+    # transformations may create elements in pure Perl only when
+    # structuring is not done with XS extensions.
+    $no_XS_objects_refcount = $destroyed_objects_refcount -1;
+  }
+}
 
 our $module_loaded = 0;
 sub import {
@@ -586,14 +594,17 @@ sub tree_remove_references($;$) {
     #if (1) {
     #Devel::Peek::Dump($element);
     if ($reference_count != 1
-        or $object_count != $destroyed_objects_refcount) {
+        or ($object_count != $destroyed_objects_refcount
+            and !(defined($no_XS_objects_refcount)
+                  and $object_count == $no_XS_objects_refcount))) {
       # The tree root is different, it may not have a count in C if
       # this is only a handler and the tree was not built and it
       # is different from the other elements in term of references.
       if (!exists($element->{'tree_document_descriptor'})
           and !(exists($element->{'type'})
                 and $element->{'type'} eq 'document_root')) {
-        print STDERR "TREE t_r_r $element: $reference_count HV: $object_count\n"
+        print STDERR "TREE t_r_r $element: $reference_count".
+                       " HV: $object_count\n"
         .Texinfo::ManipulateTree::element_print_details($element)."\n"
        #;
         .Devel::FindRef::track($element)."\n";
