@@ -1,5 +1,22 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/texinfo.c (txi_destroy_document), tta/C/texi2any.c
+	(main): add external_module argument, and call
+	call_document_remove_document_references only if set.
+
+	* tta/C/main/call_document_perl_functions.c
+	(call_document_remove_document_references): remove check on
+	has_perl_interpreter and document->hv, having
+	call_document_remove_document_references called only if
+	external_module is set should ensure that.
+
+	* tta/swig/texinfo.i (destroy_document)
+	(txi_ext_inline_destroy_document): add txi_ext_inline_destroy_document
+	to wrap the call to txi_destroy_document.  Use a prefix
+	txi_ext_inline_ to disambiguate with library function.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/texinfo.c (txi_converter_output, txi_converter_reset):
 	change the arguments order.  Update callers.
 

@@ -3238,7 +3238,7 @@ main (int argc, char *argv[], char *env[])
 
     next_input_file:
       /* destroy document */
-      txi_destroy_document (document, remove_references);
+      txi_destroy_document (document, external_module, remove_references);
 
       free (input_directory);
       free (canon_input_dir);

@@ -60,8 +60,6 @@ reset_parser (0);
 
 %include "use_interpreter_types.h"
 
-// if use_interpreter is negative (the default value), the value set
-// at compile is used.
 void
 setup (int texinfo_uninstalled=0,
        enum interpreter_use use_interpreter=txi_interpreter_use_none,
@@ -632,11 +630,20 @@ const READER_TOKEN *txi_reader_skip_children (struct READER *reader,
 
 // Finish
 
-%rename(destroy_document) txi_destroy_document;
+// Beware of the name clash, destroy_document exists already in texinfo libs
+%rename(destroy_document) txi_ext_inline_destroy_document;
+%inline %{
+void txi_ext_inline_destroy_document (DOCUMENT *document);
+%}
 
 // texinfo.h
-
-void txi_destroy_document (DOCUMENT *document, int remove_references=0);
+%{
+void
+txi_ext_inline_destroy_document (DOCUMENT *document)
+{
+  txi_destroy_document (document, 0, 0);
+}
+%}
 
 
 // Conversion

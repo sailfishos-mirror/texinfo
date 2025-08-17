@@ -694,12 +694,15 @@ txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
 }
 
 void
-txi_destroy_document (DOCUMENT *document, int remove_references)
+txi_destroy_document (DOCUMENT *document, const char *external_module,
+                      int remove_references)
 {
   int check_counts = (document->options->TEST.o.integer > 1);
   if (check_counts)
     {
-      call_document_remove_document_references (document, remove_references);
+      if (external_module)
+        call_document_remove_document_references (document,
+                                                  remove_references);
       set_check_element_interpreter_refcount ();
     }
 

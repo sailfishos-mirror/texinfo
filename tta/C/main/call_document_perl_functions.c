@@ -42,12 +42,6 @@ call_document_remove_document_references (DOCUMENT *document,
 
   dTHX;
 
-  if (!has_perl_interpreter ())
-    return;
-
-  if (!document->hv)
-    return;
-
   dSP;
 
   ENTER;
