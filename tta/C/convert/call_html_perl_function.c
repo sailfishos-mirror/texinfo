@@ -2336,9 +2336,6 @@ call_latex_convert_to_latex_math (CONVERTER *self, const ELEMENT *element)
 
   dTHX;
 
-  if (!self->sv)
-    return 0;
-
   build_tree_to_build (&self->tree_to_build);
 
   dSP;

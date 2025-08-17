@@ -24,9 +24,7 @@ Do not add parent in tree in the first place instead of removing afterwards,
 in gdt?
 
 Verify and document? the checks on perl objects refcount setup if
-TEST > 1.  The one in ManipulateTree.pm tree_remove_references and the one in
-tree.c destroy_element.  Both should give the same information, and it looks
-like that it is the case.
+TEST > 1.
 
 document converter_reset and converter_destroy in Perl?
 

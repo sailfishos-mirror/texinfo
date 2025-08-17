@@ -264,7 +264,7 @@ build_html_formatting_state (CONVERTER *converter)
   if (!flags)
     return;
 
-  if (converter->external_references_number <= 0 || !converter->sv)
+  if (converter->external_references_number <= 0)
     {
       converter->modified_state = 0;
       return;

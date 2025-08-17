@@ -1,5 +1,16 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_state.c (build_html_formatting_state):
+	do not check if converter->sv, the function is only called in
+	situations where it is set.
+
+	* tta/C/convert/call_html_perl_function.c
+	(call_latex_convert_to_latex_math): do not check self->sv, as the
+	main program will fail if this function could be called and no Perl
+	interpreter is available.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (build_output_units_list),
 	tta/perl/XSTexinfo/convert/ConvertXS.xs (get_output_units_lists),
 	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
