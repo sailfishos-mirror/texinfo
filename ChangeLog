@@ -1,5 +1,18 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/build_perl_info.c (build_output_units_list),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (get_output_units_lists),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(split_by_node, split_by_section): add build_output_units_list, based
+	on pass_output_units_list case where there is no array already.  Use
+	it where this is the case.
+
+	* tta/C/main/build_perl_info.c (store_output_units_texinfo_tree):
+	inline pass_output_units_list in store_output_units_texinfo_tree,
+	using also build_output_units_list and remove pass_output_units_list.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/build_perl_info.c (store_output_units_texinfo_tree): add
 	the converter SV as argument to store_output_units_texinfo_tree to
 	align with other functions.  Update callers.

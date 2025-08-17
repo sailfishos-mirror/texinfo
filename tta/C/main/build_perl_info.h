@@ -94,6 +94,8 @@ SV *setup_output_units_handler (const DOCUMENT *document,
                                 size_t output_units_descriptor);
 int pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
                              size_t output_units_descriptor);
+SV *build_output_units_list (const DOCUMENT *document,
+                             size_t output_units_descriptor);
 
 SV *build_convert_text_options (struct TEXT_OPTIONS *text_options);
 

@@ -936,21 +936,20 @@ void
 get_output_units_lists (SV *converter_in)
       PREINIT:
         CONVERTER *self;
-        SV *output_units_sv = 0;
-        SV *special_units_sv = 0;
-        SV *associated_special_units_sv = 0;
+        SV *output_units_sv;
+        SV *special_units_sv;
+        SV *associated_special_units_sv;
       PPCODE:
         self = get_sv_converter (converter_in,
                                  "get_output_units_lists");
 
         store_document_tree_output_units (self->document);
 
-        pass_output_units_list (self->document, &output_units_sv,
+        output_units_sv = build_output_units_list (self->document,
                            self->output_units_descriptors[OUDT_units]);
-        pass_output_units_list (self->document, &special_units_sv,
+        special_units_sv = build_output_units_list (self->document,
                      self->output_units_descriptors[OUDT_special_units]);
-        pass_output_units_list (self->document,
-                                  &associated_special_units_sv,
+        associated_special_units_sv = build_output_units_list (self->document,
           self->output_units_descriptors[OUDT_associated_special_units]);
 
         EXTEND(SP, 3);

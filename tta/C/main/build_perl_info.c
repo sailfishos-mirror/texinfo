@@ -2696,6 +2696,60 @@ output_units_list_to_perl_hash (const DOCUMENT *document,
     }
 }
 
+static int
+fill_output_units_descriptor_av (const DOCUMENT *document,
+                                 AV *av_output_units,
+                                 size_t output_units_descriptor)
+{
+  const OUTPUT_UNIT_LIST *output_units;
+  size_t i;
+
+  dTHX;
+
+  output_units = retrieve_output_units (document, output_units_descriptor);
+
+  if (!output_units || !output_units->number)
+    return 0;
+
+  for (i = 0; i < output_units->number; i++)
+    {
+      SV *sv;
+      OUTPUT_UNIT *output_unit = output_units->list[i];
+      output_unit_to_perl_hash (output_unit);
+      /* keep the reference owned by the C code */
+      sv = newRV_inc ((SV *) output_unit->hv);
+      av_push (av_output_units, sv);
+    }
+
+  /* store in the first perl output unit of the list */
+  /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
+  hv_store (output_units->list[0]->hv, "output_units_descriptor",
+            strlen ("output_units_descriptor"),
+            newSViv ((IV)output_units_descriptor), 0);
+  hv_store (output_units->list[0]->hv, "output_units_document_descriptor",
+            strlen ("output_units_document_descriptor"),
+            newSViv ((IV)document->descriptor), 0);
+  return 1;
+}
+
+SV *
+build_output_units_list (const DOCUMENT *document,
+                         size_t output_units_descriptor)
+{
+  AV *av_output_units;
+
+  dTHX;
+
+  av_output_units = newAV ();
+
+  if (fill_output_units_descriptor_av (document, av_output_units,
+                                       output_units_descriptor))
+    return newRV_noinc ((SV *) av_output_units);
+
+  av_undef (av_output_units);
+  return newSV (0);
+}
+
 /* Can be called to rebuild output units when the converter is available.
  */
 void
@@ -2711,45 +2765,58 @@ store_output_units_texinfo_tree (CONVERTER *converter, SV *converter_sv)
 
       if (converter->document->modified_information & F_DOCM_output_units)
         {
-          SV **output_units_sv = 0;
-          SV *store_output_units = 0;
-          int new_output_units;
-
           HV *converter_hv = (HV *) SvRV (converter_sv);
-          SV **document_units_sv
+          SV **document_units_sv;
+
+      /* build external_nodes_units before rebuilding the other
+         output units as the external_nodes_units may have never been built,
+         while other units could have already been built without directions
+         information.
+       */
+          output_units_list_to_perl_hash (converter->document,
+            converter->output_units_descriptors[OUDT_external_nodes_units]);
+
+          /* reuse "document_units" array if set */
+          document_units_sv
            = hv_fetch (converter_hv, "document_units",
                                strlen ("document_units"), 0);
 
           if (document_units_sv && SvOK (*document_units_sv))
             {
-              output_units_sv = document_units_sv;
+              AV *av_output_units = (AV *) SvRV (*document_units_sv);
+              size_t output_units_descriptor
+                 = converter->output_units_descriptors[OUDT_units];
+
+              av_clear (av_output_units);
+              if (!fill_output_units_descriptor_av (converter->document,
+                                                   av_output_units,
+                                              output_units_descriptor))
+                {
+      /* the output_units_descriptor is not found.  If there is
+         something to rebuild, this should mean that there is an output
+         units list in C, therefore we output an error here.  It could
+         be redundant with errors output earlier in calling code, but it
+         is better to have more debug messages.
+       */
+                  fprintf (stderr,
+                     "BUG: store_output_units_texinfo_tree: output units"
+                     " descriptor not found: %zu\n", output_units_descriptor);
+                }
             }
           else
-            output_units_sv = &store_output_units;
+            {
+              SV *output_units_sv
+                = build_output_units_list (converter->document,
+                   converter->output_units_descriptors[OUDT_units]);
+              hv_store (converter_hv, "document_units",
+                        strlen ("document_units"),
+                        output_units_sv, 0);
+            }
 
-      /* build external_nodes_units before rebuilding the other
-         output units as the external_nodes_units may have never been built,
-         while other units were already built without directions
-         information in html_prepare_conversion_units.
-       */
-          output_units_list_to_perl_hash (converter->document,
-            converter->output_units_descriptors[OUDT_external_nodes_units]);
-
-          new_output_units
-           = pass_output_units_list (converter->document, output_units_sv,
-                           converter->output_units_descriptors[OUDT_units]);
           output_units_list_to_perl_hash (converter->document,
                       converter->output_units_descriptors[OUDT_special_units]);
           output_units_list_to_perl_hash (converter->document,
             converter->output_units_descriptors[OUDT_associated_special_units]);
-
-          if (new_output_units)
-            {/* only happens if there was nothing in "document_units" */
-         /* transfer the reference on the output units array to the hash */
-              hv_store (converter_hv, "document_units",
-                        strlen ("document_units"),
-                        *output_units_sv, 0);
-            }
 
           converter->document->modified_information &= ~F_DOCM_output_units;
         }
@@ -3345,42 +3412,6 @@ build_sorted_indices_by_letter (
 
 
 
-static int
-fill_output_units_descriptor_av (const DOCUMENT *document,
-                                 AV *av_output_units,
-                                 size_t output_units_descriptor)
-{
-  const OUTPUT_UNIT_LIST *output_units;
-  size_t i;
-
-  dTHX;
-
-  output_units = retrieve_output_units (document, output_units_descriptor);
-
-  if (!output_units || !output_units->number)
-    return 0;
-
-  for (i = 0; i < output_units->number; i++)
-    {
-      SV *sv;
-      OUTPUT_UNIT *output_unit = output_units->list[i];
-      output_unit_to_perl_hash (output_unit);
-      /* keep the reference owned by the C code */
-      sv = newRV_inc ((SV *) output_unit->hv);
-      av_push (av_output_units, sv);
-    }
-
-  /* store in the first perl output unit of the list */
-  /* NOTE theoretical IV overflow if PERL_QUAD_MAX < SIZE_MAX */
-  hv_store (output_units->list[0]->hv, "output_units_descriptor",
-            strlen ("output_units_descriptor"),
-            newSViv ((IV)output_units_descriptor), 0);
-  hv_store (output_units->list[0]->hv, "output_units_document_descriptor",
-            strlen ("output_units_document_descriptor"),
-            newSViv ((IV)document->descriptor), 0);
-  return 1;
-}
-
 /* a fake output units list that only holds a descriptor allowing
    to retrieve the C data */
 SV *
@@ -3414,81 +3445,6 @@ setup_output_units_handler (const DOCUMENT *document,
   av_push (av_output_units, sv);
 
   return newRV_noinc ((SV *) av_output_units);
-}
-
-/* If OUTPUT_UNITS_SV is NULL, the output units are rebuilt but no
-   array is setup.
-   Else,
-    if *OUTPUT_UNITS_SV is NULL, a new array is setup and passed
-     unless there are no output units, in which case undef is passed.
-    otherwise, the *OUTPUT_UNITS_SV array is reused and it is an
-     error if there are no output units.
-   Return 1 if a new array was created, 0 otherwise.
- */
-int
-pass_output_units_list (const DOCUMENT *document, SV **output_units_sv,
-                        size_t output_units_descriptor)
-{
-  AV *av_output_units;
-
-  dTHX;
-
-  /* this means that the caller wants output units to be rebuilt,
-     but no array */
-  if (!output_units_sv)
-    {
-      output_units_list_to_perl_hash (document, output_units_descriptor);
-      return 0;
-    }
-
-  /* TODO clearer code */
-  if ((*output_units_sv) && SvOK (*output_units_sv))
-    {
-      av_output_units = (AV *) SvRV (*output_units_sv);
-      av_clear (av_output_units);
-    }
-  else
-    {
-      if (*output_units_sv)
-        { /* !SvOK (*output_units_sv) */
-          const OUTPUT_UNIT_LIST *output_units
-            = retrieve_output_units (document, output_units_descriptor);
-          if (output_units && output_units->number)
-            fprintf (stderr, "BUG: undef input sv for %zu output units (%zu)\n",
-                     output_units->number, output_units_descriptor);
-          *output_units_sv = 0;
-        }
-      av_output_units = newAV ();
-    }
-
-  if (!fill_output_units_descriptor_av (document, av_output_units,
-                                        output_units_descriptor))
-    {
-      if (*output_units_sv)
-        {
- /* the output_units_descriptor is not found.  In the codes calling
-    this function, the output_units_descriptor should have been found
-    within the Perl reference used as argument here.  If there is
-    something to rebuild, this should mean that there is an output
-    units list in C, therefore we output an error here.  It could
-    be redundant with errors output earlier in calling code, but it
-    is better to have more debug messages.
-  */
-          fprintf (stderr, "BUG: pass_output_units_list: output unit"
-                  " descriptor not found: %zu\n", output_units_descriptor);
-        }
-      else
-        {/* no output unit */
-          av_undef (av_output_units);
-          *output_units_sv = newSV (0);
-        }
-    }
-  else if (!(*output_units_sv))
-    {
-      *output_units_sv = newRV_noinc ((SV *) av_output_units);
-      return 1;
-    }
-  return 0;
 }
 
 
