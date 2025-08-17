@@ -115,39 +115,6 @@ html_pass_xtmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv)
             newRV_noinc ((SV *) htmlxref_hv), 0);
 }
 
-#define STORE(key, sv) hv_store (html_target_hv, key, strlen (key), sv, 0)
-HV *
-build_html_target (const HTML_TARGET *html_target)
-{
-  HV *html_target_hv;
-  SV *target_sv;
-
-  dTHX;
-
-  target_sv = newSVpv_utf8 (html_target->target, 0);
-
-  html_target_hv = newHV ();
-
-  STORE("target", target_sv);
-  if (html_target->special_unit_filename)
-    STORE("special_unit_filename",
-          newSVpv_utf8 (html_target->special_unit_filename, 0));
-  if (html_target->node_filename)
-    STORE("node_filename",
-          newSVpv_utf8 (html_target->node_filename, 0));
-  if (html_target->section_filename)
-    STORE("section_filename",
-          newSVpv_utf8 (html_target->section_filename, 0));
-  if (html_target->contents_target)
-    STORE("contents_target",
-          newSVpv_utf8 (html_target->contents_target, 0));
-  if (html_target->shortcontents_target)
-    STORE("shortcontents_target",
-          newSVpv_utf8 (html_target->shortcontents_target, 0));
-#undef STORE
-  return html_target_hv;
-}
-
 SV *
 build_no_arg_commands_formatting (const CONVERTER *converter)
 {

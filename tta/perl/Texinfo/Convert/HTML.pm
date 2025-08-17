@@ -150,16 +150,6 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::_prepare_converted_output_info"
    => "Texinfo::Convert::ConvertXS::html_prepare_converted_output_info",
 
-  # not called when _prepare_conversion_units is overriden
-  "Texinfo::Convert::HTML::_register_id"
-   => "Texinfo::Convert::ConvertXS::html_register_id",
-  "Texinfo::Convert::HTML::_id_is_registered"
-   => "Texinfo::Convert::ConvertXS::html_id_is_registered",
-
-  # only called from overriden functions
-  "Texinfo::Convert::HTML::_get_target"
-   => "Texinfo::Convert::ConvertXS::html_get_target",
-
   "Texinfo::Convert::HTML::command_id"
    => "Texinfo::Convert::ConvertXS::html_command_id",
   "Texinfo::Convert::HTML::command_contents_target"
