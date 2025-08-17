@@ -692,23 +692,6 @@ char *tree_print_details (ELEMENT *tree, const char *fname_encoding=0,
 char *element_print_details (ELEMENT *element, const char *fname_encoding=0,
                              int use_filename=0);
 
-%{
-char *
-element_print_details (ELEMENT *element, const char *fname_encoding,
-                             int use_filename)
-{
-  TEXT result;
-  text_init (&result);
-  text_append (&result, "");
-
-  print_element_details (element, 0, 0, 0, &result, fname_encoding,
-                         use_filename);
-
-  return result.text;
-}
-%}
-
-
 // Helper functions
 // TODO move to another module/file?
 

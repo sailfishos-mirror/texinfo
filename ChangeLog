@@ -1,5 +1,10 @@
 2025-08-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/texinfo.i (element_print_details): remove implementation,
+	it exists in the library now.
+
+2025-08-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/texinfo.c (txi_destroy_document), tta/C/texi2any.c
 	(main): add external_module argument, and call
 	call_document_remove_document_references only if set.
