@@ -282,25 +282,22 @@ html_pass_conversion_initialization (CONVERTER *converter,
   translation_cache_hv = newHV ();
   STORE("translation_cache", newRV_noinc ((SV *)translation_cache_hv));
 
-  if (converter)
+  /* Conversion to LaTeX is in Perl */
+  if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
+    converter->external_references_number++;
+
+  if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
     {
-    /* Conversion to LaTeX is in Perl */
-      if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-        converter->external_references_number++;
+      HV *options_latex_math_hv =
+      latex_build_options_for_convert_to_latex_math (converter);
+      hv_store (converter_hv, "options_latex_math",
+                strlen ("options_latex_math"),
+                newRV_noinc ((SV *)options_latex_math_hv), 0);
+    }
 
-      if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
-        {
-          HV *options_latex_math_hv =
-          latex_build_options_for_convert_to_latex_math (converter);
-          hv_store (converter_hv, "options_latex_math",
-                    strlen ("options_latex_math"),
-                    newRV_noinc ((SV *)options_latex_math_hv), 0);
-        }
-
-      if (converter->external_references_number > 0)
-        {
-          html_pass_converter_initialization_state (converter, converter_hv);
-        }
+  if (converter->external_references_number > 0)
+    {
+      html_pass_converter_initialization_state (converter, converter_hv);
     }
 }
 
