@@ -1837,12 +1837,13 @@ reset_generic_converter (CONVERTER *self)
 {
   int i;
   int check_counts = (self->conf->TEST.o.integer > 1);
+  ERROR_MESSAGE_LIST *error_messages = 0;
 
   clear_output_files_information (&self->output_files_information);
   clear_output_unit_files (&self->output_unit_files);
 
   if (check_counts)
-    set_check_element_interpreter_refcount ();
+    error_messages = set_check_element_interpreter_refcount ();
   for (i = 0; i < OUDT_external_nodes_units+1; i++)
     {
       if (self->output_units_descriptors[i])
@@ -1856,7 +1857,11 @@ reset_generic_converter (CONVERTER *self)
         }
     }
   if (check_counts)
-    unset_check_element_interpreter_refcount ();
+    {
+      if (error_messages->number)
+        merge_error_messages_lists (&self->error_messages, error_messages);
+      unset_check_element_interpreter_refcount ();
+    }
 
   /* should be cleaner.  Probably not much effect as long as converters
      are destroyed right after being reset in most cases */

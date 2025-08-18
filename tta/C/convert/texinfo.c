@@ -697,18 +697,24 @@ void
 txi_destroy_document (DOCUMENT *document, const char *external_module,
                       int remove_references)
 {
+  ERROR_MESSAGE_LIST *error_messages = 0;
   int check_counts = (document->options->TEST.o.integer > 1);
   if (check_counts)
     {
       if (external_module)
         call_document_remove_document_references (document,
                                                   remove_references);
-      set_check_element_interpreter_refcount ();
+      error_messages = set_check_element_interpreter_refcount ();
     }
 
   destroy_document (document);
   if (check_counts)
-    unset_check_element_interpreter_refcount ();
+    {
+      /* the messages are discarded.  The same information is already
+         printed on STDERR */
+      clear_error_message_list (error_messages);
+      unset_check_element_interpreter_refcount ();
+    }
 }
 
 void

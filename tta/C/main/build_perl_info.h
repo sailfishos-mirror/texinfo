@@ -46,7 +46,7 @@ SV *build_element_attribute (const ELEMENT *element, const char *attribute,
 
 void pass_errors (const ERROR_MESSAGE_LIST *error_list, AV *av);
 SV *pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages,
-                       SV *object_sv);
+                       SV *object_sv, const char *key);
 
 SV *build_document (DOCUMENT *document, int no_store);
 SV *build_minimal_document (DOCUMENT *document);

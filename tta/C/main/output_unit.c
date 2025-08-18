@@ -37,6 +37,7 @@
 /* for xasprintf */
 #include "utils.h"
 #include "debug.h"
+#include "errors.h"
 #include "targets.h"
 #include "manipulate_tree.h"
 #include "convert_to_texinfo.h"
@@ -371,8 +372,11 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
   free (output_unit->unit_filename);
   if (output_unit->hv)
     {
+      ERROR_MESSAGE_LIST *error_messages = 0;
       unregister_perl_data (output_unit->hv);
-      if (get_check_element_interpreter_refcount ())
+
+      error_messages = get_check_element_interpreter_refcount ();
+      if (error_messages)
         {
        /* for debugging */
   /* For this check to be silent, the output units should have gone
@@ -396,8 +400,10 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
              */
           if (hv_refcount != 0)
             {
-              fprintf (stderr,
-                       "DEBUG Output unit refcounts %p: %d\n",
+              const char *msg = "DEBUG Output unit refcounts %p: %d\n";
+              fprintf (stderr, msg,
+                       output_unit->hv, hv_refcount);
+              message_list_document_warn (error_messages, 0, 0, msg,
                        output_unit->hv, hv_refcount);
             }
         }

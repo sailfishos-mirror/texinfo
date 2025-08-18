@@ -403,8 +403,7 @@ sub convert_to_plaintext($$$$$)
     $result = undef if (defined($result) and ($result eq ''));
   }
 
-  my $converter_errors = $converter->get_converter_errors();
-  return ($converter_errors, $result, $converter);
+  return ($result, $converter);
 }
 
 sub convert_to_info($$$$$)
@@ -424,8 +423,7 @@ sub convert_to_info($$$$$)
   close_files($converter);
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
 
-  my $converter_errors = $converter->get_converter_errors();
-  return ($converter_errors, $result, $converter);
+  return ($result, $converter);
 }
 
 sub convert_to_html($$$$$)
@@ -456,11 +454,9 @@ sub convert_to_html($$$$$)
     close_files($converter);
   }
 
-  my $converter_errors = $converter->get_converter_errors();
-
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
 
-  return ($converter_errors, $result, $converter);
+  return ($result, $converter);
 }
 
 sub convert_to_xml($$$$$)
@@ -487,8 +483,7 @@ sub convert_to_xml($$$$$)
     $result = undef if (defined($result) and ($result eq ''));
   }
 
-  my $converter_errors = $converter->get_converter_errors();
-  return ($converter_errors, $result, $converter);
+  return ($result, $converter);
 }
 
 sub convert_to_docbook($$$$$)
@@ -530,8 +525,7 @@ sub convert_to_docbook($$$$$)
     $result = undef if (defined($result) and ($result eq ''));
   }
 
-  my $converter_errors = $converter->get_converter_errors();
-  return ($converter_errors, $result, $converter);
+  return ($result, $converter);
 }
 
 sub convert_to_latex($$$$$)
@@ -557,8 +551,7 @@ sub convert_to_latex($$$$$)
     $result = undef if (defined($result) and ($result eq ''));
   }
 
-  my $converter_errors = $converter->get_converter_errors();
-  return ($converter_errors, $result, $converter);
+  return ($result, $converter);
 }
 
 sub output_preamble_postamble_html($$)
@@ -970,12 +963,15 @@ sub test($$)
 
   my $indices;
 
+  my $successful_parsing = 1;
+
   if (not defined($tree)) {
     warn "ERROR: $test_name: parsing result undef\n";
     foreach my $error_message (@$errors) {
       warn $error_message->{'error_line'}
         if ($error_message->{'type'} eq 'error');
     }
+    $successful_parsing = 0;
     goto COMPARE;
   }
 
@@ -1094,9 +1090,6 @@ sub test($$)
   my $indices_sorted_sort_strings
     = $document->print_document_indices_sort_strings();
 
-  my $document_errors = $document->errors();
-  push @$errors, @$document_errors;
-
   $tree = $document->tree($XS_conversion);
 
   # use the parser expanded formats to be similar to the main program,
@@ -1151,10 +1144,9 @@ sub test($$)
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'/t/include/'];
       my $converter;
-      ($converted_errors{$format}, $converted{$format}, $converter)
+      ($converted{$format}, $converter)
            = &{$formats{$format}}($self, $test_name, $format_type,
                                   $document, $format_converter_options);
-      $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 
       if ($format =~ /^file_/ and defined($converted{$format})) {
         # This is certainly wrong, because the differences are made on
@@ -1239,6 +1231,11 @@ sub test($$)
       }
       $converter->reset_converter($remove_references);
       $converter->destroy($remove_references);
+
+      $converted_errors{$format} = $converter->get_converter_errors();
+      $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
+
+      $converter = undef;
     }
   }
   my $directions_text;
@@ -1258,6 +1255,12 @@ sub test($$)
   my $unsplit_needed = Texinfo::OutputUnits::unsplit($document);
   print STDERR "  UNSPLIT: $test_name\n"
     if ($self->{'DEBUG'} and $unsplit_needed);
+
+  # NOTE either a PlainTexinfo converter or a direct call to
+  # convert_to_texinfo can be used to test conversion back to Texinfo,
+  # both for pure Perl and XS.  We use convert_to_texinfo as is should
+  # require less resources as there is no need to create a converter.
+  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
   my $output_units
     = Texinfo::OutputUnits::do_units_directions_pages($document,
@@ -1298,6 +1301,15 @@ sub test($$)
     = Texinfo::Structuring::print_sectioning_root($document);
 
   $headings_list_text = Texinfo::Structuring::print_headings_list($document);
+
+  # this is needed to avoid a last reference on the tree root when checking
+  # with C code that there are no references left.
+  $tree = undef;
+
+  Texinfo::Document::destroy_document($document, $remove_references);
+
+  my $document_errors = $document->errors();
+  push @$errors, @$document_errors;
 
  COMPARE:
 
@@ -1344,14 +1356,12 @@ sub test($$)
           . protect_perl_string($tree_text)."';\n\n";
     }
 
-    if (!defined($tree)) {
+    if (!$successful_parsing) {
       goto END_OUT_FILE;
     }
 
-    my $texi_string_result
-        = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
-          .protect_perl_string($texi_string_result)."';\n\n";
+          .protect_perl_string($texi_result)."';\n\n";
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
           .protect_perl_string($converted_text)."';\n\n";
 
@@ -1455,12 +1465,6 @@ sub test($$)
     is_diff($indices_sorted_sort_strings,
             $result_indices_sort_strings{$test_name},
             $test_name.' indices sort');
-
-    # NOTE either a PlainTexinfo converter or a direct call to
-    # convert_to_texinfo can be used to test conversion to raw text,
-    # both for pure Perl and XS.  We use convert_to_texinfo as is should
-    # require less resources as there is no need to create a converter.
-    my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
     is_diff($texi_result, $result_texis{$test_name}, $test_name.' texi');
     if ($todos{'text'}) {
@@ -1592,12 +1596,6 @@ sub test($$)
       }
     }
   }
-
-  # this is needed to avoid a last reference on the tree root when checking
-  # with C code that there are no references left.
-  $tree = undef;
-
-  Texinfo::Document::destroy_document($document, $remove_references);
 
   return $tests_count;
 }

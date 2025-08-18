@@ -9654,7 +9654,7 @@ sub converter_destroy($;$) {
             # is not shown.
             # TODO exclude root_line from refcount checks in
             # tree_remove_references?
-            Texinfo::ManipulateTree::tree_remove_references($tree, 0);
+            Texinfo::ManipulateTree::tree_remove_references($tree);
           }
         }
       }

@@ -30,6 +30,7 @@
 /* for debug
  */
 #include "debug.h"
+#include "errors.h"
 #include "api_to_perl.h"
 #include "tree.h"
 
@@ -234,6 +235,7 @@ destroy_element (ELEMENT *e)
   /* remove the reference of the association with the C tree */
   if (e->sv)
     {
+      ERROR_MESSAGE_LIST *error_messages = 0;
       /* this also removes one reference for the associated hv */
       unregister_perl_data (e->sv);
 
@@ -249,17 +251,23 @@ destroy_element (ELEMENT *e)
      get_check_element_interpreter_refcount () should return
      true also if TEST > 1.
        */
-      if (get_check_element_interpreter_refcount ())
+      error_messages = get_check_element_interpreter_refcount ();
+      if (error_messages)
         {
           void *hv = get_sv_hv (e->sv);
           int sv_refcount = get_refcount (e->sv);
           int hv_refcount = get_refcount (hv);
 
+           /*
+          if (1)
+            */
           if (sv_refcount != 0 || hv_refcount != 0)
             {
-              fprintf (stderr,
-                       "DEBUG Perl refcounts (%p<-%p): sv: %d hv: %d\n",
-                       hv, e->sv, sv_refcount, hv_refcount);
+              const char *msg
+                = "DEBUG Perl refcounts (%p<-%p): sv: %d hv: %d\n";
+              fprintf (stderr, msg, hv, e->sv, sv_refcount, hv_refcount);
+              message_list_document_warn (error_messages, 0, 0, msg,
+                                    hv, e->sv, sv_refcount, hv_refcount);
             }
          /*
           fprintf (stderr, " DSV %p (sv:%d hv:%d) %s\n", hv,

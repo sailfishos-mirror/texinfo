@@ -646,18 +646,17 @@ get_unclosed_stream (SV *converter_in, file_path)
 SV *
 get_converter_errors (SV *converter_in)
       PREINIT:
-        AV *errors_av;
         CONVERTER *self = 0;
+        const ERROR_MESSAGE_LIST *error_messages = 0;
       CODE:
         self = get_sv_converter (converter_in, 0);
-        errors_av = newAV ();
         if (self && self->error_messages.number)
-          {
-            pass_errors (&self->error_messages, errors_av);
-            wipe_error_message_list (&self->error_messages);
-          }
-
-        RETVAL = newRV_noinc ((SV *) errors_av);
+          error_messages = &self->error_messages;
+        RETVAL = pass_errors_to_hv (error_messages,
+                                    converter_in,
+                                    "error_warning_messages");
+        if (error_messages)
+          wipe_error_message_list (&self->error_messages);
     OUTPUT:
         RETVAL
 
@@ -704,7 +703,16 @@ destroy (SV *converter_in, ...)
       CODE:
         self = get_sv_converter (converter_in, 0);
         if (self)
-          destroy_converter (self);
+          {/* transfer messages set by parser_reset */
+            if (self->error_messages.number)
+              {
+                pass_errors_to_hv (&self->error_messages,
+                                   converter_in,
+                                   "error_warning_messages");
+                wipe_error_message_list (&self->error_messages);
+              }
+            destroy_converter (self);
+          }
 
 SV *
 plain_texinfo_convert_tree (SV *tree_in)

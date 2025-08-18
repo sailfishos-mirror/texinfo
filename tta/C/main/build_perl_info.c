@@ -1708,10 +1708,16 @@ pass_errors (const ERROR_MESSAGE_LIST *error_list, AV *av)
     }
 }
 
-/* ERROR_MESSAGES_LIST passed must be non-NULL
+/* If KEY is NULL, "error_messages" is used.
+   Get the object_sv HV hash value associated to KEY if it exists, and if it
+   does not, create an array associated to KEY.
+   Return a reference to the array.
+   if ERROR_MESSAGES is set, add the error messages to the array before
+   returning its reference.
  */
 SV *
-pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages, SV *object_sv)
+pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages, SV *object_sv,
+                   const char *key)
 {
   HV *object_hv;
   SV **error_messages_sv;
@@ -1719,6 +1725,9 @@ pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages, SV *object_sv)
   const char *error_messages_key = "error_messages";
 
   dTHX;
+
+  if (key)
+     error_messages_key = key;
 
   object_hv = (HV *) SvRV (object_sv);
 
@@ -1739,7 +1748,8 @@ pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages, SV *object_sv)
                 newRV_noinc ((SV *) report_av), 0);
     }
 
-  pass_errors (error_messages, report_av);
+  if (error_messages)
+    pass_errors (error_messages, report_av);
   return newRV_inc ((SV *) report_av);
 }
 

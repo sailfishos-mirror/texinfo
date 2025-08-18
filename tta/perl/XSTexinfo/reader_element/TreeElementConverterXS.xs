@@ -486,11 +486,8 @@ utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_e
               }
             if (!converter && converter_sv)
               {
-              /* TODO this seems wrong, as it stores in 'error_messages'
-                 while converters use 'error_warning_messages'.
-                 Need to investigate, but this code is not currently used.
-               */
-                pass_errors_to_hv (error_messages, converter_sv);
+                pass_errors_to_hv (error_messages, converter_sv,
+                                   "error_warning_messages");
                 wipe_error_message_list (error_messages);
                 free (error_messages);
               }

@@ -428,7 +428,10 @@ sub remove_document_references($;$) {
     Texinfo::ManipulateTree::tree_remove_parents($tree);
     if ($remove_references) {
       my $test_level = $document->get_conf('TEST');
-      my $check_refcount = (defined($test_level) and $test_level > 1);
+      my $check_refcount;
+      if (defined($test_level) and $test_level > 1) {
+        $check_refcount = $document;
+      }
       Texinfo::ManipulateTree::tree_remove_references($document->{'tree'},
                                                       $check_refcount);
       delete $document->{'tree'};
@@ -448,7 +451,6 @@ sub destroy_document($;$) {
   _XS_destroy_document($document, $remove_references);
 
   #find_cycle($document);
-  $document = undef;
 }
 
 # The XS override register a reference to the C element in Perl

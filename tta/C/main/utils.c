@@ -645,23 +645,35 @@ encode_string (char *input_string, const char *encoding, int *status,
  */
 
 static int check_element_interpreter_refcount = 0;
+/* we use a separate error messages list also because, in general, the
+   refcounts are checked when the structure that unregister the references
+   that could hold the error messages is being destroyed.  So it is
+   handy to avoid registering the error messages in this structure */
+static ERROR_MESSAGE_LIST interpreter_refcount_error_messages;
 
-void
+ERROR_MESSAGE_LIST *
 set_check_element_interpreter_refcount (void)
 {
   check_element_interpreter_refcount++;
+  return &interpreter_refcount_error_messages;
 }
 
+/* in general, the interpreter_refcount_error_messages messages should be
+   removed at the time of the call to
+   unset_check_element_interpreter_refcount */
 void
 unset_check_element_interpreter_refcount (void)
 {
   check_element_interpreter_refcount--;
 }
 
-int
+ERROR_MESSAGE_LIST *
 get_check_element_interpreter_refcount (void)
 {
-  return check_element_interpreter_refcount;
+  if (check_element_interpreter_refcount)
+    return &interpreter_refcount_error_messages;
+  else
+    return 0;
 }
 
 

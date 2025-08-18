@@ -529,7 +529,7 @@ sub tree_remove_references($;$);
 # no cycles, but to be able to check that the reference counting in C/XS is done
 # correctly.  No specific reason to use in code outside of the Texinfo modules,
 # not documented on purpose.
-# If $CHECK_REFCOUNT is set, verify that the reference count for
+# If $CHECK_REFCOUNT is set (to a Document), verify that the reference count for
 # elements except for the tree root element correspond to the count after
 # removing reference to tree elements as much as possible while still
 # being able to process the tree.
@@ -589,7 +589,7 @@ sub tree_remove_references($;$) {
   #print STDERR "TRE $element ".
   #   Texinfo::ManipulateTree::element_print_details($element)."\n";
 
-  if ($check_refcount) {
+  if (defined($check_refcount)) {
     my $reference_count = Devel::Peek::SvREFCNT($element);
     my $object_count = Devel::Refcount::refcount($element);
     # The $element variable owns one count to reference and to object.
@@ -607,11 +607,16 @@ sub tree_remove_references($;$) {
       if (!exists($element->{'tree_document_descriptor'})
           and !(exists($element->{'type'})
                 and $element->{'type'} eq 'document_root')) {
-        print STDERR "TREE t_r_r $element: $reference_count".
+        my $refcount_error = "TREE t_r_r $element: $reference_count".
                        " HV: $object_count\n"
-        .Texinfo::ManipulateTree::element_print_details($element)."\n"
-       #;
-        .Devel::FindRef::track($element)."\n";
+          .Texinfo::ManipulateTree::element_print_details($element)."\n"
+          #;
+          .Devel::FindRef::track($element)."\n";
+        print STDERR $refcount_error;
+        # pass as warning to have t/*.t tests fail
+        $check_refcount->document_line_warn("Element $element refcount"
+            ." $object_count != $destroyed_objects_refcount; "
+              .Texinfo::Common::debug_print_element($element), {});
       }
     }
   }

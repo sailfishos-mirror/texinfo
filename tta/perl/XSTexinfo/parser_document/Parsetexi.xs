@@ -159,7 +159,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
           add the errors to the Parser as there is no document returned
           to get the errors from.
         */
-            pass_errors_to_hv (&document->parser_error_messages, parser_sv);
+            pass_errors_to_hv (&document->parser_error_messages, parser_sv, 0);
             clear_error_message_list (&document->parser_error_messages);
 
             /*

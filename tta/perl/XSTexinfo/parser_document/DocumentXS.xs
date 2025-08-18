@@ -159,6 +159,7 @@ destroy_document (SV *document_in, ...)
         if (document)
           {
             int check_counts = (document->options->TEST.o.integer > 1);
+            ERROR_MESSAGE_LIST *error_messages = 0;
             /* Not useful, as it is done by converters already
             int remove_references = 0;
             if (remove_references_sv && SvOK (remove_references_sv))
@@ -167,37 +168,42 @@ destroy_document (SV *document_in, ...)
             release_output_units_lists_built (&document->output_units_lists,
                                               remove_references);
               */
+            /* register messages before being destroyed */
+            if (document->error_messages.number)
+              {
+                pass_errors_to_hv (&document->error_messages,
+                                   document_in, 0);
+                clear_error_message_list (&document->error_messages);
+              }
+
             if (check_counts)
-              set_check_element_interpreter_refcount ();
+              error_messages = set_check_element_interpreter_refcount ();
             destroy_document (document);
             if (check_counts)
-              unset_check_element_interpreter_refcount ();
+              {
+                /* register error messages obtained during destruction */
+                pass_errors_to_hv (error_messages, document_in, 0);
+                clear_error_message_list (error_messages);
+                unset_check_element_interpreter_refcount ();
+              }
           }
 
 SV *
 document_errors (SV *document_in)
     PREINIT:
         DOCUMENT *document;
+        const ERROR_MESSAGE_LIST *error_messages = 0;
      CODE:
-        /* if XS is used, a document should be found.  It could
-           also have been possible to abort if a document is not
-           found.
+        /* If the errors are obtained after document destruction, then
+           the document will not be found, the messages should have already
+           been registered to Perl in destroy_document.
          */
-        document = get_sv_document_document (document_in,
-                                             "document_errors");
+        document = get_sv_document_document (document_in, 0);
         if (document)
-          {
-            RETVAL
-              = pass_errors_to_hv (&document->error_messages, document_in);
-
-            clear_error_message_list (&document->error_messages);
-          }
-        else
-        /* NOTE this is incorrect, as the callers do not expect
-           undef errors_warnings_sv.  This should not happen
-           as a document should always be found.
-         */
-          RETVAL = newSV (0);
+          error_messages = &document->error_messages;
+        RETVAL = pass_errors_to_hv (error_messages, document_in, 0);
+        if (document)
+          clear_error_message_list (&document->error_messages);
   OUTPUT:
       RETVAL
 

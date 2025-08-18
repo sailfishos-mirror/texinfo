@@ -525,9 +525,14 @@ sub reset_converter($;$) {
           # output_units_list array
           #if (1) {
           if ($reference_count != 2 or $object_count != 1) {
-            print STDERR "DEBUG output unit refcount $output_unit ".
+            my $refcount_error = "DEBUG output unit refcount $output_unit ".
              "$reference_count HV: $object_count\n"
                  .Devel::FindRef::track($output_unit)."\n";
+            print STDERR $refcount_error;
+            # pass as warning to have t/*.t tests fail
+            $self->converter_document_warn(
+              "Output unit $output_unit refcount $object_count != 1; "
+              .Texinfo::OutputUnits::output_unit_texi($output_unit));
           }
         }
       }
@@ -587,8 +592,6 @@ sub destroy($;$) {
   $self->_XS_destroy($remove_references);
 
   #find_cycle($self);
-
-  $self = undef;
 }
 
 sub XS_get_unclosed_stream($$) {
