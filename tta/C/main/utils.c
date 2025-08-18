@@ -631,10 +631,18 @@ encode_string (char *input_string, const char *encoding, int *status,
 
 
 /* set/unset/get indicator.  Set/unset in code calling destroy_document
-   to signal that all the references except the one hold by C code have
-   been released.  Read by destroy_element to output a message if
-   there is a reference count left after releasing the references
-   held by the C code */
+   and other codes to signal that the checks on reference counts should
+   be shown.  Read by destroy_element and similar for output units to
+   output a message if there is a reference count left after releasing the
+   references held by the C code.
+
+   Note that this code only determines if the refcount checks should be
+   shown, it does not triggers code that release references that is
+   needed to have the checks succeed and output nothing.  However, the
+   conditions used in callers both for the refcount checks and for the release
+   of references are the same, namely TEST > 1, such that the checks should
+   succeed if set.
+ */
 
 static int check_element_interpreter_refcount = 0;
 

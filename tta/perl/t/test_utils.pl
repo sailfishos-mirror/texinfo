@@ -1000,6 +1000,7 @@ sub test($$)
 
   my $remove_references = 0;
   my $test_level = $test_customization_options->{'TEST'};
+  # used both for output units and tree elements
   $remove_references = 1 if (defined($test_level) and $test_level > 1);
 
   # setup options from test specification (+DEBUG) as if they were

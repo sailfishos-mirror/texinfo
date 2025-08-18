@@ -23,8 +23,9 @@ Document the use of accents stack in the HTML customization API
 Do not add parent in tree in the first place instead of removing afterwards,
 in gdt?
 
-Verify and document? the checks on perl objects refcount setup if
-TEST > 1.
+The checks on perl objects refcount are explained in a comment at the
+beginning of texi2any.pl.  Add such explanations in documentation
+in other places?
 
 document converter_reset and converter_destroy in Perl?
 

@@ -375,12 +375,20 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
       if (get_check_element_interpreter_refcount ())
         {
        /* for debugging */
-  /* At this point, the output units should have gone through a code, like
-     release_output_units_list or similar in Perl C, that removes the
-     directions and other keys that lead to cycles.
+  /* For this check to be silent, the output units should have gone
+     through codes, release_output_units_list in Perl or similar in Perl C,
+     that removes the directions and other keys that lead to cycles.
+     Removing the cycles is not enough to remove all the references, as
+     associated_units and next would still refer to the output units.
+     Therefore, the converter cleanup and release_output_units_list
+     codes need to be run with removal of references to output units
+     set, which should be done with TEST > 1 to have all the
+     references removed such that the only reference that remain is the
+     one held by C code removed just above.
 
-     They are still referenced by associated_units and next unless
-     the code removing cycles also removed references to output units.
+     Normally, the code setting the indicator is setup such that
+     get_check_element_interpreter_refcount () should return
+     true also if TEST > 1.
    */
           int hv_refcount = get_refcount (output_unit->hv);
             /*

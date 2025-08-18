@@ -282,6 +282,7 @@ sub unsplit($) {
 }
 
 # Remove cycles, such that Perl can remove the remaining data.
+# This involves removing references to Texinfo tree elements.
 # If $REMOVE_REFERENCES is set, remove all references to output units
 # (in this function, those that can be reached through output units).
 # Implementation in C for XS in get_perl_info.c: release_output_units_list_built
@@ -300,11 +301,11 @@ sub release_output_units_list($;$) {
 
     # Some elements may not be in the tree, in practice HTML special units
     # elements, this removes the reference to them.  Also useful to avoid
-    # cycles with tree elements back through associated_unit (when associated_unit
-    # have not been removed).
-    # Also to remove cycles within tree elements that prevent cycles detection.
+    # cycles with tree elements back through associated_unit (when
+    # associated_unit have not been removed).
+    # Also to hide cycles within tree elements that hinder cycles detection.
     delete $output_unit->{'unit_command'};
-    # to remove cycles going through elements
+    # to remove cycles going through tree elements
     delete $output_unit->{'unit_node'};
     delete $output_unit->{'unit_section'};
 
@@ -338,7 +339,7 @@ sub release_output_units_list($;$) {
     }
     # to remove cycles going through tree elements back through
     # associated_unit (when associated_unit are still there).  Also to
-    # remove cycles within tree elements that prevent cycles detection.
+    # hide cycles within tree elements that hinder cycles detection.
     delete $output_unit->{'unit_contents'};
 
     #find_cycle($output_unit);

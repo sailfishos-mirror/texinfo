@@ -237,10 +237,17 @@ destroy_element (ELEMENT *e)
       /* this also removes one reference for the associated hv */
       unregister_perl_data (e->sv);
 
-      /* if set, the references other than the one kept in C should
-         have been released such that after the unregister call just
-         above, the elements references count should be 0, and the
-         messages should be shown if it is not the case.
+  /* For this check to be silent, the tree elements should have
+     had all references released.  This is not enough to have codes
+     that remove cycles in tree elements run, the codes that remove
+     references should also run.  For the references held by output units,
+     this is done when cycles in output units are removed.  For the other
+     references, the Document destruction code should be called with
+     reference to tree elements removal, which should be done if TEST > 1.
+
+     Normally, the code setting the indicator is setup such that
+     get_check_element_interpreter_refcount () should return
+     true also if TEST > 1.
        */
       if (get_check_element_interpreter_refcount ())
         {
