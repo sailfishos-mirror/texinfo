@@ -529,13 +529,17 @@ sub tree_remove_references($;$);
 # no cycles, but to be able to check that the reference counting in C/XS is done
 # correctly.  No specific reason to use in code outside of the Texinfo modules,
 # not documented on purpose.
+# If $CHECK_REFCOUNT is set, verify that the reference count for
+# elements except for the tree root element correspond to the count after
+# removing reference to tree elements as much as possible while still
+# being able to process the tree.
 sub tree_remove_references($;$) {
-  my ($element, $test_level) = @_;
+  my ($element, $check_refcount) = @_;
 
   if (exists($element->{'source_marks'})) {
     foreach my $source_mark (@{$element->{'source_marks'}}) {
       if (exists($source_mark->{'element'})) {
-        tree_remove_references($source_mark->{'element'}, $test_level);
+        tree_remove_references($source_mark->{'element'}, $check_refcount);
       }
       delete $source_mark->{'element'};
     }
@@ -548,7 +552,7 @@ sub tree_remove_references($;$) {
                                 'spaces_after_argument') {
         if (exists($element->{'info'}->{$info_elt_key})) {
           tree_remove_references($element->{'info'}->{$info_elt_key},
-                                 $test_level);
+                                 $check_refcount);
           delete $element->{'info'}->{$info_elt_key};
         }
       }
@@ -558,12 +562,12 @@ sub tree_remove_references($;$) {
       if (exists($element->{'extra'})) {
         if (exists($element->{'extra'}->{'def_index_element'})) {
           tree_remove_references($element->{'extra'}->{'def_index_element'},
-                                 $test_level);
+                                 $check_refcount);
           delete $element->{'extra'}->{'def_index_element'};
           if (exists($element->{'extra'}->{'def_index_ref_element'})) {
             tree_remove_references(
               $element->{'extra'}->{'def_index_ref_element'},
-                                   $test_level);
+                                   $check_refcount);
             delete $element->{'extra'}->{'def_index_ref_element'};
           }
         }
@@ -576,7 +580,7 @@ sub tree_remove_references($;$) {
       }
       for (my $i = 0; $i < scalar(@{$element->{'contents'}}); $i++) {
         tree_remove_references($element->{'contents'}->[$i],
-                               $test_level);
+                               $check_refcount);
       }
       delete $element->{'contents'};
     }
@@ -585,7 +589,7 @@ sub tree_remove_references($;$) {
   #print STDERR "TRE $element ".
   #   Texinfo::ManipulateTree::element_print_details($element)."\n";
 
-  if (defined($test_level) and $test_level > 1) {
+  if ($check_refcount) {
     my $reference_count = Devel::Peek::SvREFCNT($element);
     my $object_count = Devel::Refcount::refcount($element);
     # The $element variable owns one count to reference and to object.
@@ -1431,7 +1435,7 @@ sub move_index_entries_after_items($) {
       my $last_entry_idx = -1;
       for (my $i = $contents_nr -1; $i >= 0; $i--) {
         my $content = $previous_ending_container->{'contents'}->[$i];
-        if (exists($content->{'type'}) 
+        if (exists($content->{'type'})
             and $content->{'type'} eq 'index_entry_command') {
           $last_entry_idx = $i;
         } elsif (not (exists($content->{'cmdname'})

@@ -375,14 +375,6 @@ sub remove_document_references($;$) {
     #}
   }
 
-  # similar to unsplit
-  # tree may not be defined if the input file was not found
-  #if (defined($tree) and exists($tree->{'contents'})) {
-  #  foreach my $content (@{$tree->{'contents'}}) {
-  #    delete $content->{'associated_unit'};
-  #  }
-  #}
-
   if ($remove_references) {
     delete $document->{'identifiers_target'};
     delete $document->{'labels_list'};
@@ -406,9 +398,12 @@ sub remove_document_references($;$) {
 
   #foreach my $output_units_list (@$output_units_lists) {
   #  Texinfo::OutputUnits::release_output_units_list($output_units_list,
-  #                                                  $remove_references);
+  #                                        $remove_output_units_references);
   #}
 
+  # Texinfo tree elements in translation caches are not released, they may
+  # be showed for debugging here to verify that they do not show up
+  # somewhere.
   if (0 and $remove_references) {
   #if ($remove_references) {
     foreach my $lang (sort(keys(
@@ -432,8 +427,10 @@ sub remove_document_references($;$) {
   if (defined($tree)) {
     Texinfo::ManipulateTree::tree_remove_parents($tree);
     if ($remove_references) {
+      my $test_level = $document->get_conf('TEST');
+      my $check_refcount = (defined($test_level) and $test_level > 1);
       Texinfo::ManipulateTree::tree_remove_references($document->{'tree'},
-                                                      $document->get_conf('TEST'));
+                                                      $check_refcount);
       delete $document->{'tree'};
     }
   }
