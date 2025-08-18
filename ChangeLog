@@ -1,5 +1,15 @@
 2025-08-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/texi2any.pl: reset and destroy converter only if TEST is
+	set.
+
+2025-08-18 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/XSTexinfo/convert/ConvertXS.xs (reset_converter): elide
+	reset_converter remove_references_sv argument.
+
+2025-08-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm (remove_document_references),
 	tta/perl/Texinfo/ManipulateTree.pm (tree_remove_references): change
 	tree_remove_references argument to be check_refcount.

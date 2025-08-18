@@ -674,8 +674,10 @@ merge_converter_error_messages_lists (SV *dst_in, SV *src_in)
         merge_error_messages_lists (&self->error_messages,
                                     &src->error_messages);
 
+# remove_references_sv
 void
-reset_converter (SV *converter_in, SV *remove_references_sv=0)
+reset_converter (SV *converter_in, ...)
+      PROTOTYPE: $;$
       PREINIT:
         CONVERTER *self;
       CODE:
@@ -683,10 +685,6 @@ reset_converter (SV *converter_in, SV *remove_references_sv=0)
         if (self)
           {
             int remove_output_units_references = 0;
-            int remove_references = 0;
-
-            if (remove_references_sv && SvOK (remove_references_sv))
-              remove_references = SvIV (remove_references_sv);
 
             if (self->conf->TEST.o.integer > 1)
               remove_output_units_references = 1;

@@ -22,6 +22,23 @@
 #
 # ALTIMP ../C/texi2any.c
 
+# The systems of reference counting used by Perl to release memory
+# do not work if there are cycles.  In the default case nothing is done
+# about this issue for the main tree, as the memory is released faster
+# at exit.  If there are XS extensions in C, their memory is not
+# cleanup either in the default case.
+#
+# If TEST is set, the cycles are removed (when resetting converters
+# and destroying document), and the XS extensions memory is cleaned,
+# at least such that there is no unreachable memory.
+#
+# If TEST is > 1, in addition
+# * the reference to elements (with $remove_references set) and to output
+#   units (condition set in the specific codes) are removed
+# * some checks on remaining refcounts are shown.
+# These two effects are triggered by TEST, but are checked at different
+# places such that the conditions can be changed independently.
+
 use 5.006;
 
 use strict;
@@ -1819,7 +1836,7 @@ while(@input_files) {
                  get_conf('LOCALE_ENCODING'), $document);
     my $printed_tree
       = Texinfo::ManipulateTree::tree_print_details($tree,
-                     $input_file_names_encoding, get_conf('TEST'));
+                     $input_file_names_encoding, $test_level);
     my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($output_encoding)) {
       $printed_tree = Encode::encode($output_encoding, $printed_tree);
@@ -2042,7 +2059,7 @@ while(@input_files) {
                  get_conf('LOCALE_ENCODING'), $document);
     my $printed_tree
       = Texinfo::ManipulateTree::tree_print_details($tree,
-                         $input_file_names_encoding, get_conf('TEST'));
+                         $input_file_names_encoding, $test_level);
     my $output_encoding = $document->get_conf('OUTPUT_ENCODING_NAME');
     if (defined($output_encoding)) {
       $printed_tree = Encode::encode($output_encoding, $printed_tree);
@@ -2221,7 +2238,11 @@ while(@input_files) {
 
   # Texinfo::Converter::Text does not define it. Alternatively could be
   # a mandated part of the converter API
-  if ($converter->can('reset_converter')) {
+  # Destroying the converter means releasing the output units and, if there
+  # is XS freein some memory related to the conversion.  If the program
+  # is about to exit, all the memory will be released, so we only cleanup
+  # at all if TEST is set.
+  if ($converter->can('reset_converter') and $test_level) {
     $converter->reset_converter($remove_references);
   }
 
@@ -2335,7 +2356,9 @@ while(@input_files) {
     }
   }
 
-  $converter->destroy($remove_references);
+  if ($test_level) {
+    $converter->destroy($remove_references);
+  }
 
   # It is not easy to get the output units with XS, after the converter
   # 'document_units' key has been destroyed.  The best option
@@ -2353,7 +2376,7 @@ while(@input_files) {
   $parser->release();
   $parser = undef;
 
-  if (get_conf('TEST')) {
+  if ($test_level) {
     # Destroying the tree takes a lot of time and is unnecessary when there
     # is only one input file as the program is about to exit.  Note that
     # this cleanup is only possible while we still have the value of
