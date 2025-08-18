@@ -2509,8 +2509,7 @@ sub cancel_pending_formatted_inline_content($$)
     if ($current_idx >= 0) {
       while ($current_idx >= 0) {
         if ($pending_inline->[$current_idx]->[0] eq $category) {
-          my $removed = splice (@$pending_inline,
-                                $current_idx, 1);
+          my $removed = splice(@$pending_inline, $current_idx, 1);
           return $removed->[1];
         }
         $current_idx--;
@@ -9577,8 +9576,11 @@ sub converter_initialize($)
 }
 
 # remove data that leads to cycles related to output units.
-# Also remove reference to elements
-# that cannot be accessed anymore if $REMOVE_REFERENCES is set.
+# If $REMOVE_REFERENCES is set, the code should also remove
+# reference to tree elements that could not be removed afterwards.
+# There is nothing to be done for this purpose for now.
+# If TEST > 1, references to output units are removed for a check
+# of output units remaining refcounts.
 sub converter_reset($;$) {
   my ($self, $remove_references) = @_;
 
@@ -9588,18 +9590,15 @@ sub converter_reset($;$) {
     if (defined($test_level) and $test_level > 1);
 
   if ($remove_output_units_references) {
-  # part of an internal API
     if (exists($self->{'global_units_directions'})) {
-      foreach my $direction (keys(%{$self->{'global_units_directions'}})) {
-        delete $self->{'global_units_directions'}->{$direction};
-      }
+      %{$self->{'global_units_directions'}} = ();
     }
 
-    delete $self->{'document_units'};
+    @{$self->{'document_units'}} = ();
   }
 }
 
-# remove data that leads to cycles, and also remove reference to elements
+# remove data that leads to cycles, and also remove reference to tree elements
 # that cannot be accessed through document if $REMOVE_REFERENCES is set.
 sub converter_destroy($;$) {
   my ($self, $remove_references) = @_;
@@ -9643,11 +9642,16 @@ sub converter_destroy($;$) {
           Texinfo::ManipulateTree::tree_remove_parents($tree);
           if ($remove_references) {
             delete $no_arg_command_ctx->{$context}->{'translated_tree'};
-            # the same tree is in general referenced in the different
-            # contexts, therefore there are more references than expected
-            # by the function.  Also this is not in the tree, so there is no
-            # specific reason why there should be the same number of
-            # references, at least for the element at the root of the tree.
+            # There is no reason why there should be a specific number
+            # of references for the element at the root of the tree.
+            # The same tree is in general referenced in the different
+            # $contexts, therefore there are additional references
+            # removed through this loop.
+            # Still, the references on tree elements should
+            # be removed as the code is run through even if the diagnostic
+            # is not shown.
+            # TODO exclude root_line from refcount checks in
+            # tree_remove_references?
             Texinfo::ManipulateTree::tree_remove_references($tree, 0);
           }
         }

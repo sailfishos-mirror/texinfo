@@ -1,5 +1,13 @@
 2025-08-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (reset_converter): minor
+	changes in code, avoid using splice to remove array content.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (converter_reset): empty directly
+	global_units_directions.  Empty document_units instead of removing.
+
+2025-08-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/texi2any.pl: reset and destroy converter only if TEST is
 	set.
 
