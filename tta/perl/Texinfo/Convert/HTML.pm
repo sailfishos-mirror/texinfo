@@ -9594,7 +9594,9 @@ sub converter_reset($;$) {
       %{$self->{'global_units_directions'}} = ();
     }
 
-    @{$self->{'document_units'}} = ();
+    # Cannot do that, the content is still needed by the Converter
+    #@{$self->{'document_units'}} = ();
+    $self->{'document_units'} = [];
   }
 }
 
