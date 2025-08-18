@@ -1,5 +1,10 @@
 2025-08-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/tex4ht.pm (tex4ht_finish): reset %formats to release
+	references on tree elements.
+
+2025-08-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (converter_reset): reset
 	document_units instead of emptying it as the Converter still needs the
 	content on the list document_units points to.

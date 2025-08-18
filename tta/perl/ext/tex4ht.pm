@@ -516,6 +516,9 @@ sub tex4ht_finish($)
       }
     }
   }
+  # it is important to reset here, to have the corresponding references
+  # released, in particular references on tree elements.
+  %formats = ();
   return 0;
 }
 
