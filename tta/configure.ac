@@ -628,6 +628,33 @@ AC_MSG_CHECKING([parser tests requirements])
 AC_MSG_RESULT([$t2a_tests])
 AM_CONDITIONAL([T2A_TESTS], [test "z$t2a_tests" = 'zyes'])
 
+refcount_checks='no'
+AC_ARG_ENABLE([refcounts-checks],
+    AS_HELP_STRING([--enable-refcounts-checks],[checks on reference counts (default: detected)]),
+    [if test $enableval = 'no'; then
+       refcount_checks='no'
+     else
+       refcount_checks='yes'
+     fi],
+    [
+     # Devel::Peek already checked because it cannot be a soft dependency,
+     # but it logically belongs here.
+     if $PERL -e "use Devel::Peek; use Devel::Refcount; use Devel::FindRef; use Devel::Cycle;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     then
+       refcount_checks='yes'
+     else
+       refcount_checks='no'
+     fi
+    ])
+
+AC_MSG_CHECKING([requirements for refcount checks])
+AC_MSG_RESULT([$refcount_checks])
+DEFAULT_TEST_LEVEL=1
+if test "z$refcount_checks" = 'zyes' ; then
+  DEFAULT_TEST_LEVEL=2
+fi
+AC_SUBST([DEFAULT_TEST_LEVEL])
+
 AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
 if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
   perl_unicode_collation_requirement='yes'

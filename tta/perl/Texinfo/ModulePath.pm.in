@@ -34,6 +34,7 @@ our $converterxsdir;
 
 # Other information passed to modules from configure
 our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
+our $default_test_level = '@DEFAULT_TEST_LEVEL@';
 
 # If $LIB_DIR and $LIBEXEC_DIR are given,
 # (likely the installation directories)

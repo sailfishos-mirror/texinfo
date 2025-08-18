@@ -1,5 +1,22 @@
 2025-08-18 Patrice Dumas  <pertusus@free.fr>
 
+	Support for refcounts checks in build system
+
+	* configure.ac (refcounts-checks), tta/configure.ac (refcounts-checks)
+	(DEFAULT_TEST_LEVEL), tta/defs.in (DEFAULT_TEST_LEVEL),
+	tta/perl/Makefile.am (Texinfo/ModulePath.pm),
+	tta/perl/Texinfo/ModulePath.pm.in ($default_test_level): add
+	--enable-refcounts-checks flag to configure with default detected and
+	set DEFAULT_TEST_LEVEL.
+
+	* tta/perl/t/test_utils.pl ($default_test_level): use
+	$Texinfo::ModulePath::default_test_level for the default test level.
+
+	* tta/tests/many_input_files/*.sh, tta/tests/run_parser_all.sh: set
+	TEST customization variable value in calls based on DEFAULT_TEST_LEVEL.
+
+2025-08-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/tex4ht.pm (tex4ht_finish): reset %formats to release
 	references on tree elements.
 

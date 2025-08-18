@@ -19,6 +19,7 @@ logfile=$basename.log
 stdout_file=stdout_$basename.out
 main_command='perl/texi2any.pl'
 prepended_command=
+test_level=1
 
 [ "z$srcdir" = 'z' ] && srcdir=.
 
@@ -30,6 +31,10 @@ fi
 
 if test $TESTS_MAIN_COMMAND = 'perl/texi2any.pl' ; then
   prepended_command="$prepended_command $PERL -w"
+fi
+
+if test z"$DEFAULT_TEST_LEVEL" = z1 -o z"$DEFAULT_TEST_LEVEL" = z2 ; then
+  test_level=$DEFAULT_TEST_LEVEL
 fi
 
 command_run=
@@ -63,7 +68,7 @@ raw_outdir=$raw_output_dir/$basename
 mkdir $basename
 : > $basename/$stdout_file
 
-cmd="$prepended_command $command_run --html --no-split --set-customization-variable 'TEST 1' --enable-encoding -c OUTPUT_CHARACTERS=1 --out $basename/ $srcdir/../../perl/t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../perl/t/input_files/char_utf8_latin1_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $command_run --html --no-split --set-customization-variable TEST=$test_level --enable-encoding -c OUTPUT_CHARACTERS=1 --out $basename/ $srcdir/../../perl/t/input_files/char_latin1_latin1_in_refs.texi $srcdir/../../perl/t/input_files/char_utf8_latin1_in_refs.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 
@@ -77,7 +82,7 @@ else
   cp -pr $outdir $raw_output_dir
   # no non-ASCII output file names
   #find $outdir | $PERL $srcdir/../escape_file_names.pl
-    
+
   dir=$basename
   if [ -d "$srcdir/${dir}_res" ]; then
     rm -rf $staging_dir/${dir}_res

@@ -76,7 +76,7 @@ else
 fi
 AC_MSG_RESULT($perl_version_requirement)
 if test z"$perl_version_requirement" = 'zno' ; then
-  AC_MSG_ERROR([perl >= 5.8.1 with Encode, Data::Dumper and Unicode::Normalize required by Texinfo.])
+  AC_MSG_ERROR([perl >= 5.8.1 with Encode, Unicode::Normalize and other core modules required by Texinfo.])
 fi
 
 AC_MSG_CHECKING([Unicode::Collate])
@@ -388,6 +388,9 @@ AC_ARG_ENABLE([t2a-tests],
      else
        t2a_tests='yes'
      fi])
+
+AC_ARG_ENABLE([refcounts-checks],
+    AS_HELP_STRING([--enable-refcounts-checks],[checks on reference counts (default: detected)]))
 
 pod_simple_texinfo_tests='no'
 AC_ARG_ENABLE([pod-simple-texinfo-tests],

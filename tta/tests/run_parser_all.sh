@@ -212,6 +212,8 @@ main_command='perl/texi2any.pl'
 #commands=': perl/texi2any.pl:_info'
 commands=':'
 
+test_level=1
+
 clean=no
 copy=no
 #mydir=
@@ -250,6 +252,10 @@ fi
 
 if test $TESTS_MAIN_COMMAND = 'perl/texi2any.pl' ; then
   prepended_command="$prepended_command $PERL -w"
+fi
+
+if test z"$DEFAULT_TEST_LEVEL" = z1 -o z"$DEFAULT_TEST_LEVEL" = z2 ; then
+  test_level=$DEFAULT_TEST_LEVEL
 fi
 
 one_test_logs_dir=$testdir/test_log
@@ -472,7 +478,7 @@ while read line; do
     mkdir "${outdir}$dir"
     remaining_out_dir=`echo $remaining | sed 's,@OUT_DIR@,'"${outdir}$dir/"',g'`
     echo "$command $dir -> ${outdir}$dir" >> $logfile
-    cmd="$prepended_command $command_run $format_option --force --conf-dir $srcdir/../perl/t/init/ --conf-dir $srcdir/../perl/init --conf-dir $srcdir/../perl/ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=1 $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
+    cmd="$prepended_command $command_run $format_option --force --conf-dir $srcdir/../perl/t/init/ --conf-dir $srcdir/../perl/init --conf-dir $srcdir/../perl/ext -I $srcdir/$testdir -I $testdir/ -I $srcdir/ -I . -I built_input -I built_input/non_ascii --error-limit=1000 -c TEST=$test_level $l2h_flags --output ${outdir}$dir/ $remaining_out_dir $src_file > ${outdir}$dir/$basename.1 2>${outdir}$dir/$basename.2"
     echo "$cmd" >>$logfile
     eval $cmd
     ret=$?

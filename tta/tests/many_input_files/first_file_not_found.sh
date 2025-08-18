@@ -19,6 +19,7 @@ logfile=$basename.log
 stdout_file=stdout_$basename.out
 main_command='perl/texi2any.pl'
 prepended_command=
+test_level=1
 
 [ "z$srcdir" = 'z' ] && srcdir=.
 
@@ -30,6 +31,10 @@ fi
 
 if test $TESTS_MAIN_COMMAND = 'perl/texi2any.pl' ; then
   prepended_command="$prepended_command $PERL -w"
+fi
+
+if test z"$DEFAULT_TEST_LEVEL" = z1 -o z"$DEFAULT_TEST_LEVEL" = z2 ; then
+  test_level=$DEFAULT_TEST_LEVEL
 fi
 
 command_run=
@@ -58,7 +63,7 @@ raw_outdir=$raw_output_dir/$basename
 mkdir $basename
 : > $basename/$stdout_file
 
-cmd="$prepended_command $command_run --set-customization-variable 'TEST 1' --out $basename/ file_not_existing.texi $srcdir/../formatting/simplest.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $command_run --set-customization-variable TEST=$test_level --out $basename/ file_not_existing.texi $srcdir/../formatting/simplest.texi --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

@@ -25,6 +25,7 @@ logfile=$basename.log
 stdout_file=stdout_$basename.out
 main_command='perl/texi2any.pl'
 prepended_command=
+test_level=1
 
 [ "z$srcdir" = 'z' ] && srcdir=.
 
@@ -36,6 +37,10 @@ fi
 
 if test $TESTS_MAIN_COMMAND = 'perl/texi2any.pl' ; then
   prepended_command="$prepended_command $PERL -w"
+fi
+
+if test z"$DEFAULT_TEST_LEVEL" = z1 -o z"$DEFAULT_TEST_LEVEL" = z2 ; then
+  test_level=$DEFAULT_TEST_LEVEL
 fi
 
 command_run=
@@ -85,7 +90,7 @@ mkdir $basename
 
 # note that it is important to have -c 'COMMAND_LINE_ENCODING UTF-8' before --out
 # such that --out is correctly decoded
-cmd="$prepended_command $command_run --set-customization-variable 'TEXI2HTML 1' --set-customization-variable 'TEST 1' --set-customization-variable L2H_TMP=$tmp_dir --conf-dir $srcdir/../../perl/ext --set-customization-variable 'HTML_MATH l2h' --set-customization-variable L2H_FILE=$srcdir/../../perl/t/init/l2h.init  --set-customization-variable 'L2H_CLEAN=0' --iftex -c 'COMMAND_LINE_ENCODING UTF-8' --out $basename/encodé/ ../built_input/non_ascii/tex_encodé_utf8.texi $srcdir/../tex_html/tex_complex.texi -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $basename/$stdout_file 2>$basename/${basename}.2"
+cmd="$prepended_command $command_run --set-customization-variable 'TEXI2HTML 1' --set-customization-variable TEST=$test_level --set-customization-variable L2H_TMP=$tmp_dir --conf-dir $srcdir/../../perl/ext --set-customization-variable 'HTML_MATH l2h' --set-customization-variable L2H_FILE=$srcdir/../../perl/t/init/l2h.init  --set-customization-variable 'L2H_CLEAN=0' --iftex -c 'COMMAND_LINE_ENCODING UTF-8' --out $basename/encodé/ ../built_input/non_ascii/tex_encodé_utf8.texi $srcdir/../tex_html/tex_complex.texi -c OUTPUT_FILE_NAME_ENCODING=UTF-8 --force >> $basename/$stdout_file 2>$basename/${basename}.2"
 echo "$cmd" >> $logfile
 eval $cmd
 

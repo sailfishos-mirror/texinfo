@@ -140,7 +140,12 @@ Texinfo::Translations::configure($locales_dir);
 
 Locale::Messages::bindtextdomain('texinfo', $locales_dir);
 
-my $default_test_level = 2;
+my $default_test_level = 1;
+if (defined($Texinfo::ModulePath::default_test_level)
+    and ($Texinfo::ModulePath::default_test_level == 1
+         or $Texinfo::ModulePath::default_test_level == 2)) {
+  $default_test_level = $Texinfo::ModulePath::default_test_level;
+}
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 my $XS_conversion = Texinfo::XSLoader::XS_convert_enabled();
@@ -994,8 +999,7 @@ sub test($$)
   if (!exists($parser_options->{'TEST'})) {
     $test_customization_options->{'TEST'} = $default_test_level;
   } else {
-    $test_customization_options->{'TEST'}
-      = $parser_options->{'TEST'};
+    $test_customization_options->{'TEST'} = $parser_options->{'TEST'};
   }
 
   my $remove_references = 0;
@@ -1143,7 +1147,7 @@ sub test($$)
         $format_converter_options->{'OUTFILE'} = '';
       }
       $format_converter_options->{'TEST'} = $default_test_level
-        if (!defined($format_converter_options->{'TEST'}));
+        if (!exists($format_converter_options->{'TEST'}));
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'/t/include/'];
       my $converter;
