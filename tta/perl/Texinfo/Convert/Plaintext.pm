@@ -671,7 +671,6 @@ sub convert($$)
   my $result = '';
 
   my $output_units = Texinfo::OutputUnits::split_by_node($document);
-  #$document->register_output_units_lists([$output_units]);
   $self->register_output_units_lists([$output_units]);
 
   foreach my $output_unit (@$output_units) {
@@ -733,7 +732,6 @@ sub output($$)
   Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
                                     $self->get_conf('SPLIT'));
 
-  #$document->register_output_units_lists([$output_units]);
   $self->register_output_units_lists([$output_units]);
 
   # determine file names associated with the different pages

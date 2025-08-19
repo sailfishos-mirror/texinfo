@@ -536,6 +536,9 @@ sub tree_remove_references($;$);
 sub tree_remove_references($;$) {
   my ($element, $check_refcount) = @_;
 
+  # We do not set variables to hash values in this code, as this adds a
+  # refcount, we do everything with the hash key values directly.
+
   if (exists($element->{'source_marks'})) {
     foreach my $source_mark (@{$element->{'source_marks'}}) {
       if (exists($source_mark->{'element'})) {
@@ -571,7 +574,7 @@ sub tree_remove_references($;$) {
             delete $element->{'extra'}->{'def_index_ref_element'};
           }
         }
-        # holds duplicates of the element label contents
+        # hold duplicates of the element label contents
         foreach my $key ('node_content', 'manual_content') {
           if (exists($element->{'extra'}->{$key})) {
             delete $element->{'extra'}->{$key}->{'contents'};
@@ -586,15 +589,16 @@ sub tree_remove_references($;$) {
     }
   }
 
-  #print STDERR "TRE $element ".
+  #print STDERR "T RREF $element ".
   #   Texinfo::ManipulateTree::element_print_details($element)."\n";
 
   if (defined($check_refcount)) {
     my $reference_count = Devel::Peek::SvREFCNT($element);
     my $object_count = Devel::Refcount::refcount($element);
     # The $element variable owns one count to reference and to object.
-    # The parent contents hash also holds a count to the object.
-    # plus possibly one reference owned by the C code
+    # The parent contents or the extra key or the info key or the
+    # source mark element key also holds a count to the object.
+    # plus possibly one count owned by the C code
     #if (1) {
     #Devel::Peek::Dump($element);
     if ($reference_count != 1

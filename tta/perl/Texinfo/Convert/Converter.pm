@@ -452,8 +452,10 @@ sub output_tree($$;$) {
   return $result;
 }
 
-# No XS needed, as in C the units are necessarily registered for memory
-# management.
+# Only called by pure Perl converters.  Allows to retrieve later on the
+# output units lists and the output units.
+# No similar C/XS code needed, as in C the units are necessarily registered
+# for memory management and available from the document or converter.
 # TODO document
 sub register_output_units_lists($$) {
   my ($self, $output_units_lists) = @_;
@@ -466,6 +468,15 @@ sub register_output_units_lists($$) {
   }
 }
 
+# There is no XS override. The output units lists returned are the
+# output units registered by pure Perl converters.
+#
+# There should not be any need to access output units lists for output
+# units created in C and built to Perl, as all the codes for output
+# units management are available from XS and called from there.
+# (If access to those output units is nevertheless needed, for example
+# for debugging, there is a separate function that only returns output
+# units lists of output units created in C only, XS_get_output_units_lists.)
 sub get_output_units_lists($) {
   my $self = shift;
 
@@ -490,9 +501,9 @@ sub reset_converter($) {
   # call format specific method
   $self->converter_reset();
 
-  # Pure Perl converters register the output units in document, not
-  # C/XS converterd.
-  # For  a C/XS converter, we go through the C data output units lists
+  # Pure Perl converters register the output units in converter, not
+  # C/XS converters.
+  # For a C/XS converter, we go through the C data output units lists
   # and remove references to output units Perl data for each of the output
   # units, but do that in a separate code.
   my $output_units_lists = $self->get_output_units_lists();
@@ -596,6 +607,12 @@ sub XS_get_unclosed_stream($$) {
   return undef;
 }
 
+# returns main output units list, special output units list and associated
+# output units lists, for output units managed in C/XS only.  Not generally
+# needed, as all the computations are done through XS, but can be useful
+# for debugging.
+# (Access of pure Perl converters output units lists should be through
+# get_output_units_lists)
 sub XS_get_output_units_lists($) {
   return (undef, undef, undef);
 }

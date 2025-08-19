@@ -159,12 +159,6 @@ sub new_document($)
     'parser_error_messages' => [],
      # error messages for the document for structuring, not for parsing
     'error_messages' => [],
-     # hold output unit lists, such that they can be retrieved.
-     # In general, the lists are created and managed by converters or other
-     # codes, not by code related to the Texinfo parsed Document, the
-     # Document is merely used to store them, since it generally
-     # outlives converters.
-     'output_units_lists' => [],
   };
 
   bless $document;
@@ -257,23 +251,6 @@ sub headings_list($)
 {
   my $self = shift;
   return $self->{'headings_list'};
-}
-
-# In the tests, output units are registered for several formats
-sub register_output_units_lists($$) {
-  my ($self, $output_units_lists) = @_;
-
-  return unless defined($output_units_lists);
-
-  foreach my $output_unit_list (@$output_units_lists) {
-    push @{$self->{'output_units_lists'}}, $output_unit_list
-      unless(!defined($output_unit_list));
-  }
-}
-
-sub get_output_units_lists($) {
-  my $self = shift;
-  return $self->{'output_units_lists'};
 }
 
 # Useful for options used in structuring/tree transformations.
@@ -400,6 +377,7 @@ sub remove_document_references($;$) {
         delete $index_entry->{'entry_associated_element'};
       }
     }
+
     # Texinfo tree elements in translation caches are not released, they may
     # be showed for debugging here to verify that they do not show up
     # somewhere.

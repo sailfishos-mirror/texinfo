@@ -35,8 +35,8 @@
 # removed.
 #
 # If TEST is > 1, in addition
-# * the reference to elements (with $remove_references set)
-# * some checks on remaining refcounts are shown.
+# * the reference to elements are removed (with $remove_references set)
+# * checks on remaining refcounts are shown.
 # These two effects are triggered by TEST, but are checked at different
 # places such that the conditions can be changed independently.
 
@@ -2231,7 +2231,10 @@ while(@input_files) {
   }
 
   # To debug the state of the output units lists after the destruction of
-  # the converter with TEST > 1 get output units lists before they are destroyed in XS
+  # the converter, get output units lists before they are destroyed.
+  # This adds a reference, so the problem should be diagnosed
+  # before enabling this code.  This is mainly relevant with XS,
+  # see below.
   #my @output_units_lists;
   #if (defined($test_level) and $test_level > 1) {
   #  @output_units_lists = $converter->XS_get_output_units_lists();
@@ -2240,29 +2243,22 @@ while(@input_files) {
   # Texinfo::Converter::Text does not define it. Alternatively could be
   # a mandated part of the converter API
   # Destroying the converter means releasing the output units and, if there
-  # is XS freein some memory related to the conversion.  If the program
+  # is XS freeing memory related to the conversion.  If the program
   # is about to exit, all the memory will be released, so we only cleanup
   # at all if TEST is set.
   if ($converter->can('reset_converter') and $test_level) {
     $converter->reset_converter();
   }
 
-  # This cannot be done from C/XS, this code is therefore handy
-  # to check that there are not unexpected references.  No
-  # document_units if TEST > 1, though, so not useful in that case.
-  #if (exists($converter->{'document_units'})) {
-  #  print STDERR "DOCUMENT UNITS after reset_converter "
-  #                   ."$converter->{'document_units'}\n";
-  #  foreach my $output_unit (@{$converter->{'document_units'}}) {
-  #    # refs are prev, associated_unit of root commands and 'document_units'
-  #    print STDERR " $output_unit ".Devel::Peek::SvREFCNT($output_unit).
-  #     " HV: ".Devel::Refcount::refcount($output_unit)."\n"
-  #      .Devel::FindRef::track($output_unit)."\n";
-  #  }
-  #}
-
-  # To debug with TEST > 1, the output_units_lists need to have been gathered
-  # before.  Then it is possible to go through them:
+  # When the output units are created from XS, they are not registered
+  # in the Converter output units lists, so there is no place in the Perl code
+  # where the output units can be accessed easily to have Devel::FindRef::track
+  # called on them, although this is very handy if, with TEST > 1, the
+  # XS/C code showed remaining references when checking refcounts.
+  #
+  # It is possible to call Devel::FindRef::track here, for that
+  # the output_units_lists need to have been gathered before.  Then it is
+  # possible to go through them:
   #if (defined($test_level) and $test_level > 1) {
   #  my $index = -1;
   #  foreach my $output_unit_list (@output_units_lists) {
@@ -2360,18 +2356,6 @@ while(@input_files) {
   if ($test_level) {
     $converter->destroy();
   }
-
-  # It is not easy to get the output units with XS, after the converter
-  # 'document_units' key has been destroyed.  The best option
-  # is to go through the root commands as seen here:
-  #foreach my $element (@{$tree->{'contents'}}) {
-  #  if (exists($element->{'associated_unit'})) {
-  #    my $output_unit = $element->{'associated_unit'};
-  #    print STDERR " $output_unit ".Devel::Peek::SvREFCNT($output_unit).
-  #     " HV: ".Devel::Refcount::refcount($output_unit)."\n"
-  #      .Devel::FindRef::track($output_unit)."\n";
-  #  }
-  #}
 
  NEXT:
   $parser->release();

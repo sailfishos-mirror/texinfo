@@ -1,13 +1,20 @@
 2025-08-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm (new_document): remove
+	output_units_lists, get_output_units_lists and
+	register_output_units_lists.  It is already done by converters, no
+	point in having two possibilities.
+
+	Changes in comments.
+
+2025-08-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm (_remove_section_relations_relations):
 	remove cycle going through toplevel prev directions.
 
 	* tta/perl/Texinfo/Document.pm (remove_document_references):
 	reorganize code to separate code that remove cycles and code that
 	remove all the references to elements.
-
-2025-08-19 Patrice Dumas  <pertusus@free.fr>
 
 2025-08-19 Patrice Dumas  <pertusus@free.fr>
 
