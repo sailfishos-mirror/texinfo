@@ -9590,10 +9590,9 @@ sub converter_reset($) {
   $self->{'document_units'} = [];
 }
 
-# remove data that leads to cycles, and also remove reference to tree elements
-# that cannot be accessed through document if $REMOVE_REFERENCES is set.
-sub converter_destroy($;$) {
-  my ($self, $remove_references) = @_;
+# remove data that leads to cycles.
+sub converter_destroy($) {
+  my $self = shift;
 
   delete $self->{'current_node'};
 
@@ -9632,20 +9631,6 @@ sub converter_destroy($;$) {
         if (defined($tree)) {
           # always a copy
           Texinfo::ManipulateTree::tree_remove_parents($tree);
-          if ($remove_references) {
-            delete $no_arg_command_ctx->{$context}->{'translated_tree'};
-            # There is no reason why there should be a specific number
-            # of references for the element at the root of the tree.
-            # The same tree is in general referenced in the different
-            # $contexts, therefore there are additional references
-            # removed through this loop.
-            # Still, the references on tree elements should
-            # be removed as the code is run through even if the diagnostic
-            # is not shown.
-            # TODO exclude root_line from refcount checks in
-            # tree_remove_references?
-            Texinfo::ManipulateTree::tree_remove_references($tree);
-          }
         }
       }
     }

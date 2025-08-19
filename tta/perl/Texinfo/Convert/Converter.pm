@@ -474,7 +474,7 @@ sub get_output_units_lists($) {
 
 # should be redefined by converters if needed
 sub converter_reset($) {
-  my ($self, $remove_references) = @_;
+  my $self = shift;
 }
 
 sub _XS_reset_converter($) {
@@ -547,13 +547,13 @@ sub reset_converter($) {
 
 # Should be redefined in converters if needed
 # TODO document
-sub converter_destroy($;$) {
-  my ($self, $remove_references) = @_;
+sub converter_destroy($) {
+  my $self = shift;
 }
 
 # can also be called from XS
-sub converter_perl_release($;$) {
-  my ($self, $remove_references) = @_;
+sub converter_perl_release($) {
+  my $self = shift;
 
   # generic
   delete $self->{'document'};
@@ -576,21 +576,20 @@ sub converter_perl_release($;$) {
   delete $self->{'current_lang_translations'};
 
   # output format converter specific
-  $self->converter_destroy($remove_references);
+  $self->converter_destroy();
 }
 
-sub _XS_destroy($;$) {
-  my ($self, $remove_references) = @_;
+sub _XS_destroy($) {
+  my $self = @_;
 }
 
-sub destroy($;$) {
-  my ($self, $remove_references) = @_;
+sub destroy($) {
+  my $self = shift;
 
-  $self->converter_perl_release($remove_references);
-
-  $self->_XS_destroy($remove_references);
-
+  $self->converter_perl_release();
   #find_cycle($self);
+
+  $self->_XS_destroy();
 }
 
 sub XS_get_unclosed_stream($$) {

@@ -568,8 +568,8 @@ sub converter_initialize($)
   return $self;
 }
 
-sub converter_destroy($;$) {
-  my ($self, $remove_references) = @_;
+sub converter_destroy($) {
+  my $self = shift;
 
   delete $self->{'index_entries_line_location'};
   delete $self->{'current_node'};

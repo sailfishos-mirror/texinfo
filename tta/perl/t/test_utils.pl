@@ -1231,7 +1231,7 @@ sub test($$)
         }
       }
       $converter->reset_converter();
-      $converter->destroy($remove_references);
+      $converter->destroy();
 
       $converted_errors{$format} = $converter->get_converter_errors();
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});

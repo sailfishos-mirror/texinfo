@@ -857,8 +857,8 @@ sub converter_initialize($)
   return $self;
 }
 
-sub converter_destroy($;$) {
-  my ($self, $remove_references) = @_;
+sub converter_destroy($) {
+  my $self = shift;
 
   delete $self->{'index_entries'};
   delete $self->{'settitle_tree'};

@@ -33,8 +33,7 @@ call_object_reset_converter (const CONVERTER *self)
 }
 
 void
-call_object_converter_perl_release (const CONVERTER *self,
-                                    int remove_references)
+call_object_converter_perl_release (const CONVERTER *self)
 {
 }
 

@@ -207,7 +207,7 @@ call_object_reset_converter (const CONVERTER *self)
   SAVETMPS;
 
   PUSHMARK(SP);
-  EXTEND(SP, 2);
+  EXTEND(SP, 1);
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
@@ -227,8 +227,7 @@ call_object_reset_converter (const CONVERTER *self)
 }
 
 void
-call_object_converter_perl_release (const CONVERTER *self,
-                                    int remove_references)
+call_object_converter_perl_release (const CONVERTER *self)
 {
   int count;
 
@@ -240,10 +239,9 @@ call_object_converter_perl_release (const CONVERTER *self,
   SAVETMPS;
 
   PUSHMARK(SP);
-  EXTEND(SP, 2);
+  EXTEND(SP, 1);
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
-  PUSHs(sv_2mortal (newSViv (remove_references)));
   PUTBACK;
 
   count = call_method ("converter_perl_release",

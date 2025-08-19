@@ -686,16 +686,14 @@ reset_converter (SV *converter_in)
             reset_converter (self);
           }
 
-# remove_references_sv
 void
-destroy (SV *converter_in, ...)
-      PROTOTYPE: $;$
+destroy (SV *converter_in)
       PREINIT:
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in, 0);
         if (self)
-          {/* transfer messages set by parser_reset */
+          {/* transfer messages set by converter reset after conversion */
             if (self->error_messages.number)
               {
                 pass_errors_to_hv (&self->error_messages,

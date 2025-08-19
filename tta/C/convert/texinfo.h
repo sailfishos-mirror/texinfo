@@ -122,8 +122,7 @@ void txi_destroy_document (DOCUMENT *document, const char *external_module,
                            int remove_references);
 
 void txi_converter_reset (CONVERTER *converter, const char *external_module);
-void txi_converter_destroy (CONVERTER *converter, const char *external_module,
-                            int remove_references);
+void txi_converter_destroy (CONVERTER *converter, const char *external_module);
 
 int txi_close_file_stream (const char *program_file,
                            const FILE_STREAM *file_stream);

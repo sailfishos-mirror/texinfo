@@ -1,5 +1,23 @@
 2025-08-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (converter_destroy): do not call
+	tree_remove_references on no arg commands translated_tree, as there is
+	no check on those trees.
+
+	* C/convert/call_conversion_perl.c
+	(call_object_converter_perl_release), tta/C/convert/texinfo.c
+	(txi_converter_destroy), tta/perl/Texinfo/Convert/Converter.pm
+	(converter_destroy, converter_perl_release, _XS_destroy, destroy),
+	tta/perl/Texinfo/Convert/HTML.pm (converter_destroy),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (destroy): remove
+	remove_references argument of converter destroy functions.  It is not
+	used anymore, but there should not be a need to readd it, as the
+	converter and all the references on elements it could have had should
+	be released when checks on refcounts are done on the Document tree. 
+	Update callers.
+
+2025-08-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/call_conversion_perl.c (call_object_reset_converter),
 	tta/C/convert/texinfo.c (txi_converter_reset),
 	tta/perl/Texinfo/Convert/Converter.pm (reset_converter),

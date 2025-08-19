@@ -1170,7 +1170,7 @@ sub output($$)
 }
 
 # Nothing to do in perl.  XS function frees memory
-sub destroy($;$)
+sub destroy($)
 {
 }
 

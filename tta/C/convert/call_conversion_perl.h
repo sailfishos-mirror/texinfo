@@ -13,8 +13,7 @@ CONVERTER_INITIALIZATION_INFO *call_module_converter_defaults (
 
 CONVERTER *call_module_converter (const char *module_name,
                         const CONVERTER_INITIALIZATION_INFO *conf);
-void call_object_converter_perl_release (const CONVERTER *self,
-                                         int remove_references);
+void call_object_converter_perl_release (const CONVERTER *self);
 void call_object_reset_converter (const CONVERTER *self);
 OUTPUT_TEXT_FILES_INFO *call_converter_output (CONVERTER *self,
                                                DOCUMENT *document);

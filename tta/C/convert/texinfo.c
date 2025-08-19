@@ -727,11 +727,10 @@ txi_converter_reset (CONVERTER *converter, const char *external_module)
 }
 
 void
-txi_converter_destroy (CONVERTER *converter, const char *external_module,
-                       int remove_references)
+txi_converter_destroy (CONVERTER *converter, const char *external_module)
 {
   if (external_module)
-    call_object_converter_perl_release (converter, remove_references);
+    call_object_converter_perl_release (converter);
   destroy_converter (converter);
 }
 

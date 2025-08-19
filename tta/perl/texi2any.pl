@@ -2346,7 +2346,7 @@ while(@input_files) {
                       \%opened_files, $sort_element_count_file_opened_file);
 
     $converter_element_count->reset_converter();
-    $converter_element_count->destroy($remove_references);
+    $converter_element_count->destroy();
     # we do not need to go through unclosed files of
     # $sort_elem_files_information as we know that the file is
     # already closed if needed, or registered in main_unclosed_files.
@@ -2358,7 +2358,7 @@ while(@input_files) {
   }
 
   if ($test_level) {
-    $converter->destroy($remove_references);
+    $converter->destroy();
   }
 
   # It is not easy to get the output units with XS, after the converter
