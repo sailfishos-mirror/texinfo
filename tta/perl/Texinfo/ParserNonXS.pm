@@ -66,9 +66,7 @@ use if $] >= 5.014, re => '/a';
 # debug
 use Carp qw(cluck confess);
 #use Data::Dumper;
-#use Devel::FindRef;
-#use Devel::Cycle;
-#use Devel::Refcount;
+eval { require Devel::Cycle; Devel::Cycle->import(); };
 
 # to detect if an encoding may be used to open the files
 # to encode/decode in-memory strings used as files
@@ -870,7 +868,7 @@ sub release($)
 {
   my $self = shift;
 
-  $self->{'document'} = undef;
+  delete $self->{'document'};
   # point to elements
   $self->{'macros'} = {};
   #find_cycle($self);
