@@ -33,10 +33,7 @@ use warnings;
 
 use Carp qw(cluck confess);
 
-#use Devel::Peek;
-#use Devel::Refcount;
-#use Devel::FindRef;
-#use Devel::Cycle;
+eval { require Devel::Cycle; Devel::Cycle->import(); };
 
 use Texinfo::DocumentXS;
 
@@ -313,10 +310,15 @@ sub _remove_section_relations_relations($) {
                         'section_children') {
     delete $section_relation->{$relation};
   }
-  foreach my $directions ('section_directions', 'toplevel_directions') {
-    if (exists($section_relation->{$directions})) {
-      delete $section_relation->{$directions}->{'next'};
-    }
+  if (exists($section_relation->{'section_directions'})) {
+    # next/prev cycles
+    delete $section_relation->{'section_directions'}->{'next'};
+  }
+  if (exists($section_relation->{'toplevel_directions'})) {
+    # next/prev cycles, but also next/up and prev/up as the first
+    # chapter level relation is next for top and also up
+    delete $section_relation->{'toplevel_directions'}->{'next'};
+    delete $section_relation->{'toplevel_directions'}->{'prev'};
   }
 }
 
@@ -358,6 +360,15 @@ sub remove_document_references($;$) {
   foreach my $section_relation (@$sections_list) {
     _remove_section_relations_relations($section_relation);
   }
+
+  if (defined($tree)) {
+    Texinfo::ManipulateTree::tree_remove_parents($tree);
+  }
+
+  # REMARK some tests take a long time, for example
+  # t/formats_encodings.t at_commands_in_refs
+  #find_cycle($document);
+
   if ($remove_references) {
     foreach my $section_relation (@$sections_list) {
       _remove_section_relations_references($section_relation);
@@ -373,9 +384,7 @@ sub remove_document_references($;$) {
     # Refers to section relations not directly to tree elements
     #if (exists($document->{'sectioning_root'})) {
     #}
-  }
 
-  if ($remove_references) {
     delete $document->{'identifiers_target'};
     delete $document->{'labels_list'};
     delete $document->{'internal_references'};
@@ -391,41 +400,30 @@ sub remove_document_references($;$) {
         delete $index_entry->{'entry_associated_element'};
       }
     }
-  }
-
-  # Done by converters
-  #my $output_units_lists = $document->get_output_units_lists();
-
-  #foreach my $output_units_list (@$output_units_lists) {
-  #  Texinfo::OutputUnits::release_output_units_list($output_units_list);
-  #}
-
-  # Texinfo tree elements in translation caches are not released, they may
-  # be showed for debugging here to verify that they do not show up
-  # somewhere.
-  if (0 and $remove_references) {
-  #if ($remove_references) {
-    foreach my $lang (sort(keys(
+    # Texinfo tree elements in translation caches are not released, they may
+    # be showed for debugging here to verify that they do not show up
+    # somewhere.
+    #if (1) {
+    if (0) {
+      foreach my $lang (sort(keys(
                          %{$Texinfo::Translations::translation_cache}))) {
-      my $lang_cache = $Texinfo::Translations::translation_cache->{$lang};
-      foreach my $string (sort(keys(%$lang_cache))) {
-        foreach my $context (sort(keys(%{$lang_cache->{$string}}))) {
-          my ($translation, $trans_tree)
-            = @{$lang_cache->{$string}->{$context}};
-          print STDERR "TRANSL: $string-$context: ";
-          if (defined($trans_tree)) {
-            Texinfo::ManipulateTree::_print_tree_elements_ref($trans_tree, 0);
-          } else {
-            print STDERR "NOT NEEDED\n";
+        my $lang_cache = $Texinfo::Translations::translation_cache->{$lang};
+        foreach my $string (sort(keys(%$lang_cache))) {
+          foreach my $context (sort(keys(%{$lang_cache->{$string}}))) {
+            my ($translation, $trans_tree)
+              = @{$lang_cache->{$string}->{$context}};
+            print STDERR "TRANSL: $string-$context: ";
+            if (defined($trans_tree)) {
+              Texinfo::ManipulateTree::_print_tree_elements_ref($trans_tree, 0);
+            } else {
+              print STDERR "NOT NEEDED\n";
+            }
           }
         }
       }
     }
-  }
 
-  if (defined($tree)) {
-    Texinfo::ManipulateTree::tree_remove_parents($tree);
-    if ($remove_references) {
+    if (defined($tree)) {
       my $test_level = $document->get_conf('TEST');
       my $check_refcount;
       if (defined($test_level) and $test_level > 1) {
@@ -448,8 +446,6 @@ sub destroy_document($;$) {
   remove_document_references($document, $remove_references);
 
   _XS_destroy_document($document, $remove_references);
-
-  #find_cycle($document);
 }
 
 # The XS override register a reference to the C element in Perl

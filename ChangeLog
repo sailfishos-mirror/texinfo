@@ -1,6 +1,17 @@
 2025-08-19 Patrice Dumas  <pertusus@free.fr>
 
-	tta/perl/Texinfo/ParserNonXS.pm (release): delete instead of
+	* tta/perl/Texinfo/Document.pm (_remove_section_relations_relations):
+	remove cycle going through toplevel prev directions.
+
+	* tta/perl/Texinfo/Document.pm (remove_document_references):
+	reorganize code to separate code that remove cycles and code that
+	remove all the references to elements.
+
+2025-08-19 Patrice Dumas  <pertusus@free.fr>
+
+2025-08-19 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/ParserNonXS.pm (release): delete instead of
 	undefining document associated to the parser.
 
 2025-08-19 Patrice Dumas  <pertusus@free.fr>
