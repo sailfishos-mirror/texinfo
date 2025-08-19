@@ -490,19 +490,17 @@ sub reset_converter($;$) {
   # call format specific method
   $self->converter_reset($remove_references);
 
-  # only returns something if the converter is a converter in pure Perl.
-  # With XS, it is possible to go through the C data output units lists
+  # Pure Perl converters register the output units in document, not
+  # C/XS converterd.
+  # For  a C/XS converter, we go through the C data output units lists
   # and remove references to output units Perl data for each of the output
-  # units.
-  # (With XS, it is also possible to check the reference
-  # counts when releasing the reference to Perl objects held by C code
-  # if $remove_output_units_references is set.)
+  # units, but do that in a separate code.
   my $output_units_lists = $self->get_output_units_lists();
 
   if (defined($output_units_lists)) {
-    my $remove_output_units_references = 0;
+    my $check_output_units_references = 0;
     my $test_level = $self->get_conf('TEST');
-    $remove_output_units_references = 1
+    $check_output_units_references = 1
       if (defined($test_level) and $test_level > 1);
 
     # need to go through all the output unit lists before checking
@@ -510,11 +508,13 @@ sub reset_converter($;$) {
     # associated_document_unit from associated special units
     # to output units.
     foreach my $output_units_list (@$output_units_lists) {
-      Texinfo::OutputUnits::release_output_units_list($output_units_list,
-                                         $remove_output_units_references);
+      Texinfo::OutputUnits::release_output_units_list($output_units_list);
+
+      #find_cycle($output_units_list);
     }
+
     #if (1) {
-    if ($remove_output_units_references) {
+    if ($check_output_units_references) {
       foreach my $output_units_list (@$output_units_lists) {
         foreach my $output_unit (@$output_units_list) {
           my $reference_count = Devel::Peek::SvREFCNT($output_unit);
@@ -537,10 +537,9 @@ sub reset_converter($;$) {
         }
       }
     }
-    if ($remove_output_units_references) {
-      # remove the output units lists to remove the references to output units
-      @$output_units_lists = ();
-    }
+
+    # remove the output units lists to release the output units
+    @$output_units_lists = ();
   }
 
   $self->_XS_reset_converter($remove_references);

@@ -161,12 +161,7 @@ destroy_document (SV *document_in, ...)
             int check_counts = (document->options->TEST.o.integer > 1);
             ERROR_MESSAGE_LIST *error_messages = 0;
             /* Not useful, as it is done by converters already
-            int remove_references = 0;
-            if (remove_references_sv && SvOK (remove_references_sv))
-              remove_references = SvIV (remove_references_sv);
-
-            release_output_units_lists_built (&document->output_units_lists,
-                                              remove_references);
+            release_output_units_lists_built (&document->output_units_lists);
               */
             /* register messages before being destroyed */
             if (document->error_messages.number)

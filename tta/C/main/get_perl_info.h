@@ -80,10 +80,8 @@ SV *get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
 
 OUTPUT_FILES_INFORMATION *get_output_files_information (SV *output_files_sv);
 
-void release_output_units_list_built (OUTPUT_UNIT_LIST *output_units,
-                                      int remove_references);
-void release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists,
-                                       int remove_references);
+void release_output_units_list_built (OUTPUT_UNIT_LIST *output_units);
+void release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists);
 
 void set_translated_commands (SV *translated_commands_sv,
                          TRANSLATED_COMMAND_LIST *translated_commands);

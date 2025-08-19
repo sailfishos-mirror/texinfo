@@ -9575,29 +9575,22 @@ sub converter_initialize($)
   return $self;
 }
 
-# remove data that leads to cycles related to output units.
+# remove data that leads to cycles related to output units
+# and references to output units.
 # If $REMOVE_REFERENCES is set, the code should also remove
 # reference to tree elements that could not be removed afterwards.
 # There is nothing to be done for this purpose for now.
-# If TEST > 1, references to output units are removed for a check
-# of output units remaining refcounts.
 sub converter_reset($;$) {
   my ($self, $remove_references) = @_;
 
-  my $remove_output_units_references = 0;
-  my $test_level = $self->get_conf('TEST');
-  $remove_output_units_references = 1
-    if (defined($test_level) and $test_level > 1);
-
-  if ($remove_output_units_references) {
-    if (exists($self->{'global_units_directions'})) {
-      %{$self->{'global_units_directions'}} = ();
-    }
-
-    # Cannot do that, the content is still needed by the Converter
-    #@{$self->{'document_units'}} = ();
-    $self->{'document_units'} = [];
+  # remove references to output units
+  if (exists($self->{'global_units_directions'})) {
+    %{$self->{'global_units_directions'}} = ();
   }
+
+  # Cannot do that, the content is still needed by the Converter
+  #@{$self->{'document_units'}} = ();
+  $self->{'document_units'} = [];
 }
 
 # remove data that leads to cycles, and also remove reference to tree elements

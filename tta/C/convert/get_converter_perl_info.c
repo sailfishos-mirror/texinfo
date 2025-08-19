@@ -190,8 +190,7 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
 }
 
 void
-converter_release_output_units_built (CONVERTER *converter,
-                                      int remove_output_units_references)
+converter_release_output_units_built (CONVERTER *converter)
 {
   int i;
 
@@ -203,8 +202,7 @@ converter_release_output_units_built (CONVERTER *converter,
             = retrieve_output_units (converter->document,
                                      converter->output_units_descriptors[i]);
           if (output_unit_list)
-            release_output_units_list_built (output_unit_list,
-                                             remove_output_units_references);
+            release_output_units_list_built (output_unit_list);
         }
     }
 }

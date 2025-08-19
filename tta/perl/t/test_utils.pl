@@ -715,6 +715,7 @@ sub test($$)
   # command to an output unit through 'associated_unit'.  Converters that
   # do not split ignore output units and the association of root commands
   # with output units and therefore should not be affected either.
+  # Also the output units may be released when releasing conversion data.
 
   my $test_split_by_node = undef;
   if ($parser_options->{'test_split'}) {
@@ -1243,7 +1244,7 @@ sub test($$)
   # a converter split the document.
   # It may be noticed that this is only done after all conversions.  This
   # means that depending on the order of converters call, documents feed to
-  # converters may have element units.
+  # converters may have element units if output units are not released.
   # It could be possible to unsplit before each converter call, but it is
   # better to check that this does not have an effect on conversion.
   # Any conversion to Info, Plaintext or HTML (both with output and convert)
@@ -1283,8 +1284,7 @@ sub test($$)
       = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
                                      $tree, $input_file_names_encoding, 1);
     if ($remove_references) {
-      Texinfo::OutputUnits::release_output_units_list($output_units,
-                                                      $remove_references);
+      Texinfo::OutputUnits::release_output_units_list($output_units);
     }
   } else {
     $tree_text = Texinfo::ManipulateTree::tree_print_details($tree,

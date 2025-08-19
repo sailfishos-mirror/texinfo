@@ -683,13 +683,7 @@ reset_converter (SV *converter_in, ...)
         self = get_sv_converter (converter_in, 0);
         if (self)
           {
-            int remove_output_units_references = 0;
-
-            if (self->conf->TEST.o.integer > 1)
-              remove_output_units_references = 1;
-
-            converter_release_output_units_built (self,
-                                          remove_output_units_references);
+            converter_release_output_units_built (self);
 
             reset_converter (self);
           }

@@ -397,8 +397,7 @@ sub remove_document_references($;$) {
   #my $output_units_lists = $document->get_output_units_lists();
 
   #foreach my $output_units_list (@$output_units_lists) {
-  #  Texinfo::OutputUnits::release_output_units_list($output_units_list,
-  #                                        $remove_output_units_references);
+  #  Texinfo::OutputUnits::release_output_units_list($output_units_list);
   #}
 
   # Texinfo tree elements in translation caches are not released, they may

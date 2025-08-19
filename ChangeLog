@@ -1,3 +1,18 @@
+2025-08-19 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/get_converter_perl_info.c
+	(converter_release_output_units_built), tta/C/main/get_perl_info.c
+	(release_output_units_list_built, release_output_units_lists_built),
+	tta/perl/Texinfo/Convert/Converter.pm (reset_converter),
+	tta/perl/Texinfo/OutputUnits.pm (release_output_units_list),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (reset_converter),
+	tta/perl/t/test_utils.pl (test), tta/perl/Texinfo/Convert/HTML.pm
+	(converter_reset): in release_output_units_list, always remove
+	associated_unit from elements when releasing output units, it does not
+	make sense to have elements point to released output units.  Always
+	remove all references to output units, even if it is not needed to
+	remove cycles.
+
 2025-08-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix make distcheck

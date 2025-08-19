@@ -1711,8 +1711,7 @@ get_output_files_information (SV *output_files_sv)
 
 /* Same as Texinfo::OutputUnits release_output_units_list */
 void
-release_output_units_list_built (OUTPUT_UNIT_LIST *output_units,
-                                 int remove_references)
+release_output_units_list_built (OUTPUT_UNIT_LIST *output_units)
 {
   dTHX;
 
@@ -1724,23 +1723,14 @@ release_output_units_list_built (OUTPUT_UNIT_LIST *output_units,
 
       if (output_unit->hv)
         {
-          SV **tree_unit_directions_sv;
+          size_t i;
           SV **directions_sv;
 
-          HV *tree_unit_directions_hv = 0;
           hv_delete (output_unit->hv, "first_in_page",
                      strlen ("first_in_page"), G_DISCARD);
 
-          tree_unit_directions_sv
-            = hv_fetch (output_unit->hv, "tree_unit_directions",
-                        strlen ("tree_unit_directions"), 0);
-          if (tree_unit_directions_sv)
-            {
-              tree_unit_directions_hv
-                 = (HV *) SvRV (*tree_unit_directions_sv);
-              hv_delete (tree_unit_directions_hv, "next",
-                         strlen ("next"), G_DISCARD);
-            }
+          hv_delete (output_unit->hv, "tree_unit_directions",
+                     strlen ("tree_unit_directions"), G_DISCARD);
 
           directions_sv
             = hv_fetch (output_unit->hv, "directions",
@@ -1766,32 +1756,23 @@ release_output_units_list_built (OUTPUT_UNIT_LIST *output_units,
           hv_delete (output_unit->hv, "unit_section",
                      strlen ("unit_section"), G_DISCARD);
 
-          if (remove_references)
+          for (i = 0; i < output_unit->unit_contents.number; i++)
             {
-              size_t i;
-              for (i = 0; i < output_unit->unit_contents.number; i++)
-                {
-                  const ELEMENT *element = output_unit->unit_contents.list[i];
-                  HV *element_hv = (HV *) SvRV ((SV *) element->sv);
-                  hv_delete (element_hv, "associated_unit",
-                             strlen ("associated_unit"), G_DISCARD);
-                }
-
-              hv_delete (output_unit->hv, "associated_document_unit",
-                     strlen ("associated_document_unit"), G_DISCARD);
-
-              if (tree_unit_directions_hv)
-                hv_delete (tree_unit_directions_hv, "prev",
-                           strlen ("prev"), G_DISCARD);
+              const ELEMENT *element = output_unit->unit_contents.list[i];
+              HV *element_hv = (HV *) SvRV ((SV *) element->sv);
+              hv_delete (element_hv, "associated_unit",
+                         strlen ("associated_unit"), G_DISCARD);
             }
+
+           hv_delete (output_unit->hv, "associated_document_unit",
+                      strlen ("associated_document_unit"), G_DISCARD);
         }
     }
 }
 
 /* For documents output units lists, not currently called */
 void
-release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists,
-                                  int remove_references)
+release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists)
 {
   size_t i;
 
@@ -1800,7 +1781,7 @@ release_output_units_lists_built (OUTPUT_UNIT_LISTS *output_units_lists,
       OUTPUT_UNIT_LIST *output_units
          = &output_units_lists->output_units_lists[i];
 
-      release_output_units_list_built (output_units, remove_references);
+      release_output_units_list_built (output_units);
     }
 }
 

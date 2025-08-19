@@ -30,11 +30,12 @@
 #
 # If TEST is set, the cycles are removed (when resetting converters
 # and destroying document), and the XS extensions memory is cleaned,
-# at least such that there is no unreachable memory.
+# at least such that there is no unreachable memory.  For output units,
+# in addition to removing cycles, all references to output units are
+# removed.
 #
 # If TEST is > 1, in addition
-# * the reference to elements (with $remove_references set) and to output
-#   units (condition set in the specific codes) are removed
+# * the reference to elements (with $remove_references set)
 # * some checks on remaining refcounts are shown.
 # These two effects are triggered by TEST, but are checked at different
 # places such that the conditions can be changed independently.

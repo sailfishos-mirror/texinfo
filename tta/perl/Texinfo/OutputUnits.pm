@@ -43,7 +43,6 @@ use File::Basename;
 use Devel::Peek;
 eval { require Devel::Refcount; Devel::Refcount->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
-eval { require Devel::Cycle; Devel::Cycle->import(); };
 
 use Texinfo::StructTransfXS;
 
@@ -281,21 +280,20 @@ sub unsplit($) {
   return $unsplit_needed;
 }
 
-# Remove cycles, such that Perl can remove the remaining data.
+# Remove cycles, such that Perl can remove the remaining data,
+# and also remove references to output units.
 # This involves removing references to Texinfo tree elements.
-# If $REMOVE_REFERENCES is set, remove all references to output units
-# (in this function, those that can be reached through output units).
 # Implementation in C for XS in get_perl_info.c: release_output_units_list_built
-sub release_output_units_list($;$) {
-  my ($output_units_list, $remove_references) = @_;
+sub release_output_units_list($) {
+  my $output_units_list = shift;
 
   foreach my $output_unit (@$output_units_list) {
     delete $output_unit->{'first_in_page'};
-    if (exists($output_unit->{'tree_unit_directions'})) {
-      delete $output_unit->{'tree_unit_directions'}->{'next'};
-    }
+    # only deleting one of next or prev is needed to remove cycles
+    delete $output_unit->{'tree_unit_directions'};
+
     if (exists($output_unit->{'directions'})) {
-      $output_unit->{'directions'} = undef;
+      %{$output_unit->{'directions'}} = ();
       delete $output_unit->{'directions'};
     }
 
@@ -329,28 +327,26 @@ sub release_output_units_list($;$) {
         .Devel::FindRef::track($output_unit)."\n";
     }
 
-    if ($remove_references) {
-      if (exists($output_unit->{'unit_contents'})) {
-        foreach my $element (@{$output_unit->{'unit_contents'}}) {
-          delete $element->{'associated_unit'};
-        }
+    # it is not needed to remove elements associated units to remove
+    # cycles, as long as 'unit_contents' are removed.  But it is
+    # better to do it to remove references to output units from
+    # elements when the output units are released.
+    if (exists($output_unit->{'unit_contents'})) {
+      foreach my $element (@{$output_unit->{'unit_contents'}}) {
+        delete $element->{'associated_unit'};
       }
-      delete $output_unit->{'associated_document_unit'};
+      # this would have been needed to remove cycles going through
+      # tree elements back through associated_unit if associated_unit
+      # had been left.  Also to hide cycles within tree elements that
+      # hinder cycles detection.
+      delete $output_unit->{'unit_contents'};
     }
-    # to remove cycles going through tree elements back through
-    # associated_unit (when associated_unit are still there).  Also to
-    # hide cycles within tree elements that hinder cycles detection.
-    delete $output_unit->{'unit_contents'};
 
-    #find_cycle($output_unit);
+    # not needed to remove cycles, but needed to remove all references
+    # to output units
+    delete $output_unit->{'associated_document_unit'};
 
-    if ($remove_references) {
-      if (exists($output_unit->{'tree_unit_directions'})) {
-        delete $output_unit->{'tree_unit_directions'}->{'prev'};
-      }
-    }
   }
-  #find_cycle($output_units_list);
 }
 
 # Associate top-level units with pages according to the splitting
