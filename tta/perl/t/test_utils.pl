@@ -1230,7 +1230,7 @@ sub test($$)
           }
         }
       }
-      $converter->reset_converter($remove_references);
+      $converter->reset_converter();
       $converter->destroy($remove_references);
 
       $converted_errors{$format} = $converter->get_converter_errors();

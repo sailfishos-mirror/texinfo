@@ -195,7 +195,7 @@ call_module_converter (const char *module_name,
 }
 
 void
-call_object_reset_converter (const CONVERTER *self, int remove_references)
+call_object_reset_converter (const CONVERTER *self)
 {
   int count;
 
@@ -210,7 +210,6 @@ call_object_reset_converter (const CONVERTER *self, int remove_references)
   EXTEND(SP, 2);
 
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
-  PUSHs(sv_2mortal (newSViv (remove_references)));
   PUTBACK;
 
   count = call_method ("reset_converter",

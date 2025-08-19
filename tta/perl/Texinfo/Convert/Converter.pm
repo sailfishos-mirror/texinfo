@@ -473,22 +473,22 @@ sub get_output_units_lists($) {
 }
 
 # should be redefined by converters if needed
-sub converter_reset($;$) {
+sub converter_reset($) {
   my ($self, $remove_references) = @_;
 }
 
-sub _XS_reset_converter($;$) {
-  my ($self, $remove_references) = @_;
+sub _XS_reset_converter($) {
+  my $self = shift;
 }
 
 # TODO the split between destroy and reset could be worked on to be
 # more logical as in C.
 # Possibly called from C main program.
-sub reset_converter($;$) {
-  my ($self, $remove_references) = @_;
+sub reset_converter($) {
+  my $self = shift;
 
   # call format specific method
-  $self->converter_reset($remove_references);
+  $self->converter_reset();
 
   # Pure Perl converters register the output units in document, not
   # C/XS converterd.
@@ -542,7 +542,7 @@ sub reset_converter($;$) {
     @$output_units_lists = ();
   }
 
-  $self->_XS_reset_converter($remove_references);
+  $self->_XS_reset_converter();
 }
 
 # Should be redefined in converters if needed

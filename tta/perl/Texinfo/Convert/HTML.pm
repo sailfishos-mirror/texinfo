@@ -9577,11 +9577,8 @@ sub converter_initialize($)
 
 # remove data that leads to cycles related to output units
 # and references to output units.
-# If $REMOVE_REFERENCES is set, the code should also remove
-# reference to tree elements that could not be removed afterwards.
-# There is nothing to be done for this purpose for now.
-sub converter_reset($;$) {
-  my ($self, $remove_references) = @_;
+sub converter_reset($) {
+  my $self = shift;
 
   # remove references to output units
   if (exists($self->{'global_units_directions'})) {

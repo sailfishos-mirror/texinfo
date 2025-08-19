@@ -718,11 +718,10 @@ txi_destroy_document (DOCUMENT *document, const char *external_module,
 }
 
 void
-txi_converter_reset (CONVERTER *converter, const char *external_module,
-                     int remove_references)
+txi_converter_reset (CONVERTER *converter, const char *external_module)
 {
   if (external_module)
-    call_object_reset_converter (converter, remove_references);
+    call_object_reset_converter (converter);
   else
     reset_converter (converter);
 }

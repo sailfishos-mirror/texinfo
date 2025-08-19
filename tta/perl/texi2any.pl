@@ -2244,7 +2244,7 @@ while(@input_files) {
   # is about to exit, all the memory will be released, so we only cleanup
   # at all if TEST is set.
   if ($converter->can('reset_converter') and $test_level) {
-    $converter->reset_converter($remove_references);
+    $converter->reset_converter();
   }
 
   # This cannot be done from C/XS, this code is therefore handy
@@ -2345,7 +2345,7 @@ while(@input_files) {
            = merge_opened_files($error_sort_element_count_file,
                       \%opened_files, $sort_element_count_file_opened_file);
 
-    $converter_element_count->reset_converter($remove_references);
+    $converter_element_count->reset_converter();
     $converter_element_count->destroy($remove_references);
     # we do not need to go through unclosed files of
     # $sort_elem_files_information as we know that the file is

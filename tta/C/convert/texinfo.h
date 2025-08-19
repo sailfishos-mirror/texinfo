@@ -121,8 +121,7 @@ size_t txi_output_converter_error_messages (CONVERTER *converter,
 void txi_destroy_document (DOCUMENT *document, const char *external_module,
                            int remove_references);
 
-void txi_converter_reset (CONVERTER *converter, const char *external_module,
-                          int remove_references);
+void txi_converter_reset (CONVERTER *converter, const char *external_module);
 void txi_converter_destroy (CONVERTER *converter, const char *external_module,
                             int remove_references);
 

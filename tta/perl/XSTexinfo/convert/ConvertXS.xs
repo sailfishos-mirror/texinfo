@@ -673,10 +673,8 @@ merge_converter_error_messages_lists (SV *dst_in, SV *src_in)
         merge_error_messages_lists (&self->error_messages,
                                     &src->error_messages);
 
-# remove_references_sv
 void
-reset_converter (SV *converter_in, ...)
-      PROTOTYPE: $;$
+reset_converter (SV *converter_in)
       PREINIT:
         CONVERTER *self;
       CODE:

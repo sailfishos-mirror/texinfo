@@ -3077,7 +3077,7 @@ main (int argc, char *argv[], char *env[])
         }
 
       /* free after output */
-      txi_converter_reset (converter, external_module, remove_references);
+      txi_converter_reset (converter, external_module);
 
       /* destroy converter */
       txi_converter_destroy (converter, external_module, remove_references);
@@ -3216,7 +3216,7 @@ main (int argc, char *argv[], char *env[])
 
               /* destroy converter and sort_element_count_info */
               txi_converter_reset (sort_element_count_info->converter,
-                                   elt_count_external_module, 0);
+                                   elt_count_external_module);
               txi_converter_destroy (sort_element_count_info->converter,
                                      elt_count_external_module, 0);
               free (sort_element_count_info);
