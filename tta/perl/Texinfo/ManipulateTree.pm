@@ -53,6 +53,8 @@ eval { require Devel::Refcount; Devel::Refcount->import(); };
 #eval { require Devel::Peek; Devel::Peek->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
 
+my $devel_findref_loading_error = $@;
+
 # for fileparse
 use File::Basename;
 
@@ -98,18 +100,6 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::tree_print_details",
 );
 
-my $destroyed_objects_refcount = 2;
-my $no_XS_objects_refcount;
-if (Texinfo::XSLoader::XS_parser_enabled()) {
-  # a reference in C too
-  $destroyed_objects_refcount++;
-  if (!$XS_structuring) {
-    # transformations may create elements in pure Perl only when
-    # structuring is not done with XS extensions.
-    $no_XS_objects_refcount = $destroyed_objects_refcount -1;
-  }
-}
-
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
@@ -123,6 +113,25 @@ sub import {
   # The usual import method
   goto &Exporter::import;
 }
+
+
+
+my $destroyed_objects_refcount = 2;
+# used in messages
+my $destroyed_objects_refcount_target = $destroyed_objects_refcount;
+my $no_XS_objects_refcount;
+if (Texinfo::XSLoader::XS_parser_enabled()) {
+  # a reference in C too
+  $destroyed_objects_refcount++;
+  if (!$XS_structuring) {
+    # transformations may create elements in pure Perl only when
+    # structuring is not done with XS extensions.
+    $no_XS_objects_refcount = $destroyed_objects_refcount -1;
+    $destroyed_objects_refcount_target
+       = "$destroyed_objects_refcount or $no_XS_objects_refcount";
+  }
+}
+my $element_SV_target_count = 1;
 
 
 
@@ -611,16 +620,20 @@ sub tree_remove_references($;$) {
       if (!exists($element->{'tree_document_descriptor'})
           and !(exists($element->{'type'})
                 and $element->{'type'} eq 'document_root')) {
-        my $refcount_error = "TREE t_r_r $element: $reference_count".
-                       " HV: $object_count\n"
-          .Texinfo::ManipulateTree::element_print_details($element)."\n"
-          #;
-          .Devel::FindRef::track($element)."\n";
-        print STDERR $refcount_error;
+        my $findref_info;
+        if ($devel_findref_loading_error) {
+          $findref_info = '';
+        } else {
+          $findref_info = Devel::FindRef::track($element)."\n";
+        }
+        my $message = "Element refcount ($reference_count, $object_count) != ".
+               "($element_SV_target_count, $destroyed_objects_refcount_target)";
+        warn "You found a bug: $message for $element\n\n".
+        Texinfo::ManipulateTree::element_print_details($element)."\n".
+         $findref_info;
         # pass as warning to have t/*.t tests fail
-        $check_refcount->document_line_warn("Element $element refcount"
-            ." $object_count != $destroyed_objects_refcount; "
-              .Texinfo::Common::debug_print_element($element), {});
+        $check_refcount->document_line_warn("$message for "
+             . Texinfo::Common::debug_print_element($element), {});
       }
     }
   }

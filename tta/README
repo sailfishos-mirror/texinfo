@@ -23,7 +23,7 @@ Module requirements
 These modules and libraries are required (all have been standard
 parts of Perl for years, at least since 5.7.3):
   Carp, Config, Data::Dumper, Encode, File::Basename, File::Spec
-  Getopt::Long, Unicode::Normalize, Storable
+  Getopt::Long, Unicode::Normalize, Storable, Devel::Peek
 
 Unicode::Collate (also a standard module since 5.7.3) is required for
 correct index sorting.
@@ -73,11 +73,25 @@ installed with perl, the packages corresponding to the other modules
 are named:
   libdata-compare-perl libtest-deep-perl
 
+Devel::Refcount is needed for some checks.  It is detected at configure
+time.  If those tests fail Devel::FindRef, detected at runtime, gives
+additional interesting debugging information.
+
 For tests in perl/t/, if the Text::Diff module is installed, the difference
-between reference and obtained test results are shown as a diff, which should
-be more readable.
+between reference and obtained test results are shown as a diff, which
+should be more readable.
 
 The tests in tests/ test the command itself.
+
+Tests of cycles in Perl data require the Devel::Cycle module and uncommenting
+the find_cycle calls in Perl modules codes manually.  This intervention
+is needed because the run time increases significantly with these calls.
+Cycles being found do not cause the tests to fail, so the test logs should
+be checked for this information.  Cycles in data prevent Perl from releasing
+memory.  Removing cycles requires to specifically remove some data that
+creates the cycles.  Not having cycles is not important, as cycles are not
+removed by default, since it takes more time to do so than to let the memory
+be released at the end of a run.
 
 
 Internals:
@@ -118,7 +132,7 @@ The Texinfo parser builds a complicated parse tree.  It can output a lot of
 debug information about the tree, and what it's doing generally.  For example,
 these commands output the tree (in different forms):
   texi2any -c TEXINFO_OUTPUT_FORMAT=debugtree document.texi
-For the Perl implementation only:
+Or:
   texi2any -c DUMP_TREE=1 -c TEXINFO_OUTPUT_FORMAT=parse document.texi
 In addition (or instead) setting the DEBUG configuration variable will
 dump more information about what it's doing.

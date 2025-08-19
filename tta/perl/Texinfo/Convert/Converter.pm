@@ -41,6 +41,9 @@ use Carp qw(cluck confess);
 use Devel::Peek;
 eval { require Devel::Refcount; Devel::Refcount->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
+
+my $devel_findref_loading_error = $@;
+
 eval { require Devel::Cycle; Devel::Cycle->import(); };
 
 use Texinfo::Convert::ConvertXS;
@@ -492,6 +495,9 @@ sub _XS_reset_converter($) {
   my $self = shift;
 }
 
+my $output_unit_SV_target_count = 2;
+my $output_unit_object_target_count = 1;
+
 # TODO the split between destroy and reset could be worked on to be
 # more logical as in C.
 # Possibly called from C main program.
@@ -535,15 +541,19 @@ sub reset_converter($) {
           # Two references, the $output_unit variable and the reference in the
           # output_units_list array
           #if (1) {
-          if ($reference_count != 2 or $object_count != 1) {
-            my $refcount_error = "DEBUG output unit refcount $output_unit ".
-             "$reference_count HV: $object_count\n"
-                 .Devel::FindRef::track($output_unit)."\n";
-            print STDERR $refcount_error;
+          if ($reference_count != $output_unit_SV_target_count
+              or $object_count != $output_unit_object_target_count) {
+            my $findref_info;
+            if ($devel_findref_loading_error) {
+              $findref_info = '';
+            } else {
+              $findref_info = Devel::FindRef::track($output_unit)."\n";
+            }
+            my $message = "Output unit refcount ($reference_count, $object_count) != ".
+               "($output_unit_SV_target_count, $output_unit_object_target_count)";
+            warn "You found a bug: $message for $output_unit\n\n".$findref_info;
             # pass as warning to have t/*.t tests fail
-            $self->converter_document_warn(
-              "Output unit $output_unit refcount $object_count != 1; "
-              .Texinfo::OutputUnits::output_unit_texi($output_unit));
+            $self->converter_document_warn($message);
           }
         }
       }

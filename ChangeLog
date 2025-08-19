@@ -1,5 +1,24 @@
 2025-08-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/README, tta/configure.ac (refcounts-checks): remove Devel::Cycle
+	from the modules that should load for refcounts-checks, as it is not
+	needed.  Add information in tta/README on how to modify the code to
+	test for cycles.
+
+	* tta/perl/Texinfo/Convert/Converter.pm ($devel_findref_loading_error)
+	(reset_converter), tta/perl/Texinfo/ManipulateTree.pm
+	($devel_findref_loading_error, tree_remove_references): remove
+	Devel::FindRef from the modules that should load for refcounts-checks,
+	instead add a runtime check and adapt message.
+
+	* tta/perl/Texinfo/Convert/Converter.pm ($output_unit_SV_target_count)
+	($output_unit_object_target_count, reset_converter),
+	tta/perl/Texinfo/ManipulateTree.pm
+	($destroyed_objects_refcount_target, $element_SV_target_count)
+	(tree_remove_references): modify messages related to refcount checks.
+
+2025-08-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Document.pm (new_document): remove
 	output_units_lists, get_output_units_lists and
 	register_output_units_lists.  It is already done by converters, no
