@@ -208,7 +208,11 @@ libtexinfo_la_SOURCES = \
 # convenience library separate from but only used in libtexinfo to have
 # different CPPFLAGS to make sure that Gnulib header files are not used
 # in compilation.
+# does not actually require iconv, but it is only used as a convenience
+# library for libtexinfo.la, which requires iconv
+if HAVE_ICONV
 noinst_LTLIBRARIES += libcallperl_libtexinfo.la
+endif
 
 # api_to_perl.c and call_perl_function.c functions are called in other
 # parts of the libtexinfo code and need to be compiled with Perl headers

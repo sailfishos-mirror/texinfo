@@ -1,5 +1,12 @@
 2025-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (noinst_LTLIBRARIES): do not build
+	libcallperl_libtexinfo.la if HAVE_ICONV is not set even of the library
+	do not depend on iconv, as the library is only used as a convenience
+	library for libtexinfo.la, which depends on iconv.
+
+2025-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* info/Makefile.am (dist_check_SCRIPTS): make
 	t/config/texinfo/info-hooks/manual-not-found dist_ to have it
 	distributed.
