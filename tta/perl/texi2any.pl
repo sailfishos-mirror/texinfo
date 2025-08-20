@@ -1429,7 +1429,7 @@ my %format_names = (
 sub name_of_format($)
 {
   my $format = shift;
-  if ($format_names{$format}) {
+  if (exists($format_names{$format})) {
     return $format_names{$format};
   } else {
     return $format;

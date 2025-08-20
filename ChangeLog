@@ -1,5 +1,20 @@
 2025-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm ($xs_parser_loaded, XS_parser_loaded)
+	(set_XS_parser_loaded), tta/perl/Texinfo/Parser.pm (BEGIN): add a
+	setter and a getter for the XS Parser being actually loaded.  Set in
+	Parser.pm if XS is enabled and init did not return the non-XS package
+	name.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (_element_remove_references)
+	(tree_remove_references): distinguish tree_remove_references that
+	removes the reference for a whole the, and _element_remove_references
+	that remove recusrively the references for elements except for the
+	tree root.  Setup reference Refcounts in tree_remove_references, using
+	XS_parser_loaded.
+
+2025-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm
 	($destroyed_objects_refcount_text): rename
 	$destroyed_objects_refcount_target as

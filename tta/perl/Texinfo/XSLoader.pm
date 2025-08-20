@@ -79,8 +79,19 @@ sub XS_convert_enabled {
                  or $ENV{TEXINFO_XS_CONVERT} ne '0')));
 }
 
-
 our $disable_XS;
+
+# set from Texinfo/Parser.pm
+my $xs_parser_loaded;
+sub XS_parser_loaded {
+  return $xs_parser_loaded;
+}
+
+sub set_XS_parser_loaded($) {
+  my $parser_loaded = shift;
+
+  $xs_parser_loaded = $parser_loaded;
+}
 
 # For verbose information about what's being done
 sub _debug($) {

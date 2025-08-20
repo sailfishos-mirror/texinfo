@@ -116,28 +116,6 @@ sub import {
 
 
 
-my $destroyed_objects_refcount = 2;
-# used in messages
-my $destroyed_objects_refcount_text = $destroyed_objects_refcount;
-my $no_XS_objects_refcount;
-if (Texinfo::XSLoader::XS_parser_enabled()) {
-  # a reference in C too
-  $destroyed_objects_refcount++;
-
-  if (!$XS_structuring) {
-    # transformations may create elements in pure Perl only when
-    # structuring is not done with XS extensions.
-    $no_XS_objects_refcount = $destroyed_objects_refcount -1;
-    $destroyed_objects_refcount_text
-       = "$destroyed_objects_refcount or $no_XS_objects_refcount";
-  } else {
-    $destroyed_objects_refcount_text = $destroyed_objects_refcount;
-  }
-}
-my $element_SV_target_count = 1;
-
-
-
 # copy a Texinfo tree.
 
 # To do the copy, we do two pass.  First with copy_tree_internal, the tree is
@@ -535,17 +513,30 @@ sub tree_remove_parents($) {
   }
 }
 
-sub tree_remove_references($;$);
-# Remove all the references to elements in tree.  The main objective
-# here is not to release memory, as Perl can release memory if there are
-# no cycles, but to be able to check that the reference counting in C/XS is done
-# correctly.  No specific reason to use in code outside of the Texinfo modules,
-# not documented on purpose.
+# expected number of references to the object
+# The $element variable owns one count to reference and to object.
+# The parent contents or the extra key or the info key or the
+# source mark element key also holds a count to the object.
+# plus possibly one count owned by the C code
+my $destroyed_objects_refcount;
+# used in messages
+my $destroyed_objects_refcount_text;
+# expected number of references to the object if created in Perl without
+# any reference owned by the C code.  Only possible with XS parser, and
+# with structure without XS.
+my $no_XS_objects_refcount;
+
+# expected number of references to the element SV
+my $element_SV_target_count = 1;
+
+sub _element_remove_references($;$);
+
+# recursively remove references to element.  In general should not be
+# called on the tree root element, as it has different number of references.
 # If $CHECK_REFCOUNT is set (to a Document), verify that the reference count for
-# elements except for the tree root element correspond to the count after
-# removing reference to tree elements as much as possible while still
-# being able to process the tree.
-sub tree_remove_references($;$) {
+# elements correspond to the count after removing reference to tree elements
+# as much as possible while still being able to process the tree.
+sub _element_remove_references($;$) {
   my ($element, $check_refcount) = @_;
 
   # We do not set variables to hash values in this code, as this adds a
@@ -554,7 +545,7 @@ sub tree_remove_references($;$) {
   if (exists($element->{'source_marks'})) {
     foreach my $source_mark (@{$element->{'source_marks'}}) {
       if (exists($source_mark->{'element'})) {
-        tree_remove_references($source_mark->{'element'}, $check_refcount);
+        _element_remove_references($source_mark->{'element'}, $check_refcount);
       }
       delete $source_mark->{'element'};
     }
@@ -566,7 +557,7 @@ sub tree_remove_references($;$) {
                                 'spaces_after_cmd_before_arg',
                                 'spaces_after_argument') {
         if (exists($element->{'info'}->{$info_elt_key})) {
-          tree_remove_references($element->{'info'}->{$info_elt_key},
+          _element_remove_references($element->{'info'}->{$info_elt_key},
                                  $check_refcount);
           delete $element->{'info'}->{$info_elt_key};
         }
@@ -576,11 +567,11 @@ sub tree_remove_references($;$) {
     if (exists($element->{'contents'})) {
       if (exists($element->{'extra'})) {
         if (exists($element->{'extra'}->{'def_index_element'})) {
-          tree_remove_references($element->{'extra'}->{'def_index_element'},
+          _element_remove_references($element->{'extra'}->{'def_index_element'},
                                  $check_refcount);
           delete $element->{'extra'}->{'def_index_element'};
           if (exists($element->{'extra'}->{'def_index_ref_element'})) {
-            tree_remove_references(
+            _element_remove_references(
               $element->{'extra'}->{'def_index_ref_element'},
                                    $check_refcount);
             delete $element->{'extra'}->{'def_index_ref_element'};
@@ -594,7 +585,7 @@ sub tree_remove_references($;$) {
         }
       }
       for (my $i = 0; $i < scalar(@{$element->{'contents'}}); $i++) {
-        tree_remove_references($element->{'contents'}->[$i],
+        _element_remove_references($element->{'contents'}->[$i],
                                $check_refcount);
       }
       delete $element->{'contents'};
@@ -607,38 +598,68 @@ sub tree_remove_references($;$) {
   if (defined($check_refcount)) {
     my $reference_count = Devel::Peek::SvREFCNT($element);
     my $object_count = Devel::Refcount::refcount($element);
-    # The $element variable owns one count to reference and to object.
-    # The parent contents or the extra key or the info key or the
-    # source mark element key also holds a count to the object.
-    # plus possibly one count owned by the C code
     #if (1) {
     #Devel::Peek::Dump($element);
     if ($reference_count != $element_SV_target_count
         or ($object_count != $destroyed_objects_refcount
             and !(defined($no_XS_objects_refcount)
                   and $object_count == $no_XS_objects_refcount))) {
-      # The tree root is different, it may not have a count in C if
-      # this is only a handler and the tree was not built and it
-      # is different from the other elements in term of references.
-      if (!exists($element->{'tree_document_descriptor'})
-          and !(exists($element->{'type'})
-                and $element->{'type'} eq 'document_root')) {
-        my $findref_info;
-        if ($devel_findref_loading_error) {
-          $findref_info = '';
-        } else {
-          $findref_info = Devel::FindRef::track($element)."\n";
-        }
-        my $message = "Element refcount ($reference_count, $object_count) != ".
-               "($element_SV_target_count, $destroyed_objects_refcount_text)";
-        warn "You found a bug: $message for $element\n\n".
-        Texinfo::ManipulateTree::element_print_details($element)."\n".
-         $findref_info;
-        # pass as warning to have t/*.t tests fail
-        $check_refcount->document_line_warn("$message for "
-             . Texinfo::Common::debug_print_element($element), {});
+      my $findref_info;
+      if ($devel_findref_loading_error) {
+        $findref_info = '';
+      } else {
+        $findref_info = Devel::FindRef::track($element)."\n";
+      }
+      my $message = "Element refcount ($reference_count, $object_count) != ".
+             "($element_SV_target_count, $destroyed_objects_refcount_text)";
+      warn "You found a bug: $message for $element\n\n".
+      Texinfo::ManipulateTree::element_print_details($element)."\n".
+       $findref_info;
+      # pass as warning to have t/*.t tests fail
+      $check_refcount->document_line_warn("$message for "
+           . Texinfo::Common::debug_print_element($element), {});
+    }
+  }
+}
+
+# Remove all the references to elements in tree.  The main objective
+# here is not to release memory, as Perl can release memory if there are
+# no cycles, but to be able to check that the reference counting in C/XS is done
+# correctly.  No specific reason to use in code outside of the Texinfo modules,
+# not documented on purpose.
+sub tree_remove_references($;$) {
+  my ($tree, $check_refcount) = @_;
+
+  if (defined($check_refcount)) {
+    # Setup the expected reference counts.  Better do it dynamically
+    # and not out of any function to be sure that the the parser module have been
+    # setup and XS_parser_loaded return is correct.
+    $destroyed_objects_refcount = 2;
+    $destroyed_objects_refcount_text = $destroyed_objects_refcount;
+    # Do not use XS_parser_enabled, as the loading of the parser may have failed
+    # even if it was enabled.
+    if (Texinfo::XSLoader::XS_parser_loaded()) {
+      # a reference in C too
+      $destroyed_objects_refcount++;
+
+      if (!$XS_structuring) {
+        # transformations may create elements in pure Perl only when
+        # structuring is not done with XS extensions.
+        $no_XS_objects_refcount = $destroyed_objects_refcount -1;
+        $destroyed_objects_refcount_text
+          = "$destroyed_objects_refcount or $no_XS_objects_refcount";
+      } else {
+        $destroyed_objects_refcount_text = $destroyed_objects_refcount;
       }
     }
+  }
+
+  if (exists($tree->{'contents'})) {
+   foreach my $content (@{$tree->{'contents'}}) {
+     _element_remove_references($content, $check_refcount);
+   }
+
+    delete $tree->{'contents'};
   }
 }
 
