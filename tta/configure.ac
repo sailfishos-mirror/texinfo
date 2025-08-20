@@ -701,17 +701,19 @@ AM_CONDITIONAL([SWIG_INTERFACES], [test "x$with_swig" = "xyes"])
 with_swig_python=no
 if test $with_swig = 'yes' ; then
   # python executable and installation paths
-  AM_PATH_PYTHON
+  AM_PATH_PYTHON(,, [:])
 
-  # Get CPPFLAGS, etc., for Python module compilation
-  # http://www.gnu.org/software/autoconf-archive/ax_python_devel.html
-  AX_PYTHON_DEVEL([], [true])
+  if test "$PYTHON" != : ; then
+    # Get CPPFLAGS, etc., for Python module compilation
+    # http://www.gnu.org/software/autoconf-archive/ax_python_devel.html
+    AX_PYTHON_DEVEL([], [true])
 
-  if test z$ax_python_devel_found = 'zyes' ; then
-    # Get SWIGFLAGS, CPPFLAGS, etc., for Python generation by swig
-    # http://www.gnu.org/software/autoconf-archive/ax_swig_python.html
-    AX_SWIG_PYTHON
-    with_swig_python=yes
+    if test z$ax_python_devel_found = 'zyes' ; then
+      # Get SWIGFLAGS, CPPFLAGS, etc., for Python generation by swig
+      # http://www.gnu.org/software/autoconf-archive/ax_swig_python.html
+      AX_SWIG_PYTHON
+      with_swig_python=yes
+    fi
   fi
 fi
 
