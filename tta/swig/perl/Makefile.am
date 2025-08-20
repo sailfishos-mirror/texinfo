@@ -46,7 +46,7 @@ SWIG_header_dependencies = \
                  $(txi_libs_srcdir)/convert/swig_error_messages_types.h
 
 perl_texinfo_wrap.c Texinfo.pm: $(srcdir)/../texinfo.i $(SWIG_header_dependencies)
-	$(SWIG) $(SWIG_include_directories) -perl -o perl_texinfo_wrap.c $<
+	$(SWIG) $(SWIG_include_directories) -perl -o perl_texinfo_wrap.c $(srcdir)/../texinfo.i
 
 endif
 

@@ -41,7 +41,7 @@ SWIG_header_dependencies = \
                  $(txi_libs_srcdir)/convert/swig_error_messages_types.h
 
 python_texinfo_wrap.c Texinfo.py: $(srcdir)/../texinfo.i $(SWIG_header_dependencies)
-	$(SWIG) $(AX_SWIG_PYTHON_OPT) $(SWIG_include_directories) -o python_texinfo_wrap.c $<
+	$(SWIG) $(AX_SWIG_PYTHON_OPT) $(SWIG_include_directories) -o python_texinfo_wrap.c $(srcdir)/../texinfo.i
 
 endif
 
