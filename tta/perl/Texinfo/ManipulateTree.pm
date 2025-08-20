@@ -118,17 +118,20 @@ sub import {
 
 my $destroyed_objects_refcount = 2;
 # used in messages
-my $destroyed_objects_refcount_target = $destroyed_objects_refcount;
+my $destroyed_objects_refcount_text = $destroyed_objects_refcount;
 my $no_XS_objects_refcount;
 if (Texinfo::XSLoader::XS_parser_enabled()) {
   # a reference in C too
   $destroyed_objects_refcount++;
+
   if (!$XS_structuring) {
     # transformations may create elements in pure Perl only when
     # structuring is not done with XS extensions.
     $no_XS_objects_refcount = $destroyed_objects_refcount -1;
-    $destroyed_objects_refcount_target
+    $destroyed_objects_refcount_text
        = "$destroyed_objects_refcount or $no_XS_objects_refcount";
+  } else {
+    $destroyed_objects_refcount_text = $destroyed_objects_refcount;
   }
 }
 my $element_SV_target_count = 1;
@@ -610,7 +613,7 @@ sub tree_remove_references($;$) {
     # plus possibly one count owned by the C code
     #if (1) {
     #Devel::Peek::Dump($element);
-    if ($reference_count != 1
+    if ($reference_count != $element_SV_target_count
         or ($object_count != $destroyed_objects_refcount
             and !(defined($no_XS_objects_refcount)
                   and $object_count == $no_XS_objects_refcount))) {
@@ -627,7 +630,7 @@ sub tree_remove_references($;$) {
           $findref_info = Devel::FindRef::track($element)."\n";
         }
         my $message = "Element refcount ($reference_count, $object_count) != ".
-               "($element_SV_target_count, $destroyed_objects_refcount_target)";
+               "($element_SV_target_count, $destroyed_objects_refcount_text)";
         warn "You found a bug: $message for $element\n\n".
         Texinfo::ManipulateTree::element_print_details($element)."\n".
          $findref_info;

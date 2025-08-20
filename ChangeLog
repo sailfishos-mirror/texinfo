@@ -1,5 +1,14 @@
 2025-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm
+	($destroyed_objects_refcount_text): rename
+	$destroyed_objects_refcount_target as
+	$destroyed_objects_refcount_text.  Update
+	$destroyed_objects_refcount_text when $destroyed_objects_refcount
+	changes.
+
+2025-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/Makefile.am (perl_texinfo_wrap.c),
 	tta/swig/python/Makefile.am (python_texinfo_wrap.c): expand $< in
 	non-suffix rules for BSD make.
