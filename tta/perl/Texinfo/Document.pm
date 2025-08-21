@@ -139,9 +139,9 @@ sub import {
 }
 
 # No XS override, only called from Texinfo::ParserNonXS.
-sub new_document($)
-{
+sub new_document($) {
   my $indices_information = shift;
+
   my $document = {
     'indices' => $indices_information,
     'listoffloats_list' => {},
@@ -368,13 +368,17 @@ sub remove_document_references($;$) {
     delete $document->{'commands_info'};
     delete $document->{'listoffloats_list'};
 
-    # the same index_entries are used in sorted_indices_by_*, so
-    # this also removes the references there.
-    foreach my $index_name (keys(%{$document->{'indices'}})) {
-      my $index = $document->{'indices'}->{$index_name};
-      foreach my $index_entry (@{$index->{'index_entries'}}) {
-        delete $index_entry->{'entry_element'};
-        delete $index_entry->{'entry_associated_element'};
+    # indices not existing is not possible for a document created in
+    # Perl code, but seems to be possible when built from XS.
+    if (exists($document->{'indices'})) {
+      # the same index_entries are used in sorted_indices_by_*, so
+      # this also removes the references there.
+      foreach my $index_name (keys(%{$document->{'indices'}})) {
+        my $index = $document->{'indices'}->{$index_name};
+        foreach my $index_entry (@{$index->{'index_entries'}}) {
+          delete $index_entry->{'entry_element'};
+          delete $index_entry->{'entry_associated_element'};
+        }
       }
     }
 

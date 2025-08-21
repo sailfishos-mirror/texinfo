@@ -1,5 +1,15 @@
 2025-08-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm, tta/perl/init/html32.pm,
+	tta/perl/texi2any.pl: use exists or defined conditions when the value
+	is not used.  Change formatting of functions call code.  Use the value
+	of TEXI2HTML customization variable in conditions, not whether it is
+	defined.
+
+	* tta/perl/texi2any.pl: add comments.
+
+2025-08-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/formatting/list-of-tests: remove setting TEXI2HTML undef,
 	it is never needed.
 
@@ -741,7 +751,7 @@
 	call.
 
 2025-08-15 Patrice Dumas  <pertusus@free.fr>
-
+/exis
 	* tta/perl/Texinfo/ParserNonXS.pm (_rearrange_tree_beginning): merge
 	_add_preamble_before_content in _rearrange_tree_beginning and remove.
 

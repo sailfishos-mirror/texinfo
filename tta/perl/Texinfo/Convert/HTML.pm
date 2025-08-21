@@ -1743,10 +1743,8 @@ sub label_command($$) {
   return undef;
 }
 
-sub command_name_special_unit_information($$)
-{
-  my $self = shift;
-  my $cmdname = shift;
+sub command_name_special_unit_information($$) {
+  my ($self, $cmdname) = @_;
 
   my $special_unit_variety;
   if (exists($contents_command_special_unit_variety{$cmdname})) {
@@ -1769,47 +1767,44 @@ sub command_name_special_unit_information($$)
 
 sub global_direction_unit($$)
 {
-  my $self = shift;
-  my $direction = shift;
+  my ($self, $direction) = @_;
+
   return $self->{'global_units_directions'}->{$direction};
 }
 
-sub global_direction_text($$)
-{
-  my $self = shift;
-  my $direction = shift;
+sub global_direction_text($$) {
+  my ($self, $direction) = @_;
+
   return $self->{'global_texts_directions'}->{$direction};
 }
 
-sub get_element_root_command_element($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub get_element_root_command_element($$) {
+  my ($self, $element) = @_;
 
   my ($output_unit, $root_command)
     = _html_get_tree_root_element($self, $element);
   if (defined($root_command)) {
     if ($self->get_conf('USE_NODES')) {
-      if ($root_command->{'cmdname'}) {
+      if (exists($root_command->{'cmdname'})) {
         if ($root_command->{'cmdname'} eq 'node') {
           return ($output_unit, $root_command);
-        } elsif ($self->{'document'}) {
+        } elsif (exists($self->{'document'})) {
           my $sections_list = $self->{'document'}->sections_list();
           my $section_relations
             = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
-          if ($section_relations->{'associated_node'}) {
+          if (exists($section_relations->{'associated_node'})) {
             return ($output_unit,
                     $section_relations->{'associated_node'}->{'element'});
           }
         }
       }
-    } elsif ($root_command->{'cmdname'}
+    } elsif (exists($root_command->{'cmdname'})
              and $root_command->{'cmdname'} eq 'node') {
-      if ($self->{'document'}) {
+      if (exists($self->{'document'})) {
         my $nodes_list = $self->{'document'}->nodes_list();
         my $node_relations
           = $nodes_list->[$root_command->{'extra'}->{'node_number'} -1];
-        if ($node_relations->{'associated_section'}) {
+        if (exists($node_relations->{'associated_section'})) {
           return ($output_unit,
                   $node_relations->{'associated_section'}->{'element'});
         }
@@ -1861,15 +1856,10 @@ foreach my $no_number_type ('text', 'string', 'section') {
 # without output file.  There could probably be other cases
 # with crafted/test code, but it should never happen when output is
 # called from the main program as there is always an output file.
-sub from_element_direction($$$;$$$)
-{
-  my $self = shift;
-  my $direction = shift;
-  my $type = shift;
-  my $source_unit = shift;
-  my $source_filename = shift;
+sub from_element_direction($$$;$$$) {
+  my ($self, $direction, $type, $source_unit, $source_filename,
   # for messages only
-  my $source_command = shift;
+     $source_command) = @_;
 
   my $target_unit;
   my $command;
@@ -1882,12 +1872,12 @@ sub from_element_direction($$$;$$$)
   # current_filename.
   # We still set it correctly in case it becomes used in other codes.
   $source_filename = $self->current_filename() if (!defined($source_filename));
-  if (!$valid_direction_return_type{$type}) {
+  if (!exists($valid_direction_return_type{$type})) {
     print STDERR "Incorrect type $type in from_element_direction call\n";
     return undef;
   }
   my $global_target_unit = $self->global_direction_unit($direction);
-  if ($global_target_unit) {
+  if (defined($global_target_unit)) {
     $target_unit = $global_target_unit;
   # output TOP_NODE_UP related info even if $source_unit is not defined,
   # which should correspond to cases when there is no output file, mainly in
@@ -1907,16 +1897,16 @@ sub from_element_direction($$$;$$$)
       cluck("BUG: type $type not available for TOP_NODE_UP\n");
       return '';
     }
-  } elsif (not $target_unit and $source_unit
-           and $source_unit->{'directions'}
-           and $source_unit->{'directions'}->{$direction}) {
+  } elsif (not defined($target_unit) and defined($source_unit)
+           and exists($source_unit->{'directions'})
+           and exists($source_unit->{'directions'}->{$direction})) {
     $target_unit
       = $source_unit->{'directions'}->{$direction};
   }
 
-  if ($target_unit) {
+  if (defined($target_unit)) {
     ######## debug
-    if (!$target_unit->{'unit_type'}) {
+    if (!exists($target_unit->{'unit_type'})) {
       die "No unit type for element_target $direction $target_unit: "
        . Texinfo::Common::debug_print_output_unit($target_unit)
        . "directions :"
@@ -1936,12 +1926,12 @@ sub from_element_direction($$$;$$$)
         return $self->command_text($external_node_element, $type);
       }
     } elsif ($type eq 'node') {
-      if ($target_unit->{'unit_node'}) {
+      if (exists($target_unit->{'unit_node'})) {
         $command = $target_unit->{'unit_node'}->{'element'};
       }
       $type = 'text';
     } elsif ($type eq 'section' or $type eq 'section_nonumber') {
-      if ($target_unit->{'unit_section'}) {
+      if (exists($target_unit->{'unit_section'})) {
         $command = $target_unit->{'unit_section'}->{'element'};
       }
       if ($type eq 'section_nonumber') {
@@ -1963,7 +1953,7 @@ sub from_element_direction($$$;$$$)
     return undef;
   }
 
-  if ($command) {
+  if (defined($command)) {
     #print STDERR "FROM_ELEMENT_DIRECTION $type $direction\n"
     #  if ($self->get_conf('DEBUG'));
     return $self->command_text($command, $type);
@@ -2001,21 +1991,17 @@ my %direction_type_translation_context = (
   'text' => 'string',
 );
 
-sub direction_string($$$;$)
-{
-  my $self = shift;
-  my $direction = shift;
-  my $string_type = shift;
-  my $context = shift;
+sub direction_string($$$;$) {
+  my ($self, $direction, $string_type, $context) = @_;
 
-  if (!$valid_direction_string_type{$string_type}) {
+  if (!exists($valid_direction_string_type{$string_type})) {
     print STDERR "Incorrect type $string_type in direction_string call\n";
     return undef;
   }
 
   $context = 'normal' if (!defined($context));
 
-  if (!$valid_direction_string_context{$context}) {
+  if (!exists($valid_direction_string_context{$context})) {
     print STDERR "Incorrect context $context in direction_string call\n";
     return undef;
   }
@@ -2023,22 +2009,30 @@ sub direction_string($$$;$)
   $direction =~ s/^FirstInFile//;
 
   my $translated_directions_strings = $self->{'translated_direction_strings'};
+  if (!defined($translated_directions_strings)) {
+    cluck();
+  }
 
-  if (not $self->{'directions_strings'}->{$string_type}->{$direction}
+  if (not exists($self->{'directions_strings'}->{$string_type}->{$direction})
        or not exists($self->{'directions_strings'}->{$string_type}
                                                 ->{$direction}->{$context})) {
     $self->{'directions_strings'}->{$string_type}->{$direction} = {}
-      if not ($self->{'directions_strings'}->{$string_type}->{$direction});
-    if ($translated_directions_strings->{$string_type}
-        and $translated_directions_strings->{$string_type}->{$direction}
+      if (not exists($self->{'directions_strings'}
+                                     ->{$string_type}->{$direction}));
+    if (exists($translated_directions_strings->{$string_type})
+        # can exist and be undef if user-defined and also maybe for
+        # some default directions, but maybe only for unlikely type.
+        and defined($translated_directions_strings->{$string_type}
+                                              ->{$direction})
         and defined($translated_directions_strings->{$string_type}
                                               ->{$direction}->{'converted'})) {
+
       # translate already converted direction strings
       my $converted_directions
        = $translated_directions_strings->{$string_type}
                                           ->{$direction}->{'converted'};
       my $context_converted_string;
-      if ($converted_directions->{$context}) {
+      if (exists($converted_directions->{$context})) {
         $context_converted_string = $converted_directions->{$context};
       } elsif ($context eq 'string'
                and defined($converted_directions->{'normal'})) {
@@ -2053,8 +2047,11 @@ sub direction_string($$$;$)
         $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
           = undef;
       }
-    } elsif ($translated_directions_strings->{$string_type}
-             and $translated_directions_strings->{$string_type}->{$direction}
+    } elsif (exists($translated_directions_strings->{$string_type})
+        # can exist and be undef if user-defined and also maybe for
+        # some default directions, but maybe only for unlikely type.
+             and defined($translated_directions_strings->{$string_type}
+                                            ->{$direction})
              and defined($translated_directions_strings->{$string_type}
                                             ->{$direction}->{'to_convert'})) {
       # translate direction strings that need to be translated and converted
@@ -2103,12 +2100,10 @@ sub direction_string($$$;$)
                                        ->{$direction}->{$context};
 }
 
-sub get_special_unit_info_varieties($$)
-{
-  my $self = shift;
-  my $type = shift;
+sub get_special_unit_info_varieties($$) {
+  my ($self, $type) = @_;
 
-  if ($self->{'translated_special_unit_info'}->{$type}) {
+  if (exists($self->{'translated_special_unit_info'}->{$type})) {
     my $translated_special_unit_info
       = $self->{'translated_special_unit_info'}->{$type}->[1];
     return sort(keys(%{$translated_special_unit_info}));
@@ -2117,11 +2112,9 @@ sub get_special_unit_info_varieties($$)
 }
 
 sub special_unit_info($$$) {
-  my $self = shift;
-  my $type = shift;
-  my $special_unit_variety = shift;
+  my ($self, $type, $special_unit_variety) = @_;
 
-  if ($self->{'translated_special_unit_info'}->{$type}) {
+  if (exists($self->{'translated_special_unit_info'}->{$type})) {
     my $translated_special_unit_info
       = $self->{'translated_special_unit_info'}->{$type}->[1];
 
@@ -2148,36 +2141,33 @@ sub special_unit_info($$$) {
 
 # if $OUTPUT_UNITS is defined, the first output unit is used if a proper
 # top output unit is not found.
-sub _get_top_unit($;$)
-{
-  my $self = shift;
-  my $output_units = shift;
+sub _get_top_unit($;$) {
+  my ($self, $output_units) = @_;
 
   my $identifiers_target;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $identifiers_target = $self->{'document'}->labels_information();
   }
 
   my $node_top;
   $node_top = $identifiers_target->{'Top'}
-                      if ($identifiers_target);
+                      if (defined($identifiers_target));
   my $section_top;
 
   my $global_commands;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $global_commands = $self->{'document'}->global_commands_information();
   }
   $section_top = $global_commands->{'top'}
-                                       if ($global_commands);
-  if ($section_top) {
+                                       if (defined($global_commands));
+  if (defined($section_top)) {
     return $section_top->{'associated_unit'};
-  } elsif ($node_top) {
-    my $top_output_unit = $node_top->{'associated_unit'};
-    if (!$top_output_unit) {
+  } elsif (defined($node_top)) {
+    if (!exists($node_top->{'associated_unit'})) {
       die "No associated unit for node_top: "
          .Texinfo::Common::debug_print_element($node_top, 1);
     }
-    return $top_output_unit;
+    return $node_top->{'associated_unit'};
   } elsif (defined($output_units)) {
     return $output_units->[0];
   }
@@ -2186,10 +2176,9 @@ sub _get_top_unit($;$)
 
 # it is considered 'top' only if element corresponds to @top or
 # element is a node
-sub unit_is_top_output_unit($$)
-{
-  my $self = shift;
-  my $output_unit = shift;
+sub unit_is_top_output_unit($$) {
+  my ($self, $output_unit) = @_;
+
   my $top_output_unit = _get_top_unit($self);
   if (defined($top_output_unit) and $top_output_unit eq $output_unit) {
     return 1;
@@ -2199,34 +2188,28 @@ sub unit_is_top_output_unit($$)
 }
 
 my %default_formatting_references;
-sub default_formatting_function($$)
-{
-  my $self = shift;
-  my $format = shift;
+sub default_formatting_function($$) {
+  my ($self, $format) = @_;
+
   return $default_formatting_references{$format};
 }
 
-sub formatting_function($$)
-{
-  my $self = shift;
-  my $format = shift;
+sub formatting_function($$) {
+  my ($self, $format) = @_;
+
   return $self->{'formatting_function'}->{$format};
 }
 
 my %defaults_format_special_unit_body_contents;
 
-sub defaults_special_unit_body_formatting($$)
-{
-  my $self = shift;
-  my $special_unit_variety = shift;
+sub defaults_special_unit_body_formatting($$) {
+  my ($self, $special_unit_variety) = @_;
 
   return $defaults_format_special_unit_body_contents{$special_unit_variety};
 }
 
-sub special_unit_body_formatting($$)
-{
-  my $self = shift;
-  my $special_unit_variety = shift;
+sub special_unit_body_formatting($$) {
+  my ($self, $special_unit_variety) = @_;
 
   return $self->{'special_unit_body'}->{$special_unit_variety};
 }
@@ -2240,33 +2223,30 @@ my %default_commands_conversion;
 
 sub default_command_conversion($$)
 {
-  my $self = shift;
-  my $command = shift;
+  my ($self, $command) = @_;
+
   return $default_commands_conversion{$command};
 }
 
-sub command_conversion($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub command_conversion($$) {
+  my ($self, $command) = @_;
+
   return $self->{'commands_conversion'}->{$command};
 }
 
 my %default_commands_open;
 
-sub default_command_open($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub default_command_open($$) {
+  my ($self, $command) = @_;
+
   return $default_commands_open{$command};
 }
 
 # used for customization only (in t2h_singular.init)
-sub get_value($$)
-{
-  my $self = shift;
-  my $value = shift;
-  if ($self->{'document'} and $self->{'document'}->{'values'}
+sub get_value($$) {
+  my ($self, $value) = @_;
+
+  if (exists($self->{'document'}) and exists($self->{'document'}->{'values'})
       and exists($self->{'document'}->{'values'}->{$value})) {
     return $self->{'document'}->{'values'}->{$value};
   } else {
@@ -2290,24 +2270,20 @@ my %default_shared_conversion_states = (
                   'element_authors_number' => ['integer', 'integer']},
 );
 
-sub define_shared_conversion_state($$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $state_name = shift;
-  my $specification = shift;
+sub define_shared_conversion_state($$$$) {
+  my ($self, $cmdname, $state_name, $specification) = @_;
 
-  if (not defined($self->{'shared_conversion_state'}->{$cmdname})) {
+  if (not exists($self->{'shared_conversion_state'}->{$cmdname})) {
     $self->{'shared_conversion_state'}->{$cmdname} = {};
   }
-  if (not defined($self->{'shared_conversion_state'}
+  if (not exists($self->{'shared_conversion_state'}
                                       ->{$cmdname}->{$state_name})) {
     $self->{'shared_conversion_state'}->{$cmdname}->{$state_name} = {};
   }
 
   my $state = $self->{'shared_conversion_state'}->{$cmdname}->{$state_name};
 
-  if ($state->{'spec'}) {
+  if (exists($state->{'spec'})) {
     warn("BUG: redefining shared_conversion_state: $cmdname: $state_name");
   }
   $state->{'spec'} = $specification;
@@ -2366,15 +2342,14 @@ sub _XS_get_shared_conversion_state($$$;@)
                                       $state_name, @args);
 }
 
-sub get_shared_conversion_state($$$;@)
-{
+sub get_shared_conversion_state($$$;@) {
   my $self = shift;
   my $cmdname = shift;
   my $state_name = shift;
   my @args = @_;
 
-  if ($default_shared_conversion_states{$cmdname}
-      and $default_shared_conversion_states{$cmdname}->{$state_name}) {
+  if (exists($default_shared_conversion_states{$cmdname})
+      and exists($default_shared_conversion_states{$cmdname}->{$state_name})) {
     my $result = _XS_get_shared_conversion_state($self, $cmdname,
                                            $state_name, @args);
     return $result;
@@ -2384,8 +2359,7 @@ sub get_shared_conversion_state($$$;@)
                                       $state_name, @args);
 }
 
-sub _set_shared_conversion_state($$$;@)
-{
+sub _set_shared_conversion_state($$$;@) {
   my $self = shift;
   my $cmdname = shift;
   my $state_name = shift;
@@ -2406,7 +2380,7 @@ sub _set_shared_conversion_state($$$;@)
     return $args[0];
   }
 
-  if (!defined($state->{'values'})) {
+  if (!exists($state->{'values'})) {
     $state->{'values'} = {};
   }
   my $spec_idx = 1;
@@ -2419,7 +2393,7 @@ sub _set_shared_conversion_state($$$;@)
       $current->{$arg} = $args[$spec_idx];
       return $current->{$arg};
     }
-    if (!defined($current->{$arg})) {
+    if (!exists($current->{$arg})) {
       $current->{$arg} = {};
     }
     $current = $current->{$arg};
@@ -2427,8 +2401,7 @@ sub _set_shared_conversion_state($$$;@)
   }
 }
 
-sub _XS_set_shared_conversion_state($$$;@)
-{
+sub _XS_set_shared_conversion_state($$$;@) {
   my $self = shift;
   my $cmdname = shift;
   my $state_name = shift;
@@ -2439,15 +2412,14 @@ sub _XS_set_shared_conversion_state($$$;@)
 }
 
 # XS is only used for default conversion states.
-sub set_shared_conversion_state($$$;@)
-{
+sub set_shared_conversion_state($$$;@) {
   my $self = shift;
   my $cmdname = shift;
   my $state_name = shift;
   my @args = @_;
 
-  if ($default_shared_conversion_states{$cmdname}
-      and $default_shared_conversion_states{$cmdname}->{$state_name}) {
+  if (exists($default_shared_conversion_states{$cmdname})
+      and exists($default_shared_conversion_states{$cmdname}->{$state_name})) {
     _XS_set_shared_conversion_state($self, $cmdname,
                                     $state_name, @args);
     return;
@@ -2457,10 +2429,10 @@ sub set_shared_conversion_state($$$;@)
                                     $state_name, @args);
 }
 
-sub register_footnote($$$$$$$)
-{
+sub register_footnote($$$$$$$) {
   my ($self, $command, $footid, $docid, $number_in_doc,
       $footnote_location_filename, $multi_expanded_region) = @_;
+
   my $in_skipped_node_top
     = $self->get_shared_conversion_state('top', 'in_skipped_node_top');
   if (!defined($in_skipped_node_top) or $in_skipped_node_top != 1) {
@@ -2469,8 +2441,7 @@ sub register_footnote($$$$$$$)
   }
 }
 
-sub get_pending_footnotes($)
-{
+sub get_pending_footnotes($) {
   my $self = shift;
 
   my @result = @{$self->{'pending_footnotes'}};
@@ -2481,29 +2452,24 @@ sub get_pending_footnotes($)
 
 # API to register, cancel and get inline content that should be output
 # when in an inline situation, mostly in a paragraph or preformatted
-sub register_pending_formatted_inline_content($$$)
-{
-  my $self = shift;
-  my $category = shift;
-  my $inline_content = shift;
+sub register_pending_formatted_inline_content($$$) {
+  my ($self, $category, $inline_content) = @_;
 
   if (!defined($inline_content)) {
     return;
   }
 
-  if (not defined($self->{'pending_inline_content'})) {
+  if (not exists($self->{'pending_inline_content'})) {
     $self->{'pending_inline_content'} = [];
   }
   push @{$self->{'pending_inline_content'}}, [$category, $inline_content];
 }
 
 # cancel only the first pending content for the category
-sub cancel_pending_formatted_inline_content($$)
-{
-  my $self = shift;
-  my $category = shift;
+sub cancel_pending_formatted_inline_content($$) {
+  my ($self, $category) = @_;
 
-  if (defined($self->{'pending_inline_content'})) {
+  if (exists($self->{'pending_inline_content'})) {
     my $pending_inline = $self->{'pending_inline_content'};
     my $current_idx = scalar(@$pending_inline) - 1;
     if ($current_idx >= 0) {
@@ -2522,7 +2488,7 @@ sub cancel_pending_formatted_inline_content($$)
 sub get_pending_formatted_inline_content($) {
   my $self = shift;
 
-  if (not defined($self->{'pending_inline_content'})) {
+  if (not exists($self->{'pending_inline_content'})) {
     return '';
   } else {
     my $result = '';
@@ -2531,7 +2497,7 @@ sub get_pending_formatted_inline_content($) {
         $result .= $category_inline_content->[1];
       }
     }
-    $self->{'pending_inline_content'} = undef;
+    delete $self->{'pending_inline_content'};
     return $result;
   }
 }
@@ -2540,18 +2506,15 @@ sub get_pending_formatted_inline_content($) {
 # paragraph or preformatted.  Allows to associate the pending
 # content to the first inline element.
 sub associate_pending_formatted_inline_content($$$) {
-  my $self = shift;
-  my $element = shift;
-  my $inline_content = shift;
+  my ($self, $element, $inline_content) = @_;
 
   $self->{'associated_inline_content'}->{$element} .= $inline_content;
 }
 
 sub get_associated_formatted_inline_content($$) {
-  my $self = shift;
-  my $element = shift;
+  my ($self, $element) = @_;
 
-  if ($self->{'associated_inline_content'}->{$element}) {
+  if (exists($self->{'associated_inline_content'}->{$element})) {
     my $result = $self->{'associated_inline_content'}->{$element};
     delete $self->{'associated_inline_content'}->{$element};
     return $result;
@@ -2562,49 +2525,44 @@ sub get_associated_formatted_inline_content($$) {
 # API to register an information to a file and get it.  To be able to
 # set an integer information during conversion and get it back during headers
 # and footers conversion
-sub register_file_information($$$)
-{
-  my $self = shift;
-  my $key = shift;
-  my $value = shift;
+sub register_file_information($$$) {
+  my ($self, $key, $value) = @_;
 
-  if (!defined ($self->{'current_filename'})) {
+  if (!defined($self->{'current_filename'})) {
     cluck();
   }
 
   $self->{'html_files_information'}->{$self->{'current_filename'}} = {}
-    if (!$self->{'html_files_information'}->{$self->{'current_filename'}});
+    if (!exists(
+           $self->{'html_files_information'}->{$self->{'current_filename'}}));
   $self->{'html_files_information'}->{$self->{'current_filename'}}->{$key}
     = $value;
 }
 
-sub get_file_information($$;$)
-{
-  my $self = shift;
-  my $key = shift;
-  my $filename = shift;
+sub get_file_information($$;$) {
+  my ($self, $key, $filename) = @_;
 
   if (not defined($filename)) {
     $filename = $self->{'current_filename'};
   }
   if (not defined($filename)
-      or not $self->{'html_files_information'}
-      or not $self->{'html_files_information'}->{$filename}
+      or not exists($self->{'html_files_information'})
+      or not exists($self->{'html_files_information'}->{$filename})
       or not exists($self->{'html_files_information'}->{$filename}->{$key})) {
     return (0, undef);
   }
   return (1, $self->{'html_files_information'}->{$filename}->{$key})
 }
 
-sub current_filename($)
-{
+sub current_filename($) {
   my $self = shift;
+
   return $self->{'current_filename'};
 }
 
-sub current_output_unit($)
-{
+sub current_output_unit($) {
   my $self = shift;
+
   return $self->{'current_output_unit'};
 }
 
@@ -2620,12 +2578,10 @@ foreach my $converter_info ('copying_comment',
   $available_converter_info{$converter_info} = 1;
 }
 
-sub get_info($$)
-{
-  my $self = shift;
-  my $converter_info = shift;
+sub get_info($$) {
+  my ($self, $converter_info) = @_;
 
-  if (not $available_converter_info{$converter_info}) {
+  if (not exists($available_converter_info{$converter_info})) {
     confess("BUG: $converter_info not an available converter info");
   }
   if (defined($self->{'converter_info'}->{$converter_info})) {
@@ -2635,14 +2591,9 @@ sub get_info($$)
 }
 
 # Call convert_tree out of the main conversion flow.
-sub convert_tree_new_formatting_context($$$;$$$)
-{
-  my $self = shift;
-  my $tree = shift;
-  my $context_string = shift;
-  my $multiple_pass = shift;
-  my $document_global_context = shift;
-  my $block_command = shift;
+sub convert_tree_new_formatting_context($$$;$$$) {
+  my ($self, $tree, $context_string, $multiple_pass, $document_global_context,
+      $block_command) = @_;
 
   $self->_new_document_context($context_string, $document_global_context,
                                $block_command);
@@ -2650,7 +2601,7 @@ sub convert_tree_new_formatting_context($$$;$$$)
   my $context_string_str = "C($context_string)";
   my $multiple_pass_str = '';
 
-  if ($multiple_pass) {
+  if (defined($multiple_pass)) {
     _set_multiple_conversions($self, $multiple_pass);
     $multiple_pass_str = '|M';
   }
@@ -2659,7 +2610,7 @@ sub convert_tree_new_formatting_context($$$;$$$)
         if ($self->get_conf('DEBUG'));
   my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
 
-  if ($multiple_pass) {
+  if (defined($multiple_pass)) {
     _unset_multiple_conversions($self);
   }
 
@@ -2743,8 +2694,7 @@ my @style_commands_contexts = ('normal', 'preformatted');
 my @no_args_commands_contexts
     = ('normal', 'preformatted', 'string', 'css_string');
 
-sub _translate_names($)
-{
+sub _translate_names($) {
   my $self = shift;
 
   Texinfo::Convert::Text::set_language($self->{'convert_text_options'},
@@ -2781,7 +2731,7 @@ sub _translate_names($)
      = $self->special_unit_info('direction', $special_unit_variety);
     my $special_unit
      = $self->global_direction_unit($special_unit_direction);
-    if ($special_unit) {
+    if (defined($special_unit)) {
       my $command = $special_unit->{'unit_command'};
       if (defined($command)
           and exists($self->{'targets'}->{$command})) {
@@ -2796,7 +2746,7 @@ sub _translate_names($)
   my %translated_commands;
   foreach my $command (keys(%{$self->{'no_arg_commands_formatting'}})) {
     foreach my $context (@no_args_commands_contexts) {
-      if (defined($self->{'no_arg_commands_formatting'}
+      if (exists($self->{'no_arg_commands_formatting'}
                          ->{$command}->{$context}->{'translated_converted'})
           and not $self->{'no_arg_commands_formatting'}
                                         ->{$command}->{$context}->{'unset'}) {
@@ -2806,7 +2756,7 @@ sub _translate_names($)
                        ->{$command}->{$context}->{'translated_converted'});
       } elsif ($context eq 'normal') {
         my $translated_tree;
-        if (defined($self->{'no_arg_commands_formatting'}
+        if (exists($self->{'no_arg_commands_formatting'}
                       ->{$command}->{$context}->{'translated_to_convert'})) {
           $translated_tree = $self->cdt($self->{'no_arg_commands_formatting'}
                           ->{$command}->{$context}->{'translated_to_convert'});
@@ -2832,9 +2782,9 @@ sub _translate_names($)
 # redefined functions
 #
 # Texinfo::Translations::cache_translate_string redefined to call user defined function.
-sub html_cache_translate_string($$$;$)
-{
+sub html_cache_translate_string($$$;$) {
   my ($self, $string, $lang_translations, $translation_context) = @_;
+
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
     my $lang = $lang_translations->[0];
     my $translated_string
@@ -2844,7 +2794,7 @@ sub html_cache_translate_string($$$;$)
     if (defined($translated_string)) {
       my $translations;
       $lang = '' if (!defined($lang));
-      if (!$self->{'translation_cache'}->{$lang}) {
+      if (!exists($self->{'translation_cache'}->{$lang})) {
         $self->{'translation_cache'}->{$lang} = {};
       }
       $translations = $self->{'translation_cache'}->{$lang};
@@ -2887,8 +2837,7 @@ sub html_cache_translate_string($$$;$)
 
 # redefine generic Converter functions to pass a customized
 # cache_translate_string function
-sub cdt($$;$$)
-{
+sub cdt($$;$$) {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
   return Texinfo::Translations::gdt($string,
@@ -2899,8 +2848,7 @@ sub cdt($$;$$)
                                     \&html_cache_translate_string);
 }
 
-sub cdt_string($$;$$)
-{
+sub cdt_string($$;$$) {
   my ($self, $string, $replaced_substrings, $translation_context) = @_;
 
   return Texinfo::Translations::gdt_string($string,
@@ -2912,9 +2860,9 @@ sub cdt_string($$;$$)
 
 sub converter_defaults($;$)
 {
-  my $self = shift;
-  my $conf = shift;
-  if ($conf and defined($conf->{'TEXI2HTML'})) {
+  my ($self, $conf) = @_;
+
+  if (defined($conf) and $conf->{'TEXI2HTML'}) {
     my $default_ref = { %defaults };
     my $texi2html_defaults = { %$default_ref };
     _set_variables_texi2html($texi2html_defaults);
@@ -9516,12 +9464,13 @@ sub converter_initialize($)
   foreach my $string_type (keys(%default_translated_directions_strings)) {
     $self->{'translated_direction_strings'}->{$string_type} = {};
     foreach my $direction (keys(%{$self->{'all_directions'}})) {
-      if ($customized_direction_strings->{$string_type}
+      if (exists($customized_direction_strings->{$string_type})
             and $customized_direction_strings->{$string_type}->{$direction}) {
         $self->{'translated_direction_strings'}->{$string_type}->{$direction}
           = $customized_direction_strings->{$string_type}->{$direction};
       } else {
-        if ($default_translated_directions_strings{$string_type}->{$direction}
+        if (exists($default_translated_directions_strings{$string_type}
+                                                     ->{$direction})
             and $default_translated_directions_strings{$string_type}
                                            ->{$direction}->{'converted'}) {
           $self->{'translated_direction_strings'}->{$string_type}

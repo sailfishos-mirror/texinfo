@@ -70,8 +70,8 @@ texinfo_set_from_init_file('CLOSE_QUOTE_SYMBOL', "'");
 # &quot; is not in html 3.2
 sub html32_format_protect_text($$)
 {
-  my $converter = shift;
-  my $text = shift;
+  my ($converter, $text) = @_;
+
   $text =~ s/&/&amp;/g;
   $text =~ s/</&lt;/g;
   $text =~ s/>/&gt;/g;
@@ -80,7 +80,8 @@ sub html32_format_protect_text($$)
   return $text;
 }
 
-texinfo_register_formatting_function('format_protect_text', \&html32_format_protect_text);
+texinfo_register_formatting_function('format_protect_text',
+                                   \&html32_format_protect_text);
 
 
 foreach my $command ('euro', 'geq', 'leq',
@@ -116,34 +117,28 @@ texinfo_register_accent_command_formatting('dotless', '', '');
 # reset BIG_RULE to HTML3.2 compatible rule if in TEXI2HTML mode
 texinfo_register_handler('setup', \&html32_setup);
 
-sub html32_setup($)
-{
+sub html32_setup($) {
   my $self = shift;
-  if (defined($self->get_conf('TEXI2HTML'))) {
+
+  if ($self->get_conf('TEXI2HTML')) {
     $self->set_conf('BIG_RULE', '<hr size="6">');
   }
   return 0;
 }
 
 
-sub html32_format_separate_anchor($$;$)
-{
-  my $self = shift;
-  my $id = shift;
-  my $class = shift;
+sub html32_format_separate_anchor($$;$) {
+  my ($self, $id, $class) = @_;
 
   # note that the classes argument will be ignored with NO_CSS
   return $self->html_attribute_class('a', [$class])." name=\"$id\"></a>";
 }
 
-texinfo_register_formatting_function('format_separate_anchor', \&html32_format_separate_anchor);
+texinfo_register_formatting_function('format_separate_anchor',
+                                     \&html32_format_separate_anchor);
 
-sub html32_convert_text($$$$)
-{
-  my $self = shift;
-  my $type = shift;
-  my $element = shift;
-  my $text = shift;
+sub html32_convert_text($$$$) {
+  my ($self, $type, $element, $text) = @_;
 
   # do that first because in verb and verbatim, type is 'raw'
   if ($self->in_verbatim()) {
@@ -171,27 +166,24 @@ sub html32_convert_text($$$$)
 }
 texinfo_register_type_formatting('text', \&html32_convert_text);
 
-sub html32_convert_explained_command($$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
+sub html32_convert_explained_command($$$$) {
+  my ($self, $cmdname, $command, $args) = @_;
 
   my $with_explanation;
 
-  return '' if (!$args or !$args->[0]
+  return '' if (!defined($args) or !defined($args->[0])
                 or $args->[0]->{'normal'} !~ /\S/);
 
-  if ($args->[1] and $args->[1]->{'string'} =~ /\S/) {
+  if (defined($args->[1]) and $args->[1]->{'string'} =~ /\S/) {
     $with_explanation = 1;
   }
 
   my $result;
   if ($with_explanation) {
-    $result = $self->convert_tree($self->cdt('{explained_string} ({explanation})',
-          {'explained_string' => $args->[0]->{'arg_tree'},
-           'explanation' => $args->[1]->{'arg_tree'} }));
+    $result = $self->convert_tree(
+        $self->cdt('{explained_string} ({explanation})',
+                   {'explained_string' => $args->[0]->{'arg_tree'},
+                    'explanation' => $args->[1]->{'arg_tree'} }));
   } else {
     $result = $args->[0]->{'normal'};
   }
@@ -205,10 +197,7 @@ foreach my $explained_command (keys(%Texinfo::Commands::explained_commands)) {
 
 # row in multitable. no thead/tbody in html 3.2
 sub html32_convert_multitable_head_type($$$$) {
-  my $self = shift;
-  my $type = shift;
-  my $element = shift;
-  my $content = shift;
+  my ($self, $type, $element, $content) = @_;
 
   $content = '' if (!defined($content));
 
@@ -219,13 +208,11 @@ sub html32_convert_multitable_head_type($$$$) {
     return '';
   }
 }
-texinfo_register_type_formatting('multitable_head', \&html32_convert_multitable_head_type);
+texinfo_register_type_formatting('multitable_head',
+                                 \&html32_convert_multitable_head_type);
 
 sub html32_convert_multitable_body_type($$$$) {
-  my $self = shift;
-  my $type = shift;
-  my $element = shift;
-  my $content = shift;
+  my ($self, $type, $element, $content) = @_;
 
   $content = '' if (!defined($content));
 
@@ -236,15 +223,11 @@ sub html32_convert_multitable_body_type($$$$) {
     return '';
   }
 }
-texinfo_register_type_formatting('multitable_body', \&html32_convert_multitable_body_type);
+texinfo_register_type_formatting('multitable_body',
+                                 \&html32_convert_multitable_body_type);
 
-sub html32_convert_itemize_command($$$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
-  my $content = shift;
+sub html32_convert_itemize_command($$$$$) {
+  my ($self, $cmdname, $command, $args, $content) = @_;
 
   $content = '' if (!defined($content));
 
@@ -255,15 +238,11 @@ sub html32_convert_itemize_command($$$$$)
   return "<ul>\n" . $content. "</ul>\n";
 }
 
-texinfo_register_command_formatting('itemize', \&html32_convert_itemize_command);
+texinfo_register_command_formatting('itemize',
+                                    \&html32_convert_itemize_command);
 
-sub html32_convert_tab_command($$$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
-  my $content = shift;
+sub html32_convert_tab_command($$$$$) {
+  my ($self, $cmdname, $command, $args, $content) = @_;
 
   $content = '' if (!defined($content));
 
@@ -286,24 +265,19 @@ sub html32_convert_tab_command($$$$$)
 texinfo_register_command_formatting('tab',
                             \&html32_convert_tab_command);
 
-sub html32_convert_item_command($$$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
-  my $content = shift;
+sub html32_convert_item_command($$$$$) {
+  my ($self, $cmdname, $command, $args, $content) = @_;
 
   $content = '' if (!defined($content));
 
   if ($self->in_string()) {
     return $content;
   }
-  if ($command->{'parent'}->{'type'}
+  if (exists($command->{'parent'}->{'type'})
       and $command->{'parent'}->{'type'} eq 'row') {
     return &{$self->command_conversion('tab')}($self, $cmdname, $command,
                                                            $args, $content);
-  } elsif ($command->{'parent'}->{'cmdname'}
+  } elsif (exists($command->{'parent'}->{'cmdname'})
       and $command->{'parent'}->{'cmdname'} eq 'itemize') {
     my $prepend ;
     my $itemize = $command->{'parent'};
@@ -312,10 +286,11 @@ sub html32_convert_item_command($$$$$)
     my $command_as_argument_name;
     my $prepended_element
       = Texinfo::Common::itemize_line_prepended_element($block_line_arg);
-    if ($prepended_element) {
+    if (defined($prepended_element)) {
       $command_as_argument_name = $prepended_element->{'cmdname'};
     }
-    if ($command_as_argument_name and $command_as_argument_name eq 'bullet') {
+    if (defined($command_as_argument_name)
+                and $command_as_argument_name eq 'bullet') {
       $prepend = '';
     } else {
       # Setting multiple expansion should not be needed, except in
@@ -340,14 +315,10 @@ texinfo_register_command_formatting('item',
 texinfo_register_command_formatting('headitem',
                             \&html32_convert_item_command);
 
-sub html32_convert_center_command($$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
+sub html32_convert_center_command($$$$) {
+  my ($self, $cmdname, $command, $args) = @_;
 
-  if (!$args or !$args->[0]) {
+  if (!defined($args) or !defined($args->[0])) {
     return '';
   }
 
@@ -368,12 +339,8 @@ my %html32_paragraph_style = (
       'flushright' => 'right',
       );
 
-sub html32_convert_paragraph_type($$$$)
-{
-  my $self = shift;
-  my $type = shift;
-  my $element = shift;
-  my $content = shift;
+sub html32_convert_paragraph_type($$$$) {
+  my ($self, $type, $element, $content) = @_;
 
   $content = '' if (!defined($content));
 
@@ -381,7 +348,7 @@ sub html32_convert_paragraph_type($$$$)
 
   if ($self->paragraph_number() == 1) {
     my $in_format = $self->top_block_command();
-    if ($in_format) {
+    if (defined($in_format)) {
       # no first paragraph in those environment to avoid extra spacing
       if ($in_format eq 'itemize'
           or $in_format eq 'enumerate'
@@ -394,7 +361,7 @@ sub html32_convert_paragraph_type($$$$)
 
   if ($content =~ /\S/) {
     my $align = $self->in_align();
-    if ($align and $html32_paragraph_style{$align}) {
+    if ($align and exists($html32_paragraph_style{$align})) {
       return "<p align=\"$html32_paragraph_style{$align}\">".$content."</p>";
     } else {
       return "<p>".$content."</p>";
@@ -407,14 +374,10 @@ sub html32_convert_paragraph_type($$$$)
 texinfo_register_type_formatting('paragraph', \&html32_convert_paragraph_type);
 
 
-sub html32_convert_subtitle_command($$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
+sub html32_convert_subtitle_command($$$$) {
+  my ($self, $cmdname, $command, $args) = @_;
 
-  return '' if (!$args or !$args->[0]);
+  return '' if (!defined($args) or !defined($args->[0]));
 
   if (!$self->in_string()) {
     return "<h3 align=\"right\">$args->[0]->{'normal'}</h3>\n";

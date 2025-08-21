@@ -401,25 +401,41 @@ if ($^O eq 'MSWin32') {
 # used as part of binary strings
 my $conf_file_name = 'texi2any-config.pm';
 
-# When we replace a directory, we emit a warning for some time,
-# using %deprecated_directories to match to the directory that
+# When we replace a directory in a search path, we issue a warning for a while,
+# using %deprecated_directories to match the directory that
 # should be used.
 # In 2024 we switched to using the XDG Base Directory Specification,
 # https://specifications.freedesktop.org/basedir-spec/latest/index.html
-#  $HOME/texinfo should be $XDG_CONFIG_HOME default: $HOME/.config/texinfo
+#  $HOME/.texinfo should be $XDG_CONFIG_HOME default: $HOME/.config/texinfo
+#
+# We do not follow strictly the XDG Base Directory Specification, we use and
+# prefer installation directories, and we do not use the default absolute
+# directories.
 my %deprecated_directories;
 
-# We use first the installation directory, and then the environment variable
-# directories.
+# Return the search path for a subdirectory in system directories.
+# The order is
+#   installation directory
+#   XDG environment variable directories
+# Input:
+#  - $ENV_STRING the XDG Base Directory Specification env variable name
+#  - $SUBDIR: the subdirectory setup in configuration path search
+#  - $DEFAULT_BASE_DIRS: ignored parameter.
+#                        Default XDG Base Directory Specification absolute
+#                        directories; supposed to be last in search paths.
+#  - $INSTALLATION_DIRS: directories specified as installation directory
+#                        (using configured directory names) for this $SUBDIR
+#  - $OVERRIDING_DIRS: associate new base directories to deprecated base
+#                      directory locations
+#
+#  Output:
+#  - $DEPRECATED_DIRS: associate deprecated SUBDIR location to expected
+#                      location
 sub add_config_paths($$$$;$$) {
-  my $env_string = shift;
-  my $subdir = shift;
-  my $default_base_dirs = shift;
-  my $installation_dir = shift;
-  my $overriding_dirs = shift;
-  my $deprecated_dirs = shift;
+  my ($env_string, $subdir, $default_base_dirs, $installation_dir,
+      $overriding_dirs, $deprecated_dirs) = shift;
 
-  # read the env directories to avoid setting the overriding_dirs
+  # read the env directories first to avoid setting the overriding_dirs
   # as deprecated if they are explicitely specified in the environnement
   # variable.
   my @xdg_result_dirs;
@@ -441,7 +457,8 @@ sub add_config_paths($$$$;$$) {
     if ($overriding_dirs and $overriding_dirs->{$installation_dir}) {
       my $deprecated_dir = $overriding_dirs->{$installation_dir};
       my $deprecated_result_dir = "$deprecated_dir/$subdir";
-      if (not $used_xdg_base_dirs{$deprecated_dir}) {
+      if (not exists($used_xdg_base_dirs{$deprecated_dir})) {
+        my $deprecated_result_dir = "$deprecated_dir/$subdir";
         $deprecated_dirs->{$deprecated_result_dir} = $install_result_dir;
         push @result_dirs, $deprecated_result_dir;
         $used_base_dirs{$deprecated_dir} = 1;
@@ -450,7 +467,7 @@ sub add_config_paths($$$$;$$) {
   }
 
   foreach my $dir (@xdg_result_dirs) {
-    if (!$used_base_dirs{$dir}) {
+    if (!exists($used_base_dirs{$dir})) {
       push @result_dirs, "$dir/$subdir";
       $used_base_dirs{$dir} = 1;
     }
@@ -465,9 +482,15 @@ sub add_config_paths($$$$;$$) {
   return \@result_dirs;
 }
 
+# the search order is:
+# .$SUBDIR in current directory
+# $SUBDIR below XDG_CONFIG_HOME or HOME
+# $SUBDIR in system directories for configuration
+#   installation directory
+#   XDG environment variable directories
+# $datadir/$SUBDIR
 sub set_subdir_directories($$) {
-  my $subdir = shift;
-  my $deprecated_dirs = shift;
+  my ($subdir, $deprecated_dirs) = @_;
 
   my @result = (".$subdir");
 
@@ -497,17 +520,17 @@ sub set_subdir_directories($$) {
                        $overriding_dirs, $deprecated_dirs);
   push @result, @$config_dirs;
 
-  # the following code could have been used to use XDG_DATA_DIRS for
-  # datadir directories and files too
-  #my $data_dirs = add_config_paths('XDG_DATA_DIRS', $subdir,
-  #    ['/usr/local/share/', '/usr/share/'], $datadir);
-
-  #push @result, @$data_dirs;
   # Do not use XDG base specification for directories and files in
   # datadir, there is no need for customization of those directories
   # since the sysconfdir directories are already customized, just use
   # the installation directory.
   push @result, "$datadir/$subdir";
+
+  # the following code could have been used to use XDG_DATA_DIRS for
+  # datadir directories and files too
+  #my $data_dirs = add_config_paths('XDG_DATA_DIRS', $subdir,
+  #    ['/usr/local/share/', '/usr/share/'], $datadir);
+  #push @result, @$data_dirs;
 
   return \@result;
 }
@@ -519,34 +542,22 @@ my $language_config_dirs
   = set_subdir_directories('texinfo', \%deprecated_directories);
 my @texinfo_language_config_dirs = @$language_config_dirs;
 
-#push @texinfo_language_config_dirs, "$sysconfdir/texinfo"
-#                               if (defined($sysconfdir));
-#push @texinfo_language_config_dirs, "$datadir/texinfo"
-#                               if (defined($datadir));
-
 # these variables are used as part of binary strings.
 my @converter_config_dirs;
 my @converter_init_dirs;
 
+# implementation (texi2any) specific directories
 my $converter_config_dirs_array_ref
   = set_subdir_directories($converter, \%deprecated_directories);
 
 @converter_config_dirs = ($curdir, @$converter_config_dirs_array_ref);
 
-#@converter_config_dirs
-#   = ($curdir, "$curdir/.$converter");
-#push @converter_config_dirs, $ENV{'HOME'}."/.$converter")
-#       if (defined($ENV{'HOME'}));
-#push @converter_config_dirs, "$sysconfdir/$converter"
-#       if (defined($sysconfdir));
-#push @converter_config_dirs, "$datadir/$converter"
-#  if (defined($datadir));
-
+# Directories searched for customization code files, mainly for HTML.
 @converter_init_dirs = @converter_config_dirs;
 foreach my $texinfo_config_dir (@texinfo_language_config_dirs) {
   my $init_dir = "$texinfo_config_dir/init";
   push @converter_init_dirs, $init_dir;
-  if ($deprecated_directories{$texinfo_config_dir}) {
+  if (exists($deprecated_directories{$texinfo_config_dir})) {
     $deprecated_directories{$init_dir}
       = "$deprecated_directories{$texinfo_config_dir}/init";
   }
@@ -560,16 +571,15 @@ push @converter_init_dirs, $extensions_dir;
 #print STDERR join("\n", sort(keys(%deprecated_directories)))."\n";
 
 
-sub _decode_i18n_string($$)
-{
-  my $string = shift;
-  my $encoding = shift;
+sub _decode_i18n_string($$) {
+  my ($string, $encoding) = @_;
+
   return decode($encoding, $string);
 }
 
-sub _encode_message($)
-{
+sub _encode_message($) {
   my $text = shift;
+
   my $encoding = get_conf('MESSAGE_ENCODING');
   if (defined($encoding)) {
     return encode($encoding, $text);
@@ -580,14 +590,15 @@ sub _encode_message($)
 
 sub document_warn($) {
   return if (get_conf('NO_WARN'));
+
   my $text = shift;
+
   warn(_encode_message(
        sprintf(__p("program name: warning: warning_message",
                    "%s: warning: %s")."\n", $real_command_name, $text)));
 }
 
-sub _decode_input($)
-{
+sub _decode_input($) {
   my $text = shift;
 
   my $encoding = get_conf('COMMAND_LINE_ENCODING');
@@ -598,29 +609,22 @@ sub _decode_input($)
   }
 }
 
-sub _warn_deprecated_dirs($$)
-{
-  my $deprecated_dirs = shift;
-  my $deprecated_dirs_used = shift;
+sub _warn_deprecated_dirs($$) {
+  my ($deprecated_dirs, $deprecated_dirs_used) = @_;
 
-  if (defined($deprecated_dirs_used)) {
-    foreach my $dir (@$deprecated_dirs_used) {
-      my $dir_name = _decode_input($dir);
-      my $replacement_dir = _decode_input($deprecated_dirs->{$dir});
+  foreach my $dir (@$deprecated_dirs_used) {
+    my $dir_name = _decode_input($dir);
+    my $replacement_dir = _decode_input($deprecated_dirs->{$dir});
 
-      document_warn(sprintf(__(
-                      "%s directory is deprecated. Use %s instead"),
-                             $dir_name, $replacement_dir));
-    }
+    document_warn(sprintf(__(
+                    "%s directory is deprecated. Use %s instead"),
+                           $dir_name, $replacement_dir));
   }
 }
 
 # arguments are binary strings.
-sub locate_and_load_init_file($$;$)
-{
-  my $filename = shift;
-  my $directories = shift;
-  my $deprecated_dirs = shift;
+sub locate_and_load_init_file($$;$) {
+  my ($filename, $directories, $deprecated_dirs) = @_;
 
   my ($files, $deprecated_dirs_used)
      = Texinfo::Common::locate_file_in_dirs($filename, $directories, 0,
@@ -634,7 +638,7 @@ sub locate_and_load_init_file($$;$)
                           _decode_input($filename)));
   }
 
-  if ($deprecated_dirs and $deprecated_dirs_used) {
+  if (defined($deprecated_dirs) and defined($deprecated_dirs_used)) {
     _warn_deprecated_dirs($deprecated_dirs, $deprecated_dirs_used);
   }
 }
@@ -642,10 +646,8 @@ sub locate_and_load_init_file($$;$)
 # arguments are binary strings.
 # Init files that are used in texi2any, considered
 # as internal extensions code.
-sub locate_and_load_extension_file($$)
-{
-  my $filename = shift;
-  my $directories = shift;
+sub locate_and_load_extension_file($$) {
+  my ($filename, $directories) = @_;
 
   # no possible deprecated dirs with the path passed to this sub
   my ($files, $deprecated_dirs_used)
@@ -680,8 +682,7 @@ sub remove_from_option_list($$) {
   return &Texinfo::Config::texinfo_remove_from_option_list(@_);
 }
 
-sub set_translations_encoding($)
-{
+sub set_translations_encoding($) {
   my $translations_encoding = shift;
 
   if (defined($translations_encoding)
@@ -756,7 +757,7 @@ if (defined($config_init_files)) {
     Texinfo::Config::GNUT_load_init_file($file);
   }
 }
-if ($deprecated_dirs_for_config_init) {
+if (defined($deprecated_dirs_for_config_init)) {
   _warn_deprecated_dirs(\%deprecated_directories,
                         $deprecated_dirs_for_config_init);
 }
@@ -775,8 +776,8 @@ if (defined($set_translations_encoding)
 my %ignored_formats;
 
 sub set_expansion($$) {
-  my $region = shift;
-  my $set = shift;
+  my ($region, $set) = @_;
+
   $set = 1 if (!defined($set));
   if ($set) {
     add_to_option_list('EXPANDED_FORMATS', [$region]);
@@ -925,23 +926,22 @@ my %formats_table = (
 my $call_texi2dvi = 0;
 my @texi2dvi_args = ();
 
-sub set_cmdline_format($)
-{
+sub set_cmdline_format($) {
   my $set_format = shift;
+
   set_from_cmdline('TEXINFO_OUTPUT_FORMAT', $set_format);
 }
 
-sub set_format($)
-{
+sub set_format($) {
   my $set_format = shift;
 
   my $new_output_format;
-  if ($format_command_line_names{$set_format}) {
+  if (exists($format_command_line_names{$set_format})) {
     $new_output_format = $format_command_line_names{$set_format};
   } else {
     $new_output_format = $set_format;
   }
-  if (!$formats_table{$new_output_format}) {
+  if (!exists($formats_table{$new_output_format})) {
     document_warn(sprintf(__(
                  "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"),
                          $set_format));
@@ -951,8 +951,7 @@ sub set_format($)
   }
 }
 
-sub _format_expanded_formats($)
-{
+sub _format_expanded_formats($) {
   my $new_output_format = shift;
 
   my $default_expanded_formats = {};
@@ -960,25 +959,25 @@ sub _format_expanded_formats($)
   my $converter_format;
   my $expanded_region;
 
-  if ($formats_table{$new_output_format}->{'texi2dvi_format'}) {
+  if (exists($formats_table{$new_output_format}->{'texi2dvi_format'})) {
     $call_texi2dvi = 1;
     push @texi2dvi_args, '--'.$new_output_format;
     $converter_format = 'tex';
-  } elsif ($formats_table{$new_output_format}->{'converted_format'}) {
+  } elsif (exists($formats_table{$new_output_format}->{'converted_format'})) {
     $converter_format
       = $formats_table{$new_output_format}->{'converted_format'};
   } else {
     $converter_format = $new_output_format;
   }
 
-  if ($converter_format_expanded_region_name{$converter_format}) {
+  if (exists($converter_format_expanded_region_name{$converter_format})) {
     $expanded_region
       = $converter_format_expanded_region_name{$converter_format};
   } else {
     $expanded_region = $converter_format;
   }
 
-  if ($Texinfo::Common::texinfo_output_formats{$expanded_region}) {
+  if (exists($Texinfo::Common::texinfo_output_formats{$expanded_region})) {
     if ($expanded_region eq 'plaintext') {
       $default_expanded_formats = {$expanded_region => 1, 'info' => 1};
     } else {
@@ -988,9 +987,9 @@ sub _format_expanded_formats($)
   return $default_expanded_formats;
 }
 
-sub _get_converter_default($)
-{
+sub _get_converter_default($) {
   my $option = shift;
+
   if (defined($Texinfo::Options::converter_cmdline_options{$option})) {
     return $Texinfo::Options::converter_cmdline_options{$option};
   } elsif (defined($Texinfo::Options::multiple_at_command_options{$option})) {
@@ -1187,7 +1186,7 @@ There is NO WARRANTY, to the extent permitted by law."), "2025")."\n";
     }
   },
  'split=s' => sub {  my $split = _decode_input($_[1]);
-                     if (!$possible_split{$split}) {
+                     if (!exists($possible_split{$split})) {
                        document_warn(
                          sprintf(__("%s is not a valid split possibility"),
                                  $split));
@@ -1239,7 +1238,7 @@ There is NO WARRANTY, to the extent permitted by law."), "2025")."\n";
  'D=s' => sub {
     my $var = $_[1];
     my @field = split (/\s+/, $var, 2);
-    if (@field == 1) {
+    if (scalar(@field) == 1) {
       $parser_options->{'values'}->{_decode_input($var)} = 1;
       push @texi2dvi_args, "--command=\@set $var 1";
     } else {
@@ -1284,7 +1283,8 @@ There is NO WARRANTY, to the extent permitted by law."), "2025")."\n";
      } else {
        if ($value =~ /^undef$/i) {
          $value = undef;
-       } elsif (!$Texinfo::Common::non_decoded_customization_variables{$var}) {
+       } elsif (!exists(
+                 $Texinfo::Common::non_decoded_customization_variables{$var})) {
          $value = _decode_input($var_val);
        }
        set_from_cmdline($var, $value);
@@ -1355,7 +1355,7 @@ if (defined($set_translations_encoding)
 sub process_config($) {
   my $conf = shift;
 
-  if (defined($conf->{'TEXI2HTML'})) {
+  if ($conf->{'TEXI2HTML'}) {
     set_format('html');
     $parser_options->{'values'}->{'texi2html'} = 1;
   }
@@ -1392,7 +1392,7 @@ my %test_conf = (
     'PROGRAM' => 'texi2any',
 );
 if (get_conf('TEST')) {
-  foreach my $conf (keys (%test_conf)) {
+  foreach my $conf (keys(%test_conf)) {
     $main_program_default_options->{$conf} = $test_conf{$conf};
   }
 }
@@ -1408,9 +1408,9 @@ my %format_names = (
  'texinfoxml' => 'Texinfo XML',
 );
 
-sub name_of_format($)
-{
+sub name_of_format($) {
   my $format = shift;
+
   if (exists($format_names{$format})) {
     return $format_names{$format};
   } else {
@@ -1430,12 +1430,10 @@ if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'})
 
 my $output_format = get_conf('TEXINFO_OUTPUT_FORMAT');
 
-sub _exit($$)
-{
-  my $error_count = shift;
-  my $opened_files = shift;
+sub _exit($$) {
+  my ($error_count, $opened_files) = @_;
 
-  if ($error_count and $opened_files and !get_conf('FORCE')) {
+  if ($error_count and defined($opened_files) and !get_conf('FORCE')) {
     foreach my $opened_file (keys(%$opened_files)) {
       unlink ($opened_file);
       delete $opened_files->{$opened_file};
@@ -1445,8 +1443,7 @@ sub _exit($$)
      or $error_count > get_conf('ERROR_LIMIT')));
 }
 
-sub handle_errors($$$)
-{
+sub handle_errors($$$) {
   my ($errors, $error_count, $opened_files) = @_;
 
   $error_count += Texinfo::Report::count_errors($errors);
@@ -1456,9 +1453,9 @@ sub handle_errors($$$)
   return $error_count;
 }
 
-sub _output_error_messages($)
-{
+sub _output_error_messages($) {
   my $errors = shift;
+
   foreach my $error_message (@$errors) {
     if ($error_message->{'type'} eq 'error' or !get_conf('NO_WARN')) {
       my $s = '';
@@ -1487,11 +1484,9 @@ sub _output_error_messages($)
 # If the file overwriting becomes an error, should increase $ERROR_COUNT.
 sub merge_opened_files($$$)
 {
-  my $error_count = shift;
-  my $opened_files = shift;
-  my $newly_opened_files = shift;
+  my ($error_count, $opened_files, $newly_opened_files) = @_;
 
-  if ($newly_opened_files) {
+  if (defined($newly_opened_files)) {
     foreach my $opened_file (sort(keys(%$newly_opened_files))) {
       # NOTE paths are not normalized, therefore different paths names
       # that refers to the same file will not trigger the message.
@@ -1553,7 +1548,7 @@ if (get_conf('TREE_TRANSFORMATIONS')) {
 }
 
 # for a format setup with an init file
-if (defined ($formats_table{$output_format}->{'init_file'})) {
+if (exists($formats_table{$output_format}->{'init_file'})) {
   locate_and_load_extension_file($formats_table{$output_format}->{'init_file'},
                                  $internal_extension_dirs);
 }
@@ -1565,7 +1560,7 @@ if (defined ($formats_table{$output_format}->{'init_file'})) {
 # this means that the module associated with the converted format in
 # $format_table will be used to find the converter methods.
 my $converted_format = $output_format;
-if ($formats_table{$output_format}->{'converted_format'}) {
+if (exists($formats_table{$output_format}->{'converted_format'})) {
   $converted_format = $formats_table{$output_format}->{'converted_format'};
 }
 
@@ -1607,7 +1602,7 @@ if (get_conf('SHOW_BUILTIN_CSS_RULES')) {
 }
 
 
-if (defined($formats_table{$converted_format}->{'module'})) {
+if (exists($formats_table{$converted_format}->{'module'})) {
   # Speed up initialization by only loading the module we need.
   my $module = $formats_table{$converted_format}->{'module'};
   eval "require $module";
@@ -1632,7 +1627,7 @@ if (defined($formats_table{$converted_format}->{'module'})) {
 # even if the command line higher precedence option is set in case
 # command line is set_format_menu_from_cmdline_header_option.
 my $conversion_format_menu_default;
-if (defined($formats_table{$converted_format}->{'module'})) {
+if (exists($formats_table{$converted_format}->{'module'})) {
   my $converter_class = $formats_table{$converted_format}->{'module'};
   # $cmdline_options is passed to have command line settings, here
   # in practice TEXI2HTML set, for conversion to HTML to select
@@ -1683,7 +1678,7 @@ foreach my $parser_settable_option (@parser_settable_options) {
 # Main processing, process all the files given on the command line
 # Note that the input file names are binary strings and are not decoded
 my @input_files = @ARGV;
-# use STDIN if not a tty, like makeinfo does
+# use STDIN if not a tty
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN
                          and !$call_texi2dvi);
 die _encode_message(
@@ -1788,7 +1783,7 @@ while(@input_files) {
   # documentlanguage is needed for gdt() in regenerate_master_menu
   Texinfo::Common::set_output_encoding($main_configuration, $document);
   if (not defined($main_configuration->get_conf('documentlanguage'))
-      and defined ($document_information->{'documentlanguage'})) {
+      and defined($document_information->{'documentlanguage'})) {
     $main_configuration->set_conf('documentlanguage',
                                   $document_information->{'documentlanguage'});
   }
@@ -1939,7 +1934,7 @@ while(@input_files) {
     }
   }
   if (get_conf('DUMP_TEXI')
-      or $formats_table{$output_format}->{'texi2dvi_format'}) {
+      or exists($formats_table{$output_format}->{'texi2dvi_format'})) {
     $error_count = handle_errors($document->parser_errors(), $error_count,
                                  \%opened_files);
     goto NEXT;
@@ -1956,13 +1951,13 @@ while(@input_files) {
     Texinfo::Transformations::fill_gaps_in_sectioning_in_document($document);
   }
 
-  if ($formats_table{$converted_format}->{'relate_index_entries_to_table_items'}
+  if (exists($formats_table{$converted_format}->{'relate_index_entries_to_table_items'})
       or $tree_transformations{'relate_index_entries_to_table_items'}) {
     Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_document(
                                                                  $document);
   }
 
-  if ($formats_table{$converted_format}->{'move_index_entries_after_items'}
+  if (exists($formats_table{$converted_format}->{'move_index_entries_after_items'})
       or $tree_transformations{'move_index_entries_after_items'}) {
     Texinfo::ManipulateTree::move_index_entries_after_items_in_document(
                                                                  $document);
@@ -1979,7 +1974,7 @@ while(@input_files) {
   # every format needs the sectioning structure
   Texinfo::Structuring::sectioning_structure($document);
 
-  if (!$formats_table{$converted_format}->{'no_warn_non_empty_parts'}) {
+  if (!exists($formats_table{$converted_format}->{'no_warn_non_empty_parts'})) {
     Texinfo::Structuring::warn_non_empty_parts($document);
   }
 
@@ -1993,7 +1988,7 @@ while(@input_files) {
     Texinfo::Transformations::regenerate_master_menu($document);
   }
 
-  if ($formats_table{$converted_format}->{'nodes_tree'}) {
+  if (exists($formats_table{$converted_format}->{'nodes_tree'})) {
     Texinfo::Structuring::construct_nodes_tree($document);
 
     # With this condition, menu is the default for 'FORMAT_MENU'.
@@ -2012,12 +2007,12 @@ while(@input_files) {
       Texinfo::Structuring::check_nodes_are_referenced($document);
     }
   }
-  if ($formats_table{$converted_format}->{'floats'}) {
+  if (exists($formats_table{$converted_format}->{'floats'})) {
     Texinfo::Structuring::number_floats($document);
   }
 
   # do it now to get error messages here
-  if ($formats_table{$converted_format}->{'setup_index_entries_sort_strings'}) {
+  if (exists($formats_table{$converted_format}->{'setup_index_entries_sort_strings'})) {
     Texinfo::Document::setup_indices_sort_strings($document, undef);
   }
 
@@ -2078,12 +2073,9 @@ while(@input_files) {
   my $file_cmdline_options = Storable::dclone($cmdline_options);
 
   if ($file_number != 0) {
-    delete $file_cmdline_options->{'OUTFILE'}
-       if exists($file_cmdline_options->{'OUTFILE'});
-    delete $file_cmdline_options->{'PREFIX'}
-       if exists($file_cmdline_options->{'PREFIX'});
-    delete $file_cmdline_options->{'SUBDIR'}
-       if (exists($file_cmdline_options->{'SUBDIR'}) and get_conf('SPLIT'));
+    delete $file_cmdline_options->{'OUTFILE'};
+    delete $file_cmdline_options->{'PREFIX'};
+    delete $file_cmdline_options->{'SUBDIR'} if (get_conf('SPLIT'));
   }
   # the code in Texinfo::Config makes sure that the keys appear only
   # once in these three hashes.
@@ -2127,7 +2119,7 @@ while(@input_files) {
   my $converter_unclosed_files
        = Texinfo::Convert::Utils::output_files_unclosed_files(
                                $converter->output_files_information());
-  if ($converter_unclosed_files) {
+  if (defined($converter_unclosed_files)) {
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
       my $fh = $converter_unclosed_files->{$unclosed_file};
       # undefined file handle means that the path comes from XS (normally
@@ -2156,9 +2148,8 @@ while(@input_files) {
   }
 
   if (defined(get_conf('INTERNAL_LINKS')) and $file_number == 0
-      and $formats_table{$converted_format}->{'internal_links'}) {
-    my $internal_links_text
-      = $converter->output_internal_links();
+      and exists($formats_table{$converted_format}->{'internal_links'})) {
+    my $internal_links_text = $converter->output_internal_links();
     # always create a file, even if empty.
     $internal_links_text = '' if (!defined($internal_links_text));
     my $encoded_internal_links_file_name = get_conf('INTERNAL_LINKS');
@@ -2273,7 +2264,7 @@ while(@input_files) {
     # Since $converted_format is used above for ->{'nodes_tree'}, use it
     # here again.
     my $use_sections
-        = (! $formats_table{$converted_format}->{'nodes_tree'}
+        = (! exists($formats_table{$converted_format}->{'nodes_tree'})
            or (defined($converter_element_count->get_conf('USE_NODES'))
                        and !$converter_element_count->get_conf('USE_NODES')));
     my ($sorted_name_counts_array, $sort_element_count_text)
