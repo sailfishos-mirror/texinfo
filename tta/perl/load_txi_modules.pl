@@ -189,49 +189,36 @@ Locale::Messages->select_package('gettext_pp');
 Locale::Messages::bindtextdomain($messages_textdomain,
                                  join('/', ($datadir, 'locale')));
 
+
 # Set initial configuration
 
-# Version setting is complicated, because we cope with
-# * script with configure values substituted or not
-# * script shipped as part of texinfo or as a standalone perl module
-#   (although standalone module infrastructure was removed in 2019)
+# We use the configured version for version.  If not set we search in
+# configure.ac.
+# We do not fallback on a Texinfo module version to be able to
+# verify that there is no mismatch.
 
-# When the script could be shipped with perl modules independently from
-# the remaining of Texinfo, $hardcoded_version was set to undef here
-# by a sed one liner.  The consequence is that configure.ac is not used
-# to retrieve the version number, version came from Texinfo::Common in that
-# case.
-# Otherwise this is only used as a safety value, and should never be used
-# in practice as a regexp extracts the version from configure.ac.
-my $hardcoded_version = "0.00-hardcoded";
 # Version set in configure.ac
 my $configured_version = '@PACKAGE_VERSION@';
 if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
-  # if not configured, and $hardcoded_version is set search for the version
-  # in configure.ac
-  if (defined($hardcoded_version)) {
-    if (open(CONFIGURE,
-              "< " . join('/', ($Texinfo::ModulePath::t2a_srcdir,
-                                'configure.ac')))) {
-      while (<CONFIGURE>) {
-        if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*[,\)]/) {
-          # add +nc to distinguish from configured and, in general, installed.
-          # If called from build directory with TEXINFO_DEV_SOURCE=1, however
-          # there will not be +nc as the $configured_version is set.
-          $configured_version = "$1+nc";
-          last;
-        }
+  # if not configured, search for the version in configure.ac
+  if (open(CONFIGURE,
+           "< " . join('/', ($Texinfo::ModulePath::t2a_srcdir,
+                             'configure.ac')))) {
+    while (<CONFIGURE>) {
+      if (/^AC_INIT\(\[[^\]]+\]\s*,\s*\[([^\]]+)\]\s*[,\)]/) {
+        # add +nc to distinguish from configured and, in general, installed.
+        # If called from build directory with TEXINFO_DEV_SOURCE=1, however
+        # there will not be +nc as the $configured_version is set.
+        $configured_version = "$1+nc";
+        last;
       }
-      close (CONFIGURE);
     }
-    # This should never be used, but is a safety value
-    $configured_version = $hardcoded_version if (!defined($configured_version));
-  } else {
-    # was used in the standalone perl module, as $hardcoded_version is undef
-    # and it should never be configured in that setup.
-    require Texinfo::Common;
-    $configured_version = $Texinfo::Common::VERSION;
+    close(CONFIGURE);
   }
+}
+
+if (!defined($configured_version)) {
+  die "Cannot determine the texi2any version; aborting.\n";
 }
 
 # Compare the version of this file with the version of the modules
@@ -243,7 +230,7 @@ if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
 if ($configured_version ne $Texinfo::Common::VERSION
     and $configured_version ne $Texinfo::Common::VERSION."+nc") {
   warn "This is load_txi_modules $configured_version but modules ".
-       "for load_txi_modules $Texinfo::Common::VERSION found!\n";
+       "for texi2any $Texinfo::Common::VERSION found!\n";
   die "Your installation of Texinfo is broken; aborting.\n";
 }
 

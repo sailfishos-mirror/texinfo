@@ -1,5 +1,10 @@
 2025-08-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/texi2any.pl, tta/perl/load_txi_modules.pl: remove the
+	references to the standalone module infrastructure.
+
+2025-08-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/XSLoader.pm ($xs_parser_loaded, XS_parser_loaded)
 	(set_XS_parser_loaded), tta/perl/Texinfo/Parser.pm (BEGIN): add a
 	setter and a getter for the XS Parser being actually loaded.  Set in
