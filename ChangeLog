@@ -1,3 +1,8 @@
+2025-08-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/tests/formatting/list-of-tests: remove setting TEXI2HTML undef,
+	it is never needed.
+
 2025-08-20 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/texi2any.pl, tta/perl/load_txi_modules.pl: remove the

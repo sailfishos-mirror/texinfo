@@ -3,8 +3,8 @@ split_nocopying_split_dev_null split_nocopying.texi --info --split-size 1 -o /de
 simplest_test_css simplest.texi --html --no-split --css-include file.css
 
 # already tested in t/*.t.  Here check the command line, for -D
-defcondx_Dbar defxcond.texi --html -D 'bar 1' --no-split -c TEXI2HTML=undef
-defcondx_Ubar defxcond.texi --html --no-split -c TEXI2HTML=undef
+defcondx_Dbar defxcond.texi --html -D 'bar 1' --no-split
+defcondx_Ubar defxcond.texi --html --no-split
 
 # check that command line overrides document.  texi2html style is more
 # interesting to check language change
