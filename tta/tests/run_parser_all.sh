@@ -44,7 +44,7 @@ check_strxfrm_ok ()
 {
   if echo "$remaining" | grep XS_STRXFRM_COLLATION_LOCALE >/dev/null; then
     if test "z$TEXINFO_XS" = 'zomit' -o "z$TEXINFO_XS_PARSER" = "z0" \
-    -o "z$TEXINFO_XS_STRUCTURE " = "z0" -o "z$TEXINFO_XS_CONVERT" = "z0" ; then
+    -o "z$TEXINFO_XS_STRUCTURE" = "z0" -o "z$TEXINFO_XS_CONVERT" = "z0" ; then
       echo "S: (Need TEXINFO_XS_CONVERT set) $current"
      return 1
     fi
