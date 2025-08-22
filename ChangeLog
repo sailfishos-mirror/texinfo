@@ -1,5 +1,16 @@
 2025-08-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm: use exists or defined in conditions
+	when the value is not used.  Change formatting of functions call code.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_parse_htmlxref_files): minor
+	changes in code.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (converter_initialize): handle
+	undef customization data.
+
+2025-08-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/run_parser_all.sh (check_strxfrm_ok): remove a space in
 	string in condition that can be significant.
 
