@@ -381,7 +381,8 @@ my %default_index_commands = %Texinfo::Commands::default_index_commands;
 my %small_block_associated_command = %Texinfo::Common::small_block_associated_command;
 
 foreach my $def_command (keys(%def_commands)) {
-  $formatted_line_commands{$def_command} = 1 if ($line_commands{$def_command});
+  $formatted_line_commands{$def_command} = 1
+     if (exists($line_commands{$def_command}));
 }
 
 my %HTML_align_commands;
@@ -819,7 +820,7 @@ sub in_align($) {
 
   my $context
        = $self->{'document_context'}->[-1]->{'composition_context'}->[-1];
-  if ($HTML_align_commands{$context}) {
+  if (exists($HTML_align_commands{$context})) {
     return $context;
   } else {
     return undef;
@@ -1309,7 +1310,7 @@ sub _internal_command_tree($$$) {
         $tree = $self->float_type_number($command);
       } else {
         my $line_arg;
-        if ($root_commands{$command->{'cmdname'}}) {
+        if (exists($root_commands{$command->{'cmdname'}})) {
           # arguments_line type element
           my $arguments_line = $command->{'contents'}->[0];
           $line_arg = $arguments_line->{'contents'}->[0];
@@ -2968,12 +2969,12 @@ foreach my $line_command (@informative_global_commands,
 
 foreach my $line_command (keys(%line_commands)) {
   $default_commands_conversion{$line_command} = undef
-    unless ($kept_line_commands{$line_command});
+    unless (exists($kept_line_commands{$line_command}));
 }
 
 foreach my $nobrace_command (keys(%nobrace_commands)) {
   $default_commands_conversion{$nobrace_command} = undef
-    unless ($formatted_nobrace_commands{$nobrace_command});
+    unless (exists($formatted_nobrace_commands{$nobrace_command}));
 }
 
 # formatted/formattable @-commands that are not converted in
@@ -4503,7 +4504,7 @@ sub _convert_heading_command($$$$$) {
   my $section_relations;
   my $node_relations;
 
-  if ($Texinfo::Commands::root_commands{$cmdname}) {
+  if (exists($Texinfo::Commands::root_commands{$cmdname})) {
     if ($cmdname eq 'node') {
       if (defined($nodes_list) and exists($element->{'extra'})
         and $element->{'extra'}->{'node_number'}) {
@@ -4706,8 +4707,8 @@ sub _convert_heading_command($$$$$) {
 
   if ($do_heading) {
     if ($self->get_conf('TOC_LINKS')
-        and $Texinfo::Commands::root_commands{$cmdname}
-        and $sectioning_heading_commands{$cmdname}) {
+        and exists($Texinfo::Commands::root_commands{$cmdname})
+        and exists($sectioning_heading_commands{$cmdname})) {
       my $content_href = $self->command_contents_href($element, 'contents');
       if (defined($content_href)) {
         $heading = "<a href=\"$content_href\">$heading</a>";
@@ -6488,7 +6489,7 @@ sub _convert_printindex_command($$$$) {
       }
 
       if (defined($letter_command)
-          and !$accent_commands{$letter_command->{'cmdname'}}
+          and !exists($accent_commands{$letter_command->{'cmdname'}})
           and $letter_command->{'cmdname'} ne 'U'
           # special case, the uppercasing of that command is not done
           # if as a command, while it is done correctly in $letter
@@ -6679,7 +6680,7 @@ sub _convert_def_command($$$$$) {
 my %default_types_conversion;
 
 foreach my $command (keys(%def_commands), 'defblock') {
-  if ($line_commands{$command}) {
+  if (exists($line_commands{$command})) {
     $default_commands_conversion{$command} = \&_convert_def_line_type;
   } else {
     $default_commands_conversion{$command} = \&_convert_def_command;
@@ -6882,7 +6883,7 @@ sub _convert_paragraph_type($$$$) {
 
   if ($content =~ /\S/) {
     my $align = $self->in_align();
-    if ($align and $HTML_align_commands{$align}) {
+    if ($align and exists($HTML_align_commands{$align})) {
       return $self->html_attribute_class('p', [$align.'-paragraph']).">"
                              .$content."</p>";
     } else {

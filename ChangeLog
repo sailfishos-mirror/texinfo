@@ -1,5 +1,14 @@
 2025-08-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm: use exists in conditions when the
+	value is not used.
+
+	* tta/perl/init/book.pm: use exists or defined in conditions when the
+	value is not used.  Change formatting of functions call code.  Sync
+	common parts of book_convert_heading_command with HTML.pm.
+
+2025-08-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm: use exists or defined in conditions
 	when the value is not used.  Change formatting of functions call code.
 
