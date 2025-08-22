@@ -1,7 +1,14 @@
 2025-08-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm: use exists or defined in conditions
+	when the value is not used.  Change formatting of functions call code.
+
+	* tta/perl/Texinfo/Convert/Converter.pm: use exists in conditions.
+
+2025-08-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm, tta/perl/init/html32.pm,
-	tta/perl/texi2any.pl: use exists or defined conditions when the value
+	tta/perl/texi2any.pl: use exists or defined in conditions when the value
 	is not used.  Change formatting of functions call code.  Use the value
 	of TEXI2HTML customization variable in conditions, not whether it is
 	defined.

@@ -433,7 +433,7 @@ my %deprecated_directories;
 #                      location
 sub add_config_paths($$$$;$$) {
   my ($env_string, $subdir, $default_base_dirs, $installation_dir,
-      $overriding_dirs, $deprecated_dirs) = shift;
+      $overriding_dirs, $deprecated_dirs) = @_;
 
   # read the env directories first to avoid setting the overriding_dirs
   # as deprecated if they are explicitely specified in the environnement

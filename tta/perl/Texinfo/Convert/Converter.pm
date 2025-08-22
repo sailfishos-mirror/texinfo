@@ -1988,7 +1988,7 @@ our %xml_text_entity_no_arg_commands_formatting
 
 foreach my $brace_no_arg_command
      (keys(%Texinfo::CommandsValues::text_brace_no_arg_commands)) {
-  if (!defined($xml_text_entity_no_arg_commands_formatting{
+  if (!exists($xml_text_entity_no_arg_commands_formatting{
                                                 $brace_no_arg_command})) {
     $xml_text_entity_no_arg_commands_formatting{$brace_no_arg_command}
       = $Texinfo::CommandsValues::text_brace_no_arg_commands{
@@ -1998,8 +1998,9 @@ foreach my $brace_no_arg_command
 
 foreach my $no_brace_command
                 (keys(%Texinfo::CommandsValues::nobrace_symbol_text)) {
-  if (!defined($xml_text_entity_no_arg_commands_formatting{
+  if (!exists($xml_text_entity_no_arg_commands_formatting{
                                                 $no_brace_command})) {
+    # some values are empty strings
     $xml_text_entity_no_arg_commands_formatting{$no_brace_command}
       = $Texinfo::CommandsValues::nobrace_symbol_text{$no_brace_command};
   }
