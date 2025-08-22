@@ -21,7 +21,8 @@ inline contents_child_by_index in C?
 Document the use of accents stack in the HTML customization API
 
 Do not add parent in tree in the first place instead of removing afterwards,
-in gdt?
+in gdt?  Or, possibly even better mark parent as weak reference with
+Scalar::Util weaken as explained in man perlref (Gavin).
 
 The checks on perl objects refcount are explained in a comment at the
 beginning of texi2any.pl.  Add such explanations in documentation
