@@ -1817,6 +1817,7 @@ sub _convert($$)
           } elsif ($cmdname eq 'enumerate') {
             push @format_elements, 'orderedlist';
             my $numeration;
+            # TODO enumerate_specification has been removed, need to update
             if ($element->{'extra'}
                 and $element->{'extra'}->{'enumerate_specification'}) {
               my $enumerate_specification

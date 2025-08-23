@@ -42,8 +42,6 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
      {itemize}
   {empty_line:\\n}
   *@enumerate C2 l5
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO

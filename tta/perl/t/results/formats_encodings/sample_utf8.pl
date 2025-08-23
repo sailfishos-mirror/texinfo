@@ -349,8 +349,6 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
    {Here is a numbered list.\\n}
   {empty_line:\\n}
   *@enumerate C4 sample_utf8.texi:l53
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO

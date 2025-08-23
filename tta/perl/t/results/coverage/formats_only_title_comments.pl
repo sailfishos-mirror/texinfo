@@ -41,8 +41,6 @@ $result_tree_text{'formats_only_title_comments'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO

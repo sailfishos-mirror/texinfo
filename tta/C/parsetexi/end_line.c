@@ -932,8 +932,6 @@ end_line_starting_block (ELEMENT *current)
     {
       if (command == CM_enumerate)
         {
-          const char *spec = "1";
-
           if (block_line_arg->e.c->contents.number > 0)
             {
               ELEMENT *g;
@@ -949,14 +947,11 @@ end_line_starting_block (ELEMENT *current)
                       || (g->e.text->end > 0
                           && !*(g->e.text->text
                             + strspn (g->e.text->text, digit_chars)))))
-                {
-                  spec = g->e.text->text;
-                }
+                {}
               else
                 command_error (current, "bad argument to @%s",
                                command_name(command));
             }
-          add_extra_string_dup (current, AI_key_enumerate_specification, spec);
         }
       else if (command == CM_itemize)
         {

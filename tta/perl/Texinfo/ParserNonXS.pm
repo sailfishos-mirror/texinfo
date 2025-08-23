@@ -4446,23 +4446,18 @@ sub _end_line_starting_block($$$) {
     # all the commands with @item
   } elsif ($blockitem_commands{$command}) {
     if ($command eq 'enumerate') {
-      my $spec = '1';
       if (exists($block_line_arg->{'contents'})) {
         if (scalar(@{$block_line_arg->{'contents'}}) > 1) {
           _command_error($self, $current,
                       __("superfluous argument to \@%s"), $command);
         }
         my $arg = $block_line_arg->{'contents'}->[0];
-        if (exists($arg->{'text'})
-            and $arg->{'text'} =~ /^(\d+|[[:alpha:]])$/) {
-          $spec = $arg->{'text'};
-        } else {
+        if (!exists($arg->{'text'})
+            or $arg->{'text'} !~ /^(\d+|[[:alpha:]])$/) {
           _command_error($self, $current,
                       __("bad argument to \@%s"), $command);
         }
       }
-      $current->{'extra'} = {} if (!exists($current->{'extra'}));
-      $current->{'extra'}->{'enumerate_specification'} = $spec;
     } elsif ($command eq 'itemize') {
     # Check if command_as_argument isn't an accent command
       if (exists($block_line_arg->{'contents'})
@@ -9637,10 +9632,6 @@ I<end> holds the string ending the C<@definfoenclose>.
 =item C<@documentencoding>
 
 The argument, normalized is in I<input_encoding_name>.
-
-=item C<@enumerate>
-
-The I<enumerate_specification> C<extra> key contains the enumerate argument.
 
 =item C<@float>
 

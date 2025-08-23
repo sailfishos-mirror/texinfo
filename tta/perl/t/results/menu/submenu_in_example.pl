@@ -140,8 +140,6 @@ $result_tree_text{'submenu_in_example'} = '*document_root C2
      *preformatted C1
       {empty_line:\\n}
      *@enumerate C3 l25
-     |EXTRA
-     |enumerate_specification:{1}
       *arguments_line C1
        *block_line_arg
        |INFO

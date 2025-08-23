@@ -42,8 +42,6 @@ $result_tree_text{'formats_not_closed_in_example'} = '*document_root C1
        {empty_line:\\n}
        {Some text.\\n}
       *@enumerate C4 l8
-      |EXTRA
-      |enumerate_specification:{1}
        *arguments_line C1
         *block_line_arg
         |INFO

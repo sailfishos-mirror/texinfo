@@ -1227,11 +1227,6 @@ definition name and arguments should be omitted.
 
 The argument, normalized is in @emph{input_encoding_name}.
 
-@item @code{@@enumerate}
-@anchor{Texinfo@asis{::}Parser @code{@@enumerate}}
-
-The @emph{enumerate_specification} @code{extra} key contains the enumerate argument.
-
 @item @code{@@float}
 @anchor{Texinfo@asis{::}Parser @code{@@float} 1}
 

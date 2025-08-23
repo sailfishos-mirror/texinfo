@@ -11,8 +11,6 @@ $result_tree_text{'enumerate_letters'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
-  |EXTRA
-  |enumerate_specification:{c}
    *arguments_line C1
     *block_line_arg C1
     |INFO

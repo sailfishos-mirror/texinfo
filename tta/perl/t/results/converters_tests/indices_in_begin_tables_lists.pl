@@ -228,8 +228,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {itemize}
   {empty_line:\\n}
   *@enumerate C4 indices_in_begin_tables_lists.texi:l29
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -265,8 +263,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 indices_in_begin_tables_lists.texi:l35
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -306,8 +302,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 indices_in_begin_tables_lists.texi:l42
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -346,8 +340,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 indices_in_begin_tables_lists.texi:l48
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -386,8 +378,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 indices_in_begin_tables_lists.texi:l54
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -427,8 +417,6 @@ $result_tree_text{'indices_in_begin_tables_lists'} = '*document_root C8
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 indices_in_begin_tables_lists.texi:l60
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO

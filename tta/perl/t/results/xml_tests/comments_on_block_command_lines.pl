@@ -161,8 +161,6 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -198,8 +196,6 @@ $result_tree_text{'comments_on_block_command_lines'} = '*document_root C1
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
-  |EXTRA
-  |enumerate_specification:{a}
    *arguments_line C1
     *block_line_arg C1
     |INFO

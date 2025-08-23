@@ -1,5 +1,14 @@
 2025-08-23 Patrice Dumas  <pertusus@free.fr>
 
+	Remove enumerate_specification extra information from tree
+
+	* tta/C/main/tree_types.h (AI_KEYS_LIST), tta/C/parsetexi/end_line.c
+	(end_line_starting_block), tta/perl/Texinfo/ParserNonXS.pm
+	(_end_line_starting_block): do not put enumerate_specification extra
+	information in tree.
+
+2025-08-23 Patrice Dumas  <pertusus@free.fr>
+
 	Do not use enumerate_specification extra information in converters
 
 	* tta/perl/Texinfo/ParserNonXS.pm (_end_line_starting_block): inverse

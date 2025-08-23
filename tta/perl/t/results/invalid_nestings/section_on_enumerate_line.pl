@@ -11,8 +11,6 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg C1
     |INFO
@@ -38,8 +36,6 @@ $result_tree_text{'section_on_enumerate_line'} = '*document_root C3
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
-  |EXTRA
-  |enumerate_specification:{4}
    *arguments_line C1
     *block_line_arg C1
     |INFO

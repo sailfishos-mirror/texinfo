@@ -66,8 +66,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
     {chap}
   {empty_line:\\n}
   *@enumerate C4 l7
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -103,8 +101,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l13
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -144,8 +140,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l20
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -184,8 +178,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l26
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -224,8 +216,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l32
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -265,8 +255,6 @@ $result_tree_text{'inter_item_commands_in_enumerate'} = '*document_root C5
      {enumerate}
   {empty_line:\\n}
   *@enumerate C4 l38
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO

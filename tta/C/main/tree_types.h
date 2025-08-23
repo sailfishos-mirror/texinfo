@@ -122,7 +122,6 @@ enum string_info_type {
   ai_key(element_node, string, 0) \
   ai_key(element_region, string, 0) \
   ai_key(end, string, 0) \
-  ai_key(enumerate_specification, string, 0) \
   ai_key(float_number, string, 0) \
   ai_key(float_type, string, 0) \
   ai_key(format, string, 0) \

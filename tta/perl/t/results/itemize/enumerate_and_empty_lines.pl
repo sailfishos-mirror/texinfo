@@ -8,8 +8,6 @@ use utf8;
 $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
  *before_node_section C3
   *@enumerate C8 l1
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO
@@ -138,8 +136,6 @@ $result_tree_text{'enumerate_and_empty_lines'} = '*document_root C1
      {enumerate}
   {empty_line:\\n}
   *@enumerate C3 l29
-  |EXTRA
-  |enumerate_specification:{1}
    *arguments_line C1
     *block_line_arg
     |INFO

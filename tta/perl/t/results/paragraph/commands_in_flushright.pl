@@ -59,8 +59,6 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
       {quotation}
    {empty_line:\\n}
    *@enumerate C4 l11
-   |EXTRA
-   |enumerate_specification:{1}
     *arguments_line C1
      *block_line_arg
      |INFO
