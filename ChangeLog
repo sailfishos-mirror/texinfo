@@ -1,5 +1,14 @@
 2025-08-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_run_stage_handlers): rename
+	run_stage_handlers as _run_stage_handlers since it is a local function
+	only and do not call with object oriented syntax.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_prepare_converted_output_info):
+	use $self->{'document'} in the whole function.
+
+2025-08-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/call_html_perl_function.c (call_stage_handler): do not
 	use document SV found in converter if undef.
 

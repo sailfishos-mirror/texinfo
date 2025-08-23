@@ -12736,8 +12736,7 @@ sub output_internal_links($) {
   }
 }
 
-# FIXME make internal
-sub run_stage_handlers($$$$) {
+sub _run_stage_handlers($$$$) {
   my ($converter, $stage_handlers, $document, $stage) = @_;
 
   return 0 if (!defined($stage_handlers->{$stage}));
@@ -12839,10 +12838,9 @@ sub _prepare_converted_output_info($$$$) {
   my ($self, $output_file, $output_filename, $output_units) = @_;
 
   my $stage_handlers = $self->{'stage_handlers'};
-  my $document = $self->{'document'};
 
-  my $structure_status = $self->run_stage_handlers($stage_handlers,
-                                                   $document, 'structure');
+  my $structure_status = _run_stage_handlers($self, $stage_handlers,
+                                             $self->{'document'}, 'structure');
   my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
 
   unless ($structure_status < $handler_fatal_error_level
@@ -12978,8 +12976,8 @@ sub _prepare_converted_output_info($$$$) {
 
   # TODO document that this stage handler is called with end of preamble
   # documentlanguage when it is certain that this will not change ever.
-  my $init_status = $self->run_stage_handlers($stage_handlers,
-                                              $document, 'init');
+  my $init_status = _run_stage_handlers($self, $stage_handlers,
+                                        $self->{'document'}, 'init');
   unless ($init_status < $handler_fatal_error_level
           and $init_status > -$handler_fatal_error_level) {
     return 0;
@@ -13438,8 +13436,8 @@ sub _setup_output($) {
     }
  }
 
-  my $setup_status = $self->run_stage_handlers($self->{'stage_handlers'},
-                                               $self->{'document'}, 'setup');
+  my $setup_status = _run_stage_handlers($self, $self->{'stage_handlers'},
+                                         $self->{'document'}, 'setup');
 
   if ($setup_status < $handler_fatal_error_level
       and $setup_status > -$handler_fatal_error_level) {
@@ -13524,8 +13522,8 @@ sub _finish_output($$$$) {
 
   my $stage_handlers = $self->{'stage_handlers'};
   my $handler_fatal_error_level = $self->get_conf('HANDLER_FATAL_ERROR_LEVEL');
-  my $finish_status = $self->run_stage_handlers($stage_handlers,
-                                                $self->{'document'}, 'finish');
+  my $finish_status = _run_stage_handlers($self, $stage_handlers,
+                                          $self->{'document'}, 'finish');
   unless ($finish_status < $handler_fatal_error_level
           and $finish_status > -$handler_fatal_error_level) {
     return 0;
