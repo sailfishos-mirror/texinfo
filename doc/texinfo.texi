@@ -16057,12 +16057,15 @@ When dumping the elements-by-size file (see preceding item), use word
 counts instead of line counts; default false.
 
 @item TEST
-If set to true, some variables which are normally dynamically
+If set to a positive integer, some variables which are normally dynamically
 generated anew for each run (date, program name, version) are set to
 fixed and given values.  Some file names may also have the directory part
 removed.  Also code that gives more reproducible output may be selected.
 This is useful to compare the output to a reference file, as is done for the
-tests.  The default is false.
+tests.  Features not selected in the default case but interesting for tests are
+also enabled.  For example, code related to memory release and checks on
+released memory.  If the value is higher, more checks are enabled, which may
+require additional Perl modules installation.  The default is undef.
 
 @item TEXINFO_OUTPUT_FORMAT
 The generated output format.  Set from command line with options such as
