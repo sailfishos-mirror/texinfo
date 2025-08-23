@@ -1681,10 +1681,13 @@ my @input_files = @ARGV;
 # use STDIN if not a tty
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN
                          and !$call_texi2dvi);
+
+my $input_files_nr = scalar(@input_files);
+
 die _encode_message(
     sprintf(__("%s: missing file argument.")."\n", $real_command_name)
    .sprintf(__("Try `%s --help' for more information.")."\n", $real_command_name))
-     unless (scalar(@input_files) >= 1);
+     unless ($input_files_nr >= 1);
 
 # XS parser and not explicitly unset
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
@@ -1702,13 +1705,13 @@ my $remove_references = 0;
 my $test_level = get_conf('TEST');
 $remove_references = 1 if (defined($test_level) and $test_level > 1);
 
-my $file_number = -1;
+my $file_index = -1;
 my %opened_files;
 my %main_unclosed_files;
 my $error_count = 0;
 # main processing
-while(@input_files) {
-  $file_number++;
+while (@input_files) {
+  $file_index++;
   my $input_file_arg = shift(@input_files);
   my $input_file_name;
   if ($input_file_arg =~ /\.info$/) {
@@ -1878,7 +1881,7 @@ while(@input_files) {
     goto NEXT;
   }
 
-  if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
+  if (defined(get_conf('MACRO_EXPAND')) and $file_index == 0) {
     require Texinfo::Convert::Texinfo;
     Texinfo::Convert::Texinfo->import();
     # if convert_to_texinfo is not XS code get Perl tree.
@@ -2072,7 +2075,7 @@ while(@input_files) {
   # are modified
   my $file_cmdline_options = Storable::dclone($cmdline_options);
 
-  if ($file_number != 0) {
+  if ($file_index != 0) {
     delete $file_cmdline_options->{'OUTFILE'};
     delete $file_cmdline_options->{'PREFIX'};
     delete $file_cmdline_options->{'SUBDIR'} if (get_conf('SPLIT'));
@@ -2147,7 +2150,7 @@ while(@input_files) {
     }
   }
 
-  if (defined(get_conf('INTERNAL_LINKS')) and $file_number == 0
+  if (defined(get_conf('INTERNAL_LINKS')) and $file_index == 0
       and exists($formats_table{$converted_format}->{'internal_links'})) {
     my $internal_links_text = $converter->output_internal_links();
     # always create a file, even if empty.
@@ -2219,7 +2222,8 @@ while(@input_files) {
   # is XS freeing memory related to the conversion.  If the program
   # is about to exit, all the memory will be released, so we only cleanup
   # at all if TEST is set.
-  if ($converter->can('reset_converter') and $test_level) {
+  if ($converter->can('reset_converter')
+      and ($test_level or $file_index < $input_files_nr -1)) {
     $converter->reset_converter();
   }
 
@@ -2246,7 +2250,7 @@ while(@input_files) {
   #  }
   #}
 
-  if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {
+  if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_index == 0) {
     require Texinfo::Convert::TextContent;
     my $sort_element_converter_options = { %$main_program_default_options,
                                            %$init_files_options,
@@ -2326,7 +2330,7 @@ while(@input_files) {
     }
   }
 
-  if ($test_level) {
+  if ($test_level or $file_index < $input_files_nr -1) {
     $converter->destroy();
   }
 
@@ -2334,7 +2338,7 @@ while(@input_files) {
   $parser->release();
   $parser = undef;
 
-  if ($test_level) {
+  if ($test_level or $file_index < $input_files_nr -1) {
     # Destroying the tree takes a lot of time and is unnecessary when there
     # is only one input file as the program is about to exit.  Note that
     # this cleanup is only possible while we still have the value of
