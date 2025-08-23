@@ -572,7 +572,7 @@ sub converter_destroy($) {
   my $self = shift;
 }
 
-# can also be called from XS
+# can also be called from C program
 sub converter_perl_release($) {
   my $self = shift;
 

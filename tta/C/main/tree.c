@@ -263,11 +263,13 @@ destroy_element (ELEMENT *e)
             */
           if (sv_refcount != 0 || hv_refcount != 0)
             {
+              char *e_dbg_txt = print_element_debug (e, 0);
               const char *msg
-                = "DEBUG Perl refcounts (%p<-%p): sv: %d hv: %d\n";
-              fprintf (stderr, msg, hv, e->sv, sv_refcount, hv_refcount);
+                = "C Element refcount (%d, %d) for HV %p, SV %p; %s\n";
+              fprintf (stderr, msg, sv_refcount, hv_refcount, hv, e->sv,
+                       e_dbg_txt);
               message_list_document_warn (error_messages, 0, 0, msg,
-                                    hv, e->sv, sv_refcount, hv_refcount);
+                        sv_refcount, hv_refcount, hv, e->sv, e_dbg_txt);
             }
          /*
           fprintf (stderr, " DSV %p (sv:%d hv:%d) %s\n", hv,

@@ -974,6 +974,7 @@ main (int argc, char *argv[], char *env[])
   const char *curdir = ".";
   CONVERTER_INITIALIZATION_INFO *converter_init_info;
   const char *external_module = 0;
+  const char *elt_count_external_module = "Texinfo::Convert::TextContent";
   int default_is_html = 1;
   char *init_file_format;
   const char *set_message_encoding = 0;
@@ -990,6 +991,7 @@ main (int argc, char *argv[], char *env[])
   char *texinfo_dev_source_env;
   char *command_directory;
   char *program_basename;
+  size_t file_index;
   int remove_references = 0;
 
   memset (&main_program_unclosed_stdout, 0, sizeof (FILE_STREAM));
@@ -2464,7 +2466,7 @@ main (int argc, char *argv[], char *env[])
   memset (&prepended_include_directories, 0, sizeof (STRING_LIST));
   converter_init_info = new_converter_initialization_info ();
 
-  for (i = 0; i < input_files.number; i++)
+  for (file_index = 0; file_index < input_files.number; file_index++)
     {
       DOCUMENT *document;
       CONVERTER *converter;
@@ -2496,7 +2498,7 @@ main (int argc, char *argv[], char *env[])
       size_t j;
       OPTIONS_LIST *file_cmdline_options;
 
-      input_file_arg = input_files.list[i];
+      input_file_arg = input_files.list[file_index];
 
       file_path_len = strlen (input_file_arg);
       if (file_path_len > strlen (".info")
@@ -2696,7 +2698,8 @@ main (int argc, char *argv[], char *env[])
 
       macro_expand_option
         = GNUT_get_conf (program_options.options->MACRO_EXPAND.number);
-      if (macro_expand_option && macro_expand_option->o.string && i == 0)
+      if (macro_expand_option && macro_expand_option->o.string
+          && file_index == 0)
         {
           const char *encoded_macro_expand_file_name
             = macro_expand_option->o.string;
@@ -2862,7 +2865,7 @@ main (int argc, char *argv[], char *env[])
       if (!strcmp (output_format, "structure"))
         goto next_input_file;
 
-      if (i != 0)
+      if (file_index != 0)
         {
           if (!non_first_file_cmdline_initialized)
             {
@@ -2891,7 +2894,7 @@ main (int argc, char *argv[], char *env[])
       copy_options_list (&convert_options, init_files_options);
       copy_options_list (&convert_options, file_cmdline_options);
 
-      if (i != 0)
+      if (file_index != 0)
         clear_options_list (&non_first_file_cmdline_options);
 
       /* prepend to INCLUDE_DIRECTORIES by resetting include directories to
@@ -2994,7 +2997,8 @@ main (int argc, char *argv[], char *env[])
             }
         }
 
-      if (format_specification->flags & STTF_internal_links && i == 0)
+      if (format_specification->flags & STTF_internal_links
+          && file_index == 0)
         {
           OPTION *internal_links_option
             = GNUT_get_conf (program_options.options->INTERNAL_LINKS.number);
@@ -3076,13 +3080,17 @@ main (int argc, char *argv[], char *env[])
             }
         }
 
-      /* free after output */
-      txi_converter_reset (converter, external_module);
+      if ((test_option && test_option->o.integer > 0)
+          || file_index < input_files.number -1)
+        {
+          /* free after output */
+          txi_converter_reset (converter, external_module);
 
-      /* destroy converter */
-      txi_converter_destroy (converter, external_module);
+          /* destroy converter */
+          txi_converter_destroy (converter, external_module);
+        }
 
-      if (i == 0)
+      if (file_index == 0)
         {
           const char *sort_element_count_file_name = 0;
           if (sort_element_count_option && sort_element_count_option->o.string)
@@ -3129,8 +3137,11 @@ main (int argc, char *argv[], char *env[])
               char *encoded_sort_element_count_file_name;
               int error_element_count_file = 0;
               char *output_file_name_encoding = 0;
-              const char *elt_count_external_module
-                 = "Texinfo::Convert::TextContent";
+
+              /* set such that the code releasing the document is called from
+                 Perl */
+              if (!external_module)
+                external_module = elt_count_external_module;
 
               /* reuse converter options list memory */
               clear_options_list (&convert_options);
@@ -3237,8 +3248,10 @@ main (int argc, char *argv[], char *env[])
         }
 
     next_input_file:
-      /* destroy document */
-      txi_destroy_document (document, external_module, remove_references);
+      if ((test_option && test_option->o.integer > 0)
+          || file_index < input_files.number -1)
+        /* destroy document */
+        txi_destroy_document (document, external_module, remove_references);
 
       free (input_directory);
       free (canon_input_dir);

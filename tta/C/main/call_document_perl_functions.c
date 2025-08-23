@@ -42,6 +42,13 @@ call_document_remove_document_references (DOCUMENT *document,
 
   dTHX;
 
+  /* This should only happen if the input Texinfo file was not found.
+     In that case, the document is setup, but the code skips to
+     document destruction right after handling the errors, such that
+     no Perl document is created */
+  if (!document->hv)
+    return;
+
   dSP;
 
   ENTER;
