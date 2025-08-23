@@ -137,6 +137,10 @@ my %XS_conversion_overrides = (
     => "Texinfo::Convert::ConvertXS::html_output_internal_links",
 
   # following are not called when output and convert are overriden
+  # (since 2024-07).
+  # NOTE not possible to simply remove output or convert overriding,
+  # there are errors because overrides related to passing output
+  # units were removed when some associated code was modified in 2025-08.
   "Texinfo::Convert::HTML::conversion_initialization"
    => "Texinfo::Convert::ConvertXS::html_conversion_initialization",
   "Texinfo::Convert::HTML::_setup_convert"
@@ -321,12 +325,14 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_convert_convert",
   "Texinfo::Convert::HTML::_html_convert_output"
    => "Texinfo::Convert::ConvertXS::html_convert_output",
-  #"Texinfo::Convert::HTML::_XS_html_convert_tree"
-  # => "Texinfo::Convert::ConvertXS::html_convert_tree",
   "Texinfo::Convert::HTML::_prepare_node_redirection_page"
    => "Texinfo::Convert::ConvertXS::html_prepare_node_redirection_page",
   "Texinfo::Convert::HTML::_node_redirections"
    => "Texinfo::Convert::ConvertXS::html_node_redirections",
+
+  # Cannot be overriden, in general the trees are not registered in Perl
+  #"Texinfo::Convert::HTML::_XS_html_convert_tree"
+  # => "Texinfo::Convert::ConvertXS::html_convert_tree",
 );
 
 # HTML C data initialization independent of customization and of Perl
