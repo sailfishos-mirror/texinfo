@@ -632,6 +632,13 @@ raw_line_command_arg_spaces (ELEMENT *command_e, ELEMENT *text_element,
                              ELEMENT *line_args)
 {
   size_t spaces_len;
+
+  /* should only happen if there is nothing after the @-command, not
+     even a new line.  Example in tests, misc_commands.t comment_without_line
+   */
+  if (text_element->e.text->end == 0)
+    return;
+
   if (text_element->e.text->text[text_element->e.text->end -1] == '\n')
     {
       ELEMENT *spaces_after = new_text_element (ET_spaces_after_argument);
