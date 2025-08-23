@@ -2409,7 +2409,7 @@ call_stage_handler (CONVERTER *self, void *stage_handler_sv,
       HV *converter_hv = (HV *) SvRV ((SV *) self->sv);
       SV **document_ref_sv = hv_fetch (converter_hv, "document",
                                        strlen ("document"), 0);
-      if (document_ref_sv && *document_ref_sv)
+      if (document_ref_sv && SvOK (*document_ref_sv))
         {
           /* increase the refcount for the call */
           document_sv = SvREFCNT_inc (*document_ref_sv);
