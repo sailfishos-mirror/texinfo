@@ -2468,7 +2468,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 
       if (!menu_entry_name_found)
         {
-          int reuse_existing_menu = 1;
+          reuse_existing_menu = 1;
           menus = node_menus;
         }
     }
