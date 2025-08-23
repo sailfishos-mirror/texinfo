@@ -33,9 +33,6 @@ void html_converter_get_customization_sv (SV *converter_sv,
                                   SV *customized_direction_strings
                                   );
 
-void html_conversion_initialization_sv (SV *converter_sv,
-                                        CONVERTER *converter);
-
 const ELEMENT *html_find_element_from_sv (CONVERTER *converter,
                                     const SV *element_sv,
                                     size_t output_units_descriptor);

@@ -1,5 +1,17 @@
 2025-08-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(html_get_no_arg_commands_formatting_sv)
+	(html_get_directions_strings_sv): split
+	html_conversion_initialization_sv in two,
+	html_get_no_arg_commands_formatting_sv and
+	html_get_directions_strings_sv.  This code is unused.
+
+	Remove all the references to html_conversion_initialization_sv from
+	code and comments.
+
+2025-08-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (_run_stage_handlers): rename
 	run_stage_handlers as _run_stage_handlers since it is a local function
 	only and do not call with object oriented syntax.

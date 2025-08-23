@@ -859,9 +859,6 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
         self = converter_set_document_from_sv (converter_in, document_in);
 
         html_initialize_output_state (self, context);
-        /* could be useful if something from Perl is needed
-        html_conversion_initialization_sv (converter_in, self);
-        */
 
         html_pass_conversion_initialization (self, converter_in);
 
@@ -1120,9 +1117,6 @@ html_output (SV *converter_in, SV *document_in)
         self = converter_set_document_from_sv (converter_in, document_in);
 
         html_initialize_output_state (self, "_output");
-        /* could be useful if something from Perl is needed
-        html_conversion_initialization_sv (converter_in, self);
-         */
 
         html_pass_conversion_initialization (self, converter_in);
 
@@ -1236,9 +1230,6 @@ html_convert (SV *converter_in, SV *document_in)
         self = converter_set_document_from_sv (converter_in, document_in);
 
         html_initialize_output_state (self, "_convert");
-        /* could be useful if something from Perl is needed
-        html_conversion_initialization_sv (converter_in, self);
-         */
 
         html_pass_conversion_initialization (self, converter_in);
 

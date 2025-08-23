@@ -1373,27 +1373,18 @@ html_converter_get_customization_sv (SV *converter_sv,
 
 /* not used, the initialization is done in C, with customization taken
    from Perl when initializing the converter */
+/* To get converter->html_no_arg_command_conversion for no brace at commands
+   from $self->{'no_arg_commands_formatting'} (with customization applied) */
 void
-html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
+html_get_no_arg_commands_formatting_sv (SV *converter_sv, CONVERTER *converter)
 {
   HV *converter_hv;
   SV **no_arg_commands_formatting_sv;
-  SV **directions_strings_sv;
-  HV *directions_strings_hv;
-  enum direction_string_type DS_type;
-  int nr_string_directions;
-  int nr_dir_str_contexts = TDS_context_string +1;
-  /*
-   */
 
   dTHX;
 
-  nr_string_directions = html_nr_string_directions (converter);
-
   converter_hv = (HV *)SvRV (converter_sv);
 
-  /* To get converter->html_no_arg_command_conversion for no brace at commands
-     from $self->{'no_arg_commands_formatting'} */
   FETCH(no_arg_commands_formatting)
 
   if (no_arg_commands_formatting_sv)
@@ -1507,8 +1498,27 @@ html_conversion_initialization_sv (SV *converter_sv, CONVERTER *converter)
     }
   else
     fprintf (stderr, "BUG: NO no_arg_commands_formatting\n");
+}
 
-  /* To get converter->directions_strings from $self->{'directions_strings'} */
+/* not used, the initialization is done in C, with customization taken
+   from Perl when initializing the converter */
+/* To get converter->directions_strings from $self->{'directions_strings'}
+   (with customization applied) */
+void
+html_get_directions_strings_sv (SV *converter_sv, CONVERTER *converter)
+{
+  HV *converter_hv;
+  SV **directions_strings_sv;
+  HV *directions_strings_hv;
+  enum direction_string_type DS_type;
+  int nr_string_directions;
+  int nr_dir_str_contexts = TDS_context_string +1;
+
+  dTHX;
+
+  converter_hv = (HV *)SvRV (converter_sv);
+  nr_string_directions = html_nr_string_directions (converter);
+
   FETCH(directions_strings)
 
   if (directions_strings_sv)
