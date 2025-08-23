@@ -4343,10 +4343,7 @@ sub _default_format_element_header($$$$) {
        or (!exists($output_unit->{'unit_contents'}->[0]->{'cmdname'})
             and $output_unit->{'unit_contents'}->[1] eq $command))
       # and there is more than one element
-      and (exists($output_unit->{'tree_unit_directions'})
-           # FIXME redundant with exists($output_unit->{'tree_unit_directions'}?
-           and (exists($output_unit->{'tree_unit_directions'}->{'next'})
-                or exists($output_unit->{'tree_unit_directions'}->{'prev'})))) {
+      and (exists($output_unit->{'tree_unit_directions'}))) {
     my $is_top = $self->unit_is_top_output_unit($output_unit);
     my $first_in_page = 0;
     if (exists($output_unit->{'unit_filename'})
