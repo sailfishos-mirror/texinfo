@@ -5881,21 +5881,21 @@ sub _raw_line_command_arg_spaces($$$) {
 }
 
 sub _add_comment_at_end($$$) {
-  my ($line_args, $text_element, $comment_text) = @_;
+  my ($line_args, $text_element, $comment_cmd_text) = @_;
 
-  chomp($comment_text);
-  my $comment_len = length($comment_text);
+  chomp($comment_cmd_text);
+  my $comment_len = length($comment_cmd_text);
   my $text_len;
   if (chomp($text_element->{'text'})) {
     $text_len = length($text_element->{'text'});
-    $comment_text .= "\n";
+    $comment_cmd_text .= "\n";
   } else {
     $text_len = length($text_element->{'text'});
   }
 
   # determine the comment command name and length before the
   # comment argument.
-  $comment_text =~ /^(\@(comment|c))((\@|\s+).*)?/;
+  $comment_cmd_text =~ /^(\@(comment|c))((\@|\s+).*)?/;
   my $cmdname = $2;
   my $command_len = length($1);
 
@@ -5908,7 +5908,7 @@ sub _add_comment_at_end($$$) {
   my $comment_text_element
      = Texinfo::TreeElement::new(
                       # do not keep the leading @c/@comment
-                      {'text' => substr($comment_text, $command_len),
+                      {'text' => substr($comment_cmd_text, $command_len),
                                   'type' => 'rawline_text',});
   $comment_line_args->{'contents'} = [$comment_text_element];
 

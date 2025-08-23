@@ -16,13 +16,12 @@ system.h macros are duplicated in C/main/utils.h.  Ok?
 
 document command_name in texi2any HTML customization API
 
-inline contents_child_by_index in C?
-
 Document the use of accents stack in the HTML customization API
 
 Do not add parent in tree in the first place instead of removing afterwards,
 in gdt?  Or, possibly even better mark parent as weak reference with
 Scalar::Util weaken as explained in man perlref (Gavin).
+in perlapi for XS: sv_rvweaken
 
 The checks on perl objects refcount are explained in a comment at the
 beginning of texi2any.pl.  Add such explanations in documentation
@@ -87,6 +86,8 @@ converter_customization_options, unique_at_command_options.
 
 Delayed bugs/features
 =====================
+
+inline contents_child_by_index in C?
 
 The Perl/C interface when no XS code is used for structuring works because
 all the C data is built as Perl structure at one point after which C code

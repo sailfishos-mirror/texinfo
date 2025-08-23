@@ -1171,6 +1171,7 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
               text_append (result, additional_info);
               free (additional_info);
             }
+          free (root_command_texi);
         }
 
       if (output_unit->unit_filename)

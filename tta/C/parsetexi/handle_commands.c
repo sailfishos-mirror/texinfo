@@ -660,9 +660,9 @@ raw_line_command_arg_spaces (ELEMENT *command_e, ELEMENT *text_element,
 
 static void
 add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
-                    const char *input_comment_text)
+                    const char *input_comment_cmd_text)
 {
-  size_t comment_byte_len = strlen (input_comment_text);
+  size_t comment_byte_len = strlen (input_comment_cmd_text);
   size_t command_len;
   size_t comment_len;
   int has_comment = 0;
@@ -670,15 +670,15 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
   ELEMENT *comment_e;
   ELEMENT *comment_line_args = new_element (ET_line_arg);
   ELEMENT *comment_text_element = new_text_element (ET_rawline_text);
-  const char *q;
-  char *comment_text = strndup (input_comment_text, comment_byte_len);
-  if (comment_text[comment_byte_len -1] == '\n')
+  const char *argument_text;
+  char *comment_cmd_text = strndup (input_comment_cmd_text, comment_byte_len);
+  if (comment_cmd_text[comment_byte_len -1] == '\n')
     {
-      comment_text[comment_byte_len -1] = '\0';
+      comment_cmd_text[comment_byte_len -1] = '\0';
       comment_byte_len--;
     }
   if (text_element->source_mark_list)
-    comment_len = count_multibyte (comment_text);
+    comment_len = count_multibyte (comment_cmd_text);
 
   if (text_element->e.text->text[text_element->e.text->end -1] == '\n')
     {
@@ -687,16 +687,16 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
       text_element->e.text->text[text_element->e.text->end -1] = '\0';
       text_element->e.text->end--;
 
-      xasprintf (&tmp_str, "%s\n", comment_text);
-      free (comment_text);
-      comment_text = tmp_str;
+      xasprintf (&tmp_str, "%s\n", comment_cmd_text);
+      free (comment_cmd_text);
+      comment_cmd_text = tmp_str;
     }
-  q = read_comment (comment_text, &has_comment);
+  argument_text = read_comment (comment_cmd_text, &has_comment);
 
   if (!has_comment)
     bug ("add_comment_at_end: unexpected no comment\n");
 
-  command_len = q - comment_text;
+  command_len = argument_text - comment_cmd_text;
   if (command_len < 4)
     cmd = CM_c;
   else
@@ -706,7 +706,8 @@ add_comment_at_end (ELEMENT *line_args, ELEMENT *text_element,
   add_to_element_contents (comment_e, comment_line_args);
   add_to_contents_as_array (comment_line_args, comment_text_element);
 
-  text_append (comment_text_element->e.text, q);
+  text_append (comment_text_element->e.text, argument_text);
+  free (comment_cmd_text);
 
   /* remove comment text from initial text and relocate source marks */
   if (text_element->source_mark_list)
@@ -937,7 +938,8 @@ handle_line_command (ELEMENT *current, const char **line_inout,
 
           element_value_equivalent (command_e, &global_cmd);
         }
-
+      else
+       destroy_element_and_children (line_args);
 
       if (cmd == CM_raisesections)
         {

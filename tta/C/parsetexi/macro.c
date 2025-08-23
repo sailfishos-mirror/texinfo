@@ -334,6 +334,7 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
 
   while (braces_level > 0)
     {
+      static char *alloc_line;
       /* At the beginning of this loop pline is at the start
          of an argument. */
       const char *sep;
@@ -343,7 +344,8 @@ expand_macro_arguments (const ELEMENT *macro, const char **line_inout,
         {
           debug ("MACRO ARG end of line");
           text_append (arg, pline);
-          line = next_text (argument);
+          free (alloc_line);
+          line = alloc_line = next_text (argument);
           if (!line)
             {
               line_error ("@%s missing closing brace", command_name (cmd));
@@ -491,6 +493,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
 
   while (1)
     {
+      static char *alloc_line;
       const char *sep;
 
       sep = pline + strcspn (pline, linecommand_expansion_delimiters);
@@ -502,7 +505,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
             {
               text_append (arg, pline);
 
-              line = next_text (argument);
+              free (alloc_line);
+              line = alloc_line = next_text (argument);
               if (!line)
                 {
                   line_error ("@%s missing closing brace", command_name (cmd));
@@ -519,7 +523,8 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
                 {
                   /* happens when @ protects the end of line, at the very end
                      of a text fragment and with macro expansion */
-                  line = next_text (argument);
+                  free (alloc_line);
+                  line = alloc_line = next_text (argument);
                   if (!line)
                     {
                       debug ("LINEMACRO ARGS end no EOL");
@@ -876,6 +881,7 @@ handle_macro (ELEMENT *current, const char **line_inout,
         }
       else
         {
+          static char *alloc_line;
           ELEMENT *arg_elt = new_element (ET_line_arg);
           if (macro->e.c->cmd == CM_macro)
             macro_call_element
@@ -891,7 +897,8 @@ handle_macro (ELEMENT *current, const char **line_inout,
                 {
                 /* If it takes a single line of input, and we don't have a
                    full line of input already, call next_text. */
-                  line = next_text (arg_elt);
+                  free (alloc_line);
+                  line = alloc_line = next_text (arg_elt);
                   if (!line)
                     {
                       line = "";

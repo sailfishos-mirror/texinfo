@@ -67,6 +67,7 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
 
       if (cmd == CM_verb)
         {
+          static char *alloc_line;
           arg = new_element (ET_brace_container);
           add_to_element_contents (current, arg);
           current = arg;
@@ -74,7 +75,8 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
           /* the delimiter may be in macro expansion */
           while (!*line)
             {
-              line = next_text (current);
+              free (alloc_line);
+              line = alloc_line = next_text (current);
               /* not sure that it may happen, but handle the case if it does */
               if (!line)
                 line = "";

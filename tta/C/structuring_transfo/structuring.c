@@ -2413,6 +2413,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
 {
   ELEMENT_LIST *master_menu_contents;
   CONST_ELEMENT_LIST *menus = 0;
+  int reuse_existing_menu = 0;
   const NODE_RELATIONS *node_relations;
 
   CONST_ELEMENT_LIST *node_menus;
@@ -2466,7 +2467,10 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
         }
 
       if (!menu_entry_name_found)
-        menus = node_menus;
+        {
+          int reuse_existing_menu = 1;
+          menus = node_menus;
+        }
     }
 
   if (!menus)
@@ -2507,7 +2511,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
         }
     }
 
-  if (!node_menus)
+  if (!reuse_existing_menu)
     destroy_const_element_list (menus);
 
   if (new_current_menu)
