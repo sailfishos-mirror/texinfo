@@ -1710,10 +1710,12 @@ sub _convert($$;$) {
       } elsif ($cmdname eq 'enumerate') {
         push @format_elements, 'orderedlist';
         my $numeration;
-        if (exists($element->{'extra'})
-            and exists($element->{'extra'}->{'enumerate_specification'})) {
+        my $arguments_line = $element->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
+        if (exists($block_line_arg->{'contents'})
+           and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
           my $enumerate_specification
-            = $element->{'extra'}->{'enumerate_specification'};
+             = $block_line_arg->{'contents'}->[0]->{'text'};
           if ($enumerate_specification =~ /^[A-Z]/) {
             $numeration = 'upperalpha';
           } elsif ($enumerate_specification =~ /^[a-z]/) {

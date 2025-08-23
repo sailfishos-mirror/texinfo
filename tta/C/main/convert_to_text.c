@@ -1015,14 +1015,7 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
       else if (element->e.c->cmd == CM_item
                && element->e.c->parent->e.c->cmd == CM_enumerate)
         {
-          int status;
-          char *enumerate_specification
-              = lookup_extra_string (element->e.c->parent,
-                                     AI_key_enumerate_specification);
-          int item_number = lookup_extra_integer (element, AI_key_item_number,
-                                                  &status);
-          char *spec = enumerate_item_representation (enumerate_specification,
-                                                      item_number);
+          char *spec = enumerate_item_representation (element);
           ADD(spec);
           ADD(". ");
           free (spec);

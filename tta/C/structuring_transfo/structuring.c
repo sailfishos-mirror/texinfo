@@ -36,7 +36,7 @@
 #include "builtin_commands.h"
 #include "errors.h"
 #include "debug.h"
-/* for get_label_element section_level enumerate_item_representation
+/* for get_label_element section_level enumerate_number_representation
    xasprintf */
 #include "utils.h"
 /* for copy_tree copy_contents parse_node_manual
@@ -359,7 +359,7 @@ sectioning_structure (DOCUMENT *document)
                   char appendix_nr = 'A' -1 +command_numbers[number_top_level];
                   text_append_n (&section_number, &appendix_nr, 1);
                    */
-                  char *appendix_nr = enumerate_item_representation ("A",
+                  char *appendix_nr = enumerate_number_representation ("A",
                                             command_numbers[number_top_level]);
                   text_append_n (&section_number, appendix_nr, 1);
                   free (appendix_nr);

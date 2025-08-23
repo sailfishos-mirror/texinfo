@@ -32,6 +32,9 @@ package Texinfo::Convert::TexinfoMarkup;
 use 5.006;
 use strict;
 
+# have :alpha: match only ASCII
+use if $] >= 5.014, re => '/a';
+
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
@@ -1387,10 +1390,16 @@ sub _convert($$;$)
            (['commandarg', $command_argument->{'cmdname'}],
              $self->_infoenclose_attribute($command_argument));
         }
-      } elsif ($element->{'extra'}
-               and $element->{'extra'}->{'enumerate_specification'}) {
-        push @$attribute, ['first',
-                           $element->{'extra'}->{'enumerate_specification'}];
+      } elsif ($cmdname eq 'enumerate') {
+        my $arguments_line = $element->{'contents'}->[0];
+        my $block_line_arg = $arguments_line->{'contents'}->[0];
+        my $specification = '1';
+        if (exists($block_line_arg->{'contents'})
+            and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
+          my $spec_text = $block_line_arg->{'contents'}->[0]->{'text'};
+          $specification = $spec_text if ($spec_text =~ /^(\d+|[[:alpha:]])$/);
+        }
+        push @$attribute, ['first', $specification];
       } elsif ($cmdname eq 'float' and $element->{'extra'}) {
         if ($element->{'extra'}->{'is_target'}) {
           push @$attribute, ['identifier', $element->{'extra'}->{'normalized'}];

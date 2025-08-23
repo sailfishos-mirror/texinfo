@@ -26,6 +26,9 @@ use 5.008001;
 
 use strict;
 
+# have :alpha: match only ASCII
+use if $] >= 5.014, re => '/a';
+
 # To check if there is no erroneous autovivification
 #no autovivification qw(fetch delete exists store strict);
 
@@ -1419,21 +1422,40 @@ sub _decompose_integer($$) {
   return @result;
 }
 
-sub enumerate_item_representation($$) {
+sub enumerate_number_representation($$) {
   my ($specification, $number) = @_;
 
-  if ($specification =~ /^[0-9]+$/) {
+  if ($specification =~ /^[[:alpha:]]$/) {
+    my $result = '';
+    my $base_letter = ord('a');
+    $base_letter = ord('A') if (ucfirst($specification) eq $specification);
+    my @letter_ords
+        = _decompose_integer(ord($specification) - $base_letter + $number - 1, 26);
+    foreach my $ord (@letter_ords) {
+      $result = chr($base_letter + $ord) . $result;
+    }
+    return $result;
+  } elsif ($specification =~ /^[0-9]+$/) {
     return $specification + $number -1;
   }
+  return $number;
+}
 
-  my $result = '';
-  my $base_letter = ord('a');
-  $base_letter = ord('A') if (ucfirst($specification) eq $specification);
-  my @letter_ords = _decompose_integer(ord($specification) - $base_letter + $number - 1, 26);
-  foreach my $ord (@letter_ords) {
-    $result = chr($base_letter + $ord) . $result;
+sub enumerate_item_representation($) {
+  my $element = shift;
+
+  my $number = $element->{'extra'}->{'item_number'};
+
+  my $enumerate = $element->{'parent'};
+  my $arguments_line = $enumerate->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+
+  if (exists($block_line_arg->{'contents'})
+      and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
+    return enumerate_number_representation(
+                  $block_line_arg->{'contents'}->[0]->{'text'}, $number);
   }
-  return $result;
+  return $number;
 }
 
 sub is_content_empty($;$);

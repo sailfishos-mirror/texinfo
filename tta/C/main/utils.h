@@ -280,7 +280,8 @@ OUTPUT_FILES_INFORMATION *new_output_files_information (void);
 FILE_STREAM *allocate_file_stream (OUTPUT_FILES_INFORMATION *self,
                                    const char *file_path);
 
-char *enumerate_item_representation (char *specification, int number);
+char *enumerate_number_representation (const char *specification, int number);
+char *enumerate_item_representation (const ELEMENT *element);
 
 const ELEMENT *get_global_document_command (
                                       const GLOBAL_COMMANDS *global_commands,

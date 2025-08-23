@@ -172,7 +172,7 @@ $result_converted{'xml'}->{'enumerate_argument'} = '<enumerate first="1" spaces=
 <enumerate first="z" spaces=" " endspaces=" "><enumeratefirst>z </enumeratefirst><!-- c comment -->
 </enumerate>
 
-<enumerate spaces=" " endspaces=" "><enumeratefirst>0</enumeratefirst>
+<enumerate first="0" spaces=" " endspaces=" "><enumeratefirst>0</enumeratefirst>
 </enumerate>
 ';
 

@@ -2431,9 +2431,11 @@ sub _set_environment_options($$$)
 
   if ($command eq 'enumerate') {
     my $environment = $LaTeX_environment_commands{$command}[0];
-    if ($element->{'extra'} and
-        exists($element->{'extra'}->{'enumerate_specification'})) {
-      my $specification = $element->{'extra'}->{'enumerate_specification'};
+    my $arguments_line = $element->{'contents'}->[0];
+    my $block_line_arg = $arguments_line->{'contents'}->[0];
+    if (exists($block_line_arg->{'contents'})
+        and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
+      my $specification = $block_line_arg->{'contents'}->[0]->{'text'};
       if ($specification eq 'a') {
         return {$environment => 'label=\alph*.'};
       } elsif ($specification eq 'A') {
@@ -2445,10 +2447,12 @@ sub _set_environment_options($$$)
       } elsif ($specification =~ /^[A-Z]+$/) {
         return {$environment
              => 'label=\Alph*.,start='.(ord($specification) - ord('A') + 1)};
-      } else {
+      } elsif ($specification =~ /^\d+$/) {
         return {$environment => "start=$specification"};
       }
     }
+    # both for no argument and bogus argument
+    return {$environment => "start=1"};
   } elsif ($command eq 'itemize') {
     # arguments_line type element
     my $environment = $LaTeX_environment_commands{$command}[0];

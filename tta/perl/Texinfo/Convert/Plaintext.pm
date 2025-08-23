@@ -3802,9 +3802,7 @@ sub _convert {
       push @{$self->{'formatters'}}, $line;
       if ($element->{'parent'}->{'cmdname'} eq 'enumerate') {
         _stream_output_add_next($self,
-             Texinfo::Common::enumerate_item_representation(
-               $element->{'parent'}->{'extra'}->{'enumerate_specification'},
-               $element->{'extra'}->{'item_number'}) . '. ');
+             Texinfo::Common::enumerate_item_representation($element). '. ');
       } else {
         my $prepended_element
           = Texinfo::Common::item_itemize_prepended($element);

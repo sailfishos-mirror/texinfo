@@ -5488,22 +5488,27 @@ sub _convert_enumerate_command($$$$$) {
 
   my $type_attribute = '';
   my $start_attribute = '';
-  # TODO use directly the argument and set as 1 in the default case
-  # as all the possibilities are already checked, using enumerate_specification
-  # is not useful.
-  my $specification = $command->{'extra'}->{'enumerate_specification'};
+
   my ($start, $type);
-  if ($specification =~ /^\d*$/ and $specification ne '1') {
-    $start = $specification;
-  } elsif ($specification =~ /^[A-Z]$/) {
-    $start = 1 + ord($specification) - ord('A');
-    $type = 'A';
-  } elsif ($specification =~ /^[a-z]$/) {
-    $start = 1 + ord($specification) - ord('a');
-    $type = 'a';
+  # arguments_line type element
+  my $arguments_line = $command->{'contents'}->[0];
+  my $block_line_arg = $arguments_line->{'contents'}->[0];
+  if (exists($block_line_arg->{'contents'})
+      and exists($block_line_arg->{'contents'}->[0]->{'text'})) {
+    my $specification = $block_line_arg->{'contents'}->[0]->{'text'};
+
+    if ($specification =~ /^\d+$/ and $specification ne '1') {
+      $start = $specification;
+    } elsif ($specification =~ /^[A-Z]$/) {
+      $start = 1 + ord($specification) - ord('A');
+      $type = 'A';
+    } elsif ($specification =~ /^[a-z]$/) {
+      $start = 1 + ord($specification) - ord('a');
+      $type = 'a';
+    }
+    $type_attribute = " type=\"$type\"" if (defined($type));
+    $start_attribute = " start=\"$start\"" if (defined($start));
   }
-  $type_attribute = " type=\"$type\"" if (defined($type));
-  $start_attribute = " start=\"$start\"" if (defined($start));
 
   return $self->html_attribute_class('ol', [$cmdname]).$type_attribute
        .$start_attribute.">\n" . $content . "</ol>\n";

@@ -4453,12 +4453,12 @@ sub _end_line_starting_block($$$) {
                       __("superfluous argument to \@%s"), $command);
         }
         my $arg = $block_line_arg->{'contents'}->[0];
-        if (!exists($arg->{'text'})
-            or $arg->{'text'} !~ /^((\d+)|([[:alpha:]]))$/) {
+        if (exists($arg->{'text'})
+            and $arg->{'text'} =~ /^(\d+|[[:alpha:]])$/) {
+          $spec = $arg->{'text'};
+        } else {
           _command_error($self, $current,
                       __("bad argument to \@%s"), $command);
-        } else {
-          $spec = $arg->{'text'};
         }
       }
       $current->{'extra'} = {} if (!exists($current->{'extra'}));

@@ -1,3 +1,32 @@
+2025-08-23 Patrice Dumas  <pertusus@free.fr>
+
+	Do not use enumerate_specification extra information in converters
+
+	* tta/perl/Texinfo/ParserNonXS.pm (_end_line_starting_block): inverse
+	condition, simplify regex.
+
+	* tta/C/main/utils.c (enumerate_number_representation)
+	(enumerate_item_representation), tta/C/main/convert_to_text.c
+	(convert_to_text_internal), tta/C/structuring_transfo/structuring.c
+	(sectioning_structure), tta/perl/Texinfo/Common.pm
+	(enumerate_number_representation, enumerate_item_representation),
+	tta/perl/Texinfo/Convert/Plaintext.pm (_convert),
+	tta/perl/Texinfo/Convert/Text.pm (_convert): rename
+	enumerate_item_representation as enumerate_number_representation, and
+	handle malformed specification in enumerate_number_representation.
+	Readd enumerate_item_representation as a function that determines an
+	item tree element enumerate representation by calling
+	enumerate_number_representation and without using
+	enumerate_specification extra information.  Update callers.
+
+	* tta/C/convert/format_html.c (html_convert_enumerate_command),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_enumerate_command),
+	tta/perl/Texinfo/Convert/LaTeX.pm (_set_environment_options),
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert): use the
+	enumerate arguments to get the @enumerate argument instead of 
+	using the enumerate_specification extra information.
+
 2025-08-22 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/HTML.pm: do not use object oriented call

@@ -9066,7 +9066,8 @@ html_convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
 {
   STRING_LIST *classes;
   char *attribute_class;
-  const char *specification;
+  const ELEMENT *arguments_line;
+  const ELEMENT *block_line_arg;
 
   if (!content || !strlen (content))
     return;
@@ -9085,11 +9086,14 @@ html_convert_enumerate_command (CONVERTER *self, const enum command_id cmd,
   text_append (result, attribute_class);
   free (attribute_class);
 
-  specification = lookup_extra_string (element,
-                                       AI_key_enumerate_specification);
+  arguments_line = element->e.c->contents.list[0];
+  block_line_arg = arguments_line->e.c->contents.list[0];
 
-  if (specification)
+  if (block_line_arg->e.c->contents.number
+      && type_data[block_line_arg->e.c->contents.list[0]->type].flags & TF_text)
     {
+      const char *specification
+         = block_line_arg->e.c->contents.list[0]->e.text->text;
       int use_start = 1;
       unsigned int start = 0;
       const char *type = 0;

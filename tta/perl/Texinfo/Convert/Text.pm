@@ -808,9 +808,7 @@ sub _convert($$)
     } elsif ($cmdname eq 'item'
             and $element->{'parent'}->{'cmdname'}
             and $element->{'parent'}->{'cmdname'} eq 'enumerate') {
-      $result .= Texinfo::Common::enumerate_item_representation(
-         $element->{'parent'}->{'extra'}->{'enumerate_specification'},
-         $element->{'extra'}->{'item_number'}) . '. ';
+      $result .= Texinfo::Common::enumerate_item_representation($element).'. ';
     }
   }
   if ($element->{'type'}) {

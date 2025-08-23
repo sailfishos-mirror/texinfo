@@ -2681,37 +2681,58 @@ decompose_integer (int number, int base, int *decomposed_nr)
 }
 
 char *
-enumerate_item_representation (char *specification, int number)
+enumerate_number_representation (const char *specification, int number)
 {
   TEXT result;
   int i;
   int decomposed_nr;
-
-  if (!strlen (specification))
-    return strdup ("");
+  size_t str_len = strlen (specification);
 
   text_init (&result);
 
-  if (specification[strspn (specification, digit_chars)] == '\0')
+  if (str_len == 1 && isascii_alpha (specification[0]))
+    {
+      char base_letter = 'a';
+      if (isascii_alpha (specification[0]) && isascii_upper (specification[0]))
+        base_letter = 'A';
+
+      int *letter_ords
+        = decompose_integer (specification[0] - base_letter + number - 1, 26,
+                             &decomposed_nr);
+
+      for (i = decomposed_nr - 1; i >= 0; i--)
+        text_printf (&result, "%c", base_letter + letter_ords[i]);
+
+      free (letter_ords);
+      return result.text;
+    }
+  else if (str_len
+           && specification[strspn (specification, digit_chars)] == '\0')
     {
       int spec = strtol (specification, NULL, 10) + number -1;
       text_printf (&result, "%d", spec);
       return result.text;
     }
-
-  char base_letter = 'a';
-  if (isascii_alpha (specification[0]) && isascii_upper (specification[0]))
-    base_letter = 'A';
-
-  int *letter_ords
-    = decompose_integer (specification[0] - base_letter + number - 1, 26,
-                         &decomposed_nr);
-
-  for (i = decomposed_nr - 1; i >= 0; i--)
-    text_printf (&result, "%c", base_letter + letter_ords[i]);
-
-  free (letter_ords);
+  text_printf (&result, "%d", number);
   return result.text;
+}
+
+char *
+enumerate_item_representation (const ELEMENT *element)
+{
+  int status;
+  int item_number = lookup_extra_integer (element, AI_key_item_number,
+                                          &status);
+  const ELEMENT *enumerate = element->e.c->parent;
+  const ELEMENT *arguments_line = enumerate->e.c->contents.list[0];
+  const ELEMENT *block_line_arg = arguments_line->e.c->contents.list[0];
+
+  if (block_line_arg->e.c->contents.number
+      && type_data[block_line_arg->e.c->contents.list[0]->type].flags & TF_text)
+    return enumerate_number_representation (
+            block_line_arg->e.c->contents.list[0]->e.text->text, item_number);
+  else
+    return enumerate_number_representation ("", item_number);
 }
 
 

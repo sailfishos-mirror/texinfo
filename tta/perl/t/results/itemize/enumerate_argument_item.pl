@@ -269,7 +269,7 @@ $result_converted{'xml'}->{'enumerate_argument_item'} = '<enumerate first="1" sp
 </para></listitem><listitem> <para>lower case second
 </para></listitem></enumerate>
 
-<enumerate spaces=" " endspaces=" "><enumeratefirst>0</enumeratefirst>
+<enumerate first="0" spaces=" " endspaces=" "><enumeratefirst>0</enumeratefirst>
 <listitem> <para>numeric zero first
 </para></listitem><listitem> <para>numeric zero second
 </para></listitem></enumerate>
