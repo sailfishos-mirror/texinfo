@@ -23,16 +23,17 @@
 # ALTIMP ../C/texi2any.c
 
 # The systems of reference counting used by Perl to release memory
-# do not work if there are cycles.  In the default case nothing is done
-# about this issue for the main tree, as the memory is released faster
-# at exit.  If there are XS extensions in C, their memory is not
-# cleanup either in the default case.
+# do not work if there are cycles.  For the last input file, nothing 
+# is done as the memory is released faster at exit.  If there are
+# XS extensions in C, their memory is not cleanup either for the last
+# input file.
 #
-# If TEST is set, the cycles are removed (when resetting converters
-# and destroying document), and the XS extensions memory is cleaned,
-# at least such that there is no unreachable memory.  For output units,
-# in addition to removing cycles, all references to output units are
-# removed.
+# If TEST is set, and for the input files other than the last one,
+# the cycles are removed (when resetting converters and destroying
+# document), and the XS extensions memory is cleaned, at least such
+# that there is no unreachable memory.  For output units, in addition
+# to removing cycles, all references to output units and tree elements
+# are removed.
 #
 # If TEST is > 1, in addition
 # * the reference to elements are removed (with $remove_references set)

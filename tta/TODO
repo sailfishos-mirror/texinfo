@@ -23,10 +23,6 @@ in gdt?  Or, possibly even better mark parent as weak reference with
 Scalar::Util weaken as explained in man perlref (Gavin).
 in perlapi for XS: sv_rvweaken
 
-The checks on perl objects refcount are explained in a comment at the
-beginning of texi2any.pl.  Add such explanations in documentation
-in other places?
-
 document converter_reset and converter_destroy in Perl?
 
 
