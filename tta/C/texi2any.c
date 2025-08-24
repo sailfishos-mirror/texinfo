@@ -896,6 +896,33 @@ static struct option long_options[] = {
 };
 #undef IFFORMAT_TABLE
 
+void
+check_integer_option (int option_character, int option_index,
+                      const char *optarg)
+{
+  char *formatted_message;
+  char *encoded_message;
+
+  if (is_ascii_digit (optarg))
+    return;
+
+  if (option_index > 0) {
+    xasprintf (&formatted_message,
+        _("%s: value \"%s\" invalid for option %s (number expected)"),
+          program_file, optarg, long_options[option_index].name);
+  } else {
+    xasprintf (&formatted_message,
+        _("%s: value \"%s\" invalid for option %c (number expected)"),
+          program_file, optarg, option_character);
+  }
+
+  encoded_message = GNUT_encode_message (formatted_message);
+  free (formatted_message);
+  fprintf (stderr, "%s\n", encoded_message);
+  free (encoded_message);
+  exit (EXIT_FAILURE);
+}
+
 static const char *possible_split[] = {
   "chapter", "section", "node", NULL
 };
@@ -1270,6 +1297,8 @@ main (int argc, char *argv[], char *env[])
     {
       int option_character;
 
+      getopt_long_index = 0;
+
       option_character = getopt_long (argc, argv, "VhvFc:D:e:f:I:P:o:E:U:",
                                       long_options,
                                       &getopt_long_index);
@@ -1324,17 +1353,20 @@ main (int argc, char *argv[], char *env[])
           }
           break;
         case DEBUG_OPT:
+          check_integer_option (option_character, getopt_long_index, optarg);
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->DEBUG.number,
                             optarg);
           add_string ("--debug", &texi2dvi_args);
           break;
         case 'e':
+          check_integer_option (option_character, getopt_long_index, optarg);
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->ERROR_LIMIT.number,
                             optarg);
           break;
         case 'f':
+          check_integer_option (option_character, getopt_long_index, optarg);
           GNUT_set_from_cmdline (&cmdline_options,
                             cmdline_options.options->FILLCOLUMN.number,
                             optarg);
