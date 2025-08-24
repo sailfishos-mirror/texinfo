@@ -1,5 +1,27 @@
 2025-08-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm: use exists or defined in
+	conditions when the value is not used.  Change formatting of functions
+	call code.  DO not use object oriented syntax when calling local scope
+	functions.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (converter_reset): add.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_prepare_conversion): reset more
+	state keys, in particular those that may not exist at all.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (output): set
+	$self->{'formatting_context'} explicitely.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_format_heading_command)
+	(_set_custom_headings): rename first_custom_heading as
+	is_first_custom_heading.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert_def_line): rename
+	deftypefnnewline as with_deftypefnnewline.
+
+2025-08-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/texi2any.pl: update comment about memory release.
 
 2025-08-23 Patrice Dumas  <pertusus@free.fr>
