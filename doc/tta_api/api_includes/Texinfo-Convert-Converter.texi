@@ -94,6 +94,10 @@ The @code{convert_tree} method is mandatory and should convert portions of Texin
 tree. Takes a @emph{$converter} and Texinfo tree @emph{$tree} in arguments.  Returns
 the converted output.
 
+This method should not perform converter initialization, as it should only
+be called with converter setup for immediate conversion, in general when
+conversion is already ongoing.
+
 @item $result = $converter->output($document)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->output($document)}
 

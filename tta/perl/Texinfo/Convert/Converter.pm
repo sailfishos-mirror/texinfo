@@ -228,10 +228,9 @@ foreach my $ref_cmd ('pxref', 'xref', 'ref') {
 # converter API
 
 # convert_tree() and convert() should be implemented in converters.
-# There is an implementation of output() below but in general
-# output() should also be implemented by Converters.  The simple
-# implementation of convert_output_unit() below is likely to be
-# ok for most converters.
+# Except for very specific converters, output() should also be
+# implemented by Converters.  The simple implementation of
+# convert_output_unit() below is likely to be ok for most converters.
 
 # Functions that should be defined in specific converters
 sub converter_defaults($;$) {
@@ -2234,6 +2233,10 @@ X<C<convert_tree>>
 The C<convert_tree> method is mandatory and should convert portions of Texinfo
 tree. Takes a I<$converter> and Texinfo tree I<$tree> in arguments.  Returns
 the converted output.
+
+This method should not perform converter initialization, as it should only
+be called with converter setup for immediate conversion, in general when
+conversion is already ongoing.
 
 =item $result = $converter->output($document)
 

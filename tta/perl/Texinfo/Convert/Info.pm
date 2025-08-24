@@ -1061,9 +1061,11 @@ Texinfo::Convert::Info - Convert Texinfo tree to Info
   my $converter
     = Texinfo::Convert::Info->converter({'NUMBER_SECTIONS' => 0});
 
+  # output to files
   $converter->output($document);
-  $converter->convert($document);
-  $converter->convert_tree($tree);
+  # no header nor footer output
+  my $converted = $converter->convert($document);
+
 
 =head1 NOTES
 
@@ -1103,10 +1105,9 @@ Convert a Texinfo parsed document I<$document> and return the resulting output.
 
 Convert a Texinfo tree portion I<$tree> and return the resulting
 output.  This function does not try to output a full document but only
-portions.  For a full document use C<convert>.
-
-In general, this function should be called after the converter has been
-associated to a document by a call to C<output> or C<convert>.
+portions.  In general it is better to call this function when conversion
+is already ongoing, as it requires an association to a document and a suitably
+initialized converter formatting state.
 
 =back
 
