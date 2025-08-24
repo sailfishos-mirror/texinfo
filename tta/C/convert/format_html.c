@@ -5665,6 +5665,7 @@ contents_inline_element (CONVERTER *self, const enum command_id cmd,
             }
         }
     }
+  free (table_of_contents);
   return 0;
 }
 
