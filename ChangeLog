@@ -1,5 +1,16 @@
 2025-08-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm (output): call _push_new_context
+	explicitely and call _convert.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (convert): reset
+	formatting_context, always call _push_new_context.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_begin_output): rename
+	$header as $result_text.
+
+2025-08-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm: use exists or defined in
 	conditions when the value is not used.  Change formatting of functions
 	call code.  DO not use object oriented syntax when calling local scope

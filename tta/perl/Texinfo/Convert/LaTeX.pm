@@ -1210,7 +1210,12 @@ sub output($$) {
 
   my $result = '';
   $result .= _latex_begin_output($self);
-  $result .= $self->convert_tree($modified_root);
+  _push_new_context($self, 'document');
+  $result .= _convert($self, $modified_root);
+  _pop_context($self);
+  if (scalar(@{$self->{'formatting_context'}}) != 0) {
+    warn "BUG: after LaTeX output formatting context not empty\n";
+  }
   $result .= _latex_footer($self);
 
   my $output = '';
@@ -1233,8 +1238,6 @@ sub output($$) {
   return $output;
 }
 
-# we allow the converter to already be in a context, but if
-# not create one.
 sub convert($$) {
   my ($self, $document) = @_;
 
@@ -1244,18 +1247,15 @@ sub convert($$) {
 
   _prepare_conversion($self, $root);
 
-  my $new_context;
-  if (not exists($self->{'formatting_context'})
-      or scalar(@{$self->{'formatting_context'}}) == 0) {
-    _push_new_context($self, 'document');
-    $new_context = 1;
-  }
+  $self->{'formatting_context'} = [];
 
+  _push_new_context($self, 'document');
   my $result = _convert($self, $root);
-
-  if ($new_context) {
-    _pop_context($self);
+  _pop_context($self);
+  if (scalar(@{$self->{'formatting_context'}}) != 0) {
+    warn "BUG: after LaTeX convert formatting context not empty\n";
   }
+
   return $result;
 }
 
@@ -1828,22 +1828,21 @@ my %LaTeX_defaults = (
 sub _latex_begin_output($) {
   my $self = shift;
 
-  #my $header = "\n";
-  my $header = "";
+  my $result_text = "";
   # Special treatment for setchapternewpage, we want to avoid
   # a useless headings set just below
-  $header .= "% set default for \@setchapternewpage\n";
+  $result_text .= "% set default for \@setchapternewpage\n";
   my $heading_set;
   if (defined($self->get_conf('setchapternewpage'))) {
     my $setchapternewpage_result;
     ($setchapternewpage_result, $heading_set)
       = _set_chapter_new_page($self, $self->get_conf('setchapternewpage'));
-    $header .= $setchapternewpage_result;
+    $result_text .= $setchapternewpage_result;
   }
   my $heading = $self->get_conf('headings');
   if (defined($heading) and (not defined($heading_set)
                              or $heading_set ne $heading)) {
-    $header .= _set_headings($self, $heading);
+    $result_text .= _set_headings($self, $heading);
   }
 
   # only output if different from default
@@ -1851,25 +1850,25 @@ sub _latex_begin_output($) {
     my $conf_value = $self->get_conf($informative_cmdname);
     if (defined($conf_value)
         and $conf_value ne $LaTeX_defaults{$informative_cmdname}) {
-      $header .= _informative_command_output($self, $informative_cmdname);
+      $result_text .= _informative_command_output($self, $informative_cmdname);
     }
   }
   foreach my $informative_cmdname ('documentlanguage', 'pagesizes',
                                                'paragraphindent') {
     my $conf_value = $self->get_conf($informative_cmdname);
     if (defined($conf_value)) {
-      $header .= _informative_command_output($self, $informative_cmdname);
+      $result_text .= _informative_command_output($self, $informative_cmdname);
     }
   }
 
   foreach my $cmdname (sort(keys(%paper_geometry_commands))) {
     if (defined($self->get_conf($cmdname))) {
-      $header .= _informative_command_output($self, $cmdname);
+      $result_text .= _informative_command_output($self, $cmdname);
     }
   }
 
-  $header .= "\n";
-  return $header;
+  $result_text .= "\n";
+  return $result_text;
 }
 
 sub _begin_document($) {
