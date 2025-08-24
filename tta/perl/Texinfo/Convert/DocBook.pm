@@ -357,6 +357,7 @@ sub convert_tree($$) {
   my ($self, $root) = @_;
 
   if (scalar(@{$self->{'lang_stack'}}) == 0) {
+    cluck("BUG: DocBook convert_tree: lang stack not setup");
     push @{$self->{'lang_stack'}}, '';
   }
   return _convert($self, $root);
