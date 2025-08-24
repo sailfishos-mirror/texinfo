@@ -1266,6 +1266,7 @@ sub convert_tree($$) {
   my $new_context;
   if (not exists($self->{'formatting_context'})
       or scalar(@{$self->{'formatting_context'}}) == 0) {
+    cluck("BUG: LaTeX convert_tree, no context");
     _push_new_context($self, 'tree');
     $new_context = 1;
   }
@@ -1409,7 +1410,10 @@ sub _latex_header($) {
   my $header_code = '';
   my $settitle;
   if (exists($self->{'settitle_tree'})) {
-    $settitle = $self->convert_tree($self->{'settitle_tree'});
+    # we are out of main document conversion context
+    _push_new_context($self, 'settitle');
+    $settitle = _convert($self, $self->{'settitle_tree'});
+    _pop_context($self);
   } else {
     $settitle = $default_title;
   }

@@ -1,5 +1,14 @@
 2025-08-24 Patrice Dumas  <pertusus@free.fr>
 
+	 * tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header): call
+	 _push_new_context and call _convert for settitle_tree conversion,
+	 instead of calling convert_tree without context.
+
+	 * tta/perl/Texinfo/Convert/LaTeX.pm (convert_tree): report no
+	 formatting_context in convert_tree as a bug.
+
+2025-08-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (output): call _push_new_context
 	explicitely and call _convert.
 
