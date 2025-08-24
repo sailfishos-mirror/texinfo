@@ -1,5 +1,13 @@
 2025-08-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/get_perl_info.c (get_sv_option), tta/C/main/txi_config.c
+	(set_option_value): if an integer option is not an integer, set it to
+	0 if it is the string value is empty, or to 1 if not empty.  This
+	mimics Perl.  Not exactly the same as comparison won't fail in C, while
+	it will fail in Perl and trigger a warning.
+
+2025-08-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c (check_integer_option, main): add
 	check_integer_option that aborts with an error message similar the the
 	one in Perl if an integer option is not an integer.  Call for the

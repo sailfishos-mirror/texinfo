@@ -22,8 +22,8 @@
 #
 # ALTIMP ../C/texi2any.c
 
-# The systems of reference counting used by Perl to release memory
-# do not work if there are cycles.  For the last input file, nothing 
+# The system of reference counting used by Perl to release memory
+# does not work if there are cycles.  For the last input file, nothing
 # is done as the memory is released faster at exit.  If there are
 # XS extensions in C, their memory is not cleanup either for the last
 # input file.

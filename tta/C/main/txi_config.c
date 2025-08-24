@@ -181,7 +181,15 @@ set_option_value (OPTIONS_LIST *options_list, size_t number,
         }
       else
         {
-          /* warn?  No such check in Perl */
+        /* warn?  No such check in Perl */
+        /* Consider that the option is set if the string is not empty, similar
+           to Perl.
+           Not exactly the same as comparison won't fail in C, while
+           it will fail in Perl and trigger a warning. */
+           if (!strcmp (value, ""))
+             option_set_conf (option, 0, 0);
+           else
+             option_set_conf (option, 1, 0);
         }
     }
   else if (option->type == GOT_char
