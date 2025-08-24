@@ -35,7 +35,10 @@ get_associated_info_key (ASSOCIATED_INFO *a, enum ai_key_name key)
   for (i = 0; i < a->info_number; i++)
     {
       if (a->info[i].key == key)
-        break;
+        {
+          destroy_key_pair_value (&a->info[i]);
+          break;
+        }
     }
   if (i == a->info_number)
     {

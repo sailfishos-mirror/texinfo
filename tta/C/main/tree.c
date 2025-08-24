@@ -146,6 +146,39 @@ destroy_const_element_list (CONST_ELEMENT_LIST *list)
 }
 
 void
+destroy_key_pair_value (KEY_PAIR *k_pair)
+{
+  switch (associated_info_table[k_pair->key].type)
+    {
+    case extra_string:
+      free (k_pair->k.string);
+      break;
+    case extra_element_oot:
+      destroy_element_and_children (k_pair->k.element);
+      break;
+    case extra_contents:
+      destroy_const_element_list (k_pair->k.const_list);
+      break;
+    case extra_directions:
+      free (k_pair->k.directions);
+      break;
+    case extra_container:
+      if (k_pair->k.element)
+        destroy_element (k_pair->k.element);
+      break;
+    case extra_misc_args:
+      destroy_strings_list (k_pair->k.strings_list);
+      break;
+    case extra_index_entry:
+      free (k_pair->k.index_entry->index_name);
+      free (k_pair->k.index_entry);
+      break;
+    default:
+      break;
+    }
+}
+
+void
 destroy_associated_info (ASSOCIATED_INFO *a)
 {
   size_t i;
@@ -153,34 +186,7 @@ destroy_associated_info (ASSOCIATED_INFO *a)
   for (i = 0; i < a->info_number; i++)
     {
       KEY_PAIR *k_pair = &a->info[i];
-      switch (associated_info_table[k_pair->key].type)
-        {
-        case extra_string:
-          free (k_pair->k.string);
-          break;
-        case extra_element_oot:
-          destroy_element_and_children (k_pair->k.element);
-          break;
-        case extra_contents:
-          destroy_const_element_list (k_pair->k.const_list);
-          break;
-        case extra_directions:
-          free (k_pair->k.directions);
-          break;
-        case extra_container:
-          if (k_pair->k.element)
-            destroy_element (k_pair->k.element);
-          break;
-        case extra_misc_args:
-          destroy_strings_list (k_pair->k.strings_list);
-          break;
-        case extra_index_entry:
-          free (k_pair->k.index_entry->index_name);
-          free (k_pair->k.index_entry);
-          break;
-        default:
-          break;
-        }
+      destroy_key_pair_value (k_pair);
     }
   free (a->info);
 }
