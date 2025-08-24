@@ -156,10 +156,10 @@ HHERE
 
 $result_errors{'indent_before_macro_definition_and_other'} = [
   {
-    'error_line' => 'warning: @author not meaningful outside `@titlepage\' and `@quotation\' environments
+    'error_line' => 'warning: @author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments
 ',
     'line_nr' => 3,
-    'text' => '@author not meaningful outside `@titlepage\' and `@quotation\' environments',
+    'text' => '@author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments',
     'type' => 'warning'
   },
   {

@@ -1863,6 +1863,7 @@ static const COMMAND_INTERNAL_CONVERSION commands_internal_conversion_table[] = 
   {CM_itemx, &html_convert_item_command},
   {CM_tab, &html_convert_tab_command},
   {CM_insertcopying, &html_convert_insertcopying_command},
+  {CM_maketitle, &html_convert_maketitle_command},
   {CM_listoffloats, &html_convert_listoffloats_command},
   {CM_printindex, &html_convert_printindex_command},
   /* @informative_global_commands in perl */

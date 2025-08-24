@@ -1,5 +1,40 @@
 2025-08-24 Patrice Dumas  <pertusus@free.fr>
 
+	Add @documentinfo, @publication, @maketitle in texi2any, preliminary 
+
+	* tta/data/command_data.txt: add maketitle, documentinfo and
+	publication.
+
+	* tta/C/parsetexi/handle_commands.c (handle_line_command),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_line_command): allow author
+	to be in documentinfo.
+
+	* tta/perl/Texinfo/Convert/DocBook.pm (%ignored_block_commands)
+	(conversion_output_begin), tta/C/convert/format_html.c
+	(html_default_format_titlepage, html_convert_maketitle_command)
+	(html_convert_unit_type), tta/C/convert/html_prepare_converter.c
+	(commands_internal_conversion_table), tta/perl/Texinfo/Convert/HTML.pm
+	(%ignored_block_commands, _convert_maketitle_command)
+	(_convert_unit_type, _default_format_titlepage),
+	tta/perl/Texinfo/Convert/Plaintext.pm (%formatted_line_commands,
+	%advance_paragraph_count_commands) (%ignored_commands),
+	tta/perl/Texinfo/Convert/Text.pm (%ignored_block_commands),
+	tta/perl/ext/epub3.pm (epub_finish): basic handling of documentinfo
+	and publication, mainly by ignoring, but also by searching for author
+	and subtitle in documentinfo.  Handle maketitle in HTML.  The
+	titlepage formatting for maketitle is not yet implemented.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (%ignored_block_commands)
+	(_make_title, _convert, _tableofcontents_after_title)
+	(_begin_document): add _tableofcontents_after_title with code from
+	_begin_document related to table of contents.  Do titlepage in
+	_begin_document only if maketitle is not found.  Handle maketitle.
+	Add mainmatter and table of contents where maketitle is output.  The
+	titlepage formatting for maketitle, expected to be in the _make_title
+	function is not yet implemented.
+
+2025-08-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/get_perl_info.c (get_sv_option), tta/C/main/txi_config.c
 	(set_option_value): if an integer option is not an integer, set it to
 	0 if it is the string value is empty, or to 1 if not empty.  This

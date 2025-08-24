@@ -850,22 +850,26 @@ EOT
   my @authors = ();
   my @languages = ();
 
-  if ($global_commands_information) {
-    if ($global_commands_information->{'titlepage'}) {
-      my $titlepage = $global_commands_information->{'titlepage'};
-      my @authors_commands = ();
+  if (defined($global_commands_information)) {
+    foreach my $information_block ('documentinfo', 'titlepage') {
+      if (exists($global_commands_information->{$information_block})) {
 
-      Texinfo::Convert::Utils::find_element_authors($titlepage,
+        my @authors_commands = ();
+
+        Texinfo::Convert::Utils::find_element_authors(
+               $global_commands_information->{$information_block},
                                                   \@authors_commands);
 
-      foreach my $element (@authors_commands) {
-        if ($element->{'contents'}->[0]->{'contents'}) {
-          my $author_str = _epub_convert_tree_to_text($self,
+        foreach my $element (@authors_commands) {
+          if ($element->{'contents'}->[0]->{'contents'}) {
+            my $author_str = _epub_convert_tree_to_text($self,
                                       $element->{'contents'}->[0]);
-          if ($author_str =~ /\S/) {
-            push @authors, $author_str;
+            if ($author_str =~ /\S/) {
+              push @authors, $author_str;
+            }
           }
         }
+        last;
       }
     }
     if ($global_commands_information->{'documentlanguage'}) {

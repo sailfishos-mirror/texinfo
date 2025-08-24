@@ -132,7 +132,7 @@ foreach my $kept_command (keys (%informative_commands), @contents_commands,
 
 # formatted/formattable @-commands not formatted in Plaintext/Info
 foreach my $non_formatted_line_command ('page', 'need', 'vskip',
-   'subtitle', 'title') {
+   'subtitle', 'title', 'maketitle') {
   delete $formatted_line_commands{$non_formatted_line_command};
 }
 
@@ -267,7 +267,8 @@ foreach my $command (keys(%block_commands)) {
 # group and raggedright do more than not advancing para, they should also
 # be transparent with respect to paragraph number counting.
 foreach my $not_advancing_para ('group', 'raggedright',
-  'titlepage', 'copying', 'documentdescription', 'float') {
+  'titlepage', 'copying', 'documentdescription', 'documentinfo',
+   'publication', 'float') {
   delete $advance_paragraph_count_commands{$not_advancing_para};
 }
 
@@ -276,8 +277,8 @@ foreach my $advancing_para('center', 'verbatim', 'listoffloats') {
 }
 
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'linemacro',
-   'copying', 'documentdescription', 'titlepage', 'direntry',
-   'nodedescriptionblock') {
+   'copying', 'documentdescription', 'documentinfo', 'publication',
+   'titlepage', 'direntry', 'nodedescriptionblock') {
   $ignored_commands{$ignored_block_commands} = 1;
 }
 

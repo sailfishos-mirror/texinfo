@@ -2993,8 +2993,8 @@ foreach my $ignored_brace_commands ('caption', 'errormsg', 'hyphenation',
 }
 
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'linemacro',
-   'copying', 'documentdescription', 'titlepage', 'direntry',
-   'nodedescriptionblock') {
+   'copying', 'documentdescription', 'documentinfo', 'titlepage',
+   'publication', 'direntry', 'nodedescriptionblock') {
   $default_commands_conversion{$ignored_block_commands} = undef;
 };
 
@@ -5138,6 +5138,15 @@ sub _convert_insertcopying_command($$$) {
 
 $default_commands_conversion{'insertcopying'}
    = \&_convert_insertcopying_command;
+
+sub _convert_maketitle_command($$$) {
+  my ($self, $cmdname, $command) = @_;
+
+  return $self->get_info('title_titlepage');
+}
+
+$default_commands_conversion{'maketitle'}
+   = \&_convert_maketitle_command;
 
 sub _convert_listoffloats_command($$$$) {
   my ($self, $cmdname, $command, $args) = @_;
@@ -7846,7 +7855,17 @@ sub _convert_unit_type($$$$) {
   my $result = '';
   if (not exists($output_unit->{'tree_unit_directions'})
       or not exists($output_unit->{'tree_unit_directions'}->{'prev'})) {
-    $result .= $self->get_info('title_titlepage');
+    my $global_commands;
+
+    my $document = $self->get_info('document');
+    if (defined($document)) {
+      $global_commands = $document->global_commands_information();
+    }
+
+    if (!(defined($global_commands)
+          and exists($global_commands->{'maketitle'}))) {
+      $result .= $self->get_info('title_titlepage');
+    }
     if (not exists($output_unit->{'tree_unit_directions'})
         or not exists($output_unit->{'tree_unit_directions'}->{'next'})) {
       # only one unit, use simplified formatting
@@ -7937,6 +7956,9 @@ sub _default_format_titlepage($) {
     $self->set_shared_conversion_state('quotation',
                                        'quotation_titlepage_stack',
                                        $quotation_titlepage_nr);
+  } elsif (defined($global_commands)
+           and exists($global_commands->{'maketitle'})) {
+    # TODO here format using the @documentinfo information
   } else {
     my $simpletitle_tree = $self->get_info('simpletitle_tree');
     if (defined($simpletitle_tree)) {

@@ -6283,14 +6283,15 @@ sub _handle_line_command($$$$$$) {
         if (defined($parent_cmdname)
             and ($parent_cmdname eq 'titlepage'
                  or $parent_cmdname eq 'quotation'
-                 or $parent_cmdname eq 'smallquotation')) {
+                 or $parent_cmdname eq 'smallquotation'
+                 or $parent_cmdname eq 'documentinfo')) {
           $found = 1;
           last;
         }
       }
       if (!$found) {
         _line_warn($self, __(
-     "\@author not meaningful outside `\@titlepage' and `\@quotation' environments"),
+     "\@author not meaningful outside `\@titlepage', `\@documentinfo' and `\@quotation' environments"),
                            $current->{'source_info'});
       }
     } elsif ($command eq 'dircategory' and exists($self->{'current_node'})) {

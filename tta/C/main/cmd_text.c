@@ -393,6 +393,9 @@ const char *nobrace_symbol_text[] = {
 0,
 0,
 0,
+0,
+0,
+0,
 "{",   /* { */
 "",   /* | */
 "}",   /* } */
@@ -543,6 +546,7 @@ const char *text_brace_no_arg_commands[] = {
 0,
 0,
 0,
+0,
 "...",   /* dots */
 0,
 0,
@@ -652,6 +656,7 @@ const char *text_brace_no_arg_commands[] = {
 0,
 0,
 0,
+0,
 "-",   /* minus */
 0,
 0,
@@ -680,6 +685,7 @@ const char *text_brace_no_arg_commands[] = {
 "-!-",   /* point */
 "#",   /* pounds */
 "-|",   /* print */
+0,
 0,
 0,
 "?",   /* questiondown */
@@ -1032,6 +1038,7 @@ const char *sort_brace_no_arg_commands[] = {
 0,
 0,
 0,
+0,
 "l",   /* l */
 0,
 0,
@@ -1055,7 +1062,9 @@ const char *sort_brace_no_arg_commands[] = {
 0,
 0,
 0,
+0,
 "o",   /* o */
+0,
 0,
 0,
 0,

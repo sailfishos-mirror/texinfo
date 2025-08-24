@@ -30,10 +30,10 @@ $result_texts{'author_outside_titlepage_quotation'} = 'Some One
 
 $result_errors{'author_outside_titlepage_quotation'} = [
   {
-    'error_line' => 'warning: @author not meaningful outside `@titlepage\' and `@quotation\' environments
+    'error_line' => 'warning: @author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments
 ',
     'line_nr' => 1,
-    'text' => '@author not meaningful outside `@titlepage\' and `@quotation\' environments',
+    'text' => '@author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments',
     'type' => 'warning'
   }
 ];

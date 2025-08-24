@@ -114,6 +114,7 @@ foreach my $ignored_brace_command (
 
 my %ignored_block_commands;
 foreach my $ignored_command ('titlepage', 'copying', 'documentdescription',
+  'documentinfo', 'publication',
   'ignore', 'macro', 'rmacro', 'linemacro', 'nodedescriptionblock') {
   $ignored_block_commands{$ignored_command} = 1;
 }

@@ -356,6 +356,7 @@ const char *html_style_commands_element[] = {
 0,
 0,
 0,
+0,
 "em",  /* emph */
 0,
 0,
@@ -479,7 +480,9 @@ const char *html_style_commands_element[] = {
 0,
 0,
 0,
+0,
 "samp",  /* option */
+0,
 0,
 0,
 0,

@@ -226,7 +226,7 @@ my %def_argument_types_docbook = (
 
 my %ignored_block_commands;
 foreach my $block_command ('copying', 'titlepage', 'documentdescription',
-    'nodedescriptionblock') {
+    'nodedescriptionblock', 'publication', 'documentinfo') {
   $ignored_block_commands{$block_command} = 1;
 }
 
@@ -440,37 +440,41 @@ sub conversion_output_begin($;$$) {
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  if (defined($global_commands) and exists($global_commands->{'titlepage'})) {
-    my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
-            $global_commands->{'titlepage'}, ['author', 'subtitle']);
+  if (defined($global_commands)) {
+    foreach my $information_block ('documentinfo', 'titlepage') {
+      if (exists($global_commands->{$information_block})) {
+        my $collected_commands
+          = Texinfo::Common::collect_commands_list_in_tree(
+            $global_commands->{$information_block}, ['author', 'subtitle']);
 
-    my @authors_elements;
-    my $subtitle_text = '';
-    if (scalar(@{$collected_commands})) {
-      foreach my $element (@{$collected_commands}) {
-        my $cmdname = $element->{'cmdname'};
-        if ($cmdname eq 'author') {
-          push @authors_elements, $element;
-        } elsif ($cmdname eq 'subtitle') {
-          # concatenate the text of @subtitle as DocBook only allows one.
-          my ($arg, $end_line)
-            = _convert_argument_and_end_line($self, $element);
-          $subtitle_text .= $arg . $end_line
+        my @authors_elements;
+        my $subtitle_text = '';
+        if (scalar(@{$collected_commands})) {
+          foreach my $element (@{$collected_commands}) {
+            my $cmdname = $element->{'cmdname'};
+            if ($cmdname eq 'author') {
+              push @authors_elements, $element;
+            } elsif ($cmdname eq 'subtitle') {
+              # concatenate the text of @subtitle as DocBook only allows one.
+              my ($arg, $end_line)
+                = _convert_argument_and_end_line($self, $element);
+              $subtitle_text .= $arg . $end_line
+            }
+          }
         }
-      }
-    }
-    if ($subtitle_text ne '') {
-      chomp ($subtitle_text);
-      $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
-    }
+        if ($subtitle_text ne '') {
+          chomp ($subtitle_text);
+          $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
+        }
 
-    if (scalar(@authors_elements)) {
+        if (scalar(@authors_elements)) {
       # using authorgroup and collab is the best, because it doesn't require
       # knowing people name decomposition.  Also it should work for group names.
       # FIXME dblatex ignores collab/collabname.
-      $authors_info .= "<authorgroup>\n";
-      foreach my $element (@authors_elements) {
-        my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
+          $authors_info .= "<authorgroup>\n";
+          foreach my $element (@authors_elements) {
+            my ($arg, $end_line)
+              = _convert_argument_and_end_line($self, $element);
         # FIXME DocBook 5 no more collabname, merged with other elements in
         # orgname, which is much more specific than collabname, it is for an
         # organisation and therefore not suitable here.
@@ -480,12 +484,16 @@ sub conversion_output_begin($;$$) {
         # have the information in Texinfo needed for <person>, which requires
         # a split of the name in honorific, firstname, surname...
         # https://tdg.docbook.org/tdg/5.0/personname
-        my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
-        chomp ($result);
-        $result .= "\n";
-        $authors_info .= $result;
+            my $result
+             = "<collab><collabname>$arg</collabname></collab>$end_line";
+            chomp ($result);
+            $result .= "\n";
+            $authors_info .= $result;
+          }
+          $authors_info .= "</authorgroup>\n";
+        }
+        last;
       }
-      $authors_info .= "</authorgroup>\n";
     }
   }
 

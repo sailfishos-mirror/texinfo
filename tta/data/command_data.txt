@@ -175,6 +175,7 @@ contents                line,close_paragraph,global,preamble    lineraw
 shortcontents           line,close_paragraph,global,preamble    lineraw
 summarycontents         line,close_paragraph,global,preamble    lineraw
 insertcopying           line,formattable_line,close_paragraph,global      lineraw
+maketitle               line,formattable_line,close_paragraph,global_unique      lineraw
 
 # more relevant in preamble
 documentencoding        line,global,preamble,contain_plain_text   text
@@ -565,6 +566,8 @@ nodedescriptionblock    block,close_paragraph,non_formatted_block
 titlepage               block,close_paragraph,global_unique,preamble     region
 copying                 block,close_paragraph,global_unique,preamble     region
 documentdescription     block,close_paragraph,global_unique,preamble     region
+documentinfo            block,close_paragraph,global_unique,preamble     region
+publication             block,close_paragraph,global_unique,preamble     region
 
 # preformatted commands
 example           block,close_paragraph,preformatted,preformatted_code,variadic,contain_basic_inline   preformatted

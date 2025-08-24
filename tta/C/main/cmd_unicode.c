@@ -145,6 +145,7 @@ const DIACRITIC_UNICODE unicode_diacritics[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
 {"\xcc\x87", "775", "0307"},  /* dotaccent */
 {0, 0, 0},
 {0, 0, 0},
@@ -271,7 +272,9 @@ const DIACRITIC_UNICODE unicode_diacritics[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
 {"\xcc\xa8", "808", "0328"},  /* ogonek */
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
@@ -551,6 +554,7 @@ const COMMAND_UNICODE_CHARACTER base_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
 {"20AC", "\xe2\x82\xac", "\\20AC "},   /* euro */
 {0, 0, 0},
 {0, 0, 0},
@@ -659,6 +663,7 @@ const COMMAND_UNICODE_CHARACTER base_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
 {"00F8", "\xc3\xb8", "\\00F8 "},   /* o */
 {0, 0, 0},
 {0, 0, 0},
@@ -677,6 +682,7 @@ const COMMAND_UNICODE_CHARACTER base_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {"00A3", "\xc2\xa3", "\\00A3 "},   /* pounds */
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
@@ -935,6 +941,7 @@ const COMMAND_UNICODE_CHARACTER extra_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
 {"2026", "\xe2\x80\xa6", "\\2026 "},   /* dots */
 {0, 0, 0},
 {0, 0, 0},
@@ -959,6 +966,7 @@ const COMMAND_UNICODE_CHARACTER extra_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {"21A6", "\xe2\x86\xa6", "\\21A6 "},   /* expansion */
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
@@ -1072,6 +1080,7 @@ const COMMAND_UNICODE_CHARACTER extra_unicode_map[] = {
 {"22C6", "\xe2\x8b\x86", "\\22C6 "},   /* point */
 {0, 0, 0},
 {"22A3", "\xe2\x8a\xa3", "\\22A3 "},   /* print */
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},

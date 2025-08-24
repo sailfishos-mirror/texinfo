@@ -145,6 +145,7 @@ const char *xml_text_entity_no_arg_commands[] = {
 0,
 0,
 0,
+0,
 "&hellip;",  /* dots */
 0,
 0,
@@ -254,6 +255,7 @@ const char *xml_text_entity_no_arg_commands[] = {
 0,
 0,
 0,
+0,
 "&minus;",  /* minus */
 0,
 0,
@@ -281,6 +283,7 @@ const char *xml_text_entity_no_arg_commands[] = {
 0,
 "&lowast;",  /* point */
 "&pound;",  /* pounds */
+0,
 0,
 0,
 0,

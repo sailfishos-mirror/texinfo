@@ -172,6 +172,7 @@ CM_dmn,
 CM_docbook,
 CM_documentdescription,
 CM_documentencoding,
+CM_documentinfo,
 CM_documentlanguage,
 CM_dotaccent,
 CM_dotless,
@@ -281,6 +282,7 @@ CM_listoffloats,
 CM_lowersections,
 CM_macro,
 CM_majorheading,
+CM_maketitle,
 CM_math,
 CM_menu,
 CM_microtype,
@@ -313,6 +315,7 @@ CM_point,
 CM_pounds,
 CM_print,
 CM_printindex,
+CM_publication,
 CM_pxref,
 CM_questiondown,
 CM_quotation,
@@ -425,7 +428,7 @@ CM_hex_7d,
 CM_hex_7e,
 };
 
-#define BUILTIN_CMD_NUMBER 391
+#define BUILTIN_CMD_NUMBER 394
 
 #define TXI_CMD_CATEGORY_BLOCK \
   tcc_cmd_category(conditional, block, BLOCK) \

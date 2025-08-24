@@ -13,6 +13,7 @@ typedef struct GLOBAL_COMMANDS {
    ELEMENT *bsixpaper;
    ELEMENT *copying;
    ELEMENT *documentdescription;
+   ELEMENT *documentinfo;
    ELEMENT *evenfooting;
    ELEMENT *evenfootingmarks;
    ELEMENT *evenheading;
@@ -23,12 +24,14 @@ typedef struct GLOBAL_COMMANDS {
    ELEMENT *everyheadingmarks;
    ELEMENT *fonttextsize;
    ELEMENT *footnotestyle;
+   ELEMENT *maketitle;
    ELEMENT *novalidate;
    ELEMENT *oddfooting;
    ELEMENT *oddfootingmarks;
    ELEMENT *oddheading;
    ELEMENT *oddheadingmarks;
    ELEMENT *pagesizes;
+   ELEMENT *publication;
    ELEMENT *setchapternewpage;
    ELEMENT *setfilename;
    ELEMENT *settitle;

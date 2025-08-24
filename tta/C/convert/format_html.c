@@ -5745,6 +5745,10 @@ html_default_format_titlepage (CONVERTER *self)
       titlepage_text = 1;
       self->shared_conversion_state.elements_authors.top--;
     }
+  else if (self->document->global_commands.maketitle)
+    {
+      /* TODO here format using the @documentinfo information */
+    }
   else if (self->simpletitle_tree)
     {
       format_simpletitle (self, &result);
@@ -9719,6 +9723,15 @@ html_convert_insertcopying_command (CONVERTER *self, const enum command_id cmd,
     }
 }
 
+void
+html_convert_maketitle_command (CONVERTER *self, const enum command_id cmd,
+                                    const ELEMENT *element,
+                                    const HTML_ARGS_FORMATTED *args_formatted,
+                                    const char *content, TEXT *result)
+{
+  text_append (result, self->title_titlepage);
+}
+
 static char *caption_in_listoffloats_array[] = {"caption-in-listoffloats"};
 static const STRING_LIST caption_in_listoffloats_classes
   = {caption_in_listoffloats_array, 1, 1};
@@ -12801,7 +12814,8 @@ html_convert_unit_type (CONVERTER *self, const enum output_unit_type unit_type,
 
   if (!output_unit->tree_unit_directions[D_prev])
     {
-      text_append (result, self->title_titlepage);
+      if (!self->document->global_commands.maketitle)
+        text_append (result, self->title_titlepage);
       if (!output_unit->tree_unit_directions[D_next])
         {
           /* only one unit, use simplified formatting */

@@ -486,9 +486,11 @@ foreach my $ignored_brace_commands (
   $ignored_commands{$ignored_brace_commands} = 1;
 }
 
-# titlepage content is directly formatted at document begin
+# titlepage content is directly formatted at document begin.
+# publication and documentinfo information are used for maketitle.
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'linemacro',
-  'copying', 'documentdescription', 'titlepage', 'nodedescriptionblock') {
+  'copying', 'documentdescription', 'titlepage', 'nodedescriptionblock',
+  'publication', 'documentinfo') {
   $ignored_commands{$ignored_block_commands} = 1;
 }
 
@@ -1875,6 +1877,27 @@ sub _latex_begin_output($) {
   return $result_text;
 }
 
+sub _tableofcontents_after_title($$;$) {
+  my ($self, $global_commands, $restore_pagenums) = @_;
+
+  my $result = '';
+
+  if (exists($global_commands->{'contents'})
+      and not (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
+               and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline')) {
+    my $sections_list = $self->{'document'}->sections_list();
+
+    if (defined($sections_list) and scalar(@$sections_list)) {
+      if ($restore_pagenums) {
+        $result .= _set_headings($self, 'pagenum');
+      }
+      $result .= "\\tableofcontents\\newpage\n";
+    }
+  }
+
+  return $result;
+}
+
 sub _begin_document($) {
   my $self = shift;
 
@@ -1886,14 +1909,21 @@ sub _begin_document($) {
     $global_commands = $self->{'document'}->global_commands_information();
   }
 
-  if (defined($global_commands)
-      and (exists($global_commands->{'titlepage'})
-           or exists($global_commands->{'shorttitlepage'}))) {
+  return if (!defined($global_commands));
+
+  my $with_maketitle = (exists($global_commands->{'maketitle'}));
+
+  my $with_title_page = (exists($global_commands->{'titlepage'})
+                   or exists($global_commands->{'shorttitlepage'}));
+
+  if ($with_maketitle or $with_title_page) {
     $result .= "\n";
     $result .= $front_main_matter_definitions{$documentclass}->{'front'}."\n";
     $result .= _set_headings($self, 'off');
 
-    if (exists($global_commands->{'titlepage'})) {
+    if ($with_maketitle) {
+      # do nothing here, output the titlepage where @maketitle appears
+    } elsif (exists($global_commands->{'titlepage'})) {
       my $element = $global_commands->{'titlepage'};
       # Start a group such that the changes are forgotten when front cover
       # is done.
@@ -1925,25 +1955,14 @@ sub _begin_document($) {
     }
   }
 
-  if (defined($global_commands) and exists($global_commands->{'contents'})
-      and not (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
-               and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline')) {
-    my $sections_list = $self->{'document'}->sections_list();
+  if (!$with_maketitle) {
+    $result .= _tableofcontents_after_title($self, $global_commands,
+                                            $with_title_page);
 
-    if (defined($sections_list) and scalar(@$sections_list)) {
-      if (exists($global_commands->{'titlepage'})
-          or exists($global_commands->{'shorttitlepage'})) {
-        $result .= _set_headings($self, 'pagenum');
-      }
-      $result .= "\\tableofcontents\\newpage\n";
+    if ($with_title_page) {
+      $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
+      $result .= _set_headings($self, $self->get_conf('headings'));
     }
-  }
-
-  if (defined($global_commands)
-      and (exists($global_commands->{'titlepage'})
-           or exists($global_commands->{'shorttitlepage'}))) {
-    $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
-    $result .= _set_headings($self, $self->get_conf('headings'));
   }
 
   return $result;
@@ -2795,6 +2814,13 @@ sub _convert_def_line($$) {
   }
   $result .= "\n";
   $result .= _index_entry($self, $element);
+}
+
+sub _make_title($$) {
+  my ($self, $global_commands) = @_;
+
+  # TODO use @documentinfo and @publication to format
+  return '';
 }
 
 sub _convert($$);
@@ -4222,6 +4248,18 @@ sub _convert($$) {
         unshift @{$self->{'current_contents'}->[-1]},
            {'contents' => $global_commands->{'copying'}->{'contents'}};
       }
+      return $result;
+    } elsif ($cmdname eq 'maketitle') {
+      my $global_commands;
+      if (exists($self->{'document'})) {
+        $global_commands = $self->{'document'}->global_commands_information();
+      }
+      if (defined($global_commands)) {
+        $result .= _make_title($self, $global_commands);
+        $result .= _tableofcontents_after_title($self, $global_commands, 1);
+      }
+      $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
+      $result .= _set_headings($self, $self->get_conf('headings'));
       return $result;
     } elsif ($cmdname eq 'printindex') {
       my $index_name;

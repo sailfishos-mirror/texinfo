@@ -1185,14 +1185,15 @@ handle_line_command (ELEMENT *current, const char **line_inout,
                 break;
               if (parent_cmd == CM_titlepage
                   || parent_cmd == CM_quotation
-                  || parent_cmd == CM_smallquotation)
+                  || parent_cmd == CM_smallquotation
+                  || parent_cmd == CM_documentinfo)
                 {
                   found = 1; break;
                 }
             }
           if (!found)
             line_warn ("@author not meaningful outside "
-                       "`@titlepage' and `@quotation' environments");
+          "`@titlepage', `@documentinfo' and `@quotation' environments");
         }
       else if (cmd == CM_dircategory && current_node)
         line_warn ("@dircategory after first node");
