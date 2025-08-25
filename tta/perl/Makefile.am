@@ -299,6 +299,7 @@ test_files = \
  t/input_files/last_file_same_parser.texi \
  t/input_files/manual_simple_utf8_with_error.texi \
  t/input_files/manual_simple_latin1_with_error.texi \
+ t/input_files/maketitle_documentinfo_publication.texi \
  t/input_files/minimal_empty_empty.texi \
  t/input_files/minimal_empty_with_bye.texi \
  t/input_files/minimal_empty_with_input.texi \

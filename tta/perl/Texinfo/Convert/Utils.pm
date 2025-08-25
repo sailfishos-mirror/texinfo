@@ -227,6 +227,64 @@ our @month_name =
      Texinfo::Common::gdt('December')
     );
 
+my %documentinfo_commands = ();
+foreach my $cmdname ('title', 'subtitle', 'author') {
+  $documentinfo_commands{$cmdname} = 1;
+}
+
+# TODO document
+sub get_document_documentinfo($) {
+  my $document = shift;
+
+  my $global_commands = $document->global_commands_information();
+
+  return undef if (!defined($global_commands));
+
+  my $document_info = $global_commands->{'documentinfo'};
+
+  return undef if (!defined($document_info));
+
+  my $result;
+  for (my $i = 1; $i < scalar(@{$document_info->{'contents'}}); $i++) {
+    my $content = $document_info->{'contents'}->[$i];
+    if (exists($content->{'cmdname'})) {
+      my $cmdname = $content->{'cmdname'};
+      if (exists($documentinfo_commands{$cmdname})) {
+        $result = {} if (!defined($result));
+        $result->{$cmdname} = [] if (!exists($result->{$cmdname}));
+        push @{$result->{$cmdname}}, $content;
+      }
+    }
+  }
+
+  return $result;
+}
+
+# TODO document
+sub get_titlepage_publication_info($) {
+  my $document = shift;
+
+  my $global_commands = $document->global_commands_information();
+
+  return undef if (!defined($global_commands));
+
+  my $result;
+
+  my $document_info = get_document_documentinfo($document);
+
+  if (defined($document_info)) {
+    $result = {'documentinfo' => $document_info};
+  }
+
+  foreach my $cmdname ('copying', 'publication') {
+    if (exists($global_commands->{$cmdname})) {
+      $result = {} if (!defined($result));
+      $result->{$cmdname} = $global_commands->{$cmdname};
+    }
+  }
+  return $result;
+}
+
 sub definition_arguments_content($) {
   my $element = shift;
 

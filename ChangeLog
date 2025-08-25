@@ -1,3 +1,29 @@
+2025-08-25 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/convert_utils.c (new_document_info)
+	(destroy_document_info, get_document_documentinfo)
+	(get_titlepage_publication_info), tta/C/main/document_types.h
+	(DOCUMENT_INFO), tta/perl/Texinfo/Convert/Utils.pm
+	(get_document_documentinfo, get_titlepage_publication_info): add
+	get_document_documentinfo to get the information in @documentinfo, and
+	get_titlepage_publication_info to additionally get @copying and
+	@publication information.
+
+	* tta/C/convert/format_html.c (format_maketitle)
+	(html_default_format_titlepage), tta/perl/Texinfo/Convert/HTML.pm
+	(_format_maketile, _default_format_titlepage): format maketitle
+	title page in HTML, getting title page information with
+	get_document_documentinfo.
+
+	* tta/perl/Makefile.am (test_files), tta/perl/t/docbook_tests.t
+	(maketitle_documentinfo_publication), tta/perl/t/html_tests.t
+	(maketitle_documentinfo_publication),
+	tta/perl/t/input_files/maketitle_documentinfo_publication.texi,
+	tta/perl/Makefile.tres: add maketitle_documentinfo_publication.texi,
+	which calls @maketitle, @publication and @documentinfo with several
+	commands.  Add tests for HTML and Docbook formatting of document info
+	and title mage with those commands.
+
 2025-08-24 Patrice Dumas  <pertusus@free.fr>
 
 	Add @documentinfo, @publication, @maketitle in texi2any, preliminary 

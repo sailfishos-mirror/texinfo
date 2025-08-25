@@ -34,6 +34,10 @@ ELEMENT *new_element_added (TREE_ADDED_ELEMENTS *added_elements,
 ELEMENT *new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
                                  enum element_type type);
 
+DOCUMENT_INFO *get_document_documentinfo (DOCUMENT *document);
+DOCUMENT_INFO *get_titlepage_publication_info (DOCUMENT *document);
+void destroy_document_info (DOCUMENT_INFO *document_info);
+
 ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,

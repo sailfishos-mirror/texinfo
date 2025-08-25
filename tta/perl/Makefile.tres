@@ -519,6 +519,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/def/wrong_braces_with_end_of_lines.pl \
   t/results/docbook_tests/between_node_and_section.pl \
   t/results/docbook_tests/empty_quotation_with_arg_followed_by_quotation.pl \
+  t/results/docbook_tests/maketitle_documentinfo_publication.pl \
   t/results/docbook_tests/multiple_documentlanguage.pl \
   t/results/docbook_tests/special_docbook_unnumbered.pl \
   t/results/docbook_tests/titlefont_for_docbook.pl \
@@ -751,6 +752,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/itemize_tieaccent.pl \
   t/results/html_tests/itemize_tieaccent/res_html \
   t/results/html_tests/letter_command_in_index.pl \
+  t/results/html_tests/maketitle_documentinfo_publication.pl \
   t/results/html_tests/mathjax_with_texinfo.pl \
   t/results/html_tests/mathjax_with_texinfo_enable_encoding.pl \
   t/results/html_tests/mathjax_with_texinfo_enable_encoding/res_latex \

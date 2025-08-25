@@ -7929,6 +7929,39 @@ sub _contents_shortcontents_in_title($) {
   return $result;
 }
 
+sub _format_maketile($$) {
+  my ($self, $document) = @_;
+
+  my $document_info
+    = Texinfo::Convert::Utils::get_document_documentinfo($document);
+
+  if (defined($document_info)) {
+    my @contents;
+    my $titlepage_text
+      = $self->html_attribute_class('div', ['maketitle-titlepage']).">\n";
+    foreach my $cmdname ('title', 'subtitle', 'author') {
+      if (exists($document_info->{$cmdname})) {
+        push @contents, @{$document_info->{$cmdname}};
+      }
+    }
+    my $element = Texinfo::TreeElement::new({'contents' => \@contents});
+    # we do not need to collect the author commands in titlepage, so
+    # we use a little trick to initialize the authors number to -1
+    # to mean that we are in titlepage
+    _open_quotation_titlepage_stack($self, -1);
+    my $quotation_titlepage_nr = $self->get_shared_conversion_state('quotation',
+                                                  'quotation_titlepage_stack');
+    $titlepage_text .= $self->convert_tree($element, 'format maketitle');
+    $quotation_titlepage_nr--;
+    $self->set_shared_conversion_state('quotation',
+                                       'quotation_titlepage_stack',
+                                       $quotation_titlepage_nr);
+    $titlepage_text .= "</div>\n";
+    return $titlepage_text;
+  }
+  return undef;
+}
+
 # Convert @titlepage.  Falls back to simpletitle.
 sub _default_format_titlepage($) {
   my $self = shift;
@@ -7957,8 +7990,9 @@ sub _default_format_titlepage($) {
                                        'quotation_titlepage_stack',
                                        $quotation_titlepage_nr);
   } elsif (defined($global_commands)
-           and exists($global_commands->{'maketitle'})) {
-    # TODO here format using the @documentinfo information
+           and exists($global_commands->{'maketitle'})
+           and defined($document)) {
+    $titlepage_text = _format_maketile($self, $document);
   } else {
     my $simpletitle_tree = $self->get_info('simpletitle_tree');
     if (defined($simpletitle_tree)) {

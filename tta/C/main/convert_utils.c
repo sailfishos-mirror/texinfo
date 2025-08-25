@@ -70,6 +70,12 @@ element_associated_processing_encoding (const ELEMENT *element)
 
 
 
+/* Handle TREE_ADDED_ELEMENTS, for Texinfo tree elements added
+   in converters that need a place to store the elements for the duration
+   of their use.  Memory handling is determined by the "status" given
+   when initializing the tree added elements structure.
+ */
+
 TREE_ADDED_ELEMENTS *
 new_tree_added_elements (enum tree_added_elements_status status)
 {
@@ -105,6 +111,84 @@ new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
   ELEMENT *new = new_text_element (type);
   add_to_element_list (&added_elements->added, new);
   return new;
+}
+
+
+
+static DOCUMENT_INFO *
+new_document_info (void)
+{
+  DOCUMENT_INFO *result = (DOCUMENT_INFO *) malloc (sizeof (DOCUMENT_INFO));
+  memset (result, 0, sizeof (DOCUMENT_INFO));
+  return result;
+}
+
+void
+destroy_document_info (DOCUMENT_INFO *document_info)
+{
+  free (document_info->title.list);
+  free (document_info->author.list);
+  free (document_info->subtitle.list);
+  free (document_info);
+}
+
+DOCUMENT_INFO *
+get_document_documentinfo (DOCUMENT *document)
+{
+  DOCUMENT_INFO *result = 0;
+
+  if (document->global_commands.documentinfo)
+    {
+      size_t i;
+      const ELEMENT *documentinfo = document->global_commands.documentinfo;
+
+      for (i = 1; i < documentinfo->e.c->contents.number; i++)
+        {
+          ELEMENT *content = documentinfo->e.c->contents.list[i];
+          if (!(type_data[content->type].flags & TF_text))
+            {
+              if (content->e.c->cmd == CM_title)
+                {
+                  if (!result)
+                    result = new_document_info ();
+                  add_to_element_list (&result->title, content);
+                }
+              else if (content->e.c->cmd == CM_subtitle)
+                {
+                  if (!result)
+                    result = new_document_info ();
+                  add_to_element_list (&result->subtitle, content);
+                }
+              if (content->e.c->cmd == CM_author)
+                {
+                  if (!result)
+                    result = new_document_info ();
+                  add_to_element_list (&result->author, content);
+                }
+            }
+        }
+    }
+  return result;
+}
+
+DOCUMENT_INFO *
+get_titlepage_publication_info (DOCUMENT *document)
+{
+  DOCUMENT_INFO *result = get_document_documentinfo (document);
+
+  if (document->global_commands.copying)
+    {
+      if (!result)
+        result = new_document_info ();
+      result->copying = document->global_commands.copying;
+    }
+  if (document->global_commands.publication)
+    {
+      if (!result)
+        result = new_document_info ();
+      result->publication = document->global_commands.publication;
+    }
+  return result;
 }
 
 

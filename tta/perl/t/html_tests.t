@@ -891,6 +891,10 @@ ccc|}
 # BIG_RULE is actually used
  {'DEFAULT_RULE' => '<hr/>', 'BIG_RULE' => '<hr/>',
   'USE_XML_SYNTAX' => 1,}],
+['maketitle_documentinfo_publication',
+undef, {'test_file' => 'maketitle_documentinfo_publication.texi'},
+{'SHOW_TITLE' => 1},
+],
 );
 
 my $test_accents_sc_no_brace_commands_quotes = '@u{--a}

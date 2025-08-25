@@ -121,6 +121,16 @@ typedef struct MERGED_INDICES {
     MERGED_INDEX *indices;
 } MERGED_INDICES;
 
+/* used in converter code, not in document code, but associated to
+   document.  Corresponds to @documentinfo, @copying, @publication... */
+typedef struct DOCUMENT_INFO {
+    ELEMENT_LIST title;
+    ELEMENT_LIST author;
+    ELEMENT_LIST subtitle;
+    const ELEMENT *copying;
+    const ELEMENT *publication;
+} DOCUMENT_INFO;
+
 /* not used in document, but used for indices for sort keys that can
    contain NUL */
 typedef struct BYTES_STRING {

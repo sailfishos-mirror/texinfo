@@ -88,6 +88,9 @@ my @test_doc = (
 ['titlefont_for_docbook',
 '@titlefont{Reference Manual}
 '],
+['maketitle_documentinfo_publication',
+undef, {'test_file' => 'maketitle_documentinfo_publication.texi'},
+],
 );
 
 foreach my $test (@test_cases) {

@@ -1365,6 +1365,7 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
 
 
 
+/* FIXME move to the same file where TREE_ADDED_ELEMENTS is setup */
 /* NOTE in addition to freeing memory, the tree root is removed from
    tree_to_build if relevant. */
 void

@@ -5726,6 +5726,46 @@ open_quotation_titlepage_stack (CONVERTER *self, int do_authors_list)
   stack->top++;
 }
 
+static char *maketitle_titlepage_array[] = {"maketitle-titlepage"};
+static const STRING_LIST maketitle_titlepage_classes
+  = {maketitle_titlepage_array, 1, 1};
+
+void
+format_maketitle (CONVERTER *self, TEXT *result)
+{
+  DOCUMENT_INFO *document_info = get_document_documentinfo (self->document);
+
+  if (document_info)
+    {
+      ELEMENT *e = new_element (ET_NONE);
+      char *make_title_attribute_class = html_attribute_class (self, "div",
+                                               &maketitle_titlepage_classes);
+      text_append (result, make_title_attribute_class);
+      free (make_title_attribute_class);
+      text_append_n (result, ">\n", 2);
+
+      if (document_info->title.number)
+        insert_list_slice_into_contents (e, 0, &document_info->title,
+                                         0, document_info->title.number);
+      if (document_info->subtitle.number)
+        insert_list_slice_into_contents (e, e->e.c->contents.number,
+                                         &document_info->subtitle,
+                                         0, document_info->subtitle.number);
+      if (document_info->author.number)
+        insert_list_slice_into_contents (e, e->e.c->contents.number,
+                                         &document_info->author,
+                                         0, document_info->author.number);
+
+      open_quotation_titlepage_stack (self, 0);
+      html_convert_tree_append (self, e, result, "format maketitle");
+      destroy_element (e);
+      self->shared_conversion_state.elements_authors.top--;
+
+      text_append_n (result, "</div>\n", 7);
+
+      destroy_document_info (document_info);
+    }
+}
 /* Convert @titlepage.  Falls back to simpletitle. */
 static char *
 html_default_format_titlepage (CONVERTER *self)
@@ -5747,7 +5787,8 @@ html_default_format_titlepage (CONVERTER *self)
     }
   else if (self->document->global_commands.maketitle)
     {
-      /* TODO here format using the @documentinfo information */
+      format_maketitle (self, &result);
+      titlepage_text = 1;
     }
   else if (self->simpletitle_tree)
     {
