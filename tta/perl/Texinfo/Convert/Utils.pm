@@ -573,7 +573,7 @@ sub _find_element_authors_internal($$) {
         or $cmdname eq 'smallquotation'
         or $cmdname eq 'titlepage'
         or $cmdname eq 'menu'
-        or ($Texinfo::Commands::brace_commands{$cmdname}
+        or (exists($Texinfo::Commands::brace_commands{$cmdname})
             and $Texinfo::Commands::brace_commands{$cmdname} eq 'context')
         or exists($Texinfo::Commands::line_commands{$cmdname})) {
       return;
@@ -612,7 +612,8 @@ sub find_root_command_next_heading_command($$;$$) {
   foreach my $content (@{$root->{'contents'}}) {
     #print STDERR Texinfo::Common::debug_print_element($content)."\n";
     if (exists($content->{'cmdname'})) {
-      if ($Texinfo::Commands::sectioning_heading_commands{$content->{'cmdname'}}) {
+      if (exists(
+           $Texinfo::Commands::sectioning_heading_commands{$content->{'cmdname'}})) {
         #print STDERR "HEADING FOUND ASSOCIATED $content->{'cmdname'}\n";
         return $content;
       }
@@ -625,8 +626,10 @@ sub find_root_command_next_heading_command($$;$$) {
         }
       }
       if (exists($Texinfo::Commands::line_commands{$content->{'cmdname'}})) {
-        if ($Texinfo::Commands::formatted_line_commands{$content->{'cmdname'}}
-            or $Texinfo::Commands::formattable_line_commands{$content->{'cmdname'}}
+        if (exists(
+              $Texinfo::Commands::formatted_line_commands{$content->{'cmdname'}})
+            or exists(
+                 $Texinfo::Commands::formattable_line_commands{$content->{'cmdname'}})
             or ($do_not_ignore_contents
                 and ($content->{'cmdname'} eq 'contents'
                      or $content->{'cmdname'} eq 'shortcontents'
@@ -636,13 +639,15 @@ sub find_root_command_next_heading_command($$;$$) {
           next;
         }
       } elsif (exists($Texinfo::Commands::nobrace_commands{$content->{'cmdname'}})) {
-        if ($Texinfo::Commands::formatted_nobrace_commands{$content->{'cmdname'}}) {
+        if (exists(
+            $Texinfo::Commands::formatted_nobrace_commands{$content->{'cmdname'}})) {
           return undef;
         } else {
           next;
         }
       } elsif (exists($Texinfo::Commands::block_commands{$content->{'cmdname'}})) {
-        if ($Texinfo::Commands::non_formatted_block_commands{$content->{'cmdname'}}
+        if (exists(
+             $Texinfo::Commands::non_formatted_block_commands{$content->{'cmdname'}})
             or $Texinfo::Commands::block_commands{$content->{'cmdname'}} eq 'region'
             # ignored conditional
             or $Texinfo::Commands::block_commands{$content->{'cmdname'}} eq 'conditional'
@@ -654,7 +659,8 @@ sub find_root_command_next_heading_command($$;$$) {
         }
       # brace commands
       } else {
-        if ($Texinfo::Commands::non_formatted_brace_commands{$content->{'cmdname'}}) {
+        if (exists(
+             $Texinfo::Commands::non_formatted_brace_commands{$content->{'cmdname'}})) {
           next;
         } else {
           return undef;

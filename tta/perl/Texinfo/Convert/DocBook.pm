@@ -566,10 +566,8 @@ sub conversion_output_end($) {
   return "</book>\n";
 }
 
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub output($$) {
+  my ($self, $document) = @_;
 
   return $self->output_tree($document);
 }
@@ -902,8 +900,8 @@ sub _convert($$;$) {
       #warn "  has no_arg_commands_formatting \n";
       my $command_name;
       if ($self->{'document_context'}->[-1]->{'upper_case'}->[-1]
-          and $Texinfo::Commands::letter_no_arg_commands{$cmdname}
-          and $Texinfo::Commands::letter_no_arg_commands{uc($cmdname)}) {
+          and exists($Texinfo::Commands::letter_no_arg_commands{$cmdname})
+          and exists($Texinfo::Commands::letter_no_arg_commands{uc($cmdname)})) {
         $command_name = uc($cmdname)
       } else {
         $command_name = $cmdname;
@@ -916,7 +914,7 @@ sub _convert($$;$) {
       }
     } elsif ($cmdname eq 'today') {
       return _convert($self, $self->expand_today());
-    } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
+    } elsif (exists($Texinfo::Commands::accent_commands{$cmdname})) {
       return $self->xml_accents($element,
                $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
     } elsif ($cmdname eq 'item' or $cmdname eq 'itemx'
@@ -997,7 +995,7 @@ sub _convert($$;$) {
         }
         return '';
       }
-      if ($Texinfo::Commands::root_commands{$cmdname}) {
+      if (exists($Texinfo::Commands::root_commands{$cmdname})) {
         my $section_relations;
         if ($cmdname ne 'node' and exists($self->{'document'})) {
           my $sections_list = $self->{'document'}->sections_list();
@@ -1148,8 +1146,9 @@ sub _convert($$;$) {
         }
       } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
         return _format_comment($self, $element);
-      } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
-        if (!$Texinfo::Commands::root_commands{$cmdname}) {
+      } elsif (exists(
+                 $Texinfo::Commands::sectioning_heading_commands{$cmdname})) {
+        if (!exists($Texinfo::Commands::root_commands{$cmdname})) {
           my ($arg, $end_line)
             = _convert_argument_and_end_line($self, $element);
           $result .=
@@ -1160,7 +1159,7 @@ sub _convert($$;$) {
           return $result;
         }
         return '';
-      } elsif ($Texinfo::Commands::def_commands{$cmdname}) {
+      } elsif (exists($Texinfo::Commands::def_commands{$cmdname})) {
         my $def_line_result = _convert_def_line($self, $element);
         next if (!defined($def_line_result));
         $result .= $def_line_result;
@@ -1222,10 +1221,10 @@ sub _convert($$;$) {
       return $result;
 
     } elsif (exists($element->{'contents'})
-             and exists($Texinfo::Commands::brace_commands{$cmdname})) {
+             and exists($brace_commands{$cmdname})) {
       #Texinfo::Common::debug_list(" brace command with args", $element->{'contents'});
       if ($style_commands_formatting{$cmdname}) {
-        if ($Texinfo::Commands::brace_commands{$cmdname} eq 'context') {
+        if ($brace_commands{$cmdname} eq 'context') {
           _new_document_context($self);
         }
         my $formatting = $style_commands_formatting{$cmdname};
@@ -1234,8 +1233,7 @@ sub _convert($$;$) {
         if (defined($default_args_code_style{$cmdname})
             and $default_args_code_style{$cmdname}->[0]) {
            $in_monospace_not_normal = 1;
-        } elsif (exists($brace_commands{$cmdname})
-                 and $brace_commands{$cmdname} eq 'style_no_code') {
+        } elsif ($brace_commands{$cmdname} eq 'style_no_code') {
           $in_monospace_not_normal = 0;
         }
         if ($formatting->{'upper_case'}) {
@@ -1270,7 +1268,7 @@ sub _convert($$;$) {
         }
         pop @{$self->{'document_context'}->[-1]->{'monospace'}}
           if (defined($in_monospace_not_normal));
-        if ($Texinfo::Commands::brace_commands{$cmdname} eq 'context') {
+        if ($brace_commands{$cmdname} eq 'context') {
           pop @{$self->{'document_context'}};
         }
         if ($cmdname eq 'w') {
@@ -1279,7 +1277,7 @@ sub _convert($$;$) {
         return $result;
       } elsif ($cmdname eq 'anchor' or $cmdname eq 'namedanchor') {
         return _output_anchor($element);
-      } elsif ($Texinfo::Commands::ref_commands{$cmdname}) {
+      } elsif (exists($Texinfo::Commands::ref_commands{$cmdname})) {
         if (exists($element->{'contents'})) {
           my $args_nr = scalar(@{$element->{'contents'}});
           my $command_name;
@@ -1663,9 +1661,9 @@ sub _convert($$;$) {
           }
         }
         return '';
-      } elsif ($Texinfo::Commands::brace_commands{$cmdname} eq 'inline') {
+      } elsif ($brace_commands{$cmdname} eq 'inline') {
         my $expand = 0;
-        if ($Texinfo::Commands::inline_format_commands{$cmdname}) {
+        if (exists($Texinfo::Commands::inline_format_commands{$cmdname})) {
           if ($cmdname eq 'inlinefmtifelse'
               or (exists($element->{'extra'})
                   and exists($element->{'extra'}->{'format'})
@@ -1895,8 +1893,8 @@ sub _convert($$;$) {
     #warn " have contents $element->{'contents'}\n";
     my $in_code;
     if ($cmdname
-        and ($Texinfo::Commands::preformatted_code_commands{$cmdname}
-             or $Texinfo::Commands::math_commands{$cmdname})) {
+        and (exists($Texinfo::Commands::preformatted_code_commands{$cmdname})
+             or exists($Texinfo::Commands::math_commands{$cmdname}))) {
       $in_code = 1;
     }
     push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1
@@ -1958,7 +1956,7 @@ sub _convert($$;$) {
       if ($format ne $docbook_preformatted_formats{$e_type});
   # close sectioning command
   } elsif (defined($cmdname) and $cmdname ne 'node'
-           and $Texinfo::Commands::root_commands{$cmdname}) {
+           and exists($Texinfo::Commands::root_commands{$cmdname})) {
     my $section_relations;
     my $sections_list;
     if (exists($self->{'document'})) {
@@ -2005,7 +2003,7 @@ sub _convert($$;$) {
   }
 
   if (defined($cmdname)
-      and $Texinfo::Commands::root_commands{$cmdname}
+      and exists($Texinfo::Commands::root_commands{$cmdname})
       and exists($self->{'in_skipped_node_top'})
       and $self->{'in_skipped_node_top'} == 1) {
     return '';

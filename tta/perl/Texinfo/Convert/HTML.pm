@@ -337,8 +337,7 @@ my %XS_conversion_overrides = (
 
 # HTML C data initialization independent of customization and of Perl
 # default variables.
-sub _XS_format_setup()
-{
+sub _XS_format_setup() {
 }
 
 our $module_loaded = 0;
@@ -499,8 +498,7 @@ sub html_attribute_class($$;$) {
 }
 
 # returns an array of CSS element.class seen in the $FILENAME
-sub html_get_css_elements_classes($;$)
-{
+sub html_get_css_elements_classes($;$) {
   my ($self, $filename) = @_;
 
   my %css_elements_classes;
@@ -931,8 +929,7 @@ sub _get_target($$) {
 # API for links and elements directions formatting
 
 # This returns the id specific of the $COMMAND tree element
-sub command_id($$)
-{
+sub command_id($$) {
   my ($self, $command) = @_;
 
   my $target = _get_target($self, $command);
@@ -943,8 +940,7 @@ sub command_id($$)
   }
 }
 
-sub command_contents_target($$$)
-{
+sub command_contents_target($$$) {
   my ($self, $command, $contents_or_shortcontents) = @_;
 
   $contents_or_shortcontents = 'shortcontents'
@@ -1173,8 +1169,7 @@ sub _internal_command_href($$;$$) {
 # Return string for linking to $COMMAND with <a href>
 # $SOURCE_COMMAND is only used for messages
 # $SPECIFIED_TARGET can be set to specify explicitly the target
-sub command_href($$;$$$)
-{
+sub command_href($$;$$$) {
   my ($self, $command, $source_filename, $source_command,
       $specified_target) = @_;
 
@@ -1536,8 +1531,7 @@ sub command_text($$;$) {
   return _internal_command_text($self, $command, $type);
 }
 
-sub _internal_command_name_tree($$$)
-{
+sub _internal_command_name_tree($$$) {
   my ($self, $command, $no_number) = @_;
 
   my $target = _get_target($self, $command);
@@ -1624,8 +1618,7 @@ sub command_name($$;$) {
 # $TYPE refers to the type of value returned from this function:
 #  'text' - return text
 #  'string' - return simpler text that can be used in element attributes
-sub command_description($$;$)
-{
+sub command_description($$;$) {
   my ($self, $command, $type) = @_;
 
   if (!defined($type)) {
@@ -2227,8 +2220,7 @@ sub special_unit_body_formatting($$) {
 # &{$self->default_command_conversion($cmdname)}($self, $cmdname, $command, args, $content)
 my %default_commands_conversion;
 
-sub default_command_conversion($$)
-{
+sub default_command_conversion($$) {
   my ($self, $command) = @_;
 
   return $default_commands_conversion{$command};
@@ -2336,8 +2328,7 @@ sub _get_shared_conversion_state($$$;@) {
   return $current;
 }
 
-sub _XS_get_shared_conversion_state($$$;@)
-{
+sub _XS_get_shared_conversion_state($$$;@) {
   my $self = shift;
   my $cmdname = shift;
   my $state_name = shift;
@@ -7140,8 +7131,7 @@ sub _css_string_convert_text($$$$) {
 }
 $default_css_string_types_conversion{'text'} = \&_css_string_convert_text;
 
-sub _simplify_text_for_comparison($)
-{
+sub _simplify_text_for_comparison($) {
   my $text = shift;
 
   $text =~ s/[^\p{Word}]//g;
@@ -7238,8 +7228,7 @@ sub _formatted_nodedescription_nr($$) {
   return $formatted_nodedescription_nr;
 }
 
-sub _convert_menu_entry_type($$$)
-{
+sub _convert_menu_entry_type($$$) {
   my ($self, $type, $element) = @_;
 
   my $name_entry;
@@ -8019,8 +8008,7 @@ sub _default_format_titlepage($) {
   return $result;
 }
 
-sub _default_format_title_titlepage($)
-{
+sub _default_format_title_titlepage($) {
   my $self = shift;
 
   if ($self->get_conf('SHOW_TITLE')) {
@@ -8776,12 +8764,10 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize_beginning($)
-{
+sub _XS_html_converter_initialize_beginning($) {
 }
 
-sub _XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$)
-{
+sub _XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$) {
 }
 
 # this allows to get some debugging output for the file without setting
@@ -11650,8 +11636,7 @@ sub _get_links($$$$) {
   return $links;
 }
 
-sub _default_format_begin_file($$$)
-{
+sub _default_format_begin_file($$$) {
   my ($self, $filename, $output_unit) = @_;
 
   my ($node_command, $command_for_title);
@@ -11707,8 +11692,7 @@ $after_body_open";
   return $result;
 }
 
-sub _default_format_node_redirection_page($$;$)
-{
+sub _default_format_node_redirection_page($$;$) {
   my ($self, $command, $filename) = @_;
 
   my $name = $self->command_text($command);

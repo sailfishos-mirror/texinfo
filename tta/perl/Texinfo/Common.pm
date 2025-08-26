@@ -784,7 +784,7 @@ sub find_innermost_accent_contents($) {
     my $current_cmdname = $current->{'cmdname'};
     # the following can happen if called with a bad tree
     if (!defined($current_cmdname)
-        or !$Texinfo::Commands::accent_commands{$current_cmdname}) {
+        or !exists($Texinfo::Commands::accent_commands{$current_cmdname})) {
       #print STDERR "BUG: Not an accent command in accent\n";
       cluck "BUG: Not an accent command in accent\n";
       #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
@@ -805,7 +805,7 @@ sub find_innermost_accent_contents($) {
     foreach my $content (@{$arg->{'contents'}}) {
       if (exists($content->{'cmdname'})) {
         my $cmdname = $content->{'cmdname'};
-        if ($Texinfo::Commands::accent_commands{$cmdname}) {
+        if (exists($Texinfo::Commands::accent_commands{$cmdname})) {
         # if outer accent is tieaccent, keep accent inside and do not try to
         # nest more
           if ($current_cmdname ne 'tieaccent') {
@@ -858,8 +858,8 @@ sub block_line_argument_command($) {
              or (scalar(@{$arg->{'contents'}}) == 1
                  and !exists($arg->{'contents'}->[0]->{'contents'})))) {
       my $cmdname = $arg->{'cmdname'};
-      if (($Texinfo::Commands::brace_commands{$cmdname}
-           and !$Texinfo::Commands::accent_commands{$cmdname})
+      if ((exists($Texinfo::Commands::brace_commands{$cmdname})
+           and !exists($Texinfo::Commands::accent_commands{$cmdname}))
           or (exists($arg->{'type'})
               and $arg->{'type'} eq 'definfoenclose_command')) {
         return $arg;
@@ -964,8 +964,7 @@ sub index_entry_referred_entry($$);
 
 # TODO document
 # Used in converters
-sub index_entry_referred_entry($$)
-{
+sub index_entry_referred_entry($$) {
   my ($element, $referred_cmdname) = @_;
 
   my $line_arg = $element->{'contents'}->[0];
@@ -1075,8 +1074,7 @@ sub associated_processing_encoding($) {
 # ASCII, as the name of the directory it is located within may contain
 # non-ASCII characters.
 #   Otherwise, the -e operator and similar may not work correctly.
-sub encode_file_name($$)
-{
+sub encode_file_name($$) {
   my ($file_name, $input_encoding) = @_;
 
   my $encoding;
@@ -1486,20 +1484,26 @@ sub is_content_empty($;$) {
         }
       }
       if (exists($Texinfo::Commands::line_commands{$content->{'cmdname'}})) {
-        if ($Texinfo::Commands::formatted_line_commands{$content->{'cmdname'}}
-            or $Texinfo::Commands::formattable_line_commands{$content->{'cmdname'}}) {
+        if (exists(
+             $Texinfo::Commands::formatted_line_commands{$content->{'cmdname'}})
+            or exists(
+                $Texinfo::Commands::formattable_line_commands{$content->{'cmdname'}})) {
           return 0;
         } else {
           next;
         }
-      } elsif (exists($Texinfo::Commands::nobrace_commands{$content->{'cmdname'}})) {
-        if ($Texinfo::Commands::formatted_nobrace_commands{$content->{'cmdname'}}) {
+      } elsif (exists(
+                $Texinfo::Commands::nobrace_commands{$content->{'cmdname'}})) {
+        if (exists(
+            $Texinfo::Commands::formatted_nobrace_commands{$content->{'cmdname'}})) {
           return 0;
         } else {
           next;
         }
-      } elsif ($Texinfo::Commands::non_formatted_brace_commands{$content->{'cmdname'}}
-               or $Texinfo::Commands::non_formatted_block_commands{$content->{'cmdname'}}) {
+      } elsif (exists(
+                $Texinfo::Commands::non_formatted_brace_commands{$content->{'cmdname'}})
+               or exists(
+                   $Texinfo::Commands::non_formatted_block_commands{$content->{'cmdname'}})) {
         next;
       } else {
         return 0;
@@ -1614,8 +1618,7 @@ sub count_bytes($;$) {
 
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
 # Seems to be used in converter only
-sub index_content_element($;$)
-{
+sub index_content_element($;$) {
   my ($element, $prefer_reference_element) = @_;
 
   if (exists($element->{'extra'})
@@ -1674,11 +1677,12 @@ sub find_parent_root_command($$) {
   my $root_command;
   while (1) {
     if (exists($current->{'cmdname'})) {
-      if ($Texinfo::Commands::root_commands{$current->{'cmdname'}}) {
+      if (exists($Texinfo::Commands::root_commands{$current->{'cmdname'}})) {
         return $current;
       } elsif (exists($Texinfo::Commands::block_commands{$current->{'cmdname'}})
                and $Texinfo::Commands::block_commands{$current->{'cmdname'}} eq 'region') {
-        if ($current->{'cmdname'} eq 'copying' and $self and $self->{'document'}) {
+        if ($current->{'cmdname'} eq 'copying' and defined($self)
+            and exists($self->{'document'})) {
           my $global_commands = $self->{'document'}->global_commands_information();
           if (defined($global_commands)
               and exists($global_commands->{'insertcopying'})) {
