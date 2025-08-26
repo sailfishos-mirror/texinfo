@@ -1,3 +1,19 @@
+2025-08-26 Patrice Dumas  <pertusus@free.fr>
+
+	@maketitle in LaTeX output
+
+	* tta/perl/Texinfo/Convert/Utils.pm (get_titlepage_publication_info):
+	directly reuse $document_info.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_format_title): add based on
+	_convert code.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_make_title, _convert): format
+	@maketitle.
+
+	* tta/perl/Makefile.tres, tta/perl/t/latex_tests.t
+	(maketitle_documentinfo_publication): add test.
+
 2025-08-25 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/convert_utils.c (new_document_info)
@@ -105,7 +121,7 @@
 2025-08-24 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (output): call _push_new_context
-	explicitely and call _convert.
+	explicitly and call _convert.
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (convert): reset
 	formatting_context, always call _push_new_context.
@@ -126,7 +142,7 @@
 	state keys, in particular those that may not exist at all.
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (output): set
-	$self->{'formatting_context'} explicitely.
+	$self->{'formatting_context'} explicitly.
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_format_heading_command)
 	(_set_custom_headings): rename first_custom_heading as
@@ -6531,7 +6547,7 @@
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/ReadDocBook.pm,
 	tta/perl/Texinfo/Convert/Utils.pm,
 	tta/perl/Texinfo/TreeElementNonXS.pm: call get_children more instead
-	of iterating explicitely.  Other minor changes.
+	of iterating explicitly.  Other minor changes.
 
 2025-06-11  Patrice Dumas  <pertusus@free.fr>
 

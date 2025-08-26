@@ -273,7 +273,7 @@ sub get_titlepage_publication_info($) {
   my $document_info = get_document_documentinfo($document);
 
   if (defined($document_info)) {
-    $result = {'documentinfo' => $document_info};
+    $result = $document_info;
   }
 
   foreach my $cmdname ('copying', 'publication') {

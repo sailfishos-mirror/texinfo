@@ -1923,6 +1923,11 @@ sub _begin_document($) {
 
     if ($with_maketitle) {
       # do nothing here, output the titlepage where @maketitle appears
+      # TODO instaed of doing the formatting of the title page explicitly,
+      # we could format \title and \author here, and call \maketitle.
+      # There is no subtitle in maketitle, though, so we may want to do
+      # it only if there is no subtitle.  But then the formatting of the
+      # title page with and without subtitle would be quite different.
     } elsif (exists($global_commands->{'titlepage'})) {
       my $element = $global_commands->{'titlepage'};
       # Start a group such that the changes are forgotten when front cover
@@ -2816,11 +2821,83 @@ sub _convert_def_line($$) {
   $result .= _index_entry($self, $element);
 }
 
-sub _make_title($$) {
-  my ($self, $global_commands) = @_;
+sub _format_title($$) {
+  my ($self, $element) = @_;
 
-  # TODO use @documentinfo and @publication to format
-  return '';
+  my $result = '';
+  my $title_text = _title($self, $element);
+  # FIXME In Texinfo TeX the interline space seems more even
+  $result .= "{\\raggedright $title_text}\n";
+  # same formatting for the rule as in Texinfo TeX
+  $result .= "\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt\n";
+  return $result;
+}
+
+
+sub _make_title($$) {
+  my ($self, $document) = @_;
+
+  my $result = '';
+
+  my $title_page_info
+    = Texinfo::Convert::Utils::get_titlepage_publication_info($document);
+  if (defined($title_page_info)) {
+    my $has_title = 0;
+    $result .= "\\begin{titlepage}\n";
+    if (exists($title_page_info->{'title'})) {
+      $has_title = 1;
+
+      foreach my $element (@{$title_page_info->{'title'}}) {
+        $result .= _format_title($self, $element);
+      }
+    }
+    if (exists($title_page_info->{'subtitle'})) {
+      foreach my $element (@{$title_page_info->{'subtitle'}}) {
+        $result .= _convert($self, $element);
+      }
+    }
+    if (exists($title_page_info->{'author'})) {
+      my $first_author = 1;
+      foreach my $element (@{$title_page_info->{'author'}}) {
+        if (exists($element->{'contents'}->[0]->{'contents'})) {
+          if ($first_author) {
+            # first author, add space before
+            $result .= "\\vskip 0pt plus 1filll\n";
+            $first_author = 0;
+          }
+          my $author_name = _convert($self,
+              {'contents' => $element->{'contents'}->[0]->{'contents'}});
+          # use \leftline as in Texinfo TeX
+          # FIXME In Texinfo TeX the interline space between @author lines
+          # seems better
+          $result .= "\\leftline{\\Large \\bfseries $author_name}%\n";
+        }
+      }
+    }
+    if ($has_title) {
+      $result .= '\vskip 4pt \hrule height 2pt width \hsize
+';
+    }
+
+    if (exists($title_page_info->{'copying'})
+        or exists($title_page_info->{'publication'})) {
+      # the phantom is added such that successive new pages create blank pages
+      $result .= "\\newpage{}%\n\\phantom{blabla}%\n";
+      $result .= "\\vskip 0pt plus 1filll\n";
+
+      if (exists($title_page_info->{'copying'})) {
+        $result .= _convert($self,
+              {'contents' => $title_page_info->{'copying'}->{'contents'}});
+      }
+      if (exists($title_page_info->{'publication'})) {
+        $result .= "\n";
+        $result .= _convert($self,
+              {'contents' => $title_page_info->{'publication'}->{'contents'}});
+      }
+    }
+    $result .= "\\end{titlepage}\n";
+  }
+  return $result;
 }
 
 sub _convert($$);
@@ -4255,7 +4332,7 @@ sub _convert($$) {
         $global_commands = $self->{'document'}->global_commands_information();
       }
       if (defined($global_commands)) {
-        $result .= _make_title($self, $global_commands);
+        $result .= _make_title($self, $self->{'document'});
         $result .= _tableofcontents_after_title($self, $global_commands, 1);
       }
       $result .= $front_main_matter_definitions{$documentclass}->{'main'}."\n";
@@ -4346,11 +4423,7 @@ sub _convert($$) {
       }
       return $result;
     } elsif ($cmdname eq 'title') {
-      my $title_text = _title($self, $element);
-      # FIXME In Texinfo TeX the interline space seems more even
-      $result .= "{\\raggedright $title_text}\n";
-      # same formatting for the rule as in Texinfo TeX
-      $result .= "\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt\n";
+      $result .= _format_title($self, $element);
       # TODO warn if not in titlepage?  Or even not in
       # $self->{'titlepage_formatting'}->{'in_front_cover'}
       $self->{'titlepage_formatting'}->{'title'} = 1

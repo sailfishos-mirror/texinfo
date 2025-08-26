@@ -116,6 +116,9 @@ Cop. @anchor{a in copying}. Ying.
 ['backslash_math',
 '@math{a @\ b @backslashchar{} c}.
 '],
+['maketitle_documentinfo_publication',
+undef, {'test_file' => 'maketitle_documentinfo_publication.texi'},
+],
 );
 
 my $indices_text = '

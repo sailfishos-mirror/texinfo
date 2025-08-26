@@ -1346,6 +1346,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/latex_tests/indices_disable_encoding/res_latex \
   t/results/latex_tests/informative_commands_in_top_node.pl \
   t/results/latex_tests/informative_commands_in_top_node/res_latex \
+  t/results/latex_tests/maketitle_documentinfo_publication.pl \
   t/results/latex_tests/nested_enumerate.pl \
   t/results/latex_tests/nested_enumerate/res_latex \
   t/results/latex_tests/nested_itemize.pl \
