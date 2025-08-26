@@ -1,5 +1,14 @@
 2025-08-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Info.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm: use exists or defined in
+	conditions when the value is not used.  Change formatting of functions
+	call code.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm: always use prototypes.
+
+2025-08-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Text.pm: use exists or defined in
 	conditions when the value is not used.  Change formatting of functions
 	call code.

@@ -66,15 +66,12 @@ $defaults->{'INFO_SPECIAL_CHARS_QUOTE'} = 1;
 # as the Emacs Info reader does not support node names quoting.
 $defaults->{'INFO_SPECIAL_CHARS_WARNING'} = 1;
 
-sub converter_defaults($;$)
-{
+sub converter_defaults($;$) {
   return $defaults;
 }
 
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub output($$) {
+  my ($self, $document) = @_;
 
   $self->conversion_initialization($document);
 
@@ -111,7 +108,7 @@ sub output($$)
       print STDERR "Output file $output_file\n";
     }
     $fh = _open_info_file($self, $output_file);
-    if (!$fh) {
+    if (!defined($fh)) {
       $self->conversion_finalization();
       return undef;
     }
@@ -161,9 +158,9 @@ sub output($$)
   my @indirect_files;
   if (not defined($output_units->[0]->{'unit_command'})) {
     my $input_file_name;
-    if ($self->{'document'}) {
+    if (exists($self->{'document'})) {
       my $document_info = $self->{'document'}->global_information();
-      if ($document_info) {
+      if (defined($document_info)) {
         $input_file_name = $document_info->{'input_file_name'};
       }
     }
@@ -190,22 +187,22 @@ sub output($$)
     $old_context->{'lines'} += $new_context->{'lines'};
 
     $output = $header.$output;
-    if ($fh) {
+    if (defined($fh)) {
       print $fh $output;
     } else {
       $result = $output;
     }
   } else {
     my $identifiers_target;
-    if ($self->{'document'}) {
+    if (exists($self->{'document'})) {
       $identifiers_target = $self->{'document'}->labels_information();
     }
-    unless ($identifiers_target
-            and $identifiers_target->{'Top'}) {
+    unless (defined($identifiers_target)
+            and exists($identifiers_target->{'Top'})) {
       my $input_file_name;
-      if ($self->{'document'}) {
+      if (exists($self->{'document'})) {
         my $document_info = $self->{'document'}->global_information();
-        if ($document_info) {
+        if (defined($document_info)) {
           $input_file_name = $document_info->{'input_file_name'};
         }
       }
@@ -224,7 +221,7 @@ sub output($$)
           and defined($self->get_conf('SPLIT_SIZE'))
           and $self->{'count_context'}->[-1]->{'bytes'} >
                   $out_file_nr * $self->get_conf('SPLIT_SIZE')
-          and $fh) {
+          and defined($fh)) {
         # Split the output into an additional output file.
         my $close_error;
         if (!close ($fh)) {
@@ -277,7 +274,7 @@ sub output($$)
                 $output_file.'-'.$out_file_nr."\n";
         }
         $fh = _open_info_file($self, $output_file.'-'.$out_file_nr);
-        if (!$fh) {
+        if (!defined($fh)) {
           $self->conversion_finalization();
           return undef;
         }
@@ -307,7 +304,7 @@ sub output($$)
           $complete_header_bytes += length($self->{'text_before_first_node'});
         }
       }
-      if ($fh) {
+      if (defined($fh)) {
         print $fh $node_text;
       } else {
         $result .= $node_text;
@@ -317,7 +314,7 @@ sub output($$)
   my $tag_text = '';
   if ($out_file_nr > 1) {
     $self->_register_closed_info_file($output_file.'-'.$out_file_nr);
-    if (!close ($fh)) {
+    if (!close($fh)) {
       $self->converter_document_error(
                sprintf(__("error on closing %s: %s"),
                             $output_file.'-'.$out_file_nr, $!));
@@ -328,7 +325,7 @@ sub output($$)
       print STDERR "Outputing the split manual file $output_file\n";
     }
     $fh = _open_info_file($self, $output_file);
-    if (!$fh) {
+    if (!defined($fh)) {
       $self->conversion_finalization();
       return undef;
     }
@@ -346,7 +343,8 @@ sub output($$)
   # This may happen for anchors in @insertcopying
   my %seen_anchors;
   foreach my $label (@{$self->{'count_context'}->[-1]->{'locations'}}) {
-    next unless ($label->{'root'} and $label->{'root'}->{'extra'}
+    next unless (exists($label->{'root'})
+                 and exists($label->{'root'}->{'extra'})
                  and $label->{'root'}->{'extra'}->{'is_target'});
     my $label_element = Texinfo::Common::get_label_element($label->{'root'});
     my $prefix;
@@ -358,7 +356,7 @@ sub output($$)
     }
     my ($label_text, undef) = $self->node_name($label->{'root'});
 
-    if ($seen_anchors{$label_text}) {
+    if (exists($seen_anchors{$label_text})) {
       $self->plaintext_line_error($self,
                                   sprintf(__("\@%s output more than once: %s"),
           $label->{'root'}->{'cmdname'},
@@ -387,7 +385,7 @@ sub output($$)
       if defined($documentlanguage);
     $tag_text .= "End:\n";
   }
-  if ($fh) {
+  if (defined($fh)) {
     print $fh $tag_text;
     # Do not close STDOUT now such that the file descriptor is not reused
     # by open, which uses the lowest-numbered file descriptor not open,
@@ -410,10 +408,8 @@ sub output($$)
 # Wrapper around Texinfo::Convert::Utils::output_files_open_out.  Open the file
 # with any CR-LF conversion disabled.  We need this for tag tables to
 # be correct under MS-Windows.   Return filehandle or undef on failure.
-sub _open_info_file($$)
-{
-  my $self = shift;
-  my $filename = shift;
+sub _open_info_file($$) {
+  my ($self, $filename) = @_;
 
   my ($encoded_filename, $path_encoding)
       = $self->encoded_output_file_name($filename);
@@ -425,7 +421,7 @@ sub _open_info_file($$)
                                $encoded_filename, 'use_binmode',
                                $self->get_conf('OUTPUT_ENCODING_NAME'));
 
-  if (!$fh) {
+  if (!defined($fh)) {
     $self->converter_document_error(sprintf(
         __("could not open %s for writing: %s"),
         $filename, $error_message));
@@ -434,10 +430,8 @@ sub _open_info_file($$)
   return $fh;
 }
 
-sub _register_closed_info_file($$)
-{
-  my $self = shift;
-  my $filename = shift;
+sub _register_closed_info_file($$) {
+  my ($self, $filename) = @_;
 
   my ($encoded_filename, $path_encoding)
       = $self->encoded_output_file_name($filename);
@@ -447,11 +441,8 @@ sub _register_closed_info_file($$)
 }
 
 # Return (encoded) info header
-sub _info_header($$$)
-{
-  my $self = shift;
-  my $input_basefile = shift;
-  my $output_filename = shift;
+sub _info_header($$$) {
+  my ($self, $input_basefile, $output_filename) = @_;
 
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                      'locations' => []};
@@ -475,7 +466,7 @@ sub _info_header($$$)
   $self->_stream_output($result, $paragraph);
 
   my $global_commands;
-  if ($self->{'document'}) {
+  if (exists($self->{'document'})) {
     $global_commands = $self->{'document'}->global_commands_information();
   }
   # format @copying using the last value of the preamble.
@@ -483,7 +474,7 @@ sub _info_header($$$)
   $self->set_global_document_commands('preamble', \@informative_global_commands);
   Texinfo::Convert::Utils::switch_lang_translations($self,
                                $self->get_conf('documentlanguage'));
-  if ($global_commands and $global_commands->{'copying'}) {
+  if (defined($global_commands) and exists($global_commands->{'copying'})) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
     $self->_convert({'contents' =>
@@ -495,8 +486,8 @@ sub _info_header($$$)
   Texinfo::Convert::Utils::switch_lang_translations($self,
                                $self->get_conf('documentlanguage'));
 
-  if ($global_commands->{'dircategory_direntry'}) {
-    $self->{'ignored_commands'}->{'direntry'} = 0;
+  if (exists($global_commands->{'dircategory_direntry'})) {
+    delete $self->{'ignored_commands'}->{'direntry'};
     foreach my $command (@{$global_commands->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if ($command->{'contents'}->[0]->{'contents'}) {
@@ -518,32 +509,26 @@ sub _info_header($$$)
   return $result;
 }
 
-sub format_warn_strong_note($)
-{
+sub format_warn_strong_note($) {
   return 1;
 }
 
-sub format_contents($$$)
-{
-  my $self = shift;
-  my $section_root = shift;
-  my $contents_or_shortcontents = shift;
+sub format_contents($$$) {
+  my ($self, $section_root, $contents_or_shortcontents) = @_;
 
   return ('', 0);
 }
 
-sub format_printindex($$)
-{
-  my $self = shift;
-  my $printindex = shift;
+sub format_printindex($$) {
+  my ($self, $printindex) = @_;
+
   return $self->process_printindex($printindex, 1);
 }
 
-sub format_error_outside_of_any_node($$)
-{
-  my $self = shift;
-  my $element = shift;
-  if (!$self->{'current_node'}) {
+sub format_error_outside_of_any_node($$) {
+  my ($self, $element) = @_;
+
+  if (!exists($self->{'current_node'})) {
     $self->plaintext_line_warn($self,
          sprintf(__("\@%s outside of any node"),
                  $element->{'cmdname'}), $element->{'source_info'});
@@ -846,13 +831,10 @@ sub format_ref($$$) {
 }
 
 my @directions = ('Next', 'Prev', 'Up');
-sub format_node($$;$)
-{
-  my $self = shift;
-  my $node = shift;
-  my $node_relations = shift;
+sub format_node($$;$) {
+  my ($self, $node, $node_relations) = @_;
 
-  return '' if (not $node->{'extra'}
+  return '' if (not exists($node->{'extra'})
                 or not $node->{'extra'}->{'is_target'});
 
   my ($node_text, undef) = $self->node_name($node);
@@ -885,17 +867,17 @@ sub format_node($$;$)
 
   $self->_stream_output_encoded($pre_quote . $node_text . $post_quote);
 
-  if (!$node_relations) {
+  if (!defined($node_relations)) {
     my $nodes_list = $self->{'document'}->nodes_list();
     $node_relations = $nodes_list->[$node->{'extra'}->{'node_number'} -1];
   }
   foreach my $direction (@directions) {
-    if ($node_relations->{'node_directions'}
-        and $node_relations->{'node_directions'}->{lc($direction)}) {
+    if (exists($node_relations->{'node_directions'})
+        and exists($node_relations->{'node_directions'}->{lc($direction)})) {
       my $node_direction
           = $node_relations->{'node_directions'}->{lc($direction)};
       $self->_stream_output(",  $direction: ");
-      if ($node_direction->{'extra'}->{'manual_content'}) {
+      if (exists($node_direction->{'extra'}->{'manual_content'})) {
         $self->convert_line(Texinfo::TreeElement::new(
                          {'type' => '_code',
                           'contents' => [
@@ -903,7 +885,7 @@ sub format_node($$;$)
                              $node_direction->{'extra'}->{'manual_content'},
                                Texinfo::TreeElement::new({'text' => ')'})]}));
       }
-      if (defined($node_direction->{'extra'}->{'normalized'})) {
+      if (exists($node_direction->{'extra'}->{'normalized'})) {
         my $pre_quote = '';
         my $post_quote = '';
         my ($node_text, undef) = $self->node_name($node_direction);
@@ -941,12 +923,8 @@ sub format_node($$;$)
   return;
 }
 
-sub format_image($$$;$)
-{
-  my $self = shift;
-  my $image_file = shift;
-  my $text = shift;
-  my $alt = shift;
+sub format_image($$$;$) {
+  my ($self, $image_file, $text, $alt) = @_;
 
   my $result = '';
   if (defined($image_file)) {
@@ -971,16 +949,15 @@ sub format_image($$$;$)
 }
 
 my @image_files_extensions = ('.png', '.jpg');
-sub format_image_element($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub format_image_element($$) {
+  my ($self, $element) = @_;
+
   my @extensions = @image_files_extensions;
 
   my $lines_count = 0;
 
-  if ($element->{'contents'}
-      and $element->{'contents'}->[0]->{'contents'}) {
+  if (exists($element->{'contents'})
+      and exists($element->{'contents'}->[0]->{'contents'})) {
     Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(
@@ -990,8 +967,7 @@ sub format_image_element($$)
                                  $self->{'convert_text_options'});
 
     if (defined($element->{'contents'}->[4])
-        and $element->{'contents'}->[4]->{'contents'}
-        and @{$element->{'contents'}->[4]->{'contents'}}) {
+        and exists($element->{'contents'}->[4]->{'contents'})) {
       Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
       my $extension = Texinfo::Convert::Text::convert_to_text(
@@ -1021,8 +997,7 @@ sub format_image_element($$)
     chomp($text) if (defined($text));
     my $alt;
     if (defined($element->{'contents'}->[3])
-        and $element->{'contents'}->[3]->{'contents'}
-        and @{$element->{'contents'}->[3]->{'contents'}}) {
+        and exists($element->{'contents'}->[3]->{'contents'})) {
      $alt = Texinfo::Convert::Text::convert_to_text(
                                     $element->{'contents'}->[3],
                                   $self->{'convert_text_options'});
