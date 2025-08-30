@@ -1,3 +1,11 @@
+2025-08-30 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/Makefile.am (C_libtexinfo_main_sources),
+	tta/swig/*/Makefile.am (SWIG_include_directories)
+	(SWIG_header_dependencies, Texinfo_la_CPPFLAGS), tta/C/swig/swig_*:
+	move files in C libraries used for the swig interface to their own
+	directory.
+
 2025-08-26 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Common.pm, tta/perl/Texinfo/Convert/DocBook.pm: use

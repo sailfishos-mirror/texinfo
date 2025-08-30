@@ -582,13 +582,13 @@ endif
 libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
 C_libtexinfo_main_sources = \
-                       convert/swig_element_data.h \
-                       convert/swig_element_types.h \
-                       convert/swig_text_options.h \
-                       convert/swig_text_options_types.h \
-                       convert/swig_error_messages_types.h \
-                       convert/swig_interface.c \
-                       convert/swig_interface.h \
+                       swig/swig_element_data.h \
+                       swig/swig_element_types.h \
+                       swig/swig_text_options.h \
+                       swig/swig_text_options_types.h \
+                       swig/swig_error_messages_types.h \
+                       swig/swig_interface.c \
+                       swig/swig_interface.h \
                        convert/texinfo.c \
                        convert/texinfo.h
 
