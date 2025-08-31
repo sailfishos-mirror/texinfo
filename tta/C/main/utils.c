@@ -2135,6 +2135,31 @@ wipe_values (VALUE_LIST *values)
   values->number = 0;
 }
 
+/* for debugging */
+/* return value to be freed by caller */
+char *
+print_values_list (VALUE_LIST *values)
+{
+  TEXT text;
+  size_t i;
+
+  text_init (&text);
+  text_append (&text, "");
+
+  for (i = 0; i < values->number; i++)
+    {
+      text_append (&text, values->list[i].name);
+      if (values->list[i].value)
+        {
+          text_append_n (&text, ":", 1);
+          text_append (&text, values->list[i].value);
+        }
+      text_append_n (&text, "|", 1);
+    }
+
+  return text.text;
+}
+
 
 
 /* code related to document global info used both in parser and other codes */

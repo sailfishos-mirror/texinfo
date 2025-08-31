@@ -149,6 +149,7 @@ ERROR_MESSAGE_LIST *get_check_element_interpreter_refcount (void);
 void store_value (VALUE_LIST *values, const char *name, const char *value);
 void clear_value (VALUE_LIST *values, const char *name);
 void wipe_values (VALUE_LIST *values);
+char *print_values_list (VALUE_LIST *values);
 
 void delete_global_info (GLOBAL_INFO *global_info_ref);
 void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
