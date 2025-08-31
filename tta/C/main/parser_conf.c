@@ -116,6 +116,17 @@ free_parser_conf (PARSER_CONF *parser_conf)
 }
 
 void
+unregister_parser_conf_descriptor (size_t parser_conf_descriptor)
+{
+  PARSER_CONF *parser_conf = retrieve_parser_conf (parser_conf_descriptor);
+  if (parser_conf)
+    {
+      free_parser_conf (parser_conf);
+      parser_conf_list[parser_conf_descriptor -1] = 0;
+    }
+}
+
+void
 apply_conf (PARSER_CONF *parser_conf)
 {
    /* the lists will be overwritten, so they need to be freed, not

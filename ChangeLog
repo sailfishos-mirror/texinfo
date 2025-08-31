@@ -1,5 +1,26 @@
 2025-08-31 Patrice Dumas  <pertusus@free.fr>
 
+	Add a parser 'virtual' object in SWIG interface
+
+	* tta/C/main/document_types.h (PARSER): add struct in this file to
+	hide it from the SWIG interface.  It only holds a parser configuration
+	descriptor.
+
+	* tta/C/main/parser_conf.c (unregister_parser_conf_descriptor): add.
+
+	* tta/C/Makefile.am (C_libtexinfo_main_sources),
+	tta/C/swig/swig_parser_api.c (txi_ext_parser, txi_ext_destroy_parser)
+	(txi_ext_parse_*, txi_ext_parser_conf_*), tta/swig/perl/Makefile.am
+	(SWIG_header_dependencies): add an interface for parse_* and
+	parser_conf_* with a constructor and a desstructor and parser in
+	argument, that allows to find associated parser conf and apply conf.
+
+	* tta/swig/perl/parse_refold.pl, tta/swig/perl/t/*.t,
+	tta/swig/python/test_Texinfo.py, tta/swig/texinfo.i (parse_*)
+	(parser_conf_*): use interface with a parser.
+
+2025-08-31 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/parser_conf.c (global_parser_conf, register_conf)
 	(apply_conf), tta/C/parsetexi/conf.c (simple_parser_conf)
 	(reset_parser_conf): do not copy in apply_conf, but replace.  For

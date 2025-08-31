@@ -394,6 +394,8 @@ tta/C/parsetexi/.libs
 tta/C/parsetexi/*.lo
 tta/C/convert/.libs
 tta/C/convert/*.lo
+tta/C/swig/.libs
+tta/C/swig/*.lo
 
 texindex/texindex.awk
 texindex/texindex.awk.in

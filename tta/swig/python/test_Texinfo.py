@@ -65,8 +65,10 @@ if __name__ == '__main__':
     if len(sys.argv) - 1  > 0:
         input_file_name = sys.argv[1]
     input_dir = os.path.dirname(input_file_name)
-    Texinfo.parser_conf_add_include_directory(input_dir)
-    document, status = Texinfo.parse_file(input_file_name)
+    parser = Texinfo.parser()
+    Texinfo.parser_conf_add_include_directory(parser, input_dir)
+    document, status = Texinfo.parse_file(parser, input_file_name)
+    Texinfo.destroy_parser(parser)
     Texinfo.output_parser_error_messages(document)
     sys.stderr.write("Parsing done ("+str(status)+")\n")
 

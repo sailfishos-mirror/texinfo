@@ -50,6 +50,8 @@ PARSER_CONF *retrieve_parser_conf (size_t parser_conf_descriptor);
 
 void clear_parser_conf (PARSER_CONF *parser_conf);
 
+void unregister_parser_conf_descriptor (size_t parser_conf_descriptor);
+
 void apply_conf (PARSER_CONF *parser_conf);
 
 #endif

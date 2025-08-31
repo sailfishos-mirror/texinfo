@@ -589,6 +589,8 @@ C_libtexinfo_main_sources = \
                        swig/swig_error_messages_types.h \
                        swig/swig_interface.c \
                        swig/swig_interface.h \
+                       swig/swig_parser_api.c \
+                       swig/swig_parser_api.h \
                        convert/texinfo.c \
                        convert/texinfo.h
 

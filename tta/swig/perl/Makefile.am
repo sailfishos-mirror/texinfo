@@ -43,7 +43,8 @@ SWIG_header_dependencies = \
                  $(txi_libs_srcdir)/main/source_mark_types.h \
                  $(txi_libs_srcdir)/swig/swig_element_data.h \
                  $(txi_libs_srcdir)/swig/swig_text_options.h \
-                 $(txi_libs_srcdir)/swig/swig_error_messages_types.h
+                 $(txi_libs_srcdir)/swig/swig_error_messages_types.h \
+                 $(txi_libs_srcdir)/swig/swig_parser_api.h
 
 perl_texinfo_wrap.c Texinfo.pm: $(srcdir)/../texinfo.i $(SWIG_header_dependencies)
 	$(SWIG) $(SWIG_include_directories) -perl -o perl_texinfo_wrap.c $(srcdir)/../texinfo.i

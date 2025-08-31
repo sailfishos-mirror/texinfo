@@ -58,7 +58,10 @@ Conclusion
 **********
 ";
 
-my $document = Texinfo::parse_text($texinfo_code);
+my $parser = Texinfo::parser();
+my $document = Texinfo::parse_text($parser, $texinfo_code);
+
+Texinfo::destroy_parser($parser);
 
 Texinfo::output_parser_error_messages($document);
 

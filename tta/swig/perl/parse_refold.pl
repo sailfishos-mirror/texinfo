@@ -164,17 +164,21 @@ push @prepended_include_directories, $input_directory
 
 unshift @include_dirs, @prepended_include_directories;
 
-Texinfo::parser_conf_clear_INCLUDE_DIRECTORIES();
+my $parser = Texinfo::parser;
+
+Texinfo::parser_conf_clear_INCLUDE_DIRECTORIES($parser);
 foreach my $dir (@include_dirs) {
-  Texinfo::parser_conf_add_include_directory($dir);
+  Texinfo::parser_conf_add_include_directory($parser, $dir);
 }
 
-Texinfo::parser_conf_clear_expanded_formats();
+Texinfo::parser_conf_clear_expanded_formats($parser);
 foreach my $format ('info', 'plaintext', 'html', 'latex', 'docbook', 'xml') {
-  Texinfo::parser_conf_add_expanded_format($format);
+  Texinfo::parser_conf_add_expanded_format($parser, $format);
 }
 
-my ($document, $status) = Texinfo::parse_file($input_file);
+my ($document, $status) = Texinfo::parse_file($parser, $input_file);
+
+Texinfo::destroy_parser($parser);
 
 Texinfo::output_parser_error_messages($document);
 

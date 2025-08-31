@@ -54,6 +54,7 @@
 #include "swig_element_data.h"
 #include "swig_text_options.h"
 #include "swig_interface.h"
+#include "swig_parser_api.h"
 %}
 
 // Initialization
@@ -215,38 +216,44 @@ const char *txi_ext_element_command_data_type (ELEMENT *element);
 
 // Parser
 
-// api.h
-// OUTPUT status is 0 if the input file could be read
-DOCUMENT *parse_file (const char *input_file_path, int *OUTPUT);
-DOCUMENT *parse_piece (const char *, int line_nr=1);
-DOCUMENT *parse_string (const char *, int line_nr=1);
-DOCUMENT *parse_text (const char *, int line_nr=1);
+%rename (parser) txi_ext_parser;
+%rename (destroy_parser) txi_ext_destroy_parser;
 
-void parser_conf_reset_values (void);
-void parser_conf_add_value (const char *name, const char *value);
+%rename (parse_file) txi_ext_parse_file;
+DOCUMENT *txi_ext_parse_file (PARSER *parser, const char *input_file_path,
+                              int *OUTPUT);
+%rename (parse_piece) txi_ext_parse_piece;
+DOCUMENT *txi_ext_parse_piece (PARSER *parser, const char *string,
+                               int line_nr=1);
+%rename (parse_string) txi_ext_parse_string;
+DOCUMENT *txi_ext_parse_string (PARSER *parser, const char *string,
+                                int line_nr=1);
+%rename (parse_text) txi_ext_parse_text;
+DOCUMENT *txi_ext_parse_text (PARSER *parser, const char *string,
+                              int line_nr=1);
 
-// parser_conf.h
-PARSER_CONF *register_conf (void);
-void apply_conf (PARSER_CONF *parser_conf);
+%rename (parser_conf_reset_values) txi_ext_parser_conf_reset_values;
+%rename (parser_conf_add_value) txi_ext_parser_conf_add_value;
 
-// conf.h
-void parser_conf_set_show_menu (int i);
-void parser_conf_set_CPP_LINE_DIRECTIVES (int i);
-int parser_conf_set_DEBUG (int i);
-void parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i);
-void parser_conf_set_MAX_MACRO_CALL_NESTING (int i);
-int parser_conf_set_NO_INDEX (int i);
-int parser_conf_set_NO_USER_COMMANDS (int i);
-void parser_conf_clear_INCLUDE_DIRECTORIES (void);
-void parser_conf_add_include_directory (const char *filename);
-void parser_conf_clear_expanded_formats (void);
-void parser_conf_add_expanded_format (const char *format);
-void parser_conf_set_documentlanguage (const char *value);
-void parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i);
-void parser_conf_set_INPUT_FILE_NAME_ENCODING (const char *value);
-void parser_conf_set_LOCALE_ENCODING (const char *value);
-void parser_conf_set_COMMAND_LINE_ENCODING (const char *value);
-void parser_conf_set_accept_internalvalue (int value);
+%rename (parser_conf_set_show_menu) txi_ext_parser_conf_set_show_menu;
+%rename (parser_conf_set_CPP_LINE_DIRECTIVES) txi_ext_parser_conf_set_CPP_LINE_DIRECTIVES;
+%rename (parser_conf_set_DEBUG) txi_ext_parser_conf_set_DEBUG;
+%rename (parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME) txi_ext_parser_conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME;
+%rename (parser_conf_set_MAX_MACRO_CALL_NESTING) txi_ext_parser_conf_set_MAX_MACRO_CALL_NESTING;
+%rename (parser_conf_set_NO_INDEX) txi_ext_parser_conf_set_NO_INDEX;
+%rename (parser_conf_set_NO_USER_COMMANDS) txi_ext_parser_conf_set_NO_USER_COMMANDS;
+%rename (parser_conf_clear_INCLUDE_DIRECTORIES) txi_ext_parser_conf_clear_INCLUDE_DIRECTORIES;
+%rename (parser_conf_add_include_directory) txi_ext_parser_conf_add_include_directory;
+%rename (parser_conf_clear_expanded_formats) txi_ext_parser_conf_clear_expanded_formats;
+%rename (parser_conf_add_expanded_format) txi_ext_parser_conf_add_expanded_format;
+%rename (parser_conf_set_documentlanguage) txi_ext_parser_conf_set_documentlanguage;
+%rename (parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME) txi_ext_parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME;
+%rename (parser_conf_set_INPUT_FILE_NAME_ENCODING) txi_ext_parser_conf_set_INPUT_FILE_NAME_ENCODING;
+%rename (parser_conf_set_LOCALE_ENCODING) txi_ext_parser_conf_set_LOCALE_ENCODING;
+%rename (parser_conf_set_COMMAND_LINE_ENCODING) txi_ext_parser_conf_set_COMMAND_LINE_ENCODING;
+%rename (parser_conf_set_accept_internalvalue) txi_ext_parser_conf_set_accept_internalvalue;
+
+%include "swig_parser_api.h"
 
 // Only one of the next two function should be called as both clear the
 // document errors list.

@@ -42,11 +42,9 @@ Texinfo::setup(1);
 
 ok(1, 'modules loading');
 
-# TODO the @lm line leads to expected error messages.  Currently the API
-# only allows to print error messages, not to get them, so no way to
-# check errors against a reference
+my $parser = Texinfo::parser();
 
-my $document = Texinfo::parse_text('@set myval toto
+my $document = Texinfo::parse_text($parser, '@set myval toto
 
 @macro do {a, b}
 then \a\ and \b\.
@@ -84,7 +82,7 @@ text before @onearg  another arg@comment am I there?
 
 ');
 
-#Texinfo::output_parser_error_messages($document);
+Texinfo::destroy_parser($parser);
 
 my $error_messages = _Texinfo_Tests::get_parser_error_messages($document);
 
