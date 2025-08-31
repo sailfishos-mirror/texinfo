@@ -760,7 +760,7 @@ move_last_space_to_element (ELEMENT *current)
 static void
 do_abort_empty_line (ELEMENT *current, ELEMENT *last_elt)
 {
-  if (global_parser_conf.debug)
+  if (global_parser_conf->debug)
     {
       debug_nonl ("ABORT EMPTY in ");
       debug_parser_print_element (current, 0);
@@ -837,7 +837,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
         {
           if (leading_spaces)
             {
-              if (global_parser_conf.debug)
+              if (global_parser_conf->debug)
                 {
                   char *additional_text_dbg = strndup (text, leading_spaces);
                   debug ("MERGE_TEXT ADD leading empty |%s| to %s",
@@ -930,7 +930,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
                                  last_element, additional_length);
         }
 
-      if (global_parser_conf.debug)
+      if (global_parser_conf->debug)
         {
           char *dbg_text = strndup (text, len_text);
           debug_nonl ("MERGED TEXT: %s||| in ", dbg_text);
@@ -952,7 +952,7 @@ merge_text (ELEMENT *current, const char *text, size_t len_text,
         transfer_source_marks (transfer_marks_element, e, 0);
       text_append_n (e->e.text, text, len_text);
       add_to_contents_as_array (current, e);
-      if (global_parser_conf.debug)
+      if (global_parser_conf->debug)
         {
           char *dbg_text = strndup (text, len_text);
           debug ("NEW TEXT (merge): %s|||", dbg_text);
@@ -1090,7 +1090,7 @@ isolate_last_space (ELEMENT *current)
             }
           else
             {
-              if (global_parser_conf.debug)
+              if (global_parser_conf->debug)
                 {
                   debug_nonl ("NOT ISOLATING SPACES ONLY ");
                   debug_parser_print_element (current, 1);
@@ -1110,7 +1110,7 @@ isolate_last_space (ELEMENT *current)
   else
    goto no_isolate_space;
 
-  if (global_parser_conf.debug)
+  if (global_parser_conf->debug)
     {
       debug_nonl ("ISOLATE SPACE p ");
       debug_parser_print_element (current, 1);
@@ -1120,7 +1120,7 @@ isolate_last_space (ELEMENT *current)
   return;
 
  no_isolate_space:
-  if (global_parser_conf.debug)
+  if (global_parser_conf->debug)
     {
       debug_nonl ("NOT ISOLATING p ");
       debug_parser_print_element (current, 1);
@@ -1987,7 +1987,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
     {
       const char *remaining_line = line_after_command;
       ELEMENT *spaces_element = 0;
-      if (global_parser_conf.ignore_space_after_braced_command_name)
+      if (global_parser_conf->ignore_space_after_braced_command_name)
         {
           int whitespaces_len = strspn (remaining_line, whitespace_chars);
           if (whitespaces_len > 0)
@@ -2020,14 +2020,14 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
                       SOURCE_MARK *value_source_mark;
                       ELEMENT *sm_value_element;
 
-                      if (global_parser_conf.max_macro_call_nesting
+                      if (global_parser_conf->max_macro_call_nesting
                           && value_expansion_nr
-                                  >= global_parser_conf.max_macro_call_nesting)
+                                  >= global_parser_conf->max_macro_call_nesting)
                         {
                           line_warn (
                             "value call nested too deeply "
                    "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
-                             global_parser_conf.max_macro_call_nesting);
+                             global_parser_conf->max_macro_call_nesting);
                           free (flag);
                           if (spaces_element)
                             destroy_element (spaces_element);
@@ -2160,7 +2160,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
 
       if (strchr (whitespace_chars, *line)
                && ((command_flags(current) & CF_accent)
-            || global_parser_conf.ignore_space_after_braced_command_name))
+            || global_parser_conf->ignore_space_after_braced_command_name))
         {
            int whitespaces_len;
            int additional_newline = 0;
@@ -2296,7 +2296,7 @@ process_remaining_on_line (ELEMENT **current_inout, const char **line_inout)
         {
           size_t flag_len;
           ELEMENT *spaces_element = 0;
-          if (global_parser_conf.ignore_space_after_braced_command_name)
+          if (global_parser_conf->ignore_space_after_braced_command_name)
             {
               int whitespaces_len = strspn (line, whitespace_chars);
               if (whitespaces_len > 0)
@@ -2666,7 +2666,7 @@ check_line_directive (ELEMENT *current, const char *line)
   int status = 0;
   char *parsed_filename;
 
-  if (!global_parser_conf.cpp_line_directives)
+  if (!global_parser_conf->cpp_line_directives)
     return 0;
 
   /* Check input is coming directly from a file. */
@@ -2852,5 +2852,5 @@ parse_texi (ELEMENT *current_elt)
      is called by complete_indices through gdt */
   parsed_document = 0;
 
-  complete_indices (document, global_parser_conf.debug);
+  complete_indices (document, global_parser_conf->debug);
 }

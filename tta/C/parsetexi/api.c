@@ -53,7 +53,7 @@ initialize_parsing (enum context root_ct)
 {
   parsed_document = new_document ();
 
-  if (!global_parser_conf.no_index)
+  if (!global_parser_conf->no_index)
     init_index_commands ();
 
   wipe_user_commands ();
@@ -63,16 +63,16 @@ initialize_parsing (enum context root_ct)
   init_values ();
 
   /* currently there is no change done to include directories,
-     so global_parser_conf.include_directories could be used instead
+     so global_parser_conf->include_directories could be used instead
      of parser_include_directories */
   clear_strings_list (&parser_include_directories);
   copy_strings (&parser_include_directories,
-                &global_parser_conf.include_directories);
+                &global_parser_conf->include_directories);
 
   free (global_documentlanguage);
-  if (global_parser_conf.global_documentlanguage_fixed
-      && global_parser_conf.documentlanguage)
-    global_documentlanguage = strdup (global_parser_conf.documentlanguage);
+  if (global_parser_conf->global_documentlanguage_fixed
+      && global_parser_conf->documentlanguage)
+    global_documentlanguage = strdup (global_parser_conf->documentlanguage);
   else
     global_documentlanguage = 0;
 
@@ -147,14 +147,14 @@ parse_file (const char *input_file_path, int *status)
   if (input_error)
     {
       char *decoded_file_path;
-      if (global_parser_conf.command_line_encoding)
+      if (global_parser_conf->command_line_encoding)
         {
           int status;
           /* cast as decode_string argument should not be modified but cannot be
              marked as const */
           decoded_file_path
             = decode_string ((char *)input_file_path,
-                             global_parser_conf.command_line_encoding,
+                             global_parser_conf->command_line_encoding,
                              &status, 0);
         }
       else
@@ -216,12 +216,12 @@ parse_piece (const char *string, int line_nr)
 void
 parser_conf_reset_values (void)
 {
-  wipe_values (&global_parser_conf.values);
+  wipe_values (&global_parser_conf->values);
 }
 
 void
 parser_conf_add_value (const char *name, const char *value)
 {
-  store_value_parsed_document (&global_parser_conf.values, name, value);
+  store_value_parsed_document (&global_parser_conf->values, name, value);
 }
 

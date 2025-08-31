@@ -75,7 +75,7 @@ new_macro (const char *name, const ELEMENT *macro)
   enum command_id new;
   MACRO *m = 0;
 
-  if (global_parser_conf.no_user_commands)
+  if (global_parser_conf->no_user_commands)
     return;
 
   /* Check for an existing definition first for us to overwrite. */
@@ -567,7 +567,7 @@ expand_linemacro_arguments (const ELEMENT *macro, const char **line_inout,
               if (cmd && (command_data(cmd).flags & CF_brace)
                   && strchr (whitespace_chars, *pline)
                   && ((command_flags(current) & CF_accent)
-                || global_parser_conf.ignore_space_after_braced_command_name))
+                || global_parser_conf->ignore_space_after_braced_command_name))
                 {
                   int whitespaces_len = strspn (pline, whitespace_chars);
                   text_append_n (arg, pline, whitespaces_len);
@@ -827,13 +827,13 @@ handle_macro (ELEMENT *current, const char **line_inout,
         }
     }
 
-  if (global_parser_conf.max_macro_call_nesting
-      && macro_expansion_nr > global_parser_conf.max_macro_call_nesting)
+  if (global_parser_conf->max_macro_call_nesting
+      && macro_expansion_nr > global_parser_conf->max_macro_call_nesting)
     {
       line_warn (
          "macro call nested too deeply "
          "(set MAX_MACRO_CALL_NESTING to override; current value %d)",
-                global_parser_conf.max_macro_call_nesting);
+                global_parser_conf->max_macro_call_nesting);
       error = 1;
     }
 
@@ -1033,15 +1033,15 @@ init_values (void)
 
   wipe_values (&parser_values);
 
-  if (parser_values.space < global_parser_conf.values.number)
+  if (parser_values.space < global_parser_conf->values.number)
     {
-      parser_values.space = global_parser_conf.values.number;
+      parser_values.space = global_parser_conf->values.number;
       parser_values.list = realloc (parser_values.list,
                                     parser_values.space * sizeof (VALUE));
     }
-  for (i = 0; i < global_parser_conf.values.number; i++)
-    store_value (&parser_values, global_parser_conf.values.list[i].name,
-                 global_parser_conf.values.list[i].value);
+  for (i = 0; i < global_parser_conf->values.number; i++)
+    store_value (&parser_values, global_parser_conf->values.list[i].name,
+                 global_parser_conf->values.list[i].value);
 }
 
 void

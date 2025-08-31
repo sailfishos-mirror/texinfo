@@ -70,7 +70,7 @@ register_extra_menu_entry_information (ELEMENT *current)
           if (!parsed_entry_node->manual_content
               && !parsed_entry_node->node_content)
             {
-              if (global_parser_conf.show_menu)
+              if (global_parser_conf->show_menu)
                 line_error ("empty node name in menu entry");
             }
           else

@@ -1,5 +1,15 @@
 2025-08-31 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/parser_conf.c (global_parser_conf, register_conf)
+	(apply_conf), tta/C/parsetexi/conf.c (simple_parser_conf)
+	(reset_parser_conf): do not copy in apply_conf, but replace.  For
+	this, make global_parser_conf a pointer.  Add simple_parser_conf
+	structure to hold memory for the configurations that do not need to be
+	registered, which global_parser_conf did previously.  Update
+	reset_parser_conf.  Update code accessing global_parser_conf.
+
+2025-08-31 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/z_misc/same_parser_multiple_files.t,
 	tta/perl/t/z_misc/no_structure_test.t,
 	tta/perl/XSTexinfo/Parsetexi.pm: use exists or defined in conditions

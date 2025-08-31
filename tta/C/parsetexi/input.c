@@ -149,17 +149,17 @@ encode_file_name (char *filename)
     {
       const char *encoding = 0;
 
-      if (global_parser_conf.input_file_name_encoding)
-        encoding = global_parser_conf.input_file_name_encoding;
-      else if (global_parser_conf.doc_encoding_for_input_file_name)
+      if (global_parser_conf->input_file_name_encoding)
+        encoding = global_parser_conf->input_file_name_encoding;
+      else if (global_parser_conf->doc_encoding_for_input_file_name)
         {
           if (current_encoding_conversion
               && strcmp (parsed_document->global_info.input_encoding_name,
                          "utf-8"))
             encoding = current_encoding_conversion->encoding_name;
         }
-      else if (global_parser_conf.locale_encoding)
-        encoding = global_parser_conf.locale_encoding;
+      else if (global_parser_conf->locale_encoding)
+        encoding = global_parser_conf->locale_encoding;
 
       if (encoding)
         filename_encoding_conversion = get_encoding_conversion (encoding,

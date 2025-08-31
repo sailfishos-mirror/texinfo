@@ -350,16 +350,16 @@ apply_sv_parser_conf (SV *parser_sv)
       size_t parser_conf_descriptor
         = (size_t) SvIV (*parser_conf_descriptor_sv);
 
-      if (parser_conf_descriptor == global_parser_conf.descriptor)
+      if (parser_conf_descriptor == global_parser_conf->descriptor)
         {
           /*
-          fprintf (stderr, "Reuse conf %d\n", parser_conf_descriptor);
+          fprintf (stderr, "Reuse conf %zu\n", parser_conf_descriptor);
            */
           return;
         }
         /*
       else
-        fprintf (stderr, "APPLY %d\n", parser_conf_descriptor);
+        fprintf (stderr, "APPLY %zu\n", parser_conf_descriptor);
          */
 
       PARSER_CONF *parser_conf

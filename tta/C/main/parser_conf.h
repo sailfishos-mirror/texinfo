@@ -43,7 +43,7 @@ typedef struct PARSER_CONF {
     size_t descriptor;
 } PARSER_CONF;
 
-extern PARSER_CONF global_parser_conf;
+extern PARSER_CONF *global_parser_conf;
 
 PARSER_CONF *register_conf (void);
 PARSER_CONF *retrieve_parser_conf (size_t parser_conf_descriptor);

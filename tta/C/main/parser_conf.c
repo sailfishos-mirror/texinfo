@@ -27,9 +27,8 @@
 #include "parser_conf.h"
 
 /* Configuration values.  This global variables is used in the parser
-   code.  The registered parser configurations is copied over it if
-   a parser reused configuration is needed. */
-PARSER_CONF global_parser_conf;
+   code. */
+PARSER_CONF *global_parser_conf;
 
 /* registered parser configurations */
 static PARSER_CONF **parser_conf_list;
@@ -86,12 +85,12 @@ register_conf (void)
     }
   parser_conf_list[parser_conf_index] = parser_conf;
 
-  global_parser_conf.descriptor = parser_conf_index + 1;
-
-  memcpy (parser_conf, &global_parser_conf, sizeof (PARSER_CONF));
+  memcpy (parser_conf, global_parser_conf, sizeof (PARSER_CONF));
+  global_parser_conf = parser_conf;
+  global_parser_conf->descriptor = parser_conf_index + 1;
 
   /*
-  fprintf (stderr, "Register parser_conf: %d\n", parser_conf->descriptor);
+  fprintf (stderr, "Register parser_conf: %zu\n", parser_conf->descriptor);
    */
 
   return parser_conf;
@@ -119,8 +118,9 @@ free_parser_conf (PARSER_CONF *parser_conf)
 void
 apply_conf (PARSER_CONF *parser_conf)
 {
-  if (!global_parser_conf.descriptor)
-   /* the lists are overwritten, so they need to be freed, not only cleared */
-    free_parser_conf (&global_parser_conf);
-  global_parser_conf = *parser_conf;
+   /* the lists will be overwritten, so they need to be freed, not
+       only cleared */
+  if (global_parser_conf && !global_parser_conf->descriptor)
+    free_parser_conf (global_parser_conf);
+  global_parser_conf = parser_conf;
 }

@@ -340,7 +340,7 @@ parse_rawline_command (const char *line, enum command_id cmd,
       args = new_string_list ();
       ADD_ARG (p - 1, q - p + 1);
       /* handle as if @alias click=value had been given */
-      if (!global_parser_conf.no_user_commands)
+      if (!global_parser_conf->no_user_commands)
         {
           enum command_id new_cmd;
           enum command_id existing_cmd = lookup_command (value);
@@ -1245,7 +1245,7 @@ funexit:
 int
 parser_format_expanded_p (const char *format)
 {
-  return format_expanded_p (global_parser_conf.expanded_formats, format);
+  return format_expanded_p (global_parser_conf->expanded_formats, format);
 }
 
 /* A command name has been read that starts a multiline block, which should
@@ -1332,7 +1332,7 @@ handle_block_command (ELEMENT *current, const char **line_inout,
 
           if (current_node)
             {
-              if (cmd == CM_direntry && global_parser_conf.show_menu)
+              if (cmd == CM_direntry && global_parser_conf->show_menu)
                 {
                   line_warn ("@direntry after first node");
                 }
