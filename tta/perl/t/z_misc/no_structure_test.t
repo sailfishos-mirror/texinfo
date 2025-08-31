@@ -41,10 +41,8 @@ my $result_options = Getopt::Long::GetOptions (
 use File::Copy;
 
 # NOTE same as in t/z_misc/same_parser_multiple_files.t
-sub _update_test_results_dir($$)
-{
-  my $reference_dir = shift;
-  my $results_dir = shift;
+sub _update_test_results_dir($$) {
+  my ($reference_dir, $results_dir) = @_;
 
   if (-d $reference_dir) {
     unlink_dir_files($reference_dir);
@@ -60,14 +58,9 @@ sub _update_test_results_dir($$)
 }
 
 # NOTE same as in t/z_misc/same_parser_multiple_files.t
-sub _do_format_test_file($$$$$$)
-{
-  my $test_name = shift;
-  my $format = shift;
-  my $converter = shift;
-  my $document = shift;
-  my $test_out_dir = shift;
-  my $reference_dir = shift;
+sub _do_format_test_file($$$$$$) {
+  my ($test_name, $format, $converter, $document, $test_out_dir,
+      $reference_dir) = @_;
 
   my $format_type = $format;
 

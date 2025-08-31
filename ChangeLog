@@ -1,5 +1,12 @@
 2025-08-31 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/z_misc/same_parser_multiple_files.t,
+	tta/perl/t/z_misc/no_structure_test.t,
+	tta/perl/XSTexinfo/Parsetexi.pm: use exists or defined in conditions
+	when the value is not used.  Change formatting of functions call code.
+
+2025-08-31 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (print_values_list): add, for debugging.
 
 2025-08-30 Patrice Dumas  <pertusus@free.fr>

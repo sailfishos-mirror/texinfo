@@ -45,8 +45,7 @@ use Texinfo::Document;
 # Initialize the parser
 # The last argument, optional, is a hash provided by the user to change
 # the default values for what is present in %parser_document_parsing_options.
-sub parser (;$)
-{
+sub parser(;$) {
   my $conf = shift;
 
   my $parser = {};
@@ -56,7 +55,7 @@ sub parser (;$)
   # parser configuration, as the configuration isn't already reset and the new
   # configuration is set afterwards.
   my $debug = 0;
-  $debug = $conf->{'DEBUG'} if ($conf and $conf->{'DEBUG'});
+  $debug = $conf->{'DEBUG'} if (defined($conf) and defined($conf->{'DEBUG'}));
 
   # The reset_parser call resets the conf to the same values as found in
   # Texinfo::Common parser_document_parsing_options.
@@ -83,7 +82,7 @@ sub parser (;$)
           parser_conf_set_documentlanguage($conf->{$key});
         }
       } elsif ($key eq 'FORMAT_MENU') {
-        if ($conf->{$key} and ($conf->{$key} eq 'menu'
+        if (defined($conf->{$key}) and ($conf->{$key} eq 'menu'
                                or $conf->{$key} eq 'menu_no_detailmenu')) {
           parser_conf_set_show_menu(1);
         } else {

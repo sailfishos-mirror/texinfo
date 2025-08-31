@@ -41,33 +41,26 @@ my $result_options = Getopt::Long::GetOptions (
 use File::Copy;
 
 # NOTE same as in t/z_misc/no_structure_test.t
-sub _update_test_results_dir($$)
-{
- my $reference_dir = shift;
- my $results_dir = shift;
+sub _update_test_results_dir($$) {
+  my ($reference_dir, $results_dir) = @_;
 
- if (-d $reference_dir) {
-   unlink_dir_files($reference_dir);
- } else {
-   mkdir ($reference_dir);
- }
- my @results_files = glob("$results_dir/*");
- for my $file (@results_files) {
-   warn "copy $file to $reference_dir\n";
-   File::Copy::copy $file, $reference_dir
+  if (-d $reference_dir) {
+    unlink_dir_files($reference_dir);
+  } else {
+    mkdir ($reference_dir);
+  }
+  my @results_files = glob("$results_dir/*");
+  for my $file (@results_files) {
+    warn "copy $file to $reference_dir\n";
+    File::Copy::copy $file, $reference_dir
       if -f $file;
- }
+  }
 }
 
 # NOTE same as in t/z_misc/no_structure_test.t
-sub _do_format_test_file($$$$$$)
-{
-  my $test_name = shift;
-  my $format = shift;
-  my $converter = shift;
-  my $document = shift;
-  my $test_out_dir = shift;
-  my $reference_dir = shift;
+sub _do_format_test_file($$$$$$) {
+  my ($test_name, $format, $converter, $document, $test_out_dir,
+      $reference_dir) = @_;
 
   my $format_type = $format;
 
@@ -142,11 +135,8 @@ Texinfo::Translations::configure($locales_dir);
 
 my $test_group = 'same_parser_multiple_files';
 
-sub _run_test($$$)
-{
-  my $test_name = shift;
-  my $files = shift;
-  my $parser_conf = shift;
+sub _run_test($$$) {
+  my ($test_name, $files, $parser_conf) = @_;
 
   print STDERR "TEST $test_name\n" if ($debug);
 
