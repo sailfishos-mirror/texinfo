@@ -537,7 +537,7 @@ libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS)
 # and SWIG interface.
 
 # NOTE we build libtexinfo-main.la even if PERL_EMBEDDED is not set as some
-# code in libtexinfo-main do not directly need a Perl interpreter.
+# code in libtexinfo-main does not directly need a Perl interpreter.
 # In that case, the library does not load an interpreter and will lack
 # all the features involving the interpreter, may not load if libperl is
 # not already loaded in memory when the library is loaded (and could
@@ -566,6 +566,7 @@ else
 libperlembed_libtexinfo_main_la_SOURCES += convert/replace_call_embed_perl.c
 endif
 
+if PERL_EMBEDDED
 # ExtUtils::Embed does not distinguish CPPFLAGS from CFLAGS.
 libperlembed_libtexinfo_main_la_CPPFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
 # flags for compilation as part of a library from Perl, not in
@@ -576,8 +577,11 @@ libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_EMBED_CFLAGS)
 # documentation) or LIBADD (linked libraries flags) are mixed.
 # Since we also set LDFLAGS to be the Perl linking flags these
 # flags are duplicated.
-if PERL_EMBEDDED
 libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
+else
+libperlembed_libtexinfo_main_la_CPPFLAGS = $(perl_conf_CPPFLAGS)
+libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_CFLAGS)
+libperlembed_libtexinfo_main_la_LIBADD = $(platform_PERL_LIBADD)
 endif
 libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
@@ -599,6 +603,13 @@ libtexinfo_main_la_SOURCES = \
 
 # locate include files under out-of-source builds.
 # NOTE not sure that Gnulib is directly used, but it could.
+# NOTE if PERL_EMBEDDED, to match LIBADD, there could be a need to
+# also add $(PERL_EXTUTILS_EMBED_ccopts).  It does not seems to be required
+# even for AlmaLinux which requires matching cflags and ldflags for
+# the executable.  The reason could be that libtool is used here and
+# not for the executable, and libtool adds the flags required to avoid
+# a failure, same as with cases non-matching cflags and Perl ldflags
+# not involving Perl embedding.
 libtexinfo_main_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_main_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la
 if PERL_EMBEDDED
@@ -647,7 +658,16 @@ ctexi2any_SOURCES = \
 # by libtool.
 ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
+# NOTE it is important to use PERL_EXTUTILS_EMBED_ccopts here to match
+# with PERL_EXTUTILS_EMBED_ldopts used for linking, or in some platforms where
+# the compiling and linking flags must match there will be a failure to
+# build (for example AlmaLinux).
+# This is not a perfect situation, though, as it means that we mix Perl
+# and Gnulib cflags.  It may not be such an issue, as we do not actually
+# include the Perl headers.  It is not what we do more generally for
+# libraries, but there has been no failure, probably because libtool adds
+# the required cflags when files are compiled in shared libraries.
+ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(PERL_EXTUTILS_EMBED_ccopts) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
 # in configure.ac, it is checked that Perl is embedded and iconv is available
 if PREFER_C_TEXI2ANY

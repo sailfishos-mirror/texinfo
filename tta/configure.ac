@@ -450,6 +450,8 @@ if test x$enable_xs != xno -a $extutils_embed = yes ; then
   # We favor having the variable last and use LIBS otherwise linking fails.
 
   LIBS="$PERL_EXTUTILS_EMBED_ldopts"
+  # NOTE the PERL_EXTUTILS_EMBED_ccopts variable contains both preprocessor
+  # suited for CPPFLAGS and compiler flags, suited for CFLAGS.
   # In the actual build variables, PERL_EXTUTILS_EMBED_ccopts is used for
   # CPPFLAGS, but we do not differenciate CPPFLAGS and CFLAGS here.
   CFLAGS="$PERL_EXT_CFLAGS $PERL_EXTUTILS_EMBED_ccopts $perl_conf_EMBED_CFLAGS"
