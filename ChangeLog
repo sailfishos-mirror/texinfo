@@ -1,3 +1,11 @@
+2025-09-06 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/swig/swig_interface.c (txi_ext_messages_list_messages_number)
+	(txi_ext_destroy_error_messages_list): handle NULL formatted error
+	messages, as it may easily happen, if there are no error messages, and
+	it is better not to rely on the caller to check that it is not
+	NULL/undef or similar.
+
 2025-09-01 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/Makefile.am (ctexi2any_CPPFLAGS): add

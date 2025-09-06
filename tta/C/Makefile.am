@@ -664,9 +664,10 @@ ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libte
 # build (for example AlmaLinux).
 # This is not a perfect situation, though, as it means that we mix Perl
 # and Gnulib cflags.  It may not be such an issue, as we do not actually
-# include the Perl headers.  It is not what we do more generally for
-# libraries, but there has been no failure, probably because libtool adds
-# the required cflags when files are compiled in shared libraries.
+# include the Perl headers.
+# We do not setup matching cflags and ldflags for libraries, and there is no
+# failure.  This is probably because libtool adds the required cflags when
+# files are compiled to be linked in shared libraries.
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(PERL_EXTUTILS_EMBED_ccopts) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
 # in configure.ac, it is checked that Perl is embedded and iconv is available

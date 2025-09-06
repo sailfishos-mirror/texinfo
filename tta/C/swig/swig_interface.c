@@ -1069,7 +1069,8 @@ int
 txi_ext_messages_list_messages_number (
                    FORMATTED_ERROR_MESSAGE_LIST *messages_list)
 {
-  return messages_list->number;
+  if (messages_list)
+    return messages_list->number;
 }
 
 void
@@ -1077,13 +1078,17 @@ txi_ext_destroy_error_messages_list (
                   FORMATTED_ERROR_MESSAGE_LIST *error_messages)
 {
   size_t j;
-  for (j = 0; j < error_messages->number; j++)
-    {
-      free (error_messages->list[j].message);
-      free (error_messages->list[j].error_line);
-      free (error_messages->list[j].formatted);
-    }
 
-  free (error_messages->list);
-  free (error_messages);
+  if (error_messages)
+    {
+      for (j = 0; j < error_messages->number; j++)
+        {
+          free (error_messages->list[j].message);
+          free (error_messages->list[j].error_line);
+          free (error_messages->list[j].formatted);
+        }
+
+      free (error_messages->list);
+      free (error_messages);
+    }
 }
