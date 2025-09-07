@@ -113,7 +113,8 @@ scripts_test_files = \
  test_scripts/test_macro_expand.sh \
  test_scripts/test_non_ascii_in_macro.sh \
  test_scripts/test_includes.sh \
- test_scripts/test_texinfo_manual.sh
+ test_scripts/test_texinfo_manual.sh \
+ test_scripts/test_expansion_lines_block.sh
 
 if HAVE_ICONV
 TESTS = $(scripts_test_files)
@@ -128,6 +129,7 @@ EXTRA_DIST = \
  $(t_test_files) $(scripts_test_files) \
  test_refold.sh \
  parse_refold.pl \
+ tests/test_expansion_lines_block/test_expansion_lines_block.texi \
  tests/test_macro_expand/test_macro_expand.texi \
  tests/test_non_ascii_in_macro/test_non_ascii_in_macro.texi \
  tests/test_includes/test_includes.texi \

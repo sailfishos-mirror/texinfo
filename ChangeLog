@@ -1,3 +1,9 @@
+2025-09-07 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/swig/perl/Makefile.am (scripts_test_files, EXTRA_DIST),
+	tta/swig/perl/tests/test_expansion_lines_block/test_expansion_lines_block.texi:
+	new test for macro expansion with empty lines and block command.
+
 2025-09-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/swig/swig_interface.c (txi_ext_messages_list_messages_number)
