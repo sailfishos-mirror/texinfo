@@ -11,7 +11,7 @@ See the manual for detailed information.
 
 * Language
   . new commands for title page creation: @documentinfo, @publication,
-    @maketitle (TODO implement in texi2any, document)
+    @maketitle
   . heading command supported after @node
   . new command @xrefname can follow @node
   . new command @namedanchor

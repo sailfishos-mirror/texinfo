@@ -1,5 +1,9 @@
 2025-09-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: update now that @maketitle is fully implemented
+
+2025-09-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Tips): Remove section about using @value in
 	@copying as this is covered elsewhere in the manual.
 	(@settitle, Preamble): Change link to "@titlepage" node to
