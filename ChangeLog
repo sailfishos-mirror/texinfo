@@ -1,3 +1,16 @@
+2025-09-07 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/swig/swig_element_types.h (TXI_CM_FLAGS_LIST): add
+	no_paragraph.
+
+	* tta/C/swig/swig_interface.c (txi_ext_messages_list_messages_number):
+	return 0 if there are no messages.
+
+	* tta/swig/perl/Makefile.am (SWIG_header_dependencies): add
+	swig/swig_element_types.h.
+
+	* tta/swig/texinfo.i (block_line_argument_command): add.
+
 2025-09-07  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: update now that @maketitle is fully implemented

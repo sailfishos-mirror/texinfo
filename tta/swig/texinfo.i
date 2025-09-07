@@ -729,3 +729,7 @@ ELEMENT *get_label_element (const ELEMENT *e);
 ELEMENT *index_content_element (const ELEMENT *element,
                                 int prefer_reference_element=0);
 // TODO add a wrapper around new_complete_menu_master_menu?
+
+// utils.h
+// used in po4a converter
+const ELEMENT *block_line_argument_command (const ELEMENT *block_line_arg);

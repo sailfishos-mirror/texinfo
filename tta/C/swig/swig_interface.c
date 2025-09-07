@@ -1071,6 +1071,7 @@ txi_ext_messages_list_messages_number (
 {
   if (messages_list)
     return messages_list->number;
+  return 0;
 }
 
 void

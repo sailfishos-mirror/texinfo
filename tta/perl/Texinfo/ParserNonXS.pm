@@ -1253,9 +1253,9 @@ sub _register_global_command($$$;$) {
       = scalar(@{$document->{'commands_info'}->{$command_name}});
     return 1;
   } elsif ($global_unique_commands{$command_name}) {
-    # setfilename ignored in an included file
     $current->{'source_info'} = $source_info
       if (!exists($current->{'source_info'}));
+    # setfilename ignored in an included file
     if ($command_name eq 'setfilename'
         and _in_include($self)) {
     } elsif (exists($document->{'commands_info'}->{$command_name})) {

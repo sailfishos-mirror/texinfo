@@ -18,6 +18,7 @@
   cm_flag(def_alias) \
   cm_flag(preformatted) \
   cm_flag(preformatted_code) \
+  cm_flag(no_paragraph) \
   cm_flag(nobrace) \
   cm_flag(blockitem) \
   cm_flag(index_entry_command) \

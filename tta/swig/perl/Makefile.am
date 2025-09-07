@@ -41,6 +41,7 @@ BUILT_SOURCES = perl_texinfo_wrap.c Texinfo.pm
 SWIG_header_dependencies = \
                  $(txi_libs_srcdir)/main/use_interpreter_types.h \
                  $(txi_libs_srcdir)/main/source_mark_types.h \
+                 $(txi_libs_srcdir)/swig/swig_element_types.h \
                  $(txi_libs_srcdir)/swig/swig_element_data.h \
                  $(txi_libs_srcdir)/swig/swig_text_options.h \
                  $(txi_libs_srcdir)/swig/swig_error_messages_types.h \
