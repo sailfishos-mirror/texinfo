@@ -1196,7 +1196,7 @@ it appears on the title page.  Thus, the two do not need not to match exactly.
 A practice we recommend is to include the version or edition number of the
 manual in the @code{@@settitle} title; on the title page, the version number
 generally appears as a @code{@@subtitle} so it would be omitted from the
-@code{@@title}.  @xref{@code{@@titlepage}}.
+@code{@@title}.  @xref{Titlepage & Copyright Page}.
 
 
 @node Preamble
@@ -1209,7 +1209,7 @@ The @dfn{preamble} starts at the beginning of the Texinfo file and continues
 until the first directly output material.  It typically includes the
 file header (@pxref{Texinfo File Header}), the @code{@@copying} block
 specifying the document permissions (@pxref{@code{@@copying}}) and the
-@code{@@titlepage} specification (@pxref{Titlepage & Copyright Page}).
+title page specifications (@pxref{Titlepage & Copyright Page}).
 
 The preamble may contain commands that affect document formatting
 as a whole but which do not produce output, or do not produce output
@@ -1667,7 +1667,7 @@ Published by @var{publisher-name}
 @cindex Title page
 @findex titlepage
 
-An alternative to using the @code{@@maketitle} to create title and copyright
+An alternative to using @code{@@maketitle} to create title and copyright
 pages is to use the @code{@@titlepage} command.  Any material enclosed between
 @code{@@titlepage} and @code{@@end titlepage} lines is directly output
 for a printed manual.  Here is a basic example:
@@ -20795,7 +20795,7 @@ For formats that may output a short table of contents.
 @xref{Contents, , Generating a Table of Contents}.
 
 @item @@shorttitlepage @var{title}
-Generate a minimal title page.  @xref{@code{@@titlepage}}.
+Generate a minimal title page.  @xref{TItlepage & Copyright Page}.
 
 @item @@slanted@{@var{text}@}
 Set @var{text} in a @slanted{slanted} font if possible.  @xref{Fonts}.
@@ -21447,19 +21447,6 @@ typeset in other output formats.
 @end itemize
 
 
-@subsubheading Editions, Dates and Versions
-
-Include edition numbers, version numbers, and dates in the
-@code{@@copying} text (for people reading the Texinfo file, and for the
-legal copyright in the output files).  Then use @code{@@insertcopying}
-in the @code{@@titlepage} section for people reading the printed
-output (@pxref{Short Sample}).
-
-It is easiest to handle such version information using @code{@@set}
-and @code{@@value}.  @xref{@code{@@value} Example}, and @ref{GNU
-Sample Texts}.
-
-
 @subsubheading Program Invocation Nodes
 
 You can invoke programs such as Emacs, GCC, and @code{gawk} from a
@@ -21649,14 +21636,12 @@ Texts.  A copy of the license is included in the section entitled
 * sample: (sample)Invoking sample.
 @end direntry
 
-@titlepage
+@documentinfo
 @title GNU Sample
 @subtitle for version @value{VERSION}, @value{UPDATED}
 @author A.U. Thor (@email{bug-sample@@gnu.org})
-@page
-@vskip 0pt plus 1filll
-@insertcopying
-@end titlepage
+@end documentinfo
+@maketitle
 
 @contents
 

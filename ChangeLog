@@ -1,5 +1,13 @@
 2025-09-07  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Tips): Remove section about using @value in
+	@copying as this is covered elsewhere in the manual.
+	(@settitle, Preamble): Change link to "@titlepage" node to
+	"Titlepage & Copyright Page".
+	(GNU Sample Texts): Use @maketitle in example.
+
+2025-09-07  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@maketitle in documentation
 
 	* doc/texinfo.texi (Short Sample Texinfo File, @sp, @page)
