@@ -1,3 +1,13 @@
+2025-09-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	@maketitle in documentation
+
+	* doc/texinfo.texi (Short Sample Texinfo File, @sp, @page)
+	(@value Example, Overfull hboxes, HTML Output Structure Customization)
+	(HTML Customization Variables List):
+	Update examples to use @maketitle instead of @titlepage.
+	* doc/info-stnd.texi: use @maketitle instead of @titlepage.
+
 2025-09-07 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/perl/Makefile.am (scripts_test_files, EXTRA_DIST),

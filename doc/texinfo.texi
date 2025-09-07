@@ -44,6 +44,33 @@ Texts.  A copy of the license is included in the section entitled
 @end quotation
 @end copying
 
+@documentinfo
+@title Texinfo
+@subtitle The GNU Documentation Format
+@subtitle for Texinfo version @value{VERSION}, @value{UPDATED}
+
+@author Robert J. Chassell
+@author Richard M. Stallman
+@end documentinfo
+
+@publication
+Published by the Free Software Foundation @*
+31 Milk St # 960789 @*
+Boston, MA 02196 @*
+USA @*
+ISBN 1-882114-67-1 @c for version 4.0, September 1999.
+@c ISBN 1-882114-65-5 is for version 3.12, March 1998.
+@c ISBN 1-882114-64-7 is for edition 2.24 of November 1996.
+@c ISBN 1-882114-63-9 is for edition 2.20 of 28 February 1995.
+
+@ignore
+@sp 1
+Cover art by Etienne Suvasa.
+@end ignore
+@end publication
+
+@maketitle
+
 @dircategory Texinfo documentation system
 @direntry
 * Texinfo: (texinfo).           The GNU documentation format.
@@ -61,34 +88,6 @@ Texts.  A copy of the license is included in the section entitled
 @set txiindexbackslashignore
 @set txiindexlessthanignore
 @set txiindexhyphenignore
-
-@titlepage
-@title Texinfo
-@subtitle The GNU Documentation Format
-@subtitle for Texinfo version @value{VERSION}, @value{UPDATED}
-
-@author Robert J. Chassell
-@author Richard M. Stallman
-
-@page
-@vskip 0pt plus 1filll
-@insertcopying
-
-@sp 1
-Published by the Free Software Foundation @*
-31 Milk St # 960789 @*
-Boston, MA 02196 @*
-USA @*
-ISBN 1-882114-67-1 @c for version 4.0, September 1999.
-@c ISBN 1-882114-65-5 is for version 3.12, March 1998.
-@c ISBN 1-882114-64-7 is for edition 2.24 of November 1996.
-@c ISBN 1-882114-63-9 is for edition 2.20 of 28 February 1995.
-
-@ignore
-@sp 1
-Cover art by Etienne Suvasa.
-@end ignore
-@end titlepage
 
 
 @summarycontents
@@ -952,13 +951,10 @@ This is a short example of a complete Texinfo file.
 
 Copyright @@copyright@{@} 2025 Free Software Foundation, Inc.
 @@end copying
-
-@@titlepage
+@@documentinfo
 @@title Sample Title
-@@page
-@@vskip 0pt plus 1filll
-@@insertcopying
-@@end titlepage
+@@end documentinfo
+@@maketitle
 
 @@contents
 
@@ -10655,7 +10651,8 @@ forces a paragraph break.  For example,
 @noindent
 generates two blank lines.
 
-The @code{@@sp} command is most often used in the title page.
+The @code{@@sp} command is most often used inside a @code{@@titlepage}
+block.
 
 
 @node @code{@@page}
@@ -10668,7 +10665,7 @@ The @code{@@sp} command is most often used in the title page.
 
 A line containing only @code{@@page} starts a new page in a printed
 manual.  In other formats, without the concept of pages, it starts a
-new paragraph.  A @code{@@page} command is often used in the
+new paragraph.  A @code{@@page} command is often used in a
 @code{@@titlepage} section of a Texinfo file to start the copyright
 page.
 
@@ -12846,15 +12843,12 @@ Write text for the title page, for people reading the printed manual:
 
 @example
 @group
-@@titlepage
+@@documentinfo
 @@title GNU Make
 @@subtitle A Program for Directing Recompilation
 @@subtitle Edition @@value@{EDITION@}, @dots{}
 @@subtitle @@value@{UPDATE-MONTH@}
-@@page
-@@insertcopying
-@dots{}
-@@end titlepage
+@@end documentinfo
 @end group
 @end example
 
@@ -14731,7 +14725,7 @@ problem if you are correcting a draft.
 @findex finalout
 To prevent such a monstrosity from marring your final printout, write
 the following in the beginning of the Texinfo file on a line of its own,
-before the @code{@@titlepage} command:
+before the @code{@@maketitle} or @code{@@titlepage} command:
 
 @example
 @@finalout
@@ -18407,7 +18401,8 @@ structure of a document and how output is split into output files.
 @vindex USE_TITLEPAGE_FOR_TITLE
 If @code{SHOW_TITLE} is @samp{undef}, the default, no title is
 output at the start of the output.  If you set this variable,
-by default the full @code{@@titlepage} is used for the title; unset
+by default the contents of @code{@@titlepage} (or output from
+@code{@@maketitle}) is used for the title; unset
 @code{USE_TITLEPAGE_FOR_TITLE} to get a simple title string.
 
 @vindex NO_TOP_NODE_OUTPUT @subentry @r{for HTML}
@@ -19627,8 +19622,9 @@ nodes and sections are systematically associated, this customization has no
 practical effect.
 
 @item USE_TITLEPAGE_FOR_TITLE
-Use the full @code{@@titlepage} as the title, not a simple title string;
-default true.  Only relevant if @code{SHOW_TITLE} is set.
+Use the full @code{@@titlepage} (or output from @code{@@maketitle}) as
+the title, not a simple title string; default true.  Only relevant if
+@code{SHOW_TITLE} is set.
 
 @item USE_XML_SYNTAX
 Use XML/XHTML compatible syntax.

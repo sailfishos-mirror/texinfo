@@ -39,15 +39,13 @@ license to the document, as described in section 6 of the license.
 * info stand-alone: (info-stnd).           Read Info documents without Emacs.
 @end direntry
 
-@titlepage
+@documentinfo
 @title Stand-alone GNU Info
 @subtitle for version @value{VERSION}, @value{UPDATED}
 @author Brian J. Fox
 @author and Texinfo maintainers
-@page
-@vskip 0pt plus 1filll
-@insertcopying
-@end titlepage
+@end documentinfo
+@maketitle
 
 @contents
 
