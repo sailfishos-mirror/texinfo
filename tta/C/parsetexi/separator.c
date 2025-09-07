@@ -301,7 +301,6 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
       if (closed_cmd == CM_anchor || closed_cmd == CM_namedanchor)
         {
           ELEMENT *anchor_id_element = brace_command->e.c->contents.list[0];
-          brace_command->e.c->source_info = current_source_info;
           if (anchor_id_element->e.c->contents.number == 0)
             line_error ("empty argument in @%s",
                         command_name(closed_cmd));

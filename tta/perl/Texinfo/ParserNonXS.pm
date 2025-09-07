@@ -6730,7 +6730,6 @@ sub _handle_close_brace($$$) {
 
     if ($closed_cmdname eq 'anchor'
         or $closed_cmdname eq 'namedanchor') {
-      $brace_command->{'source_info'} = {%$source_info};
       my $anchor_id_element = $brace_command->{'contents'}->[0];
       if (! exists($anchor_id_element->{'contents'})) {
         _line_error($self, sprintf(__("empty argument in \@%s"),

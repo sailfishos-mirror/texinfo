@@ -1,3 +1,10 @@
+2025-09-07 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/parsetexi/separator.c (handle_close_brace),
+	tta/perl/Texinfo/ParserNonXS.pm (_handle_close_brace): do not reset
+	anchor and namedanchor source_info at closing, the source info should
+	be set where the @-command is.
+
 2025-09-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/configure.ac,
