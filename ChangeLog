@@ -1,3 +1,7 @@
+2025-09-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Command List): fix node reference.  from Bruno.
+
 2025-09-07 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/swig/swig_element_types.h (TXI_CM_FLAGS_LIST): add

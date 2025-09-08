@@ -20795,7 +20795,7 @@ For formats that may output a short table of contents.
 @xref{Contents, , Generating a Table of Contents}.
 
 @item @@shorttitlepage @var{title}
-Generate a minimal title page.  @xref{TItlepage & Copyright Page}.
+Generate a minimal title page.  @xref{Titlepage & Copyright Page}.
 
 @item @@slanted@{@var{text}@}
 Set @var{text} in a @slanted{slanted} font if possible.  @xref{Fonts}.
