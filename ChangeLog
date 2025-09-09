@@ -1,5 +1,12 @@
 2025-09-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/configure.ac,
+	* tta/m4/txi_iconv_converts_euc_cn.m4 (txi_ICONV_CONVERTS_EUC_CN):
+	Move code checking if iconv works for EUC-CN character encoding
+	to separate .m4 file.
+
+2025-09-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Comments for parts of tta/configure.ac
 
 	* tta/configure.ac (LIBPERL_LINK): add comment above lengthy
