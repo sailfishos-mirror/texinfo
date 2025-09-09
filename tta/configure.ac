@@ -205,6 +205,8 @@ ac_cv_prog_ac_ct_CC= ; unset ac_cv_prog_ac_ct_CC
 
 AC_PROG_CC
 
+# Test for linking against libperl.  Used to set LIBPERL_LINK conditional
+# which is used for SWIG interface in swig/Makefile.am.
 libperl_link=no
 
 if test x$enable_xs != xno ; then
@@ -432,6 +434,10 @@ if test $use_libintl_perl_in_xs = yes ; then
 fi
 
 
+# Check if it is possible to embed a Perl interpreter.  Set PERL_EMBEDDED.
+# conditional, used in C/Makefile.am and swig/python/Makefile.am.  This
+# is only used for the ctexi2any implementation of texi2any and for the SWIG
+# interface, neither of which is used by default.
 embedded_perl=no
 
 if test x$enable_xs != xno -a $extutils_embed = yes ; then

@@ -1,3 +1,12 @@
+2025-09-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Comments for parts of tta/configure.ac
+
+	* tta/configure.ac (LIBPERL_LINK): add comment above lengthy
+	section of file explaining that this is only used for SWIG.
+	(PERL_EMBEDDED): add another comment saying when this conditional
+	is used.
+
 2025-09-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Command List): fix node reference.  from Bruno.
