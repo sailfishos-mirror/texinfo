@@ -1,6 +1,12 @@
 2025-09-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/configure.ac,
+	* tta/m4/txi_embedded_perl.m4 (txi_EMBEDDED_PERL):
+	Split check for embedded perl into a separate .m4 file.
+
+2025-09-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/configure.ac,
 	* tta/m4/txi_iconv_converts_euc_cn.m4 (txi_ICONV_CONVERTS_EUC_CN):
 	Move code checking if iconv works for EUC-CN character encoding
 	to separate .m4 file.
