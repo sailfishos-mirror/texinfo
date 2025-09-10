@@ -62,10 +62,8 @@ texinfo_register_command_formatting('example', \&highlight_preformatted_command)
 texinfo_register_command_opening('example',
                                  \&highlight_open_inline_container_type);
 
-sub highlight_setup($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub highlight_setup($$) {
+  my ($self, $document) = @_;
 
   my $document_root = $document->tree();
 
@@ -73,7 +71,7 @@ sub highlight_setup($$)
 
   my $highlight_type = $self->get_conf('HIGHLIGHT_SYNTAX');
 
-  return 1 if !defined($highlight_type);
+  return 1 if (!defined($highlight_type));
 
   my $cmd;
   if ($highlight_type eq 'highlight') {
@@ -88,7 +86,7 @@ sub highlight_setup($$)
     return 1;
   }
 
-  if ($highlight_type_languages_name_mappings{$highlight_type}) {
+  if (exists($highlight_type_languages_name_mappings{$highlight_type})) {
     %languages_name_mapping
       = %{$highlight_type_languages_name_mappings{$highlight_type}};
   } else {
@@ -179,7 +177,7 @@ sub highlight_setup($$)
     #print STDERR Data::Dumper->Dump([\%languages_name_mapping]);
     #print STDERR Data::Dumper->Dump([\%highlighted_languages_list]);
     #exit 1;
-  } else {
+  } else { # $highlight_type eq 'source-highlight'
     while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
       chomp($line);
       if ($line =~ /^([A-Za-z0-9_\-]+) =/) {
@@ -204,19 +202,15 @@ sub highlight_setup($$)
   return 0;
 }
 
-sub _get_language($$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
+sub _get_language($$$) {
+  my ($self, $cmdname, $command) = @_;
 
   my $language;
   my $converted_language;
 
   if ($cmdname eq 'example') {
     my $arguments_line = $command->{'contents'}->[0];
-    if ($arguments_line->{'contents'}
-        and scalar(@{$arguments_line->{'contents'}}) > 0) {
+    if (exists($arguments_line->{'contents'})) {
       $converted_language
         = Texinfo::Convert::NodeNameNormalization::convert_to_normalized(
                                           $arguments_line->{'contents'}->[0]);
@@ -235,46 +229,53 @@ sub _get_language($$$)
   }
 
   if (defined($converted_language)
-      and defined($languages_name_mapping{$converted_language})) {
+      and exists($languages_name_mapping{$converted_language})) {
     $language = $languages_name_mapping{$converted_language};
-    while (defined($languages_name_mapping{$language})) {
+    while (exists($languages_name_mapping{$language})) {
       $language = $languages_name_mapping{$language};
     }
   } else {
     $language = $converted_language;
   }
 
-  if (defined($language) and $highlighted_languages_list{$language}) {
+  if (defined($language) and exists($highlighted_languages_list{$language})) {
     return ($language, $converted_language);
   } else {
     return (undef, $converted_language);
   }
 }
 
-sub _convert_element($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _convert_element($$) {
+  my ($self, $element) = @_;
 
-  my $tree = {'contents' => [@{$element->{'contents'}}]};
-  if ($tree->{'contents'}->[0]
-      and $tree->{'contents'}->[0]->{'type'}
-      and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
-    shift @{$tree->{'contents'}};
+  my @contents = @{$element->{'contents'}};
+  while (scalar(@contents) > 0
+         and exists($contents[0]->{'type'})
+         # ignorable_spaces_after_command cannot actually happen with
+         # @example
+         and ($contents[0]->{'type'} eq 'ignorable_spaces_after_command'
+              or $contents[0]->{'type'} eq 'arguments_line')) {
+    shift @contents;
   }
-  if ($tree->{'contents'}->[-1]->{'cmdname'}
-      and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
-    pop @{$tree->{'contents'}};
+  if (scalar(@contents) > 0 and exists($contents[-1]->{'cmdname'})
+      and $contents[-1]->{'cmdname'} eq 'end') {
+    pop @contents;
   }
+
+  return "\n" if (!scalar(@contents));
+
   Texinfo::Convert::Text::set_options_code(
                            $self->{'convert_text_options'});
-  my $text = Texinfo::Convert::Text::convert_to_text($tree,
+  my $text = Texinfo::Convert::Text::convert_to_text(
+                                {'contents' => \@contents},
                                 $self->{'convert_text_options'});
   Texinfo::Convert::Text::reset_options_code(
                                  $self->{'convert_text_options'});
   # make sure that the text ends with a newline
   chomp ($text);
   $text .= "\n";
+
+  return $text;
 }
 
 # the end of the string was randomly generated once for all.
@@ -283,10 +284,8 @@ my $range_separator
 
 my %commands;
 
-sub highlight_process($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub highlight_process($$) {
+  my ($self, $document) = @_;
 
   my $document_root = $document->tree();
 
@@ -356,11 +355,10 @@ sub highlight_process($$)
         $err = gensym();
         my $cmd;
         if ($highlight_type eq 'highlight') {
-          $cmd = 'highlight -f --syntax='.$language
-                         .' --style-outfile=html --inline-css';
+          $cmd = 'highlight -f --style-outfile=html --inline-css '
+                             .'--syntax='.$language;
         } else {
-          $cmd = 'pygmentize -f html -l '.$language
-                 . ' -O noclasses=True';
+          $cmd = 'pygmentize -f html  -O noclasses=True -l '.$language;
         }
         my $pid = IPC::Open3::open3($wtr, $rdr, $err, $cmd);
         if (! $pid) {
@@ -375,8 +373,8 @@ sub highlight_process($$)
         if (!close($wtr)) {
           $self->converter_document_error(
             sprintf(__('%s: error closing input: %s'), $cmd, $!));
-          close ($rdr);
-          close ($err);
+          close($rdr);
+          close($err);
           return 1;
         }
 
@@ -440,7 +438,7 @@ sub highlight_process($$)
     # program
     my ($encoded_input_language_path_name, $input_language_path_encoding)
       = $self->encoded_output_file_name($input_language_path_name);
-    unless (open (HIGHLIGHT_LANG_IN, ">$encoded_input_language_path_name")) {
+    unless (open(HIGHLIGHT_LANG_IN, ">$encoded_input_language_path_name")) {
       $self->converter_document_warn(
              sprintf(__("highlight_syntax.pm: could not open %s: %s"),
                                       $input_language_path_name, $!));
@@ -470,7 +468,7 @@ sub highlight_process($$)
                     = [$highlight_lang_in_line_nr+1 +1,
                        $highlight_lang_in_line_nr + $text_lines_nr+1];
       $highlight_lang_in_line_nr += 2 + $text_lines_nr;
-      $counter ++;
+      $counter++;
     }
     if (! close(HIGHLIGHT_LANG_IN)) {
       $self->converter_document_warn(
@@ -524,7 +522,7 @@ sub highlight_process($$)
     my $line;
     my $text;
     my $separators_count = 0;
-    while ($line = <HIGHLIGHT_LANG_OUT>) {
+    while (defined($line = <HIGHLIGHT_LANG_OUT>)) {
       #print STDERR "$encoded_html_result_path_name: while $line";
       if ($line =~ /$range_separator/) {
         $separators_count++;
@@ -570,7 +568,7 @@ sub highlight_process($$)
          "highlight_syntax.pm: %s: retrieved %d items in HTML; expected %d"),
                             $language, $got_count, $language_fragments_nr));
     }
-    if (!close (HIGHLIGHT_LANG_OUT)) {
+    if (!close(HIGHLIGHT_LANG_OUT)) {
       $self->converter_document_warn(
              sprintf(__("highlight_syntax.pm: error on closing %s: %s"),
                                       $html_result_path_name, $!));
@@ -579,11 +577,8 @@ sub highlight_process($$)
   return 0;
 }
 
-sub highlight_open_inline_container_type($$$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  my $command = shift;
+sub highlight_open_inline_container_type($$$) {
+  my ($self, $cmdname, $command) = @_;
 
   if (!scalar(keys(%highlighted_languages_list))) {
     my $default_open = $self->default_command_open($cmdname);
@@ -593,11 +588,11 @@ sub highlight_open_inline_container_type($$$)
       return '';
     }
   }
-  if (exists ($commands{$cmdname})
-      and exists ($commands{$cmdname}->{'results'})) {
+  if (exists($commands{$cmdname})
+      and exists($commands{$cmdname}->{'results'})) {
     my ($language, $converted_language)
                 = _get_language($self, $cmdname, $command);
-    if (exists ($commands{$cmdname}->{'results'}->{$command})
+    if (exists($commands{$cmdname}->{'results'}->{$command})
         and defined($commands{$cmdname}->{'results'}->{$command})) {
 
       # only replace the example and inside preformatted if the code leading
@@ -616,22 +611,17 @@ sub highlight_open_inline_container_type($$$)
   return '';
 }
 
-sub highlight_preformatted_command($$$$$)
-{
-  my $self = shift;
-  my $cmdname = shift;;
-  my $command = shift;
-  my $args = shift;
-  my $content = shift;
+sub highlight_preformatted_command($$$$$) {
+  my ($self, $cmdname, $command, $args, $content) = @_;
 
   # if no commands were registered nor converted, do not
   # warn if the language is known.  It means that there was
   # no highlighting or some error.
-  if (exists ($commands{$cmdname})
-      and exists ($commands{$cmdname}->{'results'})) {
+  if (exists($commands{$cmdname})
+      and exists($commands{$cmdname}->{'results'})) {
     my ($language, $converted_language)
                 = _get_language($self, $cmdname, $command);
-    if (exists ($commands{$cmdname}->{'results'}->{$command})
+    if (exists($commands{$cmdname}->{'results'}->{$command})
         and defined($commands{$cmdname}->{'results'}->{$command})) {
 
       if (not defined($language)) {
@@ -659,7 +649,7 @@ sub highlight_preformatted_command($$$$$)
         # as it is private.
         my $pre_class_format = $cmdname;
         my $main_cmdname = $cmdname;
-        if (defined($Texinfo::Common::small_block_associated_command{$cmdname})) {
+        if (exists($Texinfo::Common::small_block_associated_command{$cmdname})) {
           $pre_class_format
             = $Texinfo::Common::small_block_associated_command{$cmdname};
           $main_cmdname
@@ -671,9 +661,9 @@ sub highlight_preformatted_command($$$$$)
           # FIXME maybe add   or $pre_class eq 'menu'  to override
           # 'menu' with 'menu-comment'?
           $pre_class = $class unless ($pre_class
-                 and $Texinfo::Commands::preformatted_code_commands{$pre_class}
-                 and !($Texinfo::Commands::preformatted_code_commands{$class}
-                                   or $class eq 'menu'));
+       and exists($Texinfo::Commands::preformatted_code_commands{$pre_class})
+       and !(exists($Texinfo::Commands::preformatted_code_commands{$class})
+             or $class eq 'menu'));
         }
         $pre_class = $pre_class.'-preformatted';
 
@@ -682,7 +672,7 @@ sub highlight_preformatted_command($$$$$)
         my @classes;
         if ($cmdname eq 'example') {
           my $arguments_line = $command->{'contents'}->[0];
-          if ($arguments_line->{'contents'}) {
+          if (exists($arguments_line->{'contents'})) {
             for my $example_arg (@{$arguments_line->{'contents'}}) {
               # convert or remove all @-commands, using simple ascii and unicode
               # characters
@@ -704,18 +694,20 @@ sub highlight_preformatted_command($$$$$)
         # do it here, what was done in preformatted is discarded.
         # It should have been correctly registered
         # through highlight_open_inline_container_type.
-        $result_content = $self->get_associated_formatted_inline_content($command)
+        $result_content
+            = $self->get_associated_formatted_inline_content($command)
                               . $result_content;
-        $result_content =~ s/^\n/\n\n/; # a newline immediately after a <pre> is ignored.
+        # a newline immediately after a <pre> is ignored.
+        $result_content =~ s/^\n/\n\n/;
         my $preformatted_result_content = $self->html_attribute_class('pre',
-                                          [$pre_class]).">".$result_content."</pre>";
+                                   [$pre_class]).">".$result_content."</pre>";
         return $self->html_attribute_class('div', \@classes).">\n"
                .$preformatted_result_content.'</div>'."\n";
       }
     # no error nor verbose message if there was no retrieved information
     # for that language
     } elsif (defined($language)
-             and $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}) {
+       and $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}) {
       my $cmd_language_input_count
          = $commands{$cmdname}->{'input_languages_counters'}->{$language};
       my $cmd_language_retrieved_count

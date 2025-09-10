@@ -1,3 +1,15 @@
+2025-09-10 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/ext/highlight_syntax.pm (_convert_element): copy and modify
+	contents as an array first.
+
+	* tta/perl/ext/highlight_syntax.pm (highlight_process): put file
+	argument last on command line.
+
+	* tta/perl/ext/highlight_syntax.pm: use exists or defined in
+	conditions when the value is not used.  Change formatting of functions
+	call code.  Change in spacing.
+
 2025-09-07 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/parsetexi/separator.c (handle_close_brace),
