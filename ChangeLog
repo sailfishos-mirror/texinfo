@@ -1,3 +1,16 @@
+2025-09-12 Patrice Dumas  <pertusus@free.fr>
+
+	HIGHLIGHT_SYNTAX value used as command-line
+
+	* NEWS, doc/texinfo.texi (Syntax Highlighting)
+	(HTML Customization Variables List), tta/perl/ext/highlight_syntax.pm
+	($highlighted_languages_list, highlight_setup, _get_language)
+	(highlight_process): make $highlighted_languages_list a reference on a
+	hash, and if undef, do not check the language.  If the
+	HIGHLIGHT_SYNTAX value is not a specific program, concatenate the
+	value to the highlighted language name to generate the command-line
+	used for highlighting.  Update documentation.
+
 2025-09-10 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/ext/highlight_syntax.pm (_convert_element): copy and modify

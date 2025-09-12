@@ -61,6 +61,9 @@ See the manual for detailed information.
         names generated for the converted manual content.
       . USE_NEXT_HEADING_FOR_LONE_NODE removed.  Former effect
         is now always on.
+      . if the HIGHLIGHT_SYNTAX value is not a specific program, the
+        value is concatenated to the highlighted language name to generate
+        a command-line used to highlight the code.
       . info.js (with INFO_JS_DIR) fixes and improvements:
         . avoid pointless pop-up over Top node and display the correct title
   . Remove the Texinfo::TeX4HT customization package.

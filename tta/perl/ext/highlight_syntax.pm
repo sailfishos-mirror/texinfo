@@ -50,7 +50,9 @@ my %languages_extensions = (
   'perl' => 'pl',
 );
 
-my %highlighted_languages_list;
+# No list of languages and no check on language if undef.
+# Otherwise a hash reference with possible languages as keys.
+my $highlighted_languages_list;
 
 texinfo_register_handler('setup', \&highlight_setup);
 texinfo_register_handler('structure', \&highlight_process);
@@ -67,30 +69,34 @@ sub highlight_setup($$) {
 
   my $document_root = $document->tree();
 
-  %highlighted_languages_list = ();
+  $highlighted_languages_list = undef;
+  %languages_name_mapping = ();
 
-  my $highlight_type = $self->get_conf('HIGHLIGHT_SYNTAX');
+  my $highlight_syntax = $self->get_conf('HIGHLIGHT_SYNTAX');
 
-  return 1 if (!defined($highlight_type));
+  return 1 if (!defined($highlight_syntax) or $highlight_syntax !~ /\S/);
 
   my $cmd;
-  if ($highlight_type eq 'highlight') {
+  my $highlight_type;
+  if ($highlight_syntax eq 'highlight') {
+    $highlight_type = 'highlight';
     $cmd = 'highlight --list-scripts=lang';
-  } elsif ($highlight_type eq 'pygments') {
+  } elsif ($highlight_syntax eq 'pygments') {
+    $highlight_type = 'pygments';
     $cmd = 'pygmentize -L lexers';
-  } elsif ($highlight_type eq 'source-highlight') {
+  } elsif ($highlight_syntax eq 'source-highlight') {
+    $highlight_type = 'source-highlight';
     $cmd = 'source-highlight --lang-list';
   } else {
-    $self->converter_document_warn(sprintf(__(
-      "`%s' is not valid for HIGHLIGHT_SYNTAX"), $highlight_type));
-    return 1;
+    # $highlight_syntax will be used as command, with language postpended
+    return 0;
   }
+
+  %$highlighted_languages_list = ();
 
   if (exists($highlight_type_languages_name_mappings{$highlight_type})) {
     %languages_name_mapping
       = %{$highlight_type_languages_name_mappings{$highlight_type}};
-  } else {
-    %languages_name_mapping = ();
   }
 
   # NOTE open failure triggers a warning message if run with -w if the
@@ -141,7 +147,7 @@ sub highlight_setup($$) {
       if ($line =~ /^.+: ([a-z0-9+_\/-]+)( \( (([a-z0-9+_\/-]+ )+)\))?$/) {
         my $main_language = $1;
         my $other_languages = $3;
-        $highlighted_languages_list{$main_language} = 1;
+        $highlighted_languages_list->{$main_language} = 1;
         if (defined($other_languages)) {
           foreach my $other_language (split(/ /, $other_languages)) {
             $languages_name_mapping{$other_language} = $main_language
@@ -154,7 +160,7 @@ sub highlight_setup($$) {
     }
     #use Data::Dumper;
     #print STDERR Data::Dumper->Dump([\%languages_name_mapping]);
-    #print STDERR Data::Dumper->Dump([\%highlighted_languages_list]);
+    #print STDERR Data::Dumper->Dump([$highlighted_languages_list]);
     #exit 1;
   } elsif ($highlight_type eq 'pygments') {
     while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
@@ -166,7 +172,7 @@ sub highlight_setup($$) {
                         '%s: %s: cannot parse language line'), $cmd, $line))
         } else {
           my $main_language = shift @languages;
-          $highlighted_languages_list{$main_language} = 1;
+          $highlighted_languages_list->{$main_language} = 1;
           foreach my $other_language (@languages) {
             $languages_name_mapping{$other_language} = $main_language;
           }
@@ -175,14 +181,14 @@ sub highlight_setup($$) {
     }
     #use Data::Dumper;
     #print STDERR Data::Dumper->Dump([\%languages_name_mapping]);
-    #print STDERR Data::Dumper->Dump([\%highlighted_languages_list]);
+    #print STDERR Data::Dumper->Dump([$highlighted_languages_list]);
     #exit 1;
   } else { # $highlight_type eq 'source-highlight'
     while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
       chomp($line);
       if ($line =~ /^([A-Za-z0-9_\-]+) =/) {
         my $language = $1;
-        $highlighted_languages_list{$language} = 1;
+        $highlighted_languages_list->{$language} = 1;
       } else {
         $self->converter_document_warn(sprintf(__(
                         '%s: %s: cannot parse language line'), $cmd, $line))
@@ -192,7 +198,7 @@ sub highlight_setup($$) {
   # FIXME check error status
   close(HIGHLIGHT_LANG_LIST);
 
-  if (scalar(keys(%highlighted_languages_list)) == 0) {
+  if (scalar(keys(%$highlighted_languages_list)) == 0) {
     # important if $cmd returns no output to have a message.  If there
     # is some output, there will already be some line parse error messages.
     $self->converter_document_warn(sprintf(__(
@@ -238,7 +244,9 @@ sub _get_language($$$) {
     $language = $converted_language;
   }
 
-  if (defined($language) and exists($highlighted_languages_list{$language})) {
+  if (defined($language)
+      and (!defined($highlighted_languages_list)
+           or exists($highlighted_languages_list->{$language}))) {
     return ($language, $converted_language);
   } else {
     return (undef, $converted_language);
@@ -297,9 +305,10 @@ sub highlight_process($$) {
   return 0 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
 
-  return 0 if (!scalar(keys(%highlighted_languages_list)));
+  return 0 if (defined($highlighted_languages_list)
+               and !scalar(keys(%$highlighted_languages_list)));
 
-  my $highlight_type = $self->get_conf('HIGHLIGHT_SYNTAX');
+  my $highlight_syntax = $self->get_conf('HIGHLIGHT_SYNTAX');
 
   my $verbose = $self->get_conf('VERBOSE');
 
@@ -343,8 +352,8 @@ sub highlight_process($$) {
 
   # When there is no possibility to specify all the fragments to highlight
   # in an input file, pass each fragment to a command.
-  if (defined($highlight_type)
-      and ($highlight_type eq 'highlight' or $highlight_type eq 'pygments')) {
+  if (defined($highlight_syntax)
+      and $highlight_syntax ne 'source-highlight') {
     foreach my $language (keys(%languages)) {
       foreach my $element_command (@{$languages{$language}->{'commands'}}) {
         my ($element, $cmdname) = @{$element_command};
@@ -353,13 +362,16 @@ sub highlight_process($$) {
 
         my ($wtr, $rdr, $err);
         $err = gensym();
-        my $cmd;
-        if ($highlight_type eq 'highlight') {
-          $cmd = 'highlight -f --style-outfile=html --inline-css '
-                             .'--syntax='.$language;
+        my $highlight_cmd;
+        if ($highlight_syntax eq 'highlight') {
+          $highlight_cmd = 'highlight -f --style-outfile=html --inline-css '
+                             .'--syntax=';
+        } elsif ($highlight_syntax eq 'pygments') {
+          $highlight_cmd = 'pygmentize -f html -O noclasses=True -l ';
         } else {
-          $cmd = 'pygmentize -f html  -O noclasses=True -l '.$language;
+          $highlight_cmd = $highlight_syntax;
         }
+        my $cmd = $highlight_cmd . $language;
         my $pid = IPC::Open3::open3($wtr, $rdr, $err, $cmd);
         if (! $pid) {
           $self->converter_document_error(sprintf(__('%s: %s'), $cmd, $!));
@@ -580,7 +592,8 @@ sub highlight_process($$) {
 sub highlight_open_inline_container_type($$$) {
   my ($self, $cmdname, $command) = @_;
 
-  if (!scalar(keys(%highlighted_languages_list))) {
+  if (defined($highlighted_languages_list)
+      and !scalar(keys(%$highlighted_languages_list))) {
     my $default_open = $self->default_command_open($cmdname);
     if (defined($default_open)) {
       return &{$default_open}($self, $cmdname, $command);
