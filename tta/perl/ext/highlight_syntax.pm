@@ -64,6 +64,9 @@ texinfo_register_command_formatting('example', \&highlight_preformatted_command)
 texinfo_register_command_opening('example',
                                  \&highlight_open_inline_container_type);
 
+# Run highlighting command to set %highlighted_languagees_list to list
+# of recognized languages.  This array is used to avoid calling the highlighter
+# with an unrecognized language.
 sub highlight_setup($$) {
   my ($self, $document) = @_;
 

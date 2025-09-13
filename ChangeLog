@@ -1,3 +1,8 @@
+2025-09-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/ext/highlight_syntax.pm (highlight_setup):
+	Add comment saying what this function does.
+
 2025-09-12 Patrice Dumas  <pertusus@free.fr>
 
 	HIGHLIGHT_SYNTAX value used as command-line
