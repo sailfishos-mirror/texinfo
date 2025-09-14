@@ -346,6 +346,7 @@ sub highlight_process($$) {
             $commands{$cmdname}->{'retrieved_languages_counters'}->{$language} = 0;
             $commands{$cmdname}->{'output_languages_counters'}->{$language} = 0;
           }
+          $commands{$cmdname}->{'input_languages_counters'}->{$language} += 1;
         } elsif (defined($converted_language) and $verbose) {
           warn "# highlight_syntax: language not found: $converted_language\n";
         }

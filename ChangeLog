@@ -1,3 +1,8 @@
+2025-09-12 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/ext/highlight_syntax.pm (highlight_process): increase
+	input_languages_counters key value for each collected command.
+
 2025-09-13  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/ext/highlight_syntax.pm (highlight_setup):
