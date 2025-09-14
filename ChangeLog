@@ -1,5 +1,15 @@
 2025-09-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/highlight_syntax.pm (highlight_process): rename
+	@highlighted_commands as @highlighted_commands_names.
+
+	* tta/perl/ext/highlight_syntax.pm (_add_command_language)
+	(highlight_process): separate better the 'source-highlight' case from
+	the other cases.  Indeed, the other cases do not need to collect
+	per-language information.
+
+2025-09-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/highlight_syntax.pm (highlight_process): check earlier
 	that HIGHLIGHT_SYNTAX is set.  Put tree elements only in languages
 	'commands' array.

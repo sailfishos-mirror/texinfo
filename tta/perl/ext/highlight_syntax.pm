@@ -295,6 +295,23 @@ my $range_separator
 
 my %commands;
 
+sub _add_command_language($$) {
+  my ($cmdname, $language) = @_;
+
+  $commands{$cmdname} = {'input_languages_counters' => {},
+                         'results' => {},
+                         'retrieved_languages_counters'  => {},
+                         'output_languages_counters' => {}}
+    if (not exists($commands{$cmdname}));
+  if (not exists($commands{$cmdname}
+                      ->{'input_languages_counters'}->{$language})) {
+    $commands{$cmdname}->{'input_languages_counters'}->{$language} = 0;
+    $commands{$cmdname}->{'retrieved_languages_counters'}->{$language} = 0;
+    $commands{$cmdname}->{'output_languages_counters'}->{$language} = 0;
+  }
+  $commands{$cmdname}->{'input_languages_counters'}->{$language} += 1;
+}
+
 # collect all the highlighted commands Texinfo tree elements with an
 # associated language.
 sub highlight_process($$) {
@@ -319,110 +336,118 @@ sub highlight_process($$) {
 
   my $verbose = $self->get_conf('VERBOSE');
 
-  my @highlighted_commands = ('example');
+  my @highlighted_commands_names = ('example');
 
   my $collected_commands
     = Texinfo::Common::collect_commands_in_tree($document_root,
-                                             \@highlighted_commands);
+                                         \@highlighted_commands_names);
 
+  if ($highlight_syntax ne 'source-highlight') {
+    # Pass each fragment to a command.
+    foreach my $cmdname (@highlighted_commands_names) {
+      if (scalar(@{$collected_commands->{$cmdname}}) > 0) {
+        foreach my $element (@{$collected_commands->{$cmdname}}) {
+          my ($language, $converted_language)
+                = _get_language($self, $cmdname, $element);
+          if (!defined($language)) {
+            if (defined($converted_language) and $verbose) {
+              warn "# highlight_syntax: language not found:"
+                                   ." $converted_language\n";
+            }
+            next;
+          }
+
+          _add_command_language($cmdname, $language);
+
+          my $text = _convert_element($self, $element);
+
+          my $highlight_cmd;
+          if ($highlight_syntax eq 'highlight') {
+            $highlight_cmd = 'highlight -f --style-outfile=html --inline-css '
+                               .'--syntax=';
+          } elsif ($highlight_syntax eq 'pygments') {
+            $highlight_cmd = 'pygmentize -f html -O noclasses=True -l ';
+          } else {
+            $highlight_cmd = $highlight_syntax;
+          }
+          my $cmd = $highlight_cmd . $language;
+
+          my ($wtr, $rdr, $err);
+          $err = gensym();
+          my $pid = IPC::Open3::open3($wtr, $rdr, $err, $cmd);
+          if (! $pid) {
+            $self->converter_document_error(sprintf(__('%s: %s'), $cmd, $!));
+            return 1;
+          }
+          binmode($wtr, ':utf8');
+          binmode($rdr, ':utf8');
+          # not so sure here.  Use locale?
+          binmode($err, ':utf8');
+          print $wtr $text;
+          if (!close($wtr)) {
+            $self->converter_document_error(
+              sprintf(__('%s: error closing input: %s'), $cmd, $!));
+            close($rdr);
+            close($err);
+            return 1;
+          }
+
+          my @outlines = <$rdr>;
+          my @errlines = <$err>;
+          my $status = 0;
+          if (!close($rdr)) {
+            $self->converter_document_error(
+              sprintf(__('%s: error closing output: %s'), $cmd, $!));
+            $status = 1;
+          }
+          if (!close($err)) {
+            $self->converter_document_error(
+              sprintf(__('%s: error closing errors: %s'), $cmd, $!));
+            $status = 1;
+          }
+          waitpid($pid, 0);
+          if (@errlines) {
+            $status = 1;
+            $self->converter_document_error(sprintf(__('%s: errors: %s'),
+                                                 $cmd, shift @errlines));
+            foreach my $error_line (@errlines) {
+              $self->converter_document_error(sprintf(__('  %s'),
+                                                      $error_line), 1);
+            }
+          }
+          return 1 if ($status);
+          my $cmdname = $element->{'cmdname'};
+          $commands{$cmdname}->{'results'}->{$element} = join('', @outlines);
+          $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}++;
+        }
+      }
+    }
+    return 0;
+  }
+
+  # case of 'source-highlight'.
+  # Collect per longuage elements and output all the texts to be highlighted
+  # in a file per language.
   my %languages = ();
-  foreach my $cmdname (@highlighted_commands) {
+  foreach my $cmdname (@highlighted_commands_names) {
     if (scalar(@{$collected_commands->{$cmdname}}) > 0) {
       foreach my $element (@{$collected_commands->{$cmdname}}) {
         my ($language, $converted_language)
               = _get_language($self, $cmdname, $element);
         if (defined($language)) {
+          _add_command_language($cmdname, $language);
+
           $languages{$language} = {'counter' => 0, 'commands' => [],
                                    'line_ranges' => []}
             if (not exists($languages{$language}));
           $languages{$language}->{'counter'}++;
           my $counter = $languages{$language}->{'counter'};
           $languages{$language}->{'commands'}->[$counter-1] = $element;
-          $commands{$cmdname} = {'input_languages_counters' => {},
-                                 'results' => {},
-                                 'retrieved_languages_counters'  => {},
-                                 'output_languages_counters' => {}}
-            if (not exists($commands{$cmdname}));
-          if (not exists($commands{$cmdname}
-                              ->{'input_languages_counters'}->{$language})) {
-            $commands{$cmdname}->{'input_languages_counters'}->{$language} = 0;
-            $commands{$cmdname}->{'retrieved_languages_counters'}->{$language} = 0;
-            $commands{$cmdname}->{'output_languages_counters'}->{$language} = 0;
-          }
-          $commands{$cmdname}->{'input_languages_counters'}->{$language} += 1;
         } elsif (defined($converted_language) and $verbose) {
           warn "# highlight_syntax: language not found: $converted_language\n";
         }
       }
     }
-  }
-
-  # When there is no possibility to specify all the fragments to highlight
-  # in an input file, pass each fragment to a command.
-  if ($highlight_syntax ne 'source-highlight') {
-    foreach my $language (keys(%languages)) {
-      foreach my $element (@{$languages{$language}->{'commands'}}) {
-        my $text = _convert_element($self, $element);
-
-        my ($wtr, $rdr, $err);
-        $err = gensym();
-        my $highlight_cmd;
-        if ($highlight_syntax eq 'highlight') {
-          $highlight_cmd = 'highlight -f --style-outfile=html --inline-css '
-                             .'--syntax=';
-        } elsif ($highlight_syntax eq 'pygments') {
-          $highlight_cmd = 'pygmentize -f html -O noclasses=True -l ';
-        } else {
-          $highlight_cmd = $highlight_syntax;
-        }
-        my $cmd = $highlight_cmd . $language;
-        my $pid = IPC::Open3::open3($wtr, $rdr, $err, $cmd);
-        if (! $pid) {
-          $self->converter_document_error(sprintf(__('%s: %s'), $cmd, $!));
-          return 1;
-        }
-        binmode($wtr, ':utf8');
-        binmode($rdr, ':utf8');
-        # not so sure here.  Use locale?
-        binmode($err, ':utf8');
-        print $wtr $text;
-        if (!close($wtr)) {
-          $self->converter_document_error(
-            sprintf(__('%s: error closing input: %s'), $cmd, $!));
-          close($rdr);
-          close($err);
-          return 1;
-        }
-
-        my @outlines = <$rdr>;
-        my @errlines = <$err>;
-        my $status = 0;
-        if (!close($rdr)) {
-          $self->converter_document_error(
-            sprintf(__('%s: error closing output: %s'), $cmd, $!));
-          $status = 1;
-        }
-        if (!close($err)) {
-          $self->converter_document_error(
-            sprintf(__('%s: error closing errors: %s'), $cmd, $!));
-          $status = 1;
-        }
-        waitpid($pid, 0);
-        if (@errlines) {
-          $status = 1;
-          $self->converter_document_error(sprintf(__('%s: errors: %s'),
-                                               $cmd, shift @errlines));
-          foreach my $error_line (@errlines) {
-            $self->converter_document_error(sprintf(__('  %s'), $error_line), 1);
-          }
-        }
-        return 1 if ($status);
-        my $cmdname = $element->{'cmdname'};
-        $commands{$cmdname}->{'results'}->{$element} = join('', @outlines);
-        $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}++;
-      }
-    }
-    return 0;
   }
 
   my $document_name = $self->get_info('document_name');
