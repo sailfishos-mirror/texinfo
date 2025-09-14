@@ -1,5 +1,15 @@
 2025-09-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/highlight_syntax.pm (_get_language): remove $cmdname
+	argument, get it from the Texinfo tree element.  Update callers.
+
+	* tta/perl/ext/highlight_syntax.pm (%highlighted_cmds): rename
+	%commands and %highlighted_cmds.
+
+	* tta/perl/ext/highlight_syntax.pm: add comments.
+
+2025-09-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/highlight_syntax.pm (highlight_process): rename
 	@highlighted_commands as @highlighted_commands_names.
 

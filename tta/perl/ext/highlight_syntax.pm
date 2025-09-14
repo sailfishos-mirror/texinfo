@@ -54,6 +54,35 @@ my %languages_extensions = (
 # Otherwise a hash reference with possible languages as keys.
 my $highlighted_languages_list;
 
+# the list of @-commands that can be highlighted.
+# Each of these commands should have a command formatting function
+# registered.
+my @highlighted_commands_names = ('example');
+
+# The @-commands highlighting is done in two steps
+# 1) in highlight_process, before the start of the HTML conversion,
+#    * the highlighted commands are collected by going through the
+#      Texinfo tree
+#    * each collected Texinfo tree element programming language is
+#      determined and the tree elements are converted to text if a
+#      programming language is found.
+#      The text goes through a program that returns highlighted HTML
+#      code.
+#        - with 'source-highlight' a file is setup by language, the
+#          program is called once per language with line counts
+#          and separators used to separate the fragments.
+#        - otherwise the program is called for each of the Texinfo tree
+#          element with the language in the command-line, text is
+#          passed on the standard input and the highlighted code fragment
+#          is read from the standard output.
+#      The Texinfo tree element is associated to the highlighted
+#      HTML code fragment in this step.
+# 2) During the conversion, the command formatting function associated
+#    to each of the Texinfo tree command elements that could be highlighted
+#    is called.  In these functions (currently only one,
+#    highlight_preformatted_command), the highlighted HTML code fragment
+#    associated to the tree element is found and output.
+
 texinfo_register_handler('setup', \&highlight_setup);
 texinfo_register_handler('structure', \&highlight_process);
 texinfo_register_command_formatting('example', \&highlight_preformatted_command);
@@ -211,12 +240,19 @@ sub highlight_setup($$) {
   return 0;
 }
 
-sub _get_language($$$) {
-  my ($self, $cmdname, $command) = @_;
+# Determine the Texinfo tree element $COMMAND converted language command
+# argument, or set it with HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE (if set).
+# Determine the normalized language name.  If there is a list of known
+# languages, check if the language is known.
+# Returns the (normalized language, converted language) pair.  Both
+# could be undef.
+sub _get_language($$) {
+  my ($self, $command) = @_;
 
   my $language;
   my $converted_language;
 
+  my $cmdname = $command->{'cmdname'};
   if ($cmdname eq 'example') {
     my $arguments_line = $command->{'contents'}->[0];
     if (exists($arguments_line->{'contents'})) {
@@ -256,6 +292,7 @@ sub _get_language($$$) {
   }
 }
 
+# Convert element argument to simple text.
 sub _convert_element($$) {
   my ($self, $element) = @_;
 
@@ -289,40 +326,57 @@ sub _convert_element($$) {
   return $text;
 }
 
-# the end of the string was randomly generated once for all.
+# The end of the string was randomly generated once for all.
+# Used for 'source-highlight' only.
 my $range_separator
   = '_______________________________________ highlight texinfo _GT Haib0aik zei4YieH';
 
-my %commands;
+# Keys are commands names (currently only 'example').
+# Associates a command name and element to the resulting highlighted text
+# in 'result'.
+# Also holds per language counters:
+#   input_languages_counters:     number of collected Texinfo tree elements
+#                                 for a command name and language
+#   retrieved_languages_counters: number of highlighted HTML fragments
+#                                 retrieved for a command name and language.
+#   output_languages_counters:    number of highlighted HTML fragments
+#                                 output in the converted output.
+my %highlighted_cmds;
 
-sub _add_command_language($$) {
+# Initialize %highlighted_cmds for $CMDNAME command name and $LANGUAGE
+# language and increase the input counter.
+sub _add_collected_command_language($$) {
   my ($cmdname, $language) = @_;
 
-  $commands{$cmdname} = {'input_languages_counters' => {},
-                         'results' => {},
-                         'retrieved_languages_counters'  => {},
-                         'output_languages_counters' => {}}
-    if (not exists($commands{$cmdname}));
-  if (not exists($commands{$cmdname}
+  $highlighted_cmds{$cmdname} = {'input_languages_counters' => {},
+                                 'results' => {},
+                                 'retrieved_languages_counters'  => {},
+                                 'output_languages_counters' => {}}
+    if (not exists($highlighted_cmds{$cmdname}));
+
+  # initialize per language counters
+  if (not exists($highlighted_cmds{$cmdname}
                       ->{'input_languages_counters'}->{$language})) {
-    $commands{$cmdname}->{'input_languages_counters'}->{$language} = 0;
-    $commands{$cmdname}->{'retrieved_languages_counters'}->{$language} = 0;
-    $commands{$cmdname}->{'output_languages_counters'}->{$language} = 0;
+    $highlighted_cmds{$cmdname}->{'input_languages_counters'}->{$language} = 0;
+    $highlighted_cmds{$cmdname}
+         ->{'retrieved_languages_counters'}->{$language} = 0;
+    $highlighted_cmds{$cmdname}->{'output_languages_counters'}->{$language} = 0;
   }
-  $commands{$cmdname}->{'input_languages_counters'}->{$language} += 1;
+
+  $highlighted_cmds{$cmdname}->{'input_languages_counters'}->{$language} += 1;
 }
 
 # collect all the highlighted commands Texinfo tree elements with an
-# associated language.
+# associated language, convert to text, call the highliting command.
+# Store the highlighted HTML code in %highlighted_cmds 'results', associated
+# to the Texinfo tree element.
 sub highlight_process($$) {
   my ($self, $document) = @_;
 
   my $document_root = $document->tree();
 
-  # initialization, important in case multiple manuals are processed
-  %commands = ();              # associates a command name and element to the resulting
-                               # highlighted text.
-                               # Also holds per language counters.
+  # Reset in case multiple manuals are processed.
+  %highlighted_cmds = ();
 
   return 0 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
@@ -336,8 +390,6 @@ sub highlight_process($$) {
 
   my $verbose = $self->get_conf('VERBOSE');
 
-  my @highlighted_commands_names = ('example');
-
   my $collected_commands
     = Texinfo::Common::collect_commands_in_tree($document_root,
                                          \@highlighted_commands_names);
@@ -348,7 +400,7 @@ sub highlight_process($$) {
       if (scalar(@{$collected_commands->{$cmdname}}) > 0) {
         foreach my $element (@{$collected_commands->{$cmdname}}) {
           my ($language, $converted_language)
-                = _get_language($self, $cmdname, $element);
+                = _get_language($self, $element);
           if (!defined($language)) {
             if (defined($converted_language) and $verbose) {
               warn "# highlight_syntax: language not found:"
@@ -357,7 +409,7 @@ sub highlight_process($$) {
             next;
           }
 
-          _add_command_language($cmdname, $language);
+          _add_collected_command_language($cmdname, $language);
 
           my $text = _convert_element($self, $element);
 
@@ -417,8 +469,10 @@ sub highlight_process($$) {
           }
           return 1 if ($status);
           my $cmdname = $element->{'cmdname'};
-          $commands{$cmdname}->{'results'}->{$element} = join('', @outlines);
-          $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}++;
+          $highlighted_cmds{$cmdname}->{'results'}->{$element}
+             = join('', @outlines);
+          $highlighted_cmds{$cmdname}->{'retrieved_languages_counters'}
+                                                           ->{$language}++;
         }
       }
     }
@@ -426,16 +480,16 @@ sub highlight_process($$) {
   }
 
   # case of 'source-highlight'.
-  # Collect per longuage elements and output all the texts to be highlighted
+  # Collect per language elements and output all the texts to be highlighted
   # in a file per language.
   my %languages = ();
   foreach my $cmdname (@highlighted_commands_names) {
     if (scalar(@{$collected_commands->{$cmdname}}) > 0) {
       foreach my $element (@{$collected_commands->{$cmdname}}) {
         my ($language, $converted_language)
-              = _get_language($self, $cmdname, $element);
+              = _get_language($self, $element);
         if (defined($language)) {
-          _add_command_language($cmdname, $language);
+          _add_collected_command_language($cmdname, $language);
 
           $languages{$language} = {'counter' => 0, 'commands' => [],
                                    'line_ranges' => []}
@@ -572,8 +626,9 @@ sub highlight_process($$) {
           $got_count++;
           my $element = $languages{$language}->{'commands'}->[$got_count-1];
           my $cmdname = $element->{'cmdname'};
-          $commands{$cmdname}->{'results'}->{$element} = $text;
-          $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}++;
+          $highlighted_cmds{$cmdname}->{'results'}->{$element} = $text;
+          $highlighted_cmds{$cmdname}->{'retrieved_languages_counters'}
+                                                            ->{$language}++;
           $text = undef;
         }
         #print STDERR "$language $got_count $language_fragments_nr \n";
@@ -628,12 +683,12 @@ sub highlight_open_inline_container_type($$$) {
       return '';
     }
   }
-  if (exists($commands{$cmdname})
-      and exists($commands{$cmdname}->{'results'})) {
+  if (exists($highlighted_cmds{$cmdname})
+      and exists($highlighted_cmds{$cmdname}->{'results'})) {
     my ($language, $converted_language)
-                = _get_language($self, $cmdname, $command);
-    if (exists($commands{$cmdname}->{'results'}->{$command})
-        and defined($commands{$cmdname}->{'results'}->{$command})) {
+                = _get_language($self, $command);
+    if (exists($highlighted_cmds{$cmdname}->{'results'}->{$command})
+        and defined($highlighted_cmds{$cmdname}->{'results'}->{$command})) {
 
       # only replace the example and inside preformatted if the code leading
       # to get_associated_formatted_inline_content being called in
@@ -657,19 +712,20 @@ sub highlight_preformatted_command($$$$$) {
   # if no commands were registered nor converted, do not
   # warn if the language is known.  It means that there was
   # no highlighting or some error.
-  if (exists($commands{$cmdname})
-      and exists($commands{$cmdname}->{'results'})) {
+  if (exists($highlighted_cmds{$cmdname})
+      and exists($highlighted_cmds{$cmdname}->{'results'})) {
     my ($language, $converted_language)
-                = _get_language($self, $cmdname, $command);
-    if (exists($commands{$cmdname}->{'results'}->{$command})
-        and defined($commands{$cmdname}->{'results'}->{$command})) {
+                = _get_language($self, $command);
+    if (exists($highlighted_cmds{$cmdname}->{'results'}->{$command})
+        and defined($highlighted_cmds{$cmdname}->{'results'}->{$command})) {
 
       if (not defined($language)) {
         $self->converter_document_warn(sprintf(__(
        "highlight_syntax.pm: output has HTML item for \@%s but no language %s"),
                                     $cmdname, $command));
       } else {
-        $commands{$cmdname}->{'output_languages_counters'}->{$language}++;
+        $highlighted_cmds{$cmdname}->{'output_languages_counters'}
+                                                         ->{$language}++;
 
         if ($self->in_string()) {
           $content = '' if (!defined($content));
@@ -730,7 +786,8 @@ sub highlight_preformatted_command($$$$$) {
         }
         unshift @classes, $main_cmdname;
 
-        my $result_content = $commands{$cmdname}->{'results'}->{$command};
+        my $result_content
+          = $highlighted_cmds{$cmdname}->{'results'}->{$command};
         # do it here, what was done in preformatted is discarded.
         # It should have been correctly registered
         # through highlight_open_inline_container_type.
@@ -747,11 +804,14 @@ sub highlight_preformatted_command($$$$$) {
     # no error nor verbose message if there was no retrieved information
     # for that language
     } elsif (defined($language)
-       and $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}) {
+       and $highlighted_cmds{$cmdname}->{'retrieved_languages_counters'}
+                                                            ->{$language}) {
       my $cmd_language_input_count
-         = $commands{$cmdname}->{'input_languages_counters'}->{$language};
+        = $highlighted_cmds{$cmdname}->{'input_languages_counters'}
+                                                             ->{$language};
       my $cmd_language_retrieved_count
-         = $commands{$cmdname}->{'retrieved_languages_counters'}->{$language};
+        = $highlighted_cmds{$cmdname}->{'retrieved_languages_counters'}
+                                                              ->{$language};
       # Output an message only if the counters are equal, meaning language
       # was processed without failure.
       # If they are not equal there should have been a message already.
@@ -764,6 +824,8 @@ sub highlight_preformatted_command($$$$$) {
       }
     }
   }
+
+  # fall back on default conversion
   return &{$self->default_command_conversion($cmdname)}($self, $cmdname,
                                                $command, $args, $content);
 }
