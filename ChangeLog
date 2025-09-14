@@ -1,5 +1,11 @@
 2025-09-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/highlight_syntax.pm (highlight_process): chomp error
+	lines coming from the highlighting program stderr before feeding them
+	to converter_document_error.
+
+2025-09-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/highlight_syntax.pm (_get_language): remove $cmdname
 	argument, get it from the Texinfo tree element.  Update callers.
 

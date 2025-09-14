@@ -460,9 +460,12 @@ sub highlight_process($$) {
           waitpid($pid, 0);
           if (@errlines) {
             $status = 1;
+            my $errline = shift @errlines;
+            chomp($errline);
             $self->converter_document_error(sprintf(__('%s: errors: %s'),
-                                                 $cmd, shift @errlines));
+                                                    $cmd, $errline));
             foreach my $error_line (@errlines) {
+              chomp($error_line);
               $self->converter_document_error(sprintf(__('  %s'),
                                                       $error_line), 1);
             }
