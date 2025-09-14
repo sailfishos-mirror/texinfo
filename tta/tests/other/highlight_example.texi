@@ -13,7 +13,7 @@ Texinfo
 @end example
 
 C++
-@example C++
+@example c
 // Your First C++ Program
 
 #include <iostream>

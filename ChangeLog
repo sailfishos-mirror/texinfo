@@ -1,5 +1,15 @@
 2025-09-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/highlight_syntax.pm (highlight_setup, _get_language):
+	do not map language names.  If a mapping is needed, the user could
+	use wrappers and do the mapping in the wrapper.
+
+	* tta/tests/other/highlight_example.texi,
+	tta/tests/other/list-of-tests: use languages names that do not need
+	to be mapped.
+
+2025-09-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/highlight_syntax.pm (highlight_process): chomp error
 	lines coming from the highlighting program stderr before feeding them
 	to converter_document_error.

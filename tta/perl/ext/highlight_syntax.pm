@@ -30,21 +30,6 @@ use Texinfo::Common;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::NodeNameNormalization;
 
-my %highlight_type_languages_name_mappings = (
-  'source-highlight' => {
-    'C++' => 'C',
-    'Perl' => 'perl',
-  },
-  'highlight' => {
-    'C++' => 'c++',
-  },
-  'pygments' => {
-    'C++' => 'c++',
-  }
-);
-
-my %languages_name_mapping;
-
 my %languages_extensions = (
   'texinfo' => 'texi',
   'perl' => 'pl',
@@ -102,7 +87,6 @@ sub highlight_setup($$) {
   my $document_root = $document->tree();
 
   $highlighted_languages_list = undef;
-  %languages_name_mapping = ();
 
   my $highlight_syntax = $self->get_conf('HIGHLIGHT_SYNTAX');
 
@@ -125,11 +109,6 @@ sub highlight_setup($$) {
   }
 
   %$highlighted_languages_list = ();
-
-  if (exists($highlight_type_languages_name_mappings{$highlight_type})) {
-    %languages_name_mapping
-      = %{$highlight_type_languages_name_mappings{$highlight_type}};
-  }
 
   # NOTE open failure triggers a warning message if run with -w if the
   # file is not found.  This message can be catched with $SIG{__WARN__}.
@@ -180,18 +159,11 @@ sub highlight_setup($$) {
         my $main_language = $1;
         my $other_languages = $3;
         $highlighted_languages_list->{$main_language} = 1;
-        if (defined($other_languages)) {
-          foreach my $other_language (split(/ /, $other_languages)) {
-            $languages_name_mapping{$other_language} = $main_language
-              unless ($other_language eq $main_language);
-          }
-        }
       } else {
         last;
       }
     }
     #use Data::Dumper;
-    #print STDERR Data::Dumper->Dump([\%languages_name_mapping]);
     #print STDERR Data::Dumper->Dump([$highlighted_languages_list]);
     #exit 1;
   } elsif ($highlight_type eq 'pygments') {
@@ -205,14 +177,10 @@ sub highlight_setup($$) {
         } else {
           my $main_language = shift @languages;
           $highlighted_languages_list->{$main_language} = 1;
-          foreach my $other_language (@languages) {
-            $languages_name_mapping{$other_language} = $main_language;
-          }
         }
       }
     }
     #use Data::Dumper;
-    #print STDERR Data::Dumper->Dump([\%languages_name_mapping]);
     #print STDERR Data::Dumper->Dump([$highlighted_languages_list]);
     #exit 1;
   } else { # $highlight_type eq 'source-highlight'
@@ -274,19 +242,9 @@ sub _get_language($$) {
   }
 
   if (defined($converted_language)
-      and exists($languages_name_mapping{$converted_language})) {
-    $language = $languages_name_mapping{$converted_language};
-    while (exists($languages_name_mapping{$language})) {
-      $language = $languages_name_mapping{$language};
-    }
-  } else {
-    $language = $converted_language;
-  }
-
-  if (defined($language)
       and (!defined($highlighted_languages_list)
-           or exists($highlighted_languages_list->{$language}))) {
-    return ($language, $converted_language);
+           or exists($highlighted_languages_list->{$converted_language}))) {
+    return ($converted_language, $converted_language);
   } else {
     return (undef, $converted_language);
   }
