@@ -295,6 +295,8 @@ my $range_separator
 
 my %commands;
 
+# collect all the highlighted commands Texinfo tree elements with an
+# associated language.
 sub highlight_process($$) {
   my ($self, $document) = @_;
 
@@ -312,6 +314,8 @@ sub highlight_process($$) {
                and !scalar(keys(%$highlighted_languages_list)));
 
   my $highlight_syntax = $self->get_conf('HIGHLIGHT_SYNTAX');
+
+  return 1 if (!defined($highlight_syntax) or $highlight_syntax !~ /\S/);
 
   my $verbose = $self->get_conf('VERBOSE');
 
@@ -333,8 +337,7 @@ sub highlight_process($$) {
             if (not exists($languages{$language}));
           $languages{$language}->{'counter'}++;
           my $counter = $languages{$language}->{'counter'};
-          $languages{$language}->{'commands'}->[$counter-1]
-                                                 = [$element, $cmdname];
+          $languages{$language}->{'commands'}->[$counter-1] = $element;
           $commands{$cmdname} = {'input_languages_counters' => {},
                                  'results' => {},
                                  'retrieved_languages_counters'  => {},
@@ -356,12 +359,9 @@ sub highlight_process($$) {
 
   # When there is no possibility to specify all the fragments to highlight
   # in an input file, pass each fragment to a command.
-  if (defined($highlight_syntax)
-      and $highlight_syntax ne 'source-highlight') {
+  if ($highlight_syntax ne 'source-highlight') {
     foreach my $language (keys(%languages)) {
-      foreach my $element_command (@{$languages{$language}->{'commands'}}) {
-        my ($element, $cmdname) = @{$element_command};
-
+      foreach my $element (@{$languages{$language}->{'commands'}}) {
         my $text = _convert_element($self, $element);
 
         my ($wtr, $rdr, $err);
@@ -417,6 +417,7 @@ sub highlight_process($$) {
           }
         }
         return 1 if ($status);
+        my $cmdname = $element->{'cmdname'};
         $commands{$cmdname}->{'results'}->{$element} = join('', @outlines);
         $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}++;
       }
@@ -472,8 +473,8 @@ sub highlight_process($$) {
     my $highlight_lang_in_line_nr = 2;
 
     my $counter = 0;
-    foreach my $element_command (@{$languages{$language}->{'commands'}}) {
-      my $text = _convert_element($self, $element_command->[0]);
+    foreach my $element (@{$languages{$language}->{'commands'}}) {
+      my $text = _convert_element($self, $element);
       # count the number of record separator $/
       my $buffer = $text;
       my $text_lines_nr = ( $buffer =~ s|$/||g );
@@ -544,10 +545,8 @@ sub highlight_process($$) {
         $separators_count++;
         if (defined($text)) {
           $got_count++;
-          my $element_command
-              = $languages{$language}->{'commands'}->[$got_count-1];
-          my $element = $element_command->[0];
-          my $cmdname = $element_command->[1];
+          my $element = $languages{$language}->{'commands'}->[$got_count-1];
+          my $cmdname = $element->{'cmdname'};
           $commands{$cmdname}->{'results'}->{$element} = $text;
           $commands{$cmdname}->{'retrieved_languages_counters'}->{$language}++;
           $text = undef;
@@ -568,9 +567,8 @@ sub highlight_process($$) {
                       $language, $separators_count, $language_fragments_nr+1));
     }
     if (defined($text) and $text ne '') {
-      my $element_command = $languages{$language}->{'commands'}->[$got_count-1];
-      my $element = $element_command->[0];
-      my $cmdname = $element_command->[1];
+      my $element = $languages{$language}->{'commands'}->[$got_count-1];
+      my $cmdname = $element->{'cmdname'};
       $self->converter_document_warn(sprintf(__(
                  "highlight_syntax.pm: %s: end of \@%s item %d not found"),
                                   $language, $cmdname, $got_count));
