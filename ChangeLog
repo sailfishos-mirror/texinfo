@@ -1,3 +1,13 @@
+2025-09-17  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Use %l placeholder in value of HIGHLIGHT_SYNTAX
+
+	* tta/perl/ext/highlight_syntax.pm (_substitute_language): New
+	function.
+	(highlight_process): Call highlight_syntax in order to substitute
+	%l with the "language" for syntax highlighting, rather than
+	postpending the language.
+
 2025-09-12 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/ext/highlight_syntax.pm (highlight_setup, _get_language):

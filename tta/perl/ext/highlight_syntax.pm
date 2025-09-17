@@ -104,7 +104,7 @@ sub highlight_setup($$) {
     $highlight_type = 'source-highlight';
     $cmd = 'source-highlight --lang-list';
   } else {
-    # $highlight_syntax will be used as command, with language postpended
+    # $highlight_syntax will be used as command, with language substituted
     return 0;
   }
 
@@ -324,6 +324,28 @@ sub _add_collected_command_language($$) {
   $highlighted_cmds{$cmdname}->{'input_languages_counters'}->{$language} += 1;
 }
 
+# Replace any instances of %l in $HIGHLIGHT_CMD with $LANGUAGE, and any
+# instances of %% with %.
+sub _substitute_language {
+  my ($highlight_cmd, $language) = @_;
+
+  my $result;
+  while ($highlight_cmd =~ s/^([^%]*)%(.)//) {
+    $result .= $1;
+    if ($2 eq '%') {
+      $result .= '%';
+    } elsif ($2 eq 'l') {
+      $result .= $language;
+    } else {
+      # unrecognized placeholder
+      $result .= '%';
+      $result .= $2;
+    }
+  }
+  $result .= $highlight_cmd;
+  return $result;
+}
+
 # collect all the highlighted commands Texinfo tree elements with an
 # associated language, convert to text, call the highliting command.
 # Store the highlighted HTML code in %highlighted_cmds 'results', associated
@@ -374,13 +396,13 @@ sub highlight_process($$) {
           my $highlight_cmd;
           if ($highlight_syntax eq 'highlight') {
             $highlight_cmd = 'highlight -f --style-outfile=html --inline-css '
-                               .'--syntax=';
+                               .'--syntax=%l';
           } elsif ($highlight_syntax eq 'pygments') {
-            $highlight_cmd = 'pygmentize -f html -O noclasses=True -l ';
+            $highlight_cmd = 'pygmentize -f html -O noclasses=True -l %l';
           } else {
             $highlight_cmd = $highlight_syntax;
           }
-          my $cmd = $highlight_cmd . $language;
+          my $cmd = _substitute_language($highlight_cmd, $language);
 
           my ($wtr, $rdr, $err);
           $err = gensym();
