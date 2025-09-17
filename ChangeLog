@@ -4,7 +4,7 @@
 
 	* tta/perl/ext/highlight_syntax.pm (_substitute_language): New
 	function.
-	(highlight_process): Call highlight_syntax in order to substitute
+	(highlight_process): Call _substitute_language in order to substitute
 	%l with the "language" for syntax highlighting, rather than
 	postpending the language.
 
