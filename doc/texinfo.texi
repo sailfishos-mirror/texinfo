@@ -17772,46 +17772,54 @@ customization set by the user.
 @section Code Examples Syntax Highlighting in HTML
 @cindex @command{source-highlight}
 
+@ignore
 @cartouche
 @quotation Warning
 Source highlighting is experimental; feedback is welcomed.  The syntax
 of @code{HIGHLIGHT_SYNTAX} is very likely to change in future release.
 @end quotation
 @end cartouche
+@end ignore
 
 @vindex HIGHLIGHT_SYNTAX
 @vindex HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE
-Support for source code syntax highlighting is available in
-@command{texi2any} for the HTML output, with the help of external software.
-This feature is turned on by setting @code{HIGHLIGHT_SYNTAX}.  Source code
-highlighting is set up for @code{@@example} blocks.  The language
-specified for syntax highlighting is the first argument on the @code{@@example} line
-(@pxref{@code{@@example}}), or @code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE} if set
-and there is no first argument.
+You can use the @code{HIGHLIGHT_SYNTAX} variable for
+syntax highlighting of source code in @code{@@example} blocks
+for the HTML output, with the help
+of external software.  You can set @code{HIGHLIGHT_SYNTAX} to
+one of several special values:
 
-The @code{HIGHLIGHT_SYNTAX} value determines the command used for highlighting:
 @table @asis
 @item @code{highlight}
 Use @command{highlight} from
-@url{http://www.andre-simon.de/doku/highlight/en/highlight.php};
+@url{http://www.andre-simon.de/doku/highlight/en/highlight.php}.
 @item @code{pygments}
-Use @command{pygmentize} from @url{https://pygments.org/};
+Use @command{pygmentize} from @url{https://pygments.org/}.
 @item @code{source-highlight}
 Use @command{source-highlight} (@pxref{,,,source-highlight, GNU Source-highlight}).
-@item any other value
-For each @code{@@example} with a known language, postpend the name of
-the highlighted language to the @code{HIGHLIGHT_SYNTAX} value and use the
-resulting string as a command-line to highlight code.  The
-@code{@@example} block content is converted to simple text and passed to the
-command-line standard input and the highlighted HTML is read from the standard
-output.
-
-For example, if you set @code{HIGHLIGHT_SYNTAX} to @samp{colorcode -l=} and
-there is a @samp{@@example C++} block in the document, the @command{colorcode
--l=C++} command-line is executed with the @samp{@@example} block
-passed to the executed command standard input and the result is read from
-the executed command standard output.
 @end table
+
+The first argument on an @code{@@example} line (@pxref{@code{@@example}})
+gives the name of the language used for syntax highlighting.
+@code{@@example} blocks without such an argument are only highlighted if
+@code{HIGHLIGHT_SYNTAX_DEFAULT_LANGUAGE} if set, which variable gives the
+language to use for highlighting such blocks.
+
+If you use a value for @code{HIGHLIGHT_SYNTAX} that is not listed above,
+it is a template for a command line that is executed to highlight code.
+This gives you more control over the exact command-line options
+used for the highlighting program, and allows you use other programs
+than those listed above.  In this template, the name of the highlighted
+language is substituted for occurrences of @samp{%l}, and @samp{%}
+is substituted for @samp{%%}.  @command{texi2any} passes the content of
+each @code{@@example} block (converted to simple text) on standard input,
+and the highlighted HTML is read from the standard output.
+
+For example, if you set @code{HIGHLIGHT_SYNTAX} to @samp{colorcode -l=%l} and
+there is an @samp{@@example C++} block in the document, the @command{colorcode
+-l=C++} command line is executed with the @samp{@@example} block passed
+to the standard input of the executed command, and the result is read from the
+standard output of the executed command .
 
 
 @node HTML Xref

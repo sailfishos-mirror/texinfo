@@ -1,3 +1,8 @@
+2025-09-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Syntax Highlighting): edit
+	* NEWS: edit announcement for HIGHLIGHT_SYNTAX
+
 2025-09-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Use %l placeholder in value of HIGHLIGHT_SYNTAX
