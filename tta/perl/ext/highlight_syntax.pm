@@ -393,16 +393,20 @@ sub highlight_process($$) {
 
           my $text = _convert_element($self, $element);
 
-          my $highlight_cmd;
+          my $cmd;
           if ($highlight_syntax eq 'highlight') {
-            $highlight_cmd = 'highlight -f --style-outfile=html --inline-css '
-                               .'--syntax=%l';
+            # With %l placeholder:
+            #$highlight_cmd = 'highlight -f --style-outfile=html --inline-css '
+            #                   .'--syntax=%l';
+            $cmd = 'highlight -f --style-outfile=html --inline-css '
+                                .'--syntax='.$language;
           } elsif ($highlight_syntax eq 'pygments') {
-            $highlight_cmd = 'pygmentize -f html -O noclasses=True -l %l';
+            # With %l placeholder:
+            #$highlight_cmd = 'pygmentize -f html -O noclasses=True -l %l';
+            $cmd = 'pygmentize -f html -O noclasses=True -l '.$language;
           } else {
-            $highlight_cmd = $highlight_syntax;
+            $cmd = _substitute_language($highlight_syntax, $language);
           }
-          my $cmd = _substitute_language($highlight_cmd, $language);
 
           my ($wtr, $rdr, $err);
           $err = gensym();
