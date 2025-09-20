@@ -1,3 +1,8 @@
+2025-09-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* TODO: remove done items: @documentinfo, use of <table> for
+	index formatting.
+
 2025-09-12 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/ext/highlight_syntax.pm (highlight_process): concatenate
