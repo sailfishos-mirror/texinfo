@@ -17789,13 +17789,13 @@ for the HTML output, with the help
 of external software.  You can set @code{HIGHLIGHT_SYNTAX} to
 one of several special values:
 
-@table @asis
-@item @code{highlight}
+@table @code
+@item highlight
 Use @command{highlight} from
 @url{http://www.andre-simon.de/doku/highlight/en/highlight.php}.
-@item @code{pygments}
+@item pygments
 Use @command{pygmentize} from @url{https://pygments.org/}.
-@item @code{source-highlight}
+@item source-highlight
 Use @command{source-highlight} (@pxref{,,,source-highlight, GNU Source-highlight}).
 @end table
 
@@ -17819,7 +17819,7 @@ For example, if you set @code{HIGHLIGHT_SYNTAX} to @samp{colorcode -l=%l} and
 there is an @samp{@@example C++} block in the document, the @command{colorcode
 -l=C++} command line is executed with the @samp{@@example} block passed
 to the standard input of the executed command, and the result is read from the
-standard output of the executed command .
+standard output of the executed command.
 
 
 @node HTML Xref

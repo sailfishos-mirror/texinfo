@@ -1,5 +1,12 @@
 2025-09-28 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Syntax Highlighting): use @table @code again and
+	remove a wrong space.
+
+	* TODO: remove done item on source highlighting.
+
+2025-09-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.h, tta/C/convert/html_prepare_converter.c
 	(default_special_unit_varieties): declare
 	default_special_unit_varieties in html_prepare_converter.c now that it
