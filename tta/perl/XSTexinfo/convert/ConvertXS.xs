@@ -66,6 +66,10 @@
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
 
+/* names of enum count_elements_in_filename_type, should be kept in sync */
+static const char *count_elements_in_filename_type_names[] = {
+ "total", "remaining", "current"};
+
 MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 
 # there is always a check on prototypes in XSLoader.  So it is simpler if

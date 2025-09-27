@@ -1,5 +1,13 @@
 2025-09-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(count_elements_in_filename_type_names),
+	tta/C/convert/html_conversion_state.c: move
+	count_elements_in_filename_type_names definition to ConvertXS.xs since
+	it is only used there.
+
+2025-09-28 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Syntax Highlighting): use @table @code again and
 	remove a wrong space.
 

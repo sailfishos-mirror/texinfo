@@ -40,10 +40,6 @@ static const char *css_info_type_names[] =
   "element_classes", "imports", "rules"
 };
 
-/* enum count_elements_in_filename_type */
-const char *count_elements_in_filename_type_names[] = {
- "total", "remaining", "current"};
-
 
 static void
 push_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack,

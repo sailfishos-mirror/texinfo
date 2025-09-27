@@ -4,8 +4,6 @@
 
 #include "html_converter_types.h"
 
-extern const char *count_elements_in_filename_type_names[];
-
 void html_new_document_context (CONVERTER *self,
         const char *context_name, const char *document_global_context,
         enum command_id block_command);
