@@ -33,7 +33,8 @@ html_converter_initialize (CONVERTER *converter)
 {
   html_converter_initialize_beginning (converter);
 
-  html_converter_init_special_unit (converter);
+  html_converter_init_special_unit_varieties (converter);
+  html_converter_init_special_units_info (converter);
   html_set_main_units_direction_names (converter);
   html_converter_customize (converter);
 

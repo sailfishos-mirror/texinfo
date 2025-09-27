@@ -43,7 +43,8 @@ SPECIAL_UNIT_INFO *html_add_special_unit_info (
                             SPECIAL_UNIT_INFO_LIST *special_unit_info_list,
                             int type, size_t variety_nr, const char *value);
 
-/* void html_converter_init_special_unit (CONVERTER *self); */
+/* void html_converter_init_special_unit_varieties (CONVERTER *self); */
+/* void html_converter_init_special_units_info (CONVERTER *self); */
 /* int html_set_main_units_direction_names (CONVERTER *self); */
 /* void html_converter_customize (CONVERTER *self); */
 

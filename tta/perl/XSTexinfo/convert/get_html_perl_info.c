@@ -46,8 +46,6 @@
 #include "debug.h"
 #include "convert_to_texinfo.h"
  */
-/* default_special_unit_varieties */
-#include "converter.h"
 #include "html_conversion_state.h"
 /* new_directions_strings_type initialize_js_categories_list
    initialize_jslicense_files new_special_unit_formatting_references
@@ -160,12 +158,7 @@ html_converter_init_special_unit_sv (SV *converter_sv,
   converter = get_sv_converter (converter_sv,
                                 "html_converter_init_special_unit_sv");
 
-  /* NOTE if the special units can be customized, then the
-     converter->special_unit_varieties should be set and used instead */
-  special_unit_varieties = &default_special_unit_varieties;
-  /*
   special_unit_varieties = &converter->special_unit_varieties;
-   */
 
   if (customized_special_unit_info && SvOK (customized_special_unit_info))
     {

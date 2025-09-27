@@ -811,9 +811,10 @@ html_converter_get_customization_sv (SV *converter_in, SV *default_formatting_re
            Therefore special unit Perl customization needs to be read
            and special unit initialization in C code needs to be run
            too before doing the remaining */
+        html_converter_init_special_unit_varieties (self);
         html_converter_init_special_unit_sv (converter_in,
                                              customized_special_unit_info);
-        html_converter_init_special_unit (self);
+        html_converter_init_special_units_info (self);
         /* calls html_set_main_units_direction_names */
         html_converter_get_customization_sv (converter_in,
                          default_formatting_references,

@@ -30,7 +30,8 @@ extern OPTIONS_LIST *html_default_options;
 
 /* in html_prepare_converter.c */
 void html_converter_initialize_beginning (CONVERTER *self);
-void html_converter_init_special_unit (CONVERTER *self);
+void html_converter_init_special_unit_varieties (CONVERTER *self);
+void html_converter_init_special_units_info (CONVERTER *self);
 int html_set_main_units_direction_names (CONVERTER *self);
 void html_converter_customize (CONVERTER *self);
 

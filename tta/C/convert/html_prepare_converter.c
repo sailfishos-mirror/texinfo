@@ -1559,17 +1559,27 @@ new_special_unit_info_type (int special_units_varieties_nr)
   return special_unit_info;
 }
 
+/* Setup special units varieties names.  Separate from
+   html_converter_init_special_units_info such that customization may be set
+   after setting up special units varieties names but before calling
+   html_converter_init_special_units_info
+ */
 void
-html_converter_init_special_unit (CONVERTER *self)
+html_converter_init_special_unit_varieties (CONVERTER *self)
 {
-  size_t nr_special_units;
-
   /* NOTE if the special units can be customized, then
-     self->special_unit_varieties should be used directly instead.
+     self->special_unit_varieties should ba set and used directly instead.
      Also default special units and special units indices should be
      mapped instead of assuming that they are the same when setting
      self->special_unit_info */
   copy_strings (&self->special_unit_varieties, &default_special_unit_varieties);
+}
+
+/* set units info to default and also apply customization */
+void
+html_converter_init_special_units_info (CONVERTER *self)
+{
+  size_t nr_special_units;
 
   nr_special_units = self->special_unit_varieties.number;
 

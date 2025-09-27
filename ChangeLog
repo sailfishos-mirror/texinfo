@@ -1,3 +1,22 @@
+2025-09-28 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/html_converter_api.c (html_converter_initialize),
+	tta/C/convert/html_prepare_converter.c
+	(html_converter_init_special_unit_varieties)
+	(html_converter_init_special_units_info),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(html_converter_get_customization_sv),
+	tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(html_converter_init_special_unit_sv): split
+	html_converter_init_special_unit in two, with
+	html_converter_init_special_unit_varieties that sets up the special
+	units variety names, and html_converter_init_special_units_info that
+	setup special units varieties information.  That way, the
+	customization information can be setup after special units variety
+	names have been set up, in html_converter_get_customization_sv.
+	This also avoids the need to access default_special_unit_varieties in
+	get_html_perl_info.c.
+
 2025-09-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* TODO: remove done items: @documentinfo, use of <table> for
