@@ -1559,6 +1559,9 @@ new_special_unit_info_type (int special_units_varieties_nr)
   return special_unit_info;
 }
 
+/* in main/conversion_data.c */
+extern const STRING_LIST default_special_unit_varieties;
+
 /* Setup special units varieties names.  Separate from
    html_converter_init_special_units_info such that customization may be set
    after setting up special units varieties names but before calling

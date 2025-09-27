@@ -106,9 +106,6 @@ extern enum command_id default_upper_case_commands[];
 /* in generated cmd_converter.c */
 extern const char * xml_text_entity_no_arg_commands[];
 
-/* in main/conversion_data.c */
-extern const STRING_LIST default_special_unit_varieties;
-
 /* in converter.c */
 extern const char *xml_text_entity_no_arg_commands_formatting[];
 
