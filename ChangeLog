@@ -1,3 +1,8 @@
+2025-10-18 Patrice Dumas  <pertusus@free.fr>
+
+	* util/htmlxref.d/Texinfo_GNU.cnf (aspell): remove index.html since
+	the manual is split at section.  Report from Eli Zaretskii.
+
 2025-09-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/XSTexinfo/convert/ConvertXS.xs
@@ -2424,7 +2429,7 @@
 
 	* doc/texinfo.texi (Node Names, Macro Details): Document that
 	user-defined macros should not appear within node names.  Report
-	from Werner Lembrg, bug-texinfo, 2025-02-05.
+	from Werner Lemberg, bug-texinfo, 2025-02-05.
 
 2025-08-06  Gavin Smith <gavinsmith0123@gmail.com>
 

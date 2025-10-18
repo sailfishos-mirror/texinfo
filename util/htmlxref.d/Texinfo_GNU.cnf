@@ -52,7 +52,7 @@ anubis		node	${GS}/anubis/manual/html_node/
 artanis		mono	${GS}/artanis/manual/artanis.html
 artanis		node	${GS}/artanis/manual/html_node/
 
-aspell		section	http://aspell.net/man-html/index.html
+aspell		section	http://aspell.net/man-html/
 
 auctex		mono	${GS}/auctex/manual/auctex.html
 auctex		node	${GS}/auctex/manual/auctex/
