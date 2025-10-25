@@ -1,3 +1,12 @@
+2025-10-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix float labels containing _
+
+	* doc/texinfo.tex (\dofloat): Fix call to \setref not to
+	expand float label.  This prevents premature expansion in case
+	the label contains an underscore.  Report and investigation by
+	Andreas Metzler and Hilmar Preuße.
+
 2025-10-18 Patrice Dumas  <pertusus@free.fr>
 
 	* util/htmlxref.d/Texinfo_GNU.cnf (aspell): remove index.html since
