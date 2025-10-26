@@ -52,4 +52,6 @@ void txi_ext_parser_conf_set_COMMAND_LINE_ENCODING (PARSER *parser,
 void txi_ext_parser_conf_set_accept_internalvalue (PARSER *parser,
                                                    int value);
 
+STRING_LIST *txi_ext_parser_conf_get_INCLUDE_DIRECTORIES (PARSER *parser);
+
 #endif

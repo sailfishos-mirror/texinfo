@@ -968,7 +968,7 @@ txi_ext_text_options_set_encoding (TEXT_OPTIONS *text_options,
 
 
 
-static FORMATTED_ERROR_MESSAGE_LIST *
+FORMATTED_ERROR_MESSAGE_LIST *
 txi_ext_get_error_messages_list_messages (ERROR_MESSAGE_LIST *error_messages,
                                           const char *message_encoding,
                                           int no_warn, int use_filename,

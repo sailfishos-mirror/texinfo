@@ -1,5 +1,16 @@
 2025-10-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/swig/swig_interface.c
+	(txi_ext_get_error_messages_list_messages): make extern.
+
+	* tta/C/swig/swig_parser_api.c
+	(txi_ext_parser_conf_get_INCLUDE_DIRECTORIES): add.
+
+	* tta/swig/texinfo.i (TXI_EXT_ELEMENT_FORMATTED_ERRORS)
+	(expand_verbatiminclude, destroy_element_formatted_errors): add.
+
+2025-10-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_utils.c (expand_verbatiminclude)
 	(converter_expand_verbatiminclude), tta/perl/Texinfo/Convert/Utils.pm
 	(expand_verbatiminclude),

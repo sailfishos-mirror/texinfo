@@ -125,6 +125,11 @@ FORMATTED_ERROR_MESSAGE_LIST *txi_ext_get_document_error_messages (
                                   int no_warn, int use_filename,
                                   int *count);
 
+FORMATTED_ERROR_MESSAGE_LIST *txi_ext_get_error_messages_list_messages (
+                                          ERROR_MESSAGE_LIST *error_messages,
+                                          const char *message_encoding,
+                                          int no_warn, int use_filename,
+                                          int *count);
 int txi_ext_messages_list_messages_number (
                           FORMATTED_ERROR_MESSAGE_LIST *messages_list);
 FORMATTED_ERROR_MESSAGE *txi_ext_messages_list_message_by_index (

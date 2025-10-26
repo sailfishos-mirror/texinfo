@@ -267,3 +267,15 @@ void txi_ext_parser_conf_set_accept_internalvalue (PARSER *parser,
   apply_conf (parser_conf);
   parser_conf_set_accept_internalvalue (value);
 }
+
+
+
+/* Not in libtexinfo parser API */
+STRING_LIST *
+txi_ext_parser_conf_get_INCLUDE_DIRECTORIES (PARSER *parser)
+{
+  PARSER_CONF *parser_conf
+    = retrieve_parser_conf (parser->parser_conf_descriptor);
+  return &parser_conf->include_directories;
+}
+

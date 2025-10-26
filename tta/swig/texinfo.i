@@ -44,6 +44,7 @@
 #include "tree.h"
 #include "targets.h"
 #include "utils.h"
+#include "errors.h"
 #include "convert_to_texinfo.h"
 #include "manipulate_tree.h"
 #include "document.h"
@@ -51,6 +52,8 @@
 #include "reader_api.h"
 #include "texinfo.h"
 #include "convert_to_text.h"
+/* expand_verbatiminclude */
+#include "convert_utils.h"
 #include "swig_element_data.h"
 #include "swig_text_options.h"
 #include "swig_interface.h"
@@ -252,6 +255,7 @@ DOCUMENT *txi_ext_parse_text (PARSER *parser, const char *string,
 %rename (parser_conf_set_LOCALE_ENCODING) txi_ext_parser_conf_set_LOCALE_ENCODING;
 %rename (parser_conf_set_COMMAND_LINE_ENCODING) txi_ext_parser_conf_set_COMMAND_LINE_ENCODING;
 %rename (parser_conf_set_accept_internalvalue) txi_ext_parser_conf_set_accept_internalvalue;
+%rename (parser_conf_get_INCLUDE_DIRECTORIES) txi_ext_parser_conf_get_INCLUDE_DIRECTORIES;
 
 %include "swig_parser_api.h"
 
@@ -733,3 +737,80 @@ ELEMENT *index_content_element (const ELEMENT *element,
 // utils.h
 // used in po4a converter
 const ELEMENT *block_line_argument_command (const ELEMENT *block_line_arg);
+// convert_utils.h
+// used in po4a converter
+
+// Structure used to return both error messages and element
+%inline %{
+typedef struct TXI_EXT_ELEMENT_FORMATTED_ERRORS {
+  ELEMENT *element;
+  FORMATTED_ERROR_MESSAGE_LIST *errors;
+} TXI_EXT_ELEMENT_FORMATTED_ERRORS;
+%}
+
+%rename(expand_verbatiminclude) txi_ext_inline_expand_verbatiminclude;
+TXI_EXT_ELEMENT_FORMATTED_ERRORS *
+txi_ext_inline_expand_verbatiminclude (const ELEMENT *current,
+                                 const STRING_LIST *include_directories,
+                                 const char *input_file_name_encoding=0,
+                                 int doc_encoding_for_input_file_name=1,
+                                 const char *locale_encoding=0,
+                                 const GLOBAL_INFO *global_information=0,
+                                 const char *message_encoding=0,
+                                 int debug=0, int no_warn=0,
+                                 int use_filename=0);
+%{
+TXI_EXT_ELEMENT_FORMATTED_ERRORS *
+txi_ext_inline_expand_verbatiminclude (const ELEMENT *current,
+                                 const STRING_LIST *include_directories,
+                                 const char *input_file_name_encoding,
+                                 int doc_encoding_for_input_file_name,
+                                 const char *locale_encoding,
+                                 const GLOBAL_INFO *global_information,
+                                 const char *message_encoding,
+                                 int debug, int no_warn, int use_filename)
+{
+  ERROR_MESSAGE_LIST error_messages;
+  TXI_EXT_ELEMENT_FORMATTED_ERRORS *result = (TXI_EXT_ELEMENT_FORMATTED_ERRORS *)
+            malloc (sizeof (TXI_EXT_ELEMENT_FORMATTED_ERRORS));
+  ELEMENT *expanded_verbatiminclude;
+  int count;
+  memset (&error_messages, 0, sizeof (ERROR_MESSAGE_LIST));
+  expanded_verbatiminclude = expand_verbatiminclude (current,
+                                 include_directories,
+                                 &error_messages, input_file_name_encoding,
+                                 doc_encoding_for_input_file_name,
+                                 locale_encoding, global_information, debug);
+  result->element = expanded_verbatiminclude;
+  result->errors = txi_ext_get_error_messages_list_messages (&error_messages,
+                                 message_encoding,
+                                 no_warn, use_filename, &count);
+  wipe_error_message_list (&error_messages);
+
+  return result;
+}
+%}
+
+// destroys element and the structure only, the error messages should be
+// destroyed by the caller.
+%rename(destroy_element_formatted_errors) txi_ext_inline_destroy_element_formatted_errors;
+
+%inline %{
+void
+txi_ext_inline_destroy_element_formatted_errors(
+                   TXI_EXT_ELEMENT_FORMATTED_ERRORS *element_formatted_error);
+%}
+
+%{
+void
+txi_ext_inline_destroy_element_formatted_errors(
+                   TXI_EXT_ELEMENT_FORMATTED_ERRORS *element_formatted_error)
+{
+  if (element_formatted_error)
+    {
+      if (element_formatted_error->element)
+        destroy_element_and_children(element_formatted_error->element);
+      free (element_formatted_error);
+    }
+}
+%}
