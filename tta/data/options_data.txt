@@ -206,11 +206,6 @@ USE_UNICODE_COLLATION              converter_customization 1       integer
 # for HTML.
 # Defaults are documented in manual and set in the various converters.
 # used in util/txicustomvars
-# Supposed to be transitory after the setting TRANSLITERATE_FILE_NAMES
-# to 0 in the default case in 7.3 to allow users to recreate the
-# targets corresponding to the previous setting for backward compatibility.
-# To be removed one day.
-ADD_TRANSLITERATED_REDIRECTION_FILES   converter_customization undef integer
 AFTER_BODY_OPEN                    converter_customization undef   char
 AFTER_SHORT_TOC_LINES              converter_customization undef   char
 AFTER_TOC_LINES                    converter_customization undef   char

@@ -2947,8 +2947,7 @@ html_node_redirections (CONVERTER *self,
 
       memset (&redirection_files, 0, sizeof (STRING_LIST));
 
-      if (self->conf->ADD_TRANSLITERATED_REDIRECTION_FILES.o.integer > 0
-          || self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
+      if (self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
         {
           add_translit_redirection = 1;
           added_translit_extension = "";

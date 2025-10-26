@@ -1,3 +1,20 @@
+2025-10-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Remove ADD_TRANSLITERATED_REDIRECTION_FILES
+
+	* tta/data/options_data.txt (ADD_TRANSLITERATED_REDIRECTION_FILES):
+	Remove.
+	* tta/C/convert/convert_html.c (html_node_redirections),
+	* tta/perl/Texinfo/Convert/HTML.pm (_node_redirections):
+	Remove code handling ADD_TRANSLITERATED_REDIRECTION_FILES.
+
+	* tta/perl/t/html_tests.t (set_add_transliterated_redirection_files):
+	remove test.
+	* NEWS, doc/texinfo.texi (HTML Output Structure Customization): update.
+	
+	Users can get nearly the same effect as this variable by setting
+	TRANSLITERATE_FILE_NAMES.
+
 2025-10-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix float labels containing _

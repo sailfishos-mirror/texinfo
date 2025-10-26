@@ -13219,8 +13219,7 @@ sub _node_redirections($$$$) {
     my $add_translit_redirection = 0;
 
     my $added_translit_extension;
-    if ($self->get_conf('ADD_TRANSLITERATED_REDIRECTION_FILES')
-        or $self->get_conf('TRANSLITERATE_FILE_NAMES')) {
+    if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
       $add_translit_redirection = 1;
       $added_translit_extension = '';
       $added_translit_extension = '.'.$self->get_conf('EXTENSION')

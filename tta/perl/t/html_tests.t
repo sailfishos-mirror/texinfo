@@ -1754,19 +1754,6 @@ $nodedescription_description_texinfo, {}, {'FORMAT_MENU' => 'menu',
 @chapter @inlineraw{html,<span class="test">}One@inlineraw{html,</span>}
 
 '],
-['set_add_transliterated_redirection_files',
-'@node Top
-@top top
-
-@node Chap
-@chapter chap
-
-@node s@`{e}c
-@section g
-
-@anchor{@^{a}bc}
-', {}, {'TRANSLITERATE_FILE_NAMES' => 0,
-        'ADD_TRANSLITERATED_REDIRECTION_FILES' => 1}],
 );
 
 
