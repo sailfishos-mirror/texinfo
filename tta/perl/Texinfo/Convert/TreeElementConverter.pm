@@ -1050,10 +1050,10 @@ sub tree_element_txt_image_text($$$)
 sub _tree_element_expand_verbatiminclude($$$$$;$$)
 {
   my $current = shift;
+  my $include_directories = shift;
   my $input_file_name_encoding = shift;
   my $doc_encoding_for_input_file_name = shift;
   my $locale_encoding = shift;
-  my $include_directories = shift;
   my $document = shift;
   my $converter = shift;
 
@@ -1123,17 +1123,18 @@ sub _tree_element_expand_verbatiminclude($$$$$;$$)
 sub _utils_tree_element_expand_verbatiminclude($$$$$;$$)
 {
   my $current = shift;
+  my $include_directories = shift;
   my $input_file_name_encoding = shift;
   my $doc_encoding_for_input_file_name = shift;
   my $locale_encoding = shift;
-  my $include_directories = shift;
   my $document = shift;
   my $converter = shift;
 
   return _tree_element_expand_verbatiminclude($current,
+              $include_directories,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $converter);
+              $document, $converter);
 }
 
 # converter interface
@@ -1154,26 +1155,28 @@ sub tree_element_expand_verbatiminclude($$)
   my $document = $converter->{'document'};
 
   return _utils_tree_element_expand_verbatiminclude($current,
+              $include_directories,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $converter);
+              $document, $converter);
 }
 
 # for the XS override.  Should not be called directly
 sub _utils_expand_verbatiminclude($$$$$;$$)
 {
   my $current = shift;
+  my $include_directories = shift;
   my $input_file_name_encoding = shift;
   my $doc_encoding_for_input_file_name = shift;
   my $locale_encoding = shift;
-  my $include_directories = shift;
   my $document = shift;
   my $converter = shift;
 
   return Texinfo::Convert::Utils::expand_verbatiminclude($current,
+              $include_directories,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $converter);
+              $document, $converter);
 }
 
 # converter interface, same as Texinfo::Convert::Converter, including
@@ -1195,9 +1198,10 @@ sub expand_verbatiminclude($$)
   my $document = $converter->{'document'};
 
   return _utils_expand_verbatiminclude($current,
+              $include_directories,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $converter);
+              $document, $converter);
 }
 
 # Wrapper used for XS override.  Should not be accessed directly.

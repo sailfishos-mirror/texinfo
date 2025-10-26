@@ -429,7 +429,7 @@ tree_element_find_element_authors (SV *element_sv, SV *quotation_authors_sv)
 
 # optional argument is converter_sv
 SV *
-utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_encoding_sv, int doc_encoding_for_input_file_name, SV *locale_encoding_sv, SV *include_directories_sv, ...)
+utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *include_directories_sv, SV *input_file_name_encoding_sv, int doc_encoding_for_input_file_name, SV *locale_encoding_sv, ...)
       PROTOTYPE: $$$$$;$$
       PREINIT:
         DOCUMENT *document;
@@ -475,10 +475,10 @@ utils_tree_element_expand_verbatiminclude (SV *element_sv, SV *input_file_name_e
                 add_svav_to_string_list (include_directories_sv,
                                          include_directories, svt_dir);
               }
-            result = expand_verbatiminclude (input_file_name_encoding,
+            result = expand_verbatiminclude (element, include_directories,
+                     error_messages, input_file_name_encoding,
                      doc_encoding_for_input_file_name, locale_encoding,
-                     include_directories, 0, error_messages,
-                     &document->global_info, element);
+                     &document->global_info, 0);
             if (result)
               {
                 result_sv = build_texinfo_tree (result, 1);

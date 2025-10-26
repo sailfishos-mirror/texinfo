@@ -483,13 +483,13 @@ converter_encoded_output_file_name (const OPTIONS *options,
 }
 
 ELEMENT *
-expand_verbatiminclude (const char *input_file_name_encoding,
+expand_verbatiminclude (const ELEMENT *current,
+                        const STRING_LIST *include_directories,
+                        ERROR_MESSAGE_LIST *error_messages,
+                        const char *input_file_name_encoding,
                         int doc_encoding_for_input_file_name,
                         const char *locale_encoding,
-                        const STRING_LIST *include_directories,
-                        int debug, ERROR_MESSAGE_LIST *error_messages,
-                        const GLOBAL_INFO *global_information,
-                        const ELEMENT *current)
+                        const GLOBAL_INFO *global_information, int debug)
 {
   ELEMENT *verbatiminclude = 0;
   char *file_name_encoding;
@@ -599,10 +599,10 @@ expand_verbatiminclude (const char *input_file_name_encoding,
 }
 
 ELEMENT *
-converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
+converter_expand_verbatiminclude (const ELEMENT *current,
+                                  ERROR_MESSAGE_LIST *error_messages,
                                   const OPTIONS *options,
-                                  const GLOBAL_INFO *global_information,
-                                  const ELEMENT *current)
+                                  const GLOBAL_INFO *global_information)
 {
   const char *input_file_name_encoding = 0;
   int doc_encoding_for_input_file_name = -1;
@@ -623,10 +623,10 @@ converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
       debug = options->DEBUG.o.integer;
     }
 
-  return expand_verbatiminclude (input_file_name_encoding,
+  return expand_verbatiminclude (current, include_directories,
+            error_messages, input_file_name_encoding,
             doc_encoding_for_input_file_name, locale_encoding,
-            include_directories, debug, error_messages,
-            global_information, current);
+            global_information, debug);
 }
 
 PARSED_DEF *

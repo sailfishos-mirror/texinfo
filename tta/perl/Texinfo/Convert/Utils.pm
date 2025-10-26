@@ -448,8 +448,9 @@ sub translated_command_tree($$$$;$) {
 # $CONVERTER is optional, but without this argument there is no error
 # reporting.
 sub expand_verbatiminclude($$$$$;$$) {
-  my ($current, $input_file_name_encoding, $doc_encoding_for_input_file_name,
-      $locale_encoding, $include_directories, $document, $converter) = @_;
+  my ($current, $include_directories, $input_file_name_encoding,
+      $doc_encoding_for_input_file_name, $locale_encoding,
+      $document, $converter) = @_;
 
   return undef unless (exists($current->{'extra'})
                        and exists($current->{'extra'}->{'text_arg'}));
@@ -820,17 +821,18 @@ C<encoded_input_file_name>.  If set, it is used for the input file encoding.
 It is useful if there is more precise information on the input file encoding
 where the file name appeared.
 
-=item $tree = expand_verbatiminclude($verbatiminclude, $name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $include_directories, $document, $converter)
+=item $tree = expand_verbatiminclude($verbatiminclude, $include_directories, $name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $converter)
 X<C<expand_verbatiminclude>>
 
 I<$verbatiminclude> is a C<@verbatiminclude> tree element.
+I<$include_directories> is an array
+reference with include directories where the file specified as
+C<@verbatiminclude> argument is searched for.
 I<$name_encoding>, I<$doc_encoding_for_input_file_name>, I<$locale_encoding>
 and I<$document> are L<< C<encoded_input_file_name> arguments|/($encoded_name,
 $encoding) = encoded_input_file_name($character_string_name,
 $input_file_name_encoding, $doc_encoding_for_input_file_name, $locale_encoding,
-$document, $input_file_encoding) >>.  I<$include_directories> is an array
-reference with include directories where the file specified as
-C<@verbatiminclude> argument is searched for. The optional I<$converter>
+$document, $input_file_encoding) >>.  The optional I<$converter>
 argument is used to output error messages.  This function returns a
 C<@verbatim> tree elements after finding the included file and reading it.
 

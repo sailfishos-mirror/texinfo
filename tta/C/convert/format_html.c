@@ -9261,8 +9261,9 @@ html_convert_verbatiminclude_command (CONVERTER *self,
                                   const char *content, TEXT *result)
 {
   ELEMENT *verbatim_include_verbatim
-    = converter_expand_verbatiminclude (&self->error_messages, self->conf,
-                              &self->document->global_info, element);
+    = converter_expand_verbatiminclude (element,
+                              &self->error_messages, self->conf,
+                              &self->document->global_info);
 
   if (verbatim_include_verbatim)
     {

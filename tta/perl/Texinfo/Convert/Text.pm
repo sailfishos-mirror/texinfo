@@ -778,9 +778,9 @@ sub _convert($$) {
 
         $verbatim_include_verbatim
           = Texinfo::Convert::Utils::expand_verbatiminclude($element,
-              $input_file_name_encoding,
+              $include_directories, $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $options);
+              $document, $options);
 
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($options, $verbatim_include_verbatim);

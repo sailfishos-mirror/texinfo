@@ -999,10 +999,10 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
               }
 
               verbatim_include_verbatim
-                = expand_verbatiminclude (input_file_name_encoding,
+                = expand_verbatiminclude (element, include_directories,
+                         error_messages, input_file_name_encoding,
                          doc_encoding_for_input_file_name, locale_encoding,
-                            include_directories, debug, error_messages,
-                                      global_information, element);
+                            global_information, debug);
               if (verbatim_include_verbatim)
                 {
                   convert_to_text_internal (verbatim_include_verbatim,

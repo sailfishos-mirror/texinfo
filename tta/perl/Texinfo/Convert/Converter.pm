@@ -1385,9 +1385,10 @@ sub expand_verbatiminclude($$) {
   my $document = $converter->{'document'};
 
   return Texinfo::Convert::Utils::expand_verbatiminclude($current,
+              $include_directories,
               $input_file_name_encoding,
               $doc_encoding_for_input_file_name, $locale_encoding,
-              $include_directories, $document, $converter);
+              $document, $converter);
 }
 
 sub expand_today($) {

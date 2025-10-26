@@ -48,17 +48,17 @@ ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
 char *add_heading_number (const ELEMENT *current, char *text,
                           int numbered, LANG_TRANSLATION *lang_translation);
 
-ELEMENT *expand_verbatiminclude (const char *input_file_name_encoding,
+ELEMENT *expand_verbatiminclude (const ELEMENT *current,
+                        const STRING_LIST *include_directories,
+                        ERROR_MESSAGE_LIST *error_messages,
+                        const char *input_file_name_encoding,
                         int doc_encoding_for_input_file_name,
                         const char *locale_encoding,
-                        const STRING_LIST *include_directories,
-                        int debug, ERROR_MESSAGE_LIST *error_messages,
-                        const GLOBAL_INFO *global_information,
-                        const ELEMENT *current);
-ELEMENT *converter_expand_verbatiminclude (ERROR_MESSAGE_LIST *error_messages,
+                        const GLOBAL_INFO *global_information, int debug);
+ELEMENT *converter_expand_verbatiminclude (const ELEMENT *current,
+                         ERROR_MESSAGE_LIST *error_messages,
                          const OPTIONS *options,
-                         const GLOBAL_INFO *global_information,
-                         const ELEMENT *current);
+                         const GLOBAL_INFO *global_information);
 
 PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);

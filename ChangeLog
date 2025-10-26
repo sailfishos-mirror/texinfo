@@ -1,3 +1,12 @@
+2025-10-26 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/convert_utils.c (expand_verbatiminclude)
+	(converter_expand_verbatiminclude), tta/perl/Texinfo/Convert/Utils.pm
+	(expand_verbatiminclude),
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(utils_tree_element_expand_verbatiminclude): change order of
+	arguments, to have more importants arguments first.  Update callers.
+
 2025-10-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix echo area crash

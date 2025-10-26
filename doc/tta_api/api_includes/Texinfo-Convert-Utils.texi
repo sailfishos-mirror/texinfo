@@ -107,18 +107,19 @@ The @emph{$input_file_encoding} argument is optional and only available for
 It is useful if there is more precise information on the input file encoding
 where the file name appeared.
 
-@item $tree = expand_verbatiminclude($verbatiminclude, $name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $include_directories, $document, $converter)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = expand_verbatiminclude($verbatiminclude@comma{} $name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $include_directories@comma{} $document@comma{} $converter)}
+@item $tree = expand_verbatiminclude($verbatiminclude, $include_directories, $name_encoding, $doc_encoding_for_input_file_name, $locale_encoding, $document, $converter)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = expand_verbatiminclude($verbatiminclude@comma{} $include_directories@comma{} $name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{} $document@comma{} $converter)}
 @cindex @code{expand_verbatiminclude}
 
 @emph{$verbatiminclude} is a @code{@@verbatiminclude} tree element.
+@emph{$include_directories} is an array
+reference with include directories where the file specified as
+@code{@@verbatiminclude} argument is searched for.
 @emph{$name_encoding}, @emph{$doc_encoding_for_input_file_name}, @emph{$locale_encoding}
 and @emph{$document} are @ref{Texinfo@asis{::}Convert@asis{::}Utils ($encoded_name@comma{}
 $encoding) = encoded_input_file_name($character_string_name@comma{}
 $input_file_name_encoding@comma{} $doc_encoding_for_input_file_name@comma{} $locale_encoding@comma{}
-$document@comma{} $input_file_encoding),, @code{encoded_input_file_name} arguments}.  @emph{$include_directories} is an array
-reference with include directories where the file specified as
-@code{@@verbatiminclude} argument is searched for. The optional @emph{$converter}
+$document@comma{} $input_file_encoding),, @code{encoded_input_file_name} arguments}.  The optional @emph{$converter}
 argument is used to output error messages.  This function returns a
 @code{@@verbatim} tree elements after finding the included file and reading it.
 
