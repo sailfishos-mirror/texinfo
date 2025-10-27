@@ -18,6 +18,9 @@
 /* We do not include config.h as the define there could be incompatible with
    the language define.  This is likely to be the case for Perl, see comments
    in build_perl_info.c.
+
+   We define DATADIR, LIBDIR, CONVERTER_CONFIG and PACKAGE_VERSION_CONFIG
+   on the command-line.
  */
 
 /* All the functions defined inline should have their name prefixed by
@@ -55,6 +58,7 @@
 /* expand_verbatiminclude */
 #include "convert_utils.h"
 #include "swig_element_data.h"
+#include "swig_error_messages_types.h"
 #include "swig_text_options.h"
 #include "swig_interface.h"
 #include "swig_parser_api.h"
@@ -161,6 +165,7 @@ txi_ext_inline_setup (int texinfo_uninstalled,
 
 // swig_interface.h
 
+// elements lists
 %rename(element_list_element_by_index) txi_ext_element_list_element_by_index;
 ELEMENT *txi_ext_element_list_element_by_index (ELEMENT_LIST *element_list,
                                                 int index);
@@ -174,13 +179,22 @@ const ELEMENT *txi_ext_const_element_list_element_by_index (
 %rename(const_element_list_elements_number) txi_ext_const_element_list_elements_number;
 int txi_ext_const_element_list_elements_number (CONST_ELEMENT_LIST *element_list);
 
+// strings lists
 %rename(string_list_string_by_index) txi_ext_string_list_string_by_index;
 char *txi_ext_string_list_string_by_index (STRING_LIST *string_list, int index);
 %rename(string_list_strings_number) txi_ext_string_list_strings_number;
 int txi_ext_string_list_strings_number (STRING_LIST *string_list);
 
-%include "swig_error_messages_types.h"
+// error messages lists
 
+// swig_error_messages_types.h
+// Only fields with currently used getters
+typedef struct FORMATTED_ERROR_MESSAGE {
+    int continuation;
+    char *formatted;
+} FORMATTED_ERROR_MESSAGE;
+
+// swig_interface.h
 %rename(messages_list_messages_number) txi_ext_messages_list_messages_number;
 int txi_ext_messages_list_messages_number (FORMATTED_ERROR_MESSAGE_LIST *messages_list);
 %rename(messages_list_message_by_index) txi_ext_messages_list_message_by_index;
@@ -195,6 +209,7 @@ void txi_ext_destroy_error_messages_list (FORMATTED_ERROR_MESSAGE_LIST *error_me
 
 %include "swig_element_types.h"
 
+// swig_element_data.h
 #define cm_flag(name) \
   %rename(element_command_is_##name) txi_ext_element_command_is_##name;
 TXI_CM_FLAGS_LIST
@@ -218,10 +233,12 @@ const char *txi_ext_element_command_data_type (ELEMENT *element);
 
 
 // Parser
+// swig_parser_api.h
 
 %rename (parser) txi_ext_parser;
 %rename (destroy_parser) txi_ext_destroy_parser;
 
+// parsing entry points
 %rename (parse_file) txi_ext_parse_file;
 DOCUMENT *txi_ext_parse_file (PARSER *parser, const char *input_file_path,
                               int *OUTPUT);
@@ -235,6 +252,7 @@ DOCUMENT *txi_ext_parse_string (PARSER *parser, const char *string,
 DOCUMENT *txi_ext_parse_text (PARSER *parser, const char *string,
                               int line_nr=1);
 
+// Parser configuration
 %rename (parser_conf_reset_values) txi_ext_parser_conf_reset_values;
 %rename (parser_conf_add_value) txi_ext_parser_conf_add_value;
 
@@ -270,7 +288,8 @@ size_t txi_output_parser_error_messages (DOCUMENT *document,
                                   int no_warn=0, int use_filename=0);
 
 // swig_interface.h
-// Get the error messages.  Call destroy_error_messages_list when done.
+// Get the error messages.  The caller should call
+// destroy_error_messages_list on the return value when done.
 %rename(get_parser_error_messages) txi_ext_get_parser_error_messages;
 FORMATTED_ERROR_MESSAGE_LIST *txi_ext_get_parser_error_messages (
                                   DOCUMENT *document,
@@ -323,7 +342,8 @@ size_t txi_output_document_error_messages (DOCUMENT *document,
                                     int no_warn=0, int use_filename=0);
 
 // swig_interface.h
-// Get the error messages.  Call destroy_error_messages_list when done.
+// Get the error messages.  The caller should call
+// destroy_error_messages_list on the return value when done.
 %rename(get_document_error_messages) txi_ext_get_document_error_messages;
 FORMATTED_ERROR_MESSAGE_LIST *txi_ext_get_document_error_messages (
                                   DOCUMENT *document,
@@ -390,6 +410,7 @@ typedef struct INDEX_ENTRY {
                                           another element */
 } INDEX_ENTRY;
 
+// swig_interface.h
 %rename(sorted_index_entries_by_index) txi_ext_sorted_index_entries_by_index;
 INDEX_ENTRY *txi_ext_sorted_index_entries_by_index (
                      const INDEX_SORTED_BY_INDEX *index_sorted, int index);
@@ -406,11 +427,13 @@ const INDEX_SORTED_BY_INDEX *txi_ext_get_index_sorted_by_index (
                            const char *collation_locale=0);
 
 // listoffloats
+// tree_types.h
 typedef struct {
     ELEMENT *float_element;
     const SECTION_RELATIONS *float_section;
 } FLOAT_INFORMATION;
 
+// swig_interface.h
 %rename(float_list_float_by_index) txi_ext_float_list_float_by_index;
 FLOAT_INFORMATION *txi_ext_float_list_float_by_index (
                          FLOAT_INFORMATION_LIST *float_list, int index);
@@ -493,11 +516,12 @@ INDEX *txi_ext_index_entry_index_info (DOCUMENT *document,
 %rename(element_misc_args) txi_ext_element_misc_args;
 const STRING_LIST *txi_ext_element_misc_args (ELEMENT *element);
 
+
 // New element and element modification
 
 // swig_interface.h
 // is_text_element is used to disambiguate between text element and
-// container element when the type is empty
+// container element when the type is NUL
 %rename(store_new_element) txi_ext_store_new_element;
 ELEMENT *txi_ext_store_new_element (DOCUMENT *document, const char *type_name,
                                 const char *command_name, int is_text_element);
@@ -535,6 +559,7 @@ SECTION_RELATIONS *txi_ext_section_relation_list_section_relation_by_index (
 int txi_ext_section_relation_list_section_relations_number (
                            SECTION_RELATIONS_LIST *section_relation_list);
 
+// tree_types.h
 typedef struct NODE_RELATIONS {
     ELEMENT *element;
     const SECTION_RELATIONS *associated_section;
@@ -573,6 +598,7 @@ typedef struct SECTION_RELATIONS {
 
 // functions
 
+// swig_interface.h
 %rename(get_node_relations) txi_ext_get_node_relations;
 NODE_RELATIONS *txi_ext_get_node_relations (ELEMENT *element,
                                             DOCUMENT *document);
@@ -615,8 +641,6 @@ txi_ext_inline_sectioning_root_children (DOCUMENT *document)
 
 %include "reader_types.h"
 
-// reader_api.h
-
 %rename(new_reader) txi_ext_inline_new_reader;
 %inline %{
 struct READER *txi_ext_inline_new_reader (ELEMENT *tree, DOCUMENT *document);
@@ -626,6 +650,7 @@ struct READER *txi_ext_inline_new_reader (ELEMENT *tree, DOCUMENT *document);
 struct READER *
 txi_ext_inline_new_reader (ELEMENT *tree, DOCUMENT *document)
 {
+  // reader_api.h
   size_t reader_descriptor = txi_register_new_reader (tree, document);
   return retrieve_reader_descriptor (reader_descriptor);
 }
@@ -643,10 +668,12 @@ txi_ext_inline_reader_read (struct READER *reader)
   if (!reader)
     return 0;
 
+  // reader_api.h
   return txi_reader_read (reader);
 }
 %}
 
+// reader_api.h
 %rename(reader_skip_children) txi_reader_skip_children;
 const READER_TOKEN *txi_reader_skip_children (struct READER *reader,
                                               const ELEMENT *element);
@@ -684,6 +711,7 @@ char *convert_contents_to_texinfo (const ELEMENT *e);
 
 %include "swig_text_options_types.h"
 
+// swig_text_options.h
 %rename(text_options_set_encoding) txi_ext_text_options_set_encoding;
 %rename(text_options_clear_expanded_formats) txi_ext_text_options_clear_expanded_formats;
 %rename(text_options_add_expanded_format) txi_ext_text_options_add_expanded_format;
@@ -704,6 +732,7 @@ void text_set_language (TEXT_OPTIONS *text_options, const char *lang);
 %newobject convert_to_text;
 char *convert_to_text (const ELEMENT *root, TEXT_OPTIONS *text_options);
 
+
 // Tree representation
 // Very relevant for debugging, no reason to use otherwise
 
@@ -716,13 +745,14 @@ char *tree_print_details (ELEMENT *tree, const char *fname_encoding=0,
 char *element_print_details (ELEMENT *element, const char *fname_encoding=0,
                              int use_filename=0);
 
+
 // Helper functions
 // TODO move to another module/file?
 
 // These could also be re-implemented in the different languages.
 // Which one to add/remove?
 
-// We do not care at all about API stability for those functions.
+// What about API stability for those functions?
 
 // utils.h
 ELEMENT *get_label_element (const ELEMENT *e);
@@ -735,11 +765,29 @@ ELEMENT *index_content_element (const ELEMENT *element,
 // TODO add a wrapper around new_complete_menu_master_menu?
 
 // utils.h
-// used in po4a converter
+// used in po4a
 const ELEMENT *block_line_argument_command (const ELEMENT *block_line_arg);
-// convert_utils.h
-// used in po4a converter
 
+%rename(valid_documentlanguage) txi_ext_inline_valid_documentlanguage;
+%inline %{
+int txi_ext_inline_valid_documentlanguage (const char *text);
+%}
+
+%{
+int
+txi_ext_inline_valid_documentlanguage (const char *text)
+{
+  int valid_lang;
+  int valid_region;
+  const char *region_code;
+  char *lang = analyze_documentlanguage_argument (text, &region_code,
+                                                  &valid_lang, &valid_region);
+  return lang && valid_lang && valid_region;
+}
+%}
+
+// convert_utils.h
+// used in po4a
 // Structure used to return both error messages and element
 %inline %{
 typedef struct TXI_EXT_ELEMENT_FORMATTED_ERRORS {

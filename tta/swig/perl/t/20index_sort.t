@@ -116,10 +116,10 @@ foreach my $index_entry (@$sorted_entries) {
 
 
 # Now determine the order based on the SWIG interface
-my $parser = Texinfo::parser();
-my $document = Texinfo::parse_text($parser, $texi);
+my $swig_parser = Texinfo::parser();
+my $document = Texinfo::parse_text($swig_parser, $texi);
 
-Texinfo::destroy_parser($parser);
+Texinfo::destroy_parser($swig_parser);
 
 #Texinfo::output_parser_error_messages($document);
 
