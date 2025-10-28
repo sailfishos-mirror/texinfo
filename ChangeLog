@@ -1,3 +1,14 @@
+2025-10-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix echo area crash
+
+	* info/display.c (printed_representation): Fix representation
+	of tab when the line would be greater than 255 characters.  This
+	fixes a crash in the echo area when holding down tab, for example
+	in "M-x menu-sequence".
+	
+	Report from Aidan <aidanczhai@gmail.com>.
+
 2025-10-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Remove ADD_TRANSLITERATED_REDIRECTION_FILES

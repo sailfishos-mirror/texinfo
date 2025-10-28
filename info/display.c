@@ -545,12 +545,9 @@ printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
              To determine the next tab stop, add 8 to the current column,
              and then subtract the remainder of the division by 8.
 
-             (n & 0xf8) does (n - n mod 8) in one step as the binary
-             representation of 0xf8 is 1111 1000 so the result has
-             to be a multiple of 8.
-             TODO this doesn't work if there are more than 255 columns.
-           */
-          *pchars = ((pl_chars + 8) & 0xf8) - pl_chars;
+             (n & ~0x07) does (n - n mod 8) in one step as this clears
+             the last three bits. */
+          *pchars = ((pl_chars + 8) & ~0x07) - pl_chars;
           *pbytes = *pchars;
 
           /* We must output spaces instead of the tab because a tab may
