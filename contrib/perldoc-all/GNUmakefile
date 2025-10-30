@@ -91,10 +91,3 @@ clean: mostlyclean
 maintainer-clean: clean
 	rm -rf perldoc-all.info
 	rm -rf perl-5.*.*
-
-# run directly from top-level Makefile.am
-# when running make dist, ensure we have none of the build files,
-# since the whole contrib/ directory is included in its entirety.
-dist-hook:
-	rm -rf manual perl-5.*.* $(texi_pod_doc) $(texi_pod_doc_incl) && \
-	rm -rf *.?? *.??? *.info *~ \#*
