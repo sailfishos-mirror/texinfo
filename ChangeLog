@@ -1,5 +1,9 @@
 2025-10-30 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.tres: update.
+
+2025-10-30 Patrice Dumas  <pertusus@free.fr>
+
 	* contrib/perldoc-all/GNUmakefile: remove the dist-hook target, which
 	should not be used anymore since the contrib directory is not
 	distributed.

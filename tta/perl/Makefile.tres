@@ -796,8 +796,6 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/ref_in_preformatted.pl \
   t/results/html_tests/sectioning_check_menu_structure.pl \
   t/results/html_tests/sectioning_check_menu_structure/res_html \
-  t/results/html_tests/set_add_transliterated_redirection_files.pl \
-  t/results/html_tests/set_add_transliterated_redirection_files/res_html \
   t/results/html_tests/set_unit_file_name_filepath.pl \
   t/results/html_tests/set_unit_file_name_filepath/res_html \
   t/results/html_tests/shortcontents_no_top.pl \
