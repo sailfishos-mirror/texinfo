@@ -84,6 +84,14 @@ install:
 mostlyclean:
 	rm -rf manual $(texi_pod_doc_incl)
 
+clean: mostlyclean
+	rm -rf perldoc-all perldoc-all.aux perldoc-all.cp* \
+	 perldoc-all.log perldoc-all.toc
+
+maintainer-clean: clean
+	rm -rf perldoc-all.info
+	rm -rf perl-5.*.*
+
 # run directly from top-level Makefile.am
 # when running make dist, ensure we have none of the build files,
 # since the whole contrib/ directory is included in its entirety.
