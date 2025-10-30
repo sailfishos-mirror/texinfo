@@ -12,9 +12,10 @@ The results used to be at http://www.gnu.org/software/perl/manual.
 The idea is to unpack the perl distribution here, as in,
   wget http://www.cpan.org/src/5.0/perl-5.NN.M.tar.gz  # with right NN.M
   tar xf perl-*.tar.gz
-and run (GNU) make.  Aside from the result hopefully being useful in
-itself (just copy the .info file to an Info directory), it also serves
-as a nontrivial example of using pod2texi.
+It is possible to build Perl next to have automatically generated Pod
+files created.  Then run (GNU) make.  Aside from the result hopefully
+being useful in itself (just copy the .info file to an Info directory),
+it also serves as a nontrivial example of using pod2texi.
 
 Note that a main issue with the generated files is that many internal
 links are missing because of the Pod::Simple::Role::XHTML::WithExtraTargets

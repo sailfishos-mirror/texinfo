@@ -1,6 +1,5 @@
 \input texinfo
 @c This top-level file is so trivial, it has to be public domain.
-@setfilename perldoc-all.info
 @settitle Perl Pod documentation
 @finalout
 @tex
@@ -8,10 +7,13 @@
 \global\hbadness=10000
 @end tex
 
+@titlepage
+@title Perl documentation in Texinfo
+@end titlepage
+
 @shortcontents
 @contents
 
-@ifnottex
 @node Top
 @top Perl pod documentation
 
@@ -23,11 +25,11 @@ it useful to have the Perl documentation available in Info and other
 formats, and thought they would share the results.  Suggestions welcome.
 
 This is created entirely by the Texinfo tools; see the
-@url{http://svn.savannah.gnu.org/viewvc/trunk/contrib/perldoc-all/?root=texinfo,
+@url{https://cgit.git.savannah.gnu.org/cgit/texinfo.git/tree/contrib/perldoc-all,
 @file{contrib/perldoc-all}} directory in the Texinfo sources for the
-procedure used.  The output is available at
-@url{http://www.gnu.org/software/perl/manual}.
-@end ifnottex
+procedure used.
+@c  The output is available at
+@c @url{http://www.gnu.org/software/perl/manual}.
 
 @include perldoc-all-incl.texi
 
