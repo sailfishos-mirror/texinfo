@@ -1,3 +1,9 @@
+2025-10-30 Patrice Dumas  <pertusus@free.fr>
+
+	* contrib/perldoc-all/GNUmakefile: use gendocs and gendocs_templates
+	from gnulib directory supposed to be along the texinfo directory, as
+	done in doc/.
+
 2025-10-27 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/texinfo.i (FORMATTED_ERROR_MESSAGE): do not include
