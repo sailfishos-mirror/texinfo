@@ -1,5 +1,10 @@
 2025-11-01 Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS: document that texi2any keeps input file name leading directory
+	components in messages again.
+
+2025-11-01 Patrice Dumas  <pertusus@free.fr>
+
 	Use full input file paths in source info for error messages
 
 	* tta/C/parsetexi/input.c (INPUT, next_text, input_push_file),
