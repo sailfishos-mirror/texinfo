@@ -79,14 +79,9 @@ $result_converted{'html'}->{'spaces_in_line_break_in_verb_w'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'spaces_in_line_break_in_verb_w'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'spaces_in_line_break_in_verb_w'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;
