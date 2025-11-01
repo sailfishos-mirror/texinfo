@@ -123,15 +123,10 @@ comment &mdash; in.
 </html>
 ';
 
-$result_converted_errors{'html'}->{'dash_in_menu'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'dash_in_menu'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'dash_in_menu'} = '

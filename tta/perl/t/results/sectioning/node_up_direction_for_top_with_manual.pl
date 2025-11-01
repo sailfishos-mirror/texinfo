@@ -105,14 +105,9 @@ span:hover a.copiable-link {visibility: visible}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'node_up_direction_for_top_with_manual'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'node_up_direction_for_top_with_manual'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

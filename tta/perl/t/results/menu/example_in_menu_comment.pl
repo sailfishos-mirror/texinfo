@@ -162,15 +162,10 @@ menu comment.
 </html>
 ';
 
-$result_converted_errors{'html'}->{'example_in_menu_comment'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'example_in_menu_comment'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'example_in_menu_comment'} = '<menu endspaces=" ">

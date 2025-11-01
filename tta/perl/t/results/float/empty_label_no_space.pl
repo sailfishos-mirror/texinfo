@@ -89,15 +89,10 @@ $result_converted{'html'}->{'empty_label_no_space'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'empty_label_no_space'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'empty_label_no_space'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'empty_label_no_space'} = '<float type="Type" spaces=" " endspaces=" "><floattype>Type</floattype><floatname></floatname>

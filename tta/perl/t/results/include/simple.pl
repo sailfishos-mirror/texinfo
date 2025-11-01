@@ -60,15 +60,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'simple'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'simple'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 
 $result_converted{'plaintext'}->{'simple'} = 'In included file.
@@ -101,15 +96,10 @@ $result_converted{'html'}->{'simple'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'simple'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'simple'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'simple'} = '<para>In included file.

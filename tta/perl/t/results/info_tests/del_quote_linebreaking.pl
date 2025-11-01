@@ -205,14 +205,9 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'del_quote_linebreaking'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'del_quote_linebreaking'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 1;

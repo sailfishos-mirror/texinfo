@@ -150,21 +150,12 @@ $result_converted{'html'}->{'tex_expanded_in_caption_multiple_time'} = '<!DOCTYP
 </html>
 ';
 
-$result_converted_errors{'html'}->{'tex_expanded_in_caption_multiple_time'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: raw format tex is not converted
-',
-    'line_nr' => 4,
-    'text' => 'raw format tex is not converted',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'tex_expanded_in_caption_multiple_time'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+* W l4|raw format tex is not converted
+ warning: raw format tex is not converted
+
+';
 
 1;

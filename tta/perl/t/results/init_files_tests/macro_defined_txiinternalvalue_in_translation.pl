@@ -86,14 +86,9 @@ $result_converted{'html'}->{'macro_defined_txiinternalvalue_in_translation'} = '
 </html>
 ';
 
-$result_converted_errors{'html'}->{'macro_defined_txiinternalvalue_in_translation'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'macro_defined_txiinternalvalue_in_translation'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

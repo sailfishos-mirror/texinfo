@@ -248,15 +248,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'footnote_in_caption'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'footnote_in_caption'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'footnote_in_caption'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>

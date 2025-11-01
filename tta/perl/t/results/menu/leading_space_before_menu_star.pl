@@ -113,15 +113,10 @@ th.menu-comment {text-align:left}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'leading_space_before_menu_star'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'leading_space_before_menu_star'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'leading_space_before_menu_star'} = '<node identifier="a-node" spaces=" "><nodename>a node</nodename></node>

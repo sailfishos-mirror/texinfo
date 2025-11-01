@@ -103,14 +103,9 @@ div.example {margin-left: 3.2em}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'heading_in_example'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'heading_in_example'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

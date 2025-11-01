@@ -384,14 +384,9 @@ vr:
  VV
 ';
 
-$result_converted_errors{'file_html'}->{'printindex_set_direction'} = [
-  {
-    'error_line' => 'warning: not setting an unknown direction: NewDirection
-',
-    'text' => 'not setting an unknown direction: NewDirection',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'printindex_set_direction'} = '* W |not setting an unknown direction: NewDirection
+ warning: not setting an unknown direction: NewDirection
 
+';
 
 1;

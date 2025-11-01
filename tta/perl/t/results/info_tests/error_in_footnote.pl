@@ -206,36 +206,18 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'error_in_footnote'} = [
-  {
-    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
-',
-    'line_nr' => 9,
-    'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
-',
-    'line_nr' => 9,
-    'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
-',
-    'line_nr' => 9,
-    'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
-',
-    'line_nr' => 11,
-    'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'error_in_footnote'} = '* W l9|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+ warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 
+* W l9|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+ warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+
+* W l9|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+ warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+
+* W l11|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+ warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+
+';
 
 1;

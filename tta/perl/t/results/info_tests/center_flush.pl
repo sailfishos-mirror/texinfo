@@ -222,35 +222,18 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'center_flush'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor outside of any node
-',
-    'line_nr' => 14,
-    'text' => '@anchor outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor outside of any node
-',
-    'line_nr' => 29,
-    'text' => '@anchor outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor outside of any node
-',
-    'line_nr' => 31,
-    'text' => '@anchor outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'center_flush'} = '* W |document without nodes
+ warning: document without nodes
 
+* W l14|@anchor outside of any node
+ warning: @anchor outside of any node
+
+* W l29|@anchor outside of any node
+ warning: @anchor outside of any node
+
+* W l31|@anchor outside of any node
+ warning: @anchor outside of any node
+
+';
 
 1;

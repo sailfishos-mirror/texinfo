@@ -202,15 +202,9 @@ list:
 
 $result_headings_list{'nodes_after_top_before_section_texi2html_use_nodes'} = '';
 
-$result_converted_errors{'file_html'}->{'nodes_after_top_before_section_texi2html_use_nodes'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'nodes_after_top_before_section_texi2html_use_nodes.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'nodes_after_top_before_section_texi2html_use_nodes'} = '* W nodes_after_top_before_section_texi2html_use_nodes.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

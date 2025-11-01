@@ -65,15 +65,9 @@ $result_sectioning_root{'simplest_test_date_in_header'} = '';
 
 $result_headings_list{'simplest_test_date_in_header'} = '';
 
-$result_converted_errors{'file_html'}->{'simplest_test_date_in_header'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'simplest.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'simplest_test_date_in_header'} = '* W simplest.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

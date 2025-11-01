@@ -94,15 +94,10 @@ pre.display-preformatted {font-family: inherit}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'quote_dash_in_display'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'quote_dash_in_display'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'docbook'}->{'quote_dash_in_display'} = '

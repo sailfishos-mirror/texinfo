@@ -184,15 +184,10 @@ $result_converted{'html'}->{'ref_to_float'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'ref_to_float'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'ref_to_float'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'ref_to_float'} = '<float identifier="Label1" type="Text" number="1" spaces=" " endspaces=" "><floattype>Text</floattype><floatname spaces=" ">Label1</floatname>

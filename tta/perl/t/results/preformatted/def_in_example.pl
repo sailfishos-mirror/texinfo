@@ -143,15 +143,10 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'def_in_example'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'def_in_example'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'docbook'}->{'def_in_example'} = '<synopsis><indexterm role="fn"><primary>name</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <function>name</function> <emphasis role="arg">arg</emphasis></synopsis>

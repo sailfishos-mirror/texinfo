@@ -138,15 +138,10 @@ th.menu-comment {text-align:left}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'empty_menu_description'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'empty_menu_description'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'empty_menu_description'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>

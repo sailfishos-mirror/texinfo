@@ -278,15 +278,10 @@ Previous: <a href="#Test-title" accesskey="p" rel="prev">Test               titl
 </html>
 ';
 
-$result_converted_errors{'html'}->{'space_in_node'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'space_in_node'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'space_in_node'} = '

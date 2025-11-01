@@ -132,22 +132,12 @@ list:
 
 $result_headings_list{'file_name_conflict_with_Top'} = '';
 
-$result_converted_errors{'file_html'}->{'file_name_conflict_with_Top'} = [
-  {
-    'error_line' => 'warning: @anchor `index\' file index.html for redirection exists
-',
-    'line_nr' => 7,
-    'text' => '@anchor `index\' file index.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with Top file
-',
-    'text' => 'conflict with Top file',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'file_name_conflict_with_Top'} = '* W l7|@anchor `index\' file index.html for redirection exists
+ warning: @anchor `index\' file index.html for redirection exists
 
+* WC |conflict with Top file
+ warning: conflict with Top file
+
+';
 
 1;

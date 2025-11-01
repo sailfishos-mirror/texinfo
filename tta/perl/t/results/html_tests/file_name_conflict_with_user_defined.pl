@@ -186,22 +186,12 @@ list:
 
 $result_headings_list{'file_name_conflict_with_user_defined'} = '';
 
-$result_converted_errors{'file_html'}->{'file_name_conflict_with_user_defined'} = [
-  {
-    'error_line' => 'warning: @anchor `myanchor\' file myanchor.html for redirection exists
-',
-    'line_nr' => 7,
-    'text' => '@anchor `myanchor\' file myanchor.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with user-defined file
-',
-    'text' => 'conflict with user-defined file',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'file_name_conflict_with_user_defined'} = '* W l7|@anchor `myanchor\' file myanchor.html for redirection exists
+ warning: @anchor `myanchor\' file myanchor.html for redirection exists
 
+* WC |conflict with user-defined file
+ warning: conflict with user-defined file
+
+';
 
 1;

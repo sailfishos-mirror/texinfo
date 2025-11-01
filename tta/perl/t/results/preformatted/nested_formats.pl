@@ -179,15 +179,10 @@ in -- example/format
 </html>
 ';
 
-$result_converted_errors{'html'}->{'nested_formats'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'nested_formats'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'docbook'}->{'nested_formats'} = '<screen>

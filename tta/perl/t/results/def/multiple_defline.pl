@@ -172,15 +172,10 @@ description2 description2 description2 description2 description2
 </html>
 ';
 
-$result_converted_errors{'html'}->{'multiple_defline'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'multiple_defline'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'latex'}->{'multiple_defline'} = '\\documentclass{book}

@@ -818,15 +818,9 @@ fn:
  somewhere
 ';
 
-$result_converted_errors{'file_html'}->{'nodes_before_top_split_chapter'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'nodes_before_top.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'nodes_before_top_split_chapter'} = '* W nodes_before_top.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

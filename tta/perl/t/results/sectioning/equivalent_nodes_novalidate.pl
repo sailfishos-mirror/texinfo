@@ -167,15 +167,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'equivalent_nodes_novalidate'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'equivalent_nodes_novalidate'} = '* W |document without Top node
+ warning: document without Top node
 
+';
 
 
 $result_converted{'html'}->{'equivalent_nodes_novalidate'} = '<!DOCTYPE html>
@@ -224,14 +219,9 @@ Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'equivalent_nodes_novalidate'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'equivalent_nodes_novalidate'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

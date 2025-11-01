@@ -200,16 +200,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'anchor_in_copying_in_footnote'} = [
-  {
-    'error_line' => '@anchor output more than once: Copying footnote
-',
-    'line_nr' => 5,
-    'text' => '@anchor output more than once: Copying footnote',
-    'type' => 'error'
-  }
-];
+$result_converted_errors{'info'}->{'anchor_in_copying_in_footnote'} = '* E l5|@anchor output more than once: Copying footnote
+ @anchor output more than once: Copying footnote
 
+';
 
 
 $result_converted{'html'}->{'anchor_in_copying_in_footnote'} = '<!DOCTYPE html>
@@ -280,15 +274,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'anchor_in_copying_in_footnote'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'anchor_in_copying_in_footnote'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'latex_text'}->{'anchor_in_copying_in_footnote'} = '

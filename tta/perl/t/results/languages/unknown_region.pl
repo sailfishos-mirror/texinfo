@@ -235,14 +235,9 @@ Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; 
 </html>
 ';
 
-$result_converted_errors{'html'}->{'unknown_region'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'unknown_region'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

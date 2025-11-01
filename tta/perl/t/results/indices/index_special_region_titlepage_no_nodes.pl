@@ -728,24 +728,12 @@ fn:
  fun
 ';
 
-$result_converted_errors{'file_info'}->{'index_special_region_titlepage_no_nodes'} = [
-  {
-    'error_line' => '@anchor output more than once: Copying information
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 6,
-    'text' => '@anchor output more than once: Copying information',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor output more than once: Public domain reference
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 9,
-    'text' => '@anchor output more than once: Public domain reference',
-    'type' => 'error'
-  }
-];
+$result_converted_errors{'file_info'}->{'index_special_region_titlepage_no_nodes'} = '* E index_special_region.texi:l6|@anchor output more than once: Copying information
+ @anchor output more than once: Copying information
 
+* E index_special_region.texi:l9|@anchor output more than once: Public domain reference
+ @anchor output more than once: Public domain reference
+
+';
 
 1;

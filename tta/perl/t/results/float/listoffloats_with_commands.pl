@@ -76,15 +76,10 @@ $result_converted{'html'}->{'listoffloats_with_commands'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'listoffloats_with_commands'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'listoffloats_with_commands'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'listoffloats_with_commands'} = '<listoffloats type="théorème" spaces=" ">th<accent type="acute" bracketed="off">e</accent>or<accent type="grave" bracketed="off">e</accent>me</listoffloats>

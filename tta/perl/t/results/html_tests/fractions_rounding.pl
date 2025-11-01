@@ -163,14 +163,9 @@ $result_converted{'html'}->{'fractions_rounding'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'fractions_rounding'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'fractions_rounding'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

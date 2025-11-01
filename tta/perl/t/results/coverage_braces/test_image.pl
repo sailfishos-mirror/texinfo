@@ -1033,111 +1033,46 @@ In text <img class="image" src="f%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26
 </html>
 ';
 
-$result_converted_errors{'html'}->{'test_image'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'test_image'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+* W l15:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l15:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l9:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l9:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l21:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l21:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l25:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l25:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l27:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l27:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l27:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+* W l27:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for HTML) not found, using `f@i--le..  a@<"%@  < & @ % " .ext@i--le..  a@<"%@  < & @ % " \' (possibly involving @files-char)
+
+';
 
 
 $result_converted{'plaintext'}->{'test_image'} = '[f@i--le..  a@<"%@  < & @ % " ]
@@ -1172,49 +1107,22 @@ In text [alt î-le..  a
 
 ';
 
-$result_converted_errors{'plaintext'}->{'test_image'} = [
-  {
-    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => 'could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => 'could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => 'could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => 'could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => 'could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'plaintext'}->{'test_image'} = '* W l15:@files-char|could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text
+ warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
 
+* W l9:@files-char|could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text
+ warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+
+* W l21:@files-char|could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text
+ warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+
+* W l25:@files-char|could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text
+ warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+
+* W l27:@files-char|could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text
+ warning: could not find @image file `f@i--le..  a@<"%@  < & @ % " .txt\' nor alternate text (possibly involving @files-char)
+
+';
 
 
 $result_converted{'latex_text'}->{'test_image'} = '
@@ -1255,89 +1163,37 @@ In text \\includegraphics[width=1in,height=1cm]{f@i--le..  a@<"\\%@  < & @ \\% "
 
 ';
 
-$result_converted_errors{'latex_text'}->{'test_image'} = [
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'latex_text'}->{'test_image'} = '* W l15:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
 
+* W l15:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+* W l9:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+* W l9:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+* W l21:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+* W l21:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+* W l25:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+* W l25:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+* W l27:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+* W l27:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' (for LaTeX) not found (possibly involving @files-char)
+
+';
 
 
 $result_converted{'docbook'}->{'test_image'} = '<anchor id="chapter"/>
@@ -1365,72 +1221,30 @@ In text <inlinemediaobject><imageobject><imagedata fileref="f@i--le..  a@&lt;&qu
 
 ';
 
-$result_converted_errors{'docbook'}->{'test_image'} = [
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'docbook'}->{'test_image'} = '* W l15:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
 
+* W l15:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+
+* W l9:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+
+* W l9:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+
+* W l21:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+
+* W l21:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+
+* W l25:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+
+* W l25:@files-char|@image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\'
+ warning: @image file `f@i--le..  a@<"%@  < & @ % " \' not found, using `f@i--le..  a@<"%@  < & @ % " .jpg\' (possibly involving @files-char)
+
+';
 
 1;

@@ -278,16 +278,10 @@ A Ñ Å TeX [myimage] chap SEE (f)node NAME: (argf)ext inverb ÿ MA+TH (1) <la> 
 
 ';
 
-$result_converted_errors{'plaintext'}->{'commands_in_var'} = [
-  {
-    'error_line' => 'warning: could not find @image file `myimage.txt\' nor alternate text
-',
-    'line_nr' => 7,
-    'text' => 'could not find @image file `myimage.txt\' nor alternate text',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'plaintext'}->{'commands_in_var'} = '* W l7|could not find @image file `myimage.txt\' nor alternate text
+ warning: could not find @image file `myimage.txt\' nor alternate text
 
+';
 
 
 $result_converted{'html_text'}->{'commands_in_var'} = '<div class="top-level-extent" id="Top">
@@ -313,16 +307,10 @@ c <a class="email" href="mailto:a@c">e</a> <abbr class="abbr" title="d">ab</abbr
 </div>
 ';
 
-$result_converted_errors{'html_text'}->{'commands_in_var'} = [
-  {
-    'error_line' => 'warning: @image file `myimage\' (for HTML) not found, using `myimage.jpg\'
-',
-    'line_nr' => 7,
-    'text' => '@image file `myimage\' (for HTML) not found, using `myimage.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'commands_in_var'} = '* W l7|@image file `myimage\' (for HTML) not found, using `myimage.jpg\'
+ warning: @image file `myimage\' (for HTML) not found, using `myimage.jpg\'
 
+';
 
 
 $result_converted{'xml'}->{'commands_in_var'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
@@ -347,16 +335,10 @@ section &#8220;name&#8221; in <filename>argf</filename> <literal>inverb</literal
 <ulink url="">c</ulink> <ulink url="mailto:a@c">e</ulink> <abbrev>ab</abbrev> (d)</replaceable></para></chapter>
 ';
 
-$result_converted_errors{'docbook'}->{'commands_in_var'} = [
-  {
-    'error_line' => 'warning: @image file `myimage\' not found, using `myimage.jpg\'
-',
-    'line_nr' => 7,
-    'text' => '@image file `myimage\' not found, using `myimage.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'docbook'}->{'commands_in_var'} = '* W l7|@image file `myimage\' not found, using `myimage.jpg\'
+ warning: @image file `myimage\' not found, using `myimage.jpg\'
 
+';
 
 
 $result_converted{'latex_text'}->{'commands_in_var'} = '\\label{anchor:Top}%
@@ -368,15 +350,9 @@ Section ``name\'\' in \\texttt{argf}  \\label{anchor:inanchor}%
 \\hyphenation{hyphena-te}ÿ $ma+th$ \\footnote{infootnote} \\url{la} \\href{a}{b (\\nolinkurl{a})} lb
 c \\href{mailto:a@c}{e} ab (d)}';
 
-$result_converted_errors{'latex_text'}->{'commands_in_var'} = [
-  {
-    'error_line' => 'warning: @image file `myimage\' (for LaTeX) not found
-',
-    'line_nr' => 7,
-    'text' => '@image file `myimage\' (for LaTeX) not found',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'latex_text'}->{'commands_in_var'} = '* W l7|@image file `myimage\' (for LaTeX) not found
+ warning: @image file `myimage\' (for LaTeX) not found
 
+';
 
 1;

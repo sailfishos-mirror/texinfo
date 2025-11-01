@@ -807,48 +807,21 @@ list:
 
 $result_headings_list{'quote_node_names_info'} = '';
 
-$result_converted_errors{'file_info'}->{'quote_node_names_info'} = [
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 4,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 5,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 7,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 8,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref
-',
-    'file_name' => 'nodequote.texi',
-    'line_nr' => 10,
-    'text' => '`.\' or `,\' must follow @xref',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_info'}->{'quote_node_names_info'} = '* W nodequote.texi:l4|`.\' or `,\' must follow @xref
+ warning: `.\' or `,\' must follow @xref
 
+* W nodequote.texi:l5|`.\' or `,\' must follow @xref
+ warning: `.\' or `,\' must follow @xref
+
+* W nodequote.texi:l7|`.\' or `,\' must follow @xref
+ warning: `.\' or `,\' must follow @xref
+
+* W nodequote.texi:l8|`.\' or `,\' must follow @xref
+ warning: `.\' or `,\' must follow @xref
+
+* W nodequote.texi:l10|`.\' or `,\' must follow @xref
+ warning: `.\' or `,\' must follow @xref
+
+';
 
 1;

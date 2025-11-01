@@ -65,14 +65,9 @@ $result_converted{'html'}->{'end_of_line_in_uref'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'end_of_line_in_uref'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'end_of_line_in_uref'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

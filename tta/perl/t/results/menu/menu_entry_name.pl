@@ -308,15 +308,10 @@ td.menu-entry-destination {vertical-align: top}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'menu_entry_name'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'menu_entry_name'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'menu_entry_name'} = '<menu endspaces=" ">

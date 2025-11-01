@@ -189,15 +189,10 @@ $result_converted{'html'}->{'simple_no_menu'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'simple_no_menu'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'simple_no_menu'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'simple_no_menu'} = '

@@ -158,15 +158,10 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'comment_index_before_defline'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'comment_index_before_defline'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'latex'}->{'comment_index_before_defline'} = '\\documentclass{book}

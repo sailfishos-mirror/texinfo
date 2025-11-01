@@ -122,15 +122,10 @@ $result_converted{'html'}->{'example_invalid_at_commands_arguments'} = '<!DOCTYP
 </html>
 ';
 
-$result_converted_errors{'html'}->{'example_invalid_at_commands_arguments'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'example_invalid_at_commands_arguments'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'docbook'}->{'example_invalid_at_commands_arguments'} = '';

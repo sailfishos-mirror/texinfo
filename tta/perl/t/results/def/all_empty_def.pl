@@ -288,15 +288,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'all_empty_def'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'all_empty_def'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 
 $result_converted{'html'}->{'all_empty_def'} = '<!DOCTYPE html>
@@ -359,15 +354,10 @@ $result_converted{'html'}->{'all_empty_def'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'all_empty_def'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'all_empty_def'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'all_empty_def'} = '<deffn endspaces=" "><definitionterm></definitionterm>

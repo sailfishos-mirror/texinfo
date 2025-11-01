@@ -51,15 +51,9 @@ $result_converted{'plaintext'}->{'image_in_paragraph'} = 'Para.  Text for image 
 $result_converted{'html_text'}->{'image_in_paragraph'} = '<p>Para. <img class="image" src="aa.ee" alt="dd">. After image.
 </p>';
 
-$result_converted_errors{'html_text'}->{'image_in_paragraph'} = [
-  {
-    'error_line' => 'warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
-',
-    'line_nr' => 1,
-    'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'image_in_paragraph'} = '* W l1|@image file `aa\' (for HTML) not found, using `aa.ee\'
+ warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
 
+';
 
 1;

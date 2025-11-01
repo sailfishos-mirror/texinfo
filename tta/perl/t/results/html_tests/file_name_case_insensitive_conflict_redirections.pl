@@ -218,23 +218,12 @@ list:
 
 $result_headings_list{'file_name_case_insensitive_conflict_redirections'} = '';
 
-$result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_redirections'} = [
-  {
-    'error_line' => 'warning: @anchor `Foo\' file foo.html for redirection exists
-',
-    'line_nr' => 13,
-    'text' => '@anchor `Foo\' file foo.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with @anchor `foo\' redirection file
-',
-    'line_nr' => 9,
-    'text' => 'conflict with @anchor `foo\' redirection file',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_redirections'} = '* W l13|@anchor `Foo\' file foo.html for redirection exists
+ warning: @anchor `Foo\' file foo.html for redirection exists
 
+* WC l9|conflict with @anchor `foo\' redirection file
+ warning: conflict with @anchor `foo\' redirection file
+
+';
 
 1;

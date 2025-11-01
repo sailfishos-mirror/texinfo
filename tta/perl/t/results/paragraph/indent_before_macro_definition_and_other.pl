@@ -179,16 +179,10 @@ $result_converted{'plaintext'}->{'indent_before_macro_definition_and_other'} = '
    HHERE
 ';
 
-$result_converted_errors{'plaintext'}->{'indent_before_macro_definition_and_other'} = [
-  {
-    'error_line' => 'warning: could not find @image file `my_image.txt\' nor alternate text
-',
-    'line_nr' => 4,
-    'text' => 'could not find @image file `my_image.txt\' nor alternate text',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'plaintext'}->{'indent_before_macro_definition_and_other'} = '* W l4|could not find @image file `my_image.txt\' nor alternate text
+ warning: could not find @image file `my_image.txt\' nor alternate text
 
+';
 
 
 $result_converted{'html_text'}->{'indent_before_macro_definition_and_other'} = '
@@ -198,15 +192,9 @@ $result_converted{'html_text'}->{'indent_before_macro_definition_and_other'} = '
 <p>HHERE
 </p>';
 
-$result_converted_errors{'html_text'}->{'indent_before_macro_definition_and_other'} = [
-  {
-    'error_line' => 'warning: @image file `my_image\' (for HTML) not found, using `my_image.jpg\'
-',
-    'line_nr' => 4,
-    'text' => '@image file `my_image\' (for HTML) not found, using `my_image.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'indent_before_macro_definition_and_other'} = '* W l4|@image file `my_image\' (for HTML) not found, using `my_image.jpg\'
+ warning: @image file `my_image\' (for HTML) not found, using `my_image.jpg\'
 
+';
 
 1;

@@ -87,15 +87,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'one_subsection_and_node'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'one_subsection_and_node'} = '* W |document without Top node
+ warning: document without Top node
 
+';
 
 
 $result_converted{'html'}->{'one_subsection_and_node'} = '<!DOCTYPE html>
@@ -131,14 +126,9 @@ span:hover a.copiable-link {visibility: visible}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'one_subsection_and_node'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'one_subsection_and_node'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

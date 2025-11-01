@@ -189,15 +189,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'format_in_titlepage_titlepage'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'format_in_titlepage_titlepage'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'latex_text'}->{'format_in_titlepage_titlepage'} = '

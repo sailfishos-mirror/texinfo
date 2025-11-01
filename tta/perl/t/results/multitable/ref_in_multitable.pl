@@ -216,22 +216,13 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'ref_in_multitable'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote outside of any node
-',
-    'line_nr' => 11,
-    'text' => '@footnote outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'ref_in_multitable'} = '* W |document without nodes
+ warning: document without nodes
 
+* W l11|@footnote outside of any node
+ warning: @footnote outside of any node
+
+';
 
 
 $result_converted{'plaintext'}->{'ref_in_multitable'} = 'XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX XXX XXX

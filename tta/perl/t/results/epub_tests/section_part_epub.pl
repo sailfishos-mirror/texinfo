@@ -95,15 +95,9 @@ list:
 
 $result_headings_list{'section_part_epub'} = '';
 
-$result_converted_errors{'file_epub'}->{'section_part_epub'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'section_part_epub.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_epub'}->{'section_part_epub'} = '* W section_part_epub.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

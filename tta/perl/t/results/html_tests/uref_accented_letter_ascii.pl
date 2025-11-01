@@ -83,14 +83,9 @@ $result_converted{'html'}->{'uref_accented_letter_ascii'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'uref_accented_letter_ascii'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'uref_accented_letter_ascii'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

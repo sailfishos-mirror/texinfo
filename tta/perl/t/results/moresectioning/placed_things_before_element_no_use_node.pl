@@ -320,43 +320,22 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'placed_things_before_element_no_use_node'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor outside of any node
-',
-    'line_nr' => 1,
-    'text' => '@anchor outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote outside of any node
-',
-    'line_nr' => 9,
-    'text' => '@footnote outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @float outside of any node
-',
-    'line_nr' => 17,
-    'text' => '@float outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor outside of any node
-',
-    'line_nr' => 11,
-    'text' => '@anchor outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'placed_things_before_element_no_use_node'} = '* W |document without nodes
+ warning: document without nodes
 
+* W l1|@anchor outside of any node
+ warning: @anchor outside of any node
+
+* W l9|@footnote outside of any node
+ warning: @footnote outside of any node
+
+* W l17|@float outside of any node
+ warning: @float outside of any node
+
+* W l11|@anchor outside of any node
+ warning: @anchor outside of any node
+
+';
 
 
 $result_converted{'html'}->{'placed_things_before_element_no_use_node'} = '<!DOCTYPE html>
@@ -434,14 +413,9 @@ td.menu-entry-destination {vertical-align: top}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'placed_things_before_element_no_use_node'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'placed_things_before_element_no_use_node'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

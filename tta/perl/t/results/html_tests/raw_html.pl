@@ -75,14 +75,9 @@ $result_converted{'html'}->{'raw_html'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'raw_html'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'raw_html'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

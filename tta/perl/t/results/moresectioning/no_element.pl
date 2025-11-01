@@ -287,43 +287,22 @@ coding: iso-8859-1
 End:
 ';
 
-$result_converted_errors{'info'}->{'no_element'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor outside of any node
-',
-    'line_nr' => 5,
-    'text' => '@anchor outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote outside of any node
-',
-    'line_nr' => 13,
-    'text' => '@footnote outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @float outside of any node
-',
-    'line_nr' => 21,
-    'text' => '@float outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor outside of any node
-',
-    'line_nr' => 15,
-    'text' => '@anchor outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'no_element'} = '* W |document without nodes
+ warning: document without nodes
 
+* W l5|@anchor outside of any node
+ warning: @anchor outside of any node
+
+* W l13|@footnote outside of any node
+ warning: @footnote outside of any node
+
+* W l21|@float outside of any node
+ warning: @float outside of any node
+
+* W l15|@anchor outside of any node
+ warning: @anchor outside of any node
+
+';
 
 
 $result_converted{'html'}->{'no_element'} = '<!DOCTYPE html>

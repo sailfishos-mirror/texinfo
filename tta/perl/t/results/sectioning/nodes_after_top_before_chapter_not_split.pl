@@ -267,14 +267,9 @@ Previous: <a href="#second-node" accesskey="p" rel="prev">second node</a>, Up: <
 </html>
 ';
 
-$result_converted_errors{'html'}->{'nodes_after_top_before_chapter_not_split'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'nodes_after_top_before_chapter_not_split'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

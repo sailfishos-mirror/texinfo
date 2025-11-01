@@ -131,15 +131,9 @@ list:
 
 $result_headings_list{'double_recursive_self_section_reference_node_no_use_node'} = '';
 
-$result_converted_errors{'file_html'}->{'double_recursive_self_section_reference_node_no_use_node'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'double_recursive_self_section_reference_node_no_use_node.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'double_recursive_self_section_reference_node_no_use_node'} = '* W double_recursive_self_section_reference_node_no_use_node.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

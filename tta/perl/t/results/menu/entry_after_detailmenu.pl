@@ -304,15 +304,10 @@ Previous: <a href="#chap-first" accesskey="p" rel="prev">chap first</a>, Up: <a 
 </html>
 ';
 
-$result_converted_errors{'html'}->{'entry_after_detailmenu'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'entry_after_detailmenu'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'entry_after_detailmenu'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>

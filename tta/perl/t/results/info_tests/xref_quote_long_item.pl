@@ -119,14 +119,9 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'xref_quote_long_item'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'xref_quote_long_item'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 1;

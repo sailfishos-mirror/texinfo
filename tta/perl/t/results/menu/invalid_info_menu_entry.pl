@@ -186,44 +186,22 @@ $result_converted{'plaintext'}->{'invalid_info_menu_entry'} = '* Menu:
 * name: (f)node	n. d3
 ';
 
-$result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = [
-  {
-    'error_line' => 'warning: menu entry node name should not contain `:\'
-',
-    'line_nr' => 4,
-    'text' => 'menu entry node name should not contain `:\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: menu entry name should not contain `:\'
-',
-    'line_nr' => 5,
-    'text' => 'menu entry name should not contain `:\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: menu entry node name should not contain `. \'
-',
-    'line_nr' => 6,
-    'text' => 'menu entry node name should not contain `. \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: menu entry node name should not contain `,\'
-',
-    'line_nr' => 7,
-    'text' => 'menu entry node name should not contain `,\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: menu entry node name should not contain `	\'
-',
-    'line_nr' => 8,
-    'text' => 'menu entry node name should not contain `	\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'plaintext'}->{'invalid_info_menu_entry'} = '* W l4|menu entry node name should not contain `:\'
+ warning: menu entry node name should not contain `:\'
 
+* W l5|menu entry name should not contain `:\'
+ warning: menu entry name should not contain `:\'
+
+* W l6|menu entry node name should not contain `. \'
+ warning: menu entry node name should not contain `. \'
+
+* W l7|menu entry node name should not contain `,\'
+ warning: menu entry node name should not contain `,\'
+
+* W l8|menu entry node name should not contain `	\'
+ warning: menu entry node name should not contain `	\'
+
+';
 
 
 $result_converted{'html'}->{'invalid_info_menu_entry'} = '<!DOCTYPE html>
@@ -272,15 +250,10 @@ td.menu-entry-destination {vertical-align: top}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'invalid_info_menu_entry'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'invalid_info_menu_entry'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'invalid_info_menu_entry'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>

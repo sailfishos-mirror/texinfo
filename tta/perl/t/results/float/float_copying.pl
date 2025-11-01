@@ -585,51 +585,25 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'float_copying'} = [
-  {
-    'error_line' => '@float output more than once: public domain
-',
-    'line_nr' => 3,
-    'text' => '@float output more than once: public domain',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor output more than once: public domain anchor
-',
-    'line_nr' => 19,
-    'text' => '@anchor output more than once: public domain anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@float output more than once: public domain
-',
-    'line_nr' => 3,
-    'text' => '@float output more than once: public domain',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor output more than once: public domain anchor
-',
-    'line_nr' => 19,
-    'text' => '@anchor output more than once: public domain anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor output more than once: caption copying footnote anchor
-',
-    'line_nr' => 10,
-    'text' => '@anchor output more than once: caption copying footnote anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor output more than once: caption copying footnote anchor
-',
-    'line_nr' => 10,
-    'text' => '@anchor output more than once: caption copying footnote anchor',
-    'type' => 'error'
-  }
-];
+$result_converted_errors{'info'}->{'float_copying'} = '* E l3|@float output more than once: public domain
+ @float output more than once: public domain
 
+* E l19|@anchor output more than once: public domain anchor
+ @anchor output more than once: public domain anchor
+
+* E l3|@float output more than once: public domain
+ @float output more than once: public domain
+
+* E l19|@anchor output more than once: public domain anchor
+ @anchor output more than once: public domain anchor
+
+* E l10|@anchor output more than once: caption copying footnote anchor
+ @anchor output more than once: caption copying footnote anchor
+
+* E l10|@anchor output more than once: caption copying footnote anchor
+ @anchor output more than once: caption copying footnote anchor
+
+';
 
 
 $result_converted{'html'}->{'float_copying'} = '<!DOCTYPE html>

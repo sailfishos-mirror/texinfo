@@ -684,23 +684,13 @@ Appendix A Print the index
 
 ';
 
-$result_converted_errors{'plaintext'}->{'various_vtable_command_as_argument'} = [
-  {
-    'error_line' => 'warning: could not find @image file `first.txt\' nor alternate text
-',
-    'line_nr' => 14,
-    'text' => 'could not find @image file `first.txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `second.txt\' nor alternate text
-',
-    'line_nr' => 15,
-    'text' => 'could not find @image file `second.txt\' nor alternate text',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'plaintext'}->{'various_vtable_command_as_argument'} = '* W l14|could not find @image file `first.txt\' nor alternate text
+ warning: could not find @image file `first.txt\' nor alternate text
 
+* W l15|could not find @image file `second.txt\' nor alternate text
+ warning: could not find @image file `second.txt\' nor alternate text
+
+';
 
 
 $result_converted{'html_text'}->{'various_vtable_command_as_argument'} = '<div class="top-level-extent" id="Top">
@@ -855,23 +845,13 @@ $result_converted{'html_text'}->{'various_vtable_command_as_argument'} = '<div c
 </div>
 ';
 
-$result_converted_errors{'html_text'}->{'various_vtable_command_as_argument'} = [
-  {
-    'error_line' => 'warning: @image file `first\' (for HTML) not found, using `first.jpg\'
-',
-    'line_nr' => 14,
-    'text' => '@image file `first\' (for HTML) not found, using `first.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `second\' (for HTML) not found, using `second.jpg\'
-',
-    'line_nr' => 15,
-    'text' => '@image file `second\' (for HTML) not found, using `second.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'various_vtable_command_as_argument'} = '* W l14|@image file `first\' (for HTML) not found, using `first.jpg\'
+ warning: @image file `first\' (for HTML) not found, using `first.jpg\'
 
+* W l15|@image file `second\' (for HTML) not found, using `second.jpg\'
+ warning: @image file `second\' (for HTML) not found, using `second.jpg\'
+
+';
 
 
 $result_converted{'xml'}->{'various_vtable_command_as_argument'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
@@ -959,23 +939,13 @@ $result_converted{'docbook'}->{'various_vtable_command_as_argument'} = '<chapter
 </appendix>
 ';
 
-$result_converted_errors{'docbook'}->{'various_vtable_command_as_argument'} = [
-  {
-    'error_line' => 'warning: @image file `first\' not found, using `first.jpg\'
-',
-    'line_nr' => 14,
-    'text' => '@image file `first\' not found, using `first.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `second\' not found, using `second.jpg\'
-',
-    'line_nr' => 15,
-    'text' => '@image file `second\' not found, using `second.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'docbook'}->{'various_vtable_command_as_argument'} = '* W l14|@image file `first\' not found, using `first.jpg\'
+ warning: @image file `first\' not found, using `first.jpg\'
 
+* W l15|@image file `second\' not found, using `second.jpg\'
+ warning: @image file `second\' not found, using `second.jpg\'
+
+';
 
 
 $result_converted{'latex_text'}->{'various_vtable_command_as_argument'} = '\\label{anchor:Top}%

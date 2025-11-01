@@ -135,14 +135,9 @@ MathJax = {
 </html>
 ';
 
-$result_converted_errors{'html'}->{'mathjax_with_texinfo_no_convert_to_latex'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'mathjax_with_texinfo_no_convert_to_latex'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

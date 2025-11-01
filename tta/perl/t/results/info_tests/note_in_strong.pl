@@ -143,22 +143,12 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'note_in_strong'} = [
-  {
-    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
-',
-    'line_nr' => 5,
-    'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
-',
-    'line_nr' => 11,
-    'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'note_in_strong'} = '* W l5|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+ warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 
+* W l11|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+ warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+
+';
 
 1;

@@ -285,15 +285,9 @@ $result_sectioning_root{'itemize_tieaccent'} = '';
 
 $result_headings_list{'itemize_tieaccent'} = '';
 
-$result_converted_errors{'file_html'}->{'itemize_tieaccent'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'itemize_tieaccent.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'itemize_tieaccent'} = '* W itemize_tieaccent.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

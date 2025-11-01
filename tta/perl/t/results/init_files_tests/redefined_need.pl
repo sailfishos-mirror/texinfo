@@ -64,21 +64,12 @@ $result_converted{'html'}->{'redefined_need'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'redefined_need'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: need has the right arg: 0.1
-',
-    'line_nr' => 1,
-    'text' => 'need has the right arg: 0.1',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'redefined_need'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+* W l1|need has the right arg: 0.1
+ warning: need has the right arg: 0.1
+
+';
 
 1;

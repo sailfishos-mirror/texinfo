@@ -4176,117 +4176,53 @@ list:
 
 $result_headings_list{'at_commands_in_refs_latin1'} = '';
 
-$result_converted_errors{'file_html'}->{'at_commands_in_refs_latin1'} = [
-  {
-    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
-',
-    'line_nr' => 95,
-    'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
-',
-    'line_nr' => 95,
-    'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
-',
-    'line_nr' => 93,
-    'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
-',
-    'line_nr' => 93,
-    'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
-',
-    'line_nr' => 95,
-    'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
-',
-    'line_nr' => 163,
-    'text' => '@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'at_commands_in_refs_latin1'} = '* W l95|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+ warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
+* W l95|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+ warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
-$result_converted_errors{'file_info'}->{'at_commands_in_refs_latin1'} = [
-  {
-    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
-',
-    'line_nr' => 93,
-    'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
-',
-    'line_nr' => 26,
-    'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: menu entry node name should not contain `:\'
-',
-    'line_nr' => 34,
-    'text' => 'menu entry node name should not contain `:\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => "warning: \@node name should not contain `,': LaTeX TeX * , \x{a9} ... ...
-",
-    'line_nr' => 46,
-    'text' => "\@node name should not contain `,': LaTeX TeX * , \x{a9} ... ...",
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node name should not contain `,\': i E=` C\',
-',
-    'line_nr' => 70,
-    'text' => '@node name should not contain `,\': i E=` C\',',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node name should not contain `,\': " " ` \' ,, ,
-',
-    'line_nr' => 73,
-    'text' => '@node name should not contain `,\': " " ` \' ,, ,',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
-',
-    'line_nr' => 95,
-    'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: could not find @image file `f--ile1.txt\' nor alternate text
-',
-    'line_nr' => 93,
-    'text' => 'could not find @image file `f--ile1.txt\' nor alternate text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref node name should not contain `:\'
-',
-    'line_nr' => 180,
-    'text' => '@ref node name should not contain `:\'',
-    'type' => 'warning'
-  }
-];
+* W l93|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+ warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
+* W l93|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+ warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+
+* W l95|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+ warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+
+* W l163|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+ warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
+
+';
+
+$result_converted_errors{'file_info'}->{'at_commands_in_refs_latin1'} = '* W l93|could not find @image file `f--ile1.txt\' nor alternate text
+ warning: could not find @image file `f--ile1.txt\' nor alternate text
+
+* W l26|could not find @image file `f--ile1.txt\' nor alternate text
+ warning: could not find @image file `f--ile1.txt\' nor alternate text
+
+* W l34|menu entry node name should not contain `:\'
+ warning: menu entry node name should not contain `:\'
+
+* W l46|@node name should not contain `,\': LaTeX TeX * , © ... ...
+ warning: @node name should not contain `,\': LaTeX TeX * , © ... ...
+
+* W l70|@node name should not contain `,\': i E=` C\',
+ warning: @node name should not contain `,\': i E=` C\',
+
+* W l73|@node name should not contain `,\': " " ` \' ,, ,
+ warning: @node name should not contain `,\': " " ` \' ,, ,
+
+* W l95|could not find @image file `f--ile1.txt\' nor alternate text
+ warning: could not find @image file `f--ile1.txt\' nor alternate text
+
+* W l93|could not find @image file `f--ile1.txt\' nor alternate text
+ warning: could not find @image file `f--ile1.txt\' nor alternate text
+
+* W l180|@ref node name should not contain `:\'
+ warning: @ref node name should not contain `:\'
+
+';
 
 1;

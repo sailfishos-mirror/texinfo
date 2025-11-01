@@ -297,14 +297,9 @@ Previous: <a href="#chap-node" accesskey="p" rel="prev">chap node</a>, Up: <a hr
 </html>
 ';
 
-$result_converted_errors{'html'}->{'nodes_after_top_before_section_sections'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'nodes_after_top_before_section_sections'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

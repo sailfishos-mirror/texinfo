@@ -207,15 +207,10 @@ $result_converted{'html'}->{'empty_caption'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'empty_caption'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'empty_caption'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'empty_caption'} = '<float identifier="b" type="a" number="1" spaces=" " endspaces=" "><floattype>a</floattype><floatname spaces=" ">b</floatname>

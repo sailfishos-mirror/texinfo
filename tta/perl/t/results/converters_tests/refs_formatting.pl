@@ -1120,14 +1120,9 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'refs_formatting'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'refs_formatting'} = '* W |document without Top node
+ warning: document without Top node
 
+';
 
 1;

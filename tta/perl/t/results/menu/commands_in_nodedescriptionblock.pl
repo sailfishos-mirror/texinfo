@@ -533,16 +533,10 @@ in nodescription, tfloat 1.1: f1.
 
 ';
 
-$result_converted_errors{'plaintext'}->{'commands_in_nodedescriptionblock'} = [
-  {
-    'error_line' => 'warning: could not find @image file `float_image.txt\' nor alternate text
-',
-    'line_nr' => 22,
-    'text' => 'could not find @image file `float_image.txt\' nor alternate text',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'plaintext'}->{'commands_in_nodedescriptionblock'} = '* W l22|could not find @image file `float_image.txt\' nor alternate text
+ warning: could not find @image file `float_image.txt\' nor alternate text
 
+';
 
 
 $result_converted{'html'}->{'commands_in_nodedescriptionblock'} = '<!DOCTYPE html>
@@ -662,23 +656,13 @@ where the max column could be. in&nbsp;w<!-- /@w -->.
 </html>
 ';
 
-$result_converted_errors{'html'}->{'commands_in_nodedescriptionblock'} = [
-  {
-    'error_line' => 'warning: @image file `float_image\' (for HTML) not found, using `float_image.jpg\'
-',
-    'line_nr' => 22,
-    'text' => '@image file `float_image\' (for HTML) not found, using `float_image.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `float_image\' (for HTML) not found, using `float_image.jpg\'
-',
-    'line_nr' => 22,
-    'text' => '@image file `float_image\' (for HTML) not found, using `float_image.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'commands_in_nodedescriptionblock'} = '* W l22|@image file `float_image\' (for HTML) not found, using `float_image.jpg\'
+ warning: @image file `float_image\' (for HTML) not found, using `float_image.jpg\'
 
+* W l22|@image file `float_image\' (for HTML) not found, using `float_image.jpg\'
+ warning: @image file `float_image\' (for HTML) not found, using `float_image.jpg\'
+
+';
 
 
 $result_converted{'xml'}->{'commands_in_nodedescriptionblock'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">node1</nodenext></node>

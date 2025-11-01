@@ -542,16 +542,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'special_spaces_in_nodes'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'file_name' => 'special_spaces_in_nodes.texi',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'special_spaces_in_nodes'} = '* W special_spaces_in_nodes.texi|document without Top node
+ warning: document without Top node
 
+';
 
 
 $result_converted{'html'}->{'special_spaces_in_nodes'} = '<!DOCTYPE html>

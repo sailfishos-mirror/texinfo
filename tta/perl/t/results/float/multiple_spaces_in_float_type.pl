@@ -127,15 +127,10 @@ $result_converted{'html'}->{'multiple_spaces_in_float_type'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'multiple_spaces_in_float_type'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'multiple_spaces_in_float_type'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'multiple_spaces_in_float_type'} = '<float identifier="myfloat" type="Type of Float" number="1" spaces=" " endspaces=" "><floattype>Type  of  &formfeed;  Float</floattype><floatname spaces=" ">myfloat</floatname>

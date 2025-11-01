@@ -83,15 +83,10 @@ $result_converted{'html'}->{'defblock_no_defline'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'defblock_no_defline'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'defblock_no_defline'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'latex'}->{'defblock_no_defline'} = '\\documentclass{book}

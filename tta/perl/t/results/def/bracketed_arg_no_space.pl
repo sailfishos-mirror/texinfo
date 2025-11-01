@@ -109,15 +109,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'bracketed_arg_no_space'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'bracketed_arg_no_space'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 
 $result_converted{'html'}->{'bracketed_arg_no_space'} = '<!DOCTYPE html>
@@ -153,15 +148,10 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'bracketed_arg_no_space'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'bracketed_arg_no_space'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'bracketed_arg_no_space'} = '<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1"><defbracketed bracketed="on">e g</defbracketed>h</indexterm><defcategory><defbracketed bracketed="on">a b</defbracketed><defbracketed bracketed="on">c d</defbracketed></defcategory> <deffunction><defbracketed bracketed="on">e g</defbracketed>h</deffunction> <defparam>m</defparam><defparam bracketed="on" trailingspaces=" ">ll</defparam> <defparam bracketed="on">rest</defparam><defparam bracketed="on">and more</defparam></definitionterm>

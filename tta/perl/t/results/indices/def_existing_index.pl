@@ -52,15 +52,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'def_existing_index'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'def_existing_index'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 
 $result_converted{'plaintext'}->{'def_existing_index'} = '';

@@ -49,8 +49,8 @@ use Test::More;
 # result when regenerating
 use I18N::Langinfo qw(langinfo CODESET);
 use Encode ();
-use Data::Dumper ();
-use Data::Compare ();
+#use Data::Dumper ();
+#use Data::Compare ();
 #use Test::Deep ();
 use Storable qw(dclone); # standard in 5.007003
 use Getopt::Long qw(GetOptions);
@@ -1093,6 +1093,12 @@ sub test($$)
 
   $tree = $document->tree($XS_conversion);
 
+  my $input_file_names_encoding
+      = Texinfo::Common::input_file_name_encoding(
+                 $document->get_conf('INPUT_FILE_NAME_ENCODING'),
+                 $document->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME'),
+                 $document->get_conf('LOCALE_ENCODING'), $document);
+
   # use the parser expanded formats to be similar to the main program,
   # and also to avoid having @inline* and raw output format @-commands
   # with elided contents especially parsed because they are ignored
@@ -1233,8 +1239,14 @@ sub test($$)
       $converter->reset_converter();
       $converter->destroy();
 
-      $converted_errors{$format} = $converter->get_converter_errors();
-      $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
+      my $conversion_errors = $converter->get_converter_errors();
+      if (!scalar(@$conversion_errors)) {
+        $converted_errors{$format} = undef;
+      } else {
+        $converted_errors{$format}
+          = Texinfo::Report::errors_print_details($conversion_errors,
+                                          $input_file_names_encoding, 1);
+      }
 
       $converter = undef;
     }
@@ -1266,12 +1278,6 @@ sub test($$)
   my $output_units
     = Texinfo::OutputUnits::do_units_directions_pages($document,
                          $test_split_by_node, $split_pages, $self->{'DEBUG'});
-
-  my $input_file_names_encoding
-      = Texinfo::Common::input_file_name_encoding(
-                 $document->get_conf('INPUT_FILE_NAME_ENCODING'),
-                 $document->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME'),
-                 $document->get_conf('LOCALE_ENCODING'), $document);
 
   my $errors_text;
   my $float_text;
@@ -1329,9 +1335,6 @@ sub test($$)
   }
 
   {
-    local $Data::Dumper::Purity = 1;
-    local $Data::Dumper::Indent = 1;
-
     my $out_file;
     if (!$self->{'generate'}) {
       $out_file = $new_file;
@@ -1414,10 +1417,9 @@ sub test($$)
                        .protect_perl_string($converted{$format})."';\n\n";
       }
       if (defined($converted_errors{$format})) {
-        local $Data::Dumper::Sortkeys = 1;
-        $out_result .= Data::Dumper->Dump([$converted_errors{$format}],
-           ['$result_converted_errors{\''.$format.'\'}->{\''.$test_name.'\'}'])
-                       ."\n\n";
+        $out_result
+     .= '$result_converted_errors{\''.$format.'\'}->{\''.$test_name.'\'} = \''
+         . protect_perl_string($converted_errors{$format})."';\n\n";
       }
     }
 
@@ -1580,9 +1582,10 @@ sub test($$)
           $tests_count += 1;
           ok(((not defined($converted_errors{$format})
                and (not $result_converted_errors{$format}
-                    or not $result_converted_errors{$format}->{$test_name}))
-              or Data::Compare::Compare($converted_errors{$format},
-                              $result_converted_errors{$format}->{$test_name})),
+                    or not exists(
+                             $result_converted_errors{$format}->{$test_name})))
+              or $converted_errors{$format} eq
+                              $result_converted_errors{$format}->{$test_name}),
              $test_name.' errors '.$format);
         }
       }

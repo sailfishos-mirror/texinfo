@@ -135,22 +135,12 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'xref_test'} = [
-  {
-    'error_line' => 'warning: @xref node name should not contain `.\'
-',
-    'line_nr' => 6,
-    'text' => '@xref node name should not contain `.\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: `.\' or `,\' must follow @xref, not !
-',
-    'line_nr' => 6,
-    'text' => '`.\' or `,\' must follow @xref, not !',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'xref_test'} = '* W l6|@xref node name should not contain `.\'
+ warning: @xref node name should not contain `.\'
 
+* W l6|`.\' or `,\' must follow @xref, not !
+ warning: `.\' or `,\' must follow @xref, not !
+
+';
 
 1;

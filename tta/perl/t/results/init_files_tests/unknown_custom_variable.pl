@@ -170,26 +170,15 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </html>
 ';
 
-$result_converted_errors{'html'}->{'unknown_custom_variable'} = [
-  {
-    'error_line' => 'unknown customization variable: toto
-',
-    'text' => 'unknown customization variable: toto',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown customization variable: titi
-',
-    'text' => 'unknown customization variable: titi',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown customization variable: tutu
-',
-    'text' => 'unknown customization variable: tutu',
-    'type' => 'error'
-  }
-];
+$result_converted_errors{'html'}->{'unknown_custom_variable'} = '* E |unknown customization variable: toto
+ unknown customization variable: toto
 
+* E |unknown customization variable: titi
+ unknown customization variable: titi
+
+* E |unknown customization variable: tutu
+ unknown customization variable: tutu
+
+';
 
 1;

@@ -228,16 +228,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </html>
 ';
 
-$result_converted_errors{'html'}->{'recursive_down_menu'} = [
-  {
-    'error_line' => 'warning: node `chapN\' appears in its own menus
-',
-    'line_nr' => 4,
-    'text' => 'node `chapN\' appears in its own menus',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'recursive_down_menu'} = '* W l4|node `chapN\' appears in its own menus
+ warning: node `chapN\' appears in its own menus
 
+';
 
 
 $result_converted{'info'}->{'recursive_down_menu'} = 'This is , produced from .
@@ -281,15 +275,9 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'recursive_down_menu'} = [
-  {
-    'error_line' => 'warning: node `chapN\' appears in its own menus
-',
-    'line_nr' => 4,
-    'text' => 'node `chapN\' appears in its own menus',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'recursive_down_menu'} = '* W l4|node `chapN\' appears in its own menus
+ warning: node `chapN\' appears in its own menus
 
+';
 
 1;

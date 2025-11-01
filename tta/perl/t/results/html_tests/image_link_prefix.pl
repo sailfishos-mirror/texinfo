@@ -56,21 +56,12 @@ $result_converted{'html'}->{'image_link_prefix'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'image_link_prefix'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
-',
-    'line_nr' => 1,
-    'text' => '@image file `image\' (for HTML) not found, using `image.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'image_link_prefix'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+* W l1|@image file `image\' (for HTML) not found, using `image.jpg\'
+ warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+
+';
 
 1;

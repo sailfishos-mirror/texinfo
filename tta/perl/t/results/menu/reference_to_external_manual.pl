@@ -128,15 +128,10 @@ td.menu-entry-destination {vertical-align: top}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'reference_to_external_manual'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'reference_to_external_manual'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'reference_to_external_manual'} = '

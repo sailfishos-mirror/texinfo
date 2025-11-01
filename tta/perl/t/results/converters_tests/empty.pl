@@ -26,26 +26,14 @@ $result_sectioning_root{'empty'} = '';
 
 $result_headings_list{'empty'} = '';
 
-$result_converted_errors{'file_html'}->{'empty'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'empty.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'empty'} = '* W empty.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
-$result_converted_errors{'file_info'}->{'empty'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'file_name' => 'empty.texi',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_info'}->{'empty'} = '* W empty.texi|document without nodes
+ warning: document without nodes
 
+';
 
 1;

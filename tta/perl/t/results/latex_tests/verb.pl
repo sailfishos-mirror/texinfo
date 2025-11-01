@@ -86,26 +86,14 @@ $result_converted{'latex_text'}->{'verb'} = '\\begin{document}
 \\verb%%
 ';
 
-$result_converted_errors{'latex_text'}->{'verb'} = [
-  {
-    'error_line' => 'warning: \\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'
-',
-    'line_nr' => 8,
-    'text' => '\\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'latex_text'}->{'verb'} = '* W l8|\\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'
+ warning: \\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'
 
+';
 
-$result_converted_errors{'file_latex'}->{'verb'} = [
-  {
-    'error_line' => 'warning: \\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'
-',
-    'line_nr' => 8,
-    'text' => '\\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_latex'}->{'verb'} = '* W l8|\\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'
+ warning: \\verb delimiter `%\' (for LaTeX) used in text `a%|!:@b\'
 
+';
 
 1;

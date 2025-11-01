@@ -177,15 +177,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'nodes_no_node_top_explicit_directions'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'nodes_no_node_top_explicit_directions'} = '* W |document without Top node
+ warning: document without Top node
 
+';
 
 
 $result_converted{'html'}->{'nodes_no_node_top_explicit_directions'} = '<!DOCTYPE html>
@@ -233,15 +228,10 @@ Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#fir
 </html>
 ';
 
-$result_converted_errors{'html'}->{'nodes_no_node_top_explicit_directions'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'nodes_no_node_top_explicit_directions'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'nodes_no_node_top_explicit_directions'} = '<node identifier="first" spaces=" "><nodename>first</nodename><nodenext></nodenext><nodeprev></nodeprev><nodeup>(dir)</nodeup></node>

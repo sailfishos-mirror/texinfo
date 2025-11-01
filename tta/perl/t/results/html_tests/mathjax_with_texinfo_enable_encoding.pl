@@ -145,15 +145,9 @@ MathJax = {
 </html>
 ';
 
-$result_converted_errors{'html'}->{'mathjax_with_texinfo_enable_encoding'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'mathjax_with_texinfo_enable_encoding.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'mathjax_with_texinfo_enable_encoding'} = '* W mathjax_with_texinfo_enable_encoding.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

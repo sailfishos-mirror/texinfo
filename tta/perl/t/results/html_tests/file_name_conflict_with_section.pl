@@ -104,23 +104,12 @@ list:
 
 $result_headings_list{'file_name_conflict_with_section'} = '';
 
-$result_converted_errors{'file_html'}->{'file_name_conflict_with_section'} = [
-  {
-    'error_line' => 'warning: @anchor `Chap\' file Chap.html for redirection exists
-',
-    'line_nr' => 3,
-    'text' => '@anchor `Chap\' file Chap.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with @chapter `Chap\' file
-',
-    'line_nr' => 5,
-    'text' => 'conflict with @chapter `Chap\' file',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'file_name_conflict_with_section'} = '* W l3|@anchor `Chap\' file Chap.html for redirection exists
+ warning: @anchor `Chap\' file Chap.html for redirection exists
 
+* WC l5|conflict with @chapter `Chap\' file
+ warning: conflict with @chapter `Chap\' file
+
+';
 
 1;

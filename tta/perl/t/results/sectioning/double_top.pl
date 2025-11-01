@@ -176,14 +176,9 @@ Previous: <a href="#Top" accesskey="p" rel="prev">ToP</a>, Up: <a href="#Top" ac
 </html>
 ';
 
-$result_converted_errors{'html'}->{'double_top'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'double_top'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

@@ -72,44 +72,24 @@ $result_converted{'plaintext'}->{'space_in_image'} = 'An image text before parag
 
 $result_converted{'html_text'}->{'space_in_image'} = '<img class="image" src="a.e" alt="dd"><p>. <img class="image" src="f.jpg" alt="f">.</p>';
 
-$result_converted_errors{'html_text'}->{'space_in_image'} = [
-  {
-    'error_line' => 'warning: @image file `a\' (for HTML) not found, using `a.e\'
-',
-    'line_nr' => 1,
-    'text' => '@image file `a\' (for HTML) not found, using `a.e\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f\' (for HTML) not found, using `f.jpg\'
-',
-    'line_nr' => 1,
-    'text' => '@image file `f\' (for HTML) not found, using `f.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'space_in_image'} = '* W l1|@image file `a\' (for HTML) not found, using `a.e\'
+ warning: @image file `a\' (for HTML) not found, using `a.e\'
 
+* W l1|@image file `f\' (for HTML) not found, using `f.jpg\'
+ warning: @image file `f\' (for HTML) not found, using `f.jpg\'
+
+';
 
 
 $result_converted{'latex_text'}->{'space_in_image'} = '\\includegraphics[width=bb,height=cc]{a}. \\includegraphics{f}.';
 
-$result_converted_errors{'latex_text'}->{'space_in_image'} = [
-  {
-    'error_line' => 'warning: @image file `a\' (for LaTeX) not found
-',
-    'line_nr' => 1,
-    'text' => '@image file `a\' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f\' (for LaTeX) not found
-',
-    'line_nr' => 1,
-    'text' => '@image file `f\' (for LaTeX) not found',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'latex_text'}->{'space_in_image'} = '* W l1|@image file `a\' (for LaTeX) not found
+ warning: @image file `a\' (for LaTeX) not found
 
+* W l1|@image file `f\' (for LaTeX) not found
+ warning: @image file `f\' (for LaTeX) not found
+
+';
 
 
 $result_converted{'docbook'}->{'space_in_image'} = '<informalfigure><mediaobject><imageobject><imagedata fileref="a.jpg" format="JPG"></imagedata></imageobject><textobject><literallayout>An image text before paragraph.</literallayout></textobject></mediaobject></informalfigure><para>. <inlinemediaobject><imageobject><imagedata fileref="f.jpg" format="JPG"></imagedata></imageobject><textobject><literallayout>Another image text, in paragraph.</literallayout></textobject></inlinemediaobject>.</para>';

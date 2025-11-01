@@ -411,30 +411,16 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'placed_things_before_node'} = [
-  {
-    'error_line' => 'warning: @anchor outside of any node
-',
-    'line_nr' => 1,
-    'text' => '@anchor outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote outside of any node
-',
-    'line_nr' => 9,
-    'text' => '@footnote outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @float outside of any node
-',
-    'line_nr' => 17,
-    'text' => '@float outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'placed_things_before_node'} = '* W l1|@anchor outside of any node
+ warning: @anchor outside of any node
 
+* W l9|@footnote outside of any node
+ warning: @footnote outside of any node
+
+* W l17|@float outside of any node
+ warning: @float outside of any node
+
+';
 
 
 $result_converted{'html'}->{'placed_things_before_node'} = '<!DOCTYPE html>

@@ -191,15 +191,9 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'ref_tests'} = [
-  {
-    'error_line' => 'warning: @ref node name should not contain `.\'
-',
-    'line_nr' => 12,
-    'text' => '@ref node name should not contain `.\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'ref_tests'} = '* W l12|@ref node name should not contain `.\'
+ warning: @ref node name should not contain `.\'
 
+';
 
 1;

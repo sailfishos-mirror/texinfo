@@ -197,15 +197,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" 
 </html>
 ';
 
-$result_converted_errors{'html'}->{'comment_on_menu_line'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'comment_on_menu_line'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'comment_on_menu_line'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">first</nodenext></node>

@@ -298,15 +298,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'double_node_anchor_float'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'double_node_anchor_float'} = '* W |document without Top node
+ warning: document without Top node
 
+';
 
 
 $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
@@ -354,15 +349,10 @@ span:hover a.copiable-link {visibility: visible}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'double_node_anchor_float'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'double_node_anchor_float'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'double_node_anchor_float'} = '<node identifier="node1" spaces=" "><nodename>node1</nodename></node>

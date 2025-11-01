@@ -52,15 +52,9 @@ $result_converted{'html_text'}->{'sole_image'} = '<img class="image" src="aa.jpg
 <p>next para
 </p>';
 
-$result_converted_errors{'html_text'}->{'sole_image'} = [
-  {
-    'error_line' => 'warning: @image file `aa\' (for HTML) not found, using `aa.jpg\'
-',
-    'line_nr' => 1,
-    'text' => '@image file `aa\' (for HTML) not found, using `aa.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'sole_image'} = '* W l1|@image file `aa\' (for HTML) not found, using `aa.jpg\'
+ warning: @image file `aa\' (for HTML) not found, using `aa.jpg\'
 
+';
 
 1;

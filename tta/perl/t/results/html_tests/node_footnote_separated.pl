@@ -389,15 +389,9 @@ list:
 
 $result_headings_list{'node_footnote_separated'} = '';
 
-$result_converted_errors{'file_html'}->{'node_footnote_separated'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'node_footnote.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'node_footnote_separated'} = '* W node_footnote.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

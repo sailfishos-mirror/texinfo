@@ -323,14 +323,9 @@ Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'equivalent_nodes_defined_linked'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'equivalent_nodes_defined_linked'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

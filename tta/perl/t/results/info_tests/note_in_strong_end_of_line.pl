@@ -90,22 +90,12 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'note_in_strong_end_of_line'} = [
-  {
-    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
-',
-    'line_nr' => 3,
-    'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
-',
-    'line_nr' => 5,
-    'text' => '@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'note_in_strong_end_of_line'} = '* W l3|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+ warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
 
+* W l5|@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+ warning: @strong{Note...} produces a spurious cross-reference in Info; reword to avoid that
+
+';
 
 1;

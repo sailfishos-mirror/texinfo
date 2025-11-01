@@ -818,119 +818,48 @@ fn:
  somewhere
 ';
 
-$result_converted_errors{'file_html'}->{'nodes_before_top_split_chapter_no_nodes'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'nodes_before_top.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 40,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 70,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 62,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 24,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 65,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 42,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 7,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 16,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 20,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' for @printindex cp outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 60,
-    'text' => 'entry for index `cp\' for @printindex cp outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 69,
-    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 41,
-    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' for @printindex fn outside of any section
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 61,
-    'text' => 'entry for index `fn\' for @printindex fn outside of any section',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'nodes_before_top_split_chapter_no_nodes'} = '* W nodes_before_top.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+* W nodes_before_top.texi:l40|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l70|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l62|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l24|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l65|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l42|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l7|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l16|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l20|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l60|entry for index `cp\' for @printindex cp outside of any section
+ warning: entry for index `cp\' for @printindex cp outside of any section
+
+* W nodes_before_top.texi:l69|entry for index `fn\' for @printindex fn outside of any section
+ warning: entry for index `fn\' for @printindex fn outside of any section
+
+* W nodes_before_top.texi:l41|entry for index `fn\' for @printindex fn outside of any section
+ warning: entry for index `fn\' for @printindex fn outside of any section
+
+* W nodes_before_top.texi:l61|entry for index `fn\' for @printindex fn outside of any section
+ warning: entry for index `fn\' for @printindex fn outside of any section
+
+';
 
 1;

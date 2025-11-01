@@ -100,15 +100,9 @@ list:
 
 $result_headings_list{'extension_undef'} = '';
 
-$result_converted_errors{'file_info'}->{'extension_undef'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'file_name' => 'extension_undef.texi',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_info'}->{'extension_undef'} = '* W extension_undef.texi|document without Top node
+ warning: document without Top node
 
+';
 
 1;

@@ -99,15 +99,10 @@ $result_converted{'html'}->{'two_unnumbered_no_argument'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'two_unnumbered_no_argument'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'two_unnumbered_no_argument'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'two_unnumbered_no_argument'} = '<unnumbered><sectiontitle></sectiontitle>

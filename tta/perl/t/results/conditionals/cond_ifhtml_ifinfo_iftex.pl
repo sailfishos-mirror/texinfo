@@ -392,16 +392,9 @@ This is tex text.
 </html>
 ';
 
-$result_converted_errors{'html'}->{'cond_ifhtml_ifinfo_iftex'} = [
-  {
-    'error_line' => 'warning: raw format tex is not converted
-',
-    'file_name' => 'cond.texi',
-    'line_nr' => 32,
-    'text' => 'raw format tex is not converted',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'cond_ifhtml_ifinfo_iftex'} = '* W cond.texi:l32|raw format tex is not converted
+ warning: raw format tex is not converted
 
+';
 
 1;

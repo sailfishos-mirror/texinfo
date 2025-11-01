@@ -199,15 +199,10 @@ Next: <a href="manual1.html#Top" accesskey="n" rel="next">(manual1)</a>, Previou
 </html>
 ';
 
-$result_converted_errors{'html'}->{'node_up_external_node'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'node_up_external_node'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'node_up_external_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap first</nodenext></node>

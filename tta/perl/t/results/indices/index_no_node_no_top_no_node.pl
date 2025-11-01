@@ -659,128 +659,52 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'index_no_node_no_top_no_node'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 41,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 45,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 35,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 37,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 19,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 20,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 21,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 22,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 23,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 24,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 29,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 3,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 11,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 13,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'index_no_node_no_top_no_node'} = '* W index_no_node_no_top.texi|document without nodes
+ warning: document without nodes
 
+* W index_no_node_no_top.texi:l41|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l45|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l35|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l37|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l19|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l20|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l21|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l22|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l23|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l24|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l29|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l3|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l11|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l13|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 
 $result_converted{'plaintext'}->{'index_no_node_no_top_no_node'} = 'Garbage
@@ -914,121 +838,49 @@ In chapter 2
 
 ';
 
-$result_converted_errors{'plaintext'}->{'index_no_node_no_top_no_node'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 41,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 45,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 35,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 37,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 19,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 20,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 21,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 22,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 23,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 24,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 29,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 3,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 11,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 13,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'plaintext'}->{'index_no_node_no_top_no_node'} = '* W index_no_node_no_top.texi:l41|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+* W index_no_node_no_top.texi:l45|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l35|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l37|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l19|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l20|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l21|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l22|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l23|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l24|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l29|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l3|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l11|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W index_no_node_no_top.texi:l13|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 
 $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="index-entry-id" id="index-truc"></a>

@@ -123,14 +123,9 @@ $result_converted{'html'}->{'nodes_no_section_footnote_no_top_node_output'} = '<
 </html>
 ';
 
-$result_converted_errors{'html'}->{'nodes_no_section_footnote_no_top_node_output'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'nodes_no_section_footnote_no_top_node_output'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

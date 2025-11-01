@@ -350,15 +350,10 @@ Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'sc_in_menu'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'sc_in_menu'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'sc_in_menu'} = '

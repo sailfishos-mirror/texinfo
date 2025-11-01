@@ -1110,14 +1110,9 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'ref_error_formatting'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'ref_error_formatting'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 1;

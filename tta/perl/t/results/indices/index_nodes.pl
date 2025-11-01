@@ -614,15 +614,9 @@ fn:
  somewhere
 ';
 
-$result_converted_errors{'file_html'}->{'index_nodes'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'index_nodes.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'index_nodes'} = '* W index_nodes.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

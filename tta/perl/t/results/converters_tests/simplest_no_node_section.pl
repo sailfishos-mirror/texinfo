@@ -62,26 +62,14 @@ $result_sectioning_root{'simplest_no_node_section'} = '';
 
 $result_headings_list{'simplest_no_node_section'} = '';
 
-$result_converted_errors{'file_html'}->{'simplest_no_node_section'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'simplest_no_node_section.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'simplest_no_node_section'} = '* W simplest_no_node_section.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
-$result_converted_errors{'file_info'}->{'simplest_no_node_section'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'file_name' => 'simplest_no_node_section.texi',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_info'}->{'simplest_no_node_section'} = '* W simplest_no_node_section.texi|document without nodes
+ warning: document without nodes
 
+';
 
 1;

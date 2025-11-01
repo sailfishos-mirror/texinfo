@@ -146,15 +146,10 @@ td.menu-entry-destination {vertical-align: top}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'detailmenu_unknown_node'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'detailmenu_unknown_node'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'detailmenu_unknown_node'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename></node>

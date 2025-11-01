@@ -681,65 +681,31 @@ $result_converted{'html_text'}->{'image_formatting'} = '<div class="top-level-ex
 </div>
 ';
 
-$result_converted_errors{'html_text'}->{'image_formatting'} = [
-  {
-    'error_line' => 'warning: @image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
-',
-    'line_nr' => 14,
-    'text' => '@image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
-',
-    'line_nr' => 15,
-    'text' => '@image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
-',
-    'line_nr' => 16,
-    'text' => '@image file `image\' (for HTML) not found, using `image.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
-',
-    'line_nr' => 16,
-    'text' => '@image file `image\' (for HTML) not found, using `image.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
-',
-    'line_nr' => 25,
-    'text' => '@image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
-',
-    'line_nr' => 26,
-    'text' => '@image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
-',
-    'line_nr' => 27,
-    'text' => '@image file `image\' (for HTML) not found, using `image.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for HTML) not found, using `image.jpg\'
-',
-    'line_nr' => 27,
-    'text' => '@image file `image\' (for HTML) not found, using `image.jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'image_formatting'} = '* W l14|@image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
+ warning: @image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
 
+* W l15|@image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
+ warning: @image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
+
+* W l16|@image file `image\' (for HTML) not found, using `image.jpg\'
+ warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+
+* W l16|@image file `image\' (for HTML) not found, using `image.jpg\'
+ warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+
+* W l25|@image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
+ warning: @image file `f-ile\' (for HTML) not found, using `f-ile.jpg\'
+
+* W l26|@image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
+ warning: @image file `f--ile@.\' (for HTML) not found, using `f--ile@.file ext e--xt}\'
+
+* W l27|@image file `image\' (for HTML) not found, using `image.jpg\'
+ warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+
+* W l27|@image file `image\' (for HTML) not found, using `image.jpg\'
+ warning: @image file `image\' (for HTML) not found, using `image.jpg\'
+
+';
 
 
 $result_converted{'xml'}->{'image_formatting'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
@@ -819,37 +785,19 @@ ccc</literallayout></textobject></inlinemediaobject>
 </para></chapter>
 ';
 
-$result_converted_errors{'docbook'}->{'image_formatting'} = [
-  {
-    'error_line' => 'warning: @image file `f-ile\' not found, using `f-ile.jpg\'
-',
-    'line_nr' => 14,
-    'text' => '@image file `f-ile\' not found, using `f-ile.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile@.\' not found, using `f--ile@..jpg\'
-',
-    'line_nr' => 15,
-    'text' => '@image file `f--ile@.\' not found, using `f--ile@..jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f-ile\' not found, using `f-ile.jpg\'
-',
-    'line_nr' => 25,
-    'text' => '@image file `f-ile\' not found, using `f-ile.jpg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile@.\' not found, using `f--ile@..jpg\'
-',
-    'line_nr' => 26,
-    'text' => '@image file `f--ile@.\' not found, using `f--ile@..jpg\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'docbook'}->{'image_formatting'} = '* W l14|@image file `f-ile\' not found, using `f-ile.jpg\'
+ warning: @image file `f-ile\' not found, using `f-ile.jpg\'
 
+* W l15|@image file `f--ile@.\' not found, using `f--ile@..jpg\'
+ warning: @image file `f--ile@.\' not found, using `f--ile@..jpg\'
+
+* W l25|@image file `f-ile\' not found, using `f-ile.jpg\'
+ warning: @image file `f-ile\' not found, using `f-ile.jpg\'
+
+* W l26|@image file `f--ile@.\' not found, using `f--ile@..jpg\'
+ warning: @image file `f--ile@.\' not found, using `f--ile@..jpg\'
+
+';
 
 
 $result_converted{'latex_text'}->{'image_formatting'} = '\\label{anchor:Top}%
@@ -887,65 +835,31 @@ in para
 \\includegraphics{f--ile}.
 ';
 
-$result_converted_errors{'latex_text'}->{'image_formatting'} = [
-  {
-    'error_line' => 'warning: @image file `f-ile\' (for LaTeX) not found
-',
-    'line_nr' => 14,
-    'text' => '@image file `f-ile\' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile@.\' (for LaTeX) not found
-',
-    'line_nr' => 15,
-    'text' => '@image file `f--ile@.\' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for LaTeX) not found
-',
-    'line_nr' => 16,
-    'text' => '@image file `image\' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for LaTeX) not found
-',
-    'line_nr' => 16,
-    'text' => '@image file `image\' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f-ile\' (for LaTeX) not found
-',
-    'line_nr' => 25,
-    'text' => '@image file `f-ile\' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `f--ile@.\' (for LaTeX) not found
-',
-    'line_nr' => 26,
-    'text' => '@image file `f--ile@.\' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for LaTeX) not found
-',
-    'line_nr' => 27,
-    'text' => '@image file `image\' (for LaTeX) not found',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image file `image\' (for LaTeX) not found
-',
-    'line_nr' => 27,
-    'text' => '@image file `image\' (for LaTeX) not found',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'latex_text'}->{'image_formatting'} = '* W l14|@image file `f-ile\' (for LaTeX) not found
+ warning: @image file `f-ile\' (for LaTeX) not found
 
+* W l15|@image file `f--ile@.\' (for LaTeX) not found
+ warning: @image file `f--ile@.\' (for LaTeX) not found
+
+* W l16|@image file `image\' (for LaTeX) not found
+ warning: @image file `image\' (for LaTeX) not found
+
+* W l16|@image file `image\' (for LaTeX) not found
+ warning: @image file `image\' (for LaTeX) not found
+
+* W l25|@image file `f-ile\' (for LaTeX) not found
+ warning: @image file `f-ile\' (for LaTeX) not found
+
+* W l26|@image file `f--ile@.\' (for LaTeX) not found
+ warning: @image file `f--ile@.\' (for LaTeX) not found
+
+* W l27|@image file `image\' (for LaTeX) not found
+ warning: @image file `image\' (for LaTeX) not found
+
+* W l27|@image file `image\' (for LaTeX) not found
+ warning: @image file `image\' (for LaTeX) not found
+
+';
 
 
 $result_converted{'info'}->{'image_formatting'} = 'This is , produced from .

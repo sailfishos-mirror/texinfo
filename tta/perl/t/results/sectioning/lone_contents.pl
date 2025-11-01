@@ -63,14 +63,9 @@ $result_converted{'html'}->{'lone_contents'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'lone_contents'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'lone_contents'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

@@ -188,15 +188,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'setfilename'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'setfilename'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 
 $result_converted{'xml'}->{'setfilename'} = '<setfilename file="file_comment" spaces=" ">file_comment</setfilename><!-- c comment -->

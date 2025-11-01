@@ -305,38 +305,18 @@ list:
 
 $result_headings_list{'file_name_case_insensitive_conflict_node'} = '';
 
-$result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_node'} = [
-  {
-    'error_line' => 'warning: @anchor `fOO\' file Foo.html for redirection exists
-',
-    'line_nr' => 7,
-    'text' => '@anchor `fOO\' file Foo.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with @node `Foo\' file
-',
-    'line_nr' => 9,
-    'text' => 'conflict with @node `Foo\' file',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node `foo\' file Foo.html for redirection exists
-',
-    'line_nr' => 15,
-    'text' => '@node `foo\' file Foo.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with @node `Foo\' file
-',
-    'line_nr' => 9,
-    'text' => 'conflict with @node `Foo\' file',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'file_name_case_insensitive_conflict_node'} = '* W l7|@anchor `fOO\' file Foo.html for redirection exists
+ warning: @anchor `fOO\' file Foo.html for redirection exists
 
+* WC l9|conflict with @node `Foo\' file
+ warning: conflict with @node `Foo\' file
+
+* W l15|@node `foo\' file Foo.html for redirection exists
+ warning: @node `foo\' file Foo.html for redirection exists
+
+* WC l9|conflict with @node `Foo\' file
+ warning: conflict with @node `Foo\' file
+
+';
 
 1;

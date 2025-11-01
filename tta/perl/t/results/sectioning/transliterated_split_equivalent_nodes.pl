@@ -252,15 +252,9 @@ list:
 
 $result_headings_list{'transliterated_split_equivalent_nodes'} = '';
 
-$result_converted_errors{'file_html'}->{'transliterated_split_equivalent_nodes'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'transliterated_split_equivalent_nodes.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'transliterated_split_equivalent_nodes'} = '* W transliterated_split_equivalent_nodes.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

@@ -278,15 +278,10 @@ table.cartouche {border-style: solid; border-radius: 0.5em}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'float_in_block_commands'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'float_in_block_commands'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'float_in_block_commands'} = '<example endspaces=" ">

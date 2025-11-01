@@ -243,15 +243,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'unnumbered_top_without_node_nodes'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'unnumbered_top_without_node_nodes'} = '* W |document without Top node
+ warning: document without Top node
 
+';
 
 
 $result_converted{'html'}->{'unnumbered_top_without_node_nodes'} = '<!DOCTYPE html>

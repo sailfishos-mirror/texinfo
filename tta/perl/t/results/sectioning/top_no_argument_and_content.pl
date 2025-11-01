@@ -81,14 +81,9 @@ $result_converted{'html'}->{'top_no_argument_and_content'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'top_no_argument_and_content'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'top_no_argument_and_content'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

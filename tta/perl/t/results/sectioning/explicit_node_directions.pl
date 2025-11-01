@@ -288,15 +288,10 @@ Previous: <a href="#chap-node" accesskey="p" rel="prev">chap node</a>, Up: <a hr
 </html>
 ';
 
-$result_converted_errors{'html'}->{'explicit_node_directions'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'explicit_node_directions'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'explicit_node_directions'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap node</nodenext></node>

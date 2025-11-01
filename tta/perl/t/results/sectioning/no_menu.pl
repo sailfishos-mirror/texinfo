@@ -336,14 +336,9 @@ Previous: <a href="#c2" accesskey="p" rel="prev">c2</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'no_menu'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'no_menu'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

@@ -106,14 +106,9 @@ $result_converted{'html'}->{'xml_protected_in_verb'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'xml_protected_in_verb'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'xml_protected_in_verb'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

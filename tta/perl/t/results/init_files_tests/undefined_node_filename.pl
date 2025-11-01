@@ -68,21 +68,12 @@ $result_sectioning_root{'undefined_node_filename'} = '';
 
 $result_headings_list{'undefined_node_filename'} = '';
 
-$result_converted_errors{'file_html'}->{'undefined_node_filename'} = [
-  {
-    'error_line' => 'warning: user-defined node file name not set for `chap-Other.html\'
-',
-    'text' => 'user-defined node file name not set for `chap-Other.html\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'undefined_node_filename.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'undefined_node_filename'} = '* W |user-defined node file name not set for `chap-Other.html\'
+ warning: user-defined node file name not set for `chap-Other.html\'
 
+* W undefined_node_filename.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
+
+';
 
 1;

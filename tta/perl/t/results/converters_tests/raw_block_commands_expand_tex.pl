@@ -181,16 +181,10 @@ $\\underline{a &lt; b &lt;code class=&quot;code&quot;&gt;tex \\hbox{ code }&lt;/
 
 ';
 
-$result_converted_errors{'html_text'}->{'raw_block_commands_expand_tex'} = [
-  {
-    'error_line' => 'warning: raw format tex is not converted
-',
-    'line_nr' => 14,
-    'text' => 'raw format tex is not converted',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'raw_block_commands_expand_tex'} = '* W l14|raw format tex is not converted
+ warning: raw format tex is not converted
 
+';
 
 
 $result_converted{'xml'}->{'raw_block_commands_expand_tex'} = '

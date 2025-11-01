@@ -1,5 +1,14 @@
 2025-11-01 Patrice Dumas  <pertusus@free.fr>
 
+	Use simple text for conversion errors representation in tests
+
+	* tta/perl/t/test_utils.pl (test): use errors_print_details to print
+	conversion errors as simple text instead of Data::Dumper.
+
+2025-11-01 Patrice Dumas  <pertusus@free.fr>
+
+	Use simple text for parsing and structuring errors in tests
+
 	* tta/C/main/errors.c (print_source_info_details),
 	tta/C/main/manipulate_tree.c (print_element_details),
 	tta/perl/Texinfo/ManipulateTree.pm (print_element_base),

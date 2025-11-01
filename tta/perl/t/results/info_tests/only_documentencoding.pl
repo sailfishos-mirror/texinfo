@@ -49,14 +49,9 @@ coding: iso-8859-1
 End:
 ';
 
-$result_converted_errors{'info'}->{'only_documentencoding'} = [
-  {
-    'error_line' => 'warning: document without nodes
-',
-    'text' => 'document without nodes',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'only_documentencoding'} = '* W |document without nodes
+ warning: document without nodes
 
+';
 
 1;

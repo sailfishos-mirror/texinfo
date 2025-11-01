@@ -1018,24 +1018,12 @@ $result_headings_list{'htmlxref_nodes'} = '1|Testing distant nodes
 3|Testing local nodes
 ';
 
-$result_converted_errors{'file_html'}->{'htmlxref_nodes'} = [
-  {
-    'error_line' => 'warning: unrecognized type: foo
-',
-    'file_name' => 'htmlxref-test.cnf',
-    'line_nr' => 15,
-    'text' => 'unrecognized type: foo',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing type
-',
-    'file_name' => 'htmlxref-test.cnf',
-    'line_nr' => 16,
-    'text' => 'missing type',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'htmlxref_nodes'} = '* W htmlxref-test.cnf:l15|unrecognized type: foo
+ warning: unrecognized type: foo
 
+* W htmlxref-test.cnf:l16|missing type
+ warning: missing type
+
+';
 
 1;

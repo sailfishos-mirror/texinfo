@@ -69,15 +69,9 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'image_not_found'} = [
-  {
-    'error_line' => 'warning: could not find @image file `n_f_image.txt\' nor alternate text
-',
-    'line_nr' => 2,
-    'text' => 'could not find @image file `n_f_image.txt\' nor alternate text',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'image_not_found'} = '* W l2|could not find @image file `n_f_image.txt\' nor alternate text
+ warning: could not find @image file `n_f_image.txt\' nor alternate text
 
+';
 
 1;

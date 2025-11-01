@@ -240,15 +240,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'omit_def_space'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'omit_def_space'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'latex_text'}->{'omit_def_space'} = '\\label{anchor:Top}%

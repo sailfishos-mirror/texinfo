@@ -286,71 +286,33 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'invalid_node_name_warning'} = [
-  {
-    'error_line' => 'warning: menu entry name should not contain `:\'
-',
-    'line_nr' => 5,
-    'text' => 'menu entry name should not contain `:\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: menu entry node name should not contain `. \'
-',
-    'line_nr' => 5,
-    'text' => 'menu entry node name should not contain `. \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: menu entry node name should not contain `,\'
-',
-    'line_nr' => 6,
-    'text' => 'menu entry node name should not contain `,\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: menu entry node name should not contain `:\'
-',
-    'line_nr' => 7,
-    'text' => 'menu entry node name should not contain `:\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node name should not contain `,\': node,comma
-',
-    'line_nr' => 12,
-    'text' => '@node name should not contain `,\': node,comma',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref cross-reference name should not contain `:\'
-',
-    'line_nr' => 16,
-    'text' => '@ref cross-reference name should not contain `:\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref node name should not contain `.\'
-',
-    'line_nr' => 16,
-    'text' => '@ref node name should not contain `.\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref node name should not contain `,\'
-',
-    'line_nr' => 16,
-    'text' => '@ref node name should not contain `,\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref node name should not contain `:\'
-',
-    'line_nr' => 17,
-    'text' => '@ref node name should not contain `:\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'invalid_node_name_warning'} = '* W l5|menu entry name should not contain `:\'
+ warning: menu entry name should not contain `:\'
 
+* W l5|menu entry node name should not contain `. \'
+ warning: menu entry node name should not contain `. \'
+
+* W l6|menu entry node name should not contain `,\'
+ warning: menu entry node name should not contain `,\'
+
+* W l7|menu entry node name should not contain `:\'
+ warning: menu entry node name should not contain `:\'
+
+* W l12|@node name should not contain `,\': node,comma
+ warning: @node name should not contain `,\': node,comma
+
+* W l16|@ref cross-reference name should not contain `:\'
+ warning: @ref cross-reference name should not contain `:\'
+
+* W l16|@ref node name should not contain `.\'
+ warning: @ref node name should not contain `.\'
+
+* W l16|@ref node name should not contain `,\'
+ warning: @ref node name should not contain `,\'
+
+* W l17|@ref node name should not contain `:\'
+ warning: @ref node name should not contain `:\'
+
+';
 
 1;

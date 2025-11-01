@@ -68,15 +68,9 @@ $result_converted{'html_text'}->{'no_paragraph_commands'} = '<br>
 <img class="image" src="aa.ee" alt="dd">
 ';
 
-$result_converted_errors{'html_text'}->{'no_paragraph_commands'} = [
-  {
-    'error_line' => 'warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
-',
-    'line_nr' => 3,
-    'text' => '@image file `aa\' (for HTML) not found, using `aa.ee\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html_text'}->{'no_paragraph_commands'} = '* W l3|@image file `aa\' (for HTML) not found, using `aa.ee\'
+ warning: @image file `aa\' (for HTML) not found, using `aa.ee\'
 
+';
 
 1;

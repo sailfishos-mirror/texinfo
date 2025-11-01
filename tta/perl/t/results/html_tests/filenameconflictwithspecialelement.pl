@@ -155,22 +155,12 @@ list:
 
 $result_headings_list{'filenameconflictwithspecialelement'} = '';
 
-$result_converted_errors{'file_html'}->{'filenameconflictwithspecialelement'} = [
-  {
-    'error_line' => 'warning: @anchor `filenameconflictwithspecialelement fot\' file filenameconflictwithspecialelement-fot.html for redirection exists
-',
-    'line_nr' => 11,
-    'text' => '@anchor `filenameconflictwithspecialelement fot\' file filenameconflictwithspecialelement-fot.html for redirection exists',
-    'type' => 'warning'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'warning: conflict with footnotes special element
-',
-    'text' => 'conflict with footnotes special element',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'filenameconflictwithspecialelement'} = '* W l11|@anchor `filenameconflictwithspecialelement fot\' file filenameconflictwithspecialelement-fot.html for redirection exists
+ warning: @anchor `filenameconflictwithspecialelement fot\' file filenameconflictwithspecialelement-fot.html for redirection exists
 
+* WC |conflict with footnotes special element
+ warning: conflict with footnotes special element
+
+';
 
 1;

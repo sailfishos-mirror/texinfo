@@ -196,15 +196,10 @@ div.example {margin-left: 3.2em}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'text_on_example_command_line'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'text_on_example_command_line'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'docbook'}->{'text_on_example_command_line'} = '

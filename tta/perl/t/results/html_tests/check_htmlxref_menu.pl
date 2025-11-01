@@ -344,106 +344,48 @@ list:
 
 $result_headings_list{'check_htmlxref_menu'} = '';
 
-$result_converted_errors{'file_html'}->{'check_htmlxref_menu'} = [
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `../there/no_existing_no_manual_direction\'
-',
-    'line_nr' => 2,
-    'text' => 'no HTML cross-references entry found for `../there/no_existing_no_manual_direction\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `dir\'
-',
-    'line_nr' => 2,
-    'text' => 'no HTML cross-references entry found for `dir\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
-',
-    'line_nr' => 5,
-    'text' => 'do not set .info suffix in reference for manual `no_existing_no_manual.info\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `no_existing_no_manual.info\'
-',
-    'line_nr' => 5,
-    'text' => 'no HTML cross-references entry found for `no_existing_no_manual.info\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
-',
-    'line_nr' => 6,
-    'text' => 'do not set .info suffix in reference for manual `no_existing_no_manual.info\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `no_existing_no_manual.info\'
-',
-    'line_nr' => 6,
-    'text' => 'no HTML cross-references entry found for `no_existing_no_manual.info\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `other_no_existing_no_manual\'
-',
-    'line_nr' => 10,
-    'text' => 'no HTML cross-references entry found for `other_no_existing_no_manual\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
-',
-    'line_nr' => 14,
-    'text' => 'do not set .info suffix in reference for manual `no_existing_no_manual.info\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `no_existing_no_manual.info\'
-',
-    'line_nr' => 14,
-    'text' => 'no HTML cross-references entry found for `no_existing_no_manual.info\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
-',
-    'line_nr' => 14,
-    'text' => 'do not set .info suffix in reference for manual `no_existing_no_manual.info\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `chap_not_existing\'
-',
-    'line_nr' => 16,
-    'text' => 'no HTML cross-references entry found for `chap_not_existing\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `dir\'
-',
-    'line_nr' => 16,
-    'text' => 'no HTML cross-references entry found for `dir\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: do not set .inf suffix in reference for manual `some_name_inf.inf\'
-',
-    'line_nr' => 19,
-    'text' => 'do not set .inf suffix in reference for manual `some_name_inf.inf\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no HTML cross-references entry found for `some_name_inf.inf\'
-',
-    'line_nr' => 19,
-    'text' => 'no HTML cross-references entry found for `some_name_inf.inf\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'check_htmlxref_menu'} = '* W l2|no HTML cross-references entry found for `../there/no_existing_no_manual_direction\'
+ warning: no HTML cross-references entry found for `../there/no_existing_no_manual_direction\'
 
+* W l2|no HTML cross-references entry found for `dir\'
+ warning: no HTML cross-references entry found for `dir\'
+
+* W l5|do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+ warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+
+* W l5|no HTML cross-references entry found for `no_existing_no_manual.info\'
+ warning: no HTML cross-references entry found for `no_existing_no_manual.info\'
+
+* W l6|do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+ warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+
+* W l6|no HTML cross-references entry found for `no_existing_no_manual.info\'
+ warning: no HTML cross-references entry found for `no_existing_no_manual.info\'
+
+* W l10|no HTML cross-references entry found for `other_no_existing_no_manual\'
+ warning: no HTML cross-references entry found for `other_no_existing_no_manual\'
+
+* W l14|do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+ warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+
+* W l14|no HTML cross-references entry found for `no_existing_no_manual.info\'
+ warning: no HTML cross-references entry found for `no_existing_no_manual.info\'
+
+* W l14|do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+ warning: do not set .info suffix in reference for manual `no_existing_no_manual.info\'
+
+* W l16|no HTML cross-references entry found for `chap_not_existing\'
+ warning: no HTML cross-references entry found for `chap_not_existing\'
+
+* W l16|no HTML cross-references entry found for `dir\'
+ warning: no HTML cross-references entry found for `dir\'
+
+* W l19|do not set .inf suffix in reference for manual `some_name_inf.inf\'
+ warning: do not set .inf suffix in reference for manual `some_name_inf.inf\'
+
+* W l19|no HTML cross-references entry found for `some_name_inf.inf\'
+ warning: no HTML cross-references entry found for `some_name_inf.inf\'
+
+';
 
 1;

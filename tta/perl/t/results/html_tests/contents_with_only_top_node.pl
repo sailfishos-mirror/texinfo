@@ -61,15 +61,9 @@ $result_converted{'html_text'}->{'contents_with_only_top_node'} = '<h1 class="no
 
 ';
 
-$result_converted_errors{'file_html'}->{'contents_with_only_top_node'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'contents_with_only_top_node.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'contents_with_only_top_node'} = '* W contents_with_only_top_node.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

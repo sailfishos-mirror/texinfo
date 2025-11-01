@@ -59,14 +59,9 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'no_top_node'} = [
-  {
-    'error_line' => 'warning: document without Top node
-',
-    'text' => 'document without Top node',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'no_top_node'} = '* W |document without Top node
+ warning: document without Top node
 
+';
 
 1;

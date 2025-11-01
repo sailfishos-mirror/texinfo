@@ -170,14 +170,9 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </html>
 ';
 
-$result_converted_errors{'html'}->{'info_js_dir_html'} = [
-  {
-    'error_line' => 'INFO_JS_DIR not meaningful for non-split output
-',
-    'text' => 'INFO_JS_DIR not meaningful for non-split output',
-    'type' => 'error'
-  }
-];
+$result_converted_errors{'html'}->{'info_js_dir_html'} = '* E |INFO_JS_DIR not meaningful for non-split output
+ INFO_JS_DIR not meaningful for non-split output
 
+';
 
 1;

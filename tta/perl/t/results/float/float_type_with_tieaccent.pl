@@ -155,15 +155,10 @@ $result_converted{'html'}->{'float_type_with_tieaccent'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'float_type_with_tieaccent'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'float_type_with_tieaccent'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'xml'}->{'float_type_with_tieaccent'} = '<float identifier="label" type="A 1͡a 第͡H ê͡一 and text" number="1" spaces=" " endspaces=" "><floattype>A <accent type="tieaccent">1a</accent> <accent type="tieaccent">第H</accent> <accent type="tieaccent"><accent type="circ" bracketed="off">e</accent>一 and text</accent></floattype><floatname spaces=" ">label</floatname>

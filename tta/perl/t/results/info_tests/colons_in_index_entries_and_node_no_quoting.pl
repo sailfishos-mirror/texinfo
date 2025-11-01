@@ -300,29 +300,15 @@ $result_indices_sort_strings{'colons_in_index_entries_and_node_no_quoting'} = 'c
  g: h
 ';
 
-$result_converted_errors{'file_info'}->{'colons_in_index_entries_and_node_no_quoting'} = [
-  {
-    'error_line' => 'warning: menu entry node name should not contain `:\'
-',
-    'line_nr' => 4,
-    'text' => 'menu entry node name should not contain `:\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node name should not contain `,\': One::node, with entries.
-',
-    'line_nr' => 8,
-    'text' => '@node name should not contain `,\': One::node, with entries.',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node name with index entries should not contain `:\'
-',
-    'line_nr' => 8,
-    'text' => 'node name with index entries should not contain `:\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_info'}->{'colons_in_index_entries_and_node_no_quoting'} = '* W l4|menu entry node name should not contain `:\'
+ warning: menu entry node name should not contain `:\'
 
+* W l8|@node name should not contain `,\': One::node, with entries.
+ warning: @node name should not contain `,\': One::node, with entries.
+
+* W l8|node name with index entries should not contain `:\'
+ warning: node name with index entries should not contain `:\'
+
+';
 
 1;

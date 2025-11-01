@@ -94,15 +94,10 @@ after empty line
 </html>
 ';
 
-$result_converted_errors{'html'}->{'empty_line'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'empty_line'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'docbook'}->{'empty_line'} = '<screen>example

@@ -1564,15 +1564,9 @@ $result_sectioning_root{'itemize_arguments_enable_encoding'} = '';
 
 $result_headings_list{'itemize_arguments_enable_encoding'} = '';
 
-$result_converted_errors{'file_html'}->{'itemize_arguments_enable_encoding'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'itemize_arguments_enable_encoding.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'itemize_arguments_enable_encoding'} = '* W itemize_arguments_enable_encoding.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

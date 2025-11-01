@@ -449,30 +449,16 @@ In verbatim test text
      in quotation after end verbaatim
 ';
 
-$result_converted_errors{'plaintext'}->{'verbatim_and_verbatiminclude'} = [
-  {
-    'error_line' => '@verbatiminclude: could not find verb.txt
-',
-    'line_nr' => 25,
-    'text' => '@verbatiminclude: could not find verb.txt',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@verbatiminclude: could not find verb.txt
-',
-    'line_nr' => 29,
-    'text' => '@verbatiminclude: could not find verb.txt',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@verbatiminclude: could not find verb.txt
-',
-    'line_nr' => 33,
-    'text' => '@verbatiminclude: could not find verb.txt',
-    'type' => 'error'
-  }
-];
+$result_converted_errors{'plaintext'}->{'verbatim_and_verbatiminclude'} = '* E l25|@verbatiminclude: could not find verb.txt
+ @verbatiminclude: could not find verb.txt
 
+* E l29|@verbatiminclude: could not find verb.txt
+ @verbatiminclude: could not find verb.txt
+
+* E l33|@verbatiminclude: could not find verb.txt
+ @verbatiminclude: could not find verb.txt
+
+';
 
 
 $result_converted{'xml'}->{'verbatim_and_verbatiminclude'} = '<verbatim xml:space="preserve" endspaces=" ">

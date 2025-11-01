@@ -106,14 +106,9 @@ $result_converted{'html'}->{'top_no_argument_and_top_node'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'top_no_argument_and_top_node'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'top_no_argument_and_top_node'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

@@ -185,15 +185,10 @@ div.example {margin-left: 3.2em}
 </html>
 ';
 
-$result_converted_errors{'html'}->{'example_multi_class'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'example_multi_class'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'docbook'}->{'example_multi_class'} = '<screen>void StateManager::deallocate() {

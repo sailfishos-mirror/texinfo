@@ -680,17 +680,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'character_and_spaces_in_refs'} = [
-  {
-    'error_line' => 'warning: @ref node name should not contain `:\'
-',
-    'file_name' => 'character_and_spaces_in_refs_text.texi',
-    'line_nr' => 15,
-    'text' => '@ref node name should not contain `:\'',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'info'}->{'character_and_spaces_in_refs'} = '* W character_and_spaces_in_refs_text.texi:l15|@ref node name should not contain `:\'
+ warning: @ref node name should not contain `:\'
 
+';
 
 
 $result_converted{'html'}->{'character_and_spaces_in_refs'} = '<!DOCTYPE html>

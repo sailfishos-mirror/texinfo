@@ -86,15 +86,9 @@ $result_sectioning_root{'mathjax_with_texinfo_html_file'} = '';
 
 $result_headings_list{'mathjax_with_texinfo_html_file'} = '';
 
-$result_converted_errors{'file_html'}->{'mathjax_with_texinfo_html_file'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'file_name' => 'mathjax_with_texinfo_html_file.texi',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'file_html'}->{'mathjax_with_texinfo_html_file'} = '* W mathjax_with_texinfo_html_file.texi|must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;

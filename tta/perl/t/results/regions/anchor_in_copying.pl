@@ -179,16 +179,10 @@ coding: utf-8
 End:
 ';
 
-$result_converted_errors{'info'}->{'anchor_in_copying'} = [
-  {
-    'error_line' => '@anchor output more than once: Copying information
-',
-    'line_nr' => 5,
-    'text' => '@anchor output more than once: Copying information',
-    'type' => 'error'
-  }
-];
+$result_converted_errors{'info'}->{'anchor_in_copying'} = '* E l5|@anchor output more than once: Copying information
+ @anchor output more than once: Copying information
 
+';
 
 
 $result_converted{'html'}->{'anchor_in_copying'} = '<!DOCTYPE html>
@@ -248,15 +242,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'anchor_in_copying'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'anchor_in_copying'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 
 $result_converted{'latex_text'}->{'anchor_in_copying'} = '

@@ -120,14 +120,9 @@ $result_converted{'html'}->{'modified_translation'} = '<!DOCTYPE html>
 </html>
 ';
 
-$result_converted_errors{'html'}->{'modified_translation'} = [
-  {
-    'error_line' => 'warning: must specify a title with a title command or @top
-',
-    'text' => 'must specify a title with a title command or @top',
-    'type' => 'warning'
-  }
-];
+$result_converted_errors{'html'}->{'modified_translation'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
 
+';
 
 1;
