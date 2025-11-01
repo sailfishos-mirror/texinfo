@@ -45,7 +45,6 @@ typedef struct {
 
     FILE *file;
     SOURCE_INFO source_info;
-    const char *input_file_path; /* for IN_file type, the full input file path */
 
     char *text;  /* Input text to be parsed as Texinfo. */
     const char *ptext; /* How far we are through 'text'.  Used to split 'text'
@@ -349,7 +348,7 @@ next_text (ELEMENT *current)
              messages.
           */
                   char *decoded_file_name
-                    = convert_to_utf8 (strdup (input->input_file_path));
+                    = convert_to_utf8 (strdup (input->source_info.file_name));
                   line_warn ("error on closing %s: %s",
                              decoded_file_name,
                              strerror (errno));
@@ -449,7 +448,6 @@ input_push_text (char *text, int line_number, const char *macro_name,
 
   input_stack[input_number].type = IN_text;
   input_stack[input_number].file = 0;
-  input_stack[input_number].input_file_path = 0;
   input_stack[input_number].text = text;
   input_stack[input_number].ptext = text;
 
@@ -515,13 +513,11 @@ parser_locate_include_file (const char *filename)
                               &parser_include_directories);
 }
 
-/* Try to open a file called FILENAME */
+/* Try to open a file path INPUT_FILE_PATH */
 int
 input_push_file (const char *input_file_path)
 {
   FILE *stream = 0;
-  char *base_filename;
-  char *input_file_name_and_directory[2];
 
   if (!strcmp (input_file_path, "-"))
     stream = stdin;
@@ -539,15 +535,10 @@ input_push_file (const char *input_file_path)
         fatal ("realloc failed");
     }
 
-  parse_file_path (input_file_path, input_file_name_and_directory);
-  base_filename = save_string (input_file_name_and_directory[0]);
-  free (input_file_name_and_directory[0]);
-  free (input_file_name_and_directory[1]);
-
   input_stack[input_number].type = IN_file;
   input_stack[input_number].file = stream;
-  input_stack[input_number].input_file_path = save_string (input_file_path);
-  input_stack[input_number].source_info.file_name = base_filename;
+  input_stack[input_number].source_info.file_name
+                           = save_string (input_file_path);
   input_stack[input_number].source_info.line_nr = 0;
   input_stack[input_number].source_info.macro = 0;
   input_stack[input_number].input_source_mark = 0;

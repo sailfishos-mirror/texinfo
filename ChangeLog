@@ -1,5 +1,17 @@
 2025-11-01 Patrice Dumas  <pertusus@free.fr>
 
+	Use full input file paths in source info for error messages
+
+	* tta/C/parsetexi/input.c (INPUT, next_text, input_push_file),
+	tta/perl/Texinfo/ParserNonXS.pm (_input_push_file, parse_texi_file)
+	(_next_text): use the full input file path as source info file name.
+	Remove input_file_path firld from INPUT.  In Perl, do not have
+	_input_push_file return the directories and file name, instead call
+	fileparse in parse_texi_file.  Update callers.
+	Report from Tom Tromey, some analysis by Gavin.
+
+2025-11-01 Patrice Dumas  <pertusus@free.fr>
+
 	Use simple text for conversion errors representation in tests
 
 	* tta/perl/t/test_utils.pl (test): use errors_print_details to print

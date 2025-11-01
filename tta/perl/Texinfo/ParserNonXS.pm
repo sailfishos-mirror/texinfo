@@ -295,7 +295,6 @@ my %parser_state_initialization = (%parser_document_state_initialization,
 #
 # for a file:
 #  fh                  filehandle for the file.
-#  input_file_path     file path.
 
 # The commands in initialization_overrides are not set in the document if
 # set at the parser initialization.
@@ -880,11 +879,9 @@ sub release($)
 sub _input_push_file($$;$) {
   my ($self, $input_file_path, $file_name_encoding) = @_;
 
-  my ($file_name, $directories, $suffix) = fileparse($input_file_path);
-
   my $filehandle = do { local *FH };
   if (!open($filehandle, $input_file_path)) {
-    return 0, $file_name, $directories, $!;
+    return 0, $!;
   }
 
   # to be able to change the encoding in the midst of reading a file,
@@ -905,11 +902,10 @@ sub _input_push_file($$;$) {
   my $file_input = {
        'input_source_info' => {
           # binary
-          'file_name' => $file_name,
+          'file_name' => $input_file_path,
           'line_nr' => 0,
        },
        'fh' => $filehandle,
-       'input_file_path' => $input_file_path,
     };
   $file_input->{'file_input_encoding'} = $self->{'input_file_encoding'}
     if (defined($self->{'input_file_encoding'}));
@@ -918,7 +914,7 @@ sub _input_push_file($$;$) {
        if (defined($file_name_encoding));
   unshift @{$self->{'input'}}, $file_input;
 
-  return 1, $file_name, $directories, undef;
+  return 1, undef;
 }
 
 sub get_parser_info($) {
@@ -960,8 +956,10 @@ sub parse_texi_file($$) {
 
   my $document = _initialize_parsing($self, 'ct_base');
 
-  my ($status, $file_name, $directories, $error_message)
+  my ($status, $error_message)
     = _input_push_file($self, $input_file_path);
+
+  my ($file_name, $directories, $suffix) = fileparse($input_file_path);
 
   $document->{'global_info'}->{'input_file_name'} = $file_name;
   $document->{'global_info'}->{'input_directory'} = $directories;
@@ -2678,7 +2676,7 @@ sub _next_text($;$) {
           # defined, possibly to the default value.
           my $file_name_encoding = $input->{'file_name_encoding'};
           my $decoded_file_name = decode($file_name_encoding,
-                                        $input->{'input_file_path'});
+                              $input->{'input_source_info'}->{'file_name'});
           push @{$self->{'document'}->{'parser_error_messages'}},
            Texinfo::Report::document_warn(
                                sprintf(__("error on closing %s: %s"),
@@ -3865,7 +3863,7 @@ sub _end_line_misc_line($$$) {
              = Texinfo::Common::locate_include_file($file_path,
                                   $self->{'conf'}->{'INCLUDE_DIRECTORIES'});
         if (defined($included_file_path)) {
-          my ($status, $file_name, $directories, $error_message)
+          my ($status, $error_message)
              = _input_push_file($self, $included_file_path, $file_name_encoding);
           if ($status) {
             $included_file = 1;
