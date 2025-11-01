@@ -7,7 +7,7 @@ use Test::More;
 
 BEGIN { plan tests => 14; }
 
-use Data::Dumper;
+#use Data::Dumper;
 use Locale::Messages;
 
 use Texinfo::Convert::Texinfo;

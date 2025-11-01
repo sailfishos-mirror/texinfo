@@ -1,5 +1,10 @@
 2025-11-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/z_misc/*.t, tta/perl/texi2any.pl: comment out Data::Dumper
+	related code when Data::Dumper is not actually used.
+
+2025-11-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (_prepare_css): minor change to
 	clarify code.
 

@@ -10,7 +10,7 @@ BEGIN { plan tests => 23; }
 use Texinfo::Parser;
 #use Texinfo::Convert::Texinfo;
 use Texinfo::Common;
-use Data::Dumper;
+#use Data::Dumper;
 
 ok(1, 'modules loading');
 

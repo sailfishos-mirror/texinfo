@@ -44,12 +44,12 @@ sub test_correction($$$;$)
 
   # rebuild the tree
   $tree = $document->tree();
-  {
-  local $Data::Dumper::Purity = 1;
-  #local $Data::Dumper::Maxdepth = 2;
-  local $Data::Dumper::Indent = 1;
+  #{
+  #local $Data::Dumper::Purity = 1;
+  ##local $Data::Dumper::Maxdepth = 2;
+  #local $Data::Dumper::Indent = 1;
   #print STDERR Data::Dumper->Dump([$tree]);
-  }
+  #}
 
   my $texi_result
    = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);

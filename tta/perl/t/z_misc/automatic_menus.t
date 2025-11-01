@@ -13,7 +13,7 @@ use Texinfo::Document;
 use Texinfo::Structuring;
 use Texinfo::Transformations;
 
-use Data::Dumper;
+#use Data::Dumper;
 
 ok(1, 'modules loading');
 

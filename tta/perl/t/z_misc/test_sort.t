@@ -6,6 +6,8 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 3);
 use Test::More;
 BEGIN { plan tests => 7; };
 
+#use Data::Dumper;
+
 use Texinfo::Convert::Text;
 use Texinfo::Parser;
 use Texinfo::Document;
@@ -102,16 +104,16 @@ foreach my $letter (@{$sorted_index_entries_by_letter->{'cp'}}) {
   }
 }
 
-{
-local $Data::Dumper::Purity = 1;
-local $Data::Dumper::Maxdepth = 2;
-local $Data::Dumper::Indent = 1;
+#{
+#local $Data::Dumper::Purity = 1;
+#local $Data::Dumper::Maxdepth = 2;
+#local $Data::Dumper::Indent = 1;
 #print STDERR "".Data::Dumper->Dump([$sorted_index_entries_by_letter])."\n";
 #foreach my $letter (@{$sorted_index_entries_by_letter->{'cp'}}) {
 #  print STDERR "AAA $letter->{'letter'} ".join('|',keys(%$letter))."\n";
 #}
 # print STDERR "".Data::Dumper->Dump([\@letter_entries])."\n";
-}
+#}
 
 cmp_deeply (\@letter_entries, \@letter_entries_ref, 'by letter index entries');
 
