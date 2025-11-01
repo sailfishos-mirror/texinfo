@@ -137,23 +137,13 @@ cxx
 jj
 ';
 
-$result_errors{'set_in_item_missing_line'} = [
-  {
-    'error_line' => 'warning: @set should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@set should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @set should only appear at the beginning of a line
-',
-    'line_nr' => 7,
-    'text' => '@set should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'set_in_item_missing_line'} = '* W l2|@set should only appear at the beginning of a line
+ warning: @set should only appear at the beginning of a line
 
+* W l7|@set should only appear at the beginning of a line
+ warning: @set should only appear at the beginning of a line
+
+';
 
 $result_nodes_list{'set_in_item_missing_line'} = '';
 

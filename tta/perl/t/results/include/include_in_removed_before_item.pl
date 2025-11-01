@@ -86,8 +86,7 @@ $result_texis{'include_in_removed_before_item'} = '@table @code
 $result_texts{'include_in_removed_before_item'} = 'FOO
 ';
 
-$result_errors{'include_in_removed_before_item'} = [];
-
+$result_errors{'include_in_removed_before_item'} = '';
 
 $result_nodes_list{'include_in_removed_before_item'} = '';
 

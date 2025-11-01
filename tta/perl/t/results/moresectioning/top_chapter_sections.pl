@@ -273,8 +273,7 @@ unnumbered
 ***********
 ';
 
-$result_errors{'top_chapter_sections'} = [];
-
+$result_errors{'top_chapter_sections'} = '';
 
 $result_nodes_list{'top_chapter_sections'} = '';
 

@@ -31,8 +31,7 @@ $result_texis{'setfilename_in_paragraph'} = 'Some text
 $result_texts{'setfilename_in_paragraph'} = 'Some text
 ';
 
-$result_errors{'setfilename_in_paragraph'} = [];
-
+$result_errors{'setfilename_in_paragraph'} = '';
 
 $result_nodes_list{'setfilename_in_paragraph'} = '';
 

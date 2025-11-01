@@ -159,16 +159,10 @@ Function: another (aarg)
 explain
 ';
 
-$result_errors{'omit_def_space'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'omit_def_space'} = '* W l3|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'omit_def_space'} = '1|Top
  node_directions:

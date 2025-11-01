@@ -53,16 +53,10 @@ $result_texis{'protected_brace'} = '@deffn c @{
 $result_texts{'protected_brace'} = 'c: {
 ';
 
-$result_errors{'protected_brace'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'protected_brace'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'protected_brace'} = '';
 

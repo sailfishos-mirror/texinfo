@@ -19,16 +19,10 @@ $result_texis{'image_no_braces'} = '@image ';
 
 $result_texts{'image_no_braces'} = '';
 
-$result_errors{'image_no_braces'} = [
-  {
-    'error_line' => '@image expected braces
-',
-    'line_nr' => 1,
-    'text' => '@image expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'image_no_braces'} = '* E l1|@image expected braces
+ @image expected braces
 
+';
 
 $result_nodes_list{'image_no_braces'} = '';
 

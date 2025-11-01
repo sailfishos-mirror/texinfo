@@ -109,8 +109,7 @@ top
 a before Top
 ';
 
-$result_errors{'anchor_before_top'} = [];
-
+$result_errors{'anchor_before_top'} = '';
 
 $result_nodes_list{'anchor_before_top'} = '1|Top
  associated_section: top

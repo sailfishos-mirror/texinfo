@@ -90,8 +90,7 @@ Command comment
 
 $result_texts{'nested_ignore_with_comments'} = '';
 
-$result_errors{'nested_ignore_with_comments'} = [];
-
+$result_errors{'nested_ignore_with_comments'} = '';
 
 $result_nodes_list{'nested_ignore_with_comments'} = '';
 

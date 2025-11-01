@@ -43,8 +43,7 @@ $result_texis{'good'} = '@multitable @columnfractions 0.4 .6 5.
 
 $result_texts{'good'} = '';
 
-$result_errors{'good'} = [];
-
+$result_errors{'good'} = '';
 
 $result_nodes_list{'good'} = '';
 

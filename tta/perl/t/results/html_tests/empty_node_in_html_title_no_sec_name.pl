@@ -74,16 +74,10 @@ $result_texts{'empty_node_in_html_title_no_sec_name'} = 'top
 ******
 ';
 
-$result_errors{'empty_node_in_html_title_no_sec_name'} = [
-  {
-    'error_line' => 'empty argument in @node
-',
-    'line_nr' => 4,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_node_in_html_title_no_sec_name'} = '* E l4|empty argument in @node
+ empty argument in @node
 
+';
 
 $result_nodes_list{'empty_node_in_html_title_no_sec_name'} = '1|Top
  associated_section: top

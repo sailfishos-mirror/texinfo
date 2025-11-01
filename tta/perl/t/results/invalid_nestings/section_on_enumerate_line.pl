@@ -72,58 +72,28 @@ $result_texts{'section_on_enumerate_line'} = '1 first
 ========
 ';
 
-$result_errors{'section_on_enumerate_line'} = [
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @enumerate line
-',
-    'line_nr' => 1,
-    'text' => '@section should not appear on @enumerate line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @enumerate
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @enumerate',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@section seen before @end enumerate
-',
-    'line_nr' => 1,
-    'text' => '@section seen before @end enumerate',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @enumerate line
-',
-    'line_nr' => 3,
-    'text' => '@section should not appear on @enumerate line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end enumerate
-',
-    'line_nr' => 3,
-    'text' => '@section seen before @end enumerate',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_on_enumerate_line'} = '* W l1|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
 
+* W l1|@section should not appear on @enumerate line
+ warning: @section should not appear on @enumerate line
+
+* E l1|bad argument to @enumerate
+ bad argument to @enumerate
+
+* E l1|@section seen before @end enumerate
+ @section seen before @end enumerate
+
+* W l3|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l3|@section should not appear on @enumerate line
+ warning: @section should not appear on @enumerate line
+
+* E l3|@section seen before @end enumerate
+ @section seen before @end enumerate
+
+';
 
 $result_nodes_list{'section_on_enumerate_line'} = '';
 

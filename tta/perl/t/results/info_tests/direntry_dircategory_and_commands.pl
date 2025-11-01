@@ -170,8 +170,7 @@ Test dircategory and direntry
 Text
 ';
 
-$result_errors{'direntry_dircategory_and_commands'} = [];
-
+$result_errors{'direntry_dircategory_and_commands'} = '';
 
 $result_nodes_list{'direntry_dircategory_and_commands'} = '1|Top
  associated_section: Test dircategory and direntry

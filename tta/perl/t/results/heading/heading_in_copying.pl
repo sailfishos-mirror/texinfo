@@ -131,16 +131,10 @@ $result_texts{'heading_in_copying'} = '
 
 ';
 
-$result_errors{'heading_in_copying'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 10,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'heading_in_copying'} = '* W l10|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'heading_in_copying'} = '1|Top
  node_directions:

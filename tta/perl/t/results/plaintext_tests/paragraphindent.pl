@@ -99,8 +99,7 @@ aaa b 0
 aaa b 7
 ';
 
-$result_errors{'paragraphindent'} = [];
-
+$result_errors{'paragraphindent'} = '';
 
 $result_nodes_list{'paragraphindent'} = '';
 

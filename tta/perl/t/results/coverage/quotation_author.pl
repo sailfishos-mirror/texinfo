@@ -77,8 +77,7 @@ quotation continues.
 
 ';
 
-$result_errors{'quotation_author'} = [];
-
+$result_errors{'quotation_author'} = '';
 
 $result_nodes_list{'quotation_author'} = '';
 

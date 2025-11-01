@@ -70,8 +70,7 @@ inside
 
 ';
 
-$result_errors{'multiple_spaces_in_float_type'} = [];
-
+$result_errors{'multiple_spaces_in_float_type'} = '';
 
 $result_floats{'multiple_spaces_in_float_type'} = 'Type of Float: 1
  F1: {myfloat}

@@ -101,39 +101,21 @@ $result_texts{'novalidate_empty_refs'} = '
 
 ';
 
-$result_errors{'novalidate_empty_refs'} = [
-  {
-    'error_line' => 'warning: @ should not occur at end of argument to line command
-',
-    'line_nr' => 9,
-    'text' => '@ should not occur at end of argument to line command',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@
-\'
-',
-    'line_nr' => 9,
-    'text' => 'empty node name after expansion `@
-\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@:\'
-',
-    'line_nr' => 10,
-    'text' => 'empty node name after expansion `@:\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@asis{ }\'
-',
-    'line_nr' => 11,
-    'text' => 'empty node name after expansion `@asis{ }\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'novalidate_empty_refs'} = '* W l9|@ should not occur at end of argument to line command
+ warning: @ should not occur at end of argument to line command
 
+* E l9|empty node name after expansion `@
+\'
+ empty node name after expansion `@
+\'
+
+* E l10|empty node name after expansion `@:\'
+ empty node name after expansion `@:\'
+
+* E l11|empty node name after expansion `@asis{ }\'
+ empty node name after expansion `@asis{ }\'
+
+';
 
 $result_nodes_list{'novalidate_empty_refs'} = '1|Top
 ';

@@ -156,8 +156,7 @@ Just a top node.
 Without the chapter, no up node from top is generated.
 ';
 
-$result_errors{'top_node_up_explicit_no_nodes'} = [];
-
+$result_errors{'top_node_up_explicit_no_nodes'} = '';
 
 $result_nodes_list{'top_node_up_explicit_no_nodes'} = '1|Top
  associated_section: The top

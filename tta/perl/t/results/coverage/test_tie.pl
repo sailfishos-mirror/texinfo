@@ -22,8 +22,7 @@ $result_texis{'test_tie'} = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 $result_texts{'test_tie'} = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA BBBBBBBBBBB
 ';
 
-$result_errors{'test_tie'} = [];
-
+$result_errors{'test_tie'} = '';
 
 $result_nodes_list{'test_tie'} = '';
 

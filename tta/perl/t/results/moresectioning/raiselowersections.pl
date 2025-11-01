@@ -622,8 +622,7 @@ Second chapter
 
 ';
 
-$result_errors{'raiselowersections'} = [];
-
+$result_errors{'raiselowersections'} = '';
 
 $result_nodes_list{'raiselowersections'} = '1|Top
  associated_section

@@ -46,16 +46,10 @@ $result_texis{'asis_as_itemize_argument'} = '@itemize @asis
 $result_texts{'asis_as_itemize_argument'} = 'as is
 ';
 
-$result_errors{'asis_as_itemize_argument'} = [
-  {
-    'error_line' => 'warning: @asis expected braces
-',
-    'line_nr' => 1,
-    'text' => '@asis expected braces',
-    'type' => 'warning'
-  }
-];
+$result_errors{'asis_as_itemize_argument'} = '* W l1|@asis expected braces
+ warning: @asis expected braces
 
+';
 
 $result_nodes_list{'asis_as_itemize_argument'} = '';
 

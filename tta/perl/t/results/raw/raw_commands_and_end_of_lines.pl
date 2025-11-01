@@ -546,135 +546,61 @@ Before the opening command in block
 Before the opening command in block
 ';
 
-$result_errors{'raw_commands_and_end_of_lines'} = [
-  {
-    'error_line' => 'warning: @html should only appear at the beginning of a line
-',
-    'line_nr' => 13,
-    'text' => '@html should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @html should only appear at the beginning of a line
-',
-    'line_nr' => 18,
-    'text' => '@html should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: html after the closing command.
-',
-    'line_nr' => 20,
-    'text' => 'bad argument to @end: html after the closing command.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @html should only appear at the beginning of a line
-',
-    'line_nr' => 22,
-    'text' => '@html should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @html should only appear at the beginning of a line
-',
-    'line_nr' => 27,
-    'text' => '@html should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: html. A symbol after the closing command.
-',
-    'line_nr' => 29,
-    'text' => 'bad argument to @end: html. A symbol after the closing command.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @tex should only appear at the beginning of a line
-',
-    'line_nr' => 41,
-    'text' => '@tex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @tex should only appear at the beginning of a line
-',
-    'line_nr' => 46,
-    'text' => '@tex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: tex after the closing command.
-',
-    'line_nr' => 48,
-    'text' => 'bad argument to @end: tex after the closing command.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @tex should only appear at the beginning of a line
-',
-    'line_nr' => 50,
-    'text' => '@tex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @tex should only appear at the beginning of a line
-',
-    'line_nr' => 55,
-    'text' => '@tex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: tex. A symbol after the closing command.
-',
-    'line_nr' => 57,
-    'text' => 'bad argument to @end: tex. A symbol after the closing command.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @verbatim should only appear at the beginning of a line
-',
-    'line_nr' => 69,
-    'text' => '@verbatim should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verbatim should only appear at the beginning of a line
-',
-    'line_nr' => 74,
-    'text' => '@verbatim should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim after the closing command.
-',
-    'line_nr' => 76,
-    'text' => 'bad argument to @end: verbatim after the closing command.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @verbatim should only appear at the beginning of a line
-',
-    'line_nr' => 78,
-    'text' => '@verbatim should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verbatim should only appear at the beginning of a line
-',
-    'line_nr' => 83,
-    'text' => '@verbatim should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim. A symbol after the closing command.
-',
-    'line_nr' => 85,
-    'text' => 'bad argument to @end: verbatim. A symbol after the closing command.',
-    'type' => 'error'
-  }
-];
+$result_errors{'raw_commands_and_end_of_lines'} = '* W l13|@html should only appear at the beginning of a line
+ warning: @html should only appear at the beginning of a line
 
+* W l18|@html should only appear at the beginning of a line
+ warning: @html should only appear at the beginning of a line
+
+* E l20|bad argument to @end: html after the closing command.
+ bad argument to @end: html after the closing command.
+
+* W l22|@html should only appear at the beginning of a line
+ warning: @html should only appear at the beginning of a line
+
+* W l27|@html should only appear at the beginning of a line
+ warning: @html should only appear at the beginning of a line
+
+* E l29|bad argument to @end: html. A symbol after the closing command.
+ bad argument to @end: html. A symbol after the closing command.
+
+* W l41|@tex should only appear at the beginning of a line
+ warning: @tex should only appear at the beginning of a line
+
+* W l46|@tex should only appear at the beginning of a line
+ warning: @tex should only appear at the beginning of a line
+
+* E l48|bad argument to @end: tex after the closing command.
+ bad argument to @end: tex after the closing command.
+
+* W l50|@tex should only appear at the beginning of a line
+ warning: @tex should only appear at the beginning of a line
+
+* W l55|@tex should only appear at the beginning of a line
+ warning: @tex should only appear at the beginning of a line
+
+* E l57|bad argument to @end: tex. A symbol after the closing command.
+ bad argument to @end: tex. A symbol after the closing command.
+
+* W l69|@verbatim should only appear at the beginning of a line
+ warning: @verbatim should only appear at the beginning of a line
+
+* W l74|@verbatim should only appear at the beginning of a line
+ warning: @verbatim should only appear at the beginning of a line
+
+* E l76|bad argument to @end: verbatim after the closing command.
+ bad argument to @end: verbatim after the closing command.
+
+* W l78|@verbatim should only appear at the beginning of a line
+ warning: @verbatim should only appear at the beginning of a line
+
+* W l83|@verbatim should only appear at the beginning of a line
+ warning: @verbatim should only appear at the beginning of a line
+
+* E l85|bad argument to @end: verbatim. A symbol after the closing command.
+ bad argument to @end: verbatim. A symbol after the closing command.
+
+';
 
 $result_nodes_list{'raw_commands_and_end_of_lines'} = '';
 

@@ -93,8 +93,7 @@ ldskf dsflj
 lhds
 ';
 
-$result_errors{'flushleft_flushright'} = [];
-
+$result_errors{'flushleft_flushright'} = '';
 
 $result_nodes_list{'flushleft_flushright'} = '';
 

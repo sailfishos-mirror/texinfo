@@ -83,8 +83,7 @@ $result_texts{'shortcontents_no_top'} = '1 chap
 
 ';
 
-$result_errors{'shortcontents_no_top'} = [];
-
+$result_errors{'shortcontents_no_top'} = '';
 
 $result_nodes_list{'shortcontents_no_top'} = '';
 

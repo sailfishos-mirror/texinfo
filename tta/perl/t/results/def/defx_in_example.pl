@@ -113,23 +113,13 @@ $result_texts{'defx_in_example'} = 'fset: i a g
 truc: bidulr machin...
 ';
 
-$result_errors{'defx_in_example'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 3,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'defx_in_example'} = '* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* W l3|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'defx_in_example'} = '';
 

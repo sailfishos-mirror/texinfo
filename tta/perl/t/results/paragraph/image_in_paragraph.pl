@@ -33,8 +33,7 @@ $result_texis{'image_in_paragraph'} = 'Para. @image{aa,bb,cc,dd,.ee}. After imag
 $result_texts{'image_in_paragraph'} = 'Para. aa. After image.
 ';
 
-$result_errors{'image_in_paragraph'} = [];
-
+$result_errors{'image_in_paragraph'} = '';
 
 $result_nodes_list{'image_in_paragraph'} = '';
 

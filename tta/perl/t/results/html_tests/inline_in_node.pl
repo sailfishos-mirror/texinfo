@@ -140,8 +140,7 @@ $result_texts{'inline_in_node'} = '
 
 ';
 
-$result_errors{'inline_in_node'} = [];
-
+$result_errors{'inline_in_node'} = '';
 
 $result_nodes_list{'inline_in_node'} = '1|Top
  associated_section

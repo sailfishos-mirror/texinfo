@@ -48,23 +48,13 @@ $result_texis{'thischapter_in_footnote_in_evenfooting'} = '
 $result_texts{'thischapter_in_footnote_in_evenfooting'} = '
 ';
 
-$result_errors{'thischapter_in_footnote_in_evenfooting'} = [
-  {
-    'error_line' => 'warning: @footnote should not appear on @evenfooting line
-',
-    'line_nr' => 2,
-    'text' => '@footnote should not appear on @evenfooting line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @evenfooting line
-',
-    'line_nr' => 2,
-    'text' => '@footnote should not appear on @evenfooting line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'thischapter_in_footnote_in_evenfooting'} = '* W l2|@footnote should not appear on @evenfooting line
+ warning: @footnote should not appear on @evenfooting line
 
+* W l2|@footnote should not appear on @evenfooting line
+ warning: @footnote should not appear on @evenfooting line
+
+';
 
 $result_nodes_list{'thischapter_in_footnote_in_evenfooting'} = '';
 

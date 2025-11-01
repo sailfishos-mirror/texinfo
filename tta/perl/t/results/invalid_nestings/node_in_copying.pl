@@ -40,23 +40,13 @@ $result_texis{'node_in_copying'} = '@copying
 $result_texts{'node_in_copying'} = '
 ';
 
-$result_errors{'node_in_copying'} = [
-  {
-    'error_line' => '@node seen before @end copying
-',
-    'line_nr' => 2,
-    'text' => '@node seen before @end copying',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end copying\'
-',
-    'line_nr' => 4,
-    'text' => 'unmatched `@end copying\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'node_in_copying'} = '* E l2|@node seen before @end copying
+ @node seen before @end copying
 
+* E l4|unmatched `@end copying\'
+ unmatched `@end copying\'
+
+';
 
 $result_nodes_list{'node_in_copying'} = '1|node
 ';

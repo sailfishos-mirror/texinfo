@@ -88,37 +88,19 @@ $result_texts{'ifclear_in_ifset_set'} = '
 
 ';
 
-$result_errors{'ifclear_in_ifset_set'} = [
-  {
-    'error_line' => 'warning: unknown @end junky
-',
-    'line_nr' => 6,
-    'text' => 'unknown @end junky',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'unmatched `@end ifset\'
-',
-    'line_nr' => 7,
-    'text' => 'unmatched `@end ifset\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'expected @end ifclear
-',
-    'line_nr' => 8,
-    'text' => 'expected @end ifclear',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'expected @end ifset
-',
-    'line_nr' => 8,
-    'text' => 'expected @end ifset',
-    'type' => 'error'
-  }
-];
+$result_errors{'ifclear_in_ifset_set'} = '* W l6|unknown @end junky
+ warning: unknown @end junky
 
+* E l7|unmatched `@end ifset\'
+ unmatched `@end ifset\'
+
+* E l8|expected @end ifclear
+ expected @end ifclear
+
+* E l8|expected @end ifset
+ expected @end ifset
+
+';
 
 $result_nodes_list{'ifclear_in_ifset_set'} = '';
 

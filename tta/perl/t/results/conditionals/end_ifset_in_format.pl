@@ -175,8 +175,7 @@ text
 
 ';
 
-$result_errors{'end_ifset_in_format'} = [];
-
+$result_errors{'end_ifset_in_format'} = '';
 
 $result_nodes_list{'end_ifset_in_format'} = '';
 

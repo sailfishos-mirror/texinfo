@@ -56,17 +56,10 @@ $result_texts{'line_after_recursive_call'} = 'ggg
  xxx
 fff';
 
-$result_errors{'line_after_recursive_call'} = [
-  {
-    'error_line' => 'recursive call of macro mac is not allowed; use @rmacro if needed (possibly involving @mac)
-',
-    'line_nr' => 6,
-    'macro' => 'mac',
-    'text' => 'recursive call of macro mac is not allowed; use @rmacro if needed',
-    'type' => 'error'
-  }
-];
+$result_errors{'line_after_recursive_call'} = '* E l6:@mac|recursive call of macro mac is not allowed; use @rmacro if needed
+ recursive call of macro mac is not allowed; use @rmacro if needed (possibly involving @mac)
 
+';
 
 $result_nodes_list{'line_after_recursive_call'} = '';
 

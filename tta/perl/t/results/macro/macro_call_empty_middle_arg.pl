@@ -122,8 +122,7 @@ second ,
 third p,
 ';
 
-$result_errors{'macro_call_empty_middle_arg'} = [];
-
+$result_errors{'macro_call_empty_middle_arg'} = '';
 
 $result_nodes_list{'macro_call_empty_middle_arg'} = '';
 

@@ -103,16 +103,10 @@ $result_texts{'menu_in_documentdescription'} = 'top
 
 ';
 
-$result_errors{'menu_in_documentdescription'} = [
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 5,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  }
-];
+$result_errors{'menu_in_documentdescription'} = '* W l5|@menu in invalid context
+ warning: @menu in invalid context
 
+';
 
 $result_nodes_list{'menu_in_documentdescription'} = '1|Top
  associated_section: top

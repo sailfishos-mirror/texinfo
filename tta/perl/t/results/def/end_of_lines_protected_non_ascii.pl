@@ -103,17 +103,10 @@ deffn
 
 ';
 
-$result_errors{'end_of_lines_protected_non_ascii'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'file_name' => 'end_of_lines_protected_non_ascii.texi',
-    'line_nr' => 5,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'end_of_lines_protected_non_ascii'} = '* W end_of_lines_protected_non_ascii.texi:l5|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'end_of_lines_protected_non_ascii'} = '';
 

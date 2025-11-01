@@ -49,37 +49,19 @@ $result_texis{'not_letters_in_prototype'} = '@multitable  1.3  5-6
 $result_texts{'not_letters_in_prototype'} = '1.3 5-6
 ';
 
-$result_errors{'not_letters_in_prototype'} = [
-  {
-    'error_line' => 'warning: empty multitable
-',
-    'line_nr' => 1,
-    'text' => 'empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @item in empty multitable
-',
-    'line_nr' => 2,
-    'text' => '@item in empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @tab in empty multitable
-',
-    'line_nr' => 2,
-    'text' => '@tab in empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @multitable has text but no @item
-',
-    'line_nr' => 1,
-    'text' => '@multitable has text but no @item',
-    'type' => 'warning'
-  }
-];
+$result_errors{'not_letters_in_prototype'} = '* W l1|empty multitable
+ warning: empty multitable
 
+* W l2|@item in empty multitable
+ warning: @item in empty multitable
+
+* W l2|@tab in empty multitable
+ warning: @tab in empty multitable
+
+* W l1|@multitable has text but no @item
+ warning: @multitable has text but no @item
+
+';
 
 $result_nodes_list{'not_letters_in_prototype'} = '';
 

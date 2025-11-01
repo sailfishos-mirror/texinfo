@@ -1821,8 +1821,7 @@ numbered subsection2 4
 ----------------------
 ';
 
-$result_errors{'section_in_unnumbered_plaintext'} = [];
-
+$result_errors{'section_in_unnumbered_plaintext'} = '';
 
 $result_nodes_list{'section_in_unnumbered_plaintext'} = '1|Top
  associated_section: Test section in unnumbered

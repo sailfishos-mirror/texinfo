@@ -27,8 +27,7 @@ $result_texis{'redefined_need'} = '@need 0.1
 
 $result_texts{'redefined_need'} = '';
 
-$result_errors{'redefined_need'} = [];
-
+$result_errors{'redefined_need'} = '';
 
 $result_nodes_list{'redefined_need'} = '';
 

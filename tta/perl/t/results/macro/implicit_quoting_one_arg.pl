@@ -56,8 +56,7 @@ $result_texts{'implicit_quoting_one_arg'} = '
 FIXAME: Many arguments, separated by commas, are processed here
 ';
 
-$result_errors{'implicit_quoting_one_arg'} = [];
-
+$result_errors{'implicit_quoting_one_arg'} = '';
 
 $result_nodes_list{'implicit_quoting_one_arg'} = '';
 

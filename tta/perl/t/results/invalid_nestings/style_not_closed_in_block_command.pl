@@ -41,16 +41,10 @@ cartouche @code{in code
 $result_texts{'style_not_closed_in_block_command'} = 'cartouche in code 
 ';
 
-$result_errors{'style_not_closed_in_block_command'} = [
-  {
-    'error_line' => '@end cartouche seen before @code closing brace
-',
-    'line_nr' => 2,
-    'text' => '@end cartouche seen before @code closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'style_not_closed_in_block_command'} = '* E l2|@end cartouche seen before @code closing brace
+ @end cartouche seen before @code closing brace
 
+';
 
 $result_nodes_list{'style_not_closed_in_block_command'} = '';
 

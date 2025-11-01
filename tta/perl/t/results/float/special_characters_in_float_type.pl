@@ -165,8 +165,7 @@ F
 
 ';
 
-$result_errors{'special_characters_in_float_type'} = [];
-
+$result_errors{'special_characters_in_float_type'} = '';
 
 $result_floats{'special_characters_in_float_type'} = 'A < " `` ` \' \' \\aaa . --- in var: 1
  F1.1: {L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var}

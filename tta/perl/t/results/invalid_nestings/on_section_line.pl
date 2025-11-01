@@ -60,51 +60,25 @@ $result_texts{'on_section_line'} = '1 Text in titlefont  exdent
 ===========================
 ';
 
-$result_errors{'on_section_line'} = [
-  {
-    'error_line' => 'warning: @noindent should not appear on @section line
-',
-    'line_nr' => 1,
-    'text' => '@noindent should not appear on @section line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @titlefont should not appear on @section line
-',
-    'line_nr' => 1,
-    'text' => '@titlefont should not appear on @section line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @section line
-',
-    'line_nr' => 1,
-    'text' => '@anchor should not appear on @section line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @section line
-',
-    'line_nr' => 1,
-    'text' => '@footnote should not appear on @section line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should not appear on @section line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should not appear on @section line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'on_section_line'} = '* W l1|@noindent should not appear on @section line
+ warning: @noindent should not appear on @section line
 
+* W l1|@titlefont should not appear on @section line
+ warning: @titlefont should not appear on @section line
+
+* W l1|@anchor should not appear on @section line
+ warning: @anchor should not appear on @section line
+
+* W l1|@footnote should not appear on @section line
+ warning: @footnote should not appear on @section line
+
+* W l1|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+* W l1|@exdent should not appear on @section line
+ warning: @exdent should not appear on @section line
+
+';
 
 $result_nodes_list{'on_section_line'} = '';
 

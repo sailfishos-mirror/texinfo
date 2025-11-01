@@ -82,8 +82,7 @@ $result_texts{'access_global_direction_unit_in_handler'} = 'top
 ******
 ';
 
-$result_errors{'access_global_direction_unit_in_handler'} = [];
-
+$result_errors{'access_global_direction_unit_in_handler'} = '';
 
 $result_nodes_list{'access_global_direction_unit_in_handler'} = '1|Top
  associated_section: top

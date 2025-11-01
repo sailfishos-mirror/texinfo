@@ -56,8 +56,7 @@ $result_texts{'titlepage_and_setchapternewpage_odd'} = '
 
 ';
 
-$result_errors{'titlepage_and_setchapternewpage_odd'} = [];
-
+$result_errors{'titlepage_and_setchapternewpage_odd'} = '';
 
 $result_nodes_list{'titlepage_and_setchapternewpage_odd'} = '';
 

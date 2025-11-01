@@ -118,16 +118,10 @@ $result_texts{'equivalent_nodes_novalidate'} = '
 node.
 ';
 
-$result_errors{'equivalent_nodes_novalidate'} = [
-  {
-    'error_line' => 'warning: node `first\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `first\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'equivalent_nodes_novalidate'} = '* W l3|node `first\' not in menu
+ warning: node `first\' not in menu
 
+';
 
 $result_nodes_list{'equivalent_nodes_novalidate'} = '1|first
  menus:

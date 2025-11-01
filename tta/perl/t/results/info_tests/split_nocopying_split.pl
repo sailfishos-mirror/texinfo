@@ -147,8 +147,7 @@ First chapter.
 
 ';
 
-$result_errors{'split_nocopying_split'} = [];
-
+$result_errors{'split_nocopying_split'} = '';
 
 $result_nodes_list{'split_nocopying_split'} = '1|Top
  associated_section: Test file used to test split Info without @@copying

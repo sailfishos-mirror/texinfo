@@ -376,8 +376,7 @@ b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.
 
 ';
 
-$result_errors{'navigation_node_no_header'} = [];
-
+$result_errors{'navigation_node_no_header'} = '';
 
 $result_nodes_list{'navigation_node_no_header'} = '1|Top
  associated_section: File used for navigation testing

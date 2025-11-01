@@ -280,8 +280,7 @@ Appendix C Findex
 
 ';
 
-$result_errors{'printindex_set_direction'} = [];
-
+$result_errors{'printindex_set_direction'} = '';
 
 $result_nodes_list{'printindex_set_direction'} = '1|Top
  associated_section: top

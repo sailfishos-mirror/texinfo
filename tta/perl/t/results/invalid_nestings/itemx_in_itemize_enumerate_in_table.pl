@@ -127,37 +127,19 @@ in nested enumerate itemx
 
 ';
 
-$result_errors{'itemx_in_itemize_enumerate_in_table'} = [
-  {
-    'error_line' => '@itemx outside of table or list
-',
-    'line_nr' => 6,
-    'text' => '@itemx outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @itemize has text but no @item
-',
-    'line_nr' => 5,
-    'text' => '@itemize has text but no @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@itemx outside of table or list
-',
-    'line_nr' => 10,
-    'text' => '@itemx outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @enumerate has text but no @item
-',
-    'line_nr' => 9,
-    'text' => '@enumerate has text but no @item',
-    'type' => 'warning'
-  }
-];
+$result_errors{'itemx_in_itemize_enumerate_in_table'} = '* E l6|@itemx outside of table or list
+ @itemx outside of table or list
 
+* W l5|@itemize has text but no @item
+ warning: @itemize has text but no @item
+
+* E l10|@itemx outside of table or list
+ @itemx outside of table or list
+
+* W l9|@enumerate has text but no @item
+ warning: @enumerate has text but no @item
+
+';
 
 $result_nodes_list{'itemx_in_itemize_enumerate_in_table'} = '';
 

@@ -109,16 +109,10 @@ text
 
 ';
 
-$result_errors{'end_conditional_in_linemacro'} = [
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 11,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'end_conditional_in_linemacro'} = '* E l11|misplaced }
+ misplaced }
 
+';
 
 $result_nodes_list{'end_conditional_in_linemacro'} = '';
 

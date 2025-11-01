@@ -54,8 +54,7 @@ $result_texts{'heading_in_example'} = 'in example @ heading
 ====================
 ';
 
-$result_errors{'heading_in_example'} = [];
-
+$result_errors{'heading_in_example'} = '';
 
 $result_nodes_list{'heading_in_example'} = '';
 

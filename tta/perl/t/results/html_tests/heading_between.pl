@@ -114,8 +114,7 @@ Topic
 
 ';
 
-$result_errors{'heading_between'} = [];
-
+$result_errors{'heading_between'} = '';
 
 $result_nodes_list{'heading_between'} = '1|Chapter
  associated_section: 1 Chapter

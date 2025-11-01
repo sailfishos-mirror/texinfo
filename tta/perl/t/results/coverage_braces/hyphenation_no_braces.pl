@@ -16,16 +16,10 @@ $result_texis{'hyphenation_no_braces'} = '@hyphenation';
 
 $result_texts{'hyphenation_no_braces'} = '';
 
-$result_errors{'hyphenation_no_braces'} = [
-  {
-    'error_line' => '@hyphenation expected braces
-',
-    'line_nr' => 1,
-    'text' => '@hyphenation expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'hyphenation_no_braces'} = '* E l1|@hyphenation expected braces
+ @hyphenation expected braces
 
+';
 
 $result_nodes_list{'hyphenation_no_braces'} = '';
 

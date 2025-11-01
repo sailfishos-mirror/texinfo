@@ -911,8 +911,7 @@ Now include file
 
 ';
 
-$result_errors{'custom_heading_with_include'} = [];
-
+$result_errors{'custom_heading_with_include'} = '';
 
 $result_nodes_list{'custom_heading_with_include'} = '1|Top
  associated_section: top sectionning

@@ -69,8 +69,7 @@ AAA. E~. AA.
 double AAA.  double E~. double AA.  End.
 ';
 
-$result_errors{'punctuation_and_code_style_commands'} = [];
-
+$result_errors{'punctuation_and_code_style_commands'} = '';
 
 $result_nodes_list{'punctuation_and_code_style_commands'} = '';
 

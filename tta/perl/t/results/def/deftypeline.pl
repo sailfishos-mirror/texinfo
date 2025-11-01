@@ -93,8 +93,7 @@ $result_texts{'deftypeline'} = 'Function: long int foo (int bar, int baz)
 ...
 ';
 
-$result_errors{'deftypeline'} = [];
-
+$result_errors{'deftypeline'} = '';
 
 $result_nodes_list{'deftypeline'} = '';
 

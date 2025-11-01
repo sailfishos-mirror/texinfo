@@ -1006,8 +1006,7 @@ fun2: arg2
 fff2
 ';
 
-$result_errors{'test_deftypefnnewline'} = [];
-
+$result_errors{'test_deftypefnnewline'} = '';
 
 $result_nodes_list{'test_deftypefnnewline'} = '1|Top
  associated_section: top

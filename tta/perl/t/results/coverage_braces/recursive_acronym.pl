@@ -30,8 +30,7 @@ $result_texis{'recursive_acronym'} = '@acronym{GNU, @acronym{GNU}\'s Not Unix}
 $result_texts{'recursive_acronym'} = 'GNU (GNU\'s Not Unix)
 ';
 
-$result_errors{'recursive_acronym'} = [];
-
+$result_errors{'recursive_acronym'} = '';
 
 $result_nodes_list{'recursive_acronym'} = '';
 

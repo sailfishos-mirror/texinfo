@@ -21,23 +21,13 @@ $result_texis{'command_in_dotless'} = '@dotless{@code{i}}';
 
 $result_texts{'command_in_dotless'} = 'i';
 
-$result_errors{'command_in_dotless'} = [
-  {
-    'error_line' => 'warning: @code should not appear in @dotless
-',
-    'line_nr' => 1,
-    'text' => '@code should not appear in @dotless',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@dotless expects `i\' or `j\' as argument, not `@code{i}\'
-',
-    'line_nr' => 1,
-    'text' => '@dotless expects `i\' or `j\' as argument, not `@code{i}\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_in_dotless'} = '* W l1|@code should not appear in @dotless
+ warning: @code should not appear in @dotless
 
+* E l1|@dotless expects `i\' or `j\' as argument, not `@code{i}\'
+ @dotless expects `i\' or `j\' as argument, not `@code{i}\'
+
+';
 
 $result_nodes_list{'command_in_dotless'} = '';
 

@@ -372,8 +372,7 @@ text
 ===========
 ';
 
-$result_errors{'missing_detailmenu_menu_entry_names'} = [];
-
+$result_errors{'missing_detailmenu_menu_entry_names'} = '';
 
 $result_nodes_list{'missing_detailmenu_menu_entry_names'} = '1|Top
  associated_section: top

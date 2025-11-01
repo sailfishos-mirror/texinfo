@@ -46,16 +46,10 @@ $result_texts{'inlineraw_not_closed'} = 'aa
 =====
 ';
 
-$result_errors{'inlineraw_not_closed'} = [
-  {
-    'error_line' => '@section seen before @inlineraw closing brace
-',
-    'line_nr' => 1,
-    'text' => '@section seen before @inlineraw closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'inlineraw_not_closed'} = '* E l1|@section seen before @inlineraw closing brace
+ @section seen before @inlineraw closing brace
 
+';
 
 $result_nodes_list{'inlineraw_not_closed'} = '';
 

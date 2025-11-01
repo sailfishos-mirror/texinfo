@@ -181,8 +181,7 @@ $result_texts{'external_node_in_menu'} = 'top
 *******
 ';
 
-$result_errors{'external_node_in_menu'} = [];
-
+$result_errors{'external_node_in_menu'} = '';
 
 $result_nodes_list{'external_node_in_menu'} = '1|Top
  associated_section: top

@@ -47,23 +47,13 @@ $result_texis{'value_in_invalid_documentencoding'} = '@set badvalue bad
 
 $result_texts{'value_in_invalid_documentencoding'} = '';
 
-$result_errors{'value_in_invalid_documentencoding'} = [
-  {
-    'error_line' => 'warning: encoding `bad\' is not a canonical texinfo encoding
-',
-    'line_nr' => 2,
-    'text' => 'encoding `bad\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unhandled encoding name `bad\'
-',
-    'line_nr' => 2,
-    'text' => 'unhandled encoding name `bad\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'value_in_invalid_documentencoding'} = '* W l2|encoding `bad\' is not a canonical texinfo encoding
+ warning: encoding `bad\' is not a canonical texinfo encoding
 
+* W l2|unhandled encoding name `bad\'
+ warning: unhandled encoding name `bad\'
+
+';
 
 $result_nodes_list{'value_in_invalid_documentencoding'} = '';
 

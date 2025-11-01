@@ -330,16 +330,10 @@ macro_in_pass_texi_commands{info}
 texi_commands.info
 ';
 
-$result_errors{'macro_in_early_commands'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 28,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'macro_in_early_commands'} = '* W l28|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'macro_in_early_commands'} = '1|Top
  associated_section: top

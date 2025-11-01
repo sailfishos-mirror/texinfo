@@ -215,8 +215,7 @@ c
 d
 ';
 
-$result_errors{'test_format_single_footnote_in_inline_content'} = [];
-
+$result_errors{'test_format_single_footnote_in_inline_content'} = '';
 
 $result_nodes_list{'test_format_single_footnote_in_inline_content'} = '1|Top
  associated_section: top

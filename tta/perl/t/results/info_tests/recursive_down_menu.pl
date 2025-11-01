@@ -116,16 +116,10 @@ $result_texts{'recursive_down_menu'} = 'top
 * chapN::
 ';
 
-$result_errors{'recursive_down_menu'} = [
-  {
-    'error_line' => 'warning: node `chapN\' in menu in `chapN\' but under `Top\' in sectioning
-',
-    'line_nr' => 8,
-    'text' => 'node `chapN\' in menu in `chapN\' but under `Top\' in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'recursive_down_menu'} = '* W l8|node `chapN\' in menu in `chapN\' but under `Top\' in sectioning
+ warning: node `chapN\' in menu in `chapN\' but under `Top\' in sectioning
 
+';
 
 $result_nodes_list{'recursive_down_menu'} = '1|Top
  associated_section: top

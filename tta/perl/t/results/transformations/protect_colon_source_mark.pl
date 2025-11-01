@@ -54,8 +54,7 @@ $result_texts{'protect_colon_source_mark'} = '
 There is some text : nop then more and after.
 ';
 
-$result_errors{'protect_colon_source_mark'} = [];
-
+$result_errors{'protect_colon_source_mark'} = '';
 
 $result_nodes_list{'protect_colon_source_mark'} = '';
 

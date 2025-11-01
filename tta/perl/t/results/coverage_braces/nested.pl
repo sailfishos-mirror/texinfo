@@ -24,8 +24,7 @@ $result_texis{'nested'} = 'type the characters @kbd{l o g o u t @key{RET}}.';
 
 $result_texts{'nested'} = 'type the characters l o g o u t RET.';
 
-$result_errors{'nested'} = [];
-
+$result_errors{'nested'} = '';
 
 $result_nodes_list{'nested'} = '';
 

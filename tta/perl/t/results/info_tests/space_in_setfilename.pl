@@ -49,23 +49,13 @@ $result_texis{'space_in_setfilename'} = '@setfilename @ @verb{: name :}@
 $result_texts{'space_in_setfilename'} = '
 ';
 
-$result_errors{'space_in_setfilename'} = [
-  {
-    'error_line' => 'warning: @verb should not appear in @setfilename
-',
-    'line_nr' => 1,
-    'text' => '@verb should not appear in @setfilename',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @setfilename: @ @verb{: name :}@
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @setfilename: @ @verb{: name :}@',
-    'type' => 'error'
-  }
-];
+$result_errors{'space_in_setfilename'} = '* W l1|@verb should not appear in @setfilename
+ warning: @verb should not appear in @setfilename
 
+* E l1|bad argument to @setfilename: @ @verb{: name :}@
+ bad argument to @setfilename: @ @verb{: name :}@
+
+';
 
 $result_nodes_list{'space_in_setfilename'} = '1|Top
 ';

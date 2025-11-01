@@ -85,16 +85,10 @@ A @ at the end of the @quotation line.
 A @  at the end of the @quotation line.
 ';
 
-$result_errors{'space_at_commands_end_quotation_line'} = [
-  {
-    'error_line' => 'warning: @ should not occur at end of argument to line command
-',
-    'line_nr' => 1,
-    'text' => '@ should not occur at end of argument to line command',
-    'type' => 'warning'
-  }
-];
+$result_errors{'space_at_commands_end_quotation_line'} = '* W l1|@ should not occur at end of argument to line command
+ warning: @ should not occur at end of argument to line command
 
+';
 
 $result_nodes_list{'space_at_commands_end_quotation_line'} = '';
 

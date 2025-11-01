@@ -21,23 +21,13 @@ $result_texis{'definfoenclose_bad_argument'} = '@definfoenclose #phoo,;,:';
 
 $result_texts{'definfoenclose_bad_argument'} = '';
 
-$result_errors{'definfoenclose_bad_argument'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @definfoenclose
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @definfoenclose',
-    'type' => 'error'
-  }
-];
+$result_errors{'definfoenclose_bad_argument'} = '* W l1|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+* E l1|bad argument to @definfoenclose
+ bad argument to @definfoenclose
+
+';
 
 $result_nodes_list{'definfoenclose_bad_argument'} = '';
 

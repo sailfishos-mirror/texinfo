@@ -111,8 +111,7 @@ begin tab example
 new paragraph in tab. example
 ';
 
-$result_errors{'multitable_in_example'} = [];
-
+$result_errors{'multitable_in_example'} = '';
 
 $result_nodes_list{'multitable_in_example'} = '';
 

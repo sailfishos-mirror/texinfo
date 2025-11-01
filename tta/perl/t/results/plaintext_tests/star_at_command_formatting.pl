@@ -392,8 +392,7 @@ And end para.
 
 ';
 
-$result_errors{'star_at_command_formatting'} = [];
-
+$result_errors{'star_at_command_formatting'} = '';
 
 $result_nodes_list{'star_at_command_formatting'} = '';
 

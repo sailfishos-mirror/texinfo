@@ -18,8 +18,7 @@ $result_texis{'comment_without_line'} = '@comment';
 
 $result_texts{'comment_without_line'} = '';
 
-$result_errors{'comment_without_line'} = [];
-
+$result_errors{'comment_without_line'} = '';
 
 $result_nodes_list{'comment_without_line'} = '';
 

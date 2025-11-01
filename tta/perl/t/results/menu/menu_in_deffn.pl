@@ -110,16 +110,10 @@ a: b c
 * (mynode)::
 ';
 
-$result_errors{'menu_in_deffn'} = [
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 4,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  }
-];
+$result_errors{'menu_in_deffn'} = '* W l4|@menu in invalid context
+ warning: @menu in invalid context
 
+';
 
 $result_nodes_list{'menu_in_deffn'} = '1|first
 ';

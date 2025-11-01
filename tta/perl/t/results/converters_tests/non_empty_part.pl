@@ -399,107 +399,49 @@ Content VI
 
 ';
 
-$result_errors{'non_empty_part'} = [
-  {
-    'error_line' => 'warning: @part should not be associated with @top
-',
-    'line_nr' => 1,
-    'text' => '@part should not be associated with @top',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
-',
-    'line_nr' => 24,
-    'text' => '@node precedes @part, but parts may not be associated with nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no sectioning command associated with @part
-',
-    'line_nr' => 19,
-    'text' => 'no sectioning command associated with @part',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no sectioning command associated with @part
-',
-    'line_nr' => 30,
-    'text' => 'no sectioning command associated with @part',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 1,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 13,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 19,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 24,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 30,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 34,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 40,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `Top\' lacks menu item for `node between part and chapter\' but is above it in sectioning
-',
-    'line_nr' => 5,
-    'text' => 'node `Top\' lacks menu item for `node between part and chapter\' but is above it in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@menu reference to nonexistent node `chapter node\'
-',
-    'line_nr' => 9,
-    'text' => '@menu reference to nonexistent node `chapter node\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: node `node between part and chapter\' unreferenced
-',
-    'line_nr' => 44,
-    'text' => 'node `node between part and chapter\' unreferenced',
-    'type' => 'warning'
-  }
-];
+$result_errors{'non_empty_part'} = '* W l1|@part should not be associated with @top
+ warning: @part should not be associated with @top
 
+* W l24|@node precedes @part, but parts may not be associated with nodes
+ warning: @node precedes @part, but parts may not be associated with nodes
+
+* W l19|no sectioning command associated with @part
+ warning: no sectioning command associated with @part
+
+* W l30|no sectioning command associated with @part
+ warning: no sectioning command associated with @part
+
+* W l1|@part not empty
+ warning: @part not empty
+
+* W l13|@part not empty
+ warning: @part not empty
+
+* W l19|@part not empty
+ warning: @part not empty
+
+* W l24|@part not empty
+ warning: @part not empty
+
+* W l30|@part not empty
+ warning: @part not empty
+
+* W l34|@part not empty
+ warning: @part not empty
+
+* W l40|@part not empty
+ warning: @part not empty
+
+* W l5|node `Top\' lacks menu item for `node between part and chapter\' but is above it in sectioning
+ warning: node `Top\' lacks menu item for `node between part and chapter\' but is above it in sectioning
+
+* E l9|@menu reference to nonexistent node `chapter node\'
+ @menu reference to nonexistent node `chapter node\'
+
+* W l44|node `node between part and chapter\' unreferenced
+ warning: node `node between part and chapter\' unreferenced
+
+';
 
 $result_nodes_list{'non_empty_part'} = '1|Top
  associated_section: top

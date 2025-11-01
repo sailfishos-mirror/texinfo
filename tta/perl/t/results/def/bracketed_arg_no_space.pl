@@ -77,16 +77,10 @@ $result_texis{'bracketed_arg_no_space'} = '@deffn {a b}{c d} {e g}h m{ll } {rest
 $result_texts{'bracketed_arg_no_space'} = 'a bc d: e gh mll restand more
 ';
 
-$result_errors{'bracketed_arg_no_space'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'bracketed_arg_no_space'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'bracketed_arg_no_space'} = '';
 

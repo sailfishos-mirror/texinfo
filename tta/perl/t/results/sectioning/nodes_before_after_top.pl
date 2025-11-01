@@ -146,23 +146,13 @@ in node after
 in chap
 ';
 
-$result_errors{'nodes_before_after_top'} = [
-  {
-    'error_line' => 'warning: node `node before\' unreferenced
-',
-    'line_nr' => 1,
-    'text' => 'node `node before\' unreferenced',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `after\' unreferenced
-',
-    'line_nr' => 10,
-    'text' => 'node `after\' unreferenced',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodes_before_after_top'} = '* W l1|node `node before\' unreferenced
+ warning: node `node before\' unreferenced
 
+* W l10|node `after\' unreferenced
+ warning: node `after\' unreferenced
+
+';
 
 $result_nodes_list{'nodes_before_after_top'} = '1|node before
 2|Top

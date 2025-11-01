@@ -87,8 +87,7 @@ E\'-a. ,A. (E\'tude-, Autonome)
 E\'-a. ,A.
 ';
 
-$result_errors{'abbr_acronym'} = [];
-
+$result_errors{'abbr_acronym'} = '';
 
 $result_nodes_list{'abbr_acronym'} = '';
 

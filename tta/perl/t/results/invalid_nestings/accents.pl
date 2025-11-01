@@ -54,23 +54,13 @@ Invalid
 a~.  ^.
 ';
 
-$result_errors{'accents'} = [
-  {
-    'error_line' => 'warning: @code should not appear in @~
-',
-    'line_nr' => 5,
-    'text' => '@code should not appear in @~',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear in @^
-',
-    'line_nr' => 5,
-    'text' => '@anchor should not appear in @^',
-    'type' => 'warning'
-  }
-];
+$result_errors{'accents'} = '* W l5|@code should not appear in @~
+ warning: @code should not appear in @~
 
+* W l5|@anchor should not appear in @^
+ warning: @anchor should not appear in @^
+
+';
 
 $result_nodes_list{'accents'} = '';
 

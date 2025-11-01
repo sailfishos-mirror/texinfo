@@ -82,8 +82,7 @@ $result_texts{'info_js_dir_html_file_js_weblabels_file_undef'} = 'top
 *********
 ';
 
-$result_errors{'info_js_dir_html_file_js_weblabels_file_undef'} = [];
-
+$result_errors{'info_js_dir_html_file_js_weblabels_file_undef'} = '';
 
 $result_nodes_list{'info_js_dir_html_file_js_weblabels_file_undef'} = '1|top
  associated_section: top

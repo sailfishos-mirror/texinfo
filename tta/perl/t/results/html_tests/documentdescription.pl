@@ -88,8 +88,7 @@ top
 ***
 ';
 
-$result_errors{'documentdescription'} = [];
-
+$result_errors{'documentdescription'} = '';
 
 $result_nodes_list{'documentdescription'} = '';
 

@@ -75,23 +75,13 @@ $result_texts{'table_not_closed_in_menu_description'} = '* (gcc):: text item
 table line
 ';
 
-$result_errors{'table_not_closed_in_menu_description'} = [
-  {
-    'error_line' => 'warning: @table should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@table should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '`@end\' expected `table\', but saw `menu\'
-',
-    'line_nr' => 5,
-    'text' => '`@end\' expected `table\', but saw `menu\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'table_not_closed_in_menu_description'} = '* W l2|@table should only appear at the beginning of a line
+ warning: @table should only appear at the beginning of a line
 
+* E l5|`@end\' expected `table\', but saw `menu\'
+ `@end\' expected `table\', but saw `menu\'
+
+';
 
 $result_nodes_list{'table_not_closed_in_menu_description'} = '';
 

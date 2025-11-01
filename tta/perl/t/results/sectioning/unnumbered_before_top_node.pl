@@ -66,8 +66,7 @@ Top node
 Title titlefont
 ';
 
-$result_errors{'unnumbered_before_top_node'} = [];
-
+$result_errors{'unnumbered_before_top_node'} = '';
 
 $result_nodes_list{'unnumbered_before_top_node'} = '1|Top
 ';

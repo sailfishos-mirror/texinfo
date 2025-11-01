@@ -38,8 +38,7 @@ AA @^e --- -- \'` \'\' ``';
 $result_texts{'utf8_enable_encoding_no_use_iso'} = '
 AA e^ -- - \'` " "';
 
-$result_errors{'utf8_enable_encoding_no_use_iso'} = [];
-
+$result_errors{'utf8_enable_encoding_no_use_iso'} = '';
 
 $result_nodes_list{'utf8_enable_encoding_no_use_iso'} = '';
 

@@ -44,8 +44,7 @@ $result_texts{'raw_expanded_in_style'} = '
 in html
 ';
 
-$result_errors{'raw_expanded_in_style'} = [];
-
+$result_errors{'raw_expanded_in_style'} = '';
 
 $result_nodes_list{'raw_expanded_in_style'} = '';
 

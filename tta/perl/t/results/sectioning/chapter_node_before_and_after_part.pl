@@ -151,16 +151,10 @@ part
 
 ';
 
-$result_errors{'chapter_node_before_and_after_part'} = [
-  {
-    'error_line' => 'warning: node `after\' in menu in `Top\' but not under it in sectioning
-',
-    'line_nr' => 6,
-    'text' => 'node `after\' in menu in `Top\' but not under it in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'chapter_node_before_and_after_part'} = '* W l6|node `after\' in menu in `Top\' but not under it in sectioning
+ warning: node `after\' in menu in `Top\' but not under it in sectioning
 
+';
 
 $result_nodes_list{'chapter_node_before_and_after_part'} = '1|Top
  associated_section: 1 chapter

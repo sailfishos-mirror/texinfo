@@ -142,93 +142,43 @@ $result_texts{'on_def_line'} = ': in titlefont  exdent
 
 ';
 
-$result_errors{'on_def_line'} = [
-  {
-    'error_line' => 'warning: @anchor should not appear on @deffn line
-',
-    'line_nr' => 1,
-    'text' => '@anchor should not appear on @deffn line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @titlefont should not appear on @deffn line
-',
-    'line_nr' => 1,
-    'text' => '@titlefont should not appear on @deffn line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @deffn line
-',
-    'line_nr' => 1,
-    'text' => '@footnote should not appear on @deffn line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should not appear on @deffn line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should not appear on @deffn line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @deffnx line
-',
-    'line_nr' => 2,
-    'text' => '@anchor should not appear on @deffnx line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @titlefont should not appear on @deffnx line
-',
-    'line_nr' => 2,
-    'text' => '@titlefont should not appear on @deffnx line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @deffnx line
-',
-    'line_nr' => 2,
-    'text' => '@footnote should not appear on @deffnx line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should not appear on @deffnx line
-',
-    'line_nr' => 2,
-    'text' => '@exdent should not appear on @deffnx line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'on_def_line'} = '* W l1|@anchor should not appear on @deffn line
+ warning: @anchor should not appear on @deffn line
 
+* W l1|@titlefont should not appear on @deffn line
+ warning: @titlefont should not appear on @deffn line
+
+* W l1|@footnote should not appear on @deffn line
+ warning: @footnote should not appear on @deffn line
+
+* W l1|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+* W l1|@exdent should not appear on @deffn line
+ warning: @exdent should not appear on @deffn line
+
+* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l2|@anchor should not appear on @deffnx line
+ warning: @anchor should not appear on @deffnx line
+
+* W l2|@titlefont should not appear on @deffnx line
+ warning: @titlefont should not appear on @deffnx line
+
+* W l2|@footnote should not appear on @deffnx line
+ warning: @footnote should not appear on @deffnx line
+
+* W l2|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+* W l2|@exdent should not appear on @deffnx line
+ warning: @exdent should not appear on @deffnx line
+
+* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'on_def_line'} = '';
 

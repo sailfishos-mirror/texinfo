@@ -26,8 +26,7 @@ $result_texis{'code_commands_and_punctuation'} = '@code{AA}. @samp{aa}. After.
 $result_texts{'code_commands_and_punctuation'} = 'AA. aa. After.
 ';
 
-$result_errors{'code_commands_and_punctuation'} = [];
-
+$result_errors{'code_commands_and_punctuation'} = '';
 
 $result_nodes_list{'code_commands_and_punctuation'} = '';
 

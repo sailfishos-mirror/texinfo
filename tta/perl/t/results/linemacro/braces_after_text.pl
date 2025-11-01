@@ -108,8 +108,7 @@ $result_texts{'braces_after_text'} = '
 textin paren: restin paren
 ';
 
-$result_errors{'braces_after_text'} = [];
-
+$result_errors{'braces_after_text'} = '';
 
 $result_nodes_list{'braces_after_text'} = '';
 

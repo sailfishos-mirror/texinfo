@@ -846,216 +846,85 @@ In text f@i--le..  a@<"%@  < & @ % " .
 
 ';
 
-$result_errors{'test_image'} = [
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 9,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 15,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 21,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 25,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
-',
-    'line_nr' => 27,
-    'macro' => 'files-char',
-    'text' => '@verb should not appear anywhere inside @image',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chapter\' not in menu
-',
-    'line_nr' => 13,
-    'text' => 'node `chapter\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'test_image'} = '* W l9:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
 
+* W l9:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l9:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l9:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l9:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l15:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l15:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l15:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l15:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l15:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l21:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l21:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l21:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l21:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l21:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l25:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l25:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l25:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l25:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l25:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l27:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l27:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l27:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l27:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l27:@files-char|@verb should not appear anywhere inside @image
+ warning: @verb should not appear anywhere inside @image (possibly involving @files-char)
+
+* W l13|node `chapter\' not in menu
+ warning: node `chapter\' not in menu
+
+';
 
 $result_floats{'test_image'} = 'Image: 1
  F1: {Image-with-commands}

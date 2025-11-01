@@ -222,8 +222,7 @@ $result_texts{'directions_string_base'} = 'top
 =========
 ';
 
-$result_errors{'directions_string_base'} = [];
-
+$result_errors{'directions_string_base'} = '';
 
 $result_nodes_list{'directions_string_base'} = '1|Top
  associated_section: top

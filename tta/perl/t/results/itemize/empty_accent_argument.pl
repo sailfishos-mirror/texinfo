@@ -154,58 +154,28 @@ item
 item
 ';
 
-$result_errors{'empty_accent_argument'} = [
-  {
-    'error_line' => '@~ expected braces
-',
-    'line_nr' => 1,
-    'text' => '@~ expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
-',
-    'line_nr' => 1,
-    'text' => 'accent command `@~\' not allowed as @itemize argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@~\' must not be followed by new line
-',
-    'line_nr' => 5,
-    'text' => 'command `@~\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
-',
-    'line_nr' => 5,
-    'text' => 'accent command `@~\' not allowed as @itemize argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
-',
-    'line_nr' => 9,
-    'text' => 'accent command `@~\' not allowed as @itemize argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@~\' must not be followed by new line
-',
-    'line_nr' => 13,
-    'text' => 'command `@~\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: accent command `@~\' not allowed as @itemize argument
-',
-    'line_nr' => 13,
-    'text' => 'accent command `@~\' not allowed as @itemize argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_accent_argument'} = '* E l1|@~ expected braces
+ @~ expected braces
 
+* W l1|accent command `@~\' not allowed as @itemize argument
+ warning: accent command `@~\' not allowed as @itemize argument
+
+* W l5|command `@~\' must not be followed by new line
+ warning: command `@~\' must not be followed by new line
+
+* W l5|accent command `@~\' not allowed as @itemize argument
+ warning: accent command `@~\' not allowed as @itemize argument
+
+* W l9|accent command `@~\' not allowed as @itemize argument
+ warning: accent command `@~\' not allowed as @itemize argument
+
+* W l13|command `@~\' must not be followed by new line
+ warning: command `@~\' must not be followed by new line
+
+* W l13|accent command `@~\' not allowed as @itemize argument
+ warning: accent command `@~\' not allowed as @itemize argument
+
+';
 
 $result_nodes_list{'empty_accent_argument'} = '';
 

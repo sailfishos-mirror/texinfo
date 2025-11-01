@@ -54,8 +54,7 @@ $result_texts{'recursive_self_section_reference'} = '1 sharp tuple
 *************
 ';
 
-$result_errors{'recursive_self_section_reference'} = [];
-
+$result_errors{'recursive_self_section_reference'} = '';
 
 $result_nodes_list{'recursive_self_section_reference'} = '1|sharp
  associated_section: 1 @ref{sharp} tuple

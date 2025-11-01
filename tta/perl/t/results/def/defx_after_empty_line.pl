@@ -94,23 +94,13 @@ $result_texts{'defx_after_empty_line'} = 'fset: i a g
 truc: bidulr machin...
 ';
 
-$result_errors{'defx_after_empty_line'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 3,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'defx_after_empty_line'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* W l3|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'defx_after_empty_line'} = '';
 

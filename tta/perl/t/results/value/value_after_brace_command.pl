@@ -133,51 +133,25 @@ a
 
 ';
 
-$result_errors{'value_after_brace_command'} = [
-  {
-    'error_line' => '@ringaccent expected braces
-',
-    'line_nr' => 5,
-    'text' => '@ringaccent expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'line_nr' => 5,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@^ expected braces
-',
-    'line_nr' => 7,
-    'text' => '@^ expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'line_nr' => 7,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@code expected braces
-',
-    'line_nr' => 9,
-    'text' => '@code expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'line_nr' => 9,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'value_after_brace_command'} = '* E l5|@ringaccent expected braces
+ @ringaccent expected braces
 
+* E l5|unknown command `unknown\'
+ unknown command `unknown\'
+
+* E l7|@^ expected braces
+ @^ expected braces
+
+* E l7|unknown command `unknown\'
+ unknown command `unknown\'
+
+* E l9|@code expected braces
+ @code expected braces
+
+* E l9|unknown command `unknown\'
+ unknown command `unknown\'
+
+';
 
 $result_nodes_list{'value_after_brace_command'} = '';
 

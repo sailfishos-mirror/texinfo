@@ -175,8 +175,7 @@ DOC
 
 ';
 
-$result_errors{'translation_in_parser_in_translation'} = [];
-
+$result_errors{'translation_in_parser_in_translation'} = '';
 
 $result_nodes_list{'translation_in_parser_in_translation'} = '1|Top
  associated_section: top

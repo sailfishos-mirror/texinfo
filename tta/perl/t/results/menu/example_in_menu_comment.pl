@@ -91,8 +91,7 @@ menu comment.
 
 ';
 
-$result_errors{'example_in_menu_comment'} = [];
-
+$result_errors{'example_in_menu_comment'} = '';
 
 $result_nodes_list{'example_in_menu_comment'} = '';
 

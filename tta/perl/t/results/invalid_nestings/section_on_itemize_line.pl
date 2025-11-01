@@ -131,107 +131,49 @@ $result_texts{'section_on_itemize_line'} = '1 first
 ========
 ';
 
-$result_errors{'section_on_itemize_line'} = [
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @itemize line
-',
-    'line_nr' => 1,
-    'text' => '@section should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end itemize
-',
-    'line_nr' => 1,
-    'text' => '@section seen before @end itemize',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @itemize line
-',
-    'line_nr' => 3,
-    'text' => '@section should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end itemize
-',
-    'line_nr' => 3,
-    'text' => '@section seen before @end itemize',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 5,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @itemize line
-',
-    'line_nr' => 5,
-    'text' => '@section should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end itemize
-',
-    'line_nr' => 5,
-    'text' => '@section seen before @end itemize',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ringaccent expected braces
-',
-    'line_nr' => 7,
-    'text' => '@ringaccent expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 7,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @itemize line
-',
-    'line_nr' => 7,
-    'text' => '@section should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: accent command `@ringaccent\' not allowed as @itemize argument
-',
-    'line_nr' => 7,
-    'text' => 'accent command `@ringaccent\' not allowed as @itemize argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end itemize
-',
-    'line_nr' => 7,
-    'text' => '@section seen before @end itemize',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_on_itemize_line'} = '* W l1|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
 
+* W l1|@section should not appear on @itemize line
+ warning: @section should not appear on @itemize line
+
+* E l1|@section seen before @end itemize
+ @section seen before @end itemize
+
+* W l3|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l3|@section should not appear on @itemize line
+ warning: @section should not appear on @itemize line
+
+* E l3|@section seen before @end itemize
+ @section seen before @end itemize
+
+* W l5|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l5|@section should not appear on @itemize line
+ warning: @section should not appear on @itemize line
+
+* E l5|@section seen before @end itemize
+ @section seen before @end itemize
+
+* E l7|@ringaccent expected braces
+ @ringaccent expected braces
+
+* W l7|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l7|@section should not appear on @itemize line
+ warning: @section should not appear on @itemize line
+
+* W l7|accent command `@ringaccent\' not allowed as @itemize argument
+ warning: accent command `@ringaccent\' not allowed as @itemize argument
+
+* E l7|@section seen before @end itemize
+ @section seen before @end itemize
+
+';
 
 $result_nodes_list{'section_on_itemize_line'} = '';
 

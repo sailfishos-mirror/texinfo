@@ -23,8 +23,7 @@ $result_texis{'simple'} = '@defindex idx';
 
 $result_texts{'simple'} = '';
 
-$result_errors{'simple'} = [];
-
+$result_errors{'simple'} = '';
 
 $result_indices{'simple'} = 'cp
 fn C

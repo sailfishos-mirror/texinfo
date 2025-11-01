@@ -37,37 +37,19 @@ $result_texts{'spaces_unknown_command_after_braced_command'} = '
  e
 ';
 
-$result_errors{'spaces_unknown_command_after_braced_command'} = [
-  {
-    'error_line' => '@code expected braces
-',
-    'line_nr' => 1,
-    'text' => '@code expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'line_nr' => 1,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@~ expected braces
-',
-    'line_nr' => 3,
-    'text' => '@~ expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `notexisting\'
-',
-    'line_nr' => 3,
-    'text' => 'unknown command `notexisting\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'spaces_unknown_command_after_braced_command'} = '* E l1|@code expected braces
+ @code expected braces
 
+* E l1|unknown command `unknown\'
+ unknown command `unknown\'
+
+* E l3|@~ expected braces
+ @~ expected braces
+
+* E l3|unknown command `notexisting\'
+ unknown command `notexisting\'
+
+';
 
 $result_nodes_list{'spaces_unknown_command_after_braced_command'} = '';
 

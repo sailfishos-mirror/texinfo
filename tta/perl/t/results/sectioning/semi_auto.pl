@@ -250,16 +250,10 @@ $result_texts{'semi_auto'} = 'Top
 ===========
 ';
 
-$result_errors{'semi_auto'} = [
-  {
-    'error_line' => 'warning: unexpected node `Section non auto\' in menu
-',
-    'line_nr' => 6,
-    'text' => 'unexpected node `Section non auto\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'semi_auto'} = '* W l6|unexpected node `Section non auto\' in menu
+ warning: unexpected node `Section non auto\' in menu
 
+';
 
 $result_nodes_list{'semi_auto'} = '1|Top
  associated_section: Top

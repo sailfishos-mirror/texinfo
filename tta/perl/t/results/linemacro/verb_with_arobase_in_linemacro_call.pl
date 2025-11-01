@@ -59,16 +59,10 @@ $result_texts{'verb_with_arobase_in_linemacro_call'} = '
  in verb  and next
 ,  ';
 
-$result_errors{'verb_with_arobase_in_linemacro_call'} = [
-  {
-    'error_line' => '@mycommand missing closing brace
-',
-    'line_nr' => 5,
-    'text' => '@mycommand missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'verb_with_arobase_in_linemacro_call'} = '* E l5|@mycommand missing closing brace
+ @mycommand missing closing brace
 
+';
 
 $result_nodes_list{'verb_with_arobase_in_linemacro_call'} = '';
 

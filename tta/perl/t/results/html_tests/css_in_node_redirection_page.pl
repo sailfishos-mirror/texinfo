@@ -81,8 +81,7 @@ top
 SANS.
 ';
 
-$result_errors{'css_in_node_redirection_page'} = [];
-
+$result_errors{'css_in_node_redirection_page'} = '';
 
 $result_nodes_list{'css_in_node_redirection_page'} = '1|Top
  associated_section: top

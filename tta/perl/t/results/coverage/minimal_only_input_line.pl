@@ -19,8 +19,7 @@ $result_texis{'minimal_only_input_line'} = '\\input texinfo.tex
 
 $result_texts{'minimal_only_input_line'} = '';
 
-$result_errors{'minimal_only_input_line'} = [];
-
+$result_errors{'minimal_only_input_line'} = '';
 
 $result_nodes_list{'minimal_only_input_line'} = '';
 

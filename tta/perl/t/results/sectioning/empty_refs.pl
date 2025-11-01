@@ -35,23 +35,13 @@ $result_texts{'empty_refs'} = '.
  .
 ';
 
-$result_errors{'empty_refs'} = [
-  {
-    'error_line' => '@xref reference to nonexistent node `@:\'
-',
-    'line_nr' => 1,
-    'text' => '@xref reference to nonexistent node `@:\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@xref reference to nonexistent node `@asis{ }\'
-',
-    'line_nr' => 2,
-    'text' => '@xref reference to nonexistent node `@asis{ }\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_refs'} = '* E l1|@xref reference to nonexistent node `@:\'
+ @xref reference to nonexistent node `@:\'
 
+* E l2|@xref reference to nonexistent node `@asis{ }\'
+ @xref reference to nonexistent node `@asis{ }\'
+
+';
 
 $result_nodes_list{'empty_refs'} = '';
 

@@ -33,16 +33,10 @@ $result_texis{'wrong_synindex'} = '@defindex aaa
 
 $result_texts{'wrong_synindex'} = '';
 
-$result_errors{'wrong_synindex'} = [
-  {
-    'error_line' => 'warning: @synindex leads to a merging of aaa in itself, ignoring
-',
-    'line_nr' => 2,
-    'text' => '@synindex leads to a merging of aaa in itself, ignoring',
-    'type' => 'warning'
-  }
-];
+$result_errors{'wrong_synindex'} = '* W l2|@synindex leads to a merging of aaa in itself, ignoring
+ warning: @synindex leads to a merging of aaa in itself, ignoring
 
+';
 
 $result_indices{'wrong_synindex'} = 'aaa
 cp

@@ -96,30 +96,16 @@ $result_texts{'bad_formal_arg'} = '
 
 ';
 
-$result_errors{'bad_formal_arg'} = [
-  {
-    'error_line' => 'bad or empty @macro formal argument: 
-',
-    'line_nr' => 2,
-    'text' => 'bad or empty @macro formal argument: ',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad or empty @macro formal argument: in 2arg
-',
-    'line_nr' => 6,
-    'text' => 'bad or empty @macro formal argument: in 2arg',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad or empty @macro formal argument: :::
-',
-    'line_nr' => 10,
-    'text' => 'bad or empty @macro formal argument: :::',
-    'type' => 'error'
-  }
-];
+$result_errors{'bad_formal_arg'} = '* E l2|bad or empty @macro formal argument: 
+ bad or empty @macro formal argument: 
 
+* E l6|bad or empty @macro formal argument: in 2arg
+ bad or empty @macro formal argument: in 2arg
+
+* E l10|bad or empty @macro formal argument: :::
+ bad or empty @macro formal argument: :::
+
+';
 
 $result_nodes_list{'bad_formal_arg'} = '';
 

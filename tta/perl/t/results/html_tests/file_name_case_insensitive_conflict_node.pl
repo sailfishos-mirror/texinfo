@@ -224,8 +224,7 @@ foo
 Foo
 ';
 
-$result_errors{'file_name_case_insensitive_conflict_node'} = [];
-
+$result_errors{'file_name_case_insensitive_conflict_node'} = '';
 
 $result_nodes_list{'file_name_case_insensitive_conflict_node'} = '1|Top
  associated_section: top section

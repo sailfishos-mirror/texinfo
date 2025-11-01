@@ -55,23 +55,13 @@ In included file.
 In included file.
 ';
 
-$result_errors{'double_include'} = [
-  {
-    'error_line' => 'warning: @include should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@include should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @include should not appear in @include
-',
-    'line_nr' => 2,
-    'text' => '@include should not appear in @include',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_include'} = '* W l2|@include should only appear at the beginning of a line
+ warning: @include should only appear at the beginning of a line
 
+* W l2|@include should not appear in @include
+ warning: @include should not appear in @include
+
+';
 
 $result_nodes_list{'double_include'} = '';
 

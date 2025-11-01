@@ -88,30 +88,16 @@ $result_texts{'alias_macro_target_removed'} = '
 bb
 ';
 
-$result_errors{'alias_macro_target_removed'} = [
-  {
-    'error_line' => 'unknown command `mystrong\'
-',
-    'line_nr' => 11,
-    'text' => 'unknown command `mystrong\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 11,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 11,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'alias_macro_target_removed'} = '* E l11|unknown command `mystrong\'
+ unknown command `mystrong\'
 
+* E l11|misplaced {
+ misplaced {
+
+* E l11|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'alias_macro_target_removed'} = '';
 

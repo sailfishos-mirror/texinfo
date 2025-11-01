@@ -148,8 +148,7 @@ Some Notifier
 A Note
 ';
 
-$result_errors{'quotation_and_author'} = [];
-
+$result_errors{'quotation_and_author'} = '';
 
 $result_nodes_list{'quotation_and_author'} = '';
 

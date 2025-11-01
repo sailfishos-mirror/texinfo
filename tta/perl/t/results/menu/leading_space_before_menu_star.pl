@@ -57,8 +57,7 @@ $result_texts{'leading_space_before_menu_star'} = '
  * a node::
 ';
 
-$result_errors{'leading_space_before_menu_star'} = [];
-
+$result_errors{'leading_space_before_menu_star'} = '';
 
 $result_nodes_list{'leading_space_before_menu_star'} = '1|a node
  menus:

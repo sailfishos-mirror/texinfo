@@ -1570,198 +1570,88 @@ Method on c--lass: t--ype d--eftypemethod_name a--rguments...
 d-eftypemethod
 ';
 
-$result_errors{'all_commands'} = [
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 9,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 13,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 17,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 21,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 25,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 29,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 33,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 37,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 41,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 45,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 49,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 53,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `tp\' outside of any node
-',
-    'line_nr' => 57,
-    'text' => 'entry for index `tp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 61,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 65,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 69,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 73,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 77,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 81,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 85,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 89,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 93,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 97,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 101,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 105,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'all_commands'} = '* W l1|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
 
+* W l5|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l9|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l13|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l17|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l21|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l25|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l29|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l33|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l37|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l41|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l45|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l49|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l53|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l57|entry for index `tp\' outside of any node
+ warning: entry for index `tp\' outside of any node
+
+* W l61|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l65|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l69|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l73|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l77|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l81|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l85|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l89|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l93|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l97|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l101|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l105|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'all_commands'} = '';
 

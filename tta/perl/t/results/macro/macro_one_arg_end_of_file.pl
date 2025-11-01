@@ -46,8 +46,7 @@ Arg .';
 $result_texts{'macro_one_arg_end_of_file'} = '
 Arg .';
 
-$result_errors{'macro_one_arg_end_of_file'} = [];
-
+$result_errors{'macro_one_arg_end_of_file'} = '';
 
 $result_nodes_list{'macro_one_arg_end_of_file'} = '';
 

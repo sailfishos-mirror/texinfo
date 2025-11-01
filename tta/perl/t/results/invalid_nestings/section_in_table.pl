@@ -71,30 +71,16 @@ After
 
 ';
 
-$result_errors{'section_in_table'} = [
-  {
-    'error_line' => '@section seen before @end table
-',
-    'line_nr' => 4,
-    'text' => '@section seen before @end table',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 6,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end table\'
-',
-    'line_nr' => 8,
-    'text' => 'unmatched `@end table\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_in_table'} = '* E l4|@section seen before @end table
+ @section seen before @end table
 
+* E l6|@item outside of table or list
+ @item outside of table or list
+
+* E l8|unmatched `@end table\'
+ unmatched `@end table\'
+
+';
 
 $result_nodes_list{'section_in_table'} = '';
 

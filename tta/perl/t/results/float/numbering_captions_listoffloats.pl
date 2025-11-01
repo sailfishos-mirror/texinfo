@@ -1789,8 +1789,7 @@ A ref to float without type label but no type.
 
 ';
 
-$result_errors{'numbering_captions_listoffloats'} = [];
-
+$result_errors{'numbering_captions_listoffloats'} = '';
 
 $result_floats{'numbering_captions_listoffloats'} = ': 8
  F1: {label-but-no-type}

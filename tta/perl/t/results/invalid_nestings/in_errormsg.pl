@@ -91,44 +91,22 @@ Text.
 item
 ';
 
-$result_errors{'in_errormsg'} = [
-  {
-    'error_line' => 'warning: @anchor should not appear anywhere inside @errormsg
-',
-    'line_nr' => 3,
-    'text' => '@anchor should not appear anywhere inside @errormsg',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref should not appear anywhere inside @errormsg
-',
-    'line_nr' => 3,
-    'text' => '@ref should not appear anywhere inside @errormsg',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '
-',
-    'line_nr' => 3,
-    'text' => '',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@errormsg missing closing brace
-',
-    'line_nr' => 5,
-    'text' => '@errormsg missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 9,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'in_errormsg'} = '* W l3|@anchor should not appear anywhere inside @errormsg
+ warning: @anchor should not appear anywhere inside @errormsg
 
+* W l3|@ref should not appear anywhere inside @errormsg
+ warning: @ref should not appear anywhere inside @errormsg
+
+* E l3|
+ 
+
+* E l5|@errormsg missing closing brace
+ @errormsg missing closing brace
+
+* E l9|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'in_errormsg'} = '';
 

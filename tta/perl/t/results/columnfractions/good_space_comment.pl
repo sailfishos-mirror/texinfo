@@ -53,8 +53,7 @@ $result_texis{'good_space_comment'} = '@multitable @columnfractions 0 1  @c spac
 
 $result_texts{'good_space_comment'} = '';
 
-$result_errors{'good_space_comment'} = [];
-
+$result_errors{'good_space_comment'} = '';
 
 $result_nodes_list{'good_space_comment'} = '';
 

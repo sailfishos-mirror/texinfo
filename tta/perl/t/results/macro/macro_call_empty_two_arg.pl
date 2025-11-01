@@ -262,8 +262,7 @@ second l,
 
 ';
 
-$result_errors{'macro_call_empty_two_arg'} = [];
-
+$result_errors{'macro_call_empty_two_arg'} = '';
 
 $result_nodes_list{'macro_call_empty_two_arg'} = '';
 

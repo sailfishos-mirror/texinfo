@@ -135,23 +135,13 @@ top
 * part node before top::
 ';
 
-$result_errors{'part_node_before_top'} = [
-  {
-    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
-',
-    'line_nr' => 2,
-    'text' => '@node precedes @part, but parts may not be associated with nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part should not be associated with @top
-',
-    'line_nr' => 2,
-    'text' => '@part should not be associated with @top',
-    'type' => 'warning'
-  }
-];
+$result_errors{'part_node_before_top'} = '* W l2|@node precedes @part, but parts may not be associated with nodes
+ warning: @node precedes @part, but parts may not be associated with nodes
 
+* W l2|@part should not be associated with @top
+ warning: @part should not be associated with @top
+
+';
 
 $result_nodes_list{'part_node_before_top'} = '1|part node before top
  node_directions:

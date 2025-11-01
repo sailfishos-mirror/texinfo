@@ -83,8 +83,7 @@ part
 *********
 ';
 
-$result_errors{'top_part_chapter'} = [];
-
+$result_errors{'top_part_chapter'} = '';
 
 $result_nodes_list{'top_part_chapter'} = '';
 

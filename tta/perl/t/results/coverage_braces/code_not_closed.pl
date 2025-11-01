@@ -19,16 +19,10 @@ $result_texis{'code_not_closed'} = '@code{in code}';
 
 $result_texts{'code_not_closed'} = 'in code';
 
-$result_errors{'code_not_closed'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'code_not_closed'} = '* E l1|@code missing closing brace
+ @code missing closing brace
 
+';
 
 $result_nodes_list{'code_not_closed'} = '';
 

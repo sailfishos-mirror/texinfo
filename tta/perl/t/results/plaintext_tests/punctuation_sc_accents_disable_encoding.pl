@@ -293,8 +293,7 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 
 ';
 
-$result_errors{'punctuation_sc_accents_disable_encoding'} = [];
-
+$result_errors{'punctuation_sc_accents_disable_encoding'} = '';
 
 $result_nodes_list{'punctuation_sc_accents_disable_encoding'} = '1|top
  associated_section: top section

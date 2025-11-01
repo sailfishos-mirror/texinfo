@@ -93,8 +93,7 @@ Hey ((m) in pxref) and continue ((m) in pxref) and end.
 (m) n. (m) n.
 ';
 
-$result_errors{'pxref_test'} = [];
-
+$result_errors{'pxref_test'} = '';
 
 $result_nodes_list{'pxref_test'} = '1|Top
 ';

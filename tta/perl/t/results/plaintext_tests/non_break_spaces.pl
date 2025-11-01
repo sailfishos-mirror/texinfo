@@ -58,8 +58,7 @@ NO-BREAK SPACE: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbb
 NARROW NO-BREAK SPACE: ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc dddddddddddddddddddd
 ';
 
-$result_errors{'non_break_spaces'} = [];
-
+$result_errors{'non_break_spaces'} = '';
 
 $result_nodes_list{'non_break_spaces'} = '1|Top
 ';

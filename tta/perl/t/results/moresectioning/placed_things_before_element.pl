@@ -250,16 +250,10 @@ Ref to footnote anchor
 Anchor in footnote
 ';
 
-$result_errors{'placed_things_before_element'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 28,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'placed_things_before_element'} = '* W l28|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+';
 
 $result_floats{'placed_things_before_element'} = ': 1
  F1: {float-anchor}

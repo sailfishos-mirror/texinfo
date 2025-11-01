@@ -27,23 +27,13 @@ $result_texts{'math_bracketed_not_closed_next_line'} = 'aa {
 
 }';
 
-$result_errors{'math_bracketed_not_closed_next_line'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 1,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@math missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@math missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'math_bracketed_not_closed_next_line'} = '* E l1|misplaced {
+ misplaced {
 
+* E l1|@math missing closing brace
+ @math missing closing brace
+
+';
 
 $result_nodes_list{'math_bracketed_not_closed_next_line'} = '';
 

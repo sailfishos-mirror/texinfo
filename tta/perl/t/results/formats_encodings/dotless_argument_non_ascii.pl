@@ -98,23 +98,13 @@ $result_texts{'dotless_argument_non_ascii'} = 'top
 ê
 ';
 
-$result_errors{'dotless_argument_non_ascii'} = [
-  {
-    'error_line' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'
-",
-    'line_nr' => 6,
-    'text' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'",
-    'type' => 'error'
-  },
-  {
-    'error_line' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'
-",
-    'line_nr' => 7,
-    'text' => "\@dotless expects `i' or `j' as argument, not `\x{ea}'",
-    'type' => 'error'
-  }
-];
+$result_errors{'dotless_argument_non_ascii'} = '* E l6|@dotless expects `i\' or `j\' as argument, not `ê\'
+ @dotless expects `i\' or `j\' as argument, not `ê\'
 
+* E l7|@dotless expects `i\' or `j\' as argument, not `ê\'
+ @dotless expects `i\' or `j\' as argument, not `ê\'
+
+';
 
 $result_nodes_list{'dotless_argument_non_ascii'} = '1|Top
  associated_section: top

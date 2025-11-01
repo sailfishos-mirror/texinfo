@@ -201,8 +201,7 @@ a in copying
 a in copying
 ';
 
-$result_errors{'anchor_in_copying_insertcopying_titlepage_chap'} = [];
-
+$result_errors{'anchor_in_copying_insertcopying_titlepage_chap'} = '';
 
 $result_nodes_list{'anchor_in_copying_insertcopying_titlepage_chap'} = '1|Top
  associated_section: top

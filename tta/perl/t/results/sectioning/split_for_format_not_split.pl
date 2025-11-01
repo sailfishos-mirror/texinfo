@@ -54,8 +54,7 @@ This is a very simple texi manual   <>.
 
 ';
 
-$result_errors{'split_for_format_not_split'} = [];
-
+$result_errors{'split_for_format_not_split'} = '';
 
 $result_nodes_list{'split_for_format_not_split'} = '1|Top
 ';

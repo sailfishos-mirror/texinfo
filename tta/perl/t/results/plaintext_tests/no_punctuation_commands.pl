@@ -130,8 +130,7 @@ Symb.)"\']
 End.
 ';
 
-$result_errors{'no_punctuation_commands'} = [];
-
+$result_errors{'no_punctuation_commands'} = '';
 
 $result_nodes_list{'no_punctuation_commands'} = '';
 

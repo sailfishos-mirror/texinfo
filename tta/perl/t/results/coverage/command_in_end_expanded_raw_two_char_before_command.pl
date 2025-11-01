@@ -41,23 +41,13 @@ In TeX
 $result_texts{'command_in_end_expanded_raw_two_char_before_command'} = 'In TeX
 ';
 
-$result_errors{'command_in_end_expanded_raw_two_char_before_command'} = [
-  {
-    'error_line' => 'warning: @asis should not appear in @end
-',
-    'line_nr' => 3,
-    'text' => '@asis should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: te@asis{}x
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: te@asis{}x',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_in_end_expanded_raw_two_char_before_command'} = '* W l3|@asis should not appear in @end
+ warning: @asis should not appear in @end
 
+* E l3|bad argument to @end: te@asis{}x
+ bad argument to @end: te@asis{}x
+
+';
 
 $result_nodes_list{'command_in_end_expanded_raw_two_char_before_command'} = '';
 

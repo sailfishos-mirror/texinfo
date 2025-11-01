@@ -44,8 +44,7 @@ $result_texis{'empty_label_no_space'} = '@float Type,
 $result_texts{'empty_label_no_space'} = 'Type
 ';
 
-$result_errors{'empty_label_no_space'} = [];
-
+$result_errors{'empty_label_no_space'} = '';
 
 $result_floats{'empty_label_no_space'} = 'Type: 1
  F

@@ -53,58 +53,28 @@ $result_texis{'on_index_entry_line'} = '@cindex @indent @titlefont{in titlefont}
 
 $result_texts{'on_index_entry_line'} = '';
 
-$result_errors{'on_index_entry_line'} = [
-  {
-    'error_line' => 'warning: @indent should not appear on @cindex line
-',
-    'line_nr' => 1,
-    'text' => '@indent should not appear on @cindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @titlefont should not appear on @cindex line
-',
-    'line_nr' => 1,
-    'text' => '@titlefont should not appear on @cindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @cindex line
-',
-    'line_nr' => 1,
-    'text' => '@anchor should not appear on @cindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @cindex line
-',
-    'line_nr' => 1,
-    'text' => '@footnote should not appear on @cindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should not appear on @cindex line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should not appear on @cindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'on_index_entry_line'} = '* W l1|@indent should not appear on @cindex line
+ warning: @indent should not appear on @cindex line
 
+* W l1|@titlefont should not appear on @cindex line
+ warning: @titlefont should not appear on @cindex line
+
+* W l1|@anchor should not appear on @cindex line
+ warning: @anchor should not appear on @cindex line
+
+* W l1|@footnote should not appear on @cindex line
+ warning: @footnote should not appear on @cindex line
+
+* W l1|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+* W l1|@exdent should not appear on @cindex line
+ warning: @exdent should not appear on @cindex line
+
+* W l1|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 $result_nodes_list{'on_index_entry_line'} = '';
 

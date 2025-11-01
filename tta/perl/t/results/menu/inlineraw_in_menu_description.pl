@@ -107,8 +107,7 @@ end inlineraw
 
 ';
 
-$result_errors{'inlineraw_in_menu_description'} = [];
-
+$result_errors{'inlineraw_in_menu_description'} = '';
 
 $result_nodes_list{'inlineraw_in_menu_description'} = '1|first
  associated_section: top

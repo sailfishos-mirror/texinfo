@@ -25,16 +25,10 @@ $result_texis{'conditional_not_closed'} = '';
 
 $result_texts{'conditional_not_closed'} = '';
 
-$result_errors{'conditional_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end ifhtml\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end ifhtml\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'conditional_not_closed'} = '* E l1|no matching `@end ifhtml\'
+ no matching `@end ifhtml\'
 
+';
 
 $result_nodes_list{'conditional_not_closed'} = '';
 

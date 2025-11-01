@@ -174,16 +174,10 @@ $result_texts{'backslash_in_arg'} = '
 
 ';
 
-$result_errors{'backslash_in_arg'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'backslash_in_arg'} = '* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'backslash_in_arg'} = '1|Top
  node_directions:

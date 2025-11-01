@@ -60,24 +60,13 @@ in code
 
 ,  ';
 
-$result_errors{'brace_command_not_closed'} = [
-  {
-    'error_line' => '@mycommand missing closing brace
-',
-    'line_nr' => 6,
-    'text' => '@mycommand missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@code missing closing brace (possibly involving @mycommand)
-',
-    'line_nr' => 6,
-    'macro' => 'mycommand',
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'brace_command_not_closed'} = '* E l6|@mycommand missing closing brace
+ @mycommand missing closing brace
 
+* E l6:@mycommand|@code missing closing brace
+ @code missing closing brace (possibly involving @mycommand)
+
+';
 
 $result_nodes_list{'brace_command_not_closed'} = '';
 

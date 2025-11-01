@@ -108,8 +108,7 @@ There
 .....
 ';
 
-$result_errors{'test_fill_gaps_in_sectioning'} = [];
-
+$result_errors{'test_fill_gaps_in_sectioning'} = '';
 
 $result_nodes_list{'test_fill_gaps_in_sectioning'} = '';
 

@@ -88,8 +88,7 @@ truc.
 bidule.
 ';
 
-$result_errors{'simple_imbricated_macro'} = [];
-
+$result_errors{'simple_imbricated_macro'} = '';
 
 $result_nodes_list{'simple_imbricated_macro'} = '';
 

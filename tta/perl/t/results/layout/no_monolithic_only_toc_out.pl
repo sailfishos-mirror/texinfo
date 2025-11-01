@@ -201,8 +201,7 @@ Chapter.
 
 ';
 
-$result_errors{'no_monolithic_only_toc_out'} = [];
-
+$result_errors{'no_monolithic_only_toc_out'} = '';
 
 $result_nodes_list{'no_monolithic_only_toc_out'} = '1|Top
  associated_section: Not monolithic

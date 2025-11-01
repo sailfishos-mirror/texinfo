@@ -404,8 +404,7 @@ in nodescription, f1.
 
 ';
 
-$result_errors{'commands_in_nodedescriptionblock'} = [];
-
+$result_errors{'commands_in_nodedescriptionblock'} = '';
 
 $result_floats{'commands_in_nodedescriptionblock'} = 'tfloat: 1
  F1.1: {f1}

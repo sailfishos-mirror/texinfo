@@ -166,37 +166,19 @@ raw $\\underline{a < b tex \\hbox{ code }}$ ``
 
 ';
 
-$result_errors{'inline_expand_tex'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 6,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 6,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'inline_expand_tex'} = '* E l6|misplaced {
+ misplaced {
 
+* E l6|misplaced {
+ misplaced {
+
+* E l6|misplaced }
+ misplaced }
+
+* E l6|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'inline_expand_tex'} = '';
 

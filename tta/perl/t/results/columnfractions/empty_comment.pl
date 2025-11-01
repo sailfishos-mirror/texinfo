@@ -45,16 +45,10 @@ $result_texis{'empty_comment'} = '@multitable @columnfractions @c
 
 $result_texts{'empty_comment'} = '';
 
-$result_errors{'empty_comment'} = [
-  {
-    'error_line' => '@columnfractions missing argument
-',
-    'line_nr' => 1,
-    'text' => '@columnfractions missing argument',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_comment'} = '* E l1|@columnfractions missing argument
+ @columnfractions missing argument
 
+';
 
 $result_nodes_list{'empty_comment'} = '';
 

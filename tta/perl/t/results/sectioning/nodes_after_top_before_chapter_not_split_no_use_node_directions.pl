@@ -169,8 +169,7 @@ second node
 *********
 ';
 
-$result_errors{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = [];
-
+$result_errors{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = '';
 
 $result_nodes_list{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = '1|Top
  menus:

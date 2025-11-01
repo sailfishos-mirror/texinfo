@@ -99,30 +99,16 @@ Text in paragraph.
 truc: bidulr machin...
 ';
 
-$result_errors{'defx_after_paragraph_end'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'must be after `@deffn\' to use `@deffnx\'
-',
-    'line_nr' => 4,
-    'text' => 'must be after `@deffn\' to use `@deffnx\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 4,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'defx_after_paragraph_end'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* E l4|must be after `@deffn\' to use `@deffnx\'
+ must be after `@deffn\' to use `@deffnx\'
+
+* W l4|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'defx_after_paragraph_end'} = '';
 

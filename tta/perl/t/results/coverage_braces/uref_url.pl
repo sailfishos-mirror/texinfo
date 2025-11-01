@@ -91,8 +91,7 @@ $result_texts{'uref_url'} = '--a (-b)
 -q
 ';
 
-$result_errors{'uref_url'} = [];
-
+$result_errors{'uref_url'} = '';
 
 $result_nodes_list{'uref_url'} = '';
 

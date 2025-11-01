@@ -18,16 +18,10 @@ $result_texis{'unknown_value'} = '@value{unknown}';
 
 $result_texts{'unknown_value'} = 'unknown';
 
-$result_errors{'unknown_value'} = [
-  {
-    'error_line' => 'warning: undefined flag: unknown
-',
-    'line_nr' => 1,
-    'text' => 'undefined flag: unknown',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unknown_value'} = '* W l1|undefined flag: unknown
+ warning: undefined flag: unknown
 
+';
 
 $result_nodes_list{'unknown_value'} = '';
 

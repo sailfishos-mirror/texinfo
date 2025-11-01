@@ -268,8 +268,7 @@ D. value
 
 ';
 
-$result_errors{'enumerate_arguments'} = [];
-
+$result_errors{'enumerate_arguments'} = '';
 
 $result_nodes_list{'enumerate_arguments'} = '';
 

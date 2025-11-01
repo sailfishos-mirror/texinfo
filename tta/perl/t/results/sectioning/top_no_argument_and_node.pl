@@ -40,8 +40,7 @@ $result_texis{'top_no_argument_and_node'} = '@node start
 
 $result_texts{'top_no_argument_and_node'} = '';
 
-$result_errors{'top_no_argument_and_node'} = [];
-
+$result_errors{'top_no_argument_and_node'} = '';
 
 $result_nodes_list{'top_no_argument_and_node'} = '1|start
  associated_section

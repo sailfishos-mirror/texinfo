@@ -166,8 +166,7 @@ top
 Text.
 ';
 
-$result_errors{'customize_special_element'} = [];
-
+$result_errors{'customize_special_element'} = '';
 
 $result_nodes_list{'customize_special_element'} = '1|Top
  associated_section: top

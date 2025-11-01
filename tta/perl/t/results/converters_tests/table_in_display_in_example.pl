@@ -94,8 +94,7 @@ $result_texts{'table_in_display_in_example'} = 'item
 Line
 ';
 
-$result_errors{'table_in_display_in_example'} = [];
-
+$result_errors{'table_in_display_in_example'} = '';
 
 $result_nodes_list{'table_in_display_in_example'} = '';
 

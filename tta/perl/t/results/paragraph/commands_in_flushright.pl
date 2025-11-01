@@ -446,8 +446,7 @@ in center
 
 ';
 
-$result_errors{'commands_in_flushright'} = [];
-
+$result_errors{'commands_in_flushright'} = '';
 
 $result_floats{'commands_in_flushright'} = 'label: 1
  F1: {type}

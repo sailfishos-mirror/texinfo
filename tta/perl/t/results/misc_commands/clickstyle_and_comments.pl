@@ -117,97 +117,47 @@ $result_texis{'clickstyle_and_comments'} = '@clickstyle@comment a
 
 $result_texts{'clickstyle_and_comments'} = '';
 
-$result_errors{'clickstyle_and_comments'} = [
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @clickstyle line: a
-',
-    'line_nr' => 1,
-    'text' => 'remaining argument on @clickstyle line: a',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 2,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @clickstyle line: b
-',
-    'line_nr' => 2,
-    'text' => 'remaining argument on @clickstyle line: b',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 3,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@clickstyle should only accept an @-command as argument, not ` nocmd@comment c
-\'
-',
-    'line_nr' => 3,
-    'text' => '@clickstyle should only accept an @-command as argument, not ` nocmd@comment c
-\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 4,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@clickstyle should only accept an @-command as argument, not ` more than one word @comment d
-\'
-',
-    'line_nr' => 4,
-    'text' => '@clickstyle should only accept an @-command as argument, not ` more than one word @comment d
-\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 5,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 6,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 7,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @clickstyle line: on the same line @comment g
-',
-    'line_nr' => 7,
-    'text' => 'remaining argument on @clickstyle line: on the same line @comment g',
-    'type' => 'warning'
-  }
-];
+$result_errors{'clickstyle_and_comments'} = '* W l1|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
 
+* W l1|remaining argument on @clickstyle line: a
+ warning: remaining argument on @clickstyle line: a
+
+* W l2|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* W l2|remaining argument on @clickstyle line: b
+ warning: remaining argument on @clickstyle line: b
+
+* W l3|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* E l3|@clickstyle should only accept an @-command as argument, not ` nocmd@comment c
+\'
+ @clickstyle should only accept an @-command as argument, not ` nocmd@comment c
+\'
+
+* W l4|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* E l4|@clickstyle should only accept an @-command as argument, not ` more than one word @comment d
+\'
+ @clickstyle should only accept an @-command as argument, not ` more than one word @comment d
+\'
+
+* W l5|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* W l6|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* W l7|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* W l7|remaining argument on @clickstyle line: on the same line @comment g
+ warning: remaining argument on @clickstyle line: on the same line @comment g
+
+';
 
 $result_nodes_list{'clickstyle_and_comments'} = '';
 

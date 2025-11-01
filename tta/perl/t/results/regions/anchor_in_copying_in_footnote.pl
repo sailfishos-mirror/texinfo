@@ -138,16 +138,10 @@ Copying footnote.
 
 ';
 
-$result_errors{'anchor_in_copying_in_footnote'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 12,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'anchor_in_copying_in_footnote'} = '* W l12|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'anchor_in_copying_in_footnote'} = '1|Top
  node_directions:

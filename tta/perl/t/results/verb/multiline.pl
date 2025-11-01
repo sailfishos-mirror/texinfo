@@ -30,8 +30,7 @@ qdsqsddqsdsq
 
 after verb.';
 
-$result_errors{'multiline'} = [];
-
+$result_errors{'multiline'} = '';
 
 $result_nodes_list{'multiline'} = '';
 

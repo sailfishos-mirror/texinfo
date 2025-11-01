@@ -47,8 +47,7 @@ $result_texts{'one_subsection_and_node'} = '1 The subsection
 ----------------
 ';
 
-$result_errors{'one_subsection_and_node'} = [];
-
+$result_errors{'one_subsection_and_node'} = '';
 
 $result_nodes_list{'one_subsection_and_node'} = '1|one node
  associated_section: 1 The subsection

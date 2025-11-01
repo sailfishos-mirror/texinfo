@@ -155,8 +155,7 @@ $result_texts{'ref_tests'} = '
 
 ';
 
-$result_errors{'ref_tests'} = [];
-
+$result_errors{'ref_tests'} = '';
 
 $result_nodes_list{'ref_tests'} = '1|Top
 ';

@@ -21,16 +21,10 @@ $result_texis{'command_in_U'} = '@U{@code{09AF}}';
 
 $result_texts{'command_in_U'} = '09AF';
 
-$result_errors{'command_in_U'} = [
-  {
-    'error_line' => 'warning: no argument specified for @U
-',
-    'line_nr' => 1,
-    'text' => 'no argument specified for @U',
-    'type' => 'warning'
-  }
-];
+$result_errors{'command_in_U'} = '* W l1|no argument specified for @U
+ warning: no argument specified for @U
 
+';
 
 $result_nodes_list{'command_in_U'} = '';
 

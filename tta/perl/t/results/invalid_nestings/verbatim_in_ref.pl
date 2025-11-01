@@ -69,23 +69,13 @@ firstverbat text
 
 .';
 
-$result_errors{'verbatim_in_ref'} = [
-  {
-    'error_line' => '@xref missing closing brace
-',
-    'line_nr' => 3,
-    'text' => '@xref missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 8,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'verbatim_in_ref'} = '* E l3|@xref missing closing brace
+ @xref missing closing brace
 
+* E l8|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'verbatim_in_ref'} = '1|first
 ';

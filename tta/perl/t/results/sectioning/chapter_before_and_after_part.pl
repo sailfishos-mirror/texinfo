@@ -95,8 +95,7 @@ part
 
 ';
 
-$result_errors{'chapter_before_and_after_part'} = [];
-
+$result_errors{'chapter_before_and_after_part'} = '';
 
 $result_nodes_list{'chapter_before_and_after_part'} = '';
 

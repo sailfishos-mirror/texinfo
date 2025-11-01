@@ -29,8 +29,7 @@ $result_texis{'footnote_ending_on_empty_line'} = 'text@footnote{ in footnote.
 
 $result_texts{'footnote_ending_on_empty_line'} = 'text';
 
-$result_errors{'footnote_ending_on_empty_line'} = [];
-
+$result_errors{'footnote_ending_on_empty_line'} = '';
 
 $result_nodes_list{'footnote_ending_on_empty_line'} = '';
 

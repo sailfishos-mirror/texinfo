@@ -41,8 +41,7 @@ $result_texis{'node_up_direction_for_top_with_manual'} = '@node Top,,,(dir)top
 
 $result_texts{'node_up_direction_for_top_with_manual'} = '';
 
-$result_errors{'node_up_direction_for_top_with_manual'} = [];
-
+$result_errors{'node_up_direction_for_top_with_manual'} = '';
 
 $result_nodes_list{'node_up_direction_for_top_with_manual'} = '1|Top
  node_directions:

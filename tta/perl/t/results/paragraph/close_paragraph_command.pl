@@ -51,8 +51,7 @@ p before sp
 
 inew p after sp';
 
-$result_errors{'close_paragraph_command'} = [];
-
+$result_errors{'close_paragraph_command'} = '';
 
 $result_nodes_list{'close_paragraph_command'} = '';
 

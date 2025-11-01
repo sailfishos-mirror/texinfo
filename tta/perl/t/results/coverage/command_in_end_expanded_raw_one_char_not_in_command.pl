@@ -41,37 +41,19 @@ In TeX
 $result_texts{'command_in_end_expanded_raw_one_char_not_in_command'} = 'In TeX
 ';
 
-$result_errors{'command_in_end_expanded_raw_one_char_not_in_command'} = [
-  {
-    'error_line' => 'warning: @asis should not appear in @end
-',
-    'line_nr' => 3,
-    'text' => '@asis should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unknown @end t
-',
-    'line_nr' => 3,
-    'text' => 'unknown @end t',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: t@asis{ex}
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: t@asis{ex}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end tex\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end tex\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_in_end_expanded_raw_one_char_not_in_command'} = '* W l3|@asis should not appear in @end
+ warning: @asis should not appear in @end
 
+* W l3|unknown @end t
+ warning: unknown @end t
+
+* E l3|bad argument to @end: t@asis{ex}
+ bad argument to @end: t@asis{ex}
+
+* E l1|no matching `@end tex\'
+ no matching `@end tex\'
+
+';
 
 $result_nodes_list{'command_in_end_expanded_raw_one_char_not_in_command'} = '';
 

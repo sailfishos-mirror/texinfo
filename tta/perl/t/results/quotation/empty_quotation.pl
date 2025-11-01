@@ -114,8 +114,7 @@ Empty
 
 ';
 
-$result_errors{'empty_quotation'} = [];
-
+$result_errors{'empty_quotation'} = '';
 
 $result_nodes_list{'empty_quotation'} = '';
 

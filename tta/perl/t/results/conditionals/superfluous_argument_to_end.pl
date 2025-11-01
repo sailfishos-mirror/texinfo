@@ -41,16 +41,10 @@ $result_texis{'superfluous_argument_to_end'} = 'not html
 $result_texts{'superfluous_argument_to_end'} = 'not html
 ';
 
-$result_errors{'superfluous_argument_to_end'} = [
-  {
-    'error_line' => 'bad argument to @end: ifnothtml superfluous
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: ifnothtml superfluous',
-    'type' => 'error'
-  }
-];
+$result_errors{'superfluous_argument_to_end'} = '* E l3|bad argument to @end: ifnothtml superfluous
+ bad argument to @end: ifnothtml superfluous
 
+';
 
 $result_nodes_list{'superfluous_argument_to_end'} = '';
 

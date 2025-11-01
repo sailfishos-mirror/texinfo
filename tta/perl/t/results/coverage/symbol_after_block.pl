@@ -564,114 +564,52 @@ Copying:
 
 ';
 
-$result_errors{'symbol_after_block'} = [
-  {
-    'error_line' => 'bad argument to @end: html. On the line.
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: html. On the line.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: html@@ On the line.
-',
-    'line_nr' => 7,
-    'text' => 'bad argument to @end: html@@ On the line.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim;
-',
-    'line_nr' => 13,
-    'text' => 'bad argument to @end: verbatim;',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim@@
-',
-    'line_nr' => 17,
-    'text' => 'bad argument to @end: verbatim@@',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: table+
-',
-    'line_nr' => 24,
-    'text' => 'bad argument to @end: table+',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: table@@
-',
-    'line_nr' => 29,
-    'text' => 'bad argument to @end: table@@',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: itemize\'\'
-',
-    'line_nr' => 35,
-    'text' => 'bad argument to @end: itemize\'\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: itemize@@
-',
-    'line_nr' => 39,
-    'text' => 'bad argument to @end: itemize@@',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: multitable^
-',
-    'line_nr' => 46,
-    'text' => 'bad argument to @end: multitable^',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: multitable@{
-',
-    'line_nr' => 51,
-    'text' => 'bad argument to @end: multitable@{',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: flushleft!
-',
-    'line_nr' => 57,
-    'text' => 'bad argument to @end: flushleft!',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: flushleft@@
-',
-    'line_nr' => 61,
-    'text' => 'bad argument to @end: flushleft@@',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: copying*
-',
-    'line_nr' => 67,
-    'text' => 'bad argument to @end: copying*',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: multiple @copying
-',
-    'line_nr' => 69,
-    'text' => 'multiple @copying',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: copying@@
-',
-    'line_nr' => 71,
-    'text' => 'bad argument to @end: copying@@',
-    'type' => 'error'
-  }
-];
+$result_errors{'symbol_after_block'} = '* E l3|bad argument to @end: html. On the line.
+ bad argument to @end: html. On the line.
 
+* E l7|bad argument to @end: html@@ On the line.
+ bad argument to @end: html@@ On the line.
+
+* E l13|bad argument to @end: verbatim;
+ bad argument to @end: verbatim;
+
+* E l17|bad argument to @end: verbatim@@
+ bad argument to @end: verbatim@@
+
+* E l24|bad argument to @end: table+
+ bad argument to @end: table+
+
+* E l29|bad argument to @end: table@@
+ bad argument to @end: table@@
+
+* E l35|bad argument to @end: itemize\'\'
+ bad argument to @end: itemize\'\'
+
+* E l39|bad argument to @end: itemize@@
+ bad argument to @end: itemize@@
+
+* E l46|bad argument to @end: multitable^
+ bad argument to @end: multitable^
+
+* E l51|bad argument to @end: multitable@{
+ bad argument to @end: multitable@{
+
+* E l57|bad argument to @end: flushleft!
+ bad argument to @end: flushleft!
+
+* E l61|bad argument to @end: flushleft@@
+ bad argument to @end: flushleft@@
+
+* E l67|bad argument to @end: copying*
+ bad argument to @end: copying*
+
+* W l69|multiple @copying
+ warning: multiple @copying
+
+* E l71|bad argument to @end: copying@@
+ bad argument to @end: copying@@
+
+';
 
 $result_nodes_list{'symbol_after_block'} = '';
 

@@ -57,16 +57,10 @@ $result_texis{'recursive_synindex'} = '@defindex aaa
 
 $result_texts{'recursive_synindex'} = '';
 
-$result_errors{'recursive_synindex'} = [
-  {
-    'error_line' => 'warning: @synindex leads to a merging of bbb in itself, ignoring
-',
-    'line_nr' => 4,
-    'text' => '@synindex leads to a merging of bbb in itself, ignoring',
-    'type' => 'warning'
-  }
-];
+$result_errors{'recursive_synindex'} = '* W l4|@synindex leads to a merging of bbb in itself, ignoring
+ warning: @synindex leads to a merging of bbb in itself, ignoring
 
+';
 
 $result_indices{'recursive_synindex'} = 'aaa ->bbb
 bbb

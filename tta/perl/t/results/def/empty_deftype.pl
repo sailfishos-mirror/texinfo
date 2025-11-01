@@ -302,37 +302,19 @@ Method on c: f (const type& x)
 Defmethod.
 ';
 
-$result_errors{'empty_deftype'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 9,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 13,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_deftype'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* W l5|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l9|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l13|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'empty_deftype'} = '';
 

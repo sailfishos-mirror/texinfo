@@ -56,8 +56,7 @@ in bar
 $result_texts{'zero_argument'} = '
 ';
 
-$result_errors{'zero_argument'} = [];
-
+$result_errors{'zero_argument'} = '';
 
 $result_nodes_list{'zero_argument'} = '';
 

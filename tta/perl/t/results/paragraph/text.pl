@@ -17,8 +17,7 @@ $result_texis{'text'} = 'text';
 
 $result_texts{'text'} = 'text';
 
-$result_errors{'text'} = [];
-
+$result_errors{'text'} = '';
 
 $result_nodes_list{'text'} = '';
 

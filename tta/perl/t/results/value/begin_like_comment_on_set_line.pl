@@ -54,30 +54,16 @@ $result_texts{'begin_like_comment_on_set_line'} = '
 !x! !some thing  is it!
 ';
 
-$result_errors{'begin_like_comment_on_set_line'} = [
-  {
-    'error_line' => 'bad name for @set
-',
-    'line_nr' => 1,
-    'text' => 'bad name for @set',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: undefined flag: x
-',
-    'line_nr' => 4,
-    'text' => 'undefined flag: x',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'unknown command `commentary\'
-',
-    'line_nr' => 4,
-    'text' => 'unknown command `commentary\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'begin_like_comment_on_set_line'} = '* E l1|bad name for @set
+ bad name for @set
 
+* W l4|undefined flag: x
+ warning: undefined flag: x
+
+* E l4|unknown command `commentary\'
+ unknown command `commentary\'
+
+';
 
 $result_nodes_list{'begin_like_comment_on_set_line'} = '';
 

@@ -85,16 +85,10 @@ comment
 * (manual2)::
 ';
 
-$result_errors{'table_not_closed_in_menu_comment'} = [
-  {
-    'error_line' => '`@end\' expected `table\', but saw `menu\'
-',
-    'line_nr' => 8,
-    'text' => '`@end\' expected `table\', but saw `menu\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'table_not_closed_in_menu_comment'} = '* E l8|`@end\' expected `table\', but saw `menu\'
+ `@end\' expected `table\', but saw `menu\'
 
+';
 
 $result_nodes_list{'table_not_closed_in_menu_comment'} = '';
 

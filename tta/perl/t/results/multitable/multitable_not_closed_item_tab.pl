@@ -50,16 +50,10 @@ $result_texis{'multitable_not_closed_item_tab'} = '@multitable {r} {t}
 $result_texts{'multitable_not_closed_item_tab'} = 'rt ds
 ';
 
-$result_errors{'multitable_not_closed_item_tab'} = [
-  {
-    'error_line' => 'no matching `@end multitable\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end multitable\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_not_closed_item_tab'} = '* E l1|no matching `@end multitable\'
+ no matching `@end multitable\'
 
+';
 
 $result_nodes_list{'multitable_not_closed_item_tab'} = '';
 

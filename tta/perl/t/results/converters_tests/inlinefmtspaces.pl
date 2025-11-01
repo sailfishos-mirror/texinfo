@@ -65,8 +65,7 @@ $result_texts{'inlinefmtspaces'} = 'A plaintext " {  a.  Now html
 in <i>HTML</i>.
 ';
 
-$result_errors{'inlinefmtspaces'} = [];
-
+$result_errors{'inlinefmtspaces'} = '';
 
 $result_nodes_list{'inlinefmtspaces'} = '';
 

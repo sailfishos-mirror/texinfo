@@ -67,16 +67,10 @@ $result_texts{'spaces_info_lost'} = 'in bad display
 in verbatim @g 
 ';
 
-$result_errors{'spaces_info_lost'} = [
-  {
-    'error_line' => 'warning: unexpected argument on @display line: text on display line
-',
-    'line_nr' => 1,
-    'text' => 'unexpected argument on @display line: text on display line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'spaces_info_lost'} = '* W l1|unexpected argument on @display line: text on display line
+ warning: unexpected argument on @display line: text on display line
 
+';
 
 $result_nodes_list{'spaces_info_lost'} = '';
 

@@ -74,8 +74,7 @@ AAA (expL). BBB (explA). aaa (expl).
 bbb (expla). Last.
 ';
 
-$result_errors{'punctuation_abbr_acronym'} = [];
-
+$result_errors{'punctuation_abbr_acronym'} = '';
 
 $result_nodes_list{'punctuation_abbr_acronym'} = '';
 

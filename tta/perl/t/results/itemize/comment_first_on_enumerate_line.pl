@@ -53,8 +53,7 @@ $result_texis{'comment_first_on_enumerate_line'} = '@enumerate @c comment on enu
 $result_texts{'comment_first_on_enumerate_line'} = '1. first
 ';
 
-$result_errors{'comment_first_on_enumerate_line'} = [];
-
+$result_errors{'comment_first_on_enumerate_line'} = '';
 
 $result_nodes_list{'comment_first_on_enumerate_line'} = '';
 

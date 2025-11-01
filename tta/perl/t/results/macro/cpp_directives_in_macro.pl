@@ -75,26 +75,13 @@ $result_texts{'cpp_directives_in_macro'} = '
 
 ';
 
-$result_errors{'cpp_directives_in_macro'} = [
-  {
-    'error_line' => 'unknown command `unknownin\' (possibly involving @simplemacro)
-',
-    'file_name' => 'cpp_directives_in_macro.texi',
-    'line_nr' => 10,
-    'macro' => 'simplemacro',
-    'text' => 'unknown command `unknownin\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknownout\'
-',
-    'file_name' => 'cpp_directives_in_macro.texi',
-    'line_nr' => 12,
-    'text' => 'unknown command `unknownout\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'cpp_directives_in_macro'} = '* E cpp_directives_in_macro.texi:l10:@simplemacro|unknown command `unknownin\'
+ unknown command `unknownin\' (possibly involving @simplemacro)
 
+* E cpp_directives_in_macro.texi:l12|unknown command `unknownout\'
+ unknown command `unknownout\'
+
+';
 
 $result_nodes_list{'cpp_directives_in_macro'} = '';
 

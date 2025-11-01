@@ -248,16 +248,10 @@ $result_texts{'nodedescription_description'} = 'test of descriptions with nodede
 
 ';
 
-$result_errors{'nodedescription_description'} = [
-  {
-    'error_line' => 'warning: @verb should not appear on @nodedescription line
-',
-    'line_nr' => 7,
-    'text' => '@verb should not appear on @nodedescription line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodedescription_description'} = '* W l7|@verb should not appear on @nodedescription line
+ warning: @verb should not appear on @nodedescription line
 
+';
 
 $result_nodes_list{'nodedescription_description'} = '1|Top
  associated_section: test of descriptions with nodedescription*

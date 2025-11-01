@@ -79,8 +79,7 @@ $result_texts{'index_and_node_same_name'} = 'top
 
 ';
 
-$result_errors{'index_and_node_same_name'} = [];
-
+$result_errors{'index_and_node_same_name'} = '';
 
 $result_nodes_list{'index_and_node_same_name'} = '1|index node
 ';

@@ -30,37 +30,19 @@ $result_texis{'indent_in_command_in_paragraph'} = 'In para @code{@indent}.  @asi
 $result_texts{'indent_in_command_in_paragraph'} = 'In para .  in double command.
 ';
 
-$result_errors{'indent_in_command_in_paragraph'} = [
-  {
-    'error_line' => 'warning: @indent should not appear in @code
-',
-    'line_nr' => 1,
-    'text' => '@indent should not appear in @code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @indent is useless inside of a paragraph
-',
-    'line_nr' => 1,
-    'text' => '@indent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent should not appear in @b
-',
-    'line_nr' => 1,
-    'text' => '@noindent should not appear in @b',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 1,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  }
-];
+$result_errors{'indent_in_command_in_paragraph'} = '* W l1|@indent should not appear in @code
+ warning: @indent should not appear in @code
 
+* W l1|@indent is useless inside of a paragraph
+ warning: @indent is useless inside of a paragraph
+
+* W l1|@noindent should not appear in @b
+ warning: @noindent should not appear in @b
+
+* W l1|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
+
+';
 
 $result_nodes_list{'indent_in_command_in_paragraph'} = '';
 

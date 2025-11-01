@@ -617,24 +617,13 @@ anc-hor
 in-example
 ';
 
-$result_errors{'test_allowcodebreaks'} = [
-  {
-    'error_line' => 'warning: @anchor should not appear anywhere inside @w (possibly involving @testallowcodebreakspara)
-',
-    'line_nr' => 30,
-    'macro' => 'testallowcodebreakspara',
-    'text' => '@anchor should not appear anywhere inside @w',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'test_allowcodebreaks'} = '* W l30:@testallowcodebreakspara|@anchor should not appear anywhere inside @w
+ warning: @anchor should not appear anywhere inside @w (possibly involving @testallowcodebreakspara)
 
+* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'test_allowcodebreaks'} = '1|Top
  node_directions:

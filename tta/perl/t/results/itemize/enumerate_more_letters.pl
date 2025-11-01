@@ -6454,8 +6454,7 @@ adw. bb
 adx. bb
 ';
 
-$result_errors{'enumerate_more_letters'} = [];
-
+$result_errors{'enumerate_more_letters'} = '';
 
 $result_nodes_list{'enumerate_more_letters'} = '';
 

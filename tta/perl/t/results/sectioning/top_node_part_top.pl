@@ -72,23 +72,13 @@ top
 ***
 ';
 
-$result_errors{'top_node_part_top'} = [
-  {
-    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
-',
-    'line_nr' => 3,
-    'text' => '@node precedes @part, but parts may not be associated with nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part should not be associated with @top
-',
-    'line_nr' => 3,
-    'text' => '@part should not be associated with @top',
-    'type' => 'warning'
-  }
-];
+$result_errors{'top_node_part_top'} = '* W l3|@node precedes @part, but parts may not be associated with nodes
+ warning: @node precedes @part, but parts may not be associated with nodes
 
+* W l3|@part should not be associated with @top
+ warning: @part should not be associated with @top
+
+';
 
 $result_nodes_list{'top_node_part_top'} = '1|Top
  associated_section: top

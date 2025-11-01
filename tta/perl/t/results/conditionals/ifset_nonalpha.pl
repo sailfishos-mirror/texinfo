@@ -39,8 +39,7 @@ $result_texis{'ifset_nonalpha'} = '';
 
 $result_texts{'ifset_nonalpha'} = '';
 
-$result_errors{'ifset_nonalpha'} = [];
-
+$result_errors{'ifset_nonalpha'} = '';
 
 $result_nodes_list{'ifset_nonalpha'} = '';
 

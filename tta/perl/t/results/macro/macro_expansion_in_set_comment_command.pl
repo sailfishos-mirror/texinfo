@@ -69,8 +69,7 @@ $result_texts{'macro_expansion_in_set_comment_command'} = '
 
 ';
 
-$result_errors{'macro_expansion_in_set_comment_command'} = [];
-
+$result_errors{'macro_expansion_in_set_comment_command'} = '';
 
 $result_nodes_list{'macro_expansion_in_set_comment_command'} = '';
 

@@ -69,23 +69,13 @@ firstquotation in ref
 .
 ';
 
-$result_errors{'quotation_in_ref'} = [
-  {
-    'error_line' => '@xref missing closing brace
-',
-    'line_nr' => 3,
-    'text' => '@xref missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 7,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'quotation_in_ref'} = '* E l3|@xref missing closing brace
+ @xref missing closing brace
 
+* E l7|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'quotation_in_ref'} = '1|first
 ';

@@ -188,30 +188,16 @@ $result_texts{'non_automatic_top_node_up_and_url'} = 'internal top node up
 
 ';
 
-$result_errors{'non_automatic_top_node_up_and_url'} = [
-  {
-    'error_line' => 'Prev reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
-',
-    'line_nr' => 1,
-    'text' => 'Prev reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
-',
-    'line_nr' => 1,
-    'text' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
-',
-    'line_nr' => 8,
-    'text' => 'Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'non_automatic_top_node_up_and_url'} = '* E l1|Prev reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
+ Prev reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
 
+* E l1|Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
+ Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
+
+* E l8|Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
+ Up reference to nonexistent `@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals\'
+
+';
 
 $result_nodes_list{'non_automatic_top_node_up_and_url'} = '1|Top
  associated_section: internal top node up

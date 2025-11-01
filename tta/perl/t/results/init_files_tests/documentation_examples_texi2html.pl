@@ -593,16 +593,10 @@ Appendix B Second appendix
 
 ';
 
-$result_errors{'documentation_examples_texi2html'} = [
-  {
-    'error_line' => 'warning: @vindex missing argument
-',
-    'line_nr' => 39,
-    'text' => '@vindex missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'documentation_examples_texi2html'} = '* W l39|@vindex missing argument
+ warning: @vindex missing argument
 
+';
 
 $result_nodes_list{'documentation_examples_texi2html'} = '1|Top
  associated_section: top

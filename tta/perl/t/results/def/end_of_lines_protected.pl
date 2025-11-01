@@ -96,16 +96,10 @@ $result_texts{'end_of_lines_protected'} = 'category: deffn_name arguments    mor
 deffn
 ';
 
-$result_errors{'end_of_lines_protected'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 4,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'end_of_lines_protected'} = '* W l4|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'end_of_lines_protected'} = '';
 

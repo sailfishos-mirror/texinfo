@@ -46,16 +46,10 @@ $result_texts{'section_in_copying'} = '1 section
 =========
 ';
 
-$result_errors{'section_in_copying'} = [
-  {
-    'error_line' => '@section seen before @end copying
-',
-    'line_nr' => 5,
-    'text' => '@section seen before @end copying',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_in_copying'} = '* E l5|@section seen before @end copying
+ @section seen before @end copying
 
+';
 
 $result_nodes_list{'section_in_copying'} = '';
 

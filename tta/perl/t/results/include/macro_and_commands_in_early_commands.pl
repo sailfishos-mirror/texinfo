@@ -279,23 +279,13 @@ in themacro
 
 ';
 
-$result_errors{'macro_and_commands_in_early_commands'} = [
-  {
-    'error_line' => 'warning: encoding `ISO-8859-1@\' is not a canonical texinfo encoding
-',
-    'line_nr' => 11,
-    'text' => 'encoding `ISO-8859-1@\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 21,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'macro_and_commands_in_early_commands'} = '* W l11|encoding `ISO-8859-1@\' is not a canonical texinfo encoding
+ warning: encoding `ISO-8859-1@\' is not a canonical texinfo encoding
 
+* W l21|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'macro_and_commands_in_early_commands'} = '1|Top
  associated_section: top

@@ -150,8 +150,7 @@ yy
 zz
 ';
 
-$result_errors{'call_macro_in_linemacro_body'} = [];
-
+$result_errors{'call_macro_in_linemacro_body'} = '';
 
 $result_nodes_list{'call_macro_in_linemacro_body'} = '';
 

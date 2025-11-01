@@ -191,8 +191,7 @@ $result_texts{'footnotestyle_separate_late'} = 'top
 
 ';
 
-$result_errors{'footnotestyle_separate_late'} = [];
-
+$result_errors{'footnotestyle_separate_late'} = '';
 
 $result_nodes_list{'footnotestyle_separate_late'} = '1|Top
  associated_section: top

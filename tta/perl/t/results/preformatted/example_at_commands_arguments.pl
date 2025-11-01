@@ -68,8 +68,7 @@ example with @@-commands and other special characters
 $result_texts{'example_at_commands_arguments'} = 'example with @-commands and other special characters
 ';
 
-$result_errors{'example_at_commands_arguments'} = [];
-
+$result_errors{'example_at_commands_arguments'} = '';
 
 $result_nodes_list{'example_at_commands_arguments'} = '';
 

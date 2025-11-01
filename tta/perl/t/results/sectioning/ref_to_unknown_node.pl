@@ -23,16 +23,10 @@ $result_texis{'ref_to_unknown_node'} = '@xref{unknown node}.';
 
 $result_texts{'ref_to_unknown_node'} = 'unknown node.';
 
-$result_errors{'ref_to_unknown_node'} = [
-  {
-    'error_line' => '@xref reference to nonexistent node `unknown node\'
-',
-    'line_nr' => 1,
-    'text' => '@xref reference to nonexistent node `unknown node\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'ref_to_unknown_node'} = '* E l1|@xref reference to nonexistent node `unknown node\'
+ @xref reference to nonexistent node `unknown node\'
 
+';
 
 $result_nodes_list{'ref_to_unknown_node'} = '';
 

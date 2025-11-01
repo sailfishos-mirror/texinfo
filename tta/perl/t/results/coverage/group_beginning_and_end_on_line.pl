@@ -37,23 +37,13 @@ $result_texis{'group_beginning_and_end_on_line'} = '@group within @end group
 
 $result_texts{'group_beginning_and_end_on_line'} = '';
 
-$result_errors{'group_beginning_and_end_on_line'} = [
-  {
-    'error_line' => 'warning: @end should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@end should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @group line: within
-',
-    'line_nr' => 1,
-    'text' => 'unexpected argument on @group line: within',
-    'type' => 'warning'
-  }
-];
+$result_errors{'group_beginning_and_end_on_line'} = '* W l1|@end should only appear at the beginning of a line
+ warning: @end should only appear at the beginning of a line
 
+* W l1|unexpected argument on @group line: within
+ warning: unexpected argument on @group line: within
+
+';
 
 $result_nodes_list{'group_beginning_and_end_on_line'} = '';
 

@@ -511,41 +511,19 @@ etext4
 
 ';
 
-$result_errors{'cpp_lines'} = [
-  {
-    'error_line' => '@email missing closing brace
-',
-    'file_name' => 'email12',
-    'line_nr' => 64,
-    'text' => '@email missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'file_name' => 'email4',
-    'line_nr' => 63,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => "warning: l\x{e0}ng is not a valid language code
-",
-    'file_name' => 'accentÃªd',
-    'line_nr' => 7,
-    'text' => "l\x{e0}ng is not a valid language code",
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'file_name' => 'g_f',
-    'line_nr' => 71,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'cpp_lines'} = '* E email12:l64|@email missing closing brace
+ @email missing closing brace
 
+* E email4:l63|misplaced }
+ misplaced }
+
+* W accentêd:l7|làng is not a valid language code
+ warning: làng is not a valid language code
+
+* W g_f:l71|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'cpp_lines'} = '1|Top
  node_directions:

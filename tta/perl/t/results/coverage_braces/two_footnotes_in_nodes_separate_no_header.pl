@@ -208,8 +208,7 @@ D
 
 ';
 
-$result_errors{'two_footnotes_in_nodes_separate_no_header'} = [];
-
+$result_errors{'two_footnotes_in_nodes_separate_no_header'} = '';
 
 $result_nodes_list{'two_footnotes_in_nodes_separate_no_header'} = '1|Top
  associated_section: 2 footnotes in 2 nodes

@@ -23,16 +23,10 @@ $result_texis{'math_bracketed_inside_not_closed'} = '@math{{x^i}\\over{\\tan}}';
 
 $result_texts{'math_bracketed_inside_not_closed'} = '{x^i}\\over{\\tan}';
 
-$result_errors{'math_bracketed_inside_not_closed'} = [
-  {
-    'error_line' => '@math missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@math missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'math_bracketed_inside_not_closed'} = '* E l1|@math missing closing brace
+ @math missing closing brace
 
+';
 
 $result_nodes_list{'math_bracketed_inside_not_closed'} = '';
 

@@ -159,17 +159,10 @@ $result_texts{'cpp_directives_line_value_macro'} = '
 
 ';
 
-$result_errors{'cpp_directives_line_value_macro'} = [
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'file_name' => 'cpp_directives_line_value_macro.texi',
-    'line_nr' => 24,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'cpp_directives_line_value_macro'} = '* E cpp_directives_line_value_macro.texi:l24|unknown command `unknown\'
+ unknown command `unknown\'
 
+';
 
 $result_nodes_list{'cpp_directives_line_value_macro'} = '';
 

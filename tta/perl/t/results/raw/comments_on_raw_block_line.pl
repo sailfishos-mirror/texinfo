@@ -95,8 +95,7 @@ $result_texts{'comments_on_raw_block_line'} = '
 In TeX
 ';
 
-$result_errors{'comments_on_raw_block_line'} = [];
-
+$result_errors{'comments_on_raw_block_line'} = '';
 
 $result_nodes_list{'comments_on_raw_block_line'} = '';
 

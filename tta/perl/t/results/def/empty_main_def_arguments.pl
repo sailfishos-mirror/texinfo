@@ -44,16 +44,10 @@ $result_texis{'empty_main_def_arguments'} = '@deffn NNN
 $result_texts{'empty_main_def_arguments'} = 'NNN: 
 ';
 
-$result_errors{'empty_main_def_arguments'} = [
-  {
-    'error_line' => 'warning: missing name for @deffn
-',
-    'line_nr' => 1,
-    'text' => 'missing name for @deffn',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_main_def_arguments'} = '* W l1|missing name for @deffn
+ warning: missing name for @deffn
 
+';
 
 $result_nodes_list{'empty_main_def_arguments'} = '';
 

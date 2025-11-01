@@ -31,16 +31,10 @@ $result_texis{'printindex_before_document'} = '
 $result_texts{'printindex_before_document'} = '
 ';
 
-$result_errors{'printindex_before_document'} = [
-  {
-    'error_line' => 'warning: printindex before document beginning: @printindex cp
-',
-    'line_nr' => 2,
-    'text' => 'printindex before document beginning: @printindex cp',
-    'type' => 'warning'
-  }
-];
+$result_errors{'printindex_before_document'} = '* W l2|printindex before document beginning: @printindex cp
+ warning: printindex before document beginning: @printindex cp
 
+';
 
 $result_nodes_list{'printindex_before_document'} = '';
 

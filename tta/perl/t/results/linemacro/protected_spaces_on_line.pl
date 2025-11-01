@@ -295,33 +295,16 @@ another with double at
 
 ';
 
-$result_errors{'protected_spaces_on_line'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node (possibly involving @test)
-',
-    'line_nr' => 8,
-    'macro' => 'test',
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node (possibly involving @test)
-',
-    'line_nr' => 10,
-    'macro' => 'test',
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node (possibly involving @test)
-',
-    'line_nr' => 12,
-    'macro' => 'test',
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'protected_spaces_on_line'} = '* W l8:@test|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node (possibly involving @test)
 
+* W l10:@test|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node (possibly involving @test)
+
+* W l12:@test|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node (possibly involving @test)
+
+';
 
 $result_nodes_list{'protected_spaces_on_line'} = '';
 

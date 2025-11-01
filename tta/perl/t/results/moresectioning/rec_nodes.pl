@@ -347,37 +347,19 @@ in node following second
 * node up node following second::
 ';
 
-$result_errors{'rec_nodes'} = [
-  {
-    'error_line' => 'warning: node up pointer for `node following second\' is `node up node following second\' but up is `Top\' in menu
-',
-    'line_nr' => 6,
-    'text' => 'node up pointer for `node following second\' is `node up node following second\' but up is `Top\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node up pointer for `chap node\' is `Top\' but up is `chap node\' in menu
-',
-    'line_nr' => 13,
-    'text' => 'node up pointer for `chap node\' is `Top\' but up is `chap node\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev pointer for `chap node\' is `Top\' but prev is `other node\' in menu
-',
-    'line_nr' => 13,
-    'text' => 'node prev pointer for `chap node\' is `Top\' but prev is `other node\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node up pointer for `other node\' is `chap node\' but up is `other node\' in menu
-',
-    'line_nr' => 19,
-    'text' => 'node up pointer for `other node\' is `chap node\' but up is `other node\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'rec_nodes'} = '* W l6|node up pointer for `node following second\' is `node up node following second\' but up is `Top\' in menu
+ warning: node up pointer for `node following second\' is `node up node following second\' but up is `Top\' in menu
 
+* W l13|node up pointer for `chap node\' is `Top\' but up is `chap node\' in menu
+ warning: node up pointer for `chap node\' is `Top\' but up is `chap node\' in menu
+
+* W l13|node prev pointer for `chap node\' is `Top\' but prev is `other node\' in menu
+ warning: node prev pointer for `chap node\' is `Top\' but prev is `other node\' in menu
+
+* W l19|node up pointer for `other node\' is `chap node\' but up is `other node\' in menu
+ warning: node up pointer for `other node\' is `chap node\' but up is `other node\' in menu
+
+';
 
 $result_nodes_list{'rec_nodes'} = '1|Top
  menus:

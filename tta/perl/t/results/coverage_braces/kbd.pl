@@ -133,8 +133,7 @@ in format
 in format in kbd.
 ';
 
-$result_errors{'kbd'} = [];
-
+$result_errors{'kbd'} = '';
 
 $result_nodes_list{'kbd'} = '';
 

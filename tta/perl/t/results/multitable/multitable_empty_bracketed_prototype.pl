@@ -46,8 +46,7 @@ $result_texis{'multitable_empty_bracketed_prototype'} = '
 $result_texts{'multitable_empty_bracketed_prototype'} = '
 ';
 
-$result_errors{'multitable_empty_bracketed_prototype'} = [];
-
+$result_errors{'multitable_empty_bracketed_prototype'} = '';
 
 $result_nodes_list{'multitable_empty_bracketed_prototype'} = '';
 

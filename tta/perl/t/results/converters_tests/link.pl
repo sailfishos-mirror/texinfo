@@ -212,16 +212,10 @@ Introduction
 Introduction
 ';
 
-$result_errors{'link'} = [
-  {
-    'error_line' => 'warning: node `Two\' unreferenced
-',
-    'line_nr' => 6,
-    'text' => 'node `Two\' unreferenced',
-    'type' => 'warning'
-  }
-];
+$result_errors{'link'} = '* W l6|node `Two\' unreferenced
+ warning: node `Two\' unreferenced
 
+';
 
 $result_nodes_list{'link'} = '1|One
  associated_section: 1 ONEX

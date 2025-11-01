@@ -24,8 +24,7 @@ $result_texis{'text_space_comment'} = ' text  @c space comment';
 
 $result_texts{'text_space_comment'} = 'text  ';
 
-$result_errors{'text_space_comment'} = [];
-
+$result_errors{'text_space_comment'} = '';
 
 $result_nodes_list{'text_space_comment'} = '';
 

@@ -333,8 +333,7 @@ my: foo f r
 expand: Builtin and second arg remaining on line
 ';
 
-$result_errors{'last_argument_with_braces'} = [];
-
+$result_errors{'last_argument_with_braces'} = '';
 
 $result_nodes_list{'last_argument_with_braces'} = '';
 

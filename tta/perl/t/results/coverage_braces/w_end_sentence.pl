@@ -20,8 +20,7 @@ $result_texis{'w_end_sentence'} = 'a. @w{b}';
 
 $result_texts{'w_end_sentence'} = 'a. b';
 
-$result_errors{'w_end_sentence'} = [];
-
+$result_errors{'w_end_sentence'} = '';
 
 $result_nodes_list{'w_end_sentence'} = '';
 

@@ -64,8 +64,7 @@ $result_texis{'macro_for_end'} = '@macro myend
 $result_texts{'macro_for_end'} = '
 ';
 
-$result_errors{'macro_for_end'} = [];
-
+$result_errors{'macro_for_end'} = '';
 
 $result_nodes_list{'macro_for_end'} = '';
 

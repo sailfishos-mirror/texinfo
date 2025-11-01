@@ -113,44 +113,22 @@ very strong
  is it really strong? 
 ';
 
-$result_errors{'definfoenclose'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 2,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@definfoenclose should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 6,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
-',
-    'line_nr' => 6,
-    'text' => '@definfoenclose should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 12,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'definfoenclose'} = '* W l2|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+* W l2|@definfoenclose should only appear at the beginning of a line
+ warning: @definfoenclose should only appear at the beginning of a line
+
+* W l6|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l6|@definfoenclose should only appear at the beginning of a line
+ warning: @definfoenclose should only appear at the beginning of a line
+
+* W l12|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+';
 
 $result_nodes_list{'definfoenclose'} = '';
 

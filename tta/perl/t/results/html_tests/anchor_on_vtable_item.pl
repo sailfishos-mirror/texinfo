@@ -257,8 +257,7 @@ lab3
 label1.
 ';
 
-$result_errors{'anchor_on_vtable_item'} = [];
-
+$result_errors{'anchor_on_vtable_item'} = '';
 
 $result_nodes_list{'anchor_on_vtable_item'} = '1|Top
  associated_section: top

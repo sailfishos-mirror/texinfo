@@ -101,8 +101,7 @@ $result_texts{'implicit_quoting_recursion'} = '
 natopocotuototam
 ';
 
-$result_errors{'implicit_quoting_recursion'} = [];
-
+$result_errors{'implicit_quoting_recursion'} = '';
 
 $result_nodes_list{'implicit_quoting_recursion'} = '';
 

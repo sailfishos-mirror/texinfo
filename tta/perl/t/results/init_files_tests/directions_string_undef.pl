@@ -222,8 +222,7 @@ $result_texts{'directions_string_undef'} = 'top
 =========
 ';
 
-$result_errors{'directions_string_undef'} = [];
-
+$result_errors{'directions_string_undef'} = '';
 
 $result_nodes_list{'directions_string_undef'} = '1|Top
  associated_section: top

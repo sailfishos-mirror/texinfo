@@ -26,8 +26,7 @@ $result_texis{'node_simple'} = '@node first';
 
 $result_texts{'node_simple'} = '';
 
-$result_errors{'node_simple'} = [];
-
+$result_errors{'node_simple'} = '';
 
 $result_nodes_list{'node_simple'} = '1|first
 ';

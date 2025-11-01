@@ -93,8 +93,7 @@ Top.
 Second paragraph.
 ';
 
-$result_errors{'shorttitlepage'} = [];
-
+$result_errors{'shorttitlepage'} = '';
 
 $result_nodes_list{'shorttitlepage'} = '1|Top
  associated_section: Top of @@title @sc{html} @code{test}

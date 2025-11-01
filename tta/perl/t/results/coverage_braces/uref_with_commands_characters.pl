@@ -41,8 +41,7 @@ $result_texis{'uref_with_commands_characters'} = '@uref{http://my-host.com/~@str
 $result_texts{'uref_with_commands_characters'} = 'http://my-host.com/~toto%5Cs\'q"a&e?b}b{ba@s\\s p+h#aaa (see that LaTeX)
 ';
 
-$result_errors{'uref_with_commands_characters'} = [];
-
+$result_errors{'uref_with_commands_characters'} = '';
 
 $result_nodes_list{'uref_with_commands_characters'} = '';
 

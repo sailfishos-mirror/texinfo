@@ -88,8 +88,7 @@ Horizontal space
 
 ';
 
-$result_errors{'menu_title_before_entries'} = [];
-
+$result_errors{'menu_title_before_entries'} = '';
 
 $result_nodes_list{'menu_title_before_entries'} = '1|Top
  menus:

@@ -131,8 +131,7 @@ Heading
 
 ';
 
-$result_errors{'automatic_menu_with_heading'} = [];
-
+$result_errors{'automatic_menu_with_heading'} = '';
 
 $result_nodes_list{'automatic_menu_with_heading'} = '1|Top
  associated_section: top

@@ -229,23 +229,13 @@ part
 
 ';
 
-$result_errors{'node_part_chapter_after_chapter'} = [
-  {
-    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
-',
-    'line_nr' => 14,
-    'text' => '@node precedes @part, but parts may not be associated with nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected node `part chapter node\' in menu
-',
-    'line_nr' => 6,
-    'text' => 'unexpected node `part chapter node\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_part_chapter_after_chapter'} = '* W l14|@node precedes @part, but parts may not be associated with nodes
+ warning: @node precedes @part, but parts may not be associated with nodes
 
+* W l6|unexpected node `part chapter node\' in menu
+ warning: unexpected node `part chapter node\' in menu
+
+';
 
 $result_nodes_list{'node_part_chapter_after_chapter'} = '1|Top
  associated_section: top

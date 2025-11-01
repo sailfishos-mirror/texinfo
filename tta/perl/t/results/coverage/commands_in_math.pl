@@ -462,16 +462,10 @@ TH d th ! ? #
 > o Euro -> <= >=
 ';
 
-$result_errors{'commands_in_math'} = [
-  {
-    'error_line' => '@| should only appear in heading or footing
-',
-    'line_nr' => 12,
-    'text' => '@| should only appear in heading or footing',
-    'type' => 'error'
-  }
-];
+$result_errors{'commands_in_math'} = '* E l12|@| should only appear in heading or footing
+ @| should only appear in heading or footing
 
+';
 
 $result_nodes_list{'commands_in_math'} = '';
 

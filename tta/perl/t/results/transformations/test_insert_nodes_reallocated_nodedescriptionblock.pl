@@ -201,16 +201,10 @@ $result_texts{'test_insert_nodes_reallocated_nodedescriptionblock'} = 'top
 
 ';
 
-$result_errors{'test_insert_nodes_reallocated_nodedescriptionblock'} = [
-  {
-    'error_line' => 'warning: multiple node @nodedescriptionblock
-',
-    'line_nr' => 12,
-    'text' => 'multiple node @nodedescriptionblock',
-    'type' => 'warning'
-  }
-];
+$result_errors{'test_insert_nodes_reallocated_nodedescriptionblock'} = '* W l12|multiple node @nodedescriptionblock
+ warning: multiple node @nodedescriptionblock
 
+';
 
 $result_nodes_list{'test_insert_nodes_reallocated_nodedescriptionblock'} = '1|Top
  associated_section: top

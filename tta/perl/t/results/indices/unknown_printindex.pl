@@ -23,16 +23,10 @@ $result_texis{'unknown_printindex'} = '@printindex bidule';
 
 $result_texts{'unknown_printindex'} = '';
 
-$result_errors{'unknown_printindex'} = [
-  {
-    'error_line' => 'unknown index `bidule\' in @printindex
-',
-    'line_nr' => 1,
-    'text' => 'unknown index `bidule\' in @printindex',
-    'type' => 'error'
-  }
-];
+$result_errors{'unknown_printindex'} = '* E l1|unknown index `bidule\' in @printindex
+ unknown index `bidule\' in @printindex
 
+';
 
 $result_nodes_list{'unknown_printindex'} = '';
 

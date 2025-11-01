@@ -114,16 +114,10 @@ second level node.
 
 ';
 
-$result_errors{'node_referenced_in_ref'} = [
-  {
-    'error_line' => 'warning: node `second level node\' not in menu
-',
-    'line_nr' => 11,
-    'text' => 'node `second level node\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_referenced_in_ref'} = '* W l11|node `second level node\' not in menu
+ warning: node `second level node\' not in menu
 
+';
 
 $result_nodes_list{'node_referenced_in_ref'} = '1|Top
  menus:

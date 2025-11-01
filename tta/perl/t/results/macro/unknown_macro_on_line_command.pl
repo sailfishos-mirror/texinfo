@@ -23,30 +23,16 @@ $result_texis{'unknown_macro_on_line_command'} = '@setfilename file';
 
 $result_texts{'unknown_macro_on_line_command'} = '';
 
-$result_errors{'unknown_macro_on_line_command'} = [
-  {
-    'error_line' => 'unknown command `begin\'
-',
-    'line_nr' => 1,
-    'text' => 'unknown command `begin\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 1,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 1,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'unknown_macro_on_line_command'} = '* E l1|unknown command `begin\'
+ unknown command `begin\'
 
+* E l1|misplaced {
+ misplaced {
+
+* E l1|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'unknown_macro_on_line_command'} = '';
 

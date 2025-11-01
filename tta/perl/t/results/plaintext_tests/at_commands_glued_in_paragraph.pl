@@ -147,44 +147,22 @@ sp
 anchoranchor
 index';
 
-$result_errors{'at_commands_glued_in_paragraph'} = [
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 11,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @sp should only appear at the beginning of a line
-',
-    'line_nr' => 12,
-    'text' => '@sp should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should only appear at the beginning of a line
-',
-    'line_nr' => 14,
-    'text' => '@cindex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 14,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `Top\'
-',
-    'line_nr' => 7,
-    'text' => '@ref reference to nonexistent node `Top\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'at_commands_glued_in_paragraph'} = '* W l11|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
 
+* W l12|@sp should only appear at the beginning of a line
+ warning: @sp should only appear at the beginning of a line
+
+* W l14|@cindex should only appear at the beginning of a line
+ warning: @cindex should only appear at the beginning of a line
+
+* W l14|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* E l7|@ref reference to nonexistent node `Top\'
+ @ref reference to nonexistent node `Top\'
+
+';
 
 $result_nodes_list{'at_commands_glued_in_paragraph'} = '';
 

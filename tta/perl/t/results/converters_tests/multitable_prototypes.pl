@@ -99,23 +99,13 @@ Invalid tab
 
 ';
 
-$result_errors{'multitable_prototypes'} = [
-  {
-    'error_line' => 'warning: unexpected argument on @multitable line: @var{cmd}
-',
-    'line_nr' => 1,
-    'text' => 'unexpected argument on @multitable line: @var{cmd}',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 3)
-',
-    'line_nr' => 5,
-    'text' => 'too many columns in multitable item (max 3)',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_prototypes'} = '* W l1|unexpected argument on @multitable line: @var{cmd}
+ warning: unexpected argument on @multitable line: @var{cmd}
 
+* E l5|too many columns in multitable item (max 3)
+ too many columns in multitable item (max 3)
+
+';
 
 $result_nodes_list{'multitable_prototypes'} = '';
 

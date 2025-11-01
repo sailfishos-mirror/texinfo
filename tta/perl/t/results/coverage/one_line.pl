@@ -20,8 +20,7 @@ $result_texis{'one_line'} = 'AB
 $result_texts{'one_line'} = 'AB
 ';
 
-$result_errors{'one_line'} = [];
-
+$result_errors{'one_line'} = '';
 
 $result_nodes_list{'one_line'} = '';
 

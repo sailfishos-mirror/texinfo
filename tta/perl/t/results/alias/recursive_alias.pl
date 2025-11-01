@@ -76,37 +76,19 @@ aa.
 bb.
 ';
 
-$result_errors{'recursive_alias'} = [
-  {
-    'error_line' => 'warning: recursive alias definition of strong through other ignored
-',
-    'line_nr' => 5,
-    'text' => 'recursive alias definition of strong through other ignored',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'unknown command `other\'
-',
-    'line_nr' => 9,
-    'text' => 'unknown command `other\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 9,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 9,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'recursive_alias'} = '* W l5|recursive alias definition of strong through other ignored
+ warning: recursive alias definition of strong through other ignored
 
+* E l9|unknown command `other\'
+ unknown command `other\'
+
+* E l9|misplaced {
+ misplaced {
+
+* E l9|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'recursive_alias'} = '';
 

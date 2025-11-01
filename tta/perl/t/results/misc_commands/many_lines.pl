@@ -524,394 +524,172 @@ Test text after finalout
 Line after finalout
 ';
 
-$result_errors{'many_lines'} = [
-  {
-    'error_line' => 'warning: @pagesizes should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@pagesizes should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @afourpaper should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@afourpaper should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @afourpaper line: on line following afourpaper
-',
-    'line_nr' => 2,
-    'text' => 'remaining argument on @afourpaper line: on line following afourpaper',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @smallbook should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@smallbook should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @smallbook line: on line following smallbook
-',
-    'line_nr' => 3,
-    'text' => 'remaining argument on @smallbook line: on line following smallbook',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @headings should only appear at the beginning of a line
-',
-    'line_nr' => 4,
-    'text' => '@headings should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @headings: on line following headings
-',
-    'line_nr' => 4,
-    'text' => 'bad argument to @headings: on line following headings',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @oddfooting should only appear at the beginning of a line
-',
-    'line_nr' => 5,
-    'text' => '@oddfooting should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @everyheading should only appear at the beginning of a line
-',
-    'line_nr' => 6,
-    'text' => '@everyheading should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @everyfooting should only appear at the beginning of a line
-',
-    'line_nr' => 7,
-    'text' => '@everyfooting should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @evenheading should only appear at the beginning of a line
-',
-    'line_nr' => 8,
-    'text' => '@evenheading should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @evenfooting should only appear at the beginning of a line
-',
-    'line_nr' => 9,
-    'text' => '@evenfooting should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @oddheading should only appear at the beginning of a line
-',
-    'line_nr' => 10,
-    'text' => '@oddheading should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @need should only appear at the beginning of a line
-',
-    'line_nr' => 11,
-    'text' => '@need should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @need: 0.1 on line following
-',
-    'line_nr' => 11,
-    'text' => 'bad argument to @need: 0.1 on line following',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @need should only appear at the beginning of a line
-',
-    'line_nr' => 12,
-    'text' => '@need should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @setchapternewpage should only appear at the beginning of a line
-',
-    'line_nr' => 13,
-    'text' => '@setchapternewpage should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@setchapternewpage arg must be `on\', `off\' or `odd\', not `on line following setchapternewpage\'
-',
-    'line_nr' => 13,
-    'text' => '@setchapternewpage arg must be `on\', `off\' or `odd\', not `on line following setchapternewpage\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @raisesections should only appear at the beginning of a line
-',
-    'line_nr' => 14,
-    'text' => '@raisesections should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @raisesections line: on line following raisesections
-',
-    'line_nr' => 14,
-    'text' => 'remaining argument on @raisesections line: on line following raisesections',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @lowersections should only appear at the beginning of a line
-',
-    'line_nr' => 15,
-    'text' => '@lowersections should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @lowersections line: on line following lowersections
-',
-    'line_nr' => 15,
-    'text' => 'remaining argument on @lowersections line: on line following lowersections',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @kbdinputstyle should only appear at the beginning of a line
-',
-    'line_nr' => 16,
-    'text' => '@kbdinputstyle should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `code something\'
-',
-    'line_nr' => 16,
-    'text' => '@kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `code something\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @afourpaper should only appear at the beginning of a line
-',
-    'line_nr' => 17,
-    'text' => '@afourpaper should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @afourpaper line: on line following afourpaper
-',
-    'line_nr' => 17,
-    'text' => 'remaining argument on @afourpaper line: on line following afourpaper',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @afourpaper
-',
-    'line_nr' => 17,
-    'text' => 'multiple @afourpaper',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @afourlatex should only appear at the beginning of a line
-',
-    'line_nr' => 18,
-    'text' => '@afourlatex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @afourlatex line: on line following afourlatex
-',
-    'line_nr' => 18,
-    'text' => 'remaining argument on @afourlatex line: on line following afourlatex',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @afourwide should only appear at the beginning of a line
-',
-    'line_nr' => 19,
-    'text' => '@afourwide should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @afourwide line: on line following afourwide
-',
-    'line_nr' => 19,
-    'text' => 'remaining argument on @afourwide line: on line following afourwide',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
-',
-    'line_nr' => 20,
-    'text' => '@paragraphindent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
-',
-    'line_nr' => 21,
-    'text' => '@paragraphindent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
-',
-    'line_nr' => 22,
-    'text' => '@paragraphindent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @paragraphindent should only appear at the beginning of a line
-',
-    'line_nr' => 23,
-    'text' => '@paragraphindent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @firstparagraphindent should only appear at the beginning of a line
-',
-    'line_nr' => 24,
-    'text' => '@firstparagraphindent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @firstparagraphindent should only appear at the beginning of a line
-',
-    'line_nr' => 25,
-    'text' => '@firstparagraphindent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@firstparagraphindent arg must be `none\' or `insert\', not `3\'
-',
-    'line_nr' => 25,
-    'text' => '@firstparagraphindent arg must be `none\' or `insert\', not `3\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @exampleindent should only appear at the beginning of a line
-',
-    'line_nr' => 26,
-    'text' => '@exampleindent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'
-',
-    'line_nr' => 26,
-    'text' => '@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @exampleindent should only appear at the beginning of a line
-',
-    'line_nr' => 27,
-    'text' => '@exampleindent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
-',
-    'line_nr' => 28,
-    'text' => '@footnotestyle should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnotestyle should only appear at the beginning of a line
-',
-    'line_nr' => 29,
-    'text' => '@footnotestyle should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @footnotestyle
-',
-    'line_nr' => 29,
-    'text' => 'multiple @footnotestyle',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @documentencoding should only appear at the beginning of a line
-',
-    'line_nr' => 30,
-    'text' => '@documentencoding should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: encoding `US-ascii encoding name\' is not a canonical texinfo encoding
-',
-    'line_nr' => 30,
-    'text' => 'encoding `US-ascii encoding name\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unhandled encoding name `US-ascii encoding name\'
-',
-    'line_nr' => 30,
-    'text' => 'unhandled encoding name `US-ascii encoding name\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @frenchspacing should only appear at the beginning of a line
-',
-    'line_nr' => 32,
-    'text' => '@frenchspacing should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @frenchspacing should only appear at the beginning of a line
-',
-    'line_nr' => 33,
-    'text' => '@frenchspacing should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @fonttextsize should only appear at the beginning of a line
-',
-    'line_nr' => 34,
-    'text' => '@fonttextsize should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @everyheadingmarks should only appear at the beginning of a line
-',
-    'line_nr' => 35,
-    'text' => '@everyheadingmarks should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'
-',
-    'line_nr' => 35,
-    'text' => '@everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @finalout should only appear at the beginning of a line
-',
-    'line_nr' => 39,
-    'text' => '@finalout should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @finalout should only appear at the beginning of a line
-',
-    'line_nr' => 41,
-    'text' => '@finalout should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @finalout line: a word after finalout
-',
-    'line_nr' => 45,
-    'text' => 'remaining argument on @finalout line: a word after finalout',
-    'type' => 'warning'
-  }
-];
+$result_errors{'many_lines'} = '* W l1|@pagesizes should only appear at the beginning of a line
+ warning: @pagesizes should only appear at the beginning of a line
 
+* W l2|@afourpaper should only appear at the beginning of a line
+ warning: @afourpaper should only appear at the beginning of a line
+
+* W l2|remaining argument on @afourpaper line: on line following afourpaper
+ warning: remaining argument on @afourpaper line: on line following afourpaper
+
+* W l3|@smallbook should only appear at the beginning of a line
+ warning: @smallbook should only appear at the beginning of a line
+
+* W l3|remaining argument on @smallbook line: on line following smallbook
+ warning: remaining argument on @smallbook line: on line following smallbook
+
+* W l4|@headings should only appear at the beginning of a line
+ warning: @headings should only appear at the beginning of a line
+
+* E l4|bad argument to @headings: on line following headings
+ bad argument to @headings: on line following headings
+
+* W l5|@oddfooting should only appear at the beginning of a line
+ warning: @oddfooting should only appear at the beginning of a line
+
+* W l6|@everyheading should only appear at the beginning of a line
+ warning: @everyheading should only appear at the beginning of a line
+
+* W l7|@everyfooting should only appear at the beginning of a line
+ warning: @everyfooting should only appear at the beginning of a line
+
+* W l8|@evenheading should only appear at the beginning of a line
+ warning: @evenheading should only appear at the beginning of a line
+
+* W l9|@evenfooting should only appear at the beginning of a line
+ warning: @evenfooting should only appear at the beginning of a line
+
+* W l10|@oddheading should only appear at the beginning of a line
+ warning: @oddheading should only appear at the beginning of a line
+
+* W l11|@need should only appear at the beginning of a line
+ warning: @need should only appear at the beginning of a line
+
+* E l11|bad argument to @need: 0.1 on line following
+ bad argument to @need: 0.1 on line following
+
+* W l12|@need should only appear at the beginning of a line
+ warning: @need should only appear at the beginning of a line
+
+* W l13|@setchapternewpage should only appear at the beginning of a line
+ warning: @setchapternewpage should only appear at the beginning of a line
+
+* E l13|@setchapternewpage arg must be `on\', `off\' or `odd\', not `on line following setchapternewpage\'
+ @setchapternewpage arg must be `on\', `off\' or `odd\', not `on line following setchapternewpage\'
+
+* W l14|@raisesections should only appear at the beginning of a line
+ warning: @raisesections should only appear at the beginning of a line
+
+* W l14|remaining argument on @raisesections line: on line following raisesections
+ warning: remaining argument on @raisesections line: on line following raisesections
+
+* W l15|@lowersections should only appear at the beginning of a line
+ warning: @lowersections should only appear at the beginning of a line
+
+* W l15|remaining argument on @lowersections line: on line following lowersections
+ warning: remaining argument on @lowersections line: on line following lowersections
+
+* W l16|@kbdinputstyle should only appear at the beginning of a line
+ warning: @kbdinputstyle should only appear at the beginning of a line
+
+* E l16|@kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `code something\'
+ @kbdinputstyle arg must be `code\'/`example\'/`distinct\', not `code something\'
+
+* W l17|@afourpaper should only appear at the beginning of a line
+ warning: @afourpaper should only appear at the beginning of a line
+
+* W l17|remaining argument on @afourpaper line: on line following afourpaper
+ warning: remaining argument on @afourpaper line: on line following afourpaper
+
+* W l17|multiple @afourpaper
+ warning: multiple @afourpaper
+
+* W l18|@afourlatex should only appear at the beginning of a line
+ warning: @afourlatex should only appear at the beginning of a line
+
+* W l18|remaining argument on @afourlatex line: on line following afourlatex
+ warning: remaining argument on @afourlatex line: on line following afourlatex
+
+* W l19|@afourwide should only appear at the beginning of a line
+ warning: @afourwide should only appear at the beginning of a line
+
+* W l19|remaining argument on @afourwide line: on line following afourwide
+ warning: remaining argument on @afourwide line: on line following afourwide
+
+* W l20|@paragraphindent should only appear at the beginning of a line
+ warning: @paragraphindent should only appear at the beginning of a line
+
+* W l21|@paragraphindent should only appear at the beginning of a line
+ warning: @paragraphindent should only appear at the beginning of a line
+
+* W l22|@paragraphindent should only appear at the beginning of a line
+ warning: @paragraphindent should only appear at the beginning of a line
+
+* W l23|@paragraphindent should only appear at the beginning of a line
+ warning: @paragraphindent should only appear at the beginning of a line
+
+* W l24|@firstparagraphindent should only appear at the beginning of a line
+ warning: @firstparagraphindent should only appear at the beginning of a line
+
+* W l25|@firstparagraphindent should only appear at the beginning of a line
+ warning: @firstparagraphindent should only appear at the beginning of a line
+
+* E l25|@firstparagraphindent arg must be `none\' or `insert\', not `3\'
+ @firstparagraphindent arg must be `none\' or `insert\', not `3\'
+
+* W l26|@exampleindent should only appear at the beginning of a line
+ warning: @exampleindent should only appear at the beginning of a line
+
+* E l26|@exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'
+ @exampleindent arg must be numeric/`asis\', not `6 on line following exampleindent\'
+
+* W l27|@exampleindent should only appear at the beginning of a line
+ warning: @exampleindent should only appear at the beginning of a line
+
+* W l28|@footnotestyle should only appear at the beginning of a line
+ warning: @footnotestyle should only appear at the beginning of a line
+
+* W l29|@footnotestyle should only appear at the beginning of a line
+ warning: @footnotestyle should only appear at the beginning of a line
+
+* W l29|multiple @footnotestyle
+ warning: multiple @footnotestyle
+
+* W l30|@documentencoding should only appear at the beginning of a line
+ warning: @documentencoding should only appear at the beginning of a line
+
+* W l30|encoding `US-ascii encoding name\' is not a canonical texinfo encoding
+ warning: encoding `US-ascii encoding name\' is not a canonical texinfo encoding
+
+* W l30|unhandled encoding name `US-ascii encoding name\'
+ warning: unhandled encoding name `US-ascii encoding name\'
+
+* W l32|@frenchspacing should only appear at the beginning of a line
+ warning: @frenchspacing should only appear at the beginning of a line
+
+* W l33|@frenchspacing should only appear at the beginning of a line
+ warning: @frenchspacing should only appear at the beginning of a line
+
+* W l34|@fonttextsize should only appear at the beginning of a line
+ warning: @fonttextsize should only appear at the beginning of a line
+
+* W l35|@everyheadingmarks should only appear at the beginning of a line
+ warning: @everyheadingmarks should only appear at the beginning of a line
+
+* E l35|@everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'
+ @everyheadingmarks arg must be `top\' or `bottom\', not `bottom on line following everyheadingmarks\'
+
+* W l39|@finalout should only appear at the beginning of a line
+ warning: @finalout should only appear at the beginning of a line
+
+* W l41|@finalout should only appear at the beginning of a line
+ warning: @finalout should only appear at the beginning of a line
+
+* W l45|remaining argument on @finalout line: a word after finalout
+ warning: remaining argument on @finalout line: a word after finalout
+
+';
 
 $result_nodes_list{'many_lines'} = '';
 

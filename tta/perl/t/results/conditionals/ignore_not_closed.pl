@@ -26,16 +26,10 @@ This is ignored
 
 $result_texts{'ignore_not_closed'} = '';
 
-$result_errors{'ignore_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end ignore\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end ignore\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'ignore_not_closed'} = '* E l1|no matching `@end ignore\'
+ no matching `@end ignore\'
 
+';
 
 $result_nodes_list{'ignore_not_closed'} = '';
 

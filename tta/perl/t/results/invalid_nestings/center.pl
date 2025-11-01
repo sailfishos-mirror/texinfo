@@ -447,338 +447,148 @@ second item
 
 ';
 
-$result_errors{'center'} = [
-  {
-    'error_line' => 'warning: @indent should not appear in @center
-',
-    'line_nr' => 1,
-    'text' => '@indent should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@cindex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should not appear in @center
-',
-    'line_nr' => 3,
-    'text' => '@cindex should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 3,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @quotation should only appear at the beginning of a line
-',
-    'line_nr' => 5,
-    'text' => '@quotation should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @quotation should not appear in @center
-',
-    'line_nr' => 5,
-    'text' => '@quotation should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end quotation\'
-',
-    'line_nr' => 5,
-    'text' => 'no matching `@end quotation\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end quotation\'
-',
-    'line_nr' => 7,
-    'text' => 'unmatched `@end quotation\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should only appear at the beginning of a line
-',
-    'line_nr' => 9,
-    'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center should not appear in @center
-',
-    'line_nr' => 9,
-    'text' => '@center should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 11,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 13,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should only appear at the beginning of a line
-',
-    'line_nr' => 15,
-    'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 15,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should not appear in @center
-',
-    'line_nr' => 15,
-    'text' => '@center should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 17,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should only appear at the beginning of a line
-',
-    'line_nr' => 19,
-    'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 19,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 19,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @item should not appear in @center
-',
-    'line_nr' => 22,
-    'text' => '@item should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 22,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @table has text but no @item
-',
-    'line_nr' => 21,
-    'text' => '@table has text but no @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @item should not appear in @center
-',
-    'line_nr' => 27,
-    'text' => '@item should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 27,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should only appear at the beginning of a line
-',
-    'line_nr' => 31,
-    'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center should not appear in @center
-',
-    'line_nr' => 31,
-    'text' => '@center should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center missing argument
-',
-    'line_nr' => 31,
-    'text' => '@center missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center should only appear at the beginning of a line
-',
-    'line_nr' => 33,
-    'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@samp missing closing brace
-',
-    'line_nr' => 33,
-    'text' => '@samp missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should not appear in @center
-',
-    'line_nr' => 33,
-    'text' => '@center should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 33,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should only appear at the beginning of a line
-',
-    'line_nr' => 35,
-    'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@samp missing closing brace
-',
-    'line_nr' => 35,
-    'text' => '@samp missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should not appear in @center
-',
-    'line_nr' => 35,
-    'text' => '@center should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 37,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @item should not appear in @center
-',
-    'line_nr' => 41,
-    'text' => '@item should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 41,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @tab should not appear in @center
-',
-    'line_nr' => 41,
-    'text' => '@tab should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'ignoring @tab outside of multitable
-',
-    'line_nr' => 41,
-    'text' => 'ignoring @tab outside of multitable',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @item should not appear in @center
-',
-    'line_nr' => 42,
-    'text' => '@item should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 42,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @table should only appear at the beginning of a line
-',
-    'line_nr' => 45,
-    'text' => '@table should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @table should not appear in @center
-',
-    'line_nr' => 45,
-    'text' => '@table should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end table\'
-',
-    'line_nr' => 45,
-    'text' => 'no matching `@end table\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 46,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 48,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end table\'
-',
-    'line_nr' => 49,
-    'text' => 'unmatched `@end table\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'center'} = '* W l1|@indent should not appear in @center
+ warning: @indent should not appear in @center
 
+* W l3|@cindex should only appear at the beginning of a line
+ warning: @cindex should only appear at the beginning of a line
+
+* W l3|@cindex should not appear in @center
+ warning: @cindex should not appear in @center
+
+* W l3|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W l5|@quotation should only appear at the beginning of a line
+ warning: @quotation should only appear at the beginning of a line
+
+* W l5|@quotation should not appear in @center
+ warning: @quotation should not appear in @center
+
+* E l5|no matching `@end quotation\'
+ no matching `@end quotation\'
+
+* E l7|unmatched `@end quotation\'
+ unmatched `@end quotation\'
+
+* W l9|@center should only appear at the beginning of a line
+ warning: @center should only appear at the beginning of a line
+
+* W l9|@center should not appear in @center
+ warning: @center should not appear in @center
+
+* E l11|@code missing closing brace
+ @code missing closing brace
+
+* E l13|misplaced }
+ misplaced }
+
+* W l15|@center should only appear at the beginning of a line
+ warning: @center should only appear at the beginning of a line
+
+* E l15|@code missing closing brace
+ @code missing closing brace
+
+* W l15|@center should not appear in @center
+ warning: @center should not appear in @center
+
+* E l17|misplaced }
+ misplaced }
+
+* W l19|@center should only appear at the beginning of a line
+ warning: @center should only appear at the beginning of a line
+
+* E l19|@code missing closing brace
+ @code missing closing brace
+
+* E l19|misplaced }
+ misplaced }
+
+* W l22|@item should not appear in @center
+ warning: @item should not appear in @center
+
+* E l22|@item outside of table or list
+ @item outside of table or list
+
+* W l21|@table has text but no @item
+ warning: @table has text but no @item
+
+* W l27|@item should not appear in @center
+ warning: @item should not appear in @center
+
+* E l27|@item outside of table or list
+ @item outside of table or list
+
+* W l31|@center should only appear at the beginning of a line
+ warning: @center should only appear at the beginning of a line
+
+* W l31|@center should not appear in @center
+ warning: @center should not appear in @center
+
+* W l31|@center missing argument
+ warning: @center missing argument
+
+* W l33|@center should only appear at the beginning of a line
+ warning: @center should only appear at the beginning of a line
+
+* E l33|@samp missing closing brace
+ @samp missing closing brace
+
+* W l33|@center should not appear in @center
+ warning: @center should not appear in @center
+
+* E l33|misplaced }
+ misplaced }
+
+* W l35|@center should only appear at the beginning of a line
+ warning: @center should only appear at the beginning of a line
+
+* E l35|@samp missing closing brace
+ @samp missing closing brace
+
+* W l35|@center should not appear in @center
+ warning: @center should not appear in @center
+
+* E l37|misplaced }
+ misplaced }
+
+* W l41|@item should not appear in @center
+ warning: @item should not appear in @center
+
+* E l41|@item outside of table or list
+ @item outside of table or list
+
+* W l41|@tab should not appear in @center
+ warning: @tab should not appear in @center
+
+* E l41|ignoring @tab outside of multitable
+ ignoring @tab outside of multitable
+
+* W l42|@item should not appear in @center
+ warning: @item should not appear in @center
+
+* E l42|@item outside of table or list
+ @item outside of table or list
+
+* W l45|@table should only appear at the beginning of a line
+ warning: @table should only appear at the beginning of a line
+
+* W l45|@table should not appear in @center
+ warning: @table should not appear in @center
+
+* E l45|no matching `@end table\'
+ no matching `@end table\'
+
+* E l46|@item outside of table or list
+ @item outside of table or list
+
+* E l48|@item outside of table or list
+ @item outside of table or list
+
+* E l49|unmatched `@end table\'
+ unmatched `@end table\'
+
+';
 
 $result_nodes_list{'center'} = '';
 

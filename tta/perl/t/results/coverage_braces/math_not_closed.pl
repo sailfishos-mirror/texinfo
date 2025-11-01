@@ -19,16 +19,10 @@ $result_texis{'math_not_closed'} = '@math{\\delta + 2}';
 
 $result_texts{'math_not_closed'} = '\\delta + 2';
 
-$result_errors{'math_not_closed'} = [
-  {
-    'error_line' => '@math missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@math missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'math_not_closed'} = '* E l1|@math missing closing brace
+ @math missing closing brace
 
+';
 
 $result_nodes_list{'math_not_closed'} = '';
 

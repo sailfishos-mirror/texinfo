@@ -25,8 +25,7 @@ $result_texts{'noindent_empty_para'} = '
 aaa
 ';
 
-$result_errors{'noindent_empty_para'} = [];
-
+$result_errors{'noindent_empty_para'} = '';
 
 $result_nodes_list{'noindent_empty_para'} = '';
 

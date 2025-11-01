@@ -183,8 +183,7 @@ in macro
 after in mymacro
 ';
 
-$result_errors{'two_macros_on_a_line'} = [];
-
+$result_errors{'two_macros_on_a_line'} = '';
 
 $result_nodes_list{'two_macros_on_a_line'} = '';
 

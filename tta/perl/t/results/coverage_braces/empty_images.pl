@@ -71,37 +71,19 @@ $result_texts{'empty_images'} = '
 
 ';
 
-$result_errors{'empty_images'} = [
-  {
-    'error_line' => '@image missing filename argument
-',
-    'line_nr' => 1,
-    'text' => '@image missing filename argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@image missing filename argument
-',
-    'line_nr' => 3,
-    'text' => '@image missing filename argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@image missing filename argument
-',
-    'line_nr' => 5,
-    'text' => '@image missing filename argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@image missing filename argument
-',
-    'line_nr' => 6,
-    'text' => '@image missing filename argument',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_images'} = '* E l1|@image missing filename argument
+ @image missing filename argument
 
+* E l3|@image missing filename argument
+ @image missing filename argument
+
+* E l5|@image missing filename argument
+ @image missing filename argument
+
+* E l6|@image missing filename argument
+ @image missing filename argument
+
+';
 
 $result_nodes_list{'empty_images'} = '';
 

@@ -700,8 +700,7 @@ This is the guide for an in depth use
 
 ';
 
-$result_errors{'topic_guide'} = [];
-
+$result_errors{'topic_guide'} = '';
 
 $result_nodes_list{'topic_guide'} = '1|Top
  associated_section: A example quide topic collection

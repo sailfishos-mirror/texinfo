@@ -78,8 +78,7 @@ xclear
 
 ';
 
-$result_errors{'ifset_in_command'} = [];
-
+$result_errors{'ifset_in_command'} = '';
 
 $result_nodes_list{'ifset_in_command'} = '';
 

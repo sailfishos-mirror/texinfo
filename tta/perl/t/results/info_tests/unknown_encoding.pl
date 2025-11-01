@@ -52,23 +52,13 @@ $result_texts{'unknown_encoding'} = '
 
 ';
 
-$result_errors{'unknown_encoding'} = [
-  {
-    'error_line' => 'warning: encoding `ggg\' is not a canonical texinfo encoding
-',
-    'line_nr' => 2,
-    'text' => 'encoding `ggg\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unhandled encoding name `ggg\'
-',
-    'line_nr' => 2,
-    'text' => 'unhandled encoding name `ggg\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unknown_encoding'} = '* W l2|encoding `ggg\' is not a canonical texinfo encoding
+ warning: encoding `ggg\' is not a canonical texinfo encoding
 
+* W l2|unhandled encoding name `ggg\'
+ warning: unhandled encoding name `ggg\'
+
+';
 
 $result_nodes_list{'unknown_encoding'} = '1|Top
 ';

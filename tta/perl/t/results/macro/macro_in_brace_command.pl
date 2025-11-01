@@ -113,8 +113,7 @@ foo-expansion@bar-expansion,
   also helped.
 ';
 
-$result_errors{'macro_in_brace_command'} = [];
-
+$result_errors{'macro_in_brace_command'} = '';
 
 $result_nodes_list{'macro_in_brace_command'} = '';
 

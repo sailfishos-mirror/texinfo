@@ -521,58 +521,28 @@ abc
 fn
 ';
 
-$result_errors{'def_syn_indices'} = [
-  {
-    'error_line' => 'warning: printing an index `ky\' merged in another one, `pg\'
-',
-    'line_nr' => 42,
-    'text' => 'printing an index `ky\' merged in another one, `pg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `truc\' merged in another one, `fn\'
-',
-    'line_nr' => 45,
-    'text' => 'printing an index `truc\' merged in another one, `fn\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `truc\' merged in another one, `fn\'
-',
-    'line_nr' => 48,
-    'text' => 'printing an index `truc\' merged in another one, `fn\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
-',
-    'line_nr' => 51,
-    'text' => 'printing an index `cp\' merged in another one, `fn\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
-',
-    'line_nr' => 54,
-    'text' => 'printing an index `cp\' merged in another one, `fn\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `defg\' merged in another one, `pg\'
-',
-    'line_nr' => 57,
-    'text' => 'printing an index `defg\' merged in another one, `pg\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `abc\' merged in another one, `pg\'
-',
-    'line_nr' => 60,
-    'text' => 'printing an index `abc\' merged in another one, `pg\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'def_syn_indices'} = '* W l42|printing an index `ky\' merged in another one, `pg\'
+ warning: printing an index `ky\' merged in another one, `pg\'
 
+* W l45|printing an index `truc\' merged in another one, `fn\'
+ warning: printing an index `truc\' merged in another one, `fn\'
+
+* W l48|printing an index `truc\' merged in another one, `fn\'
+ warning: printing an index `truc\' merged in another one, `fn\'
+
+* W l51|printing an index `cp\' merged in another one, `fn\'
+ warning: printing an index `cp\' merged in another one, `fn\'
+
+* W l54|printing an index `cp\' merged in another one, `fn\'
+ warning: printing an index `cp\' merged in another one, `fn\'
+
+* W l57|printing an index `defg\' merged in another one, `pg\'
+ warning: printing an index `defg\' merged in another one, `pg\'
+
+* W l60|printing an index `abc\' merged in another one, `pg\'
+ warning: printing an index `abc\' merged in another one, `pg\'
+
+';
 
 $result_indices{'def_syn_indices'} = 'abc ->pg
 codeidx C

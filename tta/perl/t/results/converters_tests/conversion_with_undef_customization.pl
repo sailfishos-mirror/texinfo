@@ -255,8 +255,7 @@ category: type name something ( aa )
 A def.
 ';
 
-$result_errors{'conversion_with_undef_customization'} = [];
-
+$result_errors{'conversion_with_undef_customization'} = '';
 
 $result_nodes_list{'conversion_with_undef_customization'} = '1|Top
  associated_section: top

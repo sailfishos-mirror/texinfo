@@ -308,8 +308,7 @@ Instanzvariable of c: BBB CCC
 error->
 ';
 
-$result_errors{'multiple_in_preamble_before_node'} = [];
-
+$result_errors{'multiple_in_preamble_before_node'} = '';
 
 $result_nodes_list{'multiple_in_preamble_before_node'} = '1|Top
  associated_section: top section

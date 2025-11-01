@@ -108,16 +108,10 @@ $result_texts{'multiple_menus'} = '
 * (b)b::
 ';
 
-$result_errors{'multiple_menus'} = [
-  {
-    'error_line' => 'warning: multiple @menu
-',
-    'line_nr' => 7,
-    'text' => 'multiple @menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'multiple_menus'} = '* W l7|multiple @menu
+ warning: multiple @menu
 
+';
 
 $result_nodes_list{'multiple_menus'} = '1|Top
  menus:

@@ -137,8 +137,7 @@ sp after para
 
 ';
 
-$result_errors{'sp_in_example'} = [];
-
+$result_errors{'sp_in_example'} = '';
 
 $result_nodes_list{'sp_in_example'} = '';
 

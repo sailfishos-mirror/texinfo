@@ -61,8 +61,7 @@ $result_texts{'w_argument'} = '--build= platform on which the program is compile
 --target= target platform on which the program is processed.
 ';
 
-$result_errors{'w_argument'} = [];
-
+$result_errors{'w_argument'} = '';
 
 $result_nodes_list{'w_argument'} = '';
 

@@ -123,16 +123,10 @@ top
 * section node::
 ';
 
-$result_errors{'section_before_top'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'line_nr' => 5,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  }
-];
+$result_errors{'section_before_top'} = '* W l5|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
 
+';
 
 $result_nodes_list{'section_before_top'} = '1|section node
  associated_section: 1 section

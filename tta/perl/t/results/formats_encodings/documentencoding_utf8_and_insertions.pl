@@ -78,8 +78,7 @@ $result_texts{'documentencoding_utf8_and_insertions'} = '
 -- --- \'\' `` ` \' in code. e~.
 ';
 
-$result_errors{'documentencoding_utf8_and_insertions'} = [];
-
+$result_errors{'documentencoding_utf8_and_insertions'} = '';
 
 $result_nodes_list{'documentencoding_utf8_and_insertions'} = '';
 

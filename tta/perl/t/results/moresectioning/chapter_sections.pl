@@ -242,8 +242,7 @@ $result_texts{'chapter_sections'} = 'unnumbered
 ***********
 ';
 
-$result_errors{'chapter_sections'} = [];
-
+$result_errors{'chapter_sections'} = '';
 
 $result_nodes_list{'chapter_sections'} = '';
 

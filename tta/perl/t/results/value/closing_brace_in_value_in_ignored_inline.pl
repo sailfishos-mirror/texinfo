@@ -70,16 +70,10 @@ machin
 
 ';
 
-$result_errors{'closing_brace_in_value_in_ignored_inline'} = [
-  {
-    'error_line' => '@inlinefmt missing closing brace
-',
-    'line_nr' => 7,
-    'text' => '@inlinefmt missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'closing_brace_in_value_in_ignored_inline'} = '* E l7|@inlinefmt missing closing brace
+ @inlinefmt missing closing brace
 
+';
 
 $result_nodes_list{'closing_brace_in_value_in_ignored_inline'} = '';
 

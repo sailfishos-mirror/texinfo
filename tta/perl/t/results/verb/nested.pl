@@ -25,8 +25,7 @@ $result_texis{'nested'} = '@b{in b @verb{/ in verb { } /} in b end}';
 
 $result_texts{'nested'} = 'in b  in verb { }  in b end';
 
-$result_errors{'nested'} = [];
-
+$result_errors{'nested'} = '';
 
 $result_nodes_list{'nested'} = '';
 

@@ -70,8 +70,7 @@ inT
 $result_texts{'macro_end_call_in_ignored_raw'} = '
 ';
 
-$result_errors{'macro_end_call_in_ignored_raw'} = [];
-
+$result_errors{'macro_end_call_in_ignored_raw'} = '';
 
 $result_nodes_list{'macro_end_call_in_ignored_raw'} = '';
 

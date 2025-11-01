@@ -72,46 +72,24 @@ $result_texts{'empty_nodes_with_commands'} = '
 
 ';
 
-$result_errors{'empty_nodes_with_commands'} = [
-  {
-    'error_line' => 'empty argument in @node
-',
-    'line_nr' => 2,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @ should not occur at end of argument to line command
-',
-    'line_nr' => 4,
-    'text' => '@ should not occur at end of argument to line command',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@
-\'
-',
-    'line_nr' => 4,
-    'text' => 'empty node name after expansion `@
-\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@:\'
-',
-    'line_nr' => 5,
-    'text' => 'empty node name after expansion `@:\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@asis{ }\'
-',
-    'line_nr' => 6,
-    'text' => 'empty node name after expansion `@asis{ }\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_nodes_with_commands'} = '* E l2|empty argument in @node
+ empty argument in @node
 
+* W l4|@ should not occur at end of argument to line command
+ warning: @ should not occur at end of argument to line command
+
+* E l4|empty node name after expansion `@
+\'
+ empty node name after expansion `@
+\'
+
+* E l5|empty node name after expansion `@:\'
+ empty node name after expansion `@:\'
+
+* E l6|empty node name after expansion `@asis{ }\'
+ empty node name after expansion `@asis{ }\'
+
+';
 
 $result_nodes_list{'empty_nodes_with_commands'} = '';
 

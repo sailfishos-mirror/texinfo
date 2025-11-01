@@ -559,37 +559,19 @@ $result_texts{'sorted_subentries'} = '
 
 ';
 
-$result_errors{'sorted_subentries'} = [
-  {
-    'error_line' => 'warning: @subentry missing argument
-',
-    'line_nr' => 16,
-    'text' => '@subentry missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no more than two levels of index subentry are allowed
-',
-    'line_nr' => 18,
-    'text' => 'no more than two levels of index subentry are allowed',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: empty index sub entry 1 key in @cindex
-',
-    'line_nr' => 16,
-    'text' => 'empty index sub entry 1 key in @cindex',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @cindex
-',
-    'line_nr' => 26,
-    'text' => 'empty index key in @cindex',
-    'type' => 'warning'
-  }
-];
+$result_errors{'sorted_subentries'} = '* W l16|@subentry missing argument
+ warning: @subentry missing argument
 
+* E l18|no more than two levels of index subentry are allowed
+ no more than two levels of index subentry are allowed
+
+* W l16|empty index sub entry 1 key in @cindex
+ warning: empty index sub entry 1 key in @cindex
+
+* W l26|empty index key in @cindex
+ warning: empty index key in @cindex
+
+';
 
 $result_nodes_list{'sorted_subentries'} = '1|Top
  associated_section

@@ -90,65 +90,31 @@ TeX
 
 ';
 
-$result_errors{'spaces_after_braced_command'} = [
-  {
-    'error_line' => 'warning: command `@samp\' must not be followed by new line
-',
-    'line_nr' => 3,
-    'text' => 'command `@samp\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@AA\' must not be followed by new line
-',
-    'line_nr' => 6,
-    'text' => 'command `@AA\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@email\' must not be followed by new line
-',
-    'line_nr' => 9,
-    'text' => 'command `@email\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@TeX\' must not be followed by new line
-',
-    'line_nr' => 13,
-    'text' => 'command `@TeX\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@TeX\' must not be followed by new line
-',
-    'line_nr' => 14,
-    'text' => 'command `@TeX\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@TeX expected braces
-',
-    'line_nr' => 14,
-    'text' => '@TeX expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 15,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 15,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'spaces_after_braced_command'} = '* W l3|command `@samp\' must not be followed by new line
+ warning: command `@samp\' must not be followed by new line
 
+* W l6|command `@AA\' must not be followed by new line
+ warning: command `@AA\' must not be followed by new line
+
+* W l9|command `@email\' must not be followed by new line
+ warning: command `@email\' must not be followed by new line
+
+* W l13|command `@TeX\' must not be followed by new line
+ warning: command `@TeX\' must not be followed by new line
+
+* W l14|command `@TeX\' must not be followed by new line
+ warning: command `@TeX\' must not be followed by new line
+
+* E l14|@TeX expected braces
+ @TeX expected braces
+
+* E l15|misplaced {
+ misplaced {
+
+* E l15|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'spaces_after_braced_command'} = '';
 

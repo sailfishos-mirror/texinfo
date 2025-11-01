@@ -172,8 +172,7 @@ second node
 ------------
 ';
 
-$result_errors{'nodes_after_top_before_section_sections'} = [];
-
+$result_errors{'nodes_after_top_before_section_sections'} = '';
 
 $result_nodes_list{'nodes_after_top_before_section_sections'} = '1|Top
  menus:

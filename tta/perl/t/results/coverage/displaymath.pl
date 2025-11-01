@@ -176,8 +176,7 @@ With a comment
 a/2
 ';
 
-$result_errors{'displaymath'} = [];
-
+$result_errors{'displaymath'} = '';
 
 $result_nodes_list{'displaymath'} = '';
 

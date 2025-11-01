@@ -67,8 +67,7 @@ $result_texts{'node_sectop_before_chapter_no_node'} = 'top section
 ******
 ';
 
-$result_errors{'node_sectop_before_chapter_no_node'} = [];
-
+$result_errors{'node_sectop_before_chapter_no_node'} = '';
 
 $result_nodes_list{'node_sectop_before_chapter_no_node'} = '1|Top
  associated_section: top section

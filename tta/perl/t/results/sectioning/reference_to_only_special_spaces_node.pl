@@ -178,34 +178,16 @@ $result_texts{'reference_to_only_special_spaces_node'} = 'top
 
 ';
 
-$result_errors{'reference_to_only_special_spaces_node'} = [
-  {
-    'error_line' => "\@node `\@code{\x{2000}\x{2001}\x{2002}}' previously defined
-",
-    'file_name' => 'reference_to_only_special_spaces_node.texi',
-    'line_nr' => 10,
-    'text' => "\@node `\@code{\x{2000}\x{2001}\x{2002}}' previously defined",
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'file_name' => 'reference_to_only_special_spaces_node.texi',
-    'line_nr' => 5,
-    'text' => 'here is the previous definition as @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => "warning: \@ref to `\@code{\x{2000}\x{2001}\x{2002}}', different from node name `\x{2000}\x{2001}\x{2002}'
-",
-    'file_name' => 'reference_to_only_special_spaces_node.texi',
-    'line_nr' => 13,
-    'text' => "\@ref to `\@code{\x{2000}\x{2001}\x{2002}}', different from node name `\x{2000}\x{2001}\x{2002}'",
-    'type' => 'warning'
-  }
-];
+$result_errors{'reference_to_only_special_spaces_node'} = '* E reference_to_only_special_spaces_node.texi:l10|@node `@code{   }\' previously defined
+ @node `@code{   }\' previously defined
 
+* EC reference_to_only_special_spaces_node.texi:l5|here is the previous definition as @node
+ here is the previous definition as @node
+
+* W reference_to_only_special_spaces_node.texi:l13|@ref to `@code{   }\', different from node name `   \'
+ warning: @ref to `@code{   }\', different from node name `   \'
+
+';
 
 $result_nodes_list{'reference_to_only_special_spaces_node'} = '1|Top
  associated_section: top

@@ -1273,6 +1273,7 @@ sub test($$)
                  $document->get_conf('DOC_ENCODING_FOR_INPUT_FILE_NAME'),
                  $document->get_conf('LOCALE_ENCODING'), $document);
 
+  my $errors_text;
   my $float_text;
   my $tree_text;
   my $nodes_list_text;
@@ -1310,6 +1311,9 @@ sub test($$)
 
   my $document_errors = $document->errors();
   push @$errors, @$document_errors;
+
+  $errors_text = Texinfo::Report::errors_print_details($errors,
+                                             $input_file_names_encoding, 1);
 
  COMPARE:
 
@@ -1365,19 +1369,8 @@ sub test($$)
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
           .protect_perl_string($converted_text)."';\n\n";
 
-    {
-      local $Data::Dumper::Sortkeys = 1;
-      # NOTE file names in error messages are bytes.  Since strings written
-      # to the test reference output file (with generate) are encoded to
-      # utf-8, the file names with non ascii characters will have the non ascii
-      # characters encoded twice to utf-8 (in 'file_name' hash keys values).
-      # The bytes would need to be decoded first to character strings to be
-      # correctly encoded to utf-8.  Note that having doubly encoded strings
-      # should not prevent the tests to pass, as both the reference and the
-      # results to check are doubly encoded.
-      $out_result .= Data::Dumper->Dump([$errors],
-                           ['$result_errors{\''.$test_name.'\'}']) ."\n\n";
-    }
+    $out_result .= '$result_errors{\''.$test_name.'\'} = \''
+                   . protect_perl_string($errors_text)."';\n\n";
 
     if (defined($indices)) {
       $out_result .= '$result_indices{\''.$test_name.'\'} = \''
@@ -1458,8 +1451,7 @@ sub test($$)
     is_diff($headings_list_text, $result_headings_list{$test_name}, $test_name
              .' headings list');
 
-    ok(Data::Compare::Compare($errors, $result_errors{$test_name}),
-       $test_name.' errors');
+    is_diff($errors_text, $result_errors{$test_name}, $test_name.' errors');
 
     is_diff($indices, $result_indices{$test_name}, $test_name.' indices');
     is_diff($indices_sorted_sort_strings,

@@ -310,17 +310,10 @@ GNU LilyPond -- 学習マニュアル
 
 ';
 
-$result_errors{'japanese_shift_jis'} = [
-  {
-    'error_line' => 'warning: encoding `shift_jis\' is not a canonical texinfo encoding
-',
-    'file_name' => 'japanese_shift_jis.texi',
-    'line_nr' => 2,
-    'text' => 'encoding `shift_jis\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  }
-];
+$result_errors{'japanese_shift_jis'} = '* W japanese_shift_jis.texi:l2|encoding `shift_jis\' is not a canonical texinfo encoding
+ warning: encoding `shift_jis\' is not a canonical texinfo encoding
 
+';
 
 $result_nodes_list{'japanese_shift_jis'} = '1|Top
  associated_section: GNU LilyPond --- 学習マニュアル

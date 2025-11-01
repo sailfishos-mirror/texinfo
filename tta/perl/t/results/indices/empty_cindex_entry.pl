@@ -52,23 +52,13 @@ $result_texis{'empty_cindex_entry'} = '@node Top
 
 $result_texts{'empty_cindex_entry'} = '';
 
-$result_errors{'empty_cindex_entry'} = [
-  {
-    'error_line' => 'warning: @cindex missing argument
-',
-    'line_nr' => 3,
-    'text' => '@cindex missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_cindex_entry'} = '* W l3|@cindex missing argument
+ warning: @cindex missing argument
 
+* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'empty_cindex_entry'} = '1|Top
  node_directions:

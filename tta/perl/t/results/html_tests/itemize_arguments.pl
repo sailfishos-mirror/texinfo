@@ -1548,23 +1548,13 @@ item fr error error-> a
 
 ';
 
-$result_errors{'itemize_arguments'} = [
-  {
-    'error_line' => 'warning: @asis expected braces
-',
-    'line_nr' => 110,
-    'text' => '@asis expected braces',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 122,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'itemize_arguments'} = '* W l110|@asis expected braces
+ warning: @asis expected braces
 
+* W l122|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+';
 
 $result_nodes_list{'itemize_arguments'} = '';
 

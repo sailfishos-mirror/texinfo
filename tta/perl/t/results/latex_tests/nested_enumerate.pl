@@ -171,8 +171,7 @@ $result_texts{'nested_enumerate'} = '1. First level item
 
 ';
 
-$result_errors{'nested_enumerate'} = [];
-
+$result_errors{'nested_enumerate'} = '';
 
 $result_nodes_list{'nested_enumerate'} = '';
 

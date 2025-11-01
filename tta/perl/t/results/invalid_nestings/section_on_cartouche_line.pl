@@ -61,37 +61,19 @@ $result_texts{'section_on_cartouche_line'} = '1 first
 ===============
 ';
 
-$result_errors{'section_on_cartouche_line'} = [
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end cartouche
-',
-    'line_nr' => 1,
-    'text' => '@section seen before @end cartouche',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end cartouche
-',
-    'line_nr' => 3,
-    'text' => '@section seen before @end cartouche',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_on_cartouche_line'} = '* W l1|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
 
+* E l1|@section seen before @end cartouche
+ @section seen before @end cartouche
+
+* W l3|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* E l3|@section seen before @end cartouche
+ @section seen before @end cartouche
+
+';
 
 $result_nodes_list{'section_on_cartouche_line'} = '';
 

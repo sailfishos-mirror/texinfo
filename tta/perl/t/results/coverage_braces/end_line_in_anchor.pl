@@ -25,8 +25,7 @@ anchor}
 
 $result_texts{'end_line_in_anchor'} = '';
 
-$result_errors{'end_line_in_anchor'} = [];
-
+$result_errors{'end_line_in_anchor'} = '';
 
 $result_nodes_list{'end_line_in_anchor'} = '';
 

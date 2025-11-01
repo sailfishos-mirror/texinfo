@@ -26,8 +26,7 @@ $result_texis{'space_in_footnote'} = 'text@footnote{ in footnote.}';
 
 $result_texts{'space_in_footnote'} = 'text';
 
-$result_errors{'space_in_footnote'} = [];
-
+$result_errors{'space_in_footnote'} = '';
 
 $result_nodes_list{'space_in_footnote'} = '';
 

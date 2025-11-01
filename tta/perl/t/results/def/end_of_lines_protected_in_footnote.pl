@@ -110,16 +110,10 @@ deffn
 $result_texts{'end_of_lines_protected_in_footnote'} = '
 ';
 
-$result_errors{'end_of_lines_protected_in_footnote'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'end_of_lines_protected_in_footnote'} = '* W l5|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'end_of_lines_protected_in_footnote'} = '';
 

@@ -51,8 +51,7 @@ $result_texis{'good_comment'} = '@multitable @columnfractions 0.4 .6 5.@c commen
 
 $result_texts{'good_comment'} = '';
 
-$result_errors{'good_comment'} = [];
-
+$result_errors{'good_comment'} = '';
 
 $result_nodes_list{'good_comment'} = '';
 

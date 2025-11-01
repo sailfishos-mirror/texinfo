@@ -37,8 +37,7 @@ $result_texis{'listoffloats_with_commands'} = '@listoffloats th@\'eor@`eme
 
 $result_texts{'listoffloats_with_commands'} = '';
 
-$result_errors{'listoffloats_with_commands'} = [];
-
+$result_errors{'listoffloats_with_commands'} = '';
 
 $result_nodes_list{'listoffloats_with_commands'} = '';
 

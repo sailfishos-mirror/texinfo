@@ -17,16 +17,10 @@ $result_texis{'footnote_no_braces'} = '@footnote';
 
 $result_texts{'footnote_no_braces'} = '';
 
-$result_errors{'footnote_no_braces'} = [
-  {
-    'error_line' => '@footnote expected braces
-',
-    'line_nr' => 1,
-    'text' => '@footnote expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'footnote_no_braces'} = '* E l1|@footnote expected braces
+ @footnote expected braces
 
+';
 
 $result_nodes_list{'footnote_no_braces'} = '';
 

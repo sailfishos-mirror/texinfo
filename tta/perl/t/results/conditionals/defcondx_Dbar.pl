@@ -170,25 +170,13 @@ Documentation.
 
 ';
 
-$result_errors{'defcondx_Dbar'} = [
-  {
-    'error_line' => 'warning: missing name for @deffn
-',
-    'file_name' => 'defxcond.texi',
-    'line_nr' => 10,
-    'text' => 'missing name for @deffn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'file_name' => 'defxcond.texi',
-    'line_nr' => 13,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  }
-];
+$result_errors{'defcondx_Dbar'} = '* W defxcond.texi:l10|missing name for @deffn
+ warning: missing name for @deffn
 
+* W defxcond.texi:l13|missing name for @deffnx
+ warning: missing name for @deffnx
+
+';
 
 $result_nodes_list{'defcondx_Dbar'} = '';
 

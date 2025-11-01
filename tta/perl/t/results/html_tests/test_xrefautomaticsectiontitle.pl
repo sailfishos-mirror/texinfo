@@ -174,8 +174,7 @@ chap.
 chap.
 ';
 
-$result_errors{'test_xrefautomaticsectiontitle'} = [];
-
+$result_errors{'test_xrefautomaticsectiontitle'} = '';
 
 $result_nodes_list{'test_xrefautomaticsectiontitle'} = '1|Top
  associated_section: top

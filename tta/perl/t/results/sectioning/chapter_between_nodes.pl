@@ -173,8 +173,7 @@ section.
 
 ';
 
-$result_errors{'chapter_between_nodes'} = [];
-
+$result_errors{'chapter_between_nodes'} = '';
 
 $result_nodes_list{'chapter_between_nodes'} = '1|Top
  associated_section: top section

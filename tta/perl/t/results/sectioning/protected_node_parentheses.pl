@@ -138,8 +138,7 @@ top
 (manual2) name2.
 ';
 
-$result_errors{'protected_node_parentheses'} = [];
-
+$result_errors{'protected_node_parentheses'} = '';
 
 $result_nodes_list{'protected_node_parentheses'} = '1|first
  associated_section: top

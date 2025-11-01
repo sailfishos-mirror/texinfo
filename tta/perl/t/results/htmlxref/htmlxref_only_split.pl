@@ -955,8 +955,7 @@ id: local-node
 
 ';
 
-$result_errors{'htmlxref_only_split'} = [];
-
+$result_errors{'htmlxref_only_split'} = '';
 
 $result_nodes_list{'htmlxref_only_split'} = '1|Top
  associated_section: Test refs

@@ -111,8 +111,7 @@ error->
 *********
 ';
 
-$result_errors{'command_translated'} = [];
-
+$result_errors{'command_translated'} = '';
 
 $result_nodes_list{'command_translated'} = '1|Top
  associated_section: top @error{}

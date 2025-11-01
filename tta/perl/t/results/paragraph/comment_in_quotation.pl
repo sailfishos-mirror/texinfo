@@ -77,8 +77,7 @@ $result_texts{'comment_in_quotation'} = '
 Quotation 
 Quotation no space';
 
-$result_errors{'comment_in_quotation'} = [];
-
+$result_errors{'comment_in_quotation'} = '';
 
 $result_nodes_list{'comment_in_quotation'} = '';
 

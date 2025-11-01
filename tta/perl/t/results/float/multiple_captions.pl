@@ -196,30 +196,16 @@ Something.
 
 ';
 
-$result_errors{'multiple_captions'} = [
-  {
-    'error_line' => 'warning: ignoring multiple @caption
-',
-    'line_nr' => 9,
-    'text' => 'ignoring multiple @caption',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: ignoring multiple @shortcaption
-',
-    'line_nr' => 14,
-    'text' => 'ignoring multiple @shortcaption',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: ignoring multiple @shortcaption
-',
-    'line_nr' => 18,
-    'text' => 'ignoring multiple @shortcaption',
-    'type' => 'warning'
-  }
-];
+$result_errors{'multiple_captions'} = '* W l9|ignoring multiple @caption
+ warning: ignoring multiple @caption
 
+* W l14|ignoring multiple @shortcaption
+ warning: ignoring multiple @shortcaption
+
+* W l18|ignoring multiple @shortcaption
+ warning: ignoring multiple @shortcaption
+
+';
 
 $result_floats{'multiple_captions'} = 'a: 1
  F1.1: {b}

@@ -139,8 +139,7 @@ Topic
 Topic
 ';
 
-$result_errors{'node_heading_between'} = [];
-
+$result_errors{'node_heading_between'} = '';
 
 $result_nodes_list{'node_heading_between'} = '1|Chapter
  associated_section: 1 Chapter

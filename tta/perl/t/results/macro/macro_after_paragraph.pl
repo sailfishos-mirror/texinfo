@@ -58,8 +58,7 @@ In text.
 after end of line
 ';
 
-$result_errors{'macro_after_paragraph'} = [];
-
+$result_errors{'macro_after_paragraph'} = '';
 
 $result_nodes_list{'macro_after_paragraph'} = '';
 

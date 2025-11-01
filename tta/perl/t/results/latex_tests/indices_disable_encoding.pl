@@ -407,23 +407,13 @@ top section
 
 ';
 
-$result_errors{'indices_disable_encoding'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 23,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 23,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'indices_disable_encoding'} = '* E l23|misplaced {
+ misplaced {
 
+* E l23|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'indices_disable_encoding'} = '1|Top
  associated_section: top section

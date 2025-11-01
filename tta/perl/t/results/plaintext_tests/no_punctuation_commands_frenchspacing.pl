@@ -143,8 +143,7 @@ Symb.)"\']
 End.
 ';
 
-$result_errors{'no_punctuation_commands_frenchspacing'} = [];
-
+$result_errors{'no_punctuation_commands_frenchspacing'} = '';
 
 $result_nodes_list{'no_punctuation_commands_frenchspacing'} = '';
 

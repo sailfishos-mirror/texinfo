@@ -52,16 +52,10 @@ $result_texts{'no_argument_for_table'} = 'item
 In item.
 ';
 
-$result_errors{'no_argument_for_table'} = [
-  {
-    'error_line' => 'missing @table argument
-',
-    'line_nr' => 1,
-    'text' => 'missing @table argument',
-    'type' => 'error'
-  }
-];
+$result_errors{'no_argument_for_table'} = '* E l1|missing @table argument
+ missing @table argument
 
+';
 
 $result_nodes_list{'no_argument_for_table'} = '';
 

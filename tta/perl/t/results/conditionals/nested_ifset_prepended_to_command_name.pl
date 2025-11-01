@@ -41,16 +41,10 @@ $result_texis{'nested_ifset_prepended_to_command_name'} = '';
 
 $result_texts{'nested_ifset_prepended_to_command_name'} = '';
 
-$result_errors{'nested_ifset_prepended_to_command_name'} = [
-  {
-    'error_line' => 'unmatched `@end ifset\'
-',
-    'line_nr' => 5,
-    'text' => 'unmatched `@end ifset\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'nested_ifset_prepended_to_command_name'} = '* E l5|unmatched `@end ifset\'
+ unmatched `@end ifset\'
 
+';
 
 $result_nodes_list{'nested_ifset_prepended_to_command_name'} = '';
 

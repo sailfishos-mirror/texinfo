@@ -30,8 +30,7 @@ $result_texis{'transparent_text'} = 'AA@footnote{in footnote}). B (@emph{C}). D.
 $result_texts{'transparent_text'} = 'AA). B (C). D.
 ';
 
-$result_errors{'transparent_text'} = [];
-
+$result_errors{'transparent_text'} = '';
 
 $result_nodes_list{'transparent_text'} = '';
 

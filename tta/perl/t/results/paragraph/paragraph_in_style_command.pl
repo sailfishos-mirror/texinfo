@@ -53,37 +53,19 @@ in second
 in third.
 ';
 
-$result_errors{'paragraph_in_style_command'} = [
-  {
-    'error_line' => '@samp missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@samp missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 3,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@samp missing closing brace
-',
-    'line_nr' => 5,
-    'text' => '@samp missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 9,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'paragraph_in_style_command'} = '* E l1|@samp missing closing brace
+ @samp missing closing brace
 
+* E l3|misplaced }
+ misplaced }
+
+* E l5|@samp missing closing brace
+ @samp missing closing brace
+
+* E l9|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'paragraph_in_style_command'} = '';
 

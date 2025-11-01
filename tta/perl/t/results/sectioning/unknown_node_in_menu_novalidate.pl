@@ -74,8 +74,7 @@ $result_texts{'unknown_node_in_menu_novalidate'} = '
 * unknown::
 ';
 
-$result_errors{'unknown_node_in_menu_novalidate'} = [];
-
+$result_errors{'unknown_node_in_menu_novalidate'} = '';
 
 $result_nodes_list{'unknown_node_in_menu_novalidate'} = '1|first
  menus:

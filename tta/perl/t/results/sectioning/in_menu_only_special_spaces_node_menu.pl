@@ -391,41 +391,19 @@ $result_texts{'in_menu_only_special_spaces_node_menu'} = 'top
 
 ';
 
-$result_errors{'in_menu_only_special_spaces_node_menu'} = [
-  {
-    'error_line' => 'empty node name in menu entry
-',
-    'file_name' => 'in_menu_only_special_spaces_node.texi',
-    'line_nr' => 7,
-    'text' => 'empty node name in menu entry',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty node name in menu entry
-',
-    'file_name' => 'in_menu_only_special_spaces_node.texi',
-    'line_nr' => 8,
-    'text' => 'empty node name in menu entry',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty argument in @node
-',
-    'file_name' => 'in_menu_only_special_spaces_node.texi',
-    'line_nr' => 19,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty argument in @node
-',
-    'file_name' => 'in_menu_only_special_spaces_node.texi',
-    'line_nr' => 22,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  }
-];
+$result_errors{'in_menu_only_special_spaces_node_menu'} = '* E in_menu_only_special_spaces_node.texi:l7|empty node name in menu entry
+ empty node name in menu entry
 
+* E in_menu_only_special_spaces_node.texi:l8|empty node name in menu entry
+ empty node name in menu entry
+
+* E in_menu_only_special_spaces_node.texi:l19|empty argument in @node
+ empty argument in @node
+
+* E in_menu_only_special_spaces_node.texi:l22|empty argument in @node
+ empty argument in @node
+
+';
 
 $result_nodes_list{'in_menu_only_special_spaces_node_menu'} = '1|Top
  associated_section: top

@@ -210,8 +210,7 @@ raw <emphasis>docbook</emphasis> ``,
 raw $\\frac{a < b tex \\hbox{ code }}{b}$ ``
 ';
 
-$result_errors{'inline'} = [];
-
+$result_errors{'inline'} = '';
 
 $result_nodes_list{'inline'} = '';
 

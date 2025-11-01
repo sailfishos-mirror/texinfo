@@ -51,8 +51,7 @@ $result_texts{'comments'} = ' comment @c comment
 in a verb 
 something  in verb ';
 
-$result_errors{'comments'} = [];
-
+$result_errors{'comments'} = '';
 
 $result_nodes_list{'comments'} = '';
 

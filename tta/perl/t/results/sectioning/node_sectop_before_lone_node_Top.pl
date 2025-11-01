@@ -121,8 +121,7 @@ in node Top
 in chap
 ';
 
-$result_errors{'node_sectop_before_lone_node_Top'} = [];
-
+$result_errors{'node_sectop_before_lone_node_Top'} = '';
 
 $result_nodes_list{'node_sectop_before_lone_node_Top'} = '1|node before
  associated_section: top sectionning

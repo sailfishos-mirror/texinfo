@@ -381,86 +381,40 @@ anchor 2
 
 ';
 
-$result_errors{'various_itemize_command_as_argument'} = [
-  {
-    'error_line' => 'warning: @inlineraw expected braces
-',
-    'line_nr' => 7,
-    'text' => '@inlineraw expected braces',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @image expected braces
-',
-    'line_nr' => 11,
-    'text' => '@image expected braces',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @itemize line
-',
-    'line_nr' => 16,
-    'text' => '@footnote should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote expected braces
-',
-    'line_nr' => 16,
-    'text' => '@footnote expected braces',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @caption should not appear on @itemize line
-',
-    'line_nr' => 25,
-    'text' => '@caption should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @caption expected braces
-',
-    'line_nr' => 25,
-    'text' => '@caption expected braces',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @math expected braces
-',
-    'line_nr' => 29,
-    'text' => '@math expected braces',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @itemize line
-',
-    'line_nr' => 37,
-    'text' => '@anchor should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor expected braces
-',
-    'line_nr' => 37,
-    'text' => '@anchor expected braces',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear on @itemize line
-',
-    'line_nr' => 42,
-    'text' => '@verb should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb expected braces
-',
-    'line_nr' => 42,
-    'text' => '@verb expected braces',
-    'type' => 'warning'
-  }
-];
+$result_errors{'various_itemize_command_as_argument'} = '* W l7|@inlineraw expected braces
+ warning: @inlineraw expected braces
 
+* W l11|@image expected braces
+ warning: @image expected braces
+
+* W l16|@footnote should not appear on @itemize line
+ warning: @footnote should not appear on @itemize line
+
+* W l16|@footnote expected braces
+ warning: @footnote expected braces
+
+* W l25|@caption should not appear on @itemize line
+ warning: @caption should not appear on @itemize line
+
+* W l25|@caption expected braces
+ warning: @caption expected braces
+
+* W l29|@math expected braces
+ warning: @math expected braces
+
+* W l37|@anchor should not appear on @itemize line
+ warning: @anchor should not appear on @itemize line
+
+* W l37|@anchor expected braces
+ warning: @anchor expected braces
+
+* W l42|@verb should not appear on @itemize line
+ warning: @verb should not appear on @itemize line
+
+* W l42|@verb expected braces
+ warning: @verb expected braces
+
+';
 
 $result_nodes_list{'various_itemize_command_as_argument'} = '1|Top
  associated_section: top

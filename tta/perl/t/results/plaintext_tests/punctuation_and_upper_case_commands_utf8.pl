@@ -140,8 +140,7 @@ AAA. E~. AA.
 DOUBLE AAA.  DOUBLE E~. DOUBLE AA.  End.
 ';
 
-$result_errors{'punctuation_and_upper_case_commands_utf8'} = [];
-
+$result_errors{'punctuation_and_upper_case_commands_utf8'} = '';
 
 $result_nodes_list{'punctuation_and_upper_case_commands_utf8'} = '';
 

@@ -18,6 +18,7 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
 # ALTIMP C/parsetexi/errors_parser.c
+# ALTIMP C/main/errors.c
 
 package Texinfo::Report;
 
@@ -200,6 +201,70 @@ sub document_error($;$$)
   my $error = format_document_message('error', $text, $program_name,
                                       $continuation);
   return $error;
+}
+
+# TODO document?
+# used in tests
+sub print_source_info_details($;$$) {
+  my ($source_info, $fname_encoding, $use_filename) = @_;
+
+  return '' if (!defined($source_info));
+
+  my $result = '';
+
+  my $line_nr = $source_info->{'line_nr'};
+  my $macro = $source_info->{'macro'};
+  if (defined($source_info->{'file_name'})) {
+    my $file_name = $source_info->{'file_name'};
+    if ($use_filename) {
+      my ($directories, $suffix);
+      ($file_name, $directories, $suffix) = fileparse($file_name);
+    }
+    if (defined($fname_encoding)) {
+      $file_name = Encode::decode($fname_encoding, $file_name);
+    }
+    $result .= $file_name;
+    $result .= ':' if ($line_nr or defined($macro));
+  }
+
+  if ($line_nr) {
+    $result .= "l$line_nr";
+    $result .= ':' if (defined($macro));
+  }
+
+  if (defined($macro)) {
+    $result .= '@'.$macro;
+  }
+
+  return $result;
+}
+
+sub _print_error_details($;$$) {
+  my ($error, $fname_encoding, $use_filename) = @_;
+
+  my $result = '* ';
+  if ($error->{'type'} eq 'warning') {
+    $result .= 'W';
+  } else {
+    $result .= 'E';
+  }
+  $result .= 'C' if ($error->{'continuation'});
+  $result .= ' '.print_source_info_details($error,
+                                        $fname_encoding, $use_filename)
+             . '|'.$error->{'text'}."\n ".$error->{'error_line'};
+  return $result;
+}
+
+# used in tests
+sub errors_print_details($;$$) {
+  my ($error_messages_list, $fname_encoding, $use_filename) = @_;
+
+  my $result = '';
+  foreach my $error_msg (@$error_messages_list) {
+    $result .= _print_error_details($error_msg, $fname_encoding,
+                                    $use_filename)."\n";
+  }
+  return $result;
 }
 
 1;

@@ -883,17 +883,10 @@ encoding index latin1
 
 ';
 
-$result_errors{'encoding_index_latin1_enable_encoding'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'file_name' => 'encoding_index_latin1.texi',
-    'line_nr' => 7,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'encoding_index_latin1_enable_encoding'} = '* W encoding_index_latin1.texi:l7|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'encoding_index_latin1_enable_encoding'} = '1|Top
  associated_section: encoding index latin1

@@ -179,16 +179,10 @@ in cartouche in menu comment in menu in example
 * a menu name:(other) node.
 ';
 
-$result_errors{'menu_in_example'} = [
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 4,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  }
-];
+$result_errors{'menu_in_example'} = '* W l4|@menu in invalid context
+ warning: @menu in invalid context
 
+';
 
 $result_nodes_list{'menu_in_example'} = '1|Top
 ';

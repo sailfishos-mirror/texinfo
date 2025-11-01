@@ -23,16 +23,10 @@ $result_texis{'spaces_no_brace_after_braced_command'} = '@code b
 $result_texts{'spaces_no_brace_after_braced_command'} = 'b
 ';
 
-$result_errors{'spaces_no_brace_after_braced_command'} = [
-  {
-    'error_line' => '@code expected braces
-',
-    'line_nr' => 1,
-    'text' => '@code expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'spaces_no_brace_after_braced_command'} = '* E l1|@code expected braces
+ @code expected braces
 
+';
 
 $result_nodes_list{'spaces_no_brace_after_braced_command'} = '';
 

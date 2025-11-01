@@ -36,8 +36,7 @@ $result_texis{'U_with_utf8_enable_encoding'} = '@documentencoding utf-8
 $result_texts{'U_with_utf8_enable_encoding'} = '00FF (should be a real y-dieresis in UTF-8).
 ';
 
-$result_errors{'U_with_utf8_enable_encoding'} = [];
-
+$result_errors{'U_with_utf8_enable_encoding'} = '';
 
 $result_nodes_list{'U_with_utf8_enable_encoding'} = '';
 

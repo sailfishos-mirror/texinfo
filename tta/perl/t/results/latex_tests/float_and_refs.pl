@@ -612,8 +612,7 @@ my figure.
 
 ';
 
-$result_errors{'float_and_refs'} = [];
-
+$result_errors{'float_and_refs'} = '';
 
 $result_floats{'float_and_refs'} = ': 1
  F1.1: {no-type}

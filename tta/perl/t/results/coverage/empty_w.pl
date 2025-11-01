@@ -23,8 +23,7 @@ $result_texis{'empty_w'} = '@w{} @w{a b}.';
 
 $result_texts{'empty_w'} = ' a b.';
 
-$result_errors{'empty_w'} = [];
-
+$result_errors{'empty_w'} = '';
 
 $result_nodes_list{'empty_w'} = '';
 

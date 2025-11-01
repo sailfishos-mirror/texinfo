@@ -57,23 +57,13 @@ $result_texts{'index_entries'} = '
 
 ';
 
-$result_errors{'index_entries'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `truc\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `truc\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'index_entries'} = '* W l1|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+* W l5|entry for index `truc\' outside of any node
+ warning: entry for index `truc\' outside of any node
+
+';
 
 $result_indices{'index_entries'} = 'cp
 fn C

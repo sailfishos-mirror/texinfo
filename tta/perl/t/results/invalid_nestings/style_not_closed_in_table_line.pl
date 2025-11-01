@@ -73,16 +73,10 @@ line
 line in code in item
 ';
 
-$result_errors{'style_not_closed_in_table_line'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 4,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'style_not_closed_in_table_line'} = '* E l4|@code missing closing brace
+ @code missing closing brace
 
+';
 
 $result_nodes_list{'style_not_closed_in_table_line'} = '';
 

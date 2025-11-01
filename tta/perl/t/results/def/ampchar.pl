@@ -95,16 +95,10 @@ $result_texts{'ampchar'} = 'Constructor on a: b (const std::vector<int>&)
 & & & { } @
 ';
 
-$result_errors{'ampchar'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'ampchar'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'ampchar'} = '';
 

@@ -93,23 +93,13 @@ in  v---erbatim`` <>
 in verbatim2
 ';
 
-$result_errors{'misc_raw'} = [
-  {
-    'error_line' => 'warning: @end should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@end should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @tex line: in tex
-',
-    'line_nr' => 5,
-    'text' => 'unexpected argument on @tex line: in tex',
-    'type' => 'warning'
-  }
-];
+$result_errors{'misc_raw'} = '* W l3|@end should only appear at the beginning of a line
+ warning: @end should only appear at the beginning of a line
 
+* W l5|unexpected argument on @tex line: in tex
+ warning: unexpected argument on @tex line: in tex
+
+';
 
 $result_nodes_list{'misc_raw'} = '';
 

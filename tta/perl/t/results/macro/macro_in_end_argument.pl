@@ -64,8 +64,7 @@ cartouche
 $result_texts{'macro_in_end_argument'} = '
 ';
 
-$result_errors{'macro_in_end_argument'} = [];
-
+$result_errors{'macro_in_end_argument'} = '';
 
 $result_nodes_list{'macro_in_end_argument'} = '';
 

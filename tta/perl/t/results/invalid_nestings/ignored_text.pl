@@ -41,37 +41,19 @@ $result_texis{'ignored_text'} = '@node before ignore in ifinfo
 $result_texts{'ignored_text'} = 'in ifinfo
 ';
 
-$result_errors{'ignored_text'} = [
-  {
-    'error_line' => 'warning: @ifinfo should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@ifinfo should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end ifinfo\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end ifinfo\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: ifinfo on the node line
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: ifinfo on the node line',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end ifinfo\'
-',
-    'line_nr' => 3,
-    'text' => 'unmatched `@end ifinfo\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'ignored_text'} = '* W l1|@ifinfo should only appear at the beginning of a line
+ warning: @ifinfo should only appear at the beginning of a line
 
+* E l1|no matching `@end ifinfo\'
+ no matching `@end ifinfo\'
+
+* E l3|bad argument to @end: ifinfo on the node line
+ bad argument to @end: ifinfo on the node line
+
+* E l3|unmatched `@end ifinfo\'
+ unmatched `@end ifinfo\'
+
+';
 
 $result_nodes_list{'ignored_text'} = '1|before ignore
 ';

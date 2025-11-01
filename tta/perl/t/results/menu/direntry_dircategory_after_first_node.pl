@@ -95,23 +95,13 @@ $result_texts{'direntry_dircategory_after_first_node'} = 'direntry direcategory 
 * in text: (in_text). in text
 ';
 
-$result_errors{'direntry_dircategory_after_first_node'} = [
-  {
-    'error_line' => 'warning: @dircategory after first node
-',
-    'line_nr' => 4,
-    'text' => '@dircategory after first node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @direntry after first node
-',
-    'line_nr' => 5,
-    'text' => '@direntry after first node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'direntry_dircategory_after_first_node'} = '* W l4|@dircategory after first node
+ warning: @dircategory after first node
 
+* W l5|@direntry after first node
+ warning: @direntry after first node
+
+';
 
 $result_nodes_list{'direntry_dircategory_after_first_node'} = '1|Top
  associated_section: direntry direcategory after first node

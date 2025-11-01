@@ -476,8 +476,7 @@ Appendix A appendix
 *******************
 ';
 
-$result_errors{'more_sections_than_nodes'} = [];
-
+$result_errors{'more_sections_than_nodes'} = '';
 
 $result_nodes_list{'more_sections_than_nodes'} = '1|Top
  associated_section: top

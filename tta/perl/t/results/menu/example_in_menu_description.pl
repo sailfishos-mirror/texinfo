@@ -116,8 +116,7 @@ example
 
 ';
 
-$result_errors{'example_in_menu_description'} = [];
-
+$result_errors{'example_in_menu_description'} = '';
 
 $result_nodes_list{'example_in_menu_description'} = '1|first
  associated_section: top

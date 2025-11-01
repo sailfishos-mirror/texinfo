@@ -40,8 +40,7 @@ $result_texis{'include_comment'} = 'In included file.
 $result_texts{'include_comment'} = 'In included file.
 ';
 
-$result_errors{'include_comment'} = [];
-
+$result_errors{'include_comment'} = '';
 
 $result_nodes_list{'include_comment'} = '';
 

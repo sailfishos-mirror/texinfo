@@ -44,25 +44,15 @@ $result_texis{'something_before_columnfractions'} = '@multitable aaa @columnfrac
 
 $result_texts{'something_before_columnfractions'} = '';
 
-$result_errors{'something_before_columnfractions'} = [
-  {
-    'error_line' => 'warning: unexpected argument on @multitable line: @columnfractions 0.3 0.7
+$result_errors{'something_before_columnfractions'} = '* W l1|unexpected argument on @multitable line: @columnfractions 0.3 0.7
 
-',
-    'line_nr' => 1,
-    'text' => 'unexpected argument on @multitable line: @columnfractions 0.3 0.7
-',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty multitable
-',
-    'line_nr' => 1,
-    'text' => 'empty multitable',
-    'type' => 'warning'
-  }
-];
+ warning: unexpected argument on @multitable line: @columnfractions 0.3 0.7
 
+
+* W l1|empty multitable
+ warning: empty multitable
+
+';
 
 $result_nodes_list{'something_before_columnfractions'} = '';
 

@@ -83,8 +83,7 @@ something out
 next
 ';
 
-$result_errors{'comment_in_linemacro_call'} = [];
-
+$result_errors{'comment_in_linemacro_call'} = '';
 
 $result_nodes_list{'comment_in_linemacro_call'} = '';
 

@@ -57,23 +57,13 @@ $result_texis{'macro_and_args'} = '@macro good { aaa, 2b-bb}
 $result_texts{'macro_and_args'} = '
 ';
 
-$result_errors{'macro_and_args'} = [
-  {
-    'error_line' => 'bad or empty @macro formal argument: ggg"@@^_ ff
-',
-    'line_nr' => 4,
-    'text' => 'bad or empty @macro formal argument: ggg"@@^_ ff',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad or empty @macro formal argument: ccc v
-',
-    'line_nr' => 4,
-    'text' => 'bad or empty @macro formal argument: ccc v',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_and_args'} = '* E l4|bad or empty @macro formal argument: ggg"@@^_ ff
+ bad or empty @macro formal argument: ggg"@@^_ ff
 
+* E l4|bad or empty @macro formal argument: ccc v
+ bad or empty @macro formal argument: ccc v
+
+';
 
 $result_nodes_list{'macro_and_args'} = '';
 

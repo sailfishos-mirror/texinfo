@@ -141,23 +141,13 @@ Float text1
 
 ';
 
-$result_errors{'error_in_footnote'} = [
-  {
-    'error_line' => '@TeX expected braces
-',
-    'line_nr' => 8,
-    'text' => '@TeX expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@LaTeX expected braces
-',
-    'line_nr' => 10,
-    'text' => '@LaTeX expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'error_in_footnote'} = '* E l8|@TeX expected braces
+ @TeX expected braces
 
+* E l10|@LaTeX expected braces
+ @LaTeX expected braces
+
+';
 
 $result_floats{'error_in_footnote'} = 'Text: 1
  F1: {label}

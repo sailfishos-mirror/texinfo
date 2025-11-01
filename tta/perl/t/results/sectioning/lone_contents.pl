@@ -24,8 +24,7 @@ $result_texis{'lone_contents'} = '@contents
 
 $result_texts{'lone_contents'} = '';
 
-$result_errors{'lone_contents'} = [];
-
+$result_errors{'lone_contents'} = '';
 
 $result_nodes_list{'lone_contents'} = '';
 

@@ -595,114 +595,52 @@ truc: deffnx before end deffn
 Various deff lines
 ';
 
-$result_errors{'def'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 7,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 11,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 12,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 13,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 14,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 15,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 16,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 17,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 18,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 19,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 20,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 21,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 23,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 25,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'def'} = '* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* W l7|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l11|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l12|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l13|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l14|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l15|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l16|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l17|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l18|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l19|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l20|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l21|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l23|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l25|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'def'} = '';
 

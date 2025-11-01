@@ -55,16 +55,10 @@ $result_texts{'empty_commands'} = '
     ~  
 ';
 
-$result_errors{'empty_commands'} = [
-  {
-    'error_line' => 'warning: @abbr missing first argument
-',
-    'line_nr' => 3,
-    'text' => '@abbr missing first argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_commands'} = '* W l3|@abbr missing first argument
+ warning: @abbr missing first argument
 
+';
 
 $result_nodes_list{'empty_commands'} = '';
 

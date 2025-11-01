@@ -79,8 +79,7 @@ License:
 
 ';
 
-$result_errors{'insertcopying'} = [];
-
+$result_errors{'insertcopying'} = '';
 
 $result_nodes_list{'insertcopying'} = '';
 

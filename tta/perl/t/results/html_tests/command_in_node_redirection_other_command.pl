@@ -63,8 +63,7 @@ $result_texts{'command_in_node_redirection_other_command'} = 't in r
 
 ';
 
-$result_errors{'command_in_node_redirection_other_command'} = [];
-
+$result_errors{'command_in_node_redirection_other_command'} = '';
 
 $result_nodes_list{'command_in_node_redirection_other_command'} = '1|Top
  associated_section: t @r{in r}

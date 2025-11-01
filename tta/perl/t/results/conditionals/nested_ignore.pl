@@ -48,16 +48,10 @@ $result_texis{'nested_ignore'} = '@ignore
 
 $result_texts{'nested_ignore'} = '';
 
-$result_errors{'nested_ignore'} = [
-  {
-    'error_line' => 'no matching `@end ignore\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end ignore\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'nested_ignore'} = '* E l1|no matching `@end ignore\'
+ no matching `@end ignore\'
 
+';
 
 $result_nodes_list{'nested_ignore'} = '';
 

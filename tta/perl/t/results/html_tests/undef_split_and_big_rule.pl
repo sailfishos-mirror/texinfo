@@ -106,8 +106,7 @@ top
 =======
 ';
 
-$result_errors{'undef_split_and_big_rule'} = [];
-
+$result_errors{'undef_split_and_big_rule'} = '';
 
 $result_nodes_list{'undef_split_and_big_rule'} = '1|chap
  associated_section: 1 Chapter

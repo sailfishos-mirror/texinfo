@@ -58,16 +58,10 @@ $result_texts{'protect_first_parenthesis_source_mark'} = '
 .
 ';
 
-$result_errors{'protect_first_parenthesis_source_mark'} = [
-  {
-    'error_line' => 'syntax for an external node used for `(some text) aa,,\'
-',
-    'line_nr' => 5,
-    'text' => 'syntax for an external node used for `(some text) aa,,\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'protect_first_parenthesis_source_mark'} = '* E l5|syntax for an external node used for `(some text) aa,,\'
+ syntax for an external node used for `(some text) aa,,\'
 
+';
 
 $result_nodes_list{'protect_first_parenthesis_source_mark'} = '';
 

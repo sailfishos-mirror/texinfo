@@ -93,8 +93,7 @@ $result_texts{'file_name_conflict_with_Top'} = 'top
 
 ';
 
-$result_errors{'file_name_conflict_with_Top'} = [];
-
+$result_errors{'file_name_conflict_with_Top'} = '';
 
 $result_nodes_list{'file_name_conflict_with_Top'} = '1|Top
  associated_section: top

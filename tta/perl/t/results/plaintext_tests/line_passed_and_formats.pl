@@ -880,8 +880,7 @@ menu
 end menu
 ';
 
-$result_errors{'line_passed_and_formats'} = [];
-
+$result_errors{'line_passed_and_formats'} = '';
 
 $result_nodes_list{'line_passed_and_formats'} = '1|Top
  menus:

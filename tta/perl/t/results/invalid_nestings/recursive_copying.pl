@@ -52,16 +52,10 @@ In copying.
 $result_texts{'recursive_copying'} = '
 ';
 
-$result_errors{'recursive_copying'} = [
-  {
-    'error_line' => '@insertcopying not allowed inside `@copying\' block
-',
-    'line_nr' => 5,
-    'text' => '@insertcopying not allowed inside `@copying\' block',
-    'type' => 'error'
-  }
-];
+$result_errors{'recursive_copying'} = '* E l5|@insertcopying not allowed inside `@copying\' block
+ @insertcopying not allowed inside `@copying\' block
 
+';
 
 $result_nodes_list{'recursive_copying'} = '';
 

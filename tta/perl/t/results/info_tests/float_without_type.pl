@@ -84,8 +84,7 @@ aa
 
 ';
 
-$result_errors{'float_without_type'} = [];
-
+$result_errors{'float_without_type'} = '';
 
 $result_floats{'float_without_type'} = 'a: 1
  F

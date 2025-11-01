@@ -155,8 +155,7 @@ $result_texts{'U_in_index'} = 'top
 
 ';
 
-$result_errors{'U_in_index'} = [];
-
+$result_errors{'U_in_index'} = '';
 
 $result_nodes_list{'U_in_index'} = '1|Top
  associated_section: top

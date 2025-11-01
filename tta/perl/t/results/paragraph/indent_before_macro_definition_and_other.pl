@@ -154,23 +154,13 @@ my_image
 HHERE
 ';
 
-$result_errors{'indent_before_macro_definition_and_other'} = [
-  {
-    'error_line' => 'warning: @author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments
-',
-    'line_nr' => 3,
-    'text' => '@author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 14,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'indent_before_macro_definition_and_other'} = '* W l3|@author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments
+ warning: @author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments
 
+* W l14|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 $result_nodes_list{'indent_before_macro_definition_and_other'} = '';
 

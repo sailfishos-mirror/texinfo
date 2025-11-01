@@ -105,16 +105,10 @@ $result_texts{'lone_Top_node'} = '
 ******
 ';
 
-$result_errors{'lone_Top_node'} = [
-  {
-    'error_line' => 'warning: node `First\' in menu in `Top\' but not under it in sectioning
-',
-    'line_nr' => 4,
-    'text' => 'node `First\' in menu in `Top\' but not under it in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'lone_Top_node'} = '* W l4|node `First\' in menu in `Top\' but not under it in sectioning
+ warning: node `First\' in menu in `Top\' but not under it in sectioning
 
+';
 
 $result_nodes_list{'lone_Top_node'} = '1|Top
  menus:

@@ -35,16 +35,10 @@ $result_texis{'contents_arg_and_comment'} = '@contents aa @comment v
 
 $result_texts{'contents_arg_and_comment'} = '';
 
-$result_errors{'contents_arg_and_comment'} = [
-  {
-    'error_line' => 'warning: remaining argument on @contents line: aa 
-',
-    'line_nr' => 1,
-    'text' => 'remaining argument on @contents line: aa ',
-    'type' => 'warning'
-  }
-];
+$result_errors{'contents_arg_and_comment'} = '* W l1|remaining argument on @contents line: aa 
+ warning: remaining argument on @contents line: aa 
 
+';
 
 $result_nodes_list{'contents_arg_and_comment'} = '';
 

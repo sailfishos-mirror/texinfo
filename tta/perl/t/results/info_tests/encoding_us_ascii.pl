@@ -53,8 +53,7 @@ $result_texts{'encoding_us_ascii'} = '
 
 ';
 
-$result_errors{'encoding_us_ascii'} = [];
-
+$result_errors{'encoding_us_ascii'} = '';
 
 $result_nodes_list{'encoding_us_ascii'} = '1|Top
 ';

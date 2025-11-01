@@ -214,8 +214,7 @@ overlap。
 
 ';
 
-$result_errors{'chinese_mixed_with_en'} = [];
-
+$result_errors{'chinese_mixed_with_en'} = '';
 
 $result_nodes_list{'chinese_mixed_with_en'} = '1|Top
  associated_section: Mixed chinese and english

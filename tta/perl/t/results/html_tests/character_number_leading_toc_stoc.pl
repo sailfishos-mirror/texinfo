@@ -105,8 +105,7 @@ _
 
 ';
 
-$result_errors{'character_number_leading_toc_stoc'} = [];
-
+$result_errors{'character_number_leading_toc_stoc'} = '';
 
 $result_nodes_list{'character_number_leading_toc_stoc'} = '';
 

@@ -58,8 +58,7 @@ Texinfo modules documentation
 *****************************
 ';
 
-$result_errors{'top_node_top_contents'} = [];
-
+$result_errors{'top_node_top_contents'} = '';
 
 $result_nodes_list{'top_node_top_contents'} = '1|Top
  associated_section: Texinfo modules documentation

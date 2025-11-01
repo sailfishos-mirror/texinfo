@@ -21,16 +21,10 @@ $result_texis{'if_not_closed'} = '';
 
 $result_texts{'if_not_closed'} = '';
 
-$result_errors{'if_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end iftex\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end iftex\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'if_not_closed'} = '* E l1|no matching `@end iftex\'
+ no matching `@end iftex\'
 
+';
 
 $result_nodes_list{'if_not_closed'} = '';
 

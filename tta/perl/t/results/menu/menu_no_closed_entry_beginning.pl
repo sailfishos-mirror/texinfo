@@ -25,16 +25,10 @@ $result_texis{'menu_no_closed_entry_beginning'} = '@menu
 
 $result_texts{'menu_no_closed_entry_beginning'} = '* node';
 
-$result_errors{'menu_no_closed_entry_beginning'} = [
-  {
-    'error_line' => 'no matching `@end menu\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end menu\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'menu_no_closed_entry_beginning'} = '* E l1|no matching `@end menu\'
+ no matching `@end menu\'
 
+';
 
 $result_nodes_list{'menu_no_closed_entry_beginning'} = '';
 

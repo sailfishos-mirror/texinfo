@@ -18,16 +18,10 @@ $result_texis{'exdent_no_line'} = '@exdent';
 $result_texts{'exdent_no_line'} = '
 ';
 
-$result_errors{'exdent_no_line'} = [
-  {
-    'error_line' => 'warning: @exdent missing argument
-',
-    'line_nr' => 1,
-    'text' => '@exdent missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'exdent_no_line'} = '* W l1|@exdent missing argument
+ warning: @exdent missing argument
 
+';
 
 $result_nodes_list{'exdent_no_line'} = '';
 

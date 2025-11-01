@@ -152,17 +152,10 @@ Documentation.
 
 ';
 
-$result_errors{'defcondx_Ubar'} = [
-  {
-    'error_line' => 'warning: missing name for @deffn
-',
-    'file_name' => 'defxcond.texi',
-    'line_nr' => 10,
-    'text' => 'missing name for @deffn',
-    'type' => 'warning'
-  }
-];
+$result_errors{'defcondx_Ubar'} = '* W defxcond.texi:l10|missing name for @deffn
+ warning: missing name for @deffn
 
+';
 
 $result_nodes_list{'defcondx_Ubar'} = '';
 

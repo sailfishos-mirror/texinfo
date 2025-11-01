@@ -167,37 +167,19 @@ $result_texis{'character_and_spaces_in_node'} = '
 $result_texts{'character_and_spaces_in_node'} = '
 ';
 
-$result_errors{'character_and_spaces_in_node'} = [
-  {
-    'error_line' => 'warning: node `chap nodes\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `chap nodes\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `!_"#$%&\'()*+-.\' not in menu
-',
-    'line_nr' => 4,
-    'text' => 'node `!_"#$%&\'()*+-.\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `/;<=>?[\\]^_`|~\' not in menu
-',
-    'line_nr' => 5,
-    'text' => 'node `/;<=>?[\\]^_`|~\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `local   node\' not in menu
-',
-    'line_nr' => 6,
-    'text' => 'node `local   node\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'character_and_spaces_in_node'} = '* W l3|node `chap nodes\' not in menu
+ warning: node `chap nodes\' not in menu
 
+* W l4|node `!_"#$%&\'()*+-.\' not in menu
+ warning: node `!_"#$%&\'()*+-.\' not in menu
+
+* W l5|node `/;<=>?[\\]^_`|~\' not in menu
+ warning: node `/;<=>?[\\]^_`|~\' not in menu
+
+* W l6|node `local   node\' not in menu
+ warning: node `local   node\' not in menu
+
+';
 
 $result_nodes_list{'character_and_spaces_in_node'} = '1|Top
  node_directions:

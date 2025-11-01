@@ -27,23 +27,13 @@ $result_texts{'verb_at_end_of_line_not_closed'} = 'verb at end of line
 
 ';
 
-$result_errors{'verb_at_end_of_line_not_closed'} = [
-  {
-    'error_line' => '@verb without associated character
-',
-    'line_nr' => 1,
-    'text' => '@verb without associated character',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@verb missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@verb missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'verb_at_end_of_line_not_closed'} = '* E l1|@verb without associated character
+ @verb without associated character
 
+* E l1|@verb missing closing brace
+ @verb missing closing brace
+
+';
 
 $result_nodes_list{'verb_at_end_of_line_not_closed'} = '';
 

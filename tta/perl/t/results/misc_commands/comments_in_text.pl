@@ -82,8 +82,7 @@ Text line followed by a comment on the same line and another below Text line aft
 
 Comment at the end of the line ';
 
-$result_errors{'comments_in_text'} = [];
-
+$result_errors{'comments_in_text'} = '';
 
 $result_nodes_list{'comments_in_text'} = '';
 

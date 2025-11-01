@@ -49,8 +49,7 @@ Text on documentation explaining something important out of the main
 flow of the text.
 ';
 
-$result_errors{'cartouche_title_and_content'} = [];
-
+$result_errors{'cartouche_title_and_content'} = '';
 
 $result_nodes_list{'cartouche_title_and_content'} = '';
 

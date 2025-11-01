@@ -97,8 +97,7 @@ $result_texts{'novalidate'} = '
 unknown ref.
 ';
 
-$result_errors{'novalidate'} = [];
-
+$result_errors{'novalidate'} = '';
 
 $result_nodes_list{'novalidate'} = '1|first
  menus:

@@ -35,8 +35,7 @@ in center in code
 
 ';
 
-$result_errors{'center'} = [];
-
+$result_errors{'center'} = '';
 
 $result_nodes_list{'center'} = '';
 

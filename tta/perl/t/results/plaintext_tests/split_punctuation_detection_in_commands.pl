@@ -34,8 +34,7 @@ $result_texis{'split_punctuation_detection_in_commands'} = 'Before @asis{B}@asis
 
 $result_texts{'split_punctuation_detection_in_commands'} = 'Before B).]]? AfteR"!\'? Last';
 
-$result_errors{'split_punctuation_detection_in_commands'} = [];
-
+$result_errors{'split_punctuation_detection_in_commands'} = '';
 
 $result_nodes_list{'split_punctuation_detection_in_commands'} = '';
 

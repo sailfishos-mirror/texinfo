@@ -61,8 +61,7 @@ $result_texts{'empty_set_in_ifset'} = '
 a is set to:||.
 ';
 
-$result_errors{'empty_set_in_ifset'} = [];
-
+$result_errors{'empty_set_in_ifset'} = '';
 
 $result_nodes_list{'empty_set_in_ifset'} = '';
 

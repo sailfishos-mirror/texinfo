@@ -101,8 +101,7 @@ top
 
 ';
 
-$result_errors{'html_in_copying'} = [];
-
+$result_errors{'html_in_copying'} = '';
 
 $result_nodes_list{'html_in_copying'} = '1|Top
  associated_section: top

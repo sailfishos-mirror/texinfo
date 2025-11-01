@@ -269,8 +269,7 @@ $result_texts{'printindex_merged_indices_code_style'} = 'top
 
 ';
 
-$result_errors{'printindex_merged_indices_code_style'} = [];
-
+$result_errors{'printindex_merged_indices_code_style'} = '';
 
 $result_indices{'printindex_merged_indices_code_style'} = 'cdi ->fn
 cp ->fn

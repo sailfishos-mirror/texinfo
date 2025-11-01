@@ -58,37 +58,19 @@ $result_texis{'multitable_item_in_index'} = '@multitable {aaa} {bbb}
 
 $result_texts{'multitable_item_in_index'} = '';
 
-$result_errors{'multitable_item_in_index'} = [
-  {
-    'error_line' => 'warning: @item should not appear on @vindex line
-',
-    'line_nr' => 2,
-    'text' => '@item should not appear on @vindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 2,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @multitable has text but no @item
-',
-    'line_nr' => 1,
-    'text' => '@multitable has text but no @item',
-    'type' => 'warning'
-  }
-];
+$result_errors{'multitable_item_in_index'} = '* W l2|@item should not appear on @vindex line
+ warning: @item should not appear on @vindex line
 
+* E l2|@item outside of table or list
+ @item outside of table or list
+
+* W l2|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l1|@multitable has text but no @item
+ warning: @multitable has text but no @item
+
+';
 
 $result_nodes_list{'multitable_item_in_index'} = '';
 

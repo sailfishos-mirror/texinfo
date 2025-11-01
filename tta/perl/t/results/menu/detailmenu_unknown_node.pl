@@ -86,16 +86,10 @@ $result_texts{'detailmenu_unknown_node'} = '
 * unknown::
 ';
 
-$result_errors{'detailmenu_unknown_node'} = [
-  {
-    'error_line' => '@detailmenu reference to nonexistent node `unknown\'
-',
-    'line_nr' => 5,
-    'text' => '@detailmenu reference to nonexistent node `unknown\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'detailmenu_unknown_node'} = '* E l5|@detailmenu reference to nonexistent node `unknown\'
+ @detailmenu reference to nonexistent node `unknown\'
 
+';
 
 $result_nodes_list{'detailmenu_unknown_node'} = '1|Top
  menus:

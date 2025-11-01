@@ -128,16 +128,10 @@ $result_texts{'node_up_external_node'} = '
 
 ';
 
-$result_errors{'node_up_external_node'} = [
-  {
-    'error_line' => 'warning: node up pointer for `chap first\' is `(manual3)\' but up is `Top\' in menu
-',
-    'line_nr' => 4,
-    'text' => 'node up pointer for `chap first\' is `(manual3)\' but up is `Top\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_up_external_node'} = '* W l4|node up pointer for `chap first\' is `(manual3)\' but up is `Top\' in menu
+ warning: node up pointer for `chap first\' is `(manual3)\' but up is `Top\' in menu
 
+';
 
 $result_nodes_list{'node_up_external_node'} = '1|Top
  menus:

@@ -222,8 +222,7 @@ $result_texts{'redefined_buttons_functions'} = 'top
 =========
 ';
 
-$result_errors{'redefined_buttons_functions'} = [];
-
+$result_errors{'redefined_buttons_functions'} = '';
 
 $result_nodes_list{'redefined_buttons_functions'} = '1|Top
  associated_section: top

@@ -65,8 +65,7 @@ $result_texts{'empty_quotation_with_arg_followed_by_quotation'} = 'something
 In quotation
 ';
 
-$result_errors{'empty_quotation_with_arg_followed_by_quotation'} = [];
-
+$result_errors{'empty_quotation_with_arg_followed_by_quotation'} = '';
 
 $result_nodes_list{'empty_quotation_with_arg_followed_by_quotation'} = '';
 

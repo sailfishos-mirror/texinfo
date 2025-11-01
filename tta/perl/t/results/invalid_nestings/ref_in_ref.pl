@@ -42,23 +42,13 @@ $result_texis{'ref_in_ref'} = '@node first
 
 $result_texts{'ref_in_ref'} = 'first';
 
-$result_errors{'ref_in_ref'} = [
-  {
-    'error_line' => 'warning: @ref should not appear anywhere inside @ref
-',
-    'line_nr' => 2,
-    'text' => '@ref should not appear anywhere inside @ref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref to `@ref{first}\', different from node name `first\'
-',
-    'line_nr' => 2,
-    'text' => '@ref to `@ref{first}\', different from node name `first\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'ref_in_ref'} = '* W l2|@ref should not appear anywhere inside @ref
+ warning: @ref should not appear anywhere inside @ref
 
+* W l2|@ref to `@ref{first}\', different from node name `first\'
+ warning: @ref to `@ref{first}\', different from node name `first\'
+
+';
 
 $result_nodes_list{'ref_in_ref'} = '1|first
 ';

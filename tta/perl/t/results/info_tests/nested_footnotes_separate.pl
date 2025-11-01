@@ -69,16 +69,10 @@ $result_texts{'nested_footnotes_separate'} = '
 F
 ';
 
-$result_errors{'nested_footnotes_separate'} = [
-  {
-    'error_line' => 'warning: @footnote should not appear anywhere inside @footnote
-',
-    'line_nr' => 6,
-    'text' => '@footnote should not appear anywhere inside @footnote',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nested_footnotes_separate'} = '* W l6|@footnote should not appear anywhere inside @footnote
+ warning: @footnote should not appear anywhere inside @footnote
 
+';
 
 $result_nodes_list{'nested_footnotes_separate'} = '1|Top
 ';

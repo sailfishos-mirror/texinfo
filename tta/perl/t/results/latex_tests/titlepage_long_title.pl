@@ -125,8 +125,7 @@ section top
 In chapter
 ';
 
-$result_errors{'titlepage_long_title'} = [];
-
+$result_errors{'titlepage_long_title'} = '';
 
 $result_nodes_list{'titlepage_long_title'} = '1|Top
  associated_section: section top

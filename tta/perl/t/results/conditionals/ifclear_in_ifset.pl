@@ -53,8 +53,7 @@ $result_texis{'ifclear_in_ifset'} = '
 $result_texts{'ifclear_in_ifset'} = '
 ';
 
-$result_errors{'ifclear_in_ifset'} = [];
-
+$result_errors{'ifclear_in_ifset'} = '';
 
 $result_nodes_list{'ifclear_in_ifset'} = '';
 

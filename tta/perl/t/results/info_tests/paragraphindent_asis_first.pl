@@ -44,8 +44,7 @@ bbb
 ccc
 ';
 
-$result_errors{'paragraphindent_asis_first'} = [];
-
+$result_errors{'paragraphindent_asis_first'} = '';
 
 $result_nodes_list{'paragraphindent_asis_first'} = '';
 

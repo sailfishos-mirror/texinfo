@@ -137,8 +137,7 @@ $result_texts{'menu_entry_node_comments'} = '* (f)a1c::
 * (f) a4::   
 ';
 
-$result_errors{'menu_entry_node_comments'} = [];
-
+$result_errors{'menu_entry_node_comments'} = '';
 
 $result_nodes_list{'menu_entry_node_comments'} = '';
 

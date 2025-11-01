@@ -120,8 +120,7 @@ b
 in ifclear
 ';
 
-$result_errors{'begin_conditional_in_linemacro'} = [];
-
+$result_errors{'begin_conditional_in_linemacro'} = '';
 
 $result_nodes_list{'begin_conditional_in_linemacro'} = '';
 

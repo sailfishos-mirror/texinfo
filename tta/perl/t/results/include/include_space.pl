@@ -35,8 +35,7 @@ $result_texis{'include_space'} = 'In included file.
 $result_texts{'include_space'} = 'In included file.
 ';
 
-$result_errors{'include_space'} = [];
-
+$result_errors{'include_space'} = '';
 
 $result_nodes_list{'include_space'} = '';
 

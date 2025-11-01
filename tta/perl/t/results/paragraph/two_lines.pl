@@ -22,8 +22,7 @@ $result_texts{'two_lines'} = 'text l 1
 text l 2
 ';
 
-$result_errors{'two_lines'} = [];
-
+$result_errors{'two_lines'} = '';
 
 $result_nodes_list{'two_lines'} = '';
 

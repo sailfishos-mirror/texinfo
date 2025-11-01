@@ -57,16 +57,10 @@ $result_texts{'alias_of_definfoenclose'} = '
 aa
 ';
 
-$result_errors{'alias_of_definfoenclose'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'alias_of_definfoenclose'} = '* W l1|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+';
 
 $result_nodes_list{'alias_of_definfoenclose'} = '';
 

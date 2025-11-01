@@ -199,8 +199,7 @@ T
 
 ';
 
-$result_errors{'ref_in_def'} = [];
-
+$result_errors{'ref_in_def'} = '';
 
 $result_nodes_list{'ref_in_def'} = '1|first
 ';

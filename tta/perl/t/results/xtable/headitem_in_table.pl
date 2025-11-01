@@ -67,16 +67,10 @@ headitem In table text.
 item
 ';
 
-$result_errors{'headitem_in_table'} = [
-  {
-    'error_line' => '@headitem not meaningful inside `@table\' block
-',
-    'line_nr' => 2,
-    'text' => '@headitem not meaningful inside `@table\' block',
-    'type' => 'error'
-  }
-];
+$result_errors{'headitem_in_table'} = '* E l2|@headitem not meaningful inside `@table\' block
+ @headitem not meaningful inside `@table\' block
 
+';
 
 $result_nodes_list{'headitem_in_table'} = '';
 

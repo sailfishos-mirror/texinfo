@@ -77,8 +77,7 @@ $result_texts{'contents_at_end_document'} = 'contents at end document
 
 ';
 
-$result_errors{'contents_at_end_document'} = [];
-
+$result_errors{'contents_at_end_document'} = '';
 
 $result_nodes_list{'contents_at_end_document'} = '1|Top
  associated_section: contents at end document

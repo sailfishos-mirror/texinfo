@@ -131,25 +131,13 @@ Testé
 non_connùe
 ';
 
-$result_errors{'manual_simple_latin1_with_error'} = [
-  {
-    'error_line' => "warning: undefined flag: non_conn\x{f9}e
-",
-    'file_name' => 'manual_simple_latin1_with_error.texi',
-    'line_nr' => 13,
-    'text' => "undefined flag: non_conn\x{f9}e",
-    'type' => 'warning'
-  },
-  {
-    'error_line' => "warning: node `\x{e9}sseul\x{e9}' unreferenced
-",
-    'file_name' => 'manual_simple_latin1_with_error.texi',
-    'line_nr' => 8,
-    'text' => "node `\x{e9}sseul\x{e9}' unreferenced",
-    'type' => 'warning'
-  }
-];
+$result_errors{'manual_simple_latin1_with_error'} = '* W manual_simple_latin1_with_error.texi:l13|undefined flag: non_connùe
+ warning: undefined flag: non_connùe
 
+* W manual_simple_latin1_with_error.texi:l8|node `ésseulé\' unreferenced
+ warning: node `ésseulé\' unreferenced
+
+';
 
 $result_nodes_list{'manual_simple_latin1_with_error'} = '1|Top
  associated_section: Testé

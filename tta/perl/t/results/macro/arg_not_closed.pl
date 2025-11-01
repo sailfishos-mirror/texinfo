@@ -52,16 +52,10 @@ $result_texts{'arg_not_closed'} = '
 call foo
 ';
 
-$result_errors{'arg_not_closed'} = [
-  {
-    'error_line' => '@foo missing closing brace
-',
-    'line_nr' => 5,
-    'text' => '@foo missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'arg_not_closed'} = '* E l5|@foo missing closing brace
+ @foo missing closing brace
 
+';
 
 $result_nodes_list{'arg_not_closed'} = '';
 

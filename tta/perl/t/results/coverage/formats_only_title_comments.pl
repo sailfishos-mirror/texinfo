@@ -229,44 +229,22 @@ before first vtable
 before first multitable
 ';
 
-$result_errors{'formats_only_title_comments'} = [
-  {
-    'error_line' => 'warning: @itemize has text but no @item
-',
-    'line_nr' => 1,
-    'text' => '@itemize has text but no @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @enumerate has text but no @item
-',
-    'line_nr' => 6,
-    'text' => '@enumerate has text but no @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @table has text but no @item
-',
-    'line_nr' => 11,
-    'text' => '@table has text but no @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @vtable has text but no @item
-',
-    'line_nr' => 16,
-    'text' => '@vtable has text but no @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @multitable has text but no @item
-',
-    'line_nr' => 20,
-    'text' => '@multitable has text but no @item',
-    'type' => 'warning'
-  }
-];
+$result_errors{'formats_only_title_comments'} = '* W l1|@itemize has text but no @item
+ warning: @itemize has text but no @item
 
+* W l6|@enumerate has text but no @item
+ warning: @enumerate has text but no @item
+
+* W l11|@table has text but no @item
+ warning: @table has text but no @item
+
+* W l16|@vtable has text but no @item
+ warning: @vtable has text but no @item
+
+* W l20|@multitable has text but no @item
+ warning: @multitable has text but no @item
+
+';
 
 $result_nodes_list{'formats_only_title_comments'} = '';
 

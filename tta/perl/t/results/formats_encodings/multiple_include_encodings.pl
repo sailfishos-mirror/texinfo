@@ -921,33 +921,16 @@ overlap。
 
 ';
 
-$result_errors{'multiple_include_encodings'} = [
-  {
-    'error_line' => 'warning: encoding `EUC-CN\' is not a canonical texinfo encoding
-',
-    'file_name' => 'documentdescription_EUC_CN.texi',
-    'line_nr' => 1,
-    'text' => 'encoding `EUC-CN\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: encoding `shift_jis\' is not a canonical texinfo encoding
-',
-    'file_name' => 'chapter_japanese_shift_jis.texi',
-    'line_nr' => 1,
-    'text' => 'encoding `shift_jis\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: encoding `EUC-CN\' is not a canonical texinfo encoding
-',
-    'file_name' => 'chapter_chinese_mixed_with_en_EUC_CN.texi',
-    'line_nr' => 1,
-    'text' => 'encoding `EUC-CN\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  }
-];
+$result_errors{'multiple_include_encodings'} = '* W documentdescription_EUC_CN.texi:l1|encoding `EUC-CN\' is not a canonical texinfo encoding
+ warning: encoding `EUC-CN\' is not a canonical texinfo encoding
 
+* W chapter_japanese_shift_jis.texi:l1|encoding `shift_jis\' is not a canonical texinfo encoding
+ warning: encoding `shift_jis\' is not a canonical texinfo encoding
+
+* W chapter_chinese_mixed_with_en_EUC_CN.texi:l1|encoding `EUC-CN\' is not a canonical texinfo encoding
+ warning: encoding `EUC-CN\' is not a canonical texinfo encoding
+
+';
 
 $result_nodes_list{'multiple_include_encodings'} = '1|Top
  associated_section: include files with multiple encodings

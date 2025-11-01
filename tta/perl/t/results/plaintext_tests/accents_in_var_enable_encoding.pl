@@ -50,8 +50,7 @@ $result_texts{'accents_in_var_enable_encoding'} = '
 AAc, r( e`.
 ';
 
-$result_errors{'accents_in_var_enable_encoding'} = [];
-
+$result_errors{'accents_in_var_enable_encoding'} = '';
 
 $result_nodes_list{'accents_in_var_enable_encoding'} = '';
 

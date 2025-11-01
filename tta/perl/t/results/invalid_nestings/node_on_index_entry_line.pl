@@ -86,30 +86,16 @@ $result_texts{'node_on_index_entry_line'} = '
 Content
 ';
 
-$result_errors{'node_on_index_entry_line'} = [
-  {
-    'error_line' => 'warning: @node should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@node should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node should not appear on @cindex line
-',
-    'line_nr' => 2,
-    'text' => '@node should not appear on @cindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_on_index_entry_line'} = '* W l2|@node should only appear at the beginning of a line
+ warning: @node should only appear at the beginning of a line
 
+* W l2|@node should not appear on @cindex line
+ warning: @node should not appear on @cindex line
+
+* W l2|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 $result_nodes_list{'node_on_index_entry_line'} = '1|a
  node_directions:

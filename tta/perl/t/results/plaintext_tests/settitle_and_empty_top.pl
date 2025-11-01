@@ -41,8 +41,7 @@ $result_texts{'settitle_and_empty_top'} = '
 
 ';
 
-$result_errors{'settitle_and_empty_top'} = [];
-
+$result_errors{'settitle_and_empty_top'} = '';
 
 $result_nodes_list{'settitle_and_empty_top'} = '';
 

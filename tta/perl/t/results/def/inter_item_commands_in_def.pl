@@ -187,44 +187,22 @@ cmde2: id i ule truc
 In deff item.
 ';
 
-$result_errors{'inter_item_commands_in_def'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 4,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 6,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 7,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'inter_item_commands_in_def'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* W l4|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l5|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W l6|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l7|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 $result_nodes_list{'inter_item_commands_in_def'} = '';
 

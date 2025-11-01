@@ -36,8 +36,7 @@ $result_texis{'alias_zero'} = '@alias 0 = strong
 $result_texts{'alias_zero'} = 'g.
 ';
 
-$result_errors{'alias_zero'} = [];
-
+$result_errors{'alias_zero'} = '';
 
 $result_nodes_list{'alias_zero'} = '';
 

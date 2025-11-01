@@ -70,23 +70,13 @@ $result_texts{'empty_added_index_entry'} = '
 
 ';
 
-$result_errors{'empty_added_index_entry'} = [
-  {
-    'error_line' => 'warning: @myindex missing argument
-',
-    'line_nr' => 6,
-    'text' => '@myindex missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 4,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_added_index_entry'} = '* W l6|@myindex missing argument
+ warning: @myindex missing argument
 
+* W l4|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_indices{'empty_added_index_entry'} = 'cp
 fn C

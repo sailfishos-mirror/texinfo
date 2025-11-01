@@ -128,8 +128,7 @@ In top
 in chap
 ';
 
-$result_errors{'titlepage_in_top_node'} = [];
-
+$result_errors{'titlepage_in_top_node'} = '';
 
 $result_nodes_list{'titlepage_in_top_node'} = '1|Top
  associated_section: top sectionning

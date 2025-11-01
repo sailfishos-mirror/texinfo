@@ -33,8 +33,7 @@ $result_texts{'top_no_argument_and_content'} = '
 A.
 ';
 
-$result_errors{'top_no_argument_and_content'} = [];
-
+$result_errors{'top_no_argument_and_content'} = '';
 
 $result_nodes_list{'top_no_argument_and_content'} = '';
 

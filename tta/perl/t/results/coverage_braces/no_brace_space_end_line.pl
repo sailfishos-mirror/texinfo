@@ -43,37 +43,19 @@ $result_texts{'no_brace_space_end_line'} = 'c.
 TeXtext
 Arg.';
 
-$result_errors{'no_brace_space_end_line'} = [
-  {
-    'error_line' => 'warning: command `@TeX\' must not be followed by new line
-',
-    'line_nr' => 3,
-    'text' => 'command `@TeX\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@TeX expected braces
-',
-    'line_nr' => 4,
-    'text' => '@TeX expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: command `@code\' must not be followed by new line
-',
-    'line_nr' => 5,
-    'text' => 'command `@code\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@code expected braces
-',
-    'line_nr' => 6,
-    'text' => '@code expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'no_brace_space_end_line'} = '* W l3|command `@TeX\' must not be followed by new line
+ warning: command `@TeX\' must not be followed by new line
 
+* E l4|@TeX expected braces
+ @TeX expected braces
+
+* W l5|command `@code\' must not be followed by new line
+ warning: command `@code\' must not be followed by new line
+
+* E l6|@code expected braces
+ @code expected braces
+
+';
 
 $result_nodes_list{'no_brace_space_end_line'} = '';
 

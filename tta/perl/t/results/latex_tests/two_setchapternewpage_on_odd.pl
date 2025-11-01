@@ -43,16 +43,10 @@ $result_texis{'two_setchapternewpage_on_odd'} = '@setchapternewpage on
 $result_texts{'two_setchapternewpage_on_odd'} = '
 ';
 
-$result_errors{'two_setchapternewpage_on_odd'} = [
-  {
-    'error_line' => 'warning: multiple @setchapternewpage
-',
-    'line_nr' => 3,
-    'text' => 'multiple @setchapternewpage',
-    'type' => 'warning'
-  }
-];
+$result_errors{'two_setchapternewpage_on_odd'} = '* W l3|multiple @setchapternewpage
+ warning: multiple @setchapternewpage
 
+';
 
 $result_nodes_list{'two_setchapternewpage_on_odd'} = '';
 

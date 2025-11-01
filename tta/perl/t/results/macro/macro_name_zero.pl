@@ -47,8 +47,7 @@ $result_texts{'macro_name_zero'} = '
 in macro:
 ';
 
-$result_errors{'macro_name_zero'} = [];
-
+$result_errors{'macro_name_zero'} = '';
 
 $result_nodes_list{'macro_name_zero'} = '';
 

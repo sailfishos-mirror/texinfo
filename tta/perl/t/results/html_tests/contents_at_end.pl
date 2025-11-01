@@ -153,8 +153,7 @@ The chapter
 
 ';
 
-$result_errors{'contents_at_end'} = [];
-
+$result_errors{'contents_at_end'} = '';
 
 $result_nodes_list{'contents_at_end'} = '1|Top
  associated_section: Contents at end

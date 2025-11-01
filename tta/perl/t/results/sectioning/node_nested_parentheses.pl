@@ -120,16 +120,10 @@ $result_texts{'node_nested_parentheses'} = '
 * ())) error::
 ';
 
-$result_errors{'node_nested_parentheses'} = [
-  {
-    'error_line' => '@menu reference to nonexistent node `(@code{)))} error\'
-',
-    'line_nr' => 7,
-    'text' => '@menu reference to nonexistent node `(@code{)))} error\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'node_nested_parentheses'} = '* E l7|@menu reference to nonexistent node `(@code{)))} error\'
+ @menu reference to nonexistent node `(@code{)))} error\'
 
+';
 
 $result_nodes_list{'node_nested_parentheses'} = '1|first
  menus:

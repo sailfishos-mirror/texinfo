@@ -122,8 +122,7 @@ $result_texts{'fractions_rounding'} = 'In contents            In contents       
 @chapter       @unnumbered          @appendix @chapheading
 ';
 
-$result_errors{'fractions_rounding'} = [];
-
+$result_errors{'fractions_rounding'} = '';
 
 $result_nodes_list{'fractions_rounding'} = '';
 

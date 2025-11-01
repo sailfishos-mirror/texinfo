@@ -47,8 +47,7 @@ $result_texts{'empty_value_in_line'} = '
 1
 ';
 
-$result_errors{'empty_value_in_line'} = [];
-
+$result_errors{'empty_value_in_line'} = '';
 
 $result_nodes_list{'empty_value_in_line'} = '';
 

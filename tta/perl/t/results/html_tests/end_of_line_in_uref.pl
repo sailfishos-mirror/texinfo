@@ -29,8 +29,7 @@ Spelling, terminology and markup} section.';
 $result_texts{'end_of_line_in_uref'} = 'See the https://gcc.gnu.org/codingconventions.html#Spelling
 Spelling (terminology and markup) section.';
 
-$result_errors{'end_of_line_in_uref'} = [];
-
+$result_errors{'end_of_line_in_uref'} = '';
 
 $result_nodes_list{'end_of_line_in_uref'} = '';
 

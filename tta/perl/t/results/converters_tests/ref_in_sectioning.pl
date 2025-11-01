@@ -680,23 +680,13 @@ for example node (node) (Top)
 
 ';
 
-$result_errors{'ref_in_sectioning'} = [
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 33,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref to `@code{node}\', different from node name `node\'
-',
-    'line_nr' => 21,
-    'text' => '@ref to `@code{node}\', different from node name `node\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'ref_in_sectioning'} = '* W l33|@inforef is obsolete
+ warning: @inforef is obsolete
 
+* W l21|@ref to `@code{node}\', different from node name `node\'
+ warning: @ref to `@code{node}\', different from node name `node\'
+
+';
 
 $result_nodes_list{'ref_in_sectioning'} = '1|Top
  associated_section: for example @ref{node} (@pxref{node}) (@pxref{Top,,, file, Manual})

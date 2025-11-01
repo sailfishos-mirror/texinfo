@@ -102,30 +102,16 @@ $result_texts{'heading_command_in_commands'} = '
 
 ';
 
-$result_errors{'heading_command_in_commands'} = [
-  {
-    'error_line' => 'warning: @everyheading should not appear in @code
-',
-    'line_nr' => 3,
-    'text' => '@everyheading should not appear in @code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @everyheading
-',
-    'line_nr' => 7,
-    'text' => 'multiple @everyheading',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @everyheading
-',
-    'line_nr' => 11,
-    'text' => 'multiple @everyheading',
-    'type' => 'warning'
-  }
-];
+$result_errors{'heading_command_in_commands'} = '* W l3|@everyheading should not appear in @code
+ warning: @everyheading should not appear in @code
 
+* W l7|multiple @everyheading
+ warning: multiple @everyheading
+
+* W l11|multiple @everyheading
+ warning: multiple @everyheading
+
+';
 
 $result_nodes_list{'heading_command_in_commands'} = '';
 

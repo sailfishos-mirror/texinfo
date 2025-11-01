@@ -1686,8 +1686,7 @@ gy. aaa
 gz. aaa
 ';
 
-$result_errors{'enumerate_letters'} = [];
-
+$result_errors{'enumerate_letters'} = '';
 
 $result_nodes_list{'enumerate_letters'} = '';
 

@@ -286,25 +286,13 @@ $result_texts{'only_special_spaces_node'} = 'top
 
 ';
 
-$result_errors{'only_special_spaces_node'} = [
-  {
-    'error_line' => 'empty argument in @node
-',
-    'file_name' => 'only_special_spaces_node.texi',
-    'line_nr' => 8,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty argument in @node
-',
-    'file_name' => 'only_special_spaces_node.texi',
-    'line_nr' => 11,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  }
-];
+$result_errors{'only_special_spaces_node'} = '* E only_special_spaces_node.texi:l8|empty argument in @node
+ empty argument in @node
 
+* E only_special_spaces_node.texi:l11|empty argument in @node
+ empty argument in @node
+
+';
 
 $result_nodes_list{'only_special_spaces_node'} = '1|Top
  associated_section: top

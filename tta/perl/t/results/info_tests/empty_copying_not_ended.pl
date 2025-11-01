@@ -25,16 +25,10 @@ $result_texis{'empty_copying_not_ended'} = '
 $result_texts{'empty_copying_not_ended'} = '
 ';
 
-$result_errors{'empty_copying_not_ended'} = [
-  {
-    'error_line' => 'no matching `@end copying\'
-',
-    'line_nr' => 2,
-    'text' => 'no matching `@end copying\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_copying_not_ended'} = '* E l2|no matching `@end copying\'
+ no matching `@end copying\'
 
+';
 
 $result_nodes_list{'empty_copying_not_ended'} = '';
 

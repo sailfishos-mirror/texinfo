@@ -44,23 +44,13 @@ $result_texis{'unknown_then_known_index_entry'} = ' someindex entry.
 $result_texts{'unknown_then_known_index_entry'} = 'someindex entry.
 ';
 
-$result_errors{'unknown_then_known_index_entry'} = [
-  {
-    'error_line' => 'unknown command `someindex\'
-',
-    'line_nr' => 1,
-    'text' => 'unknown command `someindex\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `some\' outside of any node
-',
-    'line_nr' => 3,
-    'text' => 'entry for index `some\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unknown_then_known_index_entry'} = '* E l1|unknown command `someindex\'
+ unknown command `someindex\'
 
+* W l3|entry for index `some\' outside of any node
+ warning: entry for index `some\' outside of any node
+
+';
 
 $result_indices{'unknown_then_known_index_entry'} = 'cp
 fn C

@@ -28,8 +28,7 @@ $result_texis{'no_titlepage_and_setchapternewpage_odd'} = '@setchapternewpage od
 
 $result_texts{'no_titlepage_and_setchapternewpage_odd'} = '';
 
-$result_errors{'no_titlepage_and_setchapternewpage_odd'} = [];
-
+$result_errors{'no_titlepage_and_setchapternewpage_odd'} = '';
 
 $result_nodes_list{'no_titlepage_and_setchapternewpage_odd'} = '';
 

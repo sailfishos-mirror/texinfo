@@ -711,105 +711,43 @@ Text without blank line 2
 After table.
 ';
 
-$result_errors{'table_nested'} = [
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 27,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 27,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 27,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 27,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 32,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 32,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 32,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 32,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 38,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 38,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 38,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
-',
-    'line_nr' => 38,
-    'macro' => 'myvtable',
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'table_nested'} = '* W l27:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
 
+* W l27:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l27:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l27:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l32:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l32:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l32:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l32:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l38:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l38:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l38:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+* W l38:@myvtable|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node (possibly involving @myvtable)
+
+';
 
 $result_nodes_list{'table_nested'} = '';
 

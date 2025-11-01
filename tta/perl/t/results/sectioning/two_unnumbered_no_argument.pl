@@ -36,23 +36,13 @@ $result_texis{'two_unnumbered_no_argument'} = '@unnumbered
 
 $result_texts{'two_unnumbered_no_argument'} = '';
 
-$result_errors{'two_unnumbered_no_argument'} = [
-  {
-    'error_line' => 'warning: @unnumbered missing argument
-',
-    'line_nr' => 1,
-    'text' => '@unnumbered missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @unnumbered missing argument
-',
-    'line_nr' => 2,
-    'text' => '@unnumbered missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'two_unnumbered_no_argument'} = '* W l1|@unnumbered missing argument
+ warning: @unnumbered missing argument
 
+* W l2|@unnumbered missing argument
+ warning: @unnumbered missing argument
+
+';
 
 $result_nodes_list{'two_unnumbered_no_argument'} = '';
 

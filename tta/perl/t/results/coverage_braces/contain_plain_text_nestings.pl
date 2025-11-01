@@ -248,65 +248,31 @@ Top text
 
 ';
 
-$result_errors{'contain_plain_text_nestings'} = [
-  {
-    'error_line' => 'warning: @code should not appear in @hyphenation
-',
-    'line_nr' => 8,
-    'text' => '@code should not appear in @hyphenation',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @code should not appear in @key
-',
-    'line_nr' => 9,
-    'text' => '@code should not appear in @key',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @code should not appear in @sortas
-',
-    'line_nr' => 10,
-    'text' => '@code should not appear in @sortas',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref should not appear anywhere inside @w
-',
-    'line_nr' => 13,
-    'text' => '@ref should not appear anywhere inside @w',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref should not appear in @hyphenation
-',
-    'line_nr' => 14,
-    'text' => '@ref should not appear in @hyphenation',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref should not appear in @key
-',
-    'line_nr' => 15,
-    'text' => '@ref should not appear in @key',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref should not appear in @sortas
-',
-    'line_nr' => 16,
-    'text' => '@ref should not appear in @sortas',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref should not appear on @cindex line
-',
-    'line_nr' => 16,
-    'text' => '@ref should not appear on @cindex line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'contain_plain_text_nestings'} = '* W l8|@code should not appear in @hyphenation
+ warning: @code should not appear in @hyphenation
 
+* W l9|@code should not appear in @key
+ warning: @code should not appear in @key
+
+* W l10|@code should not appear in @sortas
+ warning: @code should not appear in @sortas
+
+* W l13|@ref should not appear anywhere inside @w
+ warning: @ref should not appear anywhere inside @w
+
+* W l14|@ref should not appear in @hyphenation
+ warning: @ref should not appear in @hyphenation
+
+* W l15|@ref should not appear in @key
+ warning: @ref should not appear in @key
+
+* W l16|@ref should not appear in @sortas
+ warning: @ref should not appear in @sortas
+
+* W l16|@ref should not appear on @cindex line
+ warning: @ref should not appear on @cindex line
+
+';
 
 $result_nodes_list{'contain_plain_text_nestings'} = '1|Top
  associated_section: top

@@ -70,8 +70,7 @@ second itemx bbbbbbbbbbbbbbbbbbbbbbbbbbbbb b b b b b b b b b b b b b
 Text.
 ';
 
-$result_errors{'long_item'} = [];
-
+$result_errors{'long_item'} = '';
 
 $result_nodes_list{'long_item'} = '';
 

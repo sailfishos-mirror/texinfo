@@ -111,23 +111,13 @@ in chapter
 
 ';
 
-$result_errors{'section_before_after_top_node_last_node'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'line_nr' => 4,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `node after\' not in menu
-',
-    'line_nr' => 10,
-    'text' => 'node `node after\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'section_before_after_top_node_last_node'} = '* W l4|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
 
+* W l10|node `node after\' not in menu
+ warning: node `node after\' not in menu
+
+';
 
 $result_nodes_list{'section_before_after_top_node_last_node'} = '1|Top
  associated_section: top section

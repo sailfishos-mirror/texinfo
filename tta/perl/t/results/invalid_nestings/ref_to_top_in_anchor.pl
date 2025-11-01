@@ -42,16 +42,10 @@ $result_texis{'ref_to_top_in_anchor'} = '@node Top
 
 $result_texts{'ref_to_top_in_anchor'} = '';
 
-$result_errors{'ref_to_top_in_anchor'} = [
-  {
-    'error_line' => 'warning: @ref should not appear anywhere inside @anchor
-',
-    'line_nr' => 2,
-    'text' => '@ref should not appear anywhere inside @anchor',
-    'type' => 'warning'
-  }
-];
+$result_errors{'ref_to_top_in_anchor'} = '* W l2|@ref should not appear anywhere inside @anchor
+ warning: @ref should not appear anywhere inside @anchor
 
+';
 
 $result_nodes_list{'ref_to_top_in_anchor'} = '1|Top
 ';

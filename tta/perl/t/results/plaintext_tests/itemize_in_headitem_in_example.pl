@@ -180,44 +180,22 @@ hhh
 
 ';
 
-$result_errors{'itemize_in_headitem_in_example'} = [
-  {
-    'error_line' => '@headitem not meaningful inside `@itemize\' block
-',
-    'line_nr' => 3,
-    'text' => '@headitem not meaningful inside `@itemize\' block',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @itemize has text but no @item
-',
-    'line_nr' => 2,
-    'text' => '@itemize has text but no @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@headitem not meaningful inside `@itemize\' block
-',
-    'line_nr' => 8,
-    'text' => '@headitem not meaningful inside `@itemize\' block',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@headitem not meaningful inside `@itemize\' block
-',
-    'line_nr' => 12,
-    'text' => '@headitem not meaningful inside `@itemize\' block',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@headitem not meaningful inside `@itemize\' block
-',
-    'line_nr' => 18,
-    'text' => '@headitem not meaningful inside `@itemize\' block',
-    'type' => 'error'
-  }
-];
+$result_errors{'itemize_in_headitem_in_example'} = '* E l3|@headitem not meaningful inside `@itemize\' block
+ @headitem not meaningful inside `@itemize\' block
 
+* W l2|@itemize has text but no @item
+ warning: @itemize has text but no @item
+
+* E l8|@headitem not meaningful inside `@itemize\' block
+ @headitem not meaningful inside `@itemize\' block
+
+* E l12|@headitem not meaningful inside `@itemize\' block
+ @headitem not meaningful inside `@itemize\' block
+
+* E l18|@headitem not meaningful inside `@itemize\' block
+ @headitem not meaningful inside `@itemize\' block
+
+';
 
 $result_nodes_list{'itemize_in_headitem_in_example'} = '';
 

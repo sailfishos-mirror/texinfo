@@ -83,37 +83,19 @@ in center in phoo
 
 ';
 
-$result_errors{'definfoenclose_nestings'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @phoo should not appear in @code
-',
-    'line_nr' => 3,
-    'text' => '@phoo should not appear in @code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@phoo missing closing brace
-',
-    'line_nr' => 7,
-    'text' => '@phoo missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 9,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'definfoenclose_nestings'} = '* W l1|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+* W l3|@phoo should not appear in @code
+ warning: @phoo should not appear in @code
+
+* E l7|@phoo missing closing brace
+ @phoo missing closing brace
+
+* E l9|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'definfoenclose_nestings'} = '';
 

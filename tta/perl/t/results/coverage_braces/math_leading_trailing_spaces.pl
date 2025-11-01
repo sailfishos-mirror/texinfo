@@ -22,8 +22,7 @@ $result_texis{'math_leading_trailing_spaces'} = '@math{ a = b }';
 
 $result_texts{'math_leading_trailing_spaces'} = 'a = b ';
 
-$result_errors{'math_leading_trailing_spaces'} = [];
-
+$result_errors{'math_leading_trailing_spaces'} = '';
 
 $result_nodes_list{'math_leading_trailing_spaces'} = '';
 

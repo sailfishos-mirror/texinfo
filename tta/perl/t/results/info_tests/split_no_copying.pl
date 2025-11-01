@@ -161,8 +161,7 @@ First chapter.
 
 ';
 
-$result_errors{'split_no_copying'} = [];
-
+$result_errors{'split_no_copying'} = '';
 
 $result_nodes_list{'split_no_copying'} = '1|Top
  associated_section: Top

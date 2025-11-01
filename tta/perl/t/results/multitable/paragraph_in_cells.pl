@@ -94,8 +94,7 @@ begin tab
 new paragraph in tab.
 ';
 
-$result_errors{'paragraph_in_cells'} = [];
-
+$result_errors{'paragraph_in_cells'} = '';
 
 $result_nodes_list{'paragraph_in_cells'} = '';
 

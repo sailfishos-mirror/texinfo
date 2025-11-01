@@ -30,8 +30,7 @@ $result_texts{'sole_image'} = 'aa
 next para
 ';
 
-$result_errors{'sole_image'} = [];
-
+$result_errors{'sole_image'} = '';
 
 $result_nodes_list{'sole_image'} = '';
 

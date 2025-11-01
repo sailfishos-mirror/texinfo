@@ -58,8 +58,7 @@ $result_texts{'macro_end_call_in_ignored_inlinefmt'} = '
 Para . After.
 ';
 
-$result_errors{'macro_end_call_in_ignored_inlinefmt'} = [];
-
+$result_errors{'macro_end_call_in_ignored_inlinefmt'} = '';
 
 $result_nodes_list{'macro_end_call_in_ignored_inlinefmt'} = '';
 

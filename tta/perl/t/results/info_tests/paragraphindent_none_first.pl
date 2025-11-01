@@ -55,8 +55,7 @@ second
 after none
 ';
 
-$result_errors{'paragraphindent_none_first'} = [];
-
+$result_errors{'paragraphindent_none_first'} = '';
 
 $result_nodes_list{'paragraphindent_none_first'} = '';
 

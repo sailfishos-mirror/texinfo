@@ -122,8 +122,7 @@ $result_texts{'spaces_in_args'} = '
 category: a A  d   B    rest
 ';
 
-$result_errors{'spaces_in_args'} = [];
-
+$result_errors{'spaces_in_args'} = '';
 
 $result_nodes_list{'spaces_in_args'} = '';
 

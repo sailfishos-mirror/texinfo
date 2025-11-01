@@ -163,8 +163,7 @@ $$
 
 ';
 
-$result_errors{'raw_in_example'} = [];
-
+$result_errors{'raw_in_example'} = '';
 
 $result_nodes_list{'raw_in_example'} = '';
 

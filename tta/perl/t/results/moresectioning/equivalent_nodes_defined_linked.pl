@@ -188,45 +188,22 @@ Ref to node chap.
 Ref to @samp{chap} chap.
 ';
 
-$result_errors{'equivalent_nodes_defined_linked'} = [
-  {
-    'error_line' => '@float `@samp{chap}\' previously defined
-',
-    'line_nr' => 9,
-    'text' => '@float `@samp{chap}\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'line_nr' => 7,
-    'text' => 'here is the previous definition as @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @ref to `@samp{chap}\', different from node name `chap\'
-',
-    'line_nr' => 17,
-    'text' => '@ref to `@samp{chap}\', different from node name `chap\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: Next pointer `@asis{chap}\' (for node `Top\') different from node name `chap\'
-',
-    'line_nr' => 1,
-    'text' => 'Next pointer `@asis{chap}\' (for node `Top\') different from node name `chap\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `@strong{chap}\' different from node name `chap\'
-',
-    'line_nr' => 4,
-    'text' => '@menu entry node name `@strong{chap}\' different from node name `chap\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'equivalent_nodes_defined_linked'} = '* E l9|@float `@samp{chap}\' previously defined
+ @float `@samp{chap}\' previously defined
 
+* EC l7|here is the previous definition as @node
+ here is the previous definition as @node
+
+* W l17|@ref to `@samp{chap}\', different from node name `chap\'
+ warning: @ref to `@samp{chap}\', different from node name `chap\'
+
+* W l1|Next pointer `@asis{chap}\' (for node `Top\') different from node name `chap\'
+ warning: Next pointer `@asis{chap}\' (for node `Top\') different from node name `chap\'
+
+* W l4|@menu entry node name `@strong{chap}\' different from node name `chap\'
+ warning: @menu entry node name `@strong{chap}\' different from node name `chap\'
+
+';
 
 $result_floats{'equivalent_nodes_defined_linked'} = 'Figure: 1
  F1: {chap}

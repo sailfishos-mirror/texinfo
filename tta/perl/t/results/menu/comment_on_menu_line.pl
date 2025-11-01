@@ -108,8 +108,7 @@ $result_texts{'comment_on_menu_line'} = '
 *******
 ';
 
-$result_errors{'comment_on_menu_line'} = [];
-
+$result_errors{'comment_on_menu_line'} = '';
 
 $result_nodes_list{'comment_on_menu_line'} = '1|Top
  associated_section: 1 first

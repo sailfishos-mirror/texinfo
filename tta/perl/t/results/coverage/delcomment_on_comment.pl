@@ -44,8 +44,7 @@ some text @c a comment with del next line
 $result_texts{'delcomment_on_comment'} = 'some text 
 ';
 
-$result_errors{'delcomment_on_comment'} = [];
-
+$result_errors{'delcomment_on_comment'} = '';
 
 $result_nodes_list{'delcomment_on_comment'} = '';
 

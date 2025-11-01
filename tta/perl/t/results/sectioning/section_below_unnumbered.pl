@@ -225,8 +225,7 @@ Should be unnumbered.
 
 ';
 
-$result_errors{'section_below_unnumbered'} = [];
-
+$result_errors{'section_below_unnumbered'} = '';
 
 $result_nodes_list{'section_below_unnumbered'} = '1|Top
  associated_section: Top

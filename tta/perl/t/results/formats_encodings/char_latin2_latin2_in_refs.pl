@@ -204,8 +204,7 @@ char latin2 latin2 in refs
 
 ';
 
-$result_errors{'char_latin2_latin2_in_refs'} = [];
-
+$result_errors{'char_latin2_latin2_in_refs'} = '';
 
 $result_nodes_list{'char_latin2_latin2_in_refs'} = '1|Top
  associated_section: char latin2 latin2 in refs

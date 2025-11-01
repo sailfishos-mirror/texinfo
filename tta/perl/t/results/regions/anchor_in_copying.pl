@@ -129,16 +129,10 @@ Copying information.
 
 ';
 
-$result_errors{'anchor_in_copying'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 11,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'anchor_in_copying'} = '* W l11|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'anchor_in_copying'} = '1|Top
  node_directions:

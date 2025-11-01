@@ -58,23 +58,13 @@ $result_texis{'empty_node'} = '@node
 $result_texts{'empty_node'} = '
 ';
 
-$result_errors{'empty_node'} = [
-  {
-    'error_line' => 'empty argument in @node
-',
-    'line_nr' => 1,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty argument in @node
-',
-    'line_nr' => 3,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_node'} = '* E l1|empty argument in @node
+ empty argument in @node
 
+* E l3|empty argument in @node
+ empty argument in @node
+
+';
 
 $result_nodes_list{'empty_node'} = '';
 

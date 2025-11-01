@@ -99,16 +99,10 @@ bb
 
 ';
 
-$result_errors{'texinfo_command_alias'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 9,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'texinfo_command_alias'} = '* W l9|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+';
 
 $result_nodes_list{'texinfo_command_alias'} = '';
 

@@ -59,8 +59,7 @@ $result_texts{'simple'} = 'Type, Label
 In float.
 ';
 
-$result_errors{'simple'} = [];
-
+$result_errors{'simple'} = '';
 
 $result_floats{'simple'} = 'Type: 1
  F1: {Label}

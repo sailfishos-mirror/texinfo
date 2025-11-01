@@ -130,8 +130,7 @@ In float
 
 ';
 
-$result_errors{'block_commands'} = [];
-
+$result_errors{'block_commands'} = '';
 
 $result_floats{'block_commands'} = 'a float: 1
  F1: {b-float}

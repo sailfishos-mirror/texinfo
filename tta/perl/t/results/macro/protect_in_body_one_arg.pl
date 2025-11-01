@@ -65,8 +65,7 @@ $result_texts{'protect_in_body_one_arg'} = '
 result: f\\irst arg protected \\ -> \\arg1\\ 
 ';
 
-$result_errors{'protect_in_body_one_arg'} = [];
-
+$result_errors{'protect_in_body_one_arg'} = '';
 
 $result_nodes_list{'protect_in_body_one_arg'} = '';
 

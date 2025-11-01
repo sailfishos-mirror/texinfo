@@ -174,8 +174,7 @@ $result_texts{'menu_entry_name_comment'} = '* a: (f)b
 * a: (f)b3c.c,    d
 ';
 
-$result_errors{'menu_entry_name_comment'} = [];
-
+$result_errors{'menu_entry_name_comment'} = '';
 
 $result_nodes_list{'menu_entry_name_comment'} = '';
 

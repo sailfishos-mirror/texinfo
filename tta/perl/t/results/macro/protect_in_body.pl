@@ -71,8 +71,7 @@ $result_texts{'protect_in_body'} = '
 the result: f\\irst arg protected \\ -> \\arg1\\ second arg  after macro.
 ';
 
-$result_errors{'protect_in_body'} = [];
-
+$result_errors{'protect_in_body'} = '';
 
 $result_nodes_list{'protect_in_body'} = '';
 

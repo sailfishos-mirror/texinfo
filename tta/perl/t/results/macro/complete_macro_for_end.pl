@@ -60,8 +60,7 @@ $result_texis{'complete_macro_for_end'} = '@macro theend
 $result_texts{'complete_macro_for_end'} = '
 ';
 
-$result_errors{'complete_macro_for_end'} = [];
-
+$result_errors{'complete_macro_for_end'} = '';
 
 $result_nodes_list{'complete_macro_for_end'} = '';
 

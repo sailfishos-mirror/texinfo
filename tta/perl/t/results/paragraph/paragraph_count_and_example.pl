@@ -45,8 +45,7 @@ $result_texts{'paragraph_count_and_example'} = 'in example
 After.
 ';
 
-$result_errors{'paragraph_count_and_example'} = [];
-
+$result_errors{'paragraph_count_and_example'} = '';
 
 $result_nodes_list{'paragraph_count_and_example'} = '';
 

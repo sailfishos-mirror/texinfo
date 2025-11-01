@@ -60,8 +60,7 @@ $result_texis{'info_ifinfo_ifnotplaintext'} = 'This will be in Info, but not pla
 $result_texts{'info_ifinfo_ifnotplaintext'} = 'This will be in Info, but not plain text.
 ';
 
-$result_errors{'info_ifinfo_ifnotplaintext'} = [];
-
+$result_errors{'info_ifinfo_ifnotplaintext'} = '';
 
 $result_nodes_list{'info_ifinfo_ifnotplaintext'} = '';
 

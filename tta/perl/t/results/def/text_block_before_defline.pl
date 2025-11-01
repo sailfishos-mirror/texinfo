@@ -213,16 +213,10 @@ an example
 a: b c d
 ';
 
-$result_errors{'text_block_before_defline'} = [
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 14,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  }
-];
+$result_errors{'text_block_before_defline'} = '* W l14|@menu in invalid context
+ warning: @menu in invalid context
 
+';
 
 $result_nodes_list{'text_block_before_defline'} = '1|Top
  associated_section: top

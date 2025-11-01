@@ -150,8 +150,7 @@ $result_texts{'letter_command_in_index'} = 'top
 
 ';
 
-$result_errors{'letter_command_in_index'} = [];
-
+$result_errors{'letter_command_in_index'} = '';
 
 $result_nodes_list{'letter_command_in_index'} = '1|Top
  associated_section: top

@@ -86,24 +86,13 @@ first:
 second: | , { 
 ';
 
-$result_errors{'arobase_brace_in_macro_call'} = [
-  {
-    'error_line' => '@| should only appear in heading or footing (possibly involving @simplemac)
-',
-    'line_nr' => 8,
-    'macro' => 'simplemac',
-    'text' => '@| should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 8,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'arobase_brace_in_macro_call'} = '* E l8:@simplemac|@| should only appear in heading or footing
+ @| should only appear in heading or footing (possibly involving @simplemac)
 
+* E l8|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'arobase_brace_in_macro_call'} = '';
 

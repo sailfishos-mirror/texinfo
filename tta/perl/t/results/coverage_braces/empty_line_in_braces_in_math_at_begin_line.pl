@@ -35,8 +35,7 @@ $result_texts{'empty_line_in_braces_in_math_at_begin_line'} = 'a
 } c
 ';
 
-$result_errors{'empty_line_in_braces_in_math_at_begin_line'} = [];
-
+$result_errors{'empty_line_in_braces_in_math_at_begin_line'} = '';
 
 $result_nodes_list{'empty_line_in_braces_in_math_at_begin_line'} = '';
 

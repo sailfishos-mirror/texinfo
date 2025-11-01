@@ -116,8 +116,7 @@ text.
 *********
 ';
 
-$result_errors{'text_before_node'} = [];
-
+$result_errors{'text_before_node'} = '';
 
 $result_nodes_list{'text_before_node'} = '1|Top
  associated_section: top

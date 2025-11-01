@@ -110,8 +110,7 @@ xml inlinefmtifelse
 else html
 ';
 
-$result_errors{'inline_commands'} = [];
-
+$result_errors{'inline_commands'} = '';
 
 $result_nodes_list{'inline_commands'} = '';
 

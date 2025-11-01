@@ -112,16 +112,10 @@ $result_texts{'seeentry_no_braces'} = 'top
 
 ';
 
-$result_errors{'seeentry_no_braces'} = [
-  {
-    'error_line' => '@seeentry expected braces
-',
-    'line_nr' => 9,
-    'text' => '@seeentry expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'seeentry_no_braces'} = '* E l9|@seeentry expected braces
+ @seeentry expected braces
 
+';
 
 $result_nodes_list{'seeentry_no_braces'} = '1|Top
  associated_section: top

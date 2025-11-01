@@ -119,16 +119,10 @@ The 3rdis the Ir.
 
 ';
 
-$result_errors{'math'} = [
-  {
-    'error_line' => 'warning: @\\ should only appear in math context
-',
-    'line_nr' => 11,
-    'text' => '@\\ should only appear in math context',
-    'type' => 'warning'
-  }
-];
+$result_errors{'math'} = '* W l11|@\\ should only appear in math context
+ warning: @\\ should only appear in math context
 
+';
 
 $result_nodes_list{'math'} = '';
 

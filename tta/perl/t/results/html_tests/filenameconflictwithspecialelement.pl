@@ -116,8 +116,7 @@ Need 2 elements for separate footnotes.
 
 ';
 
-$result_errors{'filenameconflictwithspecialelement'} = [];
-
+$result_errors{'filenameconflictwithspecialelement'} = '';
 
 $result_nodes_list{'filenameconflictwithspecialelement'} = '1|Top
  associated_section: top

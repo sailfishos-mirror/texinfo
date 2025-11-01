@@ -50,16 +50,10 @@ $result_texis{'multitable_bracketed_prototype_not_closed_space_comment'} = '
 $result_texts{'multitable_bracketed_prototype_not_closed_space_comment'} = '
 ';
 
-$result_errors{'multitable_bracketed_prototype_not_closed_space_comment'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 2,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_bracketed_prototype_not_closed_space_comment'} = '* E l2|misplaced {
+ misplaced {
 
+';
 
 $result_nodes_list{'multitable_bracketed_prototype_not_closed_space_comment'} = '';
 

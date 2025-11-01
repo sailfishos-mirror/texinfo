@@ -44,23 +44,13 @@ $result_texts{'tab_item_in_example'} = 'in tab
 in item
 ';
 
-$result_errors{'tab_item_in_example'} = [
-  {
-    'error_line' => 'ignoring @tab outside of multitable
-',
-    'line_nr' => 2,
-    'text' => 'ignoring @tab outside of multitable',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 3,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  }
-];
+$result_errors{'tab_item_in_example'} = '* E l2|ignoring @tab outside of multitable
+ ignoring @tab outside of multitable
 
+* E l3|@item outside of table or list
+ @item outside of table or list
+
+';
 
 $result_nodes_list{'tab_item_in_example'} = '';
 

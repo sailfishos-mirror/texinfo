@@ -189,72 +189,34 @@ truc:
 : 
 ';
 
-$result_errors{'empty_def_arguments'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'line_nr' => 2,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @deffnx
-',
-    'line_nr' => 3,
-    'text' => 'missing category for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'line_nr' => 4,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'line_nr' => 5,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'line_nr' => 6,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'line_nr' => 7,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'line_nr' => 8,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'line_nr' => 9,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_def_arguments'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* W l2|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W l3|missing category for @deffnx
+ warning: missing category for @deffnx
+
+* W l4|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W l5|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W l6|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W l7|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W l8|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W l9|missing name for @deffnx
+ warning: missing name for @deffnx
+
+';
 
 $result_nodes_list{'empty_def_arguments'} = '';
 

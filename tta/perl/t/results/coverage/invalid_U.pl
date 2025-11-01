@@ -69,58 +69,28 @@ $result_texts{'invalid_U'} = ' z abc 9999999999999 110000 10FFFF
 0023 FFFD wxyz
 ';
 
-$result_errors{'invalid_U'} = [
-  {
-    'error_line' => '@U expected braces
-',
-    'line_nr' => 1,
-    'text' => '@U expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: no argument specified for @U
-',
-    'line_nr' => 1,
-    'text' => 'no argument specified for @U',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'non-hex digits in argument for @U: z
-',
-    'line_nr' => 1,
-    'text' => 'non-hex digits in argument for @U: z',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: fewer than four hex digits in argument for @U: abc
-',
-    'line_nr' => 1,
-    'text' => 'fewer than four hex digits in argument for @U: abc',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 9999999999999
-',
-    'line_nr' => 1,
-    'text' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 9999999999999',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 110000
-',
-    'line_nr' => 1,
-    'text' => 'argument for @U exceeds Unicode maximum 0x10FFFF: 110000',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'non-hex digits in argument for @U: wxyz
-',
-    'line_nr' => 2,
-    'text' => 'non-hex digits in argument for @U: wxyz',
-    'type' => 'error'
-  }
-];
+$result_errors{'invalid_U'} = '* E l1|@U expected braces
+ @U expected braces
 
+* W l1|no argument specified for @U
+ warning: no argument specified for @U
+
+* E l1|non-hex digits in argument for @U: z
+ non-hex digits in argument for @U: z
+
+* W l1|fewer than four hex digits in argument for @U: abc
+ warning: fewer than four hex digits in argument for @U: abc
+
+* E l1|argument for @U exceeds Unicode maximum 0x10FFFF: 9999999999999
+ argument for @U exceeds Unicode maximum 0x10FFFF: 9999999999999
+
+* E l1|argument for @U exceeds Unicode maximum 0x10FFFF: 110000
+ argument for @U exceeds Unicode maximum 0x10FFFF: 110000
+
+* E l2|non-hex digits in argument for @U: wxyz
+ non-hex digits in argument for @U: wxyz
+
+';
 
 $result_nodes_list{'invalid_U'} = '';
 

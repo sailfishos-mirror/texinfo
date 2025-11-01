@@ -384,8 +384,7 @@ $result_texts{'redirection_same_labels'} = 'the top
 
 ';
 
-$result_errors{'redirection_same_labels'} = [];
-
+$result_errors{'redirection_same_labels'} = '';
 
 $result_nodes_list{'redirection_same_labels'} = '1|Top
  associated_section: the top

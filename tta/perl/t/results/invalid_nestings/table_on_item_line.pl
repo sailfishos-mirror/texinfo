@@ -84,37 +84,19 @@ in nested table line
    in table line
 ';
 
-$result_errors{'table_on_item_line'} = [
-  {
-    'error_line' => 'warning: @table should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@table should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @table should not appear in @item
-',
-    'line_nr' => 2,
-    'text' => '@table should not appear in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end table\'
-',
-    'line_nr' => 2,
-    'text' => 'no matching `@end table\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end table\'
-',
-    'line_nr' => 7,
-    'text' => 'unmatched `@end table\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'table_on_item_line'} = '* W l2|@table should only appear at the beginning of a line
+ warning: @table should only appear at the beginning of a line
 
+* W l2|@table should not appear in @item
+ warning: @table should not appear in @item
+
+* E l2|no matching `@end table\'
+ no matching `@end table\'
+
+* E l7|unmatched `@end table\'
+ unmatched `@end table\'
+
+';
 
 $result_nodes_list{'table_on_item_line'} = '';
 

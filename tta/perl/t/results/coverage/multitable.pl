@@ -186,16 +186,10 @@ lone mu-ltitable item
 truc bidule
 ';
 
-$result_errors{'multitable'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 7,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'multitable'} = '* W l7|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+';
 
 $result_nodes_list{'multitable'} = '';
 

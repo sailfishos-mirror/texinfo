@@ -36,8 +36,7 @@ $result_texis{'ifnotinfo_exception'} = '';
 
 $result_texts{'ifnotinfo_exception'} = '';
 
-$result_errors{'ifnotinfo_exception'} = [];
-
+$result_errors{'ifnotinfo_exception'} = '';
 
 $result_nodes_list{'ifnotinfo_exception'} = '';
 

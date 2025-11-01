@@ -23,8 +23,7 @@ $result_texis{'clear_no_end_of_line'} = '@clear jj';
 
 $result_texts{'clear_no_end_of_line'} = '';
 
-$result_errors{'clear_no_end_of_line'} = [];
-
+$result_errors{'clear_no_end_of_line'} = '';
 
 $result_nodes_list{'clear_no_end_of_line'} = '';
 

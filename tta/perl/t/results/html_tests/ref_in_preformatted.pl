@@ -119,8 +119,7 @@ node name
 
 ';
 
-$result_errors{'ref_in_preformatted'} = [];
-
+$result_errors{'ref_in_preformatted'} = '';
 
 $result_nodes_list{'ref_in_preformatted'} = '1|Top
  menus:

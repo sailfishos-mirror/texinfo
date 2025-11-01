@@ -619,8 +619,7 @@ should be dotless j^: j^
 should be dotless j": j"
 ';
 
-$result_errors{'accent'} = [];
-
+$result_errors{'accent'} = '';
 
 $result_nodes_list{'accent'} = '1|first
  associated_section: top

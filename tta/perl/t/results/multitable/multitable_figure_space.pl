@@ -96,8 +96,7 @@ $result_texts{'multitable_figure_space'} = '   55 explanation
 49303 explanation
 ';
 
-$result_errors{'multitable_figure_space'} = [];
-
+$result_errors{'multitable_figure_space'} = '';
 
 $result_nodes_list{'multitable_figure_space'} = '';
 

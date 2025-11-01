@@ -237,23 +237,13 @@ bar
 *****
 ';
 
-$result_errors{'value_node_directions'} = [
-  {
-    'error_line' => 'warning: node `bar\' not in menu
-',
-    'line_nr' => 7,
-    'text' => 'node `bar\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `BarFoo\' not in menu
-',
-    'line_nr' => 10,
-    'text' => 'node `BarFoo\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'value_node_directions'} = '* W l7|node `bar\' not in menu
+ warning: node `bar\' not in menu
 
+* W l10|node `BarFoo\' not in menu
+ warning: node `BarFoo\' not in menu
+
+';
 
 $result_nodes_list{'value_node_directions'} = '1|Top
  associated_section: Var bar

@@ -183,8 +183,7 @@ GHJ (Good Hypo Jolly)
 In text GHJ.
 ';
 
-$result_errors{'acronym_in_node_and_section'} = [];
-
+$result_errors{'acronym_in_node_and_section'} = '';
 
 $result_nodes_list{'acronym_in_node_and_section'} = '1|top
  associated_section: top

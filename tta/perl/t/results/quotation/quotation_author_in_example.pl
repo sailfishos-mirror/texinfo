@@ -70,8 +70,7 @@ $result_texts{'quotation_author_in_example'} = 'Some One
 A quot---ation
 ';
 
-$result_errors{'quotation_author_in_example'} = [];
-
+$result_errors{'quotation_author_in_example'} = '';
 
 $result_nodes_list{'quotation_author_in_example'} = '';
 

@@ -105,8 +105,7 @@ Funnyoid: foo2 (bar2, baz2)
 description
 ';
 
-$result_errors{'adjacent_defline'} = [];
-
+$result_errors{'adjacent_defline'} = '';
 
 $result_nodes_list{'adjacent_defline'} = '';
 

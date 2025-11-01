@@ -57,8 +57,7 @@ $result_texis{'verbatim_in_smallformat'} = '@smallformat
 $result_texts{'verbatim_in_smallformat'} = '... still verbatim, but in a smaller font ...
 ';
 
-$result_errors{'verbatim_in_smallformat'} = [];
-
+$result_errors{'verbatim_in_smallformat'} = '';
 
 $result_nodes_list{'verbatim_in_smallformat'} = '';
 

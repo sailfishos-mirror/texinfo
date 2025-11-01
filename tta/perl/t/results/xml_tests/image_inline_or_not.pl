@@ -507,8 +507,7 @@ in_float
 
 ';
 
-$result_errors{'image_inline_or_not'} = [];
-
+$result_errors{'image_inline_or_not'} = '';
 
 $result_floats{'image_inline_or_not'} = 'F: 1
  F1.1: {g}

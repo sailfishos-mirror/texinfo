@@ -20,16 +20,10 @@ $result_texis{'unknown_index_entry'} = ' someindex entry.
 $result_texts{'unknown_index_entry'} = 'someindex entry.
 ';
 
-$result_errors{'unknown_index_entry'} = [
-  {
-    'error_line' => 'unknown command `someindex\'
-',
-    'line_nr' => 1,
-    'text' => 'unknown command `someindex\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'unknown_index_entry'} = '* E l1|unknown command `someindex\'
+ unknown command `someindex\'
 
+';
 
 $result_nodes_list{'unknown_index_entry'} = '';
 

@@ -76,8 +76,7 @@ $result_texts{'mathjax_with_texinfo_enable_encoding'} = 'ab - \\frac{\\xi}{phi (
 Some a - b >= AA e^.
 ';
 
-$result_errors{'mathjax_with_texinfo_enable_encoding'} = [];
-
+$result_errors{'mathjax_with_texinfo_enable_encoding'} = '';
 
 $result_nodes_list{'mathjax_with_texinfo_enable_encoding'} = '';
 

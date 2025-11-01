@@ -25,8 +25,7 @@ $result_texis{'punctuation_in_sc'} = 'one @sc{two.} three @sc{FOUR.} five';
 
 $result_texts{'punctuation_in_sc'} = 'one TWO. three FOUR. five';
 
-$result_errors{'punctuation_in_sc'} = [];
-
+$result_errors{'punctuation_in_sc'} = '';
 
 $result_nodes_list{'punctuation_in_sc'} = '';
 

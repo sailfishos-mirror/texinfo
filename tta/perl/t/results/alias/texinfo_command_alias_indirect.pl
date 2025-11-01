@@ -81,8 +81,7 @@ $result_texts{'texinfo_command_alias_indirect'} = '
 !!aa!!
 ';
 
-$result_errors{'texinfo_command_alias_indirect'} = [];
-
+$result_errors{'texinfo_command_alias_indirect'} = '';
 
 $result_nodes_list{'texinfo_command_alias_indirect'} = '';
 

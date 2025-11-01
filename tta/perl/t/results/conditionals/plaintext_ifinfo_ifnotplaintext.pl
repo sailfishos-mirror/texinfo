@@ -55,8 +55,7 @@ $result_texis{'plaintext_ifinfo_ifnotplaintext'} = '';
 
 $result_texts{'plaintext_ifinfo_ifnotplaintext'} = '';
 
-$result_errors{'plaintext_ifinfo_ifnotplaintext'} = [];
-
+$result_errors{'plaintext_ifinfo_ifnotplaintext'} = '';
 
 $result_nodes_list{'plaintext_ifinfo_ifnotplaintext'} = '';
 

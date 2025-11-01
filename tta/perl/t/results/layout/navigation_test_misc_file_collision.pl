@@ -376,8 +376,7 @@ b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.
 
 ';
 
-$result_errors{'navigation_test_misc_file_collision'} = [];
-
+$result_errors{'navigation_test_misc_file_collision'} = '';
 
 $result_nodes_list{'navigation_test_misc_file_collision'} = '1|Top
  associated_section: File used for navigation testing

@@ -272,8 +272,7 @@ part2: part2
 
 ';
 
-$result_errors{'contents_and_parts'} = [];
-
+$result_errors{'contents_and_parts'} = '';
 
 $result_nodes_list{'contents_and_parts'} = '1|Top
  associated_section: top

@@ -195,8 +195,7 @@ Menu comment
 
 ';
 
-$result_errors{'entry_after_detailmenu'} = [];
-
+$result_errors{'entry_after_detailmenu'} = '';
 
 $result_nodes_list{'entry_after_detailmenu'} = '1|Top
  menus:

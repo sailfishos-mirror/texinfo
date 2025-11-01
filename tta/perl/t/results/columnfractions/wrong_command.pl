@@ -43,23 +43,13 @@ $result_texis{'wrong_command'} = '@multitable @columnfractions @b{3.4}
 
 $result_texts{'wrong_command'} = '';
 
-$result_errors{'wrong_command'} = [
-  {
-    'error_line' => 'warning: @b should not appear in @columnfractions
-',
-    'line_nr' => 1,
-    'text' => '@b should not appear in @columnfractions',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'superfluous argument to @columnfractions
-',
-    'line_nr' => 1,
-    'text' => 'superfluous argument to @columnfractions',
-    'type' => 'error'
-  }
-];
+$result_errors{'wrong_command'} = '* W l1|@b should not appear in @columnfractions
+ warning: @b should not appear in @columnfractions
 
+* E l1|superfluous argument to @columnfractions
+ superfluous argument to @columnfractions
+
+';
 
 $result_nodes_list{'wrong_command'} = '';
 

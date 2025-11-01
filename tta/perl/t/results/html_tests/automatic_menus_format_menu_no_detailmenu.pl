@@ -171,8 +171,7 @@ $result_texts{'automatic_menus_format_menu_no_detailmenu'} = 'top
 =============
 ';
 
-$result_errors{'automatic_menus_format_menu_no_detailmenu'} = [];
-
+$result_errors{'automatic_menus_format_menu_no_detailmenu'} = '';
 
 $result_nodes_list{'automatic_menus_format_menu_no_detailmenu'} = '1|Top
  associated_section: top

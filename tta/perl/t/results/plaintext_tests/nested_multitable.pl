@@ -131,8 +131,7 @@ bidule
 other item in tab
 ';
 
-$result_errors{'nested_multitable'} = [];
-
+$result_errors{'nested_multitable'} = '';
 
 $result_nodes_list{'nested_multitable'} = '';
 

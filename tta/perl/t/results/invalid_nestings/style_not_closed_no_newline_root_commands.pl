@@ -137,37 +137,19 @@ not closed
 still not closed
 ';
 
-$result_errors{'style_not_closed_no_newline_root_commands'} = [
-  {
-    'error_line' => 'warning: @node should not appear in @code
-',
-    'line_nr' => 9,
-    'text' => '@node should not appear in @code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@node seen before @code closing brace
-',
-    'line_nr' => 8,
-    'text' => '@node seen before @code closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @bye should not appear in @code
-',
-    'line_nr' => 13,
-    'text' => '@bye should not appear in @code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@bye seen before @code closing brace
-',
-    'line_nr' => 12,
-    'text' => '@bye seen before @code closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'style_not_closed_no_newline_root_commands'} = '* W l9|@node should not appear in @code
+ warning: @node should not appear in @code
 
+* E l8|@node seen before @code closing brace
+ @node seen before @code closing brace
+
+* W l13|@bye should not appear in @code
+ warning: @bye should not appear in @code
+
+* E l12|@bye seen before @code closing brace
+ @bye seen before @code closing brace
+
+';
 
 $result_nodes_list{'style_not_closed_no_newline_root_commands'} = '1|Top
  associated_section: top

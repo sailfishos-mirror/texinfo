@@ -26,16 +26,10 @@ $result_texis{'unmatched_brace'} = '@samp{Closing} @samp{ @} without opening mac
 
 $result_texts{'unmatched_brace'} = 'Closing  } without opening macro .';
 
-$result_errors{'unmatched_brace'} = [
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 1,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'unmatched_brace'} = '* E l1|misplaced }
+ misplaced }
 
+';
 
 $result_nodes_list{'unmatched_brace'} = '';
 

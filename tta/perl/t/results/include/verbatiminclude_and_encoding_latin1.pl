@@ -45,8 +45,7 @@ $result_texis{'verbatiminclude_and_encoding_latin1'} = '@documentencoding iso-88
 $result_texts{'verbatiminclude_and_encoding_latin1'} = '
 ';
 
-$result_errors{'verbatiminclude_and_encoding_latin1'} = [];
-
+$result_errors{'verbatiminclude_and_encoding_latin1'} = '';
 
 $result_nodes_list{'verbatiminclude_and_encoding_latin1'} = '';
 

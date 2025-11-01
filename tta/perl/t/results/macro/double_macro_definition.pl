@@ -56,23 +56,13 @@ $result_texis{'double_macro_definition'} = '@macro foo
 $result_texts{'double_macro_definition'} = '
 ';
 
-$result_errors{'double_macro_definition'} = [
-  {
-    'error_line' => 'warning: macro `foo\' previously defined
-',
-    'line_nr' => 4,
-    'text' => 'macro `foo\' previously defined',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: here is the previous definition of `foo\'
-',
-    'line_nr' => 1,
-    'text' => 'here is the previous definition of `foo\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_macro_definition'} = '* W l4|macro `foo\' previously defined
+ warning: macro `foo\' previously defined
 
+* W l1|here is the previous definition of `foo\'
+ warning: here is the previous definition of `foo\'
+
+';
 
 $result_nodes_list{'double_macro_definition'} = '';
 

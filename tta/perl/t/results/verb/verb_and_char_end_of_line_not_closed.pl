@@ -30,16 +30,10 @@ $result_texts{'verb_and_char_end_of_line_not_closed'} = 'verb, not  closed
 @bye
 ';
 
-$result_errors{'verb_and_char_end_of_line_not_closed'} = [
-  {
-    'error_line' => '@verb missing closing delimiter sequence: *}
-',
-    'line_nr' => 1,
-    'text' => '@verb missing closing delimiter sequence: *}',
-    'type' => 'error'
-  }
-];
+$result_errors{'verb_and_char_end_of_line_not_closed'} = '* E l1|@verb missing closing delimiter sequence: *}
+ @verb missing closing delimiter sequence: *}
 
+';
 
 $result_nodes_list{'verb_and_char_end_of_line_not_closed'} = '';
 

@@ -111,8 +111,7 @@ $result_texts{'htmlxref_no_urlprefix_first'} = 'top
 
 ';
 
-$result_errors{'htmlxref_no_urlprefix_first'} = [];
-
+$result_errors{'htmlxref_no_urlprefix_first'} = '';
 
 $result_nodes_list{'htmlxref_no_urlprefix_first'} = '1|top
  associated_section: top

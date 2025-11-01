@@ -34,16 +34,10 @@ $result_texis{'incorrect_allowcodebreaks_argument'} = '@allowcodebreaks _arg
 $result_texts{'incorrect_allowcodebreaks_argument'} = 'b a
 ';
 
-$result_errors{'incorrect_allowcodebreaks_argument'} = [
-  {
-    'error_line' => '@allowcodebreaks arg must be `true\' or `false\', not `_arg\'
-',
-    'line_nr' => 1,
-    'text' => '@allowcodebreaks arg must be `true\' or `false\', not `_arg\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'incorrect_allowcodebreaks_argument'} = '* E l1|@allowcodebreaks arg must be `true\' or `false\', not `_arg\'
+ @allowcodebreaks arg must be `true\' or `false\', not `_arg\'
 
+';
 
 $result_nodes_list{'incorrect_allowcodebreaks_argument'} = '';
 

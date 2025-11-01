@@ -110,93 +110,43 @@ $result_texts{'section_on_multitable_line'} = '1 first
 =======
 ';
 
-$result_errors{'section_on_multitable_line'} = [
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @multitable line
-',
-    'line_nr' => 1,
-    'text' => '@section should not appear on @multitable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty multitable
-',
-    'line_nr' => 1,
-    'text' => 'empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end multitable
-',
-    'line_nr' => 1,
-    'text' => '@section seen before @end multitable',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @multitable line
-',
-    'line_nr' => 3,
-    'text' => '@section should not appear on @multitable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @multitable line: @code{this}
-',
-    'line_nr' => 3,
-    'text' => 'unexpected argument on @multitable line: @code{this}',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty multitable
-',
-    'line_nr' => 3,
-    'text' => 'empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end multitable
-',
-    'line_nr' => 3,
-    'text' => '@section seen before @end multitable',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 5,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @multitable line
-',
-    'line_nr' => 5,
-    'text' => '@section should not appear on @multitable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end multitable
-',
-    'line_nr' => 5,
-    'text' => '@section seen before @end multitable',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_on_multitable_line'} = '* W l1|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
 
+* W l1|@section should not appear on @multitable line
+ warning: @section should not appear on @multitable line
+
+* W l1|empty multitable
+ warning: empty multitable
+
+* E l1|@section seen before @end multitable
+ @section seen before @end multitable
+
+* W l3|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l3|@section should not appear on @multitable line
+ warning: @section should not appear on @multitable line
+
+* W l3|unexpected argument on @multitable line: @code{this}
+ warning: unexpected argument on @multitable line: @code{this}
+
+* W l3|empty multitable
+ warning: empty multitable
+
+* E l3|@section seen before @end multitable
+ @section seen before @end multitable
+
+* W l5|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l5|@section should not appear on @multitable line
+ warning: @section should not appear on @multitable line
+
+* E l5|@section seen before @end multitable
+ @section seen before @end multitable
+
+';
 
 $result_nodes_list{'section_on_multitable_line'} = '';
 

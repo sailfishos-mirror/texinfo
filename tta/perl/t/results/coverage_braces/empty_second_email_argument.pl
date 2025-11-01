@@ -28,8 +28,7 @@ $result_texis{'empty_second_email_argument'} = '@email{ a@@b.c, }';
 
 $result_texts{'empty_second_email_argument'} = 'a@b.c';
 
-$result_errors{'empty_second_email_argument'} = [];
-
+$result_errors{'empty_second_email_argument'} = '';
 
 $result_nodes_list{'empty_second_email_argument'} = '';
 

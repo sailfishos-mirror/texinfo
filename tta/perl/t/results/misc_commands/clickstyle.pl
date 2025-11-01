@@ -68,23 +68,13 @@ A == (equiv no space)
 
 ';
 
-$result_errors{'clickstyle'} = [
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 5,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'clickstyle'} = '* W l1|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
 
+* W l5|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+';
 
 $result_nodes_list{'clickstyle'} = '';
 

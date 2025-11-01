@@ -27,16 +27,10 @@ In html
 
 $result_texts{'command_in_end_ignored_raw_one_char_not_in_command'} = '';
 
-$result_errors{'command_in_end_ignored_raw_one_char_not_in_command'} = [
-  {
-    'error_line' => 'no matching `@end html\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end html\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_in_end_ignored_raw_one_char_not_in_command'} = '* E l1|no matching `@end html\'
+ no matching `@end html\'
 
+';
 
 $result_nodes_list{'command_in_end_ignored_raw_one_char_not_in_command'} = '';
 

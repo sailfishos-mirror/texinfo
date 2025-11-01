@@ -45,23 +45,13 @@ $result_texts{'missing_formal_arg'} = '
 one two three
 ';
 
-$result_errors{'missing_formal_arg'} = [
-  {
-    'error_line' => 'bad or empty @linemacro formal argument: 
-',
-    'line_nr' => 1,
-    'text' => 'bad or empty @linemacro formal argument: ',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `mymacro\'
-',
-    'line_nr' => 5,
-    'text' => 'unknown command `mymacro\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'missing_formal_arg'} = '* E l1|bad or empty @linemacro formal argument: 
+ bad or empty @linemacro formal argument: 
 
+* E l5|unknown command `mymacro\'
+ unknown command `mymacro\'
+
+';
 
 $result_nodes_list{'missing_formal_arg'} = '';
 

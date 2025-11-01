@@ -99,8 +99,7 @@ Text
 * An anchor::                menu entry pointing to the anchor.
 ';
 
-$result_errors{'menu_pointing_to_anchor'} = [];
-
+$result_errors{'menu_pointing_to_anchor'} = '';
 
 $result_nodes_list{'menu_pointing_to_anchor'} = '1|Top
  associated_section: top

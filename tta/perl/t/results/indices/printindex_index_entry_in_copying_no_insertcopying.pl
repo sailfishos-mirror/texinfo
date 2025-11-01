@@ -321,8 +321,7 @@ Top.
 
 ';
 
-$result_errors{'printindex_index_entry_in_copying_no_insertcopying'} = [];
-
+$result_errors{'printindex_index_entry_in_copying_no_insertcopying'} = '';
 
 $result_nodes_list{'printindex_index_entry_in_copying_no_insertcopying'} = '1|Top
  associated_section: top

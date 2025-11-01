@@ -218,8 +218,7 @@ after ch-ap second page
 
 ';
 
-$result_errors{'custom_headings_and_comments'} = [];
-
+$result_errors{'custom_headings_and_comments'} = '';
 
 $result_nodes_list{'custom_headings_and_comments'} = '1|Top
  associated_section: top sectionning

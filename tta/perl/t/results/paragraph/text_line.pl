@@ -25,8 +25,7 @@ text
 
 ';
 
-$result_errors{'text_line'} = [];
-
+$result_errors{'text_line'} = '';
 
 $result_nodes_list{'text_line'} = '';
 

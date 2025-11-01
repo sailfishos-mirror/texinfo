@@ -129,16 +129,10 @@ top
 in titlepage.
 ';
 
-$result_errors{'anchor_in_titlepage'} = [
-  {
-    'error_line' => 'warning: node `nchap\' not in menu
-',
-    'line_nr' => 10,
-    'text' => 'node `nchap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'anchor_in_titlepage'} = '* W l10|node `nchap\' not in menu
+ warning: node `nchap\' not in menu
 
+';
 
 $result_nodes_list{'anchor_in_titlepage'} = '1|Top
  associated_section: 1 Chapter

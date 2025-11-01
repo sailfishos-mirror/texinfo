@@ -278,8 +278,7 @@ in var in code
 in code in var
 ';
 
-$result_errors{'nested_code_commands'} = [];
-
+$result_errors{'nested_code_commands'} = '';
 
 $result_nodes_list{'nested_code_commands'} = '';
 

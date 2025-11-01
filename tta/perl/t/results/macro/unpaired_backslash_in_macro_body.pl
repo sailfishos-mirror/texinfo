@@ -54,8 +54,7 @@ In macro not arg
 not paired
 ';
 
-$result_errors{'unpaired_backslash_in_macro_body'} = [];
-
+$result_errors{'unpaired_backslash_in_macro_body'} = '';
 
 $result_nodes_list{'unpaired_backslash_in_macro_body'} = '';
 

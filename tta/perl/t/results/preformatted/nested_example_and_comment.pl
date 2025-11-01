@@ -201,8 +201,7 @@ First line 1 Nested example In first one
 
 First line 2 Nested example In first one ';
 
-$result_errors{'nested_example_and_comment'} = [];
-
+$result_errors{'nested_example_and_comment'} = '';
 
 $result_nodes_list{'nested_example_and_comment'} = '';
 

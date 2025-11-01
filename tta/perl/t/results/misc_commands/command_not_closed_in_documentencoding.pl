@@ -23,30 +23,16 @@ $result_texis{'command_not_closed_in_documentencoding'} = '@documentencoding @st
 
 $result_texts{'command_not_closed_in_documentencoding'} = '';
 
-$result_errors{'command_not_closed_in_documentencoding'} = [
-  {
-    'error_line' => 'warning: @strong should not appear in @documentencoding
-',
-    'line_nr' => 1,
-    'text' => '@strong should not appear in @documentencoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@strong missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@strong missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @documentencoding: @strong
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @documentencoding: @strong',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_not_closed_in_documentencoding'} = '* W l1|@strong should not appear in @documentencoding
+ warning: @strong should not appear in @documentencoding
 
+* E l1|@strong missing closing brace
+ @strong missing closing brace
+
+* E l1|bad argument to @documentencoding: @strong
+ bad argument to @documentencoding: @strong
+
+';
 
 $result_nodes_list{'command_not_closed_in_documentencoding'} = '';
 

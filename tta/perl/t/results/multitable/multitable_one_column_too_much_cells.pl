@@ -107,58 +107,28 @@ a2 additional tab2 other additional tab2 3rd  additional tab2
 a3 one additional tab
 ';
 
-$result_errors{'multitable_one_column_too_much_cells'} = [
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 2,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 2,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 2,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 4,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 4,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 4,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 5,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_one_column_too_much_cells'} = '* E l2|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
 
+* E l2|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
+
+* E l2|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
+
+* E l4|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
+
+* E l4|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
+
+* E l4|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
+
+* E l5|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
+
+';
 
 $result_nodes_list{'multitable_one_column_too_much_cells'} = '';
 

@@ -68,8 +68,7 @@ In included file.
 after include
 ';
 
-$result_errors{'include_with_setfilename_in_preformatted'} = [];
-
+$result_errors{'include_with_setfilename_in_preformatted'} = '';
 
 $result_nodes_list{'include_with_setfilename_in_preformatted'} = '';
 

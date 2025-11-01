@@ -150,16 +150,10 @@ l--ine
 d
 ';
 
-$result_errors{'inter_item_commands_in_table_in_example'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 4,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'inter_item_commands_in_table_in_example'} = '* W l4|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+';
 
 $result_nodes_list{'inter_item_commands_in_table_in_example'} = '';
 

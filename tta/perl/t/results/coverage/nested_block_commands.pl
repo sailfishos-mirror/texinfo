@@ -624,8 +624,7 @@ After quotation sp b a
 
 ';
 
-$result_errors{'nested_block_commands'} = [];
-
+$result_errors{'nested_block_commands'} = '';
 
 $result_nodes_list{'nested_block_commands'} = '';
 

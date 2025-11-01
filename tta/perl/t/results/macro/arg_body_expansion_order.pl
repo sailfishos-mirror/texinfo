@@ -122,8 +122,7 @@ $result_texts{'arg_body_expansion_order'} = '
 different
 ';
 
-$result_errors{'arg_body_expansion_order'} = [];
-
+$result_errors{'arg_body_expansion_order'} = '';
 
 $result_nodes_list{'arg_body_expansion_order'} = '';
 

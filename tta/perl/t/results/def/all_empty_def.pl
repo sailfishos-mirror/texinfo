@@ -237,72 +237,34 @@ $result_texts{'all_empty_def'} = '
 
 ';
 
-$result_errors{'all_empty_def'} = [
-  {
-    'error_line' => 'warning: missing category for @deffn
-',
-    'line_nr' => 1,
-    'text' => 'missing category for @deffn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @defvr
-',
-    'line_nr' => 4,
-    'text' => 'missing category for @defvr',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @deftypefn
-',
-    'line_nr' => 7,
-    'text' => 'missing category for @deftypefn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @deftypeop
-',
-    'line_nr' => 10,
-    'text' => 'missing category for @deftypeop',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @deftypevr
-',
-    'line_nr' => 13,
-    'text' => 'missing category for @deftypevr',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @defcv
-',
-    'line_nr' => 16,
-    'text' => 'missing category for @defcv',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @deftypecv
-',
-    'line_nr' => 19,
-    'text' => 'missing category for @deftypecv',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @defop
-',
-    'line_nr' => 22,
-    'text' => 'missing category for @defop',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @deftp
-',
-    'line_nr' => 25,
-    'text' => 'missing category for @deftp',
-    'type' => 'warning'
-  }
-];
+$result_errors{'all_empty_def'} = '* W l1|missing category for @deffn
+ warning: missing category for @deffn
 
+* W l4|missing category for @defvr
+ warning: missing category for @defvr
+
+* W l7|missing category for @deftypefn
+ warning: missing category for @deftypefn
+
+* W l10|missing category for @deftypeop
+ warning: missing category for @deftypeop
+
+* W l13|missing category for @deftypevr
+ warning: missing category for @deftypevr
+
+* W l16|missing category for @defcv
+ warning: missing category for @defcv
+
+* W l19|missing category for @deftypecv
+ warning: missing category for @deftypecv
+
+* W l22|missing category for @defop
+ warning: missing category for @defop
+
+* W l25|missing category for @deftp
+ warning: missing category for @deftp
+
+';
 
 $result_nodes_list{'all_empty_def'} = '';
 

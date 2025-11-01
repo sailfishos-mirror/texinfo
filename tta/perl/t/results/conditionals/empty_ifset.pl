@@ -38,16 +38,10 @@ $result_texis{'empty_ifset'} = '';
 
 $result_texts{'empty_ifset'} = '';
 
-$result_errors{'empty_ifset'} = [
-  {
-    'error_line' => '@ifset requires a name
-',
-    'line_nr' => 1,
-    'text' => '@ifset requires a name',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_ifset'} = '* E l1|@ifset requires a name
+ @ifset requires a name
 
+';
 
 $result_nodes_list{'empty_ifset'} = '';
 

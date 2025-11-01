@@ -102,8 +102,7 @@ $result_texts{'note_in_strong'} = '
 15 note-bbb.
 ';
 
-$result_errors{'note_in_strong'} = [];
-
+$result_errors{'note_in_strong'} = '';
 
 $result_nodes_list{'note_in_strong'} = '1|Top
 ';

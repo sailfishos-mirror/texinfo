@@ -48,8 +48,7 @@ $result_texts{'bad_beginning'} = '*
 *in code::
 ';
 
-$result_errors{'bad_beginning'} = [];
-
+$result_errors{'bad_beginning'} = '';
 
 $result_nodes_list{'bad_beginning'} = '';
 

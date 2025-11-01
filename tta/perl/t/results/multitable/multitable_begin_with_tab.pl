@@ -100,30 +100,16 @@ t2
 it
 ';
 
-$result_errors{'multitable_begin_with_tab'} = [
-  {
-    'error_line' => '@tab before @item
-',
-    'line_nr' => 2,
-    'text' => '@tab before @item',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @multitable has text but no @item
-',
-    'line_nr' => 1,
-    'text' => '@multitable has text but no @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@tab before @item
-',
-    'line_nr' => 6,
-    'text' => '@tab before @item',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_begin_with_tab'} = '* E l2|@tab before @item
+ @tab before @item
 
+* W l1|@multitable has text but no @item
+ warning: @multitable has text but no @item
+
+* E l6|@tab before @item
+ @tab before @item
+
+';
 
 $result_nodes_list{'multitable_begin_with_tab'} = '';
 

@@ -223,8 +223,7 @@ a n~ aa TeX myimage chap (f)node
 ext inverb 00ff ma+th  la a (b)  (lb)
 c e ab (d)';
 
-$result_errors{'commands_in_var'} = [];
-
+$result_errors{'commands_in_var'} = '';
 
 $result_nodes_list{'commands_in_var'} = '1|Top
  associated_section: commands in var

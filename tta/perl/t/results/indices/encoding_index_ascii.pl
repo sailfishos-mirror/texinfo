@@ -921,16 +921,10 @@ top
 
 ';
 
-$result_errors{'encoding_index_ascii'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 7,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'encoding_index_ascii'} = '* W l7|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'encoding_index_ascii'} = '1|Top
  associated_section: top

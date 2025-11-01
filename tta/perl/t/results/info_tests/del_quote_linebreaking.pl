@@ -161,8 +161,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx no:de
 
 ';
 
-$result_errors{'del_quote_linebreaking'} = [];
-
+$result_errors{'del_quote_linebreaking'} = '';
 
 $result_nodes_list{'del_quote_linebreaking'} = '';
 

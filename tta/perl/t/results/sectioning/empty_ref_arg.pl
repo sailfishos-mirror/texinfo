@@ -143,61 +143,35 @@ first
 first
 ';
 
-$result_errors{'empty_ref_arg'} = [
-  {
-    'error_line' => 'warning: in @ref empty cross reference name after expansion `@ \'
-',
-    'line_nr' => 3,
-    'text' => 'in @ref empty cross reference name after expansion `@ \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: in @ref empty cross reference title after expansion `@ \'
-',
-    'line_nr' => 4,
-    'text' => 'in @ref empty cross reference title after expansion `@ \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: in @ref empty cross reference name after expansion `@ \'
-',
-    'line_nr' => 5,
-    'text' => 'in @ref empty cross reference name after expansion `@ \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: in @ref empty cross reference title after expansion `@:\'
-',
-    'line_nr' => 5,
-    'text' => 'in @ref empty cross reference title after expansion `@:\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: in @ref empty cross reference name after expansion `@c aaa
- @ 
-@c ggg
-\'
-',
-    'line_nr' => 11,
-    'text' => 'in @ref empty cross reference name after expansion `@c aaa
- @ 
-@c ggg
-\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: in @ref empty cross reference title after expansion `@c fff
-@c
-\'
-',
-    'line_nr' => 11,
-    'text' => 'in @ref empty cross reference title after expansion `@c fff
-@c
-\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_ref_arg'} = '* W l3|in @ref empty cross reference name after expansion `@ \'
+ warning: in @ref empty cross reference name after expansion `@ \'
 
+* W l4|in @ref empty cross reference title after expansion `@ \'
+ warning: in @ref empty cross reference title after expansion `@ \'
+
+* W l5|in @ref empty cross reference name after expansion `@ \'
+ warning: in @ref empty cross reference name after expansion `@ \'
+
+* W l5|in @ref empty cross reference title after expansion `@:\'
+ warning: in @ref empty cross reference title after expansion `@:\'
+
+* W l11|in @ref empty cross reference name after expansion `@c aaa
+ @ 
+@c ggg
+\'
+ warning: in @ref empty cross reference name after expansion `@c aaa
+ @ 
+@c ggg
+\'
+
+* W l11|in @ref empty cross reference title after expansion `@c fff
+@c
+\'
+ warning: in @ref empty cross reference title after expansion `@c fff
+@c
+\'
+
+';
 
 $result_nodes_list{'empty_ref_arg'} = '1|first
 ';

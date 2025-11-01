@@ -54,8 +54,7 @@ This is a very simple texi manual   <>.
 
 ';
 
-$result_errors{'simplest_test_date_in_header'} = [];
-
+$result_errors{'simplest_test_date_in_header'} = '';
 
 $result_nodes_list{'simplest_test_date_in_header'} = '1|Top
 ';

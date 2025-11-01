@@ -232,33 +232,16 @@ Builtin: foo
 Builtin: foo 
 ';
 
-$result_errors{'empty_last_argument'} = [
-  {
-    'error_line' => 'warning: entry for index `BI\' outside of any node (possibly involving @defbuiltin)
-',
-    'line_nr' => 8,
-    'macro' => 'defbuiltin',
-    'text' => 'entry for index `BI\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `BI\' outside of any node (possibly involving @defbuiltin)
-',
-    'line_nr' => 10,
-    'macro' => 'defbuiltin',
-    'text' => 'entry for index `BI\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `BI\' outside of any node (possibly involving @defbuiltin)
-',
-    'line_nr' => 12,
-    'macro' => 'defbuiltin',
-    'text' => 'entry for index `BI\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_last_argument'} = '* W l8:@defbuiltin|entry for index `BI\' outside of any node
+ warning: entry for index `BI\' outside of any node (possibly involving @defbuiltin)
 
+* W l10:@defbuiltin|entry for index `BI\' outside of any node
+ warning: entry for index `BI\' outside of any node (possibly involving @defbuiltin)
+
+* W l12:@defbuiltin|entry for index `BI\' outside of any node
+ warning: entry for index `BI\' outside of any node (possibly involving @defbuiltin)
+
+';
 
 $result_indices{'empty_last_argument'} = 'BI C
 cp

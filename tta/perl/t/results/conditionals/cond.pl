@@ -301,17 +301,10 @@ This is ifnottex text.
 
 ';
 
-$result_errors{'cond'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'file_name' => 'cond.texi',
-    'line_nr' => 20,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'cond'} = '* W cond.texi:l20|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'cond'} = '1|Top
  associated_section: conditionals

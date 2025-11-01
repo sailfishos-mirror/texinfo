@@ -144,8 +144,7 @@ Second para.
 
 ';
 
-$result_errors{'two_paragraphindent_in_preamble'} = [];
-
+$result_errors{'two_paragraphindent_in_preamble'} = '';
 
 $result_nodes_list{'two_paragraphindent_in_preamble'} = '1|Top
  associated_section: test @@paragraphindent in preamble effect in preamble

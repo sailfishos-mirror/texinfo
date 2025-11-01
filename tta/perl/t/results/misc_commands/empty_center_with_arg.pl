@@ -27,8 +27,7 @@ $result_texis{'empty_center_with_arg'} = '@center @w{}
 $result_texts{'empty_center_with_arg'} = '
 ';
 
-$result_errors{'empty_center_with_arg'} = [];
-
+$result_errors{'empty_center_with_arg'} = '';
 
 $result_nodes_list{'empty_center_with_arg'} = '';
 

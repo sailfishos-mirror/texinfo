@@ -658,23 +658,13 @@ T
 
 ';
 
-$result_errors{'commands_and_spaces'} = [
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 7,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @multitable line: @var{cmd}
-',
-    'line_nr' => 39,
-    'text' => 'unexpected argument on @multitable line: @var{cmd}',
-    'type' => 'warning'
-  }
-];
+$result_errors{'commands_and_spaces'} = '* W l7|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
 
+* W l39|unexpected argument on @multitable line: @var{cmd}
+ warning: unexpected argument on @multitable line: @var{cmd}
+
+';
 
 $result_floats{'commands_and_spaces'} = 'ff: 1
  F1: {b}

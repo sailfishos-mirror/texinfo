@@ -40,8 +40,7 @@ $result_texts{'not_only_characters'} = '
 Say hh.
 ';
 
-$result_errors{'not_only_characters'} = [];
-
+$result_errors{'not_only_characters'} = '';
 
 $result_nodes_list{'not_only_characters'} = '';
 

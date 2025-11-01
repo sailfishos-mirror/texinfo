@@ -88,88 +88,42 @@ A  (nocmd).
 A  (something).
 ';
 
-$result_errors{'invalid_clickstyle'} = [
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 2,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @clickstyle line: on the same line
-',
-    'line_nr' => 2,
-    'text' => 'remaining argument on @clickstyle line: on the same line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 6,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'unknown command `nocmd\'
-',
-    'line_nr' => 8,
-    'text' => 'unknown command `nocmd\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 8,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 8,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 10,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@clickstyle should only accept an @-command as argument, not ` something
-\'
-',
-    'line_nr' => 10,
-    'text' => '@clickstyle should only accept an @-command as argument, not ` something
-\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `nocmd\'
-',
-    'line_nr' => 12,
-    'text' => 'unknown command `nocmd\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 12,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 12,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'invalid_clickstyle'} = '* W l2|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
 
+* W l2|remaining argument on @clickstyle line: on the same line
+ warning: remaining argument on @clickstyle line: on the same line
+
+* W l6|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* E l8|unknown command `nocmd\'
+ unknown command `nocmd\'
+
+* E l8|misplaced {
+ misplaced {
+
+* E l8|misplaced }
+ misplaced }
+
+* W l10|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* E l10|@clickstyle should only accept an @-command as argument, not ` something
+\'
+ @clickstyle should only accept an @-command as argument, not ` something
+\'
+
+* E l12|unknown command `nocmd\'
+ unknown command `nocmd\'
+
+* E l12|misplaced {
+ misplaced {
+
+* E l12|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'invalid_clickstyle'} = '';
 

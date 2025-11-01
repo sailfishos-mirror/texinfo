@@ -56,16 +56,10 @@ $result_texts{'title_and_itemx_before_item'} = 'Title
 in itemx
 ';
 
-$result_errors{'title_and_itemx_before_item'} = [
-  {
-    'error_line' => '@itemx should not begin @table
-',
-    'line_nr' => 3,
-    'text' => '@itemx should not begin @table',
-    'type' => 'error'
-  }
-];
+$result_errors{'title_and_itemx_before_item'} = '* E l3|@itemx should not begin @table
+ @itemx should not begin @table
 
+';
 
 $result_nodes_list{'title_and_itemx_before_item'} = '';
 

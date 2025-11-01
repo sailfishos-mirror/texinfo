@@ -71,37 +71,19 @@ $result_texis{'example_invalid_at_commands_arguments'} = '@example @ref{a,b,c,d}
 
 $result_texts{'example_invalid_at_commands_arguments'} = '';
 
-$result_errors{'example_invalid_at_commands_arguments'} = [
-  {
-    'error_line' => 'warning: @ref should not appear on @example line
-',
-    'line_nr' => 1,
-    'text' => '@ref should not appear on @example line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @example line
-',
-    'line_nr' => 1,
-    'text' => '@anchor should not appear on @example line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center should not appear on @example line
-',
-    'line_nr' => 1,
-    'text' => '@center should not appear on @example line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'example_invalid_at_commands_arguments'} = '* W l1|@ref should not appear on @example line
+ warning: @ref should not appear on @example line
 
+* W l1|@anchor should not appear on @example line
+ warning: @anchor should not appear on @example line
+
+* W l1|@center should only appear at the beginning of a line
+ warning: @center should only appear at the beginning of a line
+
+* W l1|@center should not appear on @example line
+ warning: @center should not appear on @example line
+
+';
 
 $result_nodes_list{'example_invalid_at_commands_arguments'} = '';
 

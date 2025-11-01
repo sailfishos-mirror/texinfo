@@ -38,8 +38,7 @@ $result_texis{'empty_table'} = '@table @code
 
 $result_texts{'empty_table'} = '';
 
-$result_errors{'empty_table'} = [];
-
+$result_errors{'empty_table'} = '';
 
 $result_nodes_list{'empty_table'} = '';
 

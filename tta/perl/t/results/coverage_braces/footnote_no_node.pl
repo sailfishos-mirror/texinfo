@@ -45,8 +45,7 @@ $result_texts{'footnote_no_node'} = 'top
 F.
 ';
 
-$result_errors{'footnote_no_node'} = [];
-
+$result_errors{'footnote_no_node'} = '';
 
 $result_nodes_list{'footnote_no_node'} = '';
 

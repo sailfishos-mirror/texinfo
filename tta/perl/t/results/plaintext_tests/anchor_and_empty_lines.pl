@@ -37,8 +37,7 @@ $result_texts{'anchor_and_empty_lines'} = 'text 1.
 text 2.
 ';
 
-$result_errors{'anchor_and_empty_lines'} = [];
-
+$result_errors{'anchor_and_empty_lines'} = '';
 
 $result_nodes_list{'anchor_and_empty_lines'} = '';
 

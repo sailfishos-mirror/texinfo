@@ -402,16 +402,10 @@ Text.
 
 ';
 
-$result_errors{'insert_nodes_for_sectioning_commands'} = [
-  {
-    'error_line' => 'warning: @unnumbered missing argument
-',
-    'line_nr' => 21,
-    'text' => '@unnumbered missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'insert_nodes_for_sectioning_commands'} = '* W l21|@unnumbered missing argument
+ warning: @unnumbered missing argument
 
+';
 
 $result_nodes_list{'insert_nodes_for_sectioning_commands'} = '1|Top
  associated_section: top section

@@ -266,8 +266,7 @@ node one
 
 ';
 
-$result_errors{'colons_in_index_entries_and_node'} = [];
-
+$result_errors{'colons_in_index_entries_and_node'} = '';
 
 $result_nodes_list{'colons_in_index_entries_and_node'} = '1|Top
  menus:

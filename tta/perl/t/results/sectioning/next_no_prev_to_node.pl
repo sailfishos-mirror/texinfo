@@ -139,8 +139,7 @@ $result_texts{'next_no_prev_to_node'} = '
 
 ';
 
-$result_errors{'next_no_prev_to_node'} = [];
-
+$result_errors{'next_no_prev_to_node'} = '';
 
 $result_nodes_list{'next_no_prev_to_node'} = '1|Top
  menus:

@@ -49,16 +49,10 @@ $result_texts{'empty_section_in_chapter'} = '1 chap
 ====
 ';
 
-$result_errors{'empty_section_in_chapter'} = [
-  {
-    'error_line' => 'warning: @section missing argument
-',
-    'line_nr' => 3,
-    'text' => '@section missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_section_in_chapter'} = '* W l3|@section missing argument
+ warning: @section missing argument
 
+';
 
 $result_nodes_list{'empty_section_in_chapter'} = '';
 

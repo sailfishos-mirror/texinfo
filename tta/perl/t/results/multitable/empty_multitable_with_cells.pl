@@ -53,51 +53,25 @@ $result_texts{'empty_multitable_with_cells'} = 'item in empty multitable tab in 
 item in empty m
 ';
 
-$result_errors{'empty_multitable_with_cells'} = [
-  {
-    'error_line' => 'warning: empty multitable
-',
-    'line_nr' => 1,
-    'text' => 'empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @item in empty multitable
-',
-    'line_nr' => 2,
-    'text' => '@item in empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @tab in empty multitable
-',
-    'line_nr' => 2,
-    'text' => '@tab in empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @tab in empty multitable
-',
-    'line_nr' => 2,
-    'text' => '@tab in empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @item in empty multitable
-',
-    'line_nr' => 3,
-    'text' => '@item in empty multitable',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @multitable has text but no @item
-',
-    'line_nr' => 1,
-    'text' => '@multitable has text but no @item',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_multitable_with_cells'} = '* W l1|empty multitable
+ warning: empty multitable
 
+* W l2|@item in empty multitable
+ warning: @item in empty multitable
+
+* W l2|@tab in empty multitable
+ warning: @tab in empty multitable
+
+* W l2|@tab in empty multitable
+ warning: @tab in empty multitable
+
+* W l3|@item in empty multitable
+ warning: @item in empty multitable
+
+* W l1|@multitable has text but no @item
+ warning: @multitable has text but no @item
+
+';
 
 $result_nodes_list{'empty_multitable_with_cells'} = '';
 

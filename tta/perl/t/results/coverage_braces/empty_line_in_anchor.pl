@@ -25,23 +25,13 @@ $result_texis{'empty_line_in_anchor'} = '@anchor{an
 $result_texts{'empty_line_in_anchor'} = 'anchor
 ';
 
-$result_errors{'empty_line_in_anchor'} = [
-  {
-    'error_line' => '@anchor missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@anchor missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 3,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_line_in_anchor'} = '* E l1|@anchor missing closing brace
+ @anchor missing closing brace
 
+* E l3|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'empty_line_in_anchor'} = '';
 

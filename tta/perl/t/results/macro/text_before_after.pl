@@ -38,23 +38,13 @@ in macro
 
 $result_texts{'text_before_after'} = 'before ';
 
-$result_errors{'text_before_after'} = [
-  {
-    'error_line' => 'warning: @macro should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@macro should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: macro after
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: macro after',
-    'type' => 'error'
-  }
-];
+$result_errors{'text_before_after'} = '* W l1|@macro should only appear at the beginning of a line
+ warning: @macro should only appear at the beginning of a line
 
+* E l3|bad argument to @end: macro after
+ bad argument to @end: macro after
+
+';
 
 $result_nodes_list{'text_before_after'} = '';
 

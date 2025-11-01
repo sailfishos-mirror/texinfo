@@ -28,23 +28,13 @@ $result_texis{'documentencoding_zero'} = '@documentencoding 0
 
 $result_texts{'documentencoding_zero'} = '';
 
-$result_errors{'documentencoding_zero'} = [
-  {
-    'error_line' => 'warning: encoding `0\' is not a canonical texinfo encoding
-',
-    'line_nr' => 1,
-    'text' => 'encoding `0\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unhandled encoding name `0\'
-',
-    'line_nr' => 1,
-    'text' => 'unhandled encoding name `0\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'documentencoding_zero'} = '* W l1|encoding `0\' is not a canonical texinfo encoding
+ warning: encoding `0\' is not a canonical texinfo encoding
 
+* W l1|unhandled encoding name `0\'
+ warning: unhandled encoding name `0\'
+
+';
 
 $result_nodes_list{'documentencoding_zero'} = '';
 

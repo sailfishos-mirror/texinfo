@@ -99,8 +99,7 @@ My float.
 
 ';
 
-$result_errors{'tex_expanded_in_caption_multiple_time'} = [];
-
+$result_errors{'tex_expanded_in_caption_multiple_time'} = '';
 
 $result_floats{'tex_expanded_in_caption_multiple_time'} = 'A: 1
  F1: {B}

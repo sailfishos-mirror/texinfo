@@ -425,8 +425,7 @@ flushright
 raggedright
 ';
 
-$result_errors{'comments_end_lines'} = [];
-
+$result_errors{'comments_end_lines'} = '';
 
 $result_floats{'comments_end_lines'} = 'f: 1
  F1: {g}

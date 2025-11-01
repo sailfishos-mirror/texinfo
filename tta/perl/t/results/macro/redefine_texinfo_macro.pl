@@ -53,16 +53,10 @@ $result_texts{'redefine_texinfo_macro'} = '
 code
 ';
 
-$result_errors{'redefine_texinfo_macro'} = [
-  {
-    'error_line' => 'warning: redefining Texinfo language command: @code
-',
-    'line_nr' => 1,
-    'text' => 'redefining Texinfo language command: @code',
-    'type' => 'warning'
-  }
-];
+$result_errors{'redefine_texinfo_macro'} = '* W l1|redefining Texinfo language command: @code
+ warning: redefining Texinfo language command: @code
 
+';
 
 $result_nodes_list{'redefine_texinfo_macro'} = '';
 

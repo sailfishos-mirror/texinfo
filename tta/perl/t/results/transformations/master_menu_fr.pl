@@ -261,8 +261,7 @@ chap
 =======
 ';
 
-$result_errors{'master_menu_fr'} = [];
-
+$result_errors{'master_menu_fr'} = '';
 
 $result_nodes_list{'master_menu_fr'} = '1|Top
  associated_section: max

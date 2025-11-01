@@ -215,8 +215,7 @@ Appendix A Appendix
 *******************
 ';
 
-$result_errors{'part_node_chapter_node_appendix'} = [];
-
+$result_errors{'part_node_chapter_node_appendix'} = '';
 
 $result_nodes_list{'part_node_chapter_node_appendix'} = '1|Top
  associated_section: top

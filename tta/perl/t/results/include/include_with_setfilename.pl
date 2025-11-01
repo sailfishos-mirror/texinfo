@@ -62,8 +62,7 @@ $result_texts{'include_with_setfilename'} = '
 In included file.
 ';
 
-$result_errors{'include_with_setfilename'} = [];
-
+$result_errors{'include_with_setfilename'} = '';
 
 $result_nodes_list{'include_with_setfilename'} = '';
 

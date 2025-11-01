@@ -99,30 +99,16 @@ $result_texts{'one_argument_leading_trailing_spaces'} = ' in code   in slanted  
 aa ...
 ';
 
-$result_errors{'one_argument_leading_trailing_spaces'} = [
-  {
-    'error_line' => '@dotless expects `i\' or `j\' as argument, not ` i \'
-',
-    'line_nr' => 4,
-    'text' => '@dotless expects `i\' or `j\' as argument, not ` i \'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: command @aa does not accept arguments
-',
-    'line_nr' => 5,
-    'text' => 'command @aa does not accept arguments',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command @enddots does not accept arguments
-',
-    'line_nr' => 5,
-    'text' => 'command @enddots does not accept arguments',
-    'type' => 'warning'
-  }
-];
+$result_errors{'one_argument_leading_trailing_spaces'} = '* E l4|@dotless expects `i\' or `j\' as argument, not ` i \'
+ @dotless expects `i\' or `j\' as argument, not ` i \'
 
+* W l5|command @aa does not accept arguments
+ warning: command @aa does not accept arguments
+
+* W l5|command @enddots does not accept arguments
+ warning: command @enddots does not accept arguments
+
+';
 
 $result_nodes_list{'one_argument_leading_trailing_spaces'} = '';
 

@@ -81,8 +81,7 @@ Before (machin)
  after truc.
 ';
 
-$result_errors{'nested_macro_call'} = [];
-
+$result_errors{'nested_macro_call'} = '';
 
 $result_nodes_list{'nested_macro_call'} = '';
 

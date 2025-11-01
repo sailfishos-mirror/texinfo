@@ -39,37 +39,19 @@ Second para.
 
 ';
 
-$result_errors{'double_style_paragraph'} = [
-  {
-    'error_line' => '@strong missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@strong missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@emph missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@emph missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 5,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'double_style_paragraph'} = '* E l1|@strong missing closing brace
+ @strong missing closing brace
 
+* E l1|@emph missing closing brace
+ @emph missing closing brace
+
+* E l5|misplaced }
+ misplaced }
+
+* E l6|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'double_style_paragraph'} = '';
 

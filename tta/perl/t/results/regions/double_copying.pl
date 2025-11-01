@@ -63,23 +63,13 @@ And a second one (?)
 
 $result_texts{'double_copying'} = '';
 
-$result_errors{'double_copying'} = [
-  {
-    'error_line' => 'warning: @copying should not appear in @copying block
-',
-    'line_nr' => 5,
-    'text' => '@copying should not appear in @copying block',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @copying
-',
-    'line_nr' => 5,
-    'text' => 'multiple @copying',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_copying'} = '* W l5|@copying should not appear in @copying block
+ warning: @copying should not appear in @copying block
 
+* W l5|multiple @copying
+ warning: multiple @copying
+
+';
 
 $result_nodes_list{'double_copying'} = '';
 

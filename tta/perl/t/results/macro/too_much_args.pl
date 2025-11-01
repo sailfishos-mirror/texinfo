@@ -60,16 +60,10 @@ first arg: one
 second arg: two, three.
 ';
 
-$result_errors{'too_much_args'} = [
-  {
-    'error_line' => 'macro `twoargs\' called with too many args
-',
-    'line_nr' => 6,
-    'text' => 'macro `twoargs\' called with too many args',
-    'type' => 'error'
-  }
-];
+$result_errors{'too_much_args'} = '* E l6|macro `twoargs\' called with too many args
+ macro `twoargs\' called with too many args
 
+';
 
 $result_nodes_list{'too_much_args'} = '';
 

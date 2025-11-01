@@ -28,8 +28,7 @@ $result_texis{'ref_in_style_command'} = '@samp{@ref{(manula)other node}}.';
 
 $result_texts{'ref_in_style_command'} = '(manula)other node.';
 
-$result_errors{'ref_in_style_command'} = [];
-
+$result_errors{'ref_in_style_command'} = '';
 
 $result_nodes_list{'ref_in_style_command'} = '';
 

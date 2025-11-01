@@ -154,23 +154,13 @@ $result_texts{'macro_in_def_delimiters'} = '
 Command: forward-word count argaa(b *c) a (aa(b *c)(bbaa(b *c)]aa(b *c) a
 ';
 
-$result_errors{'macro_in_def_delimiters'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end deffn\'
-',
-    'line_nr' => 5,
-    'text' => 'no matching `@end deffn\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_in_def_delimiters'} = '* W l5|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* E l5|no matching `@end deffn\'
+ no matching `@end deffn\'
+
+';
 
 $result_nodes_list{'macro_in_def_delimiters'} = '';
 

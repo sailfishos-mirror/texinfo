@@ -334,8 +334,7 @@ v--ar in example
 c--ite in example
 ';
 
-$result_errors{'combined_fonts'} = [];
-
+$result_errors{'combined_fonts'} = '';
 
 $result_nodes_list{'combined_fonts'} = '1|Top
  associated_section: top section

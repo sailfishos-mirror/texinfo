@@ -249,8 +249,7 @@ Menu comment
 
 ';
 
-$result_errors{'formats_in_menu'} = [];
-
+$result_errors{'formats_in_menu'} = '';
 
 $result_nodes_list{'formats_in_menu'} = '1|first
  menus:

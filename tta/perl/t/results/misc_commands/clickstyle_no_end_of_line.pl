@@ -24,16 +24,10 @@ $result_texis{'clickstyle_no_end_of_line'} = '@clickstyle @result';
 
 $result_texts{'clickstyle_no_end_of_line'} = '';
 
-$result_errors{'clickstyle_no_end_of_line'} = [
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'clickstyle_no_end_of_line'} = '* W l1|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
 
+';
 
 $result_nodes_list{'clickstyle_no_end_of_line'} = '';
 

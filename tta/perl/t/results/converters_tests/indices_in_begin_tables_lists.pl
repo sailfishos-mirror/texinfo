@@ -1475,17 +1475,10 @@ asamp-bb2
 
 ';
 
-$result_errors{'indices_in_begin_tables_lists'} = [
-  {
-    'error_line' => 'warning: @cindex should only appear at the beginning of a line
-',
-    'file_name' => 'indices_in_begin_tables_lists.texi',
-    'line_nr' => 18,
-    'text' => '@cindex should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'indices_in_begin_tables_lists'} = '* W indices_in_begin_tables_lists.texi:l18|@cindex should only appear at the beginning of a line
+ warning: @cindex should only appear at the beginning of a line
 
+';
 
 $result_nodes_list{'indices_in_begin_tables_lists'} = '1|Top
  associated_section: top

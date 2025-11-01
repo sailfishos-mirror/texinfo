@@ -40,16 +40,10 @@ $result_texis{'text_on_conditional_line'} = '';
 
 $result_texts{'text_on_conditional_line'} = '';
 
-$result_errors{'text_on_conditional_line'} = [
-  {
-    'error_line' => 'warning: unexpected argument on @ifnothtml line: text following ifnothtml,
-',
-    'line_nr' => 1,
-    'text' => 'unexpected argument on @ifnothtml line: text following ifnothtml,',
-    'type' => 'warning'
-  }
-];
+$result_errors{'text_on_conditional_line'} = '* W l1|unexpected argument on @ifnothtml line: text following ifnothtml,
+ warning: unexpected argument on @ifnothtml line: text following ifnothtml,
 
+';
 
 $result_nodes_list{'text_on_conditional_line'} = '';
 

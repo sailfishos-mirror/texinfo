@@ -40,8 +40,7 @@ aaa  bb
 ccc
 ';
 
-$result_errors{'spaces_in_line_break_in_verb_w'} = [];
-
+$result_errors{'spaces_in_line_break_in_verb_w'} = '';
 
 $result_nodes_list{'spaces_in_line_break_in_verb_w'} = '';
 

@@ -69,8 +69,7 @@ aaa TeX in emph after
 emph emph2 .
 ';
 
-$result_errors{'anchor_in_command'} = [];
-
+$result_errors{'anchor_in_command'} = '';
 
 $result_nodes_list{'anchor_in_command'} = '1|Top
 ';

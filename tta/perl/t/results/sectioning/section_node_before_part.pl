@@ -70,23 +70,13 @@ part
 ****
 ';
 
-$result_errors{'section_node_before_part'} = [
-  {
-    'error_line' => 'warning: no chapter-level command before @part
-',
-    'line_nr' => 5,
-    'text' => 'no chapter-level command before @part',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no sectioning command associated with @part
-',
-    'line_nr' => 5,
-    'text' => 'no sectioning command associated with @part',
-    'type' => 'warning'
-  }
-];
+$result_errors{'section_node_before_part'} = '* W l5|no chapter-level command before @part
+ warning: no chapter-level command before @part
 
+* W l5|no sectioning command associated with @part
+ warning: no sectioning command associated with @part
+
+';
 
 $result_nodes_list{'section_node_before_part'} = '1|Top
  associated_section: 1 section

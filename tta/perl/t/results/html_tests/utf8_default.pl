@@ -38,8 +38,7 @@ AA @^e --- -- \'` \'\' ``';
 $result_texts{'utf8_default'} = '
 AA e^ -- - \'` " "';
 
-$result_errors{'utf8_default'} = [];
-
+$result_errors{'utf8_default'} = '';
 
 $result_nodes_list{'utf8_default'} = '';
 

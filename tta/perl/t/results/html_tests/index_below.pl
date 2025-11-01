@@ -119,8 +119,7 @@ $result_texts{'index_below'} = 'top
 
 ';
 
-$result_errors{'index_below'} = [];
-
+$result_errors{'index_below'} = '';
 
 $result_nodes_list{'index_below'} = '';
 

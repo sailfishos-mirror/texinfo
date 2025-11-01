@@ -136,8 +136,7 @@ $result_texts{'symbol_after_command'} = '. dot
 @. {, @@ ?, !: @{ @" @:
 ';
 
-$result_errors{'symbol_after_command'} = [];
-
+$result_errors{'symbol_after_command'} = '';
 
 $result_nodes_list{'symbol_after_command'} = '';
 

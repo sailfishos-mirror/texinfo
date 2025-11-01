@@ -46,23 +46,13 @@ $result_texis{'end_of_line_end_file'} = '@deffn category deffn_name arguments ';
 $result_texts{'end_of_line_end_file'} = 'category: deffn_name arguments
 ';
 
-$result_errors{'end_of_line_end_file'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end deffn\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end deffn\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'end_of_line_end_file'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* E l1|no matching `@end deffn\'
+ no matching `@end deffn\'
+
+';
 
 $result_nodes_list{'end_of_line_end_file'} = '';
 

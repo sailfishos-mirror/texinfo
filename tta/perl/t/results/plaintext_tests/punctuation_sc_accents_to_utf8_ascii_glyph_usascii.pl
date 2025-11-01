@@ -314,8 +314,7 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 
 ';
 
-$result_errors{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = [];
-
+$result_errors{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = '';
 
 $result_nodes_list{'punctuation_sc_accents_to_utf8_ascii_glyph_usascii'} = '1|top
  associated_section: top section

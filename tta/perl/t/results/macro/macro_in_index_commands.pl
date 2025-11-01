@@ -452,23 +452,13 @@ macro cp
 
 ';
 
-$result_errors{'macro_in_index_commands'} = [
-  {
-    'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
-',
-    'line_nr' => 50,
-    'text' => 'printing an index `cp\' merged in another one, `fn\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 37,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'macro_in_index_commands'} = '* W l50|printing an index `cp\' merged in another one, `fn\'
+ warning: printing an index `cp\' merged in another one, `fn\'
 
+* W l37|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_indices{'macro_in_index_commands'} = 'codeidx C
 cp C ->fn

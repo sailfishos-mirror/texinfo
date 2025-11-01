@@ -406,30 +406,16 @@ unnumberedsec
 =============
 ';
 
-$result_errors{'missing_detailmenu_on_subnodes'} = [
-  {
-    'error_line' => 'warning: node `section\' in menu in `Top\' but under `chapter\' in sectioning
-',
-    'line_nr' => 8,
-    'text' => 'node `section\' in menu in `Top\' but under `chapter\' in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `section chap 2\' in menu in `Top\' but under `chapter 2\' in sectioning
-',
-    'line_nr' => 12,
-    'text' => 'node `section chap 2\' in menu in `Top\' but under `chapter 2\' in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `unnumberedsec\' in menu in `Top\' but under `chapter 2\' in sectioning
-',
-    'line_nr' => 13,
-    'text' => 'node `unnumberedsec\' in menu in `Top\' but under `chapter 2\' in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'missing_detailmenu_on_subnodes'} = '* W l8|node `section\' in menu in `Top\' but under `chapter\' in sectioning
+ warning: node `section\' in menu in `Top\' but under `chapter\' in sectioning
 
+* W l12|node `section chap 2\' in menu in `Top\' but under `chapter 2\' in sectioning
+ warning: node `section chap 2\' in menu in `Top\' but under `chapter 2\' in sectioning
+
+* W l13|node `unnumberedsec\' in menu in `Top\' but under `chapter 2\' in sectioning
+ warning: node `unnumberedsec\' in menu in `Top\' but under `chapter 2\' in sectioning
+
+';
 
 $result_nodes_list{'missing_detailmenu_on_subnodes'} = '1|Top
  associated_section: top

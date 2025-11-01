@@ -59,44 +59,22 @@ $result_texts{'value_in_macro_formal_arg'} = '
 macro_arg1
 ';
 
-$result_errors{'value_in_macro_formal_arg'} = [
-  {
-    'error_line' => 'bad or empty @macro formal argument: the@value{argument
-',
-    'line_nr' => 3,
-    'text' => 'bad or empty @macro formal argument: the@value{argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad syntax for @macro argument: }
-',
-    'line_nr' => 3,
-    'text' => 'bad syntax for @macro argument: }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `testvalue\'
-',
-    'line_nr' => 7,
-    'text' => 'unknown command `testvalue\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 7,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 7,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'value_in_macro_formal_arg'} = '* E l3|bad or empty @macro formal argument: the@value{argument
+ bad or empty @macro formal argument: the@value{argument
 
+* E l3|bad syntax for @macro argument: }
+ bad syntax for @macro argument: }
+
+* E l7|unknown command `testvalue\'
+ unknown command `testvalue\'
+
+* E l7|misplaced {
+ misplaced {
+
+* E l7|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'value_in_macro_formal_arg'} = '';
 

@@ -81,44 +81,22 @@ More in math
 ======
 ';
 
-$result_errors{'section_in_math'} = [
-  {
-    'error_line' => 'warning: @section should not appear anywhere inside @math
-',
-    'line_nr' => 4,
-    'text' => '@section should not appear anywhere inside @math',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 2,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@section seen before @math closing brace
-',
-    'line_nr' => 2,
-    'text' => '@section seen before @math closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should not appear anywhere inside @math
-',
-    'line_nr' => 8,
-    'text' => '@section should not appear anywhere inside @math',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @math closing brace
-',
-    'line_nr' => 6,
-    'text' => '@section seen before @math closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_in_math'} = '* W l4|@section should not appear anywhere inside @math
+ warning: @section should not appear anywhere inside @math
 
+* E l2|misplaced {
+ misplaced {
+
+* E l2|@section seen before @math closing brace
+ @section seen before @math closing brace
+
+* W l8|@section should not appear anywhere inside @math
+ warning: @section should not appear anywhere inside @math
+
+* E l6|@section seen before @math closing brace
+ @section seen before @math closing brace
+
+';
 
 $result_nodes_list{'section_in_math'} = '';
 

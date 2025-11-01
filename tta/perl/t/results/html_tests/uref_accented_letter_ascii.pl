@@ -45,8 +45,7 @@ $result_texts{'uref_accented_letter_ascii'} = '
 http://example.com/acc_a"a;
 ';
 
-$result_errors{'uref_accented_letter_ascii'} = [];
-
+$result_errors{'uref_accented_letter_ascii'} = '';
 
 $result_nodes_list{'uref_accented_letter_ascii'} = '';
 

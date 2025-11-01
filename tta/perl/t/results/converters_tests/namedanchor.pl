@@ -609,23 +609,13 @@ Not here!
 =========
 ';
 
-$result_errors{'namedanchor'} = [
-  {
-    'error_line' => 'warning: @namedanchor should not appear on @chapter line
-',
-    'line_nr' => 7,
-    'text' => '@namedanchor should not appear on @chapter line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'empty argument in @namedanchor
-',
-    'line_nr' => 13,
-    'text' => 'empty argument in @namedanchor',
-    'type' => 'error'
-  }
-];
+$result_errors{'namedanchor'} = '* W l7|@namedanchor should not appear on @chapter line
+ warning: @namedanchor should not appear on @chapter line
 
+* E l13|empty argument in @namedanchor
+ empty argument in @namedanchor
+
+';
 
 $result_nodes_list{'namedanchor'} = '1|Top
  associated_section: top

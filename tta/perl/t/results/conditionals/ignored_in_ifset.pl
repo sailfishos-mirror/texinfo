@@ -104,51 +104,25 @@ text
 %
 ';
 
-$result_errors{'ignored_in_ifset'} = [
-  {
-    'error_line' => 'unmatched `@end ignore\'
-',
-    'line_nr' => 5,
-    'text' => 'unmatched `@end ignore\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end ifset\'
-',
-    'line_nr' => 7,
-    'text' => 'unmatched `@end ifset\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end verbatim\'
-',
-    'line_nr' => 12,
-    'text' => 'unmatched `@end verbatim\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end ifset\'
-',
-    'line_nr' => 13,
-    'text' => 'unmatched `@end ifset\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 18,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end ifset\'
-',
-    'line_nr' => 19,
-    'text' => 'unmatched `@end ifset\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'ignored_in_ifset'} = '* E l5|unmatched `@end ignore\'
+ unmatched `@end ignore\'
 
+* E l7|unmatched `@end ifset\'
+ unmatched `@end ifset\'
+
+* E l12|unmatched `@end verbatim\'
+ unmatched `@end verbatim\'
+
+* E l13|unmatched `@end ifset\'
+ unmatched `@end ifset\'
+
+* E l18|misplaced }
+ misplaced }
+
+* E l19|unmatched `@end ifset\'
+ unmatched `@end ifset\'
+
+';
 
 $result_nodes_list{'ignored_in_ifset'} = '';
 

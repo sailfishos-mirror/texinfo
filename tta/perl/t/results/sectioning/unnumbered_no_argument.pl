@@ -25,16 +25,10 @@ $result_texis{'unnumbered_no_argument'} = '@unnumbered
 
 $result_texts{'unnumbered_no_argument'} = '';
 
-$result_errors{'unnumbered_no_argument'} = [
-  {
-    'error_line' => 'warning: @unnumbered missing argument
-',
-    'line_nr' => 1,
-    'text' => '@unnumbered missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unnumbered_no_argument'} = '* W l1|@unnumbered missing argument
+ warning: @unnumbered missing argument
 
+';
 
 $result_nodes_list{'unnumbered_no_argument'} = '';
 

@@ -117,8 +117,7 @@ in tex2
 End.
 ';
 
-$result_errors{'raw_in_para'} = [];
-
+$result_errors{'raw_in_para'} = '';
 
 $result_nodes_list{'raw_in_para'} = '';
 

@@ -55,23 +55,13 @@ badm
 
 $result_texts{'macro_in_invalid_documentencoding'} = '';
 
-$result_errors{'macro_in_invalid_documentencoding'} = [
-  {
-    'error_line' => 'warning: encoding `badm\' is not a canonical texinfo encoding
-',
-    'line_nr' => 4,
-    'text' => 'encoding `badm\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unhandled encoding name `badm\'
-',
-    'line_nr' => 4,
-    'text' => 'unhandled encoding name `badm\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'macro_in_invalid_documentencoding'} = '* W l4|encoding `badm\' is not a canonical texinfo encoding
+ warning: encoding `badm\' is not a canonical texinfo encoding
 
+* W l4|unhandled encoding name `badm\'
+ warning: unhandled encoding name `badm\'
+
+';
 
 $result_nodes_list{'macro_in_invalid_documentencoding'} = '';
 

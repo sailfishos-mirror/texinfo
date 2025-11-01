@@ -90,51 +90,25 @@ $result_texts{'beginning_and_end_on_line'} = '
 
 ';
 
-$result_errors{'beginning_and_end_on_line'} = [
-  {
-    'error_line' => 'warning: @end should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@end should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @tex line: in tex
-',
-    'line_nr' => 2,
-    'text' => 'unexpected argument on @tex line: in tex',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @end should only appear at the beginning of a line
-',
-    'line_nr' => 4,
-    'text' => '@end should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @verbatim line: in verbatim
-',
-    'line_nr' => 4,
-    'text' => 'unexpected argument on @verbatim line: in verbatim',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @end should only appear at the beginning of a line
-',
-    'line_nr' => 6,
-    'text' => '@end should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @html line: in html
-',
-    'line_nr' => 6,
-    'text' => 'unexpected argument on @html line: in html',
-    'type' => 'warning'
-  }
-];
+$result_errors{'beginning_and_end_on_line'} = '* W l2|@end should only appear at the beginning of a line
+ warning: @end should only appear at the beginning of a line
 
+* W l2|unexpected argument on @tex line: in tex
+ warning: unexpected argument on @tex line: in tex
+
+* W l4|@end should only appear at the beginning of a line
+ warning: @end should only appear at the beginning of a line
+
+* W l4|unexpected argument on @verbatim line: in verbatim
+ warning: unexpected argument on @verbatim line: in verbatim
+
+* W l6|@end should only appear at the beginning of a line
+ warning: @end should only appear at the beginning of a line
+
+* W l6|unexpected argument on @html line: in html
+ warning: unexpected argument on @html line: in html
+
+';
 
 $result_nodes_list{'beginning_and_end_on_line'} = '';
 

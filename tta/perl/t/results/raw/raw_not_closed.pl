@@ -32,16 +32,10 @@ This is some html
 <address> my address </address>
 ';
 
-$result_errors{'raw_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end html\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end html\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'raw_not_closed'} = '* E l1|no matching `@end html\'
+ no matching `@end html\'
 
+';
 
 $result_nodes_list{'raw_not_closed'} = '';
 

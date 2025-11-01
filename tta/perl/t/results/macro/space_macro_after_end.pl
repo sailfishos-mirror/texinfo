@@ -66,8 +66,7 @@ $result_texts{'space_macro_after_end'} = '
 in html
 ';
 
-$result_errors{'space_macro_after_end'} = [];
-
+$result_errors{'space_macro_after_end'} = '';
 
 $result_nodes_list{'space_macro_after_end'} = '';
 

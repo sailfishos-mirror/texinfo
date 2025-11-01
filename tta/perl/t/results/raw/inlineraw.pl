@@ -52,8 +52,7 @@ $result_texts{'inlineraw'} = 'A plaintext `` {  a.  Now html
 in <i>HTML</i>.
 ';
 
-$result_errors{'inlineraw'} = [];
-
+$result_errors{'inlineraw'} = '';
 
 $result_nodes_list{'inlineraw'} = '';
 

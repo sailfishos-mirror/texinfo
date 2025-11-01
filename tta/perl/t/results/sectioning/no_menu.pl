@@ -145,8 +145,7 @@ $result_texts{'no_menu'} = '
 ****
 ';
 
-$result_errors{'no_menu'} = [];
-
+$result_errors{'no_menu'} = '';
 
 $result_nodes_list{'no_menu'} = '1|Top
  associated_section

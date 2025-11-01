@@ -58,8 +58,7 @@ $result_texts{'macro_end_call_in_ignored_inlineraw'} = '
 Para . After.
 ';
 
-$result_errors{'macro_end_call_in_ignored_inlineraw'} = [];
-
+$result_errors{'macro_end_call_in_ignored_inlineraw'} = '';
 
 $result_nodes_list{'macro_end_call_in_ignored_inlineraw'} = '';
 

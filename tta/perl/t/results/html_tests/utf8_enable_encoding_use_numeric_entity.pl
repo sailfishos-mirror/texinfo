@@ -38,8 +38,7 @@ AA @^e --- -- \'` \'\' ``';
 $result_texts{'utf8_enable_encoding_use_numeric_entity'} = '
 AA e^ -- - \'` " "';
 
-$result_errors{'utf8_enable_encoding_use_numeric_entity'} = [];
-
+$result_errors{'utf8_enable_encoding_use_numeric_entity'} = '';
 
 $result_nodes_list{'utf8_enable_encoding_use_numeric_entity'} = '';
 

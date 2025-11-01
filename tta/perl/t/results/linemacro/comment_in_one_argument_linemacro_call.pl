@@ -74,8 +74,7 @@ c something
 next
 ';
 
-$result_errors{'comment_in_one_argument_linemacro_call'} = [];
-
+$result_errors{'comment_in_one_argument_linemacro_call'} = '';
 
 $result_nodes_list{'comment_in_one_argument_linemacro_call'} = '';
 

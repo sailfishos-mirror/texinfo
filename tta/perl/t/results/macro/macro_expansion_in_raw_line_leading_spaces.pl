@@ -106,8 +106,7 @@ $result_texts{'macro_expansion_in_raw_line_leading_spaces'} = '
 
 ';
 
-$result_errors{'macro_expansion_in_raw_line_leading_spaces'} = [];
-
+$result_errors{'macro_expansion_in_raw_line_leading_spaces'} = '';
 
 $result_nodes_list{'macro_expansion_in_raw_line_leading_spaces'} = '';
 

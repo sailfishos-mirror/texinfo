@@ -40,23 +40,13 @@ In TeX
 $result_texts{'command_in_end_expanded_raw_command_empty_after'} = 'In TeX
 ';
 
-$result_errors{'command_in_end_expanded_raw_command_empty_after'} = [
-  {
-    'error_line' => 'warning: @asis should not appear in @end
-',
-    'line_nr' => 3,
-    'text' => '@asis should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: tex@asis{}
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: tex@asis{}',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_in_end_expanded_raw_command_empty_after'} = '* W l3|@asis should not appear in @end
+ warning: @asis should not appear in @end
 
+* E l3|bad argument to @end: tex@asis{}
+ bad argument to @end: tex@asis{}
+
+';
 
 $result_nodes_list{'command_in_end_expanded_raw_command_empty_after'} = '';
 

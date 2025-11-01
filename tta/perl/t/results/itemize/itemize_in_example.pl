@@ -213,16 +213,10 @@ with m--n
 in an itemize line
 ';
 
-$result_errors{'itemize_in_example'} = [
-  {
-    'error_line' => 'warning: @asis expected braces
-',
-    'line_nr' => 8,
-    'text' => '@asis expected braces',
-    'type' => 'warning'
-  }
-];
+$result_errors{'itemize_in_example'} = '* W l8|@asis expected braces
+ warning: @asis expected braces
 
+';
 
 $result_nodes_list{'itemize_in_example'} = '';
 

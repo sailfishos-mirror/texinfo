@@ -139,8 +139,7 @@ Appendix A appendix
 
 ';
 
-$result_errors{'test_separated_contents_shortcontents'} = [];
-
+$result_errors{'test_separated_contents_shortcontents'} = '';
 
 $result_nodes_list{'test_separated_contents_shortcontents'} = '1|Top
  associated_section: top

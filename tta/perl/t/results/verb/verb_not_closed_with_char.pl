@@ -33,16 +33,10 @@ In verb
 
 *';
 
-$result_errors{'verb_not_closed_with_char'} = [
-  {
-    'error_line' => '@verb missing closing delimiter sequence: *}
-',
-    'line_nr' => 1,
-    'text' => '@verb missing closing delimiter sequence: *}',
-    'type' => 'error'
-  }
-];
+$result_errors{'verb_not_closed_with_char'} = '* E l1|@verb missing closing delimiter sequence: *}
+ @verb missing closing delimiter sequence: *}
 
+';
 
 $result_nodes_list{'verb_not_closed_with_char'} = '';
 

@@ -30,23 +30,13 @@ $result_texts{'command_not_closed_on_center_line'} = 'c
 st
 ';
 
-$result_errors{'command_not_closed_on_center_line'} = [
-  {
-    'error_line' => '@strong missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@strong missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 2,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_not_closed_on_center_line'} = '* E l1|@strong missing closing brace
+ @strong missing closing brace
 
+* E l2|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'command_not_closed_on_center_line'} = '';
 

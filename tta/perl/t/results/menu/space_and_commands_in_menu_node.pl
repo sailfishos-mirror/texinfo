@@ -245,58 +245,28 @@ $result_texts{'space_and_commands_in_menu_node'} = 'top
 ******
 ';
 
-$result_errors{'space_and_commands_in_menu_node'} = [
-  {
-    'error_line' => 'warning: @menu entry node name `chap  b\' different from node name `chap @: b\'
-',
-    'line_nr' => 5,
-    'text' => '@menu entry node name `chap  b\' different from node name `chap @: b\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `chap b\' different from node name `chap @: b\'
-',
-    'line_nr' => 7,
-    'text' => '@menu entry node name `chap b\' different from node name `chap @: b\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `chap@ @ b\' different from node name `chap @: b\'
-',
-    'line_nr' => 8,
-    'text' => '@menu entry node name `chap@ @ b\' different from node name `chap @: b\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `chap@  b\' different from node name `chap @: b\'
-',
-    'line_nr' => 9,
-    'text' => '@menu entry node name `chap@  b\' different from node name `chap @: b\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `chap @ b\' different from node name `chap @: b\'
-',
-    'line_nr' => 10,
-    'text' => '@menu entry node name `chap @ b\' different from node name `chap @: b\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `chap b\' different from node name `chap @: b\'
-',
-    'line_nr' => 12,
-    'text' => '@menu entry node name `chap b\' different from node name `chap @: b\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `chap @ @ b\' different from node name `chap @: b\'
-',
-    'line_nr' => 13,
-    'text' => '@menu entry node name `chap @ @ b\' different from node name `chap @: b\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'space_and_commands_in_menu_node'} = '* W l5|@menu entry node name `chap  b\' different from node name `chap @: b\'
+ warning: @menu entry node name `chap  b\' different from node name `chap @: b\'
 
+* W l7|@menu entry node name `chap b\' different from node name `chap @: b\'
+ warning: @menu entry node name `chap b\' different from node name `chap @: b\'
+
+* W l8|@menu entry node name `chap@ @ b\' different from node name `chap @: b\'
+ warning: @menu entry node name `chap@ @ b\' different from node name `chap @: b\'
+
+* W l9|@menu entry node name `chap@  b\' different from node name `chap @: b\'
+ warning: @menu entry node name `chap@  b\' different from node name `chap @: b\'
+
+* W l10|@menu entry node name `chap @ b\' different from node name `chap @: b\'
+ warning: @menu entry node name `chap @ b\' different from node name `chap @: b\'
+
+* W l12|@menu entry node name `chap b\' different from node name `chap @: b\'
+ warning: @menu entry node name `chap b\' different from node name `chap @: b\'
+
+* W l13|@menu entry node name `chap @ @ b\' different from node name `chap @: b\'
+ warning: @menu entry node name `chap @ @ b\' different from node name `chap @: b\'
+
+';
 
 $result_nodes_list{'space_and_commands_in_menu_node'} = '1|Top
  associated_section: top

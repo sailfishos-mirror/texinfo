@@ -130,8 +130,7 @@ Text.
 in chapter.
 ';
 
-$result_errors{'space_in_menu'} = [];
-
+$result_errors{'space_in_menu'} = '';
 
 $result_nodes_list{'space_in_menu'} = '1|Top
  associated_section: Element

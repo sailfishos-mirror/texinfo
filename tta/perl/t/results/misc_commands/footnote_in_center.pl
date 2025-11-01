@@ -96,8 +96,7 @@ line
 $result_texts{'footnote_in_center'} = 'Centered text with a footnote and text after the footnote.
 ';
 
-$result_errors{'footnote_in_center'} = [];
-
+$result_errors{'footnote_in_center'} = '';
 
 $result_nodes_list{'footnote_in_center'} = '';
 

@@ -605,8 +605,7 @@ should not be associated
 
 ';
 
-$result_errors{'headings_after_lone_nodes'} = [];
-
+$result_errors{'headings_after_lone_nodes'} = '';
 
 $result_nodes_list{'headings_after_lone_nodes'} = '1|Top
  associated_section: top

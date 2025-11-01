@@ -30,8 +30,7 @@ $result_texis{'node_empty_direction'} = '@node name, ';
 
 $result_texts{'node_empty_direction'} = '';
 
-$result_errors{'node_empty_direction'} = [];
-
+$result_errors{'node_empty_direction'} = '';
 
 $result_nodes_list{'node_empty_direction'} = '1|name
 ';

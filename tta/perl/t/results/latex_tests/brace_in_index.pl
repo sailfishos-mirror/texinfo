@@ -164,37 +164,19 @@ Function: A{A (BBB)
 CCC
 ';
 
-$result_errors{'brace_in_index'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 9,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 11,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 13,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 15,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'brace_in_index'} = '* W l9|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+* W l11|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W l13|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W l15|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'brace_in_index'} = '';
 

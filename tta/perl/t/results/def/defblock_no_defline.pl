@@ -40,8 +40,7 @@ misc text inside
 $result_texts{'defblock_no_defline'} = 'misc text inside
 ';
 
-$result_errors{'defblock_no_defline'} = [];
-
+$result_errors{'defblock_no_defline'} = '';
 
 $result_nodes_list{'defblock_no_defline'} = '';
 

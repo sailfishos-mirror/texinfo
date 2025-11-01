@@ -310,8 +310,7 @@ GNU LilyPond -- 学習マニュアル
 
 ';
 
-$result_errors{'japanese_utf8'} = [];
-
+$result_errors{'japanese_utf8'} = '';
 
 $result_nodes_list{'japanese_utf8'} = '1|Top
  associated_section: GNU LilyPond --- 学習マニュアル

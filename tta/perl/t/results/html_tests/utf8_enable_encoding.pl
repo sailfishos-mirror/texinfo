@@ -38,8 +38,7 @@ AA @^e --- -- \'` \'\' ``';
 $result_texts{'utf8_enable_encoding'} = '
 AA e^ -- - \'` " "';
 
-$result_errors{'utf8_enable_encoding'} = [];
-
+$result_errors{'utf8_enable_encoding'} = '';
 
 $result_nodes_list{'utf8_enable_encoding'} = '';
 

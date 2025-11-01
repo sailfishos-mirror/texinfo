@@ -79,8 +79,7 @@ This.  It.
 This 2 see.  A.
 ';
 
-$result_errors{'empty_macro_in_text_no_arg'} = [];
-
+$result_errors{'empty_macro_in_text_no_arg'} = '';
 
 $result_nodes_list{'empty_macro_in_text_no_arg'} = '';
 

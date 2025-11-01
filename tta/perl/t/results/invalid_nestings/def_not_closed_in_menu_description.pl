@@ -84,30 +84,16 @@ $result_texts{'def_not_closed_in_menu_description'} = '* (info):: before deff bi
 deffn text
 ';
 
-$result_errors{'def_not_closed_in_menu_description'} = [
-  {
-    'error_line' => 'warning: @deffn should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@deffn should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '`@end\' expected `deffn\', but saw `menu\'
-',
-    'line_nr' => 5,
-    'text' => '`@end\' expected `deffn\', but saw `menu\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'def_not_closed_in_menu_description'} = '* W l2|@deffn should only appear at the beginning of a line
+ warning: @deffn should only appear at the beginning of a line
 
+* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l5|`@end\' expected `deffn\', but saw `menu\'
+ `@end\' expected `deffn\', but saw `menu\'
+
+';
 
 $result_nodes_list{'def_not_closed_in_menu_description'} = '';
 

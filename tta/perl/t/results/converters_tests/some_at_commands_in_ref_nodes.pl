@@ -330,8 +330,7 @@ see a strong ref with SC, a i trema i", a dotless i trema i" E=` and exclamdown 
 A SC N~ AA TeX node i" i" E=` /l C\', !.
 ';
 
-$result_errors{'some_at_commands_in_ref_nodes'} = [];
-
+$result_errors{'some_at_commands_in_ref_nodes'} = '';
 
 $result_nodes_list{'some_at_commands_in_ref_nodes'} = '1|Top
  associated_section: Top

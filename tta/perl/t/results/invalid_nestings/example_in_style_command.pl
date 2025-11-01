@@ -44,23 +44,13 @@ $result_texts{'example_in_style_command'} = '
 example
 ';
 
-$result_errors{'example_in_style_command'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 5,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'example_in_style_command'} = '* E l1|@code missing closing brace
+ @code missing closing brace
 
+* E l5|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'example_in_style_command'} = '';
 

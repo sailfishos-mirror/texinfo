@@ -19,16 +19,10 @@ $result_texis{'lone_end_table'} = 'Text.
 $result_texts{'lone_end_table'} = 'Text.
 ';
 
-$result_errors{'lone_end_table'} = [
-  {
-    'error_line' => 'unmatched `@end table\'
-',
-    'line_nr' => 2,
-    'text' => 'unmatched `@end table\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'lone_end_table'} = '* E l2|unmatched `@end table\'
+ unmatched `@end table\'
 
+';
 
 $result_nodes_list{'lone_end_table'} = '';
 

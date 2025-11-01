@@ -99,8 +99,7 @@ $result_texts{'empty_top_node_up'} = 'empty top node up
 
 ';
 
-$result_errors{'empty_top_node_up'} = [];
-
+$result_errors{'empty_top_node_up'} = '';
 
 $result_nodes_list{'empty_top_node_up'} = '1|Top
  associated_section: empty top node up

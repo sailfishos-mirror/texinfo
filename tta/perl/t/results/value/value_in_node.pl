@@ -299,8 +299,7 @@ Expansion in Node Names
 Node 1.
 ';
 
-$result_errors{'value_in_node'} = [];
-
+$result_errors{'value_in_node'} = '';
 
 $result_nodes_list{'value_in_node'} = '1|Top
  associated_section: Expansion in Node Names

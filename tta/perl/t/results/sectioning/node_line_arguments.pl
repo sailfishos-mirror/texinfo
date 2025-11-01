@@ -237,142 +237,64 @@ $result_texts{'node_line_arguments'} = '
 
 ';
 
-$result_errors{'node_line_arguments'} = [
-  {
-    'error_line' => 'warning: superfluous arguments for node
-',
-    'line_nr' => 6,
-    'text' => 'superfluous arguments for node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'Next reference to nonexistent `two arg\'
-',
-    'line_nr' => 3,
-    'text' => 'Next reference to nonexistent `two arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Next reference to nonexistent `two arg\'
-',
-    'line_nr' => 4,
-    'text' => 'Next reference to nonexistent `two arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Prev reference to nonexistent `three arg\'
-',
-    'line_nr' => 4,
-    'text' => 'Prev reference to nonexistent `three arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Next reference to nonexistent `two arg\'
-',
-    'line_nr' => 5,
-    'text' => 'Next reference to nonexistent `two arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Prev reference to nonexistent `three arg\'
-',
-    'line_nr' => 5,
-    'text' => 'Prev reference to nonexistent `three arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Up reference to nonexistent `four arg\'
-',
-    'line_nr' => 5,
-    'text' => 'Up reference to nonexistent `four arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Next reference to nonexistent `two arg\'
-',
-    'line_nr' => 6,
-    'text' => 'Next reference to nonexistent `two arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Prev reference to nonexistent `three arg\'
-',
-    'line_nr' => 6,
-    'text' => 'Prev reference to nonexistent `three arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Up reference to nonexistent `four arg five arg\'
-',
-    'line_nr' => 6,
-    'text' => 'Up reference to nonexistent `four arg five arg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Next reference to nonexistent `@,cedilla\'
-',
-    'line_nr' => 10,
-    'text' => 'Next reference to nonexistent `@,cedilla\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Prev reference to nonexistent `@strong{comma in strong,}\'
-',
-    'line_nr' => 10,
-    'text' => 'Prev reference to nonexistent `@strong{comma in strong,}\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: node `one arg1\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `one arg1\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `one arg2\' unreferenced
-',
-    'line_nr' => 3,
-    'text' => 'node `one arg2\' unreferenced',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `one arg3\' unreferenced
-',
-    'line_nr' => 4,
-    'text' => 'node `one arg3\' unreferenced',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `one arg4\' unreferenced
-',
-    'line_nr' => 5,
-    'text' => 'node `one arg4\' unreferenced',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `one arg5\' unreferenced
-',
-    'line_nr' => 6,
-    'text' => 'node `one arg5\' unreferenced',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `comment\' unreferenced
-',
-    'line_nr' => 8,
-    'text' => 'node `comment\' unreferenced',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `arg1 @comma{} arg2\' unreferenced
-',
-    'line_nr' => 10,
-    'text' => 'node `arg1 @comma{} arg2\' unreferenced',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_line_arguments'} = '* W l6|superfluous arguments for node
+ warning: superfluous arguments for node
 
+* E l3|Next reference to nonexistent `two arg\'
+ Next reference to nonexistent `two arg\'
+
+* E l4|Next reference to nonexistent `two arg\'
+ Next reference to nonexistent `two arg\'
+
+* E l4|Prev reference to nonexistent `three arg\'
+ Prev reference to nonexistent `three arg\'
+
+* E l5|Next reference to nonexistent `two arg\'
+ Next reference to nonexistent `two arg\'
+
+* E l5|Prev reference to nonexistent `three arg\'
+ Prev reference to nonexistent `three arg\'
+
+* E l5|Up reference to nonexistent `four arg\'
+ Up reference to nonexistent `four arg\'
+
+* E l6|Next reference to nonexistent `two arg\'
+ Next reference to nonexistent `two arg\'
+
+* E l6|Prev reference to nonexistent `three arg\'
+ Prev reference to nonexistent `three arg\'
+
+* E l6|Up reference to nonexistent `four arg five arg\'
+ Up reference to nonexistent `four arg five arg\'
+
+* E l10|Next reference to nonexistent `@,cedilla\'
+ Next reference to nonexistent `@,cedilla\'
+
+* E l10|Prev reference to nonexistent `@strong{comma in strong,}\'
+ Prev reference to nonexistent `@strong{comma in strong,}\'
+
+* W l2|node `one arg1\' not in menu
+ warning: node `one arg1\' not in menu
+
+* W l3|node `one arg2\' unreferenced
+ warning: node `one arg2\' unreferenced
+
+* W l4|node `one arg3\' unreferenced
+ warning: node `one arg3\' unreferenced
+
+* W l5|node `one arg4\' unreferenced
+ warning: node `one arg4\' unreferenced
+
+* W l6|node `one arg5\' unreferenced
+ warning: node `one arg5\' unreferenced
+
+* W l8|node `comment\' unreferenced
+ warning: node `comment\' unreferenced
+
+* W l10|node `arg1 @comma{} arg2\' unreferenced
+ warning: node `arg1 @comma{} arg2\' unreferenced
+
+';
 
 $result_nodes_list{'node_line_arguments'} = '1|one arg1
 2|one arg2

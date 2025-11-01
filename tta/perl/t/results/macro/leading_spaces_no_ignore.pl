@@ -55,8 +55,7 @@ Some  here
   text
 ';
 
-$result_errors{'leading_spaces_no_ignore'} = [];
-
+$result_errors{'leading_spaces_no_ignore'} = '';
 
 $result_nodes_list{'leading_spaces_no_ignore'} = '';
 

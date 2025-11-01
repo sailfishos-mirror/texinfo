@@ -64,8 +64,7 @@ $result_texis{'macro_in_ifset'} = '@macro macroone {arg}
 $result_texts{'macro_in_ifset'} = '
 ';
 
-$result_errors{'macro_in_ifset'} = [];
-
+$result_errors{'macro_in_ifset'} = '';
 
 $result_nodes_list{'macro_in_ifset'} = '';
 

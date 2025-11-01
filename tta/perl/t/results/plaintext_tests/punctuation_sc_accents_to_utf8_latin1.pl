@@ -310,8 +310,7 @@ AA AA E^ E^ É I~ I .R R\'< N~,=.
 
 ';
 
-$result_errors{'punctuation_sc_accents_to_utf8_latin1'} = [];
-
+$result_errors{'punctuation_sc_accents_to_utf8_latin1'} = '';
 
 $result_nodes_list{'punctuation_sc_accents_to_utf8_latin1'} = '1|top
  associated_section: top section

@@ -79,8 +79,7 @@ flagab: a
 b
 ';
 
-$result_errors{'macro_in_value'} = [];
-
+$result_errors{'macro_in_value'} = '';
 
 $result_nodes_list{'macro_in_value'} = '';
 

@@ -148,30 +148,16 @@ Top section
 Text of chapter
 ';
 
-$result_errors{'unnumbered_top_without_node_nodes'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'line_nr' => 6,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `a node\' not in menu
-',
-    'line_nr' => 1,
-    'text' => 'node `a node\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `second\' unreferenced
-',
-    'line_nr' => 9,
-    'text' => 'node `second\' unreferenced',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unnumbered_top_without_node_nodes'} = '* W l6|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
 
+* W l1|node `a node\' not in menu
+ warning: node `a node\' not in menu
+
+* W l9|node `second\' unreferenced
+ warning: node `second\' unreferenced
+
+';
 
 $result_nodes_list{'unnumbered_top_without_node_nodes'} = '1|a node
  associated_section: unnumbered

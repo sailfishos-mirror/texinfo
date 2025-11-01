@@ -237,44 +237,22 @@ itemx vtable
 unknown command after indicating command
 ';
 
-$result_errors{'table'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 11,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 13,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `ky\' outside of any node
-',
-    'line_nr' => 15,
-    'text' => 'entry for index `ky\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 16,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'line_nr' => 20,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'table'} = '* W l11|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+* W l13|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l15|entry for index `ky\' outside of any node
+ warning: entry for index `ky\' outside of any node
+
+* W l16|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* E l20|unknown command `unknown\'
+ unknown command `unknown\'
+
+';
 
 $result_nodes_list{'table'} = '';
 

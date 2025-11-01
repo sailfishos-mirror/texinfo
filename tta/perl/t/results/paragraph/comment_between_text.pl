@@ -30,8 +30,7 @@ end para';
 $result_texts{'comment_between_text'} = 'text
 end para';
 
-$result_errors{'comment_between_text'} = [];
-
+$result_errors{'comment_between_text'} = '';
 
 $result_nodes_list{'comment_between_text'} = '';
 

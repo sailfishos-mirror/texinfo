@@ -70,8 +70,7 @@ $result_texts{'include_after_empty_line_arg'} = '
 In included file.
 ';
 
-$result_errors{'include_after_empty_line_arg'} = [];
-
+$result_errors{'include_after_empty_line_arg'} = '';
 
 $result_nodes_list{'include_after_empty_line_arg'} = '';
 

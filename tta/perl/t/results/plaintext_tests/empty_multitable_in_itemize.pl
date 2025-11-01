@@ -73,16 +73,10 @@ $result_texts{'empty_multitable_in_itemize'} = 'in macro
 
 ';
 
-$result_errors{'empty_multitable_in_itemize'} = [
-  {
-    'error_line' => 'warning: empty multitable
-',
-    'line_nr' => 4,
-    'text' => 'empty multitable',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_multitable_in_itemize'} = '* W l4|empty multitable
+ warning: empty multitable
 
+';
 
 $result_nodes_list{'empty_multitable_in_itemize'} = '';
 

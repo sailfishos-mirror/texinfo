@@ -28,30 +28,16 @@ $result_texis{'unclosed_verb_on_misc_line'} = '@setfilename name @verb{file.texi
 
 $result_texts{'unclosed_verb_on_misc_line'} = '';
 
-$result_errors{'unclosed_verb_on_misc_line'} = [
-  {
-    'error_line' => 'warning: @verb should not appear in @setfilename
-',
-    'line_nr' => 1,
-    'text' => '@verb should not appear in @setfilename',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@verb missing closing delimiter sequence: f}
-',
-    'line_nr' => 1,
-    'text' => '@verb missing closing delimiter sequence: f}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @setfilename: name @verb{file.texif}
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @setfilename: name @verb{file.texif}',
-    'type' => 'error'
-  }
-];
+$result_errors{'unclosed_verb_on_misc_line'} = '* W l1|@verb should not appear in @setfilename
+ warning: @verb should not appear in @setfilename
 
+* E l1|@verb missing closing delimiter sequence: f}
+ @verb missing closing delimiter sequence: f}
+
+* E l1|bad argument to @setfilename: name @verb{file.texif}
+ bad argument to @setfilename: name @verb{file.texif}
+
+';
 
 $result_nodes_list{'unclosed_verb_on_misc_line'} = '';
 

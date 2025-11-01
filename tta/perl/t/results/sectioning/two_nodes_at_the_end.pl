@@ -228,16 +228,10 @@ in node after chapter 1
 
 ';
 
-$result_errors{'two_nodes_at_the_end'} = [
-  {
-    'error_line' => 'warning: unexpected node `last node in chapter 1\' in menu
-',
-    'line_nr' => 7,
-    'text' => 'unexpected node `last node in chapter 1\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'two_nodes_at_the_end'} = '* W l7|unexpected node `last node in chapter 1\' in menu
+ warning: unexpected node `last node in chapter 1\' in menu
 
+';
 
 $result_nodes_list{'two_nodes_at_the_end'} = '1|Top
  associated_section: top

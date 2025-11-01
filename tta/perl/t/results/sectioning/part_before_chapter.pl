@@ -55,8 +55,7 @@ $result_texts{'part_before_chapter'} = 'part
 *********
 ';
 
-$result_errors{'part_before_chapter'} = [];
-
+$result_errors{'part_before_chapter'} = '';
 
 $result_nodes_list{'part_before_chapter'} = '';
 

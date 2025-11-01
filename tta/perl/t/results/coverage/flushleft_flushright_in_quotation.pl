@@ -88,8 +88,7 @@ f l
 f r
 ';
 
-$result_errors{'flushleft_flushright_in_quotation'} = [];
-
+$result_errors{'flushleft_flushright_in_quotation'} = '';
 
 $result_nodes_list{'flushleft_flushright_in_quotation'} = '';
 

@@ -342,128 +342,58 @@ Even more
 
 ';
 
-$result_errors{'in_table'} = [
-  {
-    'error_line' => 'warning: @xref should not appear on @table line
-',
-    'line_nr' => 5,
-    'text' => '@xref should not appear on @table line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @indent should not appear in @item
-',
-    'line_nr' => 9,
-    'text' => '@indent should not appear in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 9,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should not appear in @item
-',
-    'line_nr' => 9,
-    'text' => '@exdent should not appear in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@ref missing closing brace
-',
-    'line_nr' => 11,
-    'text' => '@ref missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 12,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @center should only appear at the beginning of a line
-',
-    'line_nr' => 13,
-    'text' => '@center should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @center should not appear in @item
-',
-    'line_nr' => 13,
-    'text' => '@center should not appear in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should only appear at the beginning of a line
-',
-    'line_nr' => 14,
-    'text' => '@cindex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should not appear in @item
-',
-    'line_nr' => 14,
-    'text' => '@cindex should not appear in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should only appear at the beginning of a line
-',
-    'line_nr' => 18,
-    'text' => '@cindex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should not appear in @item
-',
-    'line_nr' => 18,
-    'text' => '@cindex should not appear in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should only appear at the beginning of a line
-',
-    'line_nr' => 21,
-    'text' => '@cindex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @cindex should not appear in @item
-',
-    'line_nr' => 21,
-    'text' => '@cindex should not appear in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @item
-',
-    'line_nr' => 18,
-    'text' => 'empty index key in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @item
-',
-    'line_nr' => 21,
-    'text' => 'empty index key in @item',
-    'type' => 'warning'
-  }
-];
+$result_errors{'in_table'} = '* W l5|@xref should not appear on @table line
+ warning: @xref should not appear on @table line
 
+* W l9|@indent should not appear in @item
+ warning: @indent should not appear in @item
+
+* W l9|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+* W l9|@exdent should not appear in @item
+ warning: @exdent should not appear in @item
+
+* E l11|@ref missing closing brace
+ @ref missing closing brace
+
+* E l12|misplaced }
+ misplaced }
+
+* W l13|@center should only appear at the beginning of a line
+ warning: @center should only appear at the beginning of a line
+
+* W l13|@center should not appear in @item
+ warning: @center should not appear in @item
+
+* W l14|@cindex should only appear at the beginning of a line
+ warning: @cindex should only appear at the beginning of a line
+
+* W l14|@cindex should not appear in @item
+ warning: @cindex should not appear in @item
+
+* W l18|@cindex should only appear at the beginning of a line
+ warning: @cindex should only appear at the beginning of a line
+
+* W l18|@cindex should not appear in @item
+ warning: @cindex should not appear in @item
+
+* W l21|@cindex should only appear at the beginning of a line
+ warning: @cindex should only appear at the beginning of a line
+
+* W l21|@cindex should not appear in @item
+ warning: @cindex should not appear in @item
+
+* W l3|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+* W l18|empty index key in @item
+ warning: empty index key in @item
+
+* W l21|empty index key in @item
+ warning: empty index key in @item
+
+';
 
 $result_nodes_list{'in_table'} = '1|Top
  node_directions:

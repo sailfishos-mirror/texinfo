@@ -236,8 +236,7 @@ Y5
 Y6
 ';
 
-$result_errors{'comment_on_ifset_line'} = [];
-
+$result_errors{'comment_on_ifset_line'} = '';
 
 $result_nodes_list{'comment_on_ifset_line'} = '';
 

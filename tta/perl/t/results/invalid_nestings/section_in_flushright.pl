@@ -49,16 +49,10 @@ text flushed right
 ===========
 ';
 
-$result_errors{'section_in_flushright'} = [
-  {
-    'error_line' => '@section seen before @end flushright
-',
-    'line_nr' => 5,
-    'text' => '@section seen before @end flushright',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_in_flushright'} = '* E l5|@section seen before @end flushright
+ @section seen before @end flushright
 
+';
 
 $result_nodes_list{'section_in_flushright'} = '';
 

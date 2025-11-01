@@ -471,30 +471,16 @@ all
 
 ';
 
-$result_errors{'macro_alias_definfoenclose_defindex'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 12,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 21,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 40,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'macro_alias_definfoenclose_defindex'} = '* W l12|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+* W l21|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l40|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+';
 
 $result_indices{'macro_alias_definfoenclose_defindex'} = 'cp
 fn C

@@ -51,8 +51,7 @@ Now ! !@ !
 but , ,
 ';
 
-$result_errors{'inhibit_punctuation'} = [];
-
+$result_errors{'inhibit_punctuation'} = '';
 
 $result_nodes_list{'inhibit_punctuation'} = '';
 

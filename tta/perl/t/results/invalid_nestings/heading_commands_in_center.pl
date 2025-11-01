@@ -36,58 +36,28 @@ $result_texis{'heading_commands_in_center'} = '@center @code{aaa @thischapter} @
 $result_texts{'heading_commands_in_center'} = 'aaa   a   b
 ';
 
-$result_errors{'heading_commands_in_center'} = [
-  {
-    'error_line' => '@thischapter should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@thischapter should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @| should not appear in @center
-',
-    'line_nr' => 1,
-    'text' => '@| should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@| should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@| should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @thissection should not appear in @center
-',
-    'line_nr' => 1,
-    'text' => '@thissection should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@thissection should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@thissection should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @| should not appear in @center
-',
-    'line_nr' => 1,
-    'text' => '@| should not appear in @center',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@| should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@| should only appear in heading or footing',
-    'type' => 'error'
-  }
-];
+$result_errors{'heading_commands_in_center'} = '* E l1|@thischapter should only appear in heading or footing
+ @thischapter should only appear in heading or footing
 
+* W l1|@| should not appear in @center
+ warning: @| should not appear in @center
+
+* E l1|@| should only appear in heading or footing
+ @| should only appear in heading or footing
+
+* W l1|@thissection should not appear in @center
+ warning: @thissection should not appear in @center
+
+* E l1|@thissection should only appear in heading or footing
+ @thissection should only appear in heading or footing
+
+* W l1|@| should not appear in @center
+ warning: @| should not appear in @center
+
+* E l1|@| should only appear in heading or footing
+ @| should only appear in heading or footing
+
+';
 
 $result_nodes_list{'heading_commands_in_center'} = '';
 

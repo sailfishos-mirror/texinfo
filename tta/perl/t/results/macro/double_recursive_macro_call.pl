@@ -81,17 +81,10 @@ $result_texts{'double_recursive_macro_call'} = '
 
 ';
 
-$result_errors{'double_recursive_macro_call'} = [
-  {
-    'error_line' => 'recursive call of macro mactwo is not allowed; use @rmacro if needed (possibly involving @macone)
-',
-    'line_nr' => 10,
-    'macro' => 'macone',
-    'text' => 'recursive call of macro mactwo is not allowed; use @rmacro if needed',
-    'type' => 'error'
-  }
-];
+$result_errors{'double_recursive_macro_call'} = '* E l10:@macone|recursive call of macro mactwo is not allowed; use @rmacro if needed
+ recursive call of macro mactwo is not allowed; use @rmacro if needed (possibly involving @macone)
 
+';
 
 $result_nodes_list{'double_recursive_macro_call'} = '';
 

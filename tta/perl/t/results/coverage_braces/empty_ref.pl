@@ -50,51 +50,25 @@ $result_texts{'empty_ref'} = '
  .
 ';
 
-$result_errors{'empty_ref'} = [
-  {
-    'error_line' => 'warning: command @ref missing a node or external manual argument
-',
-    'line_nr' => 2,
-    'text' => 'command @ref missing a node or external manual argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command @xref missing a node or external manual argument
-',
-    'line_nr' => 2,
-    'text' => 'command @xref missing a node or external manual argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 2,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command @inforef missing a node or external manual argument
-',
-    'line_nr' => 2,
-    'text' => 'command @inforef missing a node or external manual argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 3,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command @inforef missing a node or external manual argument
-',
-    'line_nr' => 3,
-    'text' => 'command @inforef missing a node or external manual argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_ref'} = '* W l2|command @ref missing a node or external manual argument
+ warning: command @ref missing a node or external manual argument
 
+* W l2|command @xref missing a node or external manual argument
+ warning: command @xref missing a node or external manual argument
+
+* W l2|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l2|command @inforef missing a node or external manual argument
+ warning: command @inforef missing a node or external manual argument
+
+* W l3|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l3|command @inforef missing a node or external manual argument
+ warning: command @inforef missing a node or external manual argument
+
+';
 
 $result_nodes_list{'empty_ref'} = '';
 

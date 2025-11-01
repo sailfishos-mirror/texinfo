@@ -46,23 +46,13 @@ in verbatim
 
 ';
 
-$result_errors{'verbatim_in_brace_command'} = [
-  {
-    'error_line' => '@samp missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@samp missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 5,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'verbatim_in_brace_command'} = '* E l1|@samp missing closing brace
+ @samp missing closing brace
 
+* E l5|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'verbatim_in_brace_command'} = '';
 

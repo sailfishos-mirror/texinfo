@@ -233,8 +233,7 @@ item text item new line
 not empty tab not empty
 ';
 
-$result_errors{'empty_item_tab'} = [];
-
+$result_errors{'empty_item_tab'} = '';
 
 $result_nodes_list{'empty_item_tab'} = '';
 

@@ -127,17 +127,10 @@ $result_texts{'spaces_after_unknown_command_in_call'} = '
 category: A d B b* rest
 ';
 
-$result_errors{'spaces_after_unknown_command_in_call'} = [
-  {
-    'error_line' => 'unknown command `abc\' (possibly involving @mylinecommand)
-',
-    'line_nr' => 7,
-    'macro' => 'mylinecommand',
-    'text' => 'unknown command `abc\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'spaces_after_unknown_command_in_call'} = '* E l7:@mylinecommand|unknown command `abc\'
+ unknown command `abc\' (possibly involving @mylinecommand)
 
+';
 
 $result_nodes_list{'spaces_after_unknown_command_in_call'} = '';
 

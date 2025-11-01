@@ -23,23 +23,13 @@ $result_texis{'out_of_multitable'} = '@columnfractions 0.6 0.4 aaa';
 
 $result_texts{'out_of_multitable'} = '';
 
-$result_errors{'out_of_multitable'} = [
-  {
-    'error_line' => 'column fraction not a number: aaa
-',
-    'line_nr' => 1,
-    'text' => 'column fraction not a number: aaa',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@columnfractions only meaningful on a @multitable line
-',
-    'line_nr' => 1,
-    'text' => '@columnfractions only meaningful on a @multitable line',
-    'type' => 'error'
-  }
-];
+$result_errors{'out_of_multitable'} = '* E l1|column fraction not a number: aaa
+ column fraction not a number: aaa
 
+* E l1|@columnfractions only meaningful on a @multitable line
+ @columnfractions only meaningful on a @multitable line
+
+';
 
 $result_nodes_list{'out_of_multitable'} = '';
 

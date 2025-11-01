@@ -71,44 +71,22 @@ $result_texts{'setfilename_on_top_and_after_node'} = 'In top
 
 ';
 
-$result_errors{'setfilename_on_top_and_after_node'} = [
-  {
-    'error_line' => 'warning: @setfilename should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@setfilename should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @setfilename should not appear on @top line
-',
-    'line_nr' => 2,
-    'text' => '@setfilename should not appear on @top line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @setfilename after the first element
-',
-    'line_nr' => 2,
-    'text' => '@setfilename after the first element',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @setfilename
-',
-    'line_nr' => 4,
-    'text' => 'multiple @setfilename',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @setfilename after the first element
-',
-    'line_nr' => 4,
-    'text' => '@setfilename after the first element',
-    'type' => 'warning'
-  }
-];
+$result_errors{'setfilename_on_top_and_after_node'} = '* W l2|@setfilename should only appear at the beginning of a line
+ warning: @setfilename should only appear at the beginning of a line
 
+* W l2|@setfilename should not appear on @top line
+ warning: @setfilename should not appear on @top line
+
+* W l2|@setfilename after the first element
+ warning: @setfilename after the first element
+
+* W l4|multiple @setfilename
+ warning: multiple @setfilename
+
+* W l4|@setfilename after the first element
+ warning: @setfilename after the first element
+
+';
 
 $result_nodes_list{'setfilename_on_top_and_after_node'} = '1|Top
  associated_section: In top @setfilename very badly placed setfilename

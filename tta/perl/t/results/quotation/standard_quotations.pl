@@ -198,8 +198,7 @@ Warning
 a Warning.
 ';
 
-$result_errors{'standard_quotations'} = [];
-
+$result_errors{'standard_quotations'} = '';
 
 $result_nodes_list{'standard_quotations'} = '';
 

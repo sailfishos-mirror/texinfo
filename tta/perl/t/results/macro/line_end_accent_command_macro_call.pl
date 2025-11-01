@@ -121,23 +121,13 @@ A
 
 ';
 
-$result_errors{'line_end_accent_command_macro_call'} = [
-  {
-    'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
-',
-    'line_nr' => 5,
-    'text' => 'command `@ringaccent\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
-',
-    'line_nr' => 12,
-    'text' => 'command `@ringaccent\' must not be followed by new line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'line_end_accent_command_macro_call'} = '* W l5|command `@ringaccent\' must not be followed by new line
+ warning: command `@ringaccent\' must not be followed by new line
 
+* W l12|command `@ringaccent\' must not be followed by new line
+ warning: command `@ringaccent\' must not be followed by new line
+
+';
 
 $result_nodes_list{'line_end_accent_command_macro_call'} = '';
 

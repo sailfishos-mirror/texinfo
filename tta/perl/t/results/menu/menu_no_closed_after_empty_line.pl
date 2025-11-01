@@ -44,16 +44,10 @@ $result_texts{'menu_no_closed_after_empty_line'} = '* (manual_in_menu):: desc2
 
 ';
 
-$result_errors{'menu_no_closed_after_empty_line'} = [
-  {
-    'error_line' => 'no matching `@end menu\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end menu\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'menu_no_closed_after_empty_line'} = '* E l1|no matching `@end menu\'
+ no matching `@end menu\'
 
+';
 
 $result_nodes_list{'menu_no_closed_after_empty_line'} = '';
 

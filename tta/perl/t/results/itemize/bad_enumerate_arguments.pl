@@ -145,44 +145,22 @@ $result_texts{'bad_enumerate_arguments'} = '
 
 ';
 
-$result_errors{'bad_enumerate_arguments'} = [
-  {
-    'error_line' => 'bad argument to @enumerate
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @enumerate',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @enumerate
-',
-    'line_nr' => 4,
-    'text' => 'bad argument to @enumerate',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @enumerate
-',
-    'line_nr' => 7,
-    'text' => 'bad argument to @enumerate',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'superfluous argument to @enumerate
-',
-    'line_nr' => 10,
-    'text' => 'superfluous argument to @enumerate',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @enumerate
-',
-    'line_nr' => 13,
-    'text' => 'bad argument to @enumerate',
-    'type' => 'error'
-  }
-];
+$result_errors{'bad_enumerate_arguments'} = '* E l1|bad argument to @enumerate
+ bad argument to @enumerate
 
+* E l4|bad argument to @enumerate
+ bad argument to @enumerate
+
+* E l7|bad argument to @enumerate
+ bad argument to @enumerate
+
+* E l10|superfluous argument to @enumerate
+ superfluous argument to @enumerate
+
+* E l13|bad argument to @enumerate
+ bad argument to @enumerate
+
+';
 
 $result_nodes_list{'bad_enumerate_arguments'} = '';
 

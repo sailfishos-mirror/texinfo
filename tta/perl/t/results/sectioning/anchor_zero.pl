@@ -56,8 +56,7 @@ $result_texts{'anchor_zero'} = '
 0.
 ';
 
-$result_errors{'anchor_zero'} = [];
-
+$result_errors{'anchor_zero'} = '';
 
 $result_nodes_list{'anchor_zero'} = '1|Top
 ';

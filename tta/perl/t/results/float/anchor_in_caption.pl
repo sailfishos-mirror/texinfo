@@ -115,16 +115,10 @@ fl, label
 In float.
 ';
 
-$result_errors{'anchor_in_caption'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'anchor_in_caption'} = '* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_floats{'anchor_in_caption'} = 'fl: 1
  F1: {label}

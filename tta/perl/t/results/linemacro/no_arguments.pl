@@ -81,8 +81,7 @@ Body.
 Body.
 ';
 
-$result_errors{'no_arguments'} = [];
-
+$result_errors{'no_arguments'} = '';
 
 $result_nodes_list{'no_arguments'} = '';
 

@@ -71,8 +71,7 @@ going
 $result_texts{'macro_expansion_end_in_ignored_ifset_content'} = '
 ';
 
-$result_errors{'macro_expansion_end_in_ignored_ifset_content'} = [];
-
+$result_errors{'macro_expansion_end_in_ignored_ifset_content'} = '';
 
 $result_nodes_list{'macro_expansion_end_in_ignored_ifset_content'} = '';
 

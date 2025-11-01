@@ -287,23 +287,13 @@ In chapter
 
 ';
 
-$result_errors{'titlepage_with_commands_classical'} = [
-  {
-    'error_line' => 'warning: @footnote should not appear on @author line
-',
-    'line_nr' => 10,
-    'text' => '@footnote should not appear on @author line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @displaymath should not appear on @author line
-',
-    'line_nr' => 14,
-    'text' => '@displaymath should not appear on @author line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'titlepage_with_commands_classical'} = '* W l10|@footnote should not appear on @author line
+ warning: @footnote should not appear on @author line
 
+* W l14|@displaymath should not appear on @author line
+ warning: @displaymath should not appear on @author line
+
+';
 
 $result_nodes_list{'titlepage_with_commands_classical'} = '1|Top
  associated_section: section top

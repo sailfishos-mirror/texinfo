@@ -269,16 +269,10 @@ $result_texts{'next_in_menu_is_below'} = 'top
 ----------------
 ';
 
-$result_errors{'next_in_menu_is_below'} = [
-  {
-    'error_line' => 'warning: node `subsection\' in menu in `chapter\' but under `section\' in sectioning
-',
-    'line_nr' => 13,
-    'text' => 'node `subsection\' in menu in `chapter\' but under `section\' in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'next_in_menu_is_below'} = '* W l13|node `subsection\' in menu in `chapter\' but under `section\' in sectioning
+ warning: node `subsection\' in menu in `chapter\' but under `section\' in sectioning
 
+';
 
 $result_nodes_list{'next_in_menu_is_below'} = '1|Top
  associated_section: top

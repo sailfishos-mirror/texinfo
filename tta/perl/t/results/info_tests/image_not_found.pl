@@ -38,8 +38,7 @@ $result_texis{'image_not_found'} = '@node Top
 $result_texts{'image_not_found'} = 'n_f_image
 ';
 
-$result_errors{'image_not_found'} = [];
-
+$result_errors{'image_not_found'} = '';
 
 $result_nodes_list{'image_not_found'} = '1|Top
 ';

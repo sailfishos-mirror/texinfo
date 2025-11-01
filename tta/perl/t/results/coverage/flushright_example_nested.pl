@@ -111,8 +111,7 @@ in   --- example
 flush then example
 ';
 
-$result_errors{'flushright_example_nested'} = [];
-
+$result_errors{'flushright_example_nested'} = '';
 
 $result_nodes_list{'flushright_example_nested'} = '';
 

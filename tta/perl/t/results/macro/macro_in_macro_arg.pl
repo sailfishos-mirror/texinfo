@@ -116,8 +116,7 @@ a, hello text for macro2 after arg
 &&&& 
 ';
 
-$result_errors{'macro_in_macro_arg'} = [];
-
+$result_errors{'macro_in_macro_arg'} = '';
 
 $result_nodes_list{'macro_in_macro_arg'} = '';
 

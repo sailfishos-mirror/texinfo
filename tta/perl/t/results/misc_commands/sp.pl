@@ -97,30 +97,16 @@ Text line after the sp followed by a sp
 Text line after the text line followed by the sp.
 ';
 
-$result_errors{'sp'} = [
-  {
-    'error_line' => 'warning: @sp should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@sp should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @sp should only appear at the beginning of a line
-',
-    'line_nr' => 4,
-    'text' => '@sp should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@sp arg must be numeric, not `2 a number after sp\'
-',
-    'line_nr' => 7,
-    'text' => '@sp arg must be numeric, not `2 a number after sp\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'sp'} = '* W l2|@sp should only appear at the beginning of a line
+ warning: @sp should only appear at the beginning of a line
 
+* W l4|@sp should only appear at the beginning of a line
+ warning: @sp should only appear at the beginning of a line
+
+* E l7|@sp arg must be numeric, not `2 a number after sp\'
+ @sp arg must be numeric, not `2 a number after sp\'
+
+';
 
 $result_nodes_list{'sp'} = '';
 

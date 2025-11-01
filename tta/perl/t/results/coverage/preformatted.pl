@@ -115,16 +115,10 @@ item in table in format
 in table in format
 ';
 
-$result_errors{'preformatted'} = [
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 10,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'preformatted'} = '* W l10|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
 
+';
 
 $result_nodes_list{'preformatted'} = '';
 

@@ -21,16 +21,10 @@ $result_texis{'verb_not_closed'} = '@verb{.  }   . .}';
 
 $result_texts{'verb_not_closed'} = '  }   . ';
 
-$result_errors{'verb_not_closed'} = [
-  {
-    'error_line' => '@verb missing closing delimiter sequence: .}
-',
-    'line_nr' => 1,
-    'text' => '@verb missing closing delimiter sequence: .}',
-    'type' => 'error'
-  }
-];
+$result_errors{'verb_not_closed'} = '* E l1|@verb missing closing delimiter sequence: .}
+ @verb missing closing delimiter sequence: .}
 
+';
 
 $result_nodes_list{'verb_not_closed'} = '';
 

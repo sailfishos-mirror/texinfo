@@ -91,8 +91,7 @@ $result_texts{'inlineifsetifclear'} = 'iclear first .
 ifset second .
 ';
 
-$result_errors{'inlineifsetifclear'} = [];
-
+$result_errors{'inlineifsetifclear'} = '';
 
 $result_nodes_list{'inlineifsetifclear'} = '';
 

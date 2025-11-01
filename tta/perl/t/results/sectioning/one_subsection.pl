@@ -33,8 +33,7 @@ $result_texts{'one_subsection'} = '1 The subsection
 ----------------
 ';
 
-$result_errors{'one_subsection'} = [];
-
+$result_errors{'one_subsection'} = '';
 
 $result_nodes_list{'one_subsection'} = '';
 

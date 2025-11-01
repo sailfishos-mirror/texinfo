@@ -121,8 +121,7 @@ top section
 Describe error->.
 ';
 
-$result_errors{'error_in_sectioning_command'} = [];
-
+$result_errors{'error_in_sectioning_command'} = '';
 
 $result_nodes_list{'error_in_sectioning_command'} = '1|Top
  associated_section: top section

@@ -128,8 +128,7 @@ Second para.
 
 ';
 
-$result_errors{'paragraphindent_and_preamble'} = [];
-
+$result_errors{'paragraphindent_and_preamble'} = '';
 
 $result_nodes_list{'paragraphindent_and_preamble'} = '1|Top
  associated_section: test @@paragraphindent in preamble effect in preamble

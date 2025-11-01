@@ -21,16 +21,10 @@ $result_texis{'defindex_too_much_args'} = '@defindex chose    machin';
 
 $result_texts{'defindex_too_much_args'} = '';
 
-$result_errors{'defindex_too_much_args'} = [
-  {
-    'error_line' => 'bad argument to @defindex: chose    machin
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @defindex: chose    machin',
-    'type' => 'error'
-  }
-];
+$result_errors{'defindex_too_much_args'} = '* E l1|bad argument to @defindex: chose    machin
+ bad argument to @defindex: chose    machin
 
+';
 
 $result_nodes_list{'defindex_too_much_args'} = '';
 

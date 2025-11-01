@@ -107,30 +107,16 @@ $result_texts{'top_node_no_menu_direction'} = '
 
 ';
 
-$result_errors{'top_node_no_menu_direction'} = [
-  {
-    'error_line' => 'warning: Prev pointer `top\' (for node `chap node\') different from node name `Top\'
-',
-    'line_nr' => 8,
-    'text' => 'Prev pointer `top\' (for node `chap node\') different from node name `Top\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: Up pointer `TOP\' (for node `chap node\') different from node name `Top\'
-',
-    'line_nr' => 8,
-    'text' => 'Up pointer `TOP\' (for node `chap node\') different from node name `Top\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `TOP\' different from node name `Top\'
-',
-    'line_nr' => 5,
-    'text' => '@menu entry node name `TOP\' different from node name `Top\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'top_node_no_menu_direction'} = '* W l8|Prev pointer `top\' (for node `chap node\') different from node name `Top\'
+ warning: Prev pointer `top\' (for node `chap node\') different from node name `Top\'
 
+* W l8|Up pointer `TOP\' (for node `chap node\') different from node name `Top\'
+ warning: Up pointer `TOP\' (for node `chap node\') different from node name `Top\'
+
+* W l5|@menu entry node name `TOP\' different from node name `Top\'
+ warning: @menu entry node name `TOP\' different from node name `Top\'
+
+';
 
 $result_nodes_list{'top_node_no_menu_direction'} = '1|Top
  menus:

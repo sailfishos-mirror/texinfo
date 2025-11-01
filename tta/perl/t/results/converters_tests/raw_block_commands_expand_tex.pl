@@ -157,8 +157,7 @@ $\\underline{a < b tex \\hbox{ code }}$ ``
 $\\frac{a < b tex \\hbox{ code }}{b}$ ``
 ';
 
-$result_errors{'raw_block_commands_expand_tex'} = [];
-
+$result_errors{'raw_block_commands_expand_tex'} = '';
 
 $result_nodes_list{'raw_block_commands_expand_tex'} = '';
 

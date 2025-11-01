@@ -152,8 +152,7 @@ $result_texts{'space_in_node'} = '
 
 ';
 
-$result_errors{'space_in_node'} = [];
-
+$result_errors{'space_in_node'} = '';
 
 $result_nodes_list{'space_in_node'} = '1|Top
  menus:

@@ -65,8 +65,7 @@ In cartouche in example
 end example
 ';
 
-$result_errors{'cartouche_in_example'} = [];
-
+$result_errors{'cartouche_in_example'} = '';
 
 $result_nodes_list{'cartouche_in_example'} = '';
 

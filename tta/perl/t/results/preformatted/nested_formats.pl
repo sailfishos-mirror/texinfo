@@ -114,8 +114,7 @@ in -- example/format
 
 ';
 
-$result_errors{'nested_formats'} = [];
-
+$result_errors{'nested_formats'} = '';
 
 $result_nodes_list{'nested_formats'} = '';
 

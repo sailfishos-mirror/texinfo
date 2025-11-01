@@ -25,8 +25,7 @@ $result_texts{'empty_titlefont'} = '
 
 ';
 
-$result_errors{'empty_titlefont'} = [];
-
+$result_errors{'empty_titlefont'} = '';
 
 $result_nodes_list{'empty_titlefont'} = '';
 

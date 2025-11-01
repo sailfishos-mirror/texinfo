@@ -242,8 +242,7 @@ The chapter
 
 ';
 
-$result_errors{'double_contents_section'} = [];
-
+$result_errors{'double_contents_section'} = '';
 
 $result_nodes_list{'double_contents_section'} = '1|Top
  associated_section: Double contents

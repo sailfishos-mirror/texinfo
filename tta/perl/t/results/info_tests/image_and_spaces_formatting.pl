@@ -223,8 +223,7 @@ Text. words       words.
 
 ';
 
-$result_errors{'image_and_spaces_formatting'} = [];
-
+$result_errors{'image_and_spaces_formatting'} = '';
 
 $result_nodes_list{'image_and_spaces_formatting'} = '1|Top
 ';

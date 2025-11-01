@@ -26,23 +26,13 @@ $result_texis{'braces_for_line_command'} = '@settitleIn title @sc{my string} NEX
 
 $result_texts{'braces_for_line_command'} = '';
 
-$result_errors{'braces_for_line_command'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 1,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 1,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'braces_for_line_command'} = '* E l1|misplaced {
+ misplaced {
 
+* E l1|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'braces_for_line_command'} = '';
 

@@ -63,16 +63,10 @@ $result_texis{'leading_space_in_def_arg'} = '@deffn category { name} arg
 $result_texts{'leading_space_in_def_arg'} = 'category: name arg
 ';
 
-$result_errors{'leading_space_in_def_arg'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'leading_space_in_def_arg'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'leading_space_in_def_arg'} = '';
 

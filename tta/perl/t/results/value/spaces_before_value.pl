@@ -43,8 +43,7 @@ $result_texts{'spaces_before_value'} = '
 val
 ';
 
-$result_errors{'spaces_before_value'} = [];
-
+$result_errors{'spaces_before_value'} = '';
 
 $result_nodes_list{'spaces_before_value'} = '';
 

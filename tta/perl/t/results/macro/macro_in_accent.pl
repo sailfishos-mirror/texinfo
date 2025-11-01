@@ -143,8 +143,7 @@ a~.
 a*.
 ';
 
-$result_errors{'macro_in_accent'} = [];
-
+$result_errors{'macro_in_accent'} = '';
 
 $result_nodes_list{'macro_in_accent'} = '';
 

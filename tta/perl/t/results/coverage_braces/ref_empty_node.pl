@@ -76,16 +76,10 @@ $result_texts{'ref_empty_node'} = '
 .
 ';
 
-$result_errors{'ref_empty_node'} = [
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 2,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'ref_empty_node'} = '* W l2|@inforef is obsolete
+ warning: @inforef is obsolete
 
+';
 
 $result_nodes_list{'ref_empty_node'} = '';
 

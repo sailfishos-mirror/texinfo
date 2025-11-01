@@ -234,8 +234,7 @@ do something with input
 
 ';
 
-$result_errors{'deftypefnnewline_for_copying_before'} = [];
-
+$result_errors{'deftypefnnewline_for_copying_before'} = '';
 
 $result_nodes_list{'deftypefnnewline_for_copying_before'} = '1|Top
  associated_section: top

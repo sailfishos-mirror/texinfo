@@ -65,8 +65,7 @@ $result_texts{'inlinerawspaces'} = 'A plaintext `` {  a.  Now html
 in <i>HTML</i>.
 ';
 
-$result_errors{'inlinerawspaces'} = [];
-
+$result_errors{'inlinerawspaces'} = '';
 
 $result_nodes_list{'inlinerawspaces'} = '';
 

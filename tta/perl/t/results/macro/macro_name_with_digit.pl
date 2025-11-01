@@ -80,8 +80,7 @@ $result_texts{'macro_name_with_digit'} = '
 expand some thing macro1
 ';
 
-$result_errors{'macro_name_with_digit'} = [];
-
+$result_errors{'macro_name_with_digit'} = '';
 
 $result_nodes_list{'macro_name_with_digit'} = '';
 

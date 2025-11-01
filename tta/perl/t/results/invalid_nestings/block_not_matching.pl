@@ -191,142 +191,64 @@ cartouche
 carouche
 ';
 
-$result_errors{'block_not_matching'} = [
-  {
-    'error_line' => '`@end\' expected `quotation\', but saw `cartouche\'
-',
-    'line_nr' => 3,
-    'text' => '`@end\' expected `quotation\', but saw `cartouche\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end cartouche\'
-',
-    'line_nr' => 3,
-    'text' => 'unmatched `@end cartouche\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '`@end\' expected `deffn\', but saw `deftypefun\'
-',
-    'line_nr' => 7,
-    'text' => '`@end\' expected `deffn\', but saw `deftypefun\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end deftypefun\'
-',
-    'line_nr' => 7,
-    'text' => 'unmatched `@end deftypefun\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '`@end\' expected `table\', but saw `vtable\'
-',
-    'line_nr' => 12,
-    'text' => '`@end\' expected `table\', but saw `vtable\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end vtable\'
-',
-    'line_nr' => 12,
-    'text' => 'unmatched `@end vtable\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '`@end\' expected `example\', but saw `display\'
-',
-    'line_nr' => 18,
-    'text' => '`@end\' expected `example\', but saw `display\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '`@end\' expected `table\', but saw `display\'
-',
-    'line_nr' => 18,
-    'text' => '`@end\' expected `table\', but saw `display\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end display\'
-',
-    'line_nr' => 18,
-    'text' => 'unmatched `@end display\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end table\'
-',
-    'line_nr' => 19,
-    'text' => 'unmatched `@end table\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '`@end\' expected `group\', but saw `table\'
-',
-    'line_nr' => 23,
-    'text' => '`@end\' expected `group\', but saw `table\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end table\'
-',
-    'line_nr' => 23,
-    'text' => 'unmatched `@end table\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '`@end\' expected `group\', but saw `cartouche\'
-',
-    'line_nr' => 27,
-    'text' => '`@end\' expected `group\', but saw `cartouche\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end cartouche\'
-',
-    'line_nr' => 27,
-    'text' => 'unmatched `@end cartouche\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '`@end\' expected `cartouche\', but saw `group\'
-',
-    'line_nr' => 31,
-    'text' => '`@end\' expected `cartouche\', but saw `group\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end group\'
-',
-    'line_nr' => 31,
-    'text' => 'unmatched `@end group\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '`@end\' expected `cartouche\', but saw `float\'
-',
-    'line_nr' => 35,
-    'text' => '`@end\' expected `cartouche\', but saw `float\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end float\'
-',
-    'line_nr' => 35,
-    'text' => 'unmatched `@end float\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'block_not_matching'} = '* E l3|`@end\' expected `quotation\', but saw `cartouche\'
+ `@end\' expected `quotation\', but saw `cartouche\'
 
+* E l3|unmatched `@end cartouche\'
+ unmatched `@end cartouche\'
+
+* W l5|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l7|`@end\' expected `deffn\', but saw `deftypefun\'
+ `@end\' expected `deffn\', but saw `deftypefun\'
+
+* E l7|unmatched `@end deftypefun\'
+ unmatched `@end deftypefun\'
+
+* E l12|`@end\' expected `table\', but saw `vtable\'
+ `@end\' expected `table\', but saw `vtable\'
+
+* E l12|unmatched `@end vtable\'
+ unmatched `@end vtable\'
+
+* E l18|`@end\' expected `example\', but saw `display\'
+ `@end\' expected `example\', but saw `display\'
+
+* E l18|`@end\' expected `table\', but saw `display\'
+ `@end\' expected `table\', but saw `display\'
+
+* E l18|unmatched `@end display\'
+ unmatched `@end display\'
+
+* E l19|unmatched `@end table\'
+ unmatched `@end table\'
+
+* E l23|`@end\' expected `group\', but saw `table\'
+ `@end\' expected `group\', but saw `table\'
+
+* E l23|unmatched `@end table\'
+ unmatched `@end table\'
+
+* E l27|`@end\' expected `group\', but saw `cartouche\'
+ `@end\' expected `group\', but saw `cartouche\'
+
+* E l27|unmatched `@end cartouche\'
+ unmatched `@end cartouche\'
+
+* E l31|`@end\' expected `cartouche\', but saw `group\'
+ `@end\' expected `cartouche\', but saw `group\'
+
+* E l31|unmatched `@end group\'
+ unmatched `@end group\'
+
+* E l35|`@end\' expected `cartouche\', but saw `float\'
+ `@end\' expected `cartouche\', but saw `float\'
+
+* E l35|unmatched `@end float\'
+ unmatched `@end float\'
+
+';
 
 $result_nodes_list{'block_not_matching'} = '';
 

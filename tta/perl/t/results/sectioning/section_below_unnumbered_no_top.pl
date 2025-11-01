@@ -48,8 +48,7 @@ S
 =
 ';
 
-$result_errors{'section_below_unnumbered_no_top'} = [];
-
+$result_errors{'section_below_unnumbered_no_top'} = '';
 
 $result_nodes_list{'section_below_unnumbered_no_top'} = '';
 

@@ -185,8 +185,7 @@ Quotation
 quotation after a blank line
 ';
 
-$result_errors{'itemize_long_item'} = [];
-
+$result_errors{'itemize_long_item'} = '';
 
 $result_nodes_list{'itemize_long_item'} = '';
 

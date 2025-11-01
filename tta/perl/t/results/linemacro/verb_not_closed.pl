@@ -61,24 +61,13 @@ $result_texts{'verb_not_closed'} = '
 
 ,  ';
 
-$result_errors{'verb_not_closed'} = [
-  {
-    'error_line' => '@mycommand missing closing brace
-',
-    'line_nr' => 6,
-    'text' => '@mycommand missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@verb missing closing delimiter sequence: :} (possibly involving @mycommand)
-',
-    'line_nr' => 6,
-    'macro' => 'mycommand',
-    'text' => '@verb missing closing delimiter sequence: :}',
-    'type' => 'error'
-  }
-];
+$result_errors{'verb_not_closed'} = '* E l6|@mycommand missing closing brace
+ @mycommand missing closing brace
 
+* E l6:@mycommand|@verb missing closing delimiter sequence: :}
+ @verb missing closing delimiter sequence: :} (possibly involving @mycommand)
+
+';
 
 $result_nodes_list{'verb_not_closed'} = '';
 

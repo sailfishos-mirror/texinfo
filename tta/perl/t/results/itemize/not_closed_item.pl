@@ -30,16 +30,10 @@ $result_texis{'not_closed_item'} = '@itemize
 $result_texts{'not_closed_item'} = 'in item
 ';
 
-$result_errors{'not_closed_item'} = [
-  {
-    'error_line' => 'no matching `@end itemize\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end itemize\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'not_closed_item'} = '* E l1|no matching `@end itemize\'
+ no matching `@end itemize\'
 
+';
 
 $result_nodes_list{'not_closed_item'} = '';
 

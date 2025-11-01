@@ -62,8 +62,7 @@ $result_texts{'nested_in_sc'} = 'AAA N~ AA TeX AA~ , ABR (EXPL),
 in verb
 ';
 
-$result_errors{'nested_in_sc'} = [];
-
+$result_errors{'nested_in_sc'} = '';
 
 $result_nodes_list{'nested_in_sc'} = '';
 

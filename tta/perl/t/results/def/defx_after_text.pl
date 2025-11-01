@@ -96,30 +96,16 @@ Text in deffn
 truc: bidulr machin...
 ';
 
-$result_errors{'defx_after_text'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'must be after `@deffn\' to use `@deffnx\'
-',
-    'line_nr' => 3,
-    'text' => 'must be after `@deffn\' to use `@deffnx\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 3,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'defx_after_text'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* E l3|must be after `@deffn\' to use `@deffnx\'
+ must be after `@deffn\' to use `@deffnx\'
+
+* W l3|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'defx_after_text'} = '';
 

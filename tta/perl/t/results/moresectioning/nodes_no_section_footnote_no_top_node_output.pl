@@ -60,16 +60,10 @@ $result_texts{'nodes_no_section_footnote_no_top_node_output'} = '
 a
 ';
 
-$result_errors{'nodes_no_section_footnote_no_top_node_output'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodes_no_section_footnote_no_top_node_output'} = '* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'nodes_no_section_footnote_no_top_node_output'} = '1|Top
  node_directions:

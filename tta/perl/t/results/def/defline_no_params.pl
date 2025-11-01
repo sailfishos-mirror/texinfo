@@ -64,8 +64,7 @@ $result_texts{'defline_no_params'} = 'Builtin: truc
 Description of truc
 ';
 
-$result_errors{'defline_no_params'} = [];
-
+$result_errors{'defline_no_params'} = '';
 
 $result_nodes_list{'defline_no_params'} = '';
 

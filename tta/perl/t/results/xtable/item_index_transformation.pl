@@ -486,8 +486,7 @@ sixx
 HHHHHH
 ';
 
-$result_errors{'item_index_transformation'} = [];
-
+$result_errors{'item_index_transformation'} = '';
 
 $result_nodes_list{'item_index_transformation'} = '1|chap
  associated_section: 1 Chapter

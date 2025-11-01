@@ -324,25 +324,13 @@ In chapter
 
 ';
 
-$result_errors{'direntry_dircategory'} = [
-  {
-    'error_line' => 'warning: @dircategory after first node
-',
-    'file_name' => 'direntry_dircategory.texi',
-    'line_nr' => 23,
-    'text' => '@dircategory after first node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @direntry after first node
-',
-    'file_name' => 'direntry_dircategory.texi',
-    'line_nr' => 24,
-    'text' => '@direntry after first node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'direntry_dircategory'} = '* W direntry_dircategory.texi:l23|@dircategory after first node
+ warning: @dircategory after first node
 
+* W direntry_dircategory.texi:l24|@direntry after first node
+ warning: @direntry after first node
+
+';
 
 $result_nodes_list{'direntry_dircategory'} = '1|Top
  associated_section: Test dircategory and direntry

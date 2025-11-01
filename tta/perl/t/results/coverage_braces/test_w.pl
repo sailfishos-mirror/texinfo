@@ -201,8 +201,7 @@ convention should be followed in Texinfo files.  TeX converts
 two single quotes to left- and right-hand doubled.
 ';
 
-$result_errors{'test_w'} = [];
-
+$result_errors{'test_w'} = '';
 
 $result_nodes_list{'test_w'} = '';
 

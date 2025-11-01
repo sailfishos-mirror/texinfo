@@ -117,8 +117,7 @@ $$
 
 ';
 
-$result_errors{'braces_in_tex'} = [];
-
+$result_errors{'braces_in_tex'} = '';
 
 $result_nodes_list{'braces_in_tex'} = '';
 

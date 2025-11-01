@@ -20,16 +20,10 @@ $result_texis{'unknown_value_after_spaces'} = '  @value{unknown}  ';
 
 $result_texts{'unknown_value_after_spaces'} = 'unknown  ';
 
-$result_errors{'unknown_value_after_spaces'} = [
-  {
-    'error_line' => 'warning: undefined flag: unknown
-',
-    'line_nr' => 1,
-    'text' => 'undefined flag: unknown',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unknown_value_after_spaces'} = '* W l1|undefined flag: unknown
+ warning: undefined flag: unknown
 
+';
 
 $result_nodes_list{'unknown_value_after_spaces'} = '';
 

@@ -2242,25 +2242,13 @@ A section following the indices.
 
 ';
 
-$result_errors{'index_table'} = [
-  {
-    'error_line' => 'command @bullet not accepting argument in brace should not be on @vtable line
-',
-    'file_name' => 'index_table.texi',
-    'line_nr' => 21,
-    'text' => 'command @bullet not accepting argument in brace should not be on @vtable line',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'command @bullet not accepting argument in brace should not be on @ftable line
-',
-    'file_name' => 'index_table.texi',
-    'line_nr' => 28,
-    'text' => 'command @bullet not accepting argument in brace should not be on @ftable line',
-    'type' => 'error'
-  }
-];
+$result_errors{'index_table'} = '* E index_table.texi:l21|command @bullet not accepting argument in brace should not be on @vtable line
+ command @bullet not accepting argument in brace should not be on @vtable line
 
+* E index_table.texi:l28|command @bullet not accepting argument in brace should not be on @ftable line
+ command @bullet not accepting argument in brace should not be on @ftable line
+
+';
 
 $result_nodes_list{'index_table'} = '1|Top
  associated_section: Test for indices

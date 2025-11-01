@@ -28,8 +28,7 @@ $result_texis{'image_extension'} = '@image{f---ile,,,,.gr--a}
 $result_texts{'image_extension'} = 'f---ile
 ';
 
-$result_errors{'image_extension'} = [];
-
+$result_errors{'image_extension'} = '';
 
 $result_nodes_list{'image_extension'} = '';
 

@@ -95,8 +95,7 @@ $result_texts{'double_macro_expansion_in_set_comment'} = '
 
 ';
 
-$result_errors{'double_macro_expansion_in_set_comment'} = [];
-
+$result_errors{'double_macro_expansion_in_set_comment'} = '';
 
 $result_nodes_list{'double_macro_expansion_in_set_comment'} = '';
 

@@ -67,16 +67,10 @@ text
 in itemx
 ';
 
-$result_errors{'text_between_item_itemx'} = [
-  {
-    'error_line' => '@itemx must follow @item
-',
-    'line_nr' => 4,
-    'text' => '@itemx must follow @item',
-    'type' => 'error'
-  }
-];
+$result_errors{'text_between_item_itemx'} = '* E l4|@itemx must follow @item
+ @itemx must follow @item
 
+';
 
 $result_nodes_list{'text_between_item_itemx'} = '';
 

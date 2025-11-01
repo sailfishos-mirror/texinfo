@@ -29,16 +29,10 @@ $result_texts{'tex_not_closed'} = '
 This is some \\LaTeX{}
 ';
 
-$result_errors{'tex_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end tex\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end tex\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'tex_not_closed'} = '* E l1|no matching `@end tex\'
+ no matching `@end tex\'
 
+';
 
 $result_nodes_list{'tex_not_closed'} = '';
 

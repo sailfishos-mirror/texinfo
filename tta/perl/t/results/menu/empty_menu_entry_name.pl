@@ -101,30 +101,16 @@ $result_texts{'empty_menu_entry_name'} = '
 
 ';
 
-$result_errors{'empty_menu_entry_name'} = [
-  {
-    'error_line' => 'warning: empty menu entry name in `* : (vvv). \'
-',
-    'line_nr' => 4,
-    'text' => 'empty menu entry name in `* : (vvv). \'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty menu entry name in `* :aaa,\'
-',
-    'line_nr' => 5,
-    'text' => 'empty menu entry name in `* :aaa,\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `first\' not in menu
-',
-    'line_nr' => 1,
-    'text' => 'node `first\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_menu_entry_name'} = '* W l4|empty menu entry name in `* : (vvv). \'
+ warning: empty menu entry name in `* : (vvv). \'
 
+* W l5|empty menu entry name in `* :aaa,\'
+ warning: empty menu entry name in `* :aaa,\'
+
+* W l1|node `first\' not in menu
+ warning: node `first\' not in menu
+
+';
 
 $result_nodes_list{'empty_menu_entry_name'} = '1|first
  menus:

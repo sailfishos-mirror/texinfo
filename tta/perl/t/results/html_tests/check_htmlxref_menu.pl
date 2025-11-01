@@ -284,30 +284,16 @@ a
 (some_name_inf.inf)aa.
 ';
 
-$result_errors{'check_htmlxref_menu'} = [
-  {
-    'error_line' => 'warning: node `first\' in menu where `chapter\' expected
-',
-    'line_nr' => 9,
-    'text' => 'node `first\' in menu where `chapter\' expected',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node next pointer for `first\' is `(no_existing_no_manual.info)\' but next is `chapter\' in menu
-',
-    'line_nr' => 11,
-    'text' => 'node next pointer for `first\' is `(no_existing_no_manual.info)\' but next is `chapter\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev pointer for `chapter\' is `(dir)node in dir\' but prev is `first\' in menu
-',
-    'line_nr' => 11,
-    'text' => 'node prev pointer for `chapter\' is `(dir)node in dir\' but prev is `first\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'check_htmlxref_menu'} = '* W l9|node `first\' in menu where `chapter\' expected
+ warning: node `first\' in menu where `chapter\' expected
 
+* W l11|node next pointer for `first\' is `(no_existing_no_manual.info)\' but next is `chapter\' in menu
+ warning: node next pointer for `first\' is `(no_existing_no_manual.info)\' but next is `chapter\' in menu
+
+* W l11|node prev pointer for `chapter\' is `(dir)node in dir\' but prev is `first\' in menu
+ warning: node prev pointer for `chapter\' is `(dir)node in dir\' but prev is `first\' in menu
+
+';
 
 $result_nodes_list{'check_htmlxref_menu'} = '1|Top
  associated_section: top

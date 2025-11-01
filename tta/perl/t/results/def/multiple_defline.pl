@@ -116,8 +116,7 @@ description2 description2 description2 description2 description2
 description2 description2 description2 description2 description2
 ';
 
-$result_errors{'multiple_defline'} = [];
-
+$result_errors{'multiple_defline'} = '';
 
 $result_nodes_list{'multiple_defline'} = '';
 

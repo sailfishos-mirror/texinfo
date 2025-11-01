@@ -46,8 +46,7 @@ $result_texts{'ifnot_format_conditional'} = 'not tex
 
 After.';
 
-$result_errors{'ifnot_format_conditional'} = [];
-
+$result_errors{'ifnot_format_conditional'} = '';
 
 $result_nodes_list{'ifnot_format_conditional'} = '';
 

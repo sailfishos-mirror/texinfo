@@ -216,8 +216,7 @@ Good, @node is defined.
 Happily, @mathcode is not defined.
 ';
 
-$result_errors{'command_conditionals'} = [];
-
+$result_errors{'command_conditionals'} = '';
 
 $result_nodes_list{'command_conditionals'} = '';
 

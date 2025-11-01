@@ -24,23 +24,13 @@ $result_texis{'footnote_in_command_not_closed'} = 'aaa@code{in code@footnote{in 
 
 $result_texts{'footnote_in_command_not_closed'} = 'aaain code';
 
-$result_errors{'footnote_in_command_not_closed'} = [
-  {
-    'error_line' => '@footnote missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@footnote missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'footnote_in_command_not_closed'} = '* E l1|@footnote missing closing brace
+ @footnote missing closing brace
 
+* E l1|@code missing closing brace
+ @code missing closing brace
+
+';
 
 $result_nodes_list{'footnote_in_command_not_closed'} = '';
 

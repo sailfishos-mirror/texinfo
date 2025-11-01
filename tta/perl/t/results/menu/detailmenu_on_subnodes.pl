@@ -450,8 +450,7 @@ unnumberedsec
 =============
 ';
 
-$result_errors{'detailmenu_on_subnodes'} = [];
-
+$result_errors{'detailmenu_on_subnodes'} = '';
 
 $result_nodes_list{'detailmenu_on_subnodes'} = '1|Top
  associated_section: top

@@ -42,16 +42,10 @@ $result_texis{'bad_ifclear_argument'} = '
 $result_texts{'bad_ifclear_argument'} = '
 ';
 
-$result_errors{'bad_ifclear_argument'} = [
-  {
-    'error_line' => 'bad name for @ifclear
-',
-    'line_nr' => 2,
-    'text' => 'bad name for @ifclear',
-    'type' => 'error'
-  }
-];
+$result_errors{'bad_ifclear_argument'} = '* E l2|bad name for @ifclear
+ bad name for @ifclear
 
+';
 
 $result_nodes_list{'bad_ifclear_argument'} = '';
 

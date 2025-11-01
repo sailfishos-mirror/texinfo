@@ -753,17 +753,10 @@ Text and then index entries
 
 ';
 
-$result_errors{'nodes_before_top_split_chapter_no_nodes'} = [
-  {
-    'error_line' => 'warning: node `first before top\' not in menu
-',
-    'file_name' => 'nodes_before_top.texi',
-    'line_nr' => 6,
-    'text' => 'node `first before top\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodes_before_top_split_chapter_no_nodes'} = '* W nodes_before_top.texi:l6|node `first before top\' not in menu
+ warning: node `first before top\' not in menu
 
+';
 
 $result_nodes_list{'nodes_before_top_split_chapter_no_nodes'} = '1|first before top
  menus:

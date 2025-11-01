@@ -43,37 +43,19 @@ And still in title page
 
 $result_texts{'double_titlepage_not_closed'} = '';
 
-$result_errors{'double_titlepage_not_closed'} = [
-  {
-    'error_line' => 'warning: @titlepage should not appear in @titlepage block
-',
-    'line_nr' => 6,
-    'text' => '@titlepage should not appear in @titlepage block',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @titlepage
-',
-    'line_nr' => 6,
-    'text' => 'multiple @titlepage',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end titlepage\'
-',
-    'line_nr' => 6,
-    'text' => 'no matching `@end titlepage\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end titlepage\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end titlepage\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'double_titlepage_not_closed'} = '* W l6|@titlepage should not appear in @titlepage block
+ warning: @titlepage should not appear in @titlepage block
 
+* W l6|multiple @titlepage
+ warning: multiple @titlepage
+
+* E l6|no matching `@end titlepage\'
+ no matching `@end titlepage\'
+
+* E l1|no matching `@end titlepage\'
+ no matching `@end titlepage\'
+
+';
 
 $result_nodes_list{'double_titlepage_not_closed'} = '';
 

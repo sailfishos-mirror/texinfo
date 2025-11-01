@@ -82,23 +82,13 @@ $result_texts{'format_on_first_footnote_line'} = 'Texte.
 Last text 
 ';
 
-$result_errors{'format_on_first_footnote_line'} = [
-  {
-    'error_line' => 'warning: @quotation should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@quotation should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @example should only appear at the beginning of a line
-',
-    'line_nr' => 6,
-    'text' => '@example should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'format_on_first_footnote_line'} = '* W l1|@quotation should only appear at the beginning of a line
+ warning: @quotation should only appear at the beginning of a line
 
+* W l6|@example should only appear at the beginning of a line
+ warning: @example should only appear at the beginning of a line
+
+';
 
 $result_nodes_list{'format_on_first_footnote_line'} = '';
 

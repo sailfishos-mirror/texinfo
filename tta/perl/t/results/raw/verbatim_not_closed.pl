@@ -37,16 +37,10 @@ some verbatim @
 
 ';
 
-$result_errors{'verbatim_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end verbatim\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end verbatim\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'verbatim_not_closed'} = '* E l1|no matching `@end verbatim\'
+ no matching `@end verbatim\'
 
+';
 
 $result_nodes_list{'verbatim_not_closed'} = '';
 

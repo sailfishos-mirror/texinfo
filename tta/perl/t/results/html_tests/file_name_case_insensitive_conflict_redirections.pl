@@ -189,8 +189,7 @@ foo
 Foo
 ';
 
-$result_errors{'file_name_case_insensitive_conflict_redirections'} = [];
-
+$result_errors{'file_name_case_insensitive_conflict_redirections'} = '';
 
 $result_nodes_list{'file_name_case_insensitive_conflict_redirections'} = '1|Top
  associated_section: top section

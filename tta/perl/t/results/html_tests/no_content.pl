@@ -145,8 +145,7 @@ The chapter
 
 ';
 
-$result_errors{'no_content'} = [];
-
+$result_errors{'no_content'} = '';
 
 $result_nodes_list{'no_content'} = '1|Top
  associated_section: No ccontent

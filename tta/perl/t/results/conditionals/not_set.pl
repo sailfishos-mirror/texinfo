@@ -42,8 +42,7 @@ $result_texis{'not_set'} = '';
 
 $result_texts{'not_set'} = '';
 
-$result_errors{'not_set'} = [];
-
+$result_errors{'not_set'} = '';
 
 $result_nodes_list{'not_set'} = '';
 

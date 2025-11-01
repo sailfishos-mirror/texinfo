@@ -94,8 +94,7 @@ $result_texts{'macro_in_multitable_empty_before_item'} = '
 fc sc
 ';
 
-$result_errors{'macro_in_multitable_empty_before_item'} = [];
-
+$result_errors{'macro_in_multitable_empty_before_item'} = '';
 
 $result_nodes_list{'macro_in_multitable_empty_before_item'} = '';
 

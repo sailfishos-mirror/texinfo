@@ -342,8 +342,7 @@ Footnote 3.
 
 ';
 
-$result_errors{'node_footnote_separated'} = [];
-
+$result_errors{'node_footnote_separated'} = '';
 
 $result_nodes_list{'node_footnote_separated'} = '1|Top
  menus:

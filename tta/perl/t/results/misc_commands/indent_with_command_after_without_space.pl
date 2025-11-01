@@ -24,8 +24,7 @@ $result_texis{'indent_with_command_after_without_space'} = '@indent@AA{} b
 $result_texts{'indent_with_command_after_without_space'} = 'AA b
 ';
 
-$result_errors{'indent_with_command_after_without_space'} = [];
-
+$result_errors{'indent_with_command_after_without_space'} = '';
 
 $result_nodes_list{'indent_with_command_after_without_space'} = '';
 

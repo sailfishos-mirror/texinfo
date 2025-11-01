@@ -20,8 +20,7 @@ $result_texis{'simple'} = '@b{in  b}.';
 
 $result_texts{'simple'} = 'in  b.';
 
-$result_errors{'simple'} = [];
-
+$result_errors{'simple'} = '';
 
 $result_nodes_list{'simple'} = '';
 

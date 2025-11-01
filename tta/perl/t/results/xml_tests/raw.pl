@@ -68,8 +68,7 @@ Para
 <in />
 ';
 
-$result_errors{'raw'} = [];
-
+$result_errors{'raw'} = '';
 
 $result_nodes_list{'raw'} = '';
 

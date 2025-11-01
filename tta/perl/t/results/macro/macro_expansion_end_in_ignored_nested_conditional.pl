@@ -75,8 +75,7 @@ GG
 $result_texts{'macro_expansion_end_in_ignored_nested_conditional'} = '
 ';
 
-$result_errors{'macro_expansion_end_in_ignored_nested_conditional'} = [];
-
+$result_errors{'macro_expansion_end_in_ignored_nested_conditional'} = '';
 
 $result_nodes_list{'macro_expansion_end_in_ignored_nested_conditional'} = '';
 

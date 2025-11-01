@@ -50,8 +50,7 @@ Some text.
 
 ';
 
-$result_errors{'empty_lines_at_beginning_no_setfilename_no_element'} = [];
-
+$result_errors{'empty_lines_at_beginning_no_setfilename_no_element'} = '';
 
 $result_nodes_list{'empty_lines_at_beginning_no_setfilename_no_element'} = '';
 

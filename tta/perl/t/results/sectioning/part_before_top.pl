@@ -54,16 +54,10 @@ top
 ***
 ';
 
-$result_errors{'part_before_top'} = [
-  {
-    'error_line' => 'warning: @part should not be associated with @top
-',
-    'line_nr' => 1,
-    'text' => '@part should not be associated with @top',
-    'type' => 'warning'
-  }
-];
+$result_errors{'part_before_top'} = '* W l1|@part should not be associated with @top
+ warning: @part should not be associated with @top
 
+';
 
 $result_nodes_list{'part_before_top'} = '';
 

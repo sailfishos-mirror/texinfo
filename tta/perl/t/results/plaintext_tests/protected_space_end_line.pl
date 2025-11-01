@@ -65,8 +65,7 @@ followed    newline.
 This is a very simple texi manual followed by tab a <>.           text.
 ';
 
-$result_errors{'protected_space_end_line'} = [];
-
+$result_errors{'protected_space_end_line'} = '';
 
 $result_nodes_list{'protected_space_end_line'} = '';
 

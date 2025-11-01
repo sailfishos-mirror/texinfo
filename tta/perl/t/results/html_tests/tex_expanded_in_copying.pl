@@ -56,8 +56,7 @@ aa
 
 $result_texts{'tex_expanded_in_copying'} = '';
 
-$result_errors{'tex_expanded_in_copying'} = [];
-
+$result_errors{'tex_expanded_in_copying'} = '';
 
 $result_nodes_list{'tex_expanded_in_copying'} = '';
 

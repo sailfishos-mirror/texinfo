@@ -37,16 +37,10 @@ $result_texis{'end_conditional_not_at_line_begining'} = '';
 
 $result_texts{'end_conditional_not_at_line_begining'} = '';
 
-$result_errors{'end_conditional_not_at_line_begining'} = [
-  {
-    'error_line' => 'warning: @end ifhtml should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@end ifhtml should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'end_conditional_not_at_line_begining'} = '* W l3|@end ifhtml should only appear at the beginning of a line
+ warning: @end ifhtml should only appear at the beginning of a line
 
+';
 
 $result_nodes_list{'end_conditional_not_at_line_begining'} = '';
 

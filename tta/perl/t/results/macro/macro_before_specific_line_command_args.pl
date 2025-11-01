@@ -57,8 +57,7 @@ $result_texis{'macro_before_specific_line_command_args'} = '@macro cpfn
 $result_texts{'macro_before_specific_line_command_args'} = '
 ';
 
-$result_errors{'macro_before_specific_line_command_args'} = [];
-
+$result_errors{'macro_before_specific_line_command_args'} = '';
 
 $result_indices{'macro_before_specific_line_command_args'} = 'cp C ->fn
 fn C

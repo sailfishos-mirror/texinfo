@@ -157,8 +157,7 @@ Para indented.
 
 ';
 
-$result_errors{'no_empty_line_after_section'} = [];
-
+$result_errors{'no_empty_line_after_section'} = '';
 
 $result_nodes_list{'no_empty_line_after_section'} = '';
 

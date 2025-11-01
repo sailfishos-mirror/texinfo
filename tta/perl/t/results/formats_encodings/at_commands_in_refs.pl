@@ -3577,30 +3577,16 @@ http://somewhere_aaa url (text) ls
 
 ';
 
-$result_errors{'at_commands_in_refs'} = [
-  {
-    'error_line' => 'warning: @verb should not appear on @node line
-',
-    'line_nr' => 95,
-    'text' => '@verb should not appear on @node line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear on @chapter line
-',
-    'line_nr' => 97,
-    'text' => '@verb should not appear on @chapter line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @ref
-',
-    'line_nr' => 162,
-    'text' => '@verb should not appear anywhere inside @ref',
-    'type' => 'warning'
-  }
-];
+$result_errors{'at_commands_in_refs'} = '* W l95|@verb should not appear on @node line
+ warning: @verb should not appear on @node line
 
+* W l97|@verb should not appear on @chapter line
+ warning: @verb should not appear on @chapter line
+
+* W l162|@verb should not appear anywhere inside @ref
+ warning: @verb should not appear anywhere inside @ref
+
+';
 
 $result_nodes_list{'at_commands_in_refs'} = '1|Top
  associated_section: Top

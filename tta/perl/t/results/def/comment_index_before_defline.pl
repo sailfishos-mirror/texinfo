@@ -103,16 +103,10 @@ $result_texts{'comment_index_before_defline'} = '
 a: b c d
 ';
 
-$result_errors{'comment_index_before_defline'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 3,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'comment_index_before_defline'} = '* W l3|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+';
 
 $result_nodes_list{'comment_index_before_defline'} = '';
 

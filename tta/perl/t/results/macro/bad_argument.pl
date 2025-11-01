@@ -108,37 +108,19 @@ $result_texts{'bad_argument'} = '
 
 ';
 
-$result_errors{'bad_argument'} = [
-  {
-    'error_line' => '@macro requires a name
-',
-    'line_nr' => 1,
-    'text' => '@macro requires a name',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad syntax for @rmacro argument: aaa
-',
-    'line_nr' => 5,
-    'text' => 'bad syntax for @rmacro argument: aaa',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad syntax for @macro argument: more  
-',
-    'line_nr' => 9,
-    'text' => 'bad syntax for @macro argument: more  ',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@macro requires a name
-',
-    'line_nr' => 13,
-    'text' => '@macro requires a name',
-    'type' => 'error'
-  }
-];
+$result_errors{'bad_argument'} = '* E l1|@macro requires a name
+ @macro requires a name
 
+* E l5|bad syntax for @rmacro argument: aaa
+ bad syntax for @rmacro argument: aaa
+
+* E l9|bad syntax for @macro argument: more  
+ bad syntax for @macro argument: more  
+
+* E l13|@macro requires a name
+ @macro requires a name
+
+';
 
 $result_nodes_list{'bad_argument'} = '';
 

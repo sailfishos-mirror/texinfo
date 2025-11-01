@@ -43,23 +43,13 @@ Now text.
 =========================
 ';
 
-$result_errors{'unclosed_verb_on_section_line'} = [
-  {
-    'error_line' => 'warning: @verb should not appear on @section line
-',
-    'line_nr' => 1,
-    'text' => '@verb should not appear on @section line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@verb missing closing delimiter sequence: T}
-',
-    'line_nr' => 1,
-    'text' => '@verb missing closing delimiter sequence: T}',
-    'type' => 'error'
-  }
-];
+$result_errors{'unclosed_verb_on_section_line'} = '* W l1|@verb should not appear on @section line
+ warning: @verb should not appear on @section line
 
+* E l1|@verb missing closing delimiter sequence: T}
+ @verb missing closing delimiter sequence: T}
+
+';
 
 $result_nodes_list{'unclosed_verb_on_section_line'} = '';
 

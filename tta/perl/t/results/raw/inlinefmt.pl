@@ -52,8 +52,7 @@ $result_texts{'inlinefmt'} = 'A plaintext " {  a.  Now html
 in <i>HTML</i>.
 ';
 
-$result_errors{'inlinefmt'} = [];
-
+$result_errors{'inlinefmt'} = '';
 
 $result_nodes_list{'inlinefmt'} = '';
 

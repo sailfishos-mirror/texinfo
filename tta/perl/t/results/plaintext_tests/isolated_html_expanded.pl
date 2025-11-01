@@ -41,8 +41,7 @@ $result_texts{'isolated_html_expanded'} = '
 html
 ';
 
-$result_errors{'isolated_html_expanded'} = [];
-
+$result_errors{'isolated_html_expanded'} = '';
 
 $result_nodes_list{'isolated_html_expanded'} = '';
 

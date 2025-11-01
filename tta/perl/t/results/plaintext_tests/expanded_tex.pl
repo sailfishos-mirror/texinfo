@@ -51,8 +51,7 @@ HHH
 bbbbbbbbb1 bbbbbbbbbbb2 bbbbbbbbbb3 bbbbbbbbbbbbbb4.
 ';
 
-$result_errors{'expanded_tex'} = [];
-
+$result_errors{'expanded_tex'} = '';
 
 $result_nodes_list{'expanded_tex'} = '';
 

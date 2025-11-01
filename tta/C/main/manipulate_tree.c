@@ -39,6 +39,8 @@
 /* for directions_length new_string_list copy_strings count_multibyte
    whitespace_chars */
 #include "utils.h"
+/* for print_source_info_details */
+#include "errors.h"
 #include "convert_to_texinfo.h"
 #include "unicode.h"
 #include "manipulate_tree.h"
@@ -1595,69 +1597,6 @@ print_element_extra (ELEMENT *element, int level,
 
 #undef ADDITIONAL_INFO_PREPEND
 
-static void
-print_element_source_info (ELEMENT *element, TEXT *result,
-                           const char *fname_encoding, int use_filename)
-{
-  SOURCE_INFO *source_info = &element->e.c->source_info;
-
-  if (!source_info->file_name && !source_info->line_nr
-      && !source_info->macro)
-    return;
-
-  text_append_n (result, " ", 1);
-
-  if (source_info->file_name)
-    {
-      int status;
-      char *decoded_file_name;
-      if (use_filename)
-        {
-          char *file_name_and_directory[2];
-          parse_file_path (source_info->file_name,
-                           file_name_and_directory);
-
-          if (fname_encoding)
-            decoded_file_name
-              = decode_string (file_name_and_directory[0], fname_encoding,
-                               &status, 0);
-          else
-            decoded_file_name = file_name_and_directory[0];
-
-          text_append (result, decoded_file_name);
-
-          free (file_name_and_directory[0]);
-          free (file_name_and_directory[1]);
-        }
-      else
-        {
-          if (fname_encoding)
-            decoded_file_name
-              = decode_string (source_info->file_name, fname_encoding,
-                               &status, 0);
-          else
-            decoded_file_name = source_info->file_name;
-          text_append (result, decoded_file_name);
-        }
-
-      if (fname_encoding)
-        free (decoded_file_name);
-
-      if (source_info->line_nr || source_info->macro)
-        text_append_n (result, ":", 1);
-    }
-
-  if (source_info->line_nr > 0)
-    {
-      text_printf (result, "l%d", source_info->line_nr);
-      if (source_info->macro)
-        text_append_n (result, ":", 1);
-    }
-
-  if (source_info->macro)
-    text_printf (result, "@%s", source_info->macro);
-}
-
 /* a number is given in argument as out of tree elements may need to be
    numbered too */
 uintptr_t
@@ -1668,6 +1607,7 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
   int j;
   enum command_id data_cmd = 0;
   const char *cmdname;
+  SOURCE_INFO *source_info;
 
   for (j = 0; j < level; j++)
     text_append_n (result, " ", 1);
@@ -1702,7 +1642,15 @@ print_element_details (ELEMENT *element, int level, const char *prepended,
   if (element->e.c->contents.number > 0)
     text_printf (result, " C%zu", element->e.c->contents.number);
 
-  print_element_source_info (element, result, fname_encoding, use_filename);
+  source_info = &element->e.c->source_info;
+
+  if (source_info->file_name || source_info->line_nr || source_info->macro)
+    {
+       text_append_n (result, " ", 1);
+
+       print_source_info_details (source_info, result, fname_encoding,
+                                  use_filename);
+    }
 
   if (element->e.c->cmd)
     data_cmd = element_builtin_data_cmd (element);

@@ -74,44 +74,22 @@ documentlanguage
 
 ';
 
-$result_errors{'bad_documentlanguage'} = [
-  {
-    'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@documentlanguage should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
-',
-    'line_nr' => 4,
-    'text' => '@documentlanguage should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @documentlanguage should not appear in @documentlanguage
-',
-    'line_nr' => 4,
-    'text' => '@documentlanguage should not appear in @documentlanguage',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @documentlanguage: en @documentlanguage  en
-',
-    'line_nr' => 4,
-    'text' => 'bad argument to @documentlanguage: en @documentlanguage  en',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: en  after documentlanguage is not a valid language code
-',
-    'line_nr' => 6,
-    'text' => 'en  after documentlanguage is not a valid language code',
-    'type' => 'warning'
-  }
-];
+$result_errors{'bad_documentlanguage'} = '* W l2|@documentlanguage should only appear at the beginning of a line
+ warning: @documentlanguage should only appear at the beginning of a line
 
+* W l4|@documentlanguage should only appear at the beginning of a line
+ warning: @documentlanguage should only appear at the beginning of a line
+
+* W l4|@documentlanguage should not appear in @documentlanguage
+ warning: @documentlanguage should not appear in @documentlanguage
+
+* E l4|bad argument to @documentlanguage: en @documentlanguage  en
+ bad argument to @documentlanguage: en @documentlanguage  en
+
+* W l6|en  after documentlanguage is not a valid language code
+ warning: en  after documentlanguage is not a valid language code
+
+';
 
 $result_nodes_list{'bad_documentlanguage'} = '';
 

@@ -159,8 +159,7 @@ $result_texts{'invalid_info_menu_entry'} = '
 * name: (f)node	n. d3
 ';
 
-$result_errors{'invalid_info_menu_entry'} = [];
-
+$result_errors{'invalid_info_menu_entry'} = '';
 
 $result_nodes_list{'invalid_info_menu_entry'} = '1|first
  menus:

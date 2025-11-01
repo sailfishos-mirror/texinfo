@@ -81,8 +81,7 @@ $result_texts{'info_js_dir_html'} = 'top
 *********
 ';
 
-$result_errors{'info_js_dir_html'} = [];
-
+$result_errors{'info_js_dir_html'} = '';
 
 $result_nodes_list{'info_js_dir_html'} = '1|top
  associated_section: top

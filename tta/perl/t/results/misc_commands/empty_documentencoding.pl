@@ -23,16 +23,10 @@ $result_texis{'empty_documentencoding'} = '@documentencoding
 
 $result_texts{'empty_documentencoding'} = '';
 
-$result_errors{'empty_documentencoding'} = [
-  {
-    'error_line' => 'warning: @documentencoding missing argument
-',
-    'line_nr' => 1,
-    'text' => '@documentencoding missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_documentencoding'} = '* W l1|@documentencoding missing argument
+ warning: @documentencoding missing argument
 
+';
 
 $result_nodes_list{'empty_documentencoding'} = '';
 

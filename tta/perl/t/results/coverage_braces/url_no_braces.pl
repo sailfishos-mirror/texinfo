@@ -17,16 +17,10 @@ $result_texis{'url_no_braces'} = '@url';
 
 $result_texts{'url_no_braces'} = '';
 
-$result_errors{'url_no_braces'} = [
-  {
-    'error_line' => '@url expected braces
-',
-    'line_nr' => 1,
-    'text' => '@url expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'url_no_braces'} = '* E l1|@url expected braces
+ @url expected braces
 
+';
 
 $result_nodes_list{'url_no_braces'} = '';
 

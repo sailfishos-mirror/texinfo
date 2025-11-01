@@ -78,16 +78,10 @@ $result_texts{'empty_chapter_in_html_title'} = 'top
 **
 ';
 
-$result_errors{'empty_chapter_in_html_title'} = [
-  {
-    'error_line' => 'warning: @chapter missing argument
-',
-    'line_nr' => 5,
-    'text' => '@chapter missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_chapter_in_html_title'} = '* W l5|@chapter missing argument
+ warning: @chapter missing argument
 
+';
 
 $result_nodes_list{'empty_chapter_in_html_title'} = '1|Top
  associated_section: top

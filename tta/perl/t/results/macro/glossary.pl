@@ -609,62 +609,25 @@ name2 text2
 
 ';
 
-$result_errors{'glossary'} = [
-  {
-    'error_line' => 'warning: use @comma{} instead of \\, in macro arg
-',
-    'file_name' => 'glossary.texi',
-    'line_nr' => 42,
-    'text' => 'use @comma{} instead of \\, in macro arg',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ifhtml should only appear at the beginning of a line (possibly involving @gentry)
-',
-    'file_name' => 'glossary.texi',
-    'line_nr' => 42,
-    'macro' => 'gentry',
-    'text' => '@ifhtml should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'recursive call of macro glossarytext is not allowed; use @rmacro if needed (possibly involving @glossarytext)
-',
-    'file_name' => 'glossary.texi',
-    'line_nr' => 47,
-    'macro' => 'glossarytext',
-    'text' => 'recursive call of macro glossarytext is not allowed; use @rmacro if needed',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@item outside of table or list (possibly involving @glossarytext)
-',
-    'file_name' => 'glossary.texi',
-    'line_nr' => 47,
-    'macro' => 'glossarytext',
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end table\' (possibly involving @glossary)
-',
-    'file_name' => 'glossary.texi',
-    'line_nr' => 47,
-    'macro' => 'glossary',
-    'text' => 'unmatched `@end table\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `id1\' (possibly involving @gentry)
-',
-    'file_name' => 'glossary.texi',
-    'line_nr' => 42,
-    'macro' => 'gentry',
-    'text' => '@ref reference to nonexistent node `id1\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'glossary'} = '* W glossary.texi:l42|use @comma{} instead of \\, in macro arg
+ warning: use @comma{} instead of \\, in macro arg
 
+* W glossary.texi:l42:@gentry|@ifhtml should only appear at the beginning of a line
+ warning: @ifhtml should only appear at the beginning of a line (possibly involving @gentry)
+
+* E glossary.texi:l47:@glossarytext|recursive call of macro glossarytext is not allowed; use @rmacro if needed
+ recursive call of macro glossarytext is not allowed; use @rmacro if needed (possibly involving @glossarytext)
+
+* E glossary.texi:l47:@glossarytext|@item outside of table or list
+ @item outside of table or list (possibly involving @glossarytext)
+
+* E glossary.texi:l47:@glossary|unmatched `@end table\'
+ unmatched `@end table\' (possibly involving @glossary)
+
+* E glossary.texi:l42:@gentry|@ref reference to nonexistent node `id1\'
+ @ref reference to nonexistent node `id1\' (possibly involving @gentry)
+
+';
 
 $result_nodes_list{'glossary'} = '1|Top
  associated_section: Top

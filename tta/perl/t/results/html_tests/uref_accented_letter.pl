@@ -28,8 +28,7 @@ $result_texis{'uref_accented_letter'} = '@uref{http://example.com/acc_@"a@ogonek
 $result_texts{'uref_accented_letter'} = 'http://example.com/acc_a"a;
 ';
 
-$result_errors{'uref_accented_letter'} = [];
-
+$result_errors{'uref_accented_letter'} = '';
 
 $result_nodes_list{'uref_accented_letter'} = '';
 

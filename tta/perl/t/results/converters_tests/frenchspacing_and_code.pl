@@ -598,8 +598,7 @@ vcat: r. z on nvclass: MyC. u: vname? n; d varg? ve: f. vv: g? b vcode? is: a
 defop n
 ';
 
-$result_errors{'frenchspacing_and_code'} = [];
-
+$result_errors{'frenchspacing_and_code'} = '';
 
 $result_nodes_list{'frenchspacing_and_code'} = '1|Top
  associated_section: top

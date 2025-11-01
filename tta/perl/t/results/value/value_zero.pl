@@ -38,8 +38,7 @@ Value
 $result_texts{'value_zero'} = 'Value
 0';
 
-$result_errors{'value_zero'} = [];
-
+$result_errors{'value_zero'} = '';
 
 $result_nodes_list{'value_zero'} = '';
 

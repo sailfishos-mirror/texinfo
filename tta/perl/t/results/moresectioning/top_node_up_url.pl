@@ -114,8 +114,7 @@ $result_texts{'top_node_up_url'} = 'internal top node up
 
 ';
 
-$result_errors{'top_node_up_url'} = [];
-
+$result_errors{'top_node_up_url'} = '';
 
 $result_nodes_list{'top_node_up_url'} = '1|Top
  associated_section: internal top node up

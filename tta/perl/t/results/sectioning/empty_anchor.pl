@@ -29,23 +29,13 @@ $result_texts{'empty_anchor'} = '.
 .
 ';
 
-$result_errors{'empty_anchor'} = [
-  {
-    'error_line' => 'empty argument in @anchor
-',
-    'line_nr' => 1,
-    'text' => 'empty argument in @anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty argument in @anchor
-',
-    'line_nr' => 2,
-    'text' => 'empty argument in @anchor',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_anchor'} = '* E l1|empty argument in @anchor
+ empty argument in @anchor
 
+* E l2|empty argument in @anchor
+ empty argument in @anchor
+
+';
 
 $result_nodes_list{'empty_anchor'} = '';
 

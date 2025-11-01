@@ -159,8 +159,7 @@ $result_texts{'ignore_spaces_and_comments'} = '
 
 ';
 
-$result_errors{'ignore_spaces_and_comments'} = [];
-
+$result_errors{'ignore_spaces_and_comments'} = '';
 
 $result_nodes_list{'ignore_spaces_and_comments'} = '';
 

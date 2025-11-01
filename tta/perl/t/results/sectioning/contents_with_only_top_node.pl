@@ -45,8 +45,7 @@ $result_texis{'contents_with_only_top_node'} = '
 $result_texts{'contents_with_only_top_node'} = '
 ';
 
-$result_errors{'contents_with_only_top_node'} = [];
-
+$result_errors{'contents_with_only_top_node'} = '';
 
 $result_nodes_list{'contents_with_only_top_node'} = '1|Top
 ';

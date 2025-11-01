@@ -32,8 +32,7 @@ $result_texis{'footnote'} = 'text@footnote{in footnote.
 
 $result_texts{'footnote'} = 'text after footnote.';
 
-$result_errors{'footnote'} = [];
-
+$result_errors{'footnote'} = '';
 
 $result_nodes_list{'footnote'} = '';
 

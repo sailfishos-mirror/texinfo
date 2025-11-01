@@ -134,37 +134,19 @@ category: name args    more args
 deffn with }
 ';
 
-$result_errors{'wrong_braces_with_end_of_lines'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 1,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 7,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'wrong_braces_with_end_of_lines'} = '* E l1|misplaced {
+ misplaced {
 
+* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l6|misplaced }
+ misplaced }
+
+* W l7|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'wrong_braces_with_end_of_lines'} = '';
 

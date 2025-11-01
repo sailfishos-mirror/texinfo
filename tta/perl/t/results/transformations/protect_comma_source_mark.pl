@@ -84,8 +84,7 @@ $result_texts{'protect_comma_source_mark'} = '
 There is some text ,,,,,, and after.
 ';
 
-$result_errors{'protect_comma_source_mark'} = [];
-
+$result_errors{'protect_comma_source_mark'} = '';
 
 $result_nodes_list{'protect_comma_source_mark'} = '';
 

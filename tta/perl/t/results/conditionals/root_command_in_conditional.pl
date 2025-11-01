@@ -75,30 +75,16 @@ $result_texis{'root_command_in_conditional'} = '@node Getting Started, Tutorial,
 
 $result_texts{'root_command_in_conditional'} = '';
 
-$result_errors{'root_command_in_conditional'} = [
-  {
-    'error_line' => 'Next reference to nonexistent `Tutorial\'
-',
-    'line_nr' => 2,
-    'text' => 'Next reference to nonexistent `Tutorial\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Prev reference to nonexistent `Top\'
-',
-    'line_nr' => 2,
-    'text' => 'Prev reference to nonexistent `Top\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Up reference to nonexistent `Top\'
-',
-    'line_nr' => 2,
-    'text' => 'Up reference to nonexistent `Top\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'root_command_in_conditional'} = '* E l2|Next reference to nonexistent `Tutorial\'
+ Next reference to nonexistent `Tutorial\'
 
+* E l2|Prev reference to nonexistent `Top\'
+ Prev reference to nonexistent `Top\'
+
+* E l2|Up reference to nonexistent `Top\'
+ Up reference to nonexistent `Top\'
+
+';
 
 $result_nodes_list{'root_command_in_conditional'} = '1|Getting Started
 ';

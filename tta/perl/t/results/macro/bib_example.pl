@@ -2477,18 +2477,10 @@ Massachusetts, 1994.
 
 ';
 
-$result_errors{'bib_example'} = [
-  {
-    'error_line' => 'warning: @ifclear should only appear at the beginning of a line (possibly involving @mybibcite)
-',
-    'file_name' => 'bib-example.texi',
-    'line_nr' => 43,
-    'macro' => 'mybibcite',
-    'text' => '@ifclear should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'bib_example'} = '* W bib-example.texi:l43:@mybibcite|@ifclear should only appear at the beginning of a line
+ warning: @ifclear should only appear at the beginning of a line (possibly involving @mybibcite)
 
+';
 
 $result_nodes_list{'bib_example'} = '1|Top
  associated_section: Top

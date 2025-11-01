@@ -230,8 +230,7 @@ Section.
 
 ';
 
-$result_errors{'contents_in_middle_chapter_inline'} = [];
-
+$result_errors{'contents_in_middle_chapter_inline'} = '';
 
 $result_nodes_list{'contents_in_middle_chapter_inline'} = '1|Top
  associated_section: Contents in chapter

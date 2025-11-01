@@ -52,16 +52,10 @@ $result_texts{'section_before_chapter'} = '1 section
 =========
 ';
 
-$result_errors{'section_before_chapter'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @chapter appearing after a lower element
-',
-    'line_nr' => 3,
-    'text' => 'lowering the section level of @chapter appearing after a lower element',
-    'type' => 'warning'
-  }
-];
+$result_errors{'section_before_chapter'} = '* W l3|lowering the section level of @chapter appearing after a lower element
+ warning: lowering the section level of @chapter appearing after a lower element
 
+';
 
 $result_nodes_list{'section_before_chapter'} = '';
 

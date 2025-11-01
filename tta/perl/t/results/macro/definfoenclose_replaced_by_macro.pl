@@ -64,16 +64,10 @@ $result_texts{'definfoenclose_replaced_by_macro'} = '
 ||aa||
 ';
 
-$result_errors{'definfoenclose_replaced_by_macro'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'definfoenclose_replaced_by_macro'} = '* W l1|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+';
 
 $result_nodes_list{'definfoenclose_replaced_by_macro'} = '';
 

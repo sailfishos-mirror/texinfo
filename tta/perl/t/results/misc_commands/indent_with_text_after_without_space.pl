@@ -43,8 +43,7 @@ $result_texts{'indent_with_text_after_without_space'} = '
 a b
 ';
 
-$result_errors{'indent_with_text_after_without_space'} = [];
-
+$result_errors{'indent_with_text_after_without_space'} = '';
 
 $result_nodes_list{'indent_with_text_after_without_space'} = '';
 

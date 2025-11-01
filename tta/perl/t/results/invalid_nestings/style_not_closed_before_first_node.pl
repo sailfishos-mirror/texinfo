@@ -43,16 +43,10 @@ $result_texts{'style_not_closed_before_first_node'} = 'in code
 In node
 ';
 
-$result_errors{'style_not_closed_before_first_node'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'style_not_closed_before_first_node'} = '* E l1|@code missing closing brace
+ @code missing closing brace
 
+';
 
 $result_nodes_list{'style_not_closed_before_first_node'} = '1|Top
 ';

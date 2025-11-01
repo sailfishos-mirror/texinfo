@@ -171,8 +171,7 @@ after anchor
 Second anchor in text after anchor.
 ';
 
-$result_errors{'center_flush'} = [];
-
+$result_errors{'center_flush'} = '';
 
 $result_nodes_list{'center_flush'} = '';
 

@@ -93,8 +93,7 @@ top
 ******
 ';
 
-$result_errors{'button_replacement_and_direction_customization'} = [];
-
+$result_errors{'button_replacement_and_direction_customization'} = '';
 
 $result_nodes_list{'button_replacement_and_direction_customization'} = '1|Top
  associated_section: top

@@ -102,16 +102,10 @@ m1 email.
 
 ';
 
-$result_errors{'paragraph_command'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 11,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'paragraph_command'} = '* W l11|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+';
 
 $result_nodes_list{'paragraph_command'} = '';
 

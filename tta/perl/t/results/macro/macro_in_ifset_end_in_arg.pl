@@ -70,23 +70,13 @@ $result_texts{'macro_in_ifset_end_in_arg'} = '
 in ifset
 ';
 
-$result_errors{'macro_in_ifset_end_in_arg'} = [
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 8,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end ifset\'
-',
-    'line_nr' => 10,
-    'text' => 'unmatched `@end ifset\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_in_ifset_end_in_arg'} = '* E l8|misplaced }
+ misplaced }
 
+* E l10|unmatched `@end ifset\'
+ unmatched `@end ifset\'
+
+';
 
 $result_nodes_list{'macro_in_ifset_end_in_arg'} = '';
 

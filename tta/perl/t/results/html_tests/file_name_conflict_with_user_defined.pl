@@ -128,8 +128,7 @@ $result_texts{'file_name_conflict_with_user_defined'} = 'top
 ********
 ';
 
-$result_errors{'file_name_conflict_with_user_defined'} = [];
-
+$result_errors{'file_name_conflict_with_user_defined'} = '';
 
 $result_nodes_list{'file_name_conflict_with_user_defined'} = '1|Top
  associated_section: top

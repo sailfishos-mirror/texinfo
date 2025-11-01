@@ -116,8 +116,7 @@ $result_texts{'automatic_menu_referencing_node'} = 'top
 =======
 ';
 
-$result_errors{'automatic_menu_referencing_node'} = [];
-
+$result_errors{'automatic_menu_referencing_node'} = '';
 
 $result_nodes_list{'automatic_menu_referencing_node'} = '1|Top
  associated_section: top

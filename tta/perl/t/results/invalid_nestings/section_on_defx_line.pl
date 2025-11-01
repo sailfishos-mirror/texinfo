@@ -100,51 +100,25 @@ Something
 
 ';
 
-$result_errors{'section_on_defx_line'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @deffnx line
-',
-    'line_nr' => 2,
-    'text' => '@section should not appear on @deffnx line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end deffn
-',
-    'line_nr' => 2,
-    'text' => '@section seen before @end deffn',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end deffn\'
-',
-    'line_nr' => 6,
-    'text' => 'unmatched `@end deffn\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_on_defx_line'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* W l2|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l2|@section should not appear on @deffnx line
+ warning: @section should not appear on @deffnx line
+
+* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l2|@section seen before @end deffn
+ @section seen before @end deffn
+
+* E l6|unmatched `@end deffn\'
+ unmatched `@end deffn\'
+
+';
 
 $result_nodes_list{'section_on_defx_line'} = '';
 

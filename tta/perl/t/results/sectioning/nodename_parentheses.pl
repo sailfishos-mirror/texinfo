@@ -277,30 +277,16 @@ Dummy section with (manual)node node syntax.
 
 ';
 
-$result_errors{'nodename_parentheses'} = [
-  {
-    'error_line' => 'syntax for an external node used for `(manual)node\'
-',
-    'line_nr' => 22,
-    'text' => 'syntax for an external node used for `(manual)node\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'syntax for an external node used for `(manual)anchor\'
-',
-    'line_nr' => 27,
-    'text' => 'syntax for an external node used for `(manual)anchor\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: node `Top\' lacks menu item for `(manual)node\' but is above it in sectioning
-',
-    'line_nr' => 1,
-    'text' => 'node `Top\' lacks menu item for `(manual)node\' but is above it in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodename_parentheses'} = '* E l22|syntax for an external node used for `(manual)node\'
+ syntax for an external node used for `(manual)node\'
 
+* E l27|syntax for an external node used for `(manual)anchor\'
+ syntax for an external node used for `(manual)anchor\'
+
+* W l1|node `Top\' lacks menu item for `(manual)node\' but is above it in sectioning
+ warning: node `Top\' lacks menu item for `(manual)node\' but is above it in sectioning
+
+';
 
 $result_nodes_list{'nodename_parentheses'} = '1|Top
  associated_section: The top node

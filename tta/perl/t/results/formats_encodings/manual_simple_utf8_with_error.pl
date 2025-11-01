@@ -114,25 +114,13 @@ $result_texts{'manual_simple_utf8_with_error'} = 'Testé
 non_connùe
 ';
 
-$result_errors{'manual_simple_utf8_with_error'} = [
-  {
-    'error_line' => "warning: undefined flag: non_conn\x{f9}e
-",
-    'file_name' => 'manual_simple_utf8_with_error.texi',
-    'line_nr' => 11,
-    'text' => "undefined flag: non_conn\x{f9}e",
-    'type' => 'warning'
-  },
-  {
-    'error_line' => "warning: node `\x{e9}sseul\x{e9}' unreferenced
-",
-    'file_name' => 'manual_simple_utf8_with_error.texi',
-    'line_nr' => 6,
-    'text' => "node `\x{e9}sseul\x{e9}' unreferenced",
-    'type' => 'warning'
-  }
-];
+$result_errors{'manual_simple_utf8_with_error'} = '* W manual_simple_utf8_with_error.texi:l11|undefined flag: non_connùe
+ warning: undefined flag: non_connùe
 
+* W manual_simple_utf8_with_error.texi:l6|node `ésseulé\' unreferenced
+ warning: node `ésseulé\' unreferenced
+
+';
 
 $result_nodes_list{'manual_simple_utf8_with_error'} = '1|Top
  associated_section: Testé

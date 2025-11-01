@@ -417,8 +417,7 @@ error->
 
 ';
 
-$result_errors{'multiple_documentlanguage'} = [];
-
+$result_errors{'multiple_documentlanguage'} = '';
 
 $result_nodes_list{'multiple_documentlanguage'} = '1|Top
  associated_section: top

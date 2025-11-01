@@ -97,8 +97,7 @@ $result_texts{'macro_in_menu_comment_like_entry'} = '
 
 * a5b: ';
 
-$result_errors{'macro_in_menu_comment_like_entry'} = [];
-
+$result_errors{'macro_in_menu_comment_like_entry'} = '';
 
 $result_nodes_list{'macro_in_menu_comment_like_entry'} = '';
 

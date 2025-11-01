@@ -169,8 +169,7 @@ second node
 ------------
 ';
 
-$result_errors{'nodes_after_top_before_section_texi2html_use_nodes'} = [];
-
+$result_errors{'nodes_after_top_before_section_texi2html_use_nodes'} = '';
 
 $result_nodes_list{'nodes_after_top_before_section_texi2html_use_nodes'} = '1|Top
  menus:

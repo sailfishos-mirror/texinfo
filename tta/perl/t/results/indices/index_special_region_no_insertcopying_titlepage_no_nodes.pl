@@ -649,57 +649,25 @@ Titlepage footnote anchor for reference on the titlepage.
 
 ';
 
-$result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes'} = [
-  {
-    'error_line' => 'warning: @cindex missing argument
-',
-    'file_name' => 'index_special_region_no_insertcopying.texi',
-    'line_nr' => 47,
-    'text' => '@cindex missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffn
-',
-    'file_name' => 'index_special_region_no_insertcopying.texi',
-    'line_nr' => 48,
-    'text' => 'missing name for @deffn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'file_name' => 'index_special_region_no_insertcopying.texi',
-    'line_nr' => 49,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'file_name' => 'index_special_region_no_insertcopying.texi',
-    'line_nr' => 50,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'missing @ftable argument
-',
-    'file_name' => 'index_special_region_no_insertcopying.texi',
-    'line_nr' => 53,
-    'text' => 'missing @ftable argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @item missing argument
-',
-    'file_name' => 'index_special_region_no_insertcopying.texi',
-    'line_nr' => 54,
-    'text' => '@item missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'index_special_region_no_insertcopying_titlepage_no_nodes'} = '* W index_special_region_no_insertcopying.texi:l47|@cindex missing argument
+ warning: @cindex missing argument
 
+* W index_special_region_no_insertcopying.texi:l48|missing name for @deffn
+ warning: missing name for @deffn
+
+* W index_special_region_no_insertcopying.texi:l49|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W index_special_region_no_insertcopying.texi:l50|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* E index_special_region_no_insertcopying.texi:l53|missing @ftable argument
+ missing @ftable argument
+
+* W index_special_region_no_insertcopying.texi:l54|@item missing argument
+ warning: @item missing argument
+
+';
 
 $result_nodes_list{'index_special_region_no_insertcopying_titlepage_no_nodes'} = '1|Top
  associated_section: Top

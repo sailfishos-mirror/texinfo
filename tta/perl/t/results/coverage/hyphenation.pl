@@ -31,8 +31,7 @@ $result_texts{'hyphenation'} = '
 
 ';
 
-$result_errors{'hyphenation'} = [];
-
+$result_errors{'hyphenation'} = '';
 
 $result_nodes_list{'hyphenation'} = '';
 

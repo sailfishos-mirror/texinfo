@@ -25,8 +25,7 @@ $result_texis{'empty_listoffloats'} = '@listoffloats
 
 $result_texts{'empty_listoffloats'} = '';
 
-$result_errors{'empty_listoffloats'} = [];
-
+$result_errors{'empty_listoffloats'} = '';
 
 $result_nodes_list{'empty_listoffloats'} = '';
 

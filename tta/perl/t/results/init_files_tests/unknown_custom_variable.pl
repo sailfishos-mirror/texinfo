@@ -81,8 +81,7 @@ $result_texts{'unknown_custom_variable'} = 'top
 ******
 ';
 
-$result_errors{'unknown_custom_variable'} = [];
-
+$result_errors{'unknown_custom_variable'} = '';
 
 $result_nodes_list{'unknown_custom_variable'} = '1|Top
  associated_section: top

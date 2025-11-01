@@ -211,44 +211,22 @@ Function:
 
 ';
 
-$result_errors{'empty_string_index_entry'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @findex
-',
-    'line_nr' => 4,
-    'text' => 'empty index key in @findex',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @item
-',
-    'line_nr' => 7,
-    'text' => 'empty index key in @item',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @defun
-',
-    'line_nr' => 10,
-    'text' => 'empty index key in @defun',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @defunx
-',
-    'line_nr' => 11,
-    'text' => 'empty index key in @defunx',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_string_index_entry'} = '* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+* W l4|empty index key in @findex
+ warning: empty index key in @findex
+
+* W l7|empty index key in @item
+ warning: empty index key in @item
+
+* W l10|empty index key in @defun
+ warning: empty index key in @defun
+
+* W l11|empty index key in @defunx
+ warning: empty index key in @defunx
+
+';
 
 $result_nodes_list{'empty_string_index_entry'} = '1|Top
  node_directions:

@@ -20,8 +20,7 @@ $result_texis{'before_accent_punctuation'} = 'a. @^a';
 
 $result_texts{'before_accent_punctuation'} = 'a. a^';
 
-$result_errors{'before_accent_punctuation'} = [];
-
+$result_errors{'before_accent_punctuation'} = '';
 
 $result_nodes_list{'before_accent_punctuation'} = '';
 

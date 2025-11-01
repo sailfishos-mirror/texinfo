@@ -116,8 +116,7 @@ Some text a
 and after.
 ';
 
-$result_errors{'paragraph_no_paragraph'} = [];
-
+$result_errors{'paragraph_no_paragraph'} = '';
 
 $result_nodes_list{'paragraph_no_paragraph'} = '';
 

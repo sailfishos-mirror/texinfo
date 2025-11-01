@@ -78,8 +78,7 @@ $result_texts{'enumerate_in_example'} = '
 still second
 ';
 
-$result_errors{'enumerate_in_example'} = [];
-
+$result_errors{'enumerate_in_example'} = '';
 
 $result_nodes_list{'enumerate_in_example'} = '';
 

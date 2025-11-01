@@ -376,8 +376,7 @@ b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.
 
 ';
 
-$result_errors{'navigation'} = [];
-
+$result_errors{'navigation'} = '';
 
 $result_nodes_list{'navigation'} = '1|Top
  associated_section: File used for navigation testing

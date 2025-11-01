@@ -122,58 +122,28 @@ important
 in quotation
 ';
 
-$result_errors{'definfoenclose_texinfo_commands'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'cannot redefine with @definfoenclose: verb
-',
-    'line_nr' => 1,
-    'text' => 'cannot redefine with @definfoenclose: verb',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 2,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'cannot redefine with @definfoenclose: TeX
-',
-    'line_nr' => 2,
-    'text' => 'cannot redefine with @definfoenclose: TeX',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 3,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 4,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'cannot redefine with @definfoenclose: quotation
-',
-    'line_nr' => 4,
-    'text' => 'cannot redefine with @definfoenclose: quotation',
-    'type' => 'error'
-  }
-];
+$result_errors{'definfoenclose_texinfo_commands'} = '* W l1|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+* E l1|cannot redefine with @definfoenclose: verb
+ cannot redefine with @definfoenclose: verb
+
+* W l2|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* E l2|cannot redefine with @definfoenclose: TeX
+ cannot redefine with @definfoenclose: TeX
+
+* W l3|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l4|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* E l4|cannot redefine with @definfoenclose: quotation
+ cannot redefine with @definfoenclose: quotation
+
+';
 
 $result_nodes_list{'definfoenclose_texinfo_commands'} = '';
 

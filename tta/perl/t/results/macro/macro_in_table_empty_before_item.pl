@@ -80,8 +80,7 @@ $result_texts{'macro_in_table_empty_before_item'} = '
 citem
 ';
 
-$result_errors{'macro_in_table_empty_before_item'} = [];
-
+$result_errors{'macro_in_table_empty_before_item'} = '';
 
 $result_nodes_list{'macro_in_table_empty_before_item'} = '';
 

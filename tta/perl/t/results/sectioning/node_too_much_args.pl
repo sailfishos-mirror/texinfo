@@ -43,16 +43,10 @@ $result_texis{'node_too_much_args'} = '@node first, , ,  (dir)';
 
 $result_texts{'node_too_much_args'} = '';
 
-$result_errors{'node_too_much_args'} = [
-  {
-    'error_line' => 'warning: superfluous arguments for node
-',
-    'line_nr' => 1,
-    'text' => 'superfluous arguments for node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_too_much_args'} = '* W l1|superfluous arguments for node
+ warning: superfluous arguments for node
 
+';
 
 $result_nodes_list{'node_too_much_args'} = '1|first
  node_directions:

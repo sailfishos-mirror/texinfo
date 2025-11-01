@@ -143,8 +143,7 @@ line
 second line
 ';
 
-$result_errors{'comments_in_example'} = [];
-
+$result_errors{'comments_in_example'} = '';
 
 $result_nodes_list{'comments_in_example'} = '';
 

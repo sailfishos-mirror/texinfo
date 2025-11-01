@@ -171,8 +171,7 @@ $result_texts{'automatic_menus'} = 'top
 =============
 ';
 
-$result_errors{'automatic_menus'} = [];
-
+$result_errors{'automatic_menus'} = '';
 
 $result_nodes_list{'automatic_menus'} = '1|Top
  associated_section: top

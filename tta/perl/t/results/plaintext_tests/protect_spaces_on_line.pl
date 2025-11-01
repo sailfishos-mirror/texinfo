@@ -71,8 +71,7 @@ Before samp. a. after samp, w in   w. after dot  afterw
 before samp. a. after samp, w in   w. after dot  afterw
 ';
 
-$result_errors{'protect_spaces_on_line'} = [];
-
+$result_errors{'protect_spaces_on_line'} = '';
 
 $result_nodes_list{'protect_spaces_on_line'} = '';
 

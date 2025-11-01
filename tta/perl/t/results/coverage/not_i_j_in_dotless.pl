@@ -29,23 +29,13 @@ $result_texis{'not_i_j_in_dotless'} = '@dotless a bc, @^{@dotless{q}}.';
 
 $result_texts{'not_i_j_in_dotless'} = 'a bc, q^.';
 
-$result_errors{'not_i_j_in_dotless'} = [
-  {
-    'error_line' => '@dotless expects `i\' or `j\' as argument, not `a\'
-',
-    'line_nr' => 1,
-    'text' => '@dotless expects `i\' or `j\' as argument, not `a\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@dotless expects `i\' or `j\' as argument, not `q\'
-',
-    'line_nr' => 1,
-    'text' => '@dotless expects `i\' or `j\' as argument, not `q\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'not_i_j_in_dotless'} = '* E l1|@dotless expects `i\' or `j\' as argument, not `a\'
+ @dotless expects `i\' or `j\' as argument, not `a\'
 
+* E l1|@dotless expects `i\' or `j\' as argument, not `q\'
+ @dotless expects `i\' or `j\' as argument, not `q\'
+
+';
 
 $result_nodes_list{'not_i_j_in_dotless'} = '';
 

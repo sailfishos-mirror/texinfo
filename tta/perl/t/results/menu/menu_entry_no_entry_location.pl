@@ -88,8 +88,7 @@ with text.
 * (last manual)::
 ';
 
-$result_errors{'menu_entry_no_entry_location'} = [];
-
+$result_errors{'menu_entry_no_entry_location'} = '';
 
 $result_nodes_list{'menu_entry_no_entry_location'} = '';
 

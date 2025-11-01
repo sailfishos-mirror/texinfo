@@ -195,30 +195,16 @@ $result_texts{'test_insert_nodes_with_empty_headings'} = 'top
 ====
 ';
 
-$result_errors{'test_insert_nodes_with_empty_headings'} = [
-  {
-    'error_line' => 'warning: @section missing argument
-',
-    'line_nr' => 5,
-    'text' => '@section missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section missing argument
-',
-    'line_nr' => 7,
-    'text' => '@section missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@strong{}\'
-',
-    'line_nr' => 9,
-    'text' => 'empty node name after expansion `@strong{}\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'test_insert_nodes_with_empty_headings'} = '* W l5|@section missing argument
+ warning: @section missing argument
 
+* W l7|@section missing argument
+ warning: @section missing argument
+
+* E l9|empty node name after expansion `@strong{}\'
+ empty node name after expansion `@strong{}\'
+
+';
 
 $result_nodes_list{'test_insert_nodes_with_empty_headings'} = '1|Top
  associated_section: top

@@ -68,8 +68,7 @@ $result_texts{'alias_table_command'} = '
 table item (code)
 ';
 
-$result_errors{'alias_table_command'} = [];
-
+$result_errors{'alias_table_command'} = '';
 
 $result_nodes_list{'alias_table_command'} = '';
 

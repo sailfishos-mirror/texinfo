@@ -137,8 +137,7 @@ $result_texts{'newline_and_continuation_in_brace'} = '
 category: ab cd some arg    b next    last line
 ';
 
-$result_errors{'newline_and_continuation_in_brace'} = [];
-
+$result_errors{'newline_and_continuation_in_brace'} = '';
 
 $result_nodes_list{'newline_and_continuation_in_brace'} = '';
 

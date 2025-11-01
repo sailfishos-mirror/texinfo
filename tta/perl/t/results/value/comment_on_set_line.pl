@@ -111,8 +111,7 @@ $result_texts{'comment_on_set_line'} = '
 !!, !!, !g!, !a vv!
 ';
 
-$result_errors{'comment_on_set_line'} = [];
-
+$result_errors{'comment_on_set_line'} = '';
 
 $result_nodes_list{'comment_on_set_line'} = '';
 

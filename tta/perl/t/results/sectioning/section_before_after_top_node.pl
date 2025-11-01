@@ -93,16 +93,10 @@ top section
 in chapter
 ';
 
-$result_errors{'section_before_after_top_node'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'line_nr' => 4,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  }
-];
+$result_errors{'section_before_after_top_node'} = '* W l4|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
 
+';
 
 $result_nodes_list{'section_before_after_top_node'} = '1|Top
  associated_section: top section

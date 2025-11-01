@@ -78,8 +78,7 @@ $result_texts{'space_at_menu_end'} = '
 A para.
 ';
 
-$result_errors{'space_at_menu_end'} = [];
-
+$result_errors{'space_at_menu_end'} = '';
 
 $result_nodes_list{'space_at_menu_end'} = '1|Top
  menus:

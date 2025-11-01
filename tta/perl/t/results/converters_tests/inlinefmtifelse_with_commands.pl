@@ -144,8 +144,7 @@ else tex.
 ELSE latex.
 ';
 
-$result_errors{'inlinefmtifelse_with_commands'} = [];
-
+$result_errors{'inlinefmtifelse_with_commands'} = '';
 
 $result_nodes_list{'inlinefmtifelse_with_commands'} = '';
 

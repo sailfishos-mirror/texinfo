@@ -132,23 +132,13 @@ part
 ****
 ';
 
-$result_errors{'part_node_after_top'} = [
-  {
-    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
-',
-    'line_nr' => 9,
-    'text' => '@node precedes @part, but parts may not be associated with nodes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no sectioning command associated with @part
-',
-    'line_nr' => 9,
-    'text' => 'no sectioning command associated with @part',
-    'type' => 'warning'
-  }
-];
+$result_errors{'part_node_after_top'} = '* W l9|@node precedes @part, but parts may not be associated with nodes
+ warning: @node precedes @part, but parts may not be associated with nodes
 
+* W l9|no sectioning command associated with @part
+ warning: no sectioning command associated with @part
+
+';
 
 $result_nodes_list{'part_node_after_top'} = '1|Top
  associated_section: top

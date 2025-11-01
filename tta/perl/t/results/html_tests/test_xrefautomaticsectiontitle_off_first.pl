@@ -177,8 +177,7 @@ chap.
 chap.
 ';
 
-$result_errors{'test_xrefautomaticsectiontitle_off_first'} = [];
-
+$result_errors{'test_xrefautomaticsectiontitle_off_first'} = '';
 
 $result_nodes_list{'test_xrefautomaticsectiontitle_off_first'} = '1|Top
  associated_section: top

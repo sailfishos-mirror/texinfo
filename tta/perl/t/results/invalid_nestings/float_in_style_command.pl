@@ -65,23 +65,13 @@ A, B
 in float
 ';
 
-$result_errors{'float_in_style_command'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'float_in_style_command'} = '* E l1|@code missing closing brace
+ @code missing closing brace
 
+* E l6|misplaced }
+ misplaced }
+
+';
 
 $result_floats{'float_in_style_command'} = 'A: 1
  F1: {B}

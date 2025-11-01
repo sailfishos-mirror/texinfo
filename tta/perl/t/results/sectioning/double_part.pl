@@ -194,30 +194,16 @@ Text part second.
 
 ';
 
-$result_errors{'double_part'} = [
-  {
-    'error_line' => 'warning: no sectioning command associated with @part
-',
-    'line_nr' => 8,
-    'text' => 'no sectioning command associated with @part',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 8,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @part not empty
-',
-    'line_nr' => 11,
-    'text' => '@part not empty',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_part'} = '* W l8|no sectioning command associated with @part
+ warning: no sectioning command associated with @part
 
+* W l8|@part not empty
+ warning: @part not empty
+
+* W l11|@part not empty
+ warning: @part not empty
+
+';
 
 $result_nodes_list{'double_part'} = '1|Top
  associated_section: top

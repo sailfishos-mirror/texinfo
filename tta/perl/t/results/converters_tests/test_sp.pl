@@ -123,8 +123,7 @@ sp after para
 
 ';
 
-$result_errors{'test_sp'} = [];
-
+$result_errors{'test_sp'} = '';
 
 $result_nodes_list{'test_sp'} = '';
 

@@ -44,16 +44,10 @@ $result_texis{'multitable_bracketed_prototype_not_closed'} = '
 $result_texts{'multitable_bracketed_prototype_not_closed'} = '
 ';
 
-$result_errors{'multitable_bracketed_prototype_not_closed'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 2,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_bracketed_prototype_not_closed'} = '* E l2|misplaced {
+ misplaced {
 
+';
 
 $result_nodes_list{'multitable_bracketed_prototype_not_closed'} = '';
 

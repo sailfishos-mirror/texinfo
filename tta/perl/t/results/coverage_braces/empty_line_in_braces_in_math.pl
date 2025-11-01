@@ -28,8 +28,7 @@ $result_texts{'empty_line_in_braces_in_math'} = 'a{bb
 
 c}d';
 
-$result_errors{'empty_line_in_braces_in_math'} = [];
-
+$result_errors{'empty_line_in_braces_in_math'} = '';
 
 $result_nodes_list{'empty_line_in_braces_in_math'} = '';
 

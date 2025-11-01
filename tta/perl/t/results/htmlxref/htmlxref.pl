@@ -955,8 +955,7 @@ id: local-node
 
 ';
 
-$result_errors{'htmlxref'} = [];
-
+$result_errors{'htmlxref'} = '';
 
 $result_nodes_list{'htmlxref'} = '1|Top
  associated_section: Test refs

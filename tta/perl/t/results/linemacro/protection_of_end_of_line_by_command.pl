@@ -55,25 +55,13 @@ $result_texts{'protection_of_end_of_line_by_command'} = '
  bullet
 ';
 
-$result_errors{'protection_of_end_of_line_by_command'} = [
-  {
-    'error_line' => 'misplaced { (possibly involving @lm)
-',
-    'line_nr' => 6,
-    'macro' => 'lm',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced } (possibly involving @lm)
-',
-    'line_nr' => 6,
-    'macro' => 'lm',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'protection_of_end_of_line_by_command'} = '* E l6:@lm|misplaced {
+ misplaced { (possibly involving @lm)
 
+* E l6:@lm|misplaced }
+ misplaced } (possibly involving @lm)
+
+';
 
 $result_nodes_list{'protection_of_end_of_line_by_command'} = '';
 

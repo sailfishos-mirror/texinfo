@@ -174,8 +174,7 @@ $result_texts{'macro_expansion_in_multitable_prototype'} = '
 l1 t1 t2 t3 t4
 ';
 
-$result_errors{'macro_expansion_in_multitable_prototype'} = [];
-
+$result_errors{'macro_expansion_in_multitable_prototype'} = '';
 
 $result_nodes_list{'macro_expansion_in_multitable_prototype'} = '';
 

@@ -82,8 +82,7 @@ $result_texts{'itemize_line_commands_with_brace'} = 'bullet
 minus
 ';
 
-$result_errors{'itemize_line_commands_with_brace'} = [];
-
+$result_errors{'itemize_line_commands_with_brace'} = '';
 
 $result_nodes_list{'itemize_line_commands_with_brace'} = '';
 

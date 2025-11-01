@@ -86,16 +86,10 @@ $result_texts{'blockitem_no_item'} = '
 AA
 d, e f  ';
 
-$result_errors{'blockitem_no_item'} = [
-  {
-    'error_line' => 'warning: @itemize has text but no @item
-',
-    'line_nr' => 5,
-    'text' => '@itemize has text but no @item',
-    'type' => 'warning'
-  }
-];
+$result_errors{'blockitem_no_item'} = '* W l5|@itemize has text but no @item
+ warning: @itemize has text but no @item
 
+';
 
 $result_nodes_list{'blockitem_no_item'} = '';
 

@@ -63,16 +63,10 @@ $result_texts{'empty_chapter_in_html_title_no_node_no_use_nodes'} = 'top
 **
 ';
 
-$result_errors{'empty_chapter_in_html_title_no_node_no_use_nodes'} = [
-  {
-    'error_line' => 'warning: @chapter missing argument
-',
-    'line_nr' => 4,
-    'text' => '@chapter missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '* W l4|@chapter missing argument
+ warning: @chapter missing argument
 
+';
 
 $result_nodes_list{'empty_chapter_in_html_title_no_node_no_use_nodes'} = '1|Top
  associated_section: top

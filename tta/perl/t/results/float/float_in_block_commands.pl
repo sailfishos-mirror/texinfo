@@ -205,8 +205,7 @@ Text, in cartouche
 
 ';
 
-$result_errors{'float_in_block_commands'} = [];
-
+$result_errors{'float_in_block_commands'} = '';
 
 $result_floats{'float_in_block_commands'} = 'Text: 3
  F1: {in-example}

@@ -32,23 +32,13 @@ after bye
 
 $result_texts{'text_before_and_after_bye'} = 'Before bye ';
 
-$result_errors{'text_before_and_after_bye'} = [
-  {
-    'error_line' => 'warning: @bye should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@bye should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @bye line: on bye line
-',
-    'line_nr' => 1,
-    'text' => 'remaining argument on @bye line: on bye line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'text_before_and_after_bye'} = '* W l1|@bye should only appear at the beginning of a line
+ warning: @bye should only appear at the beginning of a line
 
+* W l1|remaining argument on @bye line: on bye line
+ warning: remaining argument on @bye line: on bye line
+
+';
 
 $result_nodes_list{'text_before_and_after_bye'} = '';
 

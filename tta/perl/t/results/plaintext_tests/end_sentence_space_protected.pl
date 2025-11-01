@@ -22,8 +22,7 @@ Next sentence.
 $result_texts{'end_sentence_space_protected'} = 'Some text.  Next sentence.
 ';
 
-$result_errors{'end_sentence_space_protected'} = [];
-
+$result_errors{'end_sentence_space_protected'} = '';
 
 $result_nodes_list{'end_sentence_space_protected'} = '';
 

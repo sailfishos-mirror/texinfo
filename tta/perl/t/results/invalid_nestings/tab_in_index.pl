@@ -76,30 +76,16 @@ $result_texis{'tab_in_index'} = '@multitable {one nonlettered character} {normal
 $result_texts{'tab_in_index'} = 'one nonlettered character aaa
 ';
 
-$result_errors{'tab_in_index'} = [
-  {
-    'error_line' => 'warning: @tab should not appear on @vindex line
-',
-    'line_nr' => 3,
-    'text' => '@tab should not appear on @vindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'ignoring @tab outside of multitable
-',
-    'line_nr' => 3,
-    'text' => 'ignoring @tab outside of multitable',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 3,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'tab_in_index'} = '* W l3|@tab should not appear on @vindex line
+ warning: @tab should not appear on @vindex line
 
+* E l3|ignoring @tab outside of multitable
+ ignoring @tab outside of multitable
+
+* W l3|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+';
 
 $result_nodes_list{'tab_in_index'} = '';
 

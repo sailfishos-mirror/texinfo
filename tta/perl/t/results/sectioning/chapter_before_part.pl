@@ -62,16 +62,10 @@ part
 ****
 ';
 
-$result_errors{'chapter_before_part'} = [
-  {
-    'error_line' => 'warning: no sectioning command associated with @part
-',
-    'line_nr' => 3,
-    'text' => 'no sectioning command associated with @part',
-    'type' => 'warning'
-  }
-];
+$result_errors{'chapter_before_part'} = '* W l3|no sectioning command associated with @part
+ warning: no sectioning command associated with @part
 
+';
 
 $result_nodes_list{'chapter_before_part'} = '';
 

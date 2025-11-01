@@ -103,23 +103,13 @@ $result_texts{'empty_index_entry'} = '
 
 ';
 
-$result_errors{'empty_index_entry'} = [
-  {
-    'error_line' => 'warning: missing name for @deffn
-',
-    'line_nr' => 5,
-    'text' => 'missing name for @deffn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_index_entry'} = '* W l5|missing name for @deffn
+ warning: missing name for @deffn
 
+* W l3|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'empty_index_entry'} = '1|Top
  node_directions:

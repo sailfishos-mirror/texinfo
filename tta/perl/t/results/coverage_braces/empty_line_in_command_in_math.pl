@@ -29,8 +29,7 @@ $result_texts{'empty_line_in_command_in_math'} = 'a in code
 
 after line b';
 
-$result_errors{'empty_line_in_command_in_math'} = [];
-
+$result_errors{'empty_line_in_command_in_math'} = '';
 
 $result_nodes_list{'empty_line_in_command_in_math'} = '';
 

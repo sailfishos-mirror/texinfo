@@ -239,8 +239,7 @@ In chapter
 
 ';
 
-$result_errors{'titlepage_classical'} = [];
-
+$result_errors{'titlepage_classical'} = '';
 
 $result_nodes_list{'titlepage_classical'} = '1|Top
  associated_section: section top

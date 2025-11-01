@@ -56,8 +56,7 @@ $result_texts{'ignored_value_definition'} = '
 outside.
 ';
 
-$result_errors{'ignored_value_definition'} = [];
-
+$result_errors{'ignored_value_definition'} = '';
 
 $result_nodes_list{'ignored_value_definition'} = '';
 

@@ -23,8 +23,7 @@ $result_texis{'set_no_end_of_line'} = '@set arg';
 
 $result_texts{'set_no_end_of_line'} = '';
 
-$result_errors{'set_no_end_of_line'} = [];
-
+$result_errors{'set_no_end_of_line'} = '';
 
 $result_nodes_list{'set_no_end_of_line'} = '';
 

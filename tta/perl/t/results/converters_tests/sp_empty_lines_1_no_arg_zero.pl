@@ -232,37 +232,19 @@ A1 1
 
 B';
 
-$result_errors{'sp_empty_lines_1_no_arg_zero'} = [
-  {
-    'error_line' => '@sp missing argument
-',
-    'line_nr' => 28,
-    'text' => '@sp missing argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@sp missing argument
-',
-    'line_nr' => 31,
-    'text' => '@sp missing argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@sp missing argument
-',
-    'line_nr' => 34,
-    'text' => '@sp missing argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@sp missing argument
-',
-    'line_nr' => 37,
-    'text' => '@sp missing argument',
-    'type' => 'error'
-  }
-];
+$result_errors{'sp_empty_lines_1_no_arg_zero'} = '* E l28|@sp missing argument
+ @sp missing argument
 
+* E l31|@sp missing argument
+ @sp missing argument
+
+* E l34|@sp missing argument
+ @sp missing argument
+
+* E l37|@sp missing argument
+ @sp missing argument
+
+';
 
 $result_nodes_list{'sp_empty_lines_1_no_arg_zero'} = '';
 

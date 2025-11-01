@@ -103,16 +103,10 @@ top
 
 ';
 
-$result_errors{'today_in_copying'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 8,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'today_in_copying'} = '* W l8|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'today_in_copying'} = '1|Top
  associated_section: top

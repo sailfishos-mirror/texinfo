@@ -142,30 +142,16 @@ Unknown language. Top.
 Another unknown language. Top.
 ';
 
-$result_errors{'unknown_language'} = [
-  {
-    'error_line' => 'warning: unknown is not a valid language code
-',
-    'line_nr' => 1,
-    'text' => 'unknown is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: another is not a valid language code
-',
-    'line_nr' => 11,
-    'text' => 'another is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: UNKNOWN is not a valid region code
-',
-    'line_nr' => 11,
-    'text' => 'UNKNOWN is not a valid region code',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unknown_language'} = '* W l1|unknown is not a valid language code
+ warning: unknown is not a valid language code
 
+* W l11|another is not a valid language code
+ warning: another is not a valid language code
+
+* W l11|UNKNOWN is not a valid region code
+ warning: UNKNOWN is not a valid region code
+
+';
 
 $result_nodes_list{'unknown_language'} = '1|Top
  associated_section: unknkown language

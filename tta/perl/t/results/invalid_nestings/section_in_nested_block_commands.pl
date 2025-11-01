@@ -81,23 +81,13 @@ in quotation
 ===========
 ';
 
-$result_errors{'section_in_nested_block_commands'} = [
-  {
-    'error_line' => '@section seen before @end quotation
-',
-    'line_nr' => 9,
-    'text' => '@section seen before @end quotation',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@section seen before @end table
-',
-    'line_nr' => 9,
-    'text' => '@section seen before @end table',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_in_nested_block_commands'} = '* E l9|@section seen before @end quotation
+ @section seen before @end quotation
 
+* E l9|@section seen before @end table
+ @section seen before @end table
+
+';
 
 $result_nodes_list{'section_in_nested_block_commands'} = '';
 

@@ -74,8 +74,7 @@ $result_texts{'empty_leading_menu_comment'} = '
 * (f)b:: desc
 ';
 
-$result_errors{'empty_leading_menu_comment'} = [];
-
+$result_errors{'empty_leading_menu_comment'} = '';
 
 $result_nodes_list{'empty_leading_menu_comment'} = '1|first
  menus:

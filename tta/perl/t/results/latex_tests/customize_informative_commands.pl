@@ -33,8 +33,7 @@ $result_texts{'customize_informative_commands'} = '1 chap
 ******
 ';
 
-$result_errors{'customize_informative_commands'} = [];
-
+$result_errors{'customize_informative_commands'} = '';
 
 $result_nodes_list{'customize_informative_commands'} = '';
 

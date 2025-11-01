@@ -124,8 +124,7 @@ example with empty args with spaces
 example with empty and non empty args mix
 ';
 
-$result_errors{'example_empty_arguments'} = [];
-
+$result_errors{'example_empty_arguments'} = '';
 
 $result_nodes_list{'example_empty_arguments'} = '';
 

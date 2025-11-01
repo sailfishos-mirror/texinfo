@@ -55,72 +55,34 @@ second paragraph
 third
 ';
 
-$result_errors{'unknown_command_with_braces'} = [
-  {
-    'error_line' => 'unknown command `thing\'
-',
-    'line_nr' => 1,
-    'text' => 'unknown command `thing\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 1,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 1,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'line_nr' => 3,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 3,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 5,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown2\'
-',
-    'line_nr' => 7,
-    'text' => 'unknown command `unknown2\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 7,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 11,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'unknown_command_with_braces'} = '* E l1|unknown command `thing\'
+ unknown command `thing\'
 
+* E l1|misplaced {
+ misplaced {
+
+* E l1|misplaced }
+ misplaced }
+
+* E l3|unknown command `unknown\'
+ unknown command `unknown\'
+
+* E l3|misplaced {
+ misplaced {
+
+* E l5|misplaced }
+ misplaced }
+
+* E l7|unknown command `unknown2\'
+ unknown command `unknown2\'
+
+* E l7|misplaced {
+ misplaced {
+
+* E l11|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'unknown_command_with_braces'} = '';
 

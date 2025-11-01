@@ -469,16 +469,10 @@ $result_texts{'lowered_subsubsection'} = '
 
 ';
 
-$result_errors{'lowered_subsubsection'} = [
-  {
-    'error_line' => 'warning: node `Lowered subsubsection\' in menu in `Lowered subsec\' but under `Subsection\' in sectioning
-',
-    'line_nr' => 38,
-    'text' => 'node `Lowered subsubsection\' in menu in `Lowered subsec\' but under `Subsection\' in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'lowered_subsubsection'} = '* W l38|node `Lowered subsubsection\' in menu in `Lowered subsec\' but under `Subsection\' in sectioning
+ warning: node `Lowered subsubsection\' in menu in `Lowered subsec\' but under `Subsection\' in sectioning
 
+';
 
 $result_nodes_list{'lowered_subsubsection'} = '1|Top
  associated_section

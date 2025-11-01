@@ -27,16 +27,10 @@ This is a copyright notice
 
 $result_texts{'copying_not_closed'} = '';
 
-$result_errors{'copying_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end copying\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end copying\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'copying_not_closed'} = '* E l1|no matching `@end copying\'
+ no matching `@end copying\'
 
+';
 
 $result_nodes_list{'copying_not_closed'} = '';
 

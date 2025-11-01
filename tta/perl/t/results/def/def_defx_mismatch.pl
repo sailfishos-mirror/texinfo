@@ -123,30 +123,16 @@ In defun.
 
 ';
 
-$result_errors{'def_defx_mismatch'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'must be after `@deffn\' to use `@deffnx\'
-',
-    'line_nr' => 2,
-    'text' => 'must be after `@deffn\' to use `@deffnx\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'def_defx_mismatch'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* E l2|must be after `@deffn\' to use `@deffnx\'
+ must be after `@deffn\' to use `@deffnx\'
+
+* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'def_defx_mismatch'} = '';
 

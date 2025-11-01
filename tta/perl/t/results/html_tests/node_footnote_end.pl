@@ -342,17 +342,10 @@ Footnote 3.
 
 ';
 
-$result_errors{'node_footnote_end'} = [
-  {
-    'error_line' => 'warning: node `chapter\' in menu in `Top\' but not under it in sectioning
-',
-    'file_name' => 'node_footnote.texi',
-    'line_nr' => 10,
-    'text' => 'node `chapter\' in menu in `Top\' but not under it in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_footnote_end'} = '* W node_footnote.texi:l10|node `chapter\' in menu in `Top\' but not under it in sectioning
+ warning: node `chapter\' in menu in `Top\' but not under it in sectioning
 
+';
 
 $result_nodes_list{'node_footnote_end'} = '1|Top
  menus:

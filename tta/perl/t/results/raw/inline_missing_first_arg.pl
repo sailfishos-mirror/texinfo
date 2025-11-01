@@ -31,23 +31,13 @@ $result_texis{'inline_missing_first_arg'} = '@inlinefmt{ , aaa}. @inlineraw{, bb
 $result_texts{'inline_missing_first_arg'} = '. .
 ';
 
-$result_errors{'inline_missing_first_arg'} = [
-  {
-    'error_line' => 'warning: @inlinefmt missing first argument
-',
-    'line_nr' => 1,
-    'text' => '@inlinefmt missing first argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inlineraw missing first argument
-',
-    'line_nr' => 1,
-    'text' => '@inlineraw missing first argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'inline_missing_first_arg'} = '* W l1|@inlinefmt missing first argument
+ warning: @inlinefmt missing first argument
 
+* W l1|@inlineraw missing first argument
+ warning: @inlineraw missing first argument
+
+';
 
 $result_nodes_list{'inline_missing_first_arg'} = '';
 

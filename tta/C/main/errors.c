@@ -488,3 +488,63 @@ merge_error_messages_lists (ERROR_MESSAGE_LIST *dst,
   src->number = 0;
   wipe_error_message_list (src);
 }
+
+/* In Texinfo::Report */
+void
+print_source_info_details (SOURCE_INFO *source_info, TEXT *result,
+                           const char *fname_encoding, int use_filename)
+{
+  if (!source_info->file_name && !source_info->line_nr
+      && !source_info->macro)
+    return;
+
+  if (source_info->file_name)
+    {
+      int status;
+      char *decoded_file_name;
+      if (use_filename)
+        {
+          char *file_name_and_directory[2];
+          parse_file_path (source_info->file_name,
+                           file_name_and_directory);
+
+          if (fname_encoding)
+            decoded_file_name
+              = decode_string (file_name_and_directory[0], fname_encoding,
+                               &status, 0);
+          else
+            decoded_file_name = file_name_and_directory[0];
+
+          text_append (result, decoded_file_name);
+
+          free (file_name_and_directory[0]);
+          free (file_name_and_directory[1]);
+        }
+      else
+        {
+          if (fname_encoding)
+            decoded_file_name
+              = decode_string (source_info->file_name, fname_encoding,
+                               &status, 0);
+          else
+            decoded_file_name = source_info->file_name;
+          text_append (result, decoded_file_name);
+        }
+
+      if (fname_encoding)
+        free (decoded_file_name);
+
+      if (source_info->line_nr || source_info->macro)
+        text_append_n (result, ":", 1);
+    }
+
+  if (source_info->line_nr > 0)
+    {
+      text_printf (result, "l%d", source_info->line_nr);
+      if (source_info->macro)
+        text_append_n (result, ":", 1);
+    }
+
+  if (source_info->macro)
+    text_printf (result, "@%s", source_info->macro);
+}

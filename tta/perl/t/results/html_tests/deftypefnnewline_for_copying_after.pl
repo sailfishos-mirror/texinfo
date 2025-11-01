@@ -253,8 +253,7 @@ do something with input
 
 ';
 
-$result_errors{'deftypefnnewline_for_copying_after'} = [];
-
+$result_errors{'deftypefnnewline_for_copying_after'} = '';
 
 $result_nodes_list{'deftypefnnewline_for_copying_after'} = '1|Top
  associated_section: top

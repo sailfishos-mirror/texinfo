@@ -67,44 +67,22 @@ Something
 
 ';
 
-$result_errors{'section_on_def_line'} = [
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @deffn line
-',
-    'line_nr' => 1,
-    'text' => '@section should not appear on @deffn line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end deffn
-',
-    'line_nr' => 1,
-    'text' => '@section seen before @end deffn',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unmatched `@end deffn\'
-',
-    'line_nr' => 5,
-    'text' => 'unmatched `@end deffn\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_on_def_line'} = '* W l1|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
 
+* W l1|@section should not appear on @deffn line
+ warning: @section should not appear on @deffn line
+
+* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l1|@section seen before @end deffn
+ @section seen before @end deffn
+
+* E l5|unmatched `@end deffn\'
+ unmatched `@end deffn\'
+
+';
 
 $result_nodes_list{'section_on_def_line'} = '';
 

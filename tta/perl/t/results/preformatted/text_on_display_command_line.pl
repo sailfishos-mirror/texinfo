@@ -135,37 +135,19 @@ in display
 
 ';
 
-$result_errors{'text_on_display_command_line'} = [
-  {
-    'error_line' => 'warning: unexpected argument on @display line: text on line
-',
-    'line_nr' => 1,
-    'text' => 'unexpected argument on @display line: text on line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @display line: text on line followed by text
-',
-    'line_nr' => 4,
-    'text' => 'unexpected argument on @display line: text on line followed by text',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: display text after end
-',
-    'line_nr' => 10,
-    'text' => 'bad argument to @end: display text after end',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: display text after end display nested in display
-',
-    'line_nr' => 14,
-    'text' => 'bad argument to @end: display text after end display nested in display',
-    'type' => 'error'
-  }
-];
+$result_errors{'text_on_display_command_line'} = '* W l1|unexpected argument on @display line: text on line
+ warning: unexpected argument on @display line: text on line
 
+* W l4|unexpected argument on @display line: text on line followed by text
+ warning: unexpected argument on @display line: text on line followed by text
+
+* E l10|bad argument to @end: display text after end
+ bad argument to @end: display text after end
+
+* E l14|bad argument to @end: display text after end display nested in display
+ bad argument to @end: display text after end display nested in display
+
+';
 
 $result_nodes_list{'text_on_display_command_line'} = '';
 

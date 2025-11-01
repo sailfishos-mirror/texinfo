@@ -16,8 +16,7 @@ $result_texis{'empty'} = '';
 
 $result_texts{'empty'} = '';
 
-$result_errors{'empty'} = [];
-
+$result_errors{'empty'} = '';
 
 $result_nodes_list{'empty'} = '';
 

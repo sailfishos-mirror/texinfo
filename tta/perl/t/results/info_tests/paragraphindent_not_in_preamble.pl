@@ -128,8 +128,7 @@ After paragraphindent.
 
 ';
 
-$result_errors{'paragraphindent_not_in_preamble'} = [];
-
+$result_errors{'paragraphindent_not_in_preamble'} = '';
 
 $result_nodes_list{'paragraphindent_not_in_preamble'} = '1|Top
  associated_section: test @@paragraphindent effect in preamble

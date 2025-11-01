@@ -139,8 +139,7 @@ In float , C
 In float
 ';
 
-$result_errors{'empty_caption'} = [];
-
+$result_errors{'empty_caption'} = '';
 
 $result_floats{'empty_caption'} = ': 2
  F1: {c}

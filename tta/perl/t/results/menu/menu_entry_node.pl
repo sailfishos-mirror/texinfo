@@ -104,8 +104,7 @@ $result_texts{'menu_entry_node'} = '* (f)a1::
 * (f)@a:: 
 ';
 
-$result_errors{'menu_entry_node'} = [];
-
+$result_errors{'menu_entry_node'} = '';
 
 $result_nodes_list{'menu_entry_node'} = '';
 

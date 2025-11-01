@@ -397,23 +397,13 @@ value truc
 value cp
 ';
 
-$result_errors{'value_in_index_commands'} = [
-  {
-    'error_line' => 'warning: printing an index `cp\' merged in another one, `fn\'
-',
-    'line_nr' => 36,
-    'text' => 'printing an index `cp\' merged in another one, `fn\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 23,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'value_in_index_commands'} = '* W l36|printing an index `cp\' merged in another one, `fn\'
+ warning: printing an index `cp\' merged in another one, `fn\'
 
+* W l23|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_indices{'value_in_index_commands'} = 'codeidx C
 cp C ->fn

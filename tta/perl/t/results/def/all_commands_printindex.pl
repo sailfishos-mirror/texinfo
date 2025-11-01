@@ -1737,16 +1737,10 @@ Variables
 =========
 ';
 
-$result_errors{'all_commands_printindex'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'all_commands_printindex'} = '* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'all_commands_printindex'} = '1|Top
  node_directions:

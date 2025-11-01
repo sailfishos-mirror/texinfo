@@ -45,8 +45,7 @@ html
 after.
 ';
 
-$result_errors{'html_expanded'} = [];
-
+$result_errors{'html_expanded'} = '';
 
 $result_nodes_list{'html_expanded'} = '';
 

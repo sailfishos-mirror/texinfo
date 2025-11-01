@@ -43,30 +43,16 @@ $result_texts{'heading_separator_in_accent_command'} = ',
 
 ';
 
-$result_errors{'heading_separator_in_accent_command'} = [
-  {
-    'error_line' => 'warning: @| should not appear in @,
-',
-    'line_nr' => 1,
-    'text' => '@| should not appear in @,',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@| should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@| should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @| should not appear in @^
-',
-    'line_nr' => 3,
-    'text' => '@| should not appear in @^',
-    'type' => 'warning'
-  }
-];
+$result_errors{'heading_separator_in_accent_command'} = '* W l1|@| should not appear in @,
+ warning: @| should not appear in @,
 
+* E l1|@| should only appear in heading or footing
+ @| should only appear in heading or footing
+
+* W l3|@| should not appear in @^
+ warning: @| should not appear in @^
+
+';
 
 $result_nodes_list{'heading_separator_in_accent_command'} = '';
 

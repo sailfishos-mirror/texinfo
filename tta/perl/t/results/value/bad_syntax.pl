@@ -119,93 +119,43 @@ gurgl
 unknown
 ';
 
-$result_errors{'bad_syntax'} = [
-  {
-    'error_line' => '@set requires a name
-',
-    'line_nr' => 2,
-    'text' => '@set requires a name',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@set requires a name
-',
-    'line_nr' => 3,
-    'text' => '@set requires a name',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad name for @set
-',
-    'line_nr' => 4,
-    'text' => 'bad name for @set',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad name for @set
-',
-    'line_nr' => 5,
-    'text' => 'bad name for @set',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad name for @set
-',
-    'line_nr' => 6,
-    'text' => 'bad name for @set',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad name for @set
-',
-    'line_nr' => 7,
-    'text' => 'bad name for @set',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad name for @set
-',
-    'line_nr' => 8,
-    'text' => 'bad name for @set',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad name for @clear
-',
-    'line_nr' => 10,
-    'text' => 'bad name for @clear',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad name for @clear
-',
-    'line_nr' => 11,
-    'text' => 'bad name for @clear',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad syntax for @value
-',
-    'line_nr' => 13,
-    'text' => 'bad syntax for @value',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 13,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: undefined flag: unknown
-',
-    'line_nr' => 15,
-    'text' => 'undefined flag: unknown',
-    'type' => 'warning'
-  }
-];
+$result_errors{'bad_syntax'} = '* E l2|@set requires a name
+ @set requires a name
 
+* E l3|@set requires a name
+ @set requires a name
+
+* E l4|bad name for @set
+ bad name for @set
+
+* E l5|bad name for @set
+ bad name for @set
+
+* E l6|bad name for @set
+ bad name for @set
+
+* E l7|bad name for @set
+ bad name for @set
+
+* E l8|bad name for @set
+ bad name for @set
+
+* E l10|bad name for @clear
+ bad name for @clear
+
+* E l11|bad name for @clear
+ bad name for @clear
+
+* E l13|bad syntax for @value
+ bad syntax for @value
+
+* E l13|misplaced {
+ misplaced {
+
+* W l15|undefined flag: unknown
+ warning: undefined flag: unknown
+
+';
 
 $result_nodes_list{'bad_syntax'} = '';
 

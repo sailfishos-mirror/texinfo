@@ -211,8 +211,7 @@ quotation after a blank line
 1. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa fffffffff ggggggggg vvvvvvvvv ggggggggg h
 ';
 
-$result_errors{'enumerate_and_empty_lines'} = [];
-
+$result_errors{'enumerate_and_empty_lines'} = '';
 
 $result_nodes_list{'enumerate_and_empty_lines'} = '';
 

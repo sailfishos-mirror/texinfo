@@ -420,8 +420,7 @@ explanation
 
 ';
 
-$result_errors{'complex_nestings'} = [];
-
+$result_errors{'complex_nestings'} = '';
 
 $result_nodes_list{'complex_nestings'} = '1|Top
  associated_section: top

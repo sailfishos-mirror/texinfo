@@ -205,8 +205,7 @@ $result_texts{'simple_nested_linemacro_calls'} = '
 type: a function inside X operator Y ( remaining, type typed )
 ';
 
-$result_errors{'simple_nested_linemacro_calls'} = [];
-
+$result_errors{'simple_nested_linemacro_calls'} = '';
 
 $result_nodes_list{'simple_nested_linemacro_calls'} = '1|Top
 ';

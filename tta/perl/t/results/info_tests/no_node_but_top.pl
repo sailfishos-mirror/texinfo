@@ -31,8 +31,7 @@ $result_texts{'no_node_but_top'} = 'top
 ***
 ';
 
-$result_errors{'no_node_but_top'} = [];
-
+$result_errors{'no_node_but_top'} = '';
 
 $result_nodes_list{'no_node_but_top'} = '';
 

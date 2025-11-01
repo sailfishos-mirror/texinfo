@@ -111,8 +111,7 @@ g a{rgline v
 
 ';
 
-$result_errors{'form_feeds'} = [];
-
+$result_errors{'form_feeds'} = '';
 
 $result_nodes_list{'form_feeds'} = '';
 

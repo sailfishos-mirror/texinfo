@@ -205,79 +205,37 @@ func: aaaa args  c--ategory: d--efvr_name
 bbb
 ';
 
-$result_errors{'double_command'} = [
-  {
-    'error_line' => 'warning: @deffnx should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@deffnx should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @deffnx should not appear on @deffn line
-',
-    'line_nr' => 1,
-    'text' => '@deffnx should not appear on @deffn line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'must be after `@deffn\' to use `@deffnx\'
-',
-    'line_nr' => 1,
-    'text' => 'must be after `@deffn\' to use `@deffnx\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @defvr should only appear at the beginning of a line
-',
-    'line_nr' => 5,
-    'text' => '@defvr should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @defvr should not appear on @deffn line
-',
-    'line_nr' => 5,
-    'text' => '@defvr should not appear on @deffn line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end defvr\'
-',
-    'line_nr' => 5,
-    'text' => 'no matching `@end defvr\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_command'} = '* W l1|@deffnx should only appear at the beginning of a line
+ warning: @deffnx should only appear at the beginning of a line
 
+* W l1|@deffnx should not appear on @deffn line
+ warning: @deffnx should not appear on @deffn line
+
+* E l1|must be after `@deffn\' to use `@deffnx\'
+ must be after `@deffn\' to use `@deffnx\'
+
+* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l5|@defvr should only appear at the beginning of a line
+ warning: @defvr should only appear at the beginning of a line
+
+* W l5|@defvr should not appear on @deffn line
+ warning: @defvr should not appear on @deffn line
+
+* W l5|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* E l5|no matching `@end defvr\'
+ no matching `@end defvr\'
+
+* W l5|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'double_command'} = '';
 

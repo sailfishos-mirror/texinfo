@@ -90,8 +90,7 @@ first:  } |
 second:  { |
 ';
 
-$result_errors{'arobase_brace_in_linemacro_call'} = [];
-
+$result_errors{'arobase_brace_in_linemacro_call'} = '';
 
 $result_nodes_list{'arobase_brace_in_linemacro_call'} = '';
 

@@ -288,30 +288,16 @@ thing
 
 ';
 
-$result_errors{'inter_item_commands_in_multitable'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 6,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 17,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 23,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'inter_item_commands_in_multitable'} = '* W l6|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+* W l17|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W l23|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 $result_nodes_list{'inter_item_commands_in_multitable'} = '';
 

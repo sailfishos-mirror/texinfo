@@ -41,8 +41,7 @@ in titlepage
 $result_texts{'titlepage_and_headings'} = '
 ';
 
-$result_errors{'titlepage_and_headings'} = [];
-
+$result_errors{'titlepage_and_headings'} = '';
 
 $result_nodes_list{'titlepage_and_headings'} = '';
 

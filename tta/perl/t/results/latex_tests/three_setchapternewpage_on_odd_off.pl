@@ -58,23 +58,13 @@ $result_texts{'three_setchapternewpage_on_odd_off'} = '
 
 ';
 
-$result_errors{'three_setchapternewpage_on_odd_off'} = [
-  {
-    'error_line' => 'warning: multiple @setchapternewpage
-',
-    'line_nr' => 3,
-    'text' => 'multiple @setchapternewpage',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @setchapternewpage
-',
-    'line_nr' => 5,
-    'text' => 'multiple @setchapternewpage',
-    'type' => 'warning'
-  }
-];
+$result_errors{'three_setchapternewpage_on_odd_off'} = '* W l3|multiple @setchapternewpage
+ warning: multiple @setchapternewpage
 
+* W l5|multiple @setchapternewpage
+ warning: multiple @setchapternewpage
+
+';
 
 $result_nodes_list{'three_setchapternewpage_on_odd_off'} = '';
 

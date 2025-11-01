@@ -24,16 +24,10 @@ in macro
 
 $result_texts{'macro_not_closed'} = '';
 
-$result_errors{'macro_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end macro\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end macro\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_not_closed'} = '* E l1|no matching `@end macro\'
+ no matching `@end macro\'
 
+';
 
 $result_nodes_list{'macro_not_closed'} = '';
 

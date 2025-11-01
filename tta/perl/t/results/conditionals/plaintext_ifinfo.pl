@@ -43,8 +43,7 @@ $result_texts{'plaintext_ifinfo'} = '
 this text will appear only in Info and plain text.
 ';
 
-$result_errors{'plaintext_ifinfo'} = [];
-
+$result_errors{'plaintext_ifinfo'} = '';
 
 $result_nodes_list{'plaintext_ifinfo'} = '';
 

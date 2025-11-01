@@ -63,8 +63,7 @@ $result_texts{'macro_for_verb'} = '
 
 ';
 
-$result_errors{'macro_for_verb'} = [];
-
+$result_errors{'macro_for_verb'} = '';
 
 $result_nodes_list{'macro_for_verb'} = '';
 

@@ -37,8 +37,7 @@ $result_texts{'email_possibilities'} = '-b
 --a
 ';
 
-$result_errors{'email_possibilities'} = [];
-
+$result_errors{'email_possibilities'} = '';
 
 $result_nodes_list{'email_possibilities'} = '';
 

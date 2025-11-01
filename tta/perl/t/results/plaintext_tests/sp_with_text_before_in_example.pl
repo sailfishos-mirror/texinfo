@@ -58,16 +58,10 @@ sp
 text
 ';
 
-$result_errors{'sp_with_text_before_in_example'} = [
-  {
-    'error_line' => 'warning: @sp should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@sp should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'sp_with_text_before_in_example'} = '* W l3|@sp should only appear at the beginning of a line
+ warning: @sp should only appear at the beginning of a line
 
+';
 
 $result_nodes_list{'sp_with_text_before_in_example'} = '';
 

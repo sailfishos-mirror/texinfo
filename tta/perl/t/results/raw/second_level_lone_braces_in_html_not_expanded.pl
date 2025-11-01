@@ -68,8 +68,7 @@ $result_texis{'second_level_lone_braces_in_html_not_expanded'} = '@html
 $result_texts{'second_level_lone_braces_in_html_not_expanded'} = '
 ';
 
-$result_errors{'second_level_lone_braces_in_html_not_expanded'} = [];
-
+$result_errors{'second_level_lone_braces_in_html_not_expanded'} = '';
 
 $result_nodes_list{'second_level_lone_braces_in_html_not_expanded'} = '';
 

@@ -120,8 +120,7 @@ Label1
 Label2
 ';
 
-$result_errors{'ref_to_float'} = [];
-
+$result_errors{'ref_to_float'} = '';
 
 $result_floats{'ref_to_float'} = ': 1
  F1: {Label2}

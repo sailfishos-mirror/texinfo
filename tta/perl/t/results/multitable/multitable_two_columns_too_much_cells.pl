@@ -105,37 +105,19 @@ first1
 first2 second2 first2 out
 ';
 
-$result_errors{'multitable_two_columns_too_much_cells'} = [
-  {
-    'error_line' => 'too many columns in multitable item (max 2)
-',
-    'line_nr' => 2,
-    'text' => 'too many columns in multitable item (max 2)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 2)
-',
-    'line_nr' => 2,
-    'text' => 'too many columns in multitable item (max 2)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 2)
-',
-    'line_nr' => 2,
-    'text' => 'too many columns in multitable item (max 2)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 2)
-',
-    'line_nr' => 4,
-    'text' => 'too many columns in multitable item (max 2)',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_two_columns_too_much_cells'} = '* E l2|too many columns in multitable item (max 2)
+ too many columns in multitable item (max 2)
 
+* E l2|too many columns in multitable item (max 2)
+ too many columns in multitable item (max 2)
+
+* E l2|too many columns in multitable item (max 2)
+ too many columns in multitable item (max 2)
+
+* E l4|too many columns in multitable item (max 2)
+ too many columns in multitable item (max 2)
+
+';
 
 $result_nodes_list{'multitable_two_columns_too_much_cells'} = '';
 

@@ -82,8 +82,7 @@ $result_texts{'expansion_order'} = '
 
 ';
 
-$result_errors{'expansion_order'} = [];
-
+$result_errors{'expansion_order'} = '';
 
 $result_nodes_list{'expansion_order'} = '';
 

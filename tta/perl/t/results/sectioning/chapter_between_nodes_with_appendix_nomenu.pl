@@ -137,8 +137,7 @@ Appendix A Annex
 ****************
 ';
 
-$result_errors{'chapter_between_nodes_with_appendix_nomenu'} = [];
-
+$result_errors{'chapter_between_nodes_with_appendix_nomenu'} = '';
 
 $result_nodes_list{'chapter_between_nodes_with_appendix_nomenu'} = '1|Top
  associated_section: top section

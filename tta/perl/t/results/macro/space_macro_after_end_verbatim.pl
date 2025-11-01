@@ -65,8 +65,7 @@ $result_texts{'space_macro_after_end_verbatim'} = '
 in verbatim
 ';
 
-$result_errors{'space_macro_after_end_verbatim'} = [];
-
+$result_errors{'space_macro_after_end_verbatim'} = '';
 
 $result_nodes_list{'space_macro_after_end_verbatim'} = '';
 

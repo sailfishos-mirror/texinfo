@@ -45,16 +45,10 @@ Text1 a section
 ===========
 ';
 
-$result_errors{'section_in_footnote'} = [
-  {
-    'error_line' => '@section seen before @footnote closing brace
-',
-    'line_nr' => 2,
-    'text' => '@section seen before @footnote closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_in_footnote'} = '* E l2|@section seen before @footnote closing brace
+ @section seen before @footnote closing brace
 
+';
 
 $result_nodes_list{'section_in_footnote'} = '';
 

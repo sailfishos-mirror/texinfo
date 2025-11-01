@@ -508,8 +508,7 @@ If axis is not a valid axis of a.
 
 ';
 
-$result_errors{'api_doc_with_linemacro'} = [];
-
+$result_errors{'api_doc_with_linemacro'} = '';
 
 $result_nodes_list{'api_doc_with_linemacro'} = '';
 

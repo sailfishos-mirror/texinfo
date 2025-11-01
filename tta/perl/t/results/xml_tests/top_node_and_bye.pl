@@ -41,8 +41,7 @@ $result_texis{'top_node_and_bye'} = '@node Top
 $result_texts{'top_node_and_bye'} = '
 ';
 
-$result_errors{'top_node_and_bye'} = [];
-
+$result_errors{'top_node_and_bye'} = '';
 
 $result_nodes_list{'top_node_and_bye'} = '1|Top
 ';

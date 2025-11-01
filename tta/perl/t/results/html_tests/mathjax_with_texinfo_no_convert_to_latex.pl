@@ -75,8 +75,7 @@ $result_texts{'mathjax_with_texinfo_no_convert_to_latex'} = 'ab - \\frac{\\xi}{p
 Some a - b >= AA e^.
 ';
 
-$result_errors{'mathjax_with_texinfo_no_convert_to_latex'} = [];
-
+$result_errors{'mathjax_with_texinfo_no_convert_to_latex'} = '';
 
 $result_nodes_list{'mathjax_with_texinfo_no_convert_to_latex'} = '';
 

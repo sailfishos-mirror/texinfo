@@ -564,8 +564,7 @@ Text and then index entries
 
 ';
 
-$result_errors{'index_nodes'} = [];
-
+$result_errors{'index_nodes'} = '';
 
 $result_nodes_list{'index_nodes'} = '1|Top
  menus:

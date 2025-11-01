@@ -76,8 +76,7 @@ $result_texts{'example_class'} = 'foreach my $unclosed_file (keys(%unclosed_file
 }
 ';
 
-$result_errors{'example_class'} = [];
-
+$result_errors{'example_class'} = '';
 
 $result_nodes_list{'example_class'} = '';
 

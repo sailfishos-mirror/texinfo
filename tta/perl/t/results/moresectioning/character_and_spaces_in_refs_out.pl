@@ -598,8 +598,7 @@ local   node
 
 ';
 
-$result_errors{'character_and_spaces_in_refs_out'} = [];
-
+$result_errors{'character_and_spaces_in_refs_out'} = '';
 
 $result_nodes_list{'character_and_spaces_in_refs_out'} = '1|Top
  associated_section: Test refs

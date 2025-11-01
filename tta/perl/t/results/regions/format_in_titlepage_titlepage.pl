@@ -97,16 +97,10 @@ $result_texts{'format_in_titlepage_titlepage'} = '
 
 ';
 
-$result_errors{'format_in_titlepage_titlepage'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 10,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'format_in_titlepage_titlepage'} = '* W l10|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'format_in_titlepage_titlepage'} = '1|Top
  node_directions:

@@ -367,58 +367,28 @@ ddd
 eee
 ';
 
-$result_errors{'complex_recursive_synindex'} = [
-  {
-    'error_line' => 'warning: @synindex leads to a merging of bbb in itself, ignoring
-',
-    'line_nr' => 11,
-    'text' => '@synindex leads to a merging of bbb in itself, ignoring',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @synindex leads to a merging of bbb in itself, ignoring
-',
-    'line_nr' => 18,
-    'text' => '@synindex leads to a merging of bbb in itself, ignoring',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `aaa\' merged in another one, `bbb\'
-',
-    'line_nr' => 30,
-    'text' => 'printing an index `aaa\' merged in another one, `bbb\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `ccc\' merged in another one, `bbb\'
-',
-    'line_nr' => 33,
-    'text' => 'printing an index `ccc\' merged in another one, `bbb\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `ddd\' merged in another one, `bbb\'
-',
-    'line_nr' => 36,
-    'text' => 'printing an index `ddd\' merged in another one, `bbb\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printing an index `eee\' merged in another one, `bbb\'
-',
-    'line_nr' => 39,
-    'text' => 'printing an index `eee\' merged in another one, `bbb\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'complex_recursive_synindex'} = '* W l11|@synindex leads to a merging of bbb in itself, ignoring
+ warning: @synindex leads to a merging of bbb in itself, ignoring
 
+* W l18|@synindex leads to a merging of bbb in itself, ignoring
+ warning: @synindex leads to a merging of bbb in itself, ignoring
+
+* W l30|printing an index `aaa\' merged in another one, `bbb\'
+ warning: printing an index `aaa\' merged in another one, `bbb\'
+
+* W l33|printing an index `ccc\' merged in another one, `bbb\'
+ warning: printing an index `ccc\' merged in another one, `bbb\'
+
+* W l36|printing an index `ddd\' merged in another one, `bbb\'
+ warning: printing an index `ddd\' merged in another one, `bbb\'
+
+* W l39|printing an index `eee\' merged in another one, `bbb\'
+ warning: printing an index `eee\' merged in another one, `bbb\'
+
+* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_indices{'complex_recursive_synindex'} = 'aaa ->bbb
 bbb

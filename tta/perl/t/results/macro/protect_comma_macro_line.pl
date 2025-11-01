@@ -69,8 +69,7 @@ and another one on another line arg,  comma \\,
 and a last in another paragraph
 ';
 
-$result_errors{'protect_comma_macro_line'} = [];
-
+$result_errors{'protect_comma_macro_line'} = '';
 
 $result_nodes_list{'protect_comma_macro_line'} = '';
 

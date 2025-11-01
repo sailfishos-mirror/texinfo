@@ -452,17 +452,10 @@ $result_texts{'recursive_call_in_rmacro'} = '
 
 ';
 
-$result_errors{'recursive_call_in_rmacro'} = [
-  {
-    'error_line' => 'warning: macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100) (possibly involving @rec)
-',
-    'line_nr' => 6,
-    'macro' => 'rec',
-    'text' => 'macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)',
-    'type' => 'warning'
-  }
-];
+$result_errors{'recursive_call_in_rmacro'} = '* W l6:@rec|macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)
+ warning: macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100) (possibly involving @rec)
 
+';
 
 $result_nodes_list{'recursive_call_in_rmacro'} = '';
 

@@ -52,8 +52,7 @@ $result_texts{'macro_call_in_ignored_inlinefmtifelse'} = '
 Toto  done.
 ';
 
-$result_errors{'macro_call_in_ignored_inlinefmtifelse'} = [];
-
+$result_errors{'macro_call_in_ignored_inlinefmtifelse'} = '';
 
 $result_nodes_list{'macro_call_in_ignored_inlinefmtifelse'} = '';
 

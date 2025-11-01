@@ -24,8 +24,7 @@ $result_texis{'too_much_args'} = '@abbr{AZE, A truc Z b, E eep}';
 
 $result_texts{'too_much_args'} = 'AZE (A truc Z b, E eep)';
 
-$result_errors{'too_much_args'} = [];
-
+$result_errors{'too_much_args'} = '';
 
 $result_nodes_list{'too_much_args'} = '';
 

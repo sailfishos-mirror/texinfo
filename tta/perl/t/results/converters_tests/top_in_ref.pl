@@ -825,44 +825,22 @@ $result_texts{'top_in_ref'} = '
 @inforef{Top,,file name} Top
 ';
 
-$result_errors{'top_in_ref'} = [
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 35,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 36,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 37,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 38,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap refs node\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `chap refs node\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'top_in_ref'} = '* W l35|@inforef is obsolete
+ warning: @inforef is obsolete
 
+* W l36|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l37|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l38|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l3|node `chap refs node\' not in menu
+ warning: node `chap refs node\' not in menu
+
+';
 
 $result_nodes_list{'top_in_ref'} = '1|Top
  node_directions:

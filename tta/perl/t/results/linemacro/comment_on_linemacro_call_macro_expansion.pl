@@ -112,8 +112,7 @@ macro first |a|
 second ||after arg
 ';
 
-$result_errors{'comment_on_linemacro_call_macro_expansion'} = [];
-
+$result_errors{'comment_on_linemacro_call_macro_expansion'} = '';
 
 $result_nodes_list{'comment_on_linemacro_call_macro_expansion'} = '';
 

@@ -58,23 +58,13 @@ itemx
 headitem
 ';
 
-$result_errors{'headitem_itemx_in_itemize'} = [
-  {
-    'error_line' => '@itemx outside of table or list
-',
-    'line_nr' => 3,
-    'text' => '@itemx outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@headitem not meaningful inside `@itemize\' block
-',
-    'line_nr' => 4,
-    'text' => '@headitem not meaningful inside `@itemize\' block',
-    'type' => 'error'
-  }
-];
+$result_errors{'headitem_itemx_in_itemize'} = '* E l3|@itemx outside of table or list
+ @itemx outside of table or list
 
+* E l4|@headitem not meaningful inside `@itemize\' block
+ @headitem not meaningful inside `@itemize\' block
+
+';
 
 $result_nodes_list{'headitem_itemx_in_itemize'} = '';
 

@@ -1895,145 +1895,61 @@ line after exdent
 
 ';
 
-$result_errors{'macro_in_misc_commands'} = [
-  {
-    'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
-',
-    'line_nr' => 23,
-    'text' => '@documentlanguage should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @headings: on line following headings atext
-',
-    'line_nr' => 39,
-    'text' => 'bad argument to @headings: on line following headings atext',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 58,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
-',
-    'line_nr' => 58,
-    'text' => '@definfoenclose should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 65,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 78,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @footnotestyle
-',
-    'line_nr' => 125,
-    'text' => 'multiple @footnotestyle',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
-',
-    'line_nr' => 162,
-    'macro' => 'pagemacro',
-    'text' => '@page should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @page line: on page line (possibly involving @pagemacro)
-',
-    'line_nr' => 162,
-    'macro' => 'pagemacro',
-    'text' => 'remaining argument on @page line: on page line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
-',
-    'line_nr' => 163,
-    'macro' => 'noindentmacro',
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @refill is obsolete (possibly involving @refillmacro)
-',
-    'line_nr' => 163,
-    'macro' => 'refillmacro',
-    'text' => '@refill is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
-',
-    'line_nr' => 166,
-    'macro' => 'noindentmacro',
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
-',
-    'line_nr' => 168,
-    'macro' => 'noindentmacro',
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @page line: page at beginning of line (possibly involving @pagemacro)
-',
-    'line_nr' => 169,
-    'macro' => 'pagemacro',
-    'text' => 'remaining argument on @page line: page at beginning of line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
-',
-    'line_nr' => 173,
-    'macro' => 'pagemacro',
-    'text' => '@page should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
-',
-    'line_nr' => 174,
-    'macro' => 'noindentmacro',
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @refill is obsolete (possibly involving @refillmacro)
-',
-    'line_nr' => 174,
-    'macro' => 'refillmacro',
-    'text' => '@refill is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 197,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'macro_in_misc_commands'} = '* W l23|@documentlanguage should only appear at the beginning of a line
+ warning: @documentlanguage should only appear at the beginning of a line
 
+* E l39|bad argument to @headings: on line following headings atext
+ bad argument to @headings: on line following headings atext
+
+* W l58|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l58|@definfoenclose should only appear at the beginning of a line
+ warning: @definfoenclose should only appear at the beginning of a line
+
+* W l65|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l78|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l125|multiple @footnotestyle
+ warning: multiple @footnotestyle
+
+* W l162:@pagemacro|@page should only appear at the beginning of a line
+ warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
+
+* W l162:@pagemacro|remaining argument on @page line: on page line
+ warning: remaining argument on @page line: on page line (possibly involving @pagemacro)
+
+* W l163:@noindentmacro|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
+
+* W l163:@refillmacro|@refill is obsolete
+ warning: @refill is obsolete (possibly involving @refillmacro)
+
+* W l166:@noindentmacro|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
+
+* W l168:@noindentmacro|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
+
+* W l169:@pagemacro|remaining argument on @page line: page at beginning of line
+ warning: remaining argument on @page line: page at beginning of line (possibly involving @pagemacro)
+
+* W l173:@pagemacro|@page should only appear at the beginning of a line
+ warning: @page should only appear at the beginning of a line (possibly involving @pagemacro)
+
+* W l174:@noindentmacro|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph (possibly involving @noindentmacro)
+
+* W l174:@refillmacro|@refill is obsolete
+ warning: @refill is obsolete (possibly involving @refillmacro)
+
+* W l197|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+';
 
 $result_nodes_list{'macro_in_misc_commands'} = '1|Top
  associated_section: top atext

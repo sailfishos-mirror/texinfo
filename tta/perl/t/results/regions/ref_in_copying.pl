@@ -162,8 +162,7 @@ top
 
 ';
 
-$result_errors{'ref_in_copying'} = [];
-
+$result_errors{'ref_in_copying'} = '';
 
 $result_nodes_list{'ref_in_copying'} = '1|Top
  associated_section: top

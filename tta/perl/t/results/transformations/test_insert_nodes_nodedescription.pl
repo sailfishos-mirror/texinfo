@@ -184,30 +184,16 @@ $result_texts{'test_insert_nodes_nodedescription'} = 'top
 
 ';
 
-$result_errors{'test_insert_nodes_nodedescription'} = [
-  {
-    'error_line' => 'warning: @nodedescription outside of any node
-',
-    'line_nr' => 2,
-    'text' => '@nodedescription outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @nodedescription outside of any node
-',
-    'line_nr' => 7,
-    'text' => '@nodedescription outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @nodedescription outside of any node
-',
-    'line_nr' => 8,
-    'text' => '@nodedescription outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'test_insert_nodes_nodedescription'} = '* W l2|@nodedescription outside of any node
+ warning: @nodedescription outside of any node
 
+* W l7|@nodedescription outside of any node
+ warning: @nodedescription outside of any node
+
+* W l8|@nodedescription outside of any node
+ warning: @nodedescription outside of any node
+
+';
 
 $result_nodes_list{'test_insert_nodes_nodedescription'} = '1|Top
  associated_section: top

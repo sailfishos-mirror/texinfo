@@ -136,8 +136,7 @@ in tab
 in first column, verbatim
 ';
 
-$result_errors{'verbatim_in_multitable_in_example'} = [];
-
+$result_errors{'verbatim_in_multitable_in_example'} = '';
 
 $result_nodes_list{'verbatim_in_multitable_in_example'} = '';
 

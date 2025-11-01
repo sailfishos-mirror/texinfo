@@ -57,8 +57,7 @@ $result_texts{'set_flag_command_equivalent'} = '
 
 ';
 
-$result_errors{'set_flag_command_equivalent'} = [];
-
+$result_errors{'set_flag_command_equivalent'} = '';
 
 $result_nodes_list{'set_flag_command_equivalent'} = '';
 

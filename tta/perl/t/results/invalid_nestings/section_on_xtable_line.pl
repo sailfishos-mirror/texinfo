@@ -128,121 +128,55 @@ $result_texts{'section_on_xtable_line'} = '1 first
 ========
 ';
 
-$result_errors{'section_on_xtable_line'} = [
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @vtable line
-',
-    'line_nr' => 1,
-    'text' => '@section should not appear on @vtable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'missing @vtable argument
-',
-    'line_nr' => 1,
-    'text' => 'missing @vtable argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@section seen before @end vtable
-',
-    'line_nr' => 1,
-    'text' => '@section seen before @end vtable',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @table line
-',
-    'line_nr' => 3,
-    'text' => '@section should not appear on @table line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'command @TeX not accepting argument in brace should not be on @table line
-',
-    'line_nr' => 3,
-    'text' => 'command @TeX not accepting argument in brace should not be on @table line',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@section seen before @end table
-',
-    'line_nr' => 3,
-    'text' => '@section seen before @end table',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 5,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @table line
-',
-    'line_nr' => 5,
-    'text' => '@section should not appear on @table line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end table
-',
-    'line_nr' => 5,
-    'text' => '@section seen before @end table',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ringaccent expected braces
-',
-    'line_nr' => 7,
-    'text' => '@ringaccent expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 7,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @ftable line
-',
-    'line_nr' => 7,
-    'text' => '@section should not appear on @ftable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @ftable: @ringaccent 
-',
-    'line_nr' => 7,
-    'text' => 'bad argument to @ftable: @ringaccent ',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@section seen before @end ftable
-',
-    'line_nr' => 7,
-    'text' => '@section seen before @end ftable',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_on_xtable_line'} = '* W l1|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
 
+* W l1|@section should not appear on @vtable line
+ warning: @section should not appear on @vtable line
+
+* E l1|missing @vtable argument
+ missing @vtable argument
+
+* E l1|@section seen before @end vtable
+ @section seen before @end vtable
+
+* W l3|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l3|@section should not appear on @table line
+ warning: @section should not appear on @table line
+
+* E l3|command @TeX not accepting argument in brace should not be on @table line
+ command @TeX not accepting argument in brace should not be on @table line
+
+* E l3|@section seen before @end table
+ @section seen before @end table
+
+* W l5|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l5|@section should not appear on @table line
+ warning: @section should not appear on @table line
+
+* E l5|@section seen before @end table
+ @section seen before @end table
+
+* E l7|@ringaccent expected braces
+ @ringaccent expected braces
+
+* W l7|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
+
+* W l7|@section should not appear on @ftable line
+ warning: @section should not appear on @ftable line
+
+* E l7|bad argument to @ftable: @ringaccent 
+ bad argument to @ftable: @ringaccent 
+
+* E l7|@section seen before @end ftable
+ @section seen before @end ftable
+
+';
 
 $result_nodes_list{'section_on_xtable_line'} = '';
 

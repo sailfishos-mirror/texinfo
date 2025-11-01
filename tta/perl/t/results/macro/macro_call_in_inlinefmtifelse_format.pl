@@ -63,8 +63,7 @@ $result_texts{'macro_call_in_inlinefmtifelse_format'} = '
 Toto after done.
 ';
 
-$result_errors{'macro_call_in_inlinefmtifelse_format'} = [];
-
+$result_errors{'macro_call_in_inlinefmtifelse_format'} = '';
 
 $result_nodes_list{'macro_call_in_inlinefmtifelse_format'} = '';
 

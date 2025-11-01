@@ -896,25 +896,13 @@ unnumbered chapter text.
 
 ';
 
-$result_errors{'sectioning_check_menu_structure'} = [
-  {
-    'error_line' => 'warning: node `between node\' in menu where `Second node\' expected
-',
-    'file_name' => 'sectioning.texi',
-    'line_nr' => 13,
-    'text' => 'node `between node\' in menu where `Second node\' expected',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected node `Last node no description\' in menu
-',
-    'file_name' => 'sectioning.texi',
-    'line_nr' => 23,
-    'text' => 'unexpected node `Last node no description\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'sectioning_check_menu_structure'} = '* W sectioning.texi:l13|node `between node\' in menu where `Second node\' expected
+ warning: node `between node\' in menu where `Second node\' expected
 
+* W sectioning.texi:l23|unexpected node `Last node no description\' in menu
+ warning: unexpected node `Last node no description\' in menu
+
+';
 
 $result_nodes_list{'sectioning_check_menu_structure'} = '1|Top
  associated_section

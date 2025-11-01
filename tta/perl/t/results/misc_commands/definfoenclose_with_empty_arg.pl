@@ -47,16 +47,10 @@ My something.
 
 ';
 
-$result_errors{'definfoenclose_with_empty_arg'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 2,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'definfoenclose_with_empty_arg'} = '* W l2|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+';
 
 $result_nodes_list{'definfoenclose_with_empty_arg'} = '';
 

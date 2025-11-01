@@ -103,30 +103,16 @@ in verbatim
 
 ';
 
-$result_errors{'spurious_arg_on_line'} = [
-  {
-    'error_line' => 'warning: unexpected argument on @tex line: argt
-',
-    'line_nr' => 2,
-    'text' => 'unexpected argument on @tex line: argt',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @verbatim line: argverbatim
-',
-    'line_nr' => 6,
-    'text' => 'unexpected argument on @verbatim line: argverbatim',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @html line: argh
-',
-    'line_nr' => 10,
-    'text' => 'unexpected argument on @html line: argh',
-    'type' => 'warning'
-  }
-];
+$result_errors{'spurious_arg_on_line'} = '* W l2|unexpected argument on @tex line: argt
+ warning: unexpected argument on @tex line: argt
 
+* W l6|unexpected argument on @verbatim line: argverbatim
+ warning: unexpected argument on @verbatim line: argverbatim
+
+* W l10|unexpected argument on @html line: argh
+ warning: unexpected argument on @html line: argh
+
+';
 
 $result_nodes_list{'spurious_arg_on_line'} = '';
 

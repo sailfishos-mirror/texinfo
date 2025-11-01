@@ -180,8 +180,7 @@ Q
 T
 ';
 
-$result_errors{'line_breaks'} = [];
-
+$result_errors{'line_breaks'} = '';
 
 $result_nodes_list{'line_breaks'} = '';
 

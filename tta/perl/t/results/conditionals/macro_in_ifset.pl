@@ -81,8 +81,7 @@ $result_texts{'macro_in_ifset'} = '
 truc
 ';
 
-$result_errors{'macro_in_ifset'} = [];
-
+$result_errors{'macro_in_ifset'} = '';
 
 $result_nodes_list{'macro_in_ifset'} = '';
 

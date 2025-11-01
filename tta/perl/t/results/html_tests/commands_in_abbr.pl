@@ -67,8 +67,7 @@ $result_texts{'commands_in_abbr'} = 'A (abbr - b).
 A (abbr -- b).
 ';
 
-$result_errors{'commands_in_abbr'} = [];
-
+$result_errors{'commands_in_abbr'} = '';
 
 $result_nodes_list{'commands_in_abbr'} = '';
 

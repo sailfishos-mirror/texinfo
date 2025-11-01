@@ -36,8 +36,7 @@ $result_texis{'additional_space_in_end_conditional'} = '';
 
 $result_texts{'additional_space_in_end_conditional'} = '';
 
-$result_errors{'additional_space_in_end_conditional'} = [];
-
+$result_errors{'additional_space_in_end_conditional'} = '';
 
 $result_nodes_list{'additional_space_in_end_conditional'} = '';
 

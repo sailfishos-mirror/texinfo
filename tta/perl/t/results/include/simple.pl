@@ -35,8 +35,7 @@ $result_texis{'simple'} = 'In included file.
 $result_texts{'simple'} = 'In included file.
 ';
 
-$result_errors{'simple'} = [];
-
+$result_errors{'simple'} = '';
 
 $result_nodes_list{'simple'} = '';
 

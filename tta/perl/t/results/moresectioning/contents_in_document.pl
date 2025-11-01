@@ -77,8 +77,7 @@ $result_texts{'contents_in_document'} = 'contents in document
 ******
 ';
 
-$result_errors{'contents_in_document'} = [];
-
+$result_errors{'contents_in_document'} = '';
 
 $result_nodes_list{'contents_in_document'} = '1|Top
  associated_section: contents in document

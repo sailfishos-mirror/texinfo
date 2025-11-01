@@ -80,8 +80,7 @@ in r in code
 in a new heading
 ';
 
-$result_errors{'base_for_css_info_in_init_test'} = [];
-
+$result_errors{'base_for_css_info_in_init_test'} = '';
 
 $result_nodes_list{'base_for_css_info_in_init_test'} = '1|Top
  associated_section: top

@@ -42,37 +42,19 @@ $result_texts{'non_ascii_in_macro_name'} = '
 èvee
 ';
 
-$result_errors{'non_ascii_in_macro_name'} = [
-  {
-    'error_line' => 'bad name for @macro
-',
-    'line_nr' => 1,
-    'text' => 'bad name for @macro',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `parenbr\'
-',
-    'line_nr' => 5,
-    'text' => 'unknown command `parenbr\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 5,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 5,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'non_ascii_in_macro_name'} = '* E l1|bad name for @macro
+ bad name for @macro
 
+* E l5|unknown command `parenbr\'
+ unknown command `parenbr\'
+
+* E l5|misplaced {
+ misplaced {
+
+* E l5|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'non_ascii_in_macro_name'} = '';
 

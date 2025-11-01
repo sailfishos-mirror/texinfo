@@ -289,8 +289,7 @@ aaa
 
 ';
 
-$result_errors{'maketitle_documentinfo_publication'} = [];
-
+$result_errors{'maketitle_documentinfo_publication'} = '';
 
 $result_nodes_list{'maketitle_documentinfo_publication'} = '1|top
  associated_section: top

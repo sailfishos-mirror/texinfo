@@ -46,8 +46,7 @@ $result_texts{'titlefont_in_example'} = 'Title
 Text.
 ';
 
-$result_errors{'titlefont_in_example'} = [];
-
+$result_errors{'titlefont_in_example'} = '';
 
 $result_nodes_list{'titlefont_in_example'} = '';
 

@@ -77,8 +77,7 @@ $result_texts{'protect_node_after_label_source_mark_in_protected'} = '
 There is some text .,,,.. and after.
 ';
 
-$result_errors{'protect_node_after_label_source_mark_in_protected'} = [];
-
+$result_errors{'protect_node_after_label_source_mark_in_protected'} = '';
 
 $result_nodes_list{'protect_node_after_label_source_mark_in_protected'} = '';
 

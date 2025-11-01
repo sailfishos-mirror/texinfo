@@ -156,8 +156,7 @@ HHH
 figure JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
 ';
 
-$result_errors{'multiline_image_and_align'} = [];
-
+$result_errors{'multiline_image_and_align'} = '';
 
 $result_nodes_list{'multiline_image_and_align'} = '';
 

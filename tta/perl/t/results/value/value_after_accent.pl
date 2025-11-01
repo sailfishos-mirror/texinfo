@@ -57,8 +57,7 @@ $result_texis{'value_after_accent'} = '@set a_letter a
 $result_texts{'value_after_accent'} = 'a*
 a~';
 
-$result_errors{'value_after_accent'} = [];
-
+$result_errors{'value_after_accent'} = '';
 
 $result_nodes_list{'value_after_accent'} = '';
 

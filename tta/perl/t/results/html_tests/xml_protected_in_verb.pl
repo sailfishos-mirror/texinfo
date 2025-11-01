@@ -65,8 +65,7 @@ $result_texts{'xml_protected_in_verb'} = '<a>
 
 ';
 
-$result_errors{'xml_protected_in_verb'} = [];
-
+$result_errors{'xml_protected_in_verb'} = '';
 
 $result_nodes_list{'xml_protected_in_verb'} = '';
 

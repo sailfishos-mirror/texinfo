@@ -136,23 +136,13 @@ In float
 * floa::
 ';
 
-$result_errors{'equivalent_labels'} = [
-  {
-    'error_line' => 'warning: @menu entry node name `anch\' different from anchor name `@samp{anch}\'
-',
-    'line_nr' => 10,
-    'text' => '@menu entry node name `anch\' different from anchor name `@samp{anch}\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `@code{floa}\' different from float name `floa\'
-',
-    'line_nr' => 11,
-    'text' => '@menu entry node name `@code{floa}\' different from float name `floa\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'equivalent_labels'} = '* W l10|@menu entry node name `anch\' different from anchor name `@samp{anch}\'
+ warning: @menu entry node name `anch\' different from anchor name `@samp{anch}\'
 
+* W l11|@menu entry node name `@code{floa}\' different from float name `floa\'
+ warning: @menu entry node name `@code{floa}\' different from float name `floa\'
+
+';
 
 $result_floats{'equivalent_labels'} = 'truc: 1
  F1: {floa}

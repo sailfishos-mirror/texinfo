@@ -187,8 +187,7 @@ else tex.
 else latex.
 ';
 
-$result_errors{'inlinefmtifelse'} = [];
-
+$result_errors{'inlinefmtifelse'} = '';
 
 $result_nodes_list{'inlinefmtifelse'} = '';
 

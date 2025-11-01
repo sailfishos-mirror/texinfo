@@ -33,16 +33,10 @@ $result_texis{'brace_opened_no_command'} = 'anchortruc@} @anchor{truc}.
 $result_texts{'brace_opened_no_command'} = 'anchortruc} .
 ';
 
-$result_errors{'brace_opened_no_command'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 1,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  }
-];
+$result_errors{'brace_opened_no_command'} = '* E l1|misplaced {
+ misplaced {
 
+';
 
 $result_nodes_list{'brace_opened_no_command'} = '';
 

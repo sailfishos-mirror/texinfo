@@ -124,16 +124,10 @@ $result_texts{'nodes_no_node_top_explicit_directions'} = 'first node
 second node
 ';
 
-$result_errors{'nodes_no_node_top_explicit_directions'} = [
-  {
-    'error_line' => 'warning: node `first\' not in menu
-',
-    'line_nr' => 1,
-    'text' => 'node `first\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodes_no_node_top_explicit_directions'} = '* W l1|node `first\' not in menu
+ warning: node `first\' not in menu
 
+';
 
 $result_nodes_list{'nodes_no_node_top_explicit_directions'} = '1|first
  menus:

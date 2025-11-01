@@ -158,44 +158,22 @@ deffnx_category:
 with deffnx missing category or name
 ';
 
-$result_errors{'no_category_or_no_name'} = [
-  {
-    'error_line' => 'warning: missing category for @deffn
-',
-    'line_nr' => 1,
-    'text' => 'missing category for @deffn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffn
-',
-    'line_nr' => 5,
-    'text' => 'missing name for @deffn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 9,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'line_nr' => 10,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing category for @deffnx
-',
-    'line_nr' => 11,
-    'text' => 'missing category for @deffnx',
-    'type' => 'warning'
-  }
-];
+$result_errors{'no_category_or_no_name'} = '* W l1|missing category for @deffn
+ warning: missing category for @deffn
 
+* W l5|missing name for @deffn
+ warning: missing name for @deffn
+
+* W l9|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l10|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W l11|missing category for @deffnx
+ warning: missing category for @deffnx
+
+';
 
 $result_nodes_list{'no_category_or_no_name'} = '';
 

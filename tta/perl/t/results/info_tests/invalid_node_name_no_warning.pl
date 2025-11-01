@@ -215,8 +215,7 @@ nodename. a. node,comma.
 bidule:.
 ';
 
-$result_errors{'invalid_node_name_no_warning'} = [];
-
+$result_errors{'invalid_node_name_no_warning'} = '';
 
 $result_nodes_list{'invalid_node_name_no_warning'} = '1|Top
  menus:

@@ -105,16 +105,10 @@ top
 ***
 ';
 
-$result_errors{'chapter_before_top_epub'} = [
-  {
-    'error_line' => 'warning: @part should not be associated with @top
-',
-    'line_nr' => 6,
-    'text' => '@part should not be associated with @top',
-    'type' => 'warning'
-  }
-];
+$result_errors{'chapter_before_top_epub'} = '* W l6|@part should not be associated with @top
+ warning: @part should not be associated with @top
 
+';
 
 $result_nodes_list{'chapter_before_top_epub'} = '1|Top
  node_directions:

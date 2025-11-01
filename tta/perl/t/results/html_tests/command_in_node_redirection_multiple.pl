@@ -104,8 +104,7 @@ $result_texts{'command_in_node_redirection_multiple'} = 't in r
 
 ';
 
-$result_errors{'command_in_node_redirection_multiple'} = [];
-
+$result_errors{'command_in_node_redirection_multiple'} = '';
 
 $result_nodes_list{'command_in_node_redirection_multiple'} = '1|Top
  associated_section: t @r{in r}

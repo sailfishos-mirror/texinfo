@@ -41,8 +41,7 @@ $result_texts{'raggedright'} = '
 in raggedright
 ';
 
-$result_errors{'raggedright'} = [];
-
+$result_errors{'raggedright'} = '';
 
 $result_nodes_list{'raggedright'} = '';
 

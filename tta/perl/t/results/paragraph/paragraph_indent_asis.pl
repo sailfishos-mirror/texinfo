@@ -69,8 +69,7 @@ in quotation
 
 ';
 
-$result_errors{'paragraph_indent_asis'} = [];
-
+$result_errors{'paragraph_indent_asis'} = '';
 
 $result_nodes_list{'paragraph_indent_asis'} = '';
 

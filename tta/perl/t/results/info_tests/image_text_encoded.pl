@@ -40,8 +40,7 @@ $result_texts{'image_text_encoded'} = '
 image_encoded
 ';
 
-$result_errors{'image_text_encoded'} = [];
-
+$result_errors{'image_text_encoded'} = '';
 
 $result_nodes_list{'image_text_encoded'} = '';
 

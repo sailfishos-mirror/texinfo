@@ -21,8 +21,7 @@ $result_texis{'lone_bye'} = '@bye
 
 $result_texts{'lone_bye'} = '';
 
-$result_errors{'lone_bye'} = [];
-
+$result_errors{'lone_bye'} = '';
 
 $result_nodes_list{'lone_bye'} = '';
 

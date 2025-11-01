@@ -284,23 +284,13 @@ anch: in node after.
 anch: in chap.
 ';
 
-$result_errors{'anchor_links_xref_xrefautomaticsectiontitle'} = [
-  {
-    'error_line' => 'warning: node `node before\' unreferenced
-',
-    'line_nr' => 1,
-    'text' => 'node `node before\' unreferenced',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `after\' unreferenced
-',
-    'line_nr' => 12,
-    'text' => 'node `after\' unreferenced',
-    'type' => 'warning'
-  }
-];
+$result_errors{'anchor_links_xref_xrefautomaticsectiontitle'} = '* W l1|node `node before\' unreferenced
+ warning: node `node before\' unreferenced
 
+* W l12|node `after\' unreferenced
+ warning: node `after\' unreferenced
+
+';
 
 $result_nodes_list{'anchor_links_xref_xrefautomaticsectiontitle'} = '1|node before
 2|Top

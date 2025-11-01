@@ -97,8 +97,7 @@ $result_texts{'empty_headitem'} = 'Index Value
 3 30
 ';
 
-$result_errors{'empty_headitem'} = [];
-
+$result_errors{'empty_headitem'} = '';
 
 $result_nodes_list{'empty_headitem'} = '';
 

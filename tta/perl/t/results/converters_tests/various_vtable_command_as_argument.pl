@@ -548,37 +548,19 @@ Appendix A Print the index
 
 ';
 
-$result_errors{'various_vtable_command_as_argument'} = [
-  {
-    'error_line' => 'warning: @footnote should not appear on @vtable line
-',
-    'line_nr' => 18,
-    'text' => '@footnote should not appear on @vtable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @caption should not appear on @vtable line
-',
-    'line_nr' => 23,
-    'text' => '@caption should not appear on @vtable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @vtable line
-',
-    'line_nr' => 33,
-    'text' => '@anchor should not appear on @vtable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear on @vtable line
-',
-    'line_nr' => 38,
-    'text' => '@verb should not appear on @vtable line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'various_vtable_command_as_argument'} = '* W l18|@footnote should not appear on @vtable line
+ warning: @footnote should not appear on @vtable line
 
+* W l23|@caption should not appear on @vtable line
+ warning: @caption should not appear on @vtable line
+
+* W l33|@anchor should not appear on @vtable line
+ warning: @anchor should not appear on @vtable line
+
+* W l38|@verb should not appear on @vtable line
+ warning: @verb should not appear on @vtable line
+
+';
 
 $result_nodes_list{'various_vtable_command_as_argument'} = '1|Top
  associated_section: top

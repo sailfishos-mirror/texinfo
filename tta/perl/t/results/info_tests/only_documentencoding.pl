@@ -25,8 +25,7 @@ $result_texis{'only_documentencoding'} = '@documentencoding ISO-8859-1';
 
 $result_texts{'only_documentencoding'} = '';
 
-$result_errors{'only_documentencoding'} = [];
-
+$result_errors{'only_documentencoding'} = '';
 
 $result_nodes_list{'only_documentencoding'} = '';
 

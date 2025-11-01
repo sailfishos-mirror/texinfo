@@ -47,8 +47,7 @@ $result_texts{'user_defined_txiinternalvalue'} = '
 user internalvalue
 ';
 
-$result_errors{'user_defined_txiinternalvalue'} = [];
-
+$result_errors{'user_defined_txiinternalvalue'} = '';
 
 $result_nodes_list{'user_defined_txiinternalvalue'} = '';
 

@@ -28,16 +28,10 @@ $result_texis{'author_outside_titlepage_quotation'} = '@author Some One
 $result_texts{'author_outside_titlepage_quotation'} = 'Some One
 ';
 
-$result_errors{'author_outside_titlepage_quotation'} = [
-  {
-    'error_line' => 'warning: @author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments
-',
-    'line_nr' => 1,
-    'text' => '@author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments',
-    'type' => 'warning'
-  }
-];
+$result_errors{'author_outside_titlepage_quotation'} = '* W l1|@author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments
+ warning: @author not meaningful outside `@titlepage\', `@documentinfo\' and `@quotation\' environments
 
+';
 
 $result_nodes_list{'author_outside_titlepage_quotation'} = '';
 

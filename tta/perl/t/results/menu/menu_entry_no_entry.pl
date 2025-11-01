@@ -86,8 +86,7 @@ $result_texts{'menu_entry_no_entry'} = '* a1:
 * a1c:* a2c:  * a4a: 
 * a5b: ';
 
-$result_errors{'menu_entry_no_entry'} = [];
-
+$result_errors{'menu_entry_no_entry'} = '';
 
 $result_nodes_list{'menu_entry_no_entry'} = '';
 

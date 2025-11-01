@@ -93,8 +93,7 @@ Top.
 Second paragraph.
 ';
 
-$result_errors{'titles'} = [];
-
+$result_errors{'titles'} = '';
 
 $result_nodes_list{'titles'} = '1|Top
  associated_section: Top of @@title @sc{html} @code{test}

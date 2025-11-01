@@ -30,8 +30,7 @@ $result_texis{'command_brace_no_arg_punctuation'} = '@TeX{}. And @LaTeX{}. @copy
 $result_texts{'command_brace_no_arg_punctuation'} = 'TeX. And LaTeX. (C). (R). End.
 ';
 
-$result_errors{'command_brace_no_arg_punctuation'} = [];
-
+$result_errors{'command_brace_no_arg_punctuation'} = '';
 
 $result_nodes_list{'command_brace_no_arg_punctuation'} = '';
 

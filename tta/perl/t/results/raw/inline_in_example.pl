@@ -101,8 +101,7 @@ $result_texts{'inline_in_example'} = 'A plaintext
 in <i>HTML</i>.
 ';
 
-$result_errors{'inline_in_example'} = [];
-
+$result_errors{'inline_in_example'} = '';
 
 $result_nodes_list{'inline_in_example'} = '';
 

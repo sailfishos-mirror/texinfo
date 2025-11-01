@@ -97,33 +97,16 @@ a #line 206 "a_file_after_text_space_del_comment"
 
 ';
 
-$result_errors{'delcomment_followed_by_cpp_line'} = [
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'file_name' => 'delcomment_followed_by_cpp_line.texi',
-    'line_nr' => 9,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown1\'
-',
-    'file_name' => 'delcomment_followed_by_cpp_line.texi',
-    'line_nr' => 14,
-    'text' => 'unknown command `unknown1\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown2\'
-',
-    'file_name' => 'delcomment_followed_by_cpp_line.texi',
-    'line_nr' => 19,
-    'text' => 'unknown command `unknown2\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'delcomment_followed_by_cpp_line'} = '* E delcomment_followed_by_cpp_line.texi:l9|unknown command `unknown\'
+ unknown command `unknown\'
 
+* E delcomment_followed_by_cpp_line.texi:l14|unknown command `unknown1\'
+ unknown command `unknown1\'
+
+* E delcomment_followed_by_cpp_line.texi:l19|unknown command `unknown2\'
+ unknown command `unknown2\'
+
+';
 
 $result_nodes_list{'delcomment_followed_by_cpp_line'} = '';
 

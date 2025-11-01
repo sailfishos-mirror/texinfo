@@ -293,8 +293,7 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 
 ';
 
-$result_errors{'test_accents_sc_use_numeric_entity'} = [];
-
+$result_errors{'test_accents_sc_use_numeric_entity'} = '';
 
 $result_nodes_list{'test_accents_sc_use_numeric_entity'} = '1|top
  associated_section: top section

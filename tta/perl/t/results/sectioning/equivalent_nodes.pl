@@ -109,37 +109,19 @@ $result_texts{'equivalent_nodes'} = '
 node.
 ';
 
-$result_errors{'equivalent_nodes'} = [
-  {
-    'error_line' => 'warning: @xref to `node\', different from node name `@samp{node}\'
-',
-    'line_nr' => 9,
-    'text' => '@xref to `node\', different from node name `@samp{node}\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'
-',
-    'line_nr' => 1,
-    'text' => 'Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `@strong{node}\' different from node name `@samp{node}\'
-',
-    'line_nr' => 4,
-    'text' => '@menu entry node name `@strong{node}\' different from node name `@samp{node}\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `first\' not in menu
-',
-    'line_nr' => 1,
-    'text' => 'node `first\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'equivalent_nodes'} = '* W l9|@xref to `node\', different from node name `@samp{node}\'
+ warning: @xref to `node\', different from node name `@samp{node}\'
 
+* W l1|Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'
+ warning: Next pointer `@emph{node}\' (for node `first\') different from node name `@samp{node}\'
+
+* W l4|@menu entry node name `@strong{node}\' different from node name `@samp{node}\'
+ warning: @menu entry node name `@strong{node}\' different from node name `@samp{node}\'
+
+* W l1|node `first\' not in menu
+ warning: node `first\' not in menu
+
+';
 
 $result_nodes_list{'equivalent_nodes'} = '1|first
  menus:

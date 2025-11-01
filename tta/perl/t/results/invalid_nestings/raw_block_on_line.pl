@@ -29,37 +29,19 @@ $result_texis{'raw_block_on_line'} = '@cindex @tex
 
 $result_texts{'raw_block_on_line'} = '';
 
-$result_errors{'raw_block_on_line'} = [
-  {
-    'error_line' => 'warning: @tex should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@tex should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end tex\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end tex\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty index key in @cindex
-',
-    'line_nr' => 1,
-    'text' => 'empty index key in @cindex',
-    'type' => 'warning'
-  }
-];
+$result_errors{'raw_block_on_line'} = '* W l1|@tex should only appear at the beginning of a line
+ warning: @tex should only appear at the beginning of a line
 
+* E l1|no matching `@end tex\'
+ no matching `@end tex\'
+
+* W l1|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+* W l1|empty index key in @cindex
+ warning: empty index key in @cindex
+
+';
 
 $result_nodes_list{'raw_block_on_line'} = '';
 

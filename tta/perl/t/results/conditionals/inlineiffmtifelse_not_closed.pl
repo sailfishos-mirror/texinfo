@@ -25,16 +25,10 @@ $result_texis{'inlineiffmtifelse_not_closed'} = '@inlinefmtifelse{html,
 
 $result_texts{'inlineiffmtifelse_not_closed'} = '';
 
-$result_errors{'inlineiffmtifelse_not_closed'} = [
-  {
-    'error_line' => '@inlinefmtifelse missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@inlinefmtifelse missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'inlineiffmtifelse_not_closed'} = '* E l1|@inlinefmtifelse missing closing brace
+ @inlinefmtifelse missing closing brace
 
+';
 
 $result_nodes_list{'inlineiffmtifelse_not_closed'} = '';
 

@@ -376,8 +376,7 @@ b b b b b b b b b b b b b b b b  b b b b b bb b b b b b b  bb  b bb.
 
 ';
 
-$result_errors{'navigation_test_zero_top_buttons'} = [];
-
+$result_errors{'navigation_test_zero_top_buttons'} = '';
 
 $result_nodes_list{'navigation_test_zero_top_buttons'} = '1|Top
  associated_section: File used for navigation testing

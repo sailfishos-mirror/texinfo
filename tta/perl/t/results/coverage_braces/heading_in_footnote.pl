@@ -59,16 +59,10 @@ BBB
 $result_texts{'heading_in_footnote'} = 'T
 ';
 
-$result_errors{'heading_in_footnote'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 4,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'heading_in_footnote'} = '* W l4|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+';
 
 $result_nodes_list{'heading_in_footnote'} = '';
 

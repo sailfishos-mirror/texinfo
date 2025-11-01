@@ -17,16 +17,10 @@ $result_texis{'email_no_braces'} = '@email';
 
 $result_texts{'email_no_braces'} = '';
 
-$result_errors{'email_no_braces'} = [
-  {
-    'error_line' => '@email expected braces
-',
-    'line_nr' => 1,
-    'text' => '@email expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'email_no_braces'} = '* E l1|@email expected braces
+ @email expected braces
 
+';
 
 $result_nodes_list{'email_no_braces'} = '';
 

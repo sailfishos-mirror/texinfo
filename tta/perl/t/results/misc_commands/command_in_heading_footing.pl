@@ -50,30 +50,16 @@ In text   text.
 In code .
 ';
 
-$result_errors{'command_in_heading_footing'} = [
-  {
-    'error_line' => '@thispage should only appear in heading or footing
-',
-    'line_nr' => 3,
-    'text' => '@thispage should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@thischapternum should only appear in heading or footing
-',
-    'line_nr' => 3,
-    'text' => '@thischapternum should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@thissection should only appear in heading or footing
-',
-    'line_nr' => 5,
-    'text' => '@thissection should only appear in heading or footing',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_in_heading_footing'} = '* E l3|@thispage should only appear in heading or footing
+ @thispage should only appear in heading or footing
 
+* E l3|@thischapternum should only appear in heading or footing
+ @thischapternum should only appear in heading or footing
+
+* E l5|@thissection should only appear in heading or footing
+ @thissection should only appear in heading or footing
+
+';
 
 $result_nodes_list{'command_in_heading_footing'} = '';
 

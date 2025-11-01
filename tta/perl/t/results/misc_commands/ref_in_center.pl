@@ -124,23 +124,13 @@ Top
 very long
 ';
 
-$result_errors{'ref_in_center'} = [
-  {
-    'error_line' => '@ref missing closing brace
-',
-    'line_nr' => 9,
-    'text' => '@ref missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 10,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'ref_in_center'} = '* E l9|@ref missing closing brace
+ @ref missing closing brace
 
+* E l10|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'ref_in_center'} = '1|Top
  associated_section: top

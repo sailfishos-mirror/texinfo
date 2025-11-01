@@ -955,8 +955,7 @@ asamp-bb2
 
 ';
 
-$result_errors{'inter_item_commands_in_table'} = [];
-
+$result_errors{'inter_item_commands_in_table'} = '';
 
 $result_nodes_list{'inter_item_commands_in_table'} = '1|Top
  associated_section: top

@@ -45,8 +45,7 @@ $result_texis{'verbatiminclude_and_encoding'} = '@documentencoding utf-8
 $result_texts{'verbatiminclude_and_encoding'} = '
 ';
 
-$result_errors{'verbatiminclude_and_encoding'} = [];
-
+$result_errors{'verbatiminclude_and_encoding'} = '';
 
 $result_nodes_list{'verbatiminclude_and_encoding'} = '';
 

@@ -530,8 +530,7 @@ something aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaa
 b b bbbbbbbbbbbbbbbbbbbbbbb.
 ';
 
-$result_errors{'itemize_and_empty_lines'} = [];
-
+$result_errors{'itemize_and_empty_lines'} = '';
 
 $result_nodes_list{'itemize_and_empty_lines'} = '';
 

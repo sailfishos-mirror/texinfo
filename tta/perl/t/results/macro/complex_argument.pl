@@ -332,24 +332,13 @@ aaa
 
 ';
 
-$result_errors{'complex_argument'} = [
-  {
-    'error_line' => 'warning: use @comma{} instead of \\, in macro arg
-',
-    'line_nr' => 35,
-    'text' => 'use @comma{} instead of \\, in macro arg',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @headings: doubleafter 1 (possibly involving @macrofour)
-',
-    'line_nr' => 38,
-    'macro' => 'macrofour',
-    'text' => 'bad argument to @headings: doubleafter 1',
-    'type' => 'error'
-  }
-];
+$result_errors{'complex_argument'} = '* W l35|use @comma{} instead of \\, in macro arg
+ warning: use @comma{} instead of \\, in macro arg
 
+* E l38:@macrofour|bad argument to @headings: doubleafter 1
+ bad argument to @headings: doubleafter 1 (possibly involving @macrofour)
+
+';
 
 $result_nodes_list{'complex_argument'} = '';
 

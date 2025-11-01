@@ -293,8 +293,7 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 
 ';
 
-$result_errors{'punctuation_sc_accents_ascii_glyph'} = [];
-
+$result_errors{'punctuation_sc_accents_ascii_glyph'} = '';
 
 $result_nodes_list{'punctuation_sc_accents_ascii_glyph'} = '1|top
  associated_section: top section

@@ -110,8 +110,7 @@ In top.
 
 ';
 
-$result_errors{'footnotestyle_separate_html_text_no_monolithic'} = [];
-
+$result_errors{'footnotestyle_separate_html_text_no_monolithic'} = '';
 
 $result_nodes_list{'footnotestyle_separate_html_text_no_monolithic'} = '1|Top
  associated_section: top

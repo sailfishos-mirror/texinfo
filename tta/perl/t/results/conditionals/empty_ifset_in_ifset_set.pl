@@ -80,8 +80,7 @@ $result_texts{'empty_ifset_in_ifset_set'} = '
 @ifset
 ';
 
-$result_errors{'empty_ifset_in_ifset_set'} = [];
-
+$result_errors{'empty_ifset_in_ifset_set'} = '';
 
 $result_nodes_list{'empty_ifset_in_ifset_set'} = '';
 

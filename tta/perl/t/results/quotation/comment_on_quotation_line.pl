@@ -52,8 +52,7 @@ $result_texts{'comment_on_quotation_line'} = 'truc
 In quotation
 ';
 
-$result_errors{'comment_on_quotation_line'} = [];
-
+$result_errors{'comment_on_quotation_line'} = '';
 
 $result_nodes_list{'comment_on_quotation_line'} = '';
 

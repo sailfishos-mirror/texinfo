@@ -17,16 +17,10 @@ $result_texis{'abbr_no_braces'} = '@abbr';
 
 $result_texts{'abbr_no_braces'} = '';
 
-$result_errors{'abbr_no_braces'} = [
-  {
-    'error_line' => '@abbr expected braces
-',
-    'line_nr' => 1,
-    'text' => '@abbr expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'abbr_no_braces'} = '* E l1|@abbr expected braces
+ @abbr expected braces
 
+';
 
 $result_nodes_list{'abbr_no_braces'} = '';
 

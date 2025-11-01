@@ -913,8 +913,7 @@ Now include file
 
 ';
 
-$result_errors{'custom_heading_with_include_in_command'} = [];
-
+$result_errors{'custom_heading_with_include_in_command'} = '';
 
 $result_nodes_list{'custom_heading_with_include_in_command'} = '1|Top
  associated_section: top sectionning

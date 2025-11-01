@@ -154,30 +154,16 @@ section top
 
 ';
 
-$result_errors{'pagesizes'} = [
-  {
-    'error_line' => 'warning: multiple @pagesizes
-',
-    'line_nr' => 9,
-    'text' => 'multiple @pagesizes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @pagesizes
-',
-    'line_nr' => 13,
-    'text' => 'multiple @pagesizes',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @pagesizes
-',
-    'line_nr' => 15,
-    'text' => 'multiple @pagesizes',
-    'type' => 'warning'
-  }
-];
+$result_errors{'pagesizes'} = '* W l9|multiple @pagesizes
+ warning: multiple @pagesizes
 
+* W l13|multiple @pagesizes
+ warning: multiple @pagesizes
+
+* W l15|multiple @pagesizes
+ warning: multiple @pagesizes
+
+';
 
 $result_nodes_list{'pagesizes'} = '1|Top
  associated_section: section top

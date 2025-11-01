@@ -36,8 +36,7 @@ In macro
 
 $result_texts{'bad_macro_name_with_underscore'} = '';
 
-$result_errors{'bad_macro_name_with_underscore'} = [];
-
+$result_errors{'bad_macro_name_with_underscore'} = '';
 
 $result_nodes_list{'bad_macro_name_with_underscore'} = '';
 

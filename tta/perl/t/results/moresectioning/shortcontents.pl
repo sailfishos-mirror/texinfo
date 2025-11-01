@@ -242,8 +242,7 @@ A.1 appendixsec
 
 ';
 
-$result_errors{'shortcontents'} = [];
-
+$result_errors{'shortcontents'} = '';
 
 $result_nodes_list{'shortcontents'} = '';
 

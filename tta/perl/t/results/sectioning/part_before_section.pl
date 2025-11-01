@@ -54,16 +54,10 @@ $result_texts{'part_before_section'} = 'part
 *********
 ';
 
-$result_errors{'part_before_section'} = [
-  {
-    'error_line' => 'raising the section level of @section which is too low
-',
-    'line_nr' => 3,
-    'text' => 'raising the section level of @section which is too low',
-    'type' => 'error'
-  }
-];
+$result_errors{'part_before_section'} = '* E l3|raising the section level of @section which is too low
+ raising the section level of @section which is too low
 
+';
 
 $result_nodes_list{'part_before_section'} = '';
 

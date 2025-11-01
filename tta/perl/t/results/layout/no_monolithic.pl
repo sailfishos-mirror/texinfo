@@ -201,8 +201,7 @@ Chapter.
 
 ';
 
-$result_errors{'no_monolithic'} = [];
-
+$result_errors{'no_monolithic'} = '';
 
 $result_nodes_list{'no_monolithic'} = '1|Top
  associated_section: Not monolithic

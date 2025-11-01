@@ -46,8 +46,7 @@ $result_texts{'indentedblock'} = 'indented block
 Text
 ';
 
-$result_errors{'indentedblock'} = [];
-
+$result_errors{'indentedblock'} = '';
 
 $result_nodes_list{'indentedblock'} = '';
 

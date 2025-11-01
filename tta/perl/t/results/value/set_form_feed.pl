@@ -77,8 +77,7 @@ $result_texts{'set_form_feed'} = '
 a\\a\\f\\\\. . .
 ';
 
-$result_errors{'set_form_feed'} = [];
-
+$result_errors{'set_form_feed'} = '';
 
 $result_nodes_list{'set_form_feed'} = '';
 

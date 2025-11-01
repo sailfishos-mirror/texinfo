@@ -178,8 +178,7 @@ no label caption
 
 ';
 
-$result_errors{'empty_listoffloats_with_floats'} = [];
-
+$result_errors{'empty_listoffloats_with_floats'} = '';
 
 $result_floats{'empty_listoffloats_with_floats'} = ': 4
  F1: {label1}

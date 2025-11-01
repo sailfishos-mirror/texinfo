@@ -433,114 +433,52 @@ Macros that should not be defined: . with arg.
 
 ';
 
-$result_errors{'at_commands_in_raw'} = [
-  {
-    'error_line' => 'warning: undefined flag: flag
-',
-    'line_nr' => 65,
-    'text' => 'undefined flag: flag',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'unknown command `newindex\'
-',
-    'line_nr' => 74,
-    'text' => 'unknown command `newindex\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `a\'
-',
-    'line_nr' => 83,
-    'text' => 'unknown command `a\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 83,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 83,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `moviecite\'
-',
-    'line_nr' => 85,
-    'text' => 'unknown command `moviecite\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 85,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 85,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `mymacro\'
-',
-    'line_nr' => 89,
-    'text' => 'unknown command `mymacro\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 89,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 89,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `macroarg\'
-',
-    'line_nr' => 89,
-    'text' => 'unknown command `macroarg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 89,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 89,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `anchor in tex\'
-',
-    'line_nr' => 71,
-    'text' => '@ref reference to nonexistent node `anchor in tex\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'at_commands_in_raw'} = '* W l65|undefined flag: flag
+ warning: undefined flag: flag
 
+* E l74|unknown command `newindex\'
+ unknown command `newindex\'
+
+* E l83|unknown command `a\'
+ unknown command `a\'
+
+* E l83|misplaced {
+ misplaced {
+
+* E l83|misplaced }
+ misplaced }
+
+* E l85|unknown command `moviecite\'
+ unknown command `moviecite\'
+
+* E l85|misplaced {
+ misplaced {
+
+* E l85|misplaced }
+ misplaced }
+
+* E l89|unknown command `mymacro\'
+ unknown command `mymacro\'
+
+* E l89|misplaced {
+ misplaced {
+
+* E l89|misplaced }
+ misplaced }
+
+* E l89|unknown command `macroarg\'
+ unknown command `macroarg\'
+
+* E l89|misplaced {
+ misplaced {
+
+* E l89|misplaced }
+ misplaced }
+
+* E l71|@ref reference to nonexistent node `anchor in tex\'
+ @ref reference to nonexistent node `anchor in tex\'
+
+';
 
 $result_nodes_list{'at_commands_in_raw'} = '1|Top
  associated_section: top

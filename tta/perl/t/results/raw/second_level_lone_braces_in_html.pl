@@ -83,8 +83,7 @@ $result_texts{'second_level_lone_braces_in_html'} = '{a{
 
 ';
 
-$result_errors{'second_level_lone_braces_in_html'} = [];
-
+$result_errors{'second_level_lone_braces_in_html'} = '';
 
 $result_nodes_list{'second_level_lone_braces_in_html'} = '';
 

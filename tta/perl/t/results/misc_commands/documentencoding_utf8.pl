@@ -32,16 +32,10 @@ $result_texis{'documentencoding_utf8'} = '@documentencoding utf8
 $result_texts{'documentencoding_utf8'} = '
 ';
 
-$result_errors{'documentencoding_utf8'} = [
-  {
-    'error_line' => 'warning: encoding `utf8\' is not a canonical texinfo encoding
-',
-    'line_nr' => 1,
-    'text' => 'encoding `utf8\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  }
-];
+$result_errors{'documentencoding_utf8'} = '* W l1|encoding `utf8\' is not a canonical texinfo encoding
+ warning: encoding `utf8\' is not a canonical texinfo encoding
 
+';
 
 $result_nodes_list{'documentencoding_utf8'} = '';
 

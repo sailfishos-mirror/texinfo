@@ -90,16 +90,10 @@ $result_texts{'anchor_in_menu_on_sectioning_command_line'} = '1 chapter after
 * ggg::
 ';
 
-$result_errors{'anchor_in_menu_on_sectioning_command_line'} = [
-  {
-    'error_line' => 'warning: @anchor should not appear on @chapter line
-',
-    'line_nr' => 2,
-    'text' => '@anchor should not appear on @chapter line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'anchor_in_menu_on_sectioning_command_line'} = '* W l2|@anchor should not appear on @chapter line
+ warning: @anchor should not appear on @chapter line
 
+';
 
 $result_nodes_list{'anchor_in_menu_on_sectioning_command_line'} = '1|chap
  associated_section: 1 chapter @anchor{ggg} after

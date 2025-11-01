@@ -54,8 +54,7 @@ $result_texis{'empty_label_with_space_comment'} = '@float Type, @c comment
 $result_texts{'empty_label_with_space_comment'} = 'Type
 ';
 
-$result_errors{'empty_label_with_space_comment'} = [];
-
+$result_errors{'empty_label_with_space_comment'} = '';
 
 $result_floats{'empty_label_with_space_comment'} = 'Type: 1
  F

@@ -86,8 +86,7 @@ after
 
 ';
 
-$result_errors{'comment_at_end_of_linemacro_call'} = [];
-
+$result_errors{'comment_at_end_of_linemacro_call'} = '';
 
 $result_nodes_list{'comment_at_end_of_linemacro_call'} = '';
 

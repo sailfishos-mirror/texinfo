@@ -61,8 +61,7 @@ $result_texts{'normal_font_in_monospace'} = 'in example in r---now in co---de
 in command---c in r---r in file---.
 ';
 
-$result_errors{'normal_font_in_monospace'} = [];
-
+$result_errors{'normal_font_in_monospace'} = '';
 
 $result_nodes_list{'normal_font_in_monospace'} = '';
 

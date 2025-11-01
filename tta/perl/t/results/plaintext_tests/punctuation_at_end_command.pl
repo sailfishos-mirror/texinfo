@@ -68,8 +68,7 @@ then kbd . and math . and cite . and emph . text.
 asis in code . text. a dot before a emph open . and in emph.
 ';
 
-$result_errors{'punctuation_at_end_command'} = [];
-
+$result_errors{'punctuation_at_end_command'} = '';
 
 $result_nodes_list{'punctuation_at_end_command'} = '';
 

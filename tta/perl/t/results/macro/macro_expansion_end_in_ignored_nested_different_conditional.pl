@@ -74,16 +74,10 @@ GG
 $result_texts{'macro_expansion_end_in_ignored_nested_different_conditional'} = '
 ';
 
-$result_errors{'macro_expansion_end_in_ignored_nested_different_conditional'} = [
-  {
-    'error_line' => 'unmatched `@end ifclear\'
-',
-    'line_nr' => 9,
-    'text' => 'unmatched `@end ifclear\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_expansion_end_in_ignored_nested_different_conditional'} = '* E l9|unmatched `@end ifclear\'
+ unmatched `@end ifclear\'
 
+';
 
 $result_nodes_list{'macro_expansion_end_in_ignored_nested_different_conditional'} = '';
 

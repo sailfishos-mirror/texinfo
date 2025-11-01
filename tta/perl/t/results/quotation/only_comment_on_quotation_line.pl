@@ -49,8 +49,7 @@ In quotation
 $result_texts{'only_comment_on_quotation_line'} = 'In quotation
 ';
 
-$result_errors{'only_comment_on_quotation_line'} = [];
-
+$result_errors{'only_comment_on_quotation_line'} = '';
 
 $result_nodes_list{'only_comment_on_quotation_line'} = '';
 

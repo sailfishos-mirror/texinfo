@@ -55,8 +55,7 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb vvvvvvvvvvvvvvvv note
 a
 ';
 
-$result_errors{'note_in_strong_end_of_line'} = [];
-
+$result_errors{'note_in_strong_end_of_line'} = '';
 
 $result_nodes_list{'note_in_strong_end_of_line'} = '1|Top
 ';

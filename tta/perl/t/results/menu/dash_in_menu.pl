@@ -65,8 +65,7 @@ $result_texts{'dash_in_menu'} = '
 comment -- in.
 ';
 
-$result_errors{'dash_in_menu'} = [];
-
+$result_errors{'dash_in_menu'} = '';
 
 $result_nodes_list{'dash_in_menu'} = '';
 

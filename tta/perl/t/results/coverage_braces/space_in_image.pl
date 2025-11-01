@@ -55,8 +55,7 @@ $result_texis{'space_in_image'} = '@image{ a ,bb, cc,dd ,.e }. @image{ f }.';
 
 $result_texts{'space_in_image'} = 'a. f.';
 
-$result_errors{'space_in_image'} = [];
-
+$result_errors{'space_in_image'} = '';
 
 $result_nodes_list{'space_in_image'} = '';
 

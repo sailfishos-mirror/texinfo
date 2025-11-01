@@ -75,8 +75,7 @@ Appendix A Appendix
 *******************
 ';
 
-$result_errors{'part_chapter_appendix'} = [];
-
+$result_errors{'part_chapter_appendix'} = '';
 
 $result_nodes_list{'part_chapter_appendix'} = '';
 

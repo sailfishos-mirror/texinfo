@@ -42,8 +42,7 @@ $result_texis{'prototype_brace_no_brace'} = '@multitable {aa} bb
 
 $result_texts{'prototype_brace_no_brace'} = '';
 
-$result_errors{'prototype_brace_no_brace'} = [];
-
+$result_errors{'prototype_brace_no_brace'} = '';
 
 $result_nodes_list{'prototype_brace_no_brace'} = '';
 

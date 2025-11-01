@@ -145,8 +145,7 @@ top
 
 ';
 
-$result_errors{'alias_of_added_index_before_added_index'} = [];
-
+$result_errors{'alias_of_added_index_before_added_index'} = '';
 
 $result_indices{'alias_of_added_index_before_added_index'} = 'cp
 fn C

@@ -49,16 +49,10 @@ $result_texis{'undefined_node_filename'} = '@node Top
 $result_texts{'undefined_node_filename'} = '
 ';
 
-$result_errors{'undefined_node_filename'} = [
-  {
-    'error_line' => 'warning: node `chap Other\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `chap Other\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'undefined_node_filename'} = '* W l3|node `chap Other\' not in menu
+ warning: node `chap Other\' not in menu
 
+';
 
 $result_nodes_list{'undefined_node_filename'} = '1|Top
  node_directions:

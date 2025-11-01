@@ -54,23 +54,13 @@ seond para}.}';
 $result_texts{'footnote_in_ref'} = '
 first';
 
-$result_errors{'footnote_in_ref'} = [
-  {
-    'error_line' => 'warning: @footnote should not appear anywhere inside @xref
-',
-    'line_nr' => 3,
-    'text' => '@footnote should not appear anywhere inside @xref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@xref missing closing brace
-',
-    'line_nr' => 3,
-    'text' => '@xref missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'footnote_in_ref'} = '* W l3|@footnote should not appear anywhere inside @xref
+ warning: @footnote should not appear anywhere inside @xref
 
+* E l3|@xref missing closing brace
+ @xref missing closing brace
+
+';
 
 $result_nodes_list{'footnote_in_ref'} = '1|first
 ';

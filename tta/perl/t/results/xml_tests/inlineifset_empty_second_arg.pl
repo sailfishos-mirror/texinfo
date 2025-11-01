@@ -42,8 +42,7 @@ $result_texts{'inlineifset_empty_second_arg'} = 'Toto . After.
 Again with space . After.
 ';
 
-$result_errors{'inlineifset_empty_second_arg'} = [];
-
+$result_errors{'inlineifset_empty_second_arg'} = '';
 
 $result_nodes_list{'inlineifset_empty_second_arg'} = '';
 

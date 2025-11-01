@@ -392,25 +392,13 @@ Anchor in footnote
 
 ';
 
-$result_errors{'things_before_setfilename'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'things_before_setfilename.texi',
-    'line_nr' => 38,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printindex before document beginning: @printindex cp
-',
-    'file_name' => 'things_before_setfilename.texi',
-    'line_nr' => 40,
-    'text' => 'printindex before document beginning: @printindex cp',
-    'type' => 'warning'
-  }
-];
+$result_errors{'things_before_setfilename'} = '* W things_before_setfilename.texi:l38|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+* W things_before_setfilename.texi:l40|printindex before document beginning: @printindex cp
+ warning: printindex before document beginning: @printindex cp
+
+';
 
 $result_floats{'things_before_setfilename'} = ': 1
  F1: {float-anchor}

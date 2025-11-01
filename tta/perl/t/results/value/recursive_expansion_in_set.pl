@@ -531,16 +531,10 @@ $result_texis{'recursive_expansion_in_set'} = '@set V @value{V}
 $result_texts{'recursive_expansion_in_set'} = '
 ';
 
-$result_errors{'recursive_expansion_in_set'} = [
-  {
-    'error_line' => 'warning: value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)
-',
-    'line_nr' => 2,
-    'text' => 'value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)',
-    'type' => 'warning'
-  }
-];
+$result_errors{'recursive_expansion_in_set'} = '* W l2|value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)
+ warning: value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; current value 100)
 
+';
 
 $result_nodes_list{'recursive_expansion_in_set'} = '';
 

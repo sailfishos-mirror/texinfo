@@ -26,8 +26,7 @@ $result_texts{'after_punctuation_character_in_command'} = 'Text.)
 follows.
 ';
 
-$result_errors{'after_punctuation_character_in_command'} = [];
-
+$result_errors{'after_punctuation_character_in_command'} = '';
 
 $result_nodes_list{'after_punctuation_character_in_command'} = '';
 

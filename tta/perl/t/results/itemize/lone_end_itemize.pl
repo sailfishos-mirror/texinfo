@@ -15,16 +15,10 @@ $result_texis{'lone_end_itemize'} = '';
 
 $result_texts{'lone_end_itemize'} = '';
 
-$result_errors{'lone_end_itemize'} = [
-  {
-    'error_line' => 'unmatched `@end itemize\'
-',
-    'line_nr' => 1,
-    'text' => 'unmatched `@end itemize\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'lone_end_itemize'} = '* E l1|unmatched `@end itemize\'
+ unmatched `@end itemize\'
 
+';
 
 $result_nodes_list{'lone_end_itemize'} = '';
 

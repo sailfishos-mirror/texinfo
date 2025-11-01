@@ -152,8 +152,7 @@ text after empty.
 text after space.
 ';
 
-$result_errors{'paragraph_and_macro'} = [];
-
+$result_errors{'paragraph_and_macro'} = '';
 
 $result_nodes_list{'paragraph_and_macro'} = '';
 

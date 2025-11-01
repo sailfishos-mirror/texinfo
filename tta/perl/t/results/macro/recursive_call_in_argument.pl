@@ -49,8 +49,7 @@ $result_texts{'recursive_call_in_argument'} = '
 a
 ';
 
-$result_errors{'recursive_call_in_argument'} = [];
-
+$result_errors{'recursive_call_in_argument'} = '';
 
 $result_nodes_list{'recursive_call_in_argument'} = '';
 

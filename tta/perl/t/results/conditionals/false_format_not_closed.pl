@@ -25,16 +25,10 @@ blah blah
 
 $result_texts{'false_format_not_closed'} = '';
 
-$result_errors{'false_format_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end html\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end html\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'false_format_not_closed'} = '* E l1|no matching `@end html\'
+ no matching `@end html\'
 
+';
 
 $result_nodes_list{'false_format_not_closed'} = '';
 

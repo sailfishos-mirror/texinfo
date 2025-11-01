@@ -359,8 +359,7 @@ a
 
 ';
 
-$result_errors{'block_begin_end_in_linemacro_call'} = [];
-
+$result_errors{'block_begin_end_in_linemacro_call'} = '';
 
 $result_nodes_list{'block_begin_end_in_linemacro_call'} = '';
 

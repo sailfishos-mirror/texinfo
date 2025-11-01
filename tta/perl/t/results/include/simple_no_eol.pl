@@ -32,8 +32,7 @@ $result_texis{'simple_no_eol'} = 'In included file.
 $result_texts{'simple_no_eol'} = 'In included file.
 ';
 
-$result_errors{'simple_no_eol'} = [];
-
+$result_errors{'simple_no_eol'} = '';
 
 $result_nodes_list{'simple_no_eol'} = '';
 

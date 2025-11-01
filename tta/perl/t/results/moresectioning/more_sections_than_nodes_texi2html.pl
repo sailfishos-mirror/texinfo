@@ -477,8 +477,7 @@ Appendix A appendix
 *******************
 ';
 
-$result_errors{'more_sections_than_nodes_texi2html'} = [];
-
+$result_errors{'more_sections_than_nodes_texi2html'} = '';
 
 $result_nodes_list{'more_sections_than_nodes_texi2html'} = '1|Top
  associated_section: top

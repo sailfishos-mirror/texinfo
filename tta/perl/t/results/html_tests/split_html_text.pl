@@ -102,8 +102,7 @@ In top
 ******
 ';
 
-$result_errors{'split_html_text'} = [];
-
+$result_errors{'split_html_text'} = '';
 
 $result_nodes_list{'split_html_text'} = '1|Top
  associated_section: top

@@ -81,17 +81,10 @@ $result_texts{'ifset_and_end_isef_in_macro'} = '
 
 ';
 
-$result_errors{'ifset_and_end_isef_in_macro'} = [
-  {
-    'error_line' => 'no matching `@end ifset\' (possibly involving @beginifset)
-',
-    'line_nr' => 9,
-    'macro' => 'beginifset',
-    'text' => 'no matching `@end ifset\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'ifset_and_end_isef_in_macro'} = '* E l9:@beginifset|no matching `@end ifset\'
+ no matching `@end ifset\' (possibly involving @beginifset)
 
+';
 
 $result_nodes_list{'ifset_and_end_isef_in_macro'} = '';
 

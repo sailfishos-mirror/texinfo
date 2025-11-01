@@ -34,8 +34,7 @@ $result_texis{'space_command_in_image'} = '@image{f--ile,,,@ } @image{f--ile,,,@
 
 $result_texts{'space_command_in_image'} = 'f--ile f--ile';
 
-$result_errors{'space_command_in_image'} = [];
-
+$result_errors{'space_command_in_image'} = '';
 
 $result_nodes_list{'space_command_in_image'} = '';
 

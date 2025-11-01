@@ -86,8 +86,7 @@ text. a dot before a emph open .
 and in emph.
 ';
 
-$result_errors{'punctuation_in_command_end_line'} = [];
-
+$result_errors{'punctuation_in_command_end_line'} = '';
 
 $result_nodes_list{'punctuation_in_command_end_line'} = '';
 

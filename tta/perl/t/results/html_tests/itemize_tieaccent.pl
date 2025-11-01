@@ -275,8 +275,7 @@ item g[
 item e^[
 ';
 
-$result_errors{'itemize_tieaccent'} = [];
-
+$result_errors{'itemize_tieaccent'} = '';
 
 $result_nodes_list{'itemize_tieaccent'} = '';
 

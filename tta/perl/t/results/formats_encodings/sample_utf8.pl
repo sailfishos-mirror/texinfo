@@ -574,8 +574,7 @@ Index
 
 ';
 
-$result_errors{'sample_utf8'} = [];
-
+$result_errors{'sample_utf8'} = '';
 
 $result_nodes_list{'sample_utf8'} = '1|Top
  associated_section: Texinfo中文示例

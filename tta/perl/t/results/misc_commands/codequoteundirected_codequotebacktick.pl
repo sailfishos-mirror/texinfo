@@ -1221,57 +1221,25 @@ samp: ``simple-double--three---four----\'\' `simple\' quotedblleft: "
 
 ';
 
-$result_errors{'codequoteundirected_codequotebacktick'} = [
-  {
-    'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
-',
-    'line_nr' => 31,
-    'macro' => 'allquotes',
-    'text' => '@codequoteundirected missing argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
-',
-    'line_nr' => 31,
-    'macro' => 'allquotes',
-    'text' => '@codequotebacktick missing argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
-',
-    'line_nr' => 45,
-    'macro' => 'allquotes',
-    'text' => '@codequoteundirected missing argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
-',
-    'line_nr' => 45,
-    'macro' => 'allquotes',
-    'text' => '@codequotebacktick missing argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@codequoteundirected missing argument (possibly involving @allquotes)
-',
-    'line_nr' => 48,
-    'macro' => 'allquotes',
-    'text' => '@codequoteundirected missing argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@codequotebacktick missing argument (possibly involving @allquotes)
-',
-    'line_nr' => 48,
-    'macro' => 'allquotes',
-    'text' => '@codequotebacktick missing argument',
-    'type' => 'error'
-  }
-];
+$result_errors{'codequoteundirected_codequotebacktick'} = '* E l31:@allquotes|@codequoteundirected missing argument
+ @codequoteundirected missing argument (possibly involving @allquotes)
 
+* E l31:@allquotes|@codequotebacktick missing argument
+ @codequotebacktick missing argument (possibly involving @allquotes)
+
+* E l45:@allquotes|@codequoteundirected missing argument
+ @codequoteundirected missing argument (possibly involving @allquotes)
+
+* E l45:@allquotes|@codequotebacktick missing argument
+ @codequotebacktick missing argument (possibly involving @allquotes)
+
+* E l48:@allquotes|@codequoteundirected missing argument
+ @codequoteundirected missing argument (possibly involving @allquotes)
+
+* E l48:@allquotes|@codequotebacktick missing argument
+ @codequotebacktick missing argument (possibly involving @allquotes)
+
+';
 
 $result_nodes_list{'codequoteundirected_codequotebacktick'} = '1|Top
  associated_section: test quotes

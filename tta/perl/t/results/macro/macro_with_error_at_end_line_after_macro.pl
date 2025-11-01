@@ -53,17 +53,10 @@ $result_texts{'macro_with_error_at_end_line_after_macro'} = '
 
 ';
 
-$result_errors{'macro_with_error_at_end_line_after_macro'} = [
-  {
-    'error_line' => 'warning: @center missing argument (possibly involving @witherror)
-',
-    'line_nr' => 5,
-    'macro' => 'witherror',
-    'text' => '@center missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'macro_with_error_at_end_line_after_macro'} = '* W l5:@witherror|@center missing argument
+ warning: @center missing argument (possibly involving @witherror)
 
+';
 
 $result_nodes_list{'macro_with_error_at_end_line_after_macro'} = '';
 

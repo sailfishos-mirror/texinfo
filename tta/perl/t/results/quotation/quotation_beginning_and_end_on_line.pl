@@ -38,16 +38,10 @@ $result_texis{'quotation_beginning_and_end_on_line'} = '@quotation in quotation 
 $result_texts{'quotation_beginning_and_end_on_line'} = 'in quotation
 ';
 
-$result_errors{'quotation_beginning_and_end_on_line'} = [
-  {
-    'error_line' => 'warning: @end should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@end should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'quotation_beginning_and_end_on_line'} = '* W l1|@end should only appear at the beginning of a line
+ warning: @end should only appear at the beginning of a line
 
+';
 
 $result_nodes_list{'quotation_beginning_and_end_on_line'} = '';
 

@@ -104,23 +104,13 @@ Some text.
 
 ';
 
-$result_errors{'formats_not_closed_in_example'} = [
-  {
-    'error_line' => '`@end\' expected `enumerate\', but saw `example\'
-',
-    'line_nr' => 13,
-    'text' => '`@end\' expected `enumerate\', but saw `example\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '`@end\' expected `table\', but saw `example\'
-',
-    'line_nr' => 13,
-    'text' => '`@end\' expected `table\', but saw `example\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'formats_not_closed_in_example'} = '* E l13|`@end\' expected `enumerate\', but saw `example\'
+ `@end\' expected `enumerate\', but saw `example\'
 
+* E l13|`@end\' expected `table\', but saw `example\'
+ `@end\' expected `table\', but saw `example\'
+
+';
 
 $result_nodes_list{'formats_not_closed_in_example'} = '';
 

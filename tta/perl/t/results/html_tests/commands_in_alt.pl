@@ -68,8 +68,7 @@ $result_texts{'commands_in_alt'} = 'f--ile
 f--ile
 ';
 
-$result_errors{'commands_in_alt'} = [];
-
+$result_errors{'commands_in_alt'} = '';
 
 $result_nodes_list{'commands_in_alt'} = '';
 

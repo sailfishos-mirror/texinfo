@@ -401,8 +401,7 @@ Title
 
 ';
 
-$result_errors{'inter_item_commands_in_enumerate'} = [];
-
+$result_errors{'inter_item_commands_in_enumerate'} = '';
 
 $result_nodes_list{'inter_item_commands_in_enumerate'} = '1|Top
  associated_section: top

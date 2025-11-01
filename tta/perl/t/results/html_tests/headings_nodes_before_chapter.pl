@@ -210,8 +210,7 @@ Topic Two
 *************
 ';
 
-$result_errors{'headings_nodes_before_chapter'} = [];
-
+$result_errors{'headings_nodes_before_chapter'} = '';
 
 $result_nodes_list{'headings_nodes_before_chapter'} = '1|Node 1
  associated_title_command: @heading Topic One

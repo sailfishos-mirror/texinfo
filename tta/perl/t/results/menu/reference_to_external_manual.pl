@@ -69,8 +69,7 @@ $result_texts{'reference_to_external_manual'} = '
 * (info)::
 ';
 
-$result_errors{'reference_to_external_manual'} = [];
-
+$result_errors{'reference_to_external_manual'} = '';
 
 $result_nodes_list{'reference_to_external_manual'} = '1|first
  menus:

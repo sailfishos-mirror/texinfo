@@ -380,8 +380,7 @@ NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |
 
 ';
 
-$result_errors{'special_spaces_in_nodes'} = [];
-
+$result_errors{'special_spaces_in_nodes'} = '';
 
 $result_nodes_list{'special_spaces_in_nodes'} = '1|Top 
  associated_section: top

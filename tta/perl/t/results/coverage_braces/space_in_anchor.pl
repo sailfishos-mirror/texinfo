@@ -30,8 +30,7 @@ $result_texis{'space_in_anchor'} = '@anchor{   anchor  name   }.
 $result_texts{'space_in_anchor'} = '.
 ';
 
-$result_errors{'space_in_anchor'} = [];
-
+$result_errors{'space_in_anchor'} = '';
 
 $result_nodes_list{'space_in_anchor'} = '';
 

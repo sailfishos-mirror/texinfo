@@ -292,8 +292,7 @@ error->.
 
 ';
 
-$result_errors{'customize_translations'} = [];
-
+$result_errors{'customize_translations'} = '';
 
 $result_nodes_list{'customize_translations'} = '1|Top
  associated_section: top

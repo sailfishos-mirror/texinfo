@@ -83,8 +83,7 @@ a, macro2text for macro2
 &&&& 
 ';
 
-$result_errors{'macro_in_macro_arg_simpler'} = [];
-
+$result_errors{'macro_in_macro_arg_simpler'} = '';
 
 $result_nodes_list{'macro_in_macro_arg_simpler'} = '';
 

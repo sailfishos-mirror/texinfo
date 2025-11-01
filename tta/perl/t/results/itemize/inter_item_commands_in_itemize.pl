@@ -269,16 +269,10 @@ T-ext before items.
 bullet item
 ';
 
-$result_errors{'inter_item_commands_in_itemize'} = [
-  {
-    'error_line' => 'warning: @cindex should only appear at the beginning of a line
-',
-    'line_nr' => 16,
-    'text' => '@cindex should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'inter_item_commands_in_itemize'} = '* W l16|@cindex should only appear at the beginning of a line
+ warning: @cindex should only appear at the beginning of a line
 
+';
 
 $result_nodes_list{'inter_item_commands_in_itemize'} = '1|Top
  associated_section: top

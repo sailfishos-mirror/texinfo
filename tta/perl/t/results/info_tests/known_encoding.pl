@@ -53,16 +53,10 @@ $result_texts{'known_encoding'} = '
 
 ';
 
-$result_errors{'known_encoding'} = [
-  {
-    'error_line' => 'warning: encoding `latin1\' is not a canonical texinfo encoding
-',
-    'line_nr' => 2,
-    'text' => 'encoding `latin1\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  }
-];
+$result_errors{'known_encoding'} = '* W l2|encoding `latin1\' is not a canonical texinfo encoding
+ warning: encoding `latin1\' is not a canonical texinfo encoding
 
+';
 
 $result_nodes_list{'known_encoding'} = '1|Top
 ';

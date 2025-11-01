@@ -76,8 +76,7 @@ pt error->.
 
 ';
 
-$result_errors{'modified_translation'} = [];
-
+$result_errors{'modified_translation'} = '';
 
 $result_nodes_list{'modified_translation'} = '';
 

@@ -44,8 +44,7 @@ $result_texts{'empty_line'} = 'example
 after empty line
 ';
 
-$result_errors{'empty_line'} = [];
-
+$result_errors{'empty_line'} = '';
 
 $result_nodes_list{'empty_line'} = '';
 

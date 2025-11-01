@@ -110,8 +110,7 @@ Para
 <in />
 ';
 
-$result_errors{'raw_and_comments'} = [];
-
+$result_errors{'raw_and_comments'} = '';
 
 $result_nodes_list{'raw_and_comments'} = '';
 

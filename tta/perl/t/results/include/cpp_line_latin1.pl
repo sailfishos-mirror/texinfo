@@ -108,25 +108,13 @@ aaa
 
 ';
 
-$result_errors{'cpp_line_latin1'} = [
-  {
-    'error_line' => 'unknown command `gggg\'
-',
-    'file_name' => 'foo.ptèxi',
-    'line_nr' => 102,
-    'text' => 'unknown command `gggg\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'file_name' => 'cpp_line_latin1.texi',
-    'line_nr' => 8,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'cpp_line_latin1'} = '* E foo.ptèxi:l102|unknown command `gggg\'
+ unknown command `gggg\'
 
+* W cpp_line_latin1.texi:l8|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'cpp_line_latin1'} = '1|Top
  associated_section

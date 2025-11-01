@@ -107,8 +107,7 @@ XVAL SET
 
 ';
 
-$result_errors{'value_on_ifset'} = [];
-
+$result_errors{'value_on_ifset'} = '';
 
 $result_nodes_list{'value_on_ifset'} = '';
 

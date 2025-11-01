@@ -126,16 +126,10 @@ text text text text
 
 XX XX XX XxX';
 
-$result_errors{'empty_macro_argument'} = [
-  {
-    'error_line' => 'macro `mymacro\' declared without argument called with an argument
-',
-    'line_nr' => 5,
-    'text' => 'macro `mymacro\' declared without argument called with an argument',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_macro_argument'} = '* E l5|macro `mymacro\' declared without argument called with an argument
+ macro `mymacro\' declared without argument called with an argument
 
+';
 
 $result_nodes_list{'empty_macro_argument'} = '';
 

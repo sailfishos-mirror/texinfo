@@ -52,16 +52,10 @@ $result_texts{'inforef_too_much_args'} = '
 chapter
 ';
 
-$result_errors{'inforef_too_much_args'} = [
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 3,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'inforef_too_much_args'} = '* W l3|@inforef is obsolete
+ warning: @inforef is obsolete
 
+';
 
 $result_nodes_list{'inforef_too_much_args'} = '1|chapter
 ';

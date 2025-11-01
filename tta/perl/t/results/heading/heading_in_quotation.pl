@@ -60,8 +60,7 @@ in quotation @ heading
 
 ';
 
-$result_errors{'heading_in_quotation'} = [];
-
+$result_errors{'heading_in_quotation'} = '';
 
 $result_nodes_list{'heading_in_quotation'} = '';
 

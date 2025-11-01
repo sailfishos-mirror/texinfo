@@ -113,16 +113,10 @@ top
 before Top
 ';
 
-$result_errors{'node_before_top'} = [
-  {
-    'error_line' => 'warning: node `before Top\' not in menu
-',
-    'line_nr' => 1,
-    'text' => 'node `before Top\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_before_top'} = '* W l1|node `before Top\' not in menu
+ warning: node `before Top\' not in menu
 
+';
 
 $result_nodes_list{'node_before_top'} = '1|before Top
 2|Top

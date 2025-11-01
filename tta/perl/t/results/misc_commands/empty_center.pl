@@ -22,16 +22,10 @@ $result_texis{'empty_center'} = '@center
 $result_texts{'empty_center'} = '
 ';
 
-$result_errors{'empty_center'} = [
-  {
-    'error_line' => 'warning: @center missing argument
-',
-    'line_nr' => 1,
-    'text' => '@center missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_center'} = '* W l1|@center missing argument
+ warning: @center missing argument
 
+';
 
 $result_nodes_list{'empty_center'} = '';
 

@@ -293,8 +293,7 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 
 ';
 
-$result_errors{'test_accents_sc_enable_encoding'} = [];
-
+$result_errors{'test_accents_sc_enable_encoding'} = '';
 
 $result_nodes_list{'test_accents_sc_enable_encoding'} = '1|top
  associated_section: top section

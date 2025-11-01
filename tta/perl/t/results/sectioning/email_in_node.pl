@@ -60,8 +60,7 @@ $result_texis{'email_in_node'} = '@node @email{ a } @email{c , d} @email{ , e}
 
 $result_texts{'email_in_node'} = '';
 
-$result_errors{'email_in_node'} = [];
-
+$result_errors{'email_in_node'} = '';
 
 $result_nodes_list{'email_in_node'} = '1|@email{ a } @email{c , d} @email{ , e}
 ';

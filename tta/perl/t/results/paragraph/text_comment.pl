@@ -23,8 +23,7 @@ $result_texis{'text_comment'} = 'text@c comment';
 
 $result_texts{'text_comment'} = 'text';
 
-$result_errors{'text_comment'} = [];
-
+$result_errors{'text_comment'} = '';
 
 $result_nodes_list{'text_comment'} = '';
 

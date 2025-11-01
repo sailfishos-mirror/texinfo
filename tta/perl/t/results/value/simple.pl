@@ -53,8 +53,7 @@ $result_texts{'simple'} = '
 the value b After value.
 ';
 
-$result_errors{'simple'} = [];
-
+$result_errors{'simple'} = '';
 
 $result_nodes_list{'simple'} = '';
 

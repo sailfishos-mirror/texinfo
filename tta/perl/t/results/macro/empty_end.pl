@@ -32,8 +32,7 @@ in foo
 
 $result_texts{'empty_end'} = '';
 
-$result_errors{'empty_end'} = [];
-
+$result_errors{'empty_end'} = '';
 
 $result_nodes_list{'empty_end'} = '';
 

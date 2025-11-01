@@ -52,8 +52,7 @@ $result_texts{'insert_copying_and_paragraph'} = '
 Insertcopying
 ';
 
-$result_errors{'insert_copying_and_paragraph'} = [];
-
+$result_errors{'insert_copying_and_paragraph'} = '';
 
 $result_nodes_list{'insert_copying_and_paragraph'} = '';
 

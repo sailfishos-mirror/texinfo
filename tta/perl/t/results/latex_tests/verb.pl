@@ -64,8 +64,7 @@ b
 a%|!:@b
 ';
 
-$result_errors{'verb'} = [];
-
+$result_errors{'verb'} = '';
 
 $result_nodes_list{'verb'} = '';
 

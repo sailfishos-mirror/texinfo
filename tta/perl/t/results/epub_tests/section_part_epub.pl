@@ -68,23 +68,13 @@ part
 ****
 ';
 
-$result_errors{'section_part_epub'} = [
-  {
-    'error_line' => 'warning: no chapter-level command before @part
-',
-    'line_nr' => 4,
-    'text' => 'no chapter-level command before @part',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: no sectioning command associated with @part
-',
-    'line_nr' => 4,
-    'text' => 'no sectioning command associated with @part',
-    'type' => 'warning'
-  }
-];
+$result_errors{'section_part_epub'} = '* W l4|no chapter-level command before @part
+ warning: no chapter-level command before @part
 
+* W l4|no sectioning command associated with @part
+ warning: no sectioning command associated with @part
+
+';
 
 $result_nodes_list{'section_part_epub'} = '1|Top
  associated_section: 1 section

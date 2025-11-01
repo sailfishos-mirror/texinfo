@@ -25,8 +25,7 @@ $result_texis{'vskip'} = '@vskip 0pt plus 1filll
 
 $result_texts{'vskip'} = '';
 
-$result_errors{'vskip'} = [];
-
+$result_errors{'vskip'} = '';
 
 $result_nodes_list{'vskip'} = '';
 

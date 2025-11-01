@@ -37,8 +37,7 @@ $result_texts{'empty_arguments'} = '
 a
 ';
 
-$result_errors{'empty_arguments'} = [];
-
+$result_errors{'empty_arguments'} = '';
 
 $result_nodes_list{'empty_arguments'} = '';
 

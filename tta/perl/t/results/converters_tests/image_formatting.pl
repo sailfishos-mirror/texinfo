@@ -564,8 +564,7 @@ in para
 f--ile.
 ';
 
-$result_errors{'image_formatting'} = [];
-
+$result_errors{'image_formatting'} = '';
 
 $result_nodes_list{'image_formatting'} = '1|Top
  associated_section: top

@@ -36,23 +36,13 @@ mail,
 text
 ';
 
-$result_errors{'empty_line_in_email'} = [
-  {
-    'error_line' => '@email missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@email missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_line_in_email'} = '* E l1|@email missing closing brace
+ @email missing closing brace
 
+* E l6|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'empty_line_in_email'} = '';
 

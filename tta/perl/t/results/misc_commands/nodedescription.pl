@@ -126,30 +126,16 @@ top
 of chapter
 ';
 
-$result_errors{'nodedescription'} = [
-  {
-    'error_line' => 'warning: @nodedescription outside of any node
-',
-    'line_nr' => 1,
-    'text' => '@nodedescription outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple node @nodedescription
-',
-    'line_nr' => 11,
-    'text' => 'multiple node @nodedescription',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ should not occur at end of argument to line command
-',
-    'line_nr' => 11,
-    'text' => '@ should not occur at end of argument to line command',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodedescription'} = '* W l1|@nodedescription outside of any node
+ warning: @nodedescription outside of any node
 
+* W l11|multiple node @nodedescription
+ warning: multiple node @nodedescription
+
+* W l11|@ should not occur at end of argument to line command
+ warning: @ should not occur at end of argument to line command
+
+';
 
 $result_nodes_list{'nodedescription'} = '1|Top
  associated_section: top

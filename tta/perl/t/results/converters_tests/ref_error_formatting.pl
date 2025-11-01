@@ -781,142 +781,64 @@ $result_texts{'ref_error_formatting'} = '
 @inforef{node,,file name} node
 ';
 
-$result_errors{'ref_error_formatting'} = [
-  {
-    'error_line' => 'warning: command @ref missing a node or external manual argument
-',
-    'line_nr' => 4,
-    'text' => 'command @ref missing a node or external manual argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command @ref missing a node or external manual argument
-',
-    'line_nr' => 5,
-    'text' => 'command @ref missing a node or external manual argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command @ref missing a node or external manual argument
-',
-    'line_nr' => 22,
-    'text' => 'command @ref missing a node or external manual argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 33,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command @inforef missing a node or external manual argument
-',
-    'line_nr' => 33,
-    'text' => 'command @inforef missing a node or external manual argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 34,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 35,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 36,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command @inforef missing a node or external manual argument
-',
-    'line_nr' => 36,
-    'text' => 'command @inforef missing a node or external manual argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 38,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 39,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 40,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 41,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `node\'
-',
-    'line_nr' => 2,
-    'text' => '@ref reference to nonexistent node `node\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `node\'
-',
-    'line_nr' => 8,
-    'text' => '@ref reference to nonexistent node `node\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `node\'
-',
-    'line_nr' => 9,
-    'text' => '@ref reference to nonexistent node `node\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `node\'
-',
-    'line_nr' => 12,
-    'text' => '@ref reference to nonexistent node `node\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@inforef reference to nonexistent node `node\'
-',
-    'line_nr' => 39,
-    'text' => '@inforef reference to nonexistent node `node\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@inforef reference to nonexistent node `node\'
-',
-    'line_nr' => 40,
-    'text' => '@inforef reference to nonexistent node `node\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'ref_error_formatting'} = '* W l4|command @ref missing a node or external manual argument
+ warning: command @ref missing a node or external manual argument
 
+* W l5|command @ref missing a node or external manual argument
+ warning: command @ref missing a node or external manual argument
+
+* W l22|command @ref missing a node or external manual argument
+ warning: command @ref missing a node or external manual argument
+
+* W l33|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l33|command @inforef missing a node or external manual argument
+ warning: command @inforef missing a node or external manual argument
+
+* W l34|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l35|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l36|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l36|command @inforef missing a node or external manual argument
+ warning: command @inforef missing a node or external manual argument
+
+* W l38|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l39|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l40|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l41|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* E l2|@ref reference to nonexistent node `node\'
+ @ref reference to nonexistent node `node\'
+
+* E l8|@ref reference to nonexistent node `node\'
+ @ref reference to nonexistent node `node\'
+
+* E l9|@ref reference to nonexistent node `node\'
+ @ref reference to nonexistent node `node\'
+
+* E l12|@ref reference to nonexistent node `node\'
+ @ref reference to nonexistent node `node\'
+
+* E l39|@inforef reference to nonexistent node `node\'
+ @inforef reference to nonexistent node `node\'
+
+* E l40|@inforef reference to nonexistent node `node\'
+ @inforef reference to nonexistent node `node\'
+
+';
 
 $result_nodes_list{'ref_error_formatting'} = '';
 

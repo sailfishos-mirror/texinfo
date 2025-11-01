@@ -544,23 +544,13 @@ $result_texts{'nodedescriptionblock_descriptions'} = 'test of nodedescriptionblo
 
 ';
 
-$result_errors{'nodedescriptionblock_descriptions'} = [
-  {
-    'error_line' => 'warning: @verb should not appear on @nodedescription line
-',
-    'line_nr' => 16,
-    'text' => '@verb should not appear on @nodedescription line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple node @nodedescriptionblock
-',
-    'line_nr' => 58,
-    'text' => 'multiple node @nodedescriptionblock',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodedescriptionblock_descriptions'} = '* W l16|@verb should not appear on @nodedescription line
+ warning: @verb should not appear on @nodedescription line
 
+* W l58|multiple node @nodedescriptionblock
+ warning: multiple node @nodedescriptionblock
+
+';
 
 $result_nodes_list{'nodedescriptionblock_descriptions'} = '1|Top
  associated_section: test of nodedescriptionblock used in menu

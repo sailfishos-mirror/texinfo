@@ -89,8 +89,7 @@ Texinfo::Convert::Utils $tree = expand_verbatiminclude($registrar, $configuratio
 
 ';
 
-$result_errors{'xref_quote_long_item'} = [];
-
+$result_errors{'xref_quote_long_item'} = '';
 
 $result_nodes_list{'xref_quote_long_item'} = '';
 

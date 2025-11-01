@@ -135,23 +135,13 @@ in example
 
 ';
 
-$result_errors{'text_on_example_command_line'} = [
-  {
-    'error_line' => 'bad argument to @end: example text after end
-',
-    'line_nr' => 10,
-    'text' => 'bad argument to @end: example text after end',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: example text after end example nested in example
-',
-    'line_nr' => 14,
-    'text' => 'bad argument to @end: example text after end example nested in example',
-    'type' => 'error'
-  }
-];
+$result_errors{'text_on_example_command_line'} = '* E l10|bad argument to @end: example text after end
+ bad argument to @end: example text after end
 
+* E l14|bad argument to @end: example text after end example nested in example
+ bad argument to @end: example text after end example nested in example
+
+';
 
 $result_nodes_list{'text_on_example_command_line'} = '';
 

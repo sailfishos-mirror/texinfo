@@ -326,86 +326,40 @@ cmdacc braces first item
 cmdacc braces arg first item
 ';
 
-$result_errors{'accent_on_table_line'} = [
-  {
-    'error_line' => 'warning: command `@~\' must not be followed by new line
-',
-    'line_nr' => 1,
-    'text' => 'command `@~\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @table: @~
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @table: @~',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @table: @~{}
-',
-    'line_nr' => 6,
-    'text' => 'bad argument to @table: @~{}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@~ expected braces
-',
-    'line_nr' => 11,
-    'text' => '@~ expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @table: @~
-',
-    'line_nr' => 11,
-    'text' => 'bad argument to @table: @~',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: command `@~\' must not be followed by new line
-',
-    'line_nr' => 15,
-    'text' => 'command `@~\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @table: @~
-',
-    'line_nr' => 15,
-    'text' => 'bad argument to @table: @~',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
-',
-    'line_nr' => 19,
-    'text' => 'command `@ringaccent\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @table: @ringaccent
-',
-    'line_nr' => 19,
-    'text' => 'bad argument to @table: @ringaccent',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @table: @ringaccent{}
-',
-    'line_nr' => 23,
-    'text' => 'bad argument to @table: @ringaccent{}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @table: @ringaccent{a}
-',
-    'line_nr' => 27,
-    'text' => 'bad argument to @table: @ringaccent{a}',
-    'type' => 'error'
-  }
-];
+$result_errors{'accent_on_table_line'} = '* W l1|command `@~\' must not be followed by new line
+ warning: command `@~\' must not be followed by new line
 
+* E l1|bad argument to @table: @~
+ bad argument to @table: @~
+
+* E l6|bad argument to @table: @~{}
+ bad argument to @table: @~{}
+
+* E l11|@~ expected braces
+ @~ expected braces
+
+* E l11|bad argument to @table: @~
+ bad argument to @table: @~
+
+* W l15|command `@~\' must not be followed by new line
+ warning: command `@~\' must not be followed by new line
+
+* E l15|bad argument to @table: @~
+ bad argument to @table: @~
+
+* W l19|command `@ringaccent\' must not be followed by new line
+ warning: command `@ringaccent\' must not be followed by new line
+
+* E l19|bad argument to @table: @ringaccent
+ bad argument to @table: @ringaccent
+
+* E l23|bad argument to @table: @ringaccent{}
+ bad argument to @table: @ringaccent{}
+
+* E l27|bad argument to @table: @ringaccent{a}
+ bad argument to @table: @ringaccent{a}
+
+';
 
 $result_nodes_list{'accent_on_table_line'} = '';
 

@@ -220,16 +220,10 @@ $result_texts{'loop_nodes'} = 'top
 
 ';
 
-$result_errors{'loop_nodes'} = [
-  {
-    'error_line' => 'warning: node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu
-',
-    'line_nr' => 5,
-    'text' => 'node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'loop_nodes'} = '* W l5|node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu
+ warning: node up pointer for `chap node up\' is `node down\' but up is `Top\' in menu
 
+';
 
 $result_nodes_list{'loop_nodes'} = '1|Top
  associated_section: top

@@ -39,37 +39,19 @@ headitem outside.
 tab outside
 ';
 
-$result_errors{'item_tab_outside_of_table_lists'} = [
-  {
-    'error_line' => '@itemx outside of table or list
-',
-    'line_nr' => 1,
-    'text' => '@itemx outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@headitem outside of table or list
-',
-    'line_nr' => 2,
-    'text' => '@headitem outside of table or list',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `someitem\'
-',
-    'line_nr' => 3,
-    'text' => 'unknown command `someitem\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'ignoring @tab outside of multitable
-',
-    'line_nr' => 4,
-    'text' => 'ignoring @tab outside of multitable',
-    'type' => 'error'
-  }
-];
+$result_errors{'item_tab_outside_of_table_lists'} = '* E l1|@itemx outside of table or list
+ @itemx outside of table or list
 
+* E l2|@headitem outside of table or list
+ @headitem outside of table or list
+
+* E l3|unknown command `someitem\'
+ unknown command `someitem\'
+
+* E l4|ignoring @tab outside of multitable
+ ignoring @tab outside of multitable
+
+';
 
 $result_nodes_list{'item_tab_outside_of_table_lists'} = '';
 

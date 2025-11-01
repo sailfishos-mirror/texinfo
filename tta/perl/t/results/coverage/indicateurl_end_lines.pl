@@ -41,23 +41,13 @@ http://begin2
 cut by blank line
 ';
 
-$result_errors{'indicateurl_end_lines'} = [
-  {
-    'error_line' => '@indicateurl missing closing brace
-',
-    'line_nr' => 4,
-    'text' => '@indicateurl missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'indicateurl_end_lines'} = '* E l4|@indicateurl missing closing brace
+ @indicateurl missing closing brace
 
+* E l6|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'indicateurl_end_lines'} = '';
 

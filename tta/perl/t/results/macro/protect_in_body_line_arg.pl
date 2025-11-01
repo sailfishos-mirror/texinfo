@@ -58,16 +58,10 @@ $result_texts{'protect_in_body_line_arg'} = '
 result:  protected \\ -> \\arg1\\  f\\irst arg, second arg
 ';
 
-$result_errors{'protect_in_body_line_arg'} = [
-  {
-    'error_line' => 'warning: @macroone defined with zero or more than one argument should be invoked with {}
-',
-    'line_nr' => 5,
-    'text' => '@macroone defined with zero or more than one argument should be invoked with {}',
-    'type' => 'warning'
-  }
-];
+$result_errors{'protect_in_body_line_arg'} = '* W l5|@macroone defined with zero or more than one argument should be invoked with {}
+ warning: @macroone defined with zero or more than one argument should be invoked with {}
 
+';
 
 $result_nodes_list{'protect_in_body_line_arg'} = '';
 

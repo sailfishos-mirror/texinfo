@@ -234,16 +234,10 @@ Appendix A Appendix
 *******************
 ';
 
-$result_errors{'part_node_node_part_appendix'} = [
-  {
-    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
-',
-    'line_nr' => 15,
-    'text' => '@node precedes @part, but parts may not be associated with nodes',
-    'type' => 'warning'
-  }
-];
+$result_errors{'part_node_node_part_appendix'} = '* W l15|@node precedes @part, but parts may not be associated with nodes
+ warning: @node precedes @part, but parts may not be associated with nodes
 
+';
 
 $result_nodes_list{'part_node_node_part_appendix'} = '1|Top
  associated_section: top

@@ -105,16 +105,10 @@ top
 
 ';
 
-$result_errors{'top_file_name_and_node_name_collision'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'line_nr' => 7,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  }
-];
+$result_errors{'top_file_name_and_node_name_collision'} = '* W l7|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
 
+';
 
 $result_nodes_list{'top_file_name_and_node_name_collision'} = '1|my node
  associated_section: 1 chap my node

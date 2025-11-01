@@ -67,8 +67,7 @@ Call macro
 in themacro
 ';
 
-$result_errors{'macro_definition_in_include'} = [];
-
+$result_errors{'macro_definition_in_include'} = '';
 
 $result_nodes_list{'macro_definition_in_include'} = '';
 

@@ -512,8 +512,7 @@ Text without blank line 2
 After table.
 ';
 
-$result_errors{'block_commands_in_table'} = [];
-
+$result_errors{'block_commands_in_table'} = '';
 
 $result_nodes_list{'block_commands_in_table'} = '1|Top
  associated_section: Element

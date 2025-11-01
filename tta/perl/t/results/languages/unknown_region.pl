@@ -132,23 +132,13 @@ $result_texts{'unknown_region'} = '
 Variable d\'instance de AAA: BBB CCC
 ';
 
-$result_errors{'unknown_region'} = [
-  {
-    'error_line' => 'warning: NOWHERE is not a valid region code
-',
-    'line_nr' => 1,
-    'text' => 'NOWHERE is not a valid region code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 4,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unknown_region'} = '* W l1|NOWHERE is not a valid region code
+ warning: NOWHERE is not a valid region code
 
+* W l4|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'unknown_region'} = '1|Top
  node_directions:

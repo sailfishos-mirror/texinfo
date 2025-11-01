@@ -53,30 +53,16 @@ $result_texts{'section_on_float_line'} = 't, l
 =======
 ';
 
-$result_errors{'section_on_float_line'} = [
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @float line
-',
-    'line_nr' => 1,
-    'text' => '@section should not appear on @float line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@section seen before @end float
-',
-    'line_nr' => 1,
-    'text' => '@section seen before @end float',
-    'type' => 'error'
-  }
-];
+$result_errors{'section_on_float_line'} = '* W l1|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
 
+* W l1|@section should not appear on @float line
+ warning: @section should not appear on @float line
+
+* E l1|@section seen before @end float
+ @section seen before @end float
+
+';
 
 $result_floats{'section_on_float_line'} = 't: 1
  F1: {l}

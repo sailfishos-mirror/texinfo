@@ -451,128 +451,58 @@ truc: machin bidule chose and
 truc: machin bidule chose and and after
 ';
 
-$result_errors{'wrong_braces_simple'} = [
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 1,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 4,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 4,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 7,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 7,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 10,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 10,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 13,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 14,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 14,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 15,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 15,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 16,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 16,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 17,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 17,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'wrong_braces_simple'} = '* E l1|misplaced }
+ misplaced }
 
+* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l4|misplaced }
+ misplaced }
+
+* W l4|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l7|misplaced {
+ misplaced {
+
+* W l7|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l10|misplaced {
+ misplaced {
+
+* W l10|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l13|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l14|misplaced }
+ misplaced }
+
+* W l14|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l15|misplaced }
+ misplaced }
+
+* W l15|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l16|misplaced {
+ misplaced {
+
+* W l16|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l17|misplaced {
+ misplaced {
+
+* W l17|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'wrong_braces_simple'} = '';
 

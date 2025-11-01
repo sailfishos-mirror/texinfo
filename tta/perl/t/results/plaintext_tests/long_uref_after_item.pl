@@ -46,8 +46,7 @@ $result_texis{'long_uref_after_item'} = '@itemize
 $result_texts{'long_uref_after_item'} = 'http://foo.org/some/long/url/which/goes/past/eighty/columns/and/has/no/alternative/text.html
 ';
 
-$result_errors{'long_uref_after_item'} = [];
-
+$result_errors{'long_uref_after_item'} = '';
 
 $result_nodes_list{'long_uref_after_item'} = '';
 

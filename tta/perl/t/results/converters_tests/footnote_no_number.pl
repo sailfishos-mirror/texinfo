@@ -109,8 +109,7 @@ Para.
 Para2.
 ';
 
-$result_errors{'footnote_no_number'} = [];
-
+$result_errors{'footnote_no_number'} = '';
 
 $result_nodes_list{'footnote_no_number'} = '1|Top
  associated_section: top

@@ -76,8 +76,7 @@ $result_texts{'commands_in_ifset'} = '
 
 ';
 
-$result_errors{'commands_in_ifset'} = [];
-
+$result_errors{'commands_in_ifset'} = '';
 
 $result_nodes_list{'commands_in_ifset'} = '';
 

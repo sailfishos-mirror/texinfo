@@ -31,16 +31,10 @@ $result_texis{'inlineiffmtifelse_not_closed_three_arg'} = '@inlinefmtifelse{html
 $result_texts{'inlineiffmtifelse_not_closed_three_arg'} = 'ggggg
 ';
 
-$result_errors{'inlineiffmtifelse_not_closed_three_arg'} = [
-  {
-    'error_line' => '@inlinefmtifelse missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@inlinefmtifelse missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'inlineiffmtifelse_not_closed_three_arg'} = '* E l1|@inlinefmtifelse missing closing brace
+ @inlinefmtifelse missing closing brace
 
+';
 
 $result_nodes_list{'inlineiffmtifelse_not_closed_three_arg'} = '';
 

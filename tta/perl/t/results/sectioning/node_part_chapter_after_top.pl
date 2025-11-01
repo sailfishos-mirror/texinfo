@@ -153,16 +153,10 @@ part
 *********
 ';
 
-$result_errors{'node_part_chapter_after_top'} = [
-  {
-    'error_line' => 'warning: @node precedes @part, but parts may not be associated with nodes
-',
-    'line_nr' => 9,
-    'text' => '@node precedes @part, but parts may not be associated with nodes',
-    'type' => 'warning'
-  }
-];
+$result_errors{'node_part_chapter_after_top'} = '* W l9|@node precedes @part, but parts may not be associated with nodes
+ warning: @node precedes @part, but parts may not be associated with nodes
 
+';
 
 $result_nodes_list{'node_part_chapter_after_top'} = '1|Top
  associated_section: top

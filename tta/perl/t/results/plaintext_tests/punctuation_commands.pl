@@ -155,8 +155,7 @@ Symb.)"\']
 End.
 ';
 
-$result_errors{'punctuation_commands'} = [];
-
+$result_errors{'punctuation_commands'} = '';
 
 $result_nodes_list{'punctuation_commands'} = '';
 

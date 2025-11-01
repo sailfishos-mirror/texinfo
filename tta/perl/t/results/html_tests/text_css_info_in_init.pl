@@ -80,8 +80,7 @@ in r in code
 in a new heading
 ';
 
-$result_errors{'text_css_info_in_init'} = [];
-
+$result_errors{'text_css_info_in_init'} = '';
 
 $result_nodes_list{'text_css_info_in_init'} = '1|Top
  associated_section: top

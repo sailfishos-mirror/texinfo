@@ -46,8 +46,7 @@ $result_texis{'enumerate_above_ten'} = '@enumerate 14
 $result_texts{'enumerate_above_ten'} = '14. a
 ';
 
-$result_errors{'enumerate_above_ten'} = [];
-
+$result_errors{'enumerate_above_ten'} = '';
 
 $result_nodes_list{'enumerate_above_ten'} = '';
 

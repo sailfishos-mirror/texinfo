@@ -51,16 +51,10 @@ $result_texts{'verb_in_xref'} = '
 point.
 ';
 
-$result_errors{'verb_in_xref'} = [
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @xref
-',
-    'line_nr' => 3,
-    'text' => '@verb should not appear anywhere inside @xref',
-    'type' => 'warning'
-  }
-];
+$result_errors{'verb_in_xref'} = '* W l3|@verb should not appear anywhere inside @xref
+ warning: @verb should not appear anywhere inside @xref
 
+';
 
 $result_nodes_list{'verb_in_xref'} = '';
 

@@ -30,16 +30,10 @@ Second paragraph.
 
 $result_texts{'footnote_not_closed'} = 'AAA';
 
-$result_errors{'footnote_not_closed'} = [
-  {
-    'error_line' => '@footnote missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@footnote missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'footnote_not_closed'} = '* E l1|@footnote missing closing brace
+ @footnote missing closing brace
 
+';
 
 $result_nodes_list{'footnote_not_closed'} = '';
 

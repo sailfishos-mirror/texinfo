@@ -20,8 +20,7 @@ $result_texis{'accent_command_punctuation'} = '@dotaccent{e} after';
 
 $result_texts{'accent_command_punctuation'} = 'e. after';
 
-$result_errors{'accent_command_punctuation'} = [];
-
+$result_errors{'accent_command_punctuation'} = '';
 
 $result_nodes_list{'accent_command_punctuation'} = '';
 

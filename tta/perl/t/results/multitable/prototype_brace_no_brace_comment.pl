@@ -50,8 +50,7 @@ $result_texis{'prototype_brace_no_brace_comment'} = '@multitable {aa} bb@comment
 
 $result_texts{'prototype_brace_no_brace_comment'} = '';
 
-$result_errors{'prototype_brace_no_brace_comment'} = [];
-
+$result_errors{'prototype_brace_no_brace_comment'} = '';
 
 $result_nodes_list{'prototype_brace_no_brace_comment'} = '';
 

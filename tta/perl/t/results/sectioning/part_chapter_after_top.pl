@@ -153,8 +153,7 @@ part
 *********
 ';
 
-$result_errors{'part_chapter_after_top'} = [];
-
+$result_errors{'part_chapter_after_top'} = '';
 
 $result_nodes_list{'part_chapter_after_top'} = '1|Top
  associated_section: top

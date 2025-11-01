@@ -487,8 +487,7 @@ accented char in latin1 in refs
 
 ';
 
-$result_errors{'char_us_ascii_latin1_in_refs_no_translit_files'} = [];
-
+$result_errors{'char_us_ascii_latin1_in_refs_no_translit_files'} = '';
 
 $result_nodes_list{'char_us_ascii_latin1_in_refs_no_translit_files'} = '1|Top
  associated_section: accented char in latin1 in refs

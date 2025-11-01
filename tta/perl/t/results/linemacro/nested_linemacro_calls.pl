@@ -188,64 +188,28 @@ $result_texts{'nested_linemacro_calls'} = '
 type: inside X operator Y ( remaining, type typed )
 ';
 
-$result_errors{'nested_linemacro_calls'} = [
-  {
-    'error_line' => 'misplaced { (possibly involving @inside)
-',
-    'line_nr' => 11,
-    'macro' => 'inside',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced { (possibly involving @inside)
-',
-    'line_nr' => 11,
-    'macro' => 'inside',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced } (possibly involving @inside)
-',
-    'line_nr' => 11,
-    'macro' => 'inside',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced } (possibly involving @inside)
-',
-    'line_nr' => 11,
-    'macro' => 'inside',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced { (possibly involving @inside)
-',
-    'line_nr' => 11,
-    'macro' => 'inside',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced } (possibly involving @inside)
-',
-    'line_nr' => 11,
-    'macro' => 'inside',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 11,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nested_linemacro_calls'} = '* E l11:@inside|misplaced {
+ misplaced { (possibly involving @inside)
 
+* E l11:@inside|misplaced {
+ misplaced { (possibly involving @inside)
+
+* E l11:@inside|misplaced }
+ misplaced } (possibly involving @inside)
+
+* E l11:@inside|misplaced }
+ misplaced } (possibly involving @inside)
+
+* E l11:@inside|misplaced {
+ misplaced { (possibly involving @inside)
+
+* E l11:@inside|misplaced }
+ misplaced } (possibly involving @inside)
+
+* W l11|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 $result_nodes_list{'nested_linemacro_calls'} = '';
 

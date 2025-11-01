@@ -62,16 +62,10 @@ top
 TOP.
 ';
 
-$result_errors{'ref_to_top'} = [
-  {
-    'error_line' => 'warning: @xref to `TOP\', different from node name `ToP\'
-',
-    'line_nr' => 5,
-    'text' => '@xref to `TOP\', different from node name `ToP\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'ref_to_top'} = '* W l5|@xref to `TOP\', different from node name `ToP\'
+ warning: @xref to `TOP\', different from node name `ToP\'
 
+';
 
 $result_nodes_list{'ref_to_top'} = '1|ToP
  associated_section: top

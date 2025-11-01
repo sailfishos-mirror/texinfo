@@ -46,8 +46,7 @@ text
 $result_texts{'insertcopying_in_example'} = 'text
 ';
 
-$result_errors{'insertcopying_in_example'} = [];
-
+$result_errors{'insertcopying_in_example'} = '';
 
 $result_nodes_list{'insertcopying_in_example'} = '';
 

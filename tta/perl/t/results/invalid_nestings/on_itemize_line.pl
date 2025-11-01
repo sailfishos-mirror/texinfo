@@ -100,65 +100,31 @@ $result_texts{'on_itemize_line'} = 'in item.
 
 ';
 
-$result_errors{'on_itemize_line'} = [
-  {
-    'error_line' => 'warning: @indent should not appear on @itemize line
-',
-    'line_nr' => 1,
-    'text' => '@indent should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @titlefont should not appear on @itemize line
-',
-    'line_nr' => 1,
-    'text' => '@titlefont should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @itemize line
-',
-    'line_nr' => 1,
-    'text' => '@anchor should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @itemize line
-',
-    'line_nr' => 1,
-    'text' => '@footnote should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should not appear on @itemize line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @item should not appear on @itemize line
-',
-    'line_nr' => 5,
-    'text' => '@item should not appear on @itemize line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@item outside of table or list
-',
-    'line_nr' => 5,
-    'text' => '@item outside of table or list',
-    'type' => 'error'
-  }
-];
+$result_errors{'on_itemize_line'} = '* W l1|@indent should not appear on @itemize line
+ warning: @indent should not appear on @itemize line
 
+* W l1|@titlefont should not appear on @itemize line
+ warning: @titlefont should not appear on @itemize line
+
+* W l1|@anchor should not appear on @itemize line
+ warning: @anchor should not appear on @itemize line
+
+* W l1|@footnote should not appear on @itemize line
+ warning: @footnote should not appear on @itemize line
+
+* W l1|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+* W l1|@exdent should not appear on @itemize line
+ warning: @exdent should not appear on @itemize line
+
+* W l5|@item should not appear on @itemize line
+ warning: @item should not appear on @itemize line
+
+* E l5|@item outside of table or list
+ @item outside of table or list
+
+';
 
 $result_nodes_list{'on_itemize_line'} = '';
 

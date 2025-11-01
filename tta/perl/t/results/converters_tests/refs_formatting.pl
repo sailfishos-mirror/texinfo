@@ -824,37 +824,19 @@ $result_texts{'refs_formatting'} = '1 chapter
 @inforef{chapter,,file name} chapter
 ';
 
-$result_errors{'refs_formatting'} = [
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 34,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 35,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 36,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @inforef is obsolete
-',
-    'line_nr' => 37,
-    'text' => '@inforef is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'refs_formatting'} = '* W l34|@inforef is obsolete
+ warning: @inforef is obsolete
 
+* W l35|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l36|@inforef is obsolete
+ warning: @inforef is obsolete
+
+* W l37|@inforef is obsolete
+ warning: @inforef is obsolete
+
+';
 
 $result_nodes_list{'refs_formatting'} = '1|chapter
  associated_section: 1 chapter

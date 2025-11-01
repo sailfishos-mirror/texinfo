@@ -210,16 +210,10 @@ a~
 
 ';
 
-$result_errors{'transliterated_split_equivalent_nodes'} = [
-  {
-    'error_line' => 'warning: node `@~a\' in menu in `top\' but not under it in sectioning
-',
-    'line_nr' => 4,
-    'text' => 'node `@~a\' in menu in `top\' but not under it in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'transliterated_split_equivalent_nodes'} = '* W l4|node `@~a\' in menu in `top\' but not under it in sectioning
+ warning: node `@~a\' in menu in `top\' but not under it in sectioning
 
+';
 
 $result_nodes_list{'transliterated_split_equivalent_nodes'} = '1|top
  menus:

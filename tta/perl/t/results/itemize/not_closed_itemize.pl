@@ -22,16 +22,10 @@ $result_texis{'not_closed_itemize'} = '@itemize
 
 $result_texts{'not_closed_itemize'} = '';
 
-$result_errors{'not_closed_itemize'} = [
-  {
-    'error_line' => 'no matching `@end itemize\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end itemize\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'not_closed_itemize'} = '* E l1|no matching `@end itemize\'
+ no matching `@end itemize\'
 
+';
 
 $result_nodes_list{'not_closed_itemize'} = '';
 

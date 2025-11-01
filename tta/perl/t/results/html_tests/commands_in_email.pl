@@ -25,8 +25,7 @@ $result_texis{'commands_in_email'} = '@email{endots @enddots{} @code{in code}}';
 
 $result_texts{'commands_in_email'} = 'endots ... in code';
 
-$result_errors{'commands_in_email'} = [];
-
+$result_errors{'commands_in_email'} = '';
 
 $result_nodes_list{'commands_in_email'} = '';
 

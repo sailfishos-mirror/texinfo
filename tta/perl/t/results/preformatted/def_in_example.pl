@@ -83,16 +83,10 @@ $result_texts{'def_in_example'} = 'Function: name arg
 in defun
 ';
 
-$result_errors{'def_in_example'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'def_in_example'} = '* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'def_in_example'} = '';
 

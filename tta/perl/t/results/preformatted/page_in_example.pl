@@ -45,8 +45,7 @@ $result_texts{'page_in_example'} = '
 text
 ';
 
-$result_errors{'page_in_example'} = [];
-
+$result_errors{'page_in_example'} = '';
 
 $result_nodes_list{'page_in_example'} = '';
 

@@ -31,8 +31,7 @@ $result_texis{'thischapter_in_math_in_evenfooting'} = '
 $result_texts{'thischapter_in_math_in_evenfooting'} = '
 ';
 
-$result_errors{'thischapter_in_math_in_evenfooting'} = [];
-
+$result_errors{'thischapter_in_math_in_evenfooting'} = '';
 
 $result_nodes_list{'thischapter_in_math_in_evenfooting'} = '';
 

@@ -20,23 +20,13 @@ $result_texis{'macro_no_argument'} = '@macro';
 
 $result_texts{'macro_no_argument'} = '';
 
-$result_errors{'macro_no_argument'} = [
-  {
-    'error_line' => '@macro requires a name
-',
-    'line_nr' => 1,
-    'text' => '@macro requires a name',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end macro\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end macro\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_no_argument'} = '* E l1|@macro requires a name
+ @macro requires a name
 
+* E l1|no matching `@end macro\'
+ no matching `@end macro\'
+
+';
 
 $result_nodes_list{'macro_no_argument'} = '';
 

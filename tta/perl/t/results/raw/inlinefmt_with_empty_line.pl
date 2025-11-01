@@ -63,37 +63,19 @@ in
 <i>HTML</i>.
 ';
 
-$result_errors{'inlinefmt_with_empty_line'} = [
-  {
-    'error_line' => '@inlinefmt missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@inlinefmt missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 3,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@inlinefmt missing closing brace
-',
-    'line_nr' => 4,
-    'text' => '@inlinefmt missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'inlinefmt_with_empty_line'} = '* E l1|@inlinefmt missing closing brace
+ @inlinefmt missing closing brace
 
+* E l3|misplaced }
+ misplaced }
+
+* E l4|@inlinefmt missing closing brace
+ @inlinefmt missing closing brace
+
+* E l6|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'inlinefmt_with_empty_line'} = '';
 

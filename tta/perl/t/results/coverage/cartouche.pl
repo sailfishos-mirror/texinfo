@@ -71,8 +71,7 @@ Title of box
 Out of main text
 ';
 
-$result_errors{'cartouche'} = [];
-
+$result_errors{'cartouche'} = '';
 
 $result_nodes_list{'cartouche'} = '';
 

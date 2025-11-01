@@ -44,16 +44,10 @@ $result_texis{'accent_with_text'} = '@u{--a} @dotless{--b} @^{--@dotless{i}} @^{
 $result_texts{'accent_with_text'} = '-a( -b i^ j^ -a^
 ';
 
-$result_errors{'accent_with_text'} = [
-  {
-    'error_line' => '@dotless expects `i\' or `j\' as argument, not `--b\'
-',
-    'line_nr' => 1,
-    'text' => '@dotless expects `i\' or `j\' as argument, not `--b\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'accent_with_text'} = '* E l1|@dotless expects `i\' or `j\' as argument, not `--b\'
+ @dotless expects `i\' or `j\' as argument, not `--b\'
 
+';
 
 $result_nodes_list{'accent_with_text'} = '';
 

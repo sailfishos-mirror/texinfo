@@ -17,16 +17,10 @@ $result_texis{'brace_command_no_braces'} = '@xref';
 
 $result_texts{'brace_command_no_braces'} = '';
 
-$result_errors{'brace_command_no_braces'} = [
-  {
-    'error_line' => '@xref expected braces
-',
-    'line_nr' => 1,
-    'text' => '@xref expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'brace_command_no_braces'} = '* E l1|@xref expected braces
+ @xref expected braces
 
+';
 
 $result_nodes_list{'brace_command_no_braces'} = '';
 

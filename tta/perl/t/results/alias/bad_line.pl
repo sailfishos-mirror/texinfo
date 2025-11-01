@@ -44,37 +44,19 @@ $result_texts{'bad_line'} = '
 
 ';
 
-$result_errors{'bad_line'} = [
-  {
-    'error_line' => 'bad argument to @alias
-',
-    'line_nr' => 2,
-    'text' => 'bad argument to @alias',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @code should not appear in @alias
-',
-    'line_nr' => 4,
-    'text' => '@code should not appear in @alias',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'superfluous argument to @alias
-',
-    'line_nr' => 4,
-    'text' => 'superfluous argument to @alias',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @alias
-',
-    'line_nr' => 4,
-    'text' => 'bad argument to @alias',
-    'type' => 'error'
-  }
-];
+$result_errors{'bad_line'} = '* E l2|bad argument to @alias
+ bad argument to @alias
 
+* W l4|@code should not appear in @alias
+ warning: @code should not appear in @alias
+
+* E l4|superfluous argument to @alias
+ superfluous argument to @alias
+
+* E l4|bad argument to @alias
+ bad argument to @alias
+
+';
 
 $result_nodes_list{'bad_line'} = '';
 

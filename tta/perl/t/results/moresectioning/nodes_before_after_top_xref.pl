@@ -234,23 +234,13 @@ after.
 
 ';
 
-$result_errors{'nodes_before_after_top_xref'} = [
-  {
-    'error_line' => 'warning: node `node before\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `node before\' not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `after\' not in menu
-',
-    'line_nr' => 12,
-    'text' => 'node `after\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodes_before_after_top_xref'} = '* W l3|node `node before\' not in menu
+ warning: node `node before\' not in menu
 
+* W l12|node `after\' not in menu
+ warning: node `after\' not in menu
+
+';
 
 $result_nodes_list{'nodes_before_after_top_xref'} = '1|node before
 2|Top

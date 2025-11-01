@@ -238,23 +238,13 @@ EXAMPLE COMMENT
 
 ';
 
-$result_errors{'sc_in_menu'} = [
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 19,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `first\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `first\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'sc_in_menu'} = '* W l19|@menu in invalid context
+ warning: @menu in invalid context
 
+* W l2|node `first\' not in menu
+ warning: node `first\' not in menu
+
+';
 
 $result_nodes_list{'sc_in_menu'} = '1|first
  menus:

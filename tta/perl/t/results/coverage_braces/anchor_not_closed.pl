@@ -21,16 +21,10 @@ $result_texis{'anchor_not_closed'} = '@anchor{my anchor
 
 $result_texts{'anchor_not_closed'} = '';
 
-$result_errors{'anchor_not_closed'} = [
-  {
-    'error_line' => '@anchor missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@anchor missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'anchor_not_closed'} = '* E l1|@anchor missing closing brace
+ @anchor missing closing brace
 
+';
 
 $result_nodes_list{'anchor_not_closed'} = '';
 

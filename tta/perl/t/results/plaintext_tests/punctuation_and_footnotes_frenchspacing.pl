@@ -164,8 +164,7 @@ w.  S2
 w.   S3.
 ';
 
-$result_errors{'punctuation_and_footnotes_frenchspacing'} = [];
-
+$result_errors{'punctuation_and_footnotes_frenchspacing'} = '';
 
 $result_nodes_list{'punctuation_and_footnotes_frenchspacing'} = '';
 

@@ -44,23 +44,13 @@ $result_texis{'prototype_no_brace'} = '@multitable aa@var{FF} b    cc
 
 $result_texts{'prototype_no_brace'} = '';
 
-$result_errors{'prototype_no_brace'} = [
-  {
-    'error_line' => 'warning: unexpected argument on @multitable line: @var{FF}
-',
-    'line_nr' => 1,
-    'text' => 'unexpected argument on @multitable line: @var{FF}',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: empty multitable
-',
-    'line_nr' => 1,
-    'text' => 'empty multitable',
-    'type' => 'warning'
-  }
-];
+$result_errors{'prototype_no_brace'} = '* W l1|unexpected argument on @multitable line: @var{FF}
+ warning: unexpected argument on @multitable line: @var{FF}
 
+* W l1|empty multitable
+ warning: empty multitable
+
+';
 
 $result_nodes_list{'prototype_no_brace'} = '';
 

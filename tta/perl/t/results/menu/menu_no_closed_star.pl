@@ -25,16 +25,10 @@ $result_texis{'menu_no_closed_star'} = '@menu
 
 $result_texts{'menu_no_closed_star'} = '* ';
 
-$result_errors{'menu_no_closed_star'} = [
-  {
-    'error_line' => 'no matching `@end menu\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end menu\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'menu_no_closed_star'} = '* E l1|no matching `@end menu\'
+ no matching `@end menu\'
 
+';
 
 $result_nodes_list{'menu_no_closed_star'} = '';
 

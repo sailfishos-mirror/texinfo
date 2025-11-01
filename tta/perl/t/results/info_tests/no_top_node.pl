@@ -30,8 +30,7 @@ $result_texis{'no_top_node'} = '@node node Top not Top node
 
 $result_texts{'no_top_node'} = '';
 
-$result_errors{'no_top_node'} = [];
-
+$result_errors{'no_top_node'} = '';
 
 $result_nodes_list{'no_top_node'} = '1|node Top not Top node
 ';

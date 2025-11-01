@@ -62,8 +62,7 @@ $result_texts{'no_macrobody'} = '
 .
 ';
 
-$result_errors{'no_macrobody'} = [];
-
+$result_errors{'no_macrobody'} = '';
 
 $result_nodes_list{'no_macrobody'} = '';
 

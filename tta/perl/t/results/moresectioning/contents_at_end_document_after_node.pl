@@ -137,8 +137,7 @@ $result_texts{'contents_at_end_document_after_node'} = 'contents at end document
 
 ';
 
-$result_errors{'contents_at_end_document_after_node'} = [];
-
+$result_errors{'contents_at_end_document_after_node'} = '';
 
 $result_nodes_list{'contents_at_end_document_after_node'} = '1|Top
  associated_section: contents at end document after node

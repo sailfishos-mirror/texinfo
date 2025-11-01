@@ -42,8 +42,7 @@ $result_texis{'include_space_comment'} = 'In included file.
 $result_texts{'include_space_comment'} = 'In included file.
 ';
 
-$result_errors{'include_space_comment'} = [];
-
+$result_errors{'include_space_comment'} = '';
 
 $result_nodes_list{'include_space_comment'} = '';
 

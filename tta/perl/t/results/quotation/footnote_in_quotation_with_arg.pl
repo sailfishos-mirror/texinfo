@@ -50,8 +50,7 @@ $result_texts{'footnote_in_quotation_with_arg'} = 'lean
 A b.
 ';
 
-$result_errors{'footnote_in_quotation_with_arg'} = [];
-
+$result_errors{'footnote_in_quotation_with_arg'} = '';
 
 $result_nodes_list{'footnote_in_quotation_with_arg'} = '';
 

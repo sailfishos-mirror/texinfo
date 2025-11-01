@@ -38,72 +38,34 @@ $result_texis{'heading_commands_in_documentlanguage'} = '@documentlanguage @code
 
 $result_texts{'heading_commands_in_documentlanguage'} = '';
 
-$result_errors{'heading_commands_in_documentlanguage'} = [
-  {
-    'error_line' => 'warning: @code should not appear in @documentlanguage
-',
-    'line_nr' => 1,
-    'text' => '@code should not appear in @documentlanguage',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@thischapter should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@thischapter should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @| should not appear in @documentlanguage
-',
-    'line_nr' => 1,
-    'text' => '@| should not appear in @documentlanguage',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@| should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@| should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @thissection should not appear in @documentlanguage
-',
-    'line_nr' => 1,
-    'text' => '@thissection should not appear in @documentlanguage',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@thissection should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@thissection should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @| should not appear in @documentlanguage
-',
-    'line_nr' => 1,
-    'text' => '@| should not appear in @documentlanguage',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@| should only appear in heading or footing
-',
-    'line_nr' => 1,
-    'text' => '@| should only appear in heading or footing',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @documentlanguage: @code{aaa @thischapter} @| @thissection @| b
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @documentlanguage: @code{aaa @thischapter} @| @thissection @| b',
-    'type' => 'error'
-  }
-];
+$result_errors{'heading_commands_in_documentlanguage'} = '* W l1|@code should not appear in @documentlanguage
+ warning: @code should not appear in @documentlanguage
 
+* E l1|@thischapter should only appear in heading or footing
+ @thischapter should only appear in heading or footing
+
+* W l1|@| should not appear in @documentlanguage
+ warning: @| should not appear in @documentlanguage
+
+* E l1|@| should only appear in heading or footing
+ @| should only appear in heading or footing
+
+* W l1|@thissection should not appear in @documentlanguage
+ warning: @thissection should not appear in @documentlanguage
+
+* E l1|@thissection should only appear in heading or footing
+ @thissection should only appear in heading or footing
+
+* W l1|@| should not appear in @documentlanguage
+ warning: @| should not appear in @documentlanguage
+
+* E l1|@| should only appear in heading or footing
+ @| should only appear in heading or footing
+
+* E l1|bad argument to @documentlanguage: @code{aaa @thischapter} @| @thissection @| b
+ bad argument to @documentlanguage: @code{aaa @thischapter} @| @thissection @| b
+
+';
 
 $result_nodes_list{'heading_commands_in_documentlanguage'} = '';
 

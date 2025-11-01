@@ -19,16 +19,10 @@ $result_texis{'accent_no_closed'} = '@~{e}';
 
 $result_texts{'accent_no_closed'} = 'e~';
 
-$result_errors{'accent_no_closed'} = [
-  {
-    'error_line' => '@~ missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@~ missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'accent_no_closed'} = '* E l1|@~ missing closing brace
+ @~ missing closing brace
 
+';
 
 $result_nodes_list{'accent_no_closed'} = '';
 

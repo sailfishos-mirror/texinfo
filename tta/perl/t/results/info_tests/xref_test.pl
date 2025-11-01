@@ -102,8 +102,7 @@ $result_texts{'xref_test'} = '
 (m)in ref followed by symbol# g.
 ';
 
-$result_errors{'xref_test'} = [];
-
+$result_errors{'xref_test'} = '';
 
 $result_nodes_list{'xref_test'} = '1|Top
 ';

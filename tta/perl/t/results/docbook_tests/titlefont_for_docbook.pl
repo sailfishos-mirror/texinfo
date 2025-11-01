@@ -23,8 +23,7 @@ $result_texis{'titlefont_for_docbook'} = '@titlefont{Reference Manual}
 $result_texts{'titlefont_for_docbook'} = 'Reference Manual
 ';
 
-$result_errors{'titlefont_for_docbook'} = [];
-
+$result_errors{'titlefont_for_docbook'} = '';
 
 $result_nodes_list{'titlefont_for_docbook'} = '';
 

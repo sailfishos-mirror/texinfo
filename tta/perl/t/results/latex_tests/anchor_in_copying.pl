@@ -129,8 +129,7 @@ top
 a in copying
 ';
 
-$result_errors{'anchor_in_copying'} = [];
-
+$result_errors{'anchor_in_copying'} = '';
 
 $result_nodes_list{'anchor_in_copying'} = '1|Top
  associated_section: top

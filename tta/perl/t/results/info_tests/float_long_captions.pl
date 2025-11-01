@@ -132,8 +132,7 @@ Text, text2
 
 ';
 
-$result_errors{'float_long_captions'} = [];
-
+$result_errors{'float_long_captions'} = '';
 
 $result_floats{'float_long_captions'} = 'Text: 2
  F1: {text1}

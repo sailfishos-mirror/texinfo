@@ -194,8 +194,7 @@ ntiti
 xrefautomaticsectiontitle on ntiti.
 ';
 
-$result_errors{'xrefname'} = [];
-
+$result_errors{'xrefname'} = '';
 
 $result_nodes_list{'xrefname'} = '1|Top
  associated_section: top

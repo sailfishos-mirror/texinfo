@@ -98,8 +98,7 @@ More text
 Another page
 ';
 
-$result_errors{'settitle_and_headings'} = [];
-
+$result_errors{'settitle_and_headings'} = '';
 
 $result_nodes_list{'settitle_and_headings'} = '';
 

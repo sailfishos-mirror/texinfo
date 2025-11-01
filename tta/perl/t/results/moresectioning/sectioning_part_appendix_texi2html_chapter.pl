@@ -231,8 +231,7 @@ A.1 appendixsec
 ===============
 ';
 
-$result_errors{'sectioning_part_appendix_texi2html_chapter'} = [];
-
+$result_errors{'sectioning_part_appendix_texi2html_chapter'} = '';
 
 $result_nodes_list{'sectioning_part_appendix_texi2html_chapter'} = '';
 

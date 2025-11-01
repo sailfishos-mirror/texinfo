@@ -164,8 +164,7 @@ Appendix A App
 
 ';
 
-$result_errors{'directions_buttons_buttons'} = [];
-
+$result_errors{'directions_buttons_buttons'} = '';
 
 $result_nodes_list{'directions_buttons_buttons'} = '1|Top
  associated_section: top

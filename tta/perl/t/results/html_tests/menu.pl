@@ -546,8 +546,7 @@ in detaildescription
 
 ';
 
-$result_errors{'menu'} = [];
-
+$result_errors{'menu'} = '';
 
 $result_nodes_list{'menu'} = '1|Top
  associated_section

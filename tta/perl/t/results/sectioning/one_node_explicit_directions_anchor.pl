@@ -70,8 +70,7 @@ anchor ref .
 ref to ref ref.
 ';
 
-$result_errors{'one_node_explicit_directions_anchor'} = [];
-
+$result_errors{'one_node_explicit_directions_anchor'} = '';
 
 $result_nodes_list{'one_node_explicit_directions_anchor'} = '1|one node
  node_directions:

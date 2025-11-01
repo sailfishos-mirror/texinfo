@@ -46,8 +46,7 @@ other macro
 
 $result_texts{'nested_macros'} = '';
 
-$result_errors{'nested_macros'} = [];
-
+$result_errors{'nested_macros'} = '';
 
 $result_nodes_list{'nested_macros'} = '';
 

@@ -17,16 +17,10 @@ $result_texis{'math_no_braces'} = '@math';
 
 $result_texts{'math_no_braces'} = '';
 
-$result_errors{'math_no_braces'} = [
-  {
-    'error_line' => '@math expected braces
-',
-    'line_nr' => 1,
-    'text' => '@math expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'math_no_braces'} = '* E l1|@math expected braces
+ @math expected braces
 
+';
 
 $result_nodes_list{'math_no_braces'} = '';
 

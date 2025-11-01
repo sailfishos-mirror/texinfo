@@ -57,8 +57,7 @@ $result_texts{'no_colon_in_menu'} = '
 * a
 ';
 
-$result_errors{'no_colon_in_menu'} = [];
-
+$result_errors{'no_colon_in_menu'} = '';
 
 $result_nodes_list{'no_colon_in_menu'} = '1|first
  menus:

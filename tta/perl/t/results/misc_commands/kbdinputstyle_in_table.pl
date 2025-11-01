@@ -716,8 +716,7 @@ i--tem in example
 braced i--tem in example
 ';
 
-$result_errors{'kbdinputstyle_in_table'} = [];
-
+$result_errors{'kbdinputstyle_in_table'} = '';
 
 $result_nodes_list{'kbdinputstyle_in_table'} = '';
 

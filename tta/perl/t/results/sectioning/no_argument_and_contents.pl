@@ -67,8 +67,7 @@ for example
 
 ';
 
-$result_errors{'no_argument_and_contents'} = [];
-
+$result_errors{'no_argument_and_contents'} = '';
 
 $result_nodes_list{'no_argument_and_contents'} = '';
 

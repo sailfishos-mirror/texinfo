@@ -121,8 +121,7 @@ section top
 In chapter
 ';
 
-$result_errors{'titlepage_no_author'} = [];
-
+$result_errors{'titlepage_no_author'} = '';
 
 $result_nodes_list{'titlepage_no_author'} = '1|Top
  associated_section: section top

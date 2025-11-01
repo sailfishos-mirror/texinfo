@@ -706,8 +706,7 @@ Variable d\'instance de AAA: BBB CCC
 In brazilian. chapter ja.
 ';
 
-$result_errors{'multiple_lang_chapters_latex'} = [];
-
+$result_errors{'multiple_lang_chapters_latex'} = '';
 
 $result_nodes_list{'multiple_lang_chapters_latex'} = '1|Top
  associated_section: Multi language file

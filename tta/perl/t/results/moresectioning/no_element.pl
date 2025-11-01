@@ -228,16 +228,10 @@ float anchor.
 
 ';
 
-$result_errors{'no_element'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 32,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'no_element'} = '* W l32|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+';
 
 $result_floats{'no_element'} = ': 1
  F1: {float-anchor}

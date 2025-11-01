@@ -71,23 +71,13 @@ Multitable
 truc machin
 ';
 
-$result_errors{'multitable_in_style_command'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_in_style_command'} = '* E l1|@code missing closing brace
+ @code missing closing brace
 
+* E l6|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'multitable_in_style_command'} = '';
 

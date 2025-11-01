@@ -64,8 +64,7 @@ $result_texts{'no_documentencoding_and_insertions'} = '
 -- --- \'\' `` ` \' in code. e~.
 ';
 
-$result_errors{'no_documentencoding_and_insertions'} = [];
-
+$result_errors{'no_documentencoding_and_insertions'} = '';
 
 $result_nodes_list{'no_documentencoding_and_insertions'} = '';
 

@@ -40,8 +40,7 @@ AA
 Following
 ';
 
-$result_errors{'no_eol_in_included_file'} = [];
-
+$result_errors{'no_eol_in_included_file'} = '';
 
 $result_nodes_list{'no_eol_in_included_file'} = '';
 

@@ -574,8 +574,7 @@ very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez
 az az az az
 ';
 
-$result_errors{'exdent_and_formats'} = [];
-
+$result_errors{'exdent_and_formats'} = '';
 
 $result_nodes_list{'exdent_and_formats'} = '';
 

@@ -86,16 +86,10 @@ in example
 After caption
 ';
 
-$result_errors{'caption_in_example'} = [
-  {
-    'error_line' => 'warning: @caption should be right below `@float\'
-',
-    'line_nr' => 6,
-    'text' => '@caption should be right below `@float\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'caption_in_example'} = '* W l6|@caption should be right below `@float\'
+ warning: @caption should be right below `@float\'
 
+';
 
 $result_floats{'caption_in_example'} = 'float: 1
  F

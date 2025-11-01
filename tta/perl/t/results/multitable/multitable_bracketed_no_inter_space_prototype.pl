@@ -46,8 +46,7 @@ $result_texis{'multitable_bracketed_no_inter_space_prototype'} = '
 $result_texts{'multitable_bracketed_no_inter_space_prototype'} = '
 ';
 
-$result_errors{'multitable_bracketed_no_inter_space_prototype'} = [];
-
+$result_errors{'multitable_bracketed_no_inter_space_prototype'} = '';
 
 $result_nodes_list{'multitable_bracketed_no_inter_space_prototype'} = '';
 

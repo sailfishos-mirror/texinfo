@@ -123,8 +123,7 @@ item
 item
 ';
 
-$result_errors{'accent_argument'} = [];
-
+$result_errors{'accent_argument'} = '';
 
 $result_nodes_list{'accent_argument'} = '';
 

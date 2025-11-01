@@ -211,106 +211,46 @@ Text, float1
 
 ';
 
-$result_errors{'double_node_anchor_float'} = [
-  {
-    'error_line' => '@node `node1\' previously defined
-',
-    'line_nr' => 3,
-    'text' => '@node `node1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'line_nr' => 1,
-    'text' => 'here is the previous definition as @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@anchor `node1\' previously defined
-',
-    'line_nr' => 5,
-    'text' => '@anchor `node1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'line_nr' => 1,
-    'text' => 'here is the previous definition as @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@node `anchor1\' previously defined
-',
-    'line_nr' => 9,
-    'text' => '@node `anchor1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @anchor
-',
-    'line_nr' => 7,
-    'text' => 'here is the previous definition as @anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@float `node1\' previously defined
-',
-    'line_nr' => 11,
-    'text' => '@float `node1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'line_nr' => 1,
-    'text' => 'here is the previous definition as @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@float `anchor1\' previously defined
-',
-    'line_nr' => 14,
-    'text' => '@float `anchor1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @anchor
-',
-    'line_nr' => 7,
-    'text' => 'here is the previous definition as @anchor',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@node `float1\' previously defined
-',
-    'line_nr' => 20,
-    'text' => '@node `float1\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @float
-',
-    'line_nr' => 17,
-    'text' => 'here is the previous definition as @float',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: node `node1\' not in menu
-',
-    'line_nr' => 1,
-    'text' => 'node `node1\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_node_anchor_float'} = '* E l3|@node `node1\' previously defined
+ @node `node1\' previously defined
 
+* EC l1|here is the previous definition as @node
+ here is the previous definition as @node
+
+* E l5|@anchor `node1\' previously defined
+ @anchor `node1\' previously defined
+
+* EC l1|here is the previous definition as @node
+ here is the previous definition as @node
+
+* E l9|@node `anchor1\' previously defined
+ @node `anchor1\' previously defined
+
+* EC l7|here is the previous definition as @anchor
+ here is the previous definition as @anchor
+
+* E l11|@float `node1\' previously defined
+ @float `node1\' previously defined
+
+* EC l1|here is the previous definition as @node
+ here is the previous definition as @node
+
+* E l14|@float `anchor1\' previously defined
+ @float `anchor1\' previously defined
+
+* EC l7|here is the previous definition as @anchor
+ here is the previous definition as @anchor
+
+* E l20|@node `float1\' previously defined
+ @node `float1\' previously defined
+
+* EC l17|here is the previous definition as @float
+ here is the previous definition as @float
+
+* W l1|node `node1\' not in menu
+ warning: node `node1\' not in menu
+
+';
 
 $result_floats{'double_node_anchor_float'} = 'Text: 3
  F1: {node1}

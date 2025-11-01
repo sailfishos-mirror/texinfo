@@ -81,8 +81,7 @@ $result_texts{'xhtml_rule_element_already_closed'} = 'top
 *********
 ';
 
-$result_errors{'xhtml_rule_element_already_closed'} = [];
-
+$result_errors{'xhtml_rule_element_already_closed'} = '';
 
 $result_nodes_list{'xhtml_rule_element_already_closed'} = '1|Top
  associated_section: top

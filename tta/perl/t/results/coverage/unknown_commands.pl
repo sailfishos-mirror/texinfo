@@ -22,23 +22,13 @@ $result_texts{'unknown_commands'} = '
 #
 ';
 
-$result_errors{'unknown_commands'} = [
-  {
-    'error_line' => 'unknown command `unknwon\'
-',
-    'line_nr' => 1,
-    'text' => 'unknown command `unknwon\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unexpected @
-',
-    'line_nr' => 2,
-    'text' => 'unexpected @',
-    'type' => 'error'
-  }
-];
+$result_errors{'unknown_commands'} = '* E l1|unknown command `unknwon\'
+ unknown command `unknwon\'
 
+* E l2|unexpected @
+ unexpected @
+
+';
 
 $result_nodes_list{'unknown_commands'} = '';
 

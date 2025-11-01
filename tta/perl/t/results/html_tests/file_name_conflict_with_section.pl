@@ -75,8 +75,7 @@ $result_texts{'file_name_conflict_with_section'} = 'top
 ******
 ';
 
-$result_errors{'file_name_conflict_with_section'} = [];
-
+$result_errors{'file_name_conflict_with_section'} = '';
 
 $result_nodes_list{'file_name_conflict_with_section'} = '1|Top
  associated_section: top

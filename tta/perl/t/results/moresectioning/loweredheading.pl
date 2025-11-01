@@ -61,8 +61,7 @@ Bar
 ---
 ';
 
-$result_errors{'loweredheading'} = [];
-
+$result_errors{'loweredheading'} = '';
 
 $result_nodes_list{'loweredheading'} = '';
 

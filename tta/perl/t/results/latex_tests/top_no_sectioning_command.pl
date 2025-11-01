@@ -79,8 +79,7 @@ $result_texts{'top_no_sectioning_command'} = '
 Top
 ';
 
-$result_errors{'top_no_sectioning_command'} = [];
-
+$result_errors{'top_no_sectioning_command'} = '';
 
 $result_nodes_list{'top_no_sectioning_command'} = '1|Top
  node_directions:

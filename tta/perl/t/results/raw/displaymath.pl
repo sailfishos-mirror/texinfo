@@ -82,8 +82,7 @@ before
 after
 ';
 
-$result_errors{'displaymath'} = [];
-
+$result_errors{'displaymath'} = '';
 
 $result_nodes_list{'displaymath'} = '';
 

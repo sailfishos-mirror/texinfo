@@ -1079,41 +1079,19 @@ directions and lone node.
 
 ';
 
-$result_errors{'complex'} = [
-  {
-    'error_line' => 'warning: node `between node\' in menu where `Second node\' expected
-',
-    'file_name' => 'complex_sectioning_case.texi',
-    'line_nr' => 5,
-    'text' => 'node `between node\' in menu where `Second node\' expected',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected node `Last node no description\' in menu
-',
-    'file_name' => 'complex_sectioning_case.texi',
-    'line_nr' => 9,
-    'text' => 'unexpected node `Last node no description\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node prev pointer for `continuity\' is `Last node no description\' but prev is `Third node unnumbered\' in menu
-',
-    'file_name' => 'complex_sectioning_case.texi',
-    'line_nr' => 8,
-    'text' => 'node prev pointer for `continuity\' is `Last node no description\' but prev is `Third node unnumbered\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu
-',
-    'file_name' => 'complex_sectioning_case.texi',
-    'line_nr' => 9,
-    'text' => 'node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'complex'} = '* W complex_sectioning_case.texi:l5|node `between node\' in menu where `Second node\' expected
+ warning: node `between node\' in menu where `Second node\' expected
 
+* W complex_sectioning_case.texi:l9|unexpected node `Last node no description\' in menu
+ warning: unexpected node `Last node no description\' in menu
+
+* W complex_sectioning_case.texi:l8|node prev pointer for `continuity\' is `Last node no description\' but prev is `Third node unnumbered\' in menu
+ warning: node prev pointer for `continuity\' is `Last node no description\' but prev is `Third node unnumbered\' in menu
+
+* W complex_sectioning_case.texi:l9|node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu
+ warning: node next pointer for `continuity\' is `Third node unnumbered\' but next is `Last node no description\' in menu
+
+';
 
 $result_nodes_list{'complex'} = '1|Top
  associated_section

@@ -1287,16 +1287,10 @@ B chapter end
 
 ';
 
-$result_errors{'test_index'} = [
-  {
-    'error_line' => 'warning: @centerchap is obsolete
-',
-    'line_nr' => 227,
-    'text' => '@centerchap is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'test_index'} = '* W l227|@centerchap is obsolete
+ warning: @centerchap is obsolete
 
+';
 
 $result_nodes_list{'test_index'} = '1|Top
  associated_section: Element top

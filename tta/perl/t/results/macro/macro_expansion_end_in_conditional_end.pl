@@ -92,8 +92,7 @@ $result_texts{'macro_expansion_end_in_conditional_end'} = '
 Defined
 ';
 
-$result_errors{'macro_expansion_end_in_conditional_end'} = [];
-
+$result_errors{'macro_expansion_end_in_conditional_end'} = '';
 
 $result_nodes_list{'macro_expansion_end_in_conditional_end'} = '';
 

@@ -75,8 +75,7 @@ $result_texts{'mathjax_with_texinfo_html_text'} = 'ab - \\frac{\\xi}{phi (C)} i
 Some a - b >= AA e^.
 ';
 
-$result_errors{'mathjax_with_texinfo_html_text'} = [];
-
+$result_errors{'mathjax_with_texinfo_html_text'} = '';
 
 $result_nodes_list{'mathjax_with_texinfo_html_text'} = '';
 

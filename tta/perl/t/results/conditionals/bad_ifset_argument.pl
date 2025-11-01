@@ -40,16 +40,10 @@ $result_texis{'bad_ifset_argument'} = '';
 
 $result_texts{'bad_ifset_argument'} = '';
 
-$result_errors{'bad_ifset_argument'} = [
-  {
-    'error_line' => 'bad name for @ifset
-',
-    'line_nr' => 1,
-    'text' => 'bad name for @ifset',
-    'type' => 'error'
-  }
-];
+$result_errors{'bad_ifset_argument'} = '* E l1|bad name for @ifset
+ bad name for @ifset
 
+';
 
 $result_nodes_list{'bad_ifset_argument'} = '';
 

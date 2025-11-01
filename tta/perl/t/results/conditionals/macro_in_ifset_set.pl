@@ -127,8 +127,7 @@ $result_texts{'macro_in_ifset_set'} = '
 in ifset
 ';
 
-$result_errors{'macro_in_ifset_set'} = [];
-
+$result_errors{'macro_in_ifset_set'} = '';
 
 $result_nodes_list{'macro_in_ifset_set'} = '';
 

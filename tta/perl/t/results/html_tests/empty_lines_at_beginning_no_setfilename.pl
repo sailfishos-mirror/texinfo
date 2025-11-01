@@ -76,8 +76,7 @@ top
 
 ';
 
-$result_errors{'empty_lines_at_beginning_no_setfilename'} = [];
-
+$result_errors{'empty_lines_at_beginning_no_setfilename'} = '';
 
 $result_nodes_list{'empty_lines_at_beginning_no_setfilename'} = '1|Top
  associated_section: top

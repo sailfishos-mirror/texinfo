@@ -89,44 +89,22 @@ $result_texis{'setfilename'} = '@setfilename file_comment@c comment
 $result_texts{'setfilename'} = '
 ';
 
-$result_errors{'setfilename'} = [
-  {
-    'error_line' => 'warning: multiple @setfilename
-',
-    'line_nr' => 2,
-    'text' => 'multiple @setfilename',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @setfilename
-',
-    'line_nr' => 3,
-    'text' => 'multiple @setfilename',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @setfilename
-',
-    'line_nr' => 4,
-    'text' => 'multiple @setfilename',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear in @setfilename
-',
-    'line_nr' => 4,
-    'text' => '@verb should not appear in @setfilename',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @setfilename: @ @verb{: name :}@
-',
-    'line_nr' => 4,
-    'text' => 'bad argument to @setfilename: @ @verb{: name :}@',
-    'type' => 'error'
-  }
-];
+$result_errors{'setfilename'} = '* W l2|multiple @setfilename
+ warning: multiple @setfilename
 
+* W l3|multiple @setfilename
+ warning: multiple @setfilename
+
+* W l4|multiple @setfilename
+ warning: multiple @setfilename
+
+* W l4|@verb should not appear in @setfilename
+ warning: @verb should not appear in @setfilename
+
+* E l4|bad argument to @setfilename: @ @verb{: name :}@
+ bad argument to @setfilename: @ @verb{: name :}@
+
+';
 
 $result_nodes_list{'setfilename'} = '';
 

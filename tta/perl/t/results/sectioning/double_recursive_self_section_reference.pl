@@ -93,8 +93,7 @@ $result_texts{'double_recursive_self_section_reference'} = '1 n2
 ****
 ';
 
-$result_errors{'double_recursive_self_section_reference'} = [];
-
+$result_errors{'double_recursive_self_section_reference'} = '';
 
 $result_nodes_list{'double_recursive_self_section_reference'} = '1|n1
  associated_section: 1 @ref{n2}

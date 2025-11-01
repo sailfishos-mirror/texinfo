@@ -25,16 +25,10 @@ $result_texis{'synindex_too_much_args'} = '@syncodeindex cp fn    truc
 
 $result_texts{'synindex_too_much_args'} = '';
 
-$result_errors{'synindex_too_much_args'} = [
-  {
-    'error_line' => 'bad argument to @syncodeindex: cp fn    truc
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @syncodeindex: cp fn    truc',
-    'type' => 'error'
-  }
-];
+$result_errors{'synindex_too_much_args'} = '* E l1|bad argument to @syncodeindex: cp fn    truc
+ bad argument to @syncodeindex: cp fn    truc
 
+';
 
 $result_nodes_list{'synindex_too_much_args'} = '';
 

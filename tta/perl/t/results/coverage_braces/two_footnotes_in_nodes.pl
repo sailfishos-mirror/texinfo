@@ -196,8 +196,7 @@ D
 
 ';
 
-$result_errors{'two_footnotes_in_nodes'} = [];
-
+$result_errors{'two_footnotes_in_nodes'} = '';
 
 $result_nodes_list{'two_footnotes_in_nodes'} = '1|Top
  associated_section: 2 footnotes in 2 nodes

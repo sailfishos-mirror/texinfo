@@ -151,8 +151,7 @@ Third para after second paragraphindent.
 
 ';
 
-$result_errors{'paragraphindent_in_preamble_and_in_document'} = [];
-
+$result_errors{'paragraphindent_in_preamble_and_in_document'} = '';
 
 $result_nodes_list{'paragraphindent_in_preamble_and_in_document'} = '1|Top
  associated_section: test @@paragraphindent in preamble effect in preamble

@@ -292,8 +292,7 @@ Glossary
 Ack!
 ';
 
-$result_errors{'special_docbook_unnumbered'} = [];
-
+$result_errors{'special_docbook_unnumbered'} = '';
 
 $result_nodes_list{'special_docbook_unnumbered'} = '1|Top
  associated_section: top

@@ -142,8 +142,7 @@ new comment
 After menu.
 ';
 
-$result_errors{'simple'} = [];
-
+$result_errors{'simple'} = '';
 
 $result_nodes_list{'simple'} = '';
 

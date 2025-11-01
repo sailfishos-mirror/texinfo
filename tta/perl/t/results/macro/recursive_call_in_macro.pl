@@ -51,17 +51,10 @@ $result_texts{'recursive_call_in_macro'} = '
 
 ';
 
-$result_errors{'recursive_call_in_macro'} = [
-  {
-    'error_line' => 'recursive call of macro anorecurse is not allowed; use @rmacro if needed (possibly involving @anorecurse)
-',
-    'line_nr' => 5,
-    'macro' => 'anorecurse',
-    'text' => 'recursive call of macro anorecurse is not allowed; use @rmacro if needed',
-    'type' => 'error'
-  }
-];
+$result_errors{'recursive_call_in_macro'} = '* E l5:@anorecurse|recursive call of macro anorecurse is not allowed; use @rmacro if needed
+ recursive call of macro anorecurse is not allowed; use @rmacro if needed (possibly involving @anorecurse)
 
+';
 
 $result_nodes_list{'recursive_call_in_macro'} = '';
 

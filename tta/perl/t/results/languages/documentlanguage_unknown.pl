@@ -404,8 +404,7 @@ Some text.
 
 ';
 
-$result_errors{'documentlanguage_unknown'} = [];
-
+$result_errors{'documentlanguage_unknown'} = '';
 
 $result_nodes_list{'documentlanguage_unknown'} = '1|Top
  associated_section: top section

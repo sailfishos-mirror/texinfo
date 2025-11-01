@@ -404,37 +404,19 @@ $result_texts{'menutextorder'} = '* foo::
 ========
 ';
 
-$result_errors{'menutextorder'} = [
-  {
-    'error_line' => 'warning: node `onesub2\' in menu where `onesub1\' expected
-',
-    'line_nr' => 10,
-    'text' => 'node `onesub2\' in menu where `onesub1\' expected',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `sub3\' in menu where `sub2\' expected
-',
-    'line_nr' => 25,
-    'text' => 'node `sub3\' in menu where `sub2\' expected',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected node `sub2\' in menu
-',
-    'line_nr' => 26,
-    'text' => 'unexpected node `sub2\' in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `bar\' lacks menu item for `onesub1\' but is above it in sectioning
-',
-    'line_nr' => 6,
-    'text' => 'node `bar\' lacks menu item for `onesub1\' but is above it in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'menutextorder'} = '* W l10|node `onesub2\' in menu where `onesub1\' expected
+ warning: node `onesub2\' in menu where `onesub1\' expected
 
+* W l25|node `sub3\' in menu where `sub2\' expected
+ warning: node `sub3\' in menu where `sub2\' expected
+
+* W l26|unexpected node `sub2\' in menu
+ warning: unexpected node `sub2\' in menu
+
+* W l6|node `bar\' lacks menu item for `onesub1\' but is above it in sectioning
+ warning: node `bar\' lacks menu item for `onesub1\' but is above it in sectioning
+
+';
 
 $result_nodes_list{'menutextorder'} = '1|bar
  associated_section: 1 bar

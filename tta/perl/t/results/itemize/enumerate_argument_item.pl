@@ -198,8 +198,7 @@ aa. lower case second
 1. numeric zero second
 ';
 
-$result_errors{'enumerate_argument_item'} = [];
-
+$result_errors{'enumerate_argument_item'} = '';
 
 $result_nodes_list{'enumerate_argument_item'} = '';
 

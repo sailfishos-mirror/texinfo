@@ -294,58 +294,28 @@ test_var include: This is the included file (include-value2.txi) <> --.
 
 test_var verbatiminclude: ';
 
-$result_errors{'value_expansion_in_include'} = [
-  {
-    'error_line' => 'warning: @include should only appear at the beginning of a line
-',
-    'line_nr' => 13,
-    'text' => '@include should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
-',
-    'line_nr' => 15,
-    'text' => '@verbatiminclude should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @include should only appear at the beginning of a line
-',
-    'line_nr' => 18,
-    'text' => '@include should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
-',
-    'line_nr' => 20,
-    'text' => '@verbatiminclude should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @include should only appear at the beginning of a line
-',
-    'line_nr' => 23,
-    'text' => '@include should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verbatiminclude should only appear at the beginning of a line
-',
-    'line_nr' => 25,
-    'text' => '@verbatiminclude should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 11,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'value_expansion_in_include'} = '* W l13|@include should only appear at the beginning of a line
+ warning: @include should only appear at the beginning of a line
 
+* W l15|@verbatiminclude should only appear at the beginning of a line
+ warning: @verbatiminclude should only appear at the beginning of a line
+
+* W l18|@include should only appear at the beginning of a line
+ warning: @include should only appear at the beginning of a line
+
+* W l20|@verbatiminclude should only appear at the beginning of a line
+ warning: @verbatiminclude should only appear at the beginning of a line
+
+* W l23|@include should only appear at the beginning of a line
+ warning: @include should only appear at the beginning of a line
+
+* W l25|@verbatiminclude should only appear at the beginning of a line
+ warning: @verbatiminclude should only appear at the beginning of a line
+
+* W l11|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'value_expansion_in_include'} = '1|Top
  node_directions:

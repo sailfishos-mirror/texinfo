@@ -95,8 +95,7 @@ $result_texts{'accent_argument_non_ascii'} = 'top
 ê\'
 ';
 
-$result_errors{'accent_argument_non_ascii'} = [];
-
+$result_errors{'accent_argument_non_ascii'} = '';
 
 $result_nodes_list{'accent_argument_non_ascii'} = '1|Top
  associated_section: top

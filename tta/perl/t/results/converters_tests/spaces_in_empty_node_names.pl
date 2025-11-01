@@ -191,86 +191,40 @@ $result_texts{'spaces_in_empty_node_names'} = '
   
 ';
 
-$result_errors{'spaces_in_empty_node_names'} = [
-  {
-    'error_line' => 'empty node name after expansion `@ @ \'
-',
-    'line_nr' => 9,
-    'text' => 'empty node name after expansion `@ @ \'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear on @node line
-',
-    'line_nr' => 11,
-    'text' => '@verb should not appear on @node line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@verb{:  :}\'
-',
-    'line_nr' => 11,
-    'text' => 'empty node name after expansion `@verb{:  :}\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty node name after expansion `@w{  }\'
-',
-    'line_nr' => 13,
-    'text' => 'empty node name after expansion `@w{  }\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @ref
-',
-    'line_nr' => 17,
-    'text' => '@verb should not appear anywhere inside @ref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `@ @ \'
-',
-    'line_nr' => 15,
-    'text' => '@ref reference to nonexistent node `@ @ \'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `@verb{:  :}\'
-',
-    'line_nr' => 17,
-    'text' => '@ref reference to nonexistent node `@verb{:  :}\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@ref reference to nonexistent node `@w{  }\'
-',
-    'line_nr' => 19,
-    'text' => '@ref reference to nonexistent node `@w{  }\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@menu reference to nonexistent node `@ @ \'
-',
-    'line_nr' => 4,
-    'text' => '@menu reference to nonexistent node `@ @ \'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@menu reference to nonexistent node `@verb{:  :}\'
-',
-    'line_nr' => 5,
-    'text' => '@menu reference to nonexistent node `@verb{:  :}\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@menu reference to nonexistent node `@ \'
-',
-    'line_nr' => 6,
-    'text' => '@menu reference to nonexistent node `@ \'',
-    'type' => 'error'
-  }
-];
+$result_errors{'spaces_in_empty_node_names'} = '* E l9|empty node name after expansion `@ @ \'
+ empty node name after expansion `@ @ \'
 
+* W l11|@verb should not appear on @node line
+ warning: @verb should not appear on @node line
+
+* E l11|empty node name after expansion `@verb{:  :}\'
+ empty node name after expansion `@verb{:  :}\'
+
+* E l13|empty node name after expansion `@w{  }\'
+ empty node name after expansion `@w{  }\'
+
+* W l17|@verb should not appear anywhere inside @ref
+ warning: @verb should not appear anywhere inside @ref
+
+* E l15|@ref reference to nonexistent node `@ @ \'
+ @ref reference to nonexistent node `@ @ \'
+
+* E l17|@ref reference to nonexistent node `@verb{:  :}\'
+ @ref reference to nonexistent node `@verb{:  :}\'
+
+* E l19|@ref reference to nonexistent node `@w{  }\'
+ @ref reference to nonexistent node `@w{  }\'
+
+* E l4|@menu reference to nonexistent node `@ @ \'
+ @menu reference to nonexistent node `@ @ \'
+
+* E l5|@menu reference to nonexistent node `@verb{:  :}\'
+ @menu reference to nonexistent node `@verb{:  :}\'
+
+* E l6|@menu reference to nonexistent node `@ \'
+ @menu reference to nonexistent node `@ \'
+
+';
 
 $result_nodes_list{'spaces_in_empty_node_names'} = '1|Top
  menus:

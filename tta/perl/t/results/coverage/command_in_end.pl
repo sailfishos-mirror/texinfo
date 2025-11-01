@@ -229,163 +229,73 @@ In verbatim
 @end verb@code{a}tim
 ';
 
-$result_errors{'command_in_end'} = [
-  {
-    'error_line' => 'warning: @code should not appear in @end
-',
-    'line_nr' => 3,
-    'text' => '@code should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: @code{quotation}
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: @code{quotation}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @code should not appear in @end
-',
-    'line_nr' => 7,
-    'text' => '@code should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unknown @end q
-',
-    'line_nr' => 7,
-    'text' => 'unknown @end q',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: q@code{uotation}
-',
-    'line_nr' => 7,
-    'text' => 'bad argument to @end: q@code{uotation}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @code should not appear in @end
-',
-    'line_nr' => 11,
-    'text' => '@code should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unknown @end qu
-',
-    'line_nr' => 11,
-    'text' => 'unknown @end qu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: qu@code{otation}
-',
-    'line_nr' => 11,
-    'text' => 'bad argument to @end: qu@code{otation}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @asis should not appear in @end
-',
-    'line_nr' => 15,
-    'text' => '@asis should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unknown @end quotn
-',
-    'line_nr' => 15,
-    'text' => 'unknown @end quotn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: quot@asis{atio}n
-',
-    'line_nr' => 15,
-    'text' => 'bad argument to @end: quot@asis{atio}n',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @asis should not appear in @end
-',
-    'line_nr' => 19,
-    'text' => '@asis should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: q@asis{}uotation
-',
-    'line_nr' => 19,
-    'text' => 'bad argument to @end: q@asis{}uotation',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @asis should not appear in @end
-',
-    'line_nr' => 23,
-    'text' => '@asis should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: qu@asis{}otation
-',
-    'line_nr' => 23,
-    'text' => 'bad argument to @end: qu@asis{}otation',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @asis should not appear in @end
-',
-    'line_nr' => 27,
-    'text' => '@asis should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: quot@asis{}ation
-',
-    'line_nr' => 27,
-    'text' => 'bad argument to @end: quot@asis{}ation',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end verbatim\'
-',
-    'line_nr' => 29,
-    'text' => 'no matching `@end verbatim\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end quotation\'
-',
-    'line_nr' => 13,
-    'text' => 'no matching `@end quotation\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end quotation\'
-',
-    'line_nr' => 9,
-    'text' => 'no matching `@end quotation\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end quotation\'
-',
-    'line_nr' => 5,
-    'text' => 'no matching `@end quotation\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end quotation\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end quotation\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_in_end'} = '* W l3|@code should not appear in @end
+ warning: @code should not appear in @end
 
+* E l3|bad argument to @end: @code{quotation}
+ bad argument to @end: @code{quotation}
+
+* W l7|@code should not appear in @end
+ warning: @code should not appear in @end
+
+* W l7|unknown @end q
+ warning: unknown @end q
+
+* E l7|bad argument to @end: q@code{uotation}
+ bad argument to @end: q@code{uotation}
+
+* W l11|@code should not appear in @end
+ warning: @code should not appear in @end
+
+* W l11|unknown @end qu
+ warning: unknown @end qu
+
+* E l11|bad argument to @end: qu@code{otation}
+ bad argument to @end: qu@code{otation}
+
+* W l15|@asis should not appear in @end
+ warning: @asis should not appear in @end
+
+* W l15|unknown @end quotn
+ warning: unknown @end quotn
+
+* E l15|bad argument to @end: quot@asis{atio}n
+ bad argument to @end: quot@asis{atio}n
+
+* W l19|@asis should not appear in @end
+ warning: @asis should not appear in @end
+
+* E l19|bad argument to @end: q@asis{}uotation
+ bad argument to @end: q@asis{}uotation
+
+* W l23|@asis should not appear in @end
+ warning: @asis should not appear in @end
+
+* E l23|bad argument to @end: qu@asis{}otation
+ bad argument to @end: qu@asis{}otation
+
+* W l27|@asis should not appear in @end
+ warning: @asis should not appear in @end
+
+* E l27|bad argument to @end: quot@asis{}ation
+ bad argument to @end: quot@asis{}ation
+
+* E l29|no matching `@end verbatim\'
+ no matching `@end verbatim\'
+
+* E l13|no matching `@end quotation\'
+ no matching `@end quotation\'
+
+* E l9|no matching `@end quotation\'
+ no matching `@end quotation\'
+
+* E l5|no matching `@end quotation\'
+ no matching `@end quotation\'
+
+* E l1|no matching `@end quotation\'
+ no matching `@end quotation\'
+
+';
 
 $result_nodes_list{'command_in_end'} = '';
 

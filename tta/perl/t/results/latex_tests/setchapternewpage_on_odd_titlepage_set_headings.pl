@@ -84,16 +84,10 @@ $result_texts{'setchapternewpage_on_odd_titlepage_set_headings'} = '
 
 ';
 
-$result_errors{'setchapternewpage_on_odd_titlepage_set_headings'} = [
-  {
-    'error_line' => 'warning: multiple @setchapternewpage
-',
-    'line_nr' => 3,
-    'text' => 'multiple @setchapternewpage',
-    'type' => 'warning'
-  }
-];
+$result_errors{'setchapternewpage_on_odd_titlepage_set_headings'} = '* W l3|multiple @setchapternewpage
+ warning: multiple @setchapternewpage
 
+';
 
 $result_nodes_list{'setchapternewpage_on_odd_titlepage_set_headings'} = '';
 

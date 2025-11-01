@@ -72,16 +72,10 @@ $result_texts{'caption_not_closed'} = 'Text
 
 ';
 
-$result_errors{'caption_not_closed'} = [
-  {
-    'error_line' => '@end float seen before @caption closing brace
-',
-    'line_nr' => 3,
-    'text' => '@end float seen before @caption closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'caption_not_closed'} = '* E l3|@end float seen before @caption closing brace
+ @end float seen before @caption closing brace
 
+';
 
 $result_floats{'caption_not_closed'} = 'Text: 1
  F

@@ -25,8 +25,7 @@ $result_texts{'empty_line_in_math'} = 'a
 
 b';
 
-$result_errors{'empty_line_in_math'} = [];
-
+$result_errors{'empty_line_in_math'} = '';
 
 $result_nodes_list{'empty_line_in_math'} = '';
 

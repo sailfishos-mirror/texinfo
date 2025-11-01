@@ -29,39 +29,21 @@ $result_texis{'unclosed_verb_end_of_line_on_misc_line'} = '@setfilename name @ve
 
 $result_texts{'unclosed_verb_end_of_line_on_misc_line'} = '';
 
-$result_errors{'unclosed_verb_end_of_line_on_misc_line'} = [
-  {
-    'error_line' => 'warning: @verb should not appear in @setfilename
-',
-    'line_nr' => 1,
-    'text' => '@verb should not appear in @setfilename',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@verb without associated character
-',
-    'line_nr' => 1,
-    'text' => '@verb without associated character',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@verb missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@verb missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @setfilename: name @verb{
-}
-',
-    'line_nr' => 1,
-    'text' => 'bad argument to @setfilename: name @verb{
-}',
-    'type' => 'error'
-  }
-];
+$result_errors{'unclosed_verb_end_of_line_on_misc_line'} = '* W l1|@verb should not appear in @setfilename
+ warning: @verb should not appear in @setfilename
 
+* E l1|@verb without associated character
+ @verb without associated character
+
+* E l1|@verb missing closing brace
+ @verb missing closing brace
+
+* E l1|bad argument to @setfilename: name @verb{
+}
+ bad argument to @setfilename: name @verb{
+}
+
+';
 
 $result_nodes_list{'unclosed_verb_end_of_line_on_misc_line'} = '';
 

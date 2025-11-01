@@ -91,16 +91,10 @@ in verbatim
     
 ';
 
-$result_errors{'space_before_end'} = [
-  {
-    'error_line' => 'warning: @end verbatim should only appear at the beginning of a line
-',
-    'line_nr' => 7,
-    'text' => '@end verbatim should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'space_before_end'} = '* W l7|@end verbatim should only appear at the beginning of a line
+ warning: @end verbatim should only appear at the beginning of a line
 
+';
 
 $result_nodes_list{'space_before_end'} = '';
 

@@ -72,8 +72,7 @@ first:  commas
 second:  arobase 
 ';
 
-$result_errors{'verb_with_arobase_in_macro_call'} = [];
-
+$result_errors{'verb_with_arobase_in_macro_call'} = '';
 
 $result_nodes_list{'verb_with_arobase_in_macro_call'} = '';
 

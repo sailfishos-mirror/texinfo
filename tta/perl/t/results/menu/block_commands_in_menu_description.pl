@@ -221,8 +221,7 @@ Text.
 
 ';
 
-$result_errors{'block_commands_in_menu_description'} = [];
-
+$result_errors{'block_commands_in_menu_description'} = '';
 
 $result_nodes_list{'block_commands_in_menu_description'} = '1|first
  associated_section: top

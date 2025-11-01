@@ -90,8 +90,7 @@ Symb.)"\']
 End.
 ';
 
-$result_errors{'punctuation'} = [];
-
+$result_errors{'punctuation'} = '';
 
 $result_nodes_list{'punctuation'} = '';
 

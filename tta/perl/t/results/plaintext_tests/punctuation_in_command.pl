@@ -61,8 +61,7 @@ Text. Email a. b dmn 1. 2 and text. indicateurl i. u and then kbd k. d and math 
 asis in code a. c
 ';
 
-$result_errors{'punctuation_in_command'} = [];
-
+$result_errors{'punctuation_in_command'} = '';
 
 $result_nodes_list{'punctuation_in_command'} = '';
 

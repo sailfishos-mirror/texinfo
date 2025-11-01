@@ -94,8 +94,7 @@ New para
 /usr/local/share/emacs
 ';
 
-$result_errors{'example_in_cartouche'} = [];
-
+$result_errors{'example_in_cartouche'} = '';
 
 $result_nodes_list{'example_in_cartouche'} = '';
 

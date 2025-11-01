@@ -115,8 +115,7 @@ b-ullet
 no itemize argument
 ';
 
-$result_errors{'item_container'} = [];
-
+$result_errors{'item_container'} = '';
 
 $result_nodes_list{'item_container'} = '';
 

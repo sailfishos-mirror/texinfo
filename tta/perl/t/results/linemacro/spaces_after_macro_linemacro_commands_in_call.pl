@@ -271,41 +271,19 @@ category:  A Fun B other and remaining
 
 ';
 
-$result_errors{'spaces_after_macro_linemacro_commands_in_call'} = [
-  {
-    'error_line' => 'misplaced { (possibly involving @mylinecommand)
-',
-    'line_nr' => 15,
-    'macro' => 'mylinecommand',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced { (possibly involving @mylinemac)
-',
-    'line_nr' => 17,
-    'macro' => 'mylinemac',
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced } (possibly involving @mylinemac)
-',
-    'line_nr' => 17,
-    'macro' => 'mylinemac',
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: missing name for @defline (possibly involving @mylinecommand)
-',
-    'line_nr' => 17,
-    'macro' => 'mylinecommand',
-    'text' => 'missing name for @defline',
-    'type' => 'warning'
-  }
-];
+$result_errors{'spaces_after_macro_linemacro_commands_in_call'} = '* E l15:@mylinecommand|misplaced {
+ misplaced { (possibly involving @mylinecommand)
 
+* E l17:@mylinemac|misplaced {
+ misplaced { (possibly involving @mylinemac)
+
+* E l17:@mylinemac|misplaced }
+ misplaced } (possibly involving @mylinemac)
+
+* W l17:@mylinecommand|missing name for @defline
+ warning: missing name for @defline (possibly involving @mylinecommand)
+
+';
 
 $result_nodes_list{'spaces_after_macro_linemacro_commands_in_call'} = '';
 

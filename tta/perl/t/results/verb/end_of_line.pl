@@ -32,16 +32,10 @@ $result_texts{'end_of_line'} = 'verb at end of line
 @{ in verb at end of line @c comment
 and now endafter end.';
 
-$result_errors{'end_of_line'} = [
-  {
-    'error_line' => '@verb without associated character
-',
-    'line_nr' => 1,
-    'text' => '@verb without associated character',
-    'type' => 'error'
-  }
-];
+$result_errors{'end_of_line'} = '* E l1|@verb without associated character
+ @verb without associated character
 
+';
 
 $result_nodes_list{'end_of_line'} = '';
 

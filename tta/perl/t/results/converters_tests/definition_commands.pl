@@ -5194,8 +5194,7 @@ name
 
 ';
 
-$result_errors{'definition_commands'} = [];
-
+$result_errors{'definition_commands'} = '';
 
 $result_nodes_list{'definition_commands'} = '1|Top
  associated_section: top section

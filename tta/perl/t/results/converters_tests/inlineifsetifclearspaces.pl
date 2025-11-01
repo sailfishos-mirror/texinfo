@@ -125,23 +125,13 @@ $result_texts{'inlineifsetifclearspaces'} = 'iclear first .
 ifset second .
 ';
 
-$result_errors{'inlineifsetifclearspaces'} = [
-  {
-    'error_line' => 'warning: command `@inlineifclear\' must not be followed by new line
-',
-    'line_nr' => 1,
-    'text' => 'command `@inlineifclear\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@inlineifset\' must not be followed by new line
-',
-    'line_nr' => 4,
-    'text' => 'command `@inlineifset\' must not be followed by new line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'inlineifsetifclearspaces'} = '* W l1|command `@inlineifclear\' must not be followed by new line
+ warning: command `@inlineifclear\' must not be followed by new line
 
+* W l4|command `@inlineifset\' must not be followed by new line
+ warning: command `@inlineifset\' must not be followed by new line
+
+';
 
 $result_nodes_list{'inlineifsetifclearspaces'} = '';
 

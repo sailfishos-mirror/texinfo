@@ -120,44 +120,22 @@ aaa quotation author
 quotation
 ';
 
-$result_errors{'text_before_line_command'} = [
-  {
-    'error_line' => 'warning: @title should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@title should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @node should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@node should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @chapter should only appear at the beginning of a line
-',
-    'line_nr' => 4,
-    'text' => '@chapter should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @contents should only appear at the beginning of a line
-',
-    'line_nr' => 6,
-    'text' => '@contents should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @author should only appear at the beginning of a line
-',
-    'line_nr' => 9,
-    'text' => '@author should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'text_before_line_command'} = '* W l1|@title should only appear at the beginning of a line
+ warning: @title should only appear at the beginning of a line
 
+* W l3|@node should only appear at the beginning of a line
+ warning: @node should only appear at the beginning of a line
+
+* W l4|@chapter should only appear at the beginning of a line
+ warning: @chapter should only appear at the beginning of a line
+
+* W l6|@contents should only appear at the beginning of a line
+ warning: @contents should only appear at the beginning of a line
+
+* W l9|@author should only appear at the beginning of a line
+ warning: @author should only appear at the beginning of a line
+
+';
 
 $result_nodes_list{'text_before_line_command'} = '1|LD Version Scripts
  associated_section: 1 LD Version Scripts

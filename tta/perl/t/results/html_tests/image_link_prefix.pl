@@ -20,8 +20,7 @@ $result_texis{'image_link_prefix'} = '@image{image}';
 
 $result_texts{'image_link_prefix'} = 'image';
 
-$result_errors{'image_link_prefix'} = [];
-
+$result_errors{'image_link_prefix'} = '';
 
 $result_nodes_list{'image_link_prefix'} = '';
 

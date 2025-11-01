@@ -314,8 +314,7 @@ AA AA E^ É E^ I~ I .R R\'< N~,=.
 
 ';
 
-$result_errors{'test_accents_sc_enable_encoding_to_utf8_usascii'} = [];
-
+$result_errors{'test_accents_sc_enable_encoding_to_utf8_usascii'} = '';
 
 $result_nodes_list{'test_accents_sc_enable_encoding_to_utf8_usascii'} = '1|top
  associated_section: top section

@@ -55,30 +55,16 @@ $result_texts{'block_command_alias'} = '
 in lang
 ';
 
-$result_errors{'block_command_alias'} = [
-  {
-    'error_line' => 'warning: environment command lisp as argument to @alias
-',
-    'line_nr' => 1,
-    'text' => 'environment command lisp as argument to @alias',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unknown @end lang
-',
-    'line_nr' => 5,
-    'text' => 'unknown @end lang',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end lisp\'
-',
-    'line_nr' => 3,
-    'text' => 'no matching `@end lisp\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'block_command_alias'} = '* W l1|environment command lisp as argument to @alias
+ warning: environment command lisp as argument to @alias
 
+* W l5|unknown @end lang
+ warning: unknown @end lang
+
+* E l3|no matching `@end lisp\'
+ no matching `@end lisp\'
+
+';
 
 $result_nodes_list{'block_command_alias'} = '';
 

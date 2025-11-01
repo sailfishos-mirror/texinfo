@@ -214,17 +214,10 @@ overlap。
 
 ';
 
-$result_errors{'chinese_mixed_with_en_EUC_CN'} = [
-  {
-    'error_line' => 'warning: encoding `EUC-CN\' is not a canonical texinfo encoding
-',
-    'file_name' => 'chinese_mixed_with_en_EUC_CN.texi',
-    'line_nr' => 2,
-    'text' => 'encoding `EUC-CN\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  }
-];
+$result_errors{'chinese_mixed_with_en_EUC_CN'} = '* W chinese_mixed_with_en_EUC_CN.texi:l2|encoding `EUC-CN\' is not a canonical texinfo encoding
+ warning: encoding `EUC-CN\' is not a canonical texinfo encoding
 
+';
 
 $result_nodes_list{'chinese_mixed_with_en_EUC_CN'} = '1|Top
  associated_section: Mixed chinese and english

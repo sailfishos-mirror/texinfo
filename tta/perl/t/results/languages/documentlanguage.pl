@@ -404,8 +404,7 @@ Some text.
 
 ';
 
-$result_errors{'documentlanguage'} = [];
-
+$result_errors{'documentlanguage'} = '';
 
 $result_nodes_list{'documentlanguage'} = '1|Top
  associated_section: top section

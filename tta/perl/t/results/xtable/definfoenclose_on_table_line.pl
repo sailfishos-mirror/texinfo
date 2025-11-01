@@ -88,23 +88,13 @@ item x
 table content.
 ';
 
-$result_errors{'definfoenclose_on_table_line'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @phi should not appear on @table line
-',
-    'line_nr' => 3,
-    'text' => '@phi should not appear on @table line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'definfoenclose_on_table_line'} = '* W l1|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+* W l3|@phi should not appear on @table line
+ warning: @phi should not appear on @table line
+
+';
 
 $result_nodes_list{'definfoenclose_on_table_line'} = '';
 

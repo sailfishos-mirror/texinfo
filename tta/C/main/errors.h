@@ -60,4 +60,7 @@ size_t output_error_messages (ERROR_MESSAGE_LIST *error_messages,
 
 void merge_error_messages_lists (ERROR_MESSAGE_LIST *dst,
                                  ERROR_MESSAGE_LIST *src);
+
+void print_source_info_details (SOURCE_INFO *source_info, TEXT *result,
+                                const char *fname_encoding, int use_filename);
 #endif

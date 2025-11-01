@@ -164,100 +164,46 @@ vskip
 exdent line after exdent
 ';
 
-$result_errors{'also_not_line'} = [
-  {
-    'error_line' => 'warning: @page should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@page should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 4,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @refill is obsolete
-',
-    'line_nr' => 4,
-    'text' => '@refill is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 7,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 9,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @page line: page at beginning of line
-',
-    'line_nr' => 10,
-    'text' => 'remaining argument on @page line: page at beginning of line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @page should only appear at the beginning of a line
-',
-    'line_nr' => 14,
-    'text' => '@page should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 15,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @refill is obsolete
-',
-    'line_nr' => 15,
-    'text' => '@refill is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @novalidate should only appear at the beginning of a line
-',
-    'line_nr' => 16,
-    'text' => '@novalidate should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @novalidate line: something
-',
-    'line_nr' => 16,
-    'text' => 'remaining argument on @novalidate line: something',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @vskip should only appear at the beginning of a line
-',
-    'line_nr' => 21,
-    'text' => '@vskip should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 23,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'also_not_line'} = '* W l3|@page should only appear at the beginning of a line
+ warning: @page should only appear at the beginning of a line
 
+* W l4|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
+
+* W l4|@refill is obsolete
+ warning: @refill is obsolete
+
+* W l7|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
+
+* W l9|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
+
+* W l10|remaining argument on @page line: page at beginning of line
+ warning: remaining argument on @page line: page at beginning of line
+
+* W l14|@page should only appear at the beginning of a line
+ warning: @page should only appear at the beginning of a line
+
+* W l15|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
+
+* W l15|@refill is obsolete
+ warning: @refill is obsolete
+
+* W l16|@novalidate should only appear at the beginning of a line
+ warning: @novalidate should only appear at the beginning of a line
+
+* W l16|remaining argument on @novalidate line: something
+ warning: remaining argument on @novalidate line: something
+
+* W l21|@vskip should only appear at the beginning of a line
+ warning: @vskip should only appear at the beginning of a line
+
+* W l23|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+';
 
 $result_nodes_list{'also_not_line'} = '';
 

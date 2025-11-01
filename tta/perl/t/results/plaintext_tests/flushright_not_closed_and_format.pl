@@ -52,16 +52,10 @@ $result_texts{'flushright_not_closed_and_format'} = 'flushright
 A quot--ation
 ';
 
-$result_errors{'flushright_not_closed_and_format'} = [
-  {
-    'error_line' => 'no matching `@end flushright\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end flushright\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'flushright_not_closed_and_format'} = '* E l1|no matching `@end flushright\'
+ no matching `@end flushright\'
 
+';
 
 $result_nodes_list{'flushright_not_closed_and_format'} = '';
 

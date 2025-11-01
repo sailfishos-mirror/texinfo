@@ -144,41 +144,19 @@ $result_texts{'in_menu_only_special_ascii_spaces_node'} = 'top
 
 ';
 
-$result_errors{'in_menu_only_special_ascii_spaces_node'} = [
-  {
-    'error_line' => 'empty node name in menu entry
-',
-    'file_name' => 'in_menu_only_special_ascii_spaces_node.texi',
-    'line_nr' => 5,
-    'text' => 'empty node name in menu entry',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty node name in menu entry
-',
-    'file_name' => 'in_menu_only_special_ascii_spaces_node.texi',
-    'line_nr' => 6,
-    'text' => 'empty node name in menu entry',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty argument in @node
-',
-    'file_name' => 'in_menu_only_special_ascii_spaces_node.texi',
-    'line_nr' => 9,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'empty argument in @node
-',
-    'file_name' => 'in_menu_only_special_ascii_spaces_node.texi',
-    'line_nr' => 12,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  }
-];
+$result_errors{'in_menu_only_special_ascii_spaces_node'} = '* E in_menu_only_special_ascii_spaces_node.texi:l5|empty node name in menu entry
+ empty node name in menu entry
 
+* E in_menu_only_special_ascii_spaces_node.texi:l6|empty node name in menu entry
+ empty node name in menu entry
+
+* E in_menu_only_special_ascii_spaces_node.texi:l9|empty argument in @node
+ empty argument in @node
+
+* E in_menu_only_special_ascii_spaces_node.texi:l12|empty argument in @node
+ empty argument in @node
+
+';
 
 $result_nodes_list{'in_menu_only_special_ascii_spaces_node'} = '1|Top
  associated_section: top

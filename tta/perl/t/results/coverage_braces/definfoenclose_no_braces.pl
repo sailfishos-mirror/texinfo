@@ -32,23 +32,13 @@ $result_texis{'definfoenclose_no_braces'} = '@definfoenclose phoo,;,:
 
 $result_texts{'definfoenclose_no_braces'} = '';
 
-$result_errors{'definfoenclose_no_braces'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 1,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@phoo expected braces
-',
-    'line_nr' => 2,
-    'text' => '@phoo expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'definfoenclose_no_braces'} = '* W l1|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+* E l2|@phoo expected braces
+ @phoo expected braces
+
+';
 
 $result_nodes_list{'definfoenclose_no_braces'} = '';
 

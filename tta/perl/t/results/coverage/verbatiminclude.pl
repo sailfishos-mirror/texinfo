@@ -31,8 +31,7 @@ $result_texis{'verbatiminclude'} = '
 $result_texts{'verbatiminclude'} = '
 ';
 
-$result_errors{'verbatiminclude'} = [];
-
+$result_errors{'verbatiminclude'} = '';
 
 $result_nodes_list{'verbatiminclude'} = '';
 

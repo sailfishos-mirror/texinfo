@@ -94,8 +94,7 @@ Appendix A dernier
 
 ';
 
-$result_errors{'appendix_translated'} = [];
-
+$result_errors{'appendix_translated'} = '';
 
 $result_nodes_list{'appendix_translated'} = '1|Top
  associated_section: top

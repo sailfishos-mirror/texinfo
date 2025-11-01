@@ -51,16 +51,10 @@ $result_texis{'itemx_before_item'} = '@table @emph
 $result_texts{'itemx_before_item'} = 'in itemx
 ';
 
-$result_errors{'itemx_before_item'} = [
-  {
-    'error_line' => '@itemx should not begin @table
-',
-    'line_nr' => 2,
-    'text' => '@itemx should not begin @table',
-    'type' => 'error'
-  }
-];
+$result_errors{'itemx_before_item'} = '* E l2|@itemx should not begin @table
+ @itemx should not begin @table
 
+';
 
 $result_nodes_list{'itemx_before_item'} = '';
 

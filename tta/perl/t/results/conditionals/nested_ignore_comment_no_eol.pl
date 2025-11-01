@@ -23,23 +23,13 @@ $result_texis{'nested_ignore_comment_no_eol'} = '@ignore
 
 $result_texts{'nested_ignore_comment_no_eol'} = '';
 
-$result_errors{'nested_ignore_comment_no_eol'} = [
-  {
-    'error_line' => 'expected @end ignore
-',
-    'line_nr' => 2,
-    'text' => 'expected @end ignore',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end ignore\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end ignore\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'nested_ignore_comment_no_eol'} = '* E l2|expected @end ignore
+ expected @end ignore
 
+* E l1|no matching `@end ignore\'
+ no matching `@end ignore\'
+
+';
 
 $result_nodes_list{'nested_ignore_comment_no_eol'} = '';
 

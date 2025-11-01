@@ -44,23 +44,13 @@ $result_texts{'bad_style_nesting'} = '
 in quotation
 ';
 
-$result_errors{'bad_style_nesting'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 3,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'bad_style_nesting'} = '* E l1|@code missing closing brace
+ @code missing closing brace
 
+* E l3|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'bad_style_nesting'} = '';
 

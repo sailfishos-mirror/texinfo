@@ -266,8 +266,7 @@ node one
 
 ';
 
-$result_errors{'colons_in_index_entries_and_node_no_quoting'} = [];
-
+$result_errors{'colons_in_index_entries_and_node_no_quoting'} = '';
 
 $result_nodes_list{'colons_in_index_entries_and_node_no_quoting'} = '1|Top
  menus:

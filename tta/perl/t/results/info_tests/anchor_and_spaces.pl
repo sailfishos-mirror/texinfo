@@ -82,8 +82,7 @@ Now .
 No space.
 ';
 
-$result_errors{'anchor_and_spaces'} = [];
-
+$result_errors{'anchor_and_spaces'} = '';
 
 $result_nodes_list{'anchor_and_spaces'} = '1|Top
  associated_section: Element

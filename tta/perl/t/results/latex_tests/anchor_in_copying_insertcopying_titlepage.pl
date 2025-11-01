@@ -196,8 +196,7 @@ a in copying.
 a in titlepage.
 ';
 
-$result_errors{'anchor_in_copying_insertcopying_titlepage'} = [];
-
+$result_errors{'anchor_in_copying_insertcopying_titlepage'} = '';
 
 $result_nodes_list{'anchor_in_copying_insertcopying_titlepage'} = '1|Top
  associated_section: top

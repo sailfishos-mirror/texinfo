@@ -77,8 +77,7 @@ contents at document begin
 ******
 ';
 
-$result_errors{'contents_at_begin_chapter_without_node'} = [];
-
+$result_errors{'contents_at_begin_chapter_without_node'} = '';
 
 $result_nodes_list{'contents_at_begin_chapter_without_node'} = '1|Top
  associated_section: contents at document begin

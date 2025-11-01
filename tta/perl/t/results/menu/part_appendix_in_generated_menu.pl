@@ -209,8 +209,7 @@ Appendix A GGG
 **************
 ';
 
-$result_errors{'part_appendix_in_generated_menu'} = [];
-
+$result_errors{'part_appendix_in_generated_menu'} = '';
 
 $result_nodes_list{'part_appendix_in_generated_menu'} = '1|Top
  associated_section: top

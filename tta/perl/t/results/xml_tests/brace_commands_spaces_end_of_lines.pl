@@ -110,8 +110,7 @@ a
 a
 ';
 
-$result_errors{'brace_commands_spaces_end_of_lines'} = [];
-
+$result_errors{'brace_commands_spaces_end_of_lines'} = '';
 
 $result_nodes_list{'brace_commands_spaces_end_of_lines'} = '';
 

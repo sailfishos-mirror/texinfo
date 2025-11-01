@@ -25,16 +25,10 @@ $result_texis{'def_existing_index'} = '@defcodeindex cp
 
 $result_texts{'def_existing_index'} = '';
 
-$result_errors{'def_existing_index'} = [
-  {
-    'error_line' => 'reserved index name cp
-',
-    'line_nr' => 1,
-    'text' => 'reserved index name cp',
-    'type' => 'error'
-  }
-];
+$result_errors{'def_existing_index'} = '* E l1|reserved index name cp
+ reserved index name cp
 
+';
 
 $result_nodes_list{'def_existing_index'} = '';
 

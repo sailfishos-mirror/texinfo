@@ -121,52 +121,25 @@ $result_texts{'double_top_in_menu'} = 'Top node
 second node.
 ';
 
-$result_errors{'double_top_in_menu'} = [
-  {
-    'error_line' => '@node `top\' previously defined
-',
-    'line_nr' => 9,
-    'text' => '@node `top\' previously defined',
-    'type' => 'error'
-  },
-  {
-    'continuation' => 1,
-    'error_line' => 'here is the previous definition as @node
-',
-    'line_nr' => 1,
-    'text' => 'here is the previous definition as @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: Next pointer `top\' (for node `ToP\') different from node name `ToP\'
-',
-    'line_nr' => 1,
-    'text' => 'Next pointer `top\' (for node `ToP\') different from node name `ToP\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: Up pointer `Top\' (for node `top\') different from node name `ToP\'
-',
-    'line_nr' => 9,
-    'text' => 'Up pointer `Top\' (for node `top\') different from node name `ToP\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `top\' different from node name `ToP\'
-',
-    'line_nr' => 5,
-    'text' => '@menu entry node name `top\' different from node name `ToP\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `TOP\' different from node name `ToP\'
-',
-    'line_nr' => 6,
-    'text' => '@menu entry node name `TOP\' different from node name `ToP\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_top_in_menu'} = '* E l9|@node `top\' previously defined
+ @node `top\' previously defined
 
+* EC l1|here is the previous definition as @node
+ here is the previous definition as @node
+
+* W l1|Next pointer `top\' (for node `ToP\') different from node name `ToP\'
+ warning: Next pointer `top\' (for node `ToP\') different from node name `ToP\'
+
+* W l9|Up pointer `Top\' (for node `top\') different from node name `ToP\'
+ warning: Up pointer `Top\' (for node `top\') different from node name `ToP\'
+
+* W l5|@menu entry node name `top\' different from node name `ToP\'
+ warning: @menu entry node name `top\' different from node name `ToP\'
+
+* W l6|@menu entry node name `TOP\' different from node name `ToP\'
+ warning: @menu entry node name `TOP\' different from node name `ToP\'
+
+';
 
 $result_nodes_list{'double_top_in_menu'} = '1|ToP
  menus:

@@ -171,8 +171,7 @@ now second arg: jj T
 
 ';
 
-$result_errors{'call_macro_in_linemacro_call'} = [];
-
+$result_errors{'call_macro_in_linemacro_call'} = '';
 
 $result_nodes_list{'call_macro_in_linemacro_call'} = '';
 

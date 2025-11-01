@@ -21,8 +21,7 @@ $result_texis{'simple'} = '@verb{.  }   .  .}';
 
 $result_texts{'simple'} = '  }   .  ';
 
-$result_errors{'simple'} = [];
-
+$result_errors{'simple'} = '';
 
 $result_nodes_list{'simple'} = '';
 

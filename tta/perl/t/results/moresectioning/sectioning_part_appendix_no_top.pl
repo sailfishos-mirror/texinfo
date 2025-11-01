@@ -288,8 +288,7 @@ A.1 appendixsec
 ===============
 ';
 
-$result_errors{'sectioning_part_appendix_no_top'} = [];
-
+$result_errors{'sectioning_part_appendix_no_top'} = '';
 
 $result_nodes_list{'sectioning_part_appendix_no_top'} = '';
 

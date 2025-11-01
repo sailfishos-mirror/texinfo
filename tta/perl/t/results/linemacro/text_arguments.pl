@@ -69,8 +69,7 @@ $result_texts{'text_arguments'} = '
 Z*Y-X
 ';
 
-$result_errors{'text_arguments'} = [];
-
+$result_errors{'text_arguments'} = '';
 
 $result_nodes_list{'text_arguments'} = '';
 

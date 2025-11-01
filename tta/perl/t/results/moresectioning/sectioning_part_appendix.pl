@@ -317,8 +317,7 @@ A.1 appendixsec
 ===============
 ';
 
-$result_errors{'sectioning_part_appendix'} = [];
-
+$result_errors{'sectioning_part_appendix'} = '';
 
 $result_nodes_list{'sectioning_part_appendix'} = '';
 

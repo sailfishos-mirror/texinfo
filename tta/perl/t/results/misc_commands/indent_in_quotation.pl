@@ -43,8 +43,7 @@ indent in quotation
 $result_texts{'indent_in_quotation'} = 'indent in quotation
 ';
 
-$result_errors{'indent_in_quotation'} = [];
-
+$result_errors{'indent_in_quotation'} = '';
 
 $result_nodes_list{'indent_in_quotation'} = '';
 

@@ -87,16 +87,10 @@ top
 Text.
 ';
 
-$result_errors{'setfilename_no_extension'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 6,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'setfilename_no_extension'} = '* W l6|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'setfilename_no_extension'} = '1|Top
  associated_section: top

@@ -86,23 +86,13 @@ T
 other tab
 ';
 
-$result_errors{'tab_in_table_in_example'} = [
-  {
-    'error_line' => '@tab not meaningful inside `@table\' block
-',
-    'line_nr' => 3,
-    'text' => '@tab not meaningful inside `@table\' block',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@tab not meaningful inside `@table\' block
-',
-    'line_nr' => 6,
-    'text' => '@tab not meaningful inside `@table\' block',
-    'type' => 'error'
-  }
-];
+$result_errors{'tab_in_table_in_example'} = '* E l3|@tab not meaningful inside `@table\' block
+ @tab not meaningful inside `@table\' block
 
+* E l6|@tab not meaningful inside `@table\' block
+ @tab not meaningful inside `@table\' block
+
+';
 
 $result_nodes_list{'tab_in_table_in_example'} = '';
 

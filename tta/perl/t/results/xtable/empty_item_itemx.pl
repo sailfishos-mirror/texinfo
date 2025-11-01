@@ -108,44 +108,22 @@ after an empty itemx, before an empty item
 in item before end table
 ';
 
-$result_errors{'empty_item_itemx'} = [
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @itemx missing argument
-',
-    'line_nr' => 6,
-    'text' => '@itemx missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 7,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @item missing argument
-',
-    'line_nr' => 8,
-    'text' => '@item missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 9,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_item_itemx'} = '* W l5|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
 
+* W l6|@itemx missing argument
+ warning: @itemx missing argument
+
+* W l7|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* W l8|@item missing argument
+ warning: @item missing argument
+
+* W l9|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+';
 
 $result_nodes_list{'empty_item_itemx'} = '';
 

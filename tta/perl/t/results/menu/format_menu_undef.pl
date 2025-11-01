@@ -81,8 +81,7 @@ $result_texts{'format_menu_undef'} = 'top
 ******
 ';
 
-$result_errors{'format_menu_undef'} = [];
-
+$result_errors{'format_menu_undef'} = '';
 
 $result_nodes_list{'format_menu_undef'} = '1|Top
  associated_section: top

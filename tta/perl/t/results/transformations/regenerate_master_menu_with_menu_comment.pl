@@ -210,8 +210,7 @@ Chapter
 =======
 ';
 
-$result_errors{'regenerate_master_menu_with_menu_comment'} = [];
-
+$result_errors{'regenerate_master_menu_with_menu_comment'} = '';
 
 $result_nodes_list{'regenerate_master_menu_with_menu_comment'} = '1|Top
  associated_section: top

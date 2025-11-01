@@ -72,8 +72,7 @@ SMALL CASE IN EXAMPLE MORE text.
 
 ';
 
-$result_errors{'sc_formatting_with_css'} = [];
-
+$result_errors{'sc_formatting_with_css'} = '';
 
 $result_nodes_list{'sc_formatting_with_css'} = '';
 

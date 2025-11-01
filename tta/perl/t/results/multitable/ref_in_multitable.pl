@@ -173,8 +173,7 @@ XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XXX XX XXX XXX XXX XXX
 XXX XXX XXX XXX XXX XXX XXX XXX XX.
 ';
 
-$result_errors{'ref_in_multitable'} = [];
-
+$result_errors{'ref_in_multitable'} = '';
 
 $result_nodes_list{'ref_in_multitable'} = '';
 

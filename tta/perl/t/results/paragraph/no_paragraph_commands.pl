@@ -44,8 +44,7 @@ title font
 aa
 ';
 
-$result_errors{'no_paragraph_commands'} = [];
-
+$result_errors{'no_paragraph_commands'} = '';
 
 $result_nodes_list{'no_paragraph_commands'} = '';
 

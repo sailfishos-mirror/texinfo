@@ -21,8 +21,7 @@ $result_texis{'no_use_iso'} = 'AA @^e --- -- \'` \'\' ``';
 
 $result_texts{'no_use_iso'} = 'AA e^ -- - \'` " "';
 
-$result_errors{'no_use_iso'} = [];
-
+$result_errors{'no_use_iso'} = '';
 
 $result_nodes_list{'no_use_iso'} = '';
 

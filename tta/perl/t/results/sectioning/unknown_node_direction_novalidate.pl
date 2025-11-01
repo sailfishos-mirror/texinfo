@@ -46,8 +46,7 @@ $result_texis{'unknown_node_direction_novalidate'} = '@novalidate
 $result_texts{'unknown_node_direction_novalidate'} = '
 ';
 
-$result_errors{'unknown_node_direction_novalidate'} = [];
-
+$result_errors{'unknown_node_direction_novalidate'} = '';
 
 $result_nodes_list{'unknown_node_direction_novalidate'} = '1|one arg2
 ';

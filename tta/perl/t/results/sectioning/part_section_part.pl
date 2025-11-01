@@ -72,23 +72,13 @@ Part 2
 ******
 ';
 
-$result_errors{'part_section_part'} = [
-  {
-    'error_line' => 'raising the section level of @section which is too low
-',
-    'line_nr' => 3,
-    'text' => 'raising the section level of @section which is too low',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: no sectioning command associated with @part
-',
-    'line_nr' => 5,
-    'text' => 'no sectioning command associated with @part',
-    'type' => 'warning'
-  }
-];
+$result_errors{'part_section_part'} = '* E l3|raising the section level of @section which is too low
+ raising the section level of @section which is too low
 
+* W l5|no sectioning command associated with @part
+ warning: no sectioning command associated with @part
+
+';
 
 $result_nodes_list{'part_section_part'} = '';
 

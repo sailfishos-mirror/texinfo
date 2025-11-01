@@ -148,8 +148,7 @@ first |aaa
 second |rest|
 third ||';
 
-$result_errors{'comment_on_linemacro_call_out_of_braces'} = [];
-
+$result_errors{'comment_on_linemacro_call_out_of_braces'} = '';
 
 $result_nodes_list{'comment_on_linemacro_call_out_of_braces'} = '';
 

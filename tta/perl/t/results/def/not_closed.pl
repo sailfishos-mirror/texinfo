@@ -111,44 +111,22 @@ truc: chose args
 Variable: type1 var bidule
 ';
 
-$result_errors{'not_closed'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 3,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end defvar\'
-',
-    'line_nr' => 3,
-    'text' => 'no matching `@end defvar\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end deffn\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end deffn\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'not_closed'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* W l3|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
+
+* E l3|no matching `@end defvar\'
+ no matching `@end defvar\'
+
+* E l1|no matching `@end deffn\'
+ no matching `@end deffn\'
+
+';
 
 $result_nodes_list{'not_closed'} = '';
 

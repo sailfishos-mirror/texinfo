@@ -51,16 +51,10 @@ $result_texis{'no_arg_brace_command_on_table_line'} = '@table @bullet
 $result_texts{'no_arg_brace_command_on_table_line'} = 'item
 ';
 
-$result_errors{'no_arg_brace_command_on_table_line'} = [
-  {
-    'error_line' => 'command @bullet not accepting argument in brace should not be on @table line
-',
-    'line_nr' => 1,
-    'text' => 'command @bullet not accepting argument in brace should not be on @table line',
-    'type' => 'error'
-  }
-];
+$result_errors{'no_arg_brace_command_on_table_line'} = '* E l1|command @bullet not accepting argument in brace should not be on @table line
+ command @bullet not accepting argument in brace should not be on @table line
 
+';
 
 $result_nodes_list{'no_arg_brace_command_on_table_line'} = '';
 

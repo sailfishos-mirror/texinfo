@@ -75,16 +75,10 @@ $result_texts{'value_in_macro_body'} = '
 result: \\\\arg\\  
 ';
 
-$result_errors{'value_in_macro_body'} = [
-  {
-    'error_line' => '\\ in @testvaluebody expansion followed `@value{bodyarg}\' instead of parameter name or \\
-',
-    'line_nr' => 7,
-    'text' => '\\ in @testvaluebody expansion followed `@value{bodyarg}\' instead of parameter name or \\',
-    'type' => 'error'
-  }
-];
+$result_errors{'value_in_macro_body'} = '* E l7|\\ in @testvaluebody expansion followed `@value{bodyarg}\' instead of parameter name or \\
+ \\ in @testvaluebody expansion followed `@value{bodyarg}\' instead of parameter name or \\
 
+';
 
 $result_nodes_list{'value_in_macro_body'} = '';
 

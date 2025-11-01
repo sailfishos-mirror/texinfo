@@ -61,16 +61,10 @@ $result_texis{'comment_and_itemx_before_item'} = '@table @code
 $result_texts{'comment_and_itemx_before_item'} = 'in itemx
 ';
 
-$result_errors{'comment_and_itemx_before_item'} = [
-  {
-    'error_line' => '@itemx should not begin @table
-',
-    'line_nr' => 3,
-    'text' => '@itemx should not begin @table',
-    'type' => 'error'
-  }
-];
+$result_errors{'comment_and_itemx_before_item'} = '* E l3|@itemx should not begin @table
+ @itemx should not begin @table
 
+';
 
 $result_nodes_list{'comment_and_itemx_before_item'} = '';
 

@@ -309,8 +309,7 @@ after everyheading before chap 3 second page
 
 ';
 
-$result_errors{'custom_headings'} = [];
-
+$result_errors{'custom_headings'} = '';
 
 $result_nodes_list{'custom_headings'} = '1|Top
  associated_section: top sectionning

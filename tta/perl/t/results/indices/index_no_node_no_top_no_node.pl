@@ -439,33 +439,16 @@ In chapter 2
 
 ';
 
-$result_errors{'index_no_node_no_top_no_node'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 3,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printindex before document beginning: @printindex cp
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 5,
-    'text' => 'printindex before document beginning: @printindex cp',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'unknown index `bidule\' in @printindex
-',
-    'file_name' => 'index_no_node_no_top.texi',
-    'line_nr' => 9,
-    'text' => 'unknown index `bidule\' in @printindex',
-    'type' => 'error'
-  }
-];
+$result_errors{'index_no_node_no_top_no_node'} = '* W index_no_node_no_top.texi:l3|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+* W index_no_node_no_top.texi:l5|printindex before document beginning: @printindex cp
+ warning: printindex before document beginning: @printindex cp
+
+* E index_no_node_no_top.texi:l9|unknown index `bidule\' in @printindex
+ unknown index `bidule\' in @printindex
+
+';
 
 $result_nodes_list{'index_no_node_no_top_no_node'} = '';
 

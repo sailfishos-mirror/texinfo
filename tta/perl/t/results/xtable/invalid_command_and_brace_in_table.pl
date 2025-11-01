@@ -50,37 +50,19 @@ long title
 Item line
 ';
 
-$result_errors{'invalid_command_and_brace_in_table'} = [
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 2,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `itemTop\'
-',
-    'line_nr' => 2,
-    'text' => 'unknown command `itemTop\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 3,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @table has text but no @item
-',
-    'line_nr' => 1,
-    'text' => '@table has text but no @item',
-    'type' => 'warning'
-  }
-];
+$result_errors{'invalid_command_and_brace_in_table'} = '* E l2|misplaced {
+ misplaced {
 
+* E l2|unknown command `itemTop\'
+ unknown command `itemTop\'
+
+* E l3|misplaced }
+ misplaced }
+
+* W l1|@table has text but no @item
+ warning: @table has text but no @item
+
+';
 
 $result_nodes_list{'invalid_command_and_brace_in_table'} = '';
 

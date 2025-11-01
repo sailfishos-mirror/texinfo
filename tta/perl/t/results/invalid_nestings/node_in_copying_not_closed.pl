@@ -73,16 +73,10 @@ $result_texts{'node_in_copying_not_closed'} = 'Top section
 
 ';
 
-$result_errors{'node_in_copying_not_closed'} = [
-  {
-    'error_line' => '@node seen before @end copying
-',
-    'line_nr' => 6,
-    'text' => '@node seen before @end copying',
-    'type' => 'error'
-  }
-];
+$result_errors{'node_in_copying_not_closed'} = '* E l6|@node seen before @end copying
+ @node seen before @end copying
 
+';
 
 $result_nodes_list{'node_in_copying_not_closed'} = '1|Top
  associated_section: Top section

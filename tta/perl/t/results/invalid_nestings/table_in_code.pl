@@ -68,23 +68,13 @@ text
 
 ';
 
-$result_errors{'table_in_code'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 7,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'table_in_code'} = '* E l1|@code missing closing brace
+ @code missing closing brace
 
+* E l7|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'table_in_code'} = '';
 

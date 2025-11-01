@@ -87,23 +87,13 @@ $result_texis{'multitable_in_example_extraneous_tab'} = '@example
 $result_texts{'multitable_in_example_extraneous_tab'} = 'ita tmp
 secit ';
 
-$result_errors{'multitable_in_example_extraneous_tab'} = [
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 3,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'too many columns in multitable item (max 1)
-',
-    'line_nr' => 4,
-    'text' => 'too many columns in multitable item (max 1)',
-    'type' => 'error'
-  }
-];
+$result_errors{'multitable_in_example_extraneous_tab'} = '* E l3|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
 
+* E l4|too many columns in multitable item (max 1)
+ too many columns in multitable item (max 1)
+
+';
 
 $result_nodes_list{'multitable_in_example_extraneous_tab'} = '';
 

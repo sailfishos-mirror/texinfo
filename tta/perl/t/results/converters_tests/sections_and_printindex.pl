@@ -182,8 +182,7 @@ Appendix A App
 
 ';
 
-$result_errors{'sections_and_printindex'} = [];
-
+$result_errors{'sections_and_printindex'} = '';
 
 $result_nodes_list{'sections_and_printindex'} = '1|Top
  associated_section: for example

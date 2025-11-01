@@ -149,8 +149,7 @@ Topic
 =====
 ';
 
-$result_errors{'heading_node_after_chap'} = [];
-
+$result_errors{'heading_node_after_chap'} = '';
 
 $result_nodes_list{'heading_node_after_chap'} = '1|Cap 1
  associated_section: 1 Chapter One

@@ -219,8 +219,7 @@ $result_texts{'two_nodes_between_chapters_nodes'} = 'top
 ************
 ';
 
-$result_errors{'two_nodes_between_chapters_nodes'} = [];
-
+$result_errors{'two_nodes_between_chapters_nodes'} = '';
 
 $result_nodes_list{'two_nodes_between_chapters_nodes'} = '1|Top
  associated_section: top

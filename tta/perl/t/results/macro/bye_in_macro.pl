@@ -70,8 +70,7 @@ $result_texts{'bye_in_macro'} = '
 Text
 ';
 
-$result_errors{'bye_in_macro'} = [];
-
+$result_errors{'bye_in_macro'} = '';
 
 $result_nodes_list{'bye_in_macro'} = '';
 

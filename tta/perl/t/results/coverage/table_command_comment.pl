@@ -55,8 +55,7 @@ $result_texis{'table_command_comment'} = '@table @code@c in comment
 $result_texts{'table_command_comment'} = 'item
 ';
 
-$result_errors{'table_command_comment'} = [];
-
+$result_errors{'table_command_comment'} = '';
 
 $result_nodes_list{'table_command_comment'} = '';
 

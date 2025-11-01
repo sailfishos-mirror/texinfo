@@ -171,8 +171,7 @@ Fourth level item
 
 ';
 
-$result_errors{'nested_itemize'} = [];
-
+$result_errors{'nested_itemize'} = '';
 
 $result_nodes_list{'nested_itemize'} = '';
 

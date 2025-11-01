@@ -53,8 +53,7 @@ $result_texis{'comment_first_on_itemize_line'} = '@itemize @c comment on itemize
 $result_texts{'comment_first_on_itemize_line'} = 'first
 ';
 
-$result_errors{'comment_first_on_itemize_line'} = [];
-
+$result_errors{'comment_first_on_itemize_line'} = '';
 
 $result_nodes_list{'comment_first_on_itemize_line'} = '';
 

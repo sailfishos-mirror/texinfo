@@ -128,8 +128,7 @@ New para.
 item three
 ';
 
-$result_errors{'table_in_itemize'} = [];
-
+$result_errors{'table_in_itemize'} = '';
 
 $result_nodes_list{'table_in_itemize'} = '';
 

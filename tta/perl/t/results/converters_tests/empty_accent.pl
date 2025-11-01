@@ -21,8 +21,7 @@ $result_texis{'empty_accent'} = '@`{}
 $result_texts{'empty_accent'} = '`
 ';
 
-$result_errors{'empty_accent'} = [];
-
+$result_errors{'empty_accent'} = '';
 
 $result_nodes_list{'empty_accent'} = '';
 

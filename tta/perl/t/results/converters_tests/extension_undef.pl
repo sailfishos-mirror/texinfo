@@ -71,8 +71,7 @@ top
 ******
 ';
 
-$result_errors{'extension_undef'} = [];
-
+$result_errors{'extension_undef'} = '';
 
 $result_nodes_list{'extension_undef'} = '1|chapter
  associated_section: 1 Chap

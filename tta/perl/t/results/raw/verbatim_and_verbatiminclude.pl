@@ -403,8 +403,7 @@ In verbatim in quotation
 in quotation after end verbaatim
 ';
 
-$result_errors{'verbatim_and_verbatiminclude'} = [];
-
+$result_errors{'verbatim_and_verbatiminclude'} = '';
 
 $result_nodes_list{'verbatim_and_verbatiminclude'} = '';
 

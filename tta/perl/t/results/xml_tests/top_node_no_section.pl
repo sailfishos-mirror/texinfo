@@ -30,8 +30,7 @@ $result_texis{'top_node_no_section'} = '@node Top
 
 $result_texts{'top_node_no_section'} = '';
 
-$result_errors{'top_node_no_section'} = [];
-
+$result_errors{'top_node_no_section'} = '';
 
 $result_nodes_list{'top_node_no_section'} = '1|Top
 ';

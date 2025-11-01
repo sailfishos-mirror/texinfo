@@ -567,8 +567,7 @@ a b
 A B
 ';
 
-$result_errors{'multitable'} = [];
-
+$result_errors{'multitable'} = '';
 
 $result_nodes_list{'multitable'} = '';
 

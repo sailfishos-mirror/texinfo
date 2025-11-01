@@ -281,8 +281,7 @@ Section 1.
 
 ';
 
-$result_errors{'contents_in_middle_section'} = [];
-
+$result_errors{'contents_in_middle_section'} = '';
 
 $result_nodes_list{'contents_in_middle_section'} = '1|Top
  associated_section: Contents in section

@@ -228,8 +228,7 @@ oo
 
 ';
 
-$result_errors{'cartouche_and_paragraph_indentation'} = [];
-
+$result_errors{'cartouche_and_paragraph_indentation'} = '';
 
 $result_nodes_list{'cartouche_and_paragraph_indentation'} = '1|top
  associated_section: top

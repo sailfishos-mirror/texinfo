@@ -40,8 +40,7 @@ $result_texts{'empty_set'} = '
 1  1
 ';
 
-$result_errors{'empty_set'} = [];
-
+$result_errors{'empty_set'} = '';
 
 $result_nodes_list{'empty_set'} = '';
 

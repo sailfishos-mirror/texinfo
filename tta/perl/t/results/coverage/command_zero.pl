@@ -19,16 +19,10 @@ $result_texis{'command_zero'} = ':
 $result_texts{'command_zero'} = ':
 ';
 
-$result_errors{'command_zero'} = [
-  {
-    'error_line' => 'unknown command `0\'
-',
-    'line_nr' => 1,
-    'text' => 'unknown command `0\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_zero'} = '* E l1|unknown command `0\'
+ unknown command `0\'
 
+';
 
 $result_nodes_list{'command_zero'} = '';
 

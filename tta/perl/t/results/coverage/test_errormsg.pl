@@ -43,23 +43,13 @@ $result_texts{'test_errormsg'} = 'Some text
 
 ';
 
-$result_errors{'test_errormsg'} = [
-  {
-    'error_line' => 'Text 
-',
-    'line_nr' => 2,
-    'text' => 'Text ',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'with surrounding spaces
-',
-    'line_nr' => 3,
-    'text' => 'with surrounding spaces',
-    'type' => 'error'
-  }
-];
+$result_errors{'test_errormsg'} = '* E l2|Text 
+ Text 
 
+* E l3|with surrounding spaces
+ with surrounding spaces
+
+';
 
 $result_nodes_list{'test_errormsg'} = '';
 

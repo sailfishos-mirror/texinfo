@@ -100,8 +100,7 @@ $result_texts{'verb_in_menu_description'} = 'top
 
 ';
 
-$result_errors{'verb_in_menu_description'} = [];
-
+$result_errors{'verb_in_menu_description'} = '';
 
 $result_nodes_list{'verb_in_menu_description'} = '1|first
  associated_section: top

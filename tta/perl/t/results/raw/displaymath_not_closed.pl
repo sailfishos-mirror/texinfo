@@ -25,16 +25,10 @@ in displaymath
 $result_texts{'displaymath_not_closed'} = 'in displaymath
 ';
 
-$result_errors{'displaymath_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end displaymath\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end displaymath\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'displaymath_not_closed'} = '* E l1|no matching `@end displaymath\'
+ no matching `@end displaymath\'
 
+';
 
 $result_nodes_list{'displaymath_not_closed'} = '';
 

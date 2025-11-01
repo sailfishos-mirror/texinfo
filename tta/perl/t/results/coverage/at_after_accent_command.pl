@@ -27,23 +27,13 @@ $result_texis{'at_after_accent_command'} = '@ringaccent @@. @^@@.
 $result_texts{'at_after_accent_command'} = '*@. ^@.
 ';
 
-$result_errors{'at_after_accent_command'} = [
-  {
-    'error_line' => '@ringaccent expected braces
-',
-    'line_nr' => 1,
-    'text' => '@ringaccent expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@^ expected braces
-',
-    'line_nr' => 1,
-    'text' => '@^ expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'at_after_accent_command'} = '* E l1|@ringaccent expected braces
+ @ringaccent expected braces
 
+* E l1|@^ expected braces
+ @^ expected braces
+
+';
 
 $result_nodes_list{'at_after_accent_command'} = '';
 

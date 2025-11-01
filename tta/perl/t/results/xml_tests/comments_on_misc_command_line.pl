@@ -182,16 +182,10 @@ $result_texts{'comments_on_misc_command_line'} = '
 Para.
 ';
 
-$result_errors{'comments_on_misc_command_line'} = [
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 2,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  }
-];
+$result_errors{'comments_on_misc_command_line'} = '* W l2|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
 
+';
 
 $result_nodes_list{'comments_on_misc_command_line'} = '';
 

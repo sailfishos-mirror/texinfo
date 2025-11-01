@@ -27,8 +27,7 @@ $result_texis{'minimal_empty_with_bye'} = '\\input texinfo.tex
 
 $result_texts{'minimal_empty_with_bye'} = '';
 
-$result_errors{'minimal_empty_with_bye'} = [];
-
+$result_errors{'minimal_empty_with_bye'} = '';
 
 $result_nodes_list{'minimal_empty_with_bye'} = '';
 

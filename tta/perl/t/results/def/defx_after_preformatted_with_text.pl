@@ -122,30 +122,16 @@ Text in preformatted.
 truc: bidulr machin...
 ';
 
-$result_errors{'defx_after_preformatted_with_text'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'must be after `@deffn\' to use `@deffnx\'
-',
-    'line_nr' => 5,
-    'text' => 'must be after `@deffn\' to use `@deffnx\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 5,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'defx_after_preformatted_with_text'} = '* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+* E l5|must be after `@deffn\' to use `@deffnx\'
+ must be after `@deffn\' to use `@deffnx\'
+
+* W l5|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+';
 
 $result_nodes_list{'defx_after_preformatted_with_text'} = '';
 

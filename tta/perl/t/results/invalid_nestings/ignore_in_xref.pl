@@ -69,16 +69,10 @@ $result_texts{'ignore_in_xref'} = '
 first.
 ';
 
-$result_errors{'ignore_in_xref'} = [
-  {
-    'error_line' => 'warning: @ignore should not appear anywhere inside @xref
-',
-    'line_nr' => 4,
-    'text' => '@ignore should not appear anywhere inside @xref',
-    'type' => 'warning'
-  }
-];
+$result_errors{'ignore_in_xref'} = '* W l4|@ignore should not appear anywhere inside @xref
+ warning: @ignore should not appear anywhere inside @xref
 
+';
 
 $result_nodes_list{'ignore_in_xref'} = '1|first
 ';

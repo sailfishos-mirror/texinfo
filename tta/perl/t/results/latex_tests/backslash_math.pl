@@ -28,8 +28,7 @@ $result_texis{'backslash_math'} = '@math{a @\\ b @backslashchar{} c}.
 $result_texts{'backslash_math'} = 'a \\ b \\ c.
 ';
 
-$result_errors{'backslash_math'} = [];
-
+$result_errors{'backslash_math'} = '';
 
 $result_nodes_list{'backslash_math'} = '';
 

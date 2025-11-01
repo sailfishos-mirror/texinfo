@@ -256,8 +256,7 @@ Appendix A App
 **************
 ';
 
-$result_errors{'documentlanguage_generated_master_menu'} = [];
-
+$result_errors{'documentlanguage_generated_master_menu'} = '';
 
 $result_nodes_list{'documentlanguage_generated_master_menu'} = '1|Top
  associated_section: top

@@ -110,8 +110,7 @@ $result_texts{'contents_in_html_text'} = 'top
 
 ';
 
-$result_errors{'contents_in_html_text'} = [];
-
+$result_errors{'contents_in_html_text'} = '';
 
 $result_nodes_list{'contents_in_html_text'} = '';
 

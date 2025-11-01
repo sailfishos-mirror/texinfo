@@ -89,16 +89,10 @@ top section
 Top node
 ';
 
-$result_errors{'unnumbered_before_node_top_top'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'line_nr' => 6,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unnumbered_before_node_top_top'} = '* W l6|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
 
+';
 
 $result_nodes_list{'unnumbered_before_node_top_top'} = '1|Top
  associated_section: top section

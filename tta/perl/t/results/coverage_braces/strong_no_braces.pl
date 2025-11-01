@@ -17,16 +17,10 @@ $result_texis{'strong_no_braces'} = '@strong';
 
 $result_texts{'strong_no_braces'} = '';
 
-$result_errors{'strong_no_braces'} = [
-  {
-    'error_line' => '@strong expected braces
-',
-    'line_nr' => 1,
-    'text' => '@strong expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'strong_no_braces'} = '* E l1|@strong expected braces
+ @strong expected braces
 
+';
 
 $result_nodes_list{'strong_no_braces'} = '';
 

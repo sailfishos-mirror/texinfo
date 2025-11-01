@@ -84,8 +84,7 @@ arg
 
 ';
 
-$result_errors{'ifset_in_macro_set'} = [];
-
+$result_errors{'ifset_in_macro_set'} = '';
 
 $result_nodes_list{'ifset_in_macro_set'} = '';
 

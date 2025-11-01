@@ -47,30 +47,16 @@ $result_texts{'end_of_line_protect_at_end'} = '
 category2: deffn_name2 arguments2
 ';
 
-$result_errors{'end_of_line_protect_at_end'} = [
-  {
-    'error_line' => 'unexpected @
-',
-    'line_nr' => 2,
-    'text' => 'unexpected @',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'no matching `@end deffn\'
-',
-    'line_nr' => 2,
-    'text' => 'no matching `@end deffn\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'end_of_line_protect_at_end'} = '* E l2|unexpected @
+ unexpected @
 
+* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l2|no matching `@end deffn\'
+ no matching `@end deffn\'
+
+';
 
 $result_nodes_list{'end_of_line_protect_at_end'} = '';
 

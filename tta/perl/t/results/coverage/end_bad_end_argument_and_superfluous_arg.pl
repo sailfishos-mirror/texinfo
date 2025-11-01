@@ -41,30 +41,16 @@ In quotation
 $result_texts{'end_bad_end_argument_and_superfluous_arg'} = 'In quotation
 ';
 
-$result_errors{'end_bad_end_argument_and_superfluous_arg'} = [
-  {
-    'error_line' => 'warning: @code should not appear in @end
-',
-    'line_nr' => 3,
-    'text' => '@code should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: : @code{in c}
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: : @code{in c}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end quotation\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end quotation\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'end_bad_end_argument_and_superfluous_arg'} = '* W l3|@code should not appear in @end
+ warning: @code should not appear in @end
 
+* E l3|bad argument to @end: : @code{in c}
+ bad argument to @end: : @code{in c}
+
+* E l1|no matching `@end quotation\'
+ no matching `@end quotation\'
+
+';
 
 $result_nodes_list{'end_bad_end_argument_and_superfluous_arg'} = '';
 

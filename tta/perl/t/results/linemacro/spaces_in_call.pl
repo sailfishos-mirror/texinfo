@@ -111,8 +111,7 @@ $result_texts{'spaces_in_call'} = '
 category: a bc drest A  B
 ';
 
-$result_errors{'spaces_in_call'} = [];
-
+$result_errors{'spaces_in_call'} = '';
 
 $result_nodes_list{'spaces_in_call'} = '';
 

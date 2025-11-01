@@ -16,16 +16,10 @@ $result_texis{'titlefont_no_braces'} = '@titlefont';
 
 $result_texts{'titlefont_no_braces'} = '';
 
-$result_errors{'titlefont_no_braces'} = [
-  {
-    'error_line' => '@titlefont expected braces
-',
-    'line_nr' => 1,
-    'text' => '@titlefont expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'titlefont_no_braces'} = '* E l1|@titlefont expected braces
+ @titlefont expected braces
 
+';
 
 $result_nodes_list{'titlefont_no_braces'} = '';
 

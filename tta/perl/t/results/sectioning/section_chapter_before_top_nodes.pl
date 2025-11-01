@@ -190,37 +190,19 @@ top
 
 ';
 
-$result_errors{'section_chapter_before_top_nodes'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @chapter appearing after a lower element
-',
-    'line_nr' => 5,
-    'text' => 'lowering the section level of @chapter appearing after a lower element',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'line_nr' => 12,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `section node\' in menu in `chapter node\' but not under it in sectioning
-',
-    'line_nr' => 8,
-    'text' => 'node `section node\' in menu in `chapter node\' but not under it in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chapter node\' in menu in `Top\' but not under it in sectioning
-',
-    'line_nr' => 15,
-    'text' => 'node `chapter node\' in menu in `Top\' but not under it in sectioning',
-    'type' => 'warning'
-  }
-];
+$result_errors{'section_chapter_before_top_nodes'} = '* W l5|lowering the section level of @chapter appearing after a lower element
+ warning: lowering the section level of @chapter appearing after a lower element
 
+* W l12|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
+
+* W l8|node `section node\' in menu in `chapter node\' but not under it in sectioning
+ warning: node `section node\' in menu in `chapter node\' but not under it in sectioning
+
+* W l15|node `chapter node\' in menu in `Top\' but not under it in sectioning
+ warning: node `chapter node\' in menu in `Top\' but not under it in sectioning
+
+';
 
 $result_nodes_list{'section_chapter_before_top_nodes'} = '1|section node
  associated_section: 1 section

@@ -371,8 +371,7 @@ error->
 Instanzvariable of de: FFF GGG
 ';
 
-$result_errors{'multiple_in_preamble'} = [];
-
+$result_errors{'multiple_in_preamble'} = '';
 
 $result_nodes_list{'multiple_in_preamble'} = '1|Top
  associated_section: top section

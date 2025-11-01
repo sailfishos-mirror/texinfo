@@ -197,8 +197,7 @@ top
 
 ';
 
-$result_errors{'ref_in_copying_insert_in_chapter'} = [];
-
+$result_errors{'ref_in_copying_insert_in_chapter'} = '';
 
 $result_nodes_list{'ref_in_copying_insert_in_chapter'} = '1|Top
  associated_section: top

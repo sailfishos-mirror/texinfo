@@ -254,17 +254,10 @@ IDEOGRAPHIC SPACE: |　|
 
 ';
 
-$result_errors{'all_spaces'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'file_name' => 'all_spaces.texi',
-    'line_nr' => 4,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'all_spaces'} = '* W all_spaces.texi:l4|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'all_spaces'} = '1|Top
  node_directions:

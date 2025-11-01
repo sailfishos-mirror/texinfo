@@ -34,30 +34,16 @@ $result_texts{'alias_non_existing_command'} = '
 hh.
 ';
 
-$result_errors{'alias_non_existing_command'} = [
-  {
-    'error_line' => 'unknown command `userdefined\'
-',
-    'line_nr' => 3,
-    'text' => 'unknown command `userdefined\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced {
-',
-    'line_nr' => 3,
-    'text' => 'misplaced {',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 3,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'alias_non_existing_command'} = '* E l3|unknown command `userdefined\'
+ unknown command `userdefined\'
 
+* E l3|misplaced {
+ misplaced {
+
+* E l3|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'alias_non_existing_command'} = '';
 

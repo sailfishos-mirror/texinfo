@@ -363,128 +363,58 @@ Instance Variable of Which: Language Selected?
 
 ';
 
-$result_errors{'invalid_documentlanguage'} = [
-  {
-    'error_line' => 'warning: %bm_AA is not a valid language code
-',
-    'line_nr' => 2,
-    'text' => '%bm_AA is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: cu*_FR is not a valid language code
-',
-    'line_nr' => 3,
-    'text' => 'cu*_FR is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: _JP is not a valid language code
-',
-    'line_nr' => 4,
-    'text' => '_JP is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: *_ZM is not a valid language code
-',
-    'line_nr' => 5,
-    'text' => '*_ZM is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: tia is not a valid language code
-',
-    'line_nr' => 6,
-    'text' => 'tia is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: JJ is not a valid region code
-',
-    'line_nr' => 6,
-    'text' => 'JJ is not a valid region code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: fr_ is not a valid language code
-',
-    'line_nr' => 7,
-    'text' => 'fr_ is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: be_ is not a valid language code
-',
-    'line_nr' => 8,
-    'text' => 'be_ is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: de_* is not a valid language code
-',
-    'line_nr' => 9,
-    'text' => 'de_* is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: it_G% is not a valid language code
-',
-    'line_nr' => 10,
-    'text' => 'it_G% is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: it_FR^ is not a valid language code
-',
-    'line_nr' => 11,
-    'text' => 'it_FR^ is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: en_US ! is not a valid language code
-',
-    'line_nr' => 12,
-    'text' => 'en_US ! is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: ab gh is not a valid language code
-',
-    'line_nr' => 13,
-    'text' => 'ab gh is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => "warning: bh\x{c3}\x{a9} is not a valid language code
-",
-    'line_nr' => 16,
-    'text' => "bh\x{c3}\x{a9} is not a valid language code",
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: AB_FR is not a valid language code
-',
-    'line_nr' => 17,
-    'text' => 'AB_FR is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: ab_us is not a valid language code
-',
-    'line_nr' => 18,
-    'text' => 'ab_us is not a valid language code',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @documentlanguage missing argument
-',
-    'line_nr' => 19,
-    'text' => '@documentlanguage missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'invalid_documentlanguage'} = '* W l2|%bm_AA is not a valid language code
+ warning: %bm_AA is not a valid language code
 
+* W l3|cu*_FR is not a valid language code
+ warning: cu*_FR is not a valid language code
+
+* W l4|_JP is not a valid language code
+ warning: _JP is not a valid language code
+
+* W l5|*_ZM is not a valid language code
+ warning: *_ZM is not a valid language code
+
+* W l6|tia is not a valid language code
+ warning: tia is not a valid language code
+
+* W l6|JJ is not a valid region code
+ warning: JJ is not a valid region code
+
+* W l7|fr_ is not a valid language code
+ warning: fr_ is not a valid language code
+
+* W l8|be_ is not a valid language code
+ warning: be_ is not a valid language code
+
+* W l9|de_* is not a valid language code
+ warning: de_* is not a valid language code
+
+* W l10|it_G% is not a valid language code
+ warning: it_G% is not a valid language code
+
+* W l11|it_FR^ is not a valid language code
+ warning: it_FR^ is not a valid language code
+
+* W l12|en_US ! is not a valid language code
+ warning: en_US ! is not a valid language code
+
+* W l13|ab gh is not a valid language code
+ warning: ab gh is not a valid language code
+
+* W l16|bhÃ© is not a valid language code
+ warning: bhÃ© is not a valid language code
+
+* W l17|AB_FR is not a valid language code
+ warning: AB_FR is not a valid language code
+
+* W l18|ab_us is not a valid language code
+ warning: ab_us is not a valid language code
+
+* W l19|@documentlanguage missing argument
+ warning: @documentlanguage missing argument
+
+';
 
 $result_nodes_list{'invalid_documentlanguage'} = '1|Top
  associated_section: top

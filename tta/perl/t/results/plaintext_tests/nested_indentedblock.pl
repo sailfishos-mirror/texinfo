@@ -111,8 +111,7 @@ v  v  v"a
 in example
 ';
 
-$result_errors{'nested_indentedblock'} = [];
-
+$result_errors{'nested_indentedblock'} = '';
 
 $result_nodes_list{'nested_indentedblock'} = '';
 

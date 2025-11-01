@@ -76,8 +76,7 @@ $result_texts{'macro_in_empty_menu_comment'} = '
 * Copying Conditions::          Your rights.
 ';
 
-$result_errors{'macro_in_empty_menu_comment'} = [];
-
+$result_errors{'macro_in_empty_menu_comment'} = '';
 
 $result_nodes_list{'macro_in_empty_menu_comment'} = '';
 

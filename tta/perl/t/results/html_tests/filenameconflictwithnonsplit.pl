@@ -61,8 +61,7 @@ $result_texts{'filenameconflictwithnonsplit'} = 'top
 
 ';
 
-$result_errors{'filenameconflictwithnonsplit'} = [];
-
+$result_errors{'filenameconflictwithnonsplit'} = '';
 
 $result_nodes_list{'filenameconflictwithnonsplit'} = '1|Top
  associated_section: top

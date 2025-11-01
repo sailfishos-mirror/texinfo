@@ -62,8 +62,7 @@ This line is the only output.
 
 ';
 
-$result_errors{'delcomment'} = [];
-
+$result_errors{'delcomment'} = '';
 
 $result_nodes_list{'delcomment'} = '';
 

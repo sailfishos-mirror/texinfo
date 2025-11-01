@@ -147,17 +147,10 @@ $result_texts{'simple_only_special_spaces_node'} = 'top
 
 ';
 
-$result_errors{'simple_only_special_spaces_node'} = [
-  {
-    'error_line' => 'empty argument in @node
-',
-    'file_name' => 'simple_only_special_spaces_node.texi',
-    'line_nr' => 7,
-    'text' => 'empty argument in @node',
-    'type' => 'error'
-  }
-];
+$result_errors{'simple_only_special_spaces_node'} = '* E simple_only_special_spaces_node.texi:l7|empty argument in @node
+ empty argument in @node
 
+';
 
 $result_nodes_list{'simple_only_special_spaces_node'} = '1|Top
  associated_section: top

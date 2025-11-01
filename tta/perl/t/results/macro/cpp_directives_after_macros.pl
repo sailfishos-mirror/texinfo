@@ -106,25 +106,13 @@ $result_texts{'cpp_directives_after_macros'} = '
 
 ';
 
-$result_errors{'cpp_directives_after_macros'} = [
-  {
-    'error_line' => 'unknown command `unknown1\'
-',
-    'file_name' => 'a_test_after_spaces',
-    'line_nr' => 102,
-    'text' => 'unknown command `unknown1\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown command `unknown2\'
-',
-    'file_name' => 'a_test_after_spaces',
-    'line_nr' => 106,
-    'text' => 'unknown command `unknown2\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'cpp_directives_after_macros'} = '* E a_test_after_spaces:l102|unknown command `unknown1\'
+ unknown command `unknown1\'
 
+* E a_test_after_spaces:l106|unknown command `unknown2\'
+ unknown command `unknown2\'
+
+';
 
 $result_nodes_list{'cpp_directives_after_macros'} = '';
 

@@ -158,114 +158,52 @@ $result_texis{'invalid_documentencoding'} = '@c this one is valid
 $result_texts{'invalid_documentencoding'} = '
 @documentencoding ';
 
-$result_errors{'invalid_documentencoding'} = [
-  {
-    'error_line' => 'warning: @asis should not appear in @documentencoding
-',
-    'line_nr' => 2,
-    'text' => '@asis should not appear in @documentencoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @documentencoding: us-ascii@asis{}
-',
-    'line_nr' => 2,
-    'text' => 'bad argument to @documentencoding: us-ascii@asis{}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @asis should not appear in @documentencoding
-',
-    'line_nr' => 4,
-    'text' => '@asis should not appear in @documentencoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @documentencoding: latin1@asis{a}
-',
-    'line_nr' => 4,
-    'text' => 'bad argument to @documentencoding: latin1@asis{a}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: encoding `YS-ASCII\' is not a canonical texinfo encoding
-',
-    'line_nr' => 5,
-    'text' => 'encoding `YS-ASCII\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unhandled encoding name `YS-ASCII\'
-',
-    'line_nr' => 5,
-    'text' => 'unhandled encoding name `YS-ASCII\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @documentencoding should only appear at the beginning of a line
-',
-    'line_nr' => 6,
-    'text' => '@documentencoding should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: encoding `bad encoding name\' is not a canonical texinfo encoding
-',
-    'line_nr' => 6,
-    'text' => 'encoding `bad encoding name\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unhandled encoding name `bad encoding name\'
-',
-    'line_nr' => 6,
-    'text' => 'unhandled encoding name `bad encoding name\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: encoding `1\' is not a canonical texinfo encoding
-',
-    'line_nr' => 7,
-    'text' => 'encoding `1\' is not a canonical texinfo encoding',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unhandled encoding name `1\'
-',
-    'line_nr' => 7,
-    'text' => 'unhandled encoding name `1\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: bad encoding name `%\'
-',
-    'line_nr' => 8,
-    'text' => 'bad encoding name `%\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: bad encoding name `@\'
-',
-    'line_nr' => 9,
-    'text' => 'bad encoding name `@\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @documentencoding: AAA@TeX{}
-',
-    'line_nr' => 10,
-    'text' => 'bad argument to @documentencoding: AAA@TeX{}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @documentencoding: BBB@\'e
-',
-    'line_nr' => 11,
-    'text' => 'bad argument to @documentencoding: BBB@\'e',
-    'type' => 'error'
-  }
-];
+$result_errors{'invalid_documentencoding'} = '* W l2|@asis should not appear in @documentencoding
+ warning: @asis should not appear in @documentencoding
 
+* E l2|bad argument to @documentencoding: us-ascii@asis{}
+ bad argument to @documentencoding: us-ascii@asis{}
+
+* W l4|@asis should not appear in @documentencoding
+ warning: @asis should not appear in @documentencoding
+
+* E l4|bad argument to @documentencoding: latin1@asis{a}
+ bad argument to @documentencoding: latin1@asis{a}
+
+* W l5|encoding `YS-ASCII\' is not a canonical texinfo encoding
+ warning: encoding `YS-ASCII\' is not a canonical texinfo encoding
+
+* W l5|unhandled encoding name `YS-ASCII\'
+ warning: unhandled encoding name `YS-ASCII\'
+
+* W l6|@documentencoding should only appear at the beginning of a line
+ warning: @documentencoding should only appear at the beginning of a line
+
+* W l6|encoding `bad encoding name\' is not a canonical texinfo encoding
+ warning: encoding `bad encoding name\' is not a canonical texinfo encoding
+
+* W l6|unhandled encoding name `bad encoding name\'
+ warning: unhandled encoding name `bad encoding name\'
+
+* W l7|encoding `1\' is not a canonical texinfo encoding
+ warning: encoding `1\' is not a canonical texinfo encoding
+
+* W l7|unhandled encoding name `1\'
+ warning: unhandled encoding name `1\'
+
+* W l8|bad encoding name `%\'
+ warning: bad encoding name `%\'
+
+* W l9|bad encoding name `@\'
+ warning: bad encoding name `@\'
+
+* E l10|bad argument to @documentencoding: AAA@TeX{}
+ bad argument to @documentencoding: AAA@TeX{}
+
+* E l11|bad argument to @documentencoding: BBB@\'e
+ bad argument to @documentencoding: BBB@\'e
+
+';
 
 $result_nodes_list{'invalid_documentencoding'} = '';
 

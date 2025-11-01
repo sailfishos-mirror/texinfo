@@ -37,16 +37,10 @@ $result_texis{'empty'} = '@multitable @columnfractions
 
 $result_texts{'empty'} = '';
 
-$result_errors{'empty'} = [
-  {
-    'error_line' => '@columnfractions missing argument
-',
-    'line_nr' => 1,
-    'text' => '@columnfractions missing argument',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty'} = '* E l1|@columnfractions missing argument
+ @columnfractions missing argument
 
+';
 
 $result_nodes_list{'empty'} = '';
 

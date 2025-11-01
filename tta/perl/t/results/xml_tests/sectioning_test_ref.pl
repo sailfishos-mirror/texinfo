@@ -179,8 +179,7 @@ In s1.1.
 In c2.
 ';
 
-$result_errors{'sectioning_test_ref'} = [];
-
+$result_errors{'sectioning_test_ref'} = '';
 
 $result_nodes_list{'sectioning_test_ref'} = '1|Top
  associated_section: top

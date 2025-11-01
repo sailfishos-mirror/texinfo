@@ -65,8 +65,7 @@ In cartouche in quotation
 end quotation
 ';
 
-$result_errors{'cartouche_in_quotation'} = [];
-
+$result_errors{'cartouche_in_quotation'} = '';
 
 $result_nodes_list{'cartouche_in_quotation'} = '';
 

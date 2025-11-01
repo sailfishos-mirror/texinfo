@@ -161,8 +161,7 @@ no comment, no blank after
 Para.
 ';
 
-$result_errors{'comment_example_and_blank_lines'} = [];
-
+$result_errors{'comment_example_and_blank_lines'} = '';
 
 $result_nodes_list{'comment_example_and_blank_lines'} = '';
 

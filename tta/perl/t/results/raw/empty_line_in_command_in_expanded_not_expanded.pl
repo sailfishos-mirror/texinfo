@@ -103,8 +103,7 @@ hv
 hn
 ';
 
-$result_errors{'empty_line_in_command_in_expanded_not_expanded'} = [];
-
+$result_errors{'empty_line_in_command_in_expanded_not_expanded'} = '';
 
 $result_nodes_list{'empty_line_in_command_in_expanded_not_expanded'} = '';
 

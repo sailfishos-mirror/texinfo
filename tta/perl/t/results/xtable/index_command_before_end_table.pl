@@ -85,16 +85,10 @@ aaaaa
 
 ';
 
-$result_errors{'index_command_before_end_table'} = [
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 7,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'index_command_before_end_table'} = '* W l7|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
 
+';
 
 $result_nodes_list{'index_command_before_end_table'} = '';
 

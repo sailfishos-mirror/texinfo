@@ -102,8 +102,7 @@ AA == @ (C)
 
 ';
 
-$result_errors{'reference_for_formatting_customizations'} = [];
-
+$result_errors{'reference_for_formatting_customizations'} = '';
 
 $result_nodes_list{'reference_for_formatting_customizations'} = '1|Top
  associated_section: top

@@ -38,30 +38,16 @@ In TeX
 $result_texts{'command_in_end_expanded_raw_in_command'} = 'In TeX
 ';
 
-$result_errors{'command_in_end_expanded_raw_in_command'} = [
-  {
-    'error_line' => 'warning: @code should not appear in @end
-',
-    'line_nr' => 3,
-    'text' => '@code should not appear in @end',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: @code{tex}
-',
-    'line_nr' => 3,
-    'text' => 'bad argument to @end: @code{tex}',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no matching `@end tex\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end tex\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'command_in_end_expanded_raw_in_command'} = '* W l3|@code should not appear in @end
+ warning: @code should not appear in @end
 
+* E l3|bad argument to @end: @code{tex}
+ bad argument to @end: @code{tex}
+
+* E l1|no matching `@end tex\'
+ no matching `@end tex\'
+
+';
 
 $result_nodes_list{'command_in_end_expanded_raw_in_command'} = '';
 

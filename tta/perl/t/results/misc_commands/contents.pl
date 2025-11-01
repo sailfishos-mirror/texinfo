@@ -107,79 +107,37 @@ first @contents second @contents Third content on the following line on his own
 Line following contents
 shortcontents shortcontents summarycontents ';
 
-$result_errors{'contents'} = [
-  {
-    'error_line' => 'warning: @contents should only appear at the beginning of a line
-',
-    'line_nr' => 2,
-    'text' => '@contents should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @contents line: line following first content
-',
-    'line_nr' => 2,
-    'text' => 'remaining argument on @contents line: line following first content',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @contents should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@contents should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @contents line: line following second content
-',
-    'line_nr' => 3,
-    'text' => 'remaining argument on @contents line: line following second content',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @shortcontents should only appear at the beginning of a line
-',
-    'line_nr' => 7,
-    'text' => '@shortcontents should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @shortcontents line: eol
-',
-    'line_nr' => 7,
-    'text' => 'remaining argument on @shortcontents line: eol',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @shortcontents should only appear at the beginning of a line
-',
-    'line_nr' => 8,
-    'text' => '@shortcontents should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @shortcontents line: eol
-',
-    'line_nr' => 8,
-    'text' => 'remaining argument on @shortcontents line: eol',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @summarycontents should only appear at the beginning of a line
-',
-    'line_nr' => 9,
-    'text' => '@summarycontents should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @summarycontents line: line following summarycontents
-',
-    'line_nr' => 9,
-    'text' => 'remaining argument on @summarycontents line: line following summarycontents',
-    'type' => 'warning'
-  }
-];
+$result_errors{'contents'} = '* W l2|@contents should only appear at the beginning of a line
+ warning: @contents should only appear at the beginning of a line
 
+* W l2|remaining argument on @contents line: line following first content
+ warning: remaining argument on @contents line: line following first content
+
+* W l3|@contents should only appear at the beginning of a line
+ warning: @contents should only appear at the beginning of a line
+
+* W l3|remaining argument on @contents line: line following second content
+ warning: remaining argument on @contents line: line following second content
+
+* W l7|@shortcontents should only appear at the beginning of a line
+ warning: @shortcontents should only appear at the beginning of a line
+
+* W l7|remaining argument on @shortcontents line: eol
+ warning: remaining argument on @shortcontents line: eol
+
+* W l8|@shortcontents should only appear at the beginning of a line
+ warning: @shortcontents should only appear at the beginning of a line
+
+* W l8|remaining argument on @shortcontents line: eol
+ warning: remaining argument on @shortcontents line: eol
+
+* W l9|@summarycontents should only appear at the beginning of a line
+ warning: @summarycontents should only appear at the beginning of a line
+
+* W l9|remaining argument on @summarycontents line: line following summarycontents
+ warning: remaining argument on @summarycontents line: line following summarycontents
+
+';
 
 $result_nodes_list{'contents'} = '';
 

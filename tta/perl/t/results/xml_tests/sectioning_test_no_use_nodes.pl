@@ -179,8 +179,7 @@ In s1.1.
 In c2.
 ';
 
-$result_errors{'sectioning_test_no_use_nodes'} = [];
-
+$result_errors{'sectioning_test_no_use_nodes'} = '';
 
 $result_nodes_list{'sectioning_test_no_use_nodes'} = '1|Top
  associated_section: top

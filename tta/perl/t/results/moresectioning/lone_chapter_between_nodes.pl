@@ -184,8 +184,7 @@ $result_texts{'lone_chapter_between_nodes'} = 'Top
 ***
 ';
 
-$result_errors{'lone_chapter_between_nodes'} = [];
-
+$result_errors{'lone_chapter_between_nodes'} = '';
 
 $result_nodes_list{'lone_chapter_between_nodes'} = '1|Top
  associated_section: Top

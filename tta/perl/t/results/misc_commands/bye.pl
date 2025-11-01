@@ -21,8 +21,7 @@ $result_texis{'bye'} = '@bye
 
 $result_texts{'bye'} = '';
 
-$result_errors{'bye'} = [];
-
+$result_errors{'bye'} = '';
 
 $result_nodes_list{'bye'} = '';
 

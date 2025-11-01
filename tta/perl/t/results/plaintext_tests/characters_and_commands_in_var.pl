@@ -103,8 +103,7 @@ AAc, r( e` aa.
 AAA
 ';
 
-$result_errors{'characters_and_commands_in_var'} = [];
-
+$result_errors{'characters_and_commands_in_var'} = '';
 
 $result_nodes_list{'characters_and_commands_in_var'} = '';
 

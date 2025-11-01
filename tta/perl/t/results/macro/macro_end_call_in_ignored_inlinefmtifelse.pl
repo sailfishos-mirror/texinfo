@@ -63,8 +63,7 @@ $result_texts{'macro_end_call_in_ignored_inlinefmtifelse'} = '
 Toto finish done.
 ';
 
-$result_errors{'macro_end_call_in_ignored_inlinefmtifelse'} = [];
-
+$result_errors{'macro_end_call_in_ignored_inlinefmtifelse'} = '';
 
 $result_nodes_list{'macro_end_call_in_ignored_inlinefmtifelse'} = '';
 

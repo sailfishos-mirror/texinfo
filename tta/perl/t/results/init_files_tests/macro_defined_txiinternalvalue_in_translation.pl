@@ -48,8 +48,7 @@ $result_texts{'macro_defined_txiinternalvalue_in_translation'} = '
 
 ';
 
-$result_errors{'macro_defined_txiinternalvalue_in_translation'} = [];
-
+$result_errors{'macro_defined_txiinternalvalue_in_translation'} = '';
 
 $result_nodes_list{'macro_defined_txiinternalvalue_in_translation'} = '';
 

@@ -300,23 +300,13 @@ $result_texts{'subentries'} = '
 
 ';
 
-$result_errors{'subentries'} = [
-  {
-    'error_line' => 'no more than two levels of index subentry are allowed
-',
-    'line_nr' => 10,
-    'text' => 'no more than two levels of index subentry are allowed',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'no more than two levels of index subentry are allowed
-',
-    'line_nr' => 15,
-    'text' => 'no more than two levels of index subentry are allowed',
-    'type' => 'error'
-  }
-];
+$result_errors{'subentries'} = '* E l10|no more than two levels of index subentry are allowed
+ no more than two levels of index subentry are allowed
 
+* E l15|no more than two levels of index subentry are allowed
+ no more than two levels of index subentry are allowed
+
+';
 
 $result_nodes_list{'subentries'} = '1|Top
  associated_section

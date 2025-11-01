@@ -98,8 +98,7 @@ $result_texts{'macro_in_menu_comment_closed_by_detailmenu'} = '
 * second::
 ';
 
-$result_errors{'macro_in_menu_comment_closed_by_detailmenu'} = [];
-
+$result_errors{'macro_in_menu_comment_closed_by_detailmenu'} = '';
 
 $result_nodes_list{'macro_in_menu_comment_closed_by_detailmenu'} = '';
 

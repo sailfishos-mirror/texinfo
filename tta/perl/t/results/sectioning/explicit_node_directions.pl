@@ -176,8 +176,7 @@ second node
 
 ';
 
-$result_errors{'explicit_node_directions'} = [];
-
+$result_errors{'explicit_node_directions'} = '';
 
 $result_nodes_list{'explicit_node_directions'} = '1|Top
  menus:

@@ -19,8 +19,7 @@ $result_texis{'accent_and_dash'} = '@^{a--}';
 
 $result_texts{'accent_and_dash'} = 'a-^';
 
-$result_errors{'accent_and_dash'} = [];
-
+$result_errors{'accent_and_dash'} = '';
 
 $result_nodes_list{'accent_and_dash'} = '';
 

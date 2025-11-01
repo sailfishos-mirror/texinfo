@@ -957,42 +957,6 @@ sub _print_element_associated_info($$$$$;$$) {
   return ($current_nr, $result);
 }
 
-sub _print_element_source_info($;$$) {
-  my ($element, $fname_encoding, $use_filename) = @_;
-
-  my $source_info = $element->{'source_info'};
-
-  return '' if (!defined($source_info));
-
-  my $result = ' ';
-
-  my $line_nr = $source_info->{'line_nr'};
-  my $macro = $source_info->{'macro'};
-  if (defined($source_info->{'file_name'})) {
-    my $file_name = $source_info->{'file_name'};
-    if ($use_filename) {
-      my ($directories, $suffix);
-      ($file_name, $directories, $suffix) = fileparse($file_name);
-    }
-    if (defined($fname_encoding)) {
-      $file_name = Encode::decode($fname_encoding, $file_name);
-    }
-    $result .= $file_name;
-    $result .= ':' if ($line_nr or defined($macro));
-  }
-
-  if ($line_nr) {
-    $result .= "l$line_nr";
-    $result .= ':' if (defined($macro));
-  }
-
-  if (defined($macro)) {
-    $result .= '@'.$macro;
-  }
-
-  return $result;
-}
-
 sub print_element_base($$$;$$) {
   my ($element, $level, $prepended, $fname_encoding, $use_filename) = @_;
 
@@ -1034,8 +998,12 @@ sub print_element_base($$$;$$) {
     $result .= " C$contents_nr";
   }
 
-  $result .= _print_element_source_info($element, $fname_encoding,
-                                        $use_filename);
+  my $source_info = $element->{'source_info'};
+
+  if (defined($source_info)) {
+    $result .= ' '.Texinfo::Report::print_source_info_details($source_info,
+                                            $fname_encoding, $use_filename);
+  }
 
   if (defined($cmdname) and $Texinfo::Commands::root_commands{$cmdname}
       and exists($element->{'contents'})) {

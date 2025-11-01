@@ -91,8 +91,7 @@ $result_texts{'verb_delimiter_not_ascii'} = 'top
  some text 
 ';
 
-$result_errors{'verb_delimiter_not_ascii'} = [];
-
+$result_errors{'verb_delimiter_not_ascii'} = '';
 
 $result_nodes_list{'verb_delimiter_not_ascii'} = '1|Top
  associated_section: top

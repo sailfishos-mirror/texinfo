@@ -50,16 +50,10 @@ top
 ***
 ';
 
-$result_errors{'unnumbered_before_top'} = [
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'line_nr' => 3,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  }
-];
+$result_errors{'unnumbered_before_top'} = '* W l3|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
 
+';
 
 $result_nodes_list{'unnumbered_before_top'} = '';
 

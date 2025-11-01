@@ -1096,16 +1096,10 @@ text with a lot of features.
 
 ';
 
-$result_errors{'complex_float'} = [
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @shortcaption
-',
-    'line_nr' => 87,
-    'text' => '@verb should not appear anywhere inside @shortcaption',
-    'type' => 'warning'
-  }
-];
+$result_errors{'complex_float'} = '* W l87|@verb should not appear anywhere inside @shortcaption
+ warning: @verb should not appear anywhere inside @shortcaption
 
+';
 
 $result_floats{'complex_float'} = 'Text: 2
  F1: {text-with-a-lot-of-features}

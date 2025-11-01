@@ -30,8 +30,7 @@ $result_texis{'footnote_ending_on_empty_line_spaces'} = 'text@footnote{ in footn
 
 $result_texts{'footnote_ending_on_empty_line_spaces'} = 'text';
 
-$result_errors{'footnote_ending_on_empty_line_spaces'} = [];
-
+$result_errors{'footnote_ending_on_empty_line_spaces'} = '';
 
 $result_nodes_list{'footnote_ending_on_empty_line_spaces'} = '';
 

@@ -43,16 +43,10 @@ in macrototo
 $result_texts{'macro_imbricated_with_beginning_command_name'} = '
 ';
 
-$result_errors{'macro_imbricated_with_beginning_command_name'} = [
-  {
-    'error_line' => 'unmatched `@end macro\'
-',
-    'line_nr' => 7,
-    'text' => 'unmatched `@end macro\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_imbricated_with_beginning_command_name'} = '* E l7|unmatched `@end macro\'
+ unmatched `@end macro\'
 
+';
 
 $result_nodes_list{'macro_imbricated_with_beginning_command_name'} = '';
 

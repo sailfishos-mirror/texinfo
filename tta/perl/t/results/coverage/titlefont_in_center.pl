@@ -33,8 +33,7 @@ $result_texts{'titlefont_in_center'} = '
 A manual
 ';
 
-$result_errors{'titlefont_in_center'} = [];
-
+$result_errors{'titlefont_in_center'} = '';
 
 $result_nodes_list{'titlefont_in_center'} = '';
 

@@ -44,8 +44,7 @@ and now - yes--now and "so".
 
 ';
 
-$result_errors{'quote_dash_in_display'} = [];
-
+$result_errors{'quote_dash_in_display'} = '';
 
 $result_nodes_list{'quote_dash_in_display'} = '';
 

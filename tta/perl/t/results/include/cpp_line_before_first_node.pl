@@ -45,17 +45,10 @@ aaa
 
 ';
 
-$result_errors{'cpp_line_before_first_node'} = [
-  {
-    'error_line' => 'unknown command `gggg\'
-',
-    'file_name' => 'foo.ptexi',
-    'line_nr' => 102,
-    'text' => 'unknown command `gggg\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'cpp_line_before_first_node'} = '* E foo.ptexi:l102|unknown command `gggg\'
+ unknown command `gggg\'
 
+';
 
 $result_nodes_list{'cpp_line_before_first_node'} = '';
 

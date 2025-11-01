@@ -75,8 +75,7 @@ $result_texts{'empty_menu_description'} = '
 
 ';
 
-$result_errors{'empty_menu_description'} = [];
-
+$result_errors{'empty_menu_description'} = '';
 
 $result_nodes_list{'empty_menu_description'} = '1|first
  menus:

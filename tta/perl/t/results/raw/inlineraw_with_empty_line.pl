@@ -63,8 +63,7 @@ in
 <i>HTML</i>.
 ';
 
-$result_errors{'inlineraw_with_empty_line'} = [];
-
+$result_errors{'inlineraw_with_empty_line'} = '';
 
 $result_nodes_list{'inlineraw_with_empty_line'} = '';
 

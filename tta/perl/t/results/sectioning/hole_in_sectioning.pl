@@ -111,16 +111,10 @@ $result_texts{'hole_in_sectioning'} = 'Top
 --------------------
 ';
 
-$result_errors{'hole_in_sectioning'} = [
-  {
-    'error_line' => 'raising the section level of @subsubsection which is too low
-',
-    'line_nr' => 7,
-    'text' => 'raising the section level of @subsubsection which is too low',
-    'type' => 'error'
-  }
-];
+$result_errors{'hole_in_sectioning'} = '* E l7|raising the section level of @subsubsection which is too low
+ raising the section level of @subsubsection which is too low
 
+';
 
 $result_nodes_list{'hole_in_sectioning'} = '';
 

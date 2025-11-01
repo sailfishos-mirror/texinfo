@@ -84,8 +84,7 @@ arg
 
 ';
 
-$result_errors{'ifclear_in_macro'} = [];
-
+$result_errors{'ifclear_in_macro'} = '';
 
 $result_nodes_list{'ifclear_in_macro'} = '';
 

@@ -78,8 +78,7 @@ $result_texts{'texinfo_command_alias_indirect_before'} = '
 aa
 ';
 
-$result_errors{'texinfo_command_alias_indirect_before'} = [];
-
+$result_errors{'texinfo_command_alias_indirect_before'} = '';
 
 $result_nodes_list{'texinfo_command_alias_indirect_before'} = '';
 

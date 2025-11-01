@@ -254,44 +254,22 @@ In 8pts
 In 15pts
 ';
 
-$result_errors{'fonttextsize'} = [
-  {
-    'error_line' => 'warning: multiple @fonttextsize
-',
-    'line_nr' => 14,
-    'text' => 'multiple @fonttextsize',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @fonttextsize
-',
-    'line_nr' => 19,
-    'text' => 'multiple @fonttextsize',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'Only @fonttextsize 10 or 11 is supported, not `8\'
-',
-    'line_nr' => 19,
-    'text' => 'Only @fonttextsize 10 or 11 is supported, not `8\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: multiple @fonttextsize
-',
-    'line_nr' => 24,
-    'text' => 'multiple @fonttextsize',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'Only @fonttextsize 10 or 11 is supported, not `15\'
-',
-    'line_nr' => 24,
-    'text' => 'Only @fonttextsize 10 or 11 is supported, not `15\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'fonttextsize'} = '* W l14|multiple @fonttextsize
+ warning: multiple @fonttextsize
 
+* W l19|multiple @fonttextsize
+ warning: multiple @fonttextsize
+
+* E l19|Only @fonttextsize 10 or 11 is supported, not `8\'
+ Only @fonttextsize 10 or 11 is supported, not `8\'
+
+* W l24|multiple @fonttextsize
+ warning: multiple @fonttextsize
+
+* E l24|Only @fonttextsize 10 or 11 is supported, not `15\'
+ Only @fonttextsize 10 or 11 is supported, not `15\'
+
+';
 
 $result_nodes_list{'fonttextsize'} = '1|Top
  associated_section: section top

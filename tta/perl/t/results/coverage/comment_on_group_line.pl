@@ -49,8 +49,7 @@ in group.
 $result_texts{'comment_on_group_line'} = 'in group.
 ';
 
-$result_errors{'comment_on_group_line'} = [];
-
+$result_errors{'comment_on_group_line'} = '';
 
 $result_nodes_list{'comment_on_group_line'} = '';
 

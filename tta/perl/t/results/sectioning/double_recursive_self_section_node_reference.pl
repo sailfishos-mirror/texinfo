@@ -111,30 +111,16 @@ $result_texts{'double_recursive_self_section_node_reference'} = 'top
 
 ';
 
-$result_errors{'double_recursive_self_section_node_reference'} = [
-  {
-    'error_line' => 'warning: @ref should not appear on @node line
-',
-    'line_nr' => 7,
-    'text' => '@ref should not appear on @node line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @ref to `to node1\', different from node name `to @ref{node1}\'
-',
-    'line_nr' => 5,
-    'text' => '@ref to `to node1\', different from node name `to @ref{node1}\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `to @ref{node1}\' not in menu
-',
-    'line_nr' => 7,
-    'text' => 'node `to @ref{node1}\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_recursive_self_section_node_reference'} = '* W l7|@ref should not appear on @node line
+ warning: @ref should not appear on @node line
 
+* W l5|@ref to `to node1\', different from node name `to @ref{node1}\'
+ warning: @ref to `to node1\', different from node name `to @ref{node1}\'
+
+* W l7|node `to @ref{node1}\' not in menu
+ warning: node `to @ref{node1}\' not in menu
+
+';
 
 $result_nodes_list{'double_recursive_self_section_node_reference'} = '1|Top
  associated_section: top

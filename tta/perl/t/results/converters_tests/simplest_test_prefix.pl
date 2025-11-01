@@ -54,8 +54,7 @@ This is a very simple texi manual   <>.
 
 ';
 
-$result_errors{'simplest_test_prefix'} = [];
-
+$result_errors{'simplest_test_prefix'} = '';
 
 $result_nodes_list{'simplest_test_prefix'} = '1|Top
 ';

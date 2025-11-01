@@ -65,18 +65,12 @@ $result_texts{'menu_node_unterminated'} = '
 * Example: Examples of Login Verification Functions
 ';
 
-$result_errors{'menu_node_unterminated'} = [
-  {
-    'error_line' => '@menu reference to nonexistent node `Examples of Login Verification Functions
+$result_errors{'menu_node_unterminated'} = '* E l4|@menu reference to nonexistent node `Examples of Login Verification Functions
 \'
-',
-    'line_nr' => 4,
-    'text' => '@menu reference to nonexistent node `Examples of Login Verification Functions
-\'',
-    'type' => 'error'
-  }
-];
+ @menu reference to nonexistent node `Examples of Login Verification Functions
+\'
 
+';
 
 $result_nodes_list{'menu_node_unterminated'} = '1|first
  menus:

@@ -71,8 +71,7 @@ $result_texts{'verb_with_brace_in_linemacro_call'} = '
 
 ';
 
-$result_errors{'verb_with_brace_in_linemacro_call'} = [];
-
+$result_errors{'verb_with_brace_in_linemacro_call'} = '';
 
 $result_nodes_list{'verb_with_brace_in_linemacro_call'} = '';
 

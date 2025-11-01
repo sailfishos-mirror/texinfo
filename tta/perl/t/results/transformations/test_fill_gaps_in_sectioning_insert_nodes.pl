@@ -185,8 +185,7 @@ There
 .....
 ';
 
-$result_errors{'test_fill_gaps_in_sectioning_insert_nodes'} = [];
-
+$result_errors{'test_fill_gaps_in_sectioning_insert_nodes'} = '';
 
 $result_nodes_list{'test_fill_gaps_in_sectioning_insert_nodes'} = '1|Top
  associated_section: top

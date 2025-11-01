@@ -79,8 +79,7 @@ Should be code: code
 Should be verb: verb
 ';
 
-$result_errors{'simple'} = [];
-
+$result_errors{'simple'} = '';
 
 $result_nodes_list{'simple'} = '';
 

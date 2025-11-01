@@ -301,71 +301,31 @@ arg3
 
 ';
 
-$result_errors{'macro_expansion'} = [
-  {
-    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
-',
-    'line_nr' => 9,
-    'macro' => 'macroone',
-    'text' => 'bad argument to @end: verbatim.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
-',
-    'line_nr' => 11,
-    'macro' => 'macroone',
-    'text' => 'bad argument to @end: verbatim.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @macroone defined with zero or more than one argument should be invoked with {}
-',
-    'line_nr' => 13,
-    'text' => '@macroone defined with zero or more than one argument should be invoked with {}',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim my arg. (possibly involving @macroone)
-',
-    'line_nr' => 13,
-    'macro' => 'macroone',
-    'text' => 'bad argument to @end: verbatim my arg.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
-',
-    'line_nr' => 15,
-    'macro' => 'macroone',
-    'text' => 'bad argument to @end: verbatim.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: use @comma{} instead of \\, in macro arg
-',
-    'line_nr' => 17,
-    'text' => 'use @comma{} instead of \\, in macro arg',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
-',
-    'line_nr' => 17,
-    'macro' => 'macroone',
-    'text' => 'bad argument to @end: verbatim.',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad argument to @end: verbatim. (possibly involving @macroone)
-',
-    'line_nr' => 23,
-    'macro' => 'macroone',
-    'text' => 'bad argument to @end: verbatim.',
-    'type' => 'error'
-  }
-];
+$result_errors{'macro_expansion'} = '* E l9:@macroone|bad argument to @end: verbatim.
+ bad argument to @end: verbatim. (possibly involving @macroone)
 
+* E l11:@macroone|bad argument to @end: verbatim.
+ bad argument to @end: verbatim. (possibly involving @macroone)
+
+* W l13|@macroone defined with zero or more than one argument should be invoked with {}
+ warning: @macroone defined with zero or more than one argument should be invoked with {}
+
+* E l13:@macroone|bad argument to @end: verbatim my arg.
+ bad argument to @end: verbatim my arg. (possibly involving @macroone)
+
+* E l15:@macroone|bad argument to @end: verbatim.
+ bad argument to @end: verbatim. (possibly involving @macroone)
+
+* W l17|use @comma{} instead of \\, in macro arg
+ warning: use @comma{} instead of \\, in macro arg
+
+* E l17:@macroone|bad argument to @end: verbatim.
+ bad argument to @end: verbatim. (possibly involving @macroone)
+
+* E l23:@macroone|bad argument to @end: verbatim.
+ bad argument to @end: verbatim. (possibly involving @macroone)
+
+';
 
 $result_nodes_list{'macro_expansion'} = '';
 

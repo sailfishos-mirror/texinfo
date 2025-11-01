@@ -455,41 +455,19 @@ In chapter 2
 
 ';
 
-$result_errors{'index_no_node'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'file_name' => 'index_no_node.texi',
-    'line_nr' => 5,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: printindex before document beginning: @printindex cp
-',
-    'file_name' => 'index_no_node.texi',
-    'line_nr' => 7,
-    'text' => 'printindex before document beginning: @printindex cp',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'unknown index `bidule\' in @printindex
-',
-    'file_name' => 'index_no_node.texi',
-    'line_nr' => 11,
-    'text' => 'unknown index `bidule\' in @printindex',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: lowering the section level of @top appearing after a lower element
-',
-    'file_name' => 'index_no_node.texi',
-    'line_nr' => 19,
-    'text' => 'lowering the section level of @top appearing after a lower element',
-    'type' => 'warning'
-  }
-];
+$result_errors{'index_no_node'} = '* W index_no_node.texi:l5|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+* W index_no_node.texi:l7|printindex before document beginning: @printindex cp
+ warning: printindex before document beginning: @printindex cp
+
+* E index_no_node.texi:l11|unknown index `bidule\' in @printindex
+ unknown index `bidule\' in @printindex
+
+* W index_no_node.texi:l19|lowering the section level of @top appearing after a lower element
+ warning: lowering the section level of @top appearing after a lower element
+
+';
 
 $result_nodes_list{'index_no_node'} = '';
 

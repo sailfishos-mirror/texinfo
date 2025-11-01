@@ -84,8 +84,7 @@ $result_texts{'detailmenu_in_description'} = '
 * detailmenu::
 ';
 
-$result_errors{'detailmenu_in_description'} = [];
-
+$result_errors{'detailmenu_in_description'} = '';
 
 $result_nodes_list{'detailmenu_in_description'} = '';
 

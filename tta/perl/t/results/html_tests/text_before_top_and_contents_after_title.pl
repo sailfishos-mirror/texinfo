@@ -97,8 +97,7 @@ In top.
 
 ';
 
-$result_errors{'text_before_top_and_contents_after_title'} = [];
-
+$result_errors{'text_before_top_and_contents_after_title'} = '';
 
 $result_nodes_list{'text_before_top_and_contents_after_title'} = '1|Top
  associated_section: top

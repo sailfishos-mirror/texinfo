@@ -513,16 +513,10 @@ in float
 
 ';
 
-$result_errors{'form_feeds'} = [
-  {
-    'error_line' => 'warning: node `chapnode\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `chapnode\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'form_feeds'} = '* W l3|node `chapnode\' not in menu
+ warning: node `chapnode\' not in menu
 
+';
 
 $result_floats{'form_feeds'} = ': 1
  F

@@ -70,44 +70,22 @@ accent character with spaces f~ollowing.
 accent character at end of line a~ccent character followed by @ ~.
 ';
 
-$result_errors{'accents_errors'} = [
-  {
-    'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
-',
-    'line_nr' => 1,
-    'text' => 'command `@ringaccent\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
-',
-    'line_nr' => 2,
-    'text' => 'command `@ringaccent\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@ringaccent expected braces
-',
-    'line_nr' => 3,
-    'text' => '@ringaccent expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: command `@~\' must not be followed by new line
-',
-    'line_nr' => 6,
-    'text' => 'command `@~\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => '@~ expected braces
-',
-    'line_nr' => 7,
-    'text' => '@~ expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'accents_errors'} = '* W l1|command `@ringaccent\' must not be followed by new line
+ warning: command `@ringaccent\' must not be followed by new line
 
+* W l2|command `@ringaccent\' must not be followed by new line
+ warning: command `@ringaccent\' must not be followed by new line
+
+* E l3|@ringaccent expected braces
+ @ringaccent expected braces
+
+* W l6|command `@~\' must not be followed by new line
+ warning: command `@~\' must not be followed by new line
+
+* E l7|@~ expected braces
+ @~ expected braces
+
+';
 
 $result_nodes_list{'accents_errors'} = '';
 

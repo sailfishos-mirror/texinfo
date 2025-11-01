@@ -27,8 +27,7 @@ $result_texis{'commands_and_punctuation'} = 'SomthingA@.   and now inhibit.@: No
 
 $result_texts{'commands_and_punctuation'} = 'SomthingA.   and now inhibit. Now dots ... and enddots ... and';
 
-$result_errors{'commands_and_punctuation'} = [];
-
+$result_errors{'commands_and_punctuation'} = '';
 
 $result_nodes_list{'commands_and_punctuation'} = '';
 

@@ -18,16 +18,10 @@ $result_texis{'txiinternalvalue'} = '
 $result_texts{'txiinternalvalue'} = '
 ';
 
-$result_errors{'txiinternalvalue'} = [
-  {
-    'error_line' => 'unknown command `txiinternalvalue\'
-',
-    'line_nr' => 1,
-    'text' => 'unknown command `txiinternalvalue\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'txiinternalvalue'} = '* E l1|unknown command `txiinternalvalue\'
+ unknown command `txiinternalvalue\'
 
+';
 
 $result_nodes_list{'txiinternalvalue'} = '';
 

@@ -66,8 +66,7 @@ $result_texts{'alias_of_macro_before_macro'} = '
 ||thearg||
 ';
 
-$result_errors{'alias_of_macro_before_macro'} = [];
-
+$result_errors{'alias_of_macro_before_macro'} = '';
 
 $result_nodes_list{'alias_of_macro_before_macro'} = '';
 

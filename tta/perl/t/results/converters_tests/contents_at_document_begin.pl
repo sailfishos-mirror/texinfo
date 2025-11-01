@@ -156,8 +156,7 @@ The chapter
 
 ';
 
-$result_errors{'contents_at_document_begin'} = [];
-
+$result_errors{'contents_at_document_begin'} = '';
 
 $result_nodes_list{'contents_at_document_begin'} = '1|Top
  associated_section: Contents at beginning

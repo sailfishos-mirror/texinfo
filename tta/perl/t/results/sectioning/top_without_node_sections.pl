@@ -98,8 +98,7 @@ Top section
 Text of chapter
 ';
 
-$result_errors{'top_without_node_sections'} = [];
-
+$result_errors{'top_without_node_sections'} = '';
 
 $result_nodes_list{'top_without_node_sections'} = '1|second
  associated_section: 1 Chapter

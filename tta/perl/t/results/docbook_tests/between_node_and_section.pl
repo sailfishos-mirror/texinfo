@@ -128,8 +128,7 @@ $result_texts{'between_node_and_section'} = '
 ========
 ';
 
-$result_errors{'between_node_and_section'} = [];
-
+$result_errors{'between_node_and_section'} = '';
 
 $result_nodes_list{'between_node_and_section'} = '1|chap
  associated_section: 1 Chap

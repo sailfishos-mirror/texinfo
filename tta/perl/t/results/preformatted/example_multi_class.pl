@@ -113,8 +113,7 @@ $result_texts{'example_multi_class'} = 'void StateManager::deallocate() {
 }
 ';
 
-$result_errors{'example_multi_class'} = [];
-
+$result_errors{'example_multi_class'} = '';
 
 $result_nodes_list{'example_multi_class'} = '';
 

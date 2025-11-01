@@ -83,8 +83,7 @@ AAA. E~. AA.
 double AAA.  double E~. double AA.  End.
 ';
 
-$result_errors{'punctuation_and_code_style_commands_utf8'} = [];
-
+$result_errors{'punctuation_and_code_style_commands_utf8'} = '';
 
 $result_nodes_list{'punctuation_and_code_style_commands_utf8'} = '';
 

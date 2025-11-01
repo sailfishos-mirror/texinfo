@@ -164,23 +164,13 @@ After afourpaper
 In afourpaper reset
 ';
 
-$result_errors{'pagetype'} = [
-  {
-    'error_line' => 'unknown command `Chapter\'
-',
-    'line_nr' => 13,
-    'text' => 'unknown command `Chapter\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: multiple @afourpaper
-',
-    'line_nr' => 16,
-    'text' => 'multiple @afourpaper',
-    'type' => 'warning'
-  }
-];
+$result_errors{'pagetype'} = '* E l13|unknown command `Chapter\'
+ unknown command `Chapter\'
 
+* W l16|multiple @afourpaper
+ warning: multiple @afourpaper
+
+';
 
 $result_nodes_list{'pagetype'} = '1|Top
  associated_section: section top

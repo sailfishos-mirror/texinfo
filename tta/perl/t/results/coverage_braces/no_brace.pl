@@ -31,30 +31,16 @@ $result_texis{'no_brace'} = '@TeX and @code code and @footnote footnote ';
 
 $result_texts{'no_brace'} = 'TeXand code and footnote ';
 
-$result_errors{'no_brace'} = [
-  {
-    'error_line' => '@TeX expected braces
-',
-    'line_nr' => 1,
-    'text' => '@TeX expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@code expected braces
-',
-    'line_nr' => 1,
-    'text' => '@code expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => '@footnote expected braces
-',
-    'line_nr' => 1,
-    'text' => '@footnote expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'no_brace'} = '* E l1|@TeX expected braces
+ @TeX expected braces
 
+* E l1|@code expected braces
+ @code expected braces
+
+* E l1|@footnote expected braces
+ @footnote expected braces
+
+';
 
 $result_nodes_list{'no_brace'} = '';
 

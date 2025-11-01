@@ -52,23 +52,13 @@ $result_texts{'a_comma_after_node'} = '
 A comma in text, end.
 ';
 
-$result_errors{'a_comma_after_node'} = [
-  {
-    'error_line' => 'Next reference to nonexistent `Requirements\'
-',
-    'line_nr' => 1,
-    'text' => 'Next reference to nonexistent `Requirements\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'Prev reference to nonexistent `Nodes and Menus\'
-',
-    'line_nr' => 1,
-    'text' => 'Prev reference to nonexistent `Nodes and Menus\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'a_comma_after_node'} = '* E l1|Next reference to nonexistent `Requirements\'
+ Next reference to nonexistent `Requirements\'
 
+* E l1|Prev reference to nonexistent `Nodes and Menus\'
+ Prev reference to nonexistent `Nodes and Menus\'
+
+';
 
 $result_nodes_list{'a_comma_after_node'} = '1|Commands
 ';

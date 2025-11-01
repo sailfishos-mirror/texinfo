@@ -40,23 +40,13 @@ in cartouche.
 $result_texts{'bye_on_end_command_line'} = 'in cartouche.
 ';
 
-$result_errors{'bye_on_end_command_line'} = [
-  {
-    'error_line' => 'warning: @bye should only appear at the beginning of a line
-',
-    'line_nr' => 3,
-    'text' => '@bye should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @bye should not appear in @end
-',
-    'line_nr' => 3,
-    'text' => '@bye should not appear in @end',
-    'type' => 'warning'
-  }
-];
+$result_errors{'bye_on_end_command_line'} = '* W l3|@bye should only appear at the beginning of a line
+ warning: @bye should only appear at the beginning of a line
 
+* W l3|@bye should not appear in @end
+ warning: @bye should not appear in @end
+
+';
 
 $result_nodes_list{'bye_on_end_command_line'} = '';
 

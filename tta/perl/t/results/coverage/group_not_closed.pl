@@ -29,16 +29,10 @@ $result_texts{'group_not_closed'} = '
 text in group
 ';
 
-$result_errors{'group_not_closed'} = [
-  {
-    'error_line' => 'no matching `@end group\'
-',
-    'line_nr' => 1,
-    'text' => 'no matching `@end group\'',
-    'type' => 'error'
-  }
-];
+$result_errors{'group_not_closed'} = '* E l1|no matching `@end group\'
+ no matching `@end group\'
 
+';
 
 $result_nodes_list{'group_not_closed'} = '';
 

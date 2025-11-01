@@ -167,8 +167,7 @@ a_=
 r`\'=
 ';
 
-$result_errors{'weird_accents'} = [];
-
+$result_errors{'weird_accents'} = '';
 
 $result_nodes_list{'weird_accents'} = '1|Top
  associated_section: top

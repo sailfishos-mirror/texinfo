@@ -647,57 +647,25 @@ Titlepage footnote anchor for reference on the titlepage.
 
 ';
 
-$result_errors{'index_special_region_titlepage_no_nodes_footnotes_default'} = [
-  {
-    'error_line' => 'warning: @cindex missing argument
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 44,
-    'text' => '@cindex missing argument',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffn
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 45,
-    'text' => 'missing name for @deffn',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 46,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: missing name for @deffnx
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 47,
-    'text' => 'missing name for @deffnx',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'missing @ftable argument
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 50,
-    'text' => 'missing @ftable argument',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @item missing argument
-',
-    'file_name' => 'index_special_region.texi',
-    'line_nr' => 51,
-    'text' => '@item missing argument',
-    'type' => 'warning'
-  }
-];
+$result_errors{'index_special_region_titlepage_no_nodes_footnotes_default'} = '* W index_special_region.texi:l44|@cindex missing argument
+ warning: @cindex missing argument
 
+* W index_special_region.texi:l45|missing name for @deffn
+ warning: missing name for @deffn
+
+* W index_special_region.texi:l46|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* W index_special_region.texi:l47|missing name for @deffnx
+ warning: missing name for @deffnx
+
+* E index_special_region.texi:l50|missing @ftable argument
+ missing @ftable argument
+
+* W index_special_region.texi:l51|@item missing argument
+ warning: @item missing argument
+
+';
 
 $result_nodes_list{'index_special_region_titlepage_no_nodes_footnotes_default'} = '1|Top
  associated_section: Top

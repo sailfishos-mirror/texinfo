@@ -50,30 +50,16 @@ $result_texts{'section_on_index_entry_line'} = '1 b
 Somethin
 ';
 
-$result_errors{'section_on_index_entry_line'} = [
-  {
-    'error_line' => 'warning: @section should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@section should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @section should not appear on @cindex line
-',
-    'line_nr' => 1,
-    'text' => '@section should not appear on @cindex line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'section_on_index_entry_line'} = '* W l1|@section should only appear at the beginning of a line
+ warning: @section should only appear at the beginning of a line
 
+* W l1|@section should not appear on @cindex line
+ warning: @section should not appear on @cindex line
+
+* W l1|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
+
+';
 
 $result_nodes_list{'section_on_index_entry_line'} = '';
 

@@ -1613,128 +1613,58 @@ line after exdent
 
 ';
 
-$result_errors{'value_in_misc_commands'} = [
-  {
-    'error_line' => 'bad argument to @headings: on line following headings atext
-',
-    'line_nr' => 20,
-    'text' => 'bad argument to @headings: on line following headings atext',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 37,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose should only appear at the beginning of a line
-',
-    'line_nr' => 37,
-    'text' => '@definfoenclose should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 43,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @definfoenclose is obsolete
-',
-    'line_nr' => 52,
-    'text' => '@definfoenclose is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: multiple @footnotestyle
-',
-    'line_nr' => 83,
-    'text' => 'multiple @footnotestyle',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @documentlanguage should only appear at the beginning of a line
-',
-    'line_nr' => 91,
-    'text' => '@documentlanguage should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @page should only appear at the beginning of a line
-',
-    'line_nr' => 118,
-    'text' => '@page should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @page line: @@noindent @value{noindent_macro} @@refill @value{refill_macro} something
-',
-    'line_nr' => 118,
-    'text' => 'remaining argument on @page line: @@noindent @value{noindent_macro} @@refill @value{refill_macro} something',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 121,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 123,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @page line: page at beginning of line
-',
-    'line_nr' => 124,
-    'text' => 'remaining argument on @page line: page at beginning of line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @page should only appear at the beginning of a line
-',
-    'line_nr' => 128,
-    'text' => '@page should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @page line: @@noindent @value{noindent_macro}    @@refill @value{refill_macro}
-',
-    'line_nr' => 128,
-    'text' => 'remaining argument on @page line: @@noindent @value{noindent_macro}    @@refill @value{refill_macro}',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @clickstyle is obsolete
-',
-    'line_nr' => 143,
-    'text' => '@clickstyle is obsolete',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: remaining argument on @clickstyle line: {result_macro}
-',
-    'line_nr' => 143,
-    'text' => 'remaining argument on @clickstyle line: {result_macro}',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 6,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'value_in_misc_commands'} = '* E l20|bad argument to @headings: on line following headings atext
+ bad argument to @headings: on line following headings atext
 
+* W l37|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l37|@definfoenclose should only appear at the beginning of a line
+ warning: @definfoenclose should only appear at the beginning of a line
+
+* W l43|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l52|@definfoenclose is obsolete
+ warning: @definfoenclose is obsolete
+
+* W l83|multiple @footnotestyle
+ warning: multiple @footnotestyle
+
+* W l91|@documentlanguage should only appear at the beginning of a line
+ warning: @documentlanguage should only appear at the beginning of a line
+
+* W l118|@page should only appear at the beginning of a line
+ warning: @page should only appear at the beginning of a line
+
+* W l118|remaining argument on @page line: @@noindent @value{noindent_macro} @@refill @value{refill_macro} something
+ warning: remaining argument on @page line: @@noindent @value{noindent_macro} @@refill @value{refill_macro} something
+
+* W l121|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
+
+* W l123|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
+
+* W l124|remaining argument on @page line: page at beginning of line
+ warning: remaining argument on @page line: page at beginning of line
+
+* W l128|@page should only appear at the beginning of a line
+ warning: @page should only appear at the beginning of a line
+
+* W l128|remaining argument on @page line: @@noindent @value{noindent_macro}    @@refill @value{refill_macro}
+ warning: remaining argument on @page line: @@noindent @value{noindent_macro}    @@refill @value{refill_macro}
+
+* W l143|@clickstyle is obsolete
+ warning: @clickstyle is obsolete
+
+* W l143|remaining argument on @clickstyle line: {result_macro}
+ warning: remaining argument on @clickstyle line: {result_macro}
+
+* W l6|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_nodes_list{'value_in_misc_commands'} = '1|Top
  associated_section: top atext

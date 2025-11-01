@@ -70,8 +70,7 @@ bbbbbbbbbb
 gg
 ';
 
-$result_errors{'w_in_multitable'} = [];
-
+$result_errors{'w_in_multitable'} = '';
 
 $result_nodes_list{'w_in_multitable'} = '';
 

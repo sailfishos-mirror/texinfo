@@ -75,8 +75,7 @@ $result_texts{'macro_inlineifcond_end_in_empty_ignored'} = 'Toto . After.
 Again with space . After.
 ';
 
-$result_errors{'macro_inlineifcond_end_in_empty_ignored'} = [];
-
+$result_errors{'macro_inlineifcond_end_in_empty_ignored'} = '';
 
 $result_nodes_list{'macro_inlineifcond_end_in_empty_ignored'} = '';
 

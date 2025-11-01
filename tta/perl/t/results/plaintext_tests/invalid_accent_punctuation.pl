@@ -19,16 +19,10 @@ $result_texis{'invalid_accent_punctuation'} = 'a. @^@@';
 
 $result_texts{'invalid_accent_punctuation'} = 'a. ^@';
 
-$result_errors{'invalid_accent_punctuation'} = [
-  {
-    'error_line' => '@^ expected braces
-',
-    'line_nr' => 1,
-    'text' => '@^ expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'invalid_accent_punctuation'} = '* E l1|@^ expected braces
+ @^ expected braces
 
+';
 
 $result_nodes_list{'invalid_accent_punctuation'} = '';
 

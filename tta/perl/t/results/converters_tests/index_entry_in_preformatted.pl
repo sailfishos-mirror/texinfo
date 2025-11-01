@@ -162,8 +162,7 @@ text
 text2
 ';
 
-$result_errors{'index_entry_in_preformatted'} = [];
-
+$result_errors{'index_entry_in_preformatted'} = '';
 
 $result_nodes_list{'index_entry_in_preformatted'} = '1|Top
  associated_section: top

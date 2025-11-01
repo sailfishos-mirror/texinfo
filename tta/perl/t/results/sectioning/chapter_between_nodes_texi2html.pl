@@ -172,8 +172,7 @@ section.
 
 ';
 
-$result_errors{'chapter_between_nodes_texi2html'} = [];
-
+$result_errors{'chapter_between_nodes_texi2html'} = '';
 
 $result_nodes_list{'chapter_between_nodes_texi2html'} = '1|Top
  associated_section: top section

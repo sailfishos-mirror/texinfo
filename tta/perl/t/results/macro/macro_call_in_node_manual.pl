@@ -366,8 +366,7 @@ $result_texts{'macro_call_in_node_manual'} = '
 * (nomlast)  mynodeand after::
 ';
 
-$result_errors{'macro_call_in_node_manual'} = [];
-
+$result_errors{'macro_call_in_node_manual'} = '';
 
 $result_nodes_list{'macro_call_in_node_manual'} = '';
 

@@ -499,8 +499,7 @@ In subsection 1
 
 ';
 
-$result_errors{'split_chapter_index'} = [];
-
+$result_errors{'split_chapter_index'} = '';
 
 $result_nodes_list{'split_chapter_index'} = '1|Top
  associated_section: split indices

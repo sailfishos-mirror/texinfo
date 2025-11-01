@@ -126,44 +126,22 @@ a
 
 ';
 
-$result_errors{'lettered_accent_and_spaces'} = [
-  {
-    'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
-',
-    'line_nr' => 3,
-    'text' => 'command `@ringaccent\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
-',
-    'line_nr' => 6,
-    'text' => 'command `@ringaccent\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@ringaccent\' must not be followed by new line
-',
-    'line_nr' => 9,
-    'text' => 'command `@ringaccent\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@^\' must not be followed by new line
-',
-    'line_nr' => 14,
-    'text' => 'command `@^\' must not be followed by new line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: command `@^\' must not be followed by new line
-',
-    'line_nr' => 17,
-    'text' => 'command `@^\' must not be followed by new line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'lettered_accent_and_spaces'} = '* W l3|command `@ringaccent\' must not be followed by new line
+ warning: command `@ringaccent\' must not be followed by new line
 
+* W l6|command `@ringaccent\' must not be followed by new line
+ warning: command `@ringaccent\' must not be followed by new line
+
+* W l9|command `@ringaccent\' must not be followed by new line
+ warning: command `@ringaccent\' must not be followed by new line
+
+* W l14|command `@^\' must not be followed by new line
+ warning: command `@^\' must not be followed by new line
+
+* W l17|command `@^\' must not be followed by new line
+ warning: command `@^\' must not be followed by new line
+
+';
 
 $result_nodes_list{'lettered_accent_and_spaces'} = '';
 

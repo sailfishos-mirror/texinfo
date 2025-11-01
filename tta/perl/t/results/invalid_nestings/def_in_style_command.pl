@@ -70,30 +70,16 @@ Function: name args...
 text
 ';
 
-$result_errors{'def_in_style_command'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 2,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 5,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'def_in_style_command'} = '* E l1|@code missing closing brace
+ @code missing closing brace
 
+* W l2|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
+
+* E l5|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'def_in_style_command'} = '';
 

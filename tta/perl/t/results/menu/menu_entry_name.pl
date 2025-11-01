@@ -232,8 +232,7 @@ $result_texts{'menu_entry_name'} = '* a: (f)b
 * a: (f)b3.c. d
 ';
 
-$result_errors{'menu_entry_name'} = [];
-
+$result_errors{'menu_entry_name'} = '';
 
 $result_nodes_list{'menu_entry_name'} = '';
 

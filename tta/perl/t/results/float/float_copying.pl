@@ -368,8 +368,7 @@ Appendix A Copying and floats
 
 ';
 
-$result_errors{'float_copying'} = [];
-
+$result_errors{'float_copying'} = '';
 
 $result_floats{'float_copying'} = 'Copyright notice: 1
  F1: {public-domain}

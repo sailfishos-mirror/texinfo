@@ -28,8 +28,7 @@ $result_texts{'multiline_verb_after_space'} = 'AA aa
 bb.
 ';
 
-$result_errors{'multiline_verb_after_space'} = [];
-
+$result_errors{'multiline_verb_after_space'} = '';
 
 $result_nodes_list{'multiline_verb_after_space'} = '';
 

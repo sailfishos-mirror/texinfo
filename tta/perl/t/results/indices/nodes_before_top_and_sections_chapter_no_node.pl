@@ -942,25 +942,13 @@ Text and then index entries
 
 ';
 
-$result_errors{'nodes_before_top_and_sections_chapter_no_node'} = [
-  {
-    'error_line' => 'warning: node `first\' in menu where `chapter\' expected
-',
-    'file_name' => 'nodes_before_top_and_sections.texi',
-    'line_nr' => 42,
-    'text' => 'node `first\' in menu where `chapter\' expected',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `first before top\' not in menu
-',
-    'file_name' => 'nodes_before_top_and_sections.texi',
-    'line_nr' => 3,
-    'text' => 'node `first before top\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodes_before_top_and_sections_chapter_no_node'} = '* W nodes_before_top_and_sections.texi:l42|node `first\' in menu where `chapter\' expected
+ warning: node `first\' in menu where `chapter\' expected
 
+* W nodes_before_top_and_sections.texi:l3|node `first before top\' not in menu
+ warning: node `first before top\' not in menu
+
+';
 
 $result_nodes_list{'nodes_before_top_and_sections_chapter_no_node'} = '1|first before top
  menus:

@@ -373,16 +373,10 @@ ankh
  is: ankh p.
 ';
 
-$result_errors{'end_of_line_command_in_node_lines'} = [
-  {
-    'error_line' => 'warning: @menu entry node name `ankh p\' different from anchor name `ankh @* p\'
-',
-    'line_nr' => 32,
-    'text' => '@menu entry node name `ankh p\' different from anchor name `ankh @* p\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'end_of_line_command_in_node_lines'} = '* W l32|@menu entry node name `ankh p\' different from anchor name `ankh @* p\'
+ warning: @menu entry node name `ankh p\' different from anchor name `ankh @* p\'
 
+';
 
 $result_nodes_list{'end_of_line_command_in_node_lines'} = '1|Top
  associated_section: top

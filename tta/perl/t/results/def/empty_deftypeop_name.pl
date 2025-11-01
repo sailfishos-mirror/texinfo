@@ -61,16 +61,10 @@ $result_texis{'empty_deftypeop_name'} = '@deftypeop Command@code{com} {Window@co
 $result_texts{'empty_deftypeop_name'} = 'Commandcom on Windowint: exposeexp 
 ';
 
-$result_errors{'empty_deftypeop_name'} = [
-  {
-    'error_line' => 'warning: missing name for @deftypeop
-',
-    'line_nr' => 1,
-    'text' => 'missing name for @deftypeop',
-    'type' => 'warning'
-  }
-];
+$result_errors{'empty_deftypeop_name'} = '* W l1|missing name for @deftypeop
+ warning: missing name for @deftypeop
 
+';
 
 $result_nodes_list{'empty_deftypeop_name'} = '';
 

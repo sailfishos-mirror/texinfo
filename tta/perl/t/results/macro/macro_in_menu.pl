@@ -307,8 +307,7 @@ menu comment
 * 3rd node: entry. description
 ';
 
-$result_errors{'macro_in_menu'} = [];
-
+$result_errors{'macro_in_menu'} = '';
 
 $result_nodes_list{'macro_in_menu'} = '';
 

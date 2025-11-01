@@ -83,23 +83,13 @@ First item text
 Topsecond item
 ';
 
-$result_errors{'item_in_ref'} = [
-  {
-    'error_line' => '@ref missing closing brace
-',
-    'line_nr' => 5,
-    'text' => '@ref missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 6,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'item_in_ref'} = '* E l5|@ref missing closing brace
+ @ref missing closing brace
 
+* E l6|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'item_in_ref'} = '';
 

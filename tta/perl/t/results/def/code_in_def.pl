@@ -79,16 +79,10 @@ $result_texts{'code_in_def'} = 'Function: int foo (const std::vector<int>& bar)
 Documentation of foo.
 ';
 
-$result_errors{'code_in_def'} = [
-  {
-    'error_line' => 'warning: entry for index `fn\' outside of any node
-',
-    'line_nr' => 1,
-    'text' => 'entry for index `fn\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'code_in_def'} = '* W l1|entry for index `fn\' outside of any node
+ warning: entry for index `fn\' outside of any node
 
+';
 
 $result_nodes_list{'code_in_def'} = '';
 

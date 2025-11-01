@@ -222,8 +222,7 @@ This is ifinfo text.
 This is ifnottex text.
 ';
 
-$result_errors{'many_conditionals'} = [];
-
+$result_errors{'many_conditionals'} = '';
 
 $result_nodes_list{'many_conditionals'} = '';
 

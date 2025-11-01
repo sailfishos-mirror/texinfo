@@ -38,8 +38,7 @@ $result_texis{'info_ifplaintext'} = '
 $result_texts{'info_ifplaintext'} = '
 ';
 
-$result_errors{'info_ifplaintext'} = [];
-
+$result_errors{'info_ifplaintext'} = '';
 
 $result_nodes_list{'info_ifplaintext'} = '';
 

@@ -255,8 +255,7 @@ entiti
 xrefautomaticsectiontitle on entiti.
 ';
 
-$result_errors{'empty_xrefname'} = [];
-
+$result_errors{'empty_xrefname'} = '';
 
 $result_nodes_list{'empty_xrefname'} = '1|Top
  associated_section: top

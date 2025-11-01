@@ -41,8 +41,7 @@ $result_texis{'additional_space_in_end_conditional_expanded'} = 'not html
 $result_texts{'additional_space_in_end_conditional_expanded'} = 'not html
 ';
 
-$result_errors{'additional_space_in_end_conditional_expanded'} = [];
-
+$result_errors{'additional_space_in_end_conditional_expanded'} = '';
 
 $result_nodes_list{'additional_space_in_end_conditional_expanded'} = '';
 

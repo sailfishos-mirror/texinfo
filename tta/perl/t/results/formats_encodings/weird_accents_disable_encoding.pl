@@ -167,8 +167,7 @@ a_=
 r`\'=
 ';
 
-$result_errors{'weird_accents_disable_encoding'} = [];
-
+$result_errors{'weird_accents_disable_encoding'} = '';
 
 $result_nodes_list{'weird_accents_disable_encoding'} = '1|Top
  associated_section: top

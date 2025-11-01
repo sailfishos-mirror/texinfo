@@ -121,72 +121,34 @@ $result_texts{'on_block_command_line'} = 'in titlefont
 in titlefont  exdent
 ';
 
-$result_errors{'on_block_command_line'} = [
-  {
-    'error_line' => 'warning: @anchor should not appear on @multitable line
-',
-    'line_nr' => 1,
-    'text' => '@anchor should not appear on @multitable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @titlefont should not appear on @multitable line
-',
-    'line_nr' => 1,
-    'text' => '@titlefont should not appear on @multitable line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: unexpected argument on @multitable line: @titlefont{in titlefont}
-',
-    'line_nr' => 1,
-    'text' => 'unexpected argument on @multitable line: @titlefont{in titlefont}',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @indent should not appear on @quotation line
-',
-    'line_nr' => 5,
-    'text' => '@indent should not appear on @quotation line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @titlefont should not appear on @quotation line
-',
-    'line_nr' => 5,
-    'text' => '@titlefont should not appear on @quotation line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @quotation line
-',
-    'line_nr' => 5,
-    'text' => '@anchor should not appear on @quotation line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @quotation line
-',
-    'line_nr' => 5,
-    'text' => '@footnote should not appear on @quotation line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 5,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should not appear on @quotation line
-',
-    'line_nr' => 5,
-    'text' => '@exdent should not appear on @quotation line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'on_block_command_line'} = '* W l1|@anchor should not appear on @multitable line
+ warning: @anchor should not appear on @multitable line
 
+* W l1|@titlefont should not appear on @multitable line
+ warning: @titlefont should not appear on @multitable line
+
+* W l1|unexpected argument on @multitable line: @titlefont{in titlefont}
+ warning: unexpected argument on @multitable line: @titlefont{in titlefont}
+
+* W l5|@indent should not appear on @quotation line
+ warning: @indent should not appear on @quotation line
+
+* W l5|@titlefont should not appear on @quotation line
+ warning: @titlefont should not appear on @quotation line
+
+* W l5|@anchor should not appear on @quotation line
+ warning: @anchor should not appear on @quotation line
+
+* W l5|@footnote should not appear on @quotation line
+ warning: @footnote should not appear on @quotation line
+
+* W l5|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+* W l5|@exdent should not appear on @quotation line
+ warning: @exdent should not appear on @quotation line
+
+';
 
 $result_nodes_list{'on_block_command_line'} = '';
 

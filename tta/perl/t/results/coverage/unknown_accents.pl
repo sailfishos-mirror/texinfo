@@ -152,8 +152,7 @@ z` m` p`
 Z~ s~
 ';
 
-$result_errors{'unknown_accents'} = [];
-
+$result_errors{'unknown_accents'} = '';
 
 $result_nodes_list{'unknown_accents'} = '';
 

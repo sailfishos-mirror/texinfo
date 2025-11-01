@@ -38,16 +38,10 @@ $result_texis{'empty_ifclear'} = '';
 
 $result_texts{'empty_ifclear'} = '';
 
-$result_errors{'empty_ifclear'} = [
-  {
-    'error_line' => '@ifclear requires a name
-',
-    'line_nr' => 1,
-    'text' => '@ifclear requires a name',
-    'type' => 'error'
-  }
-];
+$result_errors{'empty_ifclear'} = '* E l1|@ifclear requires a name
+ @ifclear requires a name
 
+';
 
 $result_nodes_list{'empty_ifclear'} = '';
 

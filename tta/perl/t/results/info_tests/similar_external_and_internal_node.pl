@@ -96,23 +96,13 @@ aa.
 aa.
 ';
 
-$result_errors{'similar_external_and_internal_node'} = [
-  {
-    'error_line' => 'warning: @xref to `@emph{aa}\', different from node name `aa\'
-',
-    'line_nr' => 5,
-    'text' => '@xref to `@emph{aa}\', different from node name `aa\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @xref to `@var{aa}\', different from node name `aa\'
-',
-    'line_nr' => 6,
-    'text' => '@xref to `@var{aa}\', different from node name `aa\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'similar_external_and_internal_node'} = '* W l5|@xref to `@emph{aa}\', different from node name `aa\'
+ warning: @xref to `@emph{aa}\', different from node name `aa\'
 
+* W l6|@xref to `@var{aa}\', different from node name `aa\'
+ warning: @xref to `@var{aa}\', different from node name `aa\'
+
+';
 
 $result_nodes_list{'similar_external_and_internal_node'} = '1|aa
  node_directions:

@@ -85,30 +85,16 @@ TOP. tOP.
 * tOP::
 ';
 
-$result_errors{'top_node_normalization'} = [
-  {
-    'error_line' => 'warning: @xref to `TOP\', different from node name `ToP\'
-',
-    'line_nr' => 3,
-    'text' => '@xref to `TOP\', different from node name `ToP\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @xref to `tOP\', different from node name `ToP\'
-',
-    'line_nr' => 3,
-    'text' => '@xref to `tOP\', different from node name `ToP\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `tOP\' different from node name `ToP\'
-',
-    'line_nr' => 6,
-    'text' => '@menu entry node name `tOP\' different from node name `ToP\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'top_node_normalization'} = '* W l3|@xref to `TOP\', different from node name `ToP\'
+ warning: @xref to `TOP\', different from node name `ToP\'
 
+* W l3|@xref to `tOP\', different from node name `ToP\'
+ warning: @xref to `tOP\', different from node name `ToP\'
+
+* W l6|@menu entry node name `tOP\' different from node name `ToP\'
+ warning: @menu entry node name `tOP\' different from node name `ToP\'
+
+';
 
 $result_nodes_list{'top_node_normalization'} = '1|ToP
  menus:

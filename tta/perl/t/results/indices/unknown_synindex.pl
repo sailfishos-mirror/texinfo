@@ -21,23 +21,13 @@ $result_texis{'unknown_synindex'} = '@synindex c truc';
 
 $result_texts{'unknown_synindex'} = '';
 
-$result_errors{'unknown_synindex'} = [
-  {
-    'error_line' => 'unknown source index in @synindex: c
-',
-    'line_nr' => 1,
-    'text' => 'unknown source index in @synindex: c',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'unknown destination index in @synindex: truc
-',
-    'line_nr' => 1,
-    'text' => 'unknown destination index in @synindex: truc',
-    'type' => 'error'
-  }
-];
+$result_errors{'unknown_synindex'} = '* E l1|unknown source index in @synindex: c
+ unknown source index in @synindex: c
 
+* E l1|unknown destination index in @synindex: truc
+ unknown destination index in @synindex: truc
+
+';
 
 $result_nodes_list{'unknown_synindex'} = '';
 

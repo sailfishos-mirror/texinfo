@@ -230,16 +230,10 @@ before first multitable
 item multit tab multit
 ';
 
-$result_errors{'formats_titles'} = [
-  {
-    'error_line' => 'warning: entry for index `vr\' outside of any node
-',
-    'line_nr' => 18,
-    'text' => 'entry for index `vr\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'formats_titles'} = '* W l18|entry for index `vr\' outside of any node
+ warning: entry for index `vr\' outside of any node
 
+';
 
 $result_nodes_list{'formats_titles'} = '';
 

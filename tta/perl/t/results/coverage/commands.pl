@@ -120,16 +120,10 @@ majorheading in b
 *****************
 ';
 
-$result_errors{'commands'} = [
-  {
-    'error_line' => 'warning: entry for index `cp\' outside of any node
-',
-    'line_nr' => 8,
-    'text' => 'entry for index `cp\' outside of any node',
-    'type' => 'warning'
-  }
-];
+$result_errors{'commands'} = '* W l8|entry for index `cp\' outside of any node
+ warning: entry for index `cp\' outside of any node
 
+';
 
 $result_nodes_list{'commands'} = '';
 

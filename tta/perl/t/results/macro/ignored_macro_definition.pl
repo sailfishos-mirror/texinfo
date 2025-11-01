@@ -70,8 +70,7 @@ $result_texts{'ignored_macro_definition'} = '
 outside.
 ';
 
-$result_errors{'ignored_macro_definition'} = [];
-
+$result_errors{'ignored_macro_definition'} = '';
 
 $result_nodes_list{'ignored_macro_definition'} = '';
 

@@ -88,8 +88,7 @@ $result_texts{'macro_expansion_end_in_conditional_line'} = '
 Defined
 ';
 
-$result_errors{'macro_expansion_end_in_conditional_line'} = [];
-
+$result_errors{'macro_expansion_end_in_conditional_line'} = '';
 
 $result_nodes_list{'macro_expansion_end_in_conditional_line'} = '';
 

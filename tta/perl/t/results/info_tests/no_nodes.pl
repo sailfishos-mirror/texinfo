@@ -17,8 +17,7 @@ $result_texis{'no_nodes'} = 'Text.';
 
 $result_texts{'no_nodes'} = 'Text.';
 
-$result_errors{'no_nodes'} = [];
-
+$result_errors{'no_nodes'} = '';
 
 $result_nodes_list{'no_nodes'} = '';
 

@@ -28,8 +28,7 @@ $result_texis{'no_titlepage_and_setchapternewpage_on'} = '@setchapternewpage on
 
 $result_texts{'no_titlepage_and_setchapternewpage_on'} = '';
 
-$result_errors{'no_titlepage_and_setchapternewpage_on'} = [];
-
+$result_errors{'no_titlepage_and_setchapternewpage_on'} = '';
 
 $result_nodes_list{'no_titlepage_and_setchapternewpage_on'} = '';
 

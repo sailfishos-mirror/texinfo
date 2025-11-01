@@ -48,8 +48,7 @@ $result_texts{'empty_line_style_command'} = 'example in samp
 after empty line
 ';
 
-$result_errors{'empty_line_style_command'} = [];
-
+$result_errors{'empty_line_style_command'} = '';
 
 $result_nodes_list{'empty_line_style_command'} = '';
 

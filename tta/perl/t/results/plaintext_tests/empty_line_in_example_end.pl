@@ -48,8 +48,7 @@ $result_texts{'empty_line_in_example_end'} = 'in example
 After line
 ';
 
-$result_errors{'empty_line_in_example_end'} = [];
-
+$result_errors{'empty_line_in_example_end'} = '';
 
 $result_nodes_list{'empty_line_in_example_end'} = '';
 

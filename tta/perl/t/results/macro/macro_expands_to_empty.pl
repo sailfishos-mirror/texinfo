@@ -57,8 +57,7 @@ $result_texts{'macro_expands_to_empty'} = '
 aa
 ';
 
-$result_errors{'macro_expands_to_empty'} = [];
-
+$result_errors{'macro_expands_to_empty'} = '';
 
 $result_nodes_list{'macro_expands_to_empty'} = '';
 

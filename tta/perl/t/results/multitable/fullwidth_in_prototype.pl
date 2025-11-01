@@ -123,8 +123,7 @@ aaa aà aaa aa aaa aa
 aaa aà aaa aa aaa aa
 ';
 
-$result_errors{'fullwidth_in_prototype'} = [];
-
+$result_errors{'fullwidth_in_prototype'} = '';
 
 $result_nodes_list{'fullwidth_in_prototype'} = '';
 

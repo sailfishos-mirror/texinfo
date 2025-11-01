@@ -56,8 +56,7 @@ in bar
 $result_texts{'zero_argument_comment'} = '
 ';
 
-$result_errors{'zero_argument_comment'} = [];
-
+$result_errors{'zero_argument_comment'} = '';
 
 $result_nodes_list{'zero_argument_comment'} = '';
 

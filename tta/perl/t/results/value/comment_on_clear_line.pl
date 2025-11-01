@@ -151,37 +151,19 @@ $result_texts{'comment_on_clear_line'} = '
 !x!, !y!, !g!, !a vv!
 ';
 
-$result_errors{'comment_on_clear_line'} = [
-  {
-    'error_line' => 'bad name for @clear
-',
-    'line_nr' => 8,
-    'text' => 'bad name for @clear',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'bad name for @clear
-',
-    'line_nr' => 9,
-    'text' => 'bad name for @clear',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: undefined flag: x
-',
-    'line_nr' => 11,
-    'text' => 'undefined flag: x',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: undefined flag: y
-',
-    'line_nr' => 11,
-    'text' => 'undefined flag: y',
-    'type' => 'warning'
-  }
-];
+$result_errors{'comment_on_clear_line'} = '* E l8|bad name for @clear
+ bad name for @clear
 
+* E l9|bad name for @clear
+ bad name for @clear
+
+* W l11|undefined flag: x
+ warning: undefined flag: x
+
+* W l11|undefined flag: y
+ warning: undefined flag: y
+
+';
 
 $result_nodes_list{'comment_on_clear_line'} = '';
 

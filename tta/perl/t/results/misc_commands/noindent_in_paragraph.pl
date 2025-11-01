@@ -38,23 +38,13 @@ Begin para2
 after noindent2.
 ';
 
-$result_errors{'noindent_in_paragraph'} = [
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 2,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @noindent is useless inside of a paragraph
-',
-    'line_nr' => 6,
-    'text' => '@noindent is useless inside of a paragraph',
-    'type' => 'warning'
-  }
-];
+$result_errors{'noindent_in_paragraph'} = '* W l2|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
 
+* W l6|@noindent is useless inside of a paragraph
+ warning: @noindent is useless inside of a paragraph
+
+';
 
 $result_nodes_list{'noindent_in_paragraph'} = '';
 

@@ -72,23 +72,13 @@ $result_texts{'menu_in_style_command'} = '
 * (truc)::
 ';
 
-$result_errors{'menu_in_style_command'} = [
-  {
-    'error_line' => '@code missing closing brace
-',
-    'line_nr' => 3,
-    'text' => '@code missing closing brace',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'misplaced }
-',
-    'line_nr' => 7,
-    'text' => 'misplaced }',
-    'type' => 'error'
-  }
-];
+$result_errors{'menu_in_style_command'} = '* E l3|@code missing closing brace
+ @code missing closing brace
 
+* E l7|misplaced }
+ misplaced }
+
+';
 
 $result_nodes_list{'menu_in_style_command'} = '1|first
  menus:

@@ -16,16 +16,10 @@ $result_texis{'caption_no_braces'} = '@caption';
 
 $result_texts{'caption_no_braces'} = '';
 
-$result_errors{'caption_no_braces'} = [
-  {
-    'error_line' => '@caption expected braces
-',
-    'line_nr' => 1,
-    'text' => '@caption expected braces',
-    'type' => 'error'
-  }
-];
+$result_errors{'caption_no_braces'} = '* E l1|@caption expected braces
+ @caption expected braces
 
+';
 
 $result_nodes_list{'caption_no_braces'} = '';
 

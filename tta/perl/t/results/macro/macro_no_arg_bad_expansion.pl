@@ -47,8 +47,7 @@ $result_texts{'macro_no_arg_bad_expansion'} = '
 res1 abc
 ';
 
-$result_errors{'macro_no_arg_bad_expansion'} = [];
-
+$result_errors{'macro_no_arg_bad_expansion'} = '';
 
 $result_nodes_list{'macro_no_arg_bad_expansion'} = '';
 

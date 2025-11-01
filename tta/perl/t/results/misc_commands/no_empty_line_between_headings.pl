@@ -80,8 +80,7 @@ Subheading
 ===========
 ';
 
-$result_errors{'no_empty_line_between_headings'} = [];
-
+$result_errors{'no_empty_line_between_headings'} = '';
 
 $result_nodes_list{'no_empty_line_between_headings'} = '';
 

@@ -240,37 +240,19 @@ subheading in menu
 
 ';
 
-$result_errors{'submenu_in_example'} = [
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 7,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 10,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 13,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu in invalid context
-',
-    'line_nr' => 17,
-    'text' => '@menu in invalid context',
-    'type' => 'warning'
-  }
-];
+$result_errors{'submenu_in_example'} = '* W l7|@menu in invalid context
+ warning: @menu in invalid context
 
+* W l10|@menu in invalid context
+ warning: @menu in invalid context
+
+* W l13|@menu in invalid context
+ warning: @menu in invalid context
+
+* W l17|@menu in invalid context
+ warning: @menu in invalid context
+
+';
 
 $result_nodes_list{'submenu_in_example'} = '1|first
  associated_title_command: @subheading subheading in menu

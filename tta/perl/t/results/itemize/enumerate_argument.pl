@@ -134,8 +134,7 @@ $result_texts{'enumerate_argument'} = '
 
 ';
 
-$result_errors{'enumerate_argument'} = [];
-
+$result_errors{'enumerate_argument'} = '';
 
 $result_nodes_list{'enumerate_argument'} = '';
 

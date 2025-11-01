@@ -231,8 +231,7 @@ A.1 appendixsec
 ===============
 ';
 
-$result_errors{'sections_test_no_use_nodes'} = [];
-
+$result_errors{'sections_test_no_use_nodes'} = '';
 
 $result_nodes_list{'sections_test_no_use_nodes'} = '';
 

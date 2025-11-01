@@ -24,16 +24,10 @@ $result_texis{'inlineifset_false_not_closed'} = '@inlineifset{aaa, bbb
 
 $result_texts{'inlineifset_false_not_closed'} = '';
 
-$result_errors{'inlineifset_false_not_closed'} = [
-  {
-    'error_line' => '@inlineifset missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@inlineifset missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'inlineifset_false_not_closed'} = '* E l1|@inlineifset missing closing brace
+ @inlineifset missing closing brace
 
+';
 
 $result_nodes_list{'inlineifset_false_not_closed'} = '';
 

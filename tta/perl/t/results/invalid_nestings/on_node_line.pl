@@ -88,51 +88,25 @@ $result_texis{'on_node_line'} = '@node @ref{a, b, c, filename}, (@pxref{(someman
 
 $result_texts{'on_node_line'} = '';
 
-$result_errors{'on_node_line'} = [
-  {
-    'error_line' => 'warning: @ref should not appear on @node line
-',
-    'line_nr' => 1,
-    'text' => '@ref should not appear on @node line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @pxref should not appear on @node line
-',
-    'line_nr' => 1,
-    'text' => '@pxref should not appear on @node line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @anchor should not appear on @node line
-',
-    'line_nr' => 1,
-    'text' => '@anchor should not appear on @node line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @footnote should not appear on @node line
-',
-    'line_nr' => 1,
-    'text' => '@footnote should not appear on @node line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should only appear at the beginning of a line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should only appear at the beginning of a line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @exdent should not appear on @node line
-',
-    'line_nr' => 1,
-    'text' => '@exdent should not appear on @node line',
-    'type' => 'warning'
-  }
-];
+$result_errors{'on_node_line'} = '* W l1|@ref should not appear on @node line
+ warning: @ref should not appear on @node line
 
+* W l1|@pxref should not appear on @node line
+ warning: @pxref should not appear on @node line
+
+* W l1|@anchor should not appear on @node line
+ warning: @anchor should not appear on @node line
+
+* W l1|@footnote should not appear on @node line
+ warning: @footnote should not appear on @node line
+
+* W l1|@exdent should only appear at the beginning of a line
+ warning: @exdent should only appear at the beginning of a line
+
+* W l1|@exdent should not appear on @node line
+ warning: @exdent should not appear on @node line
+
+';
 
 $result_nodes_list{'on_node_line'} = '1|@ref{a, b, c, filename}
  node_directions:

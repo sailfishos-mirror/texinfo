@@ -82,8 +82,7 @@ $result_texts{'set_unit_file_name_filepath'} = 'top
 ******
 ';
 
-$result_errors{'set_unit_file_name_filepath'} = [];
-
+$result_errors{'set_unit_file_name_filepath'} = '';
 
 $result_nodes_list{'set_unit_file_name_filepath'} = '1|Top
  associated_section: top

@@ -116,23 +116,13 @@ fl, label
 In float.
 ';
 
-$result_errors{'footnote_in_caption_and_error'} = [
-  {
-    'error_line' => '@error expected braces
-',
-    'line_nr' => 8,
-    'text' => '@error expected braces',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 2,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'footnote_in_caption_and_error'} = '* E l8|@error expected braces
+ @error expected braces
 
+* W l2|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_floats{'footnote_in_caption_and_error'} = 'fl: 1
  F1: {label}

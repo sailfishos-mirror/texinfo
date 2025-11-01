@@ -120,8 +120,7 @@ $result_texts{'consecutive_conditionals'} = '
 
 ';
 
-$result_errors{'consecutive_conditionals'} = [];
-
+$result_errors{'consecutive_conditionals'} = '';
 
 $result_nodes_list{'consecutive_conditionals'} = '';
 

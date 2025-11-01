@@ -212,30 +212,16 @@ b
 c  
 ';
 
-$result_errors{'spaces_in_node_names'} = [
-  {
-    'error_line' => 'warning: @verb should not appear on @node line
-',
-    'line_nr' => 11,
-    'text' => '@verb should not appear on @node line',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @verb should not appear anywhere inside @ref
-',
-    'line_nr' => 17,
-    'text' => '@verb should not appear anywhere inside @ref',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: @menu entry node name `c@ \' different from node name `c@w{  }\'
-',
-    'line_nr' => 6,
-    'text' => '@menu entry node name `c@ \' different from node name `c@w{  }\'',
-    'type' => 'warning'
-  }
-];
+$result_errors{'spaces_in_node_names'} = '* W l11|@verb should not appear on @node line
+ warning: @verb should not appear on @node line
 
+* W l17|@verb should not appear anywhere inside @ref
+ warning: @verb should not appear anywhere inside @ref
+
+* W l6|@menu entry node name `c@ \' different from node name `c@w{  }\'
+ warning: @menu entry node name `c@ \' different from node name `c@w{  }\'
+
+';
 
 $result_nodes_list{'spaces_in_node_names'} = '1|Top
  menus:

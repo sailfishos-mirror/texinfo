@@ -34,8 +34,7 @@ $result_texis{'inlinefmtifelse_nesting'} = '@inlinefmtifelse{info, @footnote{See
 $result_texts{'inlinefmtifelse_nesting'} = 'text
 ';
 
-$result_errors{'inlinefmtifelse_nesting'} = [];
-
+$result_errors{'inlinefmtifelse_nesting'} = '';
 
 $result_nodes_list{'inlinefmtifelse_nesting'} = '';
 

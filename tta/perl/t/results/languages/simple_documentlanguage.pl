@@ -132,16 +132,10 @@ $result_texts{'simple_documentlanguage'} = '
 Variable d\'instance de AAA: BBB CCC
 ';
 
-$result_errors{'simple_documentlanguage'} = [
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 4,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'simple_documentlanguage'} = '* W l4|node `chap\' not in menu
+ warning: node `chap\' not in menu
 
+';
 
 $result_nodes_list{'simple_documentlanguage'} = '1|Top
  node_directions:

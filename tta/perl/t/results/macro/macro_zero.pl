@@ -51,8 +51,7 @@ Macro
 0
 ';
 
-$result_errors{'macro_zero'} = [];
-
+$result_errors{'macro_zero'} = '';
 
 $result_nodes_list{'macro_zero'} = '';
 

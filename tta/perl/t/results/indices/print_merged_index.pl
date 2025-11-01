@@ -67,23 +67,13 @@ $result_texis{'print_merged_index'} = '@syncodeindex fn cp
 
 $result_texts{'print_merged_index'} = '';
 
-$result_errors{'print_merged_index'} = [
-  {
-    'error_line' => 'warning: printing an index `fn\' merged in another one, `cp\'
-',
-    'line_nr' => 4,
-    'text' => 'printing an index `fn\' merged in another one, `cp\'',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => 'warning: node `chap\' not in menu
-',
-    'line_nr' => 3,
-    'text' => 'node `chap\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'print_merged_index'} = '* W l4|printing an index `fn\' merged in another one, `cp\'
+ warning: printing an index `fn\' merged in another one, `cp\'
 
+* W l3|node `chap\' not in menu
+ warning: node `chap\' not in menu
+
+';
 
 $result_indices{'print_merged_index'} = 'cp
 fn C ->cp

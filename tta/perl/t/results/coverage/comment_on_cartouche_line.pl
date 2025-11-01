@@ -92,8 +92,7 @@ Title of box
 Out of main text
 ';
 
-$result_errors{'comment_on_cartouche_line'} = [];
-
+$result_errors{'comment_on_cartouche_line'} = '';
 
 $result_nodes_list{'comment_on_cartouche_line'} = '';
 

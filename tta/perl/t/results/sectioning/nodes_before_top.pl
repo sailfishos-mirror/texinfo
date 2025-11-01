@@ -219,16 +219,10 @@ top section
 ***********
 ';
 
-$result_errors{'nodes_before_top'} = [
-  {
-    'error_line' => 'warning: node `first\' not in menu
-',
-    'line_nr' => 1,
-    'text' => 'node `first\' not in menu',
-    'type' => 'warning'
-  }
-];
+$result_errors{'nodes_before_top'} = '* W l1|node `first\' not in menu
+ warning: node `first\' not in menu
 
+';
 
 $result_nodes_list{'nodes_before_top'} = '1|first
  menus:

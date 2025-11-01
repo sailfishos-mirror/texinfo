@@ -41,16 +41,10 @@ $result_texis{'not_fraction'} = '@multitable @columnfractions aaa
 
 $result_texts{'not_fraction'} = '';
 
-$result_errors{'not_fraction'} = [
-  {
-    'error_line' => 'column fraction not a number: aaa
-',
-    'line_nr' => 1,
-    'text' => 'column fraction not a number: aaa',
-    'type' => 'error'
-  }
-];
+$result_errors{'not_fraction'} = '* E l1|column fraction not a number: aaa
+ column fraction not a number: aaa
 
+';
 
 $result_nodes_list{'not_fraction'} = '';
 

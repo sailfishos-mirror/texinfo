@@ -173,25 +173,13 @@ $result_texts{'protect_hashchar_at_line_beginning_source_mark'} = '
 
 ';
 
-$result_errors{'protect_hashchar_at_line_beginning_source_mark'} = [
-  {
-    'error_line' => 'unknown command `unknown\'
-',
-    'file_name' => 'cpp_directives_line_value_macro.texi',
-    'line_nr' => 24,
-    'text' => 'unknown command `unknown\'',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'warning: could not protect hash character in @macro
-',
-    'file_name' => 'cpp_directives_line_value_macro.texi',
-    'line_nr' => 2,
-    'text' => 'could not protect hash character in @macro',
-    'type' => 'warning'
-  }
-];
+$result_errors{'protect_hashchar_at_line_beginning_source_mark'} = '* E cpp_directives_line_value_macro.texi:l24|unknown command `unknown\'
+ unknown command `unknown\'
 
+* W cpp_directives_line_value_macro.texi:l2|could not protect hash character in @macro
+ warning: could not protect hash character in @macro
+
+';
 
 $result_nodes_list{'protect_hashchar_at_line_beginning_source_mark'} = '';
 

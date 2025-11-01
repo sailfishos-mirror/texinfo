@@ -28,16 +28,10 @@ $result_texts{'accent_no_closed_paragraph'} = 'e
 ~other para.
 ';
 
-$result_errors{'accent_no_closed_paragraph'} = [
-  {
-    'error_line' => '@~ missing closing brace
-',
-    'line_nr' => 1,
-    'text' => '@~ missing closing brace',
-    'type' => 'error'
-  }
-];
+$result_errors{'accent_no_closed_paragraph'} = '* E l1|@~ missing closing brace
+ @~ missing closing brace
 
+';
 
 $result_nodes_list{'accent_no_closed_paragraph'} = '';
 

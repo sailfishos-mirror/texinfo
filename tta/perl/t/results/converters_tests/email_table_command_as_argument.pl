@@ -58,8 +58,7 @@ $result_texts{'email_table_command_as_argument'} = 'www-discuss@gnu.org
 discussion
 ';
 
-$result_errors{'email_table_command_as_argument'} = [];
-
+$result_errors{'email_table_command_as_argument'} = '';
 
 $result_nodes_list{'email_table_command_as_argument'} = '';
 

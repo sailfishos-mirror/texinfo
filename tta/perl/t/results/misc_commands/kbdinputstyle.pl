@@ -478,8 +478,7 @@ kbd in code in example.
 for nesting in example r in code in example in r in code in example
 ';
 
-$result_errors{'kbdinputstyle'} = [];
-
+$result_errors{'kbdinputstyle'} = '';
 
 $result_nodes_list{'kbdinputstyle'} = '';
 

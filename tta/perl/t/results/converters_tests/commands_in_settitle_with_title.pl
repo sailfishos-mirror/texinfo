@@ -143,8 +143,7 @@ Document.
 
 ';
 
-$result_errors{'commands_in_settitle_with_title'} = [];
-
+$result_errors{'commands_in_settitle_with_title'} = '';
 
 $result_nodes_list{'commands_in_settitle_with_title'} = '1|Top
  associated_section: top

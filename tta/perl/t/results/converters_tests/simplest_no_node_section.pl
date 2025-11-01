@@ -52,8 +52,7 @@ This is a very simple texi manual   <>.
 
 ';
 
-$result_errors{'simplest_no_node_section'} = [];
-
+$result_errors{'simplest_no_node_section'} = '';
 
 $result_nodes_list{'simplest_no_node_section'} = '';
 

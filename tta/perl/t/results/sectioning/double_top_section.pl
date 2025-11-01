@@ -64,16 +64,10 @@ Second top
 Second top.
 ';
 
-$result_errors{'double_top_section'} = [
-  {
-    'error_line' => 'warning: multiple @top
-',
-    'line_nr' => 5,
-    'text' => 'multiple @top',
-    'type' => 'warning'
-  }
-];
+$result_errors{'double_top_section'} = '* W l5|multiple @top
+ warning: multiple @top
 
+';
 
 $result_nodes_list{'double_top_section'} = '';
 

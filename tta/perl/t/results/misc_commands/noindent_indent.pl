@@ -64,8 +64,7 @@ noindent in para.
 unneeded indent
 ';
 
-$result_errors{'noindent_indent'} = [];
-
+$result_errors{'noindent_indent'} = '';
 
 $result_nodes_list{'noindent_indent'} = '';
 

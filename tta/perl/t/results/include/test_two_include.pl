@@ -153,8 +153,7 @@ In included file.
 After inclusion.
 ';
 
-$result_errors{'test_two_include'} = [];
-
+$result_errors{'test_two_include'} = '';
 
 $result_nodes_list{'test_two_include'} = '';
 

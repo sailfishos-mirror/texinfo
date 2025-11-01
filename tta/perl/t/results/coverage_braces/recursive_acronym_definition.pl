@@ -43,8 +43,7 @@ $result_texis{'recursive_acronym_definition'} = '@acronym{GNU, @acronym{GNU, @ac
 $result_texts{'recursive_acronym_definition'} = 'GNU (GNU (GNU (is something)\'s Not Unix)\'s Not Unix)
 ';
 
-$result_errors{'recursive_acronym_definition'} = [];
-
+$result_errors{'recursive_acronym_definition'} = '';
 
 $result_nodes_list{'recursive_acronym_definition'} = '';
 

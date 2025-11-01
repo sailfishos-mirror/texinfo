@@ -152,8 +152,7 @@ In top node
 Anchor in footnote.
 ';
 
-$result_errors{'anchor_in_footnote'} = [];
-
+$result_errors{'anchor_in_footnote'} = '';
 
 $result_nodes_list{'anchor_in_footnote'} = '1|Top
  associated_section: Top

@@ -140,8 +140,7 @@ third A  in bracketed
 Name: other j
 ';
 
-$result_errors{'verb_in_linemacro_call'} = [];
-
+$result_errors{'verb_in_linemacro_call'} = '';
 
 $result_nodes_list{'verb_in_linemacro_call'} = '';
 
