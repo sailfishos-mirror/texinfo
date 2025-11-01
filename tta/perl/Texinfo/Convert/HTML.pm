@@ -9565,10 +9565,12 @@ sub _prepare_css($) {
         next;
       }
       unless (open(CSSFILE, $css_file_path)) {
-        my $css_file_name = $css_file_path;
+        my $css_file_name;
         my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
         if (defined($encoding)) {
-          $css_file_name = decode($encoding, $css_file_name);
+          $css_file_name = decode($encoding, $css_file_path);
+        } else {
+          $css_file_name = $css_file_path;
         }
         $self->converter_document_warn(sprintf(__(
              "could not open --include-file %s: %s"),
@@ -9581,10 +9583,12 @@ sub _prepare_css($) {
     ($import_lines, $rules_lines)
       = _process_css_file($self, $css_file_fh, $css_file_path);
     if (!close($css_file_fh)) {
-      my $css_file_name = $css_file_path;
+      my $css_file_name;
       my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
       if (defined($encoding)) {
-        $css_file_name = decode($encoding, $css_file_name);
+        $css_file_name = decode($encoding, $css_file_path);
+      } else {
+        $css_file_name = $css_file_path;
       }
       $self->converter_document_warn(
             sprintf(__("error on closing CSS file %s: %s"),
