@@ -4798,8 +4798,7 @@ sub _end_line($$$) {
         # as the source marks are either associated to the menu description
         # or to the empty line after the menu description.  Leave a message
         # in case it happens in the future/some unexpected case.
-        if ($self->{'conf'}->{'TEST'}
-            and $empty_preformatted->{'source_marks'}) {
+        if (exists($empty_preformatted->{'source_marks'})) {
           print STDERR "BUG: source_marks in menu description preformatted\n";
         }
       }

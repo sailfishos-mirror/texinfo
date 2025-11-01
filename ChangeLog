@@ -1,5 +1,10 @@
 2025-11-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ParserNonXS.pm (_end_line): do not use TEST
+	customization variable value in Parser, as it is never set.
+
+2025-11-01 Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS: document that texi2any keeps input file name leading directory
 	components in messages again.
 
