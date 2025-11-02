@@ -101,7 +101,7 @@ The conversion of Texinfo to output formats is done in three steps:
    Texinfo code structure.  Using the Texinfo::ParserNonXS Perl module
    or C code in the C/parsetexi directory.
 2) information gathering on the document structure and Texinfo tree
-   transformations.  Using the Texinfo::Structuding and
+   transformations.  Using the Texinfo::Structuring and
    Texinfo::Transformation Perl modules or C code in the C/structuring_transfo
    directory.
 3) conversion of the Texinfo tree to output format by a converter
@@ -144,3 +144,15 @@ along the following line to test the validity of one source file from
 the perl/ subdirectory:
 
 perl -c -I '.' -I '../maintain/lib/libintl-perl/lib/' -I '../maintain/lib/Unicode-EastAsianWidth/lib/' -I '../maintain/lib/Text-Unidecode/lib' Texinfo/Convert/HTML.pm
+
+
+The modules in perl/Texinfo/Example are not developped anymore.  Docbook
+conversion modules in this directory were developped using an interface
+consisting of Texinfo::Reader, Texinfo::TreeElement and
+Texinfo::Example::TreeElementConverter as a proof of concept.  However, this
+interface proved to be too slow in Perl and difficult to implement with XS
+code.  The Reader and TreeElement interface (except for one function) are not
+used from Perl anymore, however the C corresponding codes are used through the
+SWIG interface from the swig directory.  Going forward, the SWIG interface only
+should be used, not Texinfo::Reader nor Texinfo::TreeElement (except for the
+'new' function).

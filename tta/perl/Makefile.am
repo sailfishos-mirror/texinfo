@@ -128,18 +128,18 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/ParagraphNonXS.pm \
  Texinfo/Convert/PlainTexinfo.pm \
  Texinfo/Convert/Plaintext.pm \
- Texinfo/Convert/TestReader.pm \
  Texinfo/Convert/Texinfo.pm \
  Texinfo/Convert/TexinfoMarkup.pm \
  Texinfo/Convert/TexinfoSXML.pm \
  Texinfo/Convert/TexinfoXML.pm \
  Texinfo/Convert/Text.pm \
  Texinfo/Convert/TextContent.pm \
- Texinfo/Convert/TreeElementConverter.pm \
- Texinfo/Convert/TreeElementConverterXS.pm \
  Texinfo/Convert/Unicode.pm \
  Texinfo/Convert/Utils.pm \
  \
+ Texinfo/Example/TestReader.pm \
+ Texinfo/Example/TreeElementConverter.pm \
+ Texinfo/Example/TreeElementConverterXS.pm \
  Texinfo/Example/ReadDocBook.pm \
  Texinfo/Example/TreeElementReadDocBook.pm
 

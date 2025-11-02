@@ -913,7 +913,7 @@ my %formats_table = (
            },
   # not documented, only used for testing/development
   'testreader' => {
-            'module' => 'Texinfo::Convert::TestReader'
+            'module' => 'Texinfo::Example::TestReader'
            },
   'parse' => {
            },

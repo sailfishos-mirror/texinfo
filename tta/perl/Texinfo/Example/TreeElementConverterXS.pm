@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-package Texinfo::Convert::TreeElementConverterXS;
+package Texinfo::Example::TreeElementConverterXS;
 
 # This package loads XS implementations of tree element converter functions.
 
@@ -28,7 +28,7 @@ use Texinfo::XSLoader;
 BEGIN {
   if (Texinfo::XSLoader::XS_structuring_enabled()) {
     Texinfo::XSLoader::init (
-      "Texinfo::Convert::TreeElementConverterXS",
+      "Texinfo::Example::TreeElementConverterXS",
       undef,
       "TreeElementConverterXS",
       undef,

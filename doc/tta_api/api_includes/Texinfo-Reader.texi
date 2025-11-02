@@ -216,13 +216,13 @@ Calling these two functions is not the only possibility to create
 a link from Perl to C data.  Another possibility is to use the
 @ref{Texinfo@asis{::}TreeElement NAME,, Texinfo::TreeElement} interface to access other elements from elements with
 the link to C data already setup, or to use the
-@ref{Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME,, Texinfo::Convert::TreeElementConverter} module methods.
+@ref{Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME,, Texinfo::Example::TreeElementConverter} module methods.
 
 @node Texinfo@asis{::}Reader SEE ALSO
 @section Texinfo::Reader SEE ALSO
 
 @ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser}. @ref{Texinfo@asis{::}Document NAME,, Texinfo::Document}.
-@ref{Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME,, Texinfo::Convert::TreeElementConverter}.
+@ref{Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME,, Texinfo::Example::TreeElementConverter}.
 
 @node Texinfo@asis{::}Reader AUTHOR
 @section Texinfo::Reader AUTHOR

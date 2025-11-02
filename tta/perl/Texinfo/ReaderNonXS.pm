@@ -18,6 +18,10 @@
 # The interface to the Texinfo tree provided in this file is similar to
 # Pod::Simple::PullParser or XML::LibXML::Reader
 
+# This module is not used in texi2any converters.  Using the Reader
+# interface is slow in Perl and using the XS interface requires careful code
+# and many functions replacements.  The SWIG interface should be used instead.
+
 # ALTIMP Reader.pm
 # ALTIMP XSTexinfo/reader_element/ReaderXS.xs
 
@@ -46,14 +50,6 @@ foreach my $text_type (
   $ignorable_text_types{$text_type} = 1;
 }
 
-#my %ignored_types;
-#foreach my $type (
-#            'postamble_after_end',
-#            'preamble_before_beginning',
-#            'preamble_before_setfilename') {
-#  $ignored_types{$type} = 1;
-#}
-
 # The stack holds pair of children and index in this array.
 # The index is the index of the previous element, starting at -1 when
 # pushing on the stack.  When popping the stack, the parent element is
@@ -77,20 +73,16 @@ sub new($)
 }
 
 # For XS
+# As can be seen, only the XS override returns something useful.
+# A trick can be used to call this function only if with XS, by calling
+# that function only if $token->{'element'} is undef as it may only happen
+# with XS.  This is only relevant if the return value is needed, if the
+# return value is ignored, it may not be an issue if the non-overriden
+# function is called when there is no XS.
 sub register_token_element($)
 {
   my $reader = shift;
-
-  # it is not direct to find the token element if there was a
-  # push on the context (though context->[-2] could be used if index == -1)
-  # so this function should only be called when it is overriden in XS.
-  # The caller should call that function only if $token->{'element'}
-  # is undef as it may only happen with XS.
-
-  #my $context = $reader->{'stack'}->[-1];
-  #my ($index, $array) = @{$context};
-
-  #return $array->[$index];
+  return undef;
 }
 
 # For XS
@@ -406,12 +398,12 @@ Calling these two functions is not the only possibility to create
 a link from Perl to C data.  Another possibility is to use the
 L<Texinfo::TreeElement> interface to access other elements from elements with
 the link to C data already setup, or to use the
-L<Texinfo::Convert::TreeElementConverter> module methods.
+L<Texinfo::Example::TreeElementConverter> module methods.
 
 =head1 SEE ALSO
 
 L<Texinfo::Parser>. L<Texinfo::Document>.
-L<Texinfo::Convert::TreeElementConverter>.
+L<Texinfo::Example::TreeElementConverter>.
 
 =head1 AUTHOR
 

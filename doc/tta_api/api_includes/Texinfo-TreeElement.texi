@@ -129,9 +129,9 @@ also have a link to C data setup:
 
 Note that, even if XS extensions are used, calling
 @ref{Texinfo@asis{::}TreeElement $element = new($element_hash),, @code{new}} does not set up a link to C,
-@ref{Texinfo@asis{::}Convert@asis{::}TreeElementConverter $converter->new_tree_element($element@comma{} $use_sv),, Texinfo::Convert::TreeElementConverter @code{new_tree_element}} should be used for that.
+@ref{Texinfo@asis{::}Example@asis{::}TreeElementConverter $converter->new_tree_element($element@comma{} $use_sv),, Texinfo::Example::TreeElementConverter @code{new_tree_element}} should be used for that.
 
-For other ways to setup this link, see @ref{Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME,, Texinfo::Convert::TreeElementConverter}
+For other ways to setup this link, see @ref{Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME,, Texinfo::Example::TreeElementConverter}
 and @ref{Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions}.
 
 @node Texinfo@asis{::}TreeElement SEE ALSO

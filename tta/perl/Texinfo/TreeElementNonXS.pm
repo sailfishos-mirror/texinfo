@@ -38,11 +38,6 @@ use warnings;
 # check that autovivification do not happen incorrectly.
 #no autovivification qw(fetch delete exists store strict);
 
-# TODO debug functions in Texinfo::Common cannot be used when the TreeElement
-# interface only is used, they should be reimplemented with use of accessors.
-# Could have been a good place for those functions (debug_print_element,
-# debug_print_element_details and similar functions).
-
 sub new($)
 {
   my $element = shift;
@@ -145,6 +140,11 @@ sub add_to_element_contents($$)
   $element->{'parent'} = $parent_element;
   push @{$parent_element->{'contents'}}, $element;
 }
+
+# TODO debug functions in Texinfo::Common cannot be used when the TreeElement
+# interface only is used, they should be reimplemented with use of accessors.
+# Could have been a good place for those functions (debug_print_element,
+# debug_print_element_details and similar functions).
 
 1;
 __END__
@@ -258,9 +258,9 @@ also have a link to C data setup:
 
 Note that, even if XS extensions are used, calling
 L<< C<new>|/$element = new($element_hash) >> does not set up a link to C,
-L<< Texinfo::Convert::TreeElementConverter C<new_tree_element>|Texinfo::Convert::TreeElementConverter/$converter->new_tree_element($element, $use_sv) >> should be used for that.
+L<< Texinfo::Example::TreeElementConverter C<new_tree_element>|Texinfo::Example::TreeElementConverter/$converter->new_tree_element($element, $use_sv) >> should be used for that.
 
-For other ways to setup this link, see L<Texinfo::Convert::TreeElementConverter>
+For other ways to setup this link, see L<Texinfo::Example::TreeElementConverter>
 and L<< Texinfo::Reader/C<Texinfo::Reader> and XS extensions >>.
 
 =head1 SEE ALSO

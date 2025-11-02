@@ -28,7 +28,7 @@
 # interface is slow in Perl and using the XS interface requires careful code
 # and many functions replacements.  The SWIG interface should be used instead.
 
-package Texinfo::Convert::TreeElementConverter;
+package Texinfo::Example::TreeElementConverter;
 
 use 5.006;
 use strict;
@@ -43,7 +43,7 @@ use Unicode::Normalize;
 
 use Texinfo::XSLoader;
 
-use Texinfo::Convert::TreeElementConverterXS;
+use Texinfo::Example::TreeElementConverterXS;
 
 use Texinfo::Commands;
 use Texinfo::CommandsValues;
@@ -67,52 +67,52 @@ my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 our $module_loaded = 0;
 
 my %XS_overrides = (
-  "Texinfo::Convert::TreeElementConverter::new_tree_element"
-    => "Texinfo::Convert::TreeElementConverterXS::new_tree_element",
-  "Texinfo::Convert::TreeElementConverter::get_tree_element_index_entry"
-    => "Texinfo::Convert::TreeElementConverterXS::get_tree_element_index_entry",
-  "Texinfo::Convert::TreeElementConverter::get_global_unique_tree_element"
-    => "Texinfo::Convert::TreeElementConverterXS::get_global_unique_tree_element",
-  "Texinfo::Convert::TreeElementConverter::global_commands_information_command_list"
-    => "Texinfo::Convert::TreeElementConverterXS::global_commands_information_command_list",
-  "Texinfo::Convert::TreeElementConverter::tree_element_item_itemize_prepended"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_item_itemize_prepended",
-  "Texinfo::Convert::TreeElementConverter::item_itemize_prepended"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_item_itemize_prepended",
-  "Texinfo::Convert::TreeElementConverter::find_element_authors"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_find_element_authors",
-  "Texinfo::Convert::TreeElementConverter::tree_element_find_element_authors"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_find_element_authors",
-  "Texinfo::Convert::TreeElementConverter::tree_element_table_item_content_tree"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_table_item_content_tree",
-  "Texinfo::Convert::TreeElementConverter::table_item_content_tree"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_table_item_content_tree",
-  "Texinfo::Convert::TreeElementConverter::comment_or_end_line"
-    => "Texinfo::Convert::TreeElementConverterXS::comment_or_end_line",
-  "Texinfo::Convert::TreeElementConverter::tree_element_comment_or_end_line"
-    => "Texinfo::Convert::TreeElementConverterXS::comment_or_end_line",
-  "Texinfo::Convert::TreeElementConverter::argument_comment_end_line"
-    => "Texinfo::Convert::TreeElementConverterXS::argument_comment_end_line",
-  "Texinfo::Convert::TreeElementConverter::tree_element_argument_comment_end_line"
-    => "Texinfo::Convert::TreeElementConverterXS::argument_comment_end_line",
-  "Texinfo::Convert::TreeElementConverter::_utils_tree_element_expand_verbatiminclude"
-    => "Texinfo::Convert::TreeElementConverterXS::utils_tree_element_expand_verbatiminclude",
-  "Texinfo::Convert::TreeElementConverter::_utils_expand_verbatiminclude"
-    => "Texinfo::Convert::TreeElementConverterXS::utils_tree_element_expand_verbatiminclude",
-  "Texinfo::Convert::TreeElementConverter::_expand_today"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_expand_today",
-  "Texinfo::Convert::TreeElementConverter::index_content_element"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_index_content_element",
-  "Texinfo::Convert::TreeElementConverter::tree_element_index_content_element"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_index_content_element",
-  "Texinfo::Convert::TreeElementConverter::_element_gdt"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_gdt",
-  "Texinfo::Convert::TreeElementConverter::tree_element_sections_list"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_sections_list",
-  "Texinfo::Convert::TreeElementConverter::tree_element_nodes_list"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_nodes_list",
-  "Texinfo::Convert::TreeElementConverter::tree_element_headings_list"
-    => "Texinfo::Convert::TreeElementConverterXS::tree_element_headings_list",
+  "Texinfo::Example::TreeElementConverter::new_tree_element"
+    => "Texinfo::Example::TreeElementConverterXS::new_tree_element",
+  "Texinfo::Example::TreeElementConverter::get_tree_element_index_entry"
+    => "Texinfo::Example::TreeElementConverterXS::get_tree_element_index_entry",
+  "Texinfo::Example::TreeElementConverter::get_global_unique_tree_element"
+    => "Texinfo::Example::TreeElementConverterXS::get_global_unique_tree_element",
+  "Texinfo::Example::TreeElementConverter::global_commands_information_command_list"
+    => "Texinfo::Example::TreeElementConverterXS::global_commands_information_command_list",
+  "Texinfo::Example::TreeElementConverter::tree_element_item_itemize_prepended"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_item_itemize_prepended",
+  "Texinfo::Example::TreeElementConverter::item_itemize_prepended"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_item_itemize_prepended",
+  "Texinfo::Example::TreeElementConverter::find_element_authors"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_find_element_authors",
+  "Texinfo::Example::TreeElementConverter::tree_element_find_element_authors"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_find_element_authors",
+  "Texinfo::Example::TreeElementConverter::tree_element_table_item_content_tree"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_table_item_content_tree",
+  "Texinfo::Example::TreeElementConverter::table_item_content_tree"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_table_item_content_tree",
+  "Texinfo::Example::TreeElementConverter::comment_or_end_line"
+    => "Texinfo::Example::TreeElementConverterXS::comment_or_end_line",
+  "Texinfo::Example::TreeElementConverter::tree_element_comment_or_end_line"
+    => "Texinfo::Example::TreeElementConverterXS::comment_or_end_line",
+  "Texinfo::Example::TreeElementConverter::argument_comment_end_line"
+    => "Texinfo::Example::TreeElementConverterXS::argument_comment_end_line",
+  "Texinfo::Example::TreeElementConverter::tree_element_argument_comment_end_line"
+    => "Texinfo::Example::TreeElementConverterXS::argument_comment_end_line",
+  "Texinfo::Example::TreeElementConverter::_utils_tree_element_expand_verbatiminclude"
+    => "Texinfo::Example::TreeElementConverterXS::utils_tree_element_expand_verbatiminclude",
+  "Texinfo::Example::TreeElementConverter::_utils_expand_verbatiminclude"
+    => "Texinfo::Example::TreeElementConverterXS::utils_tree_element_expand_verbatiminclude",
+  "Texinfo::Example::TreeElementConverter::_expand_today"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_expand_today",
+  "Texinfo::Example::TreeElementConverter::index_content_element"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_index_content_element",
+  "Texinfo::Example::TreeElementConverter::tree_element_index_content_element"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_index_content_element",
+  "Texinfo::Example::TreeElementConverter::_element_gdt"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_gdt",
+  "Texinfo::Example::TreeElementConverter::tree_element_sections_list"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_sections_list",
+  "Texinfo::Example::TreeElementConverter::tree_element_nodes_list"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_nodes_list",
+  "Texinfo::Example::TreeElementConverter::tree_element_headings_list"
+    => "Texinfo::Example::TreeElementConverterXS::tree_element_headings_list",
 );
 
 sub import {
@@ -1605,15 +1605,15 @@ __END__
 
 =head1 NAME
 
-Texinfo::Convert::TreeElementConverter - Parent class for TreeElement based converters
+Texinfo::Example::TreeElementConverter - Parent class for TreeElement based converters
 
 =head1 SYNOPSIS
 
   package Texinfo::Convert::MyConverter;
 
   use Texinfo::Convert::Converter;
-  use Texinfo::Convert::TreeElementConverter;
-  our @ISA = qw(Texinfo::Convert::TreeElementConverter);
+  use Texinfo::Example::TreeElementConverter;
+  our @ISA = qw(Texinfo::Example::TreeElementConverter);
 
   sub converter_defaults ($;$) {
     return \%myconverter_defaults;
@@ -1685,7 +1685,7 @@ Note that this module is not used in C<texi2any>.
 
 =head1 DESCRIPTION
 
-C<Texinfo::Convert::TreeElementConverter> is a super class that helps
+C<Texinfo::Example::TreeElementConverter> is a super class that helps
 using the L<Texinfo::TreeElement> interface in converters.  It provides
 implementations of methods from other Texinfo Perl modules using the
 TreeElement L<Texinfo::TreeElement> interface only.  The original
@@ -1704,7 +1704,7 @@ L<< Texinfo::Reader/C<Texinfo::Reader> and XS extensions >> with XS
 on an element (except for the tree root) or to find replaced substrings
 elements in translations.
 
-The C<Texinfo::Convert::TreeElementConverter> modules helps with
+The C<Texinfo::Example::TreeElementConverter> modules helps with
 setting up the link from Perl elements to C, first by providing the
 methods using the TreeElement interface
 since the L<Texinfo::TreeElement> interface automatically sets up this link.

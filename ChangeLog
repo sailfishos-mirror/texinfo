@@ -1,3 +1,15 @@
+2025-11-02 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/Texinfo/Example/TestReader.pm,
+	tta/Texinfo/Example/TreeElementConverter.pm,
+	tta/Texinfo/Example/TreeElementConverterXS.pm, doc/tta_api/Makefile.am
+	(texi2any_internals_dependencies), tta/perl/Makefile.am
+	(dist_convertmodules_DATA), tta/README,
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs (MODULE)
+	(PACKAGE), tta/perl/texi2any.pl (%formats_table): move TestReader.pm,
+	TreeElementConverter.pm and TreeElementConverterXS.pm to
+	Texinfo/Example/.
+
 2025-11-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images):

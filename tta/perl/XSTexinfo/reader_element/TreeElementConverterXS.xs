@@ -50,7 +50,7 @@
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
 
-MODULE = Texinfo::Convert::TreeElementConverterXS		PACKAGE = Texinfo::Convert::TreeElementConverterXS
+MODULE = Texinfo::Example::TreeElementConverterXS		PACKAGE = Texinfo::Example::TreeElementConverterXS
 
 PROTOTYPES: ENABLE
 

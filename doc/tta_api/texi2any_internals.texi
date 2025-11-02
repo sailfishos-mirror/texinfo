@@ -47,7 +47,7 @@
 * Texinfo@asis{::}Convert@asis{::}Plaintext::
 * Texinfo@asis{::}TreeElement::
 * Texinfo@asis{::}Reader::
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter::
 
 @detailmenu
  --- The Detailed Node Listing ---
@@ -405,20 +405,20 @@ Texinfo::Reader METHODS
 
 * Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions::
 
-Texinfo::Convert::TreeElementConverter
+Texinfo::Example::TreeElementConverter
 
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter NAME::
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter SYNOPSIS::
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter NOTES::
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter DESCRIPTION::
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter METHODS::
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter SEE ALSO::
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter AUTHOR::
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter COPYRIGHT AND LICENSE::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter SYNOPSIS::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter NOTES::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter DESCRIPTION::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter METHODS::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter SEE ALSO::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter AUTHOR::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter COPYRIGHT AND LICENSE::
 
-Texinfo::Convert::TreeElementConverter METHODS
+Texinfo::Example::TreeElementConverter METHODS
 
-* Texinfo@asis{::}Convert@asis{::}TreeElementConverter Related methods from other modules::
+* Texinfo@asis{::}Example@asis{::}TreeElementConverter Related methods from other modules::
 @end detailmenu
 @end menu
 
@@ -448,7 +448,7 @@ Texinfo::Convert::TreeElementConverter METHODS
 @include api_includes/Texinfo-Convert-Plaintext.texi
 @include api_includes/Texinfo-TreeElement.texi
 @include api_includes/Texinfo-Reader.texi
-@include api_includes/Texinfo-Convert-TreeElementConverter.texi
+@include api_includes/Texinfo-Example-TreeElementConverter.texi
 
 
 @node Index
