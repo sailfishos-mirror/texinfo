@@ -4911,7 +4911,7 @@ sub convert_math_to_images($$$;$) {
 % Package hyperref omitted
 ';
       my $class_and_usepackage_begin = '
-\documentclass{minimal}
+\documentclass[fleqn]{minimal}
 ';
       my $enc_usepackages
         = _enc_usepackage($self->get_conf('OUTPUT_ENCODING_NAME'));

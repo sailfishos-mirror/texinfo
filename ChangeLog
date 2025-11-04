@@ -1,6 +1,13 @@
 2025-11-04  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images):
+	Provide 'fleqn' option to \documentclass in order to align
+	contents of @displaymath to the left.  Otherwise they can
+	be way too far to the right and even off the edge of the window.
+
+2025-11-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images):
 	Reduce DPI of images from 600 to 180.
 
 2025-11-04  Gavin Smith <gavinsmith0123@gmail.com>
