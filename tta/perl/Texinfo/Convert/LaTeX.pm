@@ -4923,6 +4923,10 @@ sub convert_math_to_images($$$;$) {
 \usepackage{bm}
 \usepackage[active,tightpage]{preview}
 \pagestyle{empty}
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
 \begin{document}
 ';
       print $fh $class_and_usepackage_begin;
