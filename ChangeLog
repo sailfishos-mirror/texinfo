@@ -1,5 +1,10 @@
 2025-11-04  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images):
+	Reduce DPI of images from 600 to 180.
+
+2025-11-04  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* NEWS: mention INFO_MATH_IMAGES
 	* doc/texinfo.texi
 	(Inserting Math, Info and Plaintext Customization Variables):

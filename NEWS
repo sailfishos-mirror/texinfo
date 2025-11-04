@@ -67,7 +67,7 @@ See the manual for detailed information.
       . info.js (with INFO_JS_DIR) fixes and improvements:
         . avoid pointless pop-up over Top node and display the correct title
   . Info output:
-    . new varialbe INFO_MATH_IMAGES allows outputing images for mathematics
+    . new variable INFO_MATH_IMAGES allows outputting images for mathematics
       notation
   . Remove the Texinfo::TeX4HT customization package.
   . XML output:

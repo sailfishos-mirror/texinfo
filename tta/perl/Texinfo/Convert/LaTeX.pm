@@ -5014,8 +5014,12 @@ sub convert_math_to_images($$$;$) {
                                $math2img_dvi_basefile))
     unless (-f $encoded_math2img_dvi_basefile);
 
-  my @to_images_options = ('-T', 'tight', '-D', '600');
+  my @to_images_options = ('-T', 'tight', '-D', '180');
   my @to_images_args = (@to_images_options, $encoded_math2img_dvi_basefile);
+
+  # Note: the argument to -D given is the DPI, which, in the absence of
+  # any image scaling in Emacs Info mode, directly affects the size of
+  # the produced image.
 
   my $to_image_exec = 'dvipng';
   my $status = system $to_image_exec, @to_images_args;
