@@ -1,5 +1,11 @@
 2025-11-04 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/swig/swig_parser_api.c
+	(txi_ext_parser_conf_set_MAX_MACRO_CALL_NESTING): do not return
+	anything.
+
+2025-11-04 Patrice Dumas  <pertusus@free.fr>
+
 	Separate C code related to "tree elements" interface only
 
 	* tta/C/Makefile.am (libtexinfo_convertxs_la_SOURCES),

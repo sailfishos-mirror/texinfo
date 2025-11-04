@@ -150,7 +150,7 @@ txi_ext_parser_conf_set_MAX_MACRO_CALL_NESTING (PARSER *parser, int i)
   PARSER_CONF *parser_conf
     = retrieve_parser_conf (parser->parser_conf_descriptor);
   apply_conf (parser_conf);
-  return parser_conf_set_MAX_MACRO_CALL_NESTING (i);
+  parser_conf_set_MAX_MACRO_CALL_NESTING (i);
 }
 
 int
