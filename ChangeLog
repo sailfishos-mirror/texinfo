@@ -1,3 +1,10 @@
+2025-11-04  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: mention INFO_MATH_IMAGES
+	* doc/texinfo.texi
+	(Inserting Math, Info and Plaintext Customization Variables):
+	document INFO_MATH_IMAGES.
+
 2025-11-01 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/t/z_misc/*.t, tta/perl/texi2any.pl: comment out Data::Dumper

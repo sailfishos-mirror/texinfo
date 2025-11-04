@@ -9645,8 +9645,11 @@ braces, like this:
 @code{@@math} is formatted inline when used inside a paragraph,
 like @math{\partial_\alpha \partial^\alpha A^\beta = \mu_0 J^\beta} in
 this example.
-The @code{@@math} command has no special effect on the Info
-output, merely outputting the contents verbatim.
+
+By default, the @code{@@math} command has no special effect on the Info
+output, merely outputting the contents verbatim.  You can use the
+@code{INFO_MATH_IMAGES} variable to produce images; see
+@ref{Info and Plaintext Customization Variables}.
 
 For printed output, @code{@@math} switches into @TeX{} ``math mode''.
 In that context, @samp{\} must be used instead of @samp{@@}
@@ -16220,6 +16223,13 @@ If set, warn about @samp{:} in index entry, as not all Info readers may
 be able to process these.  For Info and plaintext only.  Default false,
 because parsing problems there don't prevent navigation; readers can still
 relatively easily find their way to the node in question.
+
+@item INFO_MATH_IMAGES
+If set, convert the contents of @code{@@math} and @code{@@displaymath}
+into images, and reference these in the produced Info file.  This variable
+requires a working @TeX{} installation, the @samp{preview} package
+of @LaTeX{}, as well as the @command{dvipng} program.  It may be suitable
+for math-heavy documents that are unlikely to be viewed in a text terminal.
 
 @item INFO_SPECIAL_CHARS_QUOTE
 If set, whenever there are problematic characters for Info output in
