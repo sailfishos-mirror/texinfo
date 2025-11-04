@@ -64,7 +64,7 @@
 #include "xs_utils.h"
 /* fatal */
 #include "base_utils.h"
-/* for associated_info_table elt_info_names find_associated_info_key
+/* for associated_info_table elt_info_names
    add_to_element_list */
 #include "tree.h"
 /* for lookup_extra */
@@ -382,7 +382,7 @@ build_perl_directions (const ELEMENT * const *e_l, int avoid_recursion)
   return sv;
 }
 
-static SV *
+SV *
 build_extra_misc_args (const STRING_LIST *l)
 {
   size_t j;
@@ -403,7 +403,7 @@ build_extra_misc_args (const STRING_LIST *l)
   return newRV_noinc ((SV *)av);
 }
 
-static SV *
+SV *
 build_extra_index_entry (const INDEX_ENTRY_LOCATION *entry_loc)
 {
   AV *av;
@@ -425,7 +425,7 @@ build_extra_index_entry (const INDEX_ENTRY_LOCATION *entry_loc)
 
 /* The SV returned holds one reference in addition to the reference kept in C
    for object that have a reference kept in C */
-static SV *
+SV *
 build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
 {
   enum ai_key_name key;
@@ -527,115 +527,6 @@ build_key_pair_info (const KEY_PAIR *k, int avoid_recursion)
       fatal ("build_key_pair_info: unknown extra type");
       break;
     }
-  return 0;
-}
-
-/* In this function, elements handles only are registered, with
-   register_element_handle_in_sv */
-SV *
-build_element_attribute (const ELEMENT *element, const char *attribute,
-                         DOCUMENT *document)
-{
-  enum ai_key_name key;
-
-  dTHX;
-
-  key = find_associated_info_key (attribute);
-
-  if (key)
-    {
-      enum extra_type k_type = associated_info_table[key].type;
-
-      switch (k_type)
-        {
-        case extra_string:
-          {
-          const KEY_PAIR *k = lookup_extra (element, key);
-          if (k)
-            return newSVpv_utf8 (k->k.string, 0);
-          break;
-          }
-        case extra_integer:
-          {
-          const KEY_PAIR *k = lookup_extra (element, key);
-          if (k)
-            return newSViv (k->k.integer);
-          break;
-          }
-        case extra_flag:
-          {
-          if (element->flags & associated_info_table[key].data)
-            return newSViv (1);
-          break;
-          }
-        case extra_element_info:
-          {
-          int idx = associated_info_table[key].data;
-          if (idx < type_data[element->type].elt_info_number
-              && element->elt_info[idx])
-            {
-              ELEMENT *info_element = element->elt_info[idx];
-              register_element_handle_in_sv (info_element, document);
-              return newSVsv ((SV *)info_element->sv);
-            }
-          break;
-          }
-        case extra_misc_args:
-          {
-          const KEY_PAIR *k = lookup_extra (element, key);
-          if (k)
-            return build_extra_misc_args (k->k.strings_list);
-          break;
-          }
-        case extra_index_entry:
-          {
-          const KEY_PAIR *k = lookup_extra (element, key);
-          if (k)
-            return build_extra_index_entry (k->k.index_entry);
-          break;
-          }
-        case extra_element_oot:
-          {
-          const KEY_PAIR *k = lookup_extra (element, key);
-          if (k)
-            {
-              ELEMENT *oot_element = k->k.element;
-              register_element_handle_in_sv (oot_element, document);
-              return newSVsv ((SV *)oot_element->sv);
-            }
-          break;
-          }
-        case extra_string_info:
-          {
-          int idx = associated_info_table[key].data;
-          switch (key)
-            {
-            case AI_key_delimiter:
-              if (element->e.c->cmd == CM_verb
-                  && element->e.c->string_info[idx])
-                return newSVpv_utf8 (element->e.c->string_info[idx], 0);
-              break;
-            case AI_key_alias_of:
-              if ((element->e.c->cmd
-                   || type_data[element->type].flags & TF_with_command)
-                  && element->e.c->string_info[idx])
-                return newSVpv_utf8 (element->e.c->string_info[idx], 0);
-              break;
-            default:
-              break;
-            }
-          break;
-          }
-        default:
-          {
-          const KEY_PAIR *k = lookup_extra (element, key);
-          if (k)
-            return build_key_pair_info (k, 0);
-          break;
-          }
-        }
-    }
-
   return 0;
 }
 
@@ -922,6 +813,18 @@ build_base_element (ELEMENT *e, HV *hv)
       STORE("cmdname", sv, HSH_cmdname);
     }
 #undef STORE
+}
+
+void
+build_new_base_element (ELEMENT *element)
+{
+  dTHX;
+
+  if (!element->sv)
+    {
+      HV *element_hv = new_element_perl_data (element);
+      build_base_element (element, element_hv);
+    }
 }
 
 /* Set E->sv and 'hv' on E's descendants.  e->parent->sv is assumed
@@ -1430,209 +1333,6 @@ build_heading_relations_list (const HEADING_RELATIONS_LIST *list)
 }
 
 #undef STORE_RELS_INFO_ELEMENT
-
-static void
-register_document_sections_list_elements (DOCUMENT *document)
-{
-  size_t i;
-  const SECTION_RELATIONS_LIST *list = &document->sections_list;
-
-  for (i = 0; i < list->number; i++)
-    {
-      /* cast to drop const */
-      register_element_handle_in_sv ((ELEMENT *)list->list[i]->element,
-                                     document);
-    }
-}
-
-static void
-register_document_nodes_list_elements (DOCUMENT *document)
-{
-  size_t i;
-  const NODE_RELATIONS_LIST *list = &document->nodes_list;
-
-  for (i = 0; i < list->number; i++)
-    {
-      /* cast to drop const */
-      NODE_RELATIONS *node_relation = list->list[i];
-      register_element_handle_in_sv ((ELEMENT *)node_relation->element,
-                                     document);
-      /* this is probably unneeded, as all the headings and sections
-         elements should be registered as part of their lists */
-      if (node_relation->associated_title_command)
-        register_element_handle_in_sv (
-                  (ELEMENT *)node_relation->associated_title_command,
-                                       document);
-      if (node_relation->node_description)
-        register_element_handle_in_sv (
-                  (ELEMENT *)node_relation->node_description,
-                                       document);
-      if (node_relation->node_long_description)
-        register_element_handle_in_sv (
-                  (ELEMENT *)node_relation->node_long_description,
-                                       document);
-      if (node_relation->menus)
-        {
-          size_t j;
-          CONST_ELEMENT_LIST *menus = node_relation->menus;
-          for (j = 0; j < menus->number; j++)
-            register_element_handle_in_sv ((ELEMENT *)menus->list[j],
-                                           document);
-        }
-    }
-}
-
-static void
-register_document_headings_list_elements (DOCUMENT *document)
-{
-  const HEADING_RELATIONS_LIST *list = &document->headings_list;
-  size_t i;
-  for (i = 0; i < list->number; i++)
-    {
-      /* cast to drop const */
-      register_element_handle_in_sv ((ELEMENT *)list->list[i]->element,
-                                     document);
-    }
-}
-
-/* to register elements when the document information is already built */
-
-void
-register_document_relations_lists_elements (SV *document_in)
-{
-  DOCUMENT *document = get_sv_document_document (document_in,
-                     "register_document_relations_lists_elements");
-
-  if (document)
-    {
-       register_document_sections_list_elements (document);
-       register_document_nodes_list_elements (document);
-       register_document_headings_list_elements (document);
-    }
-}
-
-/* to be used with TreeElements interface.  Build all the lists together
-   as they refer to each other in Perl code.  Alternatively an interface
-   with accessors could be set. */
-static void
-build_tree_elements_relations_lists (DOCUMENT *document)
-{
-  dTHX;
-
-  if (document->modified_information & F_DOCM_sections_list)
-    {
-      const char *key = "sections_list";
-      const SECTION_RELATIONS_LIST *list = &document->sections_list;
-      AV *av_list;
-      SV *result_sv;
-
-      register_document_sections_list_elements (document);
-
-      av_list = build_section_relations_list (list);
-      result_sv = newRV_noinc ((SV *) av_list);
-      hv_store (document->hv, key, strlen (key), result_sv, 0);
-
-      document->modified_information &= ~F_DOCM_sections_list;
-    }
-
-  if (document->modified_information & F_DOCM_nodes_list)
-    {
-      const char *key = "nodes_list";
-      const NODE_RELATIONS_LIST *list = &document->nodes_list;
-      AV *av_list;
-      SV *result_sv;
-
-      register_document_nodes_list_elements (document);
-
-      av_list = build_node_relations_list (list);
-      result_sv = newRV_noinc ((SV *) av_list);
-      hv_store (document->hv, key, strlen (key), result_sv, 0);
-
-      document->modified_information &= ~F_DOCM_nodes_list;
-    }
-
-  if (document->modified_information & F_DOCM_headings_list)
-    {
-      const char *key = "headings_list";
-      const HEADING_RELATIONS_LIST *list = &document->headings_list;
-      AV *av_list;
-      SV *result_sv;
-
-      register_document_headings_list_elements (document);
-
-      av_list = build_heading_relations_list (list);
-      result_sv = newRV_noinc ((SV *) av_list);
-      hv_store (document->hv, key, strlen (key), result_sv, 0);
-
-      document->modified_information &= ~F_DOCM_headings_list;
-    }
-}
-
-/* for use with the TreeElement interface */
-SV *
-build_tree_elements_sections_list (DOCUMENT *document)
-{
-  const char *key = "sections_list";
-  SV **relations_list_sv;
-
-  dTHX;
-
-  build_tree_elements_relations_lists (document);
-
-  relations_list_sv = hv_fetch (document->hv, key, strlen (key), 0);
-
-  if (relations_list_sv)
-    {
-      SV *result_sv = newSVsv (*relations_list_sv);
-      return result_sv;
-    }
-  else
-    return newSV (0);
-}
-
-/* for use with the TreeElement interface */
-SV *
-build_tree_elements_nodes_list (DOCUMENT *document)
-{
-  const char *key = "nodes_list";
-  SV **relations_list_sv;
-
-  dTHX;
-
-  build_tree_elements_relations_lists (document);
-
-  relations_list_sv = hv_fetch (document->hv, key, strlen (key), 0);
-
-  if (relations_list_sv)
-    {
-      SV *result_sv = newSVsv (*relations_list_sv);
-      return result_sv;
-    }
-  else
-    return newSV (0);
-}
-
-/* for use with the TreeElement interface */
-SV *
-build_tree_elements_headings_list (DOCUMENT *document)
-{
-  const char *key = "headings_list";
-  SV **relations_list_sv;
-
-  dTHX;
-
-  build_tree_elements_relations_lists (document);
-
-  relations_list_sv = hv_fetch (document->hv, key, strlen (key), 0);
-
-  if (relations_list_sv)
-    {
-      SV *result_sv = newSVsv (*relations_list_sv);
-      return result_sv;
-    }
-  else
-    return newSV (0);
-}
 
 /* currently unused */
 AV *
@@ -2871,63 +2571,6 @@ store_document_tree_output_units (DOCUMENT *document)
     }
 }
 
-/* return the handle if the element is registered by the call,
-   not if it was already registered */
-size_t
-register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
-                                  DOCUMENT *document)
-{
-  HV *element_hv;
-  SV **element_document_descriptor_sv;
-  SV **handle_sv;
-  const char *document_key = "element_document_descriptor";
-  const char *handle_key = "_handle";
-
-  dTHX;
-
-  element_hv = (HV *) SvRV (element_sv);
-
-  element_document_descriptor_sv
-    = hv_fetch (element_hv, document_key, strlen (document_key), 0);
-
-  if (!element_document_descriptor_sv)
-    {
-      hv_store (element_hv, document_key, strlen (document_key),
-                newSViv (document->descriptor), 0);
-    }
-
-  handle_sv = hv_fetch (element_hv, handle_key, strlen(handle_key), 0);
-  if (!handle_sv)
-    {
-      add_to_element_list (&document->element_handles, element);
-      hv_store (element_hv, handle_key, strlen(handle_key),
-                newSViv (document->element_handles.number), 0);
-      return document->element_handles.number;
-    }
-  return 0;
-}
-
-size_t
-register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document)
-{
-  HV *element_hv;
-  size_t number;
-
-  dTHX;
-
-  if (!element->sv)
-    {
-      element_hv = new_element_perl_data (element);
-      build_base_element (element, element_hv);
-    }
-  else
-    element_hv = (HV *) SvRV ((SV *)element->sv);
-
-  number = register_sv_element_handle_in_sv (element, element->sv, document);
-
-  return number;
-}
-
 /* Get a reference to the document tree.  Either built from C data if the
    document could be found and if HANDLER_ONLY is not set, else from
    a Perl document, if possible the one associated with C data, otherwise
@@ -2953,9 +2596,10 @@ document_tree (SV *document_in, int handler_only)
 
   if (document && document->tree)
     {
-      register_element_handle_in_sv (document->tree, document);
+      build_new_base_element (document->tree);
+
       /* in that case, we do not reuse the "tree" reference
-         in document->hv.  We therefore need to readd everything
+         in document->hv.  We therefore need to readd anything
          relevant, in practice only "tree_document_descriptor" */
       if (document->tree->sv)
         {

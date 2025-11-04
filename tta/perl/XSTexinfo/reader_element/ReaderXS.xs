@@ -40,6 +40,8 @@
 #include "reader.h"
 #include "build_perl_info.h"
 #include "get_perl_info.h"
+#include "get_perl_tree_elements.h"
+#include "build_perl_tree_elements.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */

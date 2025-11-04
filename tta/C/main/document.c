@@ -111,6 +111,10 @@ setup_texinfo_main (int texinfo_uninstalled,
                     const char *converterdatadir,
                  const char *t2a_builddir, const char *t2a_srcdir)
 {
+  char *silent_refcount = getenv ("TEXINFO_SILENT_REFCOUNT");
+
+  if (silent_refcount && !strcmp (silent_refcount, "1"))
+    unset_check_element_interpreter_refcount ();
 
   /* used in converters and in main C program at early steps, not in Parser */
   setup_txi_paths_information (texinfo_uninstalled,

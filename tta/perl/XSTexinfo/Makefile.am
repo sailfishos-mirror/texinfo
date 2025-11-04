@@ -175,7 +175,7 @@ CLEANFILES += reader_element/TreeElementXS.c
 EXTRA_DIST += reader_element/TreeElementXS.xs
 
 # locate include files under out-of-source builds.
-TreeElementXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
+TreeElementXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/tree_elements -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
 TreeElementXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 TreeElementXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 TreeElementXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
@@ -192,7 +192,7 @@ CLEANFILES += reader_element/TreeElementConverterXS.c
 EXTRA_DIST += reader_element/TreeElementConverterXS.xs
 
 # locate include files under out-of-source builds.
-TreeElementConverterXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
+TreeElementConverterXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/tree_elements -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
 TreeElementConverterXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 TreeElementConverterXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 TreeElementConverterXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
@@ -209,7 +209,7 @@ CLEANFILES += reader_element/ReaderXS.c
 EXTRA_DIST += reader_element/ReaderXS.xs
 
 # locate include files under out-of-source builds.
-ReaderXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
+ReaderXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/tree_elements $(XSLIBS_CPPFLAGS)
 ReaderXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ReaderXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 ReaderXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)

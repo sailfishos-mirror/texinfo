@@ -250,7 +250,7 @@ my %def_argument_types_docbook = (
 
 my %ignored_block_commands;
 foreach my $block_command ('copying', 'titlepage', 'documentdescription',
-    'nodedescriptionblock') {
+    'nodedescriptionblock', 'publication', 'documentinfo') {
   $ignored_block_commands{$block_command} = 1;
 }
 
@@ -387,7 +387,7 @@ sub convert($$)
 
   my $root = $document->tree(Texinfo::XSLoader::XS_structuring_enabled());
 
-  $document->register_document_relations_lists_elements();
+  $self->register_document_relations_lists_elements($document);
 
   push @{$self->{'lang_stack'}}, '';
 
@@ -427,7 +427,7 @@ sub conversion_output_begin($;$$)
   my $output_filename = shift;
 
   if ($self->{'document'}) {
-    $self->{'document'}->register_document_relations_lists_elements();
+    $self->register_document_relations_lists_elements($self->{'document'});
   }
 
   my $encoding = '';
@@ -502,53 +502,56 @@ sub conversion_output_begin($;$$)
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  my $title_page = $self->get_global_unique_tree_element('titlepage');
-  if ($title_page) {
-    my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
-                                        $title_page, ['author', 'subtitle']);
+  foreach my $information_block_cmdname ('documentinfo', 'titlepage') {
+    my $information_block
+      = $self->get_global_unique_tree_element($information_block_cmdname);
+    if (defined($information_block)) {
+      my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
+                                   $information_block, ['author', 'subtitle']);
 
-    my @authors_elements;
-    my $subtitle_text = '';
-    if (scalar(@{$collected_commands})) {
-      foreach my $element (@{$collected_commands}) {
-        my $cmdname = $element->{'cmdname'};
-        if ($cmdname eq 'author') {
-          push @authors_elements, $element;
-        } elsif ($cmdname eq 'subtitle') {
-          # concatenate the text of @subtitle as DocBook only allows one.
-          my ($arg, $end_line)
-            = _convert_argument_and_end_line($self, $element);
-          $subtitle_text .= $arg . $end_line
+      my @authors_elements;
+      my $subtitle_text = '';
+      if (scalar(@{$collected_commands})) {
+        foreach my $element (@{$collected_commands}) {
+          my $cmdname = $element->{'cmdname'};
+          if ($cmdname eq 'author') {
+            push @authors_elements, $element;
+          } elsif ($cmdname eq 'subtitle') {
+            # concatenate the text of @subtitle as DocBook only allows one.
+            my ($arg, $end_line)
+              = _convert_argument_and_end_line($self, $element);
+            $subtitle_text .= $arg . $end_line
+          }
         }
       }
-    }
-    if ($subtitle_text ne '') {
-      chomp ($subtitle_text);
-      $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
-    }
-
-    if (scalar(@authors_elements)) {
-      # using authorgroup and collab is the best, because it doesn't require
-      # knowing people name decomposition.  Also it should work for group names.
-      # FIXME dblatex ignores collab/collabname.
-      $authors_info .= "<authorgroup>\n";
-      foreach my $element (@authors_elements) {
-        my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
-        # FIXME DocBook 5 no more collabname, merged with other elements in
-        # orgname, which is much more specific than collabname, it is for an
-        # organisation and therefore not suitable here.
-        # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
-        # person/personname is not suitable either, because in Texinfo @author
-        # may correspond to more than one author, and also because we do not
-        # have the information in Texinfo needed for <person>, which requires
-        # a split of the name in honorific, firstname, surname...
-        # https://tdg.docbook.org/tdg/5.0/personname
-        my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
-        chomp ($result);
-        $result .= "\n";
-        $authors_info .= $result;
+      if ($subtitle_text ne '') {
+        chomp ($subtitle_text);
+        $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
       }
-      $authors_info .= "</authorgroup>\n";
+
+      if (scalar(@authors_elements)) {
+        # using authorgroup and collab is the best, because it doesn't require
+        # knowing people name decomposition.  Also it should work for group names.
+        # FIXME dblatex ignores collab/collabname.
+        $authors_info .= "<authorgroup>\n";
+        foreach my $element (@authors_elements) {
+          my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
+          # FIXME DocBook 5 no more collabname, merged with other elements in
+          # orgname, which is much more specific than collabname, it is for an
+          # organisation and therefore not suitable here.
+          # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
+          # person/personname is not suitable either, because in Texinfo @author
+          # may correspond to more than one author, and also because we do not
+          # have the information in Texinfo needed for <person>, which requires
+          # a split of the name in honorific, firstname, surname...
+          # https://tdg.docbook.org/tdg/5.0/personname
+          my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
+          chomp ($result);
+          $result .= "\n";
+          $authors_info .= $result;
+        }
+        $authors_info .= "</authorgroup>\n";
+      }
     }
   }
 
@@ -756,6 +759,32 @@ sub _protect_text($$)
   return $result;
 }
 
+sub _format_comment($$) {
+  my ($self, $element) = @_;
+
+  # TODO simplify, use only the text, not the spaces
+  my $command_text = '';
+  my $spaces_before_argument
+    = $element->get_attribute('spaces_before_argument');
+  if (defined($spaces_before_argument)) {
+    $command_text .= $spaces_before_argument->{'text'};
+  }
+  my $line_arg = $element->get_child(0);
+  if (defined($line_arg)) {
+    my $text_element = $line_arg->get_child(0);
+    if (defined($text_element)) {
+      $command_text .= $text_element->{'text'};
+    }
+
+    my $spaces_after_argument
+      = $line_arg->get_attribute('spaces_after_argument');
+    if (defined($spaces_after_argument)) {
+      $command_text .= $spaces_after_argument->{'text'};
+    }
+  }
+  return $self->xml_comment($command_text);
+}
+
 # NOTE may be called on brace commands such as @titlefont
 # this is similar to functions used in other converters, but not exactly
 # the same as we want to start with an element that is already registered
@@ -772,7 +801,7 @@ sub _convert_argument_and_end_line($$)
   my $converted = $self->convert_tree($line_arg);
 
   if ($comment) {
-    $end_line = $self->xml_comment($comment->get_child(0)->{'text'});
+    $end_line = _format_comment($self, $comment);
   }
   return ($converted, $end_line);
 }
@@ -985,7 +1014,7 @@ sub _convert($$)
           } elsif (($cmdname eq 'item'
                     or $cmdname eq 'itemx')
                    and $element->children_number()
-                   and $element->get_child(0)->{'type'}
+                   and exists($element->get_child(0)->{'type'})
                    and $element->get_child(0)->{'type'} eq 'line_arg') {
             my $result_text = '';
             $result_text .= "<term>" if ($cmdname eq 'itemx');
@@ -1215,8 +1244,7 @@ sub _convert($$)
               }
             }
           } elsif ($cmdname eq 'c' or $cmdname eq 'comment') {
-            $$output_ref
-              .= $self->xml_comment($element->get_child(0)->{'text'});
+            $$output_ref .= _format_comment($self, $element);
           } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
             if (!$Texinfo::Commands::root_commands{$cmdname}) {
               my ($arg, $end_line)
@@ -1802,9 +1830,14 @@ sub _convert($$)
           } elsif ($cmdname eq 'enumerate') {
             push @format_elements, 'orderedlist';
             my $numeration;
-            # TODO enumerate_specification has been removed, need to update
-            my $enumerate_specification
-              = $element->get_attribute('enumerate_specification');
+            my $enumerate_specification;
+            my $arguments_line = $element->get_child(0);
+            my $block_line_arg = $arguments_line->get_child(0);
+            my $text_element = $block_line_arg->get_child(0);
+            if (defined($text_element)) {
+              $enumerate_specification = $text_element->{'text'};
+            }
+
             if (defined($enumerate_specification)) {
               if ($enumerate_specification =~ /^[A-Z]/) {
                 $numeration = 'upperalpha';
@@ -2163,8 +2196,7 @@ sub _convert($$)
           my ($comment, $end_line)
             = $self->tree_element_comment_or_end_line($element);
           if ($comment) {
-            $end_line
-              = $self->xml_comment($comment->get_child(0)->{'text'})
+            $end_line = _format_comment($self, $comment);
           }
           if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
             chomp($end_line);

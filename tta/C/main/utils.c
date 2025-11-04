@@ -670,7 +670,7 @@ unset_check_element_interpreter_refcount (void)
 ERROR_MESSAGE_LIST *
 get_check_element_interpreter_refcount (void)
 {
-  if (check_element_interpreter_refcount)
+  if (check_element_interpreter_refcount > 0)
     return &interpreter_refcount_error_messages;
   else
     return 0;

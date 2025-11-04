@@ -43,9 +43,11 @@
 #include "convert_utils.h"
 #include "xs_utils.h"
 #include "build_perl_info.h"
+#include "get_perl_tree_elements.h"
 #include "get_perl_info.h"
 /* get_sv_converter */
 #include "get_converter_perl_info.h"
+#include "build_perl_tree_elements.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -96,6 +98,9 @@ new_tree_element (SV *converter_in, SV *element_hash, int use_sv=0)
           }
     OUTPUT:
          RETVAL
+
+void
+register_document_relations_lists_elements (SV *converter_in, SV *document_in);
 
 # NOTE not used not tested
 SV *
@@ -171,7 +176,7 @@ global_commands_information_command_list (SV *document_sv, char *cmdname)
                {
                  size_t i;
                  AV *av = newAV ();
-                 result_sv = newRV_inc ((SV *) av);
+                 result_sv = newRV_noinc ((SV *) av);
                  for (i = 0; i < command_list->number; i++)
                    {
                      ELEMENT *element = command_list->list[i];

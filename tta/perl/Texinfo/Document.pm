@@ -112,10 +112,6 @@ my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 our %XS_structure_overrides = (
   "Texinfo::Document::print_document_listoffloats"
     => "Texinfo::DocumentXS::print_document_listoffloats",
-
-  # needed with the Reader/TreeElement interfaces only
-  "Texinfo::Document::register_document_relations_lists_elements"
-    => "Texinfo::DocumentXS::register_document_relations_lists_elements",
 );
 
 
@@ -411,8 +407,16 @@ sub remove_document_references($;$) {
       if (defined($test_level) and $test_level > 1) {
         $check_refcount = $document;
       }
+
+      my $silent_refcount;
+      if (defined($ENV{TEXINFO_SILENT_REFCOUNT})
+          and $ENV{TEXINFO_SILENT_REFCOUNT} eq '1') {
+        $silent_refcount = 1;
+      }
+
       Texinfo::ManipulateTree::tree_remove_references($document->{'tree'},
-                                                      $check_refcount);
+                                                      $check_refcount,
+                                                      $silent_refcount);
       delete $document->{'tree'};
     }
   }
@@ -428,15 +432,6 @@ sub destroy_document($;$) {
   remove_document_references($document, $remove_references);
 
   _XS_destroy_document($document, $remove_references);
-}
-
-# The XS override register a reference to the C element in Perl
-# nodes, sectioning and heading commands.  Only needed if the
-# TreeElement/Reader interfaces are used, which is not the case for
-# converters used used in texi2any.
-sub register_document_relations_lists_elements($)
-{
-  my $document = shift;
 }
 
 # this method does nothing, but the XS override rebuilds the Perl

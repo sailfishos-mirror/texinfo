@@ -33,16 +33,19 @@ void element_to_perl_hash (ELEMENT *e, int avoid_recursion);
 SV *build_texinfo_tree (ELEMENT *root, int avoid_recursion);
 void build_tree_to_build (ELEMENT_LIST *tree_to_build);
 
-size_t register_element_handle_in_sv (ELEMENT *element, DOCUMENT *document);
-size_t register_sv_element_handle_in_sv (ELEMENT *element, SV *element_sv,
-                                       DOCUMENT *document);
+void build_new_base_element (ELEMENT *element);
 
 AV *build_string_list (const STRING_LIST *strings_list, enum sv_string_type);
+AV *build_section_relations_list (const SECTION_RELATIONS_LIST *list);
+AV *build_node_relations_list (const NODE_RELATIONS_LIST *list);
+AV *build_heading_relations_list (const HEADING_RELATIONS_LIST *list);
+
+SV *build_extra_misc_args (const STRING_LIST *l);
+SV *build_extra_index_entry (const INDEX_ENTRY_LOCATION *entry_loc);
 
 void pass_source_info_hash (const SOURCE_INFO *source_info, HV *hv);
 
-SV *build_element_attribute (const ELEMENT *element, const char *attribute,
-                             DOCUMENT *document);
+SV *build_key_pair_info (const KEY_PAIR *k, int avoid_recursion);
 
 void pass_errors (const ERROR_MESSAGE_LIST *error_list, AV *av);
 SV *pass_errors_to_hv (const ERROR_MESSAGE_LIST *error_messages,
@@ -63,12 +66,6 @@ SV *document_nodes_list (SV *document_in);
 SV *document_sections_list (SV *document_in);
 SV *document_sectioning_root (SV *document_in);
 SV *document_headings_list (SV *document_in);
-
-void register_document_relations_lists_elements (SV *document_in);
-
-SV *build_tree_elements_sections_list (DOCUMENT *document);
-SV *build_tree_elements_nodes_list (DOCUMENT *document);
-SV *build_tree_elements_headings_list (DOCUMENT *document);
 
 HV *build_index_entry (const INDEX_ENTRY *index_entry);
 HV *build_single_index_data (const INDEX *index);

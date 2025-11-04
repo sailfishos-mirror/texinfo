@@ -113,6 +113,10 @@ my %XS_overrides = (
     => "Texinfo::Example::TreeElementConverterXS::tree_element_nodes_list",
   "Texinfo::Example::TreeElementConverter::tree_element_headings_list"
     => "Texinfo::Example::TreeElementConverterXS::tree_element_headings_list",
+
+# could have been in Document too
+  "Texinfo::Example::TreeElementConverter::register_document_relations_lists_elements"
+    => "Texinfo::Example::TreeElementConverterXS::register_document_relations_lists_elements",
 );
 
 sub import {
@@ -129,6 +133,15 @@ sub import {
   goto &Exporter::import;
 }
 
+
+# The XS override register a reference to the C element in Perl
+# nodes, sectioning and heading commands.  Only needed if the
+# TreeElement/Reader interfaces are used, which is not the case for
+# converters used in texi2any.
+sub register_document_relations_lists_elements($$)
+{
+  my ($self, $document) = @_;
+}
 
 # information on tree elements
 
@@ -1576,16 +1589,14 @@ sub _tree_element_xml_numeric_entities_accent($$$;$$$) {
   my ($self, $text, $command, $index_in_stack, $accents_stack,
       $in_upper_case) = @_;
 
-  return $self->xml_accent($self, $text, $command, $index_in_stack,
-                                  $accents_stack, $in_upper_case, 1);
+  return $self->xml_accent($text, $command, $index_in_stack,
+                           $accents_stack, $in_upper_case, 1);
 }
 
 # same as in Texinfo::Convert::Converter, but using TreeElement interface
 sub tree_element_xml_accents($$;$)
 {
-  my $self = shift;
-  my $accent = shift;
-  my $in_upper_case = shift;
+  my ($self, $accent, $in_upper_case) = @_;
 
   my $format_accents;
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {

@@ -529,15 +529,15 @@ my $no_XS_objects_refcount;
 # expected number of references to the element SV
 my $element_SV_target_count = 1;
 
-sub _element_remove_references($;$);
+sub _element_remove_references($;$$);
 
 # recursively remove references to element.  In general should not be
 # called on the tree root element, as it has different number of references.
 # If $CHECK_REFCOUNT is set (to a Document), verify that the reference count for
 # elements correspond to the count after removing reference to tree elements
 # as much as possible while still being able to process the tree.
-sub _element_remove_references($;$) {
-  my ($element, $check_refcount) = @_;
+sub _element_remove_references($;$$) {
+  my ($element, $check_refcount, $silent_refcount) = @_;
 
   # We do not set variables to hash values in this code, as this adds a
   # refcount, we do everything with the hash key values directly.
@@ -545,7 +545,8 @@ sub _element_remove_references($;$) {
   if (exists($element->{'source_marks'})) {
     foreach my $source_mark (@{$element->{'source_marks'}}) {
       if (exists($source_mark->{'element'})) {
-        _element_remove_references($source_mark->{'element'}, $check_refcount);
+        _element_remove_references($source_mark->{'element'},
+                                   $check_refcount, $silent_refcount);
       }
       delete $source_mark->{'element'};
     }
@@ -558,7 +559,7 @@ sub _element_remove_references($;$) {
                                 'spaces_after_argument') {
         if (exists($element->{'info'}->{$info_elt_key})) {
           _element_remove_references($element->{'info'}->{$info_elt_key},
-                                 $check_refcount);
+                                 $check_refcount, $silent_refcount);
           delete $element->{'info'}->{$info_elt_key};
         }
       }
@@ -568,12 +569,12 @@ sub _element_remove_references($;$) {
       if (exists($element->{'extra'})) {
         if (exists($element->{'extra'}->{'def_index_element'})) {
           _element_remove_references($element->{'extra'}->{'def_index_element'},
-                                 $check_refcount);
+                                 $check_refcount, $silent_refcount);
           delete $element->{'extra'}->{'def_index_element'};
           if (exists($element->{'extra'}->{'def_index_ref_element'})) {
             _element_remove_references(
               $element->{'extra'}->{'def_index_ref_element'},
-                                   $check_refcount);
+                                   $check_refcount, $silent_refcount);
             delete $element->{'extra'}->{'def_index_ref_element'};
           }
         }
@@ -586,7 +587,7 @@ sub _element_remove_references($;$) {
       }
       for (my $i = 0; $i < scalar(@{$element->{'contents'}}); $i++) {
         _element_remove_references($element->{'contents'}->[$i],
-                               $check_refcount);
+                               $check_refcount, $silent_refcount);
       }
       delete $element->{'contents'};
     }
@@ -595,7 +596,7 @@ sub _element_remove_references($;$) {
   #print STDERR "T RREF $element ".
   #   Texinfo::ManipulateTree::element_print_details($element)."\n";
 
-  if (defined($check_refcount)) {
+  if (defined($check_refcount) and not $silent_refcount) {
     my $reference_count = Devel::Peek::SvREFCNT($element);
     my $object_count = Devel::Refcount::refcount($element);
     #if (1) {
@@ -627,8 +628,8 @@ sub _element_remove_references($;$) {
 # no cycles, but to be able to check that the reference counting in C/XS is done
 # correctly.  No specific reason to use in code outside of the Texinfo modules,
 # not documented on purpose.
-sub tree_remove_references($;$) {
-  my ($tree, $check_refcount) = @_;
+sub tree_remove_references($;$$) {
+  my ($tree, $check_refcount, $silent_refcount) = @_;
 
   if (defined($check_refcount)) {
     # Setup the expected reference counts.  Better do it dynamically
@@ -656,7 +657,7 @@ sub tree_remove_references($;$) {
 
   if (exists($tree->{'contents'})) {
    foreach my $content (@{$tree->{'contents'}}) {
-     _element_remove_references($content, $check_refcount);
+     _element_remove_references($content, $check_refcount, $silent_refcount);
    }
 
     delete $tree->{'contents'};

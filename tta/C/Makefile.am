@@ -521,7 +521,11 @@ libtexinfo_convertxs_la_SOURCES = \
                        convert/build_html_perl_info.h \
                        convert/build_html_perl_info.c \
                        convert/get_converter_perl_info.c \
-                       convert/get_converter_perl_info.h
+                       convert/get_converter_perl_info.h \
+                       tree_elements/build_perl_tree_elements.h \
+                       tree_elements/build_perl_tree_elements.c \
+                       tree_elements/get_perl_tree_elements.h \
+                       tree_elements/get_perl_tree_elements.c
 
 # locate include files under out-of-source builds.
 libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
