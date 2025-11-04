@@ -396,6 +396,8 @@ tta/C/convert/.libs
 tta/C/convert/*.lo
 tta/C/swig/.libs
 tta/C/swig/*.lo
+tta/C/tree_elements/.libs
+tta/C/tree_elements/*.lo
 
 texindex/texindex.awk
 texindex/texindex.awk.in
