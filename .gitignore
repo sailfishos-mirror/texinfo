@@ -107,6 +107,7 @@ tta/C/stamp.code_convert_data
 tta/C/stamp.command_data
 tta/C/stamp.element_types
 tta/C/stamp.regenerate_C_options_info
+tta/C/stamp.css_data
 
 tta/perl/CheckXS/build-aux/**
 tta/perl/CheckXS/.libs
