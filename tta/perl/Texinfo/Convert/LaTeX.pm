@@ -4811,6 +4811,11 @@ sub convert_math_to_images($$$;$) {
 
   my $math2img_basename = "${prefix}_math2img";
 
+  # Dots-per-inch value given as argument to -D flag of dvips.
+  # Note: in the absence of any image scaling in Emacs Info mode,
+  # this directly affects the size of the produced image.
+  my $dvipng_dpi = 180;
+
   my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
                                         $document_root, \@math_at_commands);
 
@@ -4942,7 +4947,8 @@ sub convert_math_to_images($$$;$) {
     print $fh "\\end{preview}\n\n";
 
     my $png_file_name = $math2img_basename.$counter.'.png';
-    $result->{$element} = $png_file_name;
+    $result->{$element} = {'filename' => $png_file_name,
+                           'dpi' => $dvipng_dpi};
   }
   if ($counter > 0) {
     print $fh "\\end{document}\n";
@@ -5018,12 +5024,8 @@ sub convert_math_to_images($$$;$) {
                                $math2img_dvi_basefile))
     unless (-f $encoded_math2img_dvi_basefile);
 
-  my @to_images_options = ('-T', 'tight', '-D', '180');
+  my @to_images_options = ('-T', 'tight', '-D', $dvipng_dpi);
   my @to_images_args = (@to_images_options, $encoded_math2img_dvi_basefile);
-
-  # Note: the argument to -D given is the DPI, which, in the absence of
-  # any image scaling in Emacs Info mode, directly affects the size of
-  # the produced image.
 
   my $to_image_exec = 'dvipng';
   my $status = system $to_image_exec, @to_images_args;

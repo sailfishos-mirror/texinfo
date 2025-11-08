@@ -1,3 +1,14 @@
+2025-11-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Output DPI setting for INFO_MATH_IMAGES
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images):
+	Save and return DPI setting used for call to 'dvipng'.
+	* tta/perl/Texinfo/Convert/Plaintext.pm (format_image)
+	(_convert) [INFO_MATH_IMAGES],
+	* tta/perl/Texinfo/Convert/Info.pm (format_image):
+	Output dpi setting in Info file as 'dpi' attribute on image directive.
+
 2025-11-04 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/swig/swig_parser_api.c

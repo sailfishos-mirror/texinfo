@@ -923,8 +923,8 @@ sub format_node($$;$) {
   return;
 }
 
-sub format_image($$$;$) {
-  my ($self, $image_file, $text, $alt) = @_;
+sub format_image($$$;$$) {
+  my ($self, $image_file, $text, $alt, $dpi) = @_;
 
   my $result = '';
   if (defined($image_file)) {
@@ -935,6 +935,12 @@ sub format_image($$$;$) {
   }
   $result = "\x{00}\x{08}[image src=\"$image_file\"";
 
+  if (defined($dpi) and $dpi > 0) {
+    # make sure we output a positive integer, regardless of whether
+    # this function is passed a string or value with a fraction.
+    $dpi = int($dpi);
+    $result .= " dpi=$dpi";
+  }
   if (defined($alt) and $alt ne '') {
     $alt =~ s/\\/\\\\/g;
     $alt =~ s/\"/\\\"/g;
