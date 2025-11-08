@@ -2431,9 +2431,10 @@ sub format_image($$$;$) {
 # to have a different code, as there is no .txt file read, instead the
 # $IMAGE_TEXT argument is used.
 # $IMAGE_FILE is a character string.
-# $DPI is the dots per inch of the image.
-sub _insert_image($$$;$) {
-  my ($self, $image_file, $image_text, $dpi) = @_;
+# $DPI is the dots per inch of the image, if given.
+# $DEPTH is pixels below text baseline, if given.
+sub _insert_image($$$;$$) {
+  my ($self, $image_file, $image_text, $dpi, $depth) = @_;
 
   # NOTE no alt info set, not clear to what it could be set?
 
@@ -2465,7 +2466,8 @@ sub _insert_image($$$;$) {
   }
   close($texthandle);
 
-  my $result = $self->format_image($image_file, $image_text, undef, $dpi);
+  my $result = $self->format_image($image_file, $image_text, undef,
+                                   $dpi, $depth);
 
   # the last line is part of the image but do not have a new line,
   # so 1 is added to $lines_count to have the number of lines of
@@ -3433,7 +3435,8 @@ sub _convert($$) {
             my ($image, $lines_count) = _insert_image($self,
                   $self->{'elements_images'}->{$element}->{'filename'},
                   $result,
-                  $self->{'elements_images'}->{$element}->{'dpi'});
+                  $self->{'elements_images'}->{$element}->{'dpi'},
+                  $self->{'elements_images'}->{$element}->{'depth'});
             _add_lines_count($self, $lines_count);
             _stream_output($self, $image);
           }
@@ -4503,6 +4506,8 @@ sub _convert($$) {
                          $self->{'elements_images'}->{$element}->{'filename'},
                          $result,
                          $self->{'elements_images'}->{$element}->{'dpi'});
+      # NB we don't output the below-baseline depth for @displaymath as
+      # it does not need to be aligned with surrounding text.
       _add_lines_count($self, $lines_count);
       _stream_output($self, $image);
       _ensure_end_of_line($self);

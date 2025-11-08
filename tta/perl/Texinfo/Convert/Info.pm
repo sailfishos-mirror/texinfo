@@ -923,8 +923,8 @@ sub format_node($$;$) {
   return;
 }
 
-sub format_image($$$;$$) {
-  my ($self, $image_file, $text, $alt, $dpi) = @_;
+sub format_image($$$;$$$) {
+  my ($self, $image_file, $text, $alt, $dpi, $depth) = @_;
 
   my $result = '';
   if (defined($image_file)) {
@@ -940,6 +940,11 @@ sub format_image($$$;$$) {
     # this function is passed a string or value with a fraction.
     $dpi = int($dpi);
     $result .= " dpi=$dpi";
+  }
+  if (defined($depth) and $depth >= 0) {
+    # make sure we output a non-negative integer
+    $depth = int($depth);
+    $result .= " depth=$depth";
   }
   if (defined($alt) and $alt ne '') {
     $alt =~ s/\\/\\\\/g;
