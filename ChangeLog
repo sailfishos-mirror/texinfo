@@ -1,5 +1,14 @@
 2025-11-08  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi
+	(Inserting Math, Info and Plaintext Customization Variables),
+	* NEWS: mark INFO_MATH_IMAGES as experimental
+
+	* doc/texinfo.texi (Info Format Image): document 'dpi' and 'depth'.
+	Explain possible image scaling formula.
+
+2025-11-08  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Output image baseline depth for INFO_MATH_IMAGES
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images):

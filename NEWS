@@ -67,8 +67,8 @@ See the manual for detailed information.
       . info.js (with INFO_JS_DIR) fixes and improvements:
         . avoid pointless pop-up over Top node and display the correct title
   . Info output:
-    . new variable INFO_MATH_IMAGES allows outputting images for mathematics
-      notation
+    . new (experimental) variable INFO_MATH_IMAGES allows outputting
+      images for mathematics notation
   . Remove the Texinfo::TeX4HT customization package.
   . XML output:
       . use HTML entities names for @H and @dotaccent accents types

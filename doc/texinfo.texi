@@ -9648,7 +9648,7 @@ this example.
 
 By default, the @code{@@math} command has no special effect on the Info
 output, merely outputting the contents verbatim.  You can use the
-@code{INFO_MATH_IMAGES} variable to produce images; see
+experimental @code{INFO_MATH_IMAGES} variable to produce images; see
 @ref{Info and Plaintext Customization Variables}.
 
 For printed output, @code{@@math} switches into @TeX{} ``math mode''.
@@ -16225,11 +16225,20 @@ because parsing problems there don't prevent navigation; readers can still
 relatively easily find their way to the node in question.
 
 @item INFO_MATH_IMAGES
+(Experimental.)
 If set, convert the contents of @code{@@math} and @code{@@displaymath}
 into images, and reference these in the produced Info file.  This variable
 requires a working @TeX{} installation, the @samp{preview} package
 of @LaTeX{}, as well as the @command{dvipng} program.  It may be suitable
 for math-heavy documents that are unlikely to be viewed in a text terminal.
+
+This feature is marked as experimental as it would require extra support
+in Info-viewing programs (currently, only the Info mode of Emacs) to
+view the images correctly.  The images should be visible with existing
+versions of Emacs, but they may be the wrong size or appear misaligned
+with surrounding text.  It is possible that we will change the output
+for this option given further feedback.  @xref{Info Format Image} for
+more details about how images are currently output with this option.
 
 @item INFO_SPECIAL_CHARS_QUOTE
 If set, whenever there are problematic characters for Info output in
@@ -24814,6 +24823,8 @@ within the Info file (@pxref{Images}):
 @example
     <image> =
 ^@@^H[image src="<image file>"
+            (dpi=<dpi>)?
+            (depth=<depth>)?
             (text="<txt file contents>")?
             (alt="<alt text>")?
 ^@@^H]
@@ -24837,6 +24848,34 @@ representation of the image, for possible use on a text-only display.
 
 The format does not prescribe the choice between displaying the
 @t{<image file>}, the @t{<alt text>} or the @t{<txt file contents>}.
+
+The @t{dpi} and @t{depth} options are only output for the
+experimental @samp{INFO_MATH_IMAGES} variable of @command{texi2any}
+(@pxref{Info and Plaintext Customization Variables}).
+
+@t{dpi} gives the dots-per-inch (@dfn{DPI}) of the image.  Info-viewing
+programs could use this to scale the image so it is an appropriate size
+for surrounding text.  Here is a possible formula for the height of
+an image in pixels:
+
+@displaymath
+h_{@r{display}} = (h_{@r{file}} / dpi) * (72.27/10) * f
+@end displaymath
+
+@noindent Here, @math{h_{@r{display}}} is the height in pixels to display
+the image at, @math{h_{@r{file}}} is the height in pixels of the unscaled
+image, @math{dpi} is the DPI from the Info file, and @math{f} is
+the font size in pizels of the currently used font.
+
+The 72.27 in this formula is the number of points in an inch (as used
+by @TeX{}).  The 10 is the default 10 @dmn{point} font size of @TeX{},
+in other words, the size of 1 em.  The quotient (72.27/10) gives the
+number of ems per inch and converts from the height of the image in
+inches to the height of the image in ems.
+
+@t{depth} gives the below-baseline depth of the image, in image pixels
+(before scaling).  Viewing programs should use it for shifting
+the image downwards to align it properly with surrounding text.
 
 
 @node Info Format Printindex
