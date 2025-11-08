@@ -4,7 +4,7 @@
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images):
 	Save and return DPI setting used for call to 'dvipng'.
-	* tta/perl/Texinfo/Convert/Plaintext.pm (format_image)
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_insert_image)
 	(_convert) [INFO_MATH_IMAGES],
 	* tta/perl/Texinfo/Convert/Info.pm (format_image):
 	Output dpi setting in Info file as 'dpi' attribute on image directive.
