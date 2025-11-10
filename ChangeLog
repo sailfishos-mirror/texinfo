@@ -1,3 +1,8 @@
+2025-11-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/htmlxref.d/Texinfo_GNU.cnf: update 'stabs', 'groff'.
+	From Thérèse Godefroy <godef.th@free.fr>.
+
 2025-11-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi

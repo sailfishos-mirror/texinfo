@@ -1,6 +1,6 @@
 # Texinfo_GNU.cnf - reference file for GNU Texinfo manuals on the web.
 
-htmlxrefversion=2025-08-01.22; # UTC
+htmlxrefversion=2025-11-10.16; # UTC
 
 # Copyright 2010-2025 Free Software Foundation, Inc.
 # 
@@ -376,9 +376,9 @@ gcc		node	${GCC}/gcc/
  gnat-style	node	${GCC}/gnat-style/
  libiberty	node	${GCC}/libiberty/
 
-GDB = https://sourceware.org/gdb/current/onlinedocs
-gdb		node	${GDB}/gdb.html/
- stabs		node	${GDB}/stabs.html/
+GDB = https://sourceware.org/gdb
+gdb		node	${GDB}/current/onlinedocs/gdb.html/
+ stabs		node	${GDB}/onlinedocs/stabs.html/
 
 GDBM = http://www.gnu.org.ua/software/gdbm/manual
 gdbm		node	${GDBM}/
@@ -454,7 +454,7 @@ gperf		node	${GS}/gperf/manual/html_node/
 grep		mono	${GS}/grep/manual/grep.html
 grep		node	${GS}/grep/manual/html_node/
 
-groff		node	${GS}/groff/manual/html_node/
+groff		node	${GS}/groff/manual/groff.html.node/
 
 GRUB = ${GS}/grub/manual/
   grub		mono	${GRUB}/grub/grub.html
@@ -784,3 +784,4 @@ xboard		node	${GS}/xboard/manual/html_node/
 # time-stamp-time-zone: "UTC"
 # time-stamp-end: "; # UTC"
 # End:
+
