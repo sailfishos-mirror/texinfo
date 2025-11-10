@@ -472,7 +472,7 @@ sub _substitute_element_array($$) {
           and $element->{'cmdname'} eq 'txiinternalvalue') {
         my $name = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
         if (exists($replaced_substrings->{$name})) {
-          if ($replaced_substrings->{$name}->{'element_document_descriptor'}) {
+          if ($replaced_substrings->{$name}->{'tree_document_descriptor'}) {
             Texinfo::Document::build_tree($replaced_substrings->{$name});
           }
           $array->[$idx] = $replaced_substrings->{$name};

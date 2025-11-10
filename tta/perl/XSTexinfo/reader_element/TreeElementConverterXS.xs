@@ -635,3 +635,25 @@ tree_element_headings_list (SV *converter_in)
     OUTPUT:
         RETVAL
 
+# TODO it is likely that this should not fail
+SV *
+build_element_tree (SV *tree_in)
+      PREINIT:
+        DOCUMENT *document = 0;
+        SV *result_sv = 0;
+      CODE:
+       document = get_sv_element_document (tree_in, 0);
+        if (document)
+          {
+            ELEMENT *element
+              = get_sv_element_element (tree_in, document);
+            result_sv = build_texinfo_tree (element, 0);
+            result_sv = newSVsv ((SV *) result_sv);
+          }
+        if (result_sv)
+          RETVAL = result_sv;
+        else
+          RETVAL = newSV(0);
+    OUTPUT:
+        RETVAL
+

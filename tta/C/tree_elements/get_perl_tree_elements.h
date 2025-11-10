@@ -8,6 +8,9 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
+/* TODO move NAMED_STRING_ELEMENT_LIST to a *_types.h file */
+/* NAMED_STRING_ELEMENT_LIST */
+#include "translations.h"
 
 /* do not depend on READER structure implementation details */
 struct READER;
@@ -16,5 +19,9 @@ struct READER *get_sv_reader_reader (SV *sv_in);
 
 ELEMENT *new_element_from_sv (DOCUMENT *document, const SV *element_hash,
                               CONVERTER *converter);
+
+LANG_TRANSLATION *get_lang_translations_sv (SV *lang_translations_sv);
+
+NAMED_STRING_ELEMENT_LIST *get_replaced_substrings (SV *replaced_substrings_sv);
 
 #endif

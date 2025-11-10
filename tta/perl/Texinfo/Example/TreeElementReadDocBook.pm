@@ -1022,8 +1022,20 @@ sub _convert($$)
               = _begin_index_entry($self, $element);
             if ($index_entry) {
               $result_text .= $index_entry_text;
-              $result_text .= $self->convert_tree(
-    Texinfo::Example::TreeElementConverter::tree_element_index_content_element($element));
+              # FIXME the $index_element tree refers to part of the
+              # tree.  If $index_element and the main tree are built to Perl,
+              # there will be two references to this part of the tree,
+              # and an error because there are too many refcounts.
+              # The two trees may be built to Perl, for example, if
+              # TEXINFO_XS_CONVERT=0 and there is an @image whose argument is
+              # converted to text and needs to be built to Perl, with
+              # build_tree_for_text_converter set.
+              # In 2025, this situation happened in the t/*.t test suite
+              # with TEXINFO_XS_CONVERT=0.
+              my $index_element
+  = Texinfo::Example::TreeElementConverter::tree_element_index_content_element(
+                                                                       $element);
+              $result_text .= $self->convert_tree($index_element);
               $result_text .= _end_index_entry($self, $element);
             }
             if ($element->get_child(0)->children_number()) {
@@ -1557,7 +1569,8 @@ sub _convert($$)
                                      $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                       $self->{'convert_text_options'});
-              Texinfo::Document::build_tree ($argument)
+              Texinfo::Example::TreeElementConverter::build_element_tree(
+                                                                    $argument)
                 if ($build_tree_for_text_converter);
               my $basefile = Texinfo::Convert::Text::convert_to_text(
                                             $argument,
@@ -1637,7 +1650,8 @@ sub _convert($$)
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                     $self->{'convert_text_options'});
-              Texinfo::Document::build_tree ($email)
+              Texinfo::Example::TreeElementConverter::build_element_tree(
+                                                                    $email)
                 if ($build_tree_for_text_converter);
               $email_text
                 = _protect_text($self, Texinfo::Convert::Text::convert_to_text(
@@ -1670,7 +1684,8 @@ sub _convert($$)
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
                                     $self->{'convert_text_options'});
-              Texinfo::Document::build_tree ($url_arg)
+              Texinfo::Example::TreeElementConverter::build_element_tree(
+                                                                    $url_arg)
                 if ($build_tree_for_text_converter);
               $url_text = _protect_text($self,
                 Texinfo::Convert::Text::convert_to_text($url_arg,
@@ -1887,7 +1902,8 @@ sub _convert($$)
                     if ($content->children_number()) {
                       Texinfo::Convert::Text::set_options_encoding_if_not_ascii(
                                       $self, $self->{'convert_text_options'});
-                      Texinfo::Document::build_tree ($content)
+                Texinfo::Example::TreeElementConverter::build_element_tree(
+                                                                    $content)
                         if ($build_tree_for_text_converter);
                       $prototype_text
                         = Texinfo::Convert::Text::convert_to_text(
@@ -1932,7 +1948,8 @@ sub _convert($$)
             my $arguments_line = $element->get_child(0);
             my $block_line_arg = $arguments_line->get_child(0);
             if ($block_line_arg->children_number()) {
-              Texinfo::Document::build_tree ($block_line_arg)
+              Texinfo::Example::TreeElementConverter::build_element_tree(
+                                                               $block_line_arg)
                 if ($build_tree_for_text_converter);
               my $quotation_arg_text
                 = Texinfo::Convert::Text::convert_to_text($block_line_arg,

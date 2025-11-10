@@ -1,3 +1,24 @@
+2025-11-10 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/get_perl_info.c,
+	tta/C/tree_elements/get_perl_tree_elements.c
+	(get_lang_translations_sv, get_replaced_substrings): move to
+	get_perl_tree_elements.c.
+
+	* tta/perl/Texinfo/Example/TreeElementConverter.pm (%XS_overrides)
+	(build_element_tree),
+	tta/perl/Texinfo/Example/TreeElementReadDocBook.pm (_convert),
+	tta/perl/Texinfo/Translations.pm (_substitute_element_array),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (build_tree),
+	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
+	(build_element_tree): add build_element_tree based on
+	DocumentXS.xs build_tree, corresponding to building a tree based on a
+	tree element with a handle and remove the corresponding code from
+	build_tree.  Call build_element_tree in TreeElementReadDocBook.pm.
+	Building a tree from a root element is still in build_tree.
+	Modify Translations.pm _substitute_element_array to check for
+	root element only before calling build_tree.
+
 2025-11-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* util/htmlxref.d/Texinfo_GNU.cnf: update 'stabs', 'groff'.

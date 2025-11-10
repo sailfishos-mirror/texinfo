@@ -35,7 +35,6 @@
 #include "xs_utils.h"
 /* fatal */
 #include "base_utils.h"
-#include "translations.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -430,82 +429,6 @@ get_source_info (SV *source_info_sv)
 
   return source_info;
 }
-
-NAMED_STRING_ELEMENT_LIST *
-get_replaced_substrings (SV *replaced_substrings_sv)
-{
-  I32 hv_number;
-  I32 i;
-  HV *replaced_substrings_hv;
-  NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
-
-  dTHX;
-
-  replaced_substrings_hv = (HV *)SvRV (replaced_substrings_sv);
-  hv_number = hv_iterinit (replaced_substrings_hv);
-  if (hv_number > 0)
-    {
-      replaced_substrings = new_named_string_element_list ();
-      for (i = 0; i < hv_number; i++)
-        {
-          ELEMENT *element = 0;
-          char *key;
-          I32 retlen;
-          SV *element_sv = hv_iternextsv(replaced_substrings_hv,
-                                         &key, &retlen);
-          DOCUMENT *document = get_sv_tree_document (element_sv, 0);
-          if (document && document->tree)
-            element = document->tree;
-          else
-            {
-              document = get_sv_element_document (element_sv, 0);
-              if (document)
-                element = get_sv_element_element (element_sv, document);
-            }
-          if (element)
-            add_element_to_named_string_element_list (
-                                      replaced_substrings, key, element);
-          else
-            {
-              fprintf (stderr, "ERROR: translation substring not found: %s\n",
-                       key);
-              debug_print_element_sv (element_sv);
-            }
-        }
-    }
-  return replaced_substrings;
-}
-
-/* NOTE in general converters also use the global translation_cache
-   but if it was not the case, it may be relevant to have another
-   function too or a converter argument */
-LANG_TRANSLATION *
-get_lang_translations_sv (SV *lang_translations_sv)
-{
-  LANG_TRANSLATION *lang_translations = 0;
-
-  dTHX;
-
-  /* undef happens with DocBook convert */
-  if (lang_translations_sv && SvOK (lang_translations_sv))
-    {
-      AV *lang_translations_av;
-      SV **lang_sv;
-      const char *lang;
-
-      lang_translations_av = (AV *) SvRV (lang_translations_sv);
-      lang_sv = av_fetch (lang_translations_av, 0, 0);
-      if (!*lang_sv || !SvOK (*lang_sv))
-        fatal ("element_gdt lang_translations no lang");
-
-      lang = (char *)SvPVutf8_nolen(*lang_sv);
-      lang_translations
-       = switch_lang_translations (&translation_cache, lang,
-                                   0, TXI_CONVERT_STRINGS_NR);
-    }
-  return lang_translations;
-}
-
 #undef FETCH
 
 void
