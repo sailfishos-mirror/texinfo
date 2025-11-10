@@ -38,6 +38,7 @@
 /* for clear_error_message_list */
 #include "errors.h"
 #include "document.h"
+/* configure_output_strings_translations */
 #include "translations.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"

@@ -8,9 +8,6 @@
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
-/* TODO move NAMED_STRING_ELEMENT_LIST to a *_types.h file */
-/* NAMED_STRING_ELEMENT_LIST */
-#include "translations.h"
 
 /* do not depend on READER structure implementation details */
 struct READER;

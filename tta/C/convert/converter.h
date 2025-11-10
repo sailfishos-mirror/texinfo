@@ -8,8 +8,6 @@
 #include "command_ids.h"
 #include "option_types.h"
 #include "tree_types.h"
-/* NAMED_STRING_ELEMENT_LIST */
-#include "translations.h"
 #include "converter_types.h"
 
 /* piece of code that can be inlined in text parsing codes */

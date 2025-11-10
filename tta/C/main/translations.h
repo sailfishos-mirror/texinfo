@@ -21,19 +21,6 @@
 #define TXI_CONVERT_STRINGS_NR \
   (TXI_DOCUMENT_TRANSLATED_STRINGS_NR - TXI_PARSER_STRINGS_NR)
 
-/* element or string may not always be present */
-typedef struct NAMED_STRING_ELEMENT {
-    const char *name;
-    ELEMENT *element; /* actually const until added to tree */
-    char *string; /* const in gdt_string, but used temporarily in gdt_tree */
-} NAMED_STRING_ELEMENT;
-
-typedef struct NAMED_STRING_ELEMENT_LIST {
-    size_t number;
-    size_t space;
-    NAMED_STRING_ELEMENT *list;
-} NAMED_STRING_ELEMENT_LIST;
-
 extern LANG_TRANSLATION **translation_cache;
 
 void configure_output_strings_translations (const char *localesdir,

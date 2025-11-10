@@ -509,6 +509,19 @@ typedef struct LANG_TRANSLATION {
     LANG_TRANSLATION_TREE_LIST *translations;
 } LANG_TRANSLATION;
 
+/* element or string may not always be present */
+typedef struct NAMED_STRING_ELEMENT {
+    const char *name;
+    ELEMENT *element; /* actually const until added to tree */
+    char *string; /* const in gdt_string, but used temporarily in gdt_tree */
+} NAMED_STRING_ELEMENT;
+
+typedef struct NAMED_STRING_ELEMENT_LIST {
+    size_t number;
+    size_t space;
+    NAMED_STRING_ELEMENT *list;
+} NAMED_STRING_ELEMENT_LIST;
+
 /* used for targets */
 struct BUCKET;
 struct BUCKET_ARENA;

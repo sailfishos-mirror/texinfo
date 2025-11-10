@@ -21,8 +21,6 @@
 #include "tree_types.h"
 #include "converter_types.h"
 #include "html_converter_types.h"
-/* for NAMED_STRING_ELEMENT_LIST */
-#include "translations.h"
 
 /* NOTE the intermediate level functions are declared in
         html_conversion_api.h */

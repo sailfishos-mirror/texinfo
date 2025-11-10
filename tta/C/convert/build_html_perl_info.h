@@ -7,8 +7,6 @@
 
 #include "tree_types.h"
 #include "converter_types.h"
-/* for NAMED_STRING_ELEMENT_LIST */
-#include "translations.h"
 
 void html_pass_xtmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv);
 
