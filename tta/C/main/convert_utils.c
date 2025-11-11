@@ -855,6 +855,7 @@ get_comment_or_end_line (const ELEMENT *element, COMMENT_OR_END_LINE *result)
     result->end_line = "";
 }
 
+/* Texinfo::Convert::Converter comment_or_end_line */
 COMMENT_OR_END_LINE *
 comment_or_end_line (const ELEMENT *element)
 {
@@ -866,6 +867,8 @@ comment_or_end_line (const ELEMENT *element)
   return result;
 }
 
+/* in Texinfo::Example::TreeElementConverter
+  NOTE Only used in tree elements interface, not used in texi2any */
 ARGUMENT_COMMENT_END_LINE *
 argument_comment_end_line (const ELEMENT *element)
 {
@@ -908,6 +911,7 @@ itemize_line_prepended_element (const ELEMENT *block_line_arg)
     return block_line_arg;
 }
 
+/* in Texinfo::Common */
 const ELEMENT *
 item_itemize_prepended (const ELEMENT *element)
 {

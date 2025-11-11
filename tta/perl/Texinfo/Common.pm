@@ -884,6 +884,7 @@ sub itemize_line_prepended_element($) {
   }
 }
 
+# ALTIMP main/convert_utils.c
 sub item_itemize_prepended($) {
   my $element = shift;
 

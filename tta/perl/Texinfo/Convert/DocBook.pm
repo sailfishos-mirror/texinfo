@@ -750,7 +750,7 @@ sub _format_comment_or_end_line($$) {
   my ($self, $element) = @_;
 
   my ($comment, $end_line)
-   = $self->comment_or_end_line_nonxs($element);
+   = $self->comment_or_end_line($element);
 
   if (defined($comment)) {
     return _format_comment($self, $comment);

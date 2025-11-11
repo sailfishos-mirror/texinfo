@@ -922,7 +922,7 @@ sub comment_or_end_line($$)
   my $self = shift;
   my $element = shift;
 
-  return $self->comment_or_end_line_nonxs($element);
+  return $self->Texinfo::Convert::Converter::comment_or_end_line($element);
 }
 
 # for XS overriding
@@ -946,7 +946,7 @@ sub argument_comment_end_line($$)
   return $line_arg, $comment, $end_line;
 }
 
-sub tree_element_comment_or_end_line_nonxs($$)
+sub tree_element_comment_or_end_line($$)
 {
   my $self = shift;
   my $element = shift;
@@ -975,14 +975,6 @@ sub tree_element_comment_or_end_line_nonxs($$)
     $end_line = '';
   }
   return (undef, $end_line);
-}
-
-sub tree_element_comment_or_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
-
-  return tree_element_comment_or_end_line_nonxs($self, $element);
 }
 
 # for TreeElement interface and XS overriding

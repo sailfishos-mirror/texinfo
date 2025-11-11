@@ -635,14 +635,14 @@ tree_element_headings_list (SV *converter_in)
     OUTPUT:
         RETVAL
 
-# TODO it is likely that this should not fail
+# TODO it is likely that this should never fail
 SV *
 build_element_tree (SV *tree_in)
       PREINIT:
         DOCUMENT *document = 0;
         SV *result_sv = 0;
       CODE:
-       document = get_sv_element_document (tree_in, 0);
+        document = get_sv_element_document (tree_in, 0);
         if (document)
           {
             ELEMENT *element

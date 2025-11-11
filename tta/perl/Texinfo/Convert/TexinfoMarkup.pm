@@ -503,7 +503,7 @@ sub _format_comment_or_end_line($$)
   my $element = shift;
 
   my ($comment, $end_line)
-   = $self->comment_or_end_line_nonxs($element);
+   = $self->comment_or_end_line($element);
 
   if ($comment) {
     return _format_comment($self, $comment);

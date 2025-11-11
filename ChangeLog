@@ -1,3 +1,13 @@
+2025-11-11 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/Converter.pm (comment_or_end_line): rename
+	comment_or_end_line_nonxs as comment_or_end_line.  Update callers.
+
+	* tta/perl/Texinfo/Example/TreeElementConverter.pm
+	(tree_element_comment_or_end_line): merge
+	with tree_element_comment_or_end_line_nonxs, remove
+	tree_element_comment_or_end_line_nonxs.
+
 2025-11-10 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/tree_types.h (NAMED_STRING_ELEMENT)
