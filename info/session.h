@@ -126,11 +126,4 @@ void info_initialize_numeric_arg (void);
 /* Found in m-x.c.  */
 char *read_function_name (char *prompt, WINDOW *window);
 
-
-/* In infodoc.c. */
-
-/* Return the window displaying NAME, the name of an internally created
-   Info window. */
-WINDOW *get_internal_info_window (char *name);
-
 #endif /* not SESSION_H */

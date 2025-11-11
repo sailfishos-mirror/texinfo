@@ -520,6 +520,22 @@ window_tile_windows (int style)
     }
 }
 
+/* Return the window displaying NAME, the name of an internally created
+   Info window. */
+WINDOW *
+get_internal_info_window (const char *name)
+{
+  WINDOW *win;
+
+  for (win = windows; win; win = win->next)
+    if (win->node && (win->node->flags & N_IsInternal)
+        && (strcmp (win->node->nodename, name) == 0))
+      break;
+
+  return win;
+}
+
+
 /* Toggle the state of line wrapping in WINDOW.  This can do a bit of fancy
    redisplay. */
 void

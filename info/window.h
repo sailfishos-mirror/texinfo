@@ -129,6 +129,7 @@ void window_change_window_height (WINDOW *window, int amount);
 #define TILE_INTERNALS      1
 void window_tile_windows (int style);
 
+WINDOW *get_internal_info_window (const char *name);
 void window_toggle_wrap (WINDOW *window);
 void window_set_node_of_window (WINDOW *window, NODE *node);
 void window_delete_window (WINDOW *window);
