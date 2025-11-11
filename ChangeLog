@@ -1,5 +1,16 @@
 2025-11-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	const for Info
+
+	* info/infodoc.c (pretty_keyseq, where_is, where_is_internal):
+	Return const char *.
+	(pretty_keyseq_ext): Wrapper to pretty_keyseq to allow safely
+	appending a '-' character to the result.
+
+	* info/session.c (display_info_keyseq): Use pretty_keyseq_ext.
+
+2025-11-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/infodoc.c, info/window.c (create_internal_info_help_node):
 	Move to window.c.  Declare in window.h rather than session.h.
 

@@ -89,7 +89,7 @@ DECLARE_INFO_COMMAND (info_execute_command,
    _("Read a command name in the echo area and execute it"))
 {
   char *line;
-  char *keys;
+  const char *keys;
   char *prompt;
 
   keys = where_is (info_keymap, InfoCmd(info_execute_command));

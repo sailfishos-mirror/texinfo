@@ -1021,7 +1021,7 @@ file_buffer_of_window (WINDOW *window)
 static void
 dispatch_error (int *keyseq)
 {
-  char *rep;
+  const char *rep;
 
   rep = pretty_keyseq (keyseq);
 
@@ -1075,14 +1075,12 @@ add_char_to_keyseq (int character)
 static void
 display_info_keyseq (int expecting_future_input)
 {
-  char *rep;
+  const char *rep;
 
   if (!info_keyseq || info_keyseq_index == 0)
     return;
 
-  rep = pretty_keyseq (info_keyseq);
-  if (expecting_future_input)
-    strcat (rep, "-");
+  rep = pretty_keyseq_ext (info_keyseq, expecting_future_input);
 
   if (echo_area_is_active)
     inform_in_echo_area (rep);

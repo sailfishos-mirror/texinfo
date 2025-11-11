@@ -63,8 +63,9 @@ extern InfoCommand *named_function (char *name);
 
 extern char *function_documentation (InfoCommand *cmd);
 extern char *pretty_keyname (int key);
-extern char *pretty_keyseq (const int *keyseq);
-extern char *where_is (Keymap map, InfoCommand *cmd);
+extern const char *pretty_keyseq (const int *keyseq);
+extern const char *pretty_keyseq_ext (const int *keyseq, int);
+extern const char *where_is (Keymap map, InfoCommand *cmd);
 extern char *replace_in_documentation (const char *string,
     int help_is_only_window_p);
 extern void dump_map_to_message_buffer (char *prefix, Keymap map);
