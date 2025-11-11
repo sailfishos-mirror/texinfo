@@ -1586,6 +1586,25 @@ the top-level menu as usual; since it isn't there (at this writing),
 it then looks in the indices.  If it's found there (which it is),
 the relevant node at the given location is displayed.
 
+When Info looks for the second argument as an index entry, it will prefer to
+use an index entry that refers to the node that it found with the first
+argument.  For example, the following takes you to documentation of the
+@samp{-s} option of the @command{cp} program:
+
+@example
+info -- cp -s
+@end example
+
+@noindent
+The first argument takes Info to the @samp{cp invocation} node within
+the @samp{coreutils} manual.  The second argument takes it to the
+index entry for @samp{-s} within this node, even though there are several
+other index entries for @samp{-s} within the @samp{coreutils} manual
+as a whole.
+(We had to start the argument list with @samp{--} to mark the end of
+options so that the @samp{-s} text would be sought in the indices,
+rather than used as an option to Info itself.)
+
 @cindex Non-interactive usage
 @cindex Standard output not a terminal
 If Info is invoked when its standard output is not a terminal, it
