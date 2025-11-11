@@ -82,6 +82,12 @@ See the manual for detailed information.
 
 * info
   . info manual not found hook
+  . when run as 'info TOPIC INDEX-ENTRY', prefer index entries that
+    refer to the node that would be loaded by 'info TOPIC'.  this aids
+    in retrieving documentation of command-line options when multiple
+    programs are documented in the same manual.  for example, 'info cp -- -s'
+    goes to the documentation of the -s option for the cp program in the
+    coreutils manual, rather than the -s option of any other program.
   . list all customizable variables in help buffer including how they
     got their values
   . reuse introductory text in dir file rather than supplying our own
