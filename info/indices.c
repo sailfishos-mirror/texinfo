@@ -605,6 +605,8 @@ index_lookup_from_node (NODE *node, char *string)
         {
           if (!strcmp (string, (*index_ptr)->label))
             {
+              /* Exact match from the preferred node.  Return it
+                 immediately. */
               nearest = *index_ptr;
               break;
             }
@@ -619,6 +621,7 @@ index_lookup_from_node (NODE *node, char *string)
         }
       else if (!node_only)
         {
+          /* Not in the preferred node.  Check for an exact match. */
           if (!strcmp (string, (*index_ptr)->label))
             nearest = *index_ptr;
         }
