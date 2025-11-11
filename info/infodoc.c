@@ -209,7 +209,7 @@ create_internal_info_help_node (int help_is_only_window_p)
 
   /* Get a list of commands which have no keystroke equivs. */
   where_is_exec_cmd = where_is (info_keymap, InfoCmd(info_execute_command));
-  if (exec_keys)
+  if (where_is_exec_cmd)
     exec_keys = xstrdup (where_is_exec_cmd);
   for (i = 0; function_doc_array[i].func; i++)
     {

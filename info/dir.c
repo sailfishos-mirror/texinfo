@@ -35,15 +35,11 @@ static NODE *build_dir_node (void);
 NODE *
 get_dir_node (void)
 {
-  NODE *node;
-
   if (!dir_node)
     dir_node = build_dir_node ();
 
   return replicate_node (dir_node);
 }
-
-static char *dir_contents;
 
 static NODE *
 build_dir_node (void)

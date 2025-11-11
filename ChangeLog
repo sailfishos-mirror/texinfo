@@ -1,3 +1,11 @@
+2025-11-11 Patrice Dumas  <pertusus@free.fr>
+
+	* info/infodoc.c (create_internal_info_help_node): fix conditional to
+	use where_is_exec_cmd when setting exec_keys.
+
+	* info/dir.c (get_dir_node): remove unused variable in functionad
+	nunused dir_contents static variable.
+
 2025-11-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	const for Info
