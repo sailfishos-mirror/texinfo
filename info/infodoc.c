@@ -109,8 +109,7 @@ dump_map_to_text_buffer (struct text_buffer *tb, int *prefix,
         {
           long start_of_line = tb->off;
           register int last;
-          const char *doc;
-          char *name;
+          const char *doc, *name;
 
           /* Hide some key mappings. */
           if (!map[i].value.function->func /* "invalid" mapping */
@@ -440,7 +439,7 @@ function_documentation (InfoCommand *cmd)
 
 /* Return the user-visible name of the function associated with the
    Info command FUNCTION. */
-char *
+const char *
 function_name (InfoCommand *cmd)
 {
   return cmd->func_name;
@@ -494,9 +493,8 @@ DECLARE_INFO_COMMAND (describe_key, _("Print documentation for KEY"))
         }
       else
         {
-          const char *keyname;
-          char *message, *funname = "";
-          const char *fundoc;
+          const char *keyname, *fundoc, *funname = "";
+          char *message;
 
           /* If the key is bound to do-lowercase-version, but its
              lower-case variant is undefined, say that this key is
@@ -529,9 +527,7 @@ DECLARE_INFO_COMMAND (describe_key, _("Print documentation for KEY"))
             }
 
           keyname = pretty_keyseq (keys);
-
           funname = function_name (map[keystroke].value.function);
-
           fundoc = function_documentation (map[keystroke].value.function);
 
           message = xmalloc
@@ -795,7 +791,7 @@ where_is (Keymap map, InfoCommand *cmd)
   /* If it couldn't be found, return "M-x Foo" (or equivalent). */
   if (!rep)
     {
-      char *name;
+      const char *name;
 
       name = function_name (cmd);
       if (!name)

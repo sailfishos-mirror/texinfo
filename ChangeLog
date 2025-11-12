@@ -1,3 +1,7 @@
+2025-11-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/infodoc.c (function_name): declare as const.
+
 2025-11-11  Gavin Smith <gavinsmith0123@gmail.com>
 
 	const for Info

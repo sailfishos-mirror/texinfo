@@ -58,7 +58,7 @@ extern InfoCommand function_doc_array[];
 
 #include "infomap.h" /* for Keymap.  */
 
-extern char *function_name (InfoCommand *cmd);
+extern const char *function_name (InfoCommand *cmd);
 extern InfoCommand *named_function (char *name);
 
 extern const char *function_documentation (InfoCommand *cmd);
