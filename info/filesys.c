@@ -527,29 +527,17 @@ filesys_decompressor_for_file (char *filename)
 /* The number of the most recent file system error. */
 int filesys_error_number = 0;
 
-/* A function which returns a pointer to a static buffer containing
-   an error message for FILENAME and ERROR_NUM. */
-static char *errmsg_buf = NULL;
-static int errmsg_buf_size = 0;
-
-/* Return string for ERROR_NUM when opening file.  Return value should not
+/* Return string for ERROR_NUM when opening file.  Return value should
    be freed by caller. */
 char *
 filesys_error_string (char *filename, int error_num)
 {
-  int len;
-  const char *result;
+  char *errmsg_buf;
 
   if (error_num == 0)
     return NULL;
 
-  result = strerror (error_num);
-
-  len = 4 + strlen (filename) + strlen (result);
-  if (len >= errmsg_buf_size)
-    errmsg_buf = xrealloc (errmsg_buf, (errmsg_buf_size = 2 + len));
-
-  sprintf (errmsg_buf, "%s: %s", filename, result);
+  xasprintf (&errmsg_buf, "%s: %s", filename, strerror (error_num));
   return errmsg_buf;
 }
 

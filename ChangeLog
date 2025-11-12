@@ -1,5 +1,10 @@
 2025-11-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/filesys.c (filesys_error_string): Allocate result with
+	asprintf rather than keeping an internal buffer.
+
+2025-11-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/infodoc.c (function_name): declare as const.
 
 2025-11-11  Gavin Smith <gavinsmith0123@gmail.com>
