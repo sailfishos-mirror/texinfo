@@ -109,7 +109,8 @@ dump_map_to_text_buffer (struct text_buffer *tb, int *prefix,
         {
           long start_of_line = tb->off;
           register int last;
-          char *doc, *name;
+          const char *doc;
+          char *name;
 
           /* Hide some key mappings. */
           if (!map[i].value.function->func /* "invalid" mapping */
@@ -427,7 +428,7 @@ DECLARE_INFO_COMMAND (info_get_info_help_node, _("Visit Info node '(info)Help'")
 /* **************************************************************** */
 
 /* Return the documentation associated with the Info command FUNCTION. */
-char *
+const char *
 function_documentation (InfoCommand *cmd)
 {
   char *doc;
@@ -494,7 +495,8 @@ DECLARE_INFO_COMMAND (describe_key, _("Print documentation for KEY"))
       else
         {
           const char *keyname;
-          char *message, *fundoc, *funname = "";
+          char *message, *funname = "";
+          const char *fundoc;
 
           /* If the key is bound to do-lowercase-version, but its
              lower-case variant is undefined, say that this key is
@@ -658,9 +660,8 @@ pretty_keyseq (const int *keyseq)
 }
 
 
-/* Replace the names of functions with the key that invokes them.
-   Return value should not be freed by caller. */
-char *
+/* Replace the names of functions with the key that invokes them. */
+const char *
 replace_in_documentation (const char *string, int help_is_only_window_p)
 {
   register int i, start;

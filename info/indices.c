@@ -476,7 +476,7 @@ report_index_match (int i, int match_offset)
     }
 
     {
-      char *format;
+      const char *format;
 
       format = replace_in_documentation
         (_("Found '%s' in %s. ('\\[next-index-match]' tries to find next.)"),

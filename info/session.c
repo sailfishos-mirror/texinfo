@@ -169,7 +169,7 @@ begin_multiple_window_info_session (REFERENCE **references, char *error)
 static void
 display_startup_message (void)
 {
-  char *format;
+  const char *format;
 
   format = replace_in_documentation
   /* TRANSLATORS: Try to keep this message (when "expanded") at most 79
