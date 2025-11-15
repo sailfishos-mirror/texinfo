@@ -189,13 +189,17 @@ if test x$enable_xs != xno; then
   # The usual configure checks use the Autoconf/Gnulib includes, but do not
   # compile nor link against Perl.  The result of those checks are used for
   # code never compiled with the Perl flags.  Therefore we do not set the Perl
-  # more specific flags, but use the user-defined.
+  # more specific flags, but still use the user-defined PERL_EXT_var variables
+  # used as defaults for all the compilations.
   CFLAGS=$PERL_EXT_CFLAGS
   CPPFLAGS=$PERL_EXT_CPPFLAGS
   LDFLAGS=$PERL_EXT_LDFLAGS
-  # Specific checks against Perl should not have the Autoconf/Gnulib includes
-  # but could set the following:
+
+  # NOTE Specific checks against Perl should not have the Autoconf/Gnulib
+  # includes set but could set the following (or use PERL_EXTUTILS_EMBED_*
+  # instead of perl_conf_*):
   #CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
+  #CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
   #LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
 fi
 
@@ -318,11 +322,12 @@ fi
 AC_SUBST([TESTS_MAIN_COMMAND])
 
 if test x$enable_xs != xno; then
-  # Do not include Perl configuration values when outputting these variables,
-  # as advised in the automake manual for CFLAGS and LDFLAGS, which could be
-  # reset by the user.  Here PERL_EXT_CFLAGS and PERL_EXT_LDFLAGS play the
-  # same role as CFLAGS and LDFLAGS when Perl C is used in the build.
-  # The Perl configuration values are then readded in Makefile.am.
+  # Do not include Perl configuration values nor other flags when outputting
+  # these variables, as advised in the automake manual for CFLAGS and LDFLAGS,
+  # which could be reset by the user.  Here PERL_EXT_CFLAGS and
+  # PERL_EXT_LDFLAGS play the same role as CFLAGS and LDFLAGS when Perl C
+  # is used in the build.  The Perl configuration values are then readded in
+  # Makefile.am when needed, for codes built against the Perl headers.
   # For CPPFLAGS we do not follow the same rule because we want to keep the
   # flags added by gnulib macros, as for libunistring there is no separate
   # CPPFLAGS-like variable, the main CPPFLAGS is modified.
