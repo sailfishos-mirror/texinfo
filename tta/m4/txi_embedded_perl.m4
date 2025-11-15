@@ -10,17 +10,22 @@ dnl This file is offered as-is, without any warranty.
 AC_DEFUN([txi_EMBEDDED_PERL],
 [
   AC_MSG_CHECKING(for embedded Perl)
+  saved_CFLAGS=$CFLAGS
+  saved_LDFLAGS=$LDFLAGS
   old_LIBS=$LIBS
+
   # NOTE the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
   # linker flags that should be in LDFLAGS according to the automake
   # documentation, but also -L and -l flags that need to be last.
   # We favor having the variable last and use LIBS otherwise linking fails.
-
   LIBS="$PERL_EXTUTILS_EMBED_ldopts"
+
   # NOTE the PERL_EXTUTILS_EMBED_ccopts variable contains both preprocessor
   # suited for CPPFLAGS and compiler flags, suited for CFLAGS.
   # In the actual build variables, PERL_EXTUTILS_EMBED_ccopts is used for
   # CPPFLAGS, but we do not differenciate CPPFLAGS and CFLAGS here.
+  # We use the PERL_EXT_var user variables for Perl XS extensions to match
+  # compilation rules.
   CFLAGS="$PERL_EXT_CFLAGS $PERL_EXTUTILS_EMBED_ccopts $perl_conf_EMBED_CFLAGS"
   LDFLAGS="$PERL_EXT_LDFLAGS"
 
@@ -123,5 +128,7 @@ dnl ]], [embedded_perl=yes], [embedded_perl=no])
 
   AC_MSG_RESULT($embedded_perl)
   LIBS=$old_LIBS
+  CFLAGS=$saved_CFLAGS
+  LDFLAGS=$saved_LDFLAGS
 ])
 

@@ -1,5 +1,10 @@
 2025-11-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/m4/txi_embedded_perl.m4: save and restore CFLAGS and LDFLAGS
+	instead of leaving them set at the end of the macro call.
+
+2025-11-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/get_converter_perl_info.c
 	(convert_element_options_sv_to_text),
 	tta/perl/XSTexinfo/convert/ConvertXS.xs (text_convert_tree): add

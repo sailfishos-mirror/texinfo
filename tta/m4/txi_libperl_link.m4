@@ -16,6 +16,8 @@ AC_DEFUN([txi_LIBPERL_LINK],
   saved_CFLAGS=$CFLAGS
   saved_CPPFLAGS=$CPPFLAGS
   saved_LDFLAGS=$LDFLAGS
+  # Use the same variables as for compilation rules, in particular use the
+  # PERL_EXT_var variables.
   CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
   CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
   LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
