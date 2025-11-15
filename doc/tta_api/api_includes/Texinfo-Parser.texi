@@ -1318,28 +1318,13 @@ The key @emph{max_columns} holds the maximal number of columns.
 @item @code{@@node}
 @anchor{Texinfo@asis{::}Parser @code{@@node}}
 
-Explicit directions labels information are available in the @emph{line_arg}
-node directions arguments of @code{@@node}.  Each @emph{line_arg} argument element
-@code{extra} hash @emph{node_content} key value is an element holding the
-contents corresponding to the node name.  There is also a @emph{manual_content} key
-if there is an associated external manual name, and a @emph{normalized} key for the
-normalized label, built as specified in the @emph{HTML Xref} Texinfo documentation
-node.
-
-If you called @ref{Texinfo@asis{::}Structuring construct_nodes_tree($document),, Texinfo::Structuring::construct_nodes_tree},
-the @emph{node_directions} hash in the nodes relations associates @emph{up},
-@emph{next} and @emph{prev} keys to the node relations corresponding to the node line
-directions.
-
-An @emph{associated_section} key holds the sectioning command relations
-object that follows the node.  An @emph{node_preceding_part}
-key holds the relations of the @code{@@part} that precedes the node,
-if there is no sectioning command between the @code{@@part} and the node.
-A @emph{node_description} key holds the first @code{@@nodedescription} associated
-to the node.
-
-A node containing a menu have a @emph{menus} key which refers to an array of
-references to menu elements occuring in the node.
+Node name and explicit directions labels information are available
+as @emph{line_arg} tree element arguments of the @code{@@node} line.
+Each @emph{line_arg} argument element @code{extra} hash @emph{node_content} key value is an
+element holding the contents corresponding to the node name.  There is also a
+@emph{manual_content} key if there is an associated external manual name, and a
+@emph{normalized} key for the normalized label, built as specified in the @emph{HTML
+Xref} Texinfo documentation node.
 
 The first node containing a @code{@@printindex} @@-command has the @emph{isindex}
 key set.
@@ -1349,13 +1334,6 @@ key set.
 
 The @emph{indent} or @emph{noindent} key value is set if the corresponding
 @@-commands are associated with that paragraph.
-
-@item @code{@@part}
-@anchor{Texinfo@asis{::}Parser @code{@@part}}
-
-The next sectioning command section relations is in @emph{part_associated_section}.
-The following node relations is in @emph{part_following_node} if there is
-no sectioning command between the @code{@@part} and the node.
 
 @item @code{@@ref}
 @anchor{Texinfo@asis{::}Parser @code{@@ref}}
@@ -1382,12 +1360,8 @@ the @code{@@multitable}.
 @item sectioning command
 @anchor{Texinfo@asis{::}Parser sectioning command}
 
-The node preceding the command is in @emph{associated_node}.
-The part preceding the command is in @emph{associated_part}.
 If the level of the document was modified by @code{@@raisections}
 or @code{@@lowersections}, the differential level is in @emph{level_modifier}.
-
-Other @code{extra} keys are set when you call @ref{Texinfo@asis{::}Structuring sectioning_structure($document),, Texinfo::Structuring::sectioning_structure}.
 
 @item @code{untranslated_def_line_arg}
 @anchor{Texinfo@asis{::}Parser @code{untranslated_def_line_arg} 1}

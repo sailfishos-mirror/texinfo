@@ -2422,8 +2422,7 @@ and lowered sections, when needed.
 X<C<sectioning_structure>>
 
 This function goes through the parsed document tree and gather information
-on the document structure for sectioning commands.  It sets the sections
-relations list in the document.
+on the document structure for sectioning commands.
 
 It sets section elements C<extra> hash values:
 

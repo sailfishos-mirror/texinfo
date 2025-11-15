@@ -9702,13 +9702,17 @@ The key I<max_columns> holds the maximal number of columns.
 
 =item C<@node>
 
-Explicit directions labels information are available in the I<line_arg>
-node directions arguments of C<@node>.  Each I<line_arg> argument element
-C<extra> hash I<node_content> key value is an element holding the
-contents corresponding to the node name.  There is also a I<manual_content> key
-if there is an associated external manual name, and a I<normalized> key for the
-normalized label, built as specified in the I<HTML Xref> Texinfo documentation
-node.
+Node name and explicit directions labels information are available
+as I<line_arg> tree element arguments of the C<@node> line.
+Each I<line_arg> argument element C<extra> hash I<node_content> key value is an
+element holding the contents corresponding to the node name.  There is also a
+I<manual_content> key if there is an associated external manual name, and a
+I<normalized> key for the normalized label, built as specified in the I<HTML
+Xref> Texinfo documentation node.
+
+=begin comment
+
+FIXME relations are separate.
 
 If you called L<Texinfo::Structuring::construct_nodes_tree|Texinfo::Structuring/construct_nodes_tree($document)>,
 the I<node_directions> hash in the nodes relations associates I<up>,
@@ -9725,6 +9729,8 @@ to the node.
 A node containing a menu have a I<menus> key which refers to an array of
 references to menu elements occuring in the node.
 
+=end comment
+
 The first node containing a C<@printindex> @-command has the I<isindex>
 key set.
 
@@ -9733,11 +9739,17 @@ key set.
 The I<indent> or I<noindent> key value is set if the corresponding
 @-commands are associated with that paragraph.
 
+=begin comment
+
+FIXME relations are separate.
+
 =item C<@part>
 
 The next sectioning command section relations is in I<part_associated_section>.
 The following node relations is in I<part_following_node> if there is
 no sectioning command between the C<@part> and the node.
+
+=end comment
 
 =item C<@ref>
 
@@ -9758,12 +9770,18 @@ the C<@multitable>.
 
 =item sectioning command
 
-The node preceding the command is in I<associated_node>.
-The part preceding the command is in I<associated_part>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<level_modifier>.
 
+=begin comment
+
+FIXME relations are separate.
+
+The node preceding the command is in I<associated_node>.
+The part preceding the command is in I<associated_part>.
 Other C<extra> keys are set when you call L<Texinfo::Structuring::sectioning_structure|Texinfo::Structuring/sectioning_structure($document)>.
+
+=end comment
 
 =item C<untranslated_def_line_arg>
 
