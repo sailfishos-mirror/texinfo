@@ -1,3 +1,9 @@
+2025-11-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/m4/txi_libperl_link.m4:
+	Save and restore CFLAGS, CPPFLAGS and LDFLAGS to original rather than
+	hardcoding expressions to restore them to.
+
 2025-11-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/filesys.c (filesys_error_string): Allocate result with

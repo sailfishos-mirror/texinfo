@@ -13,6 +13,9 @@ AC_DEFUN([txi_LIBPERL_LINK],
 
   old_LIBS=$LIBS
   LIBS=$perl_conf_LIBS
+  saved_CFLAGS=$CFLAGS
+  saved_CPPFLAGS=$CPPFLAGS
+  saved_LDFLAGS=$LDFLAGS
   CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
   CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
   LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
@@ -89,8 +92,8 @@ dnl ]], [libperl_link=yes], [libperl_link=no])
   AC_MSG_RESULT($libperl_link)
 
   LIBS=$old_LIBS
-  CFLAGS=$PERL_EXT_CFLAGS
-  CPPFLAGS=$PERL_EXT_CPPFLAGS
-  LDFLAGS=$PERL_EXT_LDFLAGS
+  CFLAGS=$saved_CFLAGS
+  CPPFLAGS=$saved_CPPFLAGS
+  LDFLAGS=$saved_LDFLAGS
 ])
 
