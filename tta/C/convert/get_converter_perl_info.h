@@ -27,4 +27,7 @@ void converter_release_output_units_built (CONVERTER *converter);
 
 TEXT_OPTIONS *copy_sv_options_for_convert_text (SV *sv_in);
 
+SV *convert_element_options_sv_to_text (DOCUMENT *document,
+                                        const ELEMENT *element,
+                                        SV *options_in);
 #endif

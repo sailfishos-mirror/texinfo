@@ -39,8 +39,9 @@
 /* non_perl_free */
 #include "xs_utils.h"
 #include "builtin_commands.h"
+/* message_list_document_error message_list_document_formatted_message
+   wipe_error_message_list */
 #include "errors.h"
-#include "convert_to_text.h"
 #include "convert_to_texinfo.h"
 #include "manipulate_indices.h"
 /* for command_location_names new_string_list ... */
@@ -733,6 +734,11 @@ text_convert_tree (SV *options_in, SV *tree_in)
         const ELEMENT *element = 0;
     CODE:
         /* The caller checks that there is an element or tree descriptor */
+        /* NOTE an element descriptor is only present with the tree elements
+           API, which is not used in converters avtually used in texi2any
+           currently.  Therefore the element descriptor case code should
+           never be called from texi2any right now.
+         */
         document = get_sv_element_document (tree_in, 0);
         if (document)
           element = get_sv_element_element (tree_in, document);
@@ -741,46 +747,8 @@ text_convert_tree (SV *options_in, SV *tree_in)
             document = get_sv_tree_document (tree_in, "text_convert_tree");
             element = document->tree;
           }
-        if (element)
-          {
-            char *result;
-            TEXT_OPTIONS *text_options;
-
-            if (SvOK (options_in))
-              text_options = copy_sv_options_for_convert_text (options_in);
-            else
-              text_options = new_text_options ();
-
-            text_options->document = document;
-
-            result = convert_to_text (element, text_options);
-
-            /* in case we were called from a text converter, pass the
-               error messages.  If not called from a Perl converter they
-               probably will be ignored, but the errors should only come
-               from errors with @verbatiminclude in case there is not already
-               a converter to get the errors, which should only happen with
-               a text converter */
-            if (text_options->error_messages.number > 0
-                && SvOK (options_in))
-              {
-                const char* key = "error_warning_messages";
-                AV *errors_av = newAV ();
-                pass_errors (&text_options->error_messages, errors_av);
-                HV *options_hv = (HV *) SvRV (options_in);
-                hv_store (options_hv, key, strlen (key),
-                          newRV_noinc ((SV *) errors_av), 0);
-                wipe_error_message_list (&text_options->error_messages);
-              }
-
-            destroy_text_options (text_options);
-            RETVAL = newSVpv_utf8 (result, 0);
-            non_perl_free (result);
-          }
-        else
-          {
-            RETVAL = newSV(0);
-          }
+        RETVAL = convert_element_options_sv_to_text (document, element,
+                                                     options_in);
     OUTPUT:
         RETVAL
 

@@ -11,6 +11,13 @@
 // msgfmt --statistics po_document/*.pot
 #define TXI_DOCUMENT_TRANSLATED_STRINGS_NR 243
 
+/* TXI_CONVERT_STRINGS_NR and TXI_PARSER_STRINGS_NR are used to
+   dimension hashes, such that it is not a big deal if their values
+   diverge somewhat from the intended dimensioning values.  Besides,
+   it is possible that the numbers currently used are not optimal,
+   for instance it is likely that a document never needs all the
+   translated strings.
+ */
 /* there are two translated strings in parser related to definition
    name and category, that are not shared with the remaining of the
    codes

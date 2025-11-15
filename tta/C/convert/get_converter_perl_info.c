@@ -34,6 +34,8 @@
 #include "xs_utils.h"
 #include "builtin_commands.h"
 #include "utils.h"
+/* wipe_error_message_list */
+#include "errors.h"
 #include "customization_options.h"
 #include "convert_to_text.h"
 #include "get_perl_info.h"
@@ -42,6 +44,8 @@
 #include "converter.h"
 /* retrieve_output_units */
 #include "output_unit.h"
+/* pass_errors newSVpv_utf8 */
+#include "build_perl_info.h"
 #include "get_converter_perl_info.h"
 
 
@@ -328,3 +332,57 @@ copy_sv_options_for_convert_text (SV *sv_in)
   return text_options;
 }
 #undef FETCH
+
+/* get text conversion options from Perl, call convert_to_text and
+   return error messages.
+   Gets and builds Perl data.
+ */
+SV *
+convert_element_options_sv_to_text (DOCUMENT *document, const ELEMENT *element,
+                                    SV *options_in)
+{
+  SV *retval = 0;
+
+  dTHX;
+
+  if (element)
+    {
+      char *result;
+      TEXT_OPTIONS *text_options;
+
+      if (SvOK (options_in))
+        text_options = copy_sv_options_for_convert_text (options_in);
+      else
+        text_options = new_text_options ();
+
+      text_options->document = document;
+
+      result = convert_to_text (element, text_options);
+
+      /* in case we were called from a converter to Text, pass the
+         error messages.  If not called from a Perl converter they
+         probably will be ignored, but the errors should only come
+         from errors with @verbatiminclude in case there is not already
+         a converter to get the errors, which should only happen with
+         a converter to Text */
+      if (text_options->error_messages.number > 0
+          && SvOK (options_in))
+        {
+          const char* key = "error_warning_messages";
+          AV *errors_av = newAV ();
+          pass_errors (&text_options->error_messages, errors_av);
+          HV *options_hv = (HV *) SvRV (options_in);
+          hv_store (options_hv, key, strlen (key),
+                    newRV_noinc ((SV *) errors_av), 0);
+          wipe_error_message_list (&text_options->error_messages);
+        }
+
+      destroy_text_options (text_options);
+      retval = newSVpv_utf8 (result, 0);
+      non_perl_free (result);
+    }
+  else
+    retval = newSV (0);
+
+  return retval;
+}
