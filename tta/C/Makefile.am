@@ -672,7 +672,9 @@ ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libte
 # We do not setup matching cflags and ldflags for libraries, and there is no
 # failure.  This is probably because libtool adds the required cflags when
 # files are compiled to be linked in shared libraries.
-ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(PERL_EXTUTILS_EMBED_ccopts) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
+#ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(PERL_EXTUTILS_EMBED_ccopts) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
+# try without PERL_EXTUTILS_EMBED_ccopts to see if it builds on solaris 11 in opencsw
+ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
 # in configure.ac, it is checked that Perl is embedded and iconv is available
 if PREFER_C_TEXI2ANY
