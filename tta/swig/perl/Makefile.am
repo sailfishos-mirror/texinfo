@@ -90,7 +90,7 @@ nodist_Texinfo_la_SOURCES = perl_texinfo_wrap.c
 # XS_VERSION could be used in version check in the bootstrap function created
 # by xsubpp in C code generated from .xs, and called in XSLoader.pm
 Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(XS_VERSION)\" -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi -I$(txi_libs_srcdir)/convert -I$(txi_libs_srcdir)/swig $(perl_conf_CPPFLAGS)
-Texinfo_la_CFLAGS = $(perl_conf_CFLAGS)
+Texinfo_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 # Flags specially recognized by libtool.  For dlopened modules, here XS.
 Texinfo_la_LDFLAGS = -avoid-version -module $(perl_conf_LDFLAGS)
 Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo.la $(top_builddir)/C/libtexinfo-main.la $(platform_PERL_LIBADD)

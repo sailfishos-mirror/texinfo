@@ -1,5 +1,27 @@
 2025-11-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/m4/txi_perl_conf.m4 (perl_conf_LIB_CFLAGS),
+	(perl_conf_EMBED_LIB_CFLAGS), tta/C/Makefile.am
+	(*_la_CFLAGS), tta/perl/CheckXS/Makefile.am (TestXS_la_CFLAGS),
+	tta/perl/XSTexinfo/Makefile.am (XSLIBS_CFLAGS),
+	tta/swig/perl/Makefile.am (Texinfo_la_CFLAGS): rename perl_conf_CFLAGS
+	as perl_conf_LIB_CFLAGS and perl_conf_EMBED_CFLAGS as
+	perl_conf_EMBED_LIB_CFLAGS as those two variables should be used for
+	libraries only.
+
+	* tta/m4/txi_perl_conf.m4 (perl_conf_EMBED_CFLAGS), tta/C/Makefile.am
+	(libperlembed_libtexinfo_main_la_CPPFLAGS)
+	(libperlembed_libtexinfo_main_la_CFLAGS, ctexi2any_CFLAGS): add
+	perl_conf_EMBED_CFLAGS with the CFLAGS part of
+	PERL_EXTUTILS_EMBED_ccopts, corresponding to $PERL_CONF_ccflags, and
+	use that both for ctexi2any CFLAGS and
+	libperlembed_libtexinfo_main_la_CFLAGS.  The CPPFLAGS/perl_inc part is
+	perl_conf_CPPFLAGS, add it to
+	libperlembed_libtexinfo_main_la_CPPFLAGS, but not to ctexi2any
+	CPPFLAGS.  Gavin idea.
+
+2025-11-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/tree_types.h (INDEX), tta/C/parsetexi/indices.c
 	(add_index_internal), tta/swig/texinfo.i: remove prefix field from
 	INDEX, it is not used nor useful.

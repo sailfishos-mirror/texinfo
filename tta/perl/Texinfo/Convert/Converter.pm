@@ -510,7 +510,7 @@ sub reset_converter($) {
   # C/XS converters.
   # For a C/XS converter, we go through the C data output units lists
   # and remove references to output units Perl data for each of the output
-  # units, but do that in a separate code.
+  # units, in a separate code called through _XS_reset_converter.
   my $output_units_lists = $self->get_output_units_lists();
 
   if (defined($output_units_lists)) {

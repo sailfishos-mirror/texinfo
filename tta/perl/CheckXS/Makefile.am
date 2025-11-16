@@ -27,7 +27,7 @@ xs_LTLIBRARIES = TestXS.la
 nodist_TestXS_la_SOURCES = TestXS.c
 CLEANFILES += TestXS.c
 TestXS_la_CPPFLAGS = -DXS_VERSION=\"$(XS_VERSION)\" $(perl_conf_CPPFLAGS)
-TestXS_la_CFLAGS = $(perl_conf_CFLAGS)
+TestXS_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 TestXS_la_LIBADD = $(platform_PERL_LIBADD)
 TestXS_la_LDFLAGS = -avoid-version -module $(perl_conf_LDFLAGS)
 EXTRA_DIST += TestXS.pm TestXS.xs

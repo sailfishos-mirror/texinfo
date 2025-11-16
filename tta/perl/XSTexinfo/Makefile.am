@@ -57,7 +57,7 @@ xsdir = $(converterlibdir)
 XSLIBS_CPPFLAGS = -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(XS_VERSION)\"
 XSLIBS_CPPFLAGS += $(perl_conf_CPPFLAGS)
 
-XSLIBS_CFLAGS = $(perl_conf_CFLAGS)
+XSLIBS_CFLAGS = $(perl_conf_LIB_CFLAGS)
 
 # Flags specially recognized by libtool.  For dlopened modules, here XS.
 XSLIBS_LDFLAGS = -avoid-version -module

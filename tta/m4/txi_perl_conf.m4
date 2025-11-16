@@ -72,12 +72,16 @@ txi_LOOKUP_PERL_CONF_VALUES([[ccflags], [cccdlflags], [ldflags], [optimize],
 
 # we do not use PERL_CONF_optimize because it often conflicts with
 # PERL_EXT_CFLAGS and it is not added by ExtUtils::Embed ccopts.
-perl_conf_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
+perl_conf_LIB_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
 perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
 
-# PERL_EXTUTILS_EMBED_ccopts is used for CPPFLAGS and includes ccflags
-# but not cccdlflags
-perl_conf_EMBED_CFLAGS=$PERL_CONF_cccdlflags
+# corresponds to the CFLAGS part of PERL_EXTUTILS_EMBED_ccopts,
+# and is needed both for libraries and executables.
+perl_conf_EMBED_CFLAGS=$PERL_CONF_ccflags
+
+# ccflags or PERL_EXTUTILS_EMBED_ccopts, which includes is already
+# usd for CPPFLAGS but does not include cccdlflags
+perl_conf_EMBED_LIB_CFLAGS=$PERL_CONF_cccdlflags
 
 # perllibs: The list of libraries needed by Perl only
 txi_LOOKUP_PERL_CONF_VALUES([[libperl], [perllibs]])
@@ -116,12 +120,13 @@ case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
 esac
 AC_MSG_RESULT([$perl_conf_LDFLAGS])
 
-AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
+AC_SUBST([perl_conf_LIB_CFLAGS], [$perl_conf_LIB_CFLAGS])
 AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
 AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
 AC_SUBST([perl_conf_EMBED_CFLAGS], [$perl_conf_EMBED_CFLAGS])
+AC_SUBST([perl_conf_EMBED_LIB_CFLAGS], [$perl_conf_EMBED_LIB_CFLAGS])
 
 # not really related to Perl
 AC_SUBST([platform_LDFLAGS], [$platform_LDFLAGS])

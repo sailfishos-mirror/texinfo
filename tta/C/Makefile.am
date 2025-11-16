@@ -231,7 +231,7 @@ libcallperl_libtexinfo_la_SOURCES += \
 endif
 
 libcallperl_libtexinfo_la_CPPFLAGS = -I$(srcdir)/main $(perl_conf_CPPFLAGS)
-libcallperl_libtexinfo_la_CFLAGS = $(perl_conf_CFLAGS)
+libcallperl_libtexinfo_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libcallperl_libtexinfo_la_LIBADD = libperlcall_utils.la $(platform_PERL_LIBADD)
 libcallperl_libtexinfo_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
@@ -424,7 +424,7 @@ libtexinfoxs_la_SOURCES= \
 
 # locate include files under out-of-source builds.
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
-libtexinfoxs_la_CFLAGS = $(perl_conf_CFLAGS)
+libtexinfoxs_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la libperlcall_utils.la $(platform_PERL_LIBADD)
 libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS)
 # example to trigger errors associated with no undefined
@@ -494,7 +494,7 @@ libcallperl_libtexinfo_convert_la_SOURCES += \
 endif
 
 libcallperl_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(perl_conf_CPPFLAGS)
-libcallperl_libtexinfo_convert_la_CFLAGS = $(perl_conf_CFLAGS)
+libcallperl_libtexinfo_convert_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libcallperl_libtexinfo_convert_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la $(platform_PERL_LIBADD)
 libcallperl_libtexinfo_convert_la_LDFLAGS = $(perl_conf_LDFLAGS)
 
@@ -529,7 +529,7 @@ libtexinfo_convertxs_la_SOURCES = \
 
 # locate include files under out-of-source builds.
 libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
-libtexinfo_convertxs_la_CFLAGS = $(perl_conf_CFLAGS)
+libtexinfo_convertxs_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libtexinfo_convertxs_la_LIBADD = libtexinfo-convert.la libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LDFLAGS)
 # example to trigger errors associated with no undefined
@@ -571,11 +571,13 @@ libperlembed_libtexinfo_main_la_SOURCES += convert/replace_call_embed_perl.c
 endif
 
 if PERL_EMBEDDED
-# ExtUtils::Embed does not distinguish CPPFLAGS from CFLAGS.
-libperlembed_libtexinfo_main_la_CPPFLAGS = $(PERL_EXTUTILS_EMBED_ccopts)
-# flags for compilation as part of a library from Perl, not in
+# ExtUtils::Embed does not distinguish CPPFLAGS from CFLAGS, but
+# we do, this part corresponds to perl_incl in ExtUtils::Embed ccopts
+libperlembed_libtexinfo_main_la_CPPFLAGS = $(perl_conf_CPPFLAGS)
+# flags part of PERL_EXTUTILS_EMBED_ccopts corresponding to CFLAGS
+# and flags for compilation as part of a library from Perl, not in
 # PERL_EXTUTILS_EMBED_ccopts
-libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_EMBED_CFLAGS)
+libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_EMBED_CFLAGS) $(perl_conf_EMBED_LIB_CFLAGS)
 # In PERL_EXTUTILS_EMBED_ldopts flags that should be either in
 # LDFLAGS (program-specific linker flags according to the automake
 # documentation) or LIBADD (linked libraries flags) are mixed.
@@ -584,7 +586,7 @@ libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_EMBED_CFLAGS)
 libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
 else
 libperlembed_libtexinfo_main_la_CPPFLAGS = $(perl_conf_CPPFLAGS)
-libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_CFLAGS)
+libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libperlembed_libtexinfo_main_la_LIBADD = $(platform_PERL_LIBADD)
 endif
 libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LDFLAGS)
@@ -608,11 +610,11 @@ libtexinfo_main_la_SOURCES = \
 # locate include files under out-of-source builds.
 # NOTE not sure that Gnulib is directly used, but it could.
 # NOTE if PERL_EMBEDDED, to match LIBADD, there could be a need to
-# also add $(PERL_EXTUTILS_EMBED_ccopts).  It does not seems to be required
-# even for AlmaLinux which requires matching cflags and ldflags for
-# the executable.  The reason could be that libtool is used here and
-# not for the executable, and libtool adds the flags required to avoid
-# a failure, same as with cases non-matching cflags and Perl ldflags
+# also add $(PERL_EXTUTILS_EMBED_ccopts) or $(perl_conf_CFLAGS).  It does
+# not seems to be required even for AlmaLinux which requires matching
+# cflags and ldflags for the executable.  The reason could be that libtool
+# is used here and not for the executable, and libtool adds the flags required
+# to avoid a failure, same as with cases non-matching cflags and Perl ldflags
 # not involving Perl embedding.
 libtexinfo_main_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_main_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la
@@ -662,18 +664,18 @@ ctexi2any_SOURCES = \
 # by libtool.
 ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-# NOTE it is important to use PERL_EXTUTILS_EMBED_ccopts here to match
+# NOTE it is important to use perl_conf_EMBED_CFLAGS here to match
 # with PERL_EXTUTILS_EMBED_ldopts used for linking, or in some platforms where
 # the compiling and linking flags must match there will be a failure to
 # build (for example AlmaLinux).
 # This is not a perfect situation, though, as it means that we mix Perl
-# and Gnulib cflags.  It may not be such an issue, as we do not actually
-# include the Perl headers.
+# and Gnulib cflags.  It may not be such an issue, as we do not mix
+# the CPPFLAGS and do not actually include the Perl headers.
+ctexi2any_CFLAGS = $(perl_conf_EMBED_CFLAGS)
 # We do not setup matching cflags and ldflags for libraries, and there is no
 # failure.  This is probably because libtool adds the required cflags when
 # files are compiled to be linked in shared libraries.
 #ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) $(PERL_EXTUTILS_EMBED_ccopts) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
-# try without PERL_EXTUTILS_EMBED_ccopts to see if it builds on solaris 11 in opencsw
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
 # in configure.ac, it is checked that Perl is embedded and iconv is available
@@ -684,6 +686,7 @@ endif
 texi2any_SOURCES = $(ctexi2any_SOURCES)
 texi2any_LDADD = $(ctexi2any_LDADD)
 texi2any_CPPFLAGS = $(ctexi2any_CPPFLAGS)
+texi2any_CFLAGS = $(ctexi2any_CFLAGS)
 
 if PREFER_C_TEXI2ANY
 install-exec-hook:
