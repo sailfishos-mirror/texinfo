@@ -408,8 +408,8 @@ encoding.
 Split the @emph{$element} contents at @code{@@|} in at max three parts.
 Return an element containing the split parts in contents, or @code{undef} if
 the @emph{$element} has no useful content.  The input @emph{$element}
-is supposed to be @code{$element->@{'contents'@}->[0]}
-of @code{%Texinfo::Commands::heading_spec_commands} commands such as @code{@@everyheading}.
+is supposed to be the argument line element of
+@code{%Texinfo::Commands::heading_spec_commands} commands such as @code{@@everyheading}.
 
 @item $status = valid_customization_option($name)
 @anchor{Texinfo@asis{::}Common $status = valid_customization_option($name)}
@@ -422,7 +422,7 @@ Return true if the @emph{$name} is a known customization option.
 @cindex @code{valid_tree_transformation}
 
 Return true if the @emph{$name} is a known tree transformation name
-that may be passed with @code{TREE_TRANSFORMATIONS} to modify a texinfo
+that may be passed with @code{TREE_TRANSFORMATIONS} to modify a Texinfo
 tree.
 
 @end table

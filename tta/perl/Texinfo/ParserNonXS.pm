@@ -132,8 +132,11 @@ our $VERSION = '7.2dev';
                               # @-commands and a value for non multiple
                               # global @-commands.
   #'listoffloats_list' => {}, # key is the normalized float type, value is
-                              # an array reference holding all the floats
-                              # of that type.
+                              # an array reference containing a two items
+                              # array reference for each of the float of that
+                              # type.  The first item is the float tree
+                              # element, the second item is the section
+                              # relations information the float appears in.
   #'identifiers_target' => {}, # keys are normalized label names, as described
                               # in the `HTML Xref' node.  Value should be
                               # a node/anchor or float in the tree.

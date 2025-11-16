@@ -896,9 +896,9 @@ L<Texinfo::Parser/TEXINFO TREE>.
 
 If I<$handler_only> is set and XS extensions are used, the returned
 tree holds a reference to the C Texinfo tree data only, but no actual
-Perl Texinfo tree.  This avoids building the Perl tree if all the
-functions called with the tree as argument have XS interfaces and
-directly use the C data and do not use the Perl tree.
+Perl Texinfo tree elements.  This avoids building the Perl tree if all the
+functions called with the tree as argument have XS interfaces, directly
+use the C data and do not need the Perl tree.
 
 =back
 
@@ -1001,9 +1001,10 @@ X<C<floats_information>>
 I<$float_types> is a hash reference whose keys are normalized float
 types (the first float argument, or the C<@listoffloats> argument).
 The normalization is the same as for the first step of node names
-normalization. The value is the list of array references with
-first element the float tree elements appearing in the texinfo document
-and second element the section element the float appeared in.
+normalization. The value is a list of array references, one per float
+of that type.  The first item of the float array reference is the
+float tree element.  The second item of the float array reference
+is the section relations information of the section containing the float.
 
 =back
 
@@ -1017,18 +1018,18 @@ X<C<internal_references_information>>
 The function returns an array reference of cross-reference commands referring
 to the same document with @-commands that refer to node, anchors or floats.
 
-=item $nodes_list = nodes_list($document)
+=item $nodes_relations_list = nodes_list($document)
 
-Returns an array reference containing information on each node.
+Returns an array reference containing each node relations information.
 
-=item $sections_list = sections_list($document)
+=item $sections_relations_list = sections_list($document)
 
-Returns an array reference containing information on each section.
+Returns an array reference containing each section relations information.
 
 =item $sectioning_root = sectioning_root($document)
 
 Return the sectioning root information.  It is an hash reference with the
-I<sections_list> key, an array reference of the top level sectioning
+I<section_children> key, an array reference of the top level sectioning
 commands relations.
 
 =back
@@ -1052,10 +1053,6 @@ I<$indices_information> is a hash reference.  The keys are
 =item name
 
 The index name.
-
-=item prefix
-
-An array reference of prefix associated to the index.
 
 =item merged_in
 
@@ -1092,7 +1089,8 @@ The number of the index entry.
 
 =back
 
-The following shows the references corresponding to the default indexes
+The following shows a partial view of I<$indices_information> corresponding
+to the default indexes
 I<cp> and I<fn>, the I<fn> index having its entries formatted as code and
 the indexes corresponding to the following texinfo
 
@@ -1101,10 +1099,8 @@ the indexes corresponding to the following texinfo
 
   $index_names = {'cp' => {'name' => 'cp', 'in_code' => 0, },
                   'fn' => {'name' => 'fn', 'in_code' => 1, },
-                  'some' => {'in_code' => 0},
-                  'code' => {'in_code' => 1}};
-
-If C<name> is not set, it is set to the index name.
+                  'some' => {'name' => 'some', 'in_code' => 0},
+                  'code' => {'name' => 'code', 'in_code' => 1}};
 
 =back
 
@@ -1268,18 +1264,18 @@ with C<build_tree>:
 
 =over
 
-=item $tree = build_tree($tree, $no_store)
+=item $perl_tree = build_tree($tree, $no_store)
 X<C<build_tree>>
 
-Return a I<$tree>, built from C data.  If there is no Perl extensions in C,
-the tree is returned as is.  The tree built is based on the Texinfo parsed
-document associated to the Texinfo tree I<$tree>.
+Return a I<$perl_tree>, built from C data.  If there is no Perl extensions in
+C, the tree is returned as is.  The tree built is based on the Texinfo parsed
+document data associated to the Texinfo tree I<$tree>.
 
 If the optional I<$no_store> argument is set, remove the C data.  It may be
-useful if you call functions that modify the Perl tree only, and not the C data,
-followed by functions call that output the result and uses the C data if present.
-Removing the C data makes sure that the output is not based on unmodified C data,
-but on the modified Perl data.
+useful if you call functions that modify the Perl tree only, and not the C
+data, followed by functions call that output the result and uses the C data if
+present.  Removing the C data makes sure that the output is not based on
+unmodified C data, but on the modified Perl data.
 
 =back
 

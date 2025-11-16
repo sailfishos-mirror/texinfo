@@ -2401,8 +2401,8 @@ X<C<split_custom_heading_command_contents>>
 Split the I<$element> contents at C<@|> in at max three parts.
 Return an element containing the split parts in contents, or C<undef> if
 the I<$element> has no useful content.  The input I<$element>
-is supposed to be C<< $element->{'contents'}->[0] >>
-of C<%Texinfo::Commands::heading_spec_commands> commands such as C<@everyheading>.
+is supposed to be the argument line element of
+C<%Texinfo::Commands::heading_spec_commands> commands such as C<@everyheading>.
 
 =item $status = valid_customization_option($name)
 X<C<valid_option>>
@@ -2413,7 +2413,7 @@ Return true if the I<$name> is a known customization option.
 X<C<valid_tree_transformation>>
 
 Return true if the I<$name> is a known tree transformation name
-that may be passed with C<TREE_TRANSFORMATIONS> to modify a texinfo
+that may be passed with C<TREE_TRANSFORMATIONS> to modify a Texinfo
 tree.
 
 =back

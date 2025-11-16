@@ -2371,9 +2371,12 @@ I<$lang_translations> argument should be an array reference with one or two
 elements.  The first element of the array is the language used for translations.
 The second element, if set, should be an hash reference holding translations
 already done.  If I<$debug> optional arguments is set, debugging mode
-is assumed.
-  I<$converter> should hold information needed for
-translations and error reporting.
+is assumed.  I<$converter> should hold information needed for
+translations and error reporting.  I<$identifier_target> should hold
+information on cross-reference target commands, typically obtained by
+calling L<< C<Texinfo::Document::labels_information>|Texinfo::Document/$identifier_target = labels_information($document) >>.
+I<$nodes_list> should be the list of nores relations information, typically
+obtained by calling L<< C<Texinfo::Document::nodes_list>|Texinfo::Document/$nodes_relations_list = nodes_list($document) >>.
 
 I<$converter>, if set, is used for error reporting
 (L<Texinfo::Convert::Converter/Registering error and warning messages>).  If
@@ -2390,10 +2393,8 @@ entry name.  Returns C<undef> if the node argument is missing.
 =item construct_nodes_tree($document)
 X<C<construct_nodes_tree>>
 
-Goes through nodes in I<$document> tree and set directions.  Sets the list of
-nodes relations in the I<$document>.
-
-This functions sets, in the node relations element hash:
+Goes through nodes in I<$document> tree and set directions.
+This functions sets, in each node relations element hash:
 
 =over
 
