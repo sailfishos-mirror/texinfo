@@ -370,7 +370,6 @@ typedef struct INDEX_ENTRY {
 
 typedef struct INDEX {
     char *name;
-    char *prefix;
     int in_code;
 
     struct INDEX *merged_in; /* Index this index is merged into, if any. */

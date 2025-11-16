@@ -395,7 +395,6 @@ const ELEMENT_LIST *txi_ext_document_global_command_list (DOCUMENT *document,
 // without the index entries
 typedef struct INDEX {
     char *name;
-    char *prefix;
     int in_code;
 
     struct INDEX *merged_in; /* Index this index is merged into, if any. */

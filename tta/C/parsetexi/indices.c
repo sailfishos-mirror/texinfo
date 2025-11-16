@@ -112,7 +112,6 @@ add_index_internal (char *name, int in_code)
 
   memset (idx, 0, sizeof (INDEX));
   idx->name = name;
-  idx->prefix = name;
   idx->in_code = in_code;
 
   if (indices->number == space_for_indices)
