@@ -191,14 +191,17 @@ if test x$enable_xs != xno; then
   # code never compiled with the Perl flags.  Therefore we do not set the Perl
   # more specific flags, but still use the user-defined PERL_EXT_var variables
   # used as defaults for all the compilations.
-  CFLAGS=$PERL_EXT_CFLAGS
+  #CFLAGS=$PERL_EXT_CFLAGS
   CPPFLAGS=$PERL_EXT_CPPFLAGS
   LDFLAGS=$PERL_EXT_LDFLAGS
 
+  # Even for the usual configure checks we use the Perl CFLAGS, since
+  # they are used for executables, to match link flags.  So we use them
+  # everywhere (also for libraries not compiled against Perl headers) to
+  # use consistent CFLAGS for configure tests and compilation.
+  CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
   # NOTE Specific checks against Perl should not have the Autoconf/Gnulib
-  # includes set but could set the following (or use PERL_EXTUTILS_EMBED_*
-  # instead of perl_conf_*):
-  #CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
+  # includes set but could set the following:
   #CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
   #LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
 fi

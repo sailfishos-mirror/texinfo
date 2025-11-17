@@ -81,8 +81,8 @@ txi_LOOKUP_PERL_CONF_VALUES([[ccflags], [cccdlflags], [ldflags], [optimize],
 perl_conf_LIB_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
 perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
 
-# corresponds to the ccflags part of PERL_EXTUTILS_EMBED_ccopts.
-perl_conf_EMBED_CFLAGS=$PERL_CONF_ccflags
+# also corresponds to the ccflags part of PERL_EXTUTILS_EMBED_ccopts.
+perl_conf_CFLAGS=$PERL_CONF_ccflags
 
 # ccflags or PERL_EXTUTILS_EMBED_ccopts do not include cccdlflags,
 # which are needed for libraries
@@ -130,7 +130,7 @@ AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
 AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
-AC_SUBST([perl_conf_EMBED_CFLAGS], [$perl_conf_EMBED_CFLAGS])
+AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])
 AC_SUBST([perl_conf_EMBED_LIB_CFLAGS], [$perl_conf_EMBED_LIB_CFLAGS])
 
 # not really related to Perl

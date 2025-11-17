@@ -1,5 +1,17 @@
 2025-11-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/m4/txi_perl_conf.m4 (perl_conf_CFLAGS): rename
+	perl_conf_EMBED_CFLAGS as perl_conf_CFLAGS.
+
+	* tta/configure.ac (CFLAGS), tta/C/Makefile.am (AM_CFLAGS): use
+	perl_conf_CFLAGS for configure tests, even when Perl headers are not
+	compiled and set AM_CFLAGS to perl_conf_CFLAGS such that the flags are
+	used for the libraries not compiled against Perl headers.  This is
+	because those flags are already used for executables and we need
+	consistency between configure flags and compile flags.
+
+2025-11-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/m4/txi_embedded_perl.m4 (CFLAGS): use perl_conf_CPPFLAGS and
 	perl_conf_EMBED_CFLAGS instead of PERL_EXTUTILS_EMBED_ccopts.
 
