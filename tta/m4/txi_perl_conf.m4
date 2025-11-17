@@ -70,17 +70,22 @@ txi_LOOKUP_PERL_CONF([cc])
 txi_LOOKUP_PERL_CONF_VALUES([[ccflags], [cccdlflags], [ldflags], [optimize],
                             [ccdlflags]])
 
+# NOTE ccflags includes -I and -D flags that are more suited for CPPFLAGS
+# and other flags that belong to CFLAGS.  The Perl includes directory
+# -I flag is not in ccflags.
+# Similarly, ldflags includes -l and -L flags that are more suited for
+# LIBS and other flags that belong to LDFLAGS.
+
 # we do not use PERL_CONF_optimize because it often conflicts with
 # PERL_EXT_CFLAGS and it is not added by ExtUtils::Embed ccopts.
 perl_conf_LIB_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
 perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
 
-# corresponds to the CFLAGS part of PERL_EXTUTILS_EMBED_ccopts,
-# and is needed both for libraries and executables.
+# corresponds to the ccflags part of PERL_EXTUTILS_EMBED_ccopts.
 perl_conf_EMBED_CFLAGS=$PERL_CONF_ccflags
 
-# ccflags or PERL_EXTUTILS_EMBED_ccopts, which includes is already
-# usd for CPPFLAGS but does not include cccdlflags
+# ccflags or PERL_EXTUTILS_EMBED_ccopts do not include cccdlflags,
+# which are needed for libraries
 perl_conf_EMBED_LIB_CFLAGS=$PERL_CONF_cccdlflags
 
 # perllibs: The list of libraries needed by Perl only

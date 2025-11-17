@@ -20,13 +20,14 @@ AC_DEFUN([txi_EMBEDDED_PERL],
   # We favor having the variable last and use LIBS otherwise linking fails.
   LIBS="$PERL_EXTUTILS_EMBED_ldopts"
 
-  # NOTE the PERL_EXTUTILS_EMBED_ccopts variable contains both preprocessor
-  # suited for CPPFLAGS and compiler flags, suited for CFLAGS.
-  # In the actual build variables, PERL_EXTUTILS_EMBED_ccopts is used for
+  # NOTE perl_conf_CPPFLAGS associated to perl_conf_EMBED_CFLAGS
+  # corresponds to the PERL_EXTUTILS_EMBED_ccopts variable that contains
+  # both preprocessor suited for CPPFLAGS and compiler flags, suited for CFLAGS.
+  # In the actual build variables, perl_conf_CPPFLAGS is used for
   # CPPFLAGS, but we do not differenciate CPPFLAGS and CFLAGS here.
   # We use the PERL_EXT_var user variables for Perl XS extensions to match
   # compilation rules.
-  CFLAGS="$PERL_EXT_CFLAGS $PERL_EXTUTILS_EMBED_ccopts $perl_conf_EMBED_CFLAGS"
+  CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CPPFLAGS $perl_conf_EMBED_CFLAGS"
   LDFLAGS="$PERL_EXT_LDFLAGS"
 
   # NOTE The tested code is a simplified version of

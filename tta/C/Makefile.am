@@ -572,11 +572,14 @@ endif
 
 if PERL_EMBEDDED
 # ExtUtils::Embed does not distinguish CPPFLAGS from CFLAGS, but
-# we do, this part corresponds to perl_incl in ExtUtils::Embed ccopts
+# we do as much as possible.
+# This part corresponds to perl_inc in ExtUtils::Embed ccopts, and
+# is better in CPPFLAGS.
 libperlembed_libtexinfo_main_la_CPPFLAGS = $(perl_conf_CPPFLAGS)
-# flags part of PERL_EXTUTILS_EMBED_ccopts corresponding to CFLAGS
-# and flags for compilation as part of a library from Perl, not in
-# PERL_EXTUTILS_EMBED_ccopts
+# Flags part of PERL_EXTUTILS_EMBED_ccopts corresponding to
+# Perl config ccflags.  May contain flags that would have better been
+# in CPPFLAGS. Also flags for compilation as part of a library
+# from Perl, not in PERL_EXTUTILS_EMBED_ccopts.
 libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_EMBED_CFLAGS) $(perl_conf_EMBED_LIB_CFLAGS)
 # In PERL_EXTUTILS_EMBED_ldopts flags that should be either in
 # LDFLAGS (program-specific linker flags according to the automake
