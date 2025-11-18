@@ -192,23 +192,22 @@ if test x$enable_xs != xno; then
     CC=$PERL_CONF_cc
   fi
 
-  # The usual configure checks use the Autoconf/Gnulib includes, but do not
-  # compile nor link against Perl.  The result of those checks are used for
-  # code never compiled with the Perl flags.  Therefore we do not set the Perl
-  # more specific flags, but still use the user-defined PERL_EXT_var variables
-  # used as defaults for all the compilations.
-  #CFLAGS=$PERL_EXT_CFLAGS
+  # The usual configure checks use the Autoconf/Gnulib includes, but
+  # are used for code never compiled with the Perl headers.  Therefore
+  # we do not set the Perl CPPFLAGS, but still use the user-defined
+  # PERL_EXT_var variables used as defaults for all the compilations.
   CPPFLAGS=$PERL_EXT_CPPFLAGS
-  #LDFLAGS=$PERL_EXT_LDFLAGS
 
-  # Even for the usual configure checks we use the Perl CFLAGS, since
-  # they are used for executables, to match link flags.  So we use them
-  # everywhere (also for libraries not compiled against Perl headers) to
-  # use consistent CFLAGS for configure tests and compilation.
+  # For compilation of code not compiled against Perl we use the Perl CFLAGS,
+  # since they are often link against Perl even if they do not compile against
+  # Perl, such that link and compilation flags match.  Since we use the Perl
+  # CFLAGS, we also always use the Perl LDFLAGS to have matching 
+  # compilation and linking.
+  # We use the same flags in configure checks.
   CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
+  LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
   # NOTE Specific checks against Perl should not have the Autoconf/Gnulib
   # includes set but could set the following:
-  LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
   #CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
 fi
 

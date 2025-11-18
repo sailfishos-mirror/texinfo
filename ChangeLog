@@ -1,5 +1,13 @@
 2025-11-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/m4/txi_embedded_perl.m4: set CPPFLAGS and use same LDFLAGS as
+	used in compilation.
+
+	* tta/C/Makefile.am: simplify code now that flags are more
+	homogeneous.
+
+2025-11-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/m4/txi_perl_conf.m4 (perl_conf_LIB_LDFLAGS)
 	(perl_conf_LDFLAGS), tta/C/Makefile.am (AM_LDFLAGS), tta/configure.ac
 	(LDFLAGS): rename perl_conf_LDFLAGS as perl_conf_LIB_LDFLAGS and readd
