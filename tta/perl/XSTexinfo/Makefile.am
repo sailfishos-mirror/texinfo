@@ -62,7 +62,7 @@ XSLIBS_CFLAGS = $(perl_conf_LIB_CFLAGS)
 # Flags specially recognized by libtool.  For dlopened modules, here XS.
 XSLIBS_LDFLAGS = -avoid-version -module
 
-XSLIBS_LDFLAGS += $(perl_conf_LDFLAGS)
+XSLIBS_LDFLAGS += $(perl_conf_LIB_LDFLAGS)
 
 noinst_LTLIBRARIES =
 

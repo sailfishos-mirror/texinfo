@@ -79,10 +79,12 @@ txi_LOOKUP_PERL_CONF_VALUES([[ccflags], [cccdlflags], [ldflags], [optimize],
 # we do not use PERL_CONF_optimize because it often conflicts with
 # PERL_EXT_CFLAGS and it is not added by ExtUtils::Embed ccopts.
 perl_conf_LIB_CFLAGS="$PERL_CONF_ccflags $PERL_CONF_cccdlflags"
-perl_conf_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
+perl_conf_LIB_LDFLAGS="$PERL_CONF_ccdlflags $PERL_CONF_ldflags"
 
 # also corresponds to the ccflags part of PERL_EXTUTILS_EMBED_ccopts.
 perl_conf_CFLAGS=$PERL_CONF_ccflags
+
+perl_conf_LDFLAGS=$PERL_CONF_ldflags
 
 # ccflags or PERL_EXTUTILS_EMBED_ccopts do not include cccdlflags,
 # which are needed for libraries
@@ -117,17 +119,18 @@ AC_MSG_CHECKING([Platform Perl link for $host])
 # platform_PERL_LIBADD show where to find the undefined symbols when
 # linking against Perl.
 case "$host" in *-mingw32 | *-mingw64 | *-cygwin )
-  perl_conf_LDFLAGS="$perl_conf_LDFLAGS -no-undefined"
+  perl_conf_LIB_LDFLAGS="$perl_conf_LIB_LDFLAGS -no-undefined"
   platform_PERL_LIBADD=$perl_conf_LIBS
   # to be used for shared libraries not linked against Perl.
   platform_LDFLAGS='-no-undefined'
   ;;
 esac
-AC_MSG_RESULT([$perl_conf_LDFLAGS])
+AC_MSG_RESULT([$perl_conf_LIB_LDFLAGS])
 
 AC_SUBST([perl_conf_LIB_CFLAGS], [$perl_conf_LIB_CFLAGS])
 AC_SUBST([perl_conf_CPPFLAGS], [$perl_conf_CPPFLAGS])
 AC_SUBST([perl_conf_LDFLAGS], [$perl_conf_LDFLAGS])
+AC_SUBST([perl_conf_LIB_LDFLAGS], [$perl_conf_LIB_LDFLAGS])
 AC_SUBST([platform_PERL_LIBADD], [$platform_PERL_LIBADD])
 AC_SUBST([perl_conf_LIBS], [$perl_conf_LIBS])
 AC_SUBST([perl_conf_CFLAGS], [$perl_conf_CFLAGS])

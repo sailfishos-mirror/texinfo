@@ -67,6 +67,7 @@ AC_CANONICAL_HOST
 
 # Look up perl configuration values and set variables:
 # perl_conf_LIB_CFLAGS, perl_conf_CPPFLAGS, perl_conf_LDFLAGS,
+# perl_conf_LIB_LDFLAGS,
 # platform_PERL_LIBADD, perl_conf_LIBS, perl_conf_CFLAGS,
 # perl_conf_EMBED_LIB_CFLAGS, platform_LDFLAGS, XSUBPP,
 # XSUBPPARGS and XS_VERSION.  Defined in m4/txi_perl_conf.m4.
@@ -198,7 +199,7 @@ if test x$enable_xs != xno; then
   # used as defaults for all the compilations.
   #CFLAGS=$PERL_EXT_CFLAGS
   CPPFLAGS=$PERL_EXT_CPPFLAGS
-  LDFLAGS=$PERL_EXT_LDFLAGS
+  #LDFLAGS=$PERL_EXT_LDFLAGS
 
   # Even for the usual configure checks we use the Perl CFLAGS, since
   # they are used for executables, to match link flags.  So we use them
@@ -207,8 +208,8 @@ if test x$enable_xs != xno; then
   CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
   # NOTE Specific checks against Perl should not have the Autoconf/Gnulib
   # includes set but could set the following:
+  LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
   #CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
-  #LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
 fi
 
 # Wipe cache values in case -C was given at the top level

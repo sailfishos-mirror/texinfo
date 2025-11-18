@@ -1,3 +1,12 @@
+2025-11-18 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/m4/txi_perl_conf.m4 (perl_conf_LIB_LDFLAGS)
+	(perl_conf_LDFLAGS), tta/C/Makefile.am (AM_LDFLAGS), tta/configure.ac
+	(LDFLAGS): rename perl_conf_LDFLAGS as perl_conf_LIB_LDFLAGS and readd
+	perl_conf_LDFLAGS with Perl config ldflags only.  Use
+	perl_conf_LDFLAGS in tta/configure.ac checks if enable_xs and use
+	perl_conf_LDFLAGS for AM_LDFLAGS, which is used by executable.
+
 2025-11-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/configure.ac: add comment before call to txi_PERL_CONF
