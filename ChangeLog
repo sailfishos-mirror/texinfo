@@ -1,3 +1,9 @@
+2025-11-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/configure.ac: add comment before call to txi_PERL_CONF
+	listing the variables it sets to make it easier to track the origin
+	of these variables.
+
 2025-11-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/m4/txi_perl_conf.m4 (perl_conf_CFLAGS): rename

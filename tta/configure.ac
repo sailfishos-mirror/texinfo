@@ -64,7 +64,12 @@ AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = 
 AC_PATH_PROG([PERL], [perl])
 
 AC_CANONICAL_HOST
-# setup perl_conf*, XSUBPP* and XS_VERSION variables to build Perl XS modules
+
+# Look up perl configuration values and set variables:
+# perl_conf_LIB_CFLAGS, perl_conf_CPPFLAGS, perl_conf_LDFLAGS,
+# platform_PERL_LIBADD, perl_conf_LIBS, perl_conf_CFLAGS,
+# perl_conf_EMBED_LIB_CFLAGS, platform_LDFLAGS, XSUBPP,
+# XSUBPPARGS and XS_VERSION.  Defined in m4/txi_perl_conf.m4.
 txi_PERL_CONF
 
 AC_MSG_CHECKING([ExtUtils::Embed])
