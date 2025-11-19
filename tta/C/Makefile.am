@@ -31,10 +31,13 @@ converterlibdir = $(libdir)/$(CONVERTER)
 
 AM_CPPFLAGS += -DDATADIR=\"$(datadir)\" -DSYSCONFDIR=\"$(sysconfdir)\"
 
-# used for libraries
+# used for all the libraries, even those that do not compile against
+# Perl, to have consistent compiling and linking flags.
 AM_CFLAGS = $(perl_conf_LIB_CFLAGS)
 
-# used for executables
+# used for executables.  The different libraries have specific flags
+# because the can have libtool version arguments and also because those
+# compiled against Gnulib code may need specific flags.
 AM_LDFLAGS = $(perl_conf_LDFLAGS)
 
 xsdir = $(converterlibdir)
@@ -582,16 +585,17 @@ libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
 else
 libperlembed_libtexinfo_main_la_LIBADD = $(platform_PERL_LIBADD)
 endif
+libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS)
 # ExtUtils::Embed does not distinguish CPPFLAGS from CFLAGS, but
 # we do as much as possible.
 # This part corresponds to perl_inc in ExtUtils::Embed ccopts, and
 # is better in CPPFLAGS.
 libperlembed_libtexinfo_main_la_CPPFLAGS = $(perl_conf_CPPFLAGS)
-# Flags part of PERL_EXTUTILS_EMBED_ccopts corresponding to
+# The flags that are used through AM_CFLAGS contain
+# flags part of PERL_EXTUTILS_EMBED_ccopts corresponding to
 # Perl config ccflags.  May contain flags that would have better been
 # in CPPFLAGS. Also flags for compilation as part of a library
 # from Perl, not in PERL_EXTUTILS_EMBED_ccopts.
-libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS)
 
 C_libtexinfo_main_sources = \
                        swig/swig_element_data.h \
@@ -705,9 +709,9 @@ teximakehtml_SOURCES = \
                        convert/replace_call_conversion_perl.c \
                        convert/replace_call_embed_perl.c
 
-# Perl flags are not useful, but we use the same flags used for
-# configure checks, such that they are consistent with detected
-# LTLIBINTL and similar.
+# Perl flags are not useful, but we use the same flags as for
+# configure checks, such that they are consistent for detected
+# libraries flags such as LTLIBINTL.
 teximakehtml_CFLAGS = $(perl_conf_CFLAGS)
 teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 

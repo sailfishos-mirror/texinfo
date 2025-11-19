@@ -152,7 +152,8 @@ consisting of Texinfo::Reader, Texinfo::TreeElement and
 Texinfo::Example::TreeElementConverter as a proof of concept.  However, this
 interface proved to be too slow in Perl and difficult to implement with XS
 code.  The Reader and TreeElement interface (except for one function) are not
-used from Perl anymore, however the C corresponding codes are used through the
-SWIG interface from the swig directory.  Going forward, the SWIG interface only
-should be used, not Texinfo::Reader nor Texinfo::TreeElement (except for the
-'new' function).
+used from Perl anymore.  Going forward, the SWIG interface based on the
+Reader, Parser, Structuring and Texinfo Document C codes should
+be used.  The SWIG interface is in the swig directory.  Texinfo::Reader and
+Texinfo::TreeElement (except for the 'new' function) should not be used
+anymore.

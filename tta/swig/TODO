@@ -14,8 +14,8 @@ Access to index sorted by letter
 Iteration over attributes names to discover element attributes.
 Changing source marks.
 
-Documentation of the SWIG interface
-===================================
+Could be used in the documentation of the SWIG interface
+========================================================
 
 set_document_options: set novalidate, documentlanguage
 (and OUTPUT_ENCODING_NAME and possibly other based on OPTIONS_LIST
@@ -40,16 +40,6 @@ document encoding US-ASCII to be interpreted as ISO-8859-1 for non-ASCII
 characters.  This could be relevant in particular when one wants to convert
 to the input encoding.  In that case, if the input encoding name is US-ASCII
 it could be safer to actually convert to ISO-8859-1.
-
-Perl interface
-==============
-
-It is not possible to embed an interpreter when there is already one running.
-Therefore we do not embed a Perl interpreter at compile time.  It means that
-there is no Perl code run from C, which is mainly an issue for indices sorting.
-It would be nice to still find a way to have correctly sorted indices, maybe by
-adding some pure Perl code that use the SWIG interface and re-implement the
-indices sorting code.
 
 Misc
 ====

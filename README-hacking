@@ -360,9 +360,9 @@ check at latest automake/autoconf/gettext/help2man version:
     and/or "autoreconf --verbose --force --install" to update ancilliary
     files in build-aux and elsewhere.  Check changes before committing.
 
-  . In tta/configure.ac the check "for embedded Perl" uses an
-    internal Autoconf variable and an internal shell function; it may be
-    relevant to check that it is still right, maybe compare to code
+  . The checks in tta/m4/txi_embedded_perl.m4 and tta/m4/txi_libperl_link.m4
+    use an internal Autoconf variable and an internal shell function; it may
+    be relevant to check that it is still right, maybe compare to code
     generated in configure by the used Autoconf version.
 
   . help2man upgrade -
@@ -390,7 +390,7 @@ available version, then run:
 Check that this results in a newer version.
 
 Check what changes ppport.h reports:
-  perl ppport.h --compat-version=5.8.1 ../perl/XSTexinfo/*.xs ../perl/XSTexinfo/*/*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* main/call_perl_function.* convert/call_html_perl_function.* convert/call_conversion_perl.* convert/call_embed_perl.* convert/build_html_perl_info.* convert/build_html_perl_state.* convert/get_converter_perl_info.* ../perl/XSTexinfo/convert/get_html_perl_info.*
+  perl ppport.h --compat-version=5.8.1 ../perl/XSTexinfo/*.xs ../perl/XSTexinfo/*/*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* main/call_perl_function.* convert/call_html_perl_function.* convert/call_conversion_perl.* convert/call_embed_perl.* convert/build_html_perl_info.* convert/build_html_perl_state.* convert/get_converter_perl_info.* tree_elements/build_perl_tree_elements.* tree_elements/get_perl_tree_elements.* ../perl/XSTexinfo/convert/get_html_perl_info.*
 
 make po-check             # update po/POTFILES.in as needed
 make po_document-check    # update po_document/POTFILES.in as needed
