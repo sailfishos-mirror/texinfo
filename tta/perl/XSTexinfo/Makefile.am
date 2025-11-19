@@ -49,20 +49,19 @@ xsdir = $(converterlibdir)
 
 # -------------------------------------------------------
 
-# XSLIBS_CPPFLAGS and XSLIBS_CFLAGS should be used for XS
-# modules compilation.
-
 # XS_VERSION is used in version check in the bootstrap function created
 # by xsubpp in C code generated from .xs, and called in XSLoader.pm
 XSLIBS_CPPFLAGS = -DVERSION=\"$(VERSION)\" -DXS_VERSION=\"$(XS_VERSION)\"
 XSLIBS_CPPFLAGS += $(perl_conf_CPPFLAGS)
 
-XSLIBS_CFLAGS = $(perl_conf_LIB_CFLAGS)
+AM_CFLAGS = $(perl_conf_LIB_CFLAGS)
 
 # Flags specially recognized by libtool.  For dlopened modules, here XS.
 XSLIBS_LDFLAGS = -avoid-version -module
 
 XSLIBS_LDFLAGS += $(perl_conf_LIB_LDFLAGS)
+
+AM_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 noinst_LTLIBRARIES =
 
@@ -77,9 +76,7 @@ MiscXS_la_SOURCES = xsmisc.c xsmisc.h ../../C/main/base_utils.c \
                     ../../C/main/base_utils.h
 # Include Perl headers, do not include Gnulib/configure generated config.h
 MiscXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS) -UHAVE_CONFIG_H
-MiscXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
-MiscXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 
 # C only convenience library internal for XSParagraph solely used to set
@@ -91,15 +88,13 @@ libparagraph_la_SOURCES = xspara.c xspara.h \
                  ../../C/main/text.c ../../C/main/text.h
 libparagraph_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(GNULIB_CPPFLAGS)
 libparagraph_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
-libparagraph_la_LDFLAGS = $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
+libparagraph_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
 xs_LTLIBRARIES += XSParagraph.la
 nodist_XSParagraph_la_SOURCES = XSParagraph.c
 CLEANFILES += XSParagraph.c
-XSParagraph_la_CFLAGS = $(XSLIBS_CFLAGS)
 XSParagraph_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS)
 XSParagraph_la_LIBADD = libparagraph.la $(platform_PERL_LIBADD)
-XSParagraph_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
@@ -120,7 +115,6 @@ EXTRA_DIST += parser_document/Parsetexi.xs
 
 # To locate include files under out-of-source builds.
 Parsetexi_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi $(XSLIBS_CPPFLAGS)
-Parsetexi_la_CFLAGS = $(XSLIBS_CFLAGS)
 Parsetexi_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 # the Gnulib link flags are needed at least on Solaris.  They only need to
 # be present for one dlopened object, once loaded in Perl, it can be used
@@ -140,9 +134,7 @@ EXTRA_DIST += parser_document/DocumentXS.xs
 
 # locate include files under out-of-source builds.
 DocumentXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
-DocumentXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 DocumentXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-DocumentXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## StructuringTransfo XS
 
@@ -159,9 +151,7 @@ EXTRA_DIST += parser_document/StructuringTransfoXS.xs
 
 # locate include files under out-of-source builds.
 StructuringTransfoXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo $(XSLIBS_CPPFLAGS)
-StructuringTransfoXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 StructuringTransfoXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-StructuringTransfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## TreeElement XS
 
@@ -176,9 +166,7 @@ EXTRA_DIST += reader_element/TreeElementXS.xs
 
 # locate include files under out-of-source builds.
 TreeElementXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/tree_elements -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
-TreeElementXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 TreeElementXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-TreeElementXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## TreeElementConverter XS
 
@@ -193,9 +181,7 @@ EXTRA_DIST += reader_element/TreeElementConverterXS.xs
 
 # locate include files under out-of-source builds.
 TreeElementConverterXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/tree_elements -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
-TreeElementConverterXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 TreeElementConverterXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-TreeElementConverterXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## Reader XS
 
@@ -210,9 +196,7 @@ EXTRA_DIST += reader_element/ReaderXS.xs
 
 # locate include files under out-of-source builds.
 ReaderXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/tree_elements $(XSLIBS_CPPFLAGS)
-ReaderXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ReaderXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-ReaderXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## IndicesXS
 
@@ -230,9 +214,7 @@ EXTRA_DIST += parser_document/IndicesXS.xs
 
 # locate include files under out-of-source builds.
 IndicesXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $(XSLIBS_CPPFLAGS)
-IndicesXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 IndicesXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-IndicesXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 #IndicesXS_la_LDFLAGS = -Wl,--no-undefined $(XSLIBS_LDFLAGS) $(perl_conf_LIBS)
 
 ########################## ConvertXS
@@ -252,7 +234,6 @@ EXTRA_DIST += convert/ConvertXS.xs
 
 # To locate include files under out-of-source builds.
 ConvertXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo -I$(txi_libs_srcdir)/convert -I$(srcdir)/convert $(XSLIBS_CPPFLAGS)
-ConvertXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConvertXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(EUIDACCESS_LIBGEN)
 
@@ -271,7 +252,5 @@ EXTRA_DIST += parser_document/ConfigXS.xs
 
 # To locate include files under out-of-source builds.
 ConfigXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
-ConfigXS_la_CFLAGS = $(XSLIBS_CFLAGS)
 ConfigXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-ConfigXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 

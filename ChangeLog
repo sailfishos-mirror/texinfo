@@ -1,5 +1,16 @@
 2025-11-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (AM_CFLAGS, ctexi2any_CFLAGS)
+	(teximakehtml_CFLAGS): set AM_CFLAGS to the value used for libraries.
+
+	* tta/C/Makefile.am (teximakehtml_LDADD): add Gnulib dependencies to
+	LDADD.
+
+	* tta/perl/XSTexinfo/Makefile.am (AM_CFLAGS, AM_LDFLAGS): set and
+	remove now unneeded per library variables.
+
+2025-11-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/m4/txi_embedded_perl.m4: set CPPFLAGS and use same LDFLAGS as
 	used in compilation.
 

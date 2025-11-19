@@ -31,8 +31,10 @@ converterlibdir = $(libdir)/$(CONVERTER)
 
 AM_CPPFLAGS += -DDATADIR=\"$(datadir)\" -DSYSCONFDIR=\"$(sysconfdir)\"
 
-AM_CFLAGS = $(perl_conf_CFLAGS)
+# used for libraries
+AM_CFLAGS = $(perl_conf_LIB_CFLAGS)
 
+# used for executables
 AM_LDFLAGS = $(perl_conf_LDFLAGS)
 
 xsdir = $(converterlibdir)
@@ -235,7 +237,6 @@ libcallperl_libtexinfo_la_SOURCES += \
 endif
 
 libcallperl_libtexinfo_la_CPPFLAGS = -I$(srcdir)/main $(perl_conf_CPPFLAGS)
-libcallperl_libtexinfo_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libcallperl_libtexinfo_la_LIBADD = libperlcall_utils.la $(platform_PERL_LIBADD)
 libcallperl_libtexinfo_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS)
 
@@ -428,7 +429,6 @@ libtexinfoxs_la_SOURCES= \
 
 # locate include files under out-of-source builds.
 libtexinfoxs_la_CPPFLAGS = -I$(srcdir)/main $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
-libtexinfoxs_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libtexinfoxs_la_LIBADD = libtexinfo.la libperlcall_utils.la $(platform_PERL_LIBADD)
 libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # example to trigger errors associated with no undefined
@@ -498,7 +498,6 @@ libcallperl_libtexinfo_convert_la_SOURCES += \
 endif
 
 libcallperl_libtexinfo_convert_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(perl_conf_CPPFLAGS)
-libcallperl_libtexinfo_convert_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libcallperl_libtexinfo_convert_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la $(platform_PERL_LIBADD)
 libcallperl_libtexinfo_convert_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS)
 
@@ -533,7 +532,6 @@ libtexinfo_convertxs_la_SOURCES = \
 
 # locate include files under out-of-source builds.
 libtexinfo_convertxs_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert $(AM_CPPFLAGS) $(perl_conf_CPPFLAGS)
-libtexinfo_convertxs_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libtexinfo_convertxs_la_LIBADD = libtexinfo-convert.la libtexinfoxs.la libtexinfo.la $(platform_PERL_LIBADD)
 libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # example to trigger errors associated with no undefined
@@ -593,7 +591,6 @@ libperlembed_libtexinfo_main_la_CPPFLAGS = $(perl_conf_CPPFLAGS)
 # Perl config ccflags.  May contain flags that would have better been
 # in CPPFLAGS. Also flags for compilation as part of a library
 # from Perl, not in PERL_EXTUTILS_EMBED_ccopts.
-libperlembed_libtexinfo_main_la_CFLAGS = $(perl_conf_LIB_CFLAGS)
 libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS)
 
 C_libtexinfo_main_sources = \
@@ -666,8 +663,7 @@ ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libte
 # with PERL_EXTUTILS_EMBED_ldopts used for linking, or in some platforms where
 # the compiling and linking flags must match there will be a failure to
 # build (for example AlmaLinux).
-# Use AM_CFLAGS instead
-#ctexi2any_CFLAGS = $(perl_conf_CFLAGS)
+ctexi2any_CFLAGS = $(perl_conf_CFLAGS)
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
 
 # in configure.ac, it is checked that Perl is embedded and iconv is available
@@ -678,7 +674,7 @@ endif
 texi2any_SOURCES = $(ctexi2any_SOURCES)
 texi2any_LDADD = $(ctexi2any_LDADD)
 texi2any_CPPFLAGS = $(ctexi2any_CPPFLAGS)
-#texi2any_CFLAGS = $(ctexi2any_CFLAGS)
+texi2any_CFLAGS = $(ctexi2any_CFLAGS)
 
 if PREFER_C_TEXI2ANY
 install-exec-hook:
@@ -709,8 +705,11 @@ teximakehtml_SOURCES = \
                        convert/replace_call_conversion_perl.c \
                        convert/replace_call_embed_perl.c
 
-teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la
-teximakehtml_LDFLAGS = $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+# Perl flags are not useful, but we use the same flags used for
+# configure checks, such that they are consistent with detected
+# LTLIBINTL and similar.
+teximakehtml_CFLAGS = $(perl_conf_CFLAGS)
+teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\"
 
