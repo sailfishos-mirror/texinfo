@@ -127,7 +127,7 @@ window_new_screen_size (int width, int height)
           windows->height = height - 2;
           windows->width = width;
           free (windows->modeline);
-          windows->modeline = xmalloc (1 + width);
+          windows->modeline = xzalloc (1 + width);
           return;
         }
 
@@ -166,7 +166,7 @@ window_new_screen_size (int width, int height)
         {
           win->width = width;
           free (win->modeline);
-          win->modeline = xmalloc (1 + width);
+          win->modeline = xzalloc (1 + width);
         }
 
       /* Don't resize a window to be smaller than one line. */
@@ -288,7 +288,7 @@ window_make_window (void)
     (active_window->height - window->height);
   window->goal_column = 0;
   memset (&window->line_map, 0, sizeof (window->line_map));
-  window->modeline = xmalloc (1 + window->width);
+  window->modeline = xzalloc (1 + window->width);
   window->line_starts = NULL;
   window->flags = W_UpdateWindow | W_WindowVisible | W_CurrentColGoal;
 
@@ -911,7 +911,10 @@ window_make_modeline (WINDOW *window)
     char *name;
     int dot;
 
-    if (node && node->nodename)
+    if (!node)
+      return;
+
+    if (node->nodename)
       nodename = node->nodename;
 
     name = filename_non_directory (node->fullpath);

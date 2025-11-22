@@ -1,5 +1,22 @@
 2025-11-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Fix Info memory errors after signals
+
+	* info/window.c (window_make_modeline),
+	* info/footnotes.c (info_get_or_remove_footnotes):
+	Add check if 'node' field of WINDOW argument is null.
+
+	* info/window.c (window_new_screen_size, window_make_window):
+	Allocate modeline with xzalloc rather than xmalloc so that the
+	memory will be initiailised.
+
+	There were occasional memory errors when a signal was sent to Info
+	in the redisplay code if these data structures were not initialised.
+	I obtained this unreliably under valgrind monitoring with
+	"TEXINFO_INFO_TESTS_TIMEOUT=2 t/resize-in-completions.sh".
+
+2025-11-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	fix "make distcheck" with TEXINFO_XS=required.
 
 	* Pod-Simple-Texinfo/Makefile.am (AM_TESTS_ENVIRONMENT):
