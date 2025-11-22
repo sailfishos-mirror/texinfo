@@ -1,3 +1,11 @@
+2025-11-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	fix "make distcheck" with TEXINFO_XS=required.
+
+	* Pod-Simple-Texinfo/Makefile.am (AM_TESTS_ENVIRONMENT):
+	Set t2a_srcdir and t2a_builddir as is done in tta/tests/Makefile.am.
+	Otherwise the tests fail under TEXINFO_XS=required.
+
 2025-11-18 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/Makefile.am (AM_CFLAGS, ctexi2any_CFLAGS)
