@@ -295,7 +295,7 @@ run all tests with valgrind:
 
   Add line "use Perl::Destruct::Level level => 1;" to t/test_utils.pl
   Check tests with e.g.
-    for f in t/*.t ; do valgrind --suppressions=texi2any.supp \
+    for f in t/*.t ; do valgrind --suppressions=../texi2any.supp \
                                  --log-file=val.log-${f#t/} \
                                  --leak-check=full \
           perl -w $f ; done
