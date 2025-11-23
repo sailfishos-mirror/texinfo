@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-01-23 21:47+0000\n"
+"POT-Creation-Date: 2025-11-23 19:45+0000\n"
 "PO-Revision-Date: 2024-10-26 16:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -20,411 +20,427 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: tp/ext/epub3.pm:705
+#: tta/perl/ext/epub3.pm:702
 msgid "Table of contents"
 msgstr "Зміст"
 
+#: tta/perl/init/documentation_examples.pm:208
+#, fuzzy, perl-brace-format
+#| msgid ""
+#| "This document was generated on @emph{@today{}} using "
+#| "@uref{{program_homepage}, @emph{{program}}}."
+msgid "Generated @emph{@today{}} using @uref{{homepage}, @emph{{program}}}."
+msgstr ""
+"Цей документ створено @emph{@today{}} за допомогою @uref{{program_homepage}, "
+"@emph{{program}}}."
+
 #. TRANSLATORS: abbreviation or acronym explanation
-#: tp/init/html32.pm:194 tp/Texinfo/Convert/HTML.pm:3383
-#: tp/Texinfo/XS/convert/format_html.c:6029
+#: tta/perl/init/documentation_examples.pm:224 tta/perl/init/html32.pm:184
+#: tta/perl/Texinfo/Convert/HTML.pm:3438 tta/C/convert/format_html.c:6320
 #, perl-brace-format
 msgid "{explained_string} ({explanation})"
 msgstr "{explained_string} ({explanation})"
 
-#: tp/Texinfo/Common.pm:418 tp/Texinfo/XS/main/utils.c:81
+#: tta/perl/init/documentation_examples.pm:436
+#, fuzzy, perl-brace-format
+#| msgid "@{No value for `{value}'@}"
+msgid "No value for @strong{{item}}"
+msgstr "@{Немає значення для `{value}'@}"
+
+#: tta/perl/Texinfo/Common.pm:350 tta/C/main/utils.c:95
 msgctxt "category of functions for @defun"
 msgid "Function"
 msgstr "Функція"
 
 #. TRANSLATORS: category of macros for @defmac
-#: tp/Texinfo/Common.pm:420 tp/Texinfo/XS/main/utils.c:83
+#: tta/perl/Texinfo/Common.pm:352 tta/C/main/utils.c:97
 msgid "Macro"
 msgstr "Макрос"
 
 #. TRANSLATORS: category of special forms for @defspec
-#: tp/Texinfo/Common.pm:422 tp/Texinfo/XS/main/utils.c:85
+#: tta/perl/Texinfo/Common.pm:354 tta/C/main/utils.c:99
 msgid "Special Form"
 msgstr "Спеціальна форма"
 
-#: tp/Texinfo/Common.pm:425 tp/Texinfo/XS/main/utils.c:87
+#: tta/perl/Texinfo/Common.pm:357 tta/C/main/utils.c:101
 msgctxt "category of variables for @defvar"
 msgid "Variable"
 msgstr "Змінна"
 
 #. TRANSLATORS: category of user-modifiable options for @defopt
-#: tp/Texinfo/Common.pm:427 tp/Texinfo/XS/main/utils.c:89
+#: tta/perl/Texinfo/Common.pm:359 tta/C/main/utils.c:103
 msgid "User Option"
 msgstr "Вибір користувача"
 
-#: tp/Texinfo/Common.pm:430 tp/Texinfo/XS/main/utils.c:91
+#: tta/perl/Texinfo/Common.pm:362 tta/C/main/utils.c:105
 msgctxt "category of functions for @deftypefun"
 msgid "Function"
 msgstr "Функція"
 
-#: tp/Texinfo/Common.pm:433 tp/Texinfo/XS/main/utils.c:94
+#: tta/perl/Texinfo/Common.pm:365 tta/C/main/utils.c:108
 msgctxt "category of variables in typed languages for @deftypevar"
 msgid "Variable"
 msgstr "Змінна"
 
-#: tp/Texinfo/Common.pm:436 tp/Texinfo/XS/main/utils.c:97
+#: tta/perl/Texinfo/Common.pm:368 tta/C/main/utils.c:111
 msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
 msgid "Instance Variable"
 msgstr "Змінна екземпляра"
 
-#: tp/Texinfo/Common.pm:439 tp/Texinfo/XS/main/utils.c:100
+#: tta/perl/Texinfo/Common.pm:371 tta/C/main/utils.c:114
 msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
 msgid "Instance Variable"
 msgstr "Змінна екземпляра"
 
-#: tp/Texinfo/Common.pm:442 tp/Texinfo/XS/main/utils.c:103
+#: tta/perl/Texinfo/Common.pm:374 tta/C/main/utils.c:117
 msgctxt "category of methods in object-oriented programming for @defmethod"
 msgid "Method"
 msgstr "Метод"
 
-#: tp/Texinfo/Common.pm:445 tp/Texinfo/XS/main/utils.c:106
+#: tta/perl/Texinfo/Common.pm:377 tta/C/main/utils.c:120
 msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"
 msgid "Method"
 msgstr "Метод"
 
-#: tp/Texinfo/HTMLData.pm:121 tp/Texinfo/XS/main/html_conversion_data.c:105
+#: tta/perl/Texinfo/HTMLData.pm:53 tta/C/main/html_conversion_data.c:40
 msgctxt "contents section heading"
 msgid "Table of Contents"
 msgstr "Зміст"
 
-#: tp/Texinfo/HTMLData.pm:122 tp/Texinfo/XS/main/html_conversion_data.c:105
+#: tta/perl/Texinfo/HTMLData.pm:54 tta/C/main/html_conversion_data.c:40
 msgctxt "shortcontents section heading"
 msgid "Short Table of Contents"
 msgstr "Скорочений зміст"
 
-#: tp/Texinfo/HTMLData.pm:123 tp/Texinfo/XS/main/html_conversion_data.c:105
+#: tta/perl/Texinfo/HTMLData.pm:55 tta/C/main/html_conversion_data.c:40
 msgctxt "footnotes section heading"
 msgid "Footnotes"
 msgstr "Виноски"
 
-#: tp/Texinfo/HTMLData.pm:124 tp/Texinfo/XS/main/html_conversion_data.c:105
+#: tta/perl/Texinfo/HTMLData.pm:56 tta/C/main/html_conversion_data.c:40
 msgctxt "about section heading"
 msgid "About This Document"
 msgstr "Про цей документ"
 
-#: tp/Texinfo/HTMLData.pm:228 tp/Texinfo/XS/main/html_conversion_data.c:198
+#: tta/perl/Texinfo/HTMLData.pm:161 tta/C/main/html_conversion_data.c:134
 msgctxt "Top direction string"
 msgid "Top"
 msgstr "Вгору"
 
-#: tp/Texinfo/HTMLData.pm:229 tp/Texinfo/XS/main/html_conversion_data.c:199
+#: tta/perl/Texinfo/HTMLData.pm:162 tta/C/main/html_conversion_data.c:135
 msgctxt "Index direction string"
 msgid "Index"
 msgstr "Покажчик"
 
-#: tp/Texinfo/HTMLData.pm:232 tp/Texinfo/XS/main/html_conversion_data.c:202
+#: tta/perl/Texinfo/HTMLData.pm:165 tta/C/main/html_conversion_data.c:138
 msgctxt "This (current section) direction string"
 msgid "current"
 msgstr "поточний"
 
-#: tp/Texinfo/HTMLData.pm:237 tp/Texinfo/XS/main/html_conversion_data.c:207
+#: tta/perl/Texinfo/HTMLData.pm:170 tta/C/main/html_conversion_data.c:143
 msgctxt "Next direction string"
 msgid "Next"
 msgstr "Далі"
 
-#: tp/Texinfo/HTMLData.pm:238 tp/Texinfo/XS/main/html_conversion_data.c:208
+#: tta/perl/Texinfo/HTMLData.pm:171 tta/C/main/html_conversion_data.c:144
 msgctxt "Prev direction string"
 msgid "Prev"
 msgstr "Назад"
 
-#: tp/Texinfo/HTMLData.pm:239 tp/Texinfo/XS/main/html_conversion_data.c:209
+#: tta/perl/Texinfo/HTMLData.pm:172 tta/C/main/html_conversion_data.c:145
 msgctxt "Up direction string"
 msgid " Up "
 msgstr "Вгору"
 
-#: tp/Texinfo/HTMLData.pm:240 tp/Texinfo/XS/main/html_conversion_data.c:210
+#: tta/perl/Texinfo/HTMLData.pm:173 tta/C/main/html_conversion_data.c:146
 msgctxt "NodeNext direction string"
 msgid "Next"
 msgstr "Далі"
 
-#: tp/Texinfo/HTMLData.pm:241 tp/Texinfo/XS/main/html_conversion_data.c:211
+#: tta/perl/Texinfo/HTMLData.pm:174 tta/C/main/html_conversion_data.c:147
 msgctxt "NodePrev direction string"
 msgid "Previous"
 msgstr "Назад"
 
-#: tp/Texinfo/HTMLData.pm:242 tp/Texinfo/XS/main/html_conversion_data.c:212
+#: tta/perl/Texinfo/HTMLData.pm:175 tta/C/main/html_conversion_data.c:148
 msgctxt "NodeUp direction string"
 msgid "Up"
 msgstr "Вгору"
 
-#: tp/Texinfo/HTMLData.pm:243 tp/Texinfo/XS/main/html_conversion_data.c:213
+#: tta/perl/Texinfo/HTMLData.pm:176 tta/C/main/html_conversion_data.c:149
 msgctxt "NodeForward direction string"
 msgid "Forward node"
 msgstr "Вперед на вузол"
 
-#: tp/Texinfo/HTMLData.pm:244 tp/Texinfo/XS/main/html_conversion_data.c:214
+#: tta/perl/Texinfo/HTMLData.pm:177 tta/C/main/html_conversion_data.c:150
 msgctxt "NodeBack direction string"
 msgid "Back node"
 msgstr "Назад на вузол"
 
-#: tp/Texinfo/HTMLData.pm:245 tp/Texinfo/XS/main/html_conversion_data.c:215
+#: tta/perl/Texinfo/HTMLData.pm:178 tta/C/main/html_conversion_data.c:151
 msgctxt "PrevFile direction string"
 msgid "Previous file"
 msgstr "Попередній файл"
 
-#: tp/Texinfo/HTMLData.pm:246 tp/Texinfo/XS/main/html_conversion_data.c:216
+#: tta/perl/Texinfo/HTMLData.pm:179 tta/C/main/html_conversion_data.c:152
 msgctxt "NextFile direction string"
 msgid "Next file"
 msgstr "Наступний файл"
 
-#: tp/Texinfo/HTMLData.pm:247 tp/Texinfo/XS/main/html_conversion_data.c:217
+#: tta/perl/Texinfo/HTMLData.pm:180 tta/C/main/html_conversion_data.c:153
 msgctxt "Contents direction string"
 msgid "Contents"
 msgstr "Зміст"
 
-#: tp/Texinfo/HTMLData.pm:248 tp/Texinfo/XS/main/html_conversion_data.c:218
+#: tta/perl/Texinfo/HTMLData.pm:181 tta/C/main/html_conversion_data.c:154
 msgctxt "Overview direction string"
 msgid "Overview"
 msgstr "Огляд"
 
-#: tp/Texinfo/HTMLData.pm:253 tp/Texinfo/XS/main/html_conversion_data.c:223
+#: tta/perl/Texinfo/HTMLData.pm:186 tta/C/main/html_conversion_data.c:159
 msgctxt "First direction description"
 msgid "First section in reading order"
 msgstr "Переший розділ за порядком читання"
 
-#: tp/Texinfo/HTMLData.pm:254 tp/Texinfo/XS/main/html_conversion_data.c:224
+#: tta/perl/Texinfo/HTMLData.pm:187 tta/C/main/html_conversion_data.c:160
 msgctxt "Top direction description"
 msgid "Cover (top) of document"
 msgstr "Обкладинка (початок) документа"
 
-#: tp/Texinfo/HTMLData.pm:255 tp/Texinfo/XS/main/html_conversion_data.c:225
+#: tta/perl/Texinfo/HTMLData.pm:188 tta/C/main/html_conversion_data.c:161
 msgctxt "Index direction description"
 msgid "Index"
 msgstr "Покажчик"
 
-#: tp/Texinfo/HTMLData.pm:256 tp/Texinfo/XS/main/html_conversion_data.c:226
+#: tta/perl/Texinfo/HTMLData.pm:189 tta/C/main/html_conversion_data.c:162
 msgctxt "Last direction description"
 msgid "Last section in reading order"
 msgstr "Останній розділ за порядком читання"
 
-#: tp/Texinfo/HTMLData.pm:257 tp/Texinfo/XS/main/html_conversion_data.c:228
+#: tta/perl/Texinfo/HTMLData.pm:190 tta/C/main/html_conversion_data.c:164
 msgctxt "This (current section) direction description"
 msgid "Current section"
 msgstr "Поточний розділ"
 
-#: tp/Texinfo/HTMLData.pm:258 tp/Texinfo/XS/main/html_conversion_data.c:229
+#: tta/perl/Texinfo/HTMLData.pm:191 tta/C/main/html_conversion_data.c:165
 msgctxt "Forward direction description"
 msgid "Next section in reading order"
 msgstr "Наступний розділ за порядком читання"
 
-#: tp/Texinfo/HTMLData.pm:259 tp/Texinfo/XS/main/html_conversion_data.c:230
+#: tta/perl/Texinfo/HTMLData.pm:192 tta/C/main/html_conversion_data.c:166
 msgctxt "Back direction description"
 msgid "Previous section in reading order"
 msgstr "Попередній розділ за порядком читання"
 
-#: tp/Texinfo/HTMLData.pm:260 tp/Texinfo/XS/main/html_conversion_data.c:231
+#: tta/perl/Texinfo/HTMLData.pm:193 tta/C/main/html_conversion_data.c:167
 msgctxt "FastForward direction description"
 msgid "Next chapter"
 msgstr "Наступний розділ"
 
-#: tp/Texinfo/HTMLData.pm:261 tp/Texinfo/XS/main/html_conversion_data.c:232
+#: tta/perl/Texinfo/HTMLData.pm:194 tta/C/main/html_conversion_data.c:168
 msgctxt "FastBack direction description"
 msgid "Beginning of this chapter or previous chapter"
 msgstr "Початок цієї глави або попередня глава"
 
-#: tp/Texinfo/HTMLData.pm:262 tp/Texinfo/XS/main/html_conversion_data.c:233
+#: tta/perl/Texinfo/HTMLData.pm:195 tta/C/main/html_conversion_data.c:169
 msgctxt "Next direction description"
 msgid "Next section on same level"
 msgstr "Наступний розділ на тому самому рівні"
 
-#: tp/Texinfo/HTMLData.pm:263 tp/Texinfo/XS/main/html_conversion_data.c:234
+#: tta/perl/Texinfo/HTMLData.pm:196 tta/C/main/html_conversion_data.c:170
 msgctxt "Prev direction description"
 msgid "Previous section on same level"
 msgstr "Попередній розділ на тому самому рівні"
 
-#: tp/Texinfo/HTMLData.pm:264 tp/Texinfo/XS/main/html_conversion_data.c:235
+#: tta/perl/Texinfo/HTMLData.pm:197 tta/C/main/html_conversion_data.c:171
 msgctxt "Up direction description"
 msgid "Up section"
 msgstr "Вгору на розділ"
 
-#: tp/Texinfo/HTMLData.pm:265 tp/Texinfo/XS/main/html_conversion_data.c:236
+#: tta/perl/Texinfo/HTMLData.pm:198 tta/C/main/html_conversion_data.c:172
 msgctxt "NodeNext direction description"
 msgid "Next node"
 msgstr "Наступний вузол"
 
-#: tp/Texinfo/HTMLData.pm:266 tp/Texinfo/XS/main/html_conversion_data.c:237
+#: tta/perl/Texinfo/HTMLData.pm:199 tta/C/main/html_conversion_data.c:173
 msgctxt "NodePrev direction description"
 msgid "Previous node"
 msgstr "Попередній вузол"
 
-#: tp/Texinfo/HTMLData.pm:267 tp/Texinfo/XS/main/html_conversion_data.c:238
+#: tta/perl/Texinfo/HTMLData.pm:200 tta/C/main/html_conversion_data.c:174
 msgctxt "NodeUp direction description"
 msgid "Up node"
 msgstr "Вгору на вузол"
 
-#: tp/Texinfo/HTMLData.pm:268 tp/Texinfo/XS/main/html_conversion_data.c:239
+#: tta/perl/Texinfo/HTMLData.pm:201 tta/C/main/html_conversion_data.c:175
 msgctxt "NodeForward direction description"
 msgid "Next node in node reading order"
 msgstr "Наступний вузол за порядком читання вузлів"
 
-#: tp/Texinfo/HTMLData.pm:269 tp/Texinfo/XS/main/html_conversion_data.c:240
+#: tta/perl/Texinfo/HTMLData.pm:202 tta/C/main/html_conversion_data.c:176
 msgctxt "NodeBack direction description"
 msgid "Previous node in node reading order"
 msgstr "Попередній вузол за порядком читання вузлів"
 
-#: tp/Texinfo/HTMLData.pm:270 tp/Texinfo/XS/main/html_conversion_data.c:241
+#: tta/perl/Texinfo/HTMLData.pm:203 tta/C/main/html_conversion_data.c:177
 msgctxt "PrevFile direction description"
 msgid "Back section in previous file"
 msgstr "На розділ назад у попередньому файлі"
 
-#: tp/Texinfo/HTMLData.pm:271 tp/Texinfo/XS/main/html_conversion_data.c:242
+#: tta/perl/Texinfo/HTMLData.pm:204 tta/C/main/html_conversion_data.c:178
 msgctxt "NextFile direction description"
 msgid "Forward section in next file"
 msgstr "На розділ уперед у наступному файлі"
 
-#: tp/Texinfo/HTMLData.pm:272 tp/Texinfo/XS/main/html_conversion_data.c:243
+#: tta/perl/Texinfo/HTMLData.pm:205 tta/C/main/html_conversion_data.c:179
 msgctxt "Contents direction description"
 msgid "Table of contents"
 msgstr "Зміст"
 
-#: tp/Texinfo/HTMLData.pm:273 tp/Texinfo/XS/main/html_conversion_data.c:244
+#: tta/perl/Texinfo/HTMLData.pm:206 tta/C/main/html_conversion_data.c:180
 msgctxt "Overview direction description"
 msgid "Short table of contents"
 msgstr "Скорочений зміст"
 
-#: tp/Texinfo/HTMLData.pm:274 tp/Texinfo/XS/main/html_conversion_data.c:246
+#: tta/perl/Texinfo/HTMLData.pm:207 tta/C/main/html_conversion_data.c:182
 msgctxt "About direction description"
 msgid "About (help)"
 msgstr "Інформація (довідка)"
 
-#: tp/Texinfo/HTMLData.pm:278 tp/Texinfo/XS/main/html_conversion_data.c:249
+#: tta/perl/Texinfo/HTMLData.pm:211 tta/C/main/html_conversion_data.c:185
 msgctxt "First direction button label"
 msgid "First"
 msgstr "Перший"
 
-#: tp/Texinfo/HTMLData.pm:279 tp/Texinfo/XS/main/html_conversion_data.c:250
+#: tta/perl/Texinfo/HTMLData.pm:212 tta/C/main/html_conversion_data.c:186
 msgctxt "Top direction button label"
 msgid "Top"
 msgstr "Вгору"
 
-#: tp/Texinfo/HTMLData.pm:280 tp/Texinfo/XS/main/html_conversion_data.c:251
+#: tta/perl/Texinfo/HTMLData.pm:213 tta/C/main/html_conversion_data.c:187
 msgctxt "Index direction button label"
 msgid "Index"
 msgstr "Покажчик"
 
-#: tp/Texinfo/HTMLData.pm:281 tp/Texinfo/XS/main/html_conversion_data.c:252
+#: tta/perl/Texinfo/HTMLData.pm:214 tta/C/main/html_conversion_data.c:188
 msgctxt "Last direction button label"
 msgid "Last"
 msgstr "Останній"
 
-#: tp/Texinfo/HTMLData.pm:283 tp/Texinfo/XS/main/html_conversion_data.c:254
+#: tta/perl/Texinfo/HTMLData.pm:216 tta/C/main/html_conversion_data.c:190
 msgctxt "This (current section) direction button label"
 msgid "This"
 msgstr "Цей"
 
-#: tp/Texinfo/HTMLData.pm:284 tp/Texinfo/XS/main/html_conversion_data.c:255
+#: tta/perl/Texinfo/HTMLData.pm:217 tta/C/main/html_conversion_data.c:191
 msgctxt "Forward direction button label"
 msgid "Forward"
 msgstr "Вперед"
 
-#: tp/Texinfo/HTMLData.pm:285 tp/Texinfo/XS/main/html_conversion_data.c:256
+#: tta/perl/Texinfo/HTMLData.pm:218 tta/C/main/html_conversion_data.c:192
 msgctxt "Back direction button label"
 msgid "Back"
 msgstr "Назад"
 
-#: tp/Texinfo/HTMLData.pm:286 tp/Texinfo/XS/main/html_conversion_data.c:257
+#: tta/perl/Texinfo/HTMLData.pm:219 tta/C/main/html_conversion_data.c:193
 msgctxt "FastForward direction button label"
 msgid "FastForward"
 msgstr "ШвидкВперед"
 
-#: tp/Texinfo/HTMLData.pm:287 tp/Texinfo/XS/main/html_conversion_data.c:258
+#: tta/perl/Texinfo/HTMLData.pm:220 tta/C/main/html_conversion_data.c:194
 msgctxt "FastBack direction button label"
 msgid "FastBack"
 msgstr "ШвидкНазад"
 
-#: tp/Texinfo/HTMLData.pm:288 tp/Texinfo/XS/main/html_conversion_data.c:259
+#: tta/perl/Texinfo/HTMLData.pm:221 tta/C/main/html_conversion_data.c:195
 msgctxt "Next direction button label"
 msgid "Next"
 msgstr "Далі"
 
-#: tp/Texinfo/HTMLData.pm:289 tp/Texinfo/XS/main/html_conversion_data.c:260
+#: tta/perl/Texinfo/HTMLData.pm:222 tta/C/main/html_conversion_data.c:196
 msgctxt "Prev direction button label"
 msgid "Prev"
 msgstr "Попередн."
 
-#: tp/Texinfo/HTMLData.pm:290 tp/Texinfo/XS/main/html_conversion_data.c:261
+#: tta/perl/Texinfo/HTMLData.pm:223 tta/C/main/html_conversion_data.c:197
 msgctxt "Up direction button label"
 msgid "Up"
 msgstr "Вище"
 
-#: tp/Texinfo/HTMLData.pm:291 tp/Texinfo/XS/main/html_conversion_data.c:262
+#: tta/perl/Texinfo/HTMLData.pm:224 tta/C/main/html_conversion_data.c:198
 msgctxt "NodeNext direction button label"
 msgid "NodeNext"
 msgstr "НастВузол"
 
-#: tp/Texinfo/HTMLData.pm:292 tp/Texinfo/XS/main/html_conversion_data.c:263
+#: tta/perl/Texinfo/HTMLData.pm:225 tta/C/main/html_conversion_data.c:199
 msgctxt "NodePrev direction button label"
 msgid "NodePrev"
 msgstr "ПопВузол"
 
-#: tp/Texinfo/HTMLData.pm:293 tp/Texinfo/XS/main/html_conversion_data.c:264
+#: tta/perl/Texinfo/HTMLData.pm:226 tta/C/main/html_conversion_data.c:200
 msgctxt "NodeUp direction button label"
 msgid "NodeUp"
 msgstr "ВузолВгору"
 
-#: tp/Texinfo/HTMLData.pm:294 tp/Texinfo/XS/main/html_conversion_data.c:265
+#: tta/perl/Texinfo/HTMLData.pm:227 tta/C/main/html_conversion_data.c:201
 msgctxt "NodeForward direction button label"
 msgid "NodeForward"
 msgstr "ВперВузол"
 
-#: tp/Texinfo/HTMLData.pm:295 tp/Texinfo/XS/main/html_conversion_data.c:266
+#: tta/perl/Texinfo/HTMLData.pm:228 tta/C/main/html_conversion_data.c:202
 msgctxt "NodeBack direction button label"
 msgid "NodeBack"
 msgstr "НазВузол"
 
-#: tp/Texinfo/HTMLData.pm:296 tp/Texinfo/XS/main/html_conversion_data.c:267
+#: tta/perl/Texinfo/HTMLData.pm:229 tta/C/main/html_conversion_data.c:203
 msgctxt "PrevFile direction button label"
 msgid "PrevFile"
 msgstr "ПопФайл"
 
-#: tp/Texinfo/HTMLData.pm:297 tp/Texinfo/XS/main/html_conversion_data.c:268
+#: tta/perl/Texinfo/HTMLData.pm:230 tta/C/main/html_conversion_data.c:204
 msgctxt "NextFile direction button label"
 msgid "NextFile"
 msgstr "НастФайл"
 
-#: tp/Texinfo/HTMLData.pm:298 tp/Texinfo/XS/main/html_conversion_data.c:269
+#: tta/perl/Texinfo/HTMLData.pm:231 tta/C/main/html_conversion_data.c:205
 msgctxt "Contents direction button label"
 msgid "Contents"
 msgstr "Зміст"
 
-#: tp/Texinfo/HTMLData.pm:299 tp/Texinfo/XS/main/html_conversion_data.c:270
+#: tta/perl/Texinfo/HTMLData.pm:232 tta/C/main/html_conversion_data.c:206
 msgctxt "Overview direction button label"
 msgid "Overview"
 msgstr "Огляд"
 
-#: tp/Texinfo/HTMLData.pm:300 tp/Texinfo/XS/main/html_conversion_data.c:272
+#: tta/perl/Texinfo/HTMLData.pm:233 tta/C/main/html_conversion_data.c:208
 msgctxt "About direction button label"
 msgid "About"
 msgstr "Відомості"
 
-#: tp/Texinfo/Structuring.pm:1396
-#: tp/Texinfo/XS/structuring_transfo/structuring.c:1930
+#: tta/perl/Texinfo/Structuring.pm:1979
+#: tta/C/structuring_transfo/structuring.c:2362
 #, perl-brace-format
 msgid "Part: {part_title}"
 msgstr "Частина: {part_title}"
 
-#: tp/Texinfo/Structuring.pm:1408
-#: tp/Texinfo/XS/structuring_transfo/structuring.c:1947
+#: tta/perl/Texinfo/Structuring.pm:1991
+#: tta/C/structuring_transfo/structuring.c:2378
 msgid "Appendices"
 msgstr "Додатки"
 
-#: tp/Texinfo/Structuring.pm:1465
-#: tp/Texinfo/XS/structuring_transfo/structuring.c:2187
+#: tta/perl/Texinfo/Structuring.pm:2055
+#: tta/C/structuring_transfo/structuring.c:2681
 msgid " --- The Detailed Node Listing ---"
 msgstr " --- Докладний список вузлів ---"
 
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
-#: tp/Texinfo/Translations.pm:471 tp/Texinfo/XS/parsetexi/indices.c:454
+#: tta/perl/Texinfo/Translations.pm:588 tta/C/parsetexi/indices.c:493
 #, perl-brace-format
 msgid "{name} on {class}"
 msgstr "{name} щодо {class}"
@@ -432,661 +448,672 @@ msgstr "{name} щодо {class}"
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables or
 #. instance variable.
-#: tp/Texinfo/Translations.pm:483 tp/Texinfo/XS/parsetexi/indices.c:465
+#: tta/perl/Texinfo/Translations.pm:599 tta/C/parsetexi/indices.c:504
 #, perl-brace-format
 msgid "{name} of {class}"
 msgstr "{name} {class}"
 
 #. TRANSLATORS: expansion of @error{} as Texinfo code
-#: tp/Texinfo/Convert/Converter.pm:171 tp/Texinfo/XS/convert/converter.c:218
+#: tta/perl/Texinfo/Convert/Converter.pm:204 tta/C/convert/converter.c:152
 msgid "error@arrow{}"
 msgstr "error@arrow{}"
 
-#: tp/Texinfo/Convert/Converter.pm:1447 tp/Texinfo/Convert/Converter.pm:1504
-#: tp/Texinfo/XS/convert/converter.c:1291
-#: tp/Texinfo/XS/convert/converter.c:1353
+#: tta/perl/Texinfo/Convert/Converter.pm:1596
+#: tta/perl/Texinfo/Convert/Converter.pm:1659 tta/C/convert/converter.c:1275
+#: tta/C/convert/converter.c:1340
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr "{float_type} {float_number}"
 
-#: tp/Texinfo/Convert/Converter.pm:1451 tp/Texinfo/Convert/Converter.pm:1506
-#: tp/Texinfo/XS/convert/converter.c:1294
-#: tp/Texinfo/XS/convert/converter.c:1356
+#: tta/perl/Texinfo/Convert/Converter.pm:1601
+#: tta/perl/Texinfo/Convert/Converter.pm:1661 tta/C/convert/converter.c:1278
+#: tta/C/convert/converter.c:1343
 #, perl-brace-format
 msgid "{float_type}"
 msgstr "{float_type}"
 
-#: tp/Texinfo/Convert/Converter.pm:1455 tp/Texinfo/Convert/Converter.pm:1514
-#: tp/Texinfo/XS/convert/converter.c:1297
-#: tp/Texinfo/XS/convert/converter.c:1367
+#: tta/perl/Texinfo/Convert/Converter.pm:1605
+#: tta/perl/Texinfo/Convert/Converter.pm:1669 tta/C/convert/converter.c:1281
+#: tta/C/convert/converter.c:1354
 #, perl-brace-format
 msgid "{float_number}"
 msgstr "{float_number}"
 
 #. TRANSLATORS: added before caption
-#: tp/Texinfo/Convert/Converter.pm:1497 tp/Texinfo/XS/convert/converter.c:1343
+#: tta/perl/Texinfo/Convert/Converter.pm:1652 tta/C/convert/converter.c:1330
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr "{float_type} {float_number}: "
 
 #. TRANSLATORS: added before caption, no float label
-#: tp/Texinfo/Convert/Converter.pm:1500 tp/Texinfo/XS/convert/converter.c:1347
+#: tta/perl/Texinfo/Convert/Converter.pm:1655 tta/C/convert/converter.c:1334
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr "{float_type}: "
 
 #. TRANSLATORS: added before caption, no float type
-#: tp/Texinfo/Convert/Converter.pm:1512 tp/Texinfo/XS/convert/converter.c:1364
+#: tta/perl/Texinfo/Convert/Converter.pm:1667 tta/C/convert/converter.c:1351
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr "{float_number}: "
 
-#: tp/Texinfo/Convert/DocBook.pm:1246
+#: tta/perl/Texinfo/Convert/DocBook.pm:1340
 #, perl-brace-format
 msgid "section ``{section_name}'' in @cite{{book}}"
 msgstr "розділ «{section_name}» у @cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1250
+#: tta/perl/Texinfo/Convert/DocBook.pm:1344
 #, perl-brace-format
 msgid "See section ``{section_name}'' in @cite{{book}}"
 msgstr "Див. розділ «{section_name}» у @cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1254
+#: tta/perl/Texinfo/Convert/DocBook.pm:1348
 #, perl-brace-format
 msgid "see section ``{section_name}'' in @cite{{book}}"
 msgstr "див. розділ «{section_name}» у @cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1265
+#: tta/perl/Texinfo/Convert/DocBook.pm:1361
 #, perl-brace-format
 msgid "``{node_name}'' in @cite{{book}}"
 msgstr "``{node_name}'' у @cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1269
+#: tta/perl/Texinfo/Convert/DocBook.pm:1365
 #, perl-brace-format
 msgid "See ``{node_name}'' in @cite{{book}}"
 msgstr "Див. ``{node_name}'' у @cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1273
+#: tta/perl/Texinfo/Convert/DocBook.pm:1369
 #, perl-brace-format
 msgid "see ``{node_name}'' in @cite{{book}}"
 msgstr "див. ``{node_name}'' у @cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1279 tp/Texinfo/Convert/Plaintext.pm:2192
-#: tp/Texinfo/Convert/HTML.pm:6036 tp/Texinfo/XS/convert/format_html.c:7902
+#: tta/perl/Texinfo/Convert/DocBook.pm:1375
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2322
+#: tta/perl/Texinfo/Convert/HTML.pm:5974 tta/C/convert/format_html.c:8257
 #, perl-brace-format
 msgid "@cite{{book}}"
 msgstr "@cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1283 tp/Texinfo/Convert/Plaintext.pm:2188
-#: tp/Texinfo/Convert/HTML.pm:6034 tp/Texinfo/XS/convert/format_html.c:7897
+#: tta/perl/Texinfo/Convert/DocBook.pm:1378
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2318
+#: tta/perl/Texinfo/Convert/HTML.pm:5972 tta/C/convert/format_html.c:8252
 #, perl-brace-format
 msgid "See @cite{{book}}"
 msgstr "Див. @cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1287 tp/Texinfo/Convert/Plaintext.pm:2190
-#: tp/Texinfo/Convert/HTML.pm:6032 tp/Texinfo/XS/convert/format_html.c:7892
+#: tta/perl/Texinfo/Convert/DocBook.pm:1380
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2320
+#: tta/perl/Texinfo/Convert/HTML.pm:5970 tta/C/convert/format_html.c:8247
 #, perl-brace-format
 msgid "see @cite{{book}}"
 msgstr "див. @cite{{book}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1300
+#: tta/perl/Texinfo/Convert/DocBook.pm:1394
 #, perl-brace-format
 msgid "section ``{section_name}'' in @file{{manual}}"
 msgstr "розділ ``{section_name}'' у @file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1304
+#: tta/perl/Texinfo/Convert/DocBook.pm:1398
 #, perl-brace-format
 msgid "See section ``{section_name}'' in @file{{manual}}"
 msgstr "Див. розділ ``{section_name}'' у @file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1308
+#: tta/perl/Texinfo/Convert/DocBook.pm:1402
 #, perl-brace-format
 msgid "see section ``{section_name}'' in @file{{manual}}"
 msgstr "див. розділ ``{section_name}'' у @file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1319
+#: tta/perl/Texinfo/Convert/DocBook.pm:1414
 #, perl-brace-format
 msgid "``{node_name}'' in @file{{manual}}"
 msgstr "``{node_name}'' у @file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1323
+#: tta/perl/Texinfo/Convert/DocBook.pm:1418
 #, perl-brace-format
 msgid "See ``{node_name}'' in @file{{manual}}"
 msgstr "Див. ``{node_name}'' у @file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1327
+#: tta/perl/Texinfo/Convert/DocBook.pm:1422
 #, perl-brace-format
 msgid "see ``{node_name}'' in @file{{manual}}"
 msgstr "див. ``{node_name}'' у @file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1333
+#: tta/perl/Texinfo/Convert/DocBook.pm:1428
 #, perl-brace-format
 msgid "@file{{manual}}"
 msgstr "@file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1337
+#: tta/perl/Texinfo/Convert/DocBook.pm:1432
 #, perl-brace-format
 msgid "See @file{{manual}}"
 msgstr "Див. @file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1341
+#: tta/perl/Texinfo/Convert/DocBook.pm:1436
 #, perl-brace-format
 msgid "see @file{{manual}}"
 msgstr "див. @file{{manual}}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1361
+#: tta/perl/Texinfo/Convert/DocBook.pm:1455
 #, perl-brace-format
 msgid "{title_ref}"
 msgstr "{title_ref}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1366
+#: tta/perl/Texinfo/Convert/DocBook.pm:1460
 #, perl-brace-format
 msgid "See {title_ref}"
 msgstr "Див. {title_ref}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1371
+#: tta/perl/Texinfo/Convert/DocBook.pm:1465
 #, perl-brace-format
 msgid "see {title_ref}"
 msgstr "див. {title_ref}"
 
-#: tp/Texinfo/Convert/DocBook.pm:1540 tp/Texinfo/Convert/LaTeX.pm:3681
-#: tp/Texinfo/Convert/Plaintext.pm:3230
+#: tta/perl/Texinfo/Convert/DocBook.pm:1634
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3845
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3364
 #, perl-brace-format
 msgid "{abbr_or_acronym} ({explanation})"
 msgstr "{abbr_or_acronym} ({explanation})"
 
-#: tp/Texinfo/Convert/DocBook.pm:1722 tp/Texinfo/Convert/LaTeX.pm:3893
-#: tp/Texinfo/Convert/Plaintext.pm:3461 tp/Texinfo/Convert/HTML.pm:6790
-#: tp/Texinfo/XS/convert/format_html.c:10850
+#: tta/perl/Texinfo/Convert/DocBook.pm:1825
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4062
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3587
+#: tta/perl/Texinfo/Convert/HTML.pm:6788 tta/C/convert/format_html.c:11305
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
 
-#: tp/Texinfo/Convert/LaTeX.pm:3347 tp/Texinfo/Convert/Plaintext.pm:3157
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3477
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3290
 #, perl-brace-format
 msgid "{text} ({url})"
 msgstr "{text} ({url})"
 
-#: tp/Texinfo/Convert/LaTeX.pm:3832 tp/Texinfo/Convert/Plaintext.pm:3356
-#: tp/Texinfo/Convert/HTML.pm:3291 tp/Texinfo/XS/convert/format_html.c:5845
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4002
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3491
+#: tta/perl/Texinfo/Convert/HTML.pm:3351 tta/C/convert/format_html.c:6136
 #, perl-brace-format
 msgid "@{No value for `{value}'@}"
 msgstr "@{Немає значення для `{value}'@}"
 
 #. TRANSLATORS: quotation author
-#: tp/Texinfo/Convert/LaTeX.pm:4524 tp/Texinfo/Convert/Plaintext.pm:4393
-#: tp/Texinfo/Convert/HTML.pm:5451
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4744
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4555
+#: tta/perl/Texinfo/Convert/HTML.pm:5389
 #, perl-brace-format
 msgid "@center --- @emph{{author}}"
 msgstr "@center --- @emph{{author}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1578 tp/Texinfo/Convert/Plaintext.pm:2397
-#: tp/Texinfo/Convert/HTML.pm:1325 tp/Texinfo/Convert/Utils.pm:488
-#: tp/Texinfo/XS/convert/format_html.c:1854
-#: tp/Texinfo/XS/main/convert_utils.c:236
+#: tta/perl/Texinfo/Convert/Plaintext.pm:1644
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2510
+#: tta/perl/Texinfo/Convert/HTML.pm:1338 tta/perl/Texinfo/Convert/Utils.pm:537
+#: tta/C/convert/format_html.c:2032 tta/C/main/convert_utils.c:319
 #, perl-brace-format
 msgid "Appendix {number} {section_title}"
 msgstr "Додаток {number} {section_title}"
 
 #. TRANSLATORS: numbered section title
-#: tp/Texinfo/Convert/Plaintext.pm:1583 tp/Texinfo/Convert/Plaintext.pm:2401
-#: tp/Texinfo/Convert/HTML.pm:1329 tp/Texinfo/Convert/Utils.pm:491
-#: tp/Texinfo/XS/convert/format_html.c:1860
-#: tp/Texinfo/XS/main/convert_utils.c:243
+#: tta/perl/Texinfo/Convert/Plaintext.pm:1649
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2514
+#: tta/perl/Texinfo/Convert/HTML.pm:1342 tta/perl/Texinfo/Convert/Utils.pm:541
+#: tta/C/convert/format_html.c:2038 tta/C/main/convert_utils.c:325
 #, perl-brace-format
 msgid "{number} {section_title}"
 msgstr "{number} {section_title}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1858
+#: tta/perl/Texinfo/Convert/Plaintext.pm:1986
 #, perl-brace-format
 msgid "{main_index_entry}{subentries}, See@: {seeentry}"
 msgstr "{main_index_entry}{subentries}, Див.@: {seeentry}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1864
+#: tta/perl/Texinfo/Convert/Plaintext.pm:1992
 #, perl-brace-format
 msgid "{main_index_entry}, See@: {seeentry}"
 msgstr "{main_index_entry}, Див.@: {seeentry}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1877
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2005
 #, perl-brace-format
 msgid "See also {see_also_entry}"
 msgstr "Див. також {see_also_entry}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:1927
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2055
 msgid "(outside of any node)"
 msgstr "(поза вузлами)"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2095
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2225
 #, perl-brace-format
 msgid "See {name}: ({file}){node}"
 msgstr "Див. {name}: ({file}){node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2097
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2227
 #, perl-brace-format
 msgid "see {name}: ({file}){node}"
 msgstr "див. {name}: ({file}){node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2099
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2229
 #, perl-brace-format
 msgid "{name}: ({file}){node}"
 msgstr "{name}: ({file}){node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2104
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2234
 #, perl-brace-format
 msgid "See ({file}){node}"
 msgstr "Див. ({file}){node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2106
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2236
 #, perl-brace-format
 msgid "see ({file}){node}"
 msgstr "див. ({file}){node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2108
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2238
 #, perl-brace-format
 msgid "({file}){node}"
 msgstr "({file}){node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2116
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2246
 #, perl-brace-format
 msgid "See {name}: {node} in @cite{{book}}"
 msgstr "Див. {name}: {node} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2118
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2248
 #, perl-brace-format
 msgid "see {name}: {node} in @cite{{book}}"
 msgstr "див. {name}: {node} уn @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2120
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2250
 #, perl-brace-format
 msgid "{name}: {node} in @cite{{book}}"
 msgstr "{name}: {node} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2125
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2255
 #, perl-brace-format
 msgid "See {node} in @cite{{book}}"
 msgstr "Див. {node} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2127
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2257
 #, perl-brace-format
 msgid "see {node} in @cite{{book}}"
 msgstr "див. {node} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2129
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2259
 #, perl-brace-format
 msgid "{node} in @cite{{book}}"
 msgstr "{node} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2137
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2267
 #, perl-brace-format
 msgid "See {name}: {node}"
 msgstr "Див. {name}: {node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2139
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2269
 #, perl-brace-format
 msgid "see {name}: {node}"
 msgstr "див. {name}: {node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2141
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2271
 #, perl-brace-format
 msgid "{name}: {node}"
 msgstr "{name}: {node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2146 tp/Texinfo/Convert/Plaintext.pm:2209
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2276
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2340
 #, perl-brace-format
 msgid "See {node}"
 msgstr "Див. {node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2148 tp/Texinfo/Convert/Plaintext.pm:2211
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2278
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2342
 #, perl-brace-format
 msgid "see {node}"
 msgstr "див. {node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2150 tp/Texinfo/Convert/Plaintext.pm:2213
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2280
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2344
 #, perl-brace-format
 msgid "{node}"
 msgstr "{node}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2159
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2289
 #, perl-brace-format
 msgid "See {name}({file})"
 msgstr "Див. {name}({file})"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2161
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2291
 #, perl-brace-format
 msgid "see {name}({file})"
 msgstr "див. {name}({file})"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2163
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2293
 #, perl-brace-format
 msgid "{name}({file})"
 msgstr "{name}({file})"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2168
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2298
 #, perl-brace-format
 msgid "See ({file})"
 msgstr "Див. ({file})"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2170
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2300
 #, perl-brace-format
 msgid "see ({file})"
 msgstr "див. ({file})"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2172
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2302
 #, perl-brace-format
 msgid "({file})"
 msgstr "({file})"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2179
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2309
 #, perl-brace-format
 msgid "See {name} in @cite{{book}}"
 msgstr "Див. {name} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2181
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2311
 #, perl-brace-format
 msgid "see {name} in @cite{{book}}"
 msgstr "див. {name} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2183
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2313
 #, perl-brace-format
 msgid "{name} in @cite{{book}}"
 msgstr "{name} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2199
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2329
 #, perl-brace-format
 msgid "See {name}"
 msgstr "Див. {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2201
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2331
 #, perl-brace-format
 msgid "see {name}"
 msgstr "див. {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2203
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2333
 #, perl-brace-format
 msgid "{name}"
 msgstr "{name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2483
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2598
 #, perl-brace-format
 msgid "@tie{}--- {category}: {name}{arguments}"
 msgstr "@tie{}--- {category}: {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2486
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2601
 #, perl-brace-format
 msgid "@tie{}--- {category}: {name} {arguments}"
 msgstr "@tie{}--- {category}: {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2490
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2605
 #, perl-brace-format
 msgid "@tie{}--- {category}: {name}"
 msgstr "@tie{}--- {category}: {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2508
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2624
 #, perl-brace-format
 msgid "@tie{}--- {category}:@*{type}@*{name}{arguments}"
 msgstr "@tie{}--- {category}:@*{type}@*{name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2512
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2628
 #, perl-brace-format
 msgid "@tie{}--- {category}:@*{type}@*{name} {arguments}"
 msgstr "@tie{}--- {category}:@*{type}@*{name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2518
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2634
 #, perl-brace-format
 msgid "@tie{}--- {category}: {type} {name}{arguments}"
 msgstr "@tie{}--- {category}: {type} {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2522
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2638
 #, perl-brace-format
 msgid "@tie{}--- {category}: {type} {name} {arguments}"
 msgstr "@tie{}--- {category}: {type} {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2534
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2651
 #, perl-brace-format
 msgid "@tie{}--- {category}:@*{type}@*{name}"
 msgstr "@tie{}--- {category}:@*{type}@*{name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2537
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2654
 #, perl-brace-format
 msgid "@tie{}--- {category}: {type} {name}"
 msgstr "@tie{}--- {category}: {type} {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2552
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2670
 #, perl-brace-format
 msgid "@tie{}--- {category} of {class}: {name}{arguments}"
 msgstr "@tie{}--- {category} {class}: {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2556
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2674
 #, perl-brace-format
 msgid "@tie{}--- {category} of {class}: {name} {arguments}"
 msgstr "@tie{}--- {category} {class}: {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2560
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2678
 #, perl-brace-format
 msgid "@tie{}--- {category} of {class}: {name}"
 msgstr "@tie{}--- {category} {class}: {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2576
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2696
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}: {name}{arguments}"
 msgstr "@tie{}--- {category} щодо {class}: {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2580
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2700
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}: {name} {arguments}"
 msgstr "@tie{}--- {category} щодо {class}: {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2584
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2704
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}: {name}"
 msgstr "@tie{}--- {category} щодо {class}: {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2602
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2725
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}:@*{type}@*{name}{arguments}"
 msgstr "@tie{}--- {category} щодо {class}:@*{type}@*{name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2607
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2730
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}:@*{type}@*{name} {arguments}"
 msgstr "@tie{}--- {category} щодо {class}:@*{type}@*{name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2614
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2737
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}: {type} {name}{arguments}"
 msgstr "@tie{}--- {category} щодо {class}: {type} {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2619
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2742
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}: {type} {name} {arguments}"
 msgstr "@tie{}--- {category} щодо {class}: {type} {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2632
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2757
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}:@*{type}@*{name}"
 msgstr "@tie{}--- {category} щодо {class}:@*{type}@*{name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2636
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2761
 #, perl-brace-format
 msgid "@tie{}--- {category} on {class}: {type} {name}"
 msgstr "@tie{}--- {category} щодо {class}: {type} {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2651
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2778
 #, perl-brace-format
 msgid "@tie{}--- {category} of {class}: {type} {name}{arguments}"
 msgstr "@tie{}--- {category} {class}: {type} {name}{arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2656
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2783
 #, perl-brace-format
 msgid "@tie{}--- {category} of {class}: {type} {name} {arguments}"
 msgstr "@tie{}--- {category} {class}: {type} {name} {arguments}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:2666
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2795
 #, perl-brace-format
 msgid "@tie{}--- {category} of {class}: {type} {name}"
 msgstr "@tie{}--- {category} {class}: {type} {name}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3129
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3260
 #, perl-brace-format
 msgid "{name} @url{{email}}"
 msgstr "{name} @url{{email}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3132
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3263
 #, perl-brace-format
 msgid "@url{{email}}"
 msgstr "@url{{email}}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3161
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3294
 #, perl-brace-format
 msgid "@t{<{url}>}"
 msgstr "@t{<{url}>}"
 
-#: tp/Texinfo/Convert/Plaintext.pm:3518
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3649
 #, perl-brace-format
 msgid "@center @b{{cartouche_arg}}"
 msgstr "@center @b{{cartouche_arg}}"
 
-#: tp/Texinfo/Convert/HTML.pm:5905 tp/Texinfo/XS/convert/format_html.c:7653
+#: tta/perl/Texinfo/Convert/HTML.pm:5835 tta/C/convert/format_html.c:8006
 #, perl-brace-format
 msgid "see {reference_name}"
 msgstr "див. {reference_name}"
 
-#: tp/Texinfo/Convert/HTML.pm:5907 tp/Texinfo/XS/convert/format_html.c:7658
+#: tta/perl/Texinfo/Convert/HTML.pm:5837 tta/C/convert/format_html.c:8011
 #, perl-brace-format
 msgid "See {reference_name}"
 msgstr "Див. {reference_name}"
 
-#: tp/Texinfo/Convert/HTML.pm:5909 tp/Texinfo/XS/convert/format_html.c:7663
+#: tta/perl/Texinfo/Convert/HTML.pm:5839 tta/C/convert/format_html.c:8016
 #, perl-brace-format
 msgid "{reference_name}"
 msgstr "{reference_name}"
 
-#: tp/Texinfo/Convert/HTML.pm:6002 tp/Texinfo/XS/convert/format_html.c:7819
+#: tta/perl/Texinfo/Convert/HTML.pm:5936 tta/C/convert/format_html.c:8174
 #, perl-brace-format
 msgid "see {reference} in @cite{{book}}"
 msgstr "див. {reference} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6004 tp/Texinfo/XS/convert/format_html.c:7824
+#: tta/perl/Texinfo/Convert/HTML.pm:5938 tta/C/convert/format_html.c:8179
 #, perl-brace-format
 msgid "See {reference} in @cite{{book}}"
 msgstr "Див. {reference} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6006 tp/Texinfo/XS/convert/format_html.c:7829
+#: tta/perl/Texinfo/Convert/HTML.pm:5940 tta/C/convert/format_html.c:8184
 #, perl-brace-format
 msgid "{reference} in @cite{{book}}"
 msgstr "{reference} у @cite{{book}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6012 tp/Texinfo/XS/convert/format_html.c:7842
+#: tta/perl/Texinfo/Convert/HTML.pm:5947 tta/C/convert/format_html.c:8197
 #, perl-brace-format
 msgid "see @cite{{book_reference}}"
 msgstr "див. @cite{{book_reference}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6014 tp/Texinfo/XS/convert/format_html.c:7847
+#: tta/perl/Texinfo/Convert/HTML.pm:5949 tta/C/convert/format_html.c:8202
 #, perl-brace-format
 msgid "See @cite{{book_reference}}"
 msgstr "Див. @cite{{book_reference}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6016 tp/Texinfo/XS/convert/format_html.c:7852
+#: tta/perl/Texinfo/Convert/HTML.pm:5951 tta/C/convert/format_html.c:8207
 #, perl-brace-format
 msgid "@cite{{book_reference}}"
 msgstr "@cite{{book_reference}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6023 tp/Texinfo/XS/convert/format_html.c:7869
+#: tta/perl/Texinfo/Convert/HTML.pm:5960 tta/C/convert/format_html.c:8224
 #, perl-brace-format
 msgid "see `{section}' in @cite{{book}}"
 msgstr "див. «{section}» у @cite{{book}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6025 tp/Texinfo/XS/convert/format_html.c:7874
+#: tta/perl/Texinfo/Convert/HTML.pm:5962 tta/C/convert/format_html.c:8229
 #, perl-brace-format
 msgid "See `{section}' in @cite{{book}}"
 msgstr "Див. «{section}» у @cite{{book}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6027 tp/Texinfo/XS/convert/format_html.c:7879
+#: tta/perl/Texinfo/Convert/HTML.pm:5964 tta/C/convert/format_html.c:8234
 #, perl-brace-format
 msgid "`{section}' in @cite{{book}}"
 msgstr "«{section}» у @cite{{book}}"
 
-#: tp/Texinfo/Convert/HTML.pm:6042 tp/Texinfo/XS/convert/format_html.c:7915
+#: tta/perl/Texinfo/Convert/HTML.pm:5981 tta/C/convert/format_html.c:8270
 #, perl-brace-format
 msgid "see {reference}"
 msgstr "див. {reference}"
 
-#: tp/Texinfo/Convert/HTML.pm:6044 tp/Texinfo/XS/convert/format_html.c:7920
+#: tta/perl/Texinfo/Convert/HTML.pm:5983 tta/C/convert/format_html.c:8275
 #, perl-brace-format
 msgid "See {reference}"
 msgstr "Див. {reference}"
 
-#: tp/Texinfo/Convert/HTML.pm:6046 tp/Texinfo/XS/convert/format_html.c:7925
+#: tta/perl/Texinfo/Convert/HTML.pm:5985 tta/C/convert/format_html.c:8280
 #, perl-brace-format
 msgid "{reference}"
 msgstr "{reference}"
 
-#: tp/Texinfo/Convert/HTML.pm:6052 tp/Texinfo/XS/convert/format_html.c:7938
+#: tta/perl/Texinfo/Convert/HTML.pm:5991 tta/C/convert/format_html.c:8293
 #, perl-brace-format
 msgid "see `{section}'"
 msgstr "див. «{section}»"
 
-#: tp/Texinfo/Convert/HTML.pm:6054 tp/Texinfo/XS/convert/format_html.c:7943
+#: tta/perl/Texinfo/Convert/HTML.pm:5993 tta/C/convert/format_html.c:8298
 #, perl-brace-format
 msgid "See `{section}'"
 msgstr "Див. «{section}»"
 
-#: tp/Texinfo/Convert/HTML.pm:6056 tp/Texinfo/XS/convert/format_html.c:7948
+#: tta/perl/Texinfo/Convert/HTML.pm:5995 tta/C/convert/format_html.c:8303
 #, perl-brace-format
 msgid "`{section}'"
 msgstr "«{section}»"
 
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
-#: tp/Texinfo/Convert/HTML.pm:6330 tp/Texinfo/XS/convert/format_html.c:10054
+#: tta/perl/Texinfo/Convert/HTML.pm:6291 tta/C/convert/format_html.c:10481
 #, perl-brace-format
 msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}"
 msgstr "@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}"
 
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and used to avoid a msgfmt error
-#: tp/Texinfo/Convert/HTML.pm:6337 tp/Texinfo/XS/convert/format_html.c:10062
+#: tta/perl/Texinfo/Convert/HTML.pm:6298 tta/C/convert/format_html.c:10489
 #, perl-brace-format
 msgid "{main_index_entry}, @emph{See@:} {seeentry}"
 msgstr "{main_index_entry}, @emph{See@:} {seeentry}"
 
 #. TRANSLATORS: refer to another index entry
-#: tp/Texinfo/Convert/HTML.pm:6355 tp/Texinfo/XS/convert/format_html.c:10097
+#: tta/perl/Texinfo/Convert/HTML.pm:6315 tta/C/convert/format_html.c:10523
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
 msgstr "@emph{Див. також} {see_also_entry}"
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
-#: tp/Texinfo/Convert/HTML.pm:6601 tp/Texinfo/Convert/HTML.pm:6622
+#: tta/perl/Texinfo/Convert/HTML.pm:6575 tta/perl/Texinfo/Convert/HTML.pm:6597
 msgid "Jump to"
 msgstr "Перейти до"
 
-#: tp/Texinfo/Convert/HTML.pm:7696 tp/Texinfo/XS/convert/format_html.c:12212
+#: tta/perl/Texinfo/Convert/HTML.pm:7662 tta/C/convert/format_html.c:12679
 #, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
 msgstr "{category} щодо @code{{class}}:@* "
 
-#: tp/Texinfo/Convert/HTML.pm:7700 tp/Texinfo/XS/convert/format_html.c:12218
+#: tta/perl/Texinfo/Convert/HTML.pm:7666 tta/C/convert/format_html.c:12685
 #, perl-brace-format
 msgid "{category} on @code{{class}}: "
 msgstr "{category} щодо @code{{class}}: "
 
-#: tp/Texinfo/Convert/HTML.pm:7704 tp/Texinfo/XS/convert/format_html.c:12224
+#: tta/perl/Texinfo/Convert/HTML.pm:7670 tta/C/convert/format_html.c:12691
 #, perl-brace-format
 msgid "{category} of @code{{class}}: "
 msgstr "{category} @code{{class}}: "
 
-#: tp/Texinfo/Convert/HTML.pm:7721 tp/Texinfo/XS/convert/format_html.c:12236
+#: tta/perl/Texinfo/Convert/HTML.pm:7687 tta/C/convert/format_html.c:12703
 #, perl-brace-format
 msgid "{category}:@* "
 msgstr "{category}:@* "
 
-#: tp/Texinfo/Convert/HTML.pm:7723 tp/Texinfo/XS/convert/format_html.c:12242
+#: tta/perl/Texinfo/Convert/HTML.pm:7689 tta/C/convert/format_html.c:12709
 #, perl-brace-format
 msgid "{category}: "
 msgstr "{category}: "
 
-#: tp/Texinfo/Convert/HTML.pm:11102 tp/Texinfo/XS/convert/format_html.c:3395
+#: tta/perl/Texinfo/Convert/HTML.pm:11337 tta/C/convert/format_html.c:3645
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
@@ -1095,52 +1122,52 @@ msgstr ""
 "Цей документ створено @emph{@today{}} за допомогою @uref{{program_homepage}, "
 "@emph{{program}}}."
 
-#: tp/Texinfo/Convert/HTML.pm:11109 tp/Texinfo/XS/convert/format_html.c:3404
+#: tta/perl/Texinfo/Convert/HTML.pm:11345 tta/C/convert/format_html.c:3654
 msgid "This document was generated on @emph{@today{}}."
 msgstr "Цей документ створено @emph{@today{}}."
 
-#: tp/Texinfo/Convert/HTML.pm:11152 tp/Texinfo/XS/convert/format_html.c:3508
+#: tta/perl/Texinfo/Convert/HTML.pm:11385 tta/C/convert/format_html.c:3758
 msgid "JavaScript license information"
 msgstr "Відомості щодо ліцензування JavaScript"
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tp/Texinfo/Convert/HTML.pm:11203 tp/Texinfo/XS/convert/format_html.c:3757
+#: tta/perl/Texinfo/Convert/HTML.pm:11444 tta/C/convert/format_html.c:4015
 #, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr "{element_text} ({title})"
 
-#: tp/Texinfo/Convert/HTML.pm:11476
+#: tta/perl/Texinfo/Convert/HTML.pm:11706
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr "Потрібний вам вузол тут: {href}."
 
-#: tp/Texinfo/Convert/HTML.pm:11623
+#: tta/perl/Texinfo/Convert/HTML.pm:11850
 msgid "There are no buttons for this document."
 msgstr "Немає кнопок для цього документа."
 
-#: tp/Texinfo/Convert/HTML.pm:11629
+#: tta/perl/Texinfo/Convert/HTML.pm:11856
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr "  Кнопки на панелях навігації мають таке призначення:"
 
-#: tp/Texinfo/Convert/HTML.pm:11648
+#: tta/perl/Texinfo/Convert/HTML.pm:11875
 msgid "Button"
 msgstr "Кнопка"
 
 #. TRANSLATORS: button label column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:11651
+#: tta/perl/Texinfo/Convert/HTML.pm:11878
 msgid "Name"
 msgstr "Назва"
 
 #. TRANSLATORS: direction description column header in the navigation help
-#: tp/Texinfo/Convert/HTML.pm:11654
+#: tta/perl/Texinfo/Convert/HTML.pm:11881
 msgid "Go to"
 msgstr "Перейти до"
 
-#: tp/Texinfo/Convert/HTML.pm:11658
+#: tta/perl/Texinfo/Convert/HTML.pm:11885
 msgid "From 1.2.3 go to"
 msgstr "З 1.2.3 перейти до"
 
-#: tp/Texinfo/Convert/HTML.pm:11723
+#: tta/perl/Texinfo/Convert/HTML.pm:11949
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1150,116 +1177,111 @@ msgstr ""
 "@strong{ підрозділі один-два-три } документа із такою структурою:"
 
 #. TRANSLATORS: example name of section for section 1
-#: tp/Texinfo/Convert/HTML.pm:11736
+#: tta/perl/Texinfo/Convert/HTML.pm:11962
 msgid "Section One"
 msgstr "Перший розділ"
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tp/Texinfo/Convert/HTML.pm:11740
+#: tta/perl/Texinfo/Convert/HTML.pm:11966
 msgid "Subsection One-One"
 msgstr "Підрозділ один-один"
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tp/Texinfo/Convert/HTML.pm:11750
+#: tta/perl/Texinfo/Convert/HTML.pm:11976
 msgid "Subsection One-Two"
 msgstr "Підрозділ один-два"
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tp/Texinfo/Convert/HTML.pm:11755
+#: tta/perl/Texinfo/Convert/HTML.pm:11981
 msgid "Subsubsection One-Two-One"
 msgstr "Підпідрозділ один-два-один"
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tp/Texinfo/Convert/HTML.pm:11759
+#: tta/perl/Texinfo/Convert/HTML.pm:11985
 msgid "Subsubsection One-Two-Two"
 msgstr "Підпідрозділ один-два-два"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tp/Texinfo/Convert/HTML.pm:11763
+#: tta/perl/Texinfo/Convert/HTML.pm:11989
 msgid "Subsubsection One-Two-Three"
 msgstr "Підпідрозділ один-два-три"
 
-#: tp/Texinfo/Convert/HTML.pm:11768
+#: tta/perl/Texinfo/Convert/HTML.pm:11994
 msgid "Current Position"
 msgstr "Поточна позиція"
 
 #. TRANSLATORS: example name of section for section 1.2.4
-#: tp/Texinfo/Convert/HTML.pm:11772
+#: tta/perl/Texinfo/Convert/HTML.pm:11998
 msgid "Subsubsection One-Two-Four"
 msgstr "Підпідрозділ один-два-чотири"
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tp/Texinfo/Convert/HTML.pm:11778
+#: tta/perl/Texinfo/Convert/HTML.pm:12004
 msgid "Subsection One-Three"
 msgstr "Підрозділ один-три"
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tp/Texinfo/Convert/HTML.pm:11788
+#: tta/perl/Texinfo/Convert/HTML.pm:12014
 msgid "Subsection One-Four"
 msgstr "Підрозділ один-чотири"
 
-#: tp/Texinfo/Convert/HTML.pm:12731 tp/Texinfo/XS/convert/convert_html.c:1023
+#: tta/perl/Texinfo/Convert/HTML.pm:12967 tta/C/convert/convert_html.c:1138
 msgid "Untitled Document"
 msgstr "Документ без назви"
 
-#: tp/Texinfo/Convert/Utils.pm:198 tp/Texinfo/XS/main/convert_utils.c:46
+#: tta/perl/Texinfo/Convert/Utils.pm:216 tta/C/main/convert_utils.c:45
 msgid "January"
 msgstr "січня"
 
-#: tp/Texinfo/Convert/Utils.pm:199 tp/Texinfo/XS/main/convert_utils.c:46
+#: tta/perl/Texinfo/Convert/Utils.pm:217 tta/C/main/convert_utils.c:45
 msgid "February"
 msgstr "лютого"
 
-#: tp/Texinfo/Convert/Utils.pm:200 tp/Texinfo/XS/main/convert_utils.c:46
+#: tta/perl/Texinfo/Convert/Utils.pm:218 tta/C/main/convert_utils.c:45
 msgid "March"
 msgstr "березня"
 
-#: tp/Texinfo/Convert/Utils.pm:201 tp/Texinfo/XS/main/convert_utils.c:47
+#: tta/perl/Texinfo/Convert/Utils.pm:219 tta/C/main/convert_utils.c:46
 msgid "April"
 msgstr "квітня"
 
-#: tp/Texinfo/Convert/Utils.pm:202 tp/Texinfo/XS/main/convert_utils.c:47
+#: tta/perl/Texinfo/Convert/Utils.pm:220 tta/C/main/convert_utils.c:46
 msgid "May"
 msgstr "травня"
 
-#: tp/Texinfo/Convert/Utils.pm:203 tp/Texinfo/XS/main/convert_utils.c:47
+#: tta/perl/Texinfo/Convert/Utils.pm:221 tta/C/main/convert_utils.c:46
 msgid "June"
 msgstr "червня"
 
-#: tp/Texinfo/Convert/Utils.pm:204 tp/Texinfo/XS/main/convert_utils.c:47
+#: tta/perl/Texinfo/Convert/Utils.pm:222 tta/C/main/convert_utils.c:46
 msgid "July"
 msgstr "липня"
 
-#: tp/Texinfo/Convert/Utils.pm:205 tp/Texinfo/XS/main/convert_utils.c:48
+#: tta/perl/Texinfo/Convert/Utils.pm:223 tta/C/main/convert_utils.c:47
 msgid "August"
 msgstr "серпня"
 
-#: tp/Texinfo/Convert/Utils.pm:206 tp/Texinfo/XS/main/convert_utils.c:48
+#: tta/perl/Texinfo/Convert/Utils.pm:224 tta/C/main/convert_utils.c:47
 msgid "September"
 msgstr "вересня"
 
-#: tp/Texinfo/Convert/Utils.pm:207 tp/Texinfo/XS/main/convert_utils.c:48
+#: tta/perl/Texinfo/Convert/Utils.pm:225 tta/C/main/convert_utils.c:47
 msgid "October"
 msgstr "жовтня"
 
-#: tp/Texinfo/Convert/Utils.pm:208 tp/Texinfo/XS/main/convert_utils.c:49
+#: tta/perl/Texinfo/Convert/Utils.pm:226 tta/C/main/convert_utils.c:48
 msgid "November"
 msgstr "листопада"
 
-#: tp/Texinfo/Convert/Utils.pm:209 tp/Texinfo/XS/main/convert_utils.c:49
+#: tta/perl/Texinfo/Convert/Utils.pm:227 tta/C/main/convert_utils.c:48
 msgid "December"
 msgstr "грудня"
 
-#: tp/Texinfo/Convert/Utils.pm:227 tp/Texinfo/XS/main/convert_utils.c:112
-#, perl-brace-format
-msgid "{month} {day}, {year}"
-msgstr "{day} {month} {year}"
-
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
-#: tp/Texinfo/Convert/Utils.pm:310 tp/Texinfo/Convert/Utils.pm:312
-#: tp/Texinfo/XS/main/convert_utils.c:592
-#: tp/Texinfo/XS/main/convert_utils.c:600
+#: tta/perl/Texinfo/Convert/Utils.pm:356 tta/perl/Texinfo/Convert/Utils.pm:360
+#: tta/perl/Texinfo/Convert/Utils.pm:364 tta/C/main/convert_utils.c:756
+#: tta/C/main/convert_utils.c:766
 #, perl-brace-format
 msgid "{category} on @code{{class}}"
 msgstr "{category} щодо @code{{class}}"
@@ -1267,12 +1289,18 @@ msgstr "{category} щодо @code{{class}}"
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables
 #. or instance variable.
-#: tp/Texinfo/Convert/Utils.pm:326 tp/Texinfo/Convert/Utils.pm:328
-#: tp/Texinfo/XS/main/convert_utils.c:630
-#: tp/Texinfo/XS/main/convert_utils.c:638
+#: tta/perl/Texinfo/Convert/Utils.pm:375 tta/perl/Texinfo/Convert/Utils.pm:380
+#: tta/perl/Texinfo/Convert/Utils.pm:384 tta/C/main/convert_utils.c:796
+#: tta/C/main/convert_utils.c:806
 #, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{category} @code{{class}}"
+
+#: tta/perl/Texinfo/Convert/Utils.pm:409 tta/perl/Texinfo/Convert/Utils.pm:418
+#: tta/C/main/convert_utils.c:273
+#, perl-brace-format
+msgid "{month} {day}, {year}"
+msgstr "{day} {month} {year}"
 
 #~ msgid "Index Entry"
 #~ msgstr "Запис покажчика"
