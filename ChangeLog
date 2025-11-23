@@ -1,3 +1,8 @@
+2025-11-23  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/man.c (get_manpage_from_formatter): cast return value
+	of get_output_from_program to void to indicate it is being ignored.
+
 2025-11-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix Info memory errors after signals
