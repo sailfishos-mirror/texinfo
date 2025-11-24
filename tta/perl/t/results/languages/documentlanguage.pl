@@ -398,7 +398,7 @@ top section
 
 chapter.
 
-Método on class: data-type name arguments
+Método de class: data-type name arguments
 Some text.
 
 
