@@ -1,3 +1,9 @@
+2025-11-25  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\doindexinitialentry) [pdfTeX]:
+	Do not break if passed an empty argument.
+	Report from Rik <rik@octave.org>.
+
 2025-11-23  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: update path to valgrind suppressions file when
