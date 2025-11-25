@@ -195,7 +195,7 @@ call_module_converter (const char *module_name,
 }
 
 void
-call_object_reset_converter (const CONVERTER *self)
+call_object_reset_perl_converter (const CONVERTER *self)
 {
   int count;
 
@@ -212,13 +212,13 @@ call_object_reset_converter (const CONVERTER *self)
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
-  count = call_method ("reset_converter",
+  count = call_method ("reset_perl_converter",
                        G_DISCARD|G_SCALAR);
 
   SPAGAIN;
 
   if (count != 0)
-    croak ("call: object reset_converter should return 0 item\n");
+    croak ("call: object reset_perl_converter should return 0 item\n");
 
   PUTBACK;
 

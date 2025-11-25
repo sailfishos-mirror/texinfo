@@ -1,3 +1,38 @@
+2025-11-25 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/texinfo.c (txi_reset_converter),
+	(txi_destroy_converter), tta/perl/Texinfo/Convert/Converter.pm
+	(destroy_converter), tta/perl/Texinfo/Convert/Text.pm
+	(destroy_converter), tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(destroy_converter): rename destroy in Converter.pm, Text.pm and
+	ConvertXS.xs as destroy_converter.  Rename txi_converter_reset as
+	txi_reset_converter.  Rename txi_converter_destroy as
+	txi_destroy_converter.  Update callers.
+
+	* tta/C/convert/call_conversion_perl.c
+	(call_object_reset_perl_converter), tta/C/convert/texinfo.c
+	(txi_reset_converter), tta/perl/Texinfo/Convert/Converter.pm
+	(%XS_overrides, reset_converter, reset_perl_converter)
+	(destroy_converter), tta/perl/Texinfo/Convert/Text.pm (%XS_overrides),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (reset_converter)
+	(destroy_converter, destroy_text_converter): use reset_converter and
+	destroy_converter functions for the XS interface and call Perl
+	converter reset and release code from the XS interface instead of
+	calling the C code from Perl through specific XS interface functions.
+	Move reset_perl_converter out of reset_converter and call
+	reset_perl_converter from C.  Rename call_object_reset_converter as
+	call_object_reset_perl_converter.  Consistently, always call
+	reset_converter in txi_reset_converter.  Call
+	call_object_reset_perl_converter from reset_converter in ConvertXS.xs
+	and call call_object_converter_perl_release from destroy_converter in
+	ConvertXS.xs.  Remove _XS_reset_converter and _XS_destroy.  Add a new
+	XS interface for Texinfo::Convert::Text , destroy_text_converter since
+	there is no converter_perl_release function nor call to
+	call_object_converter_perl_release for the Text converter.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (converter_perl_release): call
+	format-specific converter_destroy before generic converter code.
+
 2025-11-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\doindexinitialentry) [pdfTeX]:

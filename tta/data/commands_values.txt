@@ -16,7 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # this information is used to setup both C and Perl data on representations
-# of diverse Texinfo commands as text or unicode characters.
+# of diverse Texinfo commands as text or unicode characters as well as
+# structuring commands levels.
 
 -- nobrace_symbol_text
 *     \n

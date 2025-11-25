@@ -3116,10 +3116,10 @@ main (int argc, char *argv[], char *env[])
           || file_index < input_files.number -1)
         {
           /* free after output */
-          txi_converter_reset (converter, external_module);
+          txi_reset_converter (converter, external_module);
 
           /* destroy converter */
-          txi_converter_destroy (converter, external_module);
+          txi_destroy_converter (converter, external_module);
         }
 
       if (file_index == 0)
@@ -3131,6 +3131,8 @@ main (int argc, char *argv[], char *env[])
                 = sort_element_count_option->o.string;
             }
 
+          /* The main work is done by txi_sort_element_counts, which in
+             turn calls Perl code */
           if (sort_element_count_file_name
               && embedded_interpreter != txi_interpreter_use_embedded)
             {
@@ -3197,6 +3199,7 @@ main (int argc, char *argv[], char *env[])
                      use_sections, (sort_element_count_words_option
                          && sort_element_count_words_option->o.integer > 0));
 
+              /* output resulting text in the sort_element_count_file_name */
               sort_element_count_text = sort_element_count_info->text;
 
               if (!sort_element_count_text)
@@ -3258,9 +3261,9 @@ main (int argc, char *argv[], char *env[])
               free (sort_element_count_text);
 
               /* destroy converter and sort_element_count_info */
-              txi_converter_reset (sort_element_count_info->converter,
+              txi_reset_converter (sort_element_count_info->converter,
                                    elt_count_external_module);
-              txi_converter_destroy (sort_element_count_info->converter,
+              txi_destroy_converter (sort_element_count_info->converter,
                                      elt_count_external_module);
               free (sort_element_count_info);
 

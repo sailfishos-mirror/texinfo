@@ -65,6 +65,7 @@
 
 #define _(String) gettext (String)
 
+/* associate transformation name to the corresponding flag */
 const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[] = {
 #define tt_type(name) {#name, STTF_ ## name},
    TT_TYPES_LIST
@@ -182,8 +183,9 @@ err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
     fprintf (stderr, "BUG: error setting %s\n", option_name);
 }
 
-/* similar to texi2any setting customization variables independent of
-   conversion format */
+/* ALTIMP texi2any.pl and load_txi_modules.pl */
+/* Customization variables independent of conversion format are set similarly
+   in texi2any.pl */
 void
 txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
                               const char *locale_encoding,
@@ -225,6 +227,7 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
   add_program_customization_options_defaults (main_program_set_options);
 }
 
+/* ALTIMP texi2any.pl and load_txi_modules.pl */
 /* initialization of the library for output strings translations for
    parsing and conversion (generic), to be called once */
 void
@@ -303,6 +306,7 @@ txi_converter_output_format_setup (const char *converted_format,
     }
 }
 
+/* ALTIMP Texinfo::Convert::XXXX */
 /* This function should be used to get information on an output format
    defaults, taking into account CUSTOMIZATIONS.  It is not needed
    for converter initialization, as similar code is already called.
@@ -339,9 +343,16 @@ txi_converter_format_defaults (const char *converted_format,
   return format_defaults;
 }
 
-/* parser initialization, similar to Texinfo::Parser::parser in Perl.
-   Also sets INCLUDE_DIRECTORIES minimally if not specified in options.
-   The implementation is similar to parsetexi/Parsetexi.pm on purpose. */
+/* ALTIMP parsetexi/Parsetexi.pm and Parsetexi.xs */
+/* parser initialization, similar to calling Texinfo::Parser::parser in Perl.
+   The implementation is different from Texinfo::ParserNonXS because here
+   we need to convert options list to parser configuration function calls,
+   as is done in parsetexi/Parsetexi.pm with XS.  This is not needed in
+   ParserNonXS.pm.
+   The implementation is similar to parsetexi/Parsetexi.pm on purpose.
+   Also sets INCLUDE_DIRECTORIES minimally if not specified in options,
+   FILE_PATH is only used in that case.
+ */
 void
 txi_parser (const char *file_path, const VALUE_LIST *values,
             OPTIONS_LIST *options_list)
@@ -484,11 +495,12 @@ txi_parser (const char *file_path, const VALUE_LIST *values,
     }
 }
 
+/* ALTIMP in texi2any.pl */
 /* call all the structuring/transformations typically done for a document.
    FLAGS select the structure/transformations called.  If FORMAT_MENU is set
    the structure functions related to menus are called.
-   No implementation in Perl, as the modules are loaded on demand, which makes
-   it impossible
+   No implementation in Perl as a function, as the modules are loaded on
+   demand, which makes it impossible to implement as a function.
 */
 void
 txi_complete_document (DOCUMENT *document, unsigned long flags,
@@ -544,7 +556,8 @@ txi_complete_document (DOCUMENT *document, unsigned long flags,
                                          document->options);
 }
 
-/* setup CONF initialization data */
+/* In texi2any.pl, not in a separate function */
+/* setup CONF initialization data. */
 void
 txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
                                     const DEPRECATED_DIRS_LIST *deprecated_dirs,
@@ -558,8 +571,8 @@ txi_converter_initialization_setup (CONVERTER_INITIALIZATION_INFO *conf,
     copy_options_list (&conf->conf, customizations);
 }
 
-/* converter setup. Similar to an initialization of converter
-   in texi2any */
+/* In texi2any.pl, not in a separate function */
+/* converter setup. Similar to a converter initialization in texi2any.pl */
 CONVERTER *
 txi_converter_setup (const char *external_module,
                      const char *converted_format,
@@ -693,6 +706,7 @@ txi_converter_convert (CONVERTER *converter, DOCUMENT *document)
   return converter_convert (converter, document);
 }
 
+/* ALTIMP Texinfo::Document::destroy_document */
 void
 txi_destroy_document (DOCUMENT *document, const char *external_module,
                       int remove_references)
@@ -701,6 +715,7 @@ txi_destroy_document (DOCUMENT *document, const char *external_module,
   int check_counts = (document->options->TEST.o.integer > 1);
   if (check_counts)
     {
+      /* Call Perl function to remove Perl references when Perl code is used */
       if (external_module)
         call_document_remove_document_references (document,
                                                   remove_references);
@@ -710,31 +725,32 @@ txi_destroy_document (DOCUMENT *document, const char *external_module,
   destroy_document (document);
   if (check_counts)
     {
-      /* the messages are discarded.  The same information is already
-         printed on STDERR */
+      /* the messages are discarded.  The same information has already
+         been printed on STDERR */
       clear_error_message_list (error_messages);
       unset_check_element_interpreter_refcount ();
     }
 }
 
+/* ALTIMP Texinfo::Convert::Converter */
 void
-txi_converter_reset (CONVERTER *converter, const char *external_module)
+txi_reset_converter (CONVERTER *converter, const char *external_module)
 {
   if (external_module)
-    call_object_reset_converter (converter);
-  else
-    reset_converter (converter);
+    call_object_reset_perl_converter (converter);
+  reset_converter (converter);
 }
 
+/* ALTIMP Texinfo::Convert::Converter */
 void
-txi_converter_destroy (CONVERTER *converter, const char *external_module)
+txi_destroy_converter (CONVERTER *converter, const char *external_module)
 {
   if (external_module)
     call_object_converter_perl_release (converter);
   destroy_converter (converter);
 }
 
-/* defined here to hide PerlIO closing function call */
+/* defined here to hide call_close_perl_io PerlIO closing function call */
 int
 txi_close_file_stream (const char *program_file, const FILE_STREAM *file_stream)
 {

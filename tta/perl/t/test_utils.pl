@@ -1237,7 +1237,7 @@ sub test($$)
         }
       }
       $converter->reset_converter();
-      $converter->destroy();
+      $converter->destroy_converter();
 
       my $conversion_errors = $converter->get_converter_errors();
       if (!scalar(@$conversion_errors)) {

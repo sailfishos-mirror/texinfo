@@ -72,8 +72,8 @@ my %XS_overrides = (
   # that the document tree was stored by the XS parser.
   "Texinfo::Convert::Text::_convert_tree_with_XS"
    => "Texinfo::Convert::ConvertXS::text_convert_tree",
-  "Texinfo::Convert::Text::destroy"
-   => "Texinfo::Convert::ConvertXS::destroy",
+  "Texinfo::Convert::Text::destroy_converter"
+   => "Texinfo::Convert::ConvertXS::destroy_text_converter",
 
 
   # if the output or convert functions are overriden the following
@@ -1142,7 +1142,7 @@ sub output($$) {
 }
 
 # Nothing to do in perl.  XS function frees memory
-sub destroy($) {
+sub destroy_converter($) {
 }
 
 # Following not used anywhere.  Would not be an issue if they were.

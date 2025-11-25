@@ -54,6 +54,8 @@
 #include "build_perl_info.h"
 #include "build_html_perl_state.h"
 #include "get_converter_perl_info.h"
+/* call_object_reset_perl_converter call_object_converter_perl_release */
+#include "call_conversion_perl.h"
 #include "build_html_perl_info.h"
 #include "html_conversion_state.h"
 #include "convert_html.h"
@@ -688,23 +690,56 @@ reset_converter (SV *converter_in)
           {
             converter_release_output_units_built (self);
 
+            call_object_reset_perl_converter (self);
+
             reset_converter (self);
           }
 
 void
-destroy (SV *converter_in)
+destroy_converter (SV *converter_in)
       PREINIT:
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in, 0);
         if (self)
-          {/* transfer messages set by converter reset after conversion */
+          {
+            call_object_converter_perl_release (self);
+
+            /* transfer messages set by converter reset after conversion */
             if (self->error_messages.number)
               {
                 pass_errors_to_hv (&self->error_messages,
                                    converter_in,
                                    "error_warning_messages");
-                wipe_error_message_list (&self->error_messages);
+                clear_error_message_list (&self->error_messages);
+              }
+            destroy_converter (self);
+          }
+
+# This is almost the same as above, but there is no converter_perl_release
+# method in the Text converter.  Using get_sv to check if the method exists
+# could be possible, but there is no clear way to determine the possible
+# names to check taking into account inheritance.  Alternatively, sv_isa could
+# be used or
+#                HV *stash = SvSTASH (SvRV (converter_in));
+#                class_name = HvNAME (stash);
+# to check if the converter is a Text converter.
+# As long as the code is short, duplicating is ok.
+void
+destroy_text_converter (SV *converter_in)
+      PREINIT:
+        CONVERTER *self;
+      CODE:
+        self = get_sv_converter (converter_in, 0);
+        if (self)
+          {
+            /* transfer messages set by converter reset after conversion */
+            if (self->error_messages.number)
+              {
+                pass_errors_to_hv (&self->error_messages,
+                                   converter_in,
+                                   "error_warning_messages");
+                clear_error_message_list (&self->error_messages);
               }
             destroy_converter (self);
           }

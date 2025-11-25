@@ -28,7 +28,7 @@ call_module_converter (const char *module_name,
 }
 
 void
-call_object_reset_converter (const CONVERTER *self)
+call_object_reset_perl_converter (const CONVERTER *self)
 {
 }
 

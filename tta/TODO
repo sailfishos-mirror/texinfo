@@ -23,7 +23,9 @@ in gdt?  Or, possibly even better mark parent as weak reference with
 Scalar::Util weaken as explained in man perlref (Gavin).
 in perlapi for XS: sv_rvweaken
 
-document converter_reset and converter_perl_release in Perl?
+Document 'style_commands_formatting' in texi2any_api
+
+Update texi2any_api.texi
 
 
 Bugs
