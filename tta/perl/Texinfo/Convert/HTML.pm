@@ -3152,15 +3152,15 @@ sub _convert_no_arg_command($$$) {
   my $result;
 
   if (in_preformatted_context($self) or in_math($self)) {
-    $result = _text_element_conversion($self, 
+    $result = _text_element_conversion($self,
       $self->{'no_arg_commands_formatting'}->{$cmdname}->{'preformatted'},
       $cmdname);
   } elsif (in_string($self)) {
-    $result = _text_element_conversion($self, 
+    $result = _text_element_conversion($self,
       $self->{'no_arg_commands_formatting'}->{$cmdname}->{'string'},
       $cmdname);
   } else {
-    $result = _text_element_conversion($self, 
+    $result = _text_element_conversion($self,
       $self->{'no_arg_commands_formatting'}->{$cmdname}->{'normal'},
       $cmdname);
   }
@@ -8691,8 +8691,13 @@ sub _load_htmlxref_files($) {
 #  types_conversion
 #  types_open
 #
-#    API exists for setting, not for getting and used in commands_conversion
+#    API exists for setting, no need to access directly, accessed through
+#    no_arg_commands_formatting
 #  customized_no_arg_commands_formatting
+#
+#    API exists for setting (through customized_no_arg_commands_formatting
+#    for no_arg_commands_formatting), not for getting and used in
+#    commands_conversion
 #  no_arg_commands_formatting
 #  style_commands_formatting
 #
@@ -10639,7 +10644,7 @@ sub _prepare_output_units_global_targets($$$$) {
     # Here document_unit can only be a document unit, or maybe undef if there
     # are no document unit at all
     my ($document_unit, $root_command)
-     = _html_get_tree_root_element($self, 
+     = _html_get_tree_root_element($self,
                                $global_commands->{'printindex'}->[-1]);
     if (defined($document_unit)) {
       if (defined($root_command)) {

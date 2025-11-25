@@ -18,12 +18,8 @@ document command_name in texi2any HTML customization API
 
 Document the use of accents stack in the HTML customization API
 
-Do not add parent in tree in the first place instead of removing afterwards,
-in gdt?  Or, possibly even better mark parent as weak reference with
-Scalar::Util weaken as explained in man perlref (Gavin).
-in perlapi for XS: sv_rvweaken
-
-Document 'style_commands_formatting' in texi2any_api
+Document 'style_commands_formatting' and 'no_arg_commands_formatting' in
+texi2any_api.texi
 
 Update texi2any_api.texi
 
@@ -90,6 +86,11 @@ converter_customization_options, unique_at_command_options.
 
 Delayed bugs/features
 =====================
+
+Do not add parent in tree in the first place instead of removing afterwards,
+in gdt?  Or, possibly even better mark parent as weak reference with
+Scalar::Util weaken as explained in man perlref (Gavin).
+in perlapi for XS: sv_rvweaken
 
 inline contents_child_by_index in C?
 
