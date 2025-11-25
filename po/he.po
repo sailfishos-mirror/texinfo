@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.2\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-11-23 19:45+0000\n"
+"POT-Creation-Date: 2025-11-25 21:44+0100\n"
 "PO-Revision-Date: 2002-04-03 12:31+0300\n"
 "Last-Translator: Eli Zaretskii <eliz@gnu.org>\n"
 "Language-Team: Hebrew <eliz@gnu.org>\n"
@@ -329,8 +329,8 @@ msgstr ".רתוי בר עדימ תגצהל --help הסנ\n"
 #, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
@@ -1518,8 +1518,8 @@ msgstr "אצו תינכתה תסריג לע עדימ גצה"
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law."
 msgstr ""
@@ -1571,7 +1571,7 @@ msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:596 Pod-Simple-Texinfo/pod2texi.pl:694
 #: tta/perl/texi2any.pl:2145 tta/perl/texi2any.pl:2364
-#: tta/C/convert/texinfo.c:747
+#: tta/C/convert/texinfo.c:763
 #, c-format, perl-format
 msgid "%s: error on closing %s: %s"
 msgstr ""
@@ -1684,11 +1684,11 @@ msgstr "םדןק רדגוה רבכ `%s' ורקאמ"
 msgid "here is the previous definition as @%s"
 msgstr "הנושארל רדגוה `%s' ןאכ"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:423
-#: tta/perl/Texinfo/Convert/HTML.pm:12121
-#: tta/perl/Texinfo/Convert/HTML.pm:13161
-#: tta/perl/Texinfo/Convert/HTML.pm:13417 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1150
+#: tta/perl/Texinfo/Convert/Converter.pm:422
+#: tta/perl/Texinfo/Convert/HTML.pm:12126
+#: tta/perl/Texinfo/Convert/HTML.pm:13166
+#: tta/perl/Texinfo/Convert/HTML.pm:13422 tta/perl/Texinfo/Convert/IXIN.pm:358
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1152
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1838
@@ -1699,12 +1699,12 @@ msgstr "הנושארל רדגוה `%s' ןאכ"
 msgid "could not open %s for writing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Converter.pm:449
-#: tta/perl/Texinfo/Convert/HTML.pm:12116
-#: tta/perl/Texinfo/Convert/HTML.pm:13183 tta/perl/Texinfo/Convert/IXIN.pm:1039
+#: tta/perl/Texinfo/Convert/Converter.pm:448
+#: tta/perl/Texinfo/Convert/HTML.pm:12121
+#: tta/perl/Texinfo/Convert/HTML.pm:13188 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1236
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1238
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1716,15 +1716,15 @@ msgstr ""
 msgid "error on closing %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:754
-#: tta/perl/Texinfo/Convert/Converter.pm:770
-#: tta/perl/Texinfo/Convert/Converter.pm:791
+#: tta/perl/Texinfo/Convert/Converter.pm:753
+#: tta/perl/Texinfo/Convert/Converter.pm:769
+#: tta/perl/Texinfo/Convert/Converter.pm:790
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown customization variable: %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1167
+#: tta/perl/Texinfo/Convert/Converter.pm:1166
 #: tta/perl/Texinfo/Convert/Text.pm:1060 tta/perl/Texinfo/Convert/Text.pm:1082
 #: tta/C/convert/converter.c:1012
 #, fuzzy, c-format, perl-format
@@ -1732,13 +1732,13 @@ msgstr "העודי הנניא `%s' הדוקפ"
 msgid "could not create directory `%s': %s"
 msgstr "`%s' היקית תריציב (%s) הלקת"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1567
+#: tta/perl/Texinfo/Convert/Converter.pm:1566
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1576
+#: tta/perl/Texinfo/Convert/Converter.pm:1575
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image רובע `%s' ץבוק תאירקב (%s) הלקת"
@@ -1819,205 +1819,205 @@ msgstr ""
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "%c%s-ב שמתשהל ףידע ;תנשוימ הניה %c%s הארוה"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9046
+#: tta/perl/Texinfo/Convert/HTML.pm:9051
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9064
+#: tta/perl/Texinfo/Convert/HTML.pm:9069
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9527
+#: tta/perl/Texinfo/Convert/HTML.pm:9532
 #: tta/C/convert/html_prepare_converter.c:3581
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9529
+#: tta/perl/Texinfo/Convert/HTML.pm:9534
 #: tta/C/convert/html_prepare_converter.c:3589
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9531
+#: tta/perl/Texinfo/Convert/HTML.pm:9536
 #: tta/C/convert/html_prepare_converter.c:3597
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9564
+#: tta/perl/Texinfo/Convert/HTML.pm:9569
 #: tta/C/convert/html_prepare_converter.c:3649
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9576
+#: tta/perl/Texinfo/Convert/HTML.pm:9581
 #: tta/C/convert/html_prepare_converter.c:3671
 #, fuzzy, c-format, perl-format
 #| msgid "cannot open input file `%s'"
 msgid "could not open --include-file %s: %s"
 msgstr "`%s' טלק ץבוק תחיתפב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9594
+#: tta/perl/Texinfo/Convert/HTML.pm:9599
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing CSS file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9799
+#: tta/perl/Texinfo/Convert/HTML.pm:9804
 #: tta/C/convert/html_prepare_converter.c:4607
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10126
+#: tta/perl/Texinfo/Convert/HTML.pm:10131
 #: tta/C/convert/html_prepare_converter.c:5737
 #, fuzzy, c-format, perl-format
 #| msgid "Making %s file `%s' from `%s'.\n"
 msgid "resetting %s file path %s to %s"
 msgstr ".%s טמרופב `%s'-ל `%s' ץבוק דבעמ\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10130
+#: tta/perl/Texinfo/Convert/HTML.pm:10135
 #: tta/C/convert/html_prepare_converter.c:5747
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10134
+#: tta/perl/Texinfo/Convert/HTML.pm:10139
 #: tta/C/convert/html_prepare_converter.c:5756
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10720
+#: tta/perl/Texinfo/Convert/HTML.pm:10725
 #: tta/C/convert/html_prepare_converter.c:5214
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node `%s'."
 msgid "could not find %s node `%s'"
 msgstr ".האצמנ אל `%s' הקסיפ"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10987 tta/C/convert/format_html.c:874
+#: tta/perl/Texinfo/Convert/HTML.pm:10992 tta/C/convert/format_html.c:874
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11024
-#: tta/perl/Texinfo/Convert/HTML.pm:11030 tta/C/convert/format_html.c:923
+#: tta/perl/Texinfo/Convert/HTML.pm:11029
+#: tta/perl/Texinfo/Convert/HTML.pm:11035 tta/C/convert/format_html.c:923
 #: tta/C/convert/format_html.c:934
 #, fuzzy, c-format, perl-format
 #| msgid "no index entries found for `%s'\n"
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "`%s' תזורחמ םיליכמה סקדניא יטירפ ןיא\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11535 tta/C/convert/format_html.c:4125
+#: tta/perl/Texinfo/Convert/HTML.pm:11540 tta/C/convert/format_html.c:4125
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "`@%s' ךותב @%s-ל תועמשמ ןיא"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12060 tta/C/convert/convert_html.c:2581
+#: tta/perl/Texinfo/Convert/HTML.pm:12065 tta/C/convert/convert_html.c:2581
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12107 tta/C/convert/convert_html.c:2605
+#: tta/perl/Texinfo/Convert/HTML.pm:12112 tta/C/convert/convert_html.c:2605
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12803 tta/C/convert/convert_html.c:843
+#: tta/perl/Texinfo/Convert/HTML.pm:12808 tta/C/convert/convert_html.c:843
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12810 tta/C/convert/convert_html.c:855
+#: tta/perl/Texinfo/Convert/HTML.pm:12815 tta/C/convert/convert_html.c:855
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12858
+#: tta/perl/Texinfo/Convert/HTML.pm:12863
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on copying %s into %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12867 tta/C/convert/convert_html.c:2826
+#: tta/perl/Texinfo/Convert/HTML.pm:12872 tta/C/convert/convert_html.c:2826
 #, fuzzy, c-format, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on creating empty %s: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12872 tta/C/convert/convert_html.c:2838
+#: tta/perl/Texinfo/Convert/HTML.pm:12877 tta/C/convert/convert_html.c:2838
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing empty %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12986
-#: tta/perl/Texinfo/Convert/HTML.pm:12990 tta/C/convert/convert_html.c:1159
+#: tta/perl/Texinfo/Convert/HTML.pm:12991
+#: tta/perl/Texinfo/Convert/HTML.pm:12995 tta/C/convert/convert_html.c:1159
 #: tta/C/convert/convert_html.c:1164
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13270 tta/C/convert/convert_html.c:3038
+#: tta/perl/Texinfo/Convert/HTML.pm:13275 tta/C/convert/convert_html.c:3038
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13288 tta/C/convert/convert_html.c:3053
+#: tta/perl/Texinfo/Convert/HTML.pm:13293 tta/C/convert/convert_html.c:3053
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13291 tta/C/convert/convert_html.c:3056
+#: tta/perl/Texinfo/Convert/HTML.pm:13296 tta/C/convert/convert_html.c:3056
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13294 tta/C/convert/convert_html.c:3059
+#: tta/perl/Texinfo/Convert/HTML.pm:13299 tta/C/convert/convert_html.c:3059
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13297 tta/C/convert/convert_html.c:3062
+#: tta/perl/Texinfo/Convert/HTML.pm:13302 tta/C/convert/convert_html.c:3062
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13300 tta/C/convert/convert_html.c:3066
+#: tta/perl/Texinfo/Convert/HTML.pm:13305 tta/C/convert/convert_html.c:3066
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13308 tta/C/convert/convert_html.c:3080
+#: tta/perl/Texinfo/Convert/HTML.pm:13313 tta/C/convert/convert_html.c:3080
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13320 tta/C/convert/convert_html.c:3096
+#: tta/perl/Texinfo/Convert/HTML.pm:13325 tta/C/convert/convert_html.c:3096
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13334 tta/C/convert/convert_html.c:3116
+#: tta/perl/Texinfo/Convert/HTML.pm:13339 tta/C/convert/convert_html.c:3116
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13347 tta/C/convert/convert_html.c:3129
+#: tta/perl/Texinfo/Convert/HTML.pm:13352 tta/C/convert/convert_html.c:3129
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13425
+#: tta/perl/Texinfo/Convert/HTML.pm:13430
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing redirection node file %s: %s"
@@ -2082,53 +2082,53 @@ msgstr ""
 msgid "@node %s name should not contain `,': %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3323
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3325
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3363
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3365
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "(HTML רובע שרדנ) @image רובע `%s' ץבוק תאירקב (%s) הלקת"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4879
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4881
 #, perl-format
 msgid "math to images: could not open %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4968
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4970
 #, perl-format
 msgid "math to images: chdir %s failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4976
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4978
 #, perl-format
 msgid "math to images: output file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5002
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5004
 #, perl-format
 msgid "math to images: command failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5007
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5009
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5023
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5025
 #, perl-format
 msgid "math to images: dvi file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5038
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5040
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5045
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, perl-format
 msgid "math to images: unable to return to initial directory: %s"
 msgstr ""
@@ -4123,7 +4123,7 @@ msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 msgid "error on closing CSS file  %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/C/convert/texinfo.c:759
+#: tta/C/convert/texinfo.c:775
 #, fuzzy, c-format
 #| msgid "error closing output file `%s'"
 msgid "%s: error on closing io %s: %s"
@@ -4308,8 +4308,7 @@ msgstr ""
 #~ "\n"
 #~ "                        .Info טמרופב םיכורעה דועית יצבקב ןייע\n"
 #~ "\n"
-#~ "                                                                :"
-#~ "םינייפאמ\n"
+#~ "                                                                :םינייפאמ\n"
 #~ "     .שמתשמל ךירדמ לכ לש םיסקדניאה לכב SUBJECT שפח      --"
 #~ "apropos=SUBJECT\n"
 #~ "                 .INFOPATH-ב המישרל DIR היקית ףסוה  -d, --directory=DIR\n"
@@ -4342,8 +4341,7 @@ msgstr ""
 #~ "                                                     .הגצוהש הנושארה "
 #~ "הקסיפב\n"
 #~ "\n"
-#~ "                                                                   :"
-#~ "תואמגוד\n"
+#~ "                                                                   :תואמגוד\n"
 #~ "                          dir ץבוקמ בא-טירפת גצה  info\n"
 #~ "       emacs טירפ עיבצמ הילא הקסיפל ךל בא-טירפתמ  info emacs\n"
 #~ "buffers טירפל ךשמה םשמו emacs ףיעסל ךל בא-טירפתמ  info emacs buffers\n"
@@ -4586,8 +4584,8 @@ msgstr ""
 #~ "Usage: %s [OPTION]... [INPUT-FILE]\n"
 #~ "\n"
 #~ "Compile infokey source file to infokey file.  Reads INPUT-FILE (default\n"
-#~ "$HOME/.infokey) and writes compiled key file to (by default) $HOME/."
-#~ "info.\n"
+#~ "$HOME/.infokey) and writes compiled key file to (by default) "
+#~ "$HOME/.info.\n"
 #~ "\n"
 #~ "Options:\n"
 #~ "  --output FILE        output to FILE instead of $HOME/.info\n"
@@ -4598,11 +4596,10 @@ msgstr ""
 #~ "\n"
 #~ ":לדחמה תרירב) טלק-ץבוק ארוק .infokey ץבוקל םישקמ תורדגה לש רוקמ ץבוק "
 #~ "לפמק\n"
-#~ "      .(תרחא תנייצ אל םא) $HOME/.info-ל לפמוקמ ץבוק בתוכו ($HOME/."
-#~ "infokey\n"
+#~ "      .(תרחא תנייצ אל םא) $HOME/.info-ל לפמוקמ ץבוק בתוכו "
+#~ "($HOME/.infokey\n"
 #~ "\n"
-#~ "                                                                :"
-#~ "םינייפאמ\n"
+#~ "                                                                :םינייפאמ\n"
 #~ "       .$HOME/.info-ב םוקמב FILE ץבוקב טלפ םושר   --output FILE\n"
 #~ "                   .תינכתהמ אצו הז הרזע ךסמ גצה   --help\n"
 #~ "                  .אצו תינכתה תסריג לע עדימ גצה   --version\n"
@@ -5413,17 +5410,16 @@ msgstr ""
 #~ "sections\n"
 #~ "  makeinfo --no-split foo.texi          write one Info file however big\n"
 #~ msgstr ""
-#~ "                                                                 :"
-#~ "תואמגוד\n"
+#~ "                                                                 :תואמגוד\n"
 #~ "@setfilename י\"ע ןותנה ץבוקל Info טלפ  makeinfo foo.texi\n"
 #~ "@setfilename י\"ע ןותנה ץבוקל HTML טלפ  makeinfo --html foo.texi\n"
 #~ " @setfilename י\"ע ןותנה ץבוקל XML טלפ  makeinfo --xml foo.texi\n"
 #~ "        @setfilename-ל DocBook XML טלפ  makeinfo --docbook foo.texi\n"
 #~ "               ינקת טלפ ץורעל טסכט טלפ  makeinfo --no-headers foo.texi\n"
-#~ "      םיטירפת אללו תורתוכ אלל HTML טלפ  makeinfo --html --no-headers foo."
-#~ "texi\n"
-#~ "             תואקסיפ רורפס םע Info טלפ  makeinfo --number-sections foo."
-#~ "texi\n"
+#~ "      םיטירפת אללו תורתוכ אלל HTML טלפ  makeinfo --html --no-headers "
+#~ "foo.texi\n"
+#~ "             תואקסיפ רורפס םע Info טלפ  makeinfo --number-sections "
+#~ "foo.texi\n"
 #~ "   היהיש לככ לודג ,דיחי ץבוקב Info טלפ  makeinfo --no-split foo.texi\n"
 
 #, c-format
@@ -5665,8 +5661,7 @@ msgstr ""
 #~ msgstr ""
 #~ "          %s [OPTION]... [INFO-FILE [DIR-FILE]] :שומישה ןפוא\n"
 #~ "\n"
-#~ "                                                                :"
-#~ "םינייפאמ\n"
+#~ "                                                                :םינייפאמ\n"
 #~ "  ;INFO-FILE רובע םימייק טירפת יפיעס DIR-FILE-מ קחמ   --delete\n"
 #~ "                      .םישדח טירפת יפיעס ףיסות לא\n"
 #~ "                   .ישאר Info טירפת לש ץבוק םש ןייצ   --dir-file=NAME\n"

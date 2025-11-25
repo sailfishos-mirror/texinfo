@@ -355,9 +355,8 @@ sub definition_category_tree($;$$$) {
     if (defined($converter)) {
       return $converter->cdt('{category} on @code{{class}}', $substrings);
     } elsif (defined($lang_translations)) {
-      # TRANSLATORS: association of a method or operation category with a
-      # class in descriptions of object-oriented programming methods or
-      # operations.
+      # TRANSLATORS: association of a method or operation category with a class
+      # in descriptions of object-oriented programming methods or operations.
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
                                             $lang_translations, $substrings,
                                             $debug);

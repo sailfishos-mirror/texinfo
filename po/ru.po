@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-11-23 19:45+0000\n"
+"POT-Creation-Date: 2025-11-25 21:44+0100\n"
 "PO-Revision-Date: 2025-04-11 11:26+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
@@ -317,14 +317,14 @@ msgstr "Попробуйте --help для получения более под�
 #, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"Лицензия GPLv3+: GNU GPL версии 3 или новее <http://gnu.org/licenses/gpl."
-"html>\n"
+"Лицензия GPLv3+: GNU GPL версии 3 или новее <http://gnu.org/licenses/"
+"gpl.html>\n"
 "Это свободное ПО: вы можете продавать и распространять его.\n"
 "Нет НИКАКИХ ГАРАНТИЙ до степени, разрешённой законом.\n"
 
@@ -1535,20 +1535,20 @@ msgstr "    --version               показать номер версии и 
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
-#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-#| "html>\n"
+#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+#| "gpl.html>\n"
 #| "This is free software: you are free to change and redistribute it.\n"
 #| "There is NO WARRANTY, to the extent permitted by law.\n"
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
-"html>\n"
+"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
+"gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law."
 msgstr ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"Лицензия GPLv3+: GNU GPL версии 3 или новее <http://gnu.org/licenses/gpl."
-"html>\n"
+"Лицензия GPLv3+: GNU GPL версии 3 или новее <http://gnu.org/licenses/"
+"gpl.html>\n"
 "Это свободное ПО: вы можете продавать и распространять его.\n"
 "Нет НИКАКИХ ГАРАНТИЙ до степени, разрешённой законом.\n"
 
@@ -1602,7 +1602,7 @@ msgstr "%s: невозможно открыть %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:596 Pod-Simple-Texinfo/pod2texi.pl:694
 #: tta/perl/texi2any.pl:2145 tta/perl/texi2any.pl:2364
-#: tta/C/convert/texinfo.c:747
+#: tta/C/convert/texinfo.c:763
 #, fuzzy, c-format, perl-format
 #| msgid "%s: error on closing %s: %s\n"
 msgid "%s: error on closing %s: %s"
@@ -1711,11 +1711,11 @@ msgstr "@%s «%s» было определено раньше"
 msgid "here is the previous definition as @%s"
 msgstr "место предыдущего определения @%s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:423
-#: tta/perl/Texinfo/Convert/HTML.pm:12121
-#: tta/perl/Texinfo/Convert/HTML.pm:13161
-#: tta/perl/Texinfo/Convert/HTML.pm:13417 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1150
+#: tta/perl/Texinfo/Convert/Converter.pm:422
+#: tta/perl/Texinfo/Convert/HTML.pm:12126
+#: tta/perl/Texinfo/Convert/HTML.pm:13166
+#: tta/perl/Texinfo/Convert/HTML.pm:13422 tta/perl/Texinfo/Convert/IXIN.pm:358
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1152
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1838
@@ -1726,12 +1726,12 @@ msgstr "место предыдущего определения @%s"
 msgid "could not open %s for writing: %s"
 msgstr "невозможно открыть %s на запись: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:449
-#: tta/perl/Texinfo/Convert/HTML.pm:12116
-#: tta/perl/Texinfo/Convert/HTML.pm:13183 tta/perl/Texinfo/Convert/IXIN.pm:1039
+#: tta/perl/Texinfo/Convert/Converter.pm:448
+#: tta/perl/Texinfo/Convert/HTML.pm:12121
+#: tta/perl/Texinfo/Convert/HTML.pm:13188 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1236
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1238
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1742,26 +1742,26 @@ msgstr "невозможно открыть %s на запись: %s"
 msgid "error on closing %s: %s"
 msgstr "ошибка при закрытии %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:754
-#: tta/perl/Texinfo/Convert/Converter.pm:770
-#: tta/perl/Texinfo/Convert/Converter.pm:791
+#: tta/perl/Texinfo/Convert/Converter.pm:753
+#: tta/perl/Texinfo/Convert/Converter.pm:769
+#: tta/perl/Texinfo/Convert/Converter.pm:790
 #, perl-format
 msgid "unknown customization variable: %s"
 msgstr "неизвестная переменная настройки: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1167
+#: tta/perl/Texinfo/Convert/Converter.pm:1166
 #: tta/perl/Texinfo/Convert/Text.pm:1060 tta/perl/Texinfo/Convert/Text.pm:1082
 #: tta/C/convert/converter.c:1012
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "невозможно создать каталог «%s»: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1567
+#: tta/perl/Texinfo/Convert/Converter.pm:1566
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "ошибка при закрытии файла текста изображения %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1576
+#: tta/perl/Texinfo/Convert/Converter.pm:1575
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "невозможно прочитать файл @image «%s»: %s"
@@ -1834,101 +1834,101 @@ msgstr "невозможно найти файл настроек ссылок h
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "Каталог %s устарел. Используйте вместо него %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9046
+#: tta/perl/Texinfo/Convert/HTML.pm:9051
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr "Неизвестный файл и id функции настройки: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9064
+#: tta/perl/Texinfo/Convert/HTML.pm:9069
 #, perl-format
 msgid "Unknown formatting function: %s"
 msgstr "Неизвестная функция форматирования: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9527
+#: tta/perl/Texinfo/Convert/HTML.pm:9532
 #: tta/C/convert/html_prepare_converter.c:3581
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "незакрытая строка в файле css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9529
+#: tta/perl/Texinfo/Convert/HTML.pm:9534
 #: tta/C/convert/html_prepare_converter.c:3589
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "--css-include обрывается в комментарии"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9531
+#: tta/perl/Texinfo/Convert/HTML.pm:9536
 #: tta/C/convert/html_prepare_converter.c:3597
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "@import не завершена в файле css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9564
+#: tta/perl/Texinfo/Convert/HTML.pm:9569
 #: tta/C/convert/html_prepare_converter.c:3649
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "Файл CSS %s не найден"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9576
+#: tta/perl/Texinfo/Convert/HTML.pm:9581
 #: tta/C/convert/html_prepare_converter.c:3671
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "невозможно открыть --include-file %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9594
+#: tta/perl/Texinfo/Convert/HTML.pm:9599
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "ошибка при закрытии файла CSS %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9799
+#: tta/perl/Texinfo/Convert/HTML.pm:9804
 #: tta/C/convert/html_prepare_converter.c:4607
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr "задаваемое пользователем имя файла ноды не указано для «%s»"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10126
+#: tta/perl/Texinfo/Convert/HTML.pm:10131
 #: tta/C/convert/html_prepare_converter.c:5737
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "замена %s файлового пути %s на %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10130
+#: tta/perl/Texinfo/Convert/HTML.pm:10135
 #: tta/C/convert/html_prepare_converter.c:5747
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr "замена %s файлового пути с относительного пути на %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10134
+#: tta/perl/Texinfo/Convert/HTML.pm:10139
 #: tta/C/convert/html_prepare_converter.c:5756
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr "замена %s файлового пути с %s на относительный путь"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10720
+#: tta/perl/Texinfo/Convert/HTML.pm:10725
 #: tta/C/convert/html_prepare_converter.c:5214
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node '%s'"
 msgid "could not find %s node `%s'"
 msgstr "Невозможно найти ноду «%s»"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10987 tta/C/convert/format_html.c:874
+#: tta/perl/Texinfo/Convert/HTML.pm:10992 tta/C/convert/format_html.c:874
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr "не назначать суффикс %s в ссылке у справочника «%s»"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11024
-#: tta/perl/Texinfo/Convert/HTML.pm:11030 tta/C/convert/format_html.c:923
+#: tta/perl/Texinfo/Convert/HTML.pm:11029
+#: tta/perl/Texinfo/Convert/HTML.pm:11035 tta/C/convert/format_html.c:923
 #: tta/C/convert/format_html.c:934
 #, fuzzy, c-format, perl-format
 #| msgid "no htmlxref.cnf entry found for `%s'"
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "элемент htmlxref.cnf не найден в «%s»"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11535 tta/C/convert/format_html.c:4125
+#: tta/perl/Texinfo/Convert/HTML.pm:11540 tta/C/convert/format_html.c:4125
 #, c-format, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s не имеет смысла для не разделяемого вывода"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12060 tta/C/convert/convert_html.c:2581
+#: tta/perl/Texinfo/Convert/HTML.pm:12065 tta/C/convert/convert_html.c:2581
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -1937,96 +1937,96 @@ msgstr ""
 "невозможно использовать абсолютный путь или URL «%s» для JS_WEBLABELS_FILE "
 "при генерации файл меток веба"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12107 tta/C/convert/convert_html.c:2605
+#: tta/perl/Texinfo/Convert/HTML.pm:12112 tta/C/convert/convert_html.c:2605
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "перезаписываем выходной файл с лицензиями js: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12803 tta/C/convert/convert_html.c:843
+#: tta/perl/Texinfo/Convert/HTML.pm:12808 tta/C/convert/convert_html.c:843
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "обработчик %d на стадии %s с приоритетом %s: не числовой результат"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12810 tta/C/convert/convert_html.c:855
+#: tta/perl/Texinfo/Convert/HTML.pm:12815 tta/C/convert/convert_html.c:855
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "ошибка в обработчике %d на стадии %s с приоритетом %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12858
+#: tta/perl/Texinfo/Convert/HTML.pm:12863
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "ошибка при копировании %s в %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12867 tta/C/convert/convert_html.c:2826
+#: tta/perl/Texinfo/Convert/HTML.pm:12872 tta/C/convert/convert_html.c:2826
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "ошибка при создании пустого %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12872 tta/C/convert/convert_html.c:2838
+#: tta/perl/Texinfo/Convert/HTML.pm:12877 tta/C/convert/convert_html.c:2838
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "ошибка при закрытии пустого %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12986
-#: tta/perl/Texinfo/Convert/HTML.pm:12990 tta/C/convert/convert_html.c:1159
+#: tta/perl/Texinfo/Convert/HTML.pm:12991
+#: tta/perl/Texinfo/Convert/HTML.pm:12995 tta/C/convert/convert_html.c:1159
 #: tta/C/convert/convert_html.c:1164
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "должен быть задан заголовок командой заголовка или @top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13270 tta/C/convert/convert_html.c:3038
+#: tta/perl/Texinfo/Convert/HTML.pm:13275 tta/C/convert/convert_html.c:3038
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s «%s» файл перенаправлений %s существует"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13288 tta/C/convert/convert_html.c:3053
+#: tta/perl/Texinfo/Convert/HTML.pm:13293 tta/C/convert/convert_html.c:3053
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "конфликт со всем файлом документации"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13291 tta/C/convert/convert_html.c:3056
+#: tta/perl/Texinfo/Convert/HTML.pm:13296 tta/C/convert/convert_html.c:3056
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "конфликт с файлом Top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13294 tta/C/convert/convert_html.c:3059
+#: tta/perl/Texinfo/Convert/HTML.pm:13299 tta/C/convert/convert_html.c:3059
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "конфликт с файлом, указанным пользователем"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13297 tta/C/convert/convert_html.c:3062
+#: tta/perl/Texinfo/Convert/HTML.pm:13302 tta/C/convert/convert_html.c:3062
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "конфликт с файлом неизвестной ноды"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13300 tta/C/convert/convert_html.c:3066
+#: tta/perl/Texinfo/Convert/HTML.pm:13305 tta/C/convert/convert_html.c:3066
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "конфликт с файлом без известного источника"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13308 tta/C/convert/convert_html.c:3080
+#: tta/perl/Texinfo/Convert/HTML.pm:13313 tta/C/convert/convert_html.c:3080
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "конфликт с @%s «%s» файла"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13320 tta/C/convert/convert_html.c:3096
+#: tta/perl/Texinfo/Convert/HTML.pm:13325 tta/C/convert/convert_html.c:3096
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "конфликт с @%s «%s» файла перенаправлений"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13334 tta/C/convert/convert_html.c:3116
+#: tta/perl/Texinfo/Convert/HTML.pm:13339 tta/C/convert/convert_html.c:3116
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "конфликт с @%s «%s» файла"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13347 tta/C/convert/convert_html.c:3129
+#: tta/perl/Texinfo/Convert/HTML.pm:13352 tta/C/convert/convert_html.c:3129
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "конфликт со специальным элементом %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13425
+#: tta/perl/Texinfo/Convert/HTML.pm:13430
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "ошибка при закрытии файла ноды перенаправления %s: %s"
@@ -2085,58 +2085,58 @@ msgstr "имя @node не должно содержать «,»: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "имя @node %s не должно содержать «,»: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3323
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3325
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "использование разделителя \\verb «%s» (для LaTeX) в тексте «%s»"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3363
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3365
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "файл @image «%s» (для LaTeX) не найден"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4879
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4881
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: невозможно открыть %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4968
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4970
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: ошибка при выполнении chdir %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4976
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4978
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: отсутствует имя выходного файла: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5002
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5004
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: ошибка при выполнении команды: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5007
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5009
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: ошибка при закрытии связи: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5023
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5025
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: отсутствует имя выходного файла: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5038
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5040
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5045
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -4257,7 +4257,7 @@ msgstr "ошибка при закрытии %s: %s"
 msgid "error on closing CSS file  %s: %s"
 msgstr "ошибка при закрытии файла CSS %s: %s"
 
-#: tta/C/convert/texinfo.c:759
+#: tta/C/convert/texinfo.c:775
 #, fuzzy, c-format
 #| msgid "%s: error on closing %s: %s\n"
 msgid "%s: error on closing io %s: %s"
@@ -5796,8 +5796,8 @@ msgstr "неверный или пустой формальный аргумен
 #~ "Usage: %s [OPTION]... [INPUT-FILE]\n"
 #~ "\n"
 #~ "Compile infokey source file to infokey file.  Reads INPUT-FILE (default\n"
-#~ "$HOME/.infokey) and writes compiled key file to (by default) $HOME/."
-#~ "info.\n"
+#~ "$HOME/.infokey) and writes compiled key file to (by default) "
+#~ "$HOME/.info.\n"
 #~ "\n"
 #~ "Options:\n"
 #~ "  --output FILE        output to FILE instead of $HOME/.info\n"
@@ -5811,8 +5811,8 @@ msgstr "неверный или пустой формальный аргумен
 #~ "скомпилированный файл с привязками клавиш в $HOME/.info.\n"
 #~ "\n"
 #~ "Параметры:\n"
-#~ "  --output ИМЯ-ФАЙЛА           вывод в указанный файл, а не в $HOME/."
-#~ "info\n"
+#~ "  --output ИМЯ-ФАЙЛА           вывод в указанный файл, а не в "
+#~ "$HOME/.info\n"
 #~ "  --help                       показать эту справку и выйти\n"
 #~ "  --version                    показать информацию о версии и выйти\n"
 

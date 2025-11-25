@@ -1,5 +1,13 @@
 2025-11-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Utils.pm (definition_category_tree): update
+	TRANSLATORS description again to match spacing of the other
+	TRANSLATORS description.
+
+	update po files.
+
+2025-11-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/convert_utils.c (definition_category_tree),
 	tta/perl/Texinfo/Convert/Utils.pm (definition_category_tree): replace
 	name with category in TRANSLATORS description.  Report by Gavin.

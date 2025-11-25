@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-11-23 19:45+0000\n"
+"POT-Creation-Date: 2025-11-25 21:44+0100\n"
 "PO-Revision-Date: 2025-05-07 14:10+0200\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -452,45 +452,45 @@ msgid "{name} of {class}"
 msgstr "{name} de {class}"
 
 #. TRANSLATORS: expansion of @error{} as Texinfo code
-#: tta/perl/Texinfo/Convert/Converter.pm:204 tta/C/convert/converter.c:152
+#: tta/perl/Texinfo/Convert/Converter.pm:203 tta/C/convert/converter.c:152
 msgid "error@arrow{}"
 msgstr "error@arrow{}"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1596
-#: tta/perl/Texinfo/Convert/Converter.pm:1659 tta/C/convert/converter.c:1275
+#: tta/perl/Texinfo/Convert/Converter.pm:1595
+#: tta/perl/Texinfo/Convert/Converter.pm:1658 tta/C/convert/converter.c:1275
 #: tta/C/convert/converter.c:1340
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr "{float_type} {float_number}"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1601
-#: tta/perl/Texinfo/Convert/Converter.pm:1661 tta/C/convert/converter.c:1278
+#: tta/perl/Texinfo/Convert/Converter.pm:1600
+#: tta/perl/Texinfo/Convert/Converter.pm:1660 tta/C/convert/converter.c:1278
 #: tta/C/convert/converter.c:1343
 #, perl-brace-format
 msgid "{float_type}"
 msgstr "{float_type}"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1605
-#: tta/perl/Texinfo/Convert/Converter.pm:1669 tta/C/convert/converter.c:1281
+#: tta/perl/Texinfo/Convert/Converter.pm:1604
+#: tta/perl/Texinfo/Convert/Converter.pm:1668 tta/C/convert/converter.c:1281
 #: tta/C/convert/converter.c:1354
 #, perl-brace-format
 msgid "{float_number}"
 msgstr "{float_number}"
 
 #. TRANSLATORS: added before caption
-#: tta/perl/Texinfo/Convert/Converter.pm:1652 tta/C/convert/converter.c:1330
+#: tta/perl/Texinfo/Convert/Converter.pm:1651 tta/C/convert/converter.c:1330
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr "{float_type} {float_number}: "
 
 #. TRANSLATORS: added before caption, no float label
-#: tta/perl/Texinfo/Convert/Converter.pm:1655 tta/C/convert/converter.c:1334
+#: tta/perl/Texinfo/Convert/Converter.pm:1654 tta/C/convert/converter.c:1334
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr "{float_type}: "
 
 #. TRANSLATORS: added before caption, no float type
-#: tta/perl/Texinfo/Convert/Converter.pm:1667 tta/C/convert/converter.c:1351
+#: tta/perl/Texinfo/Convert/Converter.pm:1666 tta/C/convert/converter.c:1351
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr "{float_number}: "
@@ -607,27 +607,27 @@ msgid "see {title_ref}"
 msgstr "vegeu {title_ref}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1634
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3845
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3847
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3364
 #, perl-brace-format
 msgid "{abbr_or_acronym} ({explanation})"
 msgstr "{abbr_or_acronym} ({explanation})"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1825
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4062
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4064
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3587
 #: tta/perl/Texinfo/Convert/HTML.pm:6788 tta/C/convert/format_html.c:11305
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3477
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3479
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3290
 #, perl-brace-format
 msgid "{text} ({url})"
 msgstr "{text} ({url})"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4002
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4004
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3491
 #: tta/perl/Texinfo/Convert/HTML.pm:3351 tta/C/convert/format_html.c:6136
 #, perl-brace-format
@@ -635,7 +635,7 @@ msgid "@{No value for `{value}'@}"
 msgstr "@{No hi ha cap valor per a `{value}'@}"
 
 #. TRANSLATORS: quotation author
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4744
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4746
 #: tta/perl/Texinfo/Convert/Plaintext.pm:4555
 #: tta/perl/Texinfo/Convert/HTML.pm:5389
 #, perl-brace-format
@@ -1111,7 +1111,7 @@ msgstr "{category}:@* "
 msgid "{category}: "
 msgstr "{category}: "
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11337 tta/C/convert/format_html.c:3645
+#: tta/perl/Texinfo/Convert/HTML.pm:11342 tta/C/convert/format_html.c:3645
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
@@ -1120,52 +1120,52 @@ msgstr ""
 "Aquest document va ser generat el @emph{@today{}} usant "
 "@uref{{program_homepage}, @emph{{program}}}."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11345 tta/C/convert/format_html.c:3654
+#: tta/perl/Texinfo/Convert/HTML.pm:11350 tta/C/convert/format_html.c:3654
 msgid "This document was generated on @emph{@today{}}."
 msgstr "Aquest document va ser generat el @emph{@today{}}."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11385 tta/C/convert/format_html.c:3758
+#: tta/perl/Texinfo/Convert/HTML.pm:11390 tta/C/convert/format_html.c:3758
 msgid "JavaScript license information"
 msgstr "Informaci@'o de llic@`encia del JavaScript"
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tta/perl/Texinfo/Convert/HTML.pm:11444 tta/C/convert/format_html.c:4015
+#: tta/perl/Texinfo/Convert/HTML.pm:11449 tta/C/convert/format_html.c:4015
 #, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr "{element_text} ({title})"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11706
+#: tta/perl/Texinfo/Convert/HTML.pm:11711
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr "El node que esteu buscant @'es a {href}."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11850
+#: tta/perl/Texinfo/Convert/HTML.pm:11855
 msgid "There are no buttons for this document."
 msgstr "No hi ha botons a aquest document"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11856
+#: tta/perl/Texinfo/Convert/HTML.pm:11861
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr "  El botons als plafons de navegaci@'o tenen el seg@\"uent significat:"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11875
+#: tta/perl/Texinfo/Convert/HTML.pm:11880
 msgid "Button"
 msgstr "Bot@'o"
 
 #. TRANSLATORS: button label column header in the navigation help
-#: tta/perl/Texinfo/Convert/HTML.pm:11878
+#: tta/perl/Texinfo/Convert/HTML.pm:11883
 msgid "Name"
 msgstr "Nom"
 
 #. TRANSLATORS: direction description column header in the navigation help
-#: tta/perl/Texinfo/Convert/HTML.pm:11881
+#: tta/perl/Texinfo/Convert/HTML.pm:11886
 msgid "Go to"
 msgstr "Ves a"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11885
+#: tta/perl/Texinfo/Convert/HTML.pm:11890
 msgid "From 1.2.3 go to"
 msgstr "Des de 1.2.3 ves a"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11949
+#: tta/perl/Texinfo/Convert/HTML.pm:11954
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1176,55 +1176,55 @@ msgstr ""
 "seg@\"uent:"
 
 #. TRANSLATORS: example name of section for section 1
-#: tta/perl/Texinfo/Convert/HTML.pm:11962
+#: tta/perl/Texinfo/Convert/HTML.pm:11967
 msgid "Section One"
 msgstr "Secci@'o U"
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tta/perl/Texinfo/Convert/HTML.pm:11966
+#: tta/perl/Texinfo/Convert/HTML.pm:11971
 msgid "Subsection One-One"
 msgstr "Subsecci@'o U-U"
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tta/perl/Texinfo/Convert/HTML.pm:11976
+#: tta/perl/Texinfo/Convert/HTML.pm:11981
 msgid "Subsection One-Two"
 msgstr "Subsecci@'o U-Dos"
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tta/perl/Texinfo/Convert/HTML.pm:11981
+#: tta/perl/Texinfo/Convert/HTML.pm:11986
 msgid "Subsubsection One-Two-One"
 msgstr "Subsubsecci@'o U-Dos_U"
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tta/perl/Texinfo/Convert/HTML.pm:11985
+#: tta/perl/Texinfo/Convert/HTML.pm:11990
 msgid "Subsubsection One-Two-Two"
 msgstr "Subsubsecci@'o U-Dos-Dos"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tta/perl/Texinfo/Convert/HTML.pm:11989
+#: tta/perl/Texinfo/Convert/HTML.pm:11994
 msgid "Subsubsection One-Two-Three"
 msgstr "Subsubsecci@'o U-Dos-Tres"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11994
+#: tta/perl/Texinfo/Convert/HTML.pm:11999
 msgid "Current Position"
 msgstr "Posici@'o actual"
 
 #. TRANSLATORS: example name of section for section 1.2.4
-#: tta/perl/Texinfo/Convert/HTML.pm:11998
+#: tta/perl/Texinfo/Convert/HTML.pm:12003
 msgid "Subsubsection One-Two-Four"
 msgstr "Subsubsecci@'o U-Dos-Quatre"
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tta/perl/Texinfo/Convert/HTML.pm:12004
+#: tta/perl/Texinfo/Convert/HTML.pm:12009
 msgid "Subsection One-Three"
 msgstr "Subsecci@'o U-Tres"
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tta/perl/Texinfo/Convert/HTML.pm:12014
+#: tta/perl/Texinfo/Convert/HTML.pm:12019
 msgid "Subsection One-Four"
 msgstr "Subsecci@'o U-Quatre"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12967 tta/C/convert/convert_html.c:1138
+#: tta/perl/Texinfo/Convert/HTML.pm:12972 tta/C/convert/convert_html.c:1138
 msgid "Untitled Document"
 msgstr "Document sense t@'{@dotless{i}}tol"
 
@@ -1276,7 +1276,7 @@ msgstr "Novembre"
 msgid "December"
 msgstr "Desembre"
 
-#. TRANSLATORS: association of a method or operation name with a class
+#. TRANSLATORS: association of a method or operation category with a class
 #. in descriptions of object-oriented programming methods or operations.
 #: tta/perl/Texinfo/Convert/Utils.pm:356 tta/perl/Texinfo/Convert/Utils.pm:360
 #: tta/perl/Texinfo/Convert/Utils.pm:364 tta/C/main/convert_utils.c:756
