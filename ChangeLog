@@ -1,5 +1,15 @@
 2025-11-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (encode_with_iconv, encode_string): add an
+	argument, if set encoding errors are not reported from
+	encode_with_iconv.  Update callers.
+
+	* tta/C/main/node_name_normalization.c (unicode_to_transliterate):
+	silence transliteration errors.  Transliterations should only be used
+	for internal identifiers.  Report from Gavin.
+
+2025-11-25 Patrice Dumas  <pertusus@free.fr>
+
 	Do not transliterate section command identifier by default
 
 	* tta/C/main/node_name_normalization.c

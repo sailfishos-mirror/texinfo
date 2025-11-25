@@ -110,7 +110,7 @@ GNUT_encode_message (char *text)
   if (option && option->o.string)
     {
       int status;
-      char *result = encode_string (text, option->o.string, &status, 0);
+      char *result = encode_string (text, option->o.string, &status, 0, 0);
       return result;
     }
   else

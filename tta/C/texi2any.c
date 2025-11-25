@@ -718,7 +718,7 @@ write_to_file (char *output_text, FILE *file_fh,
                                    &output_conversions);
       if (conversion)
         result_text = encode_with_iconv (conversion->iconv,
-                                            output_text, 0);
+                                         output_text, 0, 0);
     }
 
   if (!result_text)

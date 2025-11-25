@@ -527,8 +527,8 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 }
 
 char *
-encode_with_iconv (iconv_t our_iconv, char *s,
-                   const SOURCE_INFO *source_info)
+encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
+                   int silent)
 {
   static TEXT t;
   ICONV_CONST char *inptr; size_t bytes_left;
@@ -563,13 +563,16 @@ encode_with_iconv (iconv_t our_iconv, char *s,
           break;
         case EILSEQ:
         default:
-          if (source_info)
-            fprintf (stderr, "%s:%d: C:encoding error at byte 0x%02x\n",
-              source_info->file_name, source_info->line_nr,
+          if (! silent)
+            {
+              if (source_info)
+                fprintf (stderr, "%s:%d: C:encoding error at byte 0x%02x\n",
+                                 source_info->file_name, source_info->line_nr,
                                              *(unsigned char *)inptr);
-          else
-            fprintf (stderr, "C:encoding error at byte 0x%02x\n",
-                    *(unsigned char *)inptr);
+              else
+                fprintf (stderr, "C:encoding error at byte 0x%02x\n",
+                                 *(unsigned char *)inptr);
+            }
           inptr++; bytes_left--;
           break;
         }
@@ -600,13 +603,13 @@ decode_string (char *input_string, const char *encoding, int *status,
 
   *status = 1;
 
-  result = encode_with_iconv (conversion->iconv, input_string, source_info);
+  result = encode_with_iconv (conversion->iconv, input_string, source_info, 0);
   return result;
 }
 
 char *
 encode_string (char *input_string, const char *encoding, int *status,
-               const SOURCE_INFO *source_info)
+               const SOURCE_INFO *source_info, int silent)
 {
   char *result;
   *status = 0;
@@ -624,7 +627,8 @@ encode_string (char *input_string, const char *encoding, int *status,
 
   *status = 1;
 
-  result = encode_with_iconv (conversion->iconv, input_string, source_info);
+  result = encode_with_iconv (conversion->iconv, input_string, source_info,
+                              silent);
   return result;
 }
 

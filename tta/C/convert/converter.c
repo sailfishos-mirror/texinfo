@@ -578,7 +578,7 @@ write_or_return (const ENCODING_CONVERSION *conversion,
       if (conversion)
         {
           result = encode_with_iconv (conversion->iconv,
-                                      text, 0);
+                                      text, 0, 0);
           res_len = strlen (result);
         }
       else

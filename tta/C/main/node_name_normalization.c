@@ -388,7 +388,11 @@ unicode_to_transliterate (char *text, int external,
         return result;
     }
 
-  result = encode_string (text, "us-ascii//TRANSLIT", &status, 0);
+  /* We silence the transliteration errors that may happen (for example on
+     solaris 11).  The calling code should never depend on a specific
+     transliteration result, transliteration should only be used for
+     internal identifiers. */
+  result = encode_string (text, "us-ascii//TRANSLIT", &status, 0, 1);
 
   return result;
 }
