@@ -1,5 +1,13 @@
 2025-11-25 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Invoking @command{texi2any}): explain that
+	transliteration is also done for sectioning commands file names, and
+	sectioning commands identifiers if --transliterate-file-names is set.
+	Also say that the transliterated names obtained are platform
+	and processor dependent.
+
+2025-11-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/utils.c (encode_with_iconv, encode_string): add an
 	argument, if set encoding errors are not reported from
 	encode_with_iconv.  Update callers.

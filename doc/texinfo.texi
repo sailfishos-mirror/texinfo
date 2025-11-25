@@ -15393,8 +15393,11 @@ easier to collect the sources of a Texinfo manual.)
 @item --transliterate-file-names
 @opindex --transliterate-file-names
 @vindex TRANSLITERATE_FILE_NAMES
-Enable transliteration of non-ASCII characters in node names for the
-purpose of file name creation.  @xref{HTML Xref 8-bit Character Expansion}.
+Enable transliteration of non-ASCII characters in node and sectioning commands
+names for the purpose of file name creation.  If set, transliteration is also
+enabled for sectioning commands identifiers.  The file names and identifiers
+obtained that way are platform and processor dependent.  @xref{HTML Xref 8-bit
+Character Expansion}.
 
 @item -U @var{var}
 Cause @var{var} to be undefined.  This is equivalent to @code{@@clear
