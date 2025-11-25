@@ -751,7 +751,7 @@ definition_category_tree (const ELEMENT *current,
       else if (lang_translation)
         {
     /*
-     TRANSLATORS: association of a method or operation name with a class
+     TRANSLATORS: association of a method or operation category with a class
      in descriptions of object-oriented programming methods or operations. */
           result = gdt_tree ("{category} on @code{{class}}", 0,
                              lang_translation, substrings, debug, 0);
