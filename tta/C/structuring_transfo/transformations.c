@@ -684,7 +684,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
           text_printf (appended_text->e.text, " %d", appended_number);
           add_to_contents_as_array (node_line_arg, appended_text);
         }
-      normalized = convert_contents_to_identifier (node_line_arg);
+      normalized = convert_contents_to_node_identifier (node_line_arg);
 
       non_hyphen_char = normalized + strspn (normalized, "-");
       if (*non_hyphen_char)

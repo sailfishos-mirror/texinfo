@@ -837,11 +837,19 @@ sub normalized_sectioning_command_filename($$) {
     # @*heading commands
     $label_element = $command->{'contents'}->[0];
   }
-  my $normalized_name
+  my $normalized_name;
+  if ($self->get_conf('TRANSLITERATE_FILE_NAMES')) {
+    $normalized_name
     = Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
         Texinfo::TreeElement::new(
          {'contents' => $label_element->{'contents'}}), $in_test,
                   $no_unidecode);
+  } else {
+    $normalized_name
+     = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+           Texinfo::TreeElement::new(
+             { 'contents' => $label_element->{'contents'} }));
+  }
 
   my $filename = $self->_id_to_filename($normalized_name);
   $filename .= '.'.$self->get_conf('EXTENSION')
@@ -872,7 +880,7 @@ sub node_information_filename($$$) {
     }
   } elsif (defined($label_element)) {
     $filename
-     = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+     = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
            Texinfo::TreeElement::new(
              { 'contents' => $label_element->{'contents'} }));
   } else {

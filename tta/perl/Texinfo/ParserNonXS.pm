@@ -4002,7 +4002,7 @@ sub _end_line_misc_line($$$) {
         }
         if ($node_line_arg->{'extra'}->{'node_content'}) {
           my $normalized
-            = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+       = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
               $node_line_arg->{'extra'}->{'node_content'});
           $node_line_arg->{'extra'}->{'normalized'} = $normalized;
         }
@@ -4962,8 +4962,8 @@ sub _check_register_target_element_label($$$$) {
                          $source_info);
     }
     my $normalized
-         = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
-             $label_element);
+      = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
+          $label_element);
     if ($normalized !~ /[^-]/) {
       _line_error($self, sprintf(__("empty node name after expansion `%s'"),
                          # convert the contents only, to avoid spaces

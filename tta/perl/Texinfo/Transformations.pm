@@ -427,7 +427,7 @@ sub _new_node($$)
     }
 
     $normalized
-       = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+       = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
            Texinfo::TreeElement::new(
                        { 'contents' => $node_line_arg->{'contents'} }));
 

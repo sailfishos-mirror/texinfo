@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
+$result_tree_text{'reference_to_only_special_spaces_node_transliterate'} = '*document_root C8
  *before_node_section C2
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
@@ -143,7 +143,7 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
 ';
 
 
-$result_texis{'reference_to_only_special_spaces_node'} = '
+$result_texis{'reference_to_only_special_spaces_node_transliterate'} = '
 @node Top
 @top top
 
@@ -162,7 +162,7 @@ $result_texis{'reference_to_only_special_spaces_node'} = '
 ';
 
 
-$result_texts{'reference_to_only_special_spaces_node'} = 'top
+$result_texts{'reference_to_only_special_spaces_node_transliterate'} = 'top
 ***
 
 1 EN QUAD| | EM QUAD| | EN SPACE| |
@@ -178,7 +178,7 @@ $result_texts{'reference_to_only_special_spaces_node'} = 'top
 
 ';
 
-$result_errors{'reference_to_only_special_spaces_node'} = '* E reference_to_only_special_spaces_node.texi:l10|@node `@code{   }\' previously defined
+$result_errors{'reference_to_only_special_spaces_node_transliterate'} = '* E reference_to_only_special_spaces_node.texi:l10|@node `@code{   }\' previously defined
  @node `@code{   }\' previously defined
 
 * EC reference_to_only_special_spaces_node.texi:l5|here is the previous definition as @node
@@ -189,7 +189,7 @@ $result_errors{'reference_to_only_special_spaces_node'} = '* E reference_to_only
 
 ';
 
-$result_nodes_list{'reference_to_only_special_spaces_node'} = '1|Top
+$result_nodes_list{'reference_to_only_special_spaces_node_transliterate'} = '1|Top
  associated_section: top
  associated_title_command: top
  node_directions:
@@ -209,7 +209,7 @@ $result_nodes_list{'reference_to_only_special_spaces_node'} = '1|Top
   up->Top
 ';
 
-$result_sections_list{'reference_to_only_special_spaces_node'} = '1|top
+$result_sections_list{'reference_to_only_special_spaces_node_transliterate'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
  toplevel_directions:
@@ -238,15 +238,15 @@ $result_sections_list{'reference_to_only_special_spaces_node'} = '1|top
   up->top
 ';
 
-$result_sectioning_root{'reference_to_only_special_spaces_node'} = 'level: -1
+$result_sectioning_root{'reference_to_only_special_spaces_node_transliterate'} = 'level: -1
 list:
  1|top
 ';
 
-$result_headings_list{'reference_to_only_special_spaces_node'} = '';
+$result_headings_list{'reference_to_only_special_spaces_node_transliterate'} = '';
 
 
-$result_converted{'info'}->{'reference_to_only_special_spaces_node'} = 'This is , produced from reference_to_only_special_spaces_node.texi.
+$result_converted{'info'}->{'reference_to_only_special_spaces_node_transliterate'} = 'This is , produced from reference_to_only_special_spaces_node.texi.
 
 
 File: ,  Node: Top,  Next:    ,  Up: (dir)
@@ -285,7 +285,7 @@ End:
 ';
 
 
-$result_converted{'html'}->{'reference_to_only_special_spaces_node'} = '<!DOCTYPE html>
+$result_converted{'html'}->{'reference_to_only_special_spaces_node_transliterate'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
@@ -325,7 +325,7 @@ Next: <a href="#g_t_2002_2003_2002" accesskey="n" rel="next">EN QUAD| | EM QUA
 <p>
 Next: <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"><span>1 EN QUAD| | EM QUAD| | EN SPACE| |<a class="copiable-link" href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"> &para;</a></span></h2>
+<h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"><span>1 EN QUAD| | EM QUAD| | EN SPACE| |<a class="copiable-link" href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"> &para;</a></span></h2>
 
 <p><a class="ref" href="#g_t_2002_2003_2002">   </a>.
 </p>
@@ -336,7 +336,7 @@ Next: <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code>, Previou
 <p>
 Previous: <a href="#g_t_2002_2003_2002" accesskey="p" rel="prev">EN QUAD| | EM QUAD| | EN SPACE| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c-1"><span>2 <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code><a class="copiable-link" href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c-1"> &para;</a></span></h2>
+<h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c-1"><span>2 <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code><a class="copiable-link" href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c-1"> &para;</a></span></h2>
 
 <p><a class="ref" href="#g_t_2002_2003_2002"><code class="code">   </code></a>.
 </p>

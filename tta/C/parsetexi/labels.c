@@ -63,7 +63,7 @@ check_register_target_element_label (ELEMENT *label_element,
           free (texi);
         }
       destroy_node_spec (label_info);
-      normalized = convert_to_identifier (label_element);
+      normalized = convert_to_node_identifier (label_element);
       non_hyphen_char = normalized + strspn (normalized, "-");
       if (!*non_hyphen_char)
         {

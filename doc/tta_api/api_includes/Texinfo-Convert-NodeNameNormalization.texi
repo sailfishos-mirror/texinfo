@@ -10,10 +10,10 @@ Texinfo::Convert::NodeNameNormalization - Normalize and transliterate Texinfo tr
 @section Texinfo::Convert::NodeNameNormalization SYNOPSIS
 
 @verbatim
-  use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier
+  use Texinfo::Convert::NodeNameNormalization qw(convert_to_node_identifier
                                         normalize_transliterate_texinfo);
 
-  my $normalized = convert_to_identifier($node_element->{'contents'}->[0]);
+  my $normalized = convert_to_node_identifier($node_element->{'contents'}->[0]);
 
   my $file_name
     = normalize_transliterate_texinfo($section_element->{'contents'}->[0]);
@@ -29,11 +29,12 @@ Texinfo to other formats.  There is no promise of API stability.
 @section Texinfo::Convert::NodeNameNormalization DESCRIPTION
 
 @code{Texinfo::Convert::NodeNameNormalization} allows to normalize node names
-with @code{convert_to_normalized} and @code{convert_to_identifier}.
-@code{convert_to_identifier} follows the specification described in the Texinfo
+with @code{convert_to_normalized} and @code{convert_to_node_identifier}.
+@code{convert_to_node_identifier} follows the specification described in the Texinfo
 manual @emph{HTML Xref} node.  This is useful whenever one want a unique identifier
 for Texinfo content, which is only composed of letter, digits, @code{-} and @code{_},
 for example for @code{@@node}, @code{@@float} and @code{@@anchor} names normalization.
+@code{convert_to_identifier} leaves out the step of normalizing @code{Top}.
 @code{convert_to_normalized} leaves out the step of protecting characters.
 
 It is also possible to transliterate non-ASCII letters, instead of mangling
@@ -56,12 +57,20 @@ normalized as described in the Texinfo manual @emph{HTML Xref} node.  ASCII
 7-bit characters other than spaces and non-ASCII characters are left as
 is in the resulting string.
 
+@item $normalized = convert_to_node_identifier($tree)
+@anchor{Texinfo@asis{::}Convert@asis{::}NodeNameNormalization $normalized = convert_to_node_identifier($tree)}
+
 @item $normalized = convert_to_identifier($tree)
 @anchor{Texinfo@asis{::}Convert@asis{::}NodeNameNormalization $normalized = convert_to_identifier($tree)}
-@cindex @code{convert_to_identifier}
 
-The Texinfo @emph{$tree} is returned as a string, normalized as described in the
-Texinfo manual @emph{HTML Xref} node.
+@cindex @code{convert_to_identifier}
+@cindex @code{convert_to_node_identifier}
+
+
+With @code{convert_to_node_identifier}, the Texinfo @emph{$tree} is returned as a
+string, normalized as described in the Texinfo manual @emph{HTML Xref} node.
+@code{convert_to_identifier} leaves out the normalization of the name if it
+is a @emph{Top} node name.
 
 The result will be poor for Texinfo trees which are not @@-command arguments
 (on an @@-command line or in braces), for instance if the tree contains

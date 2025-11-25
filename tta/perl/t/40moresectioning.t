@@ -181,7 +181,12 @@ undef, {'test_file' => 'special_spaces_in_nodes.texi',
 # different width.
 ['only_special_spaces_node',
 undef, {'test_file' => 'only_special_spaces_node.texi',
-        'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, }],
+        'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, },
+  {'TRANSLITERATE_FILE_NAMES' => 0}],
+['only_special_spaces_node_transliterate',
+undef, {'test_file' => 'only_special_spaces_node.texi',
+        'skip' => ($] < 5.018) ? 'Perl too old: LINE TABULATION in /a needed' : undef, },
+  {'TRANSLITERATE_FILE_NAMES' => 1}],
 ['equivalent_nodes_defined_linked',
 '@node Top, @asis{chap}
 

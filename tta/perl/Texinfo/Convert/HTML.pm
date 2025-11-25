@@ -9635,7 +9635,7 @@ sub _normalized_label_id_file($$$) {
   my $target;
   if (!defined($normalized) and defined($label_element)) {
     $normalized
-      = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+      = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
         $label_element);
   }
 
@@ -10715,7 +10715,7 @@ sub _prepare_output_units_global_targets($$$$) {
         # convert to identifier and determine the node element target
         if ($tree) {
           my $normalized_node
-       = Texinfo::Convert::NodeNameNormalization::convert_to_identifier($tree);
+   = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier($tree);
           if ($normalized_node ne '' and $normalized_node =~ /[^-]/) {
             $node_element = $self->label_command($normalized_node);
           }
@@ -10915,7 +10915,7 @@ sub standard_label_id_file($$$$$) {
   my $filename;
   if (!defined($normalized) and defined($label_element)) {
     $normalized
-      = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+      = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
         $label_element);
   }
   my $options = \%Texinfo::Options::converter_customization_options;

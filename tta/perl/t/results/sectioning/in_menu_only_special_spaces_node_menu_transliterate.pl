@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_tree_text %result_errors
 
 use utf8;
 
-$result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
+$result_tree_text{'in_menu_only_special_spaces_node_menu_transliterate'} = '*document_root C16
  *before_node_section C2
   *preamble_before_beginning C1
    {text_before_beginning:\\n}
@@ -318,7 +318,7 @@ $result_tree_text{'in_menu_only_special_spaces_node'} = '*document_root C16
 ';
 
 
-$result_texis{'in_menu_only_special_spaces_node'} = '
+$result_texis{'in_menu_only_special_spaces_node_menu_transliterate'} = '
 @node Top
 @top top
 
@@ -359,7 +359,7 @@ $result_texis{'in_menu_only_special_spaces_node'} = '
 ';
 
 
-$result_texts{'in_menu_only_special_spaces_node'} = 'top
+$result_texts{'in_menu_only_special_spaces_node_menu_transliterate'} = 'top
 ***
 
 *    ::
@@ -391,7 +391,7 @@ $result_texts{'in_menu_only_special_spaces_node'} = 'top
 
 ';
 
-$result_errors{'in_menu_only_special_spaces_node'} = '* E in_menu_only_special_spaces_node.texi:l7|empty node name in menu entry
+$result_errors{'in_menu_only_special_spaces_node_menu_transliterate'} = '* E in_menu_only_special_spaces_node.texi:l7|empty node name in menu entry
  empty node name in menu entry
 
 * E in_menu_only_special_spaces_node.texi:l8|empty node name in menu entry
@@ -405,7 +405,7 @@ $result_errors{'in_menu_only_special_spaces_node'} = '* E in_menu_only_special_s
 
 ';
 
-$result_nodes_list{'in_menu_only_special_spaces_node'} = '1|Top
+$result_nodes_list{'in_menu_only_special_spaces_node_menu_transliterate'} = '1|Top
  associated_section: top
  associated_title_command: top
  menus:
@@ -444,7 +444,7 @@ $result_nodes_list{'in_menu_only_special_spaces_node'} = '1|Top
   up->Top
 ';
 
-$result_sections_list{'in_menu_only_special_spaces_node'} = '1|top
+$result_sections_list{'in_menu_only_special_spaces_node_menu_transliterate'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
  toplevel_directions:
@@ -517,15 +517,15 @@ $result_sections_list{'in_menu_only_special_spaces_node'} = '1|top
   up->top
 ';
 
-$result_sectioning_root{'in_menu_only_special_spaces_node'} = 'level: -1
+$result_sectioning_root{'in_menu_only_special_spaces_node_menu_transliterate'} = 'level: -1
 list:
  1|top
 ';
 
-$result_headings_list{'in_menu_only_special_spaces_node'} = '';
+$result_headings_list{'in_menu_only_special_spaces_node_menu_transliterate'} = '';
 
 
-$result_converted{'info'}->{'in_menu_only_special_spaces_node'} = 'This is , produced from in_menu_only_special_spaces_node.texi.
+$result_converted{'info'}->{'in_menu_only_special_spaces_node_menu_transliterate'} = 'This is , produced from in_menu_only_special_spaces_node.texi.
 
 
 File: ,  Node: Top,  Next:    ,  Up: (dir)
@@ -589,7 +589,7 @@ End:
 ';
 
 
-$result_converted{'html'}->{'in_menu_only_special_spaces_node'} = '<!DOCTYPE html>
+$result_converted{'html'}->{'in_menu_only_special_spaces_node_menu_transliterate'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
 <head>
@@ -606,6 +606,8 @@ $result_converted{'html'}->{'in_menu_only_special_spaces_node'} = '<!DOCTYPE htm
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
+td.menu-entry-description {vertical-align: top; padding-left: 1em}
+td.menu-entry-destination {vertical-align: top}
 </style>
 
 
@@ -619,23 +621,29 @@ Next: <a href="#g_t_2002_2003_2002" accesskey="n" rel="next">EN QUAD| | EM QUA
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
+<table class="menu">
+<tr><td class="menu-entry-destination">&bull; <a href="#g_t_2002_2003_2002" accesskey="1">   </a>:</td><td class="menu-entry-description">
+</td></tr>
+<tr><td class="menu-entry-destination">&bull; :</td><td class="menu-entry-description">
+</td></tr>
+<tr><td class="menu-entry-destination">&bull; :</td><td class="menu-entry-description">
+</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#g_t_0085_00a0_1680" accesskey="4">  </a>:</td><td class="menu-entry-description">
+</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#g_t_180e_2003" accesskey="5">᠎ </a>:</td><td class="menu-entry-description">
+</td></tr>
+<tr><td class="menu-entry-destination">&bull; <a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="6">         　</a>:</td><td class="menu-entry-description">
+</td></tr>
+</table>
 
 
-<ul class="mini-toc">
-<li><a href="#g_t_2002_2003_2002" accesskey="1">EN QUAD| | EM QUAD| | EN SPACE| |</a></li>
-<li><a href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c" accesskey="2">CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</a></li>
-<li><a href="#CARRIAGE-RETURN_007c-_007c" accesskey="3">CARRIAGE RETURN|'."\r".'|</a></li>
-<li><a href="#g_t_0085_00a0_1680" accesskey="4">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a></li>
-<li><a href="#g_t_180e_2003" accesskey="5">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></li>
-<li><a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="6">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a></li>
-</ul>
 <hr>
 <div class="chapter-level-extent" id="g_t_2002_2003_2002">
 <div class="nav-panel">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"><span>1 EN QUAD| | EM QUAD| | EN SPACE| |<a class="copiable-link" href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c"> &para;</a></span></h2>
+<h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"><span>1 EN QUAD| | EM QUAD| | EN SPACE| |<a class="copiable-link" href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"> &para;</a></span></h2>
 
 </div>
 <div class="chapter-level-extent" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c">
@@ -652,7 +660,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <p>
 Next: <a href="#g_t_180e_2003" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"><span>4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |<a class="copiable-link" href="#NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"> &para;</a></span></h2>
+<h2 class="chapter" id="NEXT-LINE-_0028NEL_0029_007c_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"><span>4 NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |<a class="copiable-link" href="#NEXT-LINE-_0028NEL_0029_007c_007c-NO_002dBREAK-SPACE_007c-_007c-OGHAM-SPACE-MARK_007c-_007c"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -661,7 +669,7 @@ Next: <a href="#g_t_180e_2003" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATO
 <p>
 Next: <a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey="n" rel="next">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a>, Previous: <a href="#g_t_0085_00a0_1680" accesskey="p" rel="prev">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"><span>5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |<a class="copiable-link" href="#MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"> &para;</a></span></h2>
+<h2 class="chapter" id="MONGOLIAN-VOWEL-SEPARATOR_007c_007c-EM-SPACE_007c-_007c"><span>5 MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |<a class="copiable-link" href="#MONGOLIAN-VOWEL-SEPARATOR_007c_007c-EM-SPACE_007c-_007c"> &para;</a></span></h2>
 
 <hr>
 </div>
@@ -670,7 +678,7 @@ Next: <a href="#g_t_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" accesskey
 <p>
 Previous: <a href="#g_t_180e_2003" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c-FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c-HAIR-SPACE_007c_200a_007c-NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"><span>6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|<a class="copiable-link" href="#THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c-FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c-HAIR-SPACE_007c_200a_007c-NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"> &para;</a></span></h2>
+<h2 class="chapter" id="THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c_005b_003f_005d_007c-IDEOGRAPHIC-SPACE_007c-_007c"><span>6 THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|<a class="copiable-link" href="#THREE_002dPER_002dEM-SPACE_007c-_007c-FOUR_002dPER_002dEM-SPACE_007c-_007c-SIX_002dPER_002dEM-SPACE_007c-_007c-FIGURE-SPACE_007c-_007c-PUNCTUATION-SPACE_007c-_007c-THIN-SPACE_007c-_007c-HAIR-SPACE_007c-_007c-NARROW-NO_002dBREAK-SPACE_007c-_007c-MEDIUM-MATHEMATICAL-SPACE_007c_005b_003f_005d_007c-IDEOGRAPHIC-SPACE_007c-_007c"> &para;</a></span></h2>
 
 
 </div>
@@ -680,54 +688,6 @@ Previous: <a href="#g_t_180e_2003" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPA
 
 </body>
 </html>
-';
-
-
-$result_converted{'xml'}->{'in_menu_only_special_spaces_node'} = '<preamblebeforebeginning>
-</preamblebeforebeginning><node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">   </nodenext></node>
-<top spaces=" "><sectiontitle>top</sectiontitle>
-
-<menu endspaces=" ">
-<menuentry><menuleadingtext>* </menuleadingtext><menunode>   </menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* 	&formfeed;&verticaltab;</menuleadingtext><menunode></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* '."\r".'</menuleadingtext><menunode></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>  </menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>᠎ </menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>         　</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-<!-- c *   :: -->
-</pre></menudescription></menuentry></menu>
-
-
-</top>
-<node identifier="_2002_2003_2002" spaces=" "><nodename>   </nodename><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>EN QUAD| | EM QUAD| | EN SPACE| |</sectiontitle>
-
-</chapter>
-<node identifier=""><nodename trailingspaces=" 	\\f\\v"></nodename></node>
-<chapter spaces=" "><sectiontitle>CHARACTER TABULATION|	| FORM FEED|&formfeed;| LINE TABULATION|&verticaltab;|</sectiontitle>
-
-</chapter>
-<node identifier=""><nodename trailingspaces=" '."\r".'"></nodename></node>
-<chapter spaces=" "><sectiontitle>CARRIAGE RETURN|'."\r".'|</sectiontitle>
-
-</chapter>
-<node identifier="_0085_00a0_1680" spaces=" "><nodename>  </nodename><nodenext automatic="on">᠎ </nodenext><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</sectiontitle>
-
-</chapter>
-<node identifier="_180e_2003" spaces=" "><nodename>᠎ </nodename><nodenext automatic="on">         　</nodenext><nodeprev automatic="on">  </nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</sectiontitle>
-
-</chapter>
-<node identifier="_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000" spaces=" "><nodename>         　</nodename><nodeprev automatic="on">᠎ </nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| | FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| | HAIR SPACE| | NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</sectiontitle>
-
-<!-- c Perl and XS code give different width. -->
-<!-- c @node    -->
-<!-- c @chapter LINE SEPARATOR| | PARAGRAPH SEPARATOR| | -->
-
-</chapter>
-<bye></bye>
 ';
 
 1;

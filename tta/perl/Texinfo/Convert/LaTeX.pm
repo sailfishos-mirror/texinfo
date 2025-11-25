@@ -2538,7 +2538,7 @@ sub _tree_anchor_label($) {
   my $node_content = shift;
 
   my $label
-   = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+   = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
        Texinfo::TreeElement::new({'contents' => $node_content}));
   return "anchor:$label";
 }

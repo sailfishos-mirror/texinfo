@@ -1290,7 +1290,7 @@ sub _convert($$;$)
               $normalized = $node_arg->{'extra'}->{'normalized'};
             } else {
               $normalized
-               = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+        = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
                   Texinfo::TreeElement::new(
                    $node_arg->{'extra'}->{'node_content'}));
             }

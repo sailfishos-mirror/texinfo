@@ -290,6 +290,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/converters_tests/simplest_test_prefix/res_latex \
   t/results/converters_tests/simplest_test_prefix/res_xml \
   t/results/converters_tests/some_at_commands_in_ref_nodes.pl \
+  t/results/converters_tests/some_at_commands_in_ref_nodes_transliterate.pl \
   t/results/converters_tests/sp_empty_lines_1_no_arg_zero.pl \
   t/results/converters_tests/sp_in_example.pl \
   t/results/converters_tests/spaces_in_empty_node_names.pl \
@@ -1748,6 +1749,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/moresectioning/non_automatic_top_node_up_and_url.pl \
   t/results/moresectioning/non_automatic_top_node_up_url.pl \
   t/results/moresectioning/only_special_spaces_node.pl \
+  t/results/moresectioning/only_special_spaces_node_transliterate.pl \
   t/results/moresectioning/placed_things_before_element.pl \
   t/results/moresectioning/placed_things_before_element_no_use_node.pl \
   t/results/moresectioning/placed_things_before_node.pl \
@@ -2042,6 +2044,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/in_menu_only_special_ascii_spaces_node_menu.pl \
   t/results/sectioning/in_menu_only_special_spaces_node.pl \
   t/results/sectioning/in_menu_only_special_spaces_node_menu.pl \
+  t/results/sectioning/in_menu_only_special_spaces_node_menu_transliterate.pl \
   t/results/sectioning/lone_Top_node.pl \
   t/results/sectioning/lone_Top_node/res_latex \
   t/results/sectioning/lone_contents.pl \
@@ -2114,6 +2117,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/sectioning/ref_to_top.pl \
   t/results/sectioning/ref_to_unknown_node.pl \
   t/results/sectioning/reference_to_only_special_spaces_node.pl \
+  t/results/sectioning/reference_to_only_special_spaces_node_transliterate.pl \
   t/results/sectioning/section_before_after_top_node.pl \
   t/results/sectioning/section_before_after_top_node/res_latex \
   t/results/sectioning/section_before_after_top_node_last_node.pl \

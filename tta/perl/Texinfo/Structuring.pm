@@ -1621,7 +1621,7 @@ sub associate_internal_referencesNonXS($)
     if ($label_element->{'extra'}
         and $label_element->{'extra'}->{'node_content'}) {
       my $normalized =
-        Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+        Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
             $label_element->{'extra'}->{'node_content'});
       $label_element->{'extra'}->{'normalized'} = $normalized
         if (defined($normalized) and $normalized ne '');
@@ -1844,7 +1844,7 @@ sub new_node_menu_entry($;$)
 
       if ($label_info eq 'node_content') {
         $menu_entry_node->{'extra'}->{'normalized'}
-          = Texinfo::Convert::NodeNameNormalization::convert_to_identifier(
+      = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
              $menu_entry_node->{'extra'}->{$label_info});
       }
     }

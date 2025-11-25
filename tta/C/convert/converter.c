@@ -1188,9 +1188,18 @@ normalized_sectioning_command_filename (CONVERTER *self, const ELEMENT *command)
     /* @*heading commands */
     label_element = command->e.c->contents.list[0];
 
-  normalized_name
-    = normalize_transliterate_texinfo_contents (label_element, in_test, in_test,
+  if (self->conf->TRANSLITERATE_FILE_NAMES.o.integer > 0)
+    {
+      normalized_name
+        = normalize_transliterate_texinfo_contents (label_element, in_test,
+                                                    in_test,
                                  (self->conf->USE_UNIDECODE.o.integer == 0));
+    }
+  else
+    {
+      normalized_name
+        = convert_contents_to_identifier (label_element);
+    }
 
   normalized_file_name = strdup (normalized_name);
   id_to_filename (self, &normalized_file_name);
@@ -1233,7 +1242,7 @@ node_information_filename (CONVERTER *self, const char *normalized,
     }
   else if (label_element)
     {
-      filename = convert_contents_to_identifier (label_element);
+      filename = convert_contents_to_node_identifier (label_element);
     }
   else
     filename = strdup ("");

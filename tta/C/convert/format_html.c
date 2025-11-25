@@ -671,7 +671,7 @@ html_normalized_label_id_file (CONVERTER *self, const char *normalized,
   else if (label_element)
     {
       normalized_label
-       = convert_contents_to_identifier (label_element);
+       = convert_contents_to_node_identifier (label_element);
       if (normalized_label)
         target = html_normalized_to_id (normalized_label);
     }
@@ -724,7 +724,7 @@ html_standard_label_id_file (CONVERTER *self, const char *normalized,
   else if (label_element)
     {
       normalized_label
-       = convert_contents_to_identifier (label_element);
+       = convert_contents_to_node_identifier (label_element);
     }
 
   if (normalized_label)

@@ -399,7 +399,8 @@ undef, {'test_file' => 'char_latin2_latin2_in_refs.texi'},
 # for problematic iconv even though it is not the actual issue.
 undef, {'test_file' => 'japanese_shift_jis.texi',
         'skip' => $Texinfo::ModulePath::conversion_from_euc_cn ne 'yes'
-         ? 'No conversion from EUC-CN assuming errors with shift_jis' : undef,}
+         ? 'No conversion from EUC-CN assuming errors with shift_jis' : undef,},
+{'TRANSLITERATE_FILE_NAMES' => 1},
 ],
 ['sample_utf8',
 undef, {'test_file' => 'sample_utf8.texi'},

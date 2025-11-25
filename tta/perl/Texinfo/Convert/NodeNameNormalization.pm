@@ -53,6 +53,7 @@ our @ISA = qw(Exporter);
 
 our @EXPORT_OK = qw(
   convert_to_identifier
+  convert_to_node_identifier
   normalize_transliterate_texinfo
   transliterate_texinfo
   transliterate_protect_file_name
@@ -103,14 +104,22 @@ foreach my $type (
 }
 
 
-sub convert_to_identifier($)
-{
+sub convert_to_node_identifier($) {
   my $root = shift;
 
   my $result = _convert($root);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected($result);
   $result = 'Top' if ($result =~ /^Top$/i);
+  return $result;
+}
+
+sub convert_to_identifier($) {
+  my $root = shift;
+
+  my $result = _convert($root);
+  $result = Unicode::Normalize::NFC($result);
+  $result = _unicode_to_protected($result);
   return $result;
 }
 
@@ -372,10 +381,10 @@ Texinfo::Convert::NodeNameNormalization - Normalize and transliterate Texinfo tr
 
 =head1 SYNOPSIS
 
-  use Texinfo::Convert::NodeNameNormalization qw(convert_to_identifier
+  use Texinfo::Convert::NodeNameNormalization qw(convert_to_node_identifier
                                         normalize_transliterate_texinfo);
 
-  my $normalized = convert_to_identifier($node_element->{'contents'}->[0]);
+  my $normalized = convert_to_node_identifier($node_element->{'contents'}->[0]);
 
   my $file_name
     = normalize_transliterate_texinfo($section_element->{'contents'}->[0]);
@@ -388,11 +397,12 @@ Texinfo to other formats.  There is no promise of API stability.
 =head1 DESCRIPTION
 
 C<Texinfo::Convert::NodeNameNormalization> allows to normalize node names
-with C<convert_to_normalized> and C<convert_to_identifier>.
-C<convert_to_identifier> follows the specification described in the Texinfo
+with C<convert_to_normalized> and C<convert_to_node_identifier>.
+C<convert_to_node_identifier> follows the specification described in the Texinfo
 manual I<HTML Xref> node.  This is useful whenever one want a unique identifier
 for Texinfo content, which is only composed of letter, digits, C<-> and C<_>,
 for example for C<@node>, C<@float> and C<@anchor> names normalization.
+C<convert_to_identifier> leaves out the step of normalizing C<Top>.
 C<convert_to_normalized> leaves out the step of protecting characters.
 
 It is also possible to transliterate non-ASCII letters, instead of mangling
@@ -414,11 +424,16 @@ normalized as described in the Texinfo manual I<HTML Xref> node.  ASCII
 7-bit characters other than spaces and non-ASCII characters are left as
 is in the resulting string.
 
-=item $normalized = convert_to_identifier($tree)
-X<C<convert_to_identifier>>
+=item $normalized = convert_to_node_identifier($tree)
 
-The Texinfo I<$tree> is returned as a string, normalized as described in the
-Texinfo manual I<HTML Xref> node.
+=item $normalized = convert_to_identifier($tree)
+
+X<C<convert_to_identifier>> X<C<convert_to_node_identifier>>
+
+With C<convert_to_node_identifier>, the Texinfo I<$tree> is returned as a
+string, normalized as described in the Texinfo manual I<HTML Xref> node.
+C<convert_to_identifier> leaves out the normalization of the name if it
+is a I<Top> node name.
 
 The result will be poor for Texinfo trees which are not @-command arguments
 (on an @-command line or in braces), for instance if the tree contains

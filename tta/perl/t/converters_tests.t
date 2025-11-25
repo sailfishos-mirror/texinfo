@@ -45,7 +45,7 @@ $\frac{a < b @code{tex \hbox{ code }}}{b}$ ``
 ';
 
 # do not only use @node Top as it is ignored in LaTeX output
-my $top_in_ref_text = 
+my $top_in_ref_text =
 '@node Top
 
 @node chap refs node
@@ -136,6 +136,22 @@ Content VI
 
 ';
 
+my $some_at_commands_in_ref_nodes_text = '
+@node Top
+@top Top
+
+@menu
+* A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}::
+@end menu
+
+@node A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
+@chapter  A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
+
+see @ref{a @strong{strong} ref with @sc{sc}@comma{} a i trema @"i@comma{} a dotless i trema @"{@dotless{i}} @`{@=E} and exclamdown @exclamdown{},,,manual}.
+
+@xref{A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}.
+';
+
 # this is also used to check the output corresponding
 # to the '@sc content' t/nodenormalization.t test, so it should be kept in
 # sync with t/nodenormalization.t
@@ -216,21 +232,9 @@ Document.
 
 ', {}, {'SHOW_TITLE' => 1}],
 ['some_at_commands_in_ref_nodes',
-'
-@node Top
-@top Top
-
-@menu
-* A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}::
-@end menu
-
-@node A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
-@chapter  A @sc{sc} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}
-
-see @ref{a @strong{strong} ref with @sc{sc}@comma{} a i trema @"i@comma{} a dotless i trema @"{@dotless{i}} @`{@=E} and exclamdown @exclamdown{},,,manual}.
-
-@xref{A @sc{sc @~n @aa{} @TeX{}} node @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @exclamdown{}}.
-'],
+$some_at_commands_in_ref_nodes_text, {}, {'TRANSLITERATE_FILE_NAMES' => 0}],
+['some_at_commands_in_ref_nodes_transliterate',
+$some_at_commands_in_ref_nodes_text, {}, {'TRANSLITERATE_FILE_NAMES' => 1}],
 ['refs_formatting',
 '@node chapter
 @chapter chapter

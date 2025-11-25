@@ -43,7 +43,7 @@
 /* for parse_node_manual */
 #include "manipulate_tree.h"
 #include "convert_to_texinfo.h"
-/* for convert_to_identifier */
+/* for convert_to_node_identifier */
 #include "node_name_normalization.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
@@ -1551,7 +1551,7 @@ end_line_misc_line (ELEMENT *current)
 
               tmp->e.c->contents
                  = direction_label_info->node_content->e.c->contents;
-              normalized = convert_to_identifier (tmp);
+              normalized = convert_to_node_identifier (tmp);
               tmp->e.c->contents.list = 0;
               destroy_element (tmp);
 

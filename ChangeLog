@@ -1,5 +1,40 @@
 2025-11-25 Patrice Dumas  <pertusus@free.fr>
 
+	Do not transliterate section command identifier by default
+
+	* tta/C/main/node_name_normalization.c
+	(convert_contents_to_node_identifier, convert_to_node_identifier)
+	(convert_to_identifier),
+	tta/perl/Texinfo/Convert/NodeNameNormalization.pm
+	(convert_to_node_identifier, convert_to_identifier): rename
+	convert_to_identifier as convert_to_node_identifier.  Readd
+	convert_to_identifier that does the same as convert_to_node_identifier
+	except for the normaization of top in name.  Update callers except for
+	abbr or acronym first argument that uses convert_to_identifier.
+
+	* tta/C/convert/converter.c (normalized_sectioning_command_filename),
+	tta/perl/Texinfo/Convert/Converter.pm
+	(normalized_sectioning_command_filename): transliterate sectioning
+	command identifier only if TRANSLITERATE_FILE_NAMES is set.
+
+	* tta/perl/t/30sectioning.t (in_menu_only_special_spaces_node_menu)
+	(in_menu_only_special_spaces_node_menu_transliterate)
+	(reference_to_only_special_spaces_node)
+	(reference_to_only_special_spaces_node_transliterate),
+	tta/perl/t/40moresectioning.t (only_special_spaces_node)
+	(only_special_spaces_node_transliterate),
+	tta/perl/t/converters_tests.t ($some_at_commands_in_ref_nodes_text)
+	(some_at_commands_in_ref_nodes)
+	(some_at_commands_in_ref_nodes_transliterate),
+	tta/perl/t/formats_encodings.t (japanese_shift_jis),
+	tta/perl/Makefile.tres: add tests with TRANSLITERATE_FILE_NAMES set.
+	Explicitely set TRANSLITERATE_FILE_NAMES more.
+
+	* tta/tests/many_input_files/different_encodings.sh: add
+	--transliterate-file-name to the test command-line.
+
+2025-11-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Utils.pm (definition_category_tree): update
 	TRANSLATORS description again to match spacing of the other
 	TRANSLATORS description.

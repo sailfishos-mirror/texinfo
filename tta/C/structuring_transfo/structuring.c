@@ -1965,7 +1965,7 @@ associate_internal_references (DOCUMENT *document)
       if (label_node_content)
         {
           char *normalized
-            = convert_contents_to_identifier (label_node_content);
+            = convert_contents_to_node_identifier (label_node_content);
           if (normalized)
             {
               if (strlen (normalized))
@@ -2223,7 +2223,7 @@ new_node_menu_entry (const NODE_RELATIONS *node_relations, int use_sections)
       char *normalized;
       add_extra_container (menu_entry_node, AI_key_node_content,
                            parsed_entry_node->node_content);
-      normalized = convert_to_identifier (parsed_entry_node->node_content);
+      normalized = convert_to_node_identifier (parsed_entry_node->node_content);
       if (normalized)
         {
           if (strlen (normalized))

@@ -320,7 +320,7 @@ char *normalize_top_name (const char *text)
 
 /* to be freed by caller */
 char *
-convert_to_identifier (const ELEMENT *root)
+convert_to_node_identifier (const ELEMENT *root)
 {
   char *converted_name = convert_to_normalized (root);
   char *normalized_name = normalize_NFC (converted_name);
@@ -328,6 +328,33 @@ convert_to_identifier (const ELEMENT *root)
   char *result = normalize_top_name (protected);
 
   free (protected);
+  free (converted_name);
+  free (normalized_name);
+  return result;
+}
+
+char *
+convert_contents_to_node_identifier (const ELEMENT *e)
+{
+  ELEMENT *tmp = new_element (ET_NONE);
+  char *result;
+
+  tmp->e.c->contents = e->e.c->contents;
+  result = convert_to_node_identifier (tmp);
+  tmp->e.c->contents.list = 0;
+  destroy_element (tmp);
+
+  return result;
+}
+
+/* to be freed by caller */
+char *
+convert_to_identifier (const ELEMENT *root)
+{
+  char *converted_name = convert_to_normalized (root);
+  char *normalized_name = normalize_NFC (converted_name);
+  char *result = unicode_to_protected (normalized_name);
+
   free (converted_name);
   free (normalized_name);
   return result;
