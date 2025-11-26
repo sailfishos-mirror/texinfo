@@ -54,9 +54,9 @@ See the manual for detailed information.
         for HTML cross-references customization
       . an empty URL in HTML cross-references customization triggers link
         to local manual
-      . the --transliterate-file-names option is now off by default.
-      . if --transliterate-file-names is given, create redirection files
-        with names that haven't gone through "transliteration".
+      . the --transliterate-file-names option is now off by default.  if
+        given, redirection files with untransliterated names are created,
+        unless you give the --no-node-files option.
       . do not subject node names in links to external manuals to
         transliteration.  ignore BASEFILENAME_LENGTH, EXTENSION and
         TRANSLITERATE_FILE_NAMES for links to external nodes and
