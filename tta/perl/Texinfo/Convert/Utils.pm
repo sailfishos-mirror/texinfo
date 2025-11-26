@@ -855,6 +855,15 @@ sectioning commands.
 
 =end comment
 
+=item $documentinfo_info = get_document_documentinfo($document)
+X<C<get_document_documentinfo>>
+
+I<$document> is a Texinfo parsed document.  If C<@documentinfo> is found
+in the document, return an hash reference with
+@-command names appearing in C<@documentinfo> as keys associated to
+an array reference as value containing the @-commands Texinfo tree elements.
+Otherwise, returns C<undef>.
+
 =back
 
 =head1 SEE ALSO

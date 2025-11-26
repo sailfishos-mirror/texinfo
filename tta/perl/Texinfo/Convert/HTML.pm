@@ -7934,9 +7934,9 @@ sub _format_maketile($$) {
       }
     }
     my $element = Texinfo::TreeElement::new({'contents' => \@contents});
-    # we do not need to collect the author commands in titlepage, so
+    # we do not need to collect the author commands in documentinfo, so
     # we use a little trick to initialize the authors number to -1
-    # to mean that we are in titlepage
+    # to mean that we are in documentinfo
     _open_quotation_titlepage_stack($self, -1);
     my $quotation_titlepage_nr = $self->get_shared_conversion_state('quotation',
                                                   'quotation_titlepage_stack');

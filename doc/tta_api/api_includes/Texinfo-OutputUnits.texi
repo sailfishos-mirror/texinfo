@@ -83,8 +83,8 @@ No method is exported in the default case.
 Output units are hash references created with the following keys:
 
 @table @asis
-@item @code{type}
-@anchor{Texinfo@asis{::}OutputUnits @code{type}}
+@item @code{unit_type}
+@anchor{Texinfo@asis{::}OutputUnits @code{unit_type}}
 
 The type of the output unit.  Set to @code{unit} for output units associated
 with nodes and sectioning commands.

@@ -123,6 +123,16 @@ $document@comma{} $input_file_encoding),, @code{encoded_input_file_name} argumen
 argument is used to output error messages.  This function returns a
 @code{@@verbatim} tree elements after finding the included file and reading it.
 
+@item $documentinfo_info = get_document_documentinfo($document)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $documentinfo_info = get_document_documentinfo($document)}
+@cindex @code{get_document_documentinfo}
+
+@emph{$document} is a Texinfo parsed document.  If @code{@@documentinfo} is found
+in the document, return an hash reference with
+@@-command names appearing in @code{@@documentinfo} as keys associated to
+an array reference as value containing the @@-commands Texinfo tree elements.
+Otherwise, returns @code{undef}.
+
 @end table
 
 @node Texinfo@asis{::}Convert@asis{::}Utils SEE ALSO

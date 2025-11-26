@@ -1041,7 +1041,7 @@ Output units are hash references created with the following keys:
 
 =over
 
-=item C<type>
+=item C<unit_type>
 
 The type of the output unit.  Set to C<unit> for output units associated
 with nodes and sectioning commands.
