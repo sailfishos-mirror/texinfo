@@ -1,3 +1,10 @@
+2025-11-26 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Invoking @command{texi2any}): rewrite and addition
+	to --transliterate-file-names option description, adding the
+	information that it does not affect redirection files, and that it is
+	recommended to do redirection files in that case.
+
 2025-11-25 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Invoking @command{texi2any}): explain that
