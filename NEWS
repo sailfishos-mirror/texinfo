@@ -54,14 +54,14 @@ See the manual for detailed information.
         for HTML cross-references customization
       . an empty URL in HTML cross-references customization triggers link
         to local manual
-      . the --transliterate-file-names option is now off by default.  if
-        given, redirection files with untransliterated names are created,
-        unless you give the --no-node-files option.
-      . do not subject node names in links to external manuals to
-        transliteration.  ignore BASEFILENAME_LENGTH, EXTENSION and
-        TRANSLITERATE_FILE_NAMES for links to external nodes and
-        node redirection file names.  They are still used for the file
-        names generated for the converted manual content.
+      . the --transliterate-file-names option (which sets the
+        TRANSLITERATE_FILE_NAMES variable) is now off by default.
+      . when creating redirection files with --node-files (the default),
+        ignore the settings of TRANSLITERATE_FILE_NAMES, BASEFILENAME_LENGTH,
+        and EXTENSION.
+      . likewise, ignore these variables for links to external manuals (they
+        are still used for the file names generated for the converted manual
+        content).
       . USE_NEXT_HEADING_FOR_LONE_NODE removed.  Former effect
         is now always on.
       . info.js (with INFO_JS_DIR) fixes and improvements:
