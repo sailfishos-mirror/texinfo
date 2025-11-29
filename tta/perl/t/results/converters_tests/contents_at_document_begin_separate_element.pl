@@ -231,6 +231,7 @@ $result_converted{'html'}->{'contents_at_document_begin_separate_element'} = '<!
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
 </style>

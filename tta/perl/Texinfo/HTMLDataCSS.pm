@@ -67,6 +67,7 @@ my %base_default_css_element_class_styles = (
  # changing vertical spacing.
     'a.copiable-link'    => 'visibility: hidden; text-decoration: none; line-height: 0em',
     'span:hover a.copiable-link'    => 'visibility: visible',
+    'span.nav-button'    => 'white-space: nowrap',
 );
 
 sub get_base_default_css_info() {

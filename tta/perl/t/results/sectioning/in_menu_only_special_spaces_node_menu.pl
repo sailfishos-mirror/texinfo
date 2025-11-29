@@ -605,6 +605,7 @@ $result_converted{'html'}->{'in_menu_only_special_spaces_node_menu'} = '<!DOCTYP
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 td.menu-entry-description {vertical-align: top; padding-left: 1em}
 td.menu-entry-destination {vertical-align: top}

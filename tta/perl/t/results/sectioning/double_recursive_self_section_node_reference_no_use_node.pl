@@ -186,6 +186,7 @@ $result_converted{'html'}->{'double_recursive_self_section_node_reference_no_use
 <link href="#Top" rel="start" title="top">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 </style>
 

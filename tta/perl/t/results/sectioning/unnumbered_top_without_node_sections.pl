@@ -277,6 +277,7 @@ $result_converted{'html'}->{'unnumbered_top_without_node_sections'} = '<!DOCTYPE
 <link href="#a-node" rel="start" title="a node">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 </style>
 

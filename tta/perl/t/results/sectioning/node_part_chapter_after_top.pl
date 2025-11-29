@@ -254,6 +254,7 @@ $result_converted{'html'}->{'node_part_chapter_after_top'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 </style>
 

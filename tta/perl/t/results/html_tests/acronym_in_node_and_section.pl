@@ -266,6 +266,7 @@ $result_converted{'html'}->{'acronym_in_node_and_section'} = '<!DOCTYPE html>
 <link href="#Top" rel="start" title="top">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 </style>
 

@@ -50,3 +50,4 @@ img.nav-icon|vertical-align: middle|
 table.def-block|width: 100%|
 a.copiable-link|visibility: hidden; text-decoration: none; line-height: 0em|The anchor element is wrapped in a <span> rather than a block level element to avoid it appearing unless the mouse pointer is directly over the text, as it is annoying for anchors to flicker when you are moving your pointer elsewhere. "line-height: 0em" stops the invisible text from changing vertical spacing.
 span:hover a.copiable-link|visibility: visible|
+span.nav-button|white-space: nowrap|

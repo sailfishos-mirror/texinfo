@@ -340,6 +340,7 @@ $result_converted{'html'}->{'anchor_on_vtable_item'} = '<!DOCTYPE html>
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
+span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 td.printindex-index-entry {vertical-align: top; padding-left: 1.5em}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}

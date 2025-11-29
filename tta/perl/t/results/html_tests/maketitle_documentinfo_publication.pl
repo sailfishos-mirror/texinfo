@@ -360,6 +360,7 @@ $result_converted{'html'}->{'maketitle_documentinfo_publication'} = '<!DOCTYPE h
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 h3.subtitle {text-align:right}
+span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 ul.toc-numbered-mark {list-style: none}
 </style>
