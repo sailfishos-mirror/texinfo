@@ -73,16 +73,17 @@ sub _do_format_test_file($$$$$$) {
   }
 
   my $results_dir = $test_out_dir;
-  if (-d $reference_dir) {
-    my $errors = compare_dirs_files($reference_dir, $results_dir);
-    ok(!defined($errors), $test_name.' converted '.$format)
-         or diag(join("\n", @$errors));
-  } else {
-    print STDERR "\n$format $test_name: \n$results_dir\n";
-  }
-
   if ($arg_generate) {
     _update_test_results_dir ($reference_dir, $results_dir);
+    ok(1, $test_name.' converted '.$format);
+  } else {
+    if (-d $reference_dir) {
+      my $errors = compare_dirs_files($reference_dir, $results_dir);
+      ok(!defined($errors), $test_name.' converted '.$format)
+           or diag(join("\n", @$errors));
+    } else {
+      print STDERR "\n$format $test_name: \n$results_dir\n";
+    }
   }
 }
 
