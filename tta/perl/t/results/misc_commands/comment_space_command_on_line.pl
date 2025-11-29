@@ -447,7 +447,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-[<a href="#chap" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h1 class="top" id="top-element-"><span>top element&nbsp;<a class="copiable-link" href="#top-element-"> &para;</a></span></h1>
 
@@ -458,7 +458,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-[<a href="#chap" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter" id="Chapter-"><span>1 Chapter&nbsp;<a class="copiable-link" href="#Chapter-"> &para;</a></span></h2>
 

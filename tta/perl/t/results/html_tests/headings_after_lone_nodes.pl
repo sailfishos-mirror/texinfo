@@ -705,7 +705,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Next: <a href="#chap" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -723,14 +723,14 @@ Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#SEC_Co
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <hr>
 <a class="node" id="Qt"></a><div class="nav-panel">
 <p>
-[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h4 class="subheading" id="heading-Qt"><span>heading Qt<a class="copiable-link" href="#heading-Qt"> &para;</a></span></h4>
 
@@ -739,7 +739,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <hr>
 <a class="node" id="Other"></a><div class="nav-panel">
 <p>
-[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 
 <a class="anchor" id="toto"></a>
@@ -755,7 +755,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <hr>
 <a class="node" id="Not-associated"></a><div class="nav-panel">
 <p>
-[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 
 <p>Some para
@@ -765,7 +765,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <hr>
 <a class="node" id="g_t2-not"></a><div class="nav-panel">
 <p>
-[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 
 <blockquote class="quotation">
@@ -777,7 +777,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <hr>
 <a class="node" id="g_t3-not"></a><div class="nav-panel">
 <p>
-[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 
 in html
@@ -787,7 +787,7 @@ in html
 <hr>
 <a class="node" id="g_t4-not"></a><div class="nav-panel">
 <p>
-[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 
 <br>
@@ -798,7 +798,7 @@ in html
 <hr>
 <a class="node" id="g_t5-not"></a><div class="nav-panel">
 <p>
-[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 
 
@@ -807,7 +807,7 @@ in html
 <hr>
 <a class="node-id" id="subnode"></a><div class="nav-panel">
 <p>
-[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h4 class="node"><span>subnode<a class="copiable-link" href="#subnode"> &para;</a></span></h4>
 

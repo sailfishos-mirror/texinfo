@@ -980,13 +980,13 @@ span:hover a.copiable-link {visibility: visible}
 
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chapter" accesskey="n" rel="next">chapter</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <hr>
 <a class="node-id" id="chapter"></a><div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h4>
 

@@ -175,7 +175,7 @@ $result_converted{'plaintext'}->{'seeentry_no_braces'} = 'top
 $result_converted{'html_text'}->{'seeentry_no_braces'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-[<a href="#chap" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -186,7 +186,7 @@ $result_converted{'html_text'}->{'seeentry_no_braces'} = '<div class="top-level-
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-[<a href="#chap" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 

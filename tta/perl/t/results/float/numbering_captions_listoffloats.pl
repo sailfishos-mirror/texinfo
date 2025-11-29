@@ -2179,7 +2179,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="Test-floats"><span>Test floats<a class="copiable-link" href="#Test-floats"> &para;</a></span></h1>
 
@@ -2227,7 +2227,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 <div class="chapter-level-extent" id="chapter">
 <div class="nav-panel">
 <p>
-Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test floats</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="A-chapter"><span>1 A chapter<a class="copiable-link" href="#A-chapter"> &para;</a></span></h2>
 
@@ -2257,7 +2257,7 @@ Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <
 <div class="section-level-extent" id="section">
 <div class="nav-panel">
 <p>
-Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="A-section"><span>1.1 A section<a class="copiable-link" href="#A-section"> &para;</a></span></h3>
 
@@ -2272,7 +2272,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 <div class="unnumbered-level-extent" id="Unnumbered">
 <div class="nav-panel">
 <p>
-Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with unnumbsubsec</a>, Previous: <a href="#chapter" accesskey="p" rel="prev">A chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with unnumbsubsec</a></span>, <span class="nav-button">Previous: <a href="#chapter" accesskey="p" rel="prev">A chapter</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test floats</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="unnumbered" id="Unnumbered-1"><span>Unnumbered<a class="copiable-link" href="#Unnumbered-1"> &para;</a></span></h2>
 
@@ -2290,7 +2290,7 @@ Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with
 <div class="section-level-extent" id="Section-within-unnumbered">
 <div class="nav-panel">
 <p>
-Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="Section-within-unnumbered-1"><span>Section within unnumbered<a class="copiable-link" href="#Section-within-unnumbered-1"> &para;</a></span></h3>
 
@@ -2304,7 +2304,7 @@ Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 <div class="chapter-level-extent" id="Chapter-with-unnumbsubsec">
 <div class="nav-panel">
 <p>
-Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float</a>, Previous: <a href="#Unnumbered" accesskey="p" rel="prev">Unnumbered</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float</a></span>, <span class="nav-button">Previous: <a href="#Unnumbered" accesskey="p" rel="prev">Unnumbered</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test floats</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="Chapter-with-unnumbsubsec-1"><span>2 Chapter with unnumbsubsec<a class="copiable-link" href="#Chapter-with-unnumbsubsec-1"> &para;</a></span></h2>
 
@@ -2318,7 +2318,7 @@ Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float<
 <div class="unnumberedsec-level-extent" id="unnumbered-sec">
 <div class="nav-panel">
 <p>
-Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unnumbsubsec</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unnumbsubsec</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="unnumberedsec" id="unnumbered-sec-1"><span>unnumbered sec<a class="copiable-link" href="#unnumbered-sec-1"> &para;</a></span></h3>
 
@@ -2335,7 +2335,7 @@ Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unn
 <div class="appendix-level-extent" id="Appendix-for-float">
 <div class="nav-panel">
 <p>
-Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Previous: <a href="#Chapter-with-unnumbsubsec" accesskey="p" rel="prev">Chapter with unnumbsubsec</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a></span>, <span class="nav-button">Previous: <a href="#Chapter-with-unnumbsubsec" accesskey="p" rel="prev">Chapter with unnumbsubsec</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test floats</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="appendix" id="Appendix-for-float-1"><span>Appendix A Appendix for float<a class="copiable-link" href="#Appendix-for-float-1"> &para;</a></span></h2>
 
@@ -2348,7 +2348,7 @@ Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Pre
 <div class="unnumbered-level-extent" id="list-of-floats">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Appendix-for-float" accesskey="p" rel="prev">Appendix for float</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Appendix-for-float" accesskey="p" rel="prev">Appendix for float</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test floats</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="unnumbered" id="list-of-floats-1"><span>list of floats<a class="copiable-link" href="#list-of-floats-1"> &para;</a></span></h2>
 

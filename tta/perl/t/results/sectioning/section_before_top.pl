@@ -225,7 +225,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="section-level-extent" id="section-node">
 <div class="nav-panel">
 <p>
-Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="section"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
@@ -234,7 +234,7 @@ Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 <div class="unnumberedsec-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#section-node" accesskey="n" rel="next">section</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="unnumberedsec top-level-set-unnumberedsec" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h3>
 

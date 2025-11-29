@@ -311,7 +311,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">Chapter</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chap" accesskey="n" rel="next">Chapter</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -322,7 +322,7 @@ Next: <a href="#chap" accesskey="n" rel="next">Chapter</a> &nbsp; </p>
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 

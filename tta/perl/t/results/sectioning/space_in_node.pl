@@ -246,7 +246,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#Chap-first-here" accesskey="n" rel="next">Chap first  here</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#Chap-first-here" accesskey="n" rel="next">Chap first  here</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
@@ -254,21 +254,21 @@ Next: <a href="#Chap-first-here" accesskey="n" rel="next">Chap first  here</a> &
 <hr>
 <a class="node-id" id="Chap-first-here"></a><div class="nav-panel">
 <p>
-Next: <a href="#Test-title" accesskey="n" rel="next">Test               title</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#Test-title" accesskey="n" rel="next">Test               title</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>Chap first  here<a class="copiable-link" href="#Chap-first-here"> &para;</a></span></h4>
 
 <hr>
 <a class="node-id" id="Test-title"></a><div class="nav-panel">
 <p>
-Next: <a href="#Last-with-spaces" accesskey="n" rel="next">Last with spaces</a>, Previous: <a href="#Chap-first-here" accesskey="p" rel="prev">Chap first  here</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#Last-with-spaces" accesskey="n" rel="next">Last with spaces</a></span>, <span class="nav-button">Previous: <a href="#Chap-first-here" accesskey="p" rel="prev">Chap first  here</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>Test               title<a class="copiable-link" href="#Test-title"> &para;</a></span></h4>
 
 <hr>
 <a class="node-id" id="Last-with-spaces"></a><div class="nav-panel">
 <p>
-Previous: <a href="#Test-title" accesskey="p" rel="prev">Test               title</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Test-title" accesskey="p" rel="prev">Test               title</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>Last with spaces<a class="copiable-link" href="#Last-with-spaces"> &para;</a></span></h4>
 

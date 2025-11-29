@@ -332,7 +332,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#Intro" accesskey="n" rel="next">Introduction</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#Intro" accesskey="n" rel="next">Introduction</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -343,7 +343,7 @@ Next: <a href="#Intro" accesskey="n" rel="next">Introduction</a> &nbsp; </p>
 <div class="chapter-level-extent" id="Intro">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="Introduction"><span>1 Introduction<a class="copiable-link" href="#Introduction"> &para;</a></span></h2>
 
@@ -357,7 +357,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <div class="section-level-extent" id="GFDL">
 <div class="nav-panel">
 <p>
-Up: <a href="#Intro" accesskey="u" rel="up">Introduction</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="#Intro" accesskey="u" rel="up">Introduction</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="GFDL-1"><span>1.1 GFDL<a class="copiable-link" href="#GFDL-1"> &para;</a></span></h3>
 

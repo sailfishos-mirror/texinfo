@@ -2111,11 +2111,11 @@ html_set_main_units_direction_names (CONVERTER *self)
          self->customized_global_text_directions.number +1) * sizeof (char *));
 
           for (i = 0; i < self->customized_global_text_directions.number; i++)
-           {
-             const char *direction
+            {
+              const char *direction
                = self->customized_global_text_directions.list[i];
 
-             self->main_units_direction_names[
+              self->main_units_direction_names[
                nr_special_units + NON_SPECIAL_DIRECTIONS_NR
                  + self->added_global_units_directions.number +i] = direction;
              }

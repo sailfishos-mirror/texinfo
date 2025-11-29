@@ -644,7 +644,7 @@ th.index-letter-header-printindex {text-align: left}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href="#Top-1"> &para;</a></span></h1>
 
@@ -667,7 +667,7 @@ the author abandon his copyright.
 <div class="appendix-level-extent" id="Copying-and-floats">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="appendix" id="Copying-and-floats-1"><span>Appendix A Copying and floats<a class="copiable-link" href="#Copying-and-floats-1"> &para;</a></span></h2>
 

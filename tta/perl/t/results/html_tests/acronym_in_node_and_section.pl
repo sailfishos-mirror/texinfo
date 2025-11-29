@@ -276,7 +276,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chap" accesskey="n" rel="next">chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -287,7 +287,7 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 
@@ -299,7 +299,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <div class="section-level-extent" id="sec-define">
 <div class="nav-panel">
 <p>
-Next: <a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <abbr class="acronym">GHJ</abbr></a>, Up: <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <abbr class="acronym">GHJ</abbr></a></span>, <span class="nav-button">Up: <a href="#chap" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="define"><span>1.1 define<a class="copiable-link" href="#define"> &para;</a></span></h3>
 
@@ -310,7 +310,7 @@ Next: <a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <abbr class="a
 <div class="section-level-extent" id="sec-here-is-GHJ">
 <div class="nav-panel">
 <p>
-Previous: <a href="#sec-define" accesskey="p" rel="prev">define</a>, Up: <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#sec-define" accesskey="p" rel="prev">define</a></span>, <span class="nav-button">Up: <a href="#chap" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="here-is-GHJ"><span>1.2 here is <abbr class="acronym" title="Good Hypo Jolly">GHJ</abbr><a class="copiable-link" href="#here-is-GHJ"> &para;</a></span></h3>
 

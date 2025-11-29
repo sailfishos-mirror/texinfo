@@ -224,7 +224,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Suivant: <a href="#chapter-error_002d_002d_003e" accesskey="n" rel="next">Chapter</a> &nbsp; </p>
+<span class="nav-button">Suivant: <a href="#chapter-error_002d_002d_003e" accesskey="n" rel="next">Chapter</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top-error_002d_002d_003e"><span>top erreur&rarr;<a class="copiable-link" href="#top-error_002d_002d_003e"> &para;</a></span></h1>
 
@@ -237,7 +237,7 @@ Suivant: <a href="#chapter-error_002d_002d_003e" accesskey="n" rel="next">Chapte
 <div class="chapter-level-extent" id="chapter-error_002d_002d_003e">
 <div class="nav-panel">
 <p>
-Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top erreur&rarr;</a>, Monter: <a href="#Top" accesskey="u" rel="up">top erreur&rarr;</a> &nbsp; </p>
+<span class="nav-button">Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top erreur&rarr;</a></span>, <span class="nav-button">Monter: <a href="#Top" accesskey="u" rel="up">top erreur&rarr;</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 </div>

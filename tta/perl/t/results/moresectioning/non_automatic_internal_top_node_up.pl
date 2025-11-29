@@ -279,7 +279,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chap" accesskey="n" rel="next">chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="internal-top-node-up"><span>internal top node up<a class="copiable-link" href="#internal-top-node-up"> &para;</a></span></h1>
 
@@ -287,7 +287,7 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <hr>
 <a class="node-id" id="chap"></a><div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>chap<a class="copiable-link" href="#chap"> &para;</a></span></h4>
 </div>

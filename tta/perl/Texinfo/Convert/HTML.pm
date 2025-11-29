@@ -1589,8 +1589,8 @@ sub _internal_command_name($$$) {
   return undef;
 }
 
-# Return text to be used for $COMMAND using the name rather than an
-# identifier, when the distinction exists.
+# Return text to be used for $COMMAND using the name rather than the
+# label/identifier, when the distinction exists.
 # $TYPE refers to the type of value returned from this function:
 #  'text' - return text
 #  'text_nonumber' - return text, without the section/chapter number
@@ -4260,7 +4260,16 @@ sub _default_format_navigation_panel($$$$;$$) {
       if ($need_delimiter and $nr_of_buttons_shown > 0) {
         $result_buttons .= ', ';
       }
+
+      my $open = $self->html_attribute_class('span', ['nav-button']);
+      if ($open ne '') {
+        $result_buttons .= $open.'>';
+      }
       $result_buttons .= $active;
+      if ($open ne '') {
+        $result_buttons .= '</span>';
+      }
+
       $nr_of_buttons_shown++;
     }
   }

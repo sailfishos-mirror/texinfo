@@ -574,7 +574,7 @@ th.menu-comment {text-align:left}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#C1" accesskey="n" rel="next">C1</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#C1" accesskey="n" rel="next">C1</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -608,7 +608,7 @@ C2
 <div class="chapter-level-extent" id="C1">
 <div class="nav-panel">
 <p>
-Next: <a href="#C2" accesskey="n" rel="next">C2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#C2" accesskey="n" rel="next">C2</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="C1-1"><span>1 C1<a class="copiable-link" href="#C1-1"> &para;</a></span></h2>
 
@@ -625,7 +625,7 @@ Next: <a href="#C2" accesskey="n" rel="next">C2</a>, Previous: <a href="#Top" ac
 <div class="section-level-extent" id="C1-Sec1">
 <div class="nav-panel">
 <p>
-Next: <a href="#C1-Sec2" accesskey="n" rel="next">C1 Sec2</a>, Up: <a href="#C1" accesskey="u" rel="up">C1</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#C1-Sec2" accesskey="n" rel="next">C1 Sec2</a></span>, <span class="nav-button">Up: <a href="#C1" accesskey="u" rel="up">C1</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="C1-Sec1-1"><span>1.1 C1 Sec1<a class="copiable-link" href="#C1-Sec1-1"> &para;</a></span></h3>
 
@@ -634,7 +634,7 @@ Next: <a href="#C1-Sec2" accesskey="n" rel="next">C1 Sec2</a>, Up: <a href="#C1"
 <div class="section-level-extent" id="C1-Sec2">
 <div class="nav-panel">
 <p>
-Previous: <a href="#C1-Sec1" accesskey="p" rel="prev">C1 Sec1</a>, Up: <a href="#C1" accesskey="u" rel="up">C1</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#C1-Sec1" accesskey="p" rel="prev">C1 Sec1</a></span>, <span class="nav-button">Up: <a href="#C1" accesskey="u" rel="up">C1</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="C1-Sec2-1"><span>1.2 C1 Sec2<a class="copiable-link" href="#C1-Sec2-1"> &para;</a></span></h3>
 
@@ -644,7 +644,7 @@ Previous: <a href="#C1-Sec1" accesskey="p" rel="prev">C1 Sec1</a>, Up: <a href="
 <div class="chapter-level-extent" id="C2">
 <div class="nav-panel">
 <p>
-Previous: <a href="#C1" accesskey="p" rel="prev">C1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#C1" accesskey="p" rel="prev">C1</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="C2-1"><span>2 C2<a class="copiable-link" href="#C2-1"> &para;</a></span></h2>
 
@@ -661,7 +661,7 @@ Previous: <a href="#C1" accesskey="p" rel="prev">C1</a>, Up: <a href="#Top" acce
 <div class="section-level-extent" id="C2-Sec1">
 <div class="nav-panel">
 <p>
-Next: <a href="#C2-Sec2" accesskey="n" rel="next">C2 Sec2</a>, Up: <a href="#C2" accesskey="u" rel="up">C2</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#C2-Sec2" accesskey="n" rel="next">C2 Sec2</a></span>, <span class="nav-button">Up: <a href="#C2" accesskey="u" rel="up">C2</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="C2-Sec1-1"><span>2.1 C2 Sec1<a class="copiable-link" href="#C2-Sec1-1"> &para;</a></span></h3>
 
@@ -670,7 +670,7 @@ Next: <a href="#C2-Sec2" accesskey="n" rel="next">C2 Sec2</a>, Up: <a href="#C2"
 <div class="section-level-extent" id="C2-Sec2">
 <div class="nav-panel">
 <p>
-Previous: <a href="#C2-Sec1" accesskey="p" rel="prev">C2 Sec1</a>, Up: <a href="#C2" accesskey="u" rel="up">C2</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#C2-Sec1" accesskey="p" rel="prev">C2 Sec1</a></span>, <span class="nav-button">Up: <a href="#C2" accesskey="u" rel="up">C2</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="C2-Sec2-1"><span>2.2 C2 Sec2<a class="copiable-link" href="#C2-Sec2-1"> &para;</a></span></h3>
 </div>

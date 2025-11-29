@@ -371,7 +371,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next">(../there/no_existing_no_manual_direction)</a>, Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next">(../there/no_existing_no_manual_direction)</a></span>, <span class="nav-button">Previous: <a href="#first" accesskey="p" rel="prev">first</a></span>, <span class="nav-button">Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -385,7 +385,7 @@ Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next
 <hr>
 <a class="node-id" id="first"></a><div class="nav-panel">
 <p>
-Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
@@ -393,7 +393,7 @@ Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_exis
 <div class="chapter-level-extent" id="chapter">
 <div class="nav-panel">
 <p>
-Next: <a href="chap_not_existing.html#Top" accesskey="n" rel="next">(chap_not_existing)</a>, Previous: <a href="dir.html#node-in-dir" accesskey="p" rel="prev">(dir)node in dir</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="chap_not_existing.html#Top" accesskey="n" rel="next">(chap_not_existing)</a></span>, <span class="nav-button">Previous: <a href="dir.html#node-in-dir" accesskey="p" rel="prev">(dir)node in dir</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 

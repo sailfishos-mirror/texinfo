@@ -935,7 +935,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <div class="unnumbered-level-extent" id="unnumbered">
 <div class="nav-panel">
 <p>
-[<a href="#Chapter" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#Chapter" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="unnumbered"><span>unnumbered<a class="copiable-link" href="#unnumbered"> &para;</a></span></h2>
 
@@ -994,7 +994,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <div class="unnumbered-level-extent" id="top-_0028chapter_0029-section">
 <div class="nav-panel">
 <p>
-[<a href="#Chapter" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#Chapter" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="unnumbered"><span>top (chapter) section<a class="copiable-link" href="#top-_0028chapter_0029-section"> &para;</a></span></h2>
 
@@ -1062,7 +1062,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <div class="section-level-extent" id="second">
 <div class="nav-panel">
 <p>
-[<a href="#Chapter" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#Chapter" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h3 class="section"><span>second<a class="copiable-link" href="#second"> &para;</a></span></h3>
 
@@ -1166,7 +1166,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <div class="chapter-level-extent" id="Chapter">
 <div class="nav-panel">
 <p>
-[<a href="#Chapter" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#Chapter" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-chapter"></a>
@@ -1224,7 +1224,7 @@ $result_converted{'html_text'}->{'index_no_node_no_top_no_node'} = '<a class="in
 <div class="chapter-level-extent" id="Chapter-2">
 <div class="nav-panel">
 <p>
-[<a href="#Chapter" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#Chapter" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter"><span>2 Chapter 2<a class="copiable-link" href="#Chapter-2"> &para;</a></span></h2>
 

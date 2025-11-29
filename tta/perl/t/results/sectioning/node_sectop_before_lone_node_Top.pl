@@ -203,7 +203,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="node-before">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chap" accesskey="n" rel="next">chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top-sectionning"><span>top sectionning<a class="copiable-link" href="#top-sectionning"> &para;</a></span></h1>
 
@@ -215,7 +215,7 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <hr>
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
@@ -225,7 +225,7 @@ Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp;
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Up: <a href="#node-before" accesskey="u" rel="up">top sectionning</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="#node-before" accesskey="u" rel="up">top sectionning</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 

@@ -208,7 +208,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="">
 <a class="node-id" id="first"></a><div class="nav-panel">
 <p>
-Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 <p>first node
@@ -217,7 +217,7 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 <hr>
 <a class="node-id" id="second-node"></a><div class="nav-panel">
 <p>
-Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#first" accesskey="p" rel="prev">first</a></span>, <span class="nav-button">Up: <a href="#first" accesskey="u" rel="up">first</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>second node<a class="copiable-link" href="#second-node"> &para;</a></span></h4>
 <p>second node

@@ -568,7 +568,7 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = 'top
 $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-[<a href="#chap" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -580,7 +580,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="top-level-
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-[<a href="#chap" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 

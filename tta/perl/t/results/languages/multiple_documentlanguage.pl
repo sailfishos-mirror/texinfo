@@ -581,7 +581,7 @@ th.index-letter-header-printindex {text-align: left}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Suivant: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">Suivant: <a href="#chap" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -592,7 +592,7 @@ Suivant: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#cha
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a>, Monter: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Monter: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 

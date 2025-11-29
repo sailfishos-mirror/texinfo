@@ -717,7 +717,7 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-[<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#Chapter-index" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -728,7 +728,7 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 <div class="chapter-level-extent" id="Chapter-index">
 <div class="nav-panel">
 <p>
-[<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">[<a href="#Chapter-index" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter" id="Index"><span>1 Index<a class="copiable-link" href="#Index"> &para;</a></span></h2>
 

@@ -330,7 +330,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#Unn" accesskey="n" rel="next">Unn</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Next: <a href="#Unn" accesskey="n" rel="next">Unn</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href="#Top-1"> &para;</a></span></h1>
 
@@ -355,7 +355,7 @@ Next: <a href="#Unn" accesskey="n" rel="next">Unn</a> &nbsp; [<a href="#SEC_Cont
 <div class="unnumbered-level-extent" id="Unn">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h2 class="unnumbered" id="Unn-1"><span>Unn<a class="copiable-link" href="#Unn-1"> &para;</a></span></h2>
 
@@ -367,7 +367,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <div class="section-level-extent" id="Sec">
 <div class="nav-panel">
 <p>
-Up: <a href="#Unn" accesskey="u" rel="up">Unn</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Up: <a href="#Unn" accesskey="u" rel="up">Unn</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h3 class="section" id="Sec-1"><span>Sec<a class="copiable-link" href="#Sec-1"> &para;</a></span></h3>
 

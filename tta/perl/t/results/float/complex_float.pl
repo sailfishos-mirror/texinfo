@@ -1339,7 +1339,7 @@ ul.mark-minus {list-style-type: "\\2212"}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="Test-floats"><span>Test floats<a class="copiable-link" href="#Test-floats"> &para;</a></span></h1>
 
@@ -1457,7 +1457,7 @@ A footnote.
 <div class="chapter-level-extent" id="chapter">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test floats</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="A-chapter"><span>1 A chapter<a class="copiable-link" href="#A-chapter"> &para;</a></span></h2>
 

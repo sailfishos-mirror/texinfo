@@ -503,7 +503,7 @@ strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Sljedeće: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
+<span class="nav-button">Sljedeće: <a href="#chapter" accesskey="n" rel="next">chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 
@@ -514,7 +514,7 @@ Sljedeće: <a href="#chapter" accesskey="n" rel="next">chap</a> &nbsp; </p>
 <div class="chapter-level-extent" id="chapter">
 <div class="nav-panel">
 <p>
-Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a>, Gore: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
+<span class="nav-button">Prethodno: <a href="#Top" accesskey="p" rel="prev">top section</a></span>, <span class="nav-button">Gore: <a href="#Top" accesskey="u" rel="up">top section</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 

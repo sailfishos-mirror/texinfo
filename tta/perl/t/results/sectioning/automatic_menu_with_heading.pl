@@ -237,7 +237,7 @@ td.menu-entry-destination {vertical-align: top}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#heading-or-chapter" accesskey="n" rel="next">Chapter</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#heading-or-chapter" accesskey="n" rel="next">Chapter</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -252,7 +252,7 @@ Next: <a href="#heading-or-chapter" accesskey="n" rel="next">Chapter</a> &nbsp; 
 <div class="chapter-level-extent" id="heading-or-chapter">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="heading" id="Heading"><span>Heading<a class="copiable-link" href="#Heading"> &para;</a></span></h3>
 

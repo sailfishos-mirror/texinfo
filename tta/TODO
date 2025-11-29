@@ -14,7 +14,7 @@ update libintl-perl before the release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?
 
-document command_name in texi2any HTML customization API
+document command_name and command_description in HTML customization API
 
 Document the use of accents stack in the HTML customization API
 

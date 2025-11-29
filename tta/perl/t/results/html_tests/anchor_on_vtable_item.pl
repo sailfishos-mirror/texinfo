@@ -353,7 +353,7 @@ th.index-letter-header-printindex {text-align: left}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#Idx" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">Next: <a href="#chap" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#Idx" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -365,7 +365,7 @@ Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; [<a href="#Idx" t
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Next: <a href="#Idx" accesskey="n" rel="next">Idx</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#Idx" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">Next: <a href="#Idx" accesskey="n" rel="next">Idx</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#Idx" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
@@ -386,7 +386,7 @@ Next: <a href="#Idx" accesskey="n" rel="next">Idx</a>, Previous: <a href="#Top" 
 <div class="chapter-level-extent" id="Idx">
 <div class="nav-panel">
 <p>
-Previous: <a href="#chap" accesskey="p" rel="prev">Chap</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#Idx" title="Index" rel="index">Index</a>]</p>
+<span class="nav-button">Previous: <a href="#chap" accesskey="p" rel="prev">Chap</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#Idx" title="Index" rel="index">Index</a>]</span></p>
 </div>
 <h2 class="chapter" id="Idx-1"><span>2 Idx<a class="copiable-link" href="#Idx-1"> &para;</a></span></h2>
 

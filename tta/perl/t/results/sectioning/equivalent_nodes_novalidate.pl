@@ -199,7 +199,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <a class="node-id" id="first"></a><div class="nav-panel">
 <p>
-Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</samp>&rsquo;</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</samp>&rsquo;</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
@@ -207,7 +207,7 @@ Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</s
 <hr>
 <a class="node-id" id="node"></a><div class="nav-panel">
 <p>
-Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="#first" accesskey="u" rel="up">first</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>&lsquo;<samp class="samp">node</samp>&rsquo;<a class="copiable-link" href="#node"> &para;</a></span></h4>
 

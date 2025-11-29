@@ -4608,9 +4608,8 @@ html_default_format_button (CONVERTER *self,
             {
               const char *button_text = direction_string (self,
                                     button->b.direction, TDS_type_text, 0);
-              if (!button_text)
-                button_text = "";
-              formatted_button->active = strdup (button_text);
+              if (button_text)
+                formatted_button->active = strdup (button_text);
             }
           formatted_button->need_delimiter = 0;
         }
@@ -4839,7 +4838,22 @@ html_default_format_navigation_panel (CONVERTER *self,
           if (need_delimiter && nr_of_buttons_shown > 0)
             text_append_n (&result_buttons, ", ", 2);
 
+          char *open;
+          size_t open_len;
+
+          open = html_attribute_class (self, "span", &nav_button_classes);
+          open_len = strlen (open);
+
+          if (open_len > 0)
+            {
+              text_append (&result_buttons, open);
+              text_append_n (&result_buttons, ">", 1);
+            }
           text_append (&result_buttons, active);
+
+          free (open);
+          if (open_len > 0)
+            text_append_n (&result_buttons, "</span>", 7);
 
           nr_of_buttons_shown++;
         }

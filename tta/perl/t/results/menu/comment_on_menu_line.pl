@@ -174,7 +174,7 @@ td.menu-entry-destination {vertical-align: top}
 <div class="chapter-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#first" accesskey="n" rel="next">first</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 
 <table class="menu">
@@ -186,7 +186,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 <hr>
 <a class="node-id" id="first"></a><div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" accesskey="u" rel="up">first</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">first</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">first</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 </div>

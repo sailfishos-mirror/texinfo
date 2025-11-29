@@ -264,7 +264,7 @@ th.menu-comment {text-align:left}
 <body lang="">
 <a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
-Next: <a href="#chap-first" accesskey="n" rel="next">chap first</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chap-first" accesskey="n" rel="next">chap first</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
@@ -288,13 +288,13 @@ Menu comment
 <hr>
 <a class="node-id" id="chap-first"></a><div class="nav-panel">
 <p>
-Next: <a href="#second" accesskey="n" rel="next">second</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#second" accesskey="n" rel="next">second</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>chap first<a class="copiable-link" href="#chap-first"> &para;</a></span></h4>
 <hr>
 <a class="node-id" id="second"></a><div class="nav-panel">
 <p>
-Previous: <a href="#chap-first" accesskey="p" rel="prev">chap first</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#chap-first" accesskey="p" rel="prev">chap first</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span>second<a class="copiable-link" href="#second"> &para;</a></span></h4>
 

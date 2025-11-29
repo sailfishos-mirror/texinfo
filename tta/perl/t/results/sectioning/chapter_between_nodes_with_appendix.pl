@@ -258,7 +258,7 @@ span:hover a.copiable-link {visibility: visible}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#Additional" accesskey="n" rel="next">Annex</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#Additional" accesskey="n" rel="next">Annex</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top-section"><span>top section<a class="copiable-link" href="#top-section"> &para;</a></span></h1>
 <ul class="mini-toc">
@@ -275,7 +275,7 @@ Next: <a href="#Additional" accesskey="n" rel="next">Annex</a> &nbsp; </p>
 <div class="appendix-level-extent" id="Additional">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="#Top" accesskey="u" rel="up">top section</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top section</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top section</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="appendix" id="Annex"><span>Appendix A Annex<a class="copiable-link" href="#Annex"> &para;</a></span></h2>
 </div>

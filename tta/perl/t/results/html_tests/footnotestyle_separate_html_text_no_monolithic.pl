@@ -168,7 +168,7 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">
 <p>
-[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</p>
+<span class="nav-button">[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</span></p>
 </div>
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -177,7 +177,7 @@ $result_converted{'html_text'}->{'footnotestyle_separate_html_text_no_monolithic
 </div><hr>
 <div class="nav-panel">
 <p>
-[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</p>
+<span class="nav-button">[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</span></p>
 </div>
 ';
 

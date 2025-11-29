@@ -270,7 +270,7 @@ th.menu-comment {text-align:left}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chap" accesskey="n" rel="next">Chap</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#chap" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -290,7 +290,7 @@ Chap
 <div class="chapter-level-extent" id="chap">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
@@ -303,7 +303,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <div class="section-level-extent" id="sec">
 <div class="nav-panel">
 <p>
-Next: <a href="#sec-after" accesskey="n" rel="next">Sec after</a>, Up: <a href="#chap" accesskey="u" rel="up">Chap</a> &nbsp; </p>
+<span class="nav-button">Next: <a href="#sec-after" accesskey="n" rel="next">Sec after</a></span>, <span class="nav-button">Up: <a href="#chap" accesskey="u" rel="up">Chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="A-section"><span>1.1 A section<a class="copiable-link" href="#A-section"> &para;</a></span></h3>
 
@@ -312,7 +312,7 @@ Next: <a href="#sec-after" accesskey="n" rel="next">Sec after</a>, Up: <a href="
 <div class="section-level-extent" id="sec-after">
 <div class="nav-panel">
 <p>
-Previous: <a href="#sec" accesskey="p" rel="prev">A section</a>, Up: <a href="#chap" accesskey="u" rel="up">Chap</a> &nbsp; </p>
+<span class="nav-button">Previous: <a href="#sec" accesskey="p" rel="prev">A section</a></span>, <span class="nav-button">Up: <a href="#chap" accesskey="u" rel="up">Chap</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h3 class="section" id="Sec-after"><span>1.2 Sec after<a class="copiable-link" href="#Sec-after"> &para;</a></span></h3>
 </div>

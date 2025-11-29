@@ -427,7 +427,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="top-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
@@ -471,7 +471,7 @@ Next: <a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a> &nbsp; [<
 <div class="part-level-extent" id="part-1_003a-part-1">
 <div class="nav-panel">
 <p>
-Next: <a href="#chapter-2-node" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Next: <a href="#chapter-2-node" accesskey="n" rel="next">chapter 2</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h1 class="part"><span>part 1: part 1<a class="copiable-link" href="#part-1_003a-part-1"> &para;</a></span></h1>
 <hr>
@@ -488,7 +488,7 @@ Next: <a href="#chapter-2-node" accesskey="n" rel="next">chapter 2</a>, Previous
 <div class="chapter-level-extent" id="chapter-2-node">
 <div class="nav-panel">
 <p>
-Next: <a href="#chapter-3-node" accesskey="n" rel="next">chapter 3</a>, Previous: <a href="#chapter-1-node" accesskey="p" rel="prev">chapter 1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Next: <a href="#chapter-3-node" accesskey="n" rel="next">chapter 3</a></span>, <span class="nav-button">Previous: <a href="#chapter-1-node" accesskey="p" rel="prev">chapter 1</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h2 class="chapter" id="chapter-2"><span>2 chapter 2<a class="copiable-link" href="#chapter-2"> &para;</a></span></h2>
 
@@ -498,7 +498,7 @@ Next: <a href="#chapter-3-node" accesskey="n" rel="next">chapter 3</a>, Previous
 <div class="part-level-extent" id="part2_003a-part2">
 <div class="nav-panel">
 <p>
-Previous: <a href="#chapter-2-node" accesskey="p" rel="prev">chapter 2</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Previous: <a href="#chapter-2-node" accesskey="p" rel="prev">chapter 2</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h1 class="part"><span>part2: part2<a class="copiable-link" href="#part2_003a-part2"> &para;</a></span></h1>
 <hr>

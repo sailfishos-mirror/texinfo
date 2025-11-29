@@ -274,7 +274,7 @@ ul.toc-numbered-mark {list-style: none}
 <div class="chapter-level-extent" id="Top">
 <div class="nav-panel">
 <p>
-Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Next: <a href="#after" accesskey="n" rel="next">chapter 2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h2>
 
@@ -284,7 +284,7 @@ Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#
 <div class="part-level-extent" id="part">
 <div class="nav-panel">
 <p>
-Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">chapter</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 </div>
 <h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>

@@ -185,7 +185,7 @@ $result_converted{'html_text'}->{'footnote_no_number_separate'} = '<div class="t
 <div class="element-footnotes" id="SEC_Footnotes">
 <div class="nav-panel">
 <p>
-[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</p>
+<span class="nav-button">[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</span></p>
 </div>
 <h4 class="footnotes-heading">Footnotes</h4>
 

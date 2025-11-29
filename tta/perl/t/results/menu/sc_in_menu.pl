@@ -330,7 +330,7 @@ th.menu-comment {text-align:left}
 <hr>
 <a class="node-id" id="node"></a><div class="nav-panel">
 <p>
-Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
+<span class="nav-button">Up: <a href="#first" accesskey="u" rel="up">first</a></span><span class="nav-button"> &nbsp; </span></p>
 </div>
 <h4 class="node"><span><small class="sc">NODE</small><a class="copiable-link" href="#node"> &para;</a></span></h4>
 
