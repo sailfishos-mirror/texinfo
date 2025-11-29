@@ -731,7 +731,7 @@ html_standard_label_id_file (CONVERTER *self, const char *normalized,
     {
       /* use default, not user-defined value */
       int basefilename_length
-        = html_default_options->options->BASEFILENAME_LENGTH.o.integer;
+        = txi_base_options.BASEFILENAME_LENGTH.o.integer;
       target = html_normalized_to_id (normalized_label);
       filename = strdup (normalized_label);
       if (strlen (filename) > (size_t) basefilename_length)

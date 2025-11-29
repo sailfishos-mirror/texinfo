@@ -1,3 +1,9 @@
+2025-11-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/format_html.c (html_standard_label_id_file): get
+	BASEFILENAME_LENGTH from txi_base_options since it is a default
+	converter option and is not set as an HTML converter default option.
+
 2025-11-29  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Allow running uninstalled texi2any with a symbolic link
