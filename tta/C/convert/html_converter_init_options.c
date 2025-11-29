@@ -23,9 +23,9 @@
 #include "option_types.h"
 #include "converter_types.h"
 #include "converters_options.h"
-/* html_get_direction_index html_free_button_specification_list */
+/* html_get_direction_index */
 #include "utils.h"
-/* add_new_button_option */
+/* add_new_button_option html_free_button_specification_list */
 #include "customization_options.h"
 #include "create_buttons.h"
 /* new_converter_initialization_info */

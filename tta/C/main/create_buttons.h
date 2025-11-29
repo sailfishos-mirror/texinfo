@@ -4,9 +4,7 @@
 
 #include <stddef.h>
 
-#include "tree_types.h"
 #include "option_types.h"
-#include "converter_types.h"
 
 BUTTON_SPECIFICATION_INFO *new_button_specification_info (void);
 BUTTON_SPECIFICATION_LIST *new_button_specification_list (size_t buttons_nr);

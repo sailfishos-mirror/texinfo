@@ -50,6 +50,9 @@ void txi_initialise_base_options (void);
 
 OPTIONS *new_options (void);
 
+void html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons);
+void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons);
+
 void clear_option (OPTION *option);
 void free_option (OPTION *option);
 void initialize_option (OPTION *option, enum global_option_type type,

@@ -2765,65 +2765,6 @@ enumerate_item_representation (const ELEMENT *element)
 }
 
 
-/* html options */
-
-void
-html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
-{
-  if (!buttons)
-    return;
-
-  if (buttons->number > 0)
-    {
-      size_t i;
-      for (i = 0; i < buttons->number; i++)
-        {
-          BUTTON_SPECIFICATION *button = &buttons->list[i];
-          if (button->type == BST_direction_info)
-            {
-              free (button->b.button_info);
-            }
-          if (button->sv)
-            unregister_perl_data (button->sv);
-        }
-    }
-  free (buttons->list);
-  if (buttons->av)
-    unregister_perl_data (buttons->av);
-  free (buttons);
-}
-
-void html_clear_direction_icons (DIRECTION_ICON_LIST *direction_icons)
-{
-  if (!direction_icons)
-    return;
-
-  if (direction_icons->number > 0)
-    {
-      size_t i;
-      for (i = 0; i < direction_icons->number; i++)
-        {
-          DIRECTION_ICON *icon = &direction_icons->icons_list[i];
-          free (icon->name);
-          free (icon->direction_name);
-        }
-    }
-  direction_icons->number = 0;
-}
-
-void
-html_free_direction_icons (DIRECTION_ICON_LIST *direction_icons)
-{
-  if (!direction_icons)
-    return;
-
-  html_clear_direction_icons (direction_icons);
-  free (direction_icons->icons_list);
-  direction_icons->space = 0;
-  direction_icons->icons_list = 0;
-  if (direction_icons->sv)
-    unregister_perl_data (direction_icons->sv);
-}
 
 /* here because it is used in main/get_perl_info.c */
 

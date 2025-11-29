@@ -1,5 +1,12 @@
 2025-11-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/customization_options.c
+	(html_free_button_specification_list, html_clear_direction_icons)
+	(html_free_direction_icons), tta/C/main/utils.c: move functions
+	freeing direction icons and buttons to customization options file.
+
+2025-11-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_init_options.c
 	(enum BUTTON_special_unit_directions, buttons_special_units_names)
 	(new_button_specification, new_special_unit_direction_button)
