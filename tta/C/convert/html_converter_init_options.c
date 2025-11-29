@@ -16,10 +16,10 @@
 #include <config.h>
 
 #include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
 #include <stddef.h>
 
+#include "tree_types.h"
 #include "option_types.h"
 #include "converter_types.h"
 #include "converters_options.h"
@@ -33,6 +33,21 @@
 #include "html_converter_api.h"
 
 /* HTML converter options setting and initialization -- converter_defaults. */
+
+/* the enum value is negative to denote a special unit direction with
+   a direction index not already known.  And such that -enum_value -2
+   is the index in the special units directions names array */
+enum BUTTON_special_unit_directions {
+    BSUD_D_About = -3,
+    BSUD_D_Contents,
+};
+
+/* should be consistent with enum BUTTON_special_unit_directions.  See
+   the comment there */
+static const char *buttons_special_units_names[] = {
+    "Contents",
+    "About",
+};
 
 static const int DEFAULT_MISC_BUTTONS[] = {
  D_direction_Top, BSUD_D_Contents, D_direction_Index, BSUD_D_About,
@@ -68,6 +83,173 @@ static const int T2H_SECTION_FOOTER_BUTTONS[] = {
  D_direction_Forward, D_direction_FastForward,
  -1
 };
+
+
+
+/* functions to create one button specification and buttons
+   specifications lists corresponding to the defaults.
+ */
+
+/* create button specification */
+/* NOTE this function is quite generic and could be in another
+   file if it becomes used elsewhere */
+static void
+new_button_specification (BUTTON_SPECIFICATION *button,
+                          enum button_specification_type type,
+                          enum button_information_type info_type,
+                          int direction, const char *direction_string,
+                          enum button_function_type function_type,
+                          enum html_text_type text_type)
+{
+  button->type = type;
+  button->direction_string = direction_string;
+
+  if (type == BST_direction)
+    button->b.direction = direction;
+  else if (type == BST_direction_info)
+    {
+      BUTTON_SPECIFICATION_INFO *button_spec
+                    = new_button_specification_info ();
+
+      button->b.button_info = button_spec;
+
+      button_spec->type = info_type;
+      button_spec->direction = direction;
+
+      if (info_type == BIT_function)
+        button_spec->bi.button_function.type = function_type;
+      else if (info_type == BIT_selected_direction_information_type)
+        button_spec->bi.direction_information_type = text_type;
+    }
+}
+
+/* this function may be called too early for special units direction
+   indices to be known, in that case we register direction string name
+   for such directions, directions are set afterwards by calling
+   html_fill_options_directions
+ */
+static void
+new_special_unit_direction_button (const CONVERTER *self,
+                                   BUTTON_SPECIFICATION *button,
+                       enum BUTTON_special_unit_directions special_direction)
+{
+  const char *button_name = buttons_special_units_names[-special_direction -2];
+  int direction = html_get_direction_index (self, button_name);
+
+  if (direction < 0)
+    new_button_specification (button, BST_direction,
+                              0, -1, button_name, 0, 0);
+  else
+    new_button_specification (button, BST_direction,
+                              0, direction, 0, 0, 0);
+}
+
+static BUTTON_SPECIFICATION_LIST *
+new_base_navigation_buttons (const CONVERTER *self,
+                             enum button_function_type function_type,
+                             int with_about)
+{
+  BUTTON_SPECIFICATION_LIST *result;
+  int buttons_nr = 6;
+
+  if (with_about)
+    buttons_nr++;
+
+  result = new_button_specification_list (buttons_nr);
+
+  new_button_specification (&result->list[0], BST_direction_info,
+                            BIT_function, D_direction_Next, 0,
+                            function_type, 0);
+  new_button_specification (&result->list[1], BST_direction_info,
+                            BIT_function, D_direction_Prev, 0,
+                            function_type, 0);
+  new_button_specification (&result->list[2], BST_direction_info,
+                            BIT_function, D_direction_Up, 0,
+                            function_type, 0);
+  new_button_specification (&result->list[3], BST_direction, 0,
+                            D_direction_Space, 0, 0, 0);
+  new_special_unit_direction_button (self, &result->list[4], BSUD_D_Contents);
+  new_button_specification (&result->list[5], BST_direction, 0,
+                            D_direction_Index, 0, 0, 0);
+  if (with_about)
+    new_special_unit_direction_button (self, &result->list[6], BSUD_D_About);
+  return result;
+}
+
+static BUTTON_SPECIFICATION_LIST *
+new_base_links_buttons (const CONVERTER *self)
+{
+  BUTTON_SPECIFICATION_LIST *result = new_button_specification_list (7);
+
+  new_button_specification (&result->list[0], BST_direction,
+                            0, D_direction_Top, 0, 0, 0);
+  new_button_specification (&result->list[1], BST_direction,
+                            0, D_direction_Index, 0, 0, 0);
+
+  new_special_unit_direction_button (self, &result->list[2], BSUD_D_Contents);
+  new_special_unit_direction_button (self, &result->list[3], BSUD_D_About);
+
+  new_button_specification (&result->list[4], BST_direction,
+                            0, D_direction_NodeUp, 0, 0, 0);
+  new_button_specification (&result->list[5], BST_direction,
+                            0, D_direction_NodeNext, 0, 0, 0);
+  new_button_specification (&result->list[6], BST_direction,
+                            0, D_direction_NodePrev, 0, 0, 0);
+  return result;
+}
+
+static BUTTON_SPECIFICATION_LIST *
+new_base_navigation_section_buttons (const CONVERTER *self)
+{
+  return new_base_navigation_buttons (self, BFT_type_panel_directions, 1);
+}
+
+static BUTTON_SPECIFICATION_LIST *
+new_base_navigation_section_footer_buttons (const CONVERTER *self)
+{
+  return new_base_navigation_buttons (self, BFT_type_panel_section_footer, 0);
+}
+
+/* a negative direction in DIRECTIONS corresponds to a special direction
+   which index is not known early and is better stored as a string.
+
+   Mainly called for texi2html style navigation buttons, but also for
+   default special units navigation panel buttons.
+ */
+static BUTTON_SPECIFICATION_LIST *
+new_directions_list_buttons_specifications (const CONVERTER *self,
+                                            const int *directions)
+{
+  int buttons_nr = 0;
+  int i;
+
+  BUTTON_SPECIFICATION_LIST *result;
+
+  for (buttons_nr = 0; directions[buttons_nr] != -1; buttons_nr++) {};
+
+  result = new_button_specification_list (buttons_nr);
+
+  for (i = 0; i < buttons_nr; i++)
+    {
+      int direction_index = directions[i];
+      int direction;
+      const char *direction_string = 0;
+      if (direction_index < 0)
+        {
+          int name_idx = -direction_index - 2;
+          direction_string = buttons_special_units_names[name_idx];
+          direction = html_get_direction_index (self, direction_string);
+          if (direction >= 0)
+            direction_string = 0;
+        }
+      else
+        direction = direction_index;
+
+      new_button_specification (&result->list[i], BST_direction,
+                        0, direction, direction_string, 0, 0);
+    }
+  return result;
+}
 
 
 

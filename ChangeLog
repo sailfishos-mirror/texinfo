@@ -1,5 +1,18 @@
 2025-11-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_init_options.c
+	(enum BUTTON_special_unit_directions, buttons_special_units_names)
+	(new_button_specification, new_special_unit_direction_button)
+	(new_base_navigation_buttons, new_base_links_buttons)
+	(new_base_navigation_section_buttons)
+	(new_base_navigation_section_footer_buttons)
+	(new_directions_list_buttons_specifications),
+	tta/C/main/create_buttons.c: move functions creating specifc button
+	lists to html_converter_init_options.c, as well as associated
+	static function and data.
+
+2025-11-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_init_options.c: remove unused
 	set_option_buttons_specification,
 	set_html_default_buttons_specifications and

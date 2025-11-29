@@ -8,28 +8,7 @@
 #include "option_types.h"
 #include "converter_types.h"
 
-/* the enum value is negative to denote a special unit direction with
-   a direction index not already known.  And such that -enum_value -2
-   is the index in the special units directions names array */
-enum BUTTON_special_unit_directions {
-    BSUD_D_About = -3,
-    BSUD_D_Contents,
-};
-
 BUTTON_SPECIFICATION_INFO *new_button_specification_info (void);
 BUTTON_SPECIFICATION_LIST *new_button_specification_list (size_t buttons_nr);
-
-BUTTON_SPECIFICATION_LIST *new_base_navigation_buttons (const CONVERTER *self,
-                             enum button_function_type function_type,
-                             int with_about);
-BUTTON_SPECIFICATION_LIST *new_base_links_buttons (const CONVERTER *self);
-BUTTON_SPECIFICATION_LIST *new_base_navigation_section_buttons
-                                                   (const CONVERTER *self);
-BUTTON_SPECIFICATION_LIST *new_base_navigation_section_footer_buttons
-                                                   (const CONVERTER *self);
-
-BUTTON_SPECIFICATION_LIST *new_directions_list_buttons_specifications
-                                           (const CONVERTER *self,
-                                            const int* directions);
 
 #endif
