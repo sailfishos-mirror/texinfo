@@ -1,6 +1,16 @@
 2025-11-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/customization_options.c
+	(new_button_specification_info, new_button_specification_list),
+	tta/C/main/create_buttons.c: move new_button_specification_info and
+	new_button_specification_list to customization_options.c.
+
+	* tta/C/Makefile.am (C_libtexinfo_sources): remove create_buttons.c
+	and create_buttons.h.
+
+2025-11-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/customization_options.c
 	(html_free_button_specification_list, html_clear_direction_icons)
 	(html_free_direction_icons), tta/C/main/utils.c: move functions
 	freeing direction icons and buttons to customization options file.

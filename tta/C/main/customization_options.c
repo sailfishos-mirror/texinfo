@@ -124,6 +124,35 @@ new_options (void)
 
 /* html options */
 
+BUTTON_SPECIFICATION_INFO *
+new_button_specification_info (void)
+{
+  BUTTON_SPECIFICATION_INFO *button_spec
+    = (BUTTON_SPECIFICATION_INFO *)
+        malloc (sizeof (BUTTON_SPECIFICATION_INFO));
+  memset (button_spec, 0, sizeof (BUTTON_SPECIFICATION_INFO));
+  return button_spec;
+}
+
+BUTTON_SPECIFICATION_LIST *
+new_button_specification_list (size_t buttons_nr)
+{
+  BUTTON_SPECIFICATION_LIST *result;
+
+  result = (BUTTON_SPECIFICATION_LIST *)
+              malloc (sizeof (BUTTON_SPECIFICATION_LIST));
+
+  result->BIT_user_function_number = 0;
+  result->number = buttons_nr;
+  result->av = 0;
+
+  result->list = (BUTTON_SPECIFICATION *) malloc (buttons_nr *
+                   sizeof (BUTTON_SPECIFICATION));
+  memset (result->list, 0, buttons_nr * sizeof (BUTTON_SPECIFICATION));
+
+  return result;
+}
+
 void
 html_free_button_specification_list (BUTTON_SPECIFICATION_LIST *buttons)
 {

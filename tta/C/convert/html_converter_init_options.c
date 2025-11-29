@@ -27,7 +27,6 @@
 #include "utils.h"
 /* add_new_button_option html_free_button_specification_list */
 #include "customization_options.h"
-#include "create_buttons.h"
 /* new_converter_initialization_info */
 #include "converter.h"
 #include "html_converter_api.h"

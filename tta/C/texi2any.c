@@ -65,7 +65,6 @@
 /* set_document_options */
 #include "document.h"
 #include "convert_to_texinfo.h"
-#include "create_buttons.h"
 /* needed because commands are used to determine expanded regions names */
 #include "builtin_commands.h"
 /* output_files_open_out output_files_register_closed */

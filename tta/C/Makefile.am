@@ -113,8 +113,6 @@ C_libtexinfo_sources = \
 		      main/convert_to_text.h \
 		      main/convert_utils.c \
 		      main/convert_utils.h \
-		      main/create_buttons.c \
-		      main/create_buttons.h \
 		      main/customization_options.c \
 		      main/customization_options.h \
 		      main/html_conversion_data.c \
