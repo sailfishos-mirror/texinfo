@@ -2860,6 +2860,11 @@ direction_unit_direction_name (int direction, const CONVERTER *converter)
 
 
 
+/* When buttons are created, some direction indices may not be known
+   (special unit directions), in that case the direction name had been
+   registered instead.  This function is called when the names have been
+   set and their index is known to set the direction index.
+ */
 void
 html_fill_button_directions_specification_list (const CONVERTER *converter,
                                               BUTTON_SPECIFICATION_LIST *result)

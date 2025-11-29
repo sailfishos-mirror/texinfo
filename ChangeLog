@@ -1,5 +1,15 @@
 2025-11-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_init_options.c: remove unused
+	set_option_buttons_specification,
+	set_html_default_buttons_specifications and
+	set_texi2html_default_buttons_specifications.
+
+	* tta/C/main/create_buttons.c (new_button_specification): declare
+	static.
+
+2025-11-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_standard_label_id_file): get
 	BASEFILENAME_LENGTH from txi_base_options since it is a default
 	converter option and is not set as an HTML converter default option.

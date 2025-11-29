@@ -72,39 +72,6 @@ static const int T2H_SECTION_FOOTER_BUTTONS[] = {
 
 
 static void
-set_option_buttons_specification (OPTION *option,
-                                 BUTTON_SPECIFICATION_LIST *buttons)
-{
-  if (option->o.buttons)
-    html_free_button_specification_list (option->o.buttons);
-  option->o.buttons = buttons;
-}
-
-void
-set_html_default_buttons_specifications (OPTIONS *options, CONVERTER *self)
-{
-  set_option_buttons_specification (&options->LINKS_DIRECTIONS,
-                                    new_base_links_buttons (self));
-
-  set_option_buttons_specification (&options->SECTION_BUTTONS,
-                                    new_base_navigation_section_buttons (self));
-  set_option_buttons_specification (&options->SECTION_FOOTER_BUTTONS,
-                           new_base_navigation_section_footer_buttons (self));
-  set_option_buttons_specification (&options->NODE_FOOTER_BUTTONS,
-           new_base_navigation_buttons (self, BFT_type_panel_node_footer, 0));
-  set_option_buttons_specification (&options->CHAPTER_BUTTONS,
-                                    new_base_navigation_section_buttons (self));
-  set_option_buttons_specification (&options->MISC_BUTTONS,
-      new_directions_list_buttons_specifications (self, DEFAULT_MISC_BUTTONS));
-  set_option_buttons_specification (&options->TOP_BUTTONS,
-                                    new_base_navigation_section_buttons (self));
-  set_option_buttons_specification (&options->CHAPTER_FOOTER_BUTTONS,
-                          new_base_navigation_section_footer_buttons (self));
-  set_option_buttons_specification (&options->TOP_FOOTER_BUTTONS,
-                            new_base_navigation_section_footer_buttons (self));
-}
-
-static void
 add_html_default_buttons_specifications (OPTIONS_LIST *options, CONVERTER *self)
 {
   add_new_button_option (options, "LINKS_DIRECTIONS",
@@ -126,35 +93,6 @@ add_html_default_buttons_specifications (OPTIONS_LIST *options, CONVERTER *self)
                           new_base_navigation_section_footer_buttons (self));
   add_new_button_option (options, "TOP_FOOTER_BUTTONS",
                             new_base_navigation_section_footer_buttons (self));
-}
-
-void
-set_texi2html_default_buttons_specifications (OPTIONS *options,
-                                              CONVERTER *self)
-{
-  set_option_buttons_specification (&options->SECTION_BUTTONS,
-      new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
-
-  set_option_buttons_specification (&options->TOP_BUTTONS,
-      new_directions_list_buttons_specifications (self, T2H_TOP_BUTTONS));
-
-  set_option_buttons_specification (&options->TOP_FOOTER_BUTTONS,
-      new_directions_list_buttons_specifications (self, T2H_TOP_BUTTONS));
-
-  set_option_buttons_specification (&options->MISC_BUTTONS,
-      new_directions_list_buttons_specifications (self, DEFAULT_MISC_BUTTONS));
-
-  set_option_buttons_specification (&options->CHAPTER_BUTTONS,
-      new_directions_list_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
-
-  set_option_buttons_specification (&options->SECTION_FOOTER_BUTTONS,
- new_directions_list_buttons_specifications (self, T2H_SECTION_FOOTER_BUTTONS));
-
-  set_option_buttons_specification (&options->CHAPTER_FOOTER_BUTTONS,
-      new_directions_list_buttons_specifications (self, T2H_CHAPTER_BUTTONS));
-
-  set_option_buttons_specification (&options->NODE_FOOTER_BUTTONS,
-      new_directions_list_buttons_specifications (self, T2H_SECTION_BUTTONS));
 }
 
 static void
@@ -189,7 +127,7 @@ add_texi2html_default_buttons_specifications (OPTIONS_LIST *options,
 /* equivalent of Texinfo::Convert::HTML %defaults */
 OPTIONS_LIST *html_default_options;
 
-/* Should be called once */
+/* Should be called once.  Same as setting %defaults in Perl */
 void
 html_default_options_setup (void)
 {
@@ -202,6 +140,7 @@ html_default_options_setup (void)
     }
 }
 
+/* ALTIMP Texinfo::Convert::HTML::converter_defaults */
 CONVERTER_INITIALIZATION_INFO *
 html_converter_defaults (enum converter_format format,
                          const CONVERTER_INITIALIZATION_INFO *conf)

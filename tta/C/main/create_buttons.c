@@ -45,7 +45,7 @@ new_button_specification_info (void)
 }
 
 /* create button specification */
-void
+static void
 new_button_specification (BUTTON_SPECIFICATION *button,
                           enum button_specification_type type,
                           enum button_information_type info_type,
@@ -96,7 +96,8 @@ new_button_specification_list (size_t buttons_nr)
 
 /* this function may be called too early for special units direction
    indices to be known, in that case we register direction string name
-   for such directions, directions are set afterwards.
+   for such directions, directions are set afterwards by calling
+   html_fill_options_directions
  */
 static void
 new_special_unit_direction_button (const CONVERTER *self,

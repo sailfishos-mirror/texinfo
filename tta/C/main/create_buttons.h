@@ -17,12 +17,6 @@ enum BUTTON_special_unit_directions {
 };
 
 BUTTON_SPECIFICATION_INFO *new_button_specification_info (void);
-void new_button_specification (BUTTON_SPECIFICATION *button,
-                          enum button_specification_type type,
-                          enum button_information_type info_type,
-                          int direction, const char *direction_string,
-                          enum button_function_type function_type,
-                          enum html_text_type text_type);
 BUTTON_SPECIFICATION_LIST *new_button_specification_list (size_t buttons_nr);
 
 BUTTON_SPECIFICATION_LIST *new_base_navigation_buttons (const CONVERTER *self,

@@ -698,7 +698,7 @@ html_fill_button_sv_specification_list (const CONVERTER *converter,
 
 /* HTML specific, but needs to be there for options_get_perl.c */
 /* it is expected that directions are not found as the directions list
-   is not setup already.  A call of html_fill_button_specification_list
+   is not setup already.  A call of html_fill_button_sv_specification_list
    should be needed afterwards */
 BUTTON_SPECIFICATION_LIST *
 html_get_button_specification_list (const CONVERTER *converter,
