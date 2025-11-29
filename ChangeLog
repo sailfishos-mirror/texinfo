@@ -1,3 +1,13 @@
+2025-11-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Allow running uninstalled texi2any with a symbolic link
+
+	* tta/perl/texi2any.pl: If loading Texinfo::ModulePath failed and
+	$0 is a symbolic link, dereference the symbolic link and try again.
+
+	* tta/perl/Texinfo/ModulePath.pm.in: dereference $0 if the file
+	is a symbolic link.  Add "use strict" to module.
+
 2025-11-29 Patrice Dumas  <pertusus@free.fr>
 
 	Do not allow wrapping inside an HTML button

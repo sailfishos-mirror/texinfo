@@ -114,7 +114,21 @@ BEGIN
       unshift @INC, $command_directory;
     }
 
-    require Texinfo::ModulePath;
+    eval { require Texinfo::ModulePath; };
+    if ($@ ne '') {
+      if (-l $0) {
+        my $followed = readlink($0);
+        if ($followed) {
+          ($real_command_name, $command_directory, $command_suffix)
+            = fileparse($followed, '.pl');
+          unshift @INC, $command_directory;
+          eval { require Texinfo::ModulePath; };
+        }
+      }
+      if ($@ ne '') {
+        die "couldn't load Texinfo::ModulePath: $@\n";
+      }
+    }
     Texinfo::ModulePath::init(undef, undef, undef, 'updirs' => 1);
   } else {
     # Look for modules in their installed locations.

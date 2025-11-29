@@ -11,6 +11,8 @@
 
 package Texinfo::ModulePath;
 
+use strict;
+
 use vars qw($VERSION);
 
 $VERSION = '7.2dev';
@@ -60,8 +62,9 @@ sub init {
       $t2a_srcdir = $ENV{'t2a_srcdir'};
     } elsif (defined $named_args{'updirs'}) {
       # the command used is always in the source directory
+      my $argv0 = (-l $0) ? readlink($0) : $0;
       my ($real_command_name, $command_directory, $command_suffix)
-              = fileparse($0, '.pl');
+              = fileparse($argv0, '.pl');
       my $updir = File::Spec->updir();
 
       # e.g. tta/t -> tta/t/../.. for 'updirs' = 2.
