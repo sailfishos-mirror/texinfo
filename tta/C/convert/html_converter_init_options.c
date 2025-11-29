@@ -108,7 +108,7 @@ new_button_specification (BUTTON_SPECIFICATION *button,
   else if (type == BST_direction_info)
     {
       BUTTON_SPECIFICATION_INFO *button_spec
-                    = new_button_specification_info ();
+                    = html_new_button_specification_info ();
 
       button->b.button_info = button_spec;
 
@@ -154,7 +154,7 @@ new_base_navigation_buttons (const CONVERTER *self,
   if (with_about)
     buttons_nr++;
 
-  result = new_button_specification_list (buttons_nr);
+  result = html_new_button_specification_list (buttons_nr);
 
   new_button_specification (&result->list[0], BST_direction_info,
                             BIT_function, D_direction_Next, 0,
@@ -178,7 +178,7 @@ new_base_navigation_buttons (const CONVERTER *self,
 static BUTTON_SPECIFICATION_LIST *
 new_base_links_buttons (const CONVERTER *self)
 {
-  BUTTON_SPECIFICATION_LIST *result = new_button_specification_list (7);
+  BUTTON_SPECIFICATION_LIST *result = html_new_button_specification_list (7);
 
   new_button_specification (&result->list[0], BST_direction,
                             0, D_direction_Top, 0, 0, 0);
@@ -226,7 +226,7 @@ new_directions_list_buttons_specifications (const CONVERTER *self,
 
   for (buttons_nr = 0; directions[buttons_nr] != -1; buttons_nr++) {};
 
-  result = new_button_specification_list (buttons_nr);
+  result = html_new_button_specification_list (buttons_nr);
 
   for (i = 0; i < buttons_nr; i++)
     {

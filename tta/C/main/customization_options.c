@@ -125,7 +125,7 @@ new_options (void)
 /* html options */
 
 BUTTON_SPECIFICATION_INFO *
-new_button_specification_info (void)
+html_new_button_specification_info (void)
 {
   BUTTON_SPECIFICATION_INFO *button_spec
     = (BUTTON_SPECIFICATION_INFO *)
@@ -135,7 +135,7 @@ new_button_specification_info (void)
 }
 
 BUTTON_SPECIFICATION_LIST *
-new_button_specification_list (size_t buttons_nr)
+html_new_button_specification_list (size_t buttons_nr)
 {
   BUTTON_SPECIFICATION_LIST *result;
 

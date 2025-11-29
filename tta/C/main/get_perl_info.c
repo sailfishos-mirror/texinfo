@@ -724,7 +724,7 @@ html_get_button_specification_list (const CONVERTER *converter,
   if (buttons_nr == 0)
     return 0;
 
-  result = new_button_specification_list ((size_t) buttons_nr);
+  result = html_new_button_specification_list ((size_t) buttons_nr);
 
   result->av = buttons_av;
   SvREFCNT_inc ((SV *)result->av);
@@ -758,7 +758,7 @@ html_get_button_specification_list (const CONVERTER *converter,
               const char *direction_name;
 
               BUTTON_SPECIFICATION_INFO *button_spec
-                = new_button_specification_info ();
+                = html_new_button_specification_info ();
 
               button->type = BST_direction_info;
               button->b.button_info = button_spec;
