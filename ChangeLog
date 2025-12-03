@@ -1,4 +1,4 @@
-2025-11-29  Gavin Smith <gavinsmith0123@gmail.com>
+2025-12-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/data/default_css_element_class_styles.csv (span.nav-button):
 	Remove 'white-space: nowrap' as it is up to the user if they want
