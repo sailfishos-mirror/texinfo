@@ -143,10 +143,8 @@ th.menu-comment {text-align:left}
 </head>
 
 <body lang="">
-<a class="node-id" id="Top"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="Top"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#chap-subnode" accesskey="n" rel="next">chap subnode</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu">
@@ -156,10 +154,8 @@ th.menu-comment {text-align:left}
 </table>
 
 <hr>
-<a class="node-id" id="chap-subnode"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="chap-subnode"></a><p class="nav-panel">
 <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>chap subnode<a class="copiable-link" href="#chap-subnode"> &para;</a></span></h4>
 
 

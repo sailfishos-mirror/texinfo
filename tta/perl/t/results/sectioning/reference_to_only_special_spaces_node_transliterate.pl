@@ -309,10 +309,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#g_t_2002_2003_2002" accesskey="n" rel="next">EN QUAD| | EM QUAD| | EN SPACE| |</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -321,10 +319,8 @@ span:hover a.copiable-link {visibility: visible}
 </ul>
 <hr>
 <div class="chapter-level-extent" id="g_t_2002_2003_2002">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"><span>1 EN QUAD| | EM QUAD| | EN SPACE| |<a class="copiable-link" href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c"> &para;</a></span></h2>
 
 <p><a class="ref" href="#g_t_2002_2003_2002">   </a>.
@@ -332,10 +328,8 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 </div>
 <div class="chapter-level-extent">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#g_t_2002_2003_2002" accesskey="p" rel="prev">EN QUAD| | EM QUAD| | EN SPACE| |</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c-1"><span>2 <code class="code">EN QUAD| | EM QUAD| | EN SPACE| |</code><a class="copiable-link" href="#EN-QUAD_007c-_007c-EM-QUAD_007c-_007c-EN-SPACE_007c-_007c-1"> &para;</a></span></h2>
 
 <p><a class="ref" href="#g_t_2002_2003_2002"><code class="code">   </code></a>.

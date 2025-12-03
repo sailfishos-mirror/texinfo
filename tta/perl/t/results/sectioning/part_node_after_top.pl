@@ -225,18 +225,14 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#chap-part-node-after-top" accesskey="n" rel="next">chap part node after top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
 <hr>
-<a class="node-id" id="chap-part-node-after-top"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="chap-part-node-after-top"></a><p class="nav-panel">
 <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>chap part node after top<a class="copiable-link" href="#chap-part-node-after-top"> &para;</a></span></h4>
 </div>
 <div class="part-level-extent" id="part">

@@ -744,10 +744,8 @@ $result_converted{'plaintext'}->{'sorted_subentries'} = '1 one
 
 
 $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chapter-second" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
 <li><a href="#chapter-one">one</a></li>
@@ -755,10 +753,8 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter-one">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chapter-second" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter" id="one"><span>1 one<a class="copiable-link" href="#one"> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-aa-bb"></a>
@@ -777,10 +773,8 @@ $result_converted{'html_text'}->{'sorted_subentries'} = '<div class="top-level-e
 <hr>
 </div>
 <div class="chapter-level-extent" id="chapter-second">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chapter-second" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter" id="second"><span>2 second<a class="copiable-link" href="#second"> &para;</a></span></h2>
 <a class="index-entry-id" id="index-hhh-jjj-lll-1"></a>
 <a class="index-entry-id" id="index-hhh-1"></a>

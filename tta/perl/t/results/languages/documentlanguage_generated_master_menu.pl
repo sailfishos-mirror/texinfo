@@ -449,19 +449,15 @@ span:hover a.copiable-link {visibility: visible}
 
 
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Nächste: <a href="#chapter" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <hr>
 </div>
 <div class="part-level-extent" id="Part-I">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Nächste: <a href="#other-chap" accesskey="n" rel="next">Other chap</a></span>, <span class="nav-button">Vorige: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Nach oben: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="part"><span>Part I<a class="copiable-link" href="#Part-I"> &para;</a></span></h1>
 <hr>
 
@@ -476,10 +472,8 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 </div>
 <div class="part-level-extent" id="Part-II">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Suivant: <a href="#appendix" accesskey="n" rel="next">App</a></span>, <span class="nav-button">Pr&eacute;c&eacute;dent: <a href="#chapter" accesskey="p" rel="prev">Chap</a></span>, <span class="nav-button">Monter: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="part"><span>Part II<a class="copiable-link" href="#Part-II"> &para;</a></span></h1>
 <hr>
 
@@ -493,10 +487,8 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 </div>
 <div class="appendix-level-extent" id="appendix">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Prethodno: <a href="#other-chap" accesskey="p" rel="prev">Other chap</a></span>, <span class="nav-button">Gore: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="appendix" id="App"><span>Annexe A App<a class="copiable-link" href="#App"> &para;</a></span></h2>
 </div>
 </div>

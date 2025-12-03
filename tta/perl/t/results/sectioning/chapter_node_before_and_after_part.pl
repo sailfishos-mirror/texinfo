@@ -272,20 +272,16 @@ ul.toc-numbered-mark {list-style: none}
 <body lang="">
 
 <div class="chapter-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#after" accesskey="n" rel="next">chapter 2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
-</div>
 <h2 class="chapter" id="chapter"><span>1 chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h2>
 
 
 <hr>
 </div>
 <div class="part-level-extent" id="part">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">chapter</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
-</div>
 <h1 class="part"><span>part<a class="copiable-link" href="#part"> &para;</a></span></h1>
 <hr>
 

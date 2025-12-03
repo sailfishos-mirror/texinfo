@@ -579,10 +579,8 @@ th.index-letter-header-printindex {text-align: left}
 
 
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Suivant: <a href="#chap" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -590,10 +588,8 @@ th.index-letter-header-printindex {text-align: left}
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Pr&eacute;c&eacute;dent: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Monter: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <dl class="first-defcv first-defivar-alias-first-defcv def-block">

@@ -182,10 +182,8 @@ th.index-letter-header-printindex {text-align: left}
 
 <body lang="">
 <div class="top-level-extent" id="top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -193,10 +191,8 @@ th.index-letter-header-printindex {text-align: left}
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button"> Up : <a href="#top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 <ul class="mini-toc">
@@ -204,10 +200,8 @@ th.index-letter-header-printindex {text-align: left}
 </ul>
 <hr>
 <div class="section-level-extent" id="sec">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button"> Up : <a href="#chap" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h3 class="section"><span>1.1 sec<a class="copiable-link" href="#sec"> &para;</a></span></h3>
 
 <a class="index-entry-id" id="index-entry"></a>

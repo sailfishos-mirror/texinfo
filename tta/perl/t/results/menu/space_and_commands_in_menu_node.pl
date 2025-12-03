@@ -364,10 +364,8 @@ td.menu-entry-destination {vertical-align: top}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <table class="menu">
@@ -393,10 +391,8 @@ td.menu-entry-destination {vertical-align: top}
 
 <hr>
 <div class="chapter-level-extent" id="chap-b">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#chap-b" accesskey="n" rel="next">Chap</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 </div>
 </div>

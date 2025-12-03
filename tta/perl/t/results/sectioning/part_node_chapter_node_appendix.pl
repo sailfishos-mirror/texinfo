@@ -350,20 +350,16 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
 <hr>
 </div>
 <div class="part-level-extent" id="Part-1">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#appendix-node" accesskey="n" rel="next">Appendix</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="part"><span>Part 1<a class="copiable-link" href="#Part-1"> &para;</a></span></h1>
 <hr>
 
@@ -376,10 +372,8 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 </div>
 <div class="appendix-level-extent" id="appendix-node">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="appendix" id="Appendix"><span>Appendix A Appendix<a class="copiable-link" href="#Appendix"> &para;</a></span></h2>
 </div>
 </div>

@@ -241,10 +241,8 @@ ul.toc-numbered-mark {list-style: none}
 <body lang="">
 
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#chapter" rel="next">Chapter 1</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
-</div>
 <h1 class="top" id="Contents-at-beginning"><span>Contents at beginning<a class="copiable-link" href="#Contents-at-beginning"> &para;</a></span></h1>
 
 <p>Content at the beginning.
@@ -255,10 +253,8 @@ ul.toc-numbered-mark {list-style: none}
 </ul>
 <hr style="height: 6px;">
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#Top" rel="prev">Contents at beginning</a></span>, <span class="nav-button">Up: <a href="#Top" rel="up">Contents at beginning</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
-</div>
 <h2 class="chapter" id="Chapter-1"><span>1 Chapter 1<a class="copiable-link" href="#Chapter-1"> &para;</a></span></h2>
 
 <p>The chapter
@@ -267,10 +263,8 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 </div>
 <div class="element-contents" id="SEC_Contents">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
-</div>
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

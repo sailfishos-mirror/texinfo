@@ -222,10 +222,8 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="">
 
 <div class="top-level-extent" id="top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#nchap" accesskey="n" rel="next">nchap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 <ul class="mini-toc">
 <li><a href="#Top" accesskey="1">Chapter</a></li>
@@ -234,10 +232,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 <hr>
-<a class="node-id" id="nchap"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="nchap"></a><p class="nav-panel">
 <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Chapter</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>nchap<a class="copiable-link" href="#nchap"> &para;</a></span></h4>
 
 <p>See <a class="xref" href="#in-titlepage">in titlepage</a>.

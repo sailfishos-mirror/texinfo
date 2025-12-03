@@ -4878,10 +4878,8 @@ html_default_format_navigation_panel (CONVERTER *self,
     }
   else
     {
-      open_element_with_class (self, "div", &nav_panel_classes, result);
+      open_element_with_class (self, "p", &nav_panel_classes, result);
       text_append_n (result, "\n", 1);
-
-      text_append_n (result, "<p>\n", 4);
     }
 
   text_append (result, result_buttons.text);
@@ -4895,7 +4893,6 @@ html_default_format_navigation_panel (CONVERTER *self,
   else
     {
       text_append_n (result, "</p>\n", 5);
-      text_append_n (result, "</div>\n", 7);
     }
   free (result_buttons.text);
 }

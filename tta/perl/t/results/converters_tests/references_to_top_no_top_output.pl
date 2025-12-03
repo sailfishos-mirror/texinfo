@@ -491,19 +491,15 @@ $result_indices_sort_strings{'references_to_top_no_top_output'} = 'cp:
 
 $result_converted{'html_text'}->{'references_to_top_no_top_output'} = '
 
-<a class="node" id="Top"></a><div class="nav-panel">
-<p>
+<a class="node" id="Top"></a><p class="nav-panel">
 <span class="nav-button">[<a href="#chapter" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <a class="top" id="top"></a><ul class="mini-toc">
 <li><a href="#chapter">Chap</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chapter" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <p>see <a class="pxref" href="#a-in-copying">a in copying</a>.

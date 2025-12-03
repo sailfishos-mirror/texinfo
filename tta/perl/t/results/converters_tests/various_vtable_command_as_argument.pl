@@ -694,10 +694,8 @@ $result_converted_errors{'plaintext'}->{'various_vtable_command_as_argument'} = 
 
 
 $result_converted{'html_text'}->{'various_vtable_command_as_argument'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#Indices" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -706,10 +704,8 @@ $result_converted{'html_text'}->{'various_vtable_command_as_argument'} = '<div c
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chap">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#Indices" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <dl class="vtable">
@@ -751,10 +747,8 @@ $result_converted{'html_text'}->{'various_vtable_command_as_argument'} = '<div c
 <hr>
 </div>
 <div class="appendix-level-extent" id="Indices">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#Indices" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="appendix" id="Print-the-index"><span>Appendix A Print the index<a class="copiable-link" href="#Print-the-index"> &para;</a></span></h2>
 
 <div class="printindex vr-printindex">

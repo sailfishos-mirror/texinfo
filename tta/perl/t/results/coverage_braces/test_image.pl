@@ -978,16 +978,12 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="">
 
 
-<a class="node-id" id="Top"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="Top"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#chapter" accesskey="n" rel="next">chapter</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 <hr>
-<a class="node-id" id="chapter"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="chapter"></a><p class="nav-panel">
 <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h4>
 
 <img class="image" src="f%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26%20%40%20%25%20%22%20.ext%40i--le..%20%20a%40%3c%22%25%40%20%20%3c%20%26%20%40%20%25%20%22%20" alt="f@i--le..  a@&lt;&quot;%@&nbsp;&nbsp;&lt;&nbsp;&amp;&nbsp;@&nbsp;%&nbsp;&quot;&nbsp;">

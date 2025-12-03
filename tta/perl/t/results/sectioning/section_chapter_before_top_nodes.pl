@@ -330,29 +330,23 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="section-level-extent" id="section-node">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a></span>, <span class="nav-button">Up: <a href="#chapter-node" accesskey="u" rel="up">chapter</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h3 class="section" id="section"><span>1 section<a class="copiable-link" href="#section"> &para;</a></span></h3>
 
 <hr>
 </div>
 <div class="section-level-extent" id="chapter-node">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#Top" accesskey="n" rel="next">top</a></span>, <span class="nav-button">Previous: <a href="#section-node" accesskey="p" rel="prev">section</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h3 class="section chapter-level-set-section" id="chapter"><span>2 chapter<a class="copiable-link" href="#chapter"> &para;</a></span></h3>
 
 
 <hr>
 </div>
 <div class="unnumberedsec-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h3 class="unnumberedsec top-level-set-unnumberedsec" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h3>
 
 

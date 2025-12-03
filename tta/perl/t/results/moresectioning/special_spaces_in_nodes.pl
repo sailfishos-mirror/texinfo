@@ -572,10 +572,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top_2002">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="n" rel="next">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -583,68 +581,50 @@ span:hover a.copiable-link {visibility: visible}
 </ul>
 <hr>
 <div class="chapter-level-extent" id="EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Up: <a href="#Top_2002" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="chap"><span>1 chap<a class="copiable-link" href="#chap"> &para;</a></span></h2>
 
 
 
 <hr>
-<a class="node-id" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#CARRIAGE-RETURN_007c-_007c" accesskey="n" rel="next">CARRIAGE RETURN|'."\r".'|</a></span>, <span class="nav-button">Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||<a class="copiable-link" href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c"> &para;</a></span></h4>
 
 <hr>
-<a class="node-id" id="CARRIAGE-RETURN_007c-_007c"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="CARRIAGE-RETURN_007c-_007c"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c" accesskey="n" rel="next">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a></span>, <span class="nav-button">Previous: <a href="#CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c" accesskey="p" rel="prev">CHARACTER TABULATION|	| FORM FEED|&#12;| LINE TABULATION||</a></span>, <span class="nav-button">Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>CARRIAGE RETURN|'."\r".'|<a class="copiable-link" href="#CARRIAGE-RETURN_007c-_007c"> &para;</a></span></h4>
 
 <hr>
-<a class="node-id" id="NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c" accesskey="n" rel="next">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></span>, <span class="nav-button">Previous: <a href="#CARRIAGE-RETURN_007c-_007c" accesskey="p" rel="prev">CARRIAGE RETURN|'."\r".'|</a></span>, <span class="nav-button">Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |<a class="copiable-link" href="#NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c"> &para;</a></span></h4>
 
 <hr>
-<a class="node-id" id="MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c" accesskey="n" rel="next">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |</a></span>, <span class="nav-button">Previous: <a href="#NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c" accesskey="p" rel="prev">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a></span>, <span class="nav-button">Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |<a class="copiable-link" href="#MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c"> &para;</a></span></h4>
 
 <hr>
-<a class="node-id" id="THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c" accesskey="n" rel="next">FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |</a></span>, <span class="nav-button">Previous: <a href="#MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c" accesskey="p" rel="prev">MONGOLIAN VOWEL SEPARATOR|᠎| EM SPACE| |</a></span>, <span class="nav-button">Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |<a class="copiable-link" href="#THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c"> &para;</a></span></h4>
 
 <hr>
-<a class="node-id" id="FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c" accesskey="n" rel="next">HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |</a></span>, <span class="nav-button">Previous: <a href="#THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c" accesskey="p" rel="prev">THREE-PER-EM SPACE| | FOUR-PER-EM SPACE| | SIX-PER-EM SPACE| |</a></span>, <span class="nav-button">Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |<a class="copiable-link" href="#FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c"> &para;</a></span></h4>
 
 <hr>
-<a class="node-id" id="HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c" accesskey="n" rel="next">NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|</a></span>, <span class="nav-button">Previous: <a href="#FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c" accesskey="p" rel="prev">FIGURE SPACE| | PUNCTUATION SPACE| | THIN SPACE| |</a></span>, <span class="nav-button">Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |<a class="copiable-link" href="#HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c"> &para;</a></span></h4>
 
 <hr>
-<a class="node-id" id="NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"></a><p class="nav-panel">
 <span class="nav-button">Previous: <a href="#HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c" accesskey="p" rel="prev">HAIR SPACE| | LINE SEPARATOR| | PARAGRAPH SEPARATOR| |</a></span>, <span class="nav-button">Up: <a href="#EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>NARROW NO-BREAK SPACE| | MEDIUM MATHEMATICAL SPACE| | IDEOGRAPHIC SPACE|　|<a class="copiable-link" href="#NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c"> &para;</a></span></h4>
 
 <p><a class="ref" href="#NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c">NEXT LINE (NEL)|| NO-BREAK SPACE| | OGHAM SPACE MARK| |</a>

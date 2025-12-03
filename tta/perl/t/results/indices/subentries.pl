@@ -437,20 +437,16 @@ $result_converted{'plaintext'}->{'subentries'} = '1 Index
 
 
 $result_converted{'html_text'}->{'subentries'} = '<div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chapter-index" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
 <li><a href="#chapter-index">Index</a></li>
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter-index">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chapter-index" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter" id="Index"><span>1 Index<a class="copiable-link" href="#Index"> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-a_002d_002d_002da"></a>

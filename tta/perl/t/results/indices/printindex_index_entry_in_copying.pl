@@ -534,10 +534,8 @@ xftable xitem
 
 $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chapter" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <p>Top.
@@ -593,10 +591,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#chapter" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 

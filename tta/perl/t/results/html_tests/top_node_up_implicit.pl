@@ -197,10 +197,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#Chap" accesskey="n" rel="next">A chapter</a></span>, <span class="nav-button">Up: <a href="http://itop.example.org" accesskey="u" rel="up">(dir)</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="The-top"><span>The top<a class="copiable-link" href="#The-top"> &para;</a></span></h1>
 
 <p>Just a top node.
@@ -211,10 +209,8 @@ span:hover a.copiable-link {visibility: visible}
 </ul>
 <hr>
 <div class="chapter-level-extent" id="Chap">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">The top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">The top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="A-chapter"><span>1 A chapter<a class="copiable-link" href="#A-chapter"> &para;</a></span></h2>
 
 <p>Without the chapter, no up node from top is generated.

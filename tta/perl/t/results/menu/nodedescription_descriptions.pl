@@ -770,10 +770,8 @@ th.menu-comment {text-align:left}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#toto" accesskey="n" rel="next">Toto</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="test-of-nodedescription-used-in-menu"><span>test of nodedescription used in menu<a class="copiable-link" href="#test-of-nodedescription-used-in-menu"> &para;</a></span></h1>
 
 <table class="menu">
@@ -792,70 +790,56 @@ th.menu-comment {text-align:left}
 
 <hr>
 <div class="chapter-level-extent" id="toto">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#titi" accesskey="n" rel="next">Titi</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">test of nodedescription used in menu</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Toto"><span>1 Toto<a class="copiable-link" href="#Toto"> &para;</a></span></h2>
 
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="titi">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#other" accesskey="n" rel="next">Other</a></span>, <span class="nav-button">Previous: <a href="#toto" accesskey="p" rel="prev">Toto</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Titi"><span>2 Titi<a class="copiable-link" href="#Titi"> &para;</a></span></h2>
 
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="other">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#last" accesskey="n" rel="next">Last</a></span>, <span class="nav-button">Previous: <a href="#titi" accesskey="p" rel="prev">Titi</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Other"><span>3 Other<a class="copiable-link" href="#Other"> &para;</a></span></h2>
 
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="last">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#a-somewhat-long-node-without-description-nor-following-space" accesskey="n" rel="next">Somewhat long</a></span>, <span class="nav-button">Previous: <a href="#other" accesskey="p" rel="prev">Other</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Last"><span>4 Last<a class="copiable-link" href="#Last"> &para;</a></span></h2>
 
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="a-somewhat-long-node-without-description-nor-following-space">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#a-very-long-node-without-description-with-very-little-space-left-for" accesskey="n" rel="next">Very long</a></span>, <span class="nav-button">Previous: <a href="#last" accesskey="p" rel="prev">Last</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Somewhat-long"><span>5 Somewhat long<a class="copiable-link" href="#Somewhat-long"> &para;</a></span></h2>
 
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="a-very-long-node-without-description-with-very-little-space-left-for">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#very-very-long-node-extending-past-the-max-columns-and-without-description" accesskey="n" rel="next">Past max columns</a></span>, <span class="nav-button">Previous: <a href="#a-somewhat-long-node-without-description-nor-following-space" accesskey="p" rel="prev">Somewhat long</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Very-long"><span>6 Very long<a class="copiable-link" href="#Very-long"> &para;</a></span></h2>
 
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="very-very-long-node-extending-past-the-max-columns-and-without-description">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#a-very-long-node-without-description-with-very-little-space-left-for" accesskey="p" rel="prev">Very long</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test of nodedescription used in menu</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Past-max-columns"><span>7 Past max columns<a class="copiable-link" href="#Past-max-columns"> &para;</a></span></h2>
 
 </div>

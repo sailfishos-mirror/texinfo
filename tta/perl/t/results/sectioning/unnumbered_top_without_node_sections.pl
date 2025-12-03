@@ -285,10 +285,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="unnumbered-level-extent" id="a-node">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="unnumbered" id="unnumbered"><span>unnumbered<a class="copiable-link" href="#unnumbered"> &para;</a></span></h2>
 
 <p>in unnumbered
@@ -301,10 +299,8 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 </div>
 <div class="chapter-level-extent" id="second">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <p>Text of chapter

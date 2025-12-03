@@ -274,10 +274,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#chapter" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href="#Top-1"> &para;</a></span></h1>
 
 <p>In top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
@@ -288,10 +286,8 @@ span:hover a.copiable-link {visibility: visible}
 </ul>
 <hr>
 <div class="chapter-level-extent" id="chapter">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="Chap"><span>1 Chap<a class="copiable-link" href="#Chap"> &para;</a></span></h2>
 
 <p><a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>.
@@ -299,10 +295,8 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 </div>
 <div class="element-footnotes" id="SEC_Footnotes">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#Top" title="Cover (top) of document" rel="start">Top</a>]</span></p>
-</div>
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <h5 class="footnote-body-heading"><a id="FOOT1" href="#DOCF1">(1)</a></h5>

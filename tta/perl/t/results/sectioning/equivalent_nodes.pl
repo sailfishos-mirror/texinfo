@@ -196,18 +196,14 @@ span:hover a.copiable-link {visibility: visible}
 </head>
 
 <body lang="">
-<a class="node-id" id="first"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="first"></a><p class="nav-panel">
 <span class="nav-button">Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</samp>&rsquo;</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 
 <hr>
-<a class="node-id" id="node"></a><div class="nav-panel">
-<p>
+<a class="node-id" id="node"></a><p class="nav-panel">
 <span class="nav-button">Up: <a href="#first" accesskey="u" rel="up">first</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="node"><span>&lsquo;<samp class="samp">node</samp>&rsquo;<a class="copiable-link" href="#node"> &para;</a></span></h4>
 
 <p>See <a class="xref" href="#node">&lsquo;<samp class="samp">node</samp>&rsquo;</a>.

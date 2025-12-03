@@ -323,10 +323,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#g_t1" accesskey="n" rel="next">1</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="Top-1"><span>Top<a class="copiable-link" href="#Top-1"> &para;</a></span></h1>
 
 
@@ -337,10 +335,8 @@ span:hover a.copiable-link {visibility: visible}
 </ul>
 <hr>
 <div class="chapter-level-extent" id="g_t1">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#g_t3" accesskey="n" rel="next">3</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="g_t1-1"><span>1 1<a class="copiable-link" href="#g_t1-1"> &para;</a></span></h2>
 
 </div>
@@ -350,10 +346,8 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t3">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#g_t1" accesskey="p" rel="prev">1</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="g_t3-1"><span>3 3<a class="copiable-link" href="#g_t3-1"> &para;</a></span></h2>
 </div>
 </div>

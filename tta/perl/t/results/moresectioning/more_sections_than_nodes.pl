@@ -732,10 +732,8 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#n-c2" accesskey="n" rel="next">c2</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 
@@ -752,10 +750,8 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 </div>
 <div class="chapter-level-extent" id="n-c2">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#n-c3" accesskey="n" rel="next">c3</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="c2"><span>2 c2<a class="copiable-link" href="#c2"> &para;</a></span></h2>
 
 <ul class="mini-toc">
@@ -768,10 +764,8 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 </div>
 <div class="chapter-level-extent" id="n-c3">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Next: <a href="#n-c3-s1-s2" accesskey="n" rel="next">c3 s1 s2</a></span>, <span class="nav-button">Previous: <a href="#n-c2" accesskey="p" rel="prev">c2</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h2 class="chapter" id="c3"><span>3 c3<a class="copiable-link" href="#c3"> &para;</a></span></h2>
 
 
@@ -786,10 +780,8 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 </div>
 <div class="section-level-extent" id="n-c3-s-2">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Up: <a href="#n-c3" accesskey="u" rel="up">c3</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h3 class="section" id="c3-s2"><span>3.2 c3 s2<a class="copiable-link" href="#c3-s2"> &para;</a></span></h3>
 
 </div>
@@ -817,10 +809,8 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 </div>
 <div class="subsection-level-extent" id="n-c3-s1-s2">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">Previous: <a href="#n-c3" accesskey="p" rel="prev">c3</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
-</div>
 <h4 class="subsection" id="c3-s1-s2"><span>4.1.2 c3 s1 s2<a class="copiable-link" href="#c3-s1-s2"> &para;</a></span></h4>
 
 </div>

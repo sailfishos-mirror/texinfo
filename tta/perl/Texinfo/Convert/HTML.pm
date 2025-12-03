@@ -4288,8 +4288,7 @@ sub _default_format_navigation_panel($$$$;$$) {
     $result .= $self->html_attribute_class('table', ['nav-panel']).'>'."\n";
     $result .= "<tr>" unless $vertical;
   } else {
-    $result .= $self->html_attribute_class('div', ['nav-panel']).">\n";
-    $result .= "<p>\n";
+    $result .= $self->html_attribute_class('p', ['nav-panel']).">\n";
   }
 
   $result .= $result_buttons;
@@ -4299,7 +4298,6 @@ sub _default_format_navigation_panel($$$$;$$) {
     $result .= "</table>\n";
   } else {
     $result .= "</p>\n";
-    $result .= "</div>\n";
   }
   return $result;
 }

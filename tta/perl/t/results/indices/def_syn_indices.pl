@@ -715,10 +715,8 @@ definedx truc after
 
 $result_converted{'html_text'}->{'def_syn_indices'} = '
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#Chapter-index" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -726,10 +724,8 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 </ul>
 <hr>
 <div class="chapter-level-extent" id="Chapter-index">
-<div class="nav-panel">
-<p>
+<p class="nav-panel">
 <span class="nav-button">[<a href="#Chapter-index" title="Index" rel="index">Index</a>]</span></p>
-</div>
 <h2 class="chapter" id="Index"><span>1 Index<a class="copiable-link" href="#Index"> &para;</a></span></h2>
 
 <p>definedx truc
