@@ -242,7 +242,6 @@ $result_converted{'html'}->{'non_automatic_top_node_up_url'} = '<!DOCTYPE html>
 <link href="http://www.gnu.org/manual/" rel="up" title="(dir)">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
-span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 </style>
 

@@ -1964,7 +1964,6 @@ $result_converted{'html'}->{'all_commands_printindex'} = '<!DOCTYPE html>
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
-span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
 td.printindex-index-entry {vertical-align: top; padding-left: 1.5em}

@@ -189,7 +189,6 @@ $result_converted{'html'}->{'top_node_up_implicit'} = '<!DOCTYPE html>
 <link href="http://itop.example.org" rel="up" title="(dir)">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
-span.nav-button {white-space: nowrap}
 span:hover a.copiable-link {visibility: visible}
 </style>
 
