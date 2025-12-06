@@ -77,6 +77,7 @@ thischapternum          nobrace,in_heading_spec         other
 thissection             nobrace,in_heading_spec         other
 thissectionname         nobrace,in_heading_spec         other
 thissectionnum          nobrace,in_heading_spec         other
+thispart                nobrace,in_heading_spec         other
 thisfile                nobrace,in_heading_spec         other
 thispage                nobrace,in_heading_spec         other
 thistitle               nobrace,in_heading_spec         other

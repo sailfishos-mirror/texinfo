@@ -353,6 +353,7 @@ COMMAND builtin_command_data[] = {
 {"thischapternum", CF_nobrace | CF_in_heading_spec, 0, NOBRACE_other, 0},
 {"thisfile", CF_nobrace | CF_in_heading_spec, 0, NOBRACE_other, 0},
 {"thispage", CF_nobrace | CF_in_heading_spec, 0, NOBRACE_other, 0},
+{"thispart", CF_nobrace | CF_in_heading_spec, 0, NOBRACE_other, 0},
 {"thissection", CF_nobrace | CF_in_heading_spec, 0, NOBRACE_other, 0},
 {"thissectionname", CF_nobrace | CF_in_heading_spec, 0, NOBRACE_other, 0},
 {"thissectionnum", CF_nobrace | CF_in_heading_spec, 0, NOBRACE_other, 0},

@@ -359,6 +359,7 @@ const DIACRITIC_UNICODE unicode_diacritics[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
 {"\xcd\xa1", "865", "0361"},  /* tieaccent */
 {0, 0, 0},
 {0, 0, 0},
@@ -795,6 +796,7 @@ const COMMAND_UNICODE_CHARACTER base_unicode_map[] = {
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
+{0, 0, 0},
 };
 
 const COMMAND_UNICODE_CHARACTER extra_unicode_map[] = {
@@ -1099,6 +1101,7 @@ const COMMAND_UNICODE_CHARACTER extra_unicode_map[] = {
 {0, 0, 0},
 {"00AE", "\xc2\xae", "\\00AE "},   /* registeredsymbol */
 {"21D2", "\xe2\x87\x92", "\\21D2 "},   /* result */
+{0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},
 {0, 0, 0},

@@ -365,6 +365,7 @@ int const command_structuring_level[] = {
 -1,
 -1,
 -1,
+-1,
 0,  /* top */
 -1,
 -1,

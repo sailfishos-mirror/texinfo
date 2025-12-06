@@ -382,6 +382,7 @@ CM_thischaptername,
 CM_thischapternum,
 CM_thisfile,
 CM_thispage,
+CM_thispart,
 CM_thissection,
 CM_thissectionname,
 CM_thissectionnum,
@@ -428,7 +429,7 @@ CM_hex_7d,
 CM_hex_7e,
 };
 
-#define BUILTIN_CMD_NUMBER 394
+#define BUILTIN_CMD_NUMBER 395
 
 #define TXI_CMD_CATEGORY_BLOCK \
   tcc_cmd_category(conditional, block, BLOCK) \
