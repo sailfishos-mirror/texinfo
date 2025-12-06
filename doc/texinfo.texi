@@ -24103,7 +24103,7 @@ appendix.
 @findex thispart
 @item @@thispart
 Expands to the name of the current part, as specified by the last
-@code{@@part} command.  (Not currently implemented for @LaTeX{} output.)
+@code{@@part} command.
 
 @findex thistitle
 @item @@thistitle
