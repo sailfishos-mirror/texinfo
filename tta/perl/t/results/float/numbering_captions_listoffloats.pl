@@ -2603,6 +2603,10 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `\'
 \\newfloat{TexinfoFloat}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloat}{}

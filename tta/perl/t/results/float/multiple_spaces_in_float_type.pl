@@ -158,6 +158,10 @@ $result_converted{'latex'}->{'multiple_spaces_in_float_type'} = '\\documentclass
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `Type of Float\'
 \\newfloat{TexinfoFloatTypeofFloat}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatTypeofFloat}{}

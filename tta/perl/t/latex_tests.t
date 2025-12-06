@@ -348,7 +348,7 @@ after ch--ap second page
 @node Top
 @top top
 
-@part Part I
+@part Part I:@* The beginning
 @node first
 @chapter Chap1
 

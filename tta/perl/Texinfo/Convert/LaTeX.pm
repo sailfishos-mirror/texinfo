@@ -315,7 +315,7 @@ my @LaTeX_image_extensions = (
 
 my %section_map = (
    'top' => 'part*',
-   'part' => 'part',
+   'part' => 'Texinfopart',
    'chapter' => 'chapter',
    'section' => 'section',
    'subsection' => 'subsection',
@@ -1435,11 +1435,14 @@ sub _latex_header($) {
   $header_code .= "\n";
 
   if (exists($self->{'need_parttitle'})) {
-    $header_code .= "\\let\\Oldpart\\part
- \\newcommand{\\Texinfoparttitle}{}
- \\renewcommand{\\part}[1]{\\Oldpart{#1}%
-                         \\renewcommand{\\Texinfoparttitle}{#1}}%\n";
+    $header_code .= "\\newcommand{\\Texinfoparttitle}{}\n\n";
   }
+  $header_code .= "\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%\n";
+  if (exists($self->{'need_parttitle'})) {
+    $header_code .= "\\renewcommand{\\Texinfoparttitle}{#1}%\n";
+  }
+  $header_code .= "}%\n\n";
 
   my $floats;
   if (exists($self->{'document'})) {
@@ -3069,6 +3072,11 @@ sub _convert($$) {
               and $self->{'formatting_context'}->[-1]->{'no_eol'}->[-1]) {
             # in tabularx in @def* we ignore @*
             $result .= ' ';
+          } elsif ($self->{'formatting_context'}->[-1]
+                                         ->{'in_sectioning_command_heading'}) {
+            # add command to substitute a space in table of contents
+            # if in heading command.
+            $result .= "\\texorpdfstring{\\leavevmode{}\\\\}{ }";
           } else {
             # FIXME \leavevmode{} is added to avoid
             # ! LaTeX Error: There's no line here to end.

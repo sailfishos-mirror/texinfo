@@ -184,7 +184,7 @@ $result_converted{'docbook'}->{'top_node_part_top'} = '
 
 
 $result_converted{'latex_text'}->{'top_node_part_top'} = '\\begin{document}
-\\part{{part}}
+\\Texinfopart{{part}}
 
 \\part*{{top}}
 \\label{anchor:Top}%

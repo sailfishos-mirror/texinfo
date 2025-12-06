@@ -5013,7 +5013,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\chapter{{\\-{} \\{ \\}}}
 \\label{anchor:-_007b-_007d}%
 
-\\chapter{{\\ {} \\ {} \\@! \\leavevmode{}\\\\ \\@. \\@ .\\@ \\@? @}}
+\\chapter{{\\ {} \\ {} \\@! \\texorpdfstring{\\leavevmode{}\\\\}{ } \\@. \\@ .\\@ \\@? @}}
 \\label{anchor:-_0021-_002e-_002e-_003f-_0040}%
 
 \\chapter{{@ \\{ \\} \\textbackslash{} \\#}}

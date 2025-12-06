@@ -54,7 +54,7 @@ $result_tree_text{'thispart'} = '*document_root C11
     |{spaces_after_argument:\\n}
     {top}
   {empty_line:\\n}
- *@part C1 l6 {Part I}
+ *@part C1 l6 {Part I:@* The beginning}
  |INFO
  |spaces_before_argument:
   |{spaces_before_argument: }
@@ -63,11 +63,13 @@ $result_tree_text{'thispart'} = '*document_root C11
  |section_level:{0}
  |section_number:{2}
   *arguments_line C1
-   *line_arg C1
+   *line_arg C3
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    {Part I}
+    {Part I:}
+    *@*
+    { The beginning}
  *@node C1 l7 {first}
  |INFO
  |spaces_before_argument:
@@ -186,7 +188,7 @@ $result_texis{'thispart'} = '@everyheading @thispage @| @thisfile @| @thispart
 @node Top
 @top top
 
-@part Part I
+@part Part I:@* The beginning
 @node first
 @chapter Chap1
 
@@ -210,8 +212,9 @@ $result_texts{'thispart'} = '
 top
 ***
 
-Part I
-******
+Part I:
+ The beginning
+*********************
 1 Chap1
 *******
 
@@ -242,7 +245,7 @@ $result_nodes_list{'thispart'} = '1|Top
   next->first
 2|first
  associated_section: 1 Chap1
- node_preceding_part: Part I
+ node_preceding_part: Part I:@* The beginning
  associated_title_command: 1 Chap1
  node_directions:
   next->second
@@ -261,10 +264,10 @@ $result_sections_list{'thispart'} = '1|top
  associated_anchor_command: Top
  associated_node: Top
  section_directions:
-  next->Part I
+  next->Part I:@* The beginning
  toplevel_directions:
   next->Chap1
-2|Part I
+2|Part I:@* The beginning
  part_following_node: first
  part_associated_section: 1 Chap1
  section_directions:
@@ -275,9 +278,9 @@ $result_sections_list{'thispart'} = '1|top
 3|Chap1
  associated_anchor_command: first
  associated_node: first
- associated_part: Part I
+ associated_part: Part I:@* The beginning
  section_directions:
-  up->Part I
+  up->Part I:@* The beginning
  toplevel_directions:
   next->chap2
   prev->top
@@ -287,7 +290,7 @@ $result_sections_list{'thispart'} = '1|top
  part_associated_section: 2 chap2
  section_directions:
   next->App
-  prev->Part I
+  prev->Part I:@* The beginning
  section_children:
   1|chap2
 5|chap2
@@ -318,7 +321,7 @@ $result_sections_list{'thispart'} = '1|top
 $result_sectioning_root{'thispart'} = 'level: -1
 list:
  1|top
- 2|Part I
+ 2|Part I:@* The beginning
  3|Part II
  4|App
 ';
@@ -334,19 +337,19 @@ $result_converted{'latex_text'}->{'thispart'} = '\\newpagestyle{custom}{%
 
 \\begin{document}
 \\label{anchor:Top}%
-\\part{{Part I}}
+\\Texinfopart{{Part I:\\texorpdfstring{\\leavevmode{}\\\\}{ } The beginning}}
 \\chapter{{Chap1}}
 \\label{anchor:first}%
 
 In chap1
 
-\\part{{Part II}}
+\\Texinfopart{{Part II}}
 \\chapter{{chap2}}
 \\label{anchor:second}%
 
 In chap2
 
-\\part{{App}}
+\\Texinfopart{{App}}
 
 \\appendix
 \\chapter{{Appendix}}

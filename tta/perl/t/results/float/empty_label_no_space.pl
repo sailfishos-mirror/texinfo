@@ -117,6 +117,10 @@ $result_converted{'latex'}->{'empty_label_no_space'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `Type\'
 \\newfloat{TexinfoFloatType}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatType}{}

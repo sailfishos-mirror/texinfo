@@ -248,6 +248,10 @@ $result_converted{'latex'}->{'quotation_and_author'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
 \\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}

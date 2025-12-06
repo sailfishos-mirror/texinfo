@@ -813,34 +813,34 @@ $result_converted{'docbook'}->{'non_empty_part'} = '<part label="">
 
 
 $result_converted{'latex_text'}->{'non_empty_part'} = '\\label{anchor:Top}%
-\\part{{part I}}
+\\Texinfopart{{part I}}
 
 Content I
 
 \\chapter{{chap in Top node}}
 
-\\part{{Part II}}
+\\Texinfopart{{Part II}}
 
 Content II
 
-\\part{{part III}}
+\\Texinfopart{{part III}}
 
 Content III
 
 \\chapter{{chapter with part node}}
 \\label{anchor:part-chapter-node}%
 
-\\part{{Part IV}}
+\\Texinfopart{{Part IV}}
 
 Content IV
 
-\\part{{Part V}}
+\\Texinfopart{{Part V}}
 
 Content V
 
 \\chapter{{with part no node}}
 
-\\part{{Part VI}}
+\\Texinfopart{{Part VI}}
 
 Content VI
 

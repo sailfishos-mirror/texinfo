@@ -341,6 +341,10 @@ $result_converted{'latex'}->{'empty_string_index_entry'} = '\\documentclass{book
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % no index headers
 \\indexsetup{level=\\relax,toclevel=section}%
 \\makeindex[name=fn,title=]%

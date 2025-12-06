@@ -837,6 +837,10 @@ $result_converted{'latex'}->{'float_copying'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `Copyright notice\'
 \\newfloat{TexinfoFloatCopyrightnotice}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatCopyrightnotice}{}

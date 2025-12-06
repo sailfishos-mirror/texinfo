@@ -501,6 +501,10 @@ $result_converted{'latex'}->{'comment_space_command_on_line'} = '\\documentclass
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{Settitle \\ {}}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `Text\'
 \\newfloat{TexinfoFloatText}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatText}{}

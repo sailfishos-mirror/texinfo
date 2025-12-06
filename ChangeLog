@@ -1,3 +1,14 @@
+2025-12-06 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (%section_map, _latex_header):
+	define a \texinfopart LaTeX comand ofr @part that uses \part* and
+	\addcontentsline.  From Gavin.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): use \texorpdfstring
+	for @* if in a heading command.
+
+	* tta/perl/t/latex_tests.t (thispart): also test @* in @part.
+
 2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix @* display in header line

@@ -307,6 +307,10 @@ $result_converted{'latex'}->{'empty_listoffloats_with_floats'} = '\\documentclas
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `\'
 \\newfloat{TexinfoFloat}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloat}{}

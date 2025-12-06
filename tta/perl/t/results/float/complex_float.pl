@@ -1673,6 +1673,10 @@ $result_converted{'latex'}->{'complex_float'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `Text\'
 \\newfloat{TexinfoFloatText}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatText}{}

@@ -324,6 +324,10 @@ $result_converted{'latex'}->{'float_in_block_commands'} = '\\documentclass{book}
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `Text\'
 \\newfloat{TexinfoFloatText}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatText}{}

@@ -186,6 +186,10 @@ $result_converted{'latex'}->{'float_type_with_tieaccent'} = '\\documentclass{boo
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `A 1͡a 第͡H ê͡一 and text\'
 \\newfloat{TexinfoFloatAaDiHeYiandtext}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatAaDiHeYiandtext}{}

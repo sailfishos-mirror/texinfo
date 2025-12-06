@@ -247,6 +247,10 @@ $result_converted{'latex'}->{'footnote_in_caption_and_error'} = '\\documentclass
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
+\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
 % new float for type `fl\'
 \\newfloat{TexinfoFloatfl}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatfl}{}

@@ -16,10 +16,13 @@
 \newcommand{\Texinfosettitle}{No Title}%
 \newcommand{\Texinfotheinclude}{}%
 
-\let\Oldpart\part
- \newcommand{\Texinfoparttitle}{}
- \renewcommand{\part}[1]{\Oldpart{#1}%
-                         \renewcommand{\Texinfoparttitle}{#1}}%
+\newcommand{\Texinfoparttitle}{}
+
+\newcommand{\Texinfopart}[1]{\part*{#1}
+\addcontentsline{toc}{part}{\protect\textbf{#1}}%
+\renewcommand{\Texinfoparttitle}{#1}%
+}%
+
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
@@ -54,19 +57,19 @@
 
 \begin{document}
 \label{anchor:Top}%
-\part{{Part I}}
+\Texinfopart{{Part I:\texorpdfstring{\leavevmode{}\\}{ } The beginning}}
 \chapter{{Chap1}}
 \label{anchor:first}%
 
 In chap1
 
-\part{{Part II}}
+\Texinfopart{{Part II}}
 \chapter{{chap2}}
 \label{anchor:second}%
 
 In chap2
 
-\part{{App}}
+\Texinfopart{{App}}
 
 \appendix
 \chapter{{Appendix}}
