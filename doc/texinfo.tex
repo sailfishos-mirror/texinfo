@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2025-12-06.10}
+\def\texinfoversion{2025-12-06.11}
 %
 % Copyright 1985, 1986, 1988, 1990-2025 Free Software Foundation, Inc.
 %
@@ -6194,9 +6194,16 @@ might help (with 'rm \jobname.?? \jobname.??s')%
     % and \thissection, as is done in \startcontents.
     \let\pchapsepmacro\relax
     \chapmacro{}{Yomitfromtoc}{}%
+    \gdef\thispart{#1}%
     \chapoddpage
   \endgroup
 }
+
+% Name of current part, if any.
+% Note: unlike @thischapter etc. defined below, the name of the part
+% is always set before a page with a heading or footing is shipped out,
+% so there is no need to keep the value of these in "marks".
+\def\thispart{}%
 
 % \unnumberedno is an oxymoron.  But we count the unnumbered
 % sections so that we can refer to them unambiguously in the pdf

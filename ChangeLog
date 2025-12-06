@@ -1,5 +1,13 @@
 2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	@thispart
+
+	* doc/texinfo.tex (@part):
+	Set @thispart, to be used in headings and footings.  Suggestion
+	from Werner.
+
+2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	@set txilinkindextext
 
 	* doc/texinfo.tex (\indexentry) [pdftex]:
