@@ -1,5 +1,9 @@
 2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Custom Headings): reorder slightly.
+
+2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Custom Headings) <@thissectionnum>:
 	Add example of output to reduce confusion about whether the
 	"section number" contains the chapter number.

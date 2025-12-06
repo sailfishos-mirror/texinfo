@@ -24072,6 +24072,11 @@ Here are the @samp{@@this@dots{}} commands:
 @item @@thispage
 Expands to the current page number.
 
+@findex thissection
+@item @@thissection
+Expands to the number and name of the current section, in the format
+`Section 1.1: Title'.
+
 @findex thissectionname
 @item @@thissectionname
 Expands to the name of the current section.
@@ -24080,10 +24085,10 @@ Expands to the name of the current section.
 @item @@thissectionnum
 Expands to the number of the current section, in the format `1.1'.
 
-@findex thissection
-@item @@thissection
-Expands to the number and name of the current section, in the format
-`Section 1.1: Title'.
+@findex thischapter
+@item @@thischapter
+Expands to the number and name of the current
+chapter, in the format `Chapter 1: Title'.
 
 @findex thischaptername
 @item @@thischaptername
@@ -24093,11 +24098,6 @@ Expands to the name of the current chapter.
 @item @@thischapternum
 Expands to the number of the current chapter, or letter of the current
 appendix.
-
-@findex thischapter
-@item @@thischapter
-Expands to the number and name of the current
-chapter, in the format `Chapter 1: Title'.
 
 @findex thistitle
 @item @@thistitle
