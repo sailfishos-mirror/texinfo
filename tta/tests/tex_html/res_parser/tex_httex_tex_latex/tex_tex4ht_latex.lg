@@ -61,6 +61,7 @@ Css: .framebox-l {text-align:left;}
 Css: .framebox-r {text-align:right;}
 Css: span.thank-mark{ vertical-align: super }
 Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+Css: aside.footnote-text p{margin-top:0; margin-bottom:0;text-indent: 0;}
 Css: code.verb{font-family:monospace,monospace;}
 Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
 Css: table.tabular td p{margin-top:0em;}
@@ -119,7 +120,7 @@ Css: .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 Css: .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
 Css: .verse{white-space:nowrap; margin-left:2em}
 Css: div.maketitle {text-align:center;}
-Css: h2.titleHead{text-align:center;}
+Css: h1.titleHead{text-align:center;}
 Css: div.maketitle{ margin-bottom: 2em; }
 Css: div.author, div.date {text-align:center;}
 Css: div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
