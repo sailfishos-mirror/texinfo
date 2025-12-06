@@ -1,3 +1,13 @@
+2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix @* display in header line
+
+	* doc/texinfo.tex (\*): Check if in inner horizontal or vertical
+	mode with \ifinner, and if so, output @* as a single space rather
+	than trying to break a line.  This fixes display of @* when it
+	occurs in a section name in the page heading line.
+	(\entryinternal): Remove special override of definition of @*.
+
 2025-12-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/format_html.c
