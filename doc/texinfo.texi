@@ -24078,7 +24078,7 @@ Expands to the name of the current section.
 
 @findex thissectionnum
 @item @@thissectionnum
-Expands to the number of the current section.
+Expands to the number of the current section, in the format `1.1'.
 
 @findex thissection
 @item @@thissection
