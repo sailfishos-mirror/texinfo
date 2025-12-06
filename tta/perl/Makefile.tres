@@ -1367,6 +1367,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/latex_tests/settitle_and_headings/res_latex \
   t/results/latex_tests/shorttitlepage.pl \
   t/results/latex_tests/shorttitlepage/res_latex \
+  t/results/latex_tests/thispart.pl \
+  t/results/latex_tests/thispart/res_latex \
   t/results/latex_tests/three_setchapternewpage_on_odd_off.pl \
   t/results/latex_tests/three_setchapternewpage_on_odd_off/res_latex \
   t/results/latex_tests/titlepage_and_headings.pl \

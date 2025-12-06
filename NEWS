@@ -17,7 +17,6 @@ See the manual for detailed information.
   . new command @namedanchor
   . deprecate @clickstyle
   . new command @thispart to print part name in headings or footings
-    (texinfo.tex only).
   . do not consider en_US to be the default document language, the language
     is unspecified if there is no @documentlanguage.  Default strings are
     in english, however.

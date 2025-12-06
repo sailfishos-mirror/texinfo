@@ -282,6 +282,7 @@ my %LaTeX_in_heading_commands_formatting = (
   'thisfile' => '\Texinfotheinclude{}',
   'thispage' => '\thepage{}',
   'thistitle' => '\Texinfosettitle{}',
+  'thispart' => '\Texinfoparttitle{}',
 );
 
 foreach my $kept_command (keys(%LaTeX_in_heading_commands_formatting),
@@ -859,6 +860,8 @@ sub converter_reset($) {
   # TODO warn if some includes remain?  Should never happen.
   delete $self->{'collected_includes'};
 
+  delete $self->{'need_parttitle'};
+
   delete $self->{'settitle_tree'};
   delete $self->{'normalized_float_latex'};
   delete $self->{'latex_floats'};
@@ -1032,6 +1035,7 @@ sub _prepare_conversion($;$) {
   delete $self->{'prev_chapter_new_page_substitution'};
   delete $self->{'settitle_tree'};
   delete $self->{'collected_includes'};
+  delete $self->{'need_parttitle'};
   delete $self->{'titlepage_formatting'};
 
   my $global_commands;
@@ -1429,6 +1433,13 @@ sub _latex_header($) {
     $header_code .= "\\newcommand{\\Texinfotheinclude}{}%\n";
   }
   $header_code .= "\n";
+
+  if (exists($self->{'need_parttitle'})) {
+    $header_code .= "\\let\\Oldpart\\part
+ \\newcommand{\\Texinfoparttitle}{}
+ \\renewcommand{\\part}[1]{\\Oldpart{#1}%
+                         \\renewcommand{\\Texinfoparttitle}{#1}}%\n";
+  }
 
   my $floats;
   if (exists($self->{'document'})) {
@@ -4422,6 +4433,8 @@ sub _convert($$) {
           and $self->{'formatting_context'}->[-1]->{'in_custom_heading'}) {
         $self->{'collected_includes'} = []
            unless (exists($self->{'collected_includes'}));
+      } elsif ($cmdname eq 'thispart') {
+        $self->{'need_parttitle'} = 1;
       }
       return $result;
     } elsif ($cmdname eq 'title') {

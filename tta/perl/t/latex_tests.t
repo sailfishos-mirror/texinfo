@@ -342,6 +342,30 @@ after ch--ap second page
 
 '.$include_chapters_test
 ],
+['thispart',
+'@everyheading @thispage @| @thisfile @| @thispart
+
+@node Top
+@top top
+
+@part Part I
+@node first
+@chapter Chap1
+
+In chap1
+
+@part Part II
+@node second
+@chapter chap2
+
+In chap2
+
+@part App
+
+@appendix Appendix
+
+In appendix
+',],
 ['titlepage_in_top_node',
 '@node Top
 @top top sectionning
