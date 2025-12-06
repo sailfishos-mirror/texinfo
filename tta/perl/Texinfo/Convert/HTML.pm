@@ -4004,7 +4004,24 @@ sub _default_panel_button_dynamic_direction($$;$$$) {
     # i18n
     my $direction_text = $self->direction_string($direction, 'text');
     $direction_text = '' if (!defined($direction_text));
-    $result = $direction_text.": $hyperlink";
+
+    $result = '';
+    my $open = $self->html_attribute_class('span', ['nav-label']);
+    if ($open ne '') {
+      $result .= $open.'>';
+    }
+    $result .= $direction_text.': ';
+    if ($open ne '') {
+      $result .= '</span>';
+    }
+    $open = $self->html_attribute_class('span', ['nav-link']);
+    if ($open ne '') {
+      $result .= $open.'>';
+    }
+    $result .= $hyperlink;
+    if ($open ne '') {
+      $result .= '</span>';
+    }
   }
   # 1 to communicate that a delimiter is needed for that button
   return ($result, 1);

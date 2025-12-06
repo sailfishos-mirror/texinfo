@@ -275,7 +275,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="">
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#chap" accesskey="n" rel="next">chap</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chap" accesskey="n" rel="next">chap</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <ul class="mini-toc">
@@ -284,7 +284,7 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 <div class="chapter-level-extent" id="chap">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">top</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="chap-1"><span>1 chap<a class="copiable-link" href="#chap-1"> &para;</a></span></h2>
 
 <ul class="mini-toc">
@@ -294,7 +294,7 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 <div class="section-level-extent" id="sec-define">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <abbr class="acronym">GHJ</abbr></a></span>, <span class="nav-button">Up: <a href="#chap" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#sec-here-is-GHJ" accesskey="n" rel="next">here is <abbr class="acronym">GHJ</abbr></a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chap" accesskey="u" rel="up">chap</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="define"><span>1.1 define<a class="copiable-link" href="#define"> &para;</a></span></h3>
 
 <p><abbr class="acronym" title="Good Hypo Jolly">GHJ</abbr> (Good Hypo Jolly)
@@ -303,7 +303,7 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 <div class="section-level-extent" id="sec-here-is-GHJ">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#sec-define" accesskey="p" rel="prev">define</a></span>, <span class="nav-button">Up: <a href="#chap" accesskey="u" rel="up">chap</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#sec-define" accesskey="p" rel="prev">define</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chap" accesskey="u" rel="up">chap</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="here-is-GHJ"><span>1.2 here is <abbr class="acronym" title="Good Hypo Jolly">GHJ</abbr><a class="copiable-link" href="#here-is-GHJ"> &para;</a></span></h3>
 
 <p>In text <abbr class="acronym" title="Good Hypo Jolly">GHJ</abbr>.

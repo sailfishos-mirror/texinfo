@@ -450,14 +450,14 @@ span:hover a.copiable-link {visibility: visible}
 
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Nächste: <a href="#chapter" accesskey="n" rel="next">Chap</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Nächste: </span><span class="nav-link"><a href="#chapter" accesskey="n" rel="next">Chap</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <hr>
 </div>
 <div class="part-level-extent" id="Part-I">
 <p class="nav-panel">
-<span class="nav-button">Nächste: <a href="#other-chap" accesskey="n" rel="next">Other chap</a></span>, <span class="nav-button">Vorige: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Nach oben: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Nächste: </span><span class="nav-link"><a href="#other-chap" accesskey="n" rel="next">Other chap</a></span></span>, <span class="nav-button"><span class="nav-label">Vorige: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">top</a></span></span>, <span class="nav-button"><span class="nav-label">Nach oben: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="part"><span>Part I<a class="copiable-link" href="#Part-I"> &para;</a></span></h1>
 <hr>
 
@@ -473,7 +473,7 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 <div class="part-level-extent" id="Part-II">
 <p class="nav-panel">
-<span class="nav-button">Suivant: <a href="#appendix" accesskey="n" rel="next">App</a></span>, <span class="nav-button">Pr&eacute;c&eacute;dent: <a href="#chapter" accesskey="p" rel="prev">Chap</a></span>, <span class="nav-button">Monter: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Suivant: </span><span class="nav-link"><a href="#appendix" accesskey="n" rel="next">App</a></span></span>, <span class="nav-button"><span class="nav-label">Pr&eacute;c&eacute;dent: </span><span class="nav-link"><a href="#chapter" accesskey="p" rel="prev">Chap</a></span></span>, <span class="nav-button"><span class="nav-label">Monter: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="part"><span>Part II<a class="copiable-link" href="#Part-II"> &para;</a></span></h1>
 <hr>
 
@@ -488,7 +488,7 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 <div class="appendix-level-extent" id="appendix">
 <p class="nav-panel">
-<span class="nav-button">Prethodno: <a href="#other-chap" accesskey="p" rel="prev">Other chap</a></span>, <span class="nav-button">Gore: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Prethodno: </span><span class="nav-link"><a href="#other-chap" accesskey="p" rel="prev">Other chap</a></span></span>, <span class="nav-button"><span class="nav-label">Gore: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="appendix" id="App"><span>Annexe A App<a class="copiable-link" href="#App"> &para;</a></span></h2>
 </div>
 </div>

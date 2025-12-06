@@ -711,7 +711,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="">
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#node-to-avoid-DocBook-or-LaTeX-ignored" accesskey="n" rel="next">first chapter</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#node-to-avoid-DocBook-or-LaTeX-ignored" accesskey="n" rel="next">first chapter</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="top" id="Test-refs"><span>Test refs<a class="copiable-link" href="#Test-refs"> &para;</a></span></h1>
 
 
@@ -722,7 +722,7 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 <div class="chapter-level-extent" id="node-to-avoid-DocBook-or-LaTeX-ignored">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#other-nodes" accesskey="n" rel="next">Chapter with nodes</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Test refs</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test refs</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#other-nodes" accesskey="n" rel="next">Chapter with nodes</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">Test refs</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Test refs</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="first-chapter"><span>1 first chapter<a class="copiable-link" href="#first-chapter"> &para;</a></span></h2>
 
 <h4 class="subheading" id="Testing-distant-nodes"><span>Testing distant nodes<a class="copiable-link" href="#Testing-distant-nodes"> &para;</a></span></h4>
@@ -744,23 +744,23 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 <div class="chapter-level-extent" id="other-nodes">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="n" rel="next">!_&quot;#$%&amp;\'()*+-.</a></span>, <span class="nav-button">Previous: <a href="#node-to-avoid-DocBook-or-LaTeX-ignored" accesskey="p" rel="prev">first chapter</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test refs</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="n" rel="next">!_&quot;#$%&amp;\'()*+-.</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#node-to-avoid-DocBook-or-LaTeX-ignored" accesskey="p" rel="prev">first chapter</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Test refs</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="Chapter-with-nodes"><span>2 Chapter with nodes<a class="copiable-link" href="#Chapter-with-nodes"> &para;</a></span></h2>
 
 
 <hr>
 <a class="node-id" id="g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e"></a><p class="nav-panel">
-<span class="nav-button">Next: <a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e" accesskey="n" rel="next">/;&lt;=&gt;?[\\]^_`|~</a></span>, <span class="nav-button">Previous: <a href="#other-nodes" accesskey="p" rel="prev">Chapter with nodes</a></span>, <span class="nav-button">Up: <a href="#other-nodes" accesskey="u" rel="up">Chapter with nodes</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e" accesskey="n" rel="next">/;&lt;=&gt;?[\\]^_`|~</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#other-nodes" accesskey="p" rel="prev">Chapter with nodes</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#other-nodes" accesskey="u" rel="up">Chapter with nodes</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h4 class="node"><span>!_&quot;#$%&amp;\'()*+-.<a class="copiable-link" href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e"> &para;</a></span></h4>
 
 <hr>
 <a class="node-id" id="g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e"></a><p class="nav-panel">
-<span class="nav-button">Next: <a href="#local-node" accesskey="n" rel="next">local   node</a></span>, <span class="nav-button">Previous: <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="p" rel="prev">!_&quot;#$%&amp;\'()*+-.</a></span>, <span class="nav-button">Up: <a href="#other-nodes" accesskey="u" rel="up">Chapter with nodes</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#local-node" accesskey="n" rel="next">local   node</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e" accesskey="p" rel="prev">!_&quot;#$%&amp;\'()*+-.</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#other-nodes" accesskey="u" rel="up">Chapter with nodes</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h4 class="node"><span>/;&lt;=&gt;?[\\]^_`|~<a class="copiable-link" href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e"> &para;</a></span></h4>
 
 <hr>
 <a class="node-id" id="local-node"></a><p class="nav-panel">
-<span class="nav-button">Previous: <a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e" accesskey="p" rel="prev">/;&lt;=&gt;?[\\]^_`|~</a></span>, <span class="nav-button">Up: <a href="#other-nodes" accesskey="u" rel="up">Chapter with nodes</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e" accesskey="p" rel="prev">/;&lt;=&gt;?[\\]^_`|~</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#other-nodes" accesskey="u" rel="up">Chapter with nodes</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h4 class="node"><span>local   node<a class="copiable-link" href="#local-node"> &para;</a></span></h4>
 
 </div>

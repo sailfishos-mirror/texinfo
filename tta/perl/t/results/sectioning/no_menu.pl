@@ -293,7 +293,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="">
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#c1" accesskey="n" rel="next">c1</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#c1" accesskey="n" rel="next">c1</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <a class="top" id="SEC_Top"></a>
 <ul class="mini-toc">
 <li><a href="#c1" accesskey="1">c1</a></li>
@@ -303,21 +303,21 @@ span:hover a.copiable-link {visibility: visible}
 <hr>
 <div class="chapter-level-extent" id="c1">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#c2" accesskey="n" rel="next">c2</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#c2" accesskey="n" rel="next">c2</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="c1-1"><span>1 c1<a class="copiable-link" href="#c1-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="c2">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#c3" accesskey="n" rel="next">c3</a></span>, <span class="nav-button">Previous: <a href="#c1" accesskey="p" rel="prev">c1</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#c3" accesskey="n" rel="next">c3</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#c1" accesskey="p" rel="prev">c1</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="c2-1"><span>2 c2<a class="copiable-link" href="#c2-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="c3">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#c2" accesskey="p" rel="prev">c2</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#c2" accesskey="p" rel="prev">c2</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="c3-1"><span>3 c3<a class="copiable-link" href="#c3-1"> &para;</a></span></h2>
 </div>
 </div>

@@ -571,7 +571,7 @@ th.index-letter-header-printindex {text-align: left}
 <body lang="">
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#node1" accesskey="n" rel="next">chap1</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#node2" title="Index" rel="index">Index</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#node1" accesskey="n" rel="next">chap1</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#node2" title="Index" rel="index">Index</a>]</span></p>
 <h1 class="top" id="test-commands-in-nodedescriptionblock"><span>test commands in nodedescriptionblock<a class="copiable-link" href="#test-commands-in-nodedescriptionblock"> &para;</a></span></h1>
 
 <table class="menu">
@@ -594,7 +594,7 @@ where the max column could be. in&nbsp;w<!-- /@w -->.
 <hr>
 <div class="chapter-level-extent" id="node1">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#node2" accesskey="n" rel="next">chap2</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">test commands in nodedescriptionblock</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test commands in nodedescriptionblock</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#node2" title="Index" rel="index">Index</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#node2" accesskey="n" rel="next">chap2</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">test commands in nodedescriptionblock</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">test commands in nodedescriptionblock</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#node2" title="Index" rel="index">Index</a>]</span></p>
 <h2 class="chapter" id="chap1"><span>1 chap1<a class="copiable-link" href="#chap1"> &para;</a></span></h2>
 
 
@@ -602,7 +602,7 @@ where the max column could be. in&nbsp;w<!-- /@w -->.
 </div>
 <div class="chapter-level-extent" id="node2">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#node1" accesskey="p" rel="prev">chap1</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">test commands in nodedescriptionblock</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#node2" title="Index" rel="index">Index</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#node1" accesskey="p" rel="prev">chap1</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">test commands in nodedescriptionblock</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#node2" title="Index" rel="index">Index</a>]</span></p>
 <h2 class="chapter" id="chap2"><span>2 chap2<a class="copiable-link" href="#chap2"> &para;</a></span></h2>
 
 <p><a class="ref" href="#in-nodescription">in nodescription</a>, <a class="ref" href="#f1">tfloat 1.1</a>.

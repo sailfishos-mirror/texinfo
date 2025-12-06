@@ -370,7 +370,7 @@ span:hover a.copiable-link {visibility: visible}
 
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next">(../there/no_existing_no_manual_direction)</a></span>, <span class="nav-button">Previous: <a href="#first" accesskey="p" rel="prev">first</a></span>, <span class="nav-button">Up: (dir)</span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next">(../there/no_existing_no_manual_direction)</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#first" accesskey="p" rel="prev">first</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link">(dir)</span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <p><a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">c</a>
@@ -382,13 +382,13 @@ span:hover a.copiable-link {visibility: visible}
 </ul>
 <hr>
 <a class="node-id" id="first"></a><p class="nav-panel">
-<span class="nav-button">Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <hr>
 <div class="chapter-level-extent" id="chapter">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="chap_not_existing.html#Top" accesskey="n" rel="next">(chap_not_existing)</a></span>, <span class="nav-button">Previous: <a href="dir.html#node-in-dir" accesskey="p" rel="prev">(dir)node in dir</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="chap_not_existing.html#Top" accesskey="n" rel="next">(chap_not_existing)</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="dir.html#node-in-dir" accesskey="p" rel="prev">(dir)node in dir</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="Chapter"><span>1 Chapter<a class="copiable-link" href="#Chapter"> &para;</a></span></h2>
 
 <p>See <a data-manual="some_name_inf.inf" href="some_name_inf.html#aa">(some_name_inf.inf)aa</a>.

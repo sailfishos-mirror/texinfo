@@ -4449,6 +4449,12 @@ format_button_icon_img (CONVERTER *self,
     }
 }
 
+static char *nav_label_array[] = {"nav-label"};
+static const STRING_LIST nav_label_classes = {nav_label_array, 1, 1};
+
+static char *nav_link_array[] = {"nav-link"};
+static const STRING_LIST nav_link_classes = {nav_link_array, 1, 1};
+
 static FORMATTED_BUTTON_INFO *
 default_panel_button_dynamic_direction_internal (CONVERTER *self,
                                int direction, const ELEMENT *element,
@@ -4485,18 +4491,52 @@ default_panel_button_dynamic_direction_internal (CONVERTER *self,
 
   if (node && node[strspn (node, whitespace_chars)] != '\0')
     {
+      char *open_label;
+      char *open_link;
+      const char *close_label_span = "";
+      const char *close_link_span = "";
+      const char *close_label = "";
+      const char *close_link = "";
+      size_t open_len;
+
       const char *text = direction_string (self, direction, TDS_type_text, 0);
       if (!text)
         text = "";
+
+      open_label = html_attribute_class (self, "span", &nav_label_classes);
+      open_len = strlen (open_label);
+
+      if (open_len > 0)
+        {
+          close_label_span = ">";
+          close_label = "</span>";
+        }
+
+      open_link = html_attribute_class (self, "span", &nav_link_classes);
+      open_len = strlen (open_link);
+
+      if (open_len > 0)
+        {
+          close_link_span = ">";
+          close_link = "</span>";
+        }
+
       if (href && strlen (href))
         {
           char *hyperlink
            = direction_a (self, direction, href, node, omit_rel);
-          xasprintf (&formatted_button->active, "%s: %s", text, hyperlink);
+          xasprintf (&formatted_button->active, "%s%s%s: %s%s%s%s%s",
+                     open_label, close_label_span, text, close_label,
+                     open_link, close_link_span, hyperlink, close_link);
           free (hyperlink);
         }
       else
-        xasprintf (&formatted_button->active, "%s: %s", text, node);
+        xasprintf (&formatted_button->active, "%s%s%s: %s%s%s%s%s",
+                     open_label, close_label_span, text, close_label,
+                     open_link, close_link_span, node, close_link);
+
+      free (open_label);
+      free (open_link);
     }
 
   free (href);

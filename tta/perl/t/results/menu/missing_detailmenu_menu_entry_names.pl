@@ -573,7 +573,7 @@ th.menu-comment {text-align:left}
 <body lang="">
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#C1" accesskey="n" rel="next">C1</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#C1" accesskey="n" rel="next">C1</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <p>text
@@ -605,7 +605,7 @@ C2
 <hr>
 <div class="chapter-level-extent" id="C1">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#C2" accesskey="n" rel="next">C2</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#C2" accesskey="n" rel="next">C2</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">top</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="C1-1"><span>1 C1<a class="copiable-link" href="#C1-1"> &para;</a></span></h2>
 
 <table class="menu">
@@ -620,14 +620,14 @@ C2
 <hr>
 <div class="section-level-extent" id="C1-Sec1">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#C1-Sec2" accesskey="n" rel="next">C1 Sec2</a></span>, <span class="nav-button">Up: <a href="#C1" accesskey="u" rel="up">C1</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#C1-Sec2" accesskey="n" rel="next">C1 Sec2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#C1" accesskey="u" rel="up">C1</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="C1-Sec1-1"><span>1.1 C1 Sec1<a class="copiable-link" href="#C1-Sec1-1"> &para;</a></span></h3>
 
 <hr>
 </div>
 <div class="section-level-extent" id="C1-Sec2">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#C1-Sec1" accesskey="p" rel="prev">C1 Sec1</a></span>, <span class="nav-button">Up: <a href="#C1" accesskey="u" rel="up">C1</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#C1-Sec1" accesskey="p" rel="prev">C1 Sec1</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#C1" accesskey="u" rel="up">C1</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="C1-Sec2-1"><span>1.2 C1 Sec2<a class="copiable-link" href="#C1-Sec2-1"> &para;</a></span></h3>
 
 <hr>
@@ -635,7 +635,7 @@ C2
 </div>
 <div class="chapter-level-extent" id="C2">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#C1" accesskey="p" rel="prev">C1</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#C1" accesskey="p" rel="prev">C1</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="C2-1"><span>2 C2<a class="copiable-link" href="#C2-1"> &para;</a></span></h2>
 
 <table class="menu">
@@ -650,14 +650,14 @@ C2
 <hr>
 <div class="section-level-extent" id="C2-Sec1">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#C2-Sec2" accesskey="n" rel="next">C2 Sec2</a></span>, <span class="nav-button">Up: <a href="#C2" accesskey="u" rel="up">C2</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#C2-Sec2" accesskey="n" rel="next">C2 Sec2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#C2" accesskey="u" rel="up">C2</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="C2-Sec1-1"><span>2.1 C2 Sec1<a class="copiable-link" href="#C2-Sec1-1"> &para;</a></span></h3>
 
 <hr>
 </div>
 <div class="section-level-extent" id="C2-Sec2">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#C2-Sec1" accesskey="p" rel="prev">C2 Sec1</a></span>, <span class="nav-button">Up: <a href="#C2" accesskey="u" rel="up">C2</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#C2-Sec1" accesskey="p" rel="prev">C2 Sec1</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#C2" accesskey="u" rel="up">C2</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="C2-Sec2-1"><span>2.2 C2 Sec2<a class="copiable-link" href="#C2-Sec2-1"> &para;</a></span></h3>
 </div>
 </div>

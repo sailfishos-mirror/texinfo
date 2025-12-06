@@ -627,7 +627,7 @@ th.menu-comment {text-align:left}
 <body lang="">
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#chapter" accesskey="n" rel="next">chapter</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapter" accesskey="n" rel="next">chapter</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 
 <table class="menu">
@@ -652,7 +652,7 @@ th.menu-comment {text-align:left}
 <hr>
 <div class="chapter-level-extent" id="chapter">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#chapter-2" accesskey="n" rel="next">chapter 2</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapter-2" accesskey="n" rel="next">chapter 2</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">top</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="chapter-1"><span>1 chapter<a class="copiable-link" href="#chapter-1"> &para;</a></span></h2>
 
 <table class="menu">
@@ -663,7 +663,7 @@ th.menu-comment {text-align:left}
 <hr>
 <div class="section-level-extent" id="section">
 <p class="nav-panel">
-<span class="nav-button">Up: <a href="#chapter" accesskey="u" rel="up">chapter</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter" accesskey="u" rel="up">chapter</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="section-1"><span>1.1 section<a class="copiable-link" href="#section-1"> &para;</a></span></h3>
 
 <hr>
@@ -671,7 +671,7 @@ th.menu-comment {text-align:left}
 </div>
 <div class="chapter-level-extent" id="chapter-2">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">top</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#chapter" accesskey="p" rel="prev">chapter</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="chapter-2-1"><span>2 chapter 2<a class="copiable-link" href="#chapter-2-1"> &para;</a></span></h2>
 
 <table class="menu">
@@ -684,14 +684,14 @@ th.menu-comment {text-align:left}
 <hr>
 <div class="section-level-extent" id="section-chap-2">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumberedsec" accesskey="n" rel="next">unnumberedsec</a></span>, <span class="nav-button">Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumberedsec" accesskey="n" rel="next">unnumberedsec</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-2" accesskey="u" rel="up">chapter 2</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="section" id="section-chap-2-1"><span>2.1 section chap 2<a class="copiable-link" href="#section-chap-2-1"> &para;</a></span></h3>
 
 <hr>
 </div>
 <div class="unnumberedsec-level-extent" id="unnumberedsec">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#section-chap-2" accesskey="p" rel="prev">section chap 2</a></span>, <span class="nav-button">Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#section-chap-2" accesskey="p" rel="prev">section chap 2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-2" accesskey="u" rel="up">chapter 2</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h3 class="unnumberedsec" id="unnumberedsec-1"><span>unnumberedsec<a class="copiable-link" href="#unnumberedsec-1"> &para;</a></span></h3>
 </div>
 </div>

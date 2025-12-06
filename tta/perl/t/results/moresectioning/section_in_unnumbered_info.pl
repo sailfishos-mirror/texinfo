@@ -2672,7 +2672,7 @@ ul.toc-numbered-mark {list-style: none}
 <body lang="">
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#chapter" accesskey="n" rel="next">chapter</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapter" accesskey="n" rel="next">chapter</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h1 class="top" id="Test-section-in-unnumbered"><span>Test section in unnumbered<a class="copiable-link" href="#Test-section-in-unnumbered"> &para;</a></span></h1>
 
 
@@ -2746,7 +2746,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="chapter-level-extent" id="chapter">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumbered" accesskey="n" rel="next">unnumbered</a></span>, <span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">Test section in unnumbered</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumbered" accesskey="n" rel="next">unnumbered</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">Test section in unnumbered</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h2 class="chapter" id="chapter-1"><span>1 chapter<a class="copiable-link" href="#chapter-1"> &para;</a></span></h2>
 
 
@@ -2756,7 +2756,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="section-level-extent" id="section-in-chapter">
 <p class="nav-panel">
-<span class="nav-button">Up: <a href="#chapter" accesskey="u" rel="up">chapter</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter" accesskey="u" rel="up">chapter</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="section" id="section-in-chapter-1"><span>1.1 section in chapter<a class="copiable-link" href="#section-in-chapter-1"> &para;</a></span></h3>
 
 <hr>
@@ -2764,7 +2764,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 <div class="unnumbered-level-extent" id="unnumbered">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#chapter-2" accesskey="n" rel="next">chapter 2</a></span>, <span class="nav-button">Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapter-2" accesskey="n" rel="next">chapter 2</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#chapter" accesskey="p" rel="prev">chapter</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h2 class="unnumbered" id="unnumbered-1"><span>unnumbered<a class="copiable-link" href="#unnumbered-1"> &para;</a></span></h2>
 
 
@@ -2774,7 +2774,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="section-level-extent" id="section-in-unnumbered">
 <p class="nav-panel">
-<span class="nav-button">Up: <a href="#unnumbered" accesskey="u" rel="up">unnumbered</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumbered" accesskey="u" rel="up">unnumbered</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="section" id="section-in-unnumbered-1"><span>section in unnumbered<a class="copiable-link" href="#section-in-unnumbered-1"> &para;</a></span></h3>
 
 <hr>
@@ -2782,7 +2782,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 <div class="chapter-level-extent" id="chapter-2">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#chapter-3" accesskey="n" rel="next">chapter 3</a></span>, <span class="nav-button">Previous: <a href="#unnumbered" accesskey="p" rel="prev">unnumbered</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapter-3" accesskey="n" rel="next">chapter 3</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumbered" accesskey="p" rel="prev">unnumbered</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h2 class="chapter" id="chapter-2-1"><span>2 chapter 2<a class="copiable-link" href="#chapter-2-1"> &para;</a></span></h2>
 
 
@@ -2793,7 +2793,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="unnumberedsec-level-extent" id="unnumberedsec-2">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumberedsec-2_002d1" accesskey="n" rel="next">unnumberedsec 2-1</a></span>, <span class="nav-button">Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumberedsec-2_002d1" accesskey="n" rel="next">unnumberedsec 2-1</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-2" accesskey="u" rel="up">chapter 2</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="unnumberedsec" id="unnumbered-section-2"><span>unnumbered section 2<a class="copiable-link" href="#unnumbered-section-2"> &para;</a></span></h3>
 
 
@@ -2806,28 +2806,28 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="unnumberedsubsec-level-extent" id="unnumbered-sub-2">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#numbered-sub-2" accesskey="n" rel="next">numbered subsection 2</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#numbered-sub-2" accesskey="n" rel="next">numbered subsection 2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="unnumberedsubsec" id="unnumbered-subsection-2"><span>unnumbered subsection 2<a class="copiable-link" href="#unnumbered-subsection-2"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="subsection-level-extent" id="numbered-sub-2">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumbered-sub2-2" accesskey="n" rel="next">unnumbered subsection2 2</a></span>, <span class="nav-button">Previous: <a href="#unnumbered-sub-2" accesskey="p" rel="prev">unnumbered subsection 2</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumbered-sub2-2" accesskey="n" rel="next">unnumbered subsection2 2</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumbered-sub-2" accesskey="p" rel="prev">unnumbered subsection 2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection-2"><span>numbered subsection 2<a class="copiable-link" href="#numbered-subsection-2"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="unnumberedsubsec-level-extent" id="unnumbered-sub2-2">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#numbered-sub2-2" accesskey="n" rel="next">numbered subsection2 2</a></span>, <span class="nav-button">Previous: <a href="#numbered-sub-2" accesskey="p" rel="prev">numbered subsection 2</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#numbered-sub2-2" accesskey="n" rel="next">numbered subsection2 2</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#numbered-sub-2" accesskey="p" rel="prev">numbered subsection 2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="unnumberedsubsec" id="unnumbered-subsection2-2"><span>unnumbered subsection2 2<a class="copiable-link" href="#unnumbered-subsection2-2"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="subsection-level-extent" id="numbered-sub2-2">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#unnumbered-sub2-2" accesskey="p" rel="prev">unnumbered subsection2 2</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumbered-sub2-2" accesskey="p" rel="prev">unnumbered subsection2 2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-2" accesskey="u" rel="up">unnumbered section 2</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection2-2"><span>numbered subsection2 2<a class="copiable-link" href="#numbered-subsection2-2"> &para;</a></span></h4>
 
 <hr>
@@ -2835,7 +2835,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 <div class="unnumberedsec-level-extent" id="unnumberedsec-2_002d1">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#unnumberedsec-2" accesskey="p" rel="prev">unnumbered section 2</a></span>, <span class="nav-button">Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumberedsec-2" accesskey="p" rel="prev">unnumbered section 2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-2" accesskey="u" rel="up">chapter 2</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="unnumberedsec" id="unnumberedsec-2_002d1-1"><span>unnumberedsec 2-1<a class="copiable-link" href="#unnumberedsec-2_002d1-1"> &para;</a></span></h3>
 
 
@@ -2845,7 +2845,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="subsection-level-extent" id="numbered-sub-2_002d1">
 <p class="nav-panel">
-<span class="nav-button">Up: <a href="#unnumberedsec-2_002d1" accesskey="u" rel="up">unnumberedsec 2-1</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-2_002d1" accesskey="u" rel="up">unnumberedsec 2-1</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection-2_002d1"><span>numbered subsection 2-1<a class="copiable-link" href="#numbered-subsection-2_002d1"> &para;</a></span></h4>
 
 
@@ -2855,7 +2855,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 <div class="chapter-level-extent" id="chapter-3">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumbered-4" accesskey="n" rel="next">unnumbered  4</a></span>, <span class="nav-button">Previous: <a href="#chapter-2" accesskey="p" rel="prev">chapter 2</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumbered-4" accesskey="n" rel="next">unnumbered  4</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#chapter-2" accesskey="p" rel="prev">chapter 2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h2 class="chapter" id="chapter-3-1"><span>3 chapter 3<a class="copiable-link" href="#chapter-3-1"> &para;</a></span></h2>
 
 
@@ -2869,7 +2869,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="unnumberedsec-level-extent" id="unnumberedsec-3">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#section-3_002d1" accesskey="n" rel="next">section 3-1</a></span>, <span class="nav-button">Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#section-3_002d1" accesskey="n" rel="next">section 3-1</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="unnumberedsec" id="unnumbered-section-3"><span>unnumbered section 3<a class="copiable-link" href="#unnumbered-section-3"> &para;</a></span></h3>
 
 
@@ -2882,28 +2882,28 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="unnumberedsubsec-level-extent" id="unnumbered-sub-3">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#numbered-sub-3" accesskey="n" rel="next">numbered subsection 3</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#numbered-sub-3" accesskey="n" rel="next">numbered subsection 3</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="unnumberedsubsec" id="unnumbered-subsection-3"><span>unnumbered subsection 3<a class="copiable-link" href="#unnumbered-subsection-3"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="subsection-level-extent" id="numbered-sub-3">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumbered-sub2-3" accesskey="n" rel="next">unnumbered subsection2 3</a></span>, <span class="nav-button">Previous: <a href="#unnumbered-sub-3" accesskey="p" rel="prev">unnumbered subsection 3</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumbered-sub2-3" accesskey="n" rel="next">unnumbered subsection2 3</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumbered-sub-3" accesskey="p" rel="prev">unnumbered subsection 3</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection-3"><span>numbered subsection 3<a class="copiable-link" href="#numbered-subsection-3"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="unnumberedsubsec-level-extent" id="unnumbered-sub2-3">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#numbered-sub2-3" accesskey="n" rel="next">numbered subsection2 3</a></span>, <span class="nav-button">Previous: <a href="#numbered-sub-3" accesskey="p" rel="prev">numbered subsection 3</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#numbered-sub2-3" accesskey="n" rel="next">numbered subsection2 3</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#numbered-sub-3" accesskey="p" rel="prev">numbered subsection 3</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="unnumberedsubsec" id="unnumbered-subsection2-3"><span>unnumbered subsection2 3<a class="copiable-link" href="#unnumbered-subsection2-3"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="subsection-level-extent" id="numbered-sub2-3">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#unnumbered-sub2-3" accesskey="p" rel="prev">unnumbered subsection2 3</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumbered-sub2-3" accesskey="p" rel="prev">unnumbered subsection2 3</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-3" accesskey="u" rel="up">unnumbered section 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection2-3"><span>numbered subsection2 3<a class="copiable-link" href="#numbered-subsection2-3"> &para;</a></span></h4>
 
 <hr>
@@ -2911,14 +2911,14 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 <div class="section-level-extent" id="section-3_002d1">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumberedsec-3_002d2" accesskey="n" rel="next">unnumberedsec 3-2</a></span>, <span class="nav-button">Previous: <a href="#unnumberedsec-3" accesskey="p" rel="prev">unnumbered section 3</a></span>, <span class="nav-button">Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumberedsec-3_002d2" accesskey="n" rel="next">unnumberedsec 3-2</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumberedsec-3" accesskey="p" rel="prev">unnumbered section 3</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="section" id="section-3_002d1-1"><span>3.1 section 3-1<a class="copiable-link" href="#section-3_002d1-1"> &para;</a></span></h3>
 
 <hr>
 </div>
 <div class="unnumberedsec-level-extent" id="unnumberedsec-3_002d2">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#section-3_002d3" accesskey="n" rel="next">section 3-3</a></span>, <span class="nav-button">Previous: <a href="#section-3_002d1" accesskey="p" rel="prev">section 3-1</a></span>, <span class="nav-button">Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#section-3_002d3" accesskey="n" rel="next">section 3-3</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#section-3_002d1" accesskey="p" rel="prev">section 3-1</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="unnumberedsec" id="unnumberedsec-3_002d2-1"><span>unnumberedsec 3-2<a class="copiable-link" href="#unnumberedsec-3_002d2-1"> &para;</a></span></h3>
 
 
@@ -2928,7 +2928,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="subsection-level-extent" id="numbered-sub-3_002d2">
 <p class="nav-panel">
-<span class="nav-button">Up: <a href="#unnumberedsec-3_002d2" accesskey="u" rel="up">unnumberedsec 3-2</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-3_002d2" accesskey="u" rel="up">unnumberedsec 3-2</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection-3_002d2"><span>numbered subsection 3-2<a class="copiable-link" href="#numbered-subsection-3_002d2"> &para;</a></span></h4>
 
 <hr>
@@ -2936,7 +2936,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 <div class="section-level-extent" id="section-3_002d3">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumberedsec-3_002d4" accesskey="n" rel="next">unnumberedsec 3-4</a></span>, <span class="nav-button">Previous: <a href="#unnumberedsec-3_002d2" accesskey="p" rel="prev">unnumberedsec 3-2</a></span>, <span class="nav-button">Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumberedsec-3_002d4" accesskey="n" rel="next">unnumberedsec 3-4</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumberedsec-3_002d2" accesskey="p" rel="prev">unnumberedsec 3-2</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="section" id="section-3_002d3-1"><span>3.2 section 3-3<a class="copiable-link" href="#section-3_002d3-1"> &para;</a></span></h3>
 
 
@@ -2946,7 +2946,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="subsection-level-extent" id="subsection-3_002d3">
 <p class="nav-panel">
-<span class="nav-button">Up: <a href="#section-3_002d3" accesskey="u" rel="up">section 3-3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#section-3_002d3" accesskey="u" rel="up">section 3-3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="subsection-3_002d3-1"><span>3.2.1 subsection 3-3<a class="copiable-link" href="#subsection-3_002d3-1"> &para;</a></span></h4>
 
 <hr>
@@ -2954,7 +2954,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 <div class="unnumberedsec-level-extent" id="unnumberedsec-3_002d4">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#section-3_002d3" accesskey="p" rel="prev">section 3-3</a></span>, <span class="nav-button">Up: <a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#section-3_002d3" accesskey="p" rel="prev">section 3-3</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#chapter-3" accesskey="u" rel="up">chapter 3</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="unnumberedsec" id="unnumberedsec-3_002d4-1"><span>unnumberedsec 3-4<a class="copiable-link" href="#unnumberedsec-3_002d4-1"> &para;</a></span></h3>
 
 
@@ -2964,7 +2964,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="subsection-level-extent" id="numbered-sub-3_002d4">
 <p class="nav-panel">
-<span class="nav-button">Up: <a href="#unnumberedsec-3_002d4" accesskey="u" rel="up">unnumberedsec 3-4</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-3_002d4" accesskey="u" rel="up">unnumberedsec 3-4</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection-3_002d4"><span>numbered subsection 3-4<a class="copiable-link" href="#numbered-subsection-3_002d4"> &para;</a></span></h4>
 
 <hr>
@@ -2973,7 +2973,7 @@ ul.toc-numbered-mark {list-style: none}
 </div>
 <div class="unnumbered-level-extent" id="unnumbered-4">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#chapter-3" accesskey="p" rel="prev">chapter 3</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#chapter-3" accesskey="p" rel="prev">chapter 3</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Test section in unnumbered</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h2 class="unnumbered" id="unnumbered-4-1"><span>unnumbered  4<a class="copiable-link" href="#unnumbered-4-1"> &para;</a></span></h2>
 
 
@@ -2983,7 +2983,7 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="unnumberedsec-level-extent" id="unnumberedsec-4">
 <p class="nav-panel">
-<span class="nav-button">Up: <a href="#unnumbered-4" accesskey="u" rel="up">unnumbered  4</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumbered-4" accesskey="u" rel="up">unnumbered  4</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h3 class="unnumberedsec" id="unnumbered-section-4"><span>unnumbered section 4<a class="copiable-link" href="#unnumbered-section-4"> &para;</a></span></h3>
 
 
@@ -2996,28 +2996,28 @@ ul.toc-numbered-mark {list-style: none}
 <hr>
 <div class="unnumberedsubsec-level-extent" id="unnumbered-sub-4">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#numbered-sub-4" accesskey="n" rel="next">numbered subsection 4</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#numbered-sub-4" accesskey="n" rel="next">numbered subsection 4</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="unnumberedsubsec" id="unnumbered-subsection-4"><span>unnumbered subsection 4<a class="copiable-link" href="#unnumbered-subsection-4"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="subsection-level-extent" id="numbered-sub-4">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#unnumbered-sub2-4" accesskey="n" rel="next">unnumbered subsection2 4</a></span>, <span class="nav-button">Previous: <a href="#unnumbered-sub-4" accesskey="p" rel="prev">unnumbered subsection 4</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#unnumbered-sub2-4" accesskey="n" rel="next">unnumbered subsection2 4</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumbered-sub-4" accesskey="p" rel="prev">unnumbered subsection 4</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection-4"><span>numbered subsection 4<a class="copiable-link" href="#numbered-subsection-4"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="unnumberedsubsec-level-extent" id="unnumbered-sub2-4">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#numbered-sub2-4" accesskey="n" rel="next">numbered subsection2 4</a></span>, <span class="nav-button">Previous: <a href="#numbered-sub-4" accesskey="p" rel="prev">numbered subsection 4</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#numbered-sub2-4" accesskey="n" rel="next">numbered subsection2 4</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#numbered-sub-4" accesskey="p" rel="prev">numbered subsection 4</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="unnumberedsubsec" id="unnumbered-subsection2-4"><span>unnumbered subsection2 4<a class="copiable-link" href="#unnumbered-subsection2-4"> &para;</a></span></h4>
 
 <hr>
 </div>
 <div class="subsection-level-extent" id="numbered-sub2-4">
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#unnumbered-sub2-4" accesskey="p" rel="prev">unnumbered subsection2 4</a></span>, <span class="nav-button">Up: <a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#unnumbered-sub2-4" accesskey="p" rel="prev">unnumbered subsection2 4</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#unnumberedsec-4" accesskey="u" rel="up">unnumbered section 4</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>
 <h4 class="subsection" id="numbered-subsection2-4"><span>numbered subsection2 4<a class="copiable-link" href="#numbered-subsection2-4"> &para;</a></span></h4>
 </div>
 </div>

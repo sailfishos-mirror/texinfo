@@ -157,12 +157,12 @@ span:hover a.copiable-link {visibility: visible}
 
 <body lang="">
 <a class="node-id" id="Top"></a><p class="nav-panel">
-<span class="nav-button">Next: <a href="#Top" accesskey="n" rel="next">ToP</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Top" accesskey="n" rel="next">ToP</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="node"><span>ToP<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <hr>
 <p class="nav-panel">
-<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">ToP</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">ToP</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">ToP</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">ToP</a></span></span><span class="nav-button"> &nbsp; </span></p>
 
 <p>.
 </p>

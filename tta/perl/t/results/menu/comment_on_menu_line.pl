@@ -173,7 +173,7 @@ td.menu-entry-destination {vertical-align: top}
 <body lang="">
 <div class="chapter-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#first" accesskey="n" rel="next">first</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#first" accesskey="n" rel="next">first</a></span></span><span class="nav-button"> &nbsp; </span></p>
 
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="#first" accesskey="1">first</a>:</td><td class="menu-entry-description">
@@ -183,7 +183,7 @@ td.menu-entry-destination {vertical-align: top}
 <h2 class="chapter" id="first-1"><span>1 first<a class="copiable-link" href="#first-1"> &para;</a></span></h2>
 <hr>
 <a class="node-id" id="first"></a><p class="nav-panel">
-<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">first</a></span>, <span class="nav-button">Up: <a href="#Top" accesskey="u" rel="up">first</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">first</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">first</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 </div>
 

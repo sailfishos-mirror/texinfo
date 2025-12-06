@@ -219,7 +219,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="">
 <div class="unnumbered-level-extent" id="before">
 <p class="nav-panel">
-<span class="nav-button">Next: <a href="#node-after" accesskey="n" rel="next">node after</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#node-after" accesskey="n" rel="next">node after</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="unnumbered"><span>before<a class="copiable-link" href="#before"> &para;</a></span></h2>
 
 </div>
@@ -234,7 +234,7 @@ span:hover a.copiable-link {visibility: visible}
 </p>
 <hr>
 <a class="node-id" id="node-after"></a><p class="nav-panel">
-<span class="nav-button">Previous: <a href="#Top" accesskey="p" rel="prev">top section</a></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" accesskey="p" rel="prev">top section</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h4 class="node"><span>node after<a class="copiable-link" href="#node-after"> &para;</a></span></h4>
 </div>
 
