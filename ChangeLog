@@ -1,5 +1,13 @@
 2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	@set txilinkindextext
+
+	* doc/texinfo.tex (\indexentry) [pdftex]:
+	Only create a link from the index entry text to the referenced
+	page if the document contained "@set txilinkindextext".
+
+2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Custom Headings): reorder slightly.
 
 2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>

@@ -49,6 +49,8 @@ license to the document, as described in section 6 of the license.
 
 @contents
 
+@set txilinkindextext
+
 @node Top
 @top Stand-alone GNU Info
 
