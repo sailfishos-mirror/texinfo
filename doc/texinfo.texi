@@ -20956,6 +20956,7 @@ Generate the degree symbol.  @xref{@code{@@textdegree}}.
 @itemx @@thissection
 @itemx @@thissectionname
 @itemx @@thissectionnum
+@itemx @@thispart
 @itemx @@thisfile
 @itemx @@thispage
 @itemx @@thistitle
@@ -20963,9 +20964,9 @@ Only allowed in a heading or footing.  Stands for, respectively, the
 number and name of the current chapter (in the format `Chapter 1:
 Title'), the current chapter name only, the current chapter number
 only, the number and name of the current section, the current section
-name only, the current section number only, the file name, the current
-page number, and the title of the document.  @xref{Custom Headings,,
-How to Make Your Own Headings}.
+name only, the current section number only, the current part name, the
+file name, the current page number, and the title of the document.
+@xref{Custom Headings,, How to Make Your Own Headings}.
 
 @item @@TH@{@}
 @itemx @@th@{@}
@@ -24098,6 +24099,11 @@ Expands to the name of the current chapter.
 @item @@thischapternum
 Expands to the number of the current chapter, or letter of the current
 appendix.
+
+@findex thispart
+@item @@thispart
+Expands to the name of the current part, as specified by the last
+@code{@@part} command.  (Not currently implemented for @LaTeX{} output.)
 
 @findex thistitle
 @item @@thistitle

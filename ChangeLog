@@ -1,5 +1,10 @@
 2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS,
+	* doc/texinfo.texi (Command List, Custom Headings): add @thispart.
+
+2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/data/command_data.txt: Add @thispart.
 
 2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
