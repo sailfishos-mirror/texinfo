@@ -150,8 +150,7 @@ $result_converted{'latex_text'}->{'shorttitlepage'} = '
 \\frontmatter
 \\pagestyle{empty}%
 \\begin{titlepage}
-{\\raggedright {\\huge \\bfseries the title with shorttitlepage \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- it can be long}}
+{\\raggedright {\\huge \\bfseries the title with shorttitlepage \\leavevmode{}\\\\ it can be long}}
 \\newpage{}
 \\phantom{blabla}\\newpage{}
 \\end{titlepage}

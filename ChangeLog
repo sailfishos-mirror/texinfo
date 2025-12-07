@@ -1,5 +1,11 @@
 2025-12-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): use code to get a
+	space if in inner horizontal or vertical mode for sectioning commands,
+	not for other commands.  Report from Gavin.
+
+2025-12-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): use code based on
 	\ifinner and on Texinfo TeX code for @* in LaTeX to handle all the
 	cases in internal horizontal or vertical mode, in particular in page

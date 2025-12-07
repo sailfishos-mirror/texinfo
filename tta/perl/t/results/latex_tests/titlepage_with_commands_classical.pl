@@ -346,18 +346,13 @@ $result_converted{'latex_text'}->{'titlepage_with_commands_classical'} = '
 \\setlength{\\parindent}{0pt}
 % Leave some space at the very top of the page.
     \\vglue\\titlepagetopglue
-{\\raggedright {\\huge \\bfseries Some manual \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- tested}}
+{\\raggedright {\\huge \\bfseries Some manual \\leavevmode{}\\\\ tested}}
 \\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
-\\rightline{Subtitle manual \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- tested}
-\\rightline{Subtitle 2 manual \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- tested}
+\\rightline{Subtitle manual \\leavevmode{}\\\\ tested}
+\\rightline{Subtitle 2 manual \\leavevmode{}\\\\ tested}
 \\vskip 0pt plus 1filll
-\\leftline{\\Large \\bfseries First \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- author}%
-\\leftline{\\Large \\bfseries Second \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- author\\footnote{Something
+\\leftline{\\Large \\bfseries First \\leavevmode{}\\\\ author}%
+\\leftline{\\Large \\bfseries Second \\leavevmode{}\\\\ author\\footnote{Something
 about the address of author.
 
 Something about the life. 

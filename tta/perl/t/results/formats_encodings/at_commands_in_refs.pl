@@ -5013,7 +5013,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\chapter{{\\-{} \\{ \\}}}
 \\label{anchor:-_007b-_007d}%
 
-\\chapter{{\\ {} \\ {} \\@! \\texorpdfstring{\\leavevmode{}\\\\}{ } \\@. \\@ .\\@ \\@? @}}
+\\chapter{{\\ {} \\ {} \\@! \\texorpdfstring{\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi}{ } \\@. \\@ .\\@ \\@? @}}
 \\label{anchor:-_0021-_002e-_002e-_003f-_0040}%
 
 \\chapter{{@ \\{ \\} \\textbackslash{} \\#}}
@@ -5093,8 +5093,7 @@ $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 
 \\hyperref[anchor:-_007b-_007d]{\\chaptername~\\ref*{anchor:-_007b-_007d} [\\-{} \\{ \\}], page~\\pageref*{anchor:-_007b-_007d}}
 
-\\hyperref[anchor:-_0021-_002e-_002e-_003f-_0040]{\\chaptername~\\ref*{anchor:-_0021-_002e-_002e-_003f-_0040} [\\ {} \\ {} \\@! \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- \\@. \\@ .\\@ \\@? @], page~\\pageref*{anchor:-_0021-_002e-_002e-_003f-_0040}}
+\\hyperref[anchor:-_0021-_002e-_002e-_003f-_0040]{\\chaptername~\\ref*{anchor:-_0021-_002e-_002e-_003f-_0040} [\\ {} \\ {} \\@! \\leavevmode{}\\\\ \\@. \\@ .\\@ \\@? @], page~\\pageref*{anchor:-_0021-_002e-_002e-_003f-_0040}}
 
 \\hyperref[anchor:_0040-_007b-_007d-_005c-_0023]{\\chaptername~\\ref*{anchor:_0040-_007b-_007d-_005c-_0023} [@ \\{ \\} \\textbackslash{} \\#], page~\\pageref*{anchor:_0040-_007b-_007d-_005c-_0023}}
 

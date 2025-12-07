@@ -809,8 +809,7 @@ quotation2
 
 $result_converted{'latex_text'}->{'exdent_and_formats'} = '\\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
-\\ttfamily \\ Example   Hoho.\\ \\TeX{}\\ .\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
-\\ @.
+\\ttfamily \\ Example   Hoho.\\ \\TeX{}\\ .\\ \\leavevmode{}\\\\\\ @.
 
 \\end{Texinfopreformatted}
 \\leavevmode{}\\\\

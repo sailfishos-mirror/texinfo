@@ -3076,16 +3076,19 @@ sub _convert($$) {
                                          ->{'in_sectioning_command_heading'}) {
             # add command to substitute a space in table of contents
             # if in heading command.
-            $result .= "\\texorpdfstring{\\leavevmode{}\\\\}{ }";
-          } else {
             # In internal horizontal or vertical mode, convert explicit line
             # breaks from @* into spaces for page heading lines.  The
             # code is based on Texinfo TeX code, but with a different
             # code for the case where an end of line is output.
+            $result .= "\\texorpdfstring{"
+                  ."\\ifinner\\unskip\\space\\ignorespaces"
+                  ."\\else\\leavevmode{}\\\\\\fi}{ }";
+          } else {
             # NOTE \leavevmode{} is added to avoid
             # ! LaTeX Error: There's no line here to end.
-            $result .= "\\ifinner\\unskip\\space\\ignorespaces".
-                       "\\else\\leavevmode{}\\\\\\fi%\n";
+            #$result .= "\\ifinner\\unskip\\space\\ignorespaces".
+            #           "\\else\\leavevmode{}\\\\\\fi%\n";
+            $result .= "\\leavevmode{}\\\\";
           }
         } else {
           if ($self->{'formatting_context'}->[-1]->{'math_style'}->[-1]

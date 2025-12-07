@@ -586,48 +586,39 @@ $result_converted{'docbook_doc'}->{'line_breaks'} = '<?xml version="1.0"?>
 
 
 $result_converted{'latex_text'}->{'line_breaks'} = '
-{\\raggedright {\\huge \\bfseries AWK As A Major Systems Programming \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- Language---Revisited}}
+{\\raggedright {\\huge \\bfseries AWK As A Major Systems Programming \\leavevmode{}\\\\ Language---Revisited}}
 \\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
 
 \\label{anchor:Top}%
-\\chapter{{a \\texorpdfstring{\\leavevmode{}\\\\}{ } chapter}}
+\\chapter{{a \\texorpdfstring{\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi}{ } chapter}}
 \\label{anchor:a-new-node}%
 
 \\begin{center}
-in center \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- line break
+in center \\leavevmode{}\\\\ line break
 \\end{center}
 
 \\begin{description}
 \\item[{\\parbox[b]{\\linewidth}{%
-\\textbf{with break \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- after}\\\\
-\\textbf{withx breakx \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- afterx}}}]
-Text, \\hyperref[anchor:a-new-node]{\\chaptername~\\ref*{anchor:a-new-node} [a \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- new node], page~\\pageref*{anchor:a-new-node}}.
+\\textbf{with break \\leavevmode{}\\\\ after}\\\\
+\\textbf{withx breakx \\leavevmode{}\\\\ afterx}}}]
+Text, \\hyperref[anchor:a-new-node]{\\chaptername~\\ref*{anchor:a-new-node} [a \\leavevmode{}\\\\ new node], page~\\pageref*{anchor:a-new-node}}.
 \\end{description}
 
 \\begin{quote}
-\\textbf{Q\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- uotation:} T
+\\textbf{Q\\leavevmode{}\\\\ uotation:} T
 \\end{quote}
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
-\\ttfamily in \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
-\\ example
+\\ttfamily in \\leavevmode{}\\\\\\ example
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
 
 \\begin{flushright}
 \\begin{Texinfopreformatted}%
-in \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- flushright
+in \\leavevmode{}\\\\ flushright
 
-See \\hyperref[anchor:a-new-node]{\\chaptername~\\ref*{anchor:a-new-node} [a \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
- new node], page~\\pageref*{anchor:a-new-node}}.
+See \\hyperref[anchor:a-new-node]{\\chaptername~\\ref*{anchor:a-new-node} [a \\leavevmode{}\\\\ new node], page~\\pageref*{anchor:a-new-node}}.
 \\end{Texinfopreformatted}
 \\end{flushright}
 ';

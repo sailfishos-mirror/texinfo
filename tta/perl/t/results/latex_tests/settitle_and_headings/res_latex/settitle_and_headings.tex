@@ -13,8 +13,7 @@
 \usepackage[hidelinks]{hyperref}
 
 \makeatletter
-\newcommand{\Texinfosettitle}{Title \ifinner\unskip\space\ignorespaces\else\leavevmode{}\\\fi%
- for a manual}%
+\newcommand{\Texinfosettitle}{Title \leavevmode{}\\ for a manual}%
 
 \newcommand{\Texinfopart}[1]{\part*{#1}
 \addcontentsline{toc}{part}{\protect\textbf{#1}}%
