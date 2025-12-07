@@ -510,17 +510,33 @@ a document @* yes!
 @settitle the manual @* new version
 @title AWK As A Major Systems Programming @* Language---Revisited
 
+@node Top
+@top a @* top
+
+@node a @* new node
+@chapter a @* chapter
+
 @center in center @* line break
 
 @table @strong
 @item with break @* after
 @itemx withx breakx @* afterx
-Text
+Text, @ref{a @* new node, a @* something}.
 @end table
 
 @quotation Q@* uotation
 T
 @end quotation
+
+@example
+in @* example
+@end example
+
+@flushright
+in @* flushright
+
+@xref{a @* new node}.
+@end flushright
 ', {}, {'SHOW_TITLE' => 1}],
 ['test_deftypefnnewline',
 '@setfilename test_deftypefnnewline.info

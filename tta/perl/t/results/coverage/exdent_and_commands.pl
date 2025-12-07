@@ -207,7 +207,8 @@ in exdented protected eol \\ {}
 following
 \\leavevmode{}\\\\
 \\hbox{\\kern -\\leftmargin}%
-in exdented a @* \\leavevmode{}\\\\ and following
+in exdented a @* \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+ and following
 \\\\
 after exdented
 \\end{quote}
@@ -225,7 +226,8 @@ in exdented protected eol \\ {}
 \\end{Texinfopreformatted}
 \\leavevmode{}\\\\
 \\hbox{\\kern -\\leftmargin}%
-in exdented a @* \\leavevmode{}\\\\ and following
+in exdented a @* \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+ and following
 \\\\
 \\begin{Texinfopreformatted}%
 \\ttfamily after exdented

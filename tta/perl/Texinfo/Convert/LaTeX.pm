@@ -3078,11 +3078,14 @@ sub _convert($$) {
             # if in heading command.
             $result .= "\\texorpdfstring{\\leavevmode{}\\\\}{ }";
           } else {
-            # FIXME \leavevmode{} is added to avoid
+            # In internal horizontal or vertical mode, convert explicit line
+            # breaks from @* into spaces for page heading lines.  The
+            # code is based on Texinfo TeX code, but with a different
+            # code for the case where an end of line is output.
+            # NOTE \leavevmode{} is added to avoid
             # ! LaTeX Error: There's no line here to end.
-            # but it is not clearly correct
-            $result .= "\\leavevmode{}\\\\";
-            #$result = "\\linebreak[4]\n";
+            $result .= "\\ifinner\\unskip\\space\\ignorespaces".
+                       "\\else\\leavevmode{}\\\\\\fi%\n";
           }
         } else {
           if ($self->{'formatting_context'}->[-1]->{'math_style'}->[-1]

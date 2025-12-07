@@ -1519,12 +1519,18 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 % Leave some space at the very top of the page.
     \\vglue\\titlepagetopglue
 Titlepage
-``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\leavevmode{}\\\\
-kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\leavevmode{}\\\\
+``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
@@ -1532,12 +1538,18 @@ samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `s
 @codequotebacktick on
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
-``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\leavevmode{}\\\\
-kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\leavevmode{}\\\\
+``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
@@ -1545,12 +1557,18 @@ samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `s
 @codequotebacktick off
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
-``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\leavevmode{}\\\\
-kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\leavevmode{}\\\\
+``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 \\endgroup
 \\end{titlepage}
 \\mainmatter
@@ -1559,12 +1577,18 @@ samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `s
 \\chapter{{Chapter}}
 \\label{anchor:chap}%
 
-``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\leavevmode{}\\\\
-kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\leavevmode{}\\\\
+``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
@@ -1572,12 +1596,18 @@ samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `s
 @codequotebacktick on
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
-``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\leavevmode{}\\\\
-kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\leavevmode{}\\\\
+``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
@@ -1585,21 +1615,33 @@ samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `s
 @codequotebacktick off
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
-``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\
-strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\leavevmode{}\\\\
-kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\leavevmode{}\\\\
-samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\leavevmode{}\\\\
+``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code: \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong: \\textbf{``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd: \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}} \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\' \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 
 \\begin{Texinfoindented}
 \\begin{Texinfopreformatted}%
-\\ttfamily {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\leavevmode{}\\\\
-code:\\ \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-asis:\\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\leavevmode{}\\\\
-strong:\\ \\textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-kbd:\\ \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-samp:\\ `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\'\\ \\leavevmode{}\\\\
+\\ttfamily {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code:\\ \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis:\\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong:\\ \\textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd:\\ \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp:\\ `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\'\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 
 \\end{Texinfopreformatted}
 \\begin{Texinfoindented}
@@ -1609,12 +1651,18 @@ samp:\\ `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} 
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
 \\begin{Texinfopreformatted}%
-\\ttfamily {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\leavevmode{}\\\\
-code:\\ \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-asis:\\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\leavevmode{}\\\\
-strong:\\ \\textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-kbd:\\ \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-samp:\\ `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\'\\ \\leavevmode{}\\\\
+\\ttfamily {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code:\\ \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis:\\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong:\\ \\textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd:\\ \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp:\\ `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\'\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 
 \\end{Texinfopreformatted}
 \\begin{Texinfoindented}
@@ -1624,12 +1672,18 @@ samp:\\ `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} 
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
 \\begin{Texinfopreformatted}%
-\\ttfamily {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\leavevmode{}\\\\
-code:\\ \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-asis:\\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\leavevmode{}\\\\
-strong:\\ \\textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-kbd:\\ \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\leavevmode{}\\\\
-samp:\\ `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\'\\ \\leavevmode{}\\\\
+\\ttfamily {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+code:\\ \\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+asis:\\ {`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+strong:\\ \\textbf{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+kbd:\\ \\Texinfocommandstyletextkbd{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
+samp:\\ `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `simple\' quotedblleft:\\ \\textquotedblleft{}}\'\\ \\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+
 \\end{Texinfopreformatted}
 \\end{Texinfoindented}
 

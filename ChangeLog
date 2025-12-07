@@ -1,3 +1,13 @@
+2025-12-07 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): use code based on
+	\ifinner and on Texinfo TeX code for @* in LaTeX to handle all the
+	cases in internal horizontal or vertical mode, in particular in page
+	headings.  Based on Gavin code.
+
+	* tta/perl/t/converters_tests.t (line_breaks): add @* in more command
+	areguments and contexts.
+
 2025-12-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Custom Headings): @thispart is implemented for

@@ -223,7 +223,8 @@ $result_converted{'latex'}->{'empty_quotation'} = '\\documentclass{book}
 \\textbf{:} \\end{quote}
 
 \\begin{quote}
-\\textbf{\\leavevmode{}\\\\:} \\end{quote}
+\\textbf{\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi%
+:} \\end{quote}
 \\end{document}
 ';
 
