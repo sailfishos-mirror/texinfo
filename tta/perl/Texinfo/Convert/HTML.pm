@@ -13564,7 +13564,7 @@ sub _setup_output($) {
     $jslicenses->{'infojs'} = {
       'js/info.js' =>
          [ 'GNU General Public License 3.0 or later',
-           'http://www.gnu.org/licenses/gpl-3.0.html',
+           'https://www.gnu.org/licenses/gpl-3.0.html',
            'js/info.js' ],
        'js/modernizr.js' =>
           [ 'Expat',

@@ -3892,7 +3892,7 @@ html_setup_output (CONVERTER *self, char **paths)
           fill_jslicense_file_info (&jslicences_files_info->list[0],
                                     "js/info.js",
                                     "GNU General Public License 3.0 or later",
-                                    "http://www.gnu.org/licenses/gpl-3.0.html",
+                                    "https://www.gnu.org/licenses/gpl-3.0.html",
                                     "js/info.js");
           fill_jslicense_file_info (&jslicences_files_info->list[1],
                                     "js/modernizr.js", "Expat",
