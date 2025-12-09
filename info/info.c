@@ -13,7 +13,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
    Originally written by Brian Fox.  */
 
@@ -911,7 +911,7 @@ main (int argc, char *argv[])
       puts ("");
       printf (_("Copyright (C) %s Free Software Foundation, Inc.\n"
   "License GPLv3+: GNU GPL version 3 or later"
-  " <http://gnu.org/licenses/gpl.html>\n"
+  " <https://gnu.org/licenses/gpl.html>\n"
   "This is free software: you are free to change and redistribute it.\n"
   "There is NO WARRANTY, to the extent permitted by law.\n"),
 	      "2025");
