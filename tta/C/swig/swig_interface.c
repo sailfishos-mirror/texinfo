@@ -11,7 +11,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>. */
+   along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
 /* abstractions useful to setup interfaces, in practice the SWIG interface
    in util/swig/texinfo.i.  The functions defined here should not be used
