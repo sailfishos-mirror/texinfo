@@ -12,7 +12,7 @@ REM MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 REM GNU General Public License for more details.
 REM
 REM You should have received a copy of the GNU General Public License
-REM along with this program.  If not, see <http://www.gnu.org/licenses/>.
+REM along with this program.  If not, see <https://www.gnu.org/licenses/>.
 REM
 REM Originally written by Eli Zaretskii.
 REM Please send bug reports, etc. to bug-texinfo@gnu.org.
