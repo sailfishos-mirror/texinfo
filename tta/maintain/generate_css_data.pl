@@ -16,7 +16,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # ../maintain/generate_css_data.pl ../data/default_css_element_class_styles.csv perl Texinfo/HTMLDataCSS.pm
 

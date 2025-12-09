@@ -16,7 +16,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # ../maintain/generate_code_convert_data.pl ../data/default_direction_strings.csv ../data/default_special_unit_info.csv ../data/html_style_commands_element.csv perl Texinfo/HTMLData.pm
 
