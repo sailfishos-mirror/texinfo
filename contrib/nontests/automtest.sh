@@ -14,7 +14,7 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # This is a basic test of whether the Texinfo support in automake works.
 # Both texi2dvi and makeinfo.  Since it requires automake, we don't want
