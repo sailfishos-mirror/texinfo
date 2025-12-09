@@ -1170,7 +1170,7 @@ my $result_options = Getopt::Long::GetOptions (
                     "$converter (GNU texinfo) $configured_version\n\n");
     print _encode_message(sprintf __(
 "Copyright (C) %s Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law."), "2025")."\n";
       exit 0;},
