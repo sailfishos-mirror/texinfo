@@ -1,5 +1,10 @@
 2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/maintain/change_perl_modules_version.sh:
+	Fix path to perl/CheckXS/configure.ac.
+
+2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/texi2dvi (make_openout_test, decide_aux_files_method):
 	Keep output from tests of \openout and print the last kept output if
 	the test failed and we can't run TeX.  This helps the user to
