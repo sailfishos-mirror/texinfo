@@ -1,3 +1,8 @@
+2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/t/40moresectioning.t: use https: in some values
+	for TOP_NODE_UP.
+
 2025-12-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/C/texi2any.c (main),

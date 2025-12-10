@@ -352,7 +352,7 @@ Ref to footnote anchor
 @node chap
 ',{'test_split' => 'node'},
   {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
-   'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
+   'TOP_NODE_UP_URL' => 'https://www.gnu.org/manual/'}
 ],
 ['non_automatic_top_node_up_url',
 '@node Top, chap, (dir), (dir)
@@ -363,7 +363,7 @@ Ref to footnote anchor
 @end menu
 
 @node chap, , Top, (dir)
-',{'test_split' => 'node'},{'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
+',{'test_split' => 'node'},{'TOP_NODE_UP_URL' => 'https://www.gnu.org/manual/'}
 ],
 ['non_automatic_internal_top_node_up',
 '@node Top, chap, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
@@ -388,7 +388,7 @@ Ref to footnote anchor
 @node chap, , Top, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 ',{'test_split' => 'node'},
   {'TOP_NODE_UP' => '@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals',
-   'TOP_NODE_UP_URL' => 'http://www.gnu.org/manual/'}
+   'TOP_NODE_UP_URL' => 'https://www.gnu.org/manual/'}
 ],
 );
 

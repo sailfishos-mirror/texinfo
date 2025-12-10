@@ -239,7 +239,7 @@ $result_converted{'html'}->{'non_automatic_top_node_up_url'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
-<link href="http://www.gnu.org/manual/" rel="up" title="(dir)">
+<link href="https://www.gnu.org/manual/" rel="up" title="(dir)">
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
@@ -251,7 +251,7 @@ span:hover a.copiable-link {visibility: visible}
 <body lang="">
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chap" accesskey="n" rel="next">chap</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="http://www.gnu.org/manual/" accesskey="u" rel="up">(dir)</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chap" accesskey="n" rel="next">chap</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="https://www.gnu.org/manual/" accesskey="u" rel="up">(dir)</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h1 class="top" id="internal-top-node-up"><span>internal top node up<a class="copiable-link" href="#internal-top-node-up"> &para;</a></span></h1>
 
 
