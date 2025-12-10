@@ -1,5 +1,9 @@
 2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* configure.ac: bump version to 7.2.90.
+
+2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/maintain/change_perl_modules_version.sh:
 	Fix path to perl/CheckXS/configure.ac.
 

@@ -57,7 +57,7 @@ use Texinfo::Parser;
 
 use Texinfo::ManipulateTree;
 
-our $VERSION = '7.2dev';
+our $VERSION = '7.2.90';
 
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.

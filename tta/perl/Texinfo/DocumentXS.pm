@@ -22,7 +22,7 @@ package Texinfo::DocumentXS;
 use strict;
 use warnings;
 
-our $VERSION = '7.2dev';
+our $VERSION = '7.2.90';
 
 use Texinfo::XSLoader;
 

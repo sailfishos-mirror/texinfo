@@ -71,7 +71,7 @@ our @EXPORT = qw(
 __ __p
 );
 
-our $VERSION = '7.2dev';
+our $VERSION = '7.2.90';
 
 # TODO document?
 use constant {

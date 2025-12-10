@@ -106,7 +106,7 @@ require Exporter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.2dev';
+our $VERSION = '7.2.90';
 
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 

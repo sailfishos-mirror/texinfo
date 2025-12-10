@@ -47,7 +47,7 @@ use Texinfo::Convert::Converter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.2dev';
+our $VERSION = '7.2.90';
 
 my %brace_commands = %Texinfo::Commands::brace_commands;
 

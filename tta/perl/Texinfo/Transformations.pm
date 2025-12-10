@@ -56,7 +56,7 @@ protect_hashchar_at_line_beginning
 reference_to_arg_in_tree
 );
 
-our $VERSION = '7.2dev';
+our $VERSION = '7.2.90';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

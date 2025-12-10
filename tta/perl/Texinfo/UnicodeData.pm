@@ -19,7 +19,7 @@ package Texinfo::UnicodeData;
 
 use strict;
 
-our $VERSION = '7.2dev';
+our $VERSION = '7.2.90';
 
 # dotless in unicode_accented_letters not in diacritics,
 # tieaccent in diacritics not in unicode_accented_letters.

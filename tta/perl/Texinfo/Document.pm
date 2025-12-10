@@ -47,7 +47,7 @@ use Texinfo::Report;
 use Texinfo::Indices;
 use Texinfo::ManipulateTree;
 
-our $VERSION = '7.2dev';
+our $VERSION = '7.2.90';
 
 # There is a full coverage by the C implementation.
 # Relevant XS interfaces are all implemented.
