@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-11-25 21:44+0100\n"
+"POT-Creation-Date: 2025-12-10 18:49+0000\n"
 "PO-Revision-Date: 2024-12-14 18:54+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -336,11 +336,17 @@ msgid "Try --help for more information.\n"
 msgstr "Încercați „--help” pentru informații suplimentare.\n"
 
 #: info/info.c:912 install-info/install-info.c:2281
-#, c-format
+#, fuzzy, c-format
+#| msgid ""
+#| "Copyright (C) %s Free Software Foundation, Inc.\n"
+#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
+#| "html>\n"
+#| "This is free software: you are free to change and redistribute it.\n"
+#| "There is NO WARRANTY, to the extent permitted by law.\n"
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
+"html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
@@ -1423,7 +1429,7 @@ msgstr ""
 " --version           afișează informațiile despre versiune și iese."
 
 #: install-info/install-info.c:589 Pod-Simple-Texinfo/pod2texi.pl:193
-#: tta/perl/texi2any.pl:1144 tta/C/texi2any.c:2069
+#: tta/perl/texi2any.pl:1158 tta/C/texi2any.c:2068
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -1682,19 +1688,19 @@ msgid "    --version               display version information and exit"
 msgstr ""
 "    --version               afișează informații despre versiune și iese"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1158
-#: tta/C/texi2any.c:1618
+#: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1172
+#: tta/C/texi2any.c:1617
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
-#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-#| "gpl.html>\n"
+#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl."
+#| "html>\n"
 #| "This is free software: you are free to change and redistribute it.\n"
 #| "There is NO WARRANTY, to the extent permitted by law.\n"
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-"gpl.html>\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
+"html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law."
 msgstr ""
@@ -1722,8 +1728,8 @@ msgstr "%s: nu s-a putut crea directorul %s: %s"
 msgid "%s: missing file argument"
 msgstr "%s: lipsește fișierul argument\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1690
-#: tta/C/texi2any.c:2483
+#: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1704
+#: tta/C/texi2any.c:2482
 #, fuzzy, c-format, perl-format
 #| msgid "Try `%s --help' for more information.\n"
 msgid "Try `%s --help' for more information."
@@ -1741,7 +1747,7 @@ msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr "%s: același nume de manual „%s” pentru fișiere diferite: %s și %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:537 Pod-Simple-Texinfo/pod2texi.pl:645
-#: tta/perl/texi2any.pl:2188 tta/perl/texi2any.pl:2310
+#: tta/perl/texi2any.pl:2202 tta/perl/texi2any.pl:2324
 #, fuzzy, perl-format
 #| msgid "%s: could not open %s for writing: %s\n"
 msgid "%s: could not open %s for writing: %s"
@@ -1754,7 +1760,7 @@ msgid "%s: could not open %s: %s"
 msgstr "%s: nu s-a putut deschide %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:596 Pod-Simple-Texinfo/pod2texi.pl:694
-#: tta/perl/texi2any.pl:2145 tta/perl/texi2any.pl:2364
+#: tta/perl/texi2any.pl:2159 tta/perl/texi2any.pl:2378
 #: tta/C/convert/texinfo.c:763
 #, fuzzy, c-format, perl-format
 #| msgid "%s: error on closing %s: %s\n"
@@ -1789,7 +1795,7 @@ msgstr "%s nu este un cod de limbă valid"
 msgid "%s is not a valid region code"
 msgstr "%s nu este un cod de regiune valid"
 
-#: tta/perl/Texinfo/Config.pm:169 tta/perl/texi2any.pl:599
+#: tta/perl/Texinfo/Config.pm:169 tta/perl/texi2any.pl:613
 #, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
@@ -1806,7 +1812,7 @@ msgstr "%s: %s"
 msgid "error parsing %s: %s"
 msgstr "eroare la analizarea %s: %s"
 
-#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2704
+#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2705
 #, c-format, perl-format
 msgid "error reading %s: %s"
 msgstr "eroare la citirea %s: %s"
@@ -1865,31 +1871,31 @@ msgid "here is the previous definition as @%s"
 msgstr "aici este definiția anterioară ca @%s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:422
-#: tta/perl/Texinfo/Convert/HTML.pm:12126
-#: tta/perl/Texinfo/Convert/HTML.pm:13166
-#: tta/perl/Texinfo/Convert/HTML.pm:13422 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1152
+#: tta/perl/Texinfo/Convert/HTML.pm:12150
+#: tta/perl/Texinfo/Convert/HTML.pm:13190
+#: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
-#: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1838
-#: tta/perl/texi2any.pl:1921 tta/perl/texi2any.pl:2058
+#: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
+#: tta/perl/texi2any.pl:1935 tta/perl/texi2any.pl:2072
 #: tta/C/convert/converter.c:691 tta/C/convert/convert_html.c:2134
-#: tta/C/convert/convert_html.c:2497 tta/C/convert/rawtext_converter_api.c:232
+#: tta/C/convert/convert_html.c:2498 tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "nu s-a putut deschide %s pentru scriere: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:448
-#: tta/perl/Texinfo/Convert/HTML.pm:12121
-#: tta/perl/Texinfo/Convert/HTML.pm:13188 tta/perl/Texinfo/Convert/IXIN.pm:1039
+#: tta/perl/Texinfo/Convert/HTML.pm:12145
+#: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1238
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
-#: tta/C/convert/converter.c:761 tta/C/convert/convert_html.c:2198
-#: tta/C/convert/convert_html.c:2536 tta/C/convert/rawtext_converter_api.c:269
+#: tta/C/convert/converter.c:761 tta/C/convert/convert_html.c:2199
+#: tta/C/convert/convert_html.c:2537 tta/C/convert/rawtext_converter_api.c:269
 #: tta/C/parsetexi/input.c:352
 #, c-format, perl-format
 msgid "error on closing %s: %s"
@@ -1902,19 +1908,19 @@ msgstr "eroare la închiderea %s: %s"
 msgid "unknown customization variable: %s"
 msgstr "variabilă de personalizare necunoscută: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1166
+#: tta/perl/Texinfo/Convert/Converter.pm:1174
 #: tta/perl/Texinfo/Convert/Text.pm:1060 tta/perl/Texinfo/Convert/Text.pm:1082
 #: tta/C/convert/converter.c:1012
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "nu s-a putut crea directorul „%s”: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1566
+#: tta/perl/Texinfo/Convert/Converter.pm:1574
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "eroare la închiderea fișierului text al imaginii %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1575
+#: tta/perl/Texinfo/Convert/Converter.pm:1583
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "fișierul @image „%s” nu poate fi citit: %s"
@@ -1931,162 +1937,162 @@ msgid "not setting an unknown direction: %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTML.pm:3643 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6758
+#: tta/C/convert/format_html.c:6809
 #, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "fișierul @image „%s” (pentru HTML) nu a fost găsit, utilizând „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4760 tta/C/convert/format_html.c:8345
+#: tta/perl/Texinfo/Convert/HTML.pm:4784 tta/C/convert/format_html.c:8396
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "formatul brut %s nu este convertit"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6427 tta/C/convert/format_html.c:10727
+#: tta/perl/Texinfo/Convert/HTML.pm:6451 tta/C/convert/format_html.c:10778
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr ""
 "intrarea pentru indexul „%s” pentru @printindex %s în afara oricărui nod"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6458 tta/C/convert/format_html.c:10767
+#: tta/perl/Texinfo/Convert/HTML.pm:6482 tta/C/convert/format_html.c:10818
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr ""
 "intrarea pentru indexul „%s” pentru @printindex %s în afara oricărei secțiuni"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8413
+#: tta/perl/Texinfo/Convert/HTML.pm:8437
 #: tta/C/convert/html_prepare_converter.c:974
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr ""
 "nu s-a putut deschide fișierul de configurare a referințelor html %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8442
+#: tta/perl/Texinfo/Convert/HTML.pm:8466
 #: tta/C/convert/html_prepare_converter.c:1084
 #, c-format, perl-format
 msgid "missing type"
 msgstr "tipul lipsește"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8446
+#: tta/perl/Texinfo/Convert/HTML.pm:8470
 #: tta/C/convert/html_prepare_converter.c:1095
 #, c-format, perl-format
 msgid "unrecognized type: %s"
 msgstr "tip nerecunoscut: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8484
+#: tta/perl/Texinfo/Convert/HTML.pm:8508
 #: tta/C/convert/html_prepare_converter.c:1194
 #, c-format, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr ""
 "eroare la închiderea fișierului de configurare a referințelor html %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8510
+#: tta/perl/Texinfo/Convert/HTML.pm:8534
 #: tta/C/convert/html_prepare_converter.c:1235
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr "nu s-a putut găsi fișierul de configurare a referințelor html %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8629 tta/perl/texi2any.pl:621
+#: tta/perl/Texinfo/Convert/HTML.pm:8653 tta/perl/texi2any.pl:635
 #: tta/C/convert/html_prepare_converter.c:1465
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "Directorul %s este depreciat. Utilizați %s în schimb"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9051
+#: tta/perl/Texinfo/Convert/HTML.pm:9075
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr "Funcție necunoscută pentru a configura fișierul și identificatorul: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9069
+#: tta/perl/Texinfo/Convert/HTML.pm:9093
 #, perl-format
 msgid "Unknown formatting function: %s"
 msgstr "Funcție de formatare necunoscută: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9532
+#: tta/perl/Texinfo/Convert/HTML.pm:9556
 #: tta/C/convert/html_prepare_converter.c:3581
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "șir neînchis în fișierul css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9534
+#: tta/perl/Texinfo/Convert/HTML.pm:9558
 #: tta/C/convert/html_prepare_converter.c:3589
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "„--css-include” s-a terminat cu un comentariu"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9536
+#: tta/perl/Texinfo/Convert/HTML.pm:9560
 #: tta/C/convert/html_prepare_converter.c:3597
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "@import nu s-a terminat în fișierul CSS"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9569
+#: tta/perl/Texinfo/Convert/HTML.pm:9593
 #: tta/C/convert/html_prepare_converter.c:3649
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "fișierul CSS %s nu a fost găsit"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9581
+#: tta/perl/Texinfo/Convert/HTML.pm:9605
 #: tta/C/convert/html_prepare_converter.c:3671
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "nu s-a putut deschide „--include-file” %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9599
+#: tta/perl/Texinfo/Convert/HTML.pm:9623
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "eroare la închiderea fișierului CSS %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9804
+#: tta/perl/Texinfo/Convert/HTML.pm:9828
 #: tta/C/convert/html_prepare_converter.c:4607
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 "numele fișierului de nod definit de utilizator, nu este definit pentru „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10131
+#: tta/perl/Texinfo/Convert/HTML.pm:10155
 #: tta/C/convert/html_prepare_converter.c:5737
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "se restabilește ruta fișierului %s de la %s la %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10135
+#: tta/perl/Texinfo/Convert/HTML.pm:10159
 #: tta/C/convert/html_prepare_converter.c:5747
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr "se restabilește ruta fișierului %s dintr-o rută relativă la %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10139
+#: tta/perl/Texinfo/Convert/HTML.pm:10163
 #: tta/C/convert/html_prepare_converter.c:5756
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr "se restabilește ruta fișierului %s de la %s la o rută relativă"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10725
+#: tta/perl/Texinfo/Convert/HTML.pm:10749
 #: tta/C/convert/html_prepare_converter.c:5214
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node '%s'"
 msgid "could not find %s node `%s'"
 msgstr "Nu se poate găsi nodul „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10992 tta/C/convert/format_html.c:874
+#: tta/perl/Texinfo/Convert/HTML.pm:11016 tta/C/convert/format_html.c:874
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr "nu definiți sufixul %s în referința pentru manualul „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11029
-#: tta/perl/Texinfo/Convert/HTML.pm:11035 tta/C/convert/format_html.c:923
+#: tta/perl/Texinfo/Convert/HTML.pm:11053
+#: tta/perl/Texinfo/Convert/HTML.pm:11059 tta/C/convert/format_html.c:923
 #: tta/C/convert/format_html.c:934
 #, fuzzy, c-format, perl-format
 #| msgid "no htmlxref.cnf entry found for `%s'"
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "nu a fost găsită nicio intrare htmlxref.cnf pentru „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11540 tta/C/convert/format_html.c:4125
+#: tta/perl/Texinfo/Convert/HTML.pm:11564 tta/C/convert/format_html.c:4125
 #, c-format, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s nu are sens pentru ieșirea nedivizată"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12065 tta/C/convert/convert_html.c:2581
+#: tta/perl/Texinfo/Convert/HTML.pm:12089 tta/C/convert/convert_html.c:2582
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2095,97 +2101,97 @@ msgstr ""
 "nu se poate folosi ruta absolută sau adresa URL „%s” pentru "
 "JS_WEBLABELS_FILE atunci când se generează fișierul de etichete web"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12112 tta/C/convert/convert_html.c:2605
+#: tta/perl/Texinfo/Convert/HTML.pm:12136 tta/C/convert/convert_html.c:2606
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "se suprascrie fișierul de ieșire cu licențe js: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12808 tta/C/convert/convert_html.c:843
+#: tta/perl/Texinfo/Convert/HTML.pm:12832 tta/C/convert/convert_html.c:843
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr ""
 "gestionarul %d din etapa %s cu prioritatea %s: a ieșit cu o stare nenumerică"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12815 tta/C/convert/convert_html.c:855
+#: tta/perl/Texinfo/Convert/HTML.pm:12839 tta/C/convert/convert_html.c:855
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "gestionarul %d din etapa %s cu prioritatea %s, a eșuat"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12863
+#: tta/perl/Texinfo/Convert/HTML.pm:12887
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "eroare la copierea lui %s în %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12872 tta/C/convert/convert_html.c:2826
+#: tta/perl/Texinfo/Convert/HTML.pm:12896 tta/C/convert/convert_html.c:2827
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "eroare la crearea unui %s gol: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12877 tta/C/convert/convert_html.c:2838
+#: tta/perl/Texinfo/Convert/HTML.pm:12901 tta/C/convert/convert_html.c:2839
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "eroare la închiderea unui %s gol: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12991
-#: tta/perl/Texinfo/Convert/HTML.pm:12995 tta/C/convert/convert_html.c:1159
+#: tta/perl/Texinfo/Convert/HTML.pm:13015
+#: tta/perl/Texinfo/Convert/HTML.pm:13019 tta/C/convert/convert_html.c:1159
 #: tta/C/convert/convert_html.c:1164
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "trebuie să specificați un titlu cu o comandă de titlu sau @top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13275 tta/C/convert/convert_html.c:3038
+#: tta/perl/Texinfo/Convert/HTML.pm:13299 tta/C/convert/convert_html.c:3039
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s „%s” fișierul %s pentru redirecționare există"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13293 tta/C/convert/convert_html.c:3053
+#: tta/perl/Texinfo/Convert/HTML.pm:13317 tta/C/convert/convert_html.c:3054
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "conflict cu întregul document al fișierului"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13296 tta/C/convert/convert_html.c:3056
+#: tta/perl/Texinfo/Convert/HTML.pm:13320 tta/C/convert/convert_html.c:3057
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "conflict cu fișierul „Sup”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13299 tta/C/convert/convert_html.c:3059
+#: tta/perl/Texinfo/Convert/HTML.pm:13323 tta/C/convert/convert_html.c:3060
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "conflict cu fișierul definit de utilizator"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13302 tta/C/convert/convert_html.c:3062
+#: tta/perl/Texinfo/Convert/HTML.pm:13326 tta/C/convert/convert_html.c:3063
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "conflict cu un fișier de nod necunoscut"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13305 tta/C/convert/convert_html.c:3066
+#: tta/perl/Texinfo/Convert/HTML.pm:13329 tta/C/convert/convert_html.c:3067
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "conflict cu un fișier fără sursă cunoscută"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13313 tta/C/convert/convert_html.c:3080
+#: tta/perl/Texinfo/Convert/HTML.pm:13337 tta/C/convert/convert_html.c:3081
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "conflict cu @%s fișierul „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13325 tta/C/convert/convert_html.c:3096
+#: tta/perl/Texinfo/Convert/HTML.pm:13349 tta/C/convert/convert_html.c:3097
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "conflict cu fișierul de redirecționare @%s „%s”."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13339 tta/C/convert/convert_html.c:3116
+#: tta/perl/Texinfo/Convert/HTML.pm:13363 tta/C/convert/convert_html.c:3117
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "conflict cu @%s fișierul „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13352 tta/C/convert/convert_html.c:3129
+#: tta/perl/Texinfo/Convert/HTML.pm:13376 tta/C/convert/convert_html.c:3130
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "conflict cu elementul special %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13430
+#: tta/perl/Texinfo/Convert/HTML.pm:13454
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "eroare la închiderea fișierului nodului de redirecționare %s: %s"
@@ -2244,58 +2250,58 @@ msgstr "numele @node nu trebuie să conțină «,»: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "numele @node %s nu trebuie să conțină «,»: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3325
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "delimitator de verbe „%s” (pentru LaTeX) folosit în textul „%s”"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3365
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "fișierul @image „%s” (pentru LaTeX) nu a fost găsit"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4881
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: nu s-a putut deschide %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4970
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: schimbarea la directorul %s a eșuat: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4978
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: lipsește fișierul de ieșire: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5004
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: comanda a eșuat: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5009
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: închiderea comunicării a eșuat: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5025
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: lipsește fișierul de ieșire: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5040
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -3651,29 +3657,29 @@ msgstr ""
 "tex4ht.pm: se prelucrează %d elemente preluate în HTML; s-a colectat %d "
 "pentru @%s"
 
-#: tta/perl/texi2any.pl:638
+#: tta/perl/texi2any.pl:652
 #, perl-format
 msgid "could not read init file %s"
 msgstr "nu s-a putut citi fișierul de inițializare %s"
 
-#: tta/perl/texi2any.pl:661
+#: tta/perl/texi2any.pl:675
 #, perl-format
 msgid "could not read extension file %s"
 msgstr "nu s-a putut citi fișierul cu extensia %s"
 
-#: tta/perl/texi2any.pl:947
+#: tta/perl/texi2any.pl:961
 #, fuzzy, perl-format
 #| msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
 msgstr "se ignoră valoarea nerecunoscută TEXINFO_OUTPUT_FORMAT „%s”\n"
 
-#: tta/perl/texi2any.pl:1005 tta/C/texi2any.c:1796
+#: tta/perl/texi2any.pl:1019 tta/C/texi2any.c:1795
 #, fuzzy, c-format, perl-format
 #| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
 msgstr "Utilizare: %s [OPȚIUNE]... FIȘIER-TEXINFO...\n"
 
-#: tta/perl/texi2any.pl:1008 tta/C/texi2any.c:1805
+#: tta/perl/texi2any.pl:1022 tta/C/texi2any.c:1804
 #, fuzzy
 #| msgid ""
 #| "Translate Texinfo source documentation to various other formats, by "
@@ -3697,11 +3703,11 @@ msgstr ""
 "Acest program este instalat în mod obișnuit ca „makeinfo” și „texi2any”;\n"
 "comportamentul este identic, și nu depinde de numele instalat.\n"
 
-#: tta/perl/texi2any.pl:1014 tta/C/texi2any.c:1811
+#: tta/perl/texi2any.pl:1028 tta/C/texi2any.c:1810
 msgid "General options:"
 msgstr "Opțiuni generale:"
 
-#: tta/perl/texi2any.pl:1015 tta/C/texi2any.c:1814
+#: tta/perl/texi2any.pl:1029 tta/C/texi2any.c:1813
 #, fuzzy
 #| msgid ""
 #| "      --document-language=STR locale to use in translating Texinfo "
@@ -3715,27 +3721,27 @@ msgstr ""
 "                              cuvintelor cheie Texinfo pentru documentul\n"
 "                              de ieșire (implicit C)"
 
-#: tta/perl/texi2any.pl:1017 tta/C/texi2any.c:1818
+#: tta/perl/texi2any.pl:1031 tta/C/texi2any.c:1817
 #, fuzzy, c-format, perl-format
 #| msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)"
 msgstr ""
 "      --error-limit=NUMĂR     renunță după NUMĂRUL de erori (implicit %d)"
 
-#: tta/perl/texi2any.pl:1019 tta/C/texi2any.c:1822
+#: tta/perl/texi2any.pl:1033 tta/C/texi2any.c:1821
 #, fuzzy
 #| msgid "      --force                 preserve output even if errors."
 msgid "      --force                 preserve output even if errors"
 msgstr ""
 "      --force                 păstrează rezultatul chiar dacă există erori"
 
-#: tta/perl/texi2any.pl:1020 tta/C/texi2any.c:1825
+#: tta/perl/texi2any.pl:1034 tta/C/texi2any.c:1824
 #, fuzzy
 #| msgid "      --help                  display this help and exit."
 msgid "      --help                  display this help and exit"
 msgstr "      --help                  afișează acest mesaj de ajutor și iese"
 
-#: tta/perl/texi2any.pl:1021 tta/C/texi2any.c:1828
+#: tta/perl/texi2any.pl:1035 tta/C/texi2any.c:1827
 #, fuzzy
 #| msgid ""
 #| "      --no-validate           suppress node cross-reference validation."
@@ -3745,14 +3751,14 @@ msgstr ""
 "ale\n"
 "                              nodurilor"
 
-#: tta/perl/texi2any.pl:1022 tta/C/texi2any.c:1831
+#: tta/perl/texi2any.pl:1036 tta/C/texi2any.c:1830
 #, fuzzy
 #| msgid "      --no-warn               suppress warnings (but not errors)."
 msgid "      --no-warn               suppress warnings (but not errors)"
 msgstr ""
 "      --no-warn               suprimă avertismentele (dar nu și erorile)"
 
-#: tta/perl/texi2any.pl:1023 tta/C/texi2any.c:1834
+#: tta/perl/texi2any.pl:1037 tta/C/texi2any.c:1833
 #, fuzzy
 #| msgid ""
 #| "      --conf-dir=DIR          search also for initialization files in DIR."
@@ -3762,7 +3768,7 @@ msgstr ""
 "      --conf-dir=DIRECTOR     caută, de asemenea, fișiere de inițializare\n"
 "                              în DIRECTOR"
 
-#: tta/perl/texi2any.pl:1024 tta/C/texi2any.c:1837
+#: tta/perl/texi2any.pl:1038 tta/C/texi2any.c:1836
 #, fuzzy
 #| msgid ""
 #| "      --init-file=FILE        load FILE to modify the default behavior."
@@ -3772,7 +3778,7 @@ msgstr ""
 "comportamentul\n"
 "                              implicit"
 
-#: tta/perl/texi2any.pl:1025 tta/C/texi2any.c:1840
+#: tta/perl/texi2any.pl:1039 tta/C/texi2any.c:1839
 #, fuzzy
 #| msgid ""
 #| "  -c, --set-customization-variable VAR=VAL  set customization variable "
@@ -3786,30 +3792,30 @@ msgstr ""
 "                              stabilește variabila de personalizare VAR,\n"
 "                              la valoarea VAL"
 
-#: tta/perl/texi2any.pl:1027 tta/C/texi2any.c:1844
+#: tta/perl/texi2any.pl:1041 tta/C/texi2any.c:1843
 #, fuzzy
 #| msgid "      --trace-includes        print names of included files."
 msgid "      --trace-includes        print names of included files"
 msgstr "      --trace-includes        afișează numele fișierelor incluse"
 
-#: tta/perl/texi2any.pl:1028 tta/C/texi2any.c:1847
+#: tta/perl/texi2any.pl:1042 tta/C/texi2any.c:1846
 #, fuzzy
 #| msgid "  -v, --verbose               explain what is being done."
 msgid "  -v, --verbose               explain what is being done"
 msgstr "  -v, --verbose               explică ceea ce se face"
 
-#: tta/perl/texi2any.pl:1029 tta/C/texi2any.c:1850
+#: tta/perl/texi2any.pl:1043 tta/C/texi2any.c:1849
 #, fuzzy
 #| msgid "      --version               display version information and exit."
 msgid "      --version               display version information and exit"
 msgstr ""
 "      --version               afișează informații despre versiune și iese"
 
-#: tta/perl/texi2any.pl:1031 tta/C/texi2any.c:1856
+#: tta/perl/texi2any.pl:1045 tta/C/texi2any.c:1855
 msgid "Output format selection (default is to produce Info):"
 msgstr "Selectarea formatului de ieșire (implicit este de a produce Info):"
 
-#: tta/perl/texi2any.pl:1032 tta/C/texi2any.c:1859
+#: tta/perl/texi2any.pl:1046 tta/C/texi2any.c:1858
 #, fuzzy
 #| msgid "      --docbook               output Docbook XML."
 msgid "      --docbook               output Docbook XML"
@@ -3817,28 +3823,28 @@ msgstr ""
 "      --docbook               generează datele de ieșire în format XML "
 "Docbook."
 
-#: tta/perl/texi2any.pl:1033 tta/C/texi2any.c:1862
+#: tta/perl/texi2any.pl:1047 tta/C/texi2any.c:1861
 #, fuzzy
 #| msgid "      --html                  output HTML."
 msgid "      --html                  output HTML"
 msgstr ""
 "      --html                  generează datele de ieșire în format HTML."
 
-#: tta/perl/texi2any.pl:1034 tta/C/texi2any.c:1865
+#: tta/perl/texi2any.pl:1048 tta/C/texi2any.c:1864
 #, fuzzy
 #| msgid "      --epub3                 output EPUB 3."
 msgid "      --epub3                 output EPUB 3"
 msgstr ""
 "      --epub3                 generează datele de ieșire în format EPUB 3."
 
-#: tta/perl/texi2any.pl:1035 tta/C/texi2any.c:1868
+#: tta/perl/texi2any.pl:1049 tta/C/texi2any.c:1867
 #, fuzzy
 #| msgid "      --latex                 output LaTeX."
 msgid "      --latex                 output LaTeX"
 msgstr ""
 "      --latex                 generează datele de ieșire în format LaTeX."
 
-#: tta/perl/texi2any.pl:1036 tta/C/texi2any.c:1871
+#: tta/perl/texi2any.pl:1050 tta/C/texi2any.c:1870
 #, fuzzy
 #| msgid "      --plaintext             output plain text rather than Info."
 msgid "      --plaintext             output plain text rather than Info"
@@ -3847,7 +3853,7 @@ msgstr ""
 "simplu,\n"
 "                              în loc de Info."
 
-#: tta/perl/texi2any.pl:1037 tta/C/texi2any.c:1874
+#: tta/perl/texi2any.pl:1051 tta/C/texi2any.c:1873
 #, fuzzy
 #| msgid "      --xml                   output Texinfo XML."
 msgid "      --xml                   output Texinfo XML"
@@ -3855,7 +3861,7 @@ msgstr ""
 "      --xml                   generează datele de ieșire în format XML "
 "Texinfo."
 
-#: tta/perl/texi2any.pl:1038 tta/C/texi2any.c:1877
+#: tta/perl/texi2any.pl:1052 tta/C/texi2any.c:1876
 #, fuzzy
 #| msgid ""
 #| "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given "
@@ -3871,11 +3877,11 @@ msgstr ""
 "                              după verificarea validității FIȘIERULUI-"
 "TEXINFO."
 
-#: tta/perl/texi2any.pl:1042 tta/C/texi2any.c:1881
+#: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1880
 msgid "General output options:"
 msgstr "Opțiuni generale de ieșire:"
 
-#: tta/perl/texi2any.pl:1044 tta/C/texi2any.c:1884
+#: tta/perl/texi2any.pl:1058 tta/C/texi2any.c:1883
 #, fuzzy
 #| msgid ""
 #| "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
@@ -3888,7 +3894,7 @@ msgstr ""
 "FIȘIER,\n"
 "                              ignorând orice @setfilename."
 
-#: tta/perl/texi2any.pl:1047 tta/C/texi2any.c:1888
+#: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1887
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -3910,7 +3916,7 @@ msgstr ""
 "în\n"
 "                              mod implicit la ieșirea standard."
 
-#: tta/perl/texi2any.pl:1053 tta/C/texi2any.c:1895
+#: tta/perl/texi2any.pl:1067 tta/C/texi2any.c:1894
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -3922,7 +3928,7 @@ msgstr ""
 "      --no-split              suprimă orice divizare a ieșirii; generează\n"
 "                              un singur fișier de ieșire."
 
-#: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1899
+#: tta/perl/texi2any.pl:1070 tta/C/texi2any.c:1898
 #, fuzzy
 #| msgid ""
 #| "      --[no-]number-sections  output chapter and sectioning numbers;\n"
@@ -3934,12 +3940,12 @@ msgstr ""
 "      --[no-]number-sections  afișează numerele de capitol și de secțiuni;\n"
 "                              implicit este activată."
 
-#: tta/perl/texi2any.pl:1059 tta/C/texi2any.c:1903
+#: tta/perl/texi2any.pl:1073 tta/C/texi2any.c:1902
 msgid ""
 "      --[no-]number-footnotes  number footnotes sequentially; default is on"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1906
+#: tta/perl/texi2any.pl:1075 tta/C/texi2any.c:1905
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -3960,7 +3966,7 @@ msgstr ""
 "                              de ieșire acolo.  În caz contrar, DESTINAȚIE\n"
 "                              denumește fișierul de ieșire."
 
-#: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1915
+#: tta/perl/texi2any.pl:1083 tta/C/texi2any.c:1914
 #, fuzzy
 #| msgid ""
 #| "      --disable-encoding      do not output accented and special "
@@ -3979,19 +3985,19 @@ msgstr ""
 "                              în ieșirea Info și în textul simplu pe baza\n"
 "                              codificării documentului."
 
-#: tta/perl/texi2any.pl:1073 tta/C/texi2any.c:1920
+#: tta/perl/texi2any.pl:1087 tta/C/texi2any.c:1919
 #, fuzzy
 #| msgid "      --enable-encoding       override --disable-encoding (default)."
 msgid "      --enable-encoding       override --disable-encoding (default)"
 msgstr ""
 "      --enable-encoding       suprascrie „--disable-encoding” (implicit)."
 
-#: tta/perl/texi2any.pl:1075 tta/C/texi2any.c:1923
+#: tta/perl/texi2any.pl:1089 tta/C/texi2any.c:1922
 #, perl-format
 msgid "Options for Info and plain text:"
 msgstr "Opțiuni pentru Info și text simplu:"
 
-#: tta/perl/texi2any.pl:1077 tta/C/texi2any.c:1926
+#: tta/perl/texi2any.pl:1091 tta/C/texi2any.c:1925
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "      --fill-column=NUM       break Info lines at NUM columns (default "
@@ -4002,7 +4008,7 @@ msgstr ""
 "      --fill-column=NUMĂR     întrerupe liniile Info la NUMĂRul de coloane\n"
 "                              (implicit %d)."
 
-#: tta/perl/texi2any.pl:1079 tta/C/texi2any.c:1930
+#: tta/perl/texi2any.pl:1093 tta/C/texi2any.c:1929
 #, fuzzy, perl-format
 #| msgid ""
 #| "      --footnote-style=STYLE  output footnotes in Info according to "
@@ -4029,7 +4035,7 @@ msgstr ""
 "(aceasta\n"
 "                              este valoarea implicită)."
 
-#: tta/perl/texi2any.pl:1084 tta/C/texi2any.c:1940
+#: tta/perl/texi2any.pl:1098 tta/C/texi2any.c:1939
 #, c-format, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4043,7 +4049,7 @@ msgstr ""
 "este\n"
 "                              „asis”, păstrează indentarea existentă."
 
-#: tta/perl/texi2any.pl:1088 tta/C/texi2any.c:1946
+#: tta/perl/texi2any.pl:1102 tta/C/texi2any.c:1945
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "      --split-size=NUM        split Info files at size NUM (default %d)."
@@ -4052,25 +4058,25 @@ msgstr ""
 "      --split-size=NUMĂR      divide fișierele Info la dimensiunea NUMĂR\n"
 "                              (implicit %d)."
 
-#: tta/perl/texi2any.pl:1094 tta/C/texi2any.c:1950
+#: tta/perl/texi2any.pl:1108 tta/C/texi2any.c:1949
 msgid "Options for HTML:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1095 tta/C/texi2any.c:1953
+#: tta/perl/texi2any.pl:1109 tta/C/texi2any.c:1952
 msgid ""
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
 "                                read stdin if FILE is -"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1097 tta/C/texi2any.c:1957
+#: tta/perl/texi2any.pl:1111 tta/C/texi2any.c:1956
 msgid "      --css-ref=URL           generate CSS reference to URL"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1098 tta/C/texi2any.c:1960
+#: tta/perl/texi2any.pl:1112 tta/C/texi2any.c:1959
 msgid "      --internal-links=FILE   produce list of internal links in FILE"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1099 tta/C/texi2any.c:1963
+#: tta/perl/texi2any.pl:1113 tta/C/texi2any.c:1962
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4082,12 +4088,12 @@ msgstr ""
 "      --no-split              suprimă orice divizare a ieșirii; generează\n"
 "                              un singur fișier de ieșire."
 
-#: tta/perl/texi2any.pl:1101 tta/C/texi2any.c:1967
+#: tta/perl/texi2any.pl:1115 tta/C/texi2any.c:1966
 msgid ""
 "      --transliterate-file-names  use file names in ASCII transliteration"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1102 tta/C/texi2any.c:1970
+#: tta/perl/texi2any.pl:1116 tta/C/texi2any.c:1969
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4099,11 +4105,11 @@ msgstr ""
 "      --no-split              suprimă orice divizare a ieșirii; generează\n"
 "                              un singur fișier de ieșire."
 
-#: tta/perl/texi2any.pl:1105 tta/C/texi2any.c:1974
+#: tta/perl/texi2any.pl:1119 tta/C/texi2any.c:1973
 msgid "Options for DVI/PS/PDF:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1106 tta/C/texi2any.c:1977
+#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:1976
 #, fuzzy
 #| msgid ""
 #| "Options for DVI/PS/PDF:\n"
@@ -4114,11 +4120,11 @@ msgstr ""
 "      --Xopt=OPȚIUNEA         pasează OPȚIUNEA la texi2dvi; poate fi "
 "repetată.\n"
 
-#: tta/perl/texi2any.pl:1108 tta/C/texi2any.c:1980
+#: tta/perl/texi2any.pl:1122 tta/C/texi2any.c:1979
 msgid "Input file options:"
 msgstr "Opțiuni pentru fișierul de intrare:"
 
-#: tta/perl/texi2any.pl:1109 tta/C/texi2any.c:1983
+#: tta/perl/texi2any.pl:1123 tta/C/texi2any.c:1982
 #, fuzzy
 #| msgid " -D VAR                       define the variable VAR, as with @set."
 msgid " -D VAR                       define the variable VAR, as with @set"
@@ -4126,7 +4132,7 @@ msgstr ""
 " -D VAR                       definește variabila VAR, precum se face cu "
 "@set."
 
-#: tta/perl/texi2any.pl:1110 tta/C/texi2any.c:1986
+#: tta/perl/texi2any.pl:1124 tta/C/texi2any.c:1985
 #, fuzzy
 #| msgid ""
 #| " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
@@ -4135,7 +4141,7 @@ msgstr ""
 " -D 'VAR VAL'                 definește variabila VAR la valoarea VAL\n"
 "                              (un argument de shell)."
 
-#: tta/perl/texi2any.pl:1111 tta/C/texi2any.c:1989
+#: tta/perl/texi2any.pl:1125 tta/C/texi2any.c:1988
 #, fuzzy
 #| msgid ""
 #| " -I DIR                       append DIR to the @include search path."
@@ -4144,7 +4150,7 @@ msgstr ""
 " -I DIR                       adaugă directorul DIR la ruta de căutare "
 "@include."
 
-#: tta/perl/texi2any.pl:1112 tta/C/texi2any.c:1992
+#: tta/perl/texi2any.pl:1126 tta/C/texi2any.c:1991
 #, fuzzy
 #| msgid ""
 #| " -P DIR                       prepend DIR to the @include search path."
@@ -4154,7 +4160,7 @@ msgstr ""
 "căutare\n"
 "                              @include."
 
-#: tta/perl/texi2any.pl:1113 tta/C/texi2any.c:1995
+#: tta/perl/texi2any.pl:1127 tta/C/texi2any.c:1994
 #, fuzzy
 #| msgid ""
 #| " -U VAR                       undefine the variable VAR, as with @clear."
@@ -4164,71 +4170,71 @@ msgstr ""
 "precum\n"
 "                              se face cu @clear."
 
-#: tta/perl/texi2any.pl:1115 tta/C/texi2any.c:1999
+#: tta/perl/texi2any.pl:1129 tta/C/texi2any.c:1998
 msgid "Conditional processing in input:"
 msgstr "Procesarea condiționată a datelor de intrare:"
 
-#: tta/perl/texi2any.pl:1116 tta/C/texi2any.c:2002
+#: tta/perl/texi2any.pl:1130 tta/C/texi2any.c:2001
 #, fuzzy
 #| msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgid "      --ifdocbook       process @ifdocbook and @docbook"
 msgstr "  --no-ifdocbook    nu procesează textul @ifdocbook și @docbook."
 
-#: tta/perl/texi2any.pl:1117 tta/C/texi2any.c:2005
+#: tta/perl/texi2any.pl:1131 tta/C/texi2any.c:2004
 #, fuzzy
 #| msgid "  --ifxml           process @ifxml and @xml."
 msgid "      --ifhtml          process @ifhtml and @html"
 msgstr "  --ifxml           procesează @ifxml și @xml."
 
-#: tta/perl/texi2any.pl:1118 tta/C/texi2any.c:2008
+#: tta/perl/texi2any.pl:1132 tta/C/texi2any.c:2007
 #, fuzzy
 #| msgid "  --no-ifinfo       do not process @ifinfo text."
 msgid "      --ifinfo          process @ifinfo"
 msgstr "  --no-ifinfo       nu procesează textul @ifinfo."
 
-#: tta/perl/texi2any.pl:1119 tta/C/texi2any.c:2011
+#: tta/perl/texi2any.pl:1133 tta/C/texi2any.c:2010
 #, fuzzy
 #| msgid "  --iflatex         process @iflatex and @latex."
 msgid "      --iflatex         process @iflatex and @latex"
 msgstr "  --iflatex         procesează @iflatex și @latex."
 
-#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:2014
+#: tta/perl/texi2any.pl:1134 tta/C/texi2any.c:2013
 #, fuzzy
 #| msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgid "      --ifplaintext     process @ifplaintext"
 msgstr "  --no-ifplaintext  nu procesează textul @ifplaintext."
 
-#: tta/perl/texi2any.pl:1121 tta/C/texi2any.c:2017
+#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:2016
 #, fuzzy
 #| msgid "  --iftex           process @iftex and @tex."
 msgid "      --iftex           process @iftex and @tex"
 msgstr "  --iftex           procesează @iftex și @tex."
 
-#: tta/perl/texi2any.pl:1122 tta/C/texi2any.c:2020
+#: tta/perl/texi2any.pl:1136 tta/C/texi2any.c:2019
 #, fuzzy
 #| msgid "  --ifxml           process @ifxml and @xml."
 msgid "      --ifxml           process @ifxml and @xml"
 msgstr "  --ifxml           procesează @ifxml și @xml."
 
-#: tta/perl/texi2any.pl:1124 tta/C/texi2any.c:2026
+#: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:2025
 msgid ""
 "  By default, an --ifFORMAT setting is on only when the output format\n"
 "  is FORMAT; for example, --ifhtml is on when outputting HTML.\n"
 "  Also, when --ifFORMAT is on, @ifnotFORMAT text is not processed."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1128 tta/C/texi2any.c:2033
+#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:2032
 msgid ""
 "  Each --ifFORMAT option may be prefixed with `--no-' to negate it;\n"
 "  for example, --no-ifhtml means not to process @ifhtml or @html text,\n"
 "  and to process @ifnothtml text."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1132 tta/C/texi2any.c:2038
+#: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:2037
 msgid "Examples:"
 msgstr "Exemple:"
 
-#: tta/perl/texi2any.pl:1133 tta/C/texi2any.c:2041
+#: tta/perl/texi2any.pl:1147 tta/C/texi2any.c:2040
 #, fuzzy, c-format, perl-format
 #| msgid "      --xml                   output Texinfo XML."
 msgid "  %s foo.texi                      write Info"
@@ -4236,14 +4242,14 @@ msgstr ""
 "      --xml                   generează datele de ieșire în format XML "
 "Texinfo."
 
-#: tta/perl/texi2any.pl:1134 tta/C/texi2any.c:2044
+#: tta/perl/texi2any.pl:1148 tta/C/texi2any.c:2043
 #, fuzzy, c-format, perl-format
 #| msgid "      --html                  output HTML."
 msgid "  %s --html foo.texi               write HTML"
 msgstr ""
 "      --html                  generează datele de ieșire în format HTML."
 
-#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:2047
+#: tta/perl/texi2any.pl:1149 tta/C/texi2any.c:2046
 #, fuzzy, c-format, perl-format
 #| msgid "      --xml                   output Texinfo XML."
 msgid "  %s --xml foo.texi                write Texinfo XML"
@@ -4251,7 +4257,7 @@ msgstr ""
 "      --xml                   generează datele de ieșire în format XML "
 "Texinfo."
 
-#: tta/perl/texi2any.pl:1136 tta/C/texi2any.c:2050
+#: tta/perl/texi2any.pl:1150 tta/C/texi2any.c:2049
 #, fuzzy, c-format, perl-format
 #| msgid "      --docbook               output Docbook XML."
 msgid "  %s --docbook foo.texi            write Docbook XML"
@@ -4259,7 +4265,7 @@ msgstr ""
 "      --docbook               generează datele de ieșire în format XML "
 "Docbook."
 
-#: tta/perl/texi2any.pl:1137 tta/C/texi2any.c:2053
+#: tta/perl/texi2any.pl:1151 tta/C/texi2any.c:2052
 #, fuzzy, c-format, perl-format
 #| msgid "      --plaintext             output plain text rather than Info."
 msgid "  %s --plaintext foo.texi          write plain text to standard output"
@@ -4268,28 +4274,28 @@ msgstr ""
 "simplu,\n"
 "                              în loc de Info."
 
-#: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:2056
+#: tta/perl/texi2any.pl:1152 tta/C/texi2any.c:2055
 #, c-format, perl-format
 msgid "  %s --pdf foo.texi                write PDF using texi2dvi"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1140 tta/C/texi2any.c:2060
+#: tta/perl/texi2any.pl:1154 tta/C/texi2any.c:2059
 #, c-format, perl-format
 msgid "  %s --html --no-headers foo.texi  write html without node lines, menus"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1141 tta/C/texi2any.c:2063
+#: tta/perl/texi2any.pl:1155 tta/C/texi2any.c:2062
 #, fuzzy, c-format, perl-format
 #| msgid "    --unnumbered-sections   do not number sections"
 msgid "  %s --number-sections foo.texi    write Info with numbered sections"
 msgstr "    --unnumbered-sections   nu numerotează secțiunile"
 
-#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:2066
+#: tta/perl/texi2any.pl:1156 tta/C/texi2any.c:2065
 #, c-format, perl-format
 msgid "  %s --no-split foo.texi           write one Info file however big"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1185 tta/C/texi2any.c:1647
+#: tta/perl/texi2any.pl:1199 tta/C/texi2any.c:1646
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
@@ -4297,12 +4303,12 @@ msgstr ""
 "%s: argumentul opțiunii „-footnote-style” trebuie să fie „separate” sau "
 "„end”, nu „%s”.\n"
 
-#: tta/perl/texi2any.pl:1192
+#: tta/perl/texi2any.pl:1206
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr "%s nu este o posibilitate de împărțire validă"
 
-#: tta/perl/texi2any.pl:1307
+#: tta/perl/texi2any.pl:1321
 #, fuzzy, perl-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -4311,27 +4317,27 @@ msgstr ""
 "%s: argumentul opțiunii „--paragraph-indent” trebuie să fie numeric/"
 "„none”/“asis”, nu „%s”.\n"
 
-#: tta/perl/texi2any.pl:1495
+#: tta/perl/texi2any.pl:1509
 #, perl-format
 msgid "overwriting file: %s"
 msgstr "se suprascrie fișierul: %s"
 
-#: tta/perl/texi2any.pl:1545
+#: tta/perl/texi2any.pl:1559
 #, perl-format
 msgid "unknown tree transformation %s"
 msgstr "transformare necunoscută a arborelui %s"
 
-#: tta/perl/texi2any.pl:1571
+#: tta/perl/texi2any.pl:1585
 #, perl-format
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr "se ignoră divizarea pentru formatul convertit %s (pentru %s)"
 
-#: tta/perl/texi2any.pl:1575
+#: tta/perl/texi2any.pl:1589
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr "se ignoră divizarea pentru formatul %s"
 
-#: tta/perl/texi2any.pl:1591 tta/C/texi2any.c:2276
+#: tta/perl/texi2any.pl:1605 tta/C/texi2any.c:2275
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "%s: when generating %s, only one input FILE may be specified with -o\n"
@@ -4340,12 +4346,12 @@ msgstr ""
 "%s: când se generează %s, poate fi specificat un singur FIȘIER de intrare cu "
 "opțiunea „-o”\n"
 
-#: tta/perl/texi2any.pl:1595
+#: tta/perl/texi2any.pl:1609
 msgid "--Xopt option without printed output"
 msgstr ""
 "opțiunea „--Xopt” a fost dată fără a se specifica ieșirea pentru imprimare"
 
-#: tta/perl/texi2any.pl:1612
+#: tta/perl/texi2any.pl:1626
 #, perl-format
 msgid "error loading %s: %s"
 msgstr "eroare la încărcarea %s: %s"
@@ -4354,59 +4360,59 @@ msgstr "eroare la încărcarea %s: %s"
 # după cîte am investigat în traducerile făcute de
 # alte echipe, și în textul sursă, pare să fie vorba
 # de numele fișierului care nu a fost dat ca argument
-#: tta/perl/texi2any.pl:1689 tta/C/texi2any.c:2475
+#: tta/perl/texi2any.pl:1703 tta/C/texi2any.c:2474
 #, fuzzy, c-format, perl-format
 #| msgid "%s: missing file argument.\n"
 msgid "%s: missing file argument."
 msgstr "%s: lipsește argumentul fișierului.\n"
 
-#: tta/perl/texi2any.pl:1724
+#: tta/perl/texi2any.pl:1738
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr "fișierul de intrare %s; ați vrut să spuneți %s?"
 
-#: tta/perl/texi2any.pl:1843
+#: tta/perl/texi2any.pl:1857
 #, fuzzy, perl-format
 #| msgid "error on closing frame file %s: %s"
 msgid "error on closing tree dump file %s: %s"
 msgstr "eroare la închiderea fișierului cadru %s: %s"
 
-#: tta/perl/texi2any.pl:1910
+#: tta/perl/texi2any.pl:1924
 #, fuzzy, perl-format
 #| msgid "error on closing macro expand file %s: %s\n"
 msgid "error on closing macro expand file %s: %s"
 msgstr "eroare la închiderea fișierului de extindere a macrocomenzii %s: %s\n"
 
-#: tta/perl/texi2any.pl:2064
+#: tta/perl/texi2any.pl:2078
 #, fuzzy, perl-format
 #| msgid "error on closing frame file %s: %s"
 msgid "error on closing structure dump file %s: %s"
 msgstr "eroare la închiderea fișierului cadru %s: %s"
 
-#: tta/perl/texi2any.pl:2177
+#: tta/perl/texi2any.pl:2191
 #, fuzzy, perl-format
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing internal links file %s: %s"
 msgstr "%s: eroare la închiderea fișierului cu legături interne %s: %s\n"
 
-#: tta/perl/texi2any.pl:2298
+#: tta/perl/texi2any.pl:2312
 #, fuzzy, perl-format
 #| msgid "%s: error on closing elements size file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr ""
 "%s: eroare la închiderea fișierului cu dimensiunea elementelor %s: %s\n"
 
-#: tta/C/texi2any.c:911
+#: tta/C/texi2any.c:910
 #, c-format
 msgid "%s: value \"%s\" invalid for option %s (number expected)"
 msgstr ""
 
-#: tta/C/texi2any.c:915
+#: tta/C/texi2any.c:914
 #, c-format
 msgid "%s: value \"%s\" invalid for option %c (number expected)"
 msgstr ""
 
-#: tta/C/texi2any.c:1675
+#: tta/C/texi2any.c:1674
 #, fuzzy, c-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -4415,47 +4421,47 @@ msgstr ""
 "%s: argumentul opțiunii „--paragraph-indent” trebuie să fie numeric/"
 "„none”/“asis”, nu „%s”.\n"
 
-#: tta/C/convert/convert_html.c:2396
+#: tta/C/convert/convert_html.c:2397
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
 msgstr "%s: %zu secțiuni deschise înregistrate care nu au fost închise"
 
-#: tta/C/convert/convert_html.c:2406
+#: tta/C/convert/convert_html.c:2407
 #, c-format
 msgid "%zu registered inline contents: %s"
 msgstr "%zu conținut inline înregistrat: %s"
 
-#: tta/C/convert/convert_html.c:2423
+#: tta/C/convert/convert_html.c:2424
 #, c-format
 msgid "left inline content associated to %s: '%s'"
 msgstr "conținut inline rămas asociat cu %s: „%s”"
 
-#: tta/C/convert/convert_html.c:2430
+#: tta/C/convert/convert_html.c:2431
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr "conținut inline rămas al %p: „%s”"
 
-#: tta/C/convert/convert_html.c:2435
+#: tta/C/convert/convert_html.c:2436
 #, c-format
 msgid "left inline content associated: '%s'"
 msgstr "conținut inline rămas asociat: „%s”"
 
-#: tta/C/convert/convert_html.c:2662
+#: tta/C/convert/convert_html.c:2663
 #, c-format
 msgid "error while opening %s for reading: %s"
 msgstr "eroare la deschiderea %s pentru citire: %s"
 
-#: tta/C/convert/convert_html.c:2672
+#: tta/C/convert/convert_html.c:2673
 #, c-format
 msgid "cannot open %s for writing: %s"
 msgstr "nu se poate deschide %s pentru scriere: %s"
 
-#: tta/C/convert/convert_html.c:2690
+#: tta/C/convert/convert_html.c:2691
 #, c-format
 msgid "error writing %s: %s"
 msgstr "eroare la scrierea %s: %s"
 
-#: tta/C/convert/convert_html.c:2716
+#: tta/C/convert/convert_html.c:2717
 #, c-format
 msgid "error closing %s: %s"
 msgstr "eroare la închiderea %s: %s"
@@ -5666,8 +5672,8 @@ msgstr "argument formal @%s greșit sau gol: "
 #~ "      --disable-encoding      nu generează caractere accentuate și "
 #~ "speciale în ieșirea Info\n"
 #~ "                              bazată pe @documentencoding.\n"
-#~ "      --enable-encoding       suprascrie opțiunea-„-disable-encoding” "
-#~ "(implicit).\n"
+#~ "      --enable-encoding       suprascrie opțiunea-„-disable-"
+#~ "encoding” (implicit).\n"
 #~ "      --fill-column=NUM       întrerupe liniile Info la NUM caractere "
 #~ "(implicit %d).\n"
 #~ "      --footnote-style=STIL   generează note de subsol în Info conform cu "
