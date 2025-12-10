@@ -1,5 +1,9 @@
 2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/perl/t/layout.t: use https: in value of PACKAGE_URL.
+
+2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/t/40moresectioning.t: use https: in some values
 	for TOP_NODE_UP.
 
