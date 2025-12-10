@@ -1,5 +1,10 @@
 2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/configure.ac: also bump version here
+	* util/pdftexi2dvi: bump version
+
+2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac: bump version to 7.2.90.
 
 2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
