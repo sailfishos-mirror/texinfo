@@ -1262,8 +1262,8 @@ make_openout_test ()
     recorder_option_maybe="$1"
     make_tex_cmd
 
-    ensure_dir "$workdir"/check_recorder
-    cd_dir "$workdir"/check_recorder
+    ensure_dir "$workdir"/check_openout
+    cd_dir "$workdir"/check_openout
 
     cat > openout.tex <<EOF
 \newwrite\ourwrite
@@ -1276,7 +1276,7 @@ EOF
     # ./ in case . isn't in path
     verbose "$0: running $tex_cmd ..."
     rm -fr "openout.$2"
-    (eval "$tex_cmd" >/dev/null 2>&1)
+    (eval "$tex_cmd" >openout.testout 2>&1)
 }
 
 # Check tex supports -recorder option
@@ -1331,11 +1331,24 @@ set_aux_files_from_log ()
   generated_files_get_method=generated_files_get_from_log
 }
 
-aux_files_error='Your TeX installation appears to be broken - texi2dvi
+aux_files_error ()
+{
+  ensure_dir "$workdir"/check_openout
+  cd_dir "$workdir"/check_openout
+
+  if test -f openout.testout ; then
+    cat openout.testout
+  fi
+  cd_orig
+
+  error 1 'Your TeX installation appears to be broken - texi2dvi
 cannot determine auxiliary files output from a TeX run.
 
 You may need to install TeX, or change the values of your PATH, TEX
 or PDFTEX environment variables in order to proceed.'
+}
+
+
 
 # Decide whether output auxiliary files are detected with the -recorder
 # option, or by searching for \openout in the log file.
@@ -1367,7 +1380,7 @@ decide_aux_files_method ()
       elif check_openout_in_log_support; then
         set_aux_files_from_log
       else
-        error 1 "$aux_files_error"
+        aux_files_error
       fi
       ;;
 
@@ -1377,7 +1390,7 @@ decide_aux_files_method ()
       elif check_recorder_support; then
         set_aux_files_from_fls
       else
-        error 1 "$aux_files_error"
+        aux_files_error
       fi
       ;;
     

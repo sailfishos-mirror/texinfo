@@ -1,5 +1,13 @@
 2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* util/texi2dvi (make_openout_test, decide_aux_files_method):
+	Keep output from tests of \openout and print the last kept output if
+	the test failed and we can't run TeX.  This helps the user to
+	find out why the test failed, e.g. if they are running with PDFTEX=xetex
+	and xetex isn't installed.
+
+2025-12-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: Change several gnu.org URLs
 	to use https instead of http.
 
