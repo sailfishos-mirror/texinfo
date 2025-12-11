@@ -25,6 +25,9 @@ fi
 
 set -x
 
+perl -wpli -e 's/^(AC_INIT\(\[GNU Texinfo\]).*$/$1, ['$version']\)/' tta/configure.ac
+perl -wpli -e 's/^(AC_INIT\(\[GNU Texinfo\]).*$/$1, ['$version']\)/' tta/perl/CheckXS/configure.ac
+
 perl -wpli -e 's/\(GNU Texinfo .*$/(GNU Texinfo '$version')/' util/texi2dvi
 perl -wpli -e 's/\(GNU Texinfo .*$/(GNU Texinfo '$version')/' util/texi2pdf
 perl -wpli -e \
