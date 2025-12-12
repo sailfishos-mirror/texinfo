@@ -1,5 +1,5 @@
 /* Routines for dealing with '\0' separated arg vectors.
-   Copyright (C) 1995-2000, 2004, 2007, 2009-2024 Free Software Foundation,
+   Copyright (C) 1995-2000, 2004, 2007, 2009-2025 Free Software Foundation,
    Inc.
    This file is part of the GNU C Library.
 
@@ -123,8 +123,7 @@ extern error_t argz_replace (char **restrict /*argz*/,
 
    or
 
-    char *entry;
-    for (entry = argz; entry; entry = argz_next (argz, argz_len, entry))
+    for (char *entry = argz; entry; entry = argz_next (argz, argz_len, entry))
       ...;
 */
 

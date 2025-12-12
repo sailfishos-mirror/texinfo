@@ -1,5 +1,5 @@
 /* Special casing table.
-   Copyright (C) 2009-2024 Free Software Foundation, Inc.
+   Copyright (C) 2009-2025 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2009.
 
    This file is free software.
@@ -22,6 +22,11 @@
    You should have received a copy of the GNU Lesser General Public
    License and of the GNU General Public License along with this
    program.  If not, see <https://www.gnu.org/licenses/>.  */
+
+/* This file uses _GL_ATTRIBUTE_NONSTRING.  */
+#if !_GL_CONFIG_H_INCLUDED
+ #error "Please include config.h first."
+#endif
 
 #include <stddef.h>
 
@@ -46,7 +51,7 @@ struct special_casing_rule
 {
   /* The first two bytes are the code, in big-endian order.  The third byte
      only distinguishes different rules pertaining to the same code.  */
-  /*unsigned*/ char code[3];
+  /*unsigned*/ char code[3] _GL_ATTRIBUTE_NONSTRING;
 
   /* True when this rule is not the last one for the given code.  */
   /*bool*/ unsigned int has_next : 1;

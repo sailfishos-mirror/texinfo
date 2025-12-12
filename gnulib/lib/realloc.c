@@ -1,6 +1,6 @@
 /* realloc() function that is glibc compatible.
 
-   Copyright (C) 1997, 2003-2004, 2006-2007, 2009-2024 Free Software
+   Copyright (C) 1997, 2003-2004, 2006-2007, 2009-2025 Free Software
    Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
@@ -50,7 +50,7 @@ rpl_realloc (void *p, size_t n)
          undefined behavior even though C17 and earlier partially defined
          the behavior.  Let the programmer know.
          When the undefined-behaviour sanitizers report this case, i.e. when
-         <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=117233> and
+         <https://gcc.gnu.org/PR117233> and
          <https://github.com/llvm/llvm-project/issues/113065>
          have been closed and new releases of GCC and clang have been made,
          we can revisit this code.  */
@@ -94,7 +94,7 @@ rpl_realloc (void *p, size_t n)
 
   void *result = realloc (p, n1);
 
-# if !HAVE_MALLOC_POSIX
+# if !HAVE_REALLOC_POSIX
   if (result == NULL)
     errno = ENOMEM;
 # endif

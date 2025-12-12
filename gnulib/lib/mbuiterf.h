@@ -1,5 +1,5 @@
 /* Iterating through multibyte strings, faster: macros for multi-byte encodings.
-   Copyright (C) 2001, 2005, 2007, 2009-2024 Free Software Foundation, Inc.
+   Copyright (C) 2001, 2005, 2007, 2009-2025 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
@@ -68,7 +68,7 @@
 
    mbuif_next (state, iter)
      returns the next multibyte character.
-     It asssumes that the state is initialized and that *iter != '\0'.
+     It assumes that the state is initialized and that *iter != '\0'.
 
    Here are the function prototypes of the macros.
 

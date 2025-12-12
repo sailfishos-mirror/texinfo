@@ -1,5 +1,5 @@
 /* Searching a string for a character.
-   Copyright (C) 2007-2024 Free Software Foundation, Inc.
+   Copyright (C) 2007-2025 Free Software Foundation, Inc.
    Written by Bruno Haible <bruno@clisp.org>, 2007.
 
    This file is free software: you can redistribute it and/or modify
@@ -65,5 +65,5 @@ mbschr (const char *string, int c)
       return NULL;
     }
   else
-    return strchr (string, c);
+    return (char *) strchr (string, c);
 }
