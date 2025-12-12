@@ -301,7 +301,7 @@ AM_CONDITIONAL(INSTALL_WARNINGS,
 
 # i18n support.
 # See README-hacking for how to upgrade to a new version of gettext
-AM_GNU_GETTEXT_VERSION([0.22.5])
+AM_GNU_GETTEXT_VERSION([0.26])
 AM_GNU_GETTEXT([external])
 
 AC_ARG_WITH([external-Unicode-EastAsianWidth],
