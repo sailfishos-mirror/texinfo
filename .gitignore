@@ -423,6 +423,7 @@ util/testSubDir
 util/texindex
 util/txixml2texi
 util/*.sig
+util/htmlxref.d/*.sig
 
 tta/swig/perl/*.lo
 tta/swig/perl/*.la
