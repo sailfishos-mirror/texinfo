@@ -11,10 +11,6 @@
 
 2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
 
-	* ABOUT-NLS: remove file (no longer required by automake 1.18.1)
-
-2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
-
 	* NEWS: automake, autoconf, gettext, libtool versions.
 	* README-hacking: more on upgrading gettext.
 
