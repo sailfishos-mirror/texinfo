@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -22,11 +22,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Không có con trỏ “%s” cho nút này"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Di chuyển một ký tự"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Lùi một ký tự"
 
@@ -38,11 +46,11 @@ msgstr "Đến đầu dòng này"
 msgid "Move to the end of this line"
 msgstr "Đến cuối dòng này"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Tiếp một từ"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Lùi một từ"
 
@@ -273,7 +281,7 @@ msgstr "Không có mục nào trong mục lục có chứa “%s”."
 msgid "No available info files have '%s' in their indices"
 msgstr "Không có tập tin thông tin sẵn sàng chứa “%s” trong chỉ mục"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Không có mục trình đơn “%s” trong nút “%s”"
@@ -967,6 +975,563 @@ msgstr "“%s” không hợp lệ"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Thoát"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Hiển thị mọi tập tin khớp mẫu"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Không có chỉ mục tập tin"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Tới dòng kế"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Về dòng trước"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Chuyển con chạy tới một đóng riêng trong cửa sổ"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Tới cuối dòng"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Về đầu dòng"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Về đầu nút này"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Tới cuối nút này"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Cuộn tới trong cửa sổ này"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Cuộn lùi trong cửa sổ này"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Cuộn tới trong cửa sổ này và đặt kích cỡ cửa sổ mặc định"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Cuộn lùi trong cửa sổ này và đặt kích cỡ cửa sổ mặc định"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Cuộn tới trong cửa sổ này mà còn lại trong nút này"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Cuộn lùi trong cửa sổ này, mà còn lại trong nút này"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Cuộn tới trong cửa sổ này, mà còn lại trong nút này và đặt kích cỡ cửa sổ "
+"mặc định"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Cuộn lùi trong cửa sổ này, mà còn lại trong nút này và đặt kích cỡ cửa sổ "
+"mặc định"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Cuộn xuống theo dòng"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Cuộn lên theo dòng"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Cuộn xuống theo nửa màn hình"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Cuộn lên theo nửa màn hình"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Cuộn cửa sổ khác"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Cuộn lùi cửa sổ khác"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Chọn cửa sổ kế"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Chọn cửa sổ kế trước"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Chia tách cửa sổ hiện có"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Xóa cửa sổ hiện có"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Không thể xóa cửa sổ cuối cùng"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Không thể xóa cửa sổ vĩnh cửu"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Xóa các cửa sổ khác"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Phóng to (hay thu nhỏ) cửa sổ này"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Chia chỗ màn hình sẵn sàng ra các cửa sổ hiện rõ"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Bật tắt tính trạng ngắt dòng trong cửa sổ hiện tại"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Chọn mục trình đơn này"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Không có %d mục nào trong trình đơn này"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Chọn mục cuối trong trình đơn nút này"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Mục trình đơn (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Mục trình đơn: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Theo tham chiếu chéo (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Theo tham chiếu chéo: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "Tham chiếu đã biến mất! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Đọc mục trình đơn và chọn nút của nó"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Đọc cước chú hay tham chiếu chéo và chọn nút của nó"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Về đầu trình đơn của nút này"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Xem đồng thời càng nhiều mục trình đơn càng có thể"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Về tham chiếu chéo trước"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Tới tham chiếu chéo kế"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Chọn tham chiếu hay mục trình đơn xuất hiện trên dòng này"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Không có trình đơn trong nút “%s”"
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Không tìm thấy nút được tham chiếu bởi “%s” trong “%s”"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Đọc danh sách các trình đơn bắt đầu từ “thư mục” và theo chúng"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Theo trình đơn: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Không có con trỏ “%s” cho nút này"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Chọn nút Kế"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Chọn nút Lùi"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Chọn nút Lên"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Chọn nút cuối trong tập tin này"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Cửa sổ này không có nút thêm"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Chọn nút đầu trong tập tin này"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Bạn ở trang cuối cùng của nút thông tin này"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Không có nút nữa trong tài liệu này"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Bạn ở trang đầu tiên của nút thông tin này"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Không có “Lùi” hay “Lên” cho nút này trong tài liệu này"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Chuyển tới hay xuống qua cấu trúc nút"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Chuyển lùi hay lên qua cấu trúc nút"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Đọc tên nút và chọn nó"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Tới nút: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Tìm nút diễn tả cuộc gọi chương trình"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Tìm nút gọi của [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Đọc tham chiếu trang hướng dẫn (man) và chọn nó"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Lấy trang hướng dẫn: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Chọn nút “Đỉnh” trong tập tin này"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Chọn nút “(dir)”"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Hiển thị tên tập tin dạng đầy đủ của nút đang được hiển thị"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Chọn nút mới chọn"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Không có nút mới hơn trong lịch sử"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Đọc tên tập tin và chọn nó"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Tìm tập tin: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Không tìm thấy “%s”"
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Không thể tạo tập tin xuất “%s”"
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "error writing to %s: %s"
+msgstr "gặp lỗi khi ghi vào “%s”: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "đang đóng %s"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "đang ghi nút %s…"
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr ""
+"Gửi nội dung của nút nay qua ống dẫn kiểu “INFO_PRINT_COMMAND” (Info in ra "
+"lệnh)"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Không thể mở ống dẫn đến “%s”"
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "đang in nút %s…"
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "đã hoàn tất việc in nút %s"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Bật/tắt khả năng sử dụng biểu thức chính quy khi tìm kiếm"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Dùng biểu thức chính quy khi tìm kiếm"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Dùng chuỗi nghĩa chữ khi tìm kiếm"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Tiến trình tìm kiếm đã tiếp tục từ cuối của tài liệu"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Tiến trình tìm kiếm đã tiếp tục từ đầu của tài liệu"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Đang tìm kiếm tập tin phụ %s…"
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Gặp lỗi khi tìm kiếm"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Tìm kiếm dùng biểu thức chính quy"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " phân biết chữ hoa/thường "
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " ngược"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Chuỗi tìm kiếm quá ngắn"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Trở lại đến chỗ khớp cuối từ %s"
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Không tìm thấy thêm nữa"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Tìm một chuỗi trong nút này và nút con"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "Tìm kiếm dưới %s:"
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Đi đến chỗ khớp kế tiếp trong cây-con Info"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Không có tìm kiếm nào hiện đang hoạt động"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Đi đến chỗ khớp kế trước trong cây-con Info"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Đọc chuỗi và tìm kiếm nó, có phân biệt HOA/thường"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Đọc chuỗi và tìm kiếm nó"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Đọc chuỗi và tìm kiếm theo hướng ngược"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Làm lại việc tìm kiếm cuối với cùng hướng"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Không có chuỗi tìm kiếm trước"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Làm lại việc tìm kiếm cuối, về ngược phía hướng"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Xóa trình bày khớp mẫu"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Tìm kiếm tương tác chuỗi đang gõ"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "Tìm kiếm ngược I dùng biểu thức chính quy: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "Tìm kiếm ngược I: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "Tìm kiếm I dùng biểu thức chính quy: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "Tìm kiếm I: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Đang thất bại "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Hủy thao tác đang chạy"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Hiển thị thông tin phiên bản của Info đang chạy"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Info phiên bản %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Vẽ lại màn hình"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Thoát khỏi Info"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Chạy lệnh đã đóng kết đến biến thế chữ thường của phím này"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Thêm chữ số này vào đối số thuộc số hiện tại"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Bắt đầu (hoặc nhân với 4) đối số thuộc số hiện tại)"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1688,7 +2253,7 @@ msgstr "ở đây có định nghĩa trước như là @%s"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1704,7 +2269,7 @@ msgstr "không thể mở “%s” để ghi: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1731,16 +2296,20 @@ msgid "could not create directory `%s': %s"
 msgstr "không thể tạo thư mục “%s”: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin ảnh dạng text %s: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "Không thể đọc tập tin @image “%s”: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "không tìm thấy tập tin @image “%s”, đang dùng “%s”"
@@ -2068,58 +2637,58 @@ msgstr "tên @node không được chứa “,”: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "tên @node không được chứa “,”: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "Tập tin @image “%s” (cho HTML) không đọc được, dùng “%s”"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: không thể mở %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: chdir %s gặp lỗi: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: thiếu tập tin đầu ra: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: lệnh gặp lỗi: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: thiếu tập tin đầu ra: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2174,18 +2743,23 @@ msgstr "tên nút mục trình đơn không được chứa dấu hai chấm “
 msgid "menu entry name should not contain `:'"
 msgstr "tên mục trình đơn không được chứa dấu hai chấm “:”"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "không thể đọc %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin @verbatiminclude %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: không tìm thấy %s"
@@ -4482,29 +5056,9 @@ msgstr "đối số có dạng thức sai hoặc trống rỗng @%s: %s"
 #~ "  info -f ./foo.info           hiển thị tập tin “./foo.info”, không tìm "
 #~ "kiếm thư mục"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Không thể xóa cửa sổ cuối cùng"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Không có con trỏ “%s” cho nút này"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Không nhận ra lệnh Info “%c”; hãy thử lệnh “?” để xem trợ giúp"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Bạn ở trang cuối cùng của nút thông tin này"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Bạn ở trang đầu tiên của nút thông tin này"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Hiển thị mọi tập tin khớp mẫu"
-
-#, c-format
-#~ msgid "No file index"
-#~ msgstr "Không có chỉ mục tập tin"
 
 #, c-format
 #~ msgid "can't open %s: %s"
@@ -4513,409 +5067,6 @@ msgstr "đối số có dạng thức sai hoặc trống rỗng @%s: %s"
 #, c-format
 #~ msgid "debugging output diverted to \"%s\""
 #~ msgstr "kết xuất gỡ lỗi đã trệch hướng thành \"%s\""
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Tới dòng kế"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Về dòng trước"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Chuyển con chạy tới một đóng riêng trong cửa sổ"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Tới cuối dòng"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Về đầu dòng"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Về đầu nút này"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Tới cuối nút này"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Cuộn tới trong cửa sổ này"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Cuộn lùi trong cửa sổ này"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Cuộn tới trong cửa sổ này và đặt kích cỡ cửa sổ mặc định"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Cuộn lùi trong cửa sổ này và đặt kích cỡ cửa sổ mặc định"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Cuộn tới trong cửa sổ này mà còn lại trong nút này"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Cuộn lùi trong cửa sổ này, mà còn lại trong nút này"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Cuộn tới trong cửa sổ này, mà còn lại trong nút này và đặt kích cỡ cửa sổ "
-#~ "mặc định"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Cuộn lùi trong cửa sổ này, mà còn lại trong nút này và đặt kích cỡ cửa sổ "
-#~ "mặc định"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Cuộn xuống theo dòng"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Cuộn lên theo dòng"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Cuộn xuống theo nửa màn hình"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Cuộn lên theo nửa màn hình"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Cuộn cửa sổ khác"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Cuộn lùi cửa sổ khác"
-
-#~ msgid "Select the next window"
-#~ msgstr "Chọn cửa sổ kế"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Chọn cửa sổ kế trước"
-
-#~ msgid "Split the current window"
-#~ msgstr "Chia tách cửa sổ hiện có"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Xóa cửa sổ hiện có"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Không thể xóa cửa sổ vĩnh cửu"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Xóa các cửa sổ khác"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Phóng to (hay thu nhỏ) cửa sổ này"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Chia chỗ màn hình sẵn sàng ra các cửa sổ hiện rõ"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Bật tắt tính trạng ngắt dòng trong cửa sổ hiện tại"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Chọn mục trình đơn này"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Không có %d mục nào trong trình đơn này"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Chọn mục cuối trong trình đơn nút này"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Mục trình đơn (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Mục trình đơn: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Theo tham chiếu chéo (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Theo tham chiếu chéo: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "Tham chiếu đã biến mất! (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Đọc mục trình đơn và chọn nút của nó"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "Đọc cước chú hay tham chiếu chéo và chọn nút của nó"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Về đầu trình đơn của nút này"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Xem đồng thời càng nhiều mục trình đơn càng có thể"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Về tham chiếu chéo trước"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Tới tham chiếu chéo kế"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Chọn tham chiếu hay mục trình đơn xuất hiện trên dòng này"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Không có trình đơn trong nút “%s”"
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Không tìm thấy nút được tham chiếu bởi “%s” trong “%s”"
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Đọc danh sách các trình đơn bắt đầu từ “thư mục” và theo chúng"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Theo trình đơn: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Chọn nút Kế"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Chọn nút Lùi"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Chọn nút Lên"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Chọn nút cuối trong tập tin này"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Cửa sổ này không có nút thêm"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Chọn nút đầu trong tập tin này"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Không có nút nữa trong tài liệu này"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr "Không có “Lùi” hay “Lên” cho nút này trong tài liệu này"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Chuyển tới hay xuống qua cấu trúc nút"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Chuyển lùi hay lên qua cấu trúc nút"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Đọc tên nút và chọn nó"
-
-#~ msgid "Goto node: "
-#~ msgstr "Tới nút: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Tìm nút diễn tả cuộc gọi chương trình"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Tìm nút gọi của [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Đọc tham chiếu trang hướng dẫn (man) và chọn nó"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Lấy trang hướng dẫn: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Chọn nút “Đỉnh” trong tập tin này"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Chọn nút “(dir)”"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Hiển thị tên tập tin dạng đầy đủ của nút đang được hiển thị"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Chọn nút mới chọn"
-
-#, c-format
-#~ msgid "No earlier node in history"
-#~ msgstr "Không có nút mới hơn trong lịch sử"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Đọc tên tập tin và chọn nó"
-
-#~ msgid "Find file: "
-#~ msgstr "Tìm tập tin: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Không tìm thấy “%s”"
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Không thể tạo tập tin xuất “%s”"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "đang đóng %s"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "đang ghi nút %s…"
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr ""
-#~ "Gửi nội dung của nút nay qua ống dẫn kiểu “INFO_PRINT_COMMAND” (Info in "
-#~ "ra lệnh)"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Không thể mở ống dẫn đến “%s”"
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "đang in nút %s…"
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "đã hoàn tất việc in nút %s"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Bật/tắt khả năng sử dụng biểu thức chính quy khi tìm kiếm"
-
-#, c-format
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Dùng biểu thức chính quy khi tìm kiếm"
-
-#, c-format
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Dùng chuỗi nghĩa chữ khi tìm kiếm"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Tiến trình tìm kiếm đã tiếp tục từ cuối của tài liệu"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Tiến trình tìm kiếm đã tiếp tục từ đầu của tài liệu"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Đang tìm kiếm tập tin phụ %s…"
-
-#, c-format
-#~ msgid "Search failed"
-#~ msgstr "Gặp lỗi khi tìm kiếm"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Tìm kiếm dùng biểu thức chính quy"
-
-#~ msgid "Search"
-#~ msgstr "Tìm kiếm"
-
-#~ msgid " case-sensitively"
-#~ msgstr " phân biết chữ hoa/thường "
-
-#~ msgid " backward"
-#~ msgstr " ngược"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Chuỗi tìm kiếm quá ngắn"
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "Trở lại đến chỗ khớp cuối từ %s"
-
-#, c-format
-#~ msgid "No more matches"
-#~ msgstr "Không tìm thấy thêm nữa"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Tìm một chuỗi trong nút này và nút con"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Tìm kiếm dưới %s:"
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Đi đến chỗ khớp kế tiếp trong cây-con Info"
-
-#, c-format
-#~ msgid "No active search"
-#~ msgstr "Không có tìm kiếm nào hiện đang hoạt động"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Đi đến chỗ khớp kế trước trong cây-con Info"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Đọc chuỗi và tìm kiếm nó, có phân biệt HOA/thường"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Đọc chuỗi và tìm kiếm nó"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Đọc chuỗi và tìm kiếm theo hướng ngược"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Làm lại việc tìm kiếm cuối với cùng hướng"
-
-#~ msgid "No previous search string"
-#~ msgstr "Không có chuỗi tìm kiếm trước"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Làm lại việc tìm kiếm cuối, về ngược phía hướng"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Xóa trình bày khớp mẫu"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Tìm kiếm tương tác chuỗi đang gõ"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "Tìm kiếm ngược I dùng biểu thức chính quy: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "Tìm kiếm ngược I: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "Tìm kiếm I dùng biểu thức chính quy: "
-
-#~ msgid "I-search: "
-#~ msgstr "Tìm kiếm I: "
-
-#~ msgid "Failing "
-#~ msgstr "Đang thất bại "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Hủy thao tác đang chạy"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Hiển thị thông tin phiên bản của Info đang chạy"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "GNU Info phiên bản %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Vẽ lại màn hình"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Thoát khỏi Info"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Chạy lệnh đã đóng kết đến biến thế chữ thường của phím này"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Thêm chữ số này vào đối số thuộc số hiện tại"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Bắt đầu (hoặc nhân với 4) đối số thuộc số hiện tại)"
 
 #~ msgid "recursion is always allowed"
 #~ msgstr "luôn cho phép đệ qui"

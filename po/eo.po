@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2021-03-17 15:12-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <translation-team-eo@lists.sourceforge.net>\n"
@@ -23,11 +23,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Mankas ligo '%s' por ĉi tiu nodo"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Unu signon antaŭen"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Unu signon malantaŭen"
 
@@ -39,11 +47,11 @@ msgstr "Al la komenco de ĉi tiu linio"
 msgid "Move to the end of this line"
 msgstr "Al la fino de ĉi tiu linio"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Unu vorton antaŭen"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Unu vorton malantaŭen"
 
@@ -269,7 +277,7 @@ msgstr "Ne ekzistas indekseroj kiuj enhavas '%s'."
 msgid "No available info files have '%s' in their indices"
 msgstr "Malestas '%s' en la indeksoj de ĉiuj disponeblaj Info-dosieroj"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Malestas menuero '%s' en nodo '%s'."
@@ -963,6 +971,565 @@ msgstr "'%s' ne validas"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Nuligita"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Montri ĉiujn kongruantajn dosierojn"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Neniu dosier-indekso"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Iri suben al la sekva linio"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Iri supren al la antaŭa linio"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Movi la kursoron sur indikitan linion de la fenestro"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Iri al la fino de la linio"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Iri al la komenco de la linio"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Iri al la komenco de ĉi tiu nodo"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Iri al la fino de ĉi tiu nodo"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Rulumi antaŭen en ĉi tiu fenestro"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Rulumi malantaŭen en ĉi tiu fenestro"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Rulumi antaŭen en ĉi tiu fenestro kaj fiksi defaŭltan fenestrograndon"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr ""
+"Rulumi malantaŭen en ĉi tiu fenestro kaj fiksi defaŭltan fenestrograndon"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Rulumi antaŭen en ĉi tiu fenestro sed resti en la nodo"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Rulumi malantaŭen en ĉi tiu fenestro sed resti en la nodo"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Rulumi antaŭen en ĉi tiu fenestro restante en la nodo kaj fiksi defaŭltan "
+"fenestrograndon"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Rulumi malantaŭen en ĉi tiu fenestro restante en la nodo kaj fiksi defaŭltan "
+"fenestrograndon"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Linie rulumi suben"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Linie rulumi supren"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Duonekrane rulumi suben"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Duonekrane rulumi supren"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Rulumi la alian fenestron"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Rulumi la alian fenestron malantaŭen"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Elekti la sekvan fenestron"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Elekti la antaŭan fenestron"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Disfendi la kurantan fenestron"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Forigi la kurantan fenestron"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Maleblas forigi la lastan fenestron"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Maleblas forigi permanentan fenestron"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Forigi ĉiujn ceterajn fenestrojn"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "(Mal)pligrandigi ĉi tiun fenestron"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Dispartigi la disponeblan ekranspacon inter la videblaj fenestroj"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Baskulŝalti la reĝimon de linifaldo en la kuranta fenestro"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Elekti ĉi tiun menueron"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Ĉi tiu menuo ne havas %d eron"
+msgstr[1] "Ĉi tiu menuo ne havas %d erojn"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Elekti la lastan eron en la menuo de ĉi tiu nodo"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Menuero (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Menuero: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Sekvi referencon (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Sekvi referencon: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "La referenco malaperis!  (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Legi menueron kaj viziti ĝian nodon"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Legi piednoton aŭ referencon kaj viziti ĝian nodon"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Iri al la komenco de la menuo de ĉi tiu nodo"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr ""
+"Viziti samtempe kiom eble plej multe da menueroj (ĉiun en aparta fenestro)"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Iri al la antaŭa referenco"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Iri al la sekva referenco"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Elekti la referencon aŭ la menueron de ĉi tiu linio"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Malestas menuo en nodo '%s'."
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Ne eblas trovi nodon referencatan per '%s' en '%s'."
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Legi liston da menuoj, komencante per 'dir' kaj sekvante ilin"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Sekvi menuojn: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Mankas ligo '%s' por ĉi tiu nodo"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Viziti la sekvan nodon (“Next”)"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Viziti la antaŭan nodon (“Prev”)"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Viziti la supran nodon (“Up”)"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Viziti la lastan nodon en ĉi tiu dokumento"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Ĉi tiu fenestro ne havas pluajn nodojn"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Viziti la unuan nodon en ĉi tiu dokumento"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Ĉi tiu jam estas la lasta paĝo en ĉi tiu nodo"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Ĉi tiu estas la lasta nodo de la dokumento"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Ĉi tiu jam estas la unua paĝo en ĉi tiu nodo"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Ĉi tiu estas la unua nodo de la dokumento"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Iri antaŭen aŭ suben en la strukturo de nodoj"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Iri malantaŭen aŭ supren en la strukturo de nodoj"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Legi nodnomon kaj viziti tiun nodon"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Iri al nodo: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Trovi la nodon kiu priskribas programvokon"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Trovi la voknodon de [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Legi referencon al manlibra paĝo kaj viziti ĝin"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Manlibran paĝon: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Viziti la nodon “Top” en ĉi tiu dokumento"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Viziti la nodon “(dir)”"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Montri kompletan dosiernomon de nodo kiu prezentiĝas"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Reviziti nodon plej ĵuse vizititan"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Malestas pli frua nodo en historio"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Legi dosiernomon kaj viziti ĝin"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Trovi dosieron: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Ne eblas trovi '%s'."
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Ne eblas krei eligan dosieron '%s'."
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "error writing to %s: %s"
+msgstr "eraro dum skribo en '%s': %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "fermo de %s"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "skribado de nodo '%s'..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Meti la enhavon de ĉi tiu nodo en la dukton per INFO_PRINT_COMMAND"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Ne eblas malfermi dukton al '%s'."
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "printado de nodo '%s'..."
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "pretas la printado de nodo '%s'"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Baskulŝalti la uzon de regulesprimoj en serĉoj"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Regulesprimoj uzatos en serĉoj"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Laŭliteraj signoĉenoj uzatos en serĉoj"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Serĉo kontinuis ekde la fino de la dokumento"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Serĉo kontinuis ekde la komenco de la dokumento"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Serĉado en subdosiero '%s'..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Serĉo fiaskis"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Serĉi regulesprime"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Serĉi"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " usklecodistinge"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " malantaŭen"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Serĉoĉeno tro mallongas"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Reirante al lasta kongruo en %s"
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Malestas pluaj kongruoj"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Serĉi signoĉenon en ĉi tiu nodo kaj subnodoj"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "Serĉi sub '%s': "
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Iri al sekva kongruo en Info-subarbo"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Neniu aktiva serĉo"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Iri al antaŭa kongruo en Info-subarbo"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Legi ĉenon kaj serĉi ĝin usklecodistinge"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Legi ĉenon kaj serĉi ĝin"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Legi ĉenon kaj serĉi ĝin malantaŭen"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Ripeti la ĵusan serĉon samdirekte"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Malestas pasinta serĉoĉeno"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Ripeti la ĵusan serĉon alidirekte"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Viŝi la montratajn serĉajn kongruojn"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Serĉi signoĉenon dum vi tajpas ĝin"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "Serĉi tajpante regulesprime malantaŭen: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "Serĉi tajpante malantaŭen: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "Serĉi tajpante regulesprime: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "Serĉi tajpante: "
+
+# La vorto metiĝas antaŭ la kvar antaŭaj mesaĝoj kiam la serĉo fiaskas.
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "*Fiaskas* "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Ĉesigi la kurantan operacion"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Montri la version de la rulanta Info"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Info, versio %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Refreŝigi la ekranon"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Eliri el Info"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Plenumi komandon asociitan kun ĉi tiu klavo minuskligita"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Aldoni ĉi tiun ciferon al la kuranta nombra argumento"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Komenci (aŭ 4-obligi) la kurantan nombran argumenton"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1676,7 +2243,7 @@ msgstr "ĉi tie estas la antaŭa difino kiel '@%s'"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1692,7 +2259,7 @@ msgstr "ne eblas malfermi %s por skribi: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1719,16 +2286,20 @@ msgid "could not create directory `%s': %s"
 msgstr "ne eblas krei dosierujon '%s': %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "eraro dum fermo de %s (dosiero kun 'image'-teksto): %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "Dosiero '%s' en komando '@image' ne legeblas: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "'@image'-dosiero '%s' ne troviĝas; '%s' uziĝas"
@@ -2058,58 +2629,58 @@ msgstr "'@node' -- nomo ne devus enteni ',': %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "'@node' -- nomo ne devus enteni ',': %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "'@image'-dosiero '%s' (por HTML) ne troviĝas; '%s' uziĝas"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: ne eblas malfermi %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: fiaskis ŝanĝi dosierujon al %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: mankas eligdosiero: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: komando fiaskis: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: mankas eligdosiero: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2164,18 +2735,23 @@ msgstr "nodnomo en menuero ne devus enteni ':'"
 msgid "menu entry name should not contain `:'"
 msgstr "menuernomo ne devus enteni ':'"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "ne eblas legi %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "eraro dum fermo de '@verbatiminclude'-dosiero %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: ne eblas trovi %s"
@@ -4393,428 +4969,9 @@ msgstr "misa aŭ vaka formala argumento de @%s: "
 #~ "                             eligi tutan Emaksan manlibron al ELO.txt\n"
 #~ "  info -f ./UMO.info         eligi la dosieron ./UMO.info sen atenti 'dir'"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Maleblas forigi la lastan fenestron"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Mankas ligo '%s' por ĉi tiu nodo"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Nekonata Info-komando '%c'; tajpu '?' por helpo"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Ĉi tiu jam estas la lasta paĝo en ĉi tiu nodo"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Ĉi tiu jam estas la unua paĝo en ĉi tiu nodo"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Montri ĉiujn kongruantajn dosierojn"
-
-#~ msgid "No file index"
-#~ msgstr "Neniu dosier-indekso"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Iri suben al la sekva linio"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Iri supren al la antaŭa linio"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Movi la kursoron sur indikitan linion de la fenestro"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Iri al la fino de la linio"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Iri al la komenco de la linio"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Iri al la komenco de ĉi tiu nodo"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Iri al la fino de ĉi tiu nodo"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Rulumi antaŭen en ĉi tiu fenestro"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Rulumi malantaŭen en ĉi tiu fenestro"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr ""
-#~ "Rulumi antaŭen en ĉi tiu fenestro kaj fiksi defaŭltan fenestrograndon"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr ""
-#~ "Rulumi malantaŭen en ĉi tiu fenestro kaj fiksi defaŭltan fenestrograndon"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Rulumi antaŭen en ĉi tiu fenestro sed resti en la nodo"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Rulumi malantaŭen en ĉi tiu fenestro sed resti en la nodo"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Rulumi antaŭen en ĉi tiu fenestro restante en la nodo kaj fiksi defaŭltan "
-#~ "fenestrograndon"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Rulumi malantaŭen en ĉi tiu fenestro restante en la nodo kaj fiksi "
-#~ "defaŭltan fenestrograndon"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Linie rulumi suben"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Linie rulumi supren"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Duonekrane rulumi suben"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Duonekrane rulumi supren"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Rulumi la alian fenestron"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Rulumi la alian fenestron malantaŭen"
-
-#~ msgid "Select the next window"
-#~ msgstr "Elekti la sekvan fenestron"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Elekti la antaŭan fenestron"
-
-#~ msgid "Split the current window"
-#~ msgstr "Disfendi la kurantan fenestron"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Forigi la kurantan fenestron"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Maleblas forigi permanentan fenestron"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Forigi ĉiujn ceterajn fenestrojn"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "(Mal)pligrandigi ĉi tiun fenestron"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Dispartigi la disponeblan ekranspacon inter la videblaj fenestroj"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Baskulŝalti la reĝimon de linifaldo en la kuranta fenestro"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Elekti ĉi tiun menueron"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Ĉi tiu menuo ne havas %d eron"
-#~ msgstr[1] "Ĉi tiu menuo ne havas %d erojn"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Elekti la lastan eron en la menuo de ĉi tiu nodo"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Menuero (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Menuero: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Sekvi referencon (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Sekvi referencon: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "La referenco malaperis!  (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Legi menueron kaj viziti ĝian nodon"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "Legi piednoton aŭ referencon kaj viziti ĝian nodon"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Iri al la komenco de la menuo de ĉi tiu nodo"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr ""
-#~ "Viziti samtempe kiom eble plej multe da menueroj (ĉiun en aparta fenestro)"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Iri al la antaŭa referenco"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Iri al la sekva referenco"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Elekti la referencon aŭ la menueron de ĉi tiu linio"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Malestas menuo en nodo '%s'."
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Ne eblas trovi nodon referencatan per '%s' en '%s'."
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Legi liston da menuoj, komencante per 'dir' kaj sekvante ilin"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Sekvi menuojn: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Viziti la sekvan nodon (“Next”)"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Viziti la antaŭan nodon (“Prev”)"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Viziti la supran nodon (“Up”)"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Viziti la lastan nodon en ĉi tiu dokumento"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Ĉi tiu fenestro ne havas pluajn nodojn"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Viziti la unuan nodon en ĉi tiu dokumento"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Ĉi tiu estas la lasta nodo de la dokumento"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr "Ĉi tiu estas la unua nodo de la dokumento"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Iri antaŭen aŭ suben en la strukturo de nodoj"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Iri malantaŭen aŭ supren en la strukturo de nodoj"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Legi nodnomon kaj viziti tiun nodon"
-
-#~ msgid "Goto node: "
-#~ msgstr "Iri al nodo: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Trovi la nodon kiu priskribas programvokon"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Trovi la voknodon de [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Legi referencon al manlibra paĝo kaj viziti ĝin"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Manlibran paĝon: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Viziti la nodon “Top” en ĉi tiu dokumento"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Viziti la nodon “(dir)”"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Montri kompletan dosiernomon de nodo kiu prezentiĝas"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Reviziti nodon plej ĵuse vizititan"
-
-#~ msgid "No earlier node in history"
-#~ msgstr "Malestas pli frua nodo en historio"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Legi dosiernomon kaj viziti ĝin"
-
-#~ msgid "Find file: "
-#~ msgstr "Trovi dosieron: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Ne eblas trovi '%s'."
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Ne eblas krei eligan dosieron '%s'."
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "fermo de %s"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "skribado de nodo '%s'..."
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "Meti la enhavon de ĉi tiu nodo en la dukton per INFO_PRINT_COMMAND"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Ne eblas malfermi dukton al '%s'."
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "printado de nodo '%s'..."
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "pretas la printado de nodo '%s'"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Baskulŝalti la uzon de regulesprimoj en serĉoj"
-
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Regulesprimoj uzatos en serĉoj"
-
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Laŭliteraj signoĉenoj uzatos en serĉoj"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Serĉo kontinuis ekde la fino de la dokumento"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Serĉo kontinuis ekde la komenco de la dokumento"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Serĉado en subdosiero '%s'..."
-
-#~ msgid "Search failed"
-#~ msgstr "Serĉo fiaskis"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Serĉi regulesprime"
-
-#~ msgid "Search"
-#~ msgstr "Serĉi"
-
-#~ msgid " case-sensitively"
-#~ msgstr " usklecodistinge"
-
-#~ msgid " backward"
-#~ msgstr " malantaŭen"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Serĉoĉeno tro mallongas"
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "Reirante al lasta kongruo en %s"
-
-#~ msgid "No more matches"
-#~ msgstr "Malestas pluaj kongruoj"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Serĉi signoĉenon en ĉi tiu nodo kaj subnodoj"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Serĉi sub '%s': "
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Iri al sekva kongruo en Info-subarbo"
-
-#~ msgid "No active search"
-#~ msgstr "Neniu aktiva serĉo"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Iri al antaŭa kongruo en Info-subarbo"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Legi ĉenon kaj serĉi ĝin usklecodistinge"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Legi ĉenon kaj serĉi ĝin"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Legi ĉenon kaj serĉi ĝin malantaŭen"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Ripeti la ĵusan serĉon samdirekte"
-
-#~ msgid "No previous search string"
-#~ msgstr "Malestas pasinta serĉoĉeno"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Ripeti la ĵusan serĉon alidirekte"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Viŝi la montratajn serĉajn kongruojn"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Serĉi signoĉenon dum vi tajpas ĝin"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "Serĉi tajpante regulesprime malantaŭen: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "Serĉi tajpante malantaŭen: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "Serĉi tajpante regulesprime: "
-
-#~ msgid "I-search: "
-#~ msgstr "Serĉi tajpante: "
-
-# La vorto metiĝas antaŭ la kvar antaŭaj mesaĝoj kiam la serĉo fiaskas.
-#~ msgid "Failing "
-#~ msgstr "*Fiaskas* "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Ĉesigi la kurantan operacion"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Montri la version de la rulanta Info"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "GNU Info, versio %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Refreŝigi la ekranon"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Eliri el Info"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Plenumi komandon asociitan kun ĉi tiu klavo minuskligita"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Aldoni ĉi tiun ciferon al la kuranta nombra argumento"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Komenci (aŭ 4-obligi) la kurantan nombran argumenton"
 
 #~ msgid ""
 #~ "move your @contents command if you want the contents after the title page"

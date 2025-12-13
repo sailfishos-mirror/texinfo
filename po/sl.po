@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.13\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2012-08-10 18:31+0100\n"
 "Last-Translator: Klemen Košir <klemen.kosir@gmx.com>\n"
 "Language-Team: Slovenian <translation-team-sl@lists.sourceforge.net>\n"
@@ -19,11 +19,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No `%s' pointer for this node."
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Za to vozlišče ni kazalcev `%s'."
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Pomakni se naprej za en znak"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Pomakni se nazaj za en znak"
 
@@ -35,11 +43,11 @@ msgstr "Pomakni se na začetek te vrstice"
 msgid "Move to the end of this line"
 msgstr "Pomakni se na konec te vrstice"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Pomakni se naprej za eno besedo"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Pomakni se nazaj za eno besedo"
 
@@ -280,7 +288,7 @@ msgstr "Brez vnosov %skazala, ki vsebuje `%s'."
 msgid "No available info files have '%s' in their indices"
 msgstr "Nobena razpoložljiva podatkovna datoteka nima `%s' v svojih kazalih."
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, fuzzy, c-format
 #| msgid "No menu item `%s' in node `%s'."
 msgid "No menu item '%s' in node '%s'"
@@ -1005,6 +1013,602 @@ msgstr "`%s' je neveljaven"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Končaj"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr ""
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr ""
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Pomakni se navzdol v naslednjo vrstico"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Pomakni se navzgor v predhodno vrstico"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Premakni kazalko v določeno vrstico okna"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Pomakni se na konec vrstice"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Pomakni se na začetek vrstice"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Pomakni se na začetek tega vozlišča"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Pomakni se na konec tega vozlišča"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Podrsaj  naprej v tem oknu"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Podrsaj nazaj v tem oknu"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Podrsaj naprej v tem oknu in nastavi privzeto velikost okna"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Podrsaj nazaj v tem oknu in nastavi privzeto velikost okna"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Podrsaj naprej v tem oknu in ostani znotraj vozlišča"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Podrsaj nazaj v tem oknu in ostani znotraj vozlišča"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Podrsaj naprej v tem oknu in ostani znotraj vozlišča ter nastavi privzeto "
+"velikost okna"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Podrsaj nazaj v tem oknu in ostani znotraj vozlišča in nastavi privzeto "
+"velikost okna"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Podrsaj dol po vrsticah"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Podrsaj gor po vrsticah"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Podrsaj dol za pol velikosti zaslona"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Podrsaj gor za pol velikosti zaslona"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Podrsaj drugo okno"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Podrsaj drugo okno nazaj"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Izberi naslednje okno"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Izberi predhodno okno"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Razdeli trenutno okno"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Izbriši trenutno okno"
+
+#: info/session-cmd.c:992
+#, fuzzy
+#| msgid "Cannot delete the last window."
+msgid "Cannot delete the last window"
+msgstr "Zadnjega okna ni mogoče izbrisati."
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Trajnega okna ni mogoče izbrisati"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Izbriši vsa ostala okna"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Povečaj (ali pomanjšaj) to okno"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Razdeli razpoložljiv prostor na zaslonu med vidna okna"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Preklopi stanje preloma vrstic v trenutnem oknu"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Izberi ta predmet menija"
+
+#: info/session-cmd.c:1386
+#, fuzzy, c-format
+#| msgid "There aren't %d items in this menu."
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "V tem meniju ni %d predmetov."
+msgstr[1] "V tem meniju ni %d predmetov."
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Izberi zadnji predmet v tem meniju vozlišča"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Predmet menija (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Predmet menija: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Sledi xref (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Sledi xref: "
+
+#: info/session-cmd.c:1585
+#, fuzzy, c-format
+#| msgid "The reference disappeared! (%s)."
+msgid "The reference disappeared! (%s)"
+msgstr "Sklic je izginil! (%s)."
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Preberi predmet menija in izberi njegovo vozlišče"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr ""
+"Preberi sprotno opombo ali pa navzkrižni sklic in izberi njuno vozlišče"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Premakni se na začetek tega menija vozlišča"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Če je možno, obišči čim več predmetov menijev naenkrat"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Pomakni se na predhodni navzkrižni sklic"
+
+#: info/session-cmd.c:1849
+#, fuzzy
+#| msgid "Move to the previous cross reference"
+msgid "Move to the next cross reference"
+msgstr "Pomakni se na predhodni navzkrižni sklic"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Izberi sklic ali predmet menija, ki se prikazuje v tej vrstici"
+
+#: info/session-cmd.c:1946
+#, fuzzy, c-format
+#| msgid "No menu item `%s' in node `%s'."
+msgid "No menu in node '%s'"
+msgstr "V vozlišču `%s' ni predmetov menijev `%s'."
+
+#: info/session-cmd.c:1993
+#, fuzzy, c-format
+#| msgid "Unable to find node referenced by `%s' in `%s'."
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Ni mogoče najti vozlišča, sklicevanega s strani `%s' v `%s'."
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Preberi seznam menijev, ki se začnejo v mapi in jim sledi"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Sledi menijem: "
+
+#: info/session-cmd.c:2117
+#, fuzzy, c-format
+#| msgid "No `%s' pointer for this node."
+msgid "No '%s' pointer for this node"
+msgstr "Za to vozlišče ni kazalcev `%s'."
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Izberi nasled. vozlišče"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Izberi pred. vozlišče"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Izberi zgor. vozlišče"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Izberi zadnje vozlišče v tej datoteki"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "To okno nima dodatnih vozlišč"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Izberi prvo vozlišče v tej datoteki"
+
+#: info/session-cmd.c:2257
+#, fuzzy
+#| msgid "You are already at the last page of this node."
+msgid "You are already at the last page of this node"
+msgstr "Ste že na zadnji strani tega vozlišča."
+
+#: info/session-cmd.c:2343
+#, fuzzy
+#| msgid "No more nodes within this document."
+msgid "No more nodes within this document"
+msgstr "V tem dokumentu ni več vozlišč."
+
+#: info/session-cmd.c:2373
+#, fuzzy
+#| msgid "You are already at the first page of this node."
+msgid "You are already at the first page of this node"
+msgstr "Ste že na prvi strani tega vozlišča."
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+#, fuzzy
+#| msgid "No `Prev' or `Up' for this node within this document."
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Brez `Pred' ali `Gor' za to vozlišče znotraj tega dokumenta."
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Pomakni se naprej ali dol skozi strukturo vozlišča"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Pomakni se nazaj ali gor skozi strukturo vozlišča"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Preberi ime vozlišča in ga izberi"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Pojdi v vozlišče: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Najdi vozlišče, ki opisuje priklic programa"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Najdi vozlišče priklica [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "preberi priročniško stran in jo izberi"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Pridobi stran priročnika: "
+
+#: info/session-cmd.c:2783
+#, fuzzy
+#| msgid "Select the node `Top' in this file"
+msgid "Select the node 'Top' in this file"
+msgstr "Izberi vozlišče `Top' v tej datoteki"
+
+#: info/session-cmd.c:2789
+#, fuzzy
+#| msgid "Select the node `(dir)'"
+msgid "Select the node '(dir)'"
+msgstr "Izberi vozlišče `(dir)'"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr ""
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Izberi nedavno izbrano vozlišče"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr ""
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Preberi ime vozlišča in ga izberi"
+
+#: info/session-cmd.c:2825
+#, fuzzy
+#| msgid "Find file: "
+msgid "Find file: "
+msgstr "Najdi datoteko: "
+
+#: info/session-cmd.c:2842
+#, fuzzy, c-format
+#| msgid "Cannot find `%s'."
+msgid "Cannot find '%s'"
+msgstr "Ni mogoče najti `%s'."
+
+#: info/session-cmd.c:2923
+#, fuzzy, c-format
+#| msgid "cannot create output file `%s'"
+msgid "Could not create output file '%s'"
+msgstr "ni mogoče ustvariti datoteke vnosa `%s'"
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to `%s'"
+msgid "error writing to %s: %s"
+msgstr "napaka med branjem v `%s'"
+
+#: info/session-cmd.c:2958
+#, fuzzy, c-format
+#| msgid "error closing output file `%s'"
+msgid "closing %s"
+msgstr "napaka med končanjem datoteke vnosa `%s'"
+
+#: info/session-cmd.c:2998
+#, fuzzy, c-format
+#| msgid "Writing node %s..."
+msgid "writing node %s..."
+msgstr "Zapisovanje vozlišča %s ..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Uporabi cev za vsebino tega vozlišča skozi INFO_PRINT_COMMAND"
+
+#: info/session-cmd.c:3072
+#, fuzzy, c-format
+#| msgid "Cannot open pipe to `%s'."
+msgid "Cannot open pipe to '%s'"
+msgstr "Ni mogoče odpreti cevi v `%s'."
+
+#: info/session-cmd.c:3077
+#, fuzzy, c-format
+#| msgid "Printing node %s..."
+msgid "printing node %s..."
+msgstr "Izpisovanje vozlišča %s ..."
+
+#: info/session-cmd.c:3085
+#, fuzzy, c-format
+#| msgid "Printing node %s..."
+msgid "finished printing node %s"
+msgstr "Izpisovanje vozlišča %s ..."
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Preklopi uporabo logičnih izrazov v iskanjih"
+
+#: info/session-cmd.c:3121
+#, fuzzy, c-format
+#| msgid "Using regular expressions for searches."
+msgid "Using regular expressions for searches"
+msgstr "Uporaba logičnih izrazov za iskanja"
+
+#: info/session-cmd.c:3122
+#, fuzzy, c-format
+#| msgid "Using literal strings for searches."
+msgid "Using literal strings for searches"
+msgstr "Uporaba znakovnih nizov za iskanja"
+
+#: info/session-cmd.c:3325
+#, fuzzy
+#| msgid "Search continued from the end of the document."
+msgid "Search continued from the end of the document"
+msgstr "Iskanje se nadaljuje od konca dokumenta."
+
+#: info/session-cmd.c:3330
+#, fuzzy
+#| msgid "Search continued from the beginning of the document."
+msgid "Search continued from the beginning of the document"
+msgstr "Iskanje se nadaljuje od začetka dokumenta."
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Iskanje poddatoteke %s ..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, fuzzy, c-format
+#| msgid "Search failed."
+msgid "Search failed"
+msgstr "Iskanje je spodletelo."
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Iskanje logičnega izraza"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Iskanje"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " ločevanje velikosti črk"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " vzvratno"
+
+#: info/session-cmd.c:3413
+#, fuzzy, c-format
+#| msgid "%s%s%s [%s]: "
+msgid "%s%s%s: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr ""
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr ""
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr ""
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr ""
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, fuzzy, c-format
+#| msgid "Searching subfile %s ..."
+msgid "Search under %s: "
+msgstr "Iskanje poddatoteke %s ..."
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr ""
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr ""
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr ""
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Preberi niz in ga išči občutljivo na velikost črk"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Preberi niz in ga poišči"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Preberi niz in ga poišči v smeri nazaj"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Ponovi zadnje iskanje v isti smeri"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Brez niza predhodnega iskanja"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Ponovi zadnje iskanje v obratni smeri"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr ""
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Ko se vpisuje niz, ga išči vzajemno"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "Vzvratno I-iskanje logičnega izraza: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "I-iskanje vzvratno: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "I-iskanje logičnega izraza: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "I-iskanje: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Spodletelo "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Prekliči trenutno opravilo"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr ""
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr ""
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Osveži zaslon"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Končaj z uporabo Info"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Zaženi ukaz, določen tej izvedbi tipke z malimi črkami"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Dodaj to števko trenutnemu številskemu argumentu"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Začni (ali zmnoži s 4) trenutni številski argument"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1784,7 +2388,7 @@ msgstr "tukaj je predhodna določitev `%s'"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1801,7 +2405,7 @@ msgstr "%s: ni mogoče odpreti --css-file: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1830,17 +2434,21 @@ msgid "could not create directory `%s': %s"
 msgstr "Ni mogoče ustvariti mape `%s': %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "napaka med končanjem datoteke vnosa `%s'"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "datoteka @image `%s' je neberljiva: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, fuzzy, perl-format
 #| msgid "@image file `%s' unreadable: %s"
 msgid "@image file `%s' not found, using `%s'"
@@ -2182,54 +2790,54 @@ msgstr ""
 msgid "@node %s name should not contain `,': %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image datoteka `%s' (za HTML) ni berljiva: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "%s: ni mogoče odpreti --css-file: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, perl-format
 msgid "math to images: chdir %s failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, perl-format
 msgid "math to images: output file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, perl-format
 msgid "math to images: command failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, perl-format
 msgid "math to images: dvi file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, perl-format
 msgid "math to images: unable to return to initial directory: %s"
 msgstr ""
@@ -2283,20 +2891,25 @@ msgstr ""
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, fuzzy, c-format, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not read %s: %s"
 msgstr "%s: ni mogoče odpreti --css-file: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "napaka med končanjem datoteke vnosa `%s'"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, fuzzy, c-format, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "@%s: could not find %s"
@@ -4527,22 +5140,9 @@ msgstr ""
 #~ "splošna vprašanja in razprave na help-texinfo@gnu.org.\n"
 #~ "Domača stran texinfo: http://www.gnu.org/software/texinfo/"
 
-#~ msgid "Cannot delete the last window."
-#~ msgstr "Zadnjega okna ni mogoče izbrisati."
-
-#, c-format
-#~ msgid "No `%s' pointer for this node."
-#~ msgstr "Za to vozlišče ni kazalcev `%s'."
-
 #, c-format
 #~ msgid "Unknown Info command `%c'; try `?' for help."
 #~ msgstr "Neznan ukaz Info `%c'; za pomoč poskusite `?'."
-
-#~ msgid "You are already at the last page of this node."
-#~ msgstr "Ste že na zadnji strani tega vozlišča."
-
-#~ msgid "You are already at the first page of this node."
-#~ msgstr "Ste že na prvi strani tega vozlišča."
 
 #~ msgid ""
 #~ "Basic Commands in Info Windows\n"
@@ -4710,10 +5310,6 @@ msgstr ""
 #~ msgid "incorrect number of arguments"
 #~ msgstr "neveljavno število argumentov"
 
-#, c-format
-#~ msgid "cannot create output file `%s'"
-#~ msgstr "ni mogoče ustvariti datoteke vnosa `%s'"
-
 #~ msgid "section too long"
 #~ msgstr "odsek je predolg"
 
@@ -4792,217 +5388,11 @@ msgstr ""
 #~ msgid "Undefined command: %s"
 #~ msgstr "Nedoločen ukaz: %s"
 
-#~ msgid "Move down to the next line"
-#~ msgstr "Pomakni se navzdol v naslednjo vrstico"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Pomakni se navzgor v predhodno vrstico"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Pomakni se na konec vrstice"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Pomakni se na začetek vrstice"
-
 #~ msgid "Next"
 #~ msgstr "Naprej"
 
-#~ msgid "No more nodes within this document."
-#~ msgstr "V tem dokumentu ni več vozlišč."
-
 #~ msgid "No `Prev' for this node."
 #~ msgstr "Brez `Pred' za to vozlišče."
-
-#~ msgid "No `Prev' or `Up' for this node within this document."
-#~ msgstr "Brez `Pred' ali `Gor' za to vozlišče znotraj tega dokumenta."
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Pomakni se naprej ali dol skozi strukturo vozlišča"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Pomakni se nazaj ali gor skozi strukturo vozlišča"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Podrsaj  naprej v tem oknu"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Podrsaj naprej v tem oknu in nastavi privzeto velikost okna"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Podrsaj naprej v tem oknu in ostani znotraj vozlišča"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Podrsaj naprej v tem oknu in ostani znotraj vozlišča ter nastavi privzeto "
-#~ "velikost okna"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Podrsaj nazaj v tem oknu"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Podrsaj nazaj v tem oknu in nastavi privzeto velikost okna"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Podrsaj nazaj v tem oknu in ostani znotraj vozlišča"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Podrsaj nazaj v tem oknu in ostani znotraj vozlišča in nastavi privzeto "
-#~ "velikost okna"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Pomakni se na začetek tega vozlišča"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Pomakni se na konec tega vozlišča"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Podrsaj dol po vrsticah"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Podrsaj gor po vrsticah"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Podrsaj dol za pol velikosti zaslona"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Podrsaj gor za pol velikosti zaslona"
-
-#~ msgid "Select the next window"
-#~ msgstr "Izberi naslednje okno"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Izberi predhodno okno"
-
-#~ msgid "Split the current window"
-#~ msgstr "Razdeli trenutno okno"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Izbriši trenutno okno"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Trajnega okna ni mogoče izbrisati"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Izbriši vsa ostala okna"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Podrsaj drugo okno"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Podrsaj drugo okno nazaj"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Povečaj (ali pomanjšaj) to okno"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Razdeli razpoložljiv prostor na zaslonu med vidna okna"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Preklopi stanje preloma vrstic v trenutnem oknu"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Preklopi uporabo logičnih izrazov v iskanjih"
-
-#~ msgid "Using regular expressions for searches."
-#~ msgstr "Uporaba logičnih izrazov za iskanja"
-
-#~ msgid "Using literal strings for searches."
-#~ msgstr "Uporaba znakovnih nizov za iskanja"
-
-#~ msgid "Select the Next node"
-#~ msgstr "Izberi nasled. vozlišče"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Izberi pred. vozlišče"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Izberi zgor. vozlišče"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Izberi zadnje vozlišče v tej datoteki"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "To okno nima dodatnih vozlišč"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Izberi prvo vozlišče v tej datoteki"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Izberi zadnji predmet v tem meniju vozlišča"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Izberi ta predmet menija"
-
-#, c-format
-#~ msgid "There aren't %d items in this menu."
-#~ msgstr "V tem meniju ni %d predmetov."
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Predmet menija (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Predmet menija: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Sledi xref (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Sledi xref: "
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Preberi predmet menija in izberi njegovo vozlišče"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr ""
-#~ "Preberi sprotno opombo ali pa navzkrižni sklic in izberi njuno vozlišče"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Premakni se na začetek tega menija vozlišča"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Če je možno, obišči čim več predmetov menijev naenkrat"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Preberi ime vozlišča in ga izberi"
-
-#~ msgid "Goto node: "
-#~ msgstr "Pojdi v vozlišče: "
-
-#, c-format
-#~ msgid "Unable to find node referenced by `%s' in `%s'."
-#~ msgstr "Ni mogoče najti vozlišča, sklicevanega s strani `%s' v `%s'."
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Preberi seznam menijev, ki se začnejo v mapi in jim sledi"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Sledi menijem: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Najdi vozlišče, ki opisuje priklic programa"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Najdi vozlišče priklica [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "preberi priročniško stran in jo izberi"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Pridobi stran priročnika: "
-
-#~ msgid "Select the node `Top' in this file"
-#~ msgstr "Izberi vozlišče `Top' v tej datoteki"
-
-#~ msgid "Select the node `(dir)'"
-#~ msgstr "Izberi vozlišče `(dir)'"
 
 #, c-format
 #~ msgid "Kill node (%s): "
@@ -5015,128 +5405,11 @@ msgstr ""
 #~ msgid "Cannot kill the last node"
 #~ msgstr "Zadnjega vozlišča ni mogoče uničiti"
 
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Izberi nedavno izbrano vozlišče"
-
 #~ msgid "Kill this node"
 #~ msgstr "Uniči to vozlišče"
 
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Preberi ime vozlišča in ga izberi"
-
-#, c-format
-#~ msgid "Cannot find `%s'."
-#~ msgstr "Ni mogoče najti `%s'."
-
 #~ msgid "Done."
 #~ msgstr "Končano."
-
-#, c-format
-#~ msgid "Writing node %s..."
-#~ msgstr "Zapisovanje vozlišča %s ..."
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "Uporabi cev za vsebino tega vozlišča skozi INFO_PRINT_COMMAND"
-
-#, c-format
-#~ msgid "Cannot open pipe to `%s'."
-#~ msgstr "Ni mogoče odpreti cevi v `%s'."
-
-#, c-format
-#~ msgid "Printing node %s..."
-#~ msgstr "Izpisovanje vozlišča %s ..."
-
-#~ msgid "Search continued from the end of the document."
-#~ msgstr "Iskanje se nadaljuje od konca dokumenta."
-
-#~ msgid "Search continued from the beginning of the document."
-#~ msgstr "Iskanje se nadaljuje od začetka dokumenta."
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Iskanje poddatoteke %s ..."
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Preberi niz in ga išči občutljivo na velikost črk"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Preberi niz in ga poišči"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Preberi niz in ga poišči v smeri nazaj"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Iskanje logičnega izraza"
-
-#~ msgid " case-sensitively"
-#~ msgstr " ločevanje velikosti črk"
-
-#~ msgid " backward"
-#~ msgstr " vzvratno"
-
-#~ msgid "Search"
-#~ msgstr "Iskanje"
-
-#~ msgid "Search failed."
-#~ msgstr "Iskanje je spodletelo."
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Ponovi zadnje iskanje v isti smeri"
-
-#~ msgid "No previous search string"
-#~ msgstr "Brez niza predhodnega iskanja"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Ponovi zadnje iskanje v obratni smeri"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Ko se vpisuje niz, ga išči vzajemno"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "Vzvratno I-iskanje logičnega izraza: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "I-iskanje vzvratno: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "I-iskanje logičnega izraza: "
-
-#~ msgid "I-search: "
-#~ msgstr "I-iskanje: "
-
-#~ msgid "Failing "
-#~ msgstr "Spodletelo "
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Pomakni se na predhodni navzkrižni sklic"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Izberi sklic ali predmet menija, ki se prikazuje v tej vrstici"
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Prekliči trenutno opravilo"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Premakni kazalko v določeno vrstico okna"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Osveži zaslon"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Končaj z uporabo Info"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Zaženi ukaz, določen tej izvedbi tipke z malimi črkami"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Dodaj to števko trenutnemu številskemu argumentu"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Začni (ali zmnoži s 4) trenutni številski argument"
 
 #~ msgid "Internally used by \\[universal-argument]"
 #~ msgstr "Notranja uporaba s \\[universal-argument]"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2021-06-22 12:11+0300\n"
 "Last-Translator: Mehmet Kececi <mkececi@mehmetkececi.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
@@ -20,11 +20,19 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Bu düğüm için '%s' yer gösterici yok"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Bir karakter ileri gider"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Bir karakter geri gider"
 
@@ -36,11 +44,11 @@ msgstr "Satırın başlangıcına gider"
 msgid "Move to the end of this line"
 msgstr "Satırın sonuna gider"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Bir kelime ileri gider"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Bir kelime geri gider"
 
@@ -269,7 +277,7 @@ msgstr "'%s' içeren indeks girdisi yok."
 msgid "No available info files have '%s' in their indices"
 msgstr "Mevcut bilgi dosyalarından hiçbirisinin indisinde '%s' yok"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "'%s' düğümünde '%s' menü öğesi yok"
@@ -966,6 +974,564 @@ msgstr "'%s' geçersiz"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Çık"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Eşleşen tüm dosyaları göster"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Dosya indeksi yok"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Sonraki satıra (aşağı) gider"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Önceki satıra (yukarı) gider"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "İmleci pencerenin belirli bir satırına taşır"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Satır sonuna gider"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Satır başına gider"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Bu düğümün başlangıcına gider"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Bu düğümün sonuna gider"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Bu pencerede ileriye doğru kaydırır"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Bu pencerede geriye doğru kaydırır"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr ""
+"Bu pencerede ileriye doğru kaydırır ve öntanımlı pencere boyutuna ayarlar"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr ""
+"Bu pencerede geriye doğru kaydırır ve öntanımlı pencere boyutunu ayarlar"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Bu pencerede, düğüm içinde kalarak ileriye doğru kaydırır"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Bu pencerede, düğüm içinde kalarak geriye doğru kaydırır"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Bu pencerede, düğüm içinde kalarak ileriye doğru kaydırır ve öntanımlı "
+"pencere boyutunu ayarlar"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Düğüm içinde kalan bu pencerede geriye doğru ilerleyin ve varsayılan pencere "
+"boyutunu ayarlayın"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Aşağıya doğru satır kaydırır"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Yukarıya doğru satır kaydırır"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Aşağıya doğru yarım ekran boyutu kaydırır"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Yukarıya doğru yarım ekran boyutu kaydırır"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Diğer pencereyi kaydırır"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Diğer pencereyi geriye doğru kaydırır"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Sonraki pencereyi seçer"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Önceki pencereyi seçer"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Mevcut pencereyi böler"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Mevcut pencereyi siler"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Son pencere silinemez"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Kalıcı bir pencere silinemez"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Diğer tüm pencereleri siler"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Bu pencereyi büyütür (veya küçültür)"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Mevcut ekran boşluğunu görünür pencereler arasında bölüştürür"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Mevcut penceredeki satır sarma durumunu değiştirir"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Bu menü öğesini seçer"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Bu menüde %d öğesi yok"
+msgstr[1] "Bu menüde %d adet öğe yok"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Bu düğümün menüsündeki son öğeyi seçer"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Menü öğesi (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Menü öğesi: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "İzlenecek xref (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "İzlenecek xref: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "Referans yokoldu! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Bir menü öğesini okur ve düğümünü seçer"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Oku yada ve select"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Bu düğüm menüsünün başlangıcına gider"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Tek seferde mümkün olan en fazla sayıda menü öğesine uğrar"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Önceki çapraz başvuruya gider"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Sonraki çapraz başvuruya gider"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Bu satırdaki referans ya da menü öğesini seçer"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Menüsü olmayan düğüm '%s'"
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "'%s' de '%s' tarafından başvurulan düğüm bulunamadı"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Dizinden başlayarak bir menü listesini oku ve izle"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Menüleri izle: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Bu düğüm için '%s' yer gösterici yok"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Sonraki düğümü seçer"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Önceki düğümü seçer"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Üstteki düğümü seçer"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Bu dosyadaki son düğümü seçer"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Bu pencerenin başka düğümü yok"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Bu dosyadaki ilk düğümü seçer"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Zaten bu düğümün son sayfasındasınız"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Bu belge içinde başka düğüm yok"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Zaten bu düğümün ilk sayfasındasınız"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Bu belge içinde, bu düğüm için 'Önceki' ya da 'Yukarı' yok"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Düğüm yapısı içinde ileriye ya da aşağıya gider"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Düğüm yapısı içinde geriye ya da yukarıya gider"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Bir düğüm adı okur ve seçer"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Düğüme gider: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Program çağırmayı açıklayan düğümü bulur"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "[%s] in çağırma düğümünü bulur: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Bir klavuz sayfası başvurusunu okur ve seçer"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Alınacak klavuz sayfası: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Bu dosyadaki 'En Üst' düğümü seç"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "'(dizin)' düğümünü seç"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Görüntülenen düğümün tam dosya adını göster"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "En son seçilen düğümü seçer"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Geçmişte daha önceki bir düğüm yok"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Bir dosyanın adını okur ve seçer"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Dosyayı bul: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "'%s' bulunamıyor"
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Çıktı dosyası '%s' oluşturulamıyor"
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "error writing to %s: %s"
+msgstr "%s'e yazma hatası:%s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "%s kapatılıyor"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "%s düğümü yazılıyor..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Bu düğümün içeriğini INFO_PRINT_COMMAND üzerinden veri yolla"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Veri yolu '%s' e açılamıyor"
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "%s düğümü yazdırılıyor..."
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "%s düğümünün yazdırılması tamamlandı"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Aramalarda düzenli ifade kullanımına geç"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Aramalarda düzenli ifade kullanılıyor"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Aramalarda yazılı dizge kullanılıyor"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Arama, belgenin sonundan sürdürülüyor"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Arama, belgenin başından sürdürülüyor"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "%s altdosyası aranıyor ..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Arama başarısız"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Düzenli ifade arama"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Ara"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " büyük/küçük harf duyarlı şekilde"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " geriye doğru"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Arama dizgesi çok kısa"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "%s'den son karşılaşmaya geri dönüyor"
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Daha fazla eşleşme yok"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Bu düğümü ve alt düğümleri bir dizi için ara"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "%s altında ara: "
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Info alt-ağacında bir sonraki eşleşmeye git"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Etkin arama yok"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Info alt-ağacındaki önceki eşleşmeye git"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Bir dizge okur ve onu büyük/küçük harf duyarlı şekilde arar"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Bir dizge okur ve (onu) arar"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Bir dizge okur ve (onu) geriye doğru arar"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Son aramayı aynı yönde yineler"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Daha önceden arama dizgesi yok"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Son aramayı ters yönde yineler"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Görüntülenen eşleşmiş aramaları sil"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Bir dizgeyi siz yazarken etkileşimli şekilde arar"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "Düzenli ifade I-arama, geriye doğru: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "I-arama, geriye doğru: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "Düzenli ifade I-arama: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "I-arama: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Başarılamıyor "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Mevcut işlemi iptal eder"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Çalışan Ino'nun sürüm bilgisini görüntüler"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Info sürüm %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Görüntüyü yeniden çizer"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Info'dan çıkar"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Bu tuşun küçük harfine atanmış komutu yürütür"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Mevcut sayısal argümana bu sayıyı ekle"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Mevcut sayısal argümanı başlat (veya 4'le çarp)"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1726,7 +2292,7 @@ msgstr "işte @%s olarak önceki tanım"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1742,7 +2308,7 @@ msgstr "%s yazmak için açılamıyor: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1769,16 +2335,20 @@ msgid "could not create directory `%s': %s"
 msgstr "`%s' dizini oluşturulamıyor: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "imge metin dosyası %s'i kapatmada hata: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image dosyası `%s' okunamıyor: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image dosyası `%s' bulunamıyor, `%s' kullanılacak"
@@ -2108,59 +2678,59 @@ msgstr "@node adı `,' içermemeli: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "@node adı `,' içermemeli: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image dosyası `%s' (HTML için) bulunamadı, `%s' kullanılacak"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: %s açılamadı: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: %s dizinine geçme başarısız: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: çıktı dosyası kayıp: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: komut başarısız: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: kapanış iletişimi başarısız oldu: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: çıktı dosyası kayıp: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2214,18 +2784,23 @@ msgstr "menü girdisi düğüm adı `:' içermemeli"
 msgid "menu entry name should not contain `:'"
 msgstr "menü girdi adı `:' içermemeli"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "%s okunamıyor: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "%s @verbatiminclude dosyasını kapatmada hata: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: %s bulunamıyor"
@@ -4462,426 +5037,9 @@ msgstr "hatalı ya da boş @%s resmi argümanı: "
 #~ "                               tüm elkitabını out.txt'e çıkartır\n"
 #~ "  info -f ./foo.info           dir aramadan ./foo.info dosyasını gösterir"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Son pencere silinemez"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Bu düğüm için '%s' yer gösterici yok"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Info komutu '%c' bilinmiyor; yardım almak için '?' deneyin"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Zaten bu düğümün son sayfasındasınız"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Zaten bu düğümün ilk sayfasındasınız"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Eşleşen tüm dosyaları göster"
-
-#~ msgid "No file index"
-#~ msgstr "Dosya indeksi yok"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Sonraki satıra (aşağı) gider"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Önceki satıra (yukarı) gider"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "İmleci pencerenin belirli bir satırına taşır"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Satır sonuna gider"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Satır başına gider"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Bu düğümün başlangıcına gider"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Bu düğümün sonuna gider"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Bu pencerede ileriye doğru kaydırır"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Bu pencerede geriye doğru kaydırır"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr ""
-#~ "Bu pencerede ileriye doğru kaydırır ve öntanımlı pencere boyutuna ayarlar"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr ""
-#~ "Bu pencerede geriye doğru kaydırır ve öntanımlı pencere boyutunu ayarlar"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Bu pencerede, düğüm içinde kalarak ileriye doğru kaydırır"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Bu pencerede, düğüm içinde kalarak geriye doğru kaydırır"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Bu pencerede, düğüm içinde kalarak ileriye doğru kaydırır ve öntanımlı "
-#~ "pencere boyutunu ayarlar"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Düğüm içinde kalan bu pencerede geriye doğru ilerleyin ve varsayılan "
-#~ "pencere boyutunu ayarlayın"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Aşağıya doğru satır kaydırır"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Yukarıya doğru satır kaydırır"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Aşağıya doğru yarım ekran boyutu kaydırır"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Yukarıya doğru yarım ekran boyutu kaydırır"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Diğer pencereyi kaydırır"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Diğer pencereyi geriye doğru kaydırır"
-
-#~ msgid "Select the next window"
-#~ msgstr "Sonraki pencereyi seçer"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Önceki pencereyi seçer"
-
-#~ msgid "Split the current window"
-#~ msgstr "Mevcut pencereyi böler"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Mevcut pencereyi siler"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Kalıcı bir pencere silinemez"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Diğer tüm pencereleri siler"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Bu pencereyi büyütür (veya küçültür)"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Mevcut ekran boşluğunu görünür pencereler arasında bölüştürür"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Mevcut penceredeki satır sarma durumunu değiştirir"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Bu menü öğesini seçer"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Bu menüde %d öğesi yok"
-#~ msgstr[1] "Bu menüde %d adet öğe yok"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Bu düğümün menüsündeki son öğeyi seçer"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Menü öğesi (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Menü öğesi: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "İzlenecek xref (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "İzlenecek xref: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "Referans yokoldu! (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Bir menü öğesini okur ve düğümünü seçer"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "Oku yada ve select"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Bu düğüm menüsünün başlangıcına gider"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Tek seferde mümkün olan en fazla sayıda menü öğesine uğrar"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Önceki çapraz başvuruya gider"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Sonraki çapraz başvuruya gider"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Bu satırdaki referans ya da menü öğesini seçer"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Menüsü olmayan düğüm '%s'"
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "'%s' de '%s' tarafından başvurulan düğüm bulunamadı"
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Dizinden başlayarak bir menü listesini oku ve izle"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Menüleri izle: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Sonraki düğümü seçer"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Önceki düğümü seçer"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Üstteki düğümü seçer"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Bu dosyadaki son düğümü seçer"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Bu pencerenin başka düğümü yok"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Bu dosyadaki ilk düğümü seçer"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Bu belge içinde başka düğüm yok"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr "Bu belge içinde, bu düğüm için 'Önceki' ya da 'Yukarı' yok"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Düğüm yapısı içinde ileriye ya da aşağıya gider"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Düğüm yapısı içinde geriye ya da yukarıya gider"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Bir düğüm adı okur ve seçer"
-
-#~ msgid "Goto node: "
-#~ msgstr "Düğüme gider: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Program çağırmayı açıklayan düğümü bulur"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "[%s] in çağırma düğümünü bulur: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Bir klavuz sayfası başvurusunu okur ve seçer"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Alınacak klavuz sayfası: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Bu dosyadaki 'En Üst' düğümü seç"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "'(dizin)' düğümünü seç"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Görüntülenen düğümün tam dosya adını göster"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "En son seçilen düğümü seçer"
-
-#~ msgid "No earlier node in history"
-#~ msgstr "Geçmişte daha önceki bir düğüm yok"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Bir dosyanın adını okur ve seçer"
-
-#~ msgid "Find file: "
-#~ msgstr "Dosyayı bul: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "'%s' bulunamıyor"
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Çıktı dosyası '%s' oluşturulamıyor"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "%s kapatılıyor"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "%s düğümü yazılıyor..."
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "Bu düğümün içeriğini INFO_PRINT_COMMAND üzerinden veri yolla"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Veri yolu '%s' e açılamıyor"
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "%s düğümü yazdırılıyor..."
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "%s düğümünün yazdırılması tamamlandı"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Aramalarda düzenli ifade kullanımına geç"
-
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Aramalarda düzenli ifade kullanılıyor"
-
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Aramalarda yazılı dizge kullanılıyor"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Arama, belgenin sonundan sürdürülüyor"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Arama, belgenin başından sürdürülüyor"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "%s altdosyası aranıyor ..."
-
-#~ msgid "Search failed"
-#~ msgstr "Arama başarısız"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Düzenli ifade arama"
-
-#~ msgid "Search"
-#~ msgstr "Ara"
-
-#~ msgid " case-sensitively"
-#~ msgstr " büyük/küçük harf duyarlı şekilde"
-
-#~ msgid " backward"
-#~ msgstr " geriye doğru"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Arama dizgesi çok kısa"
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "%s'den son karşılaşmaya geri dönüyor"
-
-#~ msgid "No more matches"
-#~ msgstr "Daha fazla eşleşme yok"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Bu düğümü ve alt düğümleri bir dizi için ara"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "%s altında ara: "
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Info alt-ağacında bir sonraki eşleşmeye git"
-
-#~ msgid "No active search"
-#~ msgstr "Etkin arama yok"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Info alt-ağacındaki önceki eşleşmeye git"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Bir dizge okur ve onu büyük/küçük harf duyarlı şekilde arar"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Bir dizge okur ve (onu) arar"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Bir dizge okur ve (onu) geriye doğru arar"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Son aramayı aynı yönde yineler"
-
-#~ msgid "No previous search string"
-#~ msgstr "Daha önceden arama dizgesi yok"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Son aramayı ters yönde yineler"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Görüntülenen eşleşmiş aramaları sil"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Bir dizgeyi siz yazarken etkileşimli şekilde arar"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "Düzenli ifade I-arama, geriye doğru: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "I-arama, geriye doğru: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "Düzenli ifade I-arama: "
-
-#~ msgid "I-search: "
-#~ msgstr "I-arama: "
-
-#~ msgid "Failing "
-#~ msgstr "Başarılamıyor "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Mevcut işlemi iptal eder"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Çalışan Ino'nun sürüm bilgisini görüntüler"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "GNU Info sürüm %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Görüntüyü yeniden çizer"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Info'dan çıkar"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Bu tuşun küçük harfine atanmış komutu yürütür"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Mevcut sayısal argümana bu sayıyı ekle"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Mevcut sayısal argümanı başlat (veya 4'le çarp)"
 
 #, perl-format
 #~ msgid "try `%s --help' for more information\n"

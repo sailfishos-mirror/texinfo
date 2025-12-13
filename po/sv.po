@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2024-12-14 18:06+0100\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -21,11 +21,19 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Ingen ”%s”-pekare för denna nod"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Gå ett tecken framåt"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Gå ett tecken bakåt"
 
@@ -37,11 +45,11 @@ msgstr "Gå till början på raden"
 msgid "Move to the end of this line"
 msgstr "Gå till slutet på raden"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Gå ett ord framåt"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Gå ett ord bakåt"
 
@@ -304,7 +312,7 @@ msgstr "Inga indexposter innehåller ”%s”."
 msgid "No available info files have '%s' in their indices"
 msgstr "Inga tillgängliga infofiler har ”%s” i deras index"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Inget menyobjekt ”%s” i noden ”%s”"
@@ -1015,6 +1023,599 @@ msgstr "”%s” är ogiltigt"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Avsluta"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Visa alla matchande filer"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Inget filindex"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Gå ned till nästa rad"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Gå upp till föregående rad"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Flytta markören till en specifik rad i fönstret"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Gå till slutet på raden"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Gå till början på raden"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Gå till början på denna nod"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Gå till slutet på denna nod"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Rulla framåt i detta fönster"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Rulla bakåt i detta fönster"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Rulla framåt i detta fönster och ställ in standardfönsterstorleken"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Rulla bakåt i detta fönster och ställ in standardfönsterstorleken"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Rulla framåt i detta fönster och stanna inom noden"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Rulla bakåt i detta fönster och stanna inom noden"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Rulla framåt i detta fönster och stanna inom noden och ställ in "
+"standardfönsterstorleken"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Rulla bakåt i detta fönster och stanna inom noden och ställ in "
+"standardfönsterstorleken"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Rulla nedåt radvis"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Rulla uppåt radvis"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Rulla nedåt med halva skärmstorleken"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Rulla uppåt med halva skärmstorleken"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Rulla det andra fönstret"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Rulla det andra fönstret bakåt"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Välj nästa fönster"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Välj föregående fönster"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Dela aktuellt fönster"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Ta bort aktuellt fönster"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Kan inte ta bort det sista fönstret"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Kan inte ta bort ett permanent fönster"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Ta bort alla andra fönster"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Väx (eller krymp) detta fönster"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Dela det tillgängliga skärmutrymmet mellan de synliga fönstren"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Växla tillståndet för radbrytning i det aktuella fönstret"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Välj denna menypost"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Det finns inte %d poster i denna meny"
+msgstr[1] "Det finns inte %d poster i denna meny"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Välj det sista objektet i denna nods meny"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Menypost (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Menypost: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Följ xref (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Följ xref: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "Referensen försvann! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Läs en menypost och välj dess nod"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Läs en fotnot eller korsreferens och välj dess nod"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Gå till början på denna nods meny"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Besök så många menyposter som möjligt samtidigt"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Gå till föregående korsreferens"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Gå till nästa korsreferens"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Välj referens eller menypost som finns på denna rad"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Ingen meny i noden ”%s”"
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Kan inte hitta noden som refereras av ”%s” i ”%s”"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Läs en lista med menyer som börjar med katalog, och följ dem"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Följ menyer: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Ingen ”%s”-pekare för denna nod"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Välj nästa nod"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Välj föregående nod"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Välj uppnoden"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Välj den sista noden i denna fil"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Detta fönster har inga ytterligare noder"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Välj den första noden i denna fil"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Du är redan på sista sidan för denna nod"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Inga fler noder inom detta dokument"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Du är redan på första sidan för denna nod"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Inget ”Prev” eller ”Up” för denna nod inom detta dokument"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Gå framåt eller nedåt i nodstrukturen"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Gå bakåt eller upp i nodstrukturen"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Läs ett nodnamn och välj det"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Gå till nod: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Hitta den nod som beskriver start av programmet"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Hitta programstartnod för [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Läs en referens till manualsida och välj den"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Hämta manualsida: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Välj noden ”Top” i denna fil"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Välj noden ”(dir)”"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Visa fullständigt filnamn för visad noden"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Välj den senast valda noden"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Ingen tidigare nod i historik"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Läs namnet på en fil och välj den"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Sök fil: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Kan inte hitta ”%s”"
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Kunde inte skapa utdatafilen ”%s”"
+
+#: info/session-cmd.c:2949
+#, c-format
+msgid "error writing to %s: %s"
+msgstr "fel vid skrivning till %s: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "stänger %s"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "skriver nod %s…"
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Skicka innehållet i denna nod i rör till INFO_PRINT_COMMAND"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Kan inte öppna rör till ”%s”"
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "skriver ut nod %s…"
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "skrev ut nod %s"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Växla användningen av reguljära uttryck i sökningar"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Använder reguljära uttryck i sökningar"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Använder ordagranna strängar i sökningar"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Sökningen fortsatte från slutet av dokumentet"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Sökningen fortsatte från början av dokumentet"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Söker i underfilen %s..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Sökningen misslyckades"
+
+# This is broken
+#
+#  sprintf (prompt, _("%s%sfor string [%s]: "),
+#           direction < 0 ? _("Search backward") : _("Search"),
+#           case_sensitive ? _(" case-sensitively ") : _(" "),
+#           search_string);
+#
+# Never split a sentence like this, use multiple complete messages instead.
+# If you split a sentence like this, you actually mark them for seperate
+# translation, but they shouldn't be translated seperately, since they
+# belong to the same sentence! All grammar/wording/sentence rules affect
+# how the words interact in the sentence, and you cannot take them out of
+# their sentence context and expect the same grammar to be valid. If you do,
+# you assume things about languages that are hardly true for any language
+# but the original one.
+# Make this several, complete messages, and move the logic out of the
+# messages themselves. Yes, this will result in many more messages, but
+# those will be translatable, while the current design isn't.
+#
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Sökning med reguljära uttryck"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Sök"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " skiljandes på VERSALER/gemener"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " baklänges"
+
+# This is broken
+#
+#  sprintf (prompt, _("%s%sfor string [%s]: "),
+#           direction < 0 ? _("Search backward") : _("Search"),
+#           case_sensitive ? _(" case-sensitively ") : _(" "),
+#           search_string);
+#
+# Never split a sentence like this, use multiple complete messages instead.
+# If you split a sentence like this, you actually mark them for seperate
+# translation, but they shouldn't be translated seperately, since they
+# belong to the same sentence! All grammar/wording/sentence rules affect
+# how the words interact in the sentence, and you cannot take them out of
+# their sentence context and expect the same grammar to be valid. If you do,
+# you assume things about languages that are hardly true for any language
+# but the original one.
+# Make this several, complete messages, and move the logic out of the
+# messages themselves. Yes, this will result in many more messages, but
+# those will be translatable, while the current design isn't.
+#
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Söksträng för kort"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Gå tillbaka till senaste träff från %s"
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Inga fler träffar"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Genomsök denna nod och undernoder efter en sträng"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "Söker i under %s: "
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Gå till nästa matchning i Info-underträd"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Ingen aktiv sökning"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Gå till föregående matchning i Info-underträd"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Läs en sträng och sök efter den skiftlägeskänsligt"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Läs en sträng och sök efter den"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Läs en sträng och sök baklänges efter den"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Upprepa den senaste sökningen i samma riktning"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Ingen tidigare söksträng"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Upprepa den senaste sökningen i omvänd riktning"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Töm visade sökträffar"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Sök interaktivt efter en sträng allteftersom du skriver den"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "I-sök med reguljärt uttryck baklänges: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "I-sök baklänges: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "I-sök med reguljärt uttryck: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "I-sök: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Misslyckas "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Avbryt pågående åtgärd"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Visa vilken version av Info som kör"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Info version %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Rita om displayen"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Avsluta användandet av Info"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Kör kommando som är knutet till denna tangents gemena variant"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Lägg till denna siffra till det aktuella numeriska argumentet"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Börja (eller multiplicera med 4) det numeriska argumentet"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1758,7 +2359,7 @@ msgstr "här är den tidigare definitionen av @%s"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1774,7 +2375,7 @@ msgstr "kunde inte öppna %s för skrivning: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1800,16 +2401,20 @@ msgid "could not create directory `%s': %s"
 msgstr "kunde inte skapa katalogen ”%s”: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "fel vid stängning av bildtextfil %s: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image-filen ”%s” är oläslig: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image-filen ”%s” hittades inte, använder ”%s”"
@@ -2136,58 +2741,58 @@ msgstr "@node-namn borde innehålla ”,”: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "@nod %s namn får inte innehålla `,': %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "\\verb avgränsare `%s' (för LaTeX) används i texten `%s'"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image fil `%s' (för LaTeX) hittades inte"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: kunde inte öppna %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: chdir %s misslyckades: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: utdatafil saknas: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: kommando misslyckades: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: avslutande kommunikation misslyckades: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: utdatafil saknas: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2250,18 +2855,23 @@ msgstr "nodnamn för menyobjekt borde inte innehålla ”:”"
 msgid "menu entry name should not contain `:'"
 msgstr "namn för menyobjekt borde inte innehålla ”:”"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "kunde inte läsa %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "fel vid stängning av @verbatiminclude-fil %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "%s: kunde inte hitta %s"
@@ -4443,473 +5053,9 @@ msgstr "felaktigt eller tomt @%s formellt argument: "
 #~ "      --version                visa versionsinformation och avsluta\n"
 #~ "  -w, --where, --location      skriv ut den fysiska platsen för Info-filen"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Kan inte ta bort det sista fönstret"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Ingen ”%s”-pekare för denna nod"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Okänt Info-kommando ”%c”. Prova ”?” för hjälp"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Du är redan på sista sidan för denna nod"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Du är redan på första sidan för denna nod"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Visa alla matchande filer"
-
-#, c-format
-#~ msgid "No file index"
-#~ msgstr "Inget filindex"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Gå ned till nästa rad"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Gå upp till föregående rad"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Flytta markören till en specifik rad i fönstret"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Gå till slutet på raden"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Gå till början på raden"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Gå till början på denna nod"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Gå till slutet på denna nod"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Rulla framåt i detta fönster"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Rulla bakåt i detta fönster"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Rulla framåt i detta fönster och ställ in standardfönsterstorleken"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Rulla bakåt i detta fönster och ställ in standardfönsterstorleken"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Rulla framåt i detta fönster och stanna inom noden"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Rulla bakåt i detta fönster och stanna inom noden"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Rulla framåt i detta fönster och stanna inom noden och ställ in "
-#~ "standardfönsterstorleken"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Rulla bakåt i detta fönster och stanna inom noden och ställ in "
-#~ "standardfönsterstorleken"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Rulla nedåt radvis"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Rulla uppåt radvis"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Rulla nedåt med halva skärmstorleken"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Rulla uppåt med halva skärmstorleken"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Rulla det andra fönstret"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Rulla det andra fönstret bakåt"
-
-#~ msgid "Select the next window"
-#~ msgstr "Välj nästa fönster"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Välj föregående fönster"
-
-#~ msgid "Split the current window"
-#~ msgstr "Dela aktuellt fönster"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Ta bort aktuellt fönster"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Kan inte ta bort ett permanent fönster"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Ta bort alla andra fönster"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Väx (eller krymp) detta fönster"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Dela det tillgängliga skärmutrymmet mellan de synliga fönstren"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Växla tillståndet för radbrytning i det aktuella fönstret"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Välj denna menypost"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Det finns inte %d poster i denna meny"
-#~ msgstr[1] "Det finns inte %d poster i denna meny"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Välj det sista objektet i denna nods meny"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Menypost (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Menypost: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Följ xref (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Följ xref: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "Referensen försvann! (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Läs en menypost och välj dess nod"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "Läs en fotnot eller korsreferens och välj dess nod"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Gå till början på denna nods meny"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Besök så många menyposter som möjligt samtidigt"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Gå till föregående korsreferens"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Gå till nästa korsreferens"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Välj referens eller menypost som finns på denna rad"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Ingen meny i noden ”%s”"
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Kan inte hitta noden som refereras av ”%s” i ”%s”"
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Läs en lista med menyer som börjar med katalog, och följ dem"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Följ menyer: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Välj nästa nod"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Välj föregående nod"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Välj uppnoden"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Välj den sista noden i denna fil"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Detta fönster har inga ytterligare noder"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Välj den första noden i denna fil"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Inga fler noder inom detta dokument"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr "Inget ”Prev” eller ”Up” för denna nod inom detta dokument"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Gå framåt eller nedåt i nodstrukturen"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Gå bakåt eller upp i nodstrukturen"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Läs ett nodnamn och välj det"
-
-#~ msgid "Goto node: "
-#~ msgstr "Gå till nod: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Hitta den nod som beskriver start av programmet"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Hitta programstartnod för [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Läs en referens till manualsida och välj den"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Hämta manualsida: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Välj noden ”Top” i denna fil"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Välj noden ”(dir)”"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Visa fullständigt filnamn för visad noden"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Välj den senast valda noden"
-
-#, c-format
-#~ msgid "No earlier node in history"
-#~ msgstr "Ingen tidigare nod i historik"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Läs namnet på en fil och välj den"
-
-#~ msgid "Find file: "
-#~ msgstr "Sök fil: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Kan inte hitta ”%s”"
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Kunde inte skapa utdatafilen ”%s”"
-
-#, c-format
-#~ msgid "error writing to %s: %s"
-#~ msgstr "fel vid skrivning till %s: %s"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "stänger %s"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "skriver nod %s…"
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "Skicka innehållet i denna nod i rör till INFO_PRINT_COMMAND"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Kan inte öppna rör till ”%s”"
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "skriver ut nod %s…"
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "skrev ut nod %s"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Växla användningen av reguljära uttryck i sökningar"
-
-#, c-format
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Använder reguljära uttryck i sökningar"
-
-#, c-format
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Använder ordagranna strängar i sökningar"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Sökningen fortsatte från slutet av dokumentet"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Sökningen fortsatte från början av dokumentet"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Söker i underfilen %s..."
-
-#, c-format
-#~ msgid "Search failed"
-#~ msgstr "Sökningen misslyckades"
-
-# This is broken
-#
-#  sprintf (prompt, _("%s%sfor string [%s]: "),
-#           direction < 0 ? _("Search backward") : _("Search"),
-#           case_sensitive ? _(" case-sensitively ") : _(" "),
-#           search_string);
-#
-# Never split a sentence like this, use multiple complete messages instead.
-# If you split a sentence like this, you actually mark them for seperate
-# translation, but they shouldn't be translated seperately, since they
-# belong to the same sentence! All grammar/wording/sentence rules affect
-# how the words interact in the sentence, and you cannot take them out of
-# their sentence context and expect the same grammar to be valid. If you do,
-# you assume things about languages that are hardly true for any language
-# but the original one.
-# Make this several, complete messages, and move the logic out of the
-# messages themselves. Yes, this will result in many more messages, but
-# those will be translatable, while the current design isn't.
-#
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Sökning med reguljära uttryck"
-
-#~ msgid "Search"
-#~ msgstr "Sök"
-
-#~ msgid " case-sensitively"
-#~ msgstr " skiljandes på VERSALER/gemener"
-
-#~ msgid " backward"
-#~ msgstr " baklänges"
-
-# This is broken
-#
-#  sprintf (prompt, _("%s%sfor string [%s]: "),
-#           direction < 0 ? _("Search backward") : _("Search"),
-#           case_sensitive ? _(" case-sensitively ") : _(" "),
-#           search_string);
-#
-# Never split a sentence like this, use multiple complete messages instead.
-# If you split a sentence like this, you actually mark them for seperate
-# translation, but they shouldn't be translated seperately, since they
-# belong to the same sentence! All grammar/wording/sentence rules affect
-# how the words interact in the sentence, and you cannot take them out of
-# their sentence context and expect the same grammar to be valid. If you do,
-# you assume things about languages that are hardly true for any language
-# but the original one.
-# Make this several, complete messages, and move the logic out of the
-# messages themselves. Yes, this will result in many more messages, but
-# those will be translatable, while the current design isn't.
-#
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Söksträng för kort"
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "Gå tillbaka till senaste träff från %s"
-
-#, c-format
-#~ msgid "No more matches"
-#~ msgstr "Inga fler träffar"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Genomsök denna nod och undernoder efter en sträng"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Söker i under %s: "
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Gå till nästa matchning i Info-underträd"
-
-#, c-format
-#~ msgid "No active search"
-#~ msgstr "Ingen aktiv sökning"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Gå till föregående matchning i Info-underträd"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Läs en sträng och sök efter den skiftlägeskänsligt"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Läs en sträng och sök efter den"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Läs en sträng och sök baklänges efter den"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Upprepa den senaste sökningen i samma riktning"
-
-#~ msgid "No previous search string"
-#~ msgstr "Ingen tidigare söksträng"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Upprepa den senaste sökningen i omvänd riktning"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Töm visade sökträffar"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Sök interaktivt efter en sträng allteftersom du skriver den"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "I-sök med reguljärt uttryck baklänges: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "I-sök baklänges: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "I-sök med reguljärt uttryck: "
-
-#~ msgid "I-search: "
-#~ msgstr "I-sök: "
-
-#~ msgid "Failing "
-#~ msgstr "Misslyckas "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Avbryt pågående åtgärd"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Visa vilken version av Info som kör"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "GNU Info version %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Rita om displayen"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Avsluta användandet av Info"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Kör kommando som är knutet till denna tangents gemena variant"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Lägg till denna siffra till det aktuella numeriska argumentet"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Börja (eller multiplicera med 4) det numeriska argumentet"
 
 #, c-format, perl-format
 #~ msgid "node %s for `%s' is `%s' in sectioning but not in menu"

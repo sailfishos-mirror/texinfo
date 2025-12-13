@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2024-12-14 18:17+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -22,11 +22,19 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Немає вказівника «%s» для цього вузла"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Перейти на символ вперед"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Перейти на символ назад"
 
@@ -38,11 +46,11 @@ msgstr "Перейти на початок цього рядка"
 msgid "Move to the end of this line"
 msgstr "Перейти в кінець цього рядка"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Перейти вперед на одне слово"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Перейти назад на одне слово"
 
@@ -272,7 +280,7 @@ msgstr "Немає пунктів покажчика, які б містили �
 msgid "No available info files have '%s' in their indices"
 msgstr "Жоден доступний файл info не містить «%s» у покажчику"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Меню вузла «%2$s» не містить пункту «%1$s»"
@@ -994,6 +1002,563 @@ msgstr "«%s» є некоректним"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Завершено"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Показати усі відповідні файли"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Немає покажчика файлів"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Перейти вниз на наступний рядок"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Перейти вверх на попередній рядок"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Пересунути курсор до вказаного рядка вікна"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Перейти в кінець рядка"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Перейти на початок рядка"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Перейти до початку вузла"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Перейти до кінця вузла"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Гортати вперед це вікно"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Гортати назад це вікно"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Гортати вперед це вікно й встановити стандартний розмір вікна"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Гортати назад це вікно й встановити стандартний розмір вікна"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Гортати вперед це вікно, не перетинаючи меж вузла"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Гортати назад це вікно, не перетинаючи меж вузла"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Гортати вперед це вікно, не перетинаючи меж вузла й встановити стандартний "
+"розмір вікна"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Гортати назад це вікно, не перетинаючи меж вузла й встановити стандартний "
+"розмір вікна"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Прокручувати вниз по рядку"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Прокручувати вверх по рядку"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Прокручувати вниз на половину екрану"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Прокручувати вверх на половину екрану"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Гортати інше вікно"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Гортати інше вікно назад"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Обрати наступне вікно"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Обрати попереднє вікно"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Розділити поточне вікно"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Прибрати поточне вікно"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Неможливо вилучити єдине вікно"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Не вдається прибрати постійне вікно"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Прибрати усі інші вікна"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Збільшити (або скоротити) це вікно"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Розділити доступний простір екрану між видимими вікнами"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Перемикнути стан вертання рядків у поточному вікні"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Обрати цей пункт меню"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "У цьому меню немає пункту %d"
+msgstr[1] "У цьому меню нема %d-го пункту"
+msgstr[2] "У цьому меню нема %d-го пункту"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Обрати останній пункт меню цього вузла"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Пункт меню (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Пункт меню: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Перейти за xref (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Перейти за посиланням: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "Посилання зникло! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Прочитати пункт меню й обрати його вузол"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Прочитати виноску чи перехресне посилання й обрати її вузол"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Перейти до початку меню цього вузла"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Відкрити одночасно стільки пунктів меню, скільки вдасться"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Перейти до попереднього перехресного посилання"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Перейти до наступного перехресного посилання"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Обрати посилання чи пункт меню з цього рядка"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Вузол «%s» не містить меню"
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Не вдається знайти вузол, на який посилається «%s» у «%s»"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Прочитати список пунктів меню, починаючи від dir та перейти за ними"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Йти за меню: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Немає вказівника «%s» для цього вузла"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Обрати наступний вузол"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Обрати попередній вузол"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Обрати горішній вузол"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Обрати останній вузол цього файлу"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Це вікно не має додаткових вузлів"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Обрати перший вузол цього файлу"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Ви вже на останній сторінці цього вузла"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Це останній вузол цього документа"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Ви вже на першій сторінці цього вузла"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr ""
+"У цього вузла немає «Попереднього» чи «Горішнього» вузла у цьому документі"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Перейти вперед чи вниз по структурі вузлів"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Перейти назад чи вверх по структурі вузлів"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Прочитати назву вузла й обрати його"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Перейти до вузла: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Знайти вузол, що описує запуск програми"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Знайти вузол запуску програми [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Прочитати посилання на сторінку man та обрати її"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Отримати man-сторінку: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Обрати «Верхній» вузол цього файлу"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Обрати вузол «(dir)»"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Показувати повну назву файла для показаного вузла"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Позначити останній з позначених вузлів"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "У журналі немає попереднього вузла"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Прочитати назву файлу й обрати його"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Знайти файл: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Не вдалося знайти «%s»"
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Не вдається створити файл виводу «%s»"
+
+#: info/session-cmd.c:2949
+#, c-format
+msgid "error writing to %s: %s"
+msgstr "помилка під час запису до %s: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "закриття %s"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "записуємо вузол %s…"
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Передати вміст цього вузла через канал до INFO_PRINT_COMMAND"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Не вдається створити канал до «%s»"
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "друкуємо вузол %s…"
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "завершено друк вузла %s"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Перемикнути використання формальних виразів під час пошуку"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Під час пошуку використовуватимуться формальні вирази"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Під час пошуку використовуватимуться звичайні рядки"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Пошук продовжено з кінця документа"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Пошук продовжено з початку документа"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Пошук підфайлу %s ..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Помилка пошуку"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Пошук за формальним виразом"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Пошук"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " з врахуванням регістру"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " назад"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Рядок пошуку є надто коротким"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Повертаємося до останнього відповідника від %s"
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Це був останній результат"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Шукати рядок у цьому вузлі і усіх підлеглих вузлах"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "Пошук у %s: "
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Перейти до наступного відповідника у піддереві Info"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Немає активного пошуку"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Перейти до попереднього відповідника у піддереві Info"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Прочитати рядок та знайти його, враховуючи регістр"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Прочитати рядок та знайти його"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Прочитати рядок та знайти його у попередньому тексті"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Повторити попередній пошук у тому ж напрямі"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Нема попереднього рядку пошуку"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Повторити пошук у зворотньому напрямі"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Явно показані результати пошуку"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Шукати рядок інтерактивно, поки ви його набираєте"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "I-пошук назад за формальним виразом: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "I-пошук назад: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "I-пошук за формальним виразом: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "I-пошук: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Невдалий "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Скасувати поточну операцію"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Показати версію запущеного екземпляра Info"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Info версії %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Оновити зображення"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Вийти з Info"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Запустити команду, призначену цій клавіші у нижньому регістрі"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Додати цю цифру до поточного числового аргументу"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Ініціювати (чи помножити на 4) поточний числовий аргумент"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1740,7 +2305,7 @@ msgstr "попереднє визначення як @%s"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1756,7 +2321,7 @@ msgstr "не вдалося відкрити %s для запису: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1782,16 +2347,20 @@ msgid "could not create directory `%s': %s"
 msgstr "не вдалося створити каталог «%s»: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "помилка під час спроби закрити файл тексту зображення %s: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "Неможливо прочитати файл @image `%s': %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "не знайдено файл @image «%s», використовуємо «%s»"
@@ -2110,58 +2679,58 @@ msgstr "назва @node не повинна містити «,»: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "назва @node %s не повинна містити «,»: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "роздільник \\verb «%s» (для LaTeX) використано у тексті «%s»"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "файл @image «%s» (для LaTeX) не знайдено"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: не вдалося відкрити %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: помилка під час спроби змінити каталог на %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: не вказано файла для виведення даних: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: помилка команди: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: не вдалося завершити обмін даними: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: не вказано файла для виведення даних: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2214,18 +2783,23 @@ msgstr "у назві вузла пункту меню не повинно бу�
 msgid "menu entry name should not contain `:'"
 msgstr "у назві пункту меню не повинно бути «:»"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "не вдалося прочитати %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "помилка під час закриття файла @verbatiminclude %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: не вдалося знайти %s"
@@ -4454,437 +5028,9 @@ msgstr "помилковий або порожній формальний арг
 #~ "      --version                показати інформацію про версію та вийти\n"
 #~ "  -w, --where, --location      вивести фізичне розташування файлу Info"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Неможливо вилучити єдине вікно"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Немає вказівника «%s» для цього вузла"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Невідома команда «%c»; спробуйте «?», щоб отримати довідку"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Ви вже на останній сторінці цього вузла"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Ви вже на першій сторінці цього вузла"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Показати усі відповідні файли"
-
-#, c-format
-#~ msgid "No file index"
-#~ msgstr "Немає покажчика файлів"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Перейти вниз на наступний рядок"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Перейти вверх на попередній рядок"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Пересунути курсор до вказаного рядка вікна"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Перейти в кінець рядка"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Перейти на початок рядка"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Перейти до початку вузла"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Перейти до кінця вузла"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Гортати вперед це вікно"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Гортати назад це вікно"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Гортати вперед це вікно й встановити стандартний розмір вікна"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Гортати назад це вікно й встановити стандартний розмір вікна"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Гортати вперед це вікно, не перетинаючи меж вузла"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Гортати назад це вікно, не перетинаючи меж вузла"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Гортати вперед це вікно, не перетинаючи меж вузла й встановити "
-#~ "стандартний розмір вікна"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Гортати назад це вікно, не перетинаючи меж вузла й встановити стандартний "
-#~ "розмір вікна"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Прокручувати вниз по рядку"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Прокручувати вверх по рядку"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Прокручувати вниз на половину екрану"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Прокручувати вверх на половину екрану"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Гортати інше вікно"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Гортати інше вікно назад"
-
-#~ msgid "Select the next window"
-#~ msgstr "Обрати наступне вікно"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Обрати попереднє вікно"
-
-#~ msgid "Split the current window"
-#~ msgstr "Розділити поточне вікно"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Прибрати поточне вікно"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Не вдається прибрати постійне вікно"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Прибрати усі інші вікна"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Збільшити (або скоротити) це вікно"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Розділити доступний простір екрану між видимими вікнами"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Перемикнути стан вертання рядків у поточному вікні"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Обрати цей пункт меню"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "У цьому меню немає пункту %d"
-#~ msgstr[1] "У цьому меню нема %d-го пункту"
-#~ msgstr[2] "У цьому меню нема %d-го пункту"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Обрати останній пункт меню цього вузла"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Пункт меню (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Пункт меню: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Перейти за xref (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Перейти за посиланням: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "Посилання зникло! (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Прочитати пункт меню й обрати його вузол"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "Прочитати виноску чи перехресне посилання й обрати її вузол"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Перейти до початку меню цього вузла"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Відкрити одночасно стільки пунктів меню, скільки вдасться"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Перейти до попереднього перехресного посилання"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Перейти до наступного перехресного посилання"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Обрати посилання чи пункт меню з цього рядка"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Вузол «%s» не містить меню"
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Не вдається знайти вузол, на який посилається «%s» у «%s»"
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Прочитати список пунктів меню, починаючи від dir та перейти за ними"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Йти за меню: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Обрати наступний вузол"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Обрати попередній вузол"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Обрати горішній вузол"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Обрати останній вузол цього файлу"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Це вікно не має додаткових вузлів"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Обрати перший вузол цього файлу"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Це останній вузол цього документа"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr ""
-#~ "У цього вузла немає «Попереднього» чи «Горішнього» вузла у цьому документі"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Перейти вперед чи вниз по структурі вузлів"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Перейти назад чи вверх по структурі вузлів"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Прочитати назву вузла й обрати його"
-
-#~ msgid "Goto node: "
-#~ msgstr "Перейти до вузла: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Знайти вузол, що описує запуск програми"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Знайти вузол запуску програми [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Прочитати посилання на сторінку man та обрати її"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Отримати man-сторінку: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Обрати «Верхній» вузол цього файлу"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Обрати вузол «(dir)»"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Показувати повну назву файла для показаного вузла"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Позначити останній з позначених вузлів"
-
-#, c-format
-#~ msgid "No earlier node in history"
-#~ msgstr "У журналі немає попереднього вузла"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Прочитати назву файлу й обрати його"
-
-#~ msgid "Find file: "
-#~ msgstr "Знайти файл: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Не вдалося знайти «%s»"
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Не вдається створити файл виводу «%s»"
-
-#, c-format
-#~ msgid "error writing to %s: %s"
-#~ msgstr "помилка під час запису до %s: %s"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "закриття %s"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "записуємо вузол %s…"
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "Передати вміст цього вузла через канал до INFO_PRINT_COMMAND"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Не вдається створити канал до «%s»"
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "друкуємо вузол %s…"
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "завершено друк вузла %s"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Перемикнути використання формальних виразів під час пошуку"
-
-#, c-format
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Під час пошуку використовуватимуться формальні вирази"
-
-#, c-format
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Під час пошуку використовуватимуться звичайні рядки"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Пошук продовжено з кінця документа"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Пошук продовжено з початку документа"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Пошук підфайлу %s ..."
-
-#, c-format
-#~ msgid "Search failed"
-#~ msgstr "Помилка пошуку"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Пошук за формальним виразом"
-
-#~ msgid "Search"
-#~ msgstr "Пошук"
-
-#~ msgid " case-sensitively"
-#~ msgstr " з врахуванням регістру"
-
-#~ msgid " backward"
-#~ msgstr " назад"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Рядок пошуку є надто коротким"
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "Повертаємося до останнього відповідника від %s"
-
-#, c-format
-#~ msgid "No more matches"
-#~ msgstr "Це був останній результат"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Шукати рядок у цьому вузлі і усіх підлеглих вузлах"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Пошук у %s: "
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Перейти до наступного відповідника у піддереві Info"
-
-#, c-format
-#~ msgid "No active search"
-#~ msgstr "Немає активного пошуку"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Перейти до попереднього відповідника у піддереві Info"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Прочитати рядок та знайти його, враховуючи регістр"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Прочитати рядок та знайти його"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Прочитати рядок та знайти його у попередньому тексті"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Повторити попередній пошук у тому ж напрямі"
-
-#~ msgid "No previous search string"
-#~ msgstr "Нема попереднього рядку пошуку"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Повторити пошук у зворотньому напрямі"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Явно показані результати пошуку"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Шукати рядок інтерактивно, поки ви його набираєте"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "I-пошук назад за формальним виразом: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "I-пошук назад: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "I-пошук за формальним виразом: "
-
-#~ msgid "I-search: "
-#~ msgstr "I-пошук: "
-
-#~ msgid "Failing "
-#~ msgstr "Невдалий "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Скасувати поточну операцію"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Показати версію запущеного екземпляра Info"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "GNU Info версії %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Оновити зображення"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Вийти з Info"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Запустити команду, призначену цій клавіші у нижньому регістрі"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Додати цю цифру до поточного числового аргументу"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Ініціювати (чи помножити на 4) поточний числовий аргумент"
 
 #, c-format, perl-format
 #~ msgid "node %s for `%s' is `%s' in sectioning but not in menu"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2024-10-26 10:24+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -624,21 +624,21 @@ msgid "see {title_ref}"
 msgstr "consultați {title_ref}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1634
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3872
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3910
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3364
 #, perl-brace-format
 msgid "{abbr_or_acronym} ({explanation})"
 msgstr "{abbr_or_acronym} ({explanation})"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1825
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4089
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4127
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3587
 #: tta/perl/Texinfo/Convert/HTML.pm:6812 tta/C/convert/format_html.c:11356
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3504
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3542
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3290
 #, perl-brace-format
 msgid "{text} ({url})"
@@ -649,7 +649,7 @@ msgstr "{text} ({url})"
 # «→ cred că aici merg ghilimele românești: „ ”»
 # ===
 # Ok, modificare aplicată
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4029
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4067
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3491
 #: tta/perl/Texinfo/Convert/HTML.pm:3351 tta/C/convert/format_html.c:6187
 #, perl-brace-format
@@ -657,7 +657,7 @@ msgid "@{No value for `{value}'@}"
 msgstr "@{Nici o valoare pentru „{value}“@}"
 
 #. TRANSLATORS: quotation author
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4773
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4815
 #: tta/perl/Texinfo/Convert/Plaintext.pm:4555
 #: tta/perl/Texinfo/Convert/HTML.pm:5413
 #, perl-brace-format

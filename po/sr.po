@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2025-01-19 18:20+0100\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -19,11 +19,19 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 3.5\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Нема „%s“ показивача за овај чвор"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Иде један знак унапред"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Иде један знак уназад"
 
@@ -35,11 +43,11 @@ msgstr "Помера на почетак овог реда"
 msgid "Move to the end of this line"
 msgstr "Помера на крај овог реда"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Иде једну реч унапред"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Иде једну реч уназад"
 
@@ -269,7 +277,7 @@ msgstr "Нема уноса индекса који садрже „%s“."
 msgid "No available info files have '%s' in their indices"
 msgstr "Нема доступних датотека информација које имају „%s“ њиховим индексима"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Нема ставке изборника „%s“ у чвору „%s“"
@@ -980,6 +988,562 @@ msgstr "„%s“ је неисправно"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Излази"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Приказује све поклапајуће датотеке"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Нема индекса датотеке"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Помера доле на следећи ред"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Помера горе на претходни ред"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Помера курзор на одређени ред прозора"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Помера на крај реда"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Помера на почетак реда"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Помера на почетак овог чвора"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Помера на крај овог чвора"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Премиче напред у овом прозору"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Премиче назад у овом прозору"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Премиче напред у овом прозору и поставља основну величину прозора"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Премиче назад у овом прозору и поставља основну величину прозора"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Премиче напред у овом прозору остајући у чвору"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Премиче назад у овом прозору остајући у чвору"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Премиче напред у овом прозору остајући у чвору и поставља основну величину "
+"прозора"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Премиче назад у овом прозору остајући у чвору и поставља основну величину "
+"прозора"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Премиче доле по редовима"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Премиче горе по редовима"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Премиче доле пола величине екрана"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Премиче горе пола величине екрана"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Премиче други прозор"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Премиче други прозор уназад"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Бира следећи прозор"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Бира претходни прозор"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Дели текући прозор"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Брише текући прозор"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Не могу да обришем последњи прозор"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Не може да обрише трајни прозор"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Брише све друге прозоре"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Увећава (или скупља) овај прозор"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Дели доступан простор екрана по видљивим прозорима"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Окида стање преламања реда у текућем прозору"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Бира ову ставку изборника"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Нема %d ставке у овом изборнику"
+msgstr[1] "Нема %d ставке у овом изборнику"
+msgstr[2] "Нема %d ставки у овом изборнику"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Бира последњу ставку у овом изборнику чвора"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Ставка изборника (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Ставка изборника: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Прати x-упуту (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Прати x-упуту: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "Упута је нестала! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Чита ставку изборника и бира њен чвор"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Чита фусноту или унакрсну упуту и бира њен чвор"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Помера на почетак овог изборника чвора"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Посећује што је више могуће ставки изборника одједном"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Премешта на претходну унакрсну упуту"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Премешта на следећу унакрсну упуту"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Бира упуту или ставку изборника која се јавља на овом реду"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Нема изборника у чвору „%s“"
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Не могу да нађем чвор на који упућује „%s“ у „%s“"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Чита списак изборника почевши од директоријума и прати их"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Прати изборнике: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Нема „%s“ показивача за овај чвор"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Бира следећи чвор"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Бира претходни чвор"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Бира горњи чвор"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Бира последњи чвор у овој датотеци"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Овај прозор нема додатних чворова"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Бира први чвор у овој датотеци"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Већ сте на последњој страници овог чвора"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Нема више игара у овом документу"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Већ сте на првој страници овог чвора"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Нема „Претх“ или „Горе“ за овај чвор у овом документу"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Помера напред или доле кроз структуру чвора"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Помера назад или доле кроз структуру чвора"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Чита назив чвора и бира га"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Иде на чвор: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Налази чвор који описује призивање програма"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Налази чвор призивања за [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Чита упуту странице упутства и бира је"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Добавља страницу упутства: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Бира чвор „Top“ (врх) у овој датотеци"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Бира чвор „(dir)“"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Приказује пун назив датотеке чвора који је приказан"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Бира најскорије бирани чвор"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Нема ранијег чвора у историјату"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Чита назив датотеке и бира је"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Налази датотеку: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Не могу да нађем „%s“"
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Не могу да створим излазну датотеку „%s“"
+
+#: info/session-cmd.c:2949
+#, c-format
+msgid "error writing to %s: %s"
+msgstr "грешка писања у „%s“: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "затварам „%s“"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "записујем чвор „%s“..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Спаја садржај овог чвора кроз „INFO_PRINT_COMMAND“"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Не могу да отворим спојку на „%s“"
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "исписујем чвор „%s“..."
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "завршио сам исписивање чвора „%s“"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Окида коришћење регуларних израза у претрагама"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Користим регуларне изразе за претраге"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Користим литералне ниске за претраге"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Претрага је настављена са краја документа"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Претрага је настављена са почетка документа"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Претражујем садржану датотеку „%s“ ..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Претрага није успела"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Претрага реуларног израза"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Претрага"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " разликује величину слова"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " уназад"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Ниска претраге је прекратка"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Враћам се на последње поклапање од „%s“"
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Нема више поклапања"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Претражује овај чвор и подчворове за ниском"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "Тражи под „%s“: "
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Иде на следеће поклапање у Инфо подстаблу"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Нема активне претраге"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Иде на претходно поклапање у Инфо подстаблу"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Чита ниску и тражије разликујући величину слова"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Чита ниску и тражи је"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Чита ниску и тражи је уназад"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Понавља последњу претрагу у истом смеру"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Нема претходне ниске претраге"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Понавља последњу претрагу у обрнутом смеру"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Чисти приказана поклапања претраге"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Међудејствено тражи ниску како је уписујете"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "И-претрага регуларног израза уназад: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "И-претрага уназад: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "И-претрага реуларног израза: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "И-претрга: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Неуспех "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Отказује текућу радњу"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Приказује издање Инфоа које је покренуто"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "Гну Инфо издање %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Поново исцртава приказ"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Напушта коришћење Инфоа"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Покреће наредбу свезану за малословну варијанту овог кључа"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Додаје ову цифру текућем бројном аргументу"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Покреће (или множи са 4) текући бројевни аргумент"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1727,7 +2291,7 @@ msgstr "ово је место претходне дефиниције као �
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1743,7 +2307,7 @@ msgstr "не могу да отворим „%s“ ради уписа: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1769,16 +2333,20 @@ msgid "could not create directory `%s': %s"
 msgstr "не могу да направим директоријум „%s“: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "грешка затварања датотеке текста слике „%s“: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "„@image“ датотека „%s“ није читљива: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "нисам нашао „@image“ датотеку „%s“, користим „%s“"
@@ -2097,58 +2665,58 @@ msgstr "„@node“ назив не треба да садржи зарез (,):
 msgid "@node %s name should not contain `,': %s"
 msgstr "„@node %s“ назив не треба да садржи зарез (,): %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "\\verb граничник „%s“ (за LaTeX) је коришћен у тексту „%s“"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "нисам нашао „@image“ датотеку „%s“ (за LaTeX)"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: не могу да отворим „%s“: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: промена директоријума „%s“ није успела: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: датотека излаза недостаје: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: наредба није успела: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: затварање комуникације није успело: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: датотека излаза недостаје: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2201,18 +2769,23 @@ msgstr "назив чвора уноса изборника не треба да
 msgid "menu entry name should not contain `:'"
 msgstr "назив уноса изборника не треба да садржи двотачку (:)"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "не могу да читам „%s“: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "грешка затварања „@verbatiminclude“ датотеке „%s“: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: не могу да нађем „%s“"
@@ -4406,436 +4979,9 @@ msgstr "лош или празан „@%s“ формални аргумент: 
 #~ "      --version                приказује податке о издању и излази\n"
 #~ "  -w, --where, --location      исписује физичку локацију Инфо датотеке"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Не могу да обришем последњи прозор"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Нема „%s“ показивача за овај чвор"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Непозната Инфо наредба „%c“; покушајте ? за помоћ"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Већ сте на последњој страници овог чвора"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Већ сте на првој страници овог чвора"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Приказује све поклапајуће датотеке"
-
-#, c-format
-#~ msgid "No file index"
-#~ msgstr "Нема индекса датотеке"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Помера доле на следећи ред"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Помера горе на претходни ред"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Помера курзор на одређени ред прозора"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Помера на крај реда"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Помера на почетак реда"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Помера на почетак овог чвора"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Помера на крај овог чвора"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Премиче напред у овом прозору"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Премиче назад у овом прозору"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Премиче напред у овом прозору и поставља основну величину прозора"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Премиче назад у овом прозору и поставља основну величину прозора"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Премиче напред у овом прозору остајући у чвору"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Премиче назад у овом прозору остајући у чвору"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Премиче напред у овом прозору остајући у чвору и поставља основну "
-#~ "величину прозора"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Премиче назад у овом прозору остајући у чвору и поставља основну величину "
-#~ "прозора"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Премиче доле по редовима"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Премиче горе по редовима"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Премиче доле пола величине екрана"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Премиче горе пола величине екрана"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Премиче други прозор"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Премиче други прозор уназад"
-
-#~ msgid "Select the next window"
-#~ msgstr "Бира следећи прозор"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Бира претходни прозор"
-
-#~ msgid "Split the current window"
-#~ msgstr "Дели текући прозор"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Брише текући прозор"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Не може да обрише трајни прозор"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Брише све друге прозоре"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Увећава (или скупља) овај прозор"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Дели доступан простор екрана по видљивим прозорима"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Окида стање преламања реда у текућем прозору"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Бира ову ставку изборника"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Нема %d ставке у овом изборнику"
-#~ msgstr[1] "Нема %d ставке у овом изборнику"
-#~ msgstr[2] "Нема %d ставки у овом изборнику"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Бира последњу ставку у овом изборнику чвора"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Ставка изборника (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Ставка изборника: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Прати x-упуту (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Прати x-упуту: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "Упута је нестала! (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Чита ставку изборника и бира њен чвор"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "Чита фусноту или унакрсну упуту и бира њен чвор"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Помера на почетак овог изборника чвора"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Посећује што је више могуће ставки изборника одједном"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Премешта на претходну унакрсну упуту"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Премешта на следећу унакрсну упуту"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Бира упуту или ставку изборника која се јавља на овом реду"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Нема изборника у чвору „%s“"
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Не могу да нађем чвор на који упућује „%s“ у „%s“"
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Чита списак изборника почевши од директоријума и прати их"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Прати изборнике: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Бира следећи чвор"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Бира претходни чвор"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Бира горњи чвор"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Бира последњи чвор у овој датотеци"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Овај прозор нема додатних чворова"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Бира први чвор у овој датотеци"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Нема више игара у овом документу"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr "Нема „Претх“ или „Горе“ за овај чвор у овом документу"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Помера напред или доле кроз структуру чвора"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Помера назад или доле кроз структуру чвора"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Чита назив чвора и бира га"
-
-#~ msgid "Goto node: "
-#~ msgstr "Иде на чвор: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Налази чвор који описује призивање програма"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Налази чвор призивања за [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Чита упуту странице упутства и бира је"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Добавља страницу упутства: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Бира чвор „Top“ (врх) у овој датотеци"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Бира чвор „(dir)“"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Приказује пун назив датотеке чвора који је приказан"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Бира најскорије бирани чвор"
-
-#, c-format
-#~ msgid "No earlier node in history"
-#~ msgstr "Нема ранијег чвора у историјату"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Чита назив датотеке и бира је"
-
-#~ msgid "Find file: "
-#~ msgstr "Налази датотеку: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Не могу да нађем „%s“"
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Не могу да створим излазну датотеку „%s“"
-
-#, c-format
-#~ msgid "error writing to %s: %s"
-#~ msgstr "грешка писања у „%s“: %s"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "затварам „%s“"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "записујем чвор „%s“..."
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "Спаја садржај овог чвора кроз „INFO_PRINT_COMMAND“"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Не могу да отворим спојку на „%s“"
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "исписујем чвор „%s“..."
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "завршио сам исписивање чвора „%s“"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Окида коришћење регуларних израза у претрагама"
-
-#, c-format
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Користим регуларне изразе за претраге"
-
-#, c-format
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Користим литералне ниске за претраге"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Претрага је настављена са краја документа"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Претрага је настављена са почетка документа"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Претражујем садржану датотеку „%s“ ..."
-
-#, c-format
-#~ msgid "Search failed"
-#~ msgstr "Претрага није успела"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Претрага реуларног израза"
-
-#~ msgid "Search"
-#~ msgstr "Претрага"
-
-#~ msgid " case-sensitively"
-#~ msgstr " разликује величину слова"
-
-#~ msgid " backward"
-#~ msgstr " уназад"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Ниска претраге је прекратка"
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "Враћам се на последње поклапање од „%s“"
-
-#, c-format
-#~ msgid "No more matches"
-#~ msgstr "Нема више поклапања"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Претражује овај чвор и подчворове за ниском"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Тражи под „%s“: "
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Иде на следеће поклапање у Инфо подстаблу"
-
-#, c-format
-#~ msgid "No active search"
-#~ msgstr "Нема активне претраге"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Иде на претходно поклапање у Инфо подстаблу"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Чита ниску и тражије разликујући величину слова"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Чита ниску и тражи је"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Чита ниску и тражи је уназад"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Понавља последњу претрагу у истом смеру"
-
-#~ msgid "No previous search string"
-#~ msgstr "Нема претходне ниске претраге"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Понавља последњу претрагу у обрнутом смеру"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Чисти приказана поклапања претраге"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Међудејствено тражи ниску како је уписујете"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "И-претрага регуларног израза уназад: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "И-претрага уназад: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "И-претрага реуларног израза: "
-
-#~ msgid "I-search: "
-#~ msgstr "И-претрга: "
-
-#~ msgid "Failing "
-#~ msgstr "Неуспех "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Отказује текућу радњу"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Приказује издање Инфоа које је покренуто"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "Гну Инфо издање %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Поново исцртава приказ"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Напушта коришћење Инфоа"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Покреће наредбу свезану за малословну варијанту овог кључа"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Додаје ову цифру текућем бројном аргументу"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Покреће (или множи са 4) текући бројевни аргумент"
 
 #, c-format, perl-format
 #~ msgid "node %s for `%s' is `%s' in sectioning but not in menu"

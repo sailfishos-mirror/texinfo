@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2021-10-13 21:15-0300\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin10@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
@@ -20,11 +20,19 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Nenhum apontador '%s' para esse nodo"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Caractere adiante"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Caractere anterior"
 
@@ -36,11 +44,11 @@ msgstr "Para o início da linha"
 msgid "Move to the end of this line"
 msgstr "Para o final da linha"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Palavra adiante"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Palavra anterior"
 
@@ -270,7 +278,7 @@ msgstr "Não existem entradas de índice contendo '%s'."
 msgid "No available info files have '%s' in their indices"
 msgstr "Nenhum arquivo info disponível tem '%s' em seus índices"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Não existe o item '%s' de menu no nodo '%s'"
@@ -972,6 +980,565 @@ msgstr "'%s' inválido"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Sair"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Mostra todos os arquivo que coincidem"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Nenhum índice de arquivo"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Desce para a linha seguinte"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Sobe para a linha anterior"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Move o cursos para uma linha específica da janela"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Vai para o final da linha"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Vai para o início da linha"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Vai para o início desse nodo"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Vai para o fim desse nodo"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Rola adiante nessa janela"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Rola voltando nessa janela"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Rola adiante nessa janela e ajusta o tamanho padrão da janela"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Rola voltando nessa janela e ajusta o tamanho padrão da janela"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Rola diante nessa janela permanecendo dentro do nodo"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Rola voltando nessa janela permanecendo dentro do nodo"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Rola adiante nessa janela permanecendo dentro do nodo e ajusta o tamanho "
+"padrão da janela"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Rola voltando nessa janela permanecendo dentro do nodo e ajusta o tamanho  "
+"pa-drão da janela"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Rola abaixo por linhas"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Rola acima por linhas"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Rola abaixo por metade do tamanho da tela"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Rola acima por metade do tamanho da tela"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Rola a outra janela"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Rola voltando outra janela"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Seleciona a janela seguinte"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Seleciona a janela anterior"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Quebra a janela atual"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Apaga a janela atual"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Não posso apagar a última janela"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Não posso apagar uma janela permanente"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Apaga outras janelas"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Aumenta (ou diminui) essa janela"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Divide o espaço de tela disponível entre as janelas visíveis"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Muda o estado do invólucro de linha na janela atual"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Seleciona esse item de menu"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Não existe %d item nesse menu"
+msgstr[1] "Não existem %d itens nesse menu"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Seleciona o último item nesse menu de nodo"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Item de menu (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Item de menu: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Segue a xref (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Segue a xref: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "A referência desapareceu! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Lê um item de menu e seleciona seu nodo"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Lê uma nota de rodapé ou referência cruzada e seleciona seu nodo"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Vai para o início desse menu de nodo"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Visita tantos itens de menu quanto for possível de uma só vez"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Vai para a referência cruzada anterior"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Vai para a referência cruzada anterior"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Seleciona a referência ou o item de menu que aparece nessa linha"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Nenhum menu no nodo '%s'"
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Incapaz de encontrar o nodo referenciado por '%s' em '%s'"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Lê uma lista de menus iniciando a parti de dir e seguindo-o"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Segue os menus: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Nenhum apontador '%s' para esse nodo"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Seleciona o nodo adiante"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Seleciona o nodo anterior"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Seleciona o nodo acima"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Seleciona o último nodo nesse arquivo"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Essa janela não tem nodos adicionais"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Seleciona o primeiro nodo nesse arquivo"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Você já se encontra na última página desse nodo"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Não existem mais nodos dentro desse documento"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Você já se encontra na primeira página desse nodo"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Nenhum nodo antes ou acima dentro desse documento"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Move adiante ou abaixo através da estrutura de nodos"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Volta ou sobe através da estrutura de nodos"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Lê um nome de nodo e seleciona-o"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Vai para o nodo: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Encontra o nodo descrevendo como chamar o programa"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Encontra o nodo como chamar de [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Lê uma referência de página de manual e seleciona-a"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Pega Página de Manual: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Seleciona o nodo 'Topo' desse arquivo"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Seleciona o nodo '(dir)'"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Mostra o nome de arquivo completo do nodo sendo mostrado"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Seleciona o nodo mais recentemente selecionado"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Nenhum nodo anterior no histórico"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Lê o nome de um arquivo e seleciona-o"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Encontra o arquivo: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Não encontro '%s'"
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Não posso criar o arquivo de saída '%s'"
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "error writing to %s: %s"
+msgstr "erro ao gravar em %s: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "fechando %s"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "gravando nodo %s..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr ""
+"Colocando o conteúdo desse nodo em um pipe através de INFO_PRINT_COMMAND"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Não posso abrir o pipe para '%s'"
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "imprimindo o nodo %s..."
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "terminada a impressão do nodo %s"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Muda o uso de expressões regulares em buscas"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Usando expressões regulares para buscas"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Usando sequência de caracteres literal para buscas"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Busca prossegue a partir do fim do documento"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Busca continuada a partir do início do documento"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Buscando subarquivo %s ..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Falha na Busca"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Busca de regexp"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Busca"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr "sensivelmente à caixa"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr "para trás"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Sequência de caractere de busca muito curta"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Voltando ao anterior que coincide com %s"
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Sem mais coincidências"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Procura uma sequência de caracteres nesse nodo e em seus subnodos"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "Buscar dentro de %s"
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Vá para o próximo coincidente nos níveis abaixo"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Nenhuma busca ativa"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Vá para o coincidente anterior nos níveis abaixo"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Lê uma sequência de caracteres e busca-a sensivelmente à caixa"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Lê uma sequência de caracteres e busca-a"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Lê uma sequência de caracteres e busca-a voltando"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Repita a última busca na mesma direção"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Nenhuma sequência de caracteres de busca anterior"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Repita a última busca na direção contrária"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Limpar padrões de busca mostrados"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr ""
+"Busca iterativamente por uma sequência de caracteres da forma como foi "
+"digitada"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "Regexp I-search para trás: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "I-search de volta: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "Regexp I-search: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "I-search: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Falha "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Cancela a operação atual"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Mostre informação do Info de agora"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "Versão Info %s GNU"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Atualiza a tela"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Sair usando Info"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Executa o comando associado a essa variante em caixa baixa da chave"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Adiciona esse dígito ao argumento numérico atual"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Inicia (ou multiplica por 4) o argumento numérico atual"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1753,7 +2320,7 @@ msgstr "aqui está a definição anterior de @%s"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1769,7 +2336,7 @@ msgstr "não posso abrir %s para escrita: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1796,16 +2363,20 @@ msgid "could not create directory `%s': %s"
 msgstr "não posso criar diretório `%s': %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "erro ao fechar o arquivo de texto de imagem %s: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "arquivo @image `%s' ilegível: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "arquivo @image `%s' não encontrado, usando `%s'"
@@ -2135,59 +2706,59 @@ msgstr "o nome @node não deve conter `,': %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "o nome @node não deve conter `,': %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "arquivo @image `%s' (para o HTML) não encontrado, usando `%s'"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: não posso abrir %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: mover para %s falhou: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: arquivo de saída omitido: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: o comando falhou: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: o comando falhou: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: arquivo de saída omitido: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2242,18 +2813,23 @@ msgstr "entrada de menu com nome de nodo não deve conter `:'"
 msgid "menu entry name should not contain `:'"
 msgstr "nome de entrada de menu não deve conter `:'"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "não posso ler %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "erro ao fechar o arquivo @verbatiminclude %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: não encontrado %s"
@@ -4498,427 +5074,9 @@ msgstr "argumento formal @%s inadequado ou vazio: "
 #~ "  info -f ./qualquercoisa.info exiba o arquivo ./qualquercoisa.info, sem "
 #~ "procurar diretório"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Não posso apagar a última janela"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Nenhum apontador '%s' para esse nodo"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Comando Info '%c' desconhecido; tente '?' para ajuda"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Você já se encontra na última página desse nodo"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Você já se encontra na primeira página desse nodo"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Mostra todos os arquivo que coincidem"
-
-#~ msgid "No file index"
-#~ msgstr "Nenhum índice de arquivo"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Desce para a linha seguinte"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Sobe para a linha anterior"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Move o cursos para uma linha específica da janela"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Vai para o final da linha"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Vai para o início da linha"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Vai para o início desse nodo"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Vai para o fim desse nodo"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Rola adiante nessa janela"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Rola voltando nessa janela"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Rola adiante nessa janela e ajusta o tamanho padrão da janela"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Rola voltando nessa janela e ajusta o tamanho padrão da janela"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Rola diante nessa janela permanecendo dentro do nodo"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Rola voltando nessa janela permanecendo dentro do nodo"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Rola adiante nessa janela permanecendo dentro do nodo e ajusta o tamanho "
-#~ "padrão da janela"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Rola voltando nessa janela permanecendo dentro do nodo e ajusta o "
-#~ "tamanho  pa-drão da janela"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Rola abaixo por linhas"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Rola acima por linhas"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Rola abaixo por metade do tamanho da tela"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Rola acima por metade do tamanho da tela"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Rola a outra janela"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Rola voltando outra janela"
-
-#~ msgid "Select the next window"
-#~ msgstr "Seleciona a janela seguinte"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Seleciona a janela anterior"
-
-#~ msgid "Split the current window"
-#~ msgstr "Quebra a janela atual"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Apaga a janela atual"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Não posso apagar uma janela permanente"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Apaga outras janelas"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Aumenta (ou diminui) essa janela"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Divide o espaço de tela disponível entre as janelas visíveis"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Muda o estado do invólucro de linha na janela atual"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Seleciona esse item de menu"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Não existe %d item nesse menu"
-#~ msgstr[1] "Não existem %d itens nesse menu"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Seleciona o último item nesse menu de nodo"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Item de menu (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Item de menu: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Segue a xref (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Segue a xref: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "A referência desapareceu! (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Lê um item de menu e seleciona seu nodo"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "Lê uma nota de rodapé ou referência cruzada e seleciona seu nodo"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Vai para o início desse menu de nodo"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Visita tantos itens de menu quanto for possível de uma só vez"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Vai para a referência cruzada anterior"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Vai para a referência cruzada anterior"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Seleciona a referência ou o item de menu que aparece nessa linha"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Nenhum menu no nodo '%s'"
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Incapaz de encontrar o nodo referenciado por '%s' em '%s'"
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Lê uma lista de menus iniciando a parti de dir e seguindo-o"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Segue os menus: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Seleciona o nodo adiante"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Seleciona o nodo anterior"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Seleciona o nodo acima"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Seleciona o último nodo nesse arquivo"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Essa janela não tem nodos adicionais"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Seleciona o primeiro nodo nesse arquivo"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Não existem mais nodos dentro desse documento"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr "Nenhum nodo antes ou acima dentro desse documento"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Move adiante ou abaixo através da estrutura de nodos"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Volta ou sobe através da estrutura de nodos"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Lê um nome de nodo e seleciona-o"
-
-#~ msgid "Goto node: "
-#~ msgstr "Vai para o nodo: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Encontra o nodo descrevendo como chamar o programa"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Encontra o nodo como chamar de [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Lê uma referência de página de manual e seleciona-a"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Pega Página de Manual: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Seleciona o nodo 'Topo' desse arquivo"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Seleciona o nodo '(dir)'"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Mostra o nome de arquivo completo do nodo sendo mostrado"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Seleciona o nodo mais recentemente selecionado"
-
-#~ msgid "No earlier node in history"
-#~ msgstr "Nenhum nodo anterior no histórico"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Lê o nome de um arquivo e seleciona-o"
-
-#~ msgid "Find file: "
-#~ msgstr "Encontra o arquivo: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Não encontro '%s'"
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Não posso criar o arquivo de saída '%s'"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "fechando %s"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "gravando nodo %s..."
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr ""
-#~ "Colocando o conteúdo desse nodo em um pipe através de INFO_PRINT_COMMAND"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Não posso abrir o pipe para '%s'"
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "imprimindo o nodo %s..."
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "terminada a impressão do nodo %s"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Muda o uso de expressões regulares em buscas"
-
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Usando expressões regulares para buscas"
-
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Usando sequência de caracteres literal para buscas"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Busca prossegue a partir do fim do documento"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Busca continuada a partir do início do documento"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Buscando subarquivo %s ..."
-
-#~ msgid "Search failed"
-#~ msgstr "Falha na Busca"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Busca de regexp"
-
-#~ msgid "Search"
-#~ msgstr "Busca"
-
-#~ msgid " case-sensitively"
-#~ msgstr "sensivelmente à caixa"
-
-#~ msgid " backward"
-#~ msgstr "para trás"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Sequência de caractere de busca muito curta"
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "Voltando ao anterior que coincide com %s"
-
-#~ msgid "No more matches"
-#~ msgstr "Sem mais coincidências"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Procura uma sequência de caracteres nesse nodo e em seus subnodos"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Buscar dentro de %s"
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Vá para o próximo coincidente nos níveis abaixo"
-
-#~ msgid "No active search"
-#~ msgstr "Nenhuma busca ativa"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Vá para o coincidente anterior nos níveis abaixo"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Lê uma sequência de caracteres e busca-a sensivelmente à caixa"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Lê uma sequência de caracteres e busca-a"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Lê uma sequência de caracteres e busca-a voltando"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Repita a última busca na mesma direção"
-
-#~ msgid "No previous search string"
-#~ msgstr "Nenhuma sequência de caracteres de busca anterior"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Repita a última busca na direção contrária"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Limpar padrões de busca mostrados"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr ""
-#~ "Busca iterativamente por uma sequência de caracteres da forma como foi "
-#~ "digitada"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "Regexp I-search para trás: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "I-search de volta: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "Regexp I-search: "
-
-#~ msgid "I-search: "
-#~ msgstr "I-search: "
-
-#~ msgid "Failing "
-#~ msgstr "Falha "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Cancela a operação atual"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Mostre informação do Info de agora"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "Versão Info %s GNU"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Atualiza a tela"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Sair usando Info"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Executa o comando associado a essa variante em caixa baixa da chave"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Adiciona esse dígito ao argumento numérico atual"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Inicia (ou multiplica por 4) o argumento numérico atual"
 
 #, perl-format
 #~ msgid "error on closing TOC frame file %s: %s"

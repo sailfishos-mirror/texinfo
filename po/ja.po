@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 5.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2014-11-07 08:03+0000\n"
 "Last-Translator: Yasuaki Taniguchi <yasuakit@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -24,11 +24,19 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No `%s' pointer for this node."
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "このノードの `%s' ポインタがありません。"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "一文字分進める"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "一文字分戻す"
 
@@ -40,11 +48,11 @@ msgstr "行頭に移動する"
 msgid "Move to the end of this line"
 msgstr "行末に移動する"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "一単語分進む"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "一単語分戻る"
 
@@ -283,7 +291,7 @@ msgstr "%s を含む見出し項目がありません。"
 msgid "No available info files have '%s' in their indices"
 msgstr "見出しが `%s' の info ファイルが用意されていません。"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, fuzzy, c-format
 #| msgid "No menu item `%s' in node `%s'."
 msgid "No menu item '%s' in node '%s'"
@@ -1005,6 +1013,597 @@ msgstr "`%s' は無効です"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "終了"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr ""
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "ファイル見出しがありません"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "次の行に移動する"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "前の行に移動する"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "ウィンドウの指定行にカーソルを移動する"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "行末に移動する"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "行頭に移動する"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "このノードの最初に移動する"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "このノードの最後に移動する"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "このウィンドウを下向きにスクロールする"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "このウィンドウを後方にスクロールする"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "このウィンドウをスクロールし、デフォルトウィンドウサイズを設定する"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr ""
+"このウィンドウを後方にスクロールし、デフォルトウィンドウサイズを設定する"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "このウィンドウをノード範囲内で前方にスクロールする"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "このウィンドウをノード範囲内で後方にスクロールする"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"このウィンドウをノード範囲内で前方にスクロールし、デフォルトウィンドウサイズ"
+"を設定する"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"このウィンドウをノード範囲内で後方にスクロールし、デフォルトウィンドウサイズ"
+"を設定する"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "行数によるスクロール"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "行数による逆スクロール"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "画面サイズの半分スクロール"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "画面サイズの半分逆スクロール"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "他のウィンドウをスクロール"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "他のウィンドウを逆スクロール"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "次のウィンドウを選択"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "前のウィンドウを選択"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "現在のウィンドウを分割"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "現在のウィンドウを削除"
+
+#: info/session-cmd.c:992
+#, fuzzy
+#| msgid "Cannot delete the last window."
+msgid "Cannot delete the last window"
+msgstr "最後のウィンドウは削除できません"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "永久ウィンドウは削除できません"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "他のウィンドウを削除"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "このウィンドウを大きくする(または小さくする)"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "可視ウィンドウの利用可能スクリーン空間を分割する"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "現在のウィンドウに禁則処理を施すかどうかを切り替える"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "このメニュー項目を選択"
+
+#: info/session-cmd.c:1386
+#, fuzzy, c-format
+#| msgid "There isn't %d item in this menu."
+#| msgid_plural "There aren't %d items in this menu."
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "このメニューに %d 個の項目がありません。"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "このノードのメニュー内での最後の項目を選択"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "メニュー項目 (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "メニュー項目: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "参照先 (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "参照先: "
+
+#: info/session-cmd.c:1585
+#, fuzzy, c-format
+#| msgid "The reference disappeared! (%s)."
+msgid "The reference disappeared! (%s)"
+msgstr "その参照は消えました! (%s)。"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "メニューを読んで、そのノードを選択する"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "脚注や相互参照を読んで、そのノードを選択する"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "このノードメニューの先頭に移動する"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "可能な限り多くのメニュー項目へ一度に訪れる"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "前の相互参照に移動"
+
+#: info/session-cmd.c:1849
+#, fuzzy
+#| msgid "Move to the previous cross reference"
+msgid "Move to the next cross reference"
+msgstr "前の相互参照に移動"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "参照または、この行に現れたメニュー項目を選択"
+
+#: info/session-cmd.c:1946
+#, fuzzy, c-format
+#| msgid "No menu in node `%s'."
+msgid "No menu in node '%s'"
+msgstr "ノード `%s' にメニューがありません。"
+
+#: info/session-cmd.c:1993
+#, fuzzy, c-format
+#| msgid "Unable to find node referenced by `%s' in `%s'."
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "`%s' から参照されているノードを見つけられません(`%s' 中)"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "dir からメニュー開始リストを読み、それをたどる"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "メニューに続く: "
+
+#: info/session-cmd.c:2117
+#, fuzzy, c-format
+#| msgid "No `%s' pointer for this node."
+msgid "No '%s' pointer for this node"
+msgstr "このノードの `%s' ポインタがありません。"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "次 ノードを選択する"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "前 ノードを選択する"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "上 ノードを選択する"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "このファイルの最後のノードを選択する"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "このウィンドウにはノードが付いていません"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "このファイルの最初のノードを選択する"
+
+#: info/session-cmd.c:2257
+#, fuzzy
+#| msgid "You are already at the last page of this node."
+msgid "You are already at the last page of this node"
+msgstr "ここはもう、このノードの最終ページです。"
+
+#: info/session-cmd.c:2343
+#, fuzzy
+#| msgid "No more nodes within this document."
+msgid "No more nodes within this document"
+msgstr "このドキュメントには、これ以上のノードはありません。"
+
+#: info/session-cmd.c:2373
+#, fuzzy
+#| msgid "You are already at the first page of this node."
+msgid "You are already at the first page of this node"
+msgstr "ここはもう、このノードの最初のページです。"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+#, fuzzy
+#| msgid "No `Prev' or `Up' for this node within this document."
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "このドキュメントでは、このノードの `前' や `上' はありません。"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "ノード構造を通じて進めたり下がったりする"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "ノード構造を通じて戻ったり上がったりする"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "ノード名を読んで、選択する"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "ノードへ移動: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "プログラム起動に関する説明のノードを見つける"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "[%s] の起動ノードを見つける: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "man ページへの参照を読んで、選択する"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Man ページを表示: "
+
+#: info/session-cmd.c:2783
+#, fuzzy
+#| msgid "Select the node `Top' in this file"
+msgid "Select the node 'Top' in this file"
+msgstr "このファイルの `先頭' ノードを選択"
+
+#: info/session-cmd.c:2789
+#, fuzzy
+#| msgid "Select the node `(dir)'"
+msgid "Select the node '(dir)'"
+msgstr "`(dir)'ノードを選択する"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr ""
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "最後に選択されたノードを選択する"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr ""
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "ファイル名を読み込み、選択する"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "ファイルを探す: "
+
+#: info/session-cmd.c:2842
+#, fuzzy, c-format
+#| msgid "Cannot find `%s'."
+msgid "Cannot find '%s'"
+msgstr "`%s' が見つかりません。"
+
+#: info/session-cmd.c:2923
+#, fuzzy, c-format
+#| msgid "Could not create output file `%s'."
+msgid "Could not create output file '%s'"
+msgstr "出力ファイル `%s' を作成できません。"
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "error writing to %s: %s"
+msgstr "%s への書き込み中にエラーが発生しました: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "%s を閉じています"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "ノード %s へ書き込み中..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "INFO_PRINT_COMMAND によってこのノードの内容をパイプする"
+
+#: info/session-cmd.c:3072
+#, fuzzy, c-format
+#| msgid "Cannot open pipe to `%s'."
+msgid "Cannot open pipe to '%s'"
+msgstr "`%s' へのパイプを開けません。"
+
+#: info/session-cmd.c:3077
+#, fuzzy, c-format
+msgid "printing node %s..."
+msgstr "ノード `%s' を印刷中..."
+
+#: info/session-cmd.c:3085
+#, fuzzy, c-format
+msgid "finished printing node %s"
+msgstr "ノード `%s' を印刷中..."
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "検索で正規表現を使用するかどうかを切り替える"
+
+#: info/session-cmd.c:3121
+#, fuzzy, c-format
+#| msgid "Using regular expressions for searches."
+msgid "Using regular expressions for searches"
+msgstr "検索で正規表現を使用する。"
+
+#: info/session-cmd.c:3122
+#, fuzzy, c-format
+#| msgid "Using literal strings for searches."
+msgid "Using literal strings for searches"
+msgstr "検索で文字列リテラルそのものを使用する。"
+
+#: info/session-cmd.c:3325
+#, fuzzy
+#| msgid "Search continued from the end of the document."
+msgid "Search continued from the end of the document"
+msgstr "文書の最後から検索を継続する。"
+
+#: info/session-cmd.c:3330
+#, fuzzy
+#| msgid "Search continued from the beginning of the document."
+msgid "Search continued from the beginning of the document"
+msgstr "文書の最初から検索を継続する。"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "副ファイル %s を探しています ..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, fuzzy, c-format
+#| msgid "Search failed."
+msgid "Search failed"
+msgstr "検索に失敗しました。"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "正規表現検索"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "検索"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " 大文字小文字の区別をつけて"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr "後方"
+
+#: info/session-cmd.c:3413
+#, fuzzy, c-format
+#| msgid "%s%s%s [%s]: "
+msgid "%s%s%s: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr ""
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr ""
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, fuzzy, c-format
+#| msgid "No match"
+msgid "No more matches"
+msgstr "一致しません"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr ""
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, fuzzy, c-format
+#| msgid "Searching subfile %s ..."
+msgid "Search under %s: "
+msgstr "副ファイル %s を探しています ..."
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr ""
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr ""
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr ""
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "文字列を読み、大文字小文字の区別をつけて検索する"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "文字列を読んで検索する"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "文字列を読んで後方検索する"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "同一方向で最後の検索を繰り返す"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "前の検索文字列がありません"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "逆方向で最後の検索を繰り返す"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr ""
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "入力した文字列の対話的な検索"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "正規表現逐次後方検索: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "逐次後方検索: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "正規表現逐次検索: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "逐次検索: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "失敗 "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "現在の操作を中止する"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr ""
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr ""
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "画面を再描画する"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Info の使用を終了する"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "このキーの小文字に割り当てられたコマンドを実行する"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "現在の数値引数にこの数値を加える"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "現在の数値引数を開始(または 4 倍する)"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1734,7 +2333,7 @@ msgstr "ここは、`%s' の前の定義です"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1750,7 +2349,7 @@ msgstr "%s: --css-file %s を開くことができません"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1776,16 +2375,20 @@ msgid "could not create directory `%s': %s"
 msgstr "%s/linux シンボリックリンクを作成できませんでした!"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, fuzzy, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image ファイル `%s' が読めません: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, fuzzy, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image ファイル `%s' が読めません: %s"
@@ -2104,52 +2707,52 @@ msgstr ""
 msgid "@node %s name should not contain `,': %s"
 msgstr "%s: --css-file %s を開くことができません"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, fuzzy, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image ファイル `%s' (HTML 用) が読めません: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 msgid "math to images: could not open %s: %s"
 msgstr "libnotify の初期化に失敗しました"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 msgid "math to images: chdir %s failed: %s"
 msgstr "%s: `%s' のアンマウントに失敗\n"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 msgid "math to images: output file missing: %s"
 msgstr "設定ファイルの欠落。"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, perl-format
 msgid "math to images: command failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 msgid "math to images: dvi file missing: %s"
 msgstr "設定ファイルの欠落。"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 msgid "math to images: unable to return to initial directory: %s"
 msgstr "初期作業ディレクトリに戻るのに失敗しました"
@@ -2202,18 +2805,23 @@ msgstr ""
 msgid "menu entry name should not contain `:'"
 msgstr "ノード `%s' にメニューがありません。"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, fuzzy, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "  @FILE                   オプションを FILE から読み込む\n"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, fuzzy, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "出力ファイル `%s' を閉じる際にエラーが発生しました"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, fuzzy, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: `%s' が見つかりません"
@@ -4218,9 +4826,6 @@ msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 #~ msgid "Success"
 #~ msgstr "成功です"
 
-#~ msgid "No match"
-#~ msgstr "一致しません"
-
 #~ msgid "Invalid regular expression"
 #~ msgstr "無効な正規表現です"
 
@@ -4297,10 +4902,6 @@ msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 #, c-format
 #~ msgid "Index for `%s'"
 #~ msgstr "`%s' の見出し"
-
-#, c-format
-#~ msgid "No file index"
-#~ msgstr "ファイル見出しがありません"
 
 #, c-format
 #~ msgid "can't open %s: %s"
@@ -4415,22 +5016,9 @@ msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 #~ "一般的な質問や議論は help-texinfo@gnu.org に連絡してください。\n"
 #~ "Texinfo ホームページ: http://www.gnu.org/software/texinfo/"
 
-#~ msgid "Cannot delete the last window."
-#~ msgstr "最後のウィンドウは削除できません"
-
-#, c-format
-#~ msgid "No `%s' pointer for this node."
-#~ msgstr "このノードの `%s' ポインタがありません。"
-
 #, c-format
 #~ msgid "Unknown Info command `%c'; try `?' for help."
 #~ msgstr "不明な Info コマンド `%c' です。`?' でヘルプを参照してください。"
-
-#~ msgid "You are already at the last page of this node."
-#~ msgstr "ここはもう、このノードの最終ページです。"
-
-#~ msgid "You are already at the first page of this node."
-#~ msgstr "ここはもう、このノードの最初のページです。"
 
 #~ msgid ""
 #~ "Basic Commands in Info Windows\n"
@@ -4688,224 +5276,11 @@ msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 #~ msgid "Undefined command: %s"
 #~ msgstr "未定義のコマンドです: %s"
 
-#~ msgid "Move down to the next line"
-#~ msgstr "次の行に移動する"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "前の行に移動する"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "行末に移動する"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "行頭に移動する"
-
 #~ msgid "Next"
 #~ msgstr "次"
 
-#~ msgid "No more nodes within this document."
-#~ msgstr "このドキュメントには、これ以上のノードはありません。"
-
 #~ msgid "No `Prev' for this node."
 #~ msgstr "このノードの `前' はありません。"
-
-#~ msgid "No `Prev' or `Up' for this node within this document."
-#~ msgstr "このドキュメントでは、このノードの `前' や `上' はありません。"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "ノード構造を通じて進めたり下がったりする"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "ノード構造を通じて戻ったり上がったりする"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "このウィンドウを下向きにスクロールする"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "このウィンドウをスクロールし、デフォルトウィンドウサイズを設定する"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "このウィンドウをノード範囲内で前方にスクロールする"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "このウィンドウをノード範囲内で前方にスクロールし、デフォルトウィンドウサイ"
-#~ "ズを設定する"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "このウィンドウを後方にスクロールする"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr ""
-#~ "このウィンドウを後方にスクロールし、デフォルトウィンドウサイズを設定する"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "このウィンドウをノード範囲内で後方にスクロールする"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "このウィンドウをノード範囲内で後方にスクロールし、デフォルトウィンドウサイ"
-#~ "ズを設定する"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "このノードの最初に移動する"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "このノードの最後に移動する"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "行数によるスクロール"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "行数による逆スクロール"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "画面サイズの半分スクロール"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "画面サイズの半分逆スクロール"
-
-#~ msgid "Select the next window"
-#~ msgstr "次のウィンドウを選択"
-
-#~ msgid "Select the previous window"
-#~ msgstr "前のウィンドウを選択"
-
-#~ msgid "Split the current window"
-#~ msgstr "現在のウィンドウを分割"
-
-#~ msgid "Delete the current window"
-#~ msgstr "現在のウィンドウを削除"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "永久ウィンドウは削除できません"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "他のウィンドウを削除"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "他のウィンドウをスクロール"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "他のウィンドウを逆スクロール"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "このウィンドウを大きくする(または小さくする)"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "可視ウィンドウの利用可能スクリーン空間を分割する"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "現在のウィンドウに禁則処理を施すかどうかを切り替える"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "検索で正規表現を使用するかどうかを切り替える"
-
-#, c-format
-#~ msgid "Using regular expressions for searches."
-#~ msgstr "検索で正規表現を使用する。"
-
-#, c-format
-#~ msgid "Using literal strings for searches."
-#~ msgstr "検索で文字列リテラルそのものを使用する。"
-
-#~ msgid "Select the Next node"
-#~ msgstr "次 ノードを選択する"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "前 ノードを選択する"
-
-#~ msgid "Select the Up node"
-#~ msgstr "上 ノードを選択する"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "このファイルの最後のノードを選択する"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "このウィンドウにはノードが付いていません"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "このファイルの最初のノードを選択する"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "このノードのメニュー内での最後の項目を選択"
-
-#~ msgid "Select this menu item"
-#~ msgstr "このメニュー項目を選択"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu."
-#~ msgid_plural "There aren't %d items in this menu."
-#~ msgstr[0] "このメニューに %d 個の項目がありません。"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "メニュー項目 (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "メニュー項目: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "参照先 (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "参照先: "
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "メニューを読んで、そのノードを選択する"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "脚注や相互参照を読んで、そのノードを選択する"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "このノードメニューの先頭に移動する"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "可能な限り多くのメニュー項目へ一度に訪れる"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "ノード名を読んで、選択する"
-
-#~ msgid "Goto node: "
-#~ msgstr "ノードへ移動: "
-
-#, c-format
-#~ msgid "No menu in node `%s'."
-#~ msgstr "ノード `%s' にメニューがありません。"
-
-#, c-format
-#~ msgid "Unable to find node referenced by `%s' in `%s'."
-#~ msgstr "`%s' から参照されているノードを見つけられません(`%s' 中)"
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "dir からメニュー開始リストを読み、それをたどる"
-
-#~ msgid "Follow menus: "
-#~ msgstr "メニューに続く: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "プログラム起動に関する説明のノードを見つける"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "[%s] の起動ノードを見つける: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "man ページへの参照を読んで、選択する"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Man ページを表示: "
-
-#~ msgid "Select the node `Top' in this file"
-#~ msgstr "このファイルの `先頭' ノードを選択"
-
-#~ msgid "Select the node `(dir)'"
-#~ msgstr "`(dir)'ノードを選択する"
 
 #, c-format
 #~ msgid "Kill node (%s): "
@@ -4918,144 +5293,12 @@ msgstr "引数 `%3$s' に対して %1$s%2$s が無効です"
 #~ msgid "Cannot kill the last node"
 #~ msgstr "最後のノードは切り取れません"
 
-#~ msgid "Select the most recently selected node"
-#~ msgstr "最後に選択されたノードを選択する"
-
 #~ msgid "Kill this node"
 #~ msgstr "このノードを切り取る"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "ファイル名を読み込み、選択する"
-
-#~ msgid "Find file: "
-#~ msgstr "ファイルを探す: "
-
-#, c-format
-#~ msgid "Cannot find `%s'."
-#~ msgstr "`%s' が見つかりません。"
-
-#, c-format
-#~ msgid "Could not create output file `%s'."
-#~ msgstr "出力ファイル `%s' を作成できません。"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "%s を閉じています"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "ノード %s へ書き込み中..."
 
 #, c-format
 #~ msgid "closing file %s"
 #~ msgstr "ファイル %s を閉じています"
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "INFO_PRINT_COMMAND によってこのノードの内容をパイプする"
-
-#, c-format
-#~ msgid "Cannot open pipe to `%s'."
-#~ msgstr "`%s' へのパイプを開けません。"
-
-#, fuzzy, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "ノード `%s' を印刷中..."
-
-#, fuzzy, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "ノード `%s' を印刷中..."
-
-#~ msgid "Search continued from the end of the document."
-#~ msgstr "文書の最後から検索を継続する。"
-
-#~ msgid "Search continued from the beginning of the document."
-#~ msgstr "文書の最初から検索を継続する。"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "副ファイル %s を探しています ..."
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "文字列を読み、大文字小文字の区別をつけて検索する"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "文字列を読んで検索する"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "文字列を読んで後方検索する"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "正規表現検索"
-
-#~ msgid " case-sensitively"
-#~ msgstr " 大文字小文字の区別をつけて"
-
-#~ msgid " backward"
-#~ msgstr "後方"
-
-#~ msgid "Search"
-#~ msgstr "検索"
-
-#~ msgid "Search failed."
-#~ msgstr "検索に失敗しました。"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "同一方向で最後の検索を繰り返す"
-
-#~ msgid "No previous search string"
-#~ msgstr "前の検索文字列がありません"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "逆方向で最後の検索を繰り返す"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "入力した文字列の対話的な検索"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "正規表現逐次後方検索: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "逐次後方検索: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "正規表現逐次検索: "
-
-#~ msgid "I-search: "
-#~ msgstr "逐次検索: "
-
-#~ msgid "Failing "
-#~ msgstr "失敗 "
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "前の相互参照に移動"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "参照または、この行に現れたメニュー項目を選択"
-
-#~ msgid "Cancel current operation"
-#~ msgstr "現在の操作を中止する"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "ウィンドウの指定行にカーソルを移動する"
-
-#~ msgid "Redraw the display"
-#~ msgstr "画面を再描画する"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Info の使用を終了する"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "このキーの小文字に割り当てられたコマンドを実行する"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "現在の数値引数にこの数値を加える"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "現在の数値引数を開始(または 4 倍する)"
 
 #~ msgid "Internally used by \\[universal-argument]"
 #~ msgstr "内部的に \\[universal-argument] によって利用されます"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.x\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2006-02-18 16:00+0100\n"
 "Last-Translator: Máté LABÁDI <labadimate@freemail.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -17,11 +17,19 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: KBabel 1.11\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No `%s' pointer for this node."
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Nincs „%s“ utalás ezen az oldalon."
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "1 karakterrel előre"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "1 karakterrel hátra"
 
@@ -33,11 +41,11 @@ msgstr "Ugrás a sor elejére"
 msgid "Move to the end of this line"
 msgstr "Ugrás a sor végére"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "1 szóval előre"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "1 szóval hátra"
 
@@ -287,7 +295,7 @@ msgstr "Nincs %stárgymutató-bejegyzés, ami „%s!H-t tartalmazná."
 msgid "No available info files have '%s' in their indices"
 msgstr "Nincs elérhető fájl, amely tárgymutatója tartalmazná  „%s“-t."
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, fuzzy, c-format
 #| msgid "No menu item `%s' in node `%s'."
 msgid "No menu item '%s' in node '%s'"
@@ -1085,6 +1093,647 @@ msgstr "„%s“ érvénytelen"
 msgid "Quit"
 msgstr "Kilépés"
 
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr ""
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr ""
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Ugrás a következő sorra"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Ugrás az előző sorra"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "A kurzor mogatása az ablak egy adott sorára "
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Ugrás a sor végére"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Ugrás a sor elejére"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Ugrás az oldal elejére"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Ugrás az oldal végére"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Görgetés előre az ablakban"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Görgetés hátra az ablakban"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Görgetés előre az ablakban és beállítása alapértelmezett méretre"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Görgetés hátra az ablakban és beállítása alapértelmezett méretre"
+
+# aktuális ? LM
+# Nem. [semmi], e, jelen, stb. - sas
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Görgetés előre az ablakban ezen oldalon maradva"
+
+# aktuális ? LM
+# Nem. [semmi], e, jelen, stb. - sas
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Görgetés hátra az ablakban ezen oldalon maradva"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Görgetés előre az ablakban ezen oldalon maradva, és az alap ablakméret "
+"beállítása"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Görgetés hátra az ablakban ezen oldalon maradva, és az alap ablakméret "
+"beállítása"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Görgetés soronként le"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Görgetés soronként fel"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Görgetés egy fél képernyőnyit le"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Görgetés egy fél képernyőnyit fel"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Másik ablak görgetése"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "A másik ablak görgetése hátra"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Következő ablak kiválasztása"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Előző ablak kiválasztása"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Jelen ablak felosztása"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Jelen ablak törlése"
+
+#: info/session-cmd.c:992
+#, fuzzy
+#| msgid "Cannot delete the last window."
+msgid "Cannot delete the last window"
+msgstr "Az utolsó ablak nem törölhető!"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Egy állandó ablakot nem lehet törölni"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Többi ablak bezárása"
+
+# aktuális ? LM
+# Nem. [semmi], e, jelen, stb. - sas
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Jelen ablak növelése (csökkentése)"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Elérhető képernyőhely felosztása a látható ablakok közt"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr ""
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "A menüelem kiválasztása"
+
+#: info/session-cmd.c:1386
+#, fuzzy, c-format
+#| msgid "There aren't %d items in this menu."
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Nincs %d elem e menüben."
+msgstr[1] "Nincs %d elem e menüben."
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Az oldal menüjében található utolsó elem kiválasztása"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Menüelem (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Menüelem: "
+
+# miért nem Krhiv? :))) - sas
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Kereszthiv (%s) követése: "
+
+# miért nem Krhiv? :))) - sas
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Kereszthiv követése: "
+
+#: info/session-cmd.c:1585
+#, fuzzy, c-format
+#| msgid "The reference disappeared! (%s)."
+msgid "The reference disappeared! (%s)"
+msgstr "A hivatkozás eltünt! (%s)."
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Egy menüelem elolvasása és oldalának kiválasztása"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr ""
+"Egy lábjegyzet vagy kereszthivatkozás elolvasása és oldalának kiválasztása"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Ugrás az oldalhoz tartozó menü elejére"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "A lehető legtöbb menüelem meglátogatása egyszerre"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Ugrás az előző kereszthivatkozásra"
+
+#: info/session-cmd.c:1849
+#, fuzzy
+#| msgid "Move to the previous cross reference"
+msgid "Move to the next cross reference"
+msgstr "Ugrás az előző kereszthivatkozásra"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "A sorban megjelenő hivatkozás vagy menüelem kiválasztása"
+
+#: info/session-cmd.c:1946
+#, fuzzy, c-format
+#| msgid "No menu item `%s' in node `%s'."
+msgid "No menu in node '%s'"
+msgstr "Nincs „%s“ menüelem a(z) „%s“ oldalon."
+
+# található / találom ? LM
+# lelem, találom, nincs - sas
+#: info/session-cmd.c:1993
+#, fuzzy, c-format
+#| msgid "Unable to find node referenced by `%s' in `%s'."
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Nincs a(z) „%s“ által hivatkozott oldal ebben: „%s“."
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr ""
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Menük követése: "
+
+#: info/session-cmd.c:2117
+#, fuzzy, c-format
+#| msgid "No `%s' pointer for this node."
+msgid "No '%s' pointer for this node"
+msgstr "Nincs „%s“ utalás ezen az oldalon."
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Következő oldal kiválasztása"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Előző oldal kiválasztása"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Szülő oldal kiválasztása"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "A fájl utolsó oldala kiválasztása"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Jelen ablaknak nincsenek további oldalai"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "A fájl első oldala kiválasztása"
+
+# tegez/magáz? LM
+# talán egy kicsit jobb a magázás itt, de ahogy tetszik, de 1séges legyen - sas
+#: info/session-cmd.c:2257
+#, fuzzy
+#| msgid "You are already at the last page of this node."
+msgid "You are already at the last page of this node"
+msgstr "Ön már az oldal utolsó lapját látja."
+
+# node=oldal ? LM
+#: info/session-cmd.c:2343
+#, fuzzy
+#| msgid "No more nodes within this document."
+msgid "No more nodes within this document"
+msgstr "Nincs több oldal e dokumentumban."
+
+# tegez/magáz? LM
+# talán egy kicsit jobb a magázás itt, de ahogy tetszik, de 1séges legyen - sas
+#: info/session-cmd.c:2373
+#, fuzzy
+#| msgid "You are already at the first page of this node."
+msgid "You are already at the first page of this node"
+msgstr "Ön már az oldal legelső lapját látja."
+
+# ATNEZNI LM
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+#, fuzzy
+#| msgid "No `Prev' or `Up' for this node within this document."
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Nincs Előző vagy Fel lehetőség e ponthoz e dokumentumban."
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Mozgás előre vagy le az oldal szerkeztében"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Mozgás hátra vagy fel az oldal szerkezetében"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Egy oldalnév elolvasása és kiválasztása"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Ugrás az oldalra: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr ""
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr ""
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Egy kéziköny oldal hivatkozás olvasása és kiválasztása"
+
+# Kézikönyv ? LM
+# Manpage = kézikönyv oldal. Adott esetben egyszerűen manlapként vagy manoldalként is hivatkozhatunk rájuk, mivel kissé elavultak. A GNU rendszer alapértelemzett dokumentációformátuma az Info. Ezért is olyan fontos a fordítás, amit készítesz :-) (és amibe ey icipicit besegítek ...) - sas
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Kézikönyv oldal: "
+
+#: info/session-cmd.c:2783
+#, fuzzy
+#| msgid "Select the node `Top' in this file"
+msgid "Select the node 'Top' in this file"
+msgstr "Legfelső oldal kiválasztása e fájban"
+
+#: info/session-cmd.c:2789
+#, fuzzy
+#| msgid "Select the node `(dir)'"
+msgid "Select the node '(dir)'"
+msgstr "A „(dir)“ oldal kiválasztása"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr ""
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "A legutóbb választott oldal kiválasztása"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr ""
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Fájlnév beolvasása és kiválasztása"
+
+#: info/session-cmd.c:2825
+#, fuzzy
+#| msgid "Find file: "
+msgid "Find file: "
+msgstr "Fájl keresése: "
+
+# található / találom
+# a mondatszerkezet miatt itt jó a nem található - sas
+#: info/session-cmd.c:2842
+#, fuzzy, c-format
+#| msgid "Cannot find `%s'."
+msgid "Cannot find '%s'"
+msgstr "„%s“ nem található."
+
+#: info/session-cmd.c:2923
+#, fuzzy, c-format
+#| msgid "cannot create output file `%s'"
+msgid "Could not create output file '%s'"
+msgstr "a(z) „%s“ output fájl nem hozható létre."
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to `%s'"
+msgid "error writing to %s: %s"
+msgstr "hiba „%s“ írásakor."
+
+#: info/session-cmd.c:2958
+#, fuzzy, c-format
+#| msgid "error closing output file `%s'"
+msgid "closing %s"
+msgstr "hiba a(z) „%s“ output fájl bezárásakor"
+
+# írás / mentés ? LM
+# írás - sas
+#: info/session-cmd.c:2998
+#, fuzzy, c-format
+#| msgid "Writing node %s..."
+msgid "writing node %s..."
+msgstr "„%s“ oldal írása..."
+
+# pipe/cső ? LM
+# elolvasva, nekem a cső tetszik - sas
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Ezen oldal tartalmának csőbe irányítása INFO_PRINT_COMMAND -al"
+
+# pipe / cső ? LM
+# semmiképen nem pipe - sas
+#: info/session-cmd.c:3072
+#, fuzzy, c-format
+#| msgid "Cannot open pipe to `%s'."
+msgid "Cannot open pipe to '%s'"
+msgstr "Nem hozható létre cső ehhez:  „%s“."
+
+#: info/session-cmd.c:3077
+#, fuzzy, c-format
+#| msgid "Printing node %s..."
+msgid "printing node %s..."
+msgstr "%s oldal nyomtatása..."
+
+#: info/session-cmd.c:3085
+#, fuzzy, c-format
+#| msgid "Printing node %s..."
+msgid "finished printing node %s"
+msgstr "%s oldal nyomtatása..."
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr ""
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr ""
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr ""
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr ""
+
+#: info/session-cmd.c:3330
+#, fuzzy
+#| msgid "Kill to the beginning of the line"
+msgid "Search continued from the beginning of the document"
+msgstr "Törlés a sor elejéig"
+
+# alállomány ? LM
+# passz - sas
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "„%s“ alállomány keresése..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, fuzzy, c-format
+#| msgid "Search failed."
+msgid "Search failed"
+msgstr "A keresés sikertelen volt."
+
+# FORDITANI
+#: info/session-cmd.c:3407
+#, fuzzy, c-format
+#| msgid "%s%sfor string [%s]: "
+msgid "%s%s%s [%s]: "
+msgstr "%s%sa sztringhez [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr ""
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Keresés"
+
+# érzékenyen / érzékenység
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+#, fuzzy
+#| msgid " case-sensitively "
+msgid " case-sensitively"
+msgstr "kis/nagybetű érzékenyen"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+#, fuzzy
+#| msgid "Search backward"
+msgid " backward"
+msgstr "Keresés felfelé"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr ""
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr ""
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr ""
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr ""
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr ""
+
+# alállomány ? LM
+# passz - sas
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, fuzzy, c-format
+#| msgid "Searching subfile %s ..."
+msgid "Search under %s: "
+msgstr "„%s“ alállomány keresése..."
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr ""
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr ""
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr ""
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Szöveg beolvasása és keresése kis/nagybetű érzékenyen"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Szöveg beolvasása és keresése "
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Szöveg beolvasása és keresése fel"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Utolsó keresés ismétlése azonos irányba"
+
+# keresési feltétel / keresési szöveg / keresett szöveg ? LM
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Nincs korábbi keresési feltétel"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Utolsó keresés ismétlése ellenirányban"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr ""
+
+# JAVITANI ?
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Egy szöveg interaktív keresése gépeléskor"
+
+#: info/session-cmd.c:4108
+#, fuzzy
+#| msgid "I-search backward: "
+msgid "Regexp I-search backward: "
+msgstr "I.-keresés fel: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "I.-keresés fel: "
+
+#: info/session-cmd.c:4111
+#, fuzzy
+#| msgid "I-search: "
+msgid "Regexp I-search: "
+msgstr "I.-keresés: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "I.-keresés: "
+
+# checkit
+# FORDITANI
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Sikertelen"
+
+#: info/session-cmd.c:4507
+#, fuzzy
+#| msgid "Cancel or quit operation"
+msgid "Cancel current operation"
+msgstr "Művelet törlése vagy kilépés"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr ""
+
+#: info/session-cmd.c:4515
+#, fuzzy, c-format
+#| msgid "This is %s, produced by makeinfo version %s from %s.\n"
+msgid "GNU Info version %s"
+msgstr "Ez itt %s, ami a makeinfo %s verziójával (%s) lett generálva.\n"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Képernyő frissítése"
+
+# rövidebb forma? Kilépés az Info-ból ? LM
+# általában NAON.! fontos a RÖV.SÉG, de itt kivételesen szerintem maradhat ez - sas
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Az Info használatának befejezése"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "E karakter kisbetűs változatához rendelt parancs futtatása"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Add hozzá ezt a számjegyet az aktuális numerikus argumentumhoz"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Start (vagy szorozd be 4-gyel) az aktuális numerikus argumentumot"
+
 # on = be ? LM
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1728,7 +2377,7 @@ msgstr "„%s“ korábbi definíciója"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1745,7 +2394,7 @@ msgstr "%s: A CSS fájl nem nyitható meg: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1776,17 +2425,21 @@ msgid "could not create directory `%s': %s"
 msgstr "A(z) „%s“ könyvtár nem hozható létre: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image a(z) „%s“ fájl nem olvasható: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, fuzzy, perl-format
 #| msgid "@image file `%s' unreadable: %s"
 msgid "@image file `%s' not found, using `%s'"
@@ -2131,54 +2784,54 @@ msgstr ""
 msgid "@node %s name should not contain `,': %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image a(z) „%s“ fájl (HTML) nem olvasható: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, perl-format
 msgid "math to images: chdir %s failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, perl-format
 msgid "math to images: output file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, perl-format
 msgid "math to images: command failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, perl-format
 msgid "math to images: dvi file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, perl-format
 msgid "math to images: unable to return to initial directory: %s"
 msgstr ""
@@ -2230,20 +2883,25 @@ msgstr ""
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, fuzzy, c-format, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "could not read %s: %s"
 msgstr "%s: A CSS fájl nem nyitható meg: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "hiba a(z) „%s“ output fájl bezárásakor"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, fuzzy, c-format, perl-format
 #| msgid "%s: could not open --css-file: %s"
 msgid "@%s: could not find %s"
@@ -4348,26 +5006,9 @@ msgstr ""
 #~ "\n"
 #~ "* Menü: Oldalak, amelyek tárgymutatói tartalmazzák „%s“-t:\n"
 
-#~ msgid "Cannot delete the last window."
-#~ msgstr "Az utolsó ablak nem törölhető!"
-
-#, c-format
-#~ msgid "No `%s' pointer for this node."
-#~ msgstr "Nincs „%s“ utalás ezen az oldalon."
-
 #, c-format
 #~ msgid "Unknown Info command `%c'; try `?' for help."
 #~ msgstr "Ismeretlen Info parancs: „%c“. A „?“ súg."
-
-# tegez/magáz? LM
-# talán egy kicsit jobb a magázás itt, de ahogy tetszik, de 1séges legyen - sas
-#~ msgid "You are already at the last page of this node."
-#~ msgstr "Ön már az oldal utolsó lapját látja."
-
-# tegez/magáz? LM
-# talán egy kicsit jobb a magázás itt, de ahogy tetszik, de 1séges legyen - sas
-#~ msgid "You are already at the first page of this node."
-#~ msgstr "Ön már az oldal legelső lapját látja."
 
 #~ msgid ""
 #~ "Basic Commands in Info Windows\n"
@@ -4562,10 +5203,6 @@ msgstr ""
 #~ msgid "incorrect number of arguments"
 #~ msgstr "érvénytelen számú argumentum"
 
-#, c-format
-#~ msgid "cannot create output file `%s'"
-#~ msgstr "a(z) „%s“ output fájl nem hozható létre."
-
 # section=szakasz?
 # A mondat eleje nagybetu vagy kisbetu? LM
 # túl hosszú szakad - ez a biztos - sas
@@ -4575,18 +5212,6 @@ msgstr ""
 #, c-format
 #~ msgid "Undefined command: %s"
 #~ msgstr "Definiálatlan parancs: %s"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Ugrás a következő sorra"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Ugrás az előző sorra"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Ugrás a sor végére"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Ugrás a sor elejére"
 
 #~ msgid "Next"
 #~ msgstr "Következő"
@@ -4605,10 +5230,6 @@ msgstr ""
 #~ msgid "Moving Up %d time(s), then Next."
 #~ msgstr "Mozgás %d alkalommal felfele, majd a „Következő“ kiválasztása."
 
-# node=oldal ? LM
-#~ msgid "No more nodes within this document."
-#~ msgstr "Nincs több oldal e dokumentumban."
-
 #~ msgid "No `Prev' for this node."
 #~ msgstr "Nincs „Előző“ oldala e pontnak."
 
@@ -4616,194 +5237,12 @@ msgstr ""
 #~ msgid "Moving Prev in this window."
 #~ msgstr "Ugrás az Előzőre ebben az ablakban."
 
-# ATNEZNI LM
-#~ msgid "No `Prev' or `Up' for this node within this document."
-#~ msgstr "Nincs Előző vagy Fel lehetőség e ponthoz e dokumentumban."
-
 #~ msgid "Moving Up in this window."
 #~ msgstr "Mozgás Fel ebben az ablakban."
 
 # oldal ? LM
 #~ msgid "Moving to `Prev's last menu item."
 #~ msgstr "Ugrás az Előző utolsó menüelemére."
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Mozgás előre vagy le az oldal szerkeztében"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Mozgás hátra vagy fel az oldal szerkezetében"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Görgetés előre az ablakban"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Görgetés előre az ablakban és beállítása alapértelmezett méretre"
-
-# aktuális ? LM
-# Nem. [semmi], e, jelen, stb. - sas
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Görgetés előre az ablakban ezen oldalon maradva"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Görgetés előre az ablakban ezen oldalon maradva, és az alap ablakméret "
-#~ "beállítása"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Görgetés hátra az ablakban"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Görgetés hátra az ablakban és beállítása alapértelmezett méretre"
-
-# aktuális ? LM
-# Nem. [semmi], e, jelen, stb. - sas
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Görgetés hátra az ablakban ezen oldalon maradva"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Görgetés hátra az ablakban ezen oldalon maradva, és az alap ablakméret "
-#~ "beállítása"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Ugrás az oldal elejére"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Ugrás az oldal végére"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Görgetés soronként le"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Görgetés soronként fel"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Görgetés egy fél képernyőnyit le"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Görgetés egy fél képernyőnyit fel"
-
-#~ msgid "Select the next window"
-#~ msgstr "Következő ablak kiválasztása"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Előző ablak kiválasztása"
-
-#~ msgid "Split the current window"
-#~ msgstr "Jelen ablak felosztása"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Jelen ablak törlése"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Egy állandó ablakot nem lehet törölni"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Többi ablak bezárása"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Másik ablak görgetése"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "A másik ablak görgetése hátra"
-
-# aktuális ? LM
-# Nem. [semmi], e, jelen, stb. - sas
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Jelen ablak növelése (csökkentése)"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Elérhető képernyőhely felosztása a látható ablakok közt"
-
-#~ msgid "Select the Next node"
-#~ msgstr "Következő oldal kiválasztása"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Előző oldal kiválasztása"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Szülő oldal kiválasztása"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "A fájl utolsó oldala kiválasztása"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Jelen ablaknak nincsenek további oldalai"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "A fájl első oldala kiválasztása"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Az oldal menüjében található utolsó elem kiválasztása"
-
-#~ msgid "Select this menu item"
-#~ msgstr "A menüelem kiválasztása"
-
-#, c-format
-#~ msgid "There aren't %d items in this menu."
-#~ msgstr "Nincs %d elem e menüben."
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Menüelem (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Menüelem: "
-
-# miért nem Krhiv? :))) - sas
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Kereszthiv (%s) követése: "
-
-# miért nem Krhiv? :))) - sas
-#~ msgid "Follow xref: "
-#~ msgstr "Kereszthiv követése: "
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Egy menüelem elolvasása és oldalának kiválasztása"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr ""
-#~ "Egy lábjegyzet vagy kereszthivatkozás elolvasása és oldalának kiválasztása"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Ugrás az oldalhoz tartozó menü elejére"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "A lehető legtöbb menüelem meglátogatása egyszerre"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Egy oldalnév elolvasása és kiválasztása"
-
-#~ msgid "Goto node: "
-#~ msgstr "Ugrás az oldalra: "
-
-# található / találom ? LM
-# lelem, találom, nincs - sas
-#, c-format
-#~ msgid "Unable to find node referenced by `%s' in `%s'."
-#~ msgstr "Nincs a(z) „%s“ által hivatkozott oldal ebben: „%s“."
-
-#~ msgid "Follow menus: "
-#~ msgstr "Menük követése: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Egy kéziköny oldal hivatkozás olvasása és kiválasztása"
-
-# Kézikönyv ? LM
-# Manpage = kézikönyv oldal. Adott esetben egyszerűen manlapként vagy manoldalként is hivatkozhatunk rájuk, mivel kissé elavultak. A GNU rendszer alapértelemzett dokumentációformátuma az Info. Ezért is olyan fontos a fordítás, amit készítesz :-) (és amibe ey icipicit besegítek ...) - sas
-#~ msgid "Get Manpage: "
-#~ msgstr "Kézikönyv oldal: "
-
-#~ msgid "Select the node `Top' in this file"
-#~ msgstr "Legfelső oldal kiválasztása e fájban"
-
-#~ msgid "Select the node `(dir)'"
-#~ msgstr "A „(dir)“ oldal kiválasztása"
 
 #, c-format
 #~ msgid "Kill node (%s): "
@@ -4816,131 +5255,14 @@ msgstr ""
 #~ msgid "Cannot kill the last node"
 #~ msgstr "Az utolsó oldal nem törölhető"
 
-#~ msgid "Select the most recently selected node"
-#~ msgstr "A legutóbb választott oldal kiválasztása"
-
 #~ msgid "Kill this node"
 #~ msgstr "Ezen oldal törlése"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Fájlnév beolvasása és kiválasztása"
-
-# található / találom
-# a mondatszerkezet miatt itt jó a nem található - sas
-#, c-format
-#~ msgid "Cannot find `%s'."
-#~ msgstr "„%s“ nem található."
 
 #~ msgid "Done."
 #~ msgstr "Kész."
 
-# írás / mentés ? LM
-# írás - sas
-#, c-format
-#~ msgid "Writing node %s..."
-#~ msgstr "„%s“ oldal írása..."
-
-# pipe/cső ? LM
-# elolvasva, nekem a cső tetszik - sas
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "Ezen oldal tartalmának csőbe irányítása INFO_PRINT_COMMAND -al"
-
-# pipe / cső ? LM
-# semmiképen nem pipe - sas
-#, c-format
-#~ msgid "Cannot open pipe to `%s'."
-#~ msgstr "Nem hozható létre cső ehhez:  „%s“."
-
-#, c-format
-#~ msgid "Printing node %s..."
-#~ msgstr "%s oldal nyomtatása..."
-
-# alállomány ? LM
-# passz - sas
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "„%s“ alállomány keresése..."
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Szöveg beolvasása és keresése kis/nagybetű érzékenyen"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Szöveg beolvasása és keresése "
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Szöveg beolvasása és keresése fel"
-
-# FORDITANI
-#, c-format
-#~ msgid "%s%sfor string [%s]: "
-#~ msgstr "%s%sa sztringhez [%s]: "
-
-#~ msgid "Search backward"
-#~ msgstr "Keresés felfelé"
-
-#~ msgid "Search"
-#~ msgstr "Keresés"
-
-# érzékenyen / érzékenység
-#~ msgid " case-sensitively "
-#~ msgstr "kis/nagybetű érzékenyen"
-
 #~ msgid " "
 #~ msgstr " "
-
-#~ msgid "Search failed."
-#~ msgstr "A keresés sikertelen volt."
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Utolsó keresés ismétlése azonos irányba"
-
-# keresési feltétel / keresési szöveg / keresett szöveg ? LM
-#~ msgid "No previous search string"
-#~ msgstr "Nincs korábbi keresési feltétel"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Utolsó keresés ismétlése ellenirányban"
-
-# JAVITANI ?
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Egy szöveg interaktív keresése gépeléskor"
-
-#~ msgid "I-search backward: "
-#~ msgstr "I.-keresés fel: "
-
-#~ msgid "I-search: "
-#~ msgstr "I.-keresés: "
-
-# checkit
-# FORDITANI
-#~ msgid "Failing "
-#~ msgstr "Sikertelen"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Ugrás az előző kereszthivatkozásra"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "A sorban megjelenő hivatkozás vagy menüelem kiválasztása"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "A kurzor mogatása az ablak egy adott sorára "
-
-#~ msgid "Redraw the display"
-#~ msgstr "Képernyő frissítése"
-
-# rövidebb forma? Kilépés az Info-ból ? LM
-# általában NAON.! fontos a RÖV.SÉG, de itt kivételesen szerintem maradhat ez - sas
-#~ msgid "Quit using Info"
-#~ msgstr "Az Info használatának befejezése"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "E karakter kisbetűs változatához rendelt parancs futtatása"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Add hozzá ezt a számjegyet az aktuális numerikus argumentumhoz"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Start (vagy szorozd be 4-gyel) az aktuális numerikus argumentumot"
 
 #~ msgid "Internally used by \\[universal-argument]"
 #~ msgstr "Belső használatra a \\[universal-argument]-nek"

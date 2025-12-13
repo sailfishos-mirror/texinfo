@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2021-07-07 18:24+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -618,27 +618,27 @@ msgid "see {title_ref}"
 msgstr "ks. {title_ref}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1634
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3872
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3910
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3364
 #, perl-brace-format
 msgid "{abbr_or_acronym} ({explanation})"
 msgstr "{abbr_or_acronym} ({explanation})"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1825
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4089
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4127
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3587
 #: tta/perl/Texinfo/Convert/HTML.pm:6812 tta/C/convert/format_html.c:11356
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3504
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3542
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3290
 #, perl-brace-format
 msgid "{text} ({url})"
 msgstr "{text} ({url})"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4029
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4067
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3491
 #: tta/perl/Texinfo/Convert/HTML.pm:3351 tta/C/convert/format_html.c:6187
 #, perl-brace-format
@@ -646,7 +646,7 @@ msgid "@{No value for `{value}'@}"
 msgstr "@{Ei arvoa: ”{value}”@}"
 
 #. TRANSLATORS: quotation author
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4773
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4815
 #: tta/perl/Texinfo/Convert/Plaintext.pm:4555
 #: tta/perl/Texinfo/Convert/HTML.pm:5413
 #, fuzzy, perl-brace-format

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2025-06-07 15:57+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -26,11 +26,19 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Er is geen '%s'-koppeling op deze pagina."
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Eén teken verder"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Eén teken terug"
 
@@ -42,11 +50,11 @@ msgstr "Naar het begin van de regel"
 msgid "Move to the end of this line"
 msgstr "Naar het einde van de regel"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Eén woord verder"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Eén woord terug"
 
@@ -275,7 +283,7 @@ msgstr "Er zijn geen index-items die '%s' bevatten."
 msgid "No available info files have '%s' in their indices"
 msgstr "Geen van de beschikbare Info-bestanden heeft '%s' in z'n index."
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Er is geen menu-item '%s' op pagina '%s'."
@@ -998,6 +1006,563 @@ msgstr "'%s' is ongeldig."
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Geannuleerd"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Alle overeenkomende bestanden tonen"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Geen bestandenindex"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Naar de volgende regel"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Naar de vorige regel"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "De cursor op een bepaalde regel in het venster zetten"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Naar het einde van de regel"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Naar het begin van de regel"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Naar het begin van deze pagina"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Naar het einde van deze pagina"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Verderscrollen in dit venster"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Terugscrollen in dit venster"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Verderscrollen in dit venster en de venstergrootte instellen"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Terugscrollen in dit venster en de venstergrootte instellen"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Binnen de pagina verderscrollen in dit venster"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Binnen de pagina terugscrollen in dit venster"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Binnen de pagina verderscrollen in dit venster en de venstergrootte instellen"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Binnen de pagina terugscrollen in dit venster en de venstergrootte instellen"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Een aantal regels omlaagscrollen"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Een aantal regels omhoogscrollen"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Een halve pagina omlaagscrollen"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Een halve pagina omhoogscrollen"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "In het andere venster verderscrollen"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "In het andere venster terugscrollen"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Het volgende venster selecteren"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Het vorige venster selecteren"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Het huidige venster splitsen"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Het huidige venster sluiten"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Het laatste venster kan niet gesloten worden."
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Een permanent venster kan niet gesloten worden."
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Alle andere vensters sluiten"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Dit venster vergroten of verkleinen"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "De beschikbare schermruimte verdelen tussen de zichtbare vensters"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr "Regelafbreking in het huidige venster omschakelen"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Het huidige menu-item selecteren"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Dit menu heeft minder dan %d item."
+msgstr[1] "Dit menu heeft minder dan %d items."
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Het laatste menu-item op deze pagina selecteren"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Te kiezen menu-item (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Te kiezen menu-item: "
+
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Te volgen verwijzing (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Te volgen kruisverwijzing: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "De verwijzing is verdwenen!  (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "De naam van een menu-item lezen en diens pagina selecteren"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr ""
+"De naam van een voetnoot of kruisverwijzing lezen en diens pagina selecteren"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Naar het begin van het menu op deze pagina"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Zo veel mogelijk menu-items tegelijk bezoeken"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Naar de vorige kruisverwijzing springen"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Naar de volgende kruisverwijzing springen"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "De verwijzing of het menu-item in deze regel volgen"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Er is geen menu in pagina '%s'."
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Kan de pagina waarnaar verwezen werd door '%s' niet vinden in '%s'."
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Een reeks menu-items lezen en deze vanaf de inhoudspagina volgen"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Te volgen reeks menu-items: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Er is geen '%s'-koppeling op deze pagina."
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Naar de volgende pagina op dit niveau"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Naar de voorgaande pagina op dit niveau"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Naar de bovenliggende pagina"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Naar de laatste pagina van dit document"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Dit venster heeft geen extra pagina's."
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Naar de eerste pagina van dit document"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "U bent al aan het eind van deze pagina."
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Dit is de laatste pagina van dit document."
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "U bent al aan het begin van deze pagina."
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Dit is de eerste pagina van dit document."
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Voorwaarts door alle pagina's van een document bladeren"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Achterwaarts door alle pagina's van een document bladeren"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "De naam van een pagina lezen en deze selecteren"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Te bezoeken pagina: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "De pagina zoeken die de aanroepwijze van het programma beschrijft"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Aanroepbeschrijving bekijken van [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Een man-paginaverwijzing lezen en deze selecteren"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Te bekijken man-pagina: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Naar de top-pagina van dit document"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Naar de hoofd-inhoudspagina"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Volledige bestandsnaam van getoonde pagina tonen"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Terug naar de laatst geziene pagina"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Er is geen vroegere pagina in de geschiedenis."
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "De naam van een bestand lezen en deze selecteren"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Te bezoeken bestand: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Kan '%s' niet vinden."
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Kan uitvoerbestand '%s' niet aanmaken."
+
+#: info/session-cmd.c:2949
+#, c-format
+msgid "error writing to %s: %s"
+msgstr "fout bij het schrijven naar '%s': %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "sluiten van %s"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "schrijven van pagina %s..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "De inhoud van deze pagina doorsluizen naar het INFO_PRINT_COMMAND"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Kan geen pijp naar '%s' openen."
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "afdrukken van pagina %s..."
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "klaar met afdrukken van pagina %s"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Het gebruik van reguliere expressies bij zoekopdrachten aan-/uitzetten"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Zoeken gebruikt reguliere expressies."
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Zoeken gebruikt letterlijke tekst."
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Het zoeken is verdergegaan vanaf het einde."
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Het zoeken is verdergegaan vanaf het begin."
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Zoeken naar subbestand %s..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Niet gevonden."
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [\"%s\"]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Zoeken naar expressie"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Zoeken"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " (hooflettergevoelig)"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " (achterwaarts)"
+
+# FIXME: huh?
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Zoektekenreeks is te kort."
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Terugkerend naar de laatste overeenkomst in '%s'."
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Geen verdere overeenkomsten."
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Deze pagina en subpagina's doorzoeken naar een tekenreeks"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "Zoeken onder '%s': "
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Naar de volgende overeenkomst in de Info-subboom gaan"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Er is geen actieve zoekopdracht."
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Naar de voorgaande overeenkomst in de Info-subboom gaan"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Een tekenreeks lezen en er hoofdlettergevoelig naar zoeken"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Een tekenreeks lezen en er naar zoeken"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Een tekenreeks lezen en er achterwaarts naar zoeken"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "De laatste zoekopdracht in dezelfde richting herhalen"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Geen eerdere zoektekenreeks."
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "De laatste zoekopdracht in tegenovergestelde richting herhalen"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Getoonde zoekresultaten wissen"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Naar een tekenreeks zoeken terwijl u deze intypt"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "Achterwaarts typend-zoeken naar expressie: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "Achterwaarts typend-zoeken: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "Typend-zoeken naar expressie: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "Typend-zoeken: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "*Ongevonden* "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Huidige operatie annuleren"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "De versie van Info tonen"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Info, versie %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Het venster opnieuw schrijven"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Info afsluiten"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr ""
+"Commando uitvoeren dat behoort bij de kleinelettervariant van deze toets"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Dit cijfer toevoegen aan het huidige numerieke argument"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr ""
+"Een nieuw numeriek argument beginnen (of het huidige met 4 vermenigvuldigen)"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1740,7 +2305,7 @@ msgstr "hier was de eerdere definitie van @%s"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1756,7 +2321,7 @@ msgstr "kan %s niet openen om te schrijven: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1782,16 +2347,20 @@ msgid "could not create directory `%s': %s"
 msgstr "kan map '%s' niet aanmaken: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "fout bij sluiten van %s, bestand met 'image'-tekst: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image-bestand '%s' is onleesbaar: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image-bestand '%s' is niet gevonden; '%s' wordt gebruikt"
@@ -2111,58 +2680,58 @@ msgstr "@node -- naam hoort geen ',' te bevatten: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "@node %s -- naam hoort geen ',' te bevatten: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "\\verb-begrenzer '%s' (voor LaTeX) gebruikt in tekst '%s'"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image-bestand '%s' (voor LaTeX) is niet gevonden"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: kan %s niet openen: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: wijzigen van map naar %s is mislukt: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: uitvoerbestand ontbreekt: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: opdracht is mislukt: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: afsluiten van communicatie is mislukt: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: uitvoerbestand ontbreekt: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2215,18 +2784,23 @@ msgstr "paginanaam in menu-item hoort geen ':' te bevatten"
 msgid "menu entry name should not contain `:'"
 msgstr "menu-itemnaam hoort geen ':' te bevatten"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "kan %s niet lezen: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "fout bij sluiten van '@verbatiminclude'-bestand %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: kan %s niet vinden"
@@ -4430,442 +5004,9 @@ msgstr "onjuist of leeg formeel argument van @%s: "
 #~ "  -w, --where, --location      het volledige pad van het Info-bestand "
 #~ "tonen"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Het laatste venster kan niet gesloten worden."
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Er is geen '%s'-koppeling op deze pagina."
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Onbekend Info-commando '%c'; typ '?' voor hulp."
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "U bent al aan het eind van deze pagina."
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "U bent al aan het begin van deze pagina."
-
-#~ msgid "Show all matching files"
-#~ msgstr "Alle overeenkomende bestanden tonen"
-
-#, c-format
-#~ msgid "No file index"
-#~ msgstr "Geen bestandenindex"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Naar de volgende regel"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Naar de vorige regel"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "De cursor op een bepaalde regel in het venster zetten"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Naar het einde van de regel"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Naar het begin van de regel"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Naar het begin van deze pagina"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Naar het einde van deze pagina"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Verderscrollen in dit venster"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Terugscrollen in dit venster"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Verderscrollen in dit venster en de venstergrootte instellen"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Terugscrollen in dit venster en de venstergrootte instellen"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Binnen de pagina verderscrollen in dit venster"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Binnen de pagina terugscrollen in dit venster"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Binnen de pagina verderscrollen in dit venster en de venstergrootte "
-#~ "instellen"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Binnen de pagina terugscrollen in dit venster en de venstergrootte "
-#~ "instellen"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Een aantal regels omlaagscrollen"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Een aantal regels omhoogscrollen"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Een halve pagina omlaagscrollen"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Een halve pagina omhoogscrollen"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "In het andere venster verderscrollen"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "In het andere venster terugscrollen"
-
-#~ msgid "Select the next window"
-#~ msgstr "Het volgende venster selecteren"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Het vorige venster selecteren"
-
-#~ msgid "Split the current window"
-#~ msgstr "Het huidige venster splitsen"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Het huidige venster sluiten"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Een permanent venster kan niet gesloten worden."
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Alle andere vensters sluiten"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Dit venster vergroten of verkleinen"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "De beschikbare schermruimte verdelen tussen de zichtbare vensters"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr "Regelafbreking in het huidige venster omschakelen"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Het huidige menu-item selecteren"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Dit menu heeft minder dan %d item."
-#~ msgstr[1] "Dit menu heeft minder dan %d items."
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Het laatste menu-item op deze pagina selecteren"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Te kiezen menu-item (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Te kiezen menu-item: "
-
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Te volgen verwijzing (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Te volgen kruisverwijzing: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "De verwijzing is verdwenen!  (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "De naam van een menu-item lezen en diens pagina selecteren"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr ""
-#~ "De naam van een voetnoot of kruisverwijzing lezen en diens pagina "
-#~ "selecteren"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Naar het begin van het menu op deze pagina"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Zo veel mogelijk menu-items tegelijk bezoeken"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Naar de vorige kruisverwijzing springen"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Naar de volgende kruisverwijzing springen"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "De verwijzing of het menu-item in deze regel volgen"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Er is geen menu in pagina '%s'."
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Kan de pagina waarnaar verwezen werd door '%s' niet vinden in '%s'."
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Een reeks menu-items lezen en deze vanaf de inhoudspagina volgen"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Te volgen reeks menu-items: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Naar de volgende pagina op dit niveau"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Naar de voorgaande pagina op dit niveau"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Naar de bovenliggende pagina"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Naar de laatste pagina van dit document"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Dit venster heeft geen extra pagina's."
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Naar de eerste pagina van dit document"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Dit is de laatste pagina van dit document."
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr "Dit is de eerste pagina van dit document."
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Voorwaarts door alle pagina's van een document bladeren"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Achterwaarts door alle pagina's van een document bladeren"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "De naam van een pagina lezen en deze selecteren"
-
-#~ msgid "Goto node: "
-#~ msgstr "Te bezoeken pagina: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "De pagina zoeken die de aanroepwijze van het programma beschrijft"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Aanroepbeschrijving bekijken van [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Een man-paginaverwijzing lezen en deze selecteren"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Te bekijken man-pagina: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Naar de top-pagina van dit document"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Naar de hoofd-inhoudspagina"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Volledige bestandsnaam van getoonde pagina tonen"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Terug naar de laatst geziene pagina"
-
-#, c-format
-#~ msgid "No earlier node in history"
-#~ msgstr "Er is geen vroegere pagina in de geschiedenis."
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "De naam van een bestand lezen en deze selecteren"
-
-#~ msgid "Find file: "
-#~ msgstr "Te bezoeken bestand: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Kan '%s' niet vinden."
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Kan uitvoerbestand '%s' niet aanmaken."
-
-#, c-format
-#~ msgid "error writing to %s: %s"
-#~ msgstr "fout bij het schrijven naar '%s': %s"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "sluiten van %s"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "schrijven van pagina %s..."
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "De inhoud van deze pagina doorsluizen naar het INFO_PRINT_COMMAND"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Kan geen pijp naar '%s' openen."
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "afdrukken van pagina %s..."
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "klaar met afdrukken van pagina %s"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr ""
-#~ "Het gebruik van reguliere expressies bij zoekopdrachten aan-/uitzetten"
-
-#, c-format
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Zoeken gebruikt reguliere expressies."
-
-#, c-format
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Zoeken gebruikt letterlijke tekst."
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Het zoeken is verdergegaan vanaf het einde."
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Het zoeken is verdergegaan vanaf het begin."
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Zoeken naar subbestand %s..."
-
-#, c-format
-#~ msgid "Search failed"
-#~ msgstr "Niet gevonden."
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [\"%s\"]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Zoeken naar expressie"
-
-#~ msgid "Search"
-#~ msgstr "Zoeken"
-
-#~ msgid " case-sensitively"
-#~ msgstr " (hooflettergevoelig)"
-
-#~ msgid " backward"
-#~ msgstr " (achterwaarts)"
-
-# FIXME: huh?
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Zoektekenreeks is te kort."
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "Terugkerend naar de laatste overeenkomst in '%s'."
-
-#, c-format
-#~ msgid "No more matches"
-#~ msgstr "Geen verdere overeenkomsten."
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Deze pagina en subpagina's doorzoeken naar een tekenreeks"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Zoeken onder '%s': "
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Naar de volgende overeenkomst in de Info-subboom gaan"
-
-#, c-format
-#~ msgid "No active search"
-#~ msgstr "Er is geen actieve zoekopdracht."
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Naar de voorgaande overeenkomst in de Info-subboom gaan"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Een tekenreeks lezen en er hoofdlettergevoelig naar zoeken"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Een tekenreeks lezen en er naar zoeken"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Een tekenreeks lezen en er achterwaarts naar zoeken"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "De laatste zoekopdracht in dezelfde richting herhalen"
-
-#~ msgid "No previous search string"
-#~ msgstr "Geen eerdere zoektekenreeks."
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "De laatste zoekopdracht in tegenovergestelde richting herhalen"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Getoonde zoekresultaten wissen"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Naar een tekenreeks zoeken terwijl u deze intypt"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "Achterwaarts typend-zoeken naar expressie: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "Achterwaarts typend-zoeken: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "Typend-zoeken naar expressie: "
-
-#~ msgid "I-search: "
-#~ msgstr "Typend-zoeken: "
-
-#~ msgid "Failing "
-#~ msgstr "*Ongevonden* "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Huidige operatie annuleren"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "De versie van Info tonen"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "GNU Info, versie %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Het venster opnieuw schrijven"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Info afsluiten"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr ""
-#~ "Commando uitvoeren dat behoort bij de kleinelettervariant van deze toets"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Dit cijfer toevoegen aan het huidige numerieke argument"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr ""
-#~ "Een nieuw numeriek argument beginnen (of het huidige met 4 "
-#~ "vermenigvuldigen)"
 
 #, c-format, perl-format
 #~ msgid "node %s for `%s' is `%s' in sectioning but not in menu"

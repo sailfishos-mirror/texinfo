@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.0.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2023-04-22 17:47+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <(nothing)>\n"
@@ -19,11 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.2.2\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr ""
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "სიმბოლოს წინ გადატანა"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "სიმბოლოს უკან გადატანა"
 
@@ -35,11 +41,11 @@ msgstr "ამ ხაზის დასაწყისში გადასვ
 msgid "Move to the end of this line"
 msgstr "ამ ხაზის ბოლოში გადასვლა"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "სიტყვით წინ გადასვლა"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "სიტყვით უკან გადასვლა"
 
@@ -260,7 +266,7 @@ msgstr ""
 msgid "No available info files have '%s' in their indices"
 msgstr ""
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr ""
@@ -896,6 +902,627 @@ msgstr "'%s' არასწორია"
 msgid "Quit"
 msgstr "გასვლა"
 
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr ""
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "ფაილის ინდექსის გარეშე"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "ქვემოთ შემდეგ ხაზზე გადატანა"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "ზემოთ წინა ხაზზე გატანა"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "კურსორის ფანჯრის მითითებულ ხაზზე გადატანა"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "ხაზის ბოლოში გადასვლა"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "ხაზის დასაწყისში გატანა"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "ამ კვანძის დასაწყისში გადატანა"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "ამ კვანძის ბოლოში გადატანა"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "ამ ფანჯარაში წინ გადახვევა"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "ამ ფანჯარაში უკან გადახვევა"
+
+#: info/session-cmd.c:601
+#, fuzzy
+#| msgid "Scroll forward in this window"
+msgid "Scroll forward in this window and set default window size"
+msgstr "ამ ფანჯარაში წინ გადახვევა"
+
+#: info/session-cmd.c:616
+#, fuzzy
+#| msgid "Scroll backward in this window"
+msgid "Scroll backward in this window and set default window size"
+msgstr "ამ ფანჯარაში უკან გადახვევა"
+
+#: info/session-cmd.c:622
+#, fuzzy
+#| msgid "Scroll forward in this window"
+msgid "Scroll forward in this window staying within node"
+msgstr "ამ ფანჯარაში წინ გადახვევა"
+
+#: info/session-cmd.c:637
+#, fuzzy
+#| msgid "Scroll backward in this window"
+msgid "Scroll backward in this window staying within node"
+msgstr "ამ ფანჯარაში უკან გადახვევა"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "ქვემოთ გადახვევა, ხაზებით"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "ზემოთ ახვევა, ხაზებით"
+
+#: info/session-cmd.c:696
+#, fuzzy
+#| msgid "Scroll down by lines"
+msgid "Scroll down by half screen size"
+msgstr "ქვემოთ გადახვევა, ხაზებით"
+
+#: info/session-cmd.c:723
+#, fuzzy
+#| msgid "Scroll up by lines"
+msgid "Scroll up by half screen size"
+msgstr "ზემოთ ახვევა, ხაზებით"
+
+#: info/session-cmd.c:729
+#, fuzzy
+#| msgid "Delete all other windows"
+msgid "Scroll the other window"
+msgstr "ყველა დანარჩენი ფანჯრის წაშლა"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr ""
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "შემდეგი ფანჯრის არჩევა"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "წინა ფანჯრის არჩევა"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "მიმდინარე ფანჯრის გაყოფა"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "მიმდინარე ფანჯრის წაშლა"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "ბოლო ფანჯარას ვერ წაშლით"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "მუდმივ ფანჯარას ვერ წაშლით"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "ყველა დანარჩენი ფანჯრის წაშლა"
+
+#: info/session-cmd.c:1071
+#, fuzzy
+#| msgid "Scroll forward in this window"
+msgid "Grow (or shrink) this window"
+msgstr "ამ ფანჯარაში წინ გადახვევა"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr ""
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr ""
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "აირჩიეთ ეს მენიუს პუნქტი"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] ""
+msgstr[1] ""
+
+#: info/session-cmd.c:1395
+#, fuzzy
+#| msgid "Select the Next node"
+msgid "Select the last item in this node's menu"
+msgstr "შემდეგი კვანძის მონიშვნა"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "მენიუს პუნქტი (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "მენიუს პუნქტი: "
+
+#: info/session-cmd.c:1506
+#, fuzzy, c-format
+#| msgid "Follow menus: "
+msgid "Follow xref (%s): "
+msgstr "მენიუს მიყოლა: "
+
+#: info/session-cmd.c:1508
+#, fuzzy
+#| msgid "Follow menus: "
+msgid "Follow xref: "
+msgstr "მენიუს მიყოლა: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr ""
+
+#: info/session-cmd.c:1597
+#, fuzzy
+#| msgid "No menu in this node"
+msgid "Read a menu item and select its node"
+msgstr "ამ კვანძში მენიუ არაა"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr ""
+
+#: info/session-cmd.c:1645
+#, fuzzy
+#| msgid "Move to the start of this node"
+msgid "Move to the start of this node's menu"
+msgstr "ამ კვანძის დასაწყისში გადატანა"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr ""
+
+#: info/session-cmd.c:1786
+#, fuzzy
+#| msgid "Move up to the previous line"
+msgid "Move to the previous cross reference"
+msgstr "ზემოთ წინა ხაზზე გატანა"
+
+#: info/session-cmd.c:1849
+#, fuzzy
+#| msgid "Move down to the next line"
+msgid "Move to the next cross reference"
+msgstr "ქვემოთ შემდეგ ხაზზე გადატანა"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr ""
+
+#: info/session-cmd.c:1946
+#, fuzzy, c-format
+#| msgid "No menu in this node"
+msgid "No menu in node '%s'"
+msgstr "ამ კვანძში მენიუ არაა"
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr ""
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr ""
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "მენიუს მიყოლა: "
+
+#: info/session-cmd.c:2117
+#, fuzzy, c-format
+#| msgid "No footnotes in this node"
+msgid "No '%s' pointer for this node"
+msgstr "ამ კვანძში ბოლოსართები არაა"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "შემდეგი კვანძის მონიშვნა"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "წინა კვანძის მონიშვნა"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "ზედა კვანძის მონიშვნა"
+
+#: info/session-cmd.c:2176
+#, fuzzy
+#| msgid "Select the Next node"
+msgid "Select the last node in this file"
+msgstr "შემდეგი კვანძის მონიშვნა"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr ""
+
+#: info/session-cmd.c:2209
+#, fuzzy
+#| msgid "Select the Next node"
+msgid "Select the first node in this file"
+msgstr "შემდეგი კვანძის მონიშვნა"
+
+#: info/session-cmd.c:2257
+#, fuzzy
+#| msgid "Move to the start of this node"
+msgid "You are already at the last page of this node"
+msgstr "ამ კვანძის დასაწყისში გადატანა"
+
+#: info/session-cmd.c:2343
+#, fuzzy
+#| msgid "No footnotes in this node"
+msgid "No more nodes within this document"
+msgstr "ამ კვანძში ბოლოსართები არაა"
+
+#: info/session-cmd.c:2373
+#, fuzzy
+#| msgid "Move to the start of this node"
+msgid "You are already at the first page of this node"
+msgstr "ამ კვანძის დასაწყისში გადატანა"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr ""
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr ""
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr ""
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr ""
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "კვანძზე გდასვლა: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr ""
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr ""
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr ""
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr ""
+
+#: info/session-cmd.c:2783
+#, fuzzy
+#| msgid "Move to the end of this line"
+msgid "Select the node 'Top' in this file"
+msgstr "ამ ხაზის ბოლოში გადასვლა"
+
+#: info/session-cmd.c:2789
+#, fuzzy
+#| msgid "Select the Up node"
+msgid "Select the node '(dir)'"
+msgstr "ზედა კვანძის მონიშვნა"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr ""
+
+#: info/session-cmd.c:2812
+#, fuzzy
+#| msgid "Select the Next node"
+msgid "Select the most recently selected node"
+msgstr "შემდეგი კვანძის მონიშვნა"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr ""
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr ""
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "ფაილის ძებნა: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "'%s' ვერ ვიპოვე"
+
+#: info/session-cmd.c:2923
+#, fuzzy, c-format
+#| msgid "could not open init file %s"
+msgid "Could not create output file '%s'"
+msgstr "შეცდომა ინიციალიზაციის ფაილის (%s) გახსნისას"
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "error writing to %s: %s"
+msgstr "`%s'-ში ჩაწერის შეცდომა: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "'%s'-ის დახურვა"
+
+#: info/session-cmd.c:2998
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "writing node %s..."
+msgstr "`%s'-ში ჩაწერის შეცდომა: %s"
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr ""
+
+#: info/session-cmd.c:3072
+#, fuzzy, c-format
+#| msgid "Cannot find node '%s'"
+msgid "Cannot open pipe to '%s'"
+msgstr "კვანძი '%s' ვერ ვიპოვე"
+
+#: info/session-cmd.c:3077
+#, fuzzy, c-format
+#| msgid "Finding index entries..."
+msgid "printing node %s..."
+msgstr "ინდექსის ჩანაწერების ძებნა..."
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr ""
+
+#: info/session-cmd.c:3117
+#, fuzzy
+#| msgid "Premature end of regular expression"
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "რეგულარული გამოსახულების მოულოდნელი დასასრული"
+
+#: info/session-cmd.c:3121
+#, fuzzy, c-format
+#| msgid "Invalid regular expression"
+msgid "Using regular expressions for searches"
+msgstr "არასწორი რეგულარული გამოსახულება"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr ""
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr ""
+
+#: info/session-cmd.c:3330
+#, fuzzy
+#| msgid "Kill to the beginning of the line"
+msgid "Search continued from the beginning of the document"
+msgstr "ხაზის დასაწყისამდე მოკვლა"
+
+#: info/session-cmd.c:3347
+#, fuzzy, c-format
+#| msgid "Search under %s: "
+msgid "Searching subfile %s ..."
+msgstr "%s-ის ქვეშ ძებნა: "
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "ძებნის შეცდომა"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "რეგულარული გამოსახულებით ძებნა"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "ძებნა"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " რეგისტრზე-დამოკიდებული"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " უკან"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "მოსაძებნი სტრიქონი ძალიან მოკლეა"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr ""
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "მეტი დამთხვევა აღარ არსებობს"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr ""
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "%s-ის ქვეშ ძებნა: "
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr ""
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "აქტიური ძებნის გრეშე"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr ""
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr ""
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr ""
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr ""
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr ""
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+#, fuzzy
+#| msgid "No previous regular expression"
+msgid "No previous search string"
+msgstr "წინა რეგულარული გამოსახულება არ არსებობს"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr ""
+
+#: info/session-cmd.c:3966
+#, fuzzy
+#| msgid "Styles for search matches"
+msgid "Clear displayed search matches"
+msgstr "სტილები ძებნის შედეგებისთვის"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr ""
+
+#: info/session-cmd.c:4108
+#, fuzzy
+#| msgid "Regexp search"
+msgid "Regexp I-search backward: "
+msgstr "რეგულარული გამოსახულებით ძებნა"
+
+#: info/session-cmd.c:4109
+#, fuzzy
+#| msgid " backward"
+msgid "I-search backward: "
+msgstr " უკან"
+
+#: info/session-cmd.c:4111
+#, fuzzy
+#| msgid "Regexp search"
+msgid "Regexp I-search: "
+msgstr "რეგულარული გამოსახულებით ძებნა"
+
+#: info/session-cmd.c:4112
+#, fuzzy
+#| msgid "Search"
+msgid "I-search: "
+msgstr "ძებნა"
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "ვერ ვიპოვე "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "მიმდინარე ოპერაციის გაუქმება"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr ""
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Info ვერსია %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "ეკრანის გადახატვა"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Info-დან გასვლა"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr ""
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr ""
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr ""
+
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
 msgstr ""
@@ -1500,7 +2127,7 @@ msgstr ""
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1516,7 +2143,7 @@ msgstr ""
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1543,16 +2170,20 @@ msgid "could not create directory `%s': %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr ""
@@ -1870,55 +2501,55 @@ msgstr ""
 msgid "@node %s name should not contain `,': %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: %s-ის გახსნის შეცდომა: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: chdir %s-ის შეცდომა : %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, perl-format
 msgid "math to images: output file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: ბრძანების შეცდომა: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, perl-format
 msgid "math to images: dvi file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, perl-format
 msgid "math to images: unable to return to initial directory: %s"
 msgstr ""
@@ -1968,18 +2599,23 @@ msgstr ""
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr ""
@@ -3959,9 +4595,6 @@ msgstr ""
 #~ msgid "No match"
 #~ msgstr "არ ემთხვევა"
 
-#~ msgid "Invalid regular expression"
-#~ msgstr "არასწორი რეგულარული გამოსახულება"
-
 #~ msgid "Invalid collation character"
 #~ msgstr "კოლაციის არასწორი სიმბოლო"
 
@@ -3995,165 +4628,14 @@ msgstr ""
 #~ msgid "Invalid preceding regular expression"
 #~ msgstr "რეგულარული გამოსახულების არასწორი საწყისი"
 
-#~ msgid "Premature end of regular expression"
-#~ msgstr "რეგულარული გამოსახულების მოულოდნელი დასასრული"
-
 #~ msgid "Regular expression too big"
 #~ msgstr "რეგულარული გამოსახულება ძალიან დიდია"
 
 #~ msgid "Unmatched ) or \\)"
 #~ msgstr "არ ემთხვევა ) ან \\)"
 
-#~ msgid "No previous regular expression"
-#~ msgstr "წინა რეგულარული გამოსახულება არ არსებობს"
-
 #~ msgid "memory exhausted"
 #~ msgstr "მეხსიერება გადავსებულია"
-
-#~ msgid "Cannot delete the last window"
-#~ msgstr "ბოლო ფანჯარას ვერ წაშლით"
-
-#~ msgid "No file index"
-#~ msgstr "ფაილის ინდექსის გარეშე"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "ქვემოთ შემდეგ ხაზზე გადატანა"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "ზემოთ წინა ხაზზე გატანა"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "კურსორის ფანჯრის მითითებულ ხაზზე გადატანა"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "ხაზის ბოლოში გადასვლა"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "ხაზის დასაწყისში გატანა"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "ამ კვანძის დასაწყისში გადატანა"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "ამ კვანძის ბოლოში გადატანა"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "ამ ფანჯარაში წინ გადახვევა"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "ამ ფანჯარაში უკან გადახვევა"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "ქვემოთ გადახვევა, ხაზებით"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "ზემოთ ახვევა, ხაზებით"
-
-#~ msgid "Select the next window"
-#~ msgstr "შემდეგი ფანჯრის არჩევა"
-
-#~ msgid "Select the previous window"
-#~ msgstr "წინა ფანჯრის არჩევა"
-
-#~ msgid "Split the current window"
-#~ msgstr "მიმდინარე ფანჯრის გაყოფა"
-
-#~ msgid "Delete the current window"
-#~ msgstr "მიმდინარე ფანჯრის წაშლა"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "მუდმივ ფანჯარას ვერ წაშლით"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "ყველა დანარჩენი ფანჯრის წაშლა"
-
-#~ msgid "Select this menu item"
-#~ msgstr "აირჩიეთ ეს მენიუს პუნქტი"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "მენიუს პუნქტი (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "მენიუს პუნქტი: "
-
-#~ msgid "Follow menus: "
-#~ msgstr "მენიუს მიყოლა: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "შემდეგი კვანძის მონიშვნა"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "წინა კვანძის მონიშვნა"
-
-#~ msgid "Select the Up node"
-#~ msgstr "ზედა კვანძის მონიშვნა"
-
-#~ msgid "Goto node: "
-#~ msgstr "კვანძზე გდასვლა: "
-
-#~ msgid "Find file: "
-#~ msgstr "ფაილის ძებნა: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "'%s' ვერ ვიპოვე"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "'%s'-ის დახურვა"
-
-#~ msgid "Search failed"
-#~ msgstr "ძებნის შეცდომა"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "რეგულარული გამოსახულებით ძებნა"
-
-#~ msgid "Search"
-#~ msgstr "ძებნა"
-
-#~ msgid " case-sensitively"
-#~ msgstr " რეგისტრზე-დამოკიდებული"
-
-#~ msgid " backward"
-#~ msgstr " უკან"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "მოსაძებნი სტრიქონი ძალიან მოკლეა"
-
-#~ msgid "No more matches"
-#~ msgstr "მეტი დამთხვევა აღარ არსებობს"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "%s-ის ქვეშ ძებნა: "
-
-#~ msgid "No active search"
-#~ msgstr "აქტიური ძებნის გრეშე"
-
-#~ msgid "Failing "
-#~ msgstr "ვერ ვიპოვე "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "მიმდინარე ოპერაციის გაუქმება"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "GNU Info ვერსია %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "ეკრანის გადახატვა"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Info-დან გასვლა"
 
 #, perl-format
 #~ msgid "empty @%s"

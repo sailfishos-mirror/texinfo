@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2021-07-08 14:19+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -19,11 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.4.2\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Tässä solmussa ei ole \"%s\"-osoitinta"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Siirry merkki eteenpäin"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Siirry merkki taaksepäin"
 
@@ -35,11 +43,11 @@ msgstr "Siirry tämän rivin alkuun"
 msgid "Move to the end of this line"
 msgstr "Siirry tämän rivin loppuun"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Siirry sana eteenpäin"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Siirry sana taaksepäin"
 
@@ -268,7 +276,7 @@ msgid "No available info files have '%s' in their indices"
 msgstr ""
 "Merkkijonoa \"%s\" ei löydy saatavilla olevien info-tiedostojen indekseistä"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Ei valikkokohtaa \"%s\" solmussa \"%s\""
@@ -949,6 +957,570 @@ msgstr "\"%s\" on virheellinen"
 #: info/session.c:1374
 msgid "Quit"
 msgstr "Lopeta"
+
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Näytä kaikki osuvat tiedostot"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Ei tiedostoindeksiä"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Siirry alemmas seuraavalle riville"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Siirry ylemmäs edelliselle riville"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Siirrä kohdistin ikkunan määräriville"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Siirry rivin loppuun"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Siirry rivin alkuun"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Siirry solmun alkuun"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Siirry solmun loppuun"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Vieritä ikkunaa eteenpäin"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Vieritä ikkunaa taaksepäin"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr "Vieritä ikkunaa eteenpäin ja aseta ikkunan oletuskoko"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr "Vieritä ikkunaa taaksepäin ja aseta ikkunan oletuskoko"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Vieritä ikkunaa eteenpäin samassa solmussa pysyen"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Vieritä ikkunaa taaksepäin samassa solmussa pysyen"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Vieritä ikkunaa eteenpäin samassa solmussa pysyen ja aseta ikkunan oletuskoko"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Vieritä ikkunaa taaksepäin samassa solmussa pysyen ja aseta ikkunan "
+"oletuskoko"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Vieritä alas riveittäin"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Vieritä ylös riveittäin"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Vieritä alas puoli näytöllistä"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Vieritä ylös puoli näytöllistä"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Vieritä toista ikkunaa"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Vieritä toista ikkunaa taaksepäin"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Valitse seuraava ikkuna"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Valitse edellinen ikkuna"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Jaa nykyinen ikkuna"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Poista nykyinen ikkuna"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Viimeistä ikkunaa ei voi poistaa"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Pysyvää ikkunaa ei voi poistaa"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Poista kaikki muut ikkunat"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Suurenna (tai pienennä) tätä ikkunaa"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Jaa näyttöpinta-ala näkyvien ikkunoiden kesken"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr ""
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Valitse tämä valikkokohta"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Valikossa ei ole %d kohdetta"
+msgstr[1] "Valikossa ei ole %d kohdetta"
+
+#: info/session-cmd.c:1395
+#, fuzzy
+msgid "Select the last item in this node's menu"
+msgstr "Lue valikkokohta ja valitse sen solmu"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Valikkokohta (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Valikkokohta: "
+
+#: info/session-cmd.c:1506
+#, fuzzy, c-format
+msgid "Follow xref (%s): "
+msgstr "@xrefiä tulee seurata \".\" tai \",\", ei %s"
+
+#: info/session-cmd.c:1508
+#, fuzzy
+msgid "Follow xref: "
+msgstr "@xrefiä tulee seurata ”.” tai ”,”"
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "Viite katosi! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Lue valikkokohta ja valitse sen solmu"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr "Lue alaviite tai viittaus ja valitse sen solmu"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Siirry tämän solmun valikon alkuun"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Käy niin monessa valikkokohdassa kerralla kuin mahdollista"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Siirry edelliseen ristiviittaukseen"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Siirry seuraavaan ristiviittaukseen"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Valitse tällä rivillä oleva viittaus tai valikkokohta"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Solmussa ”%s” ei ole valikkoa"
+
+#: info/session-cmd.c:1993
+#, fuzzy, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Solmua ei löydy: \"(%s)%s\""
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr ""
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Seuraa valikoita: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Tässä solmussa ei ole \"%s\"-osoitinta"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Valitse Seuraava-solmu"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Valitse Edellinen-solmu"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Valitse Ylös-solmu"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Valitse tiedoston viimeinen solmu"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Ikkunassa ei ole lisäsolmuja"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Valitse tiedoston ensimmäinen solmu"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Olet jo solmun viimeisellä sivulla"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Asiakirjassa ei ole useampia solmuja"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Olet jo solmun ensimmäisellä sivulla"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Ei tälle solmulle tässä tiedostossa: \"Edell” tai ”Ylös”"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Siirry eteen- tai alaspäin solmurakenteessa"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Siirrä taakse- tai ylöspäin solmurakenteessa"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Lue solmun nimi ja valitse se"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Siirry solmuun: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Etsi ohjelman käynnistyksen kuvaava solmu"
+
+#: info/session-cmd.c:2717
+#, fuzzy, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Etsi ohjelman käynnistyksen kuvaava solmu"
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Lue ja valitse man-sivuviittaus"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Nouda man-sivu: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Valitse tiedoston solmu ”Top”"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Valitse solmu ”(dir)”"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Näytä näytetyn solmun koko tiedostonimi"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Valitse viimeksi valittu solmu"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Historiassa ei ole aiempia solmuja"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Lue tiedoston nimi ja valitse se"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Etsi tiedosto: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Ei löydy: \"%s\""
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Tulostiedostoa ”%s” ei voi luoda"
+
+#: info/session-cmd.c:2949
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "error writing to %s: %s"
+msgstr "virhe kirjoitettaessa kohteeseen %s: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "suljetaan %s"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "kirjoitetaan solmua %s..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Putkita solmun sisältö INFO_PRINT_COMMANDin kautta"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Ei voida avata putkea komennolle \"%s\""
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "tulostetaan solmua %s..."
+
+#: info/session-cmd.c:3085
+#, fuzzy, c-format
+msgid "finished printing node %s"
+msgstr "tulostetaan solmua %s..."
+
+#: info/session-cmd.c:3117
+#, fuzzy
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Hauissa käytetään säännöllisiä lausekkeita"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Hauissa käytetään säännöllisiä lausekkeita"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Hauissa käytetään merkkijonoliteraaleja"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Hakua jatkettiin asiakirjan lopusta"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Hakua jatkettiin asiakirjan alusta"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Etsitään alitiedostoa %s..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Haku epäonnistui"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Sääntölausekehaku"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Etsi"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr ""
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " taaksepäin"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Liian lyhyt hakujono"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr ""
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Ei enempää osumia"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Etsi merkkijonoa tästä solmusta alisolmuineen"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, fuzzy, c-format
+msgid "Search under %s: "
+msgstr "Etsi"
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Siirry seuraavaan osumaan Info-alipuussa"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Ei aktiivista hakua"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Siirry Infon alipuun edelliseen osumaan"
+
+#: info/session-cmd.c:3843
+#, fuzzy
+msgid "Read a string and search for it case-sensitively"
+msgstr "Lue merkkijono ja etsi sitä taaksepäin"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Lue merkkijono ja etsi sitä"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Lue merkkijono ja etsi sitä taaksepäin"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Toisto viimeisin haku samaan suuntaan"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Ei aiempaa hakujonoa"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Toista viimeisin haku käänteissuuntaan"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Tyhjennä näytetyt osumat"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Hae merkkijonoa vuorovaikutteisesti kirjoittaessasi"
+
+#: info/session-cmd.c:4108
+#, fuzzy
+msgid "Regexp I-search backward: "
+msgstr "I-haku: "
+
+#: info/session-cmd.c:4109
+#, fuzzy
+msgid "I-search backward: "
+msgstr "I-haku: "
+
+#: info/session-cmd.c:4111
+#, fuzzy
+msgid "Regexp I-search: "
+msgstr "Sääntölausekehaku"
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "I-haku: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Epäonnistuu "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Peru nykyinen toimenpide"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Näytä suoritettavan Infon versio"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "GNU Infon versio %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Piirrä näyttö uudelleen"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Lopeta Infon käyttö"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr ""
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Lisää tämä numero nykyiseen numeeriseen argumenttiin"
+
+#: info/session-cmd.c:4585
+#, fuzzy
+#| msgid "Add this digit to the current numeric argument"
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Lisää tämä numero nykyiseen numeeriseen argumenttiin"
 
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1646,7 +2218,7 @@ msgstr "tässä on aiempi määritelmä muodossa @%s"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1662,7 +2234,7 @@ msgstr "%s: ei voitu avata tiedostoa %s kirjoitettavaksi: %s\n"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1689,16 +2261,20 @@ msgid "could not create directory `%s': %s"
 msgstr "ei voitu luoda kansiota ”%s”: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, fuzzy, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "virhe suljettaessa CSS-tiedostoa %s: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, fuzzy, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image-tiedostoa ”%s” ei löytynyt, käytetään ”%s”"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image-tiedostoa ”%s” ei löytynyt, käytetään ”%s”"
@@ -2020,59 +2596,59 @@ msgstr "@%s-solmun nimessä tulisi olla ”%s”"
 msgid "@node %s name should not contain `,': %s"
 msgstr "@%s-solmun nimessä tulisi olla ”%s”"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image-tiedostoa ”%s” (HTML:lle) ei löytynyt, käytetään ”%s”"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: ei voitu avata tiedostoa %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: chdir %s epäonnistui: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: tulostiedosto puuttuu: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: komento epäonnistui: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: chdir %s epäonnistui: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: tulostiedosto puuttuu: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2124,18 +2700,23 @@ msgstr "valikkotietueen solmun nimessä ei saa olla ”:”"
 msgid "menu entry name should not contain `:'"
 msgstr "valikkotietueen nimessä ei saa olla ”:”"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "ei voida lukea: %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, fuzzy, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "virhe suljettaessa: %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, fuzzy, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@include: ei löydy: %s"
@@ -4293,412 +4874,9 @@ msgstr "virheellinen tai tyhjä muodollinen @%s-parametri: "
 #~ "  info -f ./foo.info           näytä tiedosto ./foo.info etsimättä "
 #~ "hakemistosta"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Viimeistä ikkunaa ei voi poistaa"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Tässä solmussa ei ole \"%s\"-osoitinta"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Tuntematon Info-komento ”%c”: katso ohje ?-komennolla"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Olet jo solmun viimeisellä sivulla"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Olet jo solmun ensimmäisellä sivulla"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Näytä kaikki osuvat tiedostot"
-
-#~ msgid "No file index"
-#~ msgstr "Ei tiedostoindeksiä"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Siirry alemmas seuraavalle riville"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Siirry ylemmäs edelliselle riville"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Siirrä kohdistin ikkunan määräriville"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Siirry rivin loppuun"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Siirry rivin alkuun"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Siirry solmun alkuun"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Siirry solmun loppuun"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Vieritä ikkunaa eteenpäin"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Vieritä ikkunaa taaksepäin"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr "Vieritä ikkunaa eteenpäin ja aseta ikkunan oletuskoko"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr "Vieritä ikkunaa taaksepäin ja aseta ikkunan oletuskoko"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Vieritä ikkunaa eteenpäin samassa solmussa pysyen"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Vieritä ikkunaa taaksepäin samassa solmussa pysyen"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Vieritä ikkunaa eteenpäin samassa solmussa pysyen ja aseta ikkunan "
-#~ "oletuskoko"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Vieritä ikkunaa taaksepäin samassa solmussa pysyen ja aseta ikkunan "
-#~ "oletuskoko"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Vieritä alas riveittäin"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Vieritä ylös riveittäin"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Vieritä alas puoli näytöllistä"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Vieritä ylös puoli näytöllistä"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Vieritä toista ikkunaa"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Vieritä toista ikkunaa taaksepäin"
-
-#~ msgid "Select the next window"
-#~ msgstr "Valitse seuraava ikkuna"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Valitse edellinen ikkuna"
-
-#~ msgid "Split the current window"
-#~ msgstr "Jaa nykyinen ikkuna"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Poista nykyinen ikkuna"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Pysyvää ikkunaa ei voi poistaa"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Poista kaikki muut ikkunat"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Suurenna (tai pienennä) tätä ikkunaa"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Jaa näyttöpinta-ala näkyvien ikkunoiden kesken"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Valitse tämä valikkokohta"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Valikossa ei ole %d kohdetta"
-#~ msgstr[1] "Valikossa ei ole %d kohdetta"
-
-#, fuzzy
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Lue valikkokohta ja valitse sen solmu"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Valikkokohta (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Valikkokohta: "
-
-#, fuzzy, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "@xrefiä tulee seurata \".\" tai \",\", ei %s"
-
-#, fuzzy
-#~ msgid "Follow xref: "
-#~ msgstr "@xrefiä tulee seurata ”.” tai ”,”"
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "Viite katosi! (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Lue valikkokohta ja valitse sen solmu"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr "Lue alaviite tai viittaus ja valitse sen solmu"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Siirry tämän solmun valikon alkuun"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Käy niin monessa valikkokohdassa kerralla kuin mahdollista"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Siirry edelliseen ristiviittaukseen"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Siirry seuraavaan ristiviittaukseen"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr "Valitse tällä rivillä oleva viittaus tai valikkokohta"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Solmussa ”%s” ei ole valikkoa"
-
-#, fuzzy, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Solmua ei löydy: \"(%s)%s\""
-
-#~ msgid "Follow menus: "
-#~ msgstr "Seuraa valikoita: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Valitse Seuraava-solmu"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Valitse Edellinen-solmu"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Valitse Ylös-solmu"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Valitse tiedoston viimeinen solmu"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Ikkunassa ei ole lisäsolmuja"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Valitse tiedoston ensimmäinen solmu"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Asiakirjassa ei ole useampia solmuja"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr "Ei tälle solmulle tässä tiedostossa: \"Edell” tai ”Ylös”"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Siirry eteen- tai alaspäin solmurakenteessa"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Siirrä taakse- tai ylöspäin solmurakenteessa"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Lue solmun nimi ja valitse se"
-
-#~ msgid "Goto node: "
-#~ msgstr "Siirry solmuun: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Etsi ohjelman käynnistyksen kuvaava solmu"
-
-#, fuzzy, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Etsi ohjelman käynnistyksen kuvaava solmu"
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Lue ja valitse man-sivuviittaus"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Nouda man-sivu: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Valitse tiedoston solmu ”Top”"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Valitse solmu ”(dir)”"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Näytä näytetyn solmun koko tiedostonimi"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Valitse viimeksi valittu solmu"
-
-#~ msgid "No earlier node in history"
-#~ msgstr "Historiassa ei ole aiempia solmuja"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Lue tiedoston nimi ja valitse se"
-
-#~ msgid "Find file: "
-#~ msgstr "Etsi tiedosto: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Ei löydy: \"%s\""
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Tulostiedostoa ”%s” ei voi luoda"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "suljetaan %s"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "kirjoitetaan solmua %s..."
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr "Putkita solmun sisältö INFO_PRINT_COMMANDin kautta"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Ei voida avata putkea komennolle \"%s\""
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "tulostetaan solmua %s..."
-
-#, fuzzy, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "tulostetaan solmua %s..."
-
-#, fuzzy
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr "Hauissa käytetään säännöllisiä lausekkeita"
-
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Hauissa käytetään säännöllisiä lausekkeita"
-
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Hauissa käytetään merkkijonoliteraaleja"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Hakua jatkettiin asiakirjan lopusta"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Hakua jatkettiin asiakirjan alusta"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Etsitään alitiedostoa %s..."
-
-#~ msgid "Search failed"
-#~ msgstr "Haku epäonnistui"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Sääntölausekehaku"
-
-#~ msgid "Search"
-#~ msgstr "Etsi"
-
-#~ msgid " backward"
-#~ msgstr " taaksepäin"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Liian lyhyt hakujono"
-
-#~ msgid "No more matches"
-#~ msgstr "Ei enempää osumia"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Etsi merkkijonoa tästä solmusta alisolmuineen"
-
-#, fuzzy, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Etsi"
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Siirry seuraavaan osumaan Info-alipuussa"
-
-#~ msgid "No active search"
-#~ msgstr "Ei aktiivista hakua"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Siirry Infon alipuun edelliseen osumaan"
-
-#, fuzzy
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Lue merkkijono ja etsi sitä taaksepäin"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Lue merkkijono ja etsi sitä"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Lue merkkijono ja etsi sitä taaksepäin"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Toisto viimeisin haku samaan suuntaan"
-
-#~ msgid "No previous search string"
-#~ msgstr "Ei aiempaa hakujonoa"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Toista viimeisin haku käänteissuuntaan"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Tyhjennä näytetyt osumat"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Hae merkkijonoa vuorovaikutteisesti kirjoittaessasi"
-
-#, fuzzy
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "I-haku: "
-
-#, fuzzy
-#~ msgid "I-search backward: "
-#~ msgstr "I-haku: "
-
-#, fuzzy
-#~ msgid "Regexp I-search: "
-#~ msgstr "Sääntölausekehaku"
-
-#~ msgid "I-search: "
-#~ msgstr "I-haku: "
-
-#~ msgid "Failing "
-#~ msgstr "Epäonnistuu "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Peru nykyinen toimenpide"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Näytä suoritettavan Infon versio"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "GNU Infon versio %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Piirrä näyttö uudelleen"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Lopeta Infon käyttö"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Lisää tämä numero nykyiseen numeeriseen argumenttiin"
 
 #, fuzzy, perl-format
 #~ msgid "error on closing TOC frame file %s: %s"

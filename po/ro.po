@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-12 21:37+0000\n"
+"POT-Creation-Date: 2025-12-13 19:26+0000\n"
 "PO-Revision-Date: 2024-12-14 18:54+0100\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -43,11 +43,19 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "X-Generator: Poedit 3.5\n"
 
-#: info/echo-area.c:290
+#: info/dir.c:63
+#, fuzzy
+#| msgid "No '%s' pointer for this node"
+msgid ""
+"Dir files used for this node\n"
+"\n"
+msgstr "Nu există nicio legătură „%s” pentru acest nod"
+
+#: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
 msgstr "Mergi înainte un caracter"
 
-#: info/echo-area.c:309
+#: info/echo-area.c:309 info/session-cmd.c:437
 msgid "Move backward a character"
 msgstr "Mergi înapoi un caracter"
 
@@ -59,11 +67,11 @@ msgstr "Mergi la începutul acestei linii"
 msgid "Move to the end of this line"
 msgstr "Mergi la sfârșitul acestei linii"
 
-#: info/echo-area.c:348
+#: info/echo-area.c:348 info/session-cmd.c:452
 msgid "Move forward a word"
 msgstr "Mergi înainte un cuvânt"
 
-#: info/echo-area.c:388
+#: info/echo-area.c:388 info/session-cmd.c:466
 msgid "Move backward a word"
 msgstr "Mergi înapoi un cuvânt"
 
@@ -295,7 +303,7 @@ msgstr "Nicio intrare de index care să conțină „%s”."
 msgid "No available info files have '%s' in their indices"
 msgstr "Niciunul dintre fișierele Info disponibile nu are „%s” în index"
 
-#: info/info.c:316
+#: info/info.c:316 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Niciun element de meniu „%s” în nodul „%s”"
@@ -1091,6 +1099,582 @@ msgstr "„%s” nu este validă"
 msgid "Quit"
 msgstr "Ieșire"
 
+#: info/session-cmd.c:42
+msgid "Show all matching files"
+msgstr "Afișează toate fișierele care se potrivesc"
+
+#: info/session-cmd.c:46
+#, c-format
+msgid "No file index"
+msgstr "Fără index de fișiere"
+
+#: info/session-cmd.c:303
+msgid "Move down to the next line"
+msgstr "Mergeți la linia următoare"
+
+#: info/session-cmd.c:321
+msgid "Move up to the previous line"
+msgstr "Mergeți la linia precedentă"
+
+#: info/session-cmd.c:340
+msgid "Move the cursor to a specific line of the window"
+msgstr "Mută cursorul la o anumită linie din fereastră"
+
+#: info/session-cmd.c:372
+msgid "Move to the end of the line"
+msgstr "Mergeți la sfârșitul liniei"
+
+#: info/session-cmd.c:397
+msgid "Move to the start of the line"
+msgstr "Mergeți la începutul liniei"
+
+#: info/session-cmd.c:481
+msgid "Move to the start of this node"
+msgstr "Mergeți la începutul acestui nod"
+
+#: info/session-cmd.c:488
+msgid "Move to the end of this node"
+msgstr "Mergeți la sfârșitul acestui nod"
+
+#: info/session-cmd.c:579
+msgid "Scroll forward in this window"
+msgstr "Derulează înainte în această fereastră"
+
+#: info/session-cmd.c:593
+msgid "Scroll backward in this window"
+msgstr "Derulează înapoi în acestă fereastră"
+
+#: info/session-cmd.c:601
+msgid "Scroll forward in this window and set default window size"
+msgstr ""
+"Derulează înainte în această fereastră și stabilește dimensiunea implicită a "
+"ferestrei"
+
+#: info/session-cmd.c:616
+msgid "Scroll backward in this window and set default window size"
+msgstr ""
+"Derulează înapoi în acestă fereastră și stabilește dimensiunea implicită a "
+"ferestrei"
+
+#: info/session-cmd.c:622
+msgid "Scroll forward in this window staying within node"
+msgstr "Derulează înainte în această fereastră, rămânând în nod"
+
+#: info/session-cmd.c:637
+msgid "Scroll backward in this window staying within node"
+msgstr "Derulează înapoi în această fereastră, rămânând în nod"
+
+#: info/session-cmd.c:645
+msgid ""
+"Scroll forward in this window staying within node and set default window size"
+msgstr ""
+"Derulează înainte în această fereastră, rămânând în nod și stabilește "
+"dimensiunea implicită a ferestrei"
+
+#: info/session-cmd.c:672
+msgid ""
+"Scroll backward in this window staying within node and set default window "
+"size"
+msgstr ""
+"Derulează înapoi în această fereastră, rămânând în nod și stabilește "
+"dimensiunea implicită a ferestrei"
+
+#: info/session-cmd.c:678
+msgid "Scroll down by lines"
+msgstr "Derulează în jos pe linii"
+
+#: info/session-cmd.c:684
+msgid "Scroll up by lines"
+msgstr "Derulează în sus pe linii"
+
+#: info/session-cmd.c:696
+msgid "Scroll down by half screen size"
+msgstr "Derulează în jos jumătate de ecran"
+
+#: info/session-cmd.c:723
+msgid "Scroll up by half screen size"
+msgstr "Derulează în sus jumătate de ecran"
+
+#: info/session-cmd.c:729
+msgid "Scroll the other window"
+msgstr "Derulează cealaltă fereastră"
+
+#: info/session-cmd.c:750
+msgid "Scroll the other window backward"
+msgstr "Derulează cealaltă fereastră înapoi"
+
+#: info/session-cmd.c:860
+msgid "Select the next window"
+msgstr "Selectează fereastra următoare"
+
+#: info/session-cmd.c:897
+msgid "Select the previous window"
+msgstr "Selectează fereastra precedentă"
+
+#: info/session-cmd.c:941
+msgid "Split the current window"
+msgstr "Împarte fereastra curentă"
+
+#: info/session-cmd.c:989
+msgid "Delete the current window"
+msgstr "Șterge fereastra curentă"
+
+#: info/session-cmd.c:992
+msgid "Cannot delete the last window"
+msgstr "Nu se poate șterge ultima fereastră"
+
+#: info/session-cmd.c:994
+msgid "Cannot delete a permanent window"
+msgstr "Nu se poate șterge o fereastră permanentă"
+
+#: info/session-cmd.c:1025
+msgid "Delete all other windows"
+msgstr "Șterge toate celelalte ferestre"
+
+#: info/session-cmd.c:1071
+msgid "Grow (or shrink) this window"
+msgstr "Mărește (sau micșorează) această fereastră"
+
+#: info/session-cmd.c:1082
+msgid "Divide the available screen space among the visible windows"
+msgstr "Împarte spațiul de ecran disponibil între ferestrele vizibile"
+
+#: info/session-cmd.c:1089
+msgid "Toggle the state of line wrapping in the current window"
+msgstr ""
+"Activează sau dezactivează, încadrarea liniilor (față de margini); în "
+"fereastra curentă"
+
+#: info/session-cmd.c:1356
+msgid "Select this menu item"
+msgstr "Selectează acest element de meniu"
+
+#: info/session-cmd.c:1386
+#, c-format
+msgid "There isn't %d item in this menu"
+msgid_plural "There aren't %d items in this menu"
+msgstr[0] "Nu există un element în acest meniu"
+msgstr[1] "Nu există două elemente în acest meniu"
+msgstr[2] "Nu există %d elemente în acest meniu"
+msgstr[3] "Nu există %d de elemente în acest meniu"
+
+#: info/session-cmd.c:1395
+msgid "Select the last item in this node's menu"
+msgstr "Selectează ultimul element din meniul acestui nod"
+
+#: info/session-cmd.c:1499
+#, c-format
+msgid "Menu item (%s): "
+msgstr "Element de meniu (%s): "
+
+#: info/session-cmd.c:1501
+msgid "Menu item: "
+msgstr "Element de meniu (%s): "
+
+# R-GC, scrie:
+# acest mesaj și următorul. au fost traduse,
+# avînd ca bază de inspirație, comentariul
+# lăsat de autori în fișierul sursă:
+# .
+# „Read a menu or followed reference from the user defaulting to the
+#  reference found on the current line, and select that node.  The
+# reading is done with completion. ASK_P is non-zero if the user should
+# be prompted, or zero to select the item on the current line.  MENU_ITEM
+# and XREF control whether menu items and cross-references are eligible
+# for selection.”
+#: info/session-cmd.c:1506
+#, c-format
+msgid "Follow xref (%s): "
+msgstr "Urmărește referința încrucișată (%s): "
+
+#: info/session-cmd.c:1508
+msgid "Follow xref: "
+msgstr "Urmărește referința încrucișată: "
+
+#: info/session-cmd.c:1585
+#, c-format
+msgid "The reference disappeared! (%s)"
+msgstr "Referința a dispărut! (%s)"
+
+#: info/session-cmd.c:1597
+msgid "Read a menu item and select its node"
+msgstr "Citește un element de meniu și selectează nodul acestuia"
+
+#: info/session-cmd.c:1622
+msgid "Read a footnote or cross reference and select its node"
+msgstr ""
+"Citește o notă de subsol sau referință încrucișată și selectează nodul "
+"acesteia"
+
+#: info/session-cmd.c:1645
+msgid "Move to the start of this node's menu"
+msgstr "Mergeți la începutul meniului acestui nod"
+
+#: info/session-cmd.c:1683
+msgid "Visit as many menu items at once as possible"
+msgstr "Vizitează cât mai multe elemente de meniu posibile deodată"
+
+#: info/session-cmd.c:1786
+msgid "Move to the previous cross reference"
+msgstr "Mergeți la referința încrucișată precedentă"
+
+#: info/session-cmd.c:1849
+msgid "Move to the next cross reference"
+msgstr "Mergeți la referința încrucișată următoare"
+
+#: info/session-cmd.c:1910
+msgid "Select reference or menu item appearing on this line"
+msgstr "Selectează referința sau elementul de meniu ce apare pe acestă linie"
+
+#: info/session-cmd.c:1946
+#, c-format
+msgid "No menu in node '%s'"
+msgstr "Niciun meniu în nodul „%s”"
+
+#: info/session-cmd.c:1993
+#, c-format
+msgid "Unable to find node referenced by '%s' in '%s'"
+msgstr "Nu s-a putut găsi nodul la care face referire „%s” în „%s”"
+
+#: info/session-cmd.c:2049
+msgid "Read a list of menus starting from dir and follow them"
+msgstr "Citește o listă de meniuri pornind din dir și-le urmărește"
+
+#: info/session-cmd.c:2051
+msgid "Follow menus: "
+msgstr "Urmărește meniurile: "
+
+#: info/session-cmd.c:2117
+#, c-format
+msgid "No '%s' pointer for this node"
+msgstr "Nu există nicio legătură „%s” pentru acest nod"
+
+#: info/session-cmd.c:2156
+msgid "Select the Next node"
+msgstr "Selectează nodul Următor"
+
+#: info/session-cmd.c:2163
+msgid "Select the Prev node"
+msgstr "Selectează nodul Precedent"
+
+#: info/session-cmd.c:2170
+msgid "Select the Up node"
+msgstr "Selectează nodul Superior"
+
+#: info/session-cmd.c:2176
+msgid "Select the last node in this file"
+msgstr "Selectează ultimul nod din acest fișier"
+
+#: info/session-cmd.c:2203 info/session-cmd.c:2236
+msgid "This window has no additional nodes"
+msgstr "Această fereastră nu are noduri suplimentare"
+
+#: info/session-cmd.c:2209
+msgid "Select the first node in this file"
+msgstr "Selectează primul nod din acest fișier"
+
+#: info/session-cmd.c:2257
+msgid "You are already at the last page of this node"
+msgstr "Sunteți deja la ultima pagină a acestui nod"
+
+#: info/session-cmd.c:2343
+msgid "No more nodes within this document"
+msgstr "Nu mai sunt alte noduri în acest document"
+
+#: info/session-cmd.c:2373
+msgid "You are already at the first page of this node"
+msgstr "Sunteți deja la prima pagină a acestui nod"
+
+#: info/session-cmd.c:2387 info/session-cmd.c:2434
+msgid "No 'Prev' or 'Up' for this node within this document"
+msgstr "Nici un „Precedent” sau „Superior” pentru acest nod în acest document"
+
+#: info/session-cmd.c:2447
+msgid "Move forwards or down through node structure"
+msgstr "Mergeți înainte sau în jos prin structura de noduri"
+
+#: info/session-cmd.c:2464
+msgid "Move backwards or up through node structure"
+msgstr "Mergeți înapoi sau în sus prin structura de noduri"
+
+#: info/session-cmd.c:2487
+msgid "Read a node name and select it"
+msgstr "Citește numele unui nod și-l selectează"
+
+#: info/session-cmd.c:2541 info/session-cmd.c:2545
+msgid "Goto node: "
+msgstr "Mergeți la nodul: "
+
+#: info/session-cmd.c:2715
+msgid "Find the node describing program invocation"
+msgstr "Găsește nodul ce descrie modul de invocare al programului"
+
+#: info/session-cmd.c:2717
+#, c-format
+msgid "Find Invocation node of [%s]: "
+msgstr "Găsește nodul Invocare pentru [%s]: "
+
+#: info/session-cmd.c:2758
+msgid "Read a manpage reference and select it"
+msgstr "Citește o referință de pagină de manual și-o selectează"
+
+#: info/session-cmd.c:2762
+msgid "Get Manpage: "
+msgstr "Obține pagina de manual: "
+
+#: info/session-cmd.c:2783
+msgid "Select the node 'Top' in this file"
+msgstr "Selectează nodul „Superior” din acest fișier"
+
+#: info/session-cmd.c:2789
+msgid "Select the node '(dir)'"
+msgstr "Selectează nodul „(dir)”"
+
+#: info/session-cmd.c:2795
+msgid "Show full file name of node being displayed"
+msgstr "Afișează numele complet al fișierului nodului ce este afișat"
+
+#: info/session-cmd.c:2812
+msgid "Select the most recently selected node"
+msgstr "Selectează cel mai recent nod selectat"
+
+#: info/session-cmd.c:2817
+#, c-format
+msgid "No earlier node in history"
+msgstr "Niciun nod anterior în istoric"
+
+#: info/session-cmd.c:2821
+msgid "Read the name of a file and select it"
+msgstr "Citește numele unui fișier și-l selectează"
+
+#: info/session-cmd.c:2825
+msgid "Find file: "
+msgstr "Găsește fișier: "
+
+#: info/session-cmd.c:2842
+#, c-format
+msgid "Cannot find '%s'"
+msgstr "Nu se poate găsi „%s”"
+
+#: info/session-cmd.c:2923
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Nu s-a putut crea fișierul de ieșire „%s”"
+
+#: info/session-cmd.c:2949
+#, c-format
+msgid "error writing to %s: %s"
+msgstr "eroare la scrierea în %s: %s"
+
+#: info/session-cmd.c:2958
+#, c-format
+msgid "closing %s"
+msgstr "se închide %s"
+
+#: info/session-cmd.c:2998
+#, c-format
+msgid "writing node %s..."
+msgstr "se scrie nodul %s..."
+
+#: info/session-cmd.c:3044
+msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
+msgstr "Transmite conținutul acestui nod prin intermediul INFO_PRINT_COMMAND"
+
+#: info/session-cmd.c:3072
+#, c-format
+msgid "Cannot open pipe to '%s'"
+msgstr "Nu se poate deschide linia de conectare către „%s”"
+
+#: info/session-cmd.c:3077
+#, c-format
+msgid "printing node %s..."
+msgstr "se imprimă nodul %s..."
+
+#: info/session-cmd.c:3085
+#, c-format
+msgid "finished printing node %s"
+msgstr "s-a terminat de imprimat nodul %s"
+
+#: info/session-cmd.c:3117
+msgid "Toggle the usage of regular expressions in searches"
+msgstr "Activează sau dezactivează utilizarea expresiilor regulate în căutări"
+
+#: info/session-cmd.c:3121
+#, c-format
+msgid "Using regular expressions for searches"
+msgstr "Se utilizează expresiile regulate pentru căutări"
+
+#: info/session-cmd.c:3122
+#, c-format
+msgid "Using literal strings for searches"
+msgstr "Se utilizează șiruri literale pentru căutări"
+
+#: info/session-cmd.c:3325
+msgid "Search continued from the end of the document"
+msgstr "Se continuă căutarea de la sfârșitul documentului"
+
+#: info/session-cmd.c:3330
+msgid "Search continued from the beginning of the document"
+msgstr "Se continuă căutarea de la începutul documentului"
+
+#: info/session-cmd.c:3347
+#, c-format
+msgid "Searching subfile %s ..."
+msgstr "Se caută subfișierul %s ..."
+
+#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "Search failed"
+msgstr "Căutarea a eșuat"
+
+#: info/session-cmd.c:3407
+#, c-format
+msgid "%s%s%s [%s]: "
+msgstr "%s%s%s [%s]: "
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Regexp search"
+msgstr "Căutare de expresii regulate"
+
+#: info/session-cmd.c:3408 info/session-cmd.c:3414
+msgid "Search"
+msgstr "Căutare"
+
+#: info/session-cmd.c:3409 info/session-cmd.c:3415
+msgid " case-sensitively"
+msgstr " ținând cont de majuscule/minuscule"
+
+#: info/session-cmd.c:3410 info/session-cmd.c:3416
+msgid " backward"
+msgstr " înapoi"
+
+#: info/session-cmd.c:3413
+#, c-format
+msgid "%s%s%s: "
+msgstr "%s%s%s: "
+
+#: info/session-cmd.c:3433
+msgid "Search string too short"
+msgstr "Șirul de căutare este prea scurt"
+
+#: info/session-cmd.c:3627
+#, c-format
+msgid "Going back to last match from %s"
+msgstr "Se revine la ultima potrivire de la %s"
+
+#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#, c-format
+msgid "No more matches"
+msgstr "Nu mai sunt potriviri"
+
+#: info/session-cmd.c:3796
+msgid "Search this node and subnodes for a string"
+msgstr "Căută un șir în acest nod și subnoduri"
+
+#. TRANSLATORS: %s is the title of a node.
+#: info/session-cmd.c:3803
+#, c-format
+msgid "Search under %s: "
+msgstr "Caută sub %s: "
+
+#: info/session-cmd.c:3818
+msgid "Go to next match in Info sub-tree"
+msgstr "Mergeți la potrivirea următoare din sub-arborele Info"
+
+#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#, c-format
+msgid "No active search"
+msgstr "Nicio căutare activă"
+
+#: info/session-cmd.c:3830
+msgid "Go to previous match in Info sub-tree"
+msgstr "Mergeți la potrivirea precedentă din sub-arborele Info"
+
+#: info/session-cmd.c:3843
+msgid "Read a string and search for it case-sensitively"
+msgstr "Citește un șir și-l caută ținând cont de majuscule/minuscule"
+
+#: info/session-cmd.c:3848
+msgid "Read a string and search for it"
+msgstr "Citește un șir și-l caută"
+
+#: info/session-cmd.c:3854
+msgid "Read a string and search backward for it"
+msgstr "Citește un șir și-l caută înapoi"
+
+#: info/session-cmd.c:3862
+msgid "Repeat last search in the same direction"
+msgstr "Repetă ultima căutare în aceeași direcție"
+
+#: info/session-cmd.c:3876 info/session-cmd.c:3927
+msgid "No previous search string"
+msgstr "Nici un șir de căutare anterior"
+
+#: info/session-cmd.c:3913
+msgid "Repeat last search in the reverse direction"
+msgstr "Repetă ultima căutare în direcție opusă"
+
+#: info/session-cmd.c:3966
+msgid "Clear displayed search matches"
+msgstr "Șterge potrivirile de căutare afișate"
+
+#: info/session-cmd.c:3982 info/session-cmd.c:3988
+msgid "Search interactively for a string as you type it"
+msgstr "Caută interactiv pentru un șir pe măsură ce este introdus"
+
+#: info/session-cmd.c:4108
+msgid "Regexp I-search backward: "
+msgstr "Căutare interactivă înapoi a expresiei regulate: "
+
+#: info/session-cmd.c:4109
+msgid "I-search backward: "
+msgstr "Căutare interactivă înapoi: "
+
+#: info/session-cmd.c:4111
+msgid "Regexp I-search: "
+msgstr "Căutare interactivă a expresiei regulate: "
+
+#: info/session-cmd.c:4112
+msgid "I-search: "
+msgstr "Căutare interactivă: "
+
+#: info/session-cmd.c:4137 info/session-cmd.c:4140
+msgid "Failing "
+msgstr "Nereușită "
+
+#: info/session-cmd.c:4507
+msgid "Cancel current operation"
+msgstr "Renunță la operația curentă"
+
+#: info/session-cmd.c:4513
+msgid "Display version of Info being run"
+msgstr "Afișează versiunea de Info care rulează"
+
+#: info/session-cmd.c:4515
+#, c-format
+msgid "GNU Info version %s"
+msgstr "Versiunea de Info GNU %s"
+
+#: info/session-cmd.c:4520
+msgid "Redraw the display"
+msgstr "Redesenează ecranul"
+
+#: info/session-cmd.c:4557
+msgid "Quit using Info"
+msgstr "Ieșire din Info"
+
+#: info/session-cmd.c:4573
+msgid "Run command bound to this key's lowercase variant"
+msgstr "Execută comanda asociată de varianta cu minuscule a acestei taste"
+
+#: info/session-cmd.c:4578
+msgid "Add this digit to the current numeric argument"
+msgstr "Adaugă această cifră la argumentul numeric curent"
+
+#: info/session-cmd.c:4585
+msgid "Start (or multiply by 4) the current numeric argument"
+msgstr "Începe (sau înmulțește cu 4) argumentul numeric curent"
+
 #: info/variables.c:70
 msgid "When \"On\", footnotes appear and disappear automatically"
 msgstr "Când este „Activată”, notele de subsol apar și dispar automat"
@@ -1874,7 +2458,7 @@ msgstr "aici este definiția anterioară ca @%s"
 #: tta/perl/Texinfo/Convert/HTML.pm:12150
 #: tta/perl/Texinfo/Convert/HTML.pm:13190
 #: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1156
+#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
@@ -1890,7 +2474,7 @@ msgstr "nu s-a putut deschide %s pentru scriere: %s"
 #: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
 #: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1242
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
@@ -1916,16 +2500,20 @@ msgid "could not create directory `%s': %s"
 msgstr "nu s-a putut crea directorul „%s”: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "eroare la închiderea fișierului text al imaginii %s: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "fișierul @image „%s” nu poate fi citit: %s"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
+#: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, perl-format
 msgid "@image file `%s' not found, using `%s'"
 msgstr "fișierul @image „%s” nu a fost găsit, utilizând „%s”"
@@ -2250,58 +2838,58 @@ msgstr "numele @node nu trebuie să conțină «,»: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "numele @node %s nu trebuie să conțină «,»: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3350
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "delimitator de verbe „%s” (pentru LaTeX) folosit în textul „%s”"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3390
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "fișierul @image „%s” (pentru LaTeX) nu a fost găsit"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4908
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: nu s-a putut deschide %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4997
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: schimbarea la directorul %s a eșuat: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5005
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: lipsește fișierul de ieșire: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5031
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: comanda a eșuat: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5036
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: închiderea comunicării a eșuat: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5052
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: lipsește fișierul de ieșire: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5074
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
@@ -2354,18 +2942,23 @@ msgstr "numele nodului de intrare din meniu nu trebuie să conțină „:”"
 msgid "menu entry name should not contain `:'"
 msgstr "numele intrării din meniu nu trebuie să conțină „:”"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481 tta/C/main/convert_utils.c:535
+#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
+#: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "nu s-a putut citi %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503 tta/C/main/convert_utils.c:580
+#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
+#: tta/C/main/convert_utils.c:580
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "eroare la închiderea fișierului @verbatiminclude %s: %s"
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510 tta/perl/Texinfo/ParserNonXS.pm:3889
-#: tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
+#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: nu s-a putut găsi %s"
@@ -4620,460 +5213,9 @@ msgstr "argument formal @%s greșit sau gol: "
 #~ "iese\n"
 #~ "  -w, --where, --location      afișează locația fizică a fișierului Info"
 
-#~ msgid "Cannot delete the last window"
-#~ msgstr "Nu se poate șterge ultima fereastră"
-
-#, c-format
-#~ msgid "No '%s' pointer for this node"
-#~ msgstr "Nu există nicio legătură „%s” pentru acest nod"
-
 #, c-format
 #~ msgid "Unknown Info command '%c'; try '?' for help"
 #~ msgstr "Comandă Info necunoscută „%c”; încercați „?” pentru ajutor"
-
-#~ msgid "You are already at the last page of this node"
-#~ msgstr "Sunteți deja la ultima pagină a acestui nod"
-
-#~ msgid "You are already at the first page of this node"
-#~ msgstr "Sunteți deja la prima pagină a acestui nod"
-
-#~ msgid "Show all matching files"
-#~ msgstr "Afișează toate fișierele care se potrivesc"
-
-#, c-format
-#~ msgid "No file index"
-#~ msgstr "Fără index de fișiere"
-
-#~ msgid "Move down to the next line"
-#~ msgstr "Mergeți la linia următoare"
-
-#~ msgid "Move up to the previous line"
-#~ msgstr "Mergeți la linia precedentă"
-
-#~ msgid "Move the cursor to a specific line of the window"
-#~ msgstr "Mută cursorul la o anumită linie din fereastră"
-
-#~ msgid "Move to the end of the line"
-#~ msgstr "Mergeți la sfârșitul liniei"
-
-#~ msgid "Move to the start of the line"
-#~ msgstr "Mergeți la începutul liniei"
-
-#~ msgid "Move to the start of this node"
-#~ msgstr "Mergeți la începutul acestui nod"
-
-#~ msgid "Move to the end of this node"
-#~ msgstr "Mergeți la sfârșitul acestui nod"
-
-#~ msgid "Scroll forward in this window"
-#~ msgstr "Derulează înainte în această fereastră"
-
-#~ msgid "Scroll backward in this window"
-#~ msgstr "Derulează înapoi în acestă fereastră"
-
-#~ msgid "Scroll forward in this window and set default window size"
-#~ msgstr ""
-#~ "Derulează înainte în această fereastră și stabilește dimensiunea "
-#~ "implicită a ferestrei"
-
-#~ msgid "Scroll backward in this window and set default window size"
-#~ msgstr ""
-#~ "Derulează înapoi în acestă fereastră și stabilește dimensiunea implicită "
-#~ "a ferestrei"
-
-#~ msgid "Scroll forward in this window staying within node"
-#~ msgstr "Derulează înainte în această fereastră, rămânând în nod"
-
-#~ msgid "Scroll backward in this window staying within node"
-#~ msgstr "Derulează înapoi în această fereastră, rămânând în nod"
-
-#~ msgid ""
-#~ "Scroll forward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Derulează înainte în această fereastră, rămânând în nod și stabilește "
-#~ "dimensiunea implicită a ferestrei"
-
-#~ msgid ""
-#~ "Scroll backward in this window staying within node and set default window "
-#~ "size"
-#~ msgstr ""
-#~ "Derulează înapoi în această fereastră, rămânând în nod și stabilește "
-#~ "dimensiunea implicită a ferestrei"
-
-#~ msgid "Scroll down by lines"
-#~ msgstr "Derulează în jos pe linii"
-
-#~ msgid "Scroll up by lines"
-#~ msgstr "Derulează în sus pe linii"
-
-#~ msgid "Scroll down by half screen size"
-#~ msgstr "Derulează în jos jumătate de ecran"
-
-#~ msgid "Scroll up by half screen size"
-#~ msgstr "Derulează în sus jumătate de ecran"
-
-#~ msgid "Scroll the other window"
-#~ msgstr "Derulează cealaltă fereastră"
-
-#~ msgid "Scroll the other window backward"
-#~ msgstr "Derulează cealaltă fereastră înapoi"
-
-#~ msgid "Select the next window"
-#~ msgstr "Selectează fereastra următoare"
-
-#~ msgid "Select the previous window"
-#~ msgstr "Selectează fereastra precedentă"
-
-#~ msgid "Split the current window"
-#~ msgstr "Împarte fereastra curentă"
-
-#~ msgid "Delete the current window"
-#~ msgstr "Șterge fereastra curentă"
-
-#~ msgid "Cannot delete a permanent window"
-#~ msgstr "Nu se poate șterge o fereastră permanentă"
-
-#~ msgid "Delete all other windows"
-#~ msgstr "Șterge toate celelalte ferestre"
-
-#~ msgid "Grow (or shrink) this window"
-#~ msgstr "Mărește (sau micșorează) această fereastră"
-
-#~ msgid "Divide the available screen space among the visible windows"
-#~ msgstr "Împarte spațiul de ecran disponibil între ferestrele vizibile"
-
-#~ msgid "Toggle the state of line wrapping in the current window"
-#~ msgstr ""
-#~ "Activează sau dezactivează, încadrarea liniilor (față de margini); în "
-#~ "fereastra curentă"
-
-#~ msgid "Select this menu item"
-#~ msgstr "Selectează acest element de meniu"
-
-#, c-format
-#~ msgid "There isn't %d item in this menu"
-#~ msgid_plural "There aren't %d items in this menu"
-#~ msgstr[0] "Nu există un element în acest meniu"
-#~ msgstr[1] "Nu există două elemente în acest meniu"
-#~ msgstr[2] "Nu există %d elemente în acest meniu"
-#~ msgstr[3] "Nu există %d de elemente în acest meniu"
-
-#~ msgid "Select the last item in this node's menu"
-#~ msgstr "Selectează ultimul element din meniul acestui nod"
-
-#, c-format
-#~ msgid "Menu item (%s): "
-#~ msgstr "Element de meniu (%s): "
-
-#~ msgid "Menu item: "
-#~ msgstr "Element de meniu (%s): "
-
-# R-GC, scrie:
-# acest mesaj și următorul. au fost traduse,
-# avînd ca bază de inspirație, comentariul
-# lăsat de autori în fișierul sursă:
-# .
-# „Read a menu or followed reference from the user defaulting to the
-#  reference found on the current line, and select that node.  The
-# reading is done with completion. ASK_P is non-zero if the user should
-# be prompted, or zero to select the item on the current line.  MENU_ITEM
-# and XREF control whether menu items and cross-references are eligible
-# for selection.”
-#, c-format
-#~ msgid "Follow xref (%s): "
-#~ msgstr "Urmărește referința încrucișată (%s): "
-
-#~ msgid "Follow xref: "
-#~ msgstr "Urmărește referința încrucișată: "
-
-#, c-format
-#~ msgid "The reference disappeared! (%s)"
-#~ msgstr "Referința a dispărut! (%s)"
-
-#~ msgid "Read a menu item and select its node"
-#~ msgstr "Citește un element de meniu și selectează nodul acestuia"
-
-#~ msgid "Read a footnote or cross reference and select its node"
-#~ msgstr ""
-#~ "Citește o notă de subsol sau referință încrucișată și selectează nodul "
-#~ "acesteia"
-
-#~ msgid "Move to the start of this node's menu"
-#~ msgstr "Mergeți la începutul meniului acestui nod"
-
-#~ msgid "Visit as many menu items at once as possible"
-#~ msgstr "Vizitează cât mai multe elemente de meniu posibile deodată"
-
-#~ msgid "Move to the previous cross reference"
-#~ msgstr "Mergeți la referința încrucișată precedentă"
-
-#~ msgid "Move to the next cross reference"
-#~ msgstr "Mergeți la referința încrucișată următoare"
-
-#~ msgid "Select reference or menu item appearing on this line"
-#~ msgstr ""
-#~ "Selectează referința sau elementul de meniu ce apare pe acestă linie"
-
-#, c-format
-#~ msgid "No menu in node '%s'"
-#~ msgstr "Niciun meniu în nodul „%s”"
-
-#, c-format
-#~ msgid "Unable to find node referenced by '%s' in '%s'"
-#~ msgstr "Nu s-a putut găsi nodul la care face referire „%s” în „%s”"
-
-#~ msgid "Read a list of menus starting from dir and follow them"
-#~ msgstr "Citește o listă de meniuri pornind din dir și-le urmărește"
-
-#~ msgid "Follow menus: "
-#~ msgstr "Urmărește meniurile: "
-
-#~ msgid "Select the Next node"
-#~ msgstr "Selectează nodul Următor"
-
-#~ msgid "Select the Prev node"
-#~ msgstr "Selectează nodul Precedent"
-
-#~ msgid "Select the Up node"
-#~ msgstr "Selectează nodul Superior"
-
-#~ msgid "Select the last node in this file"
-#~ msgstr "Selectează ultimul nod din acest fișier"
-
-#~ msgid "This window has no additional nodes"
-#~ msgstr "Această fereastră nu are noduri suplimentare"
-
-#~ msgid "Select the first node in this file"
-#~ msgstr "Selectează primul nod din acest fișier"
-
-#~ msgid "No more nodes within this document"
-#~ msgstr "Nu mai sunt alte noduri în acest document"
-
-#~ msgid "No 'Prev' or 'Up' for this node within this document"
-#~ msgstr ""
-#~ "Nici un „Precedent” sau „Superior” pentru acest nod în acest document"
-
-#~ msgid "Move forwards or down through node structure"
-#~ msgstr "Mergeți înainte sau în jos prin structura de noduri"
-
-#~ msgid "Move backwards or up through node structure"
-#~ msgstr "Mergeți înapoi sau în sus prin structura de noduri"
-
-#~ msgid "Read a node name and select it"
-#~ msgstr "Citește numele unui nod și-l selectează"
-
-#~ msgid "Goto node: "
-#~ msgstr "Mergeți la nodul: "
-
-#~ msgid "Find the node describing program invocation"
-#~ msgstr "Găsește nodul ce descrie modul de invocare al programului"
-
-#, c-format
-#~ msgid "Find Invocation node of [%s]: "
-#~ msgstr "Găsește nodul Invocare pentru [%s]: "
-
-#~ msgid "Read a manpage reference and select it"
-#~ msgstr "Citește o referință de pagină de manual și-o selectează"
-
-#~ msgid "Get Manpage: "
-#~ msgstr "Obține pagina de manual: "
-
-#~ msgid "Select the node 'Top' in this file"
-#~ msgstr "Selectează nodul „Superior” din acest fișier"
-
-#~ msgid "Select the node '(dir)'"
-#~ msgstr "Selectează nodul „(dir)”"
-
-#~ msgid "Show full file name of node being displayed"
-#~ msgstr "Afișează numele complet al fișierului nodului ce este afișat"
-
-#~ msgid "Select the most recently selected node"
-#~ msgstr "Selectează cel mai recent nod selectat"
-
-#, c-format
-#~ msgid "No earlier node in history"
-#~ msgstr "Niciun nod anterior în istoric"
-
-#~ msgid "Read the name of a file and select it"
-#~ msgstr "Citește numele unui fișier și-l selectează"
-
-#~ msgid "Find file: "
-#~ msgstr "Găsește fișier: "
-
-#, c-format
-#~ msgid "Cannot find '%s'"
-#~ msgstr "Nu se poate găsi „%s”"
-
-#, c-format
-#~ msgid "Could not create output file '%s'"
-#~ msgstr "Nu s-a putut crea fișierul de ieșire „%s”"
-
-#, c-format
-#~ msgid "error writing to %s: %s"
-#~ msgstr "eroare la scrierea în %s: %s"
-
-#, c-format
-#~ msgid "closing %s"
-#~ msgstr "se închide %s"
-
-#, c-format
-#~ msgid "writing node %s..."
-#~ msgstr "se scrie nodul %s..."
-
-#~ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
-#~ msgstr ""
-#~ "Transmite conținutul acestui nod prin intermediul INFO_PRINT_COMMAND"
-
-#, c-format
-#~ msgid "Cannot open pipe to '%s'"
-#~ msgstr "Nu se poate deschide linia de conectare către „%s”"
-
-#, c-format
-#~ msgid "printing node %s..."
-#~ msgstr "se imprimă nodul %s..."
-
-#, c-format
-#~ msgid "finished printing node %s"
-#~ msgstr "s-a terminat de imprimat nodul %s"
-
-#~ msgid "Toggle the usage of regular expressions in searches"
-#~ msgstr ""
-#~ "Activează sau dezactivează utilizarea expresiilor regulate în căutări"
-
-#, c-format
-#~ msgid "Using regular expressions for searches"
-#~ msgstr "Se utilizează expresiile regulate pentru căutări"
-
-#, c-format
-#~ msgid "Using literal strings for searches"
-#~ msgstr "Se utilizează șiruri literale pentru căutări"
-
-#~ msgid "Search continued from the end of the document"
-#~ msgstr "Se continuă căutarea de la sfârșitul documentului"
-
-#~ msgid "Search continued from the beginning of the document"
-#~ msgstr "Se continuă căutarea de la începutul documentului"
-
-#, c-format
-#~ msgid "Searching subfile %s ..."
-#~ msgstr "Se caută subfișierul %s ..."
-
-#, c-format
-#~ msgid "Search failed"
-#~ msgstr "Căutarea a eșuat"
-
-#, c-format
-#~ msgid "%s%s%s [%s]: "
-#~ msgstr "%s%s%s [%s]: "
-
-#~ msgid "Regexp search"
-#~ msgstr "Căutare de expresii regulate"
-
-#~ msgid "Search"
-#~ msgstr "Căutare"
-
-#~ msgid " case-sensitively"
-#~ msgstr " ținând cont de majuscule/minuscule"
-
-#~ msgid " backward"
-#~ msgstr " înapoi"
-
-#, c-format
-#~ msgid "%s%s%s: "
-#~ msgstr "%s%s%s: "
-
-#~ msgid "Search string too short"
-#~ msgstr "Șirul de căutare este prea scurt"
-
-#, c-format
-#~ msgid "Going back to last match from %s"
-#~ msgstr "Se revine la ultima potrivire de la %s"
-
-#, c-format
-#~ msgid "No more matches"
-#~ msgstr "Nu mai sunt potriviri"
-
-#~ msgid "Search this node and subnodes for a string"
-#~ msgstr "Căută un șir în acest nod și subnoduri"
-
-#, c-format
-#~ msgid "Search under %s: "
-#~ msgstr "Caută sub %s: "
-
-#~ msgid "Go to next match in Info sub-tree"
-#~ msgstr "Mergeți la potrivirea următoare din sub-arborele Info"
-
-#, c-format
-#~ msgid "No active search"
-#~ msgstr "Nicio căutare activă"
-
-#~ msgid "Go to previous match in Info sub-tree"
-#~ msgstr "Mergeți la potrivirea precedentă din sub-arborele Info"
-
-#~ msgid "Read a string and search for it case-sensitively"
-#~ msgstr "Citește un șir și-l caută ținând cont de majuscule/minuscule"
-
-#~ msgid "Read a string and search for it"
-#~ msgstr "Citește un șir și-l caută"
-
-#~ msgid "Read a string and search backward for it"
-#~ msgstr "Citește un șir și-l caută înapoi"
-
-#~ msgid "Repeat last search in the same direction"
-#~ msgstr "Repetă ultima căutare în aceeași direcție"
-
-#~ msgid "No previous search string"
-#~ msgstr "Nici un șir de căutare anterior"
-
-#~ msgid "Repeat last search in the reverse direction"
-#~ msgstr "Repetă ultima căutare în direcție opusă"
-
-#~ msgid "Clear displayed search matches"
-#~ msgstr "Șterge potrivirile de căutare afișate"
-
-#~ msgid "Search interactively for a string as you type it"
-#~ msgstr "Caută interactiv pentru un șir pe măsură ce este introdus"
-
-#~ msgid "Regexp I-search backward: "
-#~ msgstr "Căutare interactivă înapoi a expresiei regulate: "
-
-#~ msgid "I-search backward: "
-#~ msgstr "Căutare interactivă înapoi: "
-
-#~ msgid "Regexp I-search: "
-#~ msgstr "Căutare interactivă a expresiei regulate: "
-
-#~ msgid "I-search: "
-#~ msgstr "Căutare interactivă: "
-
-#~ msgid "Failing "
-#~ msgstr "Nereușită "
-
-#~ msgid "Cancel current operation"
-#~ msgstr "Renunță la operația curentă"
-
-#~ msgid "Display version of Info being run"
-#~ msgstr "Afișează versiunea de Info care rulează"
-
-#, c-format
-#~ msgid "GNU Info version %s"
-#~ msgstr "Versiunea de Info GNU %s"
-
-#~ msgid "Redraw the display"
-#~ msgstr "Redesenează ecranul"
-
-#~ msgid "Quit using Info"
-#~ msgstr "Ieșire din Info"
-
-#~ msgid "Run command bound to this key's lowercase variant"
-#~ msgstr "Execută comanda asociată de varianta cu minuscule a acestei taste"
-
-#~ msgid "Add this digit to the current numeric argument"
-#~ msgstr "Adaugă această cifră la argumentul numeric curent"
-
-#~ msgid "Start (or multiply by 4) the current numeric argument"
-#~ msgstr "Începe (sau înmulțește cu 4) argumentul numeric curent"
 
 #, c-format, perl-format
 #~ msgid "node %s for `%s' is `%s' in sectioning but not in menu"
