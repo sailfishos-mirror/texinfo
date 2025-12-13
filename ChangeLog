@@ -1,3 +1,8 @@
+2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: automake, autoconf, gettext, libtool versions.
+	* README-hacking: more on upgrading gettext.
+
 2025-12-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta: upgrade to gettext 0.26

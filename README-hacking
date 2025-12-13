@@ -347,7 +347,9 @@ check at latest automake/autoconf/gettext/help2man version:
     run "git status -u" to check for new files.  revert or remove any
     *.m4 files that downgrade from a newer serial number (from gnulib)
     to an older serial number (from gettext).  check for duplicate files
-    under build-aux/m4 and gnulib/m4.
+    under build-aux/m4 and gnulib/m4 and delete any newly added duplicated
+    files under build-aux/m4.  run "ls -tl" under po to check for any
+    leftover files.
 
     see http://gnu.org/s/gnulib/manual/html_node/gettextize-and-autopoint.html
     for some hints.

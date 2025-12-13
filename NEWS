@@ -99,6 +99,7 @@ See the manual for detailed information.
     now only the node is looked for.
 
 * Distribution
+  . automake 1.18.1, autoconf 2.72, gettext 0.26, libtool 2.5.4
   . support for DJGPP removed
 
 
