@@ -323,7 +323,7 @@ AC_ARG_ENABLE([c-texi2any],
     AS_HELP_STRING([--enable-c-texi2any],[Use texi2any program implemented in C if possible]))
 
 AC_ARG_WITH([swig],
-   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: check)]))
+   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: no)]))
 
 AC_ARG_ENABLE([perl-install-mode],
     AS_HELP_STRING([--enable-perl-install-mode],[Perl SWIG interface install mode site/vendor/custom (default: site)]))

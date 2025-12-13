@@ -436,9 +436,9 @@ AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 # SWIG interfaces
 
 AC_ARG_WITH([swig],
-   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: check)]),
+   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: no)]),
    [],
-   [ with_swig='check' ])
+   [ with_swig='no' ])
 
 if test $with_swig != 'no' ; then
   # Find swig executable
