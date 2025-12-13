@@ -6,6 +6,7 @@
 #  
 # List of source files containing translatable strings.
 
+info/dir.c
 info/echo-area.c
 info/filesys.c
 info/footnotes.c
@@ -23,6 +24,7 @@ info/pcterm.c
 info/scan.c
 info/search.c
 info/session.c
+info/session-cmd.c
 info/variables.c
 info/window.c
 install-info/install-info.c
@@ -40,6 +42,9 @@ tta/perl/Texinfo/Convert/LaTeX.pm
 tta/perl/Texinfo/Convert/Plaintext.pm
 tta/perl/Texinfo/Convert/Text.pm
 tta/perl/Texinfo/Convert/Utils.pm
+tta/perl/Texinfo/Example/ReadDocBook.pm
+tta/perl/Texinfo/Example/TreeElementConverter.pm
+tta/perl/Texinfo/Example/TreeElementReadDocBook.pm
 tta/perl/Texinfo/Indices.pm
 tta/perl/Texinfo/ParserNonXS.pm
 tta/perl/Texinfo/Report.pm
