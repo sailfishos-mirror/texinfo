@@ -10,8 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-update libintl-perl before the release
-
 system.h macros are duplicated in C/main/utils.h.  Ok?
 
 document command_name and command_description in HTML customization API
