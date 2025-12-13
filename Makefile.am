@@ -147,7 +147,8 @@ po-check:
 	fi
 
 # false positive in DocumentXS.c with function definition
-# but no translated strings
+# but no translated strings.  exclude *.c file generated
+# from *.xs.
 po_document-check:
 	@if test -f po_document/POTFILES.in; then			\
 	  grep -E -v '^(#|$$)' po_document/POTFILES.in | sort > $@-1;	\
@@ -162,6 +163,7 @@ po_document-check:
 	      tta/maintain/*) continue;;				\
 	      tta/init/documentation_examples.pm) continue;;		\
 	      tta/perl/XSTexinfo/parser_document/DocumentXS.c) continue;;		\
+	      tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.c) continue;;	\
 	    esac;							\
 	    files="$$files $$file";					\
 	  done;								\
