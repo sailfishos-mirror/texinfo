@@ -22,7 +22,7 @@ header > a {
 
 div[node] {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
 }
 body[show-sidebar="no"] div#sub-pages {
     left: 0px;
