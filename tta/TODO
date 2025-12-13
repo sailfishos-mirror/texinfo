@@ -12,8 +12,6 @@ Before next release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?
 
-document command_name and command_description in HTML customization API
-
 Document the use of accents stack in the HTML customization API
 
 Document 'style_commands_formatting' and 'no_arg_commands_formatting' in

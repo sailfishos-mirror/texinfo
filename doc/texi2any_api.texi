@@ -3242,9 +3242,10 @@ identifier if set.
 @end deftypefun
 
 To get the text of tree elements that may be used as link description, use
-@code{command_text}:
+@code{command_text} or @code{command_name}:
 
 @deftypefun {@var{$result} =} @var{$converter}->command_text (@var{\%target_element}, @var{$type})
+@deftypefunx {@var{$result} =} @var{$converter}->command_name (@var{\%target_element}, @var{$type})
 Return the information to be used for a hyperlink to @var{\%target_element}.
 The information returned depends on @var{$type}:
 
@@ -3262,6 +3263,11 @@ Return text without the sectioning command number.
 Return text in string context without the sectioning command number.
 
 @end table
+
+If @code{command_name} is called, the text corresponding to the element name
+is returned for commands with different arguments for the name and the cross-reference
+(@code{@@namedanchor}).  For other @@-commands, the result is the same as
+@code{command_text}.
 @end deftypefun
 
 Using those functions, a target element hyperlink can be constructed as:
@@ -3322,6 +3328,23 @@ To get the node element associated with a target element, use
 
 @deftypefun {@var{\%node_element} =} @var{$converter}->command_node (@var{\%target_element})
 Return the node element associated with @var{\%target_element}.
+@end deftypefun
+
+To get the description associated with a target element, typically the
+@code{@@nodedescription} associated with a @code{@@node}, use
+@code{command_description}:
+
+@deftypefun {@var{$result} =} @var{$converter}->command_description (@var{\%target_element}, @var{$type})
+Return the description of @var{\%target_element}. The precise formatting
+depends on @var{$type}:
+
+@table @emph
+@item text
+Return text.
+
+@item string
+Return text in string context.  @xref{Init File Expansion Contexts}.
+@end table
 @end deftypefun
 
 For elements that are not target elements, use
