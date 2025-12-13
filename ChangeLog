@@ -1,5 +1,11 @@
 2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/Makefile.am (MAINTAINERCLEANFILES): Add all "multiple outputs"
+	stamp files.  This fixes parallel make after "make maintainer-clean".
+	Report from Patrice.
+
+2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: add AUTOPOINT=true to autoreconf invocation to
 	reduce the risk of making a mess.
 

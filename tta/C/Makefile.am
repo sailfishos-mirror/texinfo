@@ -292,7 +292,7 @@ $(products_element_types): $(srcdir)/stamp.element_types
 	@test -f $@ || rm -f stamp.element_types
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.element_types
 EXTRA_DIST += stamp.element_types
-MAINTAINERCLEANFILES += $(products_element_types)
+MAINTAINERCLEANFILES += $(products_element_types) stamp.element_types
 
 products_command_data = $(srcdir)/main/command_data.c \
                         $(srcdir)/main/command_ids.h \
@@ -311,7 +311,7 @@ $(products_command_data): $(srcdir)/stamp.command_data
 	@test -f $@ || rm -f stamp.command_data
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.command_data
 EXTRA_DIST += stamp.command_data
-MAINTAINERCLEANFILES += $(products_command_data)
+MAINTAINERCLEANFILES += $(products_command_data) stamp.command_data
 
 # Order matters
 products_code_commands_values = $(srcdir)/main/cmd_text.c \
@@ -332,7 +332,7 @@ $(products_code_commands_values): $(srcdir)/stamp.code_commands_values
 	@test -f $@ || rm -f stamp.code_commands_values
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) stamp.code_commands_values
 EXTRA_DIST += stamp.code_commands_values
-MAINTAINERCLEANFILES += $(products_code_commands_values)
+MAINTAINERCLEANFILES += $(products_code_commands_values) stamp.code_commands_values
 
 TXI_MODULES_ENV = srcdir="$(srcdir)"; export srcdir;
 
@@ -364,7 +364,7 @@ $(products_C_options_info): $(srcdir)/stamp.regenerate_C_options_info
 	@test -f $@ || rm -f $(srcdir)/stamp.regenerate_C_options_info
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/stamp.regenerate_C_options_info
 EXTRA_DIST += stamp.regenerate_C_options_info
-MAINTAINERCLEANFILES += $(products_C_options_info)
+MAINTAINERCLEANFILES += $(products_C_options_info) stamp.regenerate_C_options_info
 
 # target that can be built upon cd'ing to the build directory, as needed
 # when building translated source files from the top level directory to
@@ -390,7 +390,7 @@ $(products_code_convert_data): $(srcdir)/stamp.code_convert_data
 	@test -f $@ || rm -f $(srcdir)/stamp.code_convert_data
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/stamp.code_convert_data
 EXTRA_DIST += stamp.code_convert_data
-MAINTAINERCLEANFILES += $(products_code_convert_data)
+MAINTAINERCLEANFILES += $(products_code_convert_data) stamp.code_convert_data
 
 # Order matters
 products_css_data = $(srcdir)/main/html_css_data.c \
@@ -408,7 +408,7 @@ $(products_css_data): $(srcdir)/stamp.css_data
 	@test -f $@ || rm -f $(srcdir)/stamp.css_data
 	@test -f $@ || $(MAKE) $(AM_MAKEFLAGS) $(srcdir)/stamp.css_data
 EXTRA_DIST += stamp.css_data
-MAINTAINERCLEANFILES += $(products_css_data)
+MAINTAINERCLEANFILES += $(products_css_data) stamp.css_data
 
 
 ################################# common Perl C code shared library used
