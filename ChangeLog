@@ -1,5 +1,11 @@
 2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.css (iframe.node): Set "display: block".  This is intended
+	to prevent a double scroll bar, one for the iframe, one for the
+	containing div, by making both elements the same height.
+
+2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* INSTALL.generic: update from gnulib
 
 2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
