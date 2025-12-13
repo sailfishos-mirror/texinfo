@@ -18,9 +18,25 @@
 
 \newcommand{\Texinfoparttitle}{}
 
-\newcommand{\Texinfopart}[1]{\part*{#1}
+\newcommand{\Texinfounnumberedchapter}[1]{\chapter*{#1}
+\addcontentsline{toc}{chapter}{\protect\textbf{#1}}%
+}%
+
+\newcommand{\Texinfounnumberedpart}[1]{\part*{#1}
 \addcontentsline{toc}{part}{\protect\textbf{#1}}%
 \renewcommand{\Texinfoparttitle}{#1}%
+}%
+
+\newcommand{\Texinfounnumberedsection}[1]{\section*{#1}
+\addcontentsline{toc}{section}{\protect\textbf{#1}}%
+}%
+
+\newcommand{\Texinfounnumberedsubsection}[1]{\subsection*{#1}
+\addcontentsline{toc}{subsection}{\protect\textbf{#1}}%
+}%
+
+\newcommand{\Texinfounnumberedsubsubsection}[1]{\subsubsection*{#1}
+\addcontentsline{toc}{subsubsection}{\protect\textbf{#1}}%
 }%
 
 % redefine the \mainmatter command such that it does not clear page
@@ -57,19 +73,19 @@
 
 \begin{document}
 \label{anchor:Top}%
-\Texinfopart{{Part I:\texorpdfstring{\ifinner\unskip\space\ignorespaces\else\leavevmode{}\\\fi}{ } The beginning}}
+\Texinfounnumberedpart{{Part I:\texorpdfstring{\ifinner\unskip\space\ignorespaces\else\leavevmode{}\\\fi}{ } The beginning}}
 \chapter{{Chap1}}
 \label{anchor:first}%
 
 In chap1
 
-\Texinfopart{{Part II}}
+\Texinfounnumberedpart{{Part II}}
 \chapter{{chap2}}
 \label{anchor:second}%
 
 In chap2
 
-\Texinfopart{{App}}
+\Texinfounnumberedpart{{App}}
 
 \appendix
 \chapter{{Appendix}}

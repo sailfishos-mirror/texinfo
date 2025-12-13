@@ -2603,8 +2603,24 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 \\makeatletter
 \\newcommand{\\Texinfosettitle}{No Title}%
 
-\\newcommand{\\Texinfopart}[1]{\\part*{#1}
+\\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
+\\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
+}%
+
+\\newcommand{\\Texinfounnumberedpart}[1]{\\part*{#1}
 \\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%
+}%
+
+\\newcommand{\\Texinfounnumberedsection}[1]{\\section*{#1}
+\\addcontentsline{toc}{section}{\\protect\\textbf{#1}}%
+}%
+
+\\newcommand{\\Texinfounnumberedsubsection}[1]{\\subsection*{#1}
+\\addcontentsline{toc}{subsection}{\\protect\\textbf{#1}}%
+}%
+
+\\newcommand{\\Texinfounnumberedsubsubsection}[1]{\\subsubsection*{#1}
+\\addcontentsline{toc}{subsubsection}{\\protect\\textbf{#1}}%
 }%
 
 % new float for type `\'
@@ -2612,13 +2628,13 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 \\floatname{TexinfoFloat}{}
 % new float for type `Text\'
 \\newfloat{TexinfoFloatText}{htb}{tfl}[chapter]
-\\floatname{TexinfoFloatText}{}
+\\floatname{TexinfoFloatText}{Text}
 % new float for type `Warning\'
 \\newfloat{TexinfoFloatWarning}{htb}{tfl}[chapter]
-\\floatname{TexinfoFloatWarning}{}
+\\floatname{TexinfoFloatWarning}{Warning}
 % new float for type `théorème\'
 \\newfloat{TexinfoFloattheoreme}{htb}{tfl}[chapter]
-\\floatname{TexinfoFloattheoreme}{}
+\\floatname{TexinfoFloattheoreme}{th\\\'{e}or\\`{e}me}
 % redefine the \\mainmatter command such that it does not clear page
 % as if in double page
 \\renewcommand\\mainmatter{\\clearpage\\@mainmattertrue\\pagenumbering{arabic}}
@@ -2699,7 +2715,7 @@ A text in float no caption a label a type.
 \\label{anchor:text-in-section}%
 \\end{TexinfoFloatText}
 
-\\chapter*{{Unnumbered}}
+\\Texinfounnumberedchapter{{Unnumbered}}
 \\label{anchor:Unnumbered}%
 
 \\begin{TexinfoFloatText}
@@ -2734,7 +2750,7 @@ Chap
 \\label{anchor:Chapter-with-subsec-float}%
 \\end{TexinfoFloatText}
 
-\\section*{{unnumbered sec}}
+\\Texinfounnumberedsection{{unnumbered sec}}
 \\label{anchor:unnumbered-sec}%
 
 \\begin{TexinfoFloatText}
@@ -2761,7 +2777,7 @@ Appendix
 \\label{anchor:appendix-sec-float}%
 \\end{TexinfoFloatText}
 
-\\chapter*{{list of floats}}
+\\Texinfounnumberedchapter{{list of floats}}
 \\label{anchor:list-of-floats}%
 
 See \\hyperref[anchor:text-in-section]{Text~\\ref*{anchor:text-in-section}}.

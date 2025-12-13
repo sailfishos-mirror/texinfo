@@ -315,7 +315,7 @@ my @LaTeX_image_extensions = (
 
 my %section_map = (
    'top' => 'part*',
-   'part' => 'Texinfopart',
+   'part' => 'Texinfounnumberedpart',
    'chapter' => 'chapter',
    'section' => 'section',
    'subsection' => 'subsection',
@@ -326,16 +326,29 @@ my %section_map = (
    'heading' => 'section*',
    'subheading' => 'subsection*',
    'subsubheading' => 'subsubsection*',
-   'unnumbered' => 'chapter*',
-   'centerchap' => 'chapter*',
-   'unnumberedsec' => 'section*',
-   'unnumberedsubsec' => 'subsection*',
-   'unnumberedsubsubsec' => 'subsubsection*',
+   'unnumbered' => 'Texinfounnumberedchapter',
+   'centerchap' => 'Texinfounnumberedchapter',
+   'unnumberedsec' => 'Texinfounnumberedsection',
+   'unnumberedsubsec' => 'Texinfounnumberedsubsection',
+   'unnumberedsubsubsec' => 'Texinfounnumberedsubsubsection',
    'appendix' => 'chapter',
    'appendixsec' => 'section',
    'appendixsubsec' => 'subsection',
    'appendixsubsubsec' => 'subsubsection',
 );
+
+# associate the name of the created LaTeX macro to the usual LaTeX
+# sectoning command for unnumbered command that should appear in table
+# of contents (every unnumbered commands except for @top).
+my %texinfo_unnumbered_macros_toc_latex;
+foreach my $unnumbered_command(keys(
+                       %Texinfo::Commands::unnumbered_commands)) {
+  next if $unnumbered_command eq 'top';
+  my $texinfo_latex_macro = $section_map{$unnumbered_command};
+  my $latex_command = $texinfo_latex_macro;
+  $latex_command =~ s/^Texinfounnumbered//;
+  $texinfo_unnumbered_macros_toc_latex{$texinfo_latex_macro} = $latex_command;
+}
 
 my %LaTeX_no_arg_brace_commands = (
    # textmode
@@ -1437,12 +1450,19 @@ sub _latex_header($) {
   if (exists($self->{'need_parttitle'})) {
     $header_code .= "\\newcommand{\\Texinfoparttitle}{}\n\n";
   }
-  $header_code .= "\\newcommand{\\Texinfopart}[1]{\\part*{#1}
-\\addcontentsline{toc}{part}{\\protect\\textbf{#1}}%\n";
-  if (exists($self->{'need_parttitle'})) {
-    $header_code .= "\\renewcommand{\\Texinfoparttitle}{#1}%\n";
+  foreach my $txi_unnumbered_latex(sort(
+                         keys(%texinfo_unnumbered_macros_toc_latex))) {
+    my $latex_command
+      = $texinfo_unnumbered_macros_toc_latex{$txi_unnumbered_latex};
+    $header_code
+       .= "\\newcommand{\\${txi_unnumbered_latex}}[1]{\\${latex_command}*{#1}\n"
+         ."\\addcontentsline{toc}{${latex_command}}{\\protect\\textbf{#1}}%\n";
+    if ($txi_unnumbered_latex eq 'Texinfounnumberedpart'
+        and exists($self->{'need_parttitle'})) {
+      $header_code .= "\\renewcommand{\\Texinfoparttitle}{#1}%\n";
+    }
+    $header_code .= "}%\n\n";
   }
-  $header_code .= "}%\n\n";
 
   my $floats;
   if (exists($self->{'document'})) {

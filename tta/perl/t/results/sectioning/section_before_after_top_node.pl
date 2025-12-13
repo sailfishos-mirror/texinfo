@@ -216,7 +216,7 @@ $result_converted{'docbook'}->{'section_before_after_top_node'} = '<chapter labe
 
 
 $result_converted{'latex_text'}->{'section_before_after_top_node'} = '\\begin{document}
-\\chapter*{{before}}
+\\Texinfounnumberedchapter{{before}}
 
 \\label{anchor:Top}%
 ';

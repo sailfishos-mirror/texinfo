@@ -254,7 +254,7 @@ $result_converted{'docbook'}->{'section_before_after_top_node_last_node'} = '<ch
 
 
 $result_converted{'latex_text'}->{'section_before_after_top_node_last_node'} = '\\begin{document}
-\\chapter*{{before}}
+\\Texinfounnumberedchapter{{before}}
 
 \\label{anchor:Top}%
 \\label{anchor:node-after}%

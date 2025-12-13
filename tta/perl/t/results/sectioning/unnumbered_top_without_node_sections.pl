@@ -314,7 +314,7 @@ span:hover a.copiable-link {visibility: visible}
 
 
 $result_converted{'latex_text'}->{'unnumbered_top_without_node_sections'} = '\\begin{document}
-\\chapter*{{unnumbered}}
+\\Texinfounnumberedchapter{{unnumbered}}
 \\label{anchor:a-node}%
 
 in unnumbered
