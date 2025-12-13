@@ -386,13 +386,20 @@ Update gnulib:
 
 Use util/srclist-txi for checking files to be copied from gnulib
 
-Update ppport.h in tta/C.  Update Devel::PPPort via cpan to newest
-available version, then run:
-  perl -MDevel::PPPort -e'Devel::PPPort::WriteFile'
-Check that this results in a newer version.
+Update and update ppport.h for checking compatibility of XS code with
+different versions of Perl:
 
-Check what changes ppport.h reports:
-  perl ppport.h --compat-version=5.8.1 ../perl/XSTexinfo/*.xs ../perl/XSTexinfo/*/*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* main/call_perl_function.* convert/call_html_perl_function.* convert/call_conversion_perl.* convert/call_embed_perl.* convert/build_html_perl_info.* convert/build_html_perl_state.* convert/get_converter_perl_info.* tree_elements/build_perl_tree_elements.* tree_elements/get_perl_tree_elements.* ../perl/XSTexinfo/convert/get_html_perl_info.*
+* Update Devel::PPPort via cpan to newest available version
+  ("sudo cpan install Devel::PPPort")
+
+* Under tta/C, run:
+    perl -MDevel::PPPort -e'Devel::PPPort::WriteFile'
+
+* "git diff ppport.h" and check that this results the same or a newer
+  version of pport.h.
+
+* Check what changes ppport.h reports:
+    perl ppport.h --compat-version=5.8.1 ../perl/XSTexinfo/*.xs ../perl/XSTexinfo/*/*.xs main/get_perl_info.* main/build_perl_info.* main/api_to_perl.* main/call_perl_function.* convert/call_html_perl_function.* convert/call_conversion_perl.* convert/call_embed_perl.* convert/build_html_perl_info.* convert/build_html_perl_state.* convert/get_converter_perl_info.* tree_elements/build_perl_tree_elements.* tree_elements/get_perl_tree_elements.* ../perl/XSTexinfo/convert/get_html_perl_info.*
 
 make po-check             # update po/POTFILES.in as needed
 make po_document-check    # update po_document/POTFILES.in as needed
