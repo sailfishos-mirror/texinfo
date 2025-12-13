@@ -2,8 +2,13 @@
 | Sub pages  |
 `-----------*/
 
-body.in-iframe, div[node]#index {
+body, div[node]#index {
     padding: 0px 0.5em 0px 1em;
+}
+
+/* For both main page and iframes */
+body {
+    margin: 0px;
 }
 
 header > a {
@@ -31,11 +36,6 @@ body[show-sidebar="no"] div#sub-pages {
 
 div[node][hidden] {
     display: none;
-}
-
-/* Non-iframed main page */
-body.in-iframe {
-    margin: 0px;
 }
 
 div.toc-sidebar {
