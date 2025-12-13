@@ -1,5 +1,9 @@
 2025-12-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta: upgrade to gettext 0.26
+
+2025-12-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* po, po_document: upgrade to gettext 0.26
 
 2025-12-12  Gavin Smith <gavinsmith0123@gmail.com>

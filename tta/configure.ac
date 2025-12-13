@@ -254,7 +254,7 @@ gl_INIT
 # must be in sync with the Makefile.in.in in the shared po/ directory.
 # See the README-hacking file at top level for how to upgrade gettext.
 #
-AM_GNU_GETTEXT_VERSION([0.22.5])
+AM_GNU_GETTEXT_VERSION([0.26])
 AM_GNU_GETTEXT([external])
 
 AM_MISSING_PROG([GAWK], [gawk])
