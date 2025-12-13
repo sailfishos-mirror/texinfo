@@ -1137,10 +1137,10 @@ $result_converted{'docbook'}->{'ref_in_sectioning'} = '<chapter label="1" id="no
 
 $result_converted{'latex_text'}->{'ref_in_sectioning'} = '
 \\label{anchor:Top}%
-\\chapter{{See Section ``title\'\' in \\textsl{Manual}.}}
+\\Texinfochapter{{See Section ``title\'\' in \\textsl{Manual}.}}
 \\label{anchor:node}%
 
-\\chapter{{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node} just node}}
+\\Texinfochapter{{\\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node} just node}}
 \\label{anchor:chap}%
 
 \\section{{for example \\texorpdfstring{\\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{node} (\\texorpdfstring{see \\hyperref[anchor:node]{\\chaptername~\\ref*{anchor:node} [node], page~\\pageref*{anchor:node}}}{see node}) (see Section ``Top\'\' in \\textsl{Manual})}}

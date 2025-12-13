@@ -318,7 +318,7 @@ $result_converted{'latex_text'}->{'contents_at_document_begin_separate_element'}
 \\begin{document}
 \\tableofcontents\\newpage
 \\label{anchor:Top}%
-\\chapter{{Chapter 1}}
+\\Texinfochapter{{Chapter 1}}
 \\label{anchor:chapter}%
 
 The chapter

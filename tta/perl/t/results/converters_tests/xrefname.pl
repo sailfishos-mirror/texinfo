@@ -341,11 +341,12 @@ $result_converted{'docbook'}->{'xrefname'} = '<chapter label="1" id="ntiti">
 
 $result_converted{'latex_text'}->{'xrefname'} = '\\label{anchor:Top}%
 
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:ntiti}%
 
 \\appendix
-\\chapter{{app}}
+\\renewcommand{\\chaptername}{\\appendixname}
+\\Texinfochapter{{app}}
 \\label{anchor:chip}%
 
 

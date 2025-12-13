@@ -342,7 +342,7 @@ $result_converted_errors{'docbook'}->{'commands_in_var'} = '* W l7|@image file `
 
 
 $result_converted{'latex_text'}->{'commands_in_var'} = '\\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:chap}%
 
 \\Texinfocommandstyletextvar{a \\~{n} \\aa{} \\TeX{} \\includegraphics{myimage} \\hyperref[anchor:chap]{\\chaptername~\\ref*{anchor:chap} [chap], page~\\pageref*{anchor:chap}} See (f)node

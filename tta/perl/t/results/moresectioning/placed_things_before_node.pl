@@ -534,7 +534,7 @@ Ref to float
 \\index[cp]{index entry@index entry}%
 
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chapter}%
 
 Ref to anchor

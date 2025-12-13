@@ -184,10 +184,12 @@ $result_converted{'latex'}->{'float_type_with_tieaccent'} = '\\documentclass{boo
 \\usepackage[hidelinks]{hyperref}
 
 \\makeatletter
+\\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
 }%
 
 \\newcommand{\\Texinfounnumberedpart}[1]{\\part*{#1}
@@ -206,6 +208,10 @@ $result_converted{'latex'}->{'float_type_with_tieaccent'} = '\\documentclass{boo
 \\addcontentsline{toc}{subsubsection}{\\protect\\textbf{#1}}%
 }%
 
+\\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
+\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+}%
+
 % new float for type `A 1͡a 第͡H ê͡一 and text\'
 \\newfloat{TexinfoFloatAaDiHeYiandtext}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatAaDiHeYiandtext}{A \\t{1a} \\t{第H} \\t{\\^{e}一 and text}}
@@ -220,8 +226,8 @@ $result_converted{'latex'}->{'float_type_with_tieaccent'} = '\\documentclass{boo
 % used for substitutions in commands
 \\newcommand{\\Texinfoplaceholder}[1]{}
 
-\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
-                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+\\newpagestyle{single}{\\sethead[\\Texinfothechapterheading{}\\chaptertitle{}][][\\thepage]
+                              {\\Texinfothechapterheading{}\\chaptertitle{}}{}{\\thepage}}
 
 % allow line breaking at underscore
 \\let\\Texinfounderscore\\_

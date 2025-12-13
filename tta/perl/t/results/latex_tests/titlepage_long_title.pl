@@ -187,7 +187,7 @@ $result_converted{'latex_text'}->{'titlepage_long_title'} = '
 \\mainmatter
 \\pagestyle{single}%
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chapter}%
 
 In chapter

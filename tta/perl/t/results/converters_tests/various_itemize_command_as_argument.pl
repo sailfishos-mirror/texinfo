@@ -626,7 +626,7 @@ aa
 
 
 $result_converted{'latex_text'}->{'various_itemize_command_as_argument'} = '\\label{anchor:Top}%
-\\chapter{{Chap}}
+\\Texinfochapter{{Chap}}
 \\label{anchor:chap}%
 
 \\begin{itemize}

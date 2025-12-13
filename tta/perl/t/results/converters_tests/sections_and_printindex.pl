@@ -357,7 +357,7 @@ $result_converted{'docbook'}->{'sections_and_printindex'} = '<chapter label="1" 
 
 
 $result_converted{'latex_text'}->{'sections_and_printindex'} = '\\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:node}%
 
 \\index[cp]{entry1@entry1}%
@@ -366,7 +366,8 @@ $result_converted{'latex_text'}->{'sections_and_printindex'} = '\\label{anchor:T
 
 \\index[cp]{entry2@entry2}%
 \\appendix
-\\chapter{{App}}
+\\renewcommand{\\chaptername}{\\appendixname}
+\\Texinfochapter{{App}}
 
 \\printindex[cp]
 

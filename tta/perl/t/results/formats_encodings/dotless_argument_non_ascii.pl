@@ -192,7 +192,7 @@ $result_converted{'docbook'}->{'dotless_argument_non_ascii'} = '<chapter label="
 
 $result_converted{'latex_text'}->{'dotless_argument_non_ascii'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 ê
 ê

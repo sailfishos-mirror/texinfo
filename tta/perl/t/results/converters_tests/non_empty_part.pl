@@ -817,7 +817,7 @@ $result_converted{'latex_text'}->{'non_empty_part'} = '\\label{anchor:Top}%
 
 Content I
 
-\\chapter{{chap in Top node}}
+\\Texinfochapter{{chap in Top node}}
 
 \\Texinfounnumberedpart{{Part II}}
 
@@ -827,7 +827,7 @@ Content II
 
 Content III
 
-\\chapter{{chapter with part node}}
+\\Texinfochapter{{chapter with part node}}
 \\label{anchor:part-chapter-node}%
 
 \\Texinfounnumberedpart{{Part IV}}
@@ -838,14 +838,14 @@ Content IV
 
 Content V
 
-\\chapter{{with part no node}}
+\\Texinfochapter{{with part no node}}
 
 \\Texinfounnumberedpart{{Part VI}}
 
 Content VI
 
 
-\\chapter{{chapter after part node}}
+\\Texinfochapter{{chapter after part node}}
 \\label{anchor:node-between-part-and-chapter}%
 
 ';

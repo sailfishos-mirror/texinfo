@@ -425,7 +425,7 @@ C(1) (see chapter-Footnote-1)
 
 $result_converted{'latex_text'}->{'two_footnotes_in_nodes_separate_no_header'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{chapter}}
+\\Texinfochapter{{chapter}}
 \\label{anchor:chapter}%
 
 C\\footnote{Footnote chapter/1

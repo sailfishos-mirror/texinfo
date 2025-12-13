@@ -187,12 +187,12 @@ $result_converted{'latex_text'}->{'informative_commands_in_top_node'} = '\\begin
 \\label{anchor:Top}%
 \\setlength{\\parindent}{5em}
 \\newpagestyle{custom}{%
-\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\Texinfosettitle{}][\\Texinfotheinclude{}][\\texttt{\\chaptertitle{}}]%
+\\setfoot[\\Texinfothechapterheading{}\\chaptertitle{} \\Texinfosettitle{}][\\Texinfotheinclude{}][\\texttt{\\chaptertitle{}}]%
 {}{}{}%
 }%
 \\pagestyle{custom}%
 \\setlength{\\parindent}{2em}
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:next-node}%
 
 In chapter

@@ -1,5 +1,23 @@
 2025-12-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm
+	(%LaTeX_in_heading_commands_formatting, %section_map)
+	(_latex_header): replace "\chaptername{} \thechapter{} " by a LaTeX
+	macro, \Texinfothechapterheading{} and redefine the macro when a
+	chapter or an appendix is encountered to
+	"\chaptername{} \thechapter{}" and to an empty string when unnumbered
+	is encountered.  Add the Texinfochapter LaTeX macro for chapter and
+	appendix.  Report from Dimitris Papavasiliou.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): call
+	\renewcommand{\chaptername}{\appendixname} when reaching the first
+	appendix.  Report from Dimitris Papavasiliou.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_prepare_conversion): delete
+	appendix_done.
+
+2025-12-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (%section_map)
 	(%texinfo_unnumbered_macros_toc_latex, _latex_header): generate a
 	LaTeX macro definition for each of the unnumbered commands that should

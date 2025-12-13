@@ -5010,85 +5010,85 @@ $result_converted_errors{'docbook'}->{'at_commands_in_refs'} = '* W l92|@image f
 
 $result_converted{'latex_text'}->{'at_commands_in_refs'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{\\-{} \\{ \\}}}
+\\Texinfochapter{{\\-{} \\{ \\}}}
 \\label{anchor:-_007b-_007d}%
 
-\\chapter{{\\ {} \\ {} \\@! \\texorpdfstring{\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi}{ } \\@. \\@ .\\@ \\@? @}}
+\\Texinfochapter{{\\ {} \\ {} \\@! \\texorpdfstring{\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi}{ } \\@. \\@ .\\@ \\@? @}}
 \\label{anchor:-_0021-_002e-_002e-_003f-_0040}%
 
-\\chapter{{@ \\{ \\} \\textbackslash{} \\#}}
+\\Texinfochapter{{@ \\{ \\} \\textbackslash{} \\#}}
 \\label{anchor:_0040-_007b-_007d-_005c-_0023}%
 
-\\chapter{{\\LaTeX{} \\TeX{} \\textbullet{} , \\copyright{} \\dots{}\\@ \\dots{}}}
+\\Texinfochapter{{\\LaTeX{} \\TeX{} \\textbullet{} , \\copyright{} \\dots{}\\@ \\dots{}}}
 \\label{anchor:LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e}%
 
-\\chapter{{$\\equiv{}$ \\texorpdfstring{\\fbox{error}}{error} \\euro{} \\textexclamdown{} $\\mapsto{}$ -}}
+\\Texinfochapter{{$\\equiv{}$ \\texorpdfstring{\\fbox{error}}{error} \\euro{} \\textexclamdown{} $\\mapsto{}$ -}}
 \\label{anchor:_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212}%
 
-\\chapter{{$\\geq{}$ $\\leq{}$ $\\rightarrow{}$}}
+\\Texinfochapter{{$\\geq{}$ $\\leq{}$ $\\rightarrow{}$}}
 \\label{anchor:_2265-_2264-_2192}%
 
-\\chapter{{\\textordfeminine{} \\textordmasculine{} $\\star{}$ \\textsterling{} $\\dashv{}$ \\textquestiondown{} \\circledR{}}}
+\\Texinfochapter{{\\textordfeminine{} \\textordmasculine{} $\\star{}$ \\textsterling{} $\\dashv{}$ \\textquestiondown{} \\circledR{}}}
 \\label{anchor:_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae}%
 
-\\chapter{{$\\Rightarrow{}$ \\textdegree{} a~b \\today{} \\aa{}}}
+\\Texinfochapter{{$\\Rightarrow{}$ \\textdegree{} a~b \\today{} \\aa{}}}
 \\label{anchor:_21d2-_00b0-a-b-_00e5}%
 
-\\chapter{{\\AA{} \\ae{} \\oe{} \\AE{} \\OE{} \\o{} \\O{} \\ss{} \\l{} \\L{} \\DH{} \\dh{} \\TH{} \\th{}}}
+\\Texinfochapter{{\\AA{} \\ae{} \\oe{} \\AE{} \\OE{} \\o{} \\O{} \\ss{} \\l{} \\L{} \\DH{} \\dh{} \\TH{} \\th{}}}
 \\label{anchor:_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe}%
 
-\\chapter{{\\"{a} \\~{e} \\^{\\i{}} \\^{a} \\`{a} \\\'{e} \\c{c} \\={e} \\r{e} \\H{e} \\k{e}}}
+\\Texinfochapter{{\\"{a} \\~{e} \\^{\\i{}} \\^{a} \\`{a} \\\'{e} \\c{c} \\={e} \\r{e} \\H{e} \\k{e}}}
 \\label{anchor:_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119}%
 
-\\chapter{{\\.{e} \\u{e} \\b{e} \\d{e} \\v{e} \\j{} \\t{ee}}}
+\\Texinfochapter{{\\.{e} \\u{e} \\b{e} \\d{e} \\v{e} \\j{} \\t{ee}}}
 \\label{anchor:_0117-_0115-e_0332-_1eb9-_011b-_0237-e_0361e}%
 
-\\chapter{{\\i{} \\`{\\={E}} \\c{\\\'{C}}}}
+\\Texinfochapter{{\\i{} \\`{\\={E}} \\c{\\\'{C}}}}
 \\label{anchor:_0131-_1e14-_1e08}%
 
-\\chapter{{\\textquotedblleft{} \\textquotedblright{} \\textquoteleft{} \\textquoteright{} \\quotedblbase{} \\quotesinglbase{}}}
+\\Texinfochapter{{\\textquotedblleft{} \\textquotedblright{} \\textquoteleft{} \\textquoteright{} \\quotedblbase{} \\quotesinglbase{}}}
 \\label{anchor:_201c-_201d-_2018-_2019-_201e-_201a}%
 
-\\chapter{{\\guillemotleft{} \\guillemotright{} \\guillemotleft{} \\guillemotright{} \\guilsinglleft{} \\guilsinglright{}}}
+\\Texinfochapter{{\\guillemotleft{} \\guillemotright{} \\guillemotleft{} \\guillemotright{} \\guilsinglleft{} \\guilsinglright{}}}
 \\label{anchor:_00ab-_00bb-_00ab-_00bb-_2039-_203a}%
 
-\\chapter{{`` \'\' --- -- ` \'}}
+\\Texinfochapter{{`` \'\' --- -- ` \'}}
 \\label{anchor:_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027}%
 
-\\chapter{{AAA (fff) AAA BBB}}
+\\Texinfochapter{{AAA (fff) AAA BBB}}
 \\label{anchor:AAA-AAA-BBB}%
 
-\\chapter{{CCC (rrr) CCC DDD}}
+\\Texinfochapter{{CCC (rrr) CCC DDD}}
 \\label{anchor:CCC-CCC-DDD}%
 
-\\chapter{{\\href{mailto:someone@somewher}{the someone} \\href{mailto:no_explain@there}{\\nolinkurl{no_explain@there}}}}
+\\Texinfochapter{{\\href{mailto:someone@somewher}{the someone} \\href{mailto:no_explain@there}{\\nolinkurl{no_explain@there}}}}
 \\label{anchor:someone_0040somewher-no_005fexplain_0040there}%
 
-\\chapter{{\\includegraphics{f--ile1}  \\includegraphics[width=aze,height=az]{f--ile}}}
+\\Texinfochapter{{\\includegraphics{f--ile1}  \\includegraphics[width=aze,height=az]{f--ile}}}
 \\label{anchor:f_002d_002dile1-f_002d_002dile}%
 
-\\chapter{{\\verb| @ {} . |}}
+\\Texinfochapter{{\\verb| @ {} . |}}
 \\label{anchor:-_0040-_007b_007d-_002e-}%
 
-\\chapter{{\\Texinfocommandstyletextcite{cite asis} \\hbox{in @w \\textbf{b}} \\textnormal{in r} \\textsc{sc} \\textbf{str} \\texttt{t} \\Texinfocommandstyletextvar{var} \\textsl{dfn} \\textit{i}}}
+\\Texinfochapter{{\\Texinfocommandstyletextcite{cite asis} \\hbox{in @w \\textbf{b}} \\textnormal{in r} \\textsc{sc} \\textbf{str} \\texttt{t} \\Texinfocommandstyletextvar{var} \\textsl{dfn} \\textit{i}}}
 \\label{anchor:cite-asis-in-_0040w-b-in-r-sc-str-t-var-dfn-i}%
 
-\\chapter{{\\texttt{env} \\texttt{code} \\texttt{option} `\\texttt{samp}\' \\texttt{command} \\texttt{file} \\Texinfocommandstyletextkbd{C-x \\texttt{ESC}}}}
+\\Texinfochapter{{\\texttt{env} \\texttt{code} \\texttt{option} `\\texttt{samp}\' \\texttt{command} \\texttt{file} \\Texinfocommandstyletextkbd{C-x \\texttt{ESC}}}}
 \\label{anchor:env-code-option-samp-command-file-C_002dx-ESC}%
 
-\\chapter{{8.27\\thinspace in}}
+\\Texinfochapter{{8.27\\thinspace in}}
 \\label{anchor:8_002e27in}%
 
-\\chapter{{\\textsf{sansserif} \\textsl{slanted}}}
+\\Texinfochapter{{\\textsf{sansserif} \\textsl{slanted}}}
 \\label{anchor:sansserif-slanted}%
 
-\\chapter{{`\\texttt{indicateurl}\'}}
+\\Texinfochapter{{`\\texttt{indicateurl}\'}}
 \\label{anchor:indicateurl}%
 
-\\chapter{{\\textsubscript{g}H 3\\textsuperscript{rd}}}
+\\Texinfochapter{{\\textsubscript{g}H 3\\textsuperscript{rd}}}
 \\label{anchor:gH-3rd}%
 
-\\chapter{{\\url{http://somewhere_aaa} \\href{url}{text (\\nolinkurl{url})} ls}}
+\\Texinfochapter{{\\url{http://somewhere_aaa} \\href{url}{text (\\nolinkurl{url})} ls}}
 \\label{anchor:http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls}%
 
 \\hyperref[anchor:-_007b-_007d]{\\chaptername~\\ref*{anchor:-_007b-_007d} [\\-{} \\{ \\}], page~\\pageref*{anchor:-_007b-_007d}}

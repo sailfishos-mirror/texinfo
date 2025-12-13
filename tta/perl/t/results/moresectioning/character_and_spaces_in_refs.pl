@@ -808,7 +808,7 @@ $result_converted{'docbook'}->{'character_and_spaces_in_refs'} = '<chapter label
 
 $result_converted{'latex_text'}->{'character_and_spaces_in_refs'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{first chapter}}
+\\Texinfochapter{{first chapter}}
 \\label{anchor:node-to-avoid-DocBook-or-LaTeX-ignored}%
 
 \\subsection*{{Testing distant nodes}}
@@ -826,7 +826,7 @@ Section ``node\'\' in \\texttt{../manual/doc}
 \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}
 \\hyperref[anchor:local-node]{\\chaptername~\\ref*{anchor:local-node} [local   node], page~\\pageref*{anchor:local-node}}
 
-\\chapter{{Chapter with nodes}}
+\\Texinfochapter{{Chapter with nodes}}
 \\label{anchor:other-nodes}%
 
 

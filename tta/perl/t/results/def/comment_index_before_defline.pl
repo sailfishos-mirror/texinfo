@@ -183,10 +183,12 @@ $result_converted{'latex'}->{'comment_index_before_defline'} = '\\documentclass{
 \\usepackage[hidelinks]{hyperref}
 
 \\makeatletter
+\\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
 }%
 
 \\newcommand{\\Texinfounnumberedpart}[1]{\\part*{#1}
@@ -205,6 +207,10 @@ $result_converted{'latex'}->{'comment_index_before_defline'} = '\\documentclass{
 \\addcontentsline{toc}{subsubsection}{\\protect\\textbf{#1}}%
 }%
 
+\\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
+\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+}%
+
 % no index headers
 \\indexsetup{level=\\relax,toclevel=section}%
 \\makeindex[name=cp,title=]%
@@ -220,8 +226,8 @@ $result_converted{'latex'}->{'comment_index_before_defline'} = '\\documentclass{
 % used for substitutions in commands
 \\newcommand{\\Texinfoplaceholder}[1]{}
 
-\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
-                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+\\newpagestyle{single}{\\sethead[\\Texinfothechapterheading{}\\chaptertitle{}][][\\thepage]
+                              {\\Texinfothechapterheading{}\\chaptertitle{}}{}{\\thepage}}
 
 % braces are upright in italic and slanted only in @def*
 % so it is turned off here, and turned on @def* lines

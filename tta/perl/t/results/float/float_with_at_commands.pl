@@ -212,10 +212,12 @@ $result_converted{'latex'}->{'float_with_at_commands'} = '\\documentclass{book}
 \\usepackage[hidelinks]{hyperref}
 
 \\makeatletter
+\\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
 }%
 
 \\newcommand{\\Texinfounnumberedpart}[1]{\\part*{#1}
@@ -234,6 +236,10 @@ $result_converted{'latex'}->{'float_with_at_commands'} = '\\documentclass{book}
 \\addcontentsline{toc}{subsubsection}{\\protect\\textbf{#1}}%
 }%
 
+\\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
+\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+}%
+
 % new float for type `entrée\'
 \\newfloat{TexinfoFloatentree}{htb}{tfl}[chapter]
 \\floatname{TexinfoFloatentree}{entr\\\'{e}e}
@@ -248,8 +254,8 @@ $result_converted{'latex'}->{'float_with_at_commands'} = '\\documentclass{book}
 % used for substitutions in commands
 \\newcommand{\\Texinfoplaceholder}[1]{}
 
-\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
-                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+\\newpagestyle{single}{\\sethead[\\Texinfothechapterheading{}\\chaptertitle{}][][\\thepage]
+                              {\\Texinfothechapterheading{}\\chaptertitle{}}{}{\\thepage}}
 
 % allow line breaking at underscore
 \\let\\Texinfounderscore\\_

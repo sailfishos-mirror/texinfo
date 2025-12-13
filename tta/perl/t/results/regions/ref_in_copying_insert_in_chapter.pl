@@ -369,7 +369,7 @@ span:hover a.copiable-link {visibility: visible}
 $result_converted{'latex_text'}->{'ref_in_copying_insert_in_chapter'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Introduction}}
+\\Texinfochapter{{Introduction}}
 \\label{anchor:Intro}%
 
 \\hyperref[anchor:GFDL]{Section~\\ref*{anchor:GFDL} [GFDL], page~\\pageref*{anchor:GFDL}}

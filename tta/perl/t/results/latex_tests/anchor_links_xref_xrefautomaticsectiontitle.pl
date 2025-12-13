@@ -345,7 +345,7 @@ In node before
 in node after
 \\label{anchor:anch_003a-in-node-after}%
 
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:chap}%
 
 in chap

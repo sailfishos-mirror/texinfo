@@ -194,7 +194,7 @@ $result_converted{'docbook'}->{'test_formatting_customizations'} = '<chapter lab
 
 $result_converted{'latex_text'}->{'test_formatting_customizations'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Chap}}
+\\Texinfochapter{{Chap}}
 \\label{anchor:chapt}%
 
 \\AA{} $\\equiv{}$ @ \\copyright{}

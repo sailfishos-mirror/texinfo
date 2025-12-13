@@ -341,7 +341,7 @@ $result_converted{'latex_text'}->{'fonttextsize'} = '\\changefontsize{10}
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chapter}%
 
 \\section{{section}}

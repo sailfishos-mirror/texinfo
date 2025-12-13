@@ -605,7 +605,7 @@ explanation
 
 
 $result_converted{'latex_text'}->{'complex_nestings'} = '\\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 
 \\begin{Texinfoindented}

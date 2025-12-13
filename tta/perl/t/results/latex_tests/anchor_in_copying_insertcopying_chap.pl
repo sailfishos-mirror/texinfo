@@ -196,7 +196,7 @@ $result_headings_list{'anchor_in_copying_insertcopying_chap'} = '';
 $result_converted{'latex_text'}->{'anchor_in_copying_insertcopying_chap'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Chap}}
+\\Texinfochapter{{Chap}}
 \\label{anchor:Chapter}%
 
 see \\hyperref[anchor:a-in-copying]{[a in copying], page~\\pageref*{anchor:a-in-copying}}

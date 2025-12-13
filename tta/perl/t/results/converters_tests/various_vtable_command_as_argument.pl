@@ -943,7 +943,7 @@ $result_converted_errors{'docbook'}->{'various_vtable_command_as_argument'} = '*
 
 
 $result_converted{'latex_text'}->{'various_vtable_command_as_argument'} = '\\label{anchor:Top}%
-\\chapter{{Chap}}
+\\Texinfochapter{{Chap}}
 \\label{anchor:chap}%
 
 \\begin{description}
@@ -1018,7 +1018,8 @@ anchor 2
 \\end{description}
 
 \\appendix
-\\chapter{{Print the index}}
+\\renewcommand{\\chaptername}{\\appendixname}
+\\Texinfochapter{{Print the index}}
 \\label{anchor:Indices}%
 
 \\printindex[vr]

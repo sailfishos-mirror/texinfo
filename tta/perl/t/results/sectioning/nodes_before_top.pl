@@ -280,7 +280,7 @@ $result_converted{'latex_text'}->{'nodes_before_top'} = '\\begin{document}
 \\label{anchor:node-in-menu-before-top}%
 
 \\label{anchor:Top}%
-\\chapter{{a chapter}}
+\\Texinfochapter{{a chapter}}
 \\label{anchor:second-node}%
 ';
 

@@ -183,7 +183,7 @@ $result_converted{'docbook'}->{'accent_argument_non_ascii'} = '<chapter label="1
 
 $result_converted{'latex_text'}->{'accent_argument_non_ascii'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 \\\'{ê}
 \\\'{ê}

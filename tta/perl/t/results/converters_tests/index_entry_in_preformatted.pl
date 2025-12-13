@@ -270,7 +270,7 @@ $result_converted{'docbook'}->{'index_entry_in_preformatted'} = '<chapter label=
 
 
 $result_converted{'latex_text'}->{'index_entry_in_preformatted'} = '\\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 
 \\begin{Texinfoindented}

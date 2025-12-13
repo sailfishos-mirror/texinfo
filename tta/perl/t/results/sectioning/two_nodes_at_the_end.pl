@@ -357,7 +357,7 @@ span:hover a.copiable-link {visibility: visible}
 
 $result_converted{'latex_text'}->{'two_nodes_at_the_end'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{chapter c1}}
+\\Texinfochapter{{chapter c1}}
 \\label{anchor:chapter-1}%
 
 \\label{anchor:node-after-chapter-1}%

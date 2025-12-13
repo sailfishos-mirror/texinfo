@@ -1333,7 +1333,7 @@ $result_converted{'docbook'}->{'test_deftypefnnewline'} = '<chapter label="1" id
 $result_converted{'latex_text'}->{'test_deftypefnnewline'} = '
 
 \\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:chapter}%
 
 

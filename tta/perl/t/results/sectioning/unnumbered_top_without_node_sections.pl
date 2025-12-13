@@ -322,7 +322,7 @@ in unnumbered
 \\part*{{top section}}
 Top section
 
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:second}%
 
 Text of chapter

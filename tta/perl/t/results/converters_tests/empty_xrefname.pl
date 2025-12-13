@@ -425,7 +425,7 @@ $result_converted{'docbook'}->{'empty_xrefname'} = '<chapter label="1" id="Chap"
 
 
 $result_converted{'latex_text'}->{'empty_xrefname'} = '\\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:Chap}%
 
 
@@ -433,7 +433,7 @@ $result_converted{'latex_text'}->{'empty_xrefname'} = '\\label{anchor:Top}%
 
 \\section*{{after empty}}
 
-\\chapter{{Chip}}
+\\Texinfochapter{{Chip}}
 \\label{anchor:chip}%
 
 

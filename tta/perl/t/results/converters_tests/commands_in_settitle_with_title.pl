@@ -240,7 +240,7 @@ $result_converted{'docbook'}->{'commands_in_settitle_with_title'} = '<chapter la
 
 $result_converted{'latex_text'}->{'commands_in_settitle_with_title'} = '
 \\label{anchor:Top}%
-\\chapter{{Chap}}
+\\Texinfochapter{{Chap}}
 \\label{anchor:chapter}%
 
 Document.

@@ -375,7 +375,7 @@ $result_converted{'latex_text'}->{'section_chapter_before_top_nodes'} = '\\begin
 \\section{{section}}
 \\label{anchor:section-node}%
 
-\\chapter{{chapter}}
+\\Texinfochapter{{chapter}}
 \\label{anchor:chapter-node}%
 
 

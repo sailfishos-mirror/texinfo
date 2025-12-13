@@ -316,7 +316,7 @@ $result_converted{'latex_text'}->{'contents_at_document_begin_inline'} = '\\tabl
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Chapter 1}}
+\\Texinfochapter{{Chapter 1}}
 \\label{anchor:chapter}%
 
 The chapter

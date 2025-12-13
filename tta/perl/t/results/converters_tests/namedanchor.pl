@@ -912,7 +912,7 @@ See <link linkend="Not-here_0021">Not here!</link>
 
 $result_converted{'latex_text'}->{'namedanchor'} = '\\label{anchor:Top}%
 \\label{anchor:in-Top}%
-\\chapter{{chapter \\label{anchor:Not-here_0021}%
+\\Texinfochapter{{chapter \\label{anchor:Not-here_0021}%
 after}}
 \\label{anchor:chap}%
 
@@ -951,7 +951,7 @@ See \\hyperref[anchor:normal]{[xat on no], page~\\pageref*{anchor:normal}}
 See \\hyperref[anchor:in-Top]{[\\emph{n in Top}], page~\\pageref*{anchor:in-Top}}
 See \\hyperref[anchor:Not-here_0021]{[There], page~\\pageref*{anchor:Not-here_0021}}
 
-\\chapter{{chap1}}
+\\Texinfochapter{{chap1}}
 \\label{anchor:chap1}%
 
 

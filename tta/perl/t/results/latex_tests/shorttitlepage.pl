@@ -157,7 +157,7 @@ $result_converted{'latex_text'}->{'shorttitlepage'} = '
 \\mainmatter
 \\pagestyle{single}%
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chapter}%
 
 In chapter

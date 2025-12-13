@@ -849,7 +849,7 @@ $result_converted{'latex_text'}->{'frenchspacing_and_code'} = '
 \\frenchspacing
 
 \\label{anchor:Top}%
-\\chapter{{Chap frenchspacing}}
+\\Texinfochapter{{Chap frenchspacing}}
 \\label{anchor:chapter-frenchspacing}%
 
 In text w: z? n; p. f
@@ -887,7 +887,7 @@ defop
 \\end{quote}
 
 \\nonfrenchspacing
-\\chapter{{Chap no}}
+\\Texinfochapter{{Chap no}}
 \\label{anchor:chap-no}%
 
 In text w: z? n; p. fn 

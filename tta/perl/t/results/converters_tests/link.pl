@@ -348,7 +348,7 @@ $result_converted{'docbook'}->{'link'} = '<chapter label="1" id="One">
 </para>';
 
 
-$result_converted{'latex_text'}->{'link'} = '\\chapter{{ONEX}}
+$result_converted{'latex_text'}->{'link'} = '\\Texinfochapter{{ONEX}}
 \\label{anchor:One}%
 
 target node

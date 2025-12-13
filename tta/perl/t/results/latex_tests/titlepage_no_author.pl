@@ -182,7 +182,7 @@ $result_converted{'latex_text'}->{'titlepage_no_author'} = '
 \\mainmatter
 \\pagestyle{single}%
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chapter}%
 
 In chapter

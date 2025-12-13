@@ -1467,10 +1467,12 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 \\usepackage[hidelinks]{hyperref}
 
 \\makeatletter
+\\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
 }%
 
 \\newcommand{\\Texinfounnumberedpart}[1]{\\part*{#1}
@@ -1489,6 +1491,10 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 \\addcontentsline{toc}{subsubsection}{\\protect\\textbf{#1}}%
 }%
 
+\\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
+\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+}%
+
 % style command for kbd in \'cmd_text\' formatting context
 \\newcommand\\Texinfocommandstyletextkbd[1]{{\\ttfamily\\textsl{#1}}}%
 
@@ -1504,8 +1510,8 @@ $result_converted{'latex'}->{'codequoteundirected_codequotebacktick'} = '\\docum
 % used for substitutions in commands
 \\newcommand{\\Texinfoplaceholder}[1]{}
 
-\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
-                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+\\newpagestyle{single}{\\sethead[\\Texinfothechapterheading{}\\chaptertitle{}][][\\thepage]
+                              {\\Texinfothechapterheading{}\\chaptertitle{}}{}{\\thepage}}
 
 % allow line breaking at underscore
 \\let\\Texinfounderscore\\_
@@ -1572,7 +1578,7 @@ samp: `\\texttt{{`}{`}simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-{\'}{\'} `s
 \\mainmatter
 \\pagestyle{single}%
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 
 ``simple-double--three---four----\'\' `simple\' quotedblleft: \\textquotedblleft{} \\leavevmode{}\\\\

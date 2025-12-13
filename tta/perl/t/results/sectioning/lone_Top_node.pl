@@ -138,7 +138,7 @@ $result_headings_list{'lone_Top_node'} = '';
 
 $result_converted{'latex_text'}->{'lone_Top_node'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:First}%
 ';
 

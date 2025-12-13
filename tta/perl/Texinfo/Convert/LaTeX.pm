@@ -38,9 +38,6 @@
 # with the same property than Texinfo strings with LaTeX commands avoiding,
 # to some extent, dependence on the language and/or encoding.
 #
-# It seems that \chaptername doesn't become Appendix for a sectioning command
-# appearing after \appendix
-#
 # command that could be used for translation \sectionname does not exist in the
 # default case.  it is defined in the pagenote package together with \pagename
 # which is page in the default case, but it is unclear if this can be used as a
@@ -269,8 +266,9 @@ my %LaTeX_in_heading_commands_formatting = (
   # default for texinfo.tex is similar:
   #   \putwordChapter{} \thischapternum: \thischaptername}
   # see doc/txi-zh.tex for how it could be in chinese
+  # Texinfothechapterheading is \chaptername{} \thechapter{}
   # TODO translation
-  'thischapter' => '\chaptername{} \thechapter{} \chaptertitle{}',
+  'thischapter' => '\Texinfothechapterheading{}\chaptertitle{}',
   'thischaptername' => '\chaptertitle{}',
   'thischapternum' => '\thechapter{}',
   #  default for texinfo.tex is similar:
@@ -316,7 +314,7 @@ my @LaTeX_image_extensions = (
 my %section_map = (
    'top' => 'part*',
    'part' => 'Texinfounnumberedpart',
-   'chapter' => 'chapter',
+   'chapter' => 'Texinfochapter',
    'section' => 'section',
    'subsection' => 'subsection',
    'subsubsection' => 'subsubsection',
@@ -331,7 +329,7 @@ my %section_map = (
    'unnumberedsec' => 'Texinfounnumberedsection',
    'unnumberedsubsec' => 'Texinfounnumberedsubsection',
    'unnumberedsubsubsec' => 'Texinfounnumberedsubsubsection',
-   'appendix' => 'chapter',
+   'appendix' => 'Texinfochapter',
    'appendixsec' => 'section',
    'appendixsubsec' => 'subsection',
    'appendixsubsubsec' => 'subsubsection',
@@ -1050,6 +1048,7 @@ sub _prepare_conversion($;$) {
   delete $self->{'collected_includes'};
   delete $self->{'need_parttitle'};
   delete $self->{'titlepage_formatting'};
+  delete $self->{'appendix_done'};
 
   my $global_commands;
   my $nodes_list;
@@ -1440,6 +1439,11 @@ sub _latex_header($) {
   }
   $header_code .= "\\makeatletter\n";
 
+  # this command is redefined for headings to include the "Chapter" name
+  # and the chapter number if in a @chapter or @appendix, but set to
+  # empty by @unnumbered.
+  $header_code .= "\\newcommand{\\Texinfothechapterheading}{}\n";
+
   # for @thistitle and headers
   $header_code .= "\\newcommand{\\Texinfosettitle}{$settitle}%\n";
   if (exists($self->{'collected_includes'})) {
@@ -1457,12 +1461,19 @@ sub _latex_header($) {
     $header_code
        .= "\\newcommand{\\${txi_unnumbered_latex}}[1]{\\${latex_command}*{#1}\n"
          ."\\addcontentsline{toc}{${latex_command}}{\\protect\\textbf{#1}}%\n";
+    if ($txi_unnumbered_latex eq 'Texinfounnumberedchapter') {
+      $header_code
+     .= "\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%\n";
+    }
     if ($txi_unnumbered_latex eq 'Texinfounnumberedpart'
         and exists($self->{'need_parttitle'})) {
       $header_code .= "\\renewcommand{\\Texinfoparttitle}{#1}%\n";
     }
     $header_code .= "}%\n\n";
   }
+  $header_code .= "\\newcommand{\\Texinfochapter}[1]{\\chapter{#1}\n"
+ ."\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%\n";
+  $header_code .= "}%\n\n";
 
   my $floats;
   if (exists($self->{'document'})) {
@@ -1606,8 +1617,8 @@ sub _latex_header($) {
 
   if (exists($self->{'page_styles'}->{'single'})) {
     $header_code .=
-'\newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
-                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
+'\newpagestyle{single}{\sethead[\Texinfothechapterheading{}\chaptertitle{}][][\thepage]
+                              {\Texinfothechapterheading{}\chaptertitle{}}{}{\thepage}}
 
 ';
   }
@@ -1615,7 +1626,7 @@ sub _latex_header($) {
   if (exists($self->{'page_styles'}->{'double'})) {
     $header_code .=
 '\newpagestyle{double}{\sethead[\thepage{}][][\Texinfosettitle]
-                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
+                              {\Texinfothechapterheading{}\chaptertitle{}}{}{\thepage}}
 
 ';
   }
@@ -1716,6 +1727,9 @@ roundcorner=10pt}
   }
   my $usepackage_end = $self->get_conf('END_USEPACKAGE');
   if (!defined($usepackage_end)) {
+    #if (exists($self->{'packages'}->{'appendix'})) {
+    #  $usepackage_end .= "\\usepackage[toc]{appendix}\n";
+    #}
     if (exists($self->{'index_entries'})
         and scalar(keys(%{$self->{'index_entries'}}))) {
       $usepackage_end .= "\\usepackage{imakeidx}\n";
@@ -2008,10 +2022,15 @@ sub _begin_document($) {
   return $result;
 }
 
-sub _latex_footer {
-  return
-'\end{document}
-';
+sub _latex_footer($) {
+  my $self = shift;
+
+  my $result = '';
+  #if (exists($self->{'appendix_done'})) {
+  #  $result .= "\\end{appendices}\n";
+  #}
+  $result .= "\\end{document}\n";
+  return $result;
 }
 
 # all the new contexts should be created with that function
@@ -4215,8 +4234,12 @@ sub _convert($$) {
           $result .= "\\label{$node_label}%\n";
         }
       } else {
-        if ($cmdname eq 'appendix' and not $self->{'appendix_done'}) {
+        if ($cmdname eq 'appendix' and not exists($self->{'appendix_done'})) {
           $result .= "\\appendix\n";
+          # needed for headings to have Appendix instead of Chapter
+          $result .= "\\renewcommand{\\chaptername}{\\appendixname}\n";
+          #$result .= "\\begin{appendices}\n";
+          #$self->{'packages'}->{'appendix'} = 1;
           $self->{'appendix_done'} = 1;
         }
         if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {

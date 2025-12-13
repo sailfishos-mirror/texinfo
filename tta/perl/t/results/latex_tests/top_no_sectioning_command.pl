@@ -106,7 +106,7 @@ $result_headings_list{'top_no_sectioning_command'} = '';
 
 $result_converted{'latex_text'}->{'top_no_sectioning_command'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Chap}}
+\\Texinfochapter{{Chap}}
 \\label{anchor:Chapter}%
 
 see \\hyperref[anchor:Top]{\\chaptername~\\ref*{anchor:Top} [Top], page~\\pageref*{anchor:Top}}

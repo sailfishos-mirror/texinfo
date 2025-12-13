@@ -117,7 +117,7 @@ $result_converted{'latex_text'}->{'settitle_and_headings'} = '
 \\pagestyle{double}%
 
 \\begin{document}
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 
 \\newpage{}%
 \\phantom{blabla}%

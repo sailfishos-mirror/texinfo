@@ -1099,21 +1099,21 @@ $result_headings_list{'custom_heading_with_include_in_command'} = '';
 
 $result_converted{'latex_text'}->{'custom_heading_with_include_in_command'} = '\\pagestyle{double}%
 \\newpagestyle{custom}{%
-\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{} \\emph{\\Texinfotheinclude{}}][][\\thepage{}]%
-{\\chaptername{} \\thechapter{} \\chaptertitle{} \\emph{\\Texinfotheinclude{}}}{}{\\thepage{}}%
+\\sethead[\\Texinfothechapterheading{}\\chaptertitle{} \\emph{\\Texinfotheinclude{}}][][\\thepage{}]%
+{\\Texinfothechapterheading{}\\chaptertitle{} \\emph{\\Texinfotheinclude{}}}{}{\\thepage{}}%
 }%
 \\pagestyle{custom}%
 
 \\begin{document}
 \\tableofcontents\\newpage
 \\label{anchor:Top}%
-\\chapter{{chap in main}}
+\\Texinfochapter{{chap in main}}
 \\label{anchor:in-main}%
 
 \\renewcommand{\\Texinfotheinclude}{section\\_file.texi}%
 \\textbackslash{}input texinfo 
 
-\\chapter{{Chapter in included file}}
+\\Texinfochapter{{Chapter in included file}}
 \\label{anchor:Chapter-in-included-file}%
 
 
@@ -1129,7 +1129,7 @@ $result_converted{'latex_text'}->{'custom_heading_with_include_in_command'} = '\
 \\renewcommand{\\Texinfotheinclude}{section\\_file\\_no\\_node.texi}%
 
 
-\\chapter{{Chapter in included file}}
+\\Texinfochapter{{Chapter in included file}}
 
 \\section{{Section}}
 
@@ -1140,7 +1140,7 @@ $result_converted{'latex_text'}->{'custom_heading_with_include_in_command'} = '\
 \\renewcommand{\\Texinfotheinclude}{section\\_file\\_no\\_node\\_include.texi}%
 
 
-\\chapter{{Chapter in included file Include}}
+\\Texinfochapter{{Chapter in included file Include}}
 
 \\section{{Section Include}}
 
@@ -1151,7 +1151,7 @@ Now include file
 \\renewcommand{\\Texinfotheinclude}{section\\_file\\_no\\_node.texi}%
 
 
-\\chapter{{Chapter in included file}}
+\\Texinfochapter{{Chapter in included file}}
 
 \\section{{Section}}
 
@@ -1164,7 +1164,7 @@ Now include file
 \\renewcommand{\\Texinfotheinclude}{section\\_file\\_no\\_node.texi}%
 
 
-\\chapter{{Chapter in included file}}
+\\Texinfochapter{{Chapter in included file}}
 
 \\section{{Section}}
 
@@ -1173,7 +1173,7 @@ Now include file
 \\renewcommand{\\Texinfotheinclude}{}%
 
 
-\\chapter{{A last}}
+\\Texinfochapter{{A last}}
 \\label{anchor:last-chap}%
 
 ';

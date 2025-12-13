@@ -13,10 +13,12 @@
 \usepackage[hidelinks]{hyperref}
 
 \makeatletter
+\newcommand{\Texinfothechapterheading}{}
 \newcommand{\Texinfosettitle}{No Title}%
 
 \newcommand{\Texinfounnumberedchapter}[1]{\chapter*{#1}
 \addcontentsline{toc}{chapter}{\protect\textbf{#1}}%
+\renewcommand{\Texinfothechapterheading}{\Texinfoplaceholder}%
 }%
 
 \newcommand{\Texinfounnumberedpart}[1]{\part*{#1}
@@ -33,6 +35,10 @@
 
 \newcommand{\Texinfounnumberedsubsubsection}[1]{\subsubsection*{#1}
 \addcontentsline{toc}{subsubsection}{\protect\textbf{#1}}%
+}%
+
+\newcommand{\Texinfochapter}[1]{\chapter{#1}
+\renewcommand{\Texinfothechapterheading}{\chaptername{} \thechapter{} }%
 }%
 
 % new float for type `'
@@ -52,8 +58,8 @@
 % used for substitutions in commands
 \newcommand{\Texinfoplaceholder}[1]{}
 
-\newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
-                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
+\newpagestyle{single}{\sethead[\Texinfothechapterheading{}\chaptertitle{}][][\thepage]
+                              {\Texinfothechapterheading{}\chaptertitle{}}{}{\thepage}}
 
 % allow line breaking at underscore
 \let\Texinfounderscore\_
@@ -69,7 +75,7 @@
 
 \begin{document}
 \label{anchor:Top}%
-\chapter{{chapter}}
+\Texinfochapter{{chapter}}
 \label{anchor:chapter}%
 
 \begin{TexinfoFloat}
@@ -90,7 +96,7 @@ In figure
 \label{anchor:my-figure}%
 \end{figure}
 
-\chapter{{refs}}
+\Texinfochapter{{refs}}
 
 See \hyperref[anchor:no-type]{\ref*{anchor:no-type}}.
 See \hyperref[anchor:no-type]{\ref*{anchor:no-type}}.
@@ -110,7 +116,7 @@ See \hyperref[anchor:my-figure]{three}.
 See Section ``three'' in \texttt{four}.
 See Section ``three'' in \textsl{five}.
 
-\chapter{{lists}}
+\Texinfochapter{{lists}}
 
 \listof{TexinfoFloat}{}
 \listoffigures

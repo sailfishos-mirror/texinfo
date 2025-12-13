@@ -372,7 +372,7 @@ $result_converted{'html_text'}->{'contain_plain_text_nestings'} = '<div class="t
 
 
 $result_converted{'latex_text'}->{'contain_plain_text_nestings'} = '\\label{anchor:Top}%
-\\chapter{{Chap}}
+\\Texinfochapter{{Chap}}
 \\label{anchor:chap}%
 
 Text \\hbox{\\texttt{code in w} text}.

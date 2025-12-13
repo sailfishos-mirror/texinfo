@@ -801,7 +801,7 @@ $result_converted_errors{'docbook'}->{'image_formatting'} = '* W l14|@image file
 
 
 $result_converted{'latex_text'}->{'image_formatting'} = '\\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 
 \\texttt{@image\\{f{-}{-}ile\\}} \\includegraphics{f--ile}

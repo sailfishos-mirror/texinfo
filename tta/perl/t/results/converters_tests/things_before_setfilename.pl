@@ -605,7 +605,7 @@ $result_converted{'latex_text'}->{'things_before_setfilename'} = '
 \\begin{document}
 \\tableofcontents\\newpage
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 
 Ref to anchor

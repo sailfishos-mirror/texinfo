@@ -268,7 +268,7 @@ Cop. \\label{anchor:a-in-copying}%
 \\mainmatter
 \\pagestyle{single}%
 \\label{anchor:Top}%
-\\chapter{{Chap}}
+\\Texinfochapter{{Chap}}
 \\label{anchor:Chapter}%
 
 see \\hyperref[anchor:a-in-copying]{[a in copying], page~\\pageref*{anchor:a-in-copying}}

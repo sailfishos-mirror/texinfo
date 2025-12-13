@@ -763,7 +763,7 @@ $result_converted{'docbook'}->{'at_commands_in_raw'} = '<chapter label="1" id="c
 
 
 $result_converted{'latex_text'}->{'at_commands_in_raw'} = '\\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 
 <b>in b\\footnote{in footnote}.</b>

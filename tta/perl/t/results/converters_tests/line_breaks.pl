@@ -590,7 +590,7 @@ $result_converted{'latex_text'}->{'line_breaks'} = '
 \\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
 
 \\label{anchor:Top}%
-\\chapter{{a \\texorpdfstring{\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi}{ } chapter}}
+\\Texinfochapter{{a \\texorpdfstring{\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi}{ } chapter}}
 \\label{anchor:a-new-node}%
 
 \\begin{center}

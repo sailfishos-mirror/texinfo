@@ -176,7 +176,7 @@ $result_converted{'docbook'}->{'verb_delimiter_not_ascii'} = '<chapter label="1"
 
 $result_converted{'latex_text'}->{'verb_delimiter_not_ascii'} = '\\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Chapter}}
+\\Texinfochapter{{Chapter}}
 \\label{anchor:chap}%
 \\verbê some text ê
 ';

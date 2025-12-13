@@ -295,7 +295,7 @@ span:hover a.copiable-link {visibility: visible}
 $result_converted{'latex_text'}->{'ref_in_copying'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{GFDL}}
+\\Texinfochapter{{GFDL}}
 \\label{anchor:GFDL}%
 
 ';

@@ -14,10 +14,12 @@
 \usepackage[hidelinks]{hyperref}
 
 \makeatletter
+\newcommand{\Texinfothechapterheading}{}
 \newcommand{\Texinfosettitle}{No Title}%
 
 \newcommand{\Texinfounnumberedchapter}[1]{\chapter*{#1}
 \addcontentsline{toc}{chapter}{\protect\textbf{#1}}%
+\renewcommand{\Texinfothechapterheading}{\Texinfoplaceholder}%
 }%
 
 \newcommand{\Texinfounnumberedpart}[1]{\part*{#1}
@@ -36,6 +38,10 @@
 \addcontentsline{toc}{subsubsection}{\protect\textbf{#1}}%
 }%
 
+\newcommand{\Texinfochapter}[1]{\chapter{#1}
+\renewcommand{\Texinfothechapterheading}{\chaptername{} \thechapter{} }%
+}%
+
 % no index headers
 \indexsetup{level=\relax,toclevel=section}%
 \makeindex[name=cp,title=]%
@@ -51,8 +57,8 @@
 % used for substitutions in commands
 \newcommand{\Texinfoplaceholder}[1]{}
 
-\newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
-                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
+\newpagestyle{single}{\sethead[\Texinfothechapterheading{}\chaptertitle{}][][\thepage]
+                              {\Texinfothechapterheading{}\chaptertitle{}}{}{\thepage}}
 
 % allow line breaking at underscore
 \let\Texinfounderscore\_
@@ -69,19 +75,19 @@
 
 \begin{document}
 \label{anchor:Top}%
-\chapter{{ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}}
+\Texinfochapter{{ä ë ï ö ü ÿ Ä Ë Ï Ö Ü}}
 \label{anchor:_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}%
 
-\chapter{{é}}
+\Texinfochapter{{é}}
 \label{anchor:_00e9}%
 
-\chapter{{à è ù}}
+\Texinfochapter{{à è ù}}
 \label{anchor:_00e0-_00e8-_00f9}%
 
-\chapter{{â ê î ô û Â Ê Î Ô Û}}
+\Texinfochapter{{â ê î ô û Â Ê Î Ô Û}}
 \label{anchor:_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db}%
 
-\chapter{{ç}}
+\Texinfochapter{{ç}}
 \label{anchor:_00e7}%
 
 \hyperref[anchor:_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc]{\chaptername~\ref*{anchor:_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc} [ä ë ï ö ü ÿ Ä Ë Ï Ö Ü], page~\pageref*{anchor:_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}}

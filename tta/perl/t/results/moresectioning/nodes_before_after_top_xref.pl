@@ -293,7 +293,7 @@ In node before
 
 in node after
 
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:chap}%
 
 in chap

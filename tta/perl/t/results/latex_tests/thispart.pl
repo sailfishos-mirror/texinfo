@@ -338,13 +338,13 @@ $result_converted{'latex_text'}->{'thispart'} = '\\newpagestyle{custom}{%
 \\begin{document}
 \\label{anchor:Top}%
 \\Texinfounnumberedpart{{Part I:\\texorpdfstring{\\ifinner\\unskip\\space\\ignorespaces\\else\\leavevmode{}\\\\\\fi}{ } The beginning}}
-\\chapter{{Chap1}}
+\\Texinfochapter{{Chap1}}
 \\label{anchor:first}%
 
 In chap1
 
 \\Texinfounnumberedpart{{Part II}}
-\\chapter{{chap2}}
+\\Texinfochapter{{chap2}}
 \\label{anchor:second}%
 
 In chap2
@@ -352,7 +352,8 @@ In chap2
 \\Texinfounnumberedpart{{App}}
 
 \\appendix
-\\chapter{{Appendix}}
+\\renewcommand{\\chaptername}{\\appendixname}
+\\Texinfochapter{{Appendix}}
 
 In appendix
 ';

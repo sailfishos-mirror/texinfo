@@ -2601,10 +2601,12 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 \\usepackage[hidelinks]{hyperref}
 
 \\makeatletter
+\\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
 }%
 
 \\newcommand{\\Texinfounnumberedpart}[1]{\\part*{#1}
@@ -2621,6 +2623,10 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 
 \\newcommand{\\Texinfounnumberedsubsubsection}[1]{\\subsubsection*{#1}
 \\addcontentsline{toc}{subsubsection}{\\protect\\textbf{#1}}%
+}%
+
+\\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
+\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
 }%
 
 % new float for type `\'
@@ -2646,8 +2652,8 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 % used for substitutions in commands
 \\newcommand{\\Texinfoplaceholder}[1]{}
 
-\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
-                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+\\newpagestyle{single}{\\sethead[\\Texinfothechapterheading{}\\chaptertitle{}][][\\thepage]
+                              {\\Texinfothechapterheading{}\\chaptertitle{}}{}{\\thepage}}
 
 % allow line breaking at underscore
 \\let\\Texinfounderscore\\_
@@ -2668,7 +2674,7 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 \\label{anchor:label-but-no-type-and-no-caption}%
 \\label{anchor:label-but-no-type-2}%
 \\label{anchor:warning-in-top}%
-\\chapter{{A chapter}}
+\\Texinfochapter{{A chapter}}
 \\label{anchor:chapter}%
 
 \\begin{TexinfoFloatText}
@@ -2741,7 +2747,7 @@ Section within unnumbered
 \\label{anchor:Section-within-unnumbered-float}%
 \\end{TexinfoFloatText}
 
-\\chapter{{Chapter with unnumbsubsec}}
+\\Texinfochapter{{Chapter with unnumbsubsec}}
 \\label{anchor:Chapter-with-unnumbsubsec}%
 
 \\begin{TexinfoFloatText}
@@ -2767,7 +2773,8 @@ float with no type.
 \\end{TexinfoFloat}
 
 \\appendix
-\\chapter{{Appendix for float}}
+\\renewcommand{\\chaptername}{\\appendixname}
+\\Texinfochapter{{Appendix for float}}
 \\label{anchor:Appendix-for-float}%
 
 \\begin{TexinfoFloatText}

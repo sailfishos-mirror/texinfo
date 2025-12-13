@@ -471,7 +471,7 @@ fn:
 $result_converted{'latex_text'}->{'indices'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Index}}
+\\Texinfochapter{{Index}}
 \\label{anchor:chapter}%
 
 \\index[cp]{ä ö@"\\""{a} "\\""{o}}%

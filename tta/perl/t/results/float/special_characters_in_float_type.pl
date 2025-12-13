@@ -359,10 +359,12 @@ $result_converted{'latex'}->{'special_characters_in_float_type'} = '\\documentcl
 \\usepackage[hidelinks]{hyperref}
 
 \\makeatletter
+\\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
 }%
 
 \\newcommand{\\Texinfounnumberedpart}[1]{\\part*{#1}
@@ -379,6 +381,10 @@ $result_converted{'latex'}->{'special_characters_in_float_type'} = '\\documentcl
 
 \\newcommand{\\Texinfounnumberedsubsubsection}[1]{\\subsubsection*{#1}
 \\addcontentsline{toc}{subsubsection}{\\protect\\textbf{#1}}%
+}%
+
+\\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
+\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
 }%
 
 % new float for type `A < " `` ` \' \' \\aaa . --- in var\'
@@ -398,8 +404,8 @@ $result_converted{'latex'}->{'special_characters_in_float_type'} = '\\documentcl
 % used for substitutions in commands
 \\newcommand{\\Texinfoplaceholder}[1]{}
 
-\\newpagestyle{single}{\\sethead[\\chaptername{} \\thechapter{} \\chaptertitle{}][][\\thepage]
-                              {\\chaptername{} \\thechapter{} \\chaptertitle{}}{}{\\thepage}}
+\\newpagestyle{single}{\\sethead[\\Texinfothechapterheading{}\\chaptertitle{}][][\\thepage]
+                              {\\Texinfothechapterheading{}\\chaptertitle{}}{}{\\thepage}}
 
 % allow line breaking at underscore
 \\let\\Texinfounderscore\\_
@@ -415,7 +421,7 @@ $result_converted{'latex'}->{'special_characters_in_float_type'} = '\\documentcl
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:chap}%
 
 \\begin{TexinfoFloatAaaainvar}

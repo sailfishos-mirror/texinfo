@@ -165,7 +165,7 @@ $result_converted{'latex_text'}->{'error_in_sectioning_command'} = '
 \\begin{document}
 \\tableofcontents\\newpage
 \\label{anchor:Top}%
-\\chapter{{\\texttt{@error\\{\\}} (\\texorpdfstring{\\fbox{error}}{error}): Indicating an Error Message}}
+\\Texinfochapter{{\\texttt{@error\\{\\}} (\\texorpdfstring{\\fbox{error}}{error}): Indicating an Error Message}}
 \\label{anchor:_0040error_007b_007d-_0028error_002d_002d_003e_0029_003a-Indicating-an-Error-Message}%
 
 Describe \\fbox{error}.

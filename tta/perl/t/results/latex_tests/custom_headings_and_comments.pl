@@ -281,14 +281,14 @@ $result_converted{'latex_text'}->{'custom_headings_and_comments'} = '\\newpagest
 \\renewpagestyle{custom}{%
 \\sethead[\\thepage{} \\sectiontitle{}][\\thesection{} Section \\thesection{} \\sectiontitle{}][\\chaptertitle{} \\thechapter{}]%
 {}{}{}%
-\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\Texinfosettitle{}][\\Texinfotheinclude{}][\\texttt{\\chaptertitle{}}]%
+\\setfoot[\\Texinfothechapterheading{}\\chaptertitle{} \\Texinfosettitle{}][\\Texinfotheinclude{}][\\texttt{\\chaptertitle{}}]%
 {}{}{}%
 }%
 \\pagestyle{custom}%
 
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{ch--ap}}
+\\Texinfochapter{{ch--ap}}
 \\label{anchor:chapter}%
 
 \\newpage{}%
@@ -303,7 +303,7 @@ after ch--ap second page
 
 \\section{{sec1}}
 
-\\chapter{{chap 2}}
+\\Texinfochapter{{chap 2}}
 
 ';
 

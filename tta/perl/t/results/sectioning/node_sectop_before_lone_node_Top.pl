@@ -255,7 +255,7 @@ $result_converted{'latex_text'}->{'node_sectop_before_lone_node_Top'} = '\\begin
 in node before
 
 \\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:chap}%
 
 in chap

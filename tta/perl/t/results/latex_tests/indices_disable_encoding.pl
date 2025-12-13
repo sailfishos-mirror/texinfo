@@ -471,7 +471,7 @@ fn:
 $result_converted{'latex_text'}->{'indices_disable_encoding'} = '
 \\begin{document}
 \\label{anchor:Top}%
-\\chapter{{Index}}
+\\Texinfochapter{{Index}}
 \\label{anchor:chapter}%
 
 \\index[cp]{a"" o""@"\\""{a} "\\""{o}}%

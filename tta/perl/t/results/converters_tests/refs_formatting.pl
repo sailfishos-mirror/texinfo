@@ -1021,7 +1021,7 @@ $result_converted{'docbook'}->{'refs_formatting'} = '<chapter label="1" id="chap
 ';
 
 
-$result_converted{'latex_text'}->{'refs_formatting'} = '\\chapter{{chapter}}
+$result_converted{'latex_text'}->{'refs_formatting'} = '\\Texinfochapter{{chapter}}
 \\label{anchor:chapter}%
 
 \\texttt{@ref\\{chapter,cross ref name\\}} \\hyperref[anchor:chapter]{\\chaptername~\\ref*{anchor:chapter} [chapter], page~\\pageref*{anchor:chapter}}

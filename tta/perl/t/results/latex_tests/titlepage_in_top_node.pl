@@ -188,7 +188,7 @@ $result_converted{'latex_text'}->{'titlepage_in_top_node'} = '\\begin{document}
 \\mainmatter
 \\pagestyle{single}%
 \\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:chap}%
 
 in chap

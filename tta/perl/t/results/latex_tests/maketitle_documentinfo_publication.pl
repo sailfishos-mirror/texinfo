@@ -371,7 +371,7 @@ C\'est toto
 \\pagestyle{single}%
 
 \\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:ch_00f9pter}%
 
 \\section{{Sec}}

@@ -202,7 +202,7 @@ $result_converted{'html_text'}->{'seeentry_no_braces'} = '<div class="top-level-
 
 
 $result_converted{'latex_text'}->{'seeentry_no_braces'} = '\\label{anchor:Top}%
-\\chapter{{chap}}
+\\Texinfochapter{{chap}}
 \\label{anchor:chap}%
 
 \\printindex[cp]

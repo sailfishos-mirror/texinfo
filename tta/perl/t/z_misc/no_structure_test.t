@@ -211,12 +211,13 @@ _do_format_test_file($test_name, $format, $info_converter, $document,
 
 my $latex_converter = Texinfo::Convert::LaTeX->converter();
 my $latex_text = $latex_converter->convert($document);
-is($latex_text, '
+is($latex_text,
+'
 \begin{document}
 \tableofcontents\newpage
 \part*{{First File}}
 \label{anchor:Top}%
-\chapter{{Chap}}
+\Texinfochapter{{Chap}}
 \label{anchor:chap}%
 
 \label{anchor:point}%
@@ -224,7 +225,8 @@ is($latex_text, '
 \index[cp]{c@c}%
 
 \appendix
-\chapter{{Results}}
+\renewcommand{\chaptername}{\appendixname}
+\Texinfochapter{{Results}}
 \label{anchor:results}%
 
 See point.
