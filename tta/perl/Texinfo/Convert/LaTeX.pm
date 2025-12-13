@@ -1461,16 +1461,15 @@ sub _latex_header($) {
           _push_new_context($self, 'float_type '.$normalized_float_type);
           my $float_and_section = $floats->{$normalized_float_type}->[0];
           my ($float, $float_section) = @$float_and_section;
-          my $float_type
+          $float_type
             = _convert($self,
                        $float->{'contents'}->[0]->{'contents'}->[0]);
           _pop_context($self);
         }
         $header_code .= "% new float for type `$normalized_float_type'\n";
         $header_code
-           .= "\\newfloat{$latex_float_name}{htb}{$floats_extension}[chapter]
-\\floatname{$latex_float_name}{$float_type}
-";
+         .= "\\newfloat{$latex_float_name}{htb}{$floats_extension}[chapter]\n"
+           ."\\floatname{$latex_float_name}{$float_type}\n";
       }
     }
   }
