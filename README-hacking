@@ -358,9 +358,9 @@ check at latest automake/autoconf/gettext/help2man version:
       gettextize -f --po-dir=../po --no-changelog
      and then revert any unwanted changes and remove any unwanted new files.
 
-  . After upgrading automake/autoconf/gettext, run ./autogen.sh
-    and/or "autoreconf --verbose --force --install" to update ancilliary
-    files in build-aux and elsewhere.  Check changes before committing.
+  . After upgrading automake/autoconf/gettext, run ./autogen.sh and/or
+    "AUTOPOINT=true autoreconf -v -f -i" to update ancilliary files in
+    build-aux and elsewhere.  Check changes before committing.
 
   . The checks in tta/m4/txi_embedded_perl.m4 and tta/m4/txi_libperl_link.m4
     use an internal Autoconf variable and an internal shell function; it may

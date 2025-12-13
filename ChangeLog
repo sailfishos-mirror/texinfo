@@ -1,5 +1,10 @@
 2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: add AUTOPOINT=true to autoreconf invocation to
+	reduce the risk of making a mess.
+
+2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* ABOUT-NLS: remove file (no longer required by automake 1.18.1)
 
 2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
