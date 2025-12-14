@@ -352,7 +352,7 @@ In chap2
 \\Texinfounnumberedpart{{App}}
 
 \\appendix
-\\renewcommand{\\chaptername}{\\appendixname}
+\\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}
 \\Texinfochapter{{Appendix}}
 
 In appendix

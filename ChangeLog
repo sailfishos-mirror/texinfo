@@ -1,3 +1,19 @@
+2025-12-14 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header, _convert):
+	do not modify \chaptername when reaching the appendix, instead define a
+	LaTeX macro \Texinfoheadingchaptername for the headings, set initially
+	to \chaptername and reset to \appendixname after reaching the
+	appendices.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert): use \appendixname if
+	the reference is to an appendix sectioning command.  Report from
+	Dimitris Papavasilio.
+
+	* tta/perl/Makefile.tres, tta/perl/t/latex_tests.t
+	(reference_to_from_appendix): add test of references from chapter to
+	appendix and from appendix to chapter.
+
 2025-12-13 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Target Tree Element Link): add command_name

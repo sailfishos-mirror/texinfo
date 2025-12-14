@@ -266,7 +266,7 @@ my %LaTeX_in_heading_commands_formatting = (
   # default for texinfo.tex is similar:
   #   \putwordChapter{} \thischapternum: \thischaptername}
   # see doc/txi-zh.tex for how it could be in chinese
-  # Texinfothechapterheading is \chaptername{} \thechapter{}
+  # Texinfothechapterheading is \Texinfoheadingchaptername{} \thechapter{}
   # TODO translation
   'thischapter' => '\Texinfothechapterheading{}\chaptertitle{}',
   'thischaptername' => '\chaptertitle{}',
@@ -1444,6 +1444,9 @@ sub _latex_header($) {
   # empty by @unnumbered.
   $header_code .= "\\newcommand{\\Texinfothechapterheading}{}\n";
 
+  # this command is redefined when reaching appendices
+  $header_code .= "\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}\n";
+
   # for @thistitle and headers
   $header_code .= "\\newcommand{\\Texinfosettitle}{$settitle}%\n";
   if (exists($self->{'collected_includes'})) {
@@ -1472,7 +1475,7 @@ sub _latex_header($) {
     $header_code .= "}%\n\n";
   }
   $header_code .= "\\newcommand{\\Texinfochapter}[1]{\\chapter{#1}\n"
- ."\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%\n";
+ ."\\renewcommand{\\Texinfothechapterheading}{\\Texinfoheadingchaptername{} \\thechapter{} }%\n";
   $header_code .= "}%\n\n";
 
   my $floats;
@@ -3815,8 +3818,13 @@ sub _convert($$) {
   .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               } else {
                 # TODO translation
-                $reference_result
+                if ($section_command->{'cmdname'} =~ /appendix/) {
+                  $reference_result
+  .= "\\hyperref[$reference_label]{\\appendixname~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
+                } else {
+                  $reference_result
   .= "\\hyperref[$reference_label]{\\chaptername~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
+                }
               }
             } else {
               # anchor or document without sectioning commands
@@ -4237,7 +4245,8 @@ sub _convert($$) {
         if ($cmdname eq 'appendix' and not exists($self->{'appendix_done'})) {
           $result .= "\\appendix\n";
           # needed for headings to have Appendix instead of Chapter
-          $result .= "\\renewcommand{\\chaptername}{\\appendixname}\n";
+          $result
+       .= "\\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}\n";
           #$result .= "\\begin{appendices}\n";
           #$self->{'packages'}->{'appendix'} = 1;
           $self->{'appendix_done'} = 1;

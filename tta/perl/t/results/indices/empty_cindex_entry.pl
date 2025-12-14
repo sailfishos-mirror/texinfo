@@ -128,6 +128,7 @@ $result_converted{'latex'}->{'empty_cindex_entry'} = '\\documentclass{book}
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
@@ -152,7 +153,7 @@ $result_converted{'latex'}->{'empty_cindex_entry'} = '\\documentclass{book}
 }%
 
 \\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
-\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoheadingchaptername{} \\thechapter{} }%
 }%
 
 % redefine the \\mainmatter command such that it does not clear page

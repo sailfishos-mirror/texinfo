@@ -1359,6 +1359,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/latex_tests/pagesizes/res_latex \
   t/results/latex_tests/pagetype.pl \
   t/results/latex_tests/pagetype/res_latex \
+  t/results/latex_tests/reference_to_from_appendix.pl \
+  t/results/latex_tests/reference_to_from_appendix/res_latex \
   t/results/latex_tests/setchapternewpage_on_odd_titlepage.pl \
   t/results/latex_tests/setchapternewpage_on_odd_titlepage/res_latex \
   t/results/latex_tests/setchapternewpage_on_odd_titlepage_set_headings.pl \

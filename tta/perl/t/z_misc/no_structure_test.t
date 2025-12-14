@@ -225,7 +225,7 @@ is($latex_text,
 \index[cp]{c@c}%
 
 \appendix
-\renewcommand{\chaptername}{\appendixname}
+\renewcommand{\Texinfoheadingchaptername}{\appendixname}
 \Texinfochapter{{Results}}
 \label{anchor:results}%
 

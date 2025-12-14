@@ -22,6 +22,7 @@
 
 \makeatletter
 \newcommand{\Texinfothechapterheading}{}
+\newcommand{\Texinfoheadingchaptername}{\chaptername}
 \newcommand{\Texinfosettitle}{No Title}%
 
 \newcommand{\Texinfounnumberedchapter}[1]{\chapter*{#1}
@@ -46,7 +47,7 @@
 }%
 
 \newcommand{\Texinfochapter}[1]{\chapter{#1}
-\renewcommand{\Texinfothechapterheading}{\chaptername{} \thechapter{} }%
+\renewcommand{\Texinfothechapterheading}{\Texinfoheadingchaptername{} \thechapter{} }%
 }%
 
 % no index headers
@@ -9193,7 +9194,7 @@ tp
 
 
 \appendix
-\renewcommand{\chaptername}{\appendixname}
+\renewcommand{\Texinfoheadingchaptername}{\appendixname}
 \Texinfochapter{{An appendix}}
 \label{anchor:node-with-empty-xrefname}%
 

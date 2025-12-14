@@ -345,7 +345,7 @@ $result_converted{'latex_text'}->{'xrefname'} = '\\label{anchor:Top}%
 \\label{anchor:ntiti}%
 
 \\appendix
-\\renewcommand{\\chaptername}{\\appendixname}
+\\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}
 \\Texinfochapter{{app}}
 \\label{anchor:chip}%
 

@@ -16,9 +16,6 @@
 \newcommand{\Texinfothechapterheading}{}
 \newcommand{\Texinfoheadingchaptername}{\chaptername}
 \newcommand{\Texinfosettitle}{No Title}%
-\newcommand{\Texinfotheinclude}{}%
-
-\newcommand{\Texinfoparttitle}{}
 
 \newcommand{\Texinfounnumberedchapter}[1]{\chapter*{#1}
 \addcontentsline{toc}{chapter}{\protect\textbf{#1}}%
@@ -27,7 +24,6 @@
 
 \newcommand{\Texinfounnumberedpart}[1]{\part*{#1}
 \addcontentsline{toc}{part}{\protect\textbf{#1}}%
-\renewcommand{\Texinfoparttitle}{#1}%
 }%
 
 \newcommand{\Texinfounnumberedsection}[1]{\section*{#1}
@@ -72,31 +68,17 @@
 \makeatother
 \pagestyle{single}%
 
-\newpagestyle{custom}{%
-\sethead[\thepage{}][\Texinfotheinclude{}][\Texinfoparttitle{}]%
-{\thepage{}}{\Texinfotheinclude{}}{\Texinfoparttitle{}}%
-}%
-\pagestyle{custom}%
-
 \begin{document}
 \label{anchor:Top}%
-\Texinfounnumberedpart{{Part I:\texorpdfstring{\ifinner\unskip\space\ignorespaces\else\leavevmode{}\\\fi}{ } The beginning}}
-\Texinfochapter{{Chap1}}
-\label{anchor:first}%
+\Texinfochapter{{Chapter}}
+\label{anchor:chap}%
 
-In chap1
-
-\Texinfounnumberedpart{{Part II}}
-\Texinfochapter{{chap2}}
-\label{anchor:second}%
-
-In chap2
-
-\Texinfounnumberedpart{{App}}
+See \hyperref[anchor:appendix]{\appendixname~\ref*{anchor:appendix} [appendix], page~\pageref*{anchor:appendix}}.
 
 \appendix
 \renewcommand{\Texinfoheadingchaptername}{\appendixname}
 \Texinfochapter{{Appendix}}
+\label{anchor:appendix}%
 
-In appendix
+See \hyperref[anchor:chap]{\chaptername~\ref*{anchor:chap} [chap], page~\pageref*{anchor:chap}}.
 \end{document}

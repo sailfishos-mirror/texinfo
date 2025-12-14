@@ -185,6 +185,7 @@ $result_converted{'latex'}->{'float_type_with_tieaccent'} = '\\documentclass{boo
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
@@ -209,7 +210,7 @@ $result_converted{'latex'}->{'float_type_with_tieaccent'} = '\\documentclass{boo
 }%
 
 \\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
-\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoheadingchaptername{} \\thechapter{} }%
 }%
 
 % new float for type `A 1͡a 第͡H ê͡一 and text\'

@@ -2602,6 +2602,7 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
@@ -2626,7 +2627,7 @@ $result_converted{'latex'}->{'numbering_captions_listoffloats'} = '\\documentcla
 }%
 
 \\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
-\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoheadingchaptername{} \\thechapter{} }%
 }%
 
 % new float for type `\'
@@ -2773,7 +2774,7 @@ float with no type.
 \\end{TexinfoFloat}
 
 \\appendix
-\\renewcommand{\\chaptername}{\\appendixname}
+\\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}
 \\Texinfochapter{{Appendix for float}}
 \\label{anchor:Appendix-for-float}%
 

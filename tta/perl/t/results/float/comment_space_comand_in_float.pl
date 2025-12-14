@@ -265,6 +265,7 @@ $result_converted{'latex'}->{'comment_space_comand_in_float'} = '\\documentclass
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
@@ -289,7 +290,7 @@ $result_converted{'latex'}->{'comment_space_comand_in_float'} = '\\documentclass
 }%
 
 \\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
-\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoheadingchaptername{} \\thechapter{} }%
 }%
 
 % new float for type `Text  \'

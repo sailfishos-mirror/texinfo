@@ -366,7 +366,7 @@ $result_converted{'latex_text'}->{'sections_and_printindex'} = '\\label{anchor:T
 
 \\index[cp]{entry2@entry2}%
 \\appendix
-\\renewcommand{\\chaptername}{\\appendixname}
+\\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}
 \\Texinfochapter{{App}}
 
 \\printindex[cp]

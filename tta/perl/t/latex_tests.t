@@ -366,6 +366,20 @@ In chap2
 
 In appendix
 ',],
+['reference_to_from_appendix',
+'@node Top
+@top top
+
+@node chap
+@chapter Chapter
+
+@xref{appendix}.
+
+@node appendix
+@appendix Appendix
+
+@xref{chap}.
+'],
 ['titlepage_in_top_node',
 '@node Top
 @top top sectionning

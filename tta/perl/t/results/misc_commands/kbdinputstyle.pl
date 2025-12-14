@@ -591,6 +591,7 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '\\documentclass{book}
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
@@ -615,7 +616,7 @@ $result_converted{'latex'}->{'kbdinputstyle'} = '\\documentclass{book}
 }%
 
 \\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
-\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoheadingchaptername{} \\thechapter{} }%
 }%
 
 % style command for kbd in \'cmd_text\' formatting context

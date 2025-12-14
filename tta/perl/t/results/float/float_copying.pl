@@ -836,6 +836,7 @@ $result_converted{'latex'}->{'float_copying'} = '\\documentclass{book}
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
@@ -860,7 +861,7 @@ $result_converted{'latex'}->{'float_copying'} = '\\documentclass{book}
 }%
 
 \\newcommand{\\Texinfochapter}[1]{\\chapter{#1}
-\\renewcommand{\\Texinfothechapterheading}{\\chaptername{} \\thechapter{} }%
+\\renewcommand{\\Texinfothechapterheading}{\\Texinfoheadingchaptername{} \\thechapter{} }%
 }%
 
 % new float for type `Copyright notice\'
@@ -901,7 +902,7 @@ $result_converted{'latex'}->{'float_copying'} = '\\documentclass{book}
 \\begin{document}
 \\label{anchor:Top}%
 \\appendix
-\\renewcommand{\\chaptername}{\\appendixname}
+\\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}
 \\Texinfochapter{{Copying and floats}}
 \\label{anchor:Copying-and-floats}%
 
@@ -917,7 +918,7 @@ the author abandon his copyright.
 \\index[cp]{indexed caption copying footnote@indexed caption copying footnote}%
 \\index[fn]{public domain function@\\texttt{public domain function}}%
 
-see \\hyperref[anchor:Copying-and-floats]{\\chaptername~\\ref*{anchor:Copying-and-floats} [Copying and floats], page~\\pageref*{anchor:Copying-and-floats}}.
+see \\hyperref[anchor:Copying-and-floats]{\\appendixname~\\ref*{anchor:Copying-and-floats} [Copying and floats], page~\\pageref*{anchor:Copying-and-floats}}.
 
 }
 
@@ -939,7 +940,7 @@ the author abandon his copyright.
 \\index[cp]{indexed caption copying footnote@indexed caption copying footnote}%
 \\index[fn]{public domain function@\\texttt{public domain function}}%
 
-see \\hyperref[anchor:Copying-and-floats]{\\chaptername~\\ref*{anchor:Copying-and-floats} [Copying and floats], page~\\pageref*{anchor:Copying-and-floats}}.
+see \\hyperref[anchor:Copying-and-floats]{\\appendixname~\\ref*{anchor:Copying-and-floats} [Copying and floats], page~\\pageref*{anchor:Copying-and-floats}}.
 
 }
 

@@ -1018,7 +1018,7 @@ anchor 2
 \\end{description}
 
 \\appendix
-\\renewcommand{\\chaptername}{\\appendixname}
+\\renewcommand{\\Texinfoheadingchaptername}{\\appendixname}
 \\Texinfochapter{{Print the index}}
 \\label{anchor:Indices}%
 
