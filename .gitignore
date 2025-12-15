@@ -42,12 +42,10 @@ pre-inst-env
 
 po/*.gmo
 po/POTFILES
-po/remove-potcdate.sed
 po/stamp-po
 
 po_document/*.gmo
 po_document/POTFILES
-po_document/remove-potcdate.sed
 po_document/stamp-po
 
 gnulib/lib/charset.alias
