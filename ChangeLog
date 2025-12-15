@@ -1,3 +1,13 @@
+2025-12-15 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/Makefile.am (html_default_commands_args.texi),
+	doc/generate_html_doc_texi.pl, tta/perl/Makefile.am
+	(perl_commands_source_files): only generate one item for all the
+	accent commands in generate_html_doc_texi.pl.  Have
+	generate_html_doc_texi.pl depend on Commands.pm for the list of accent
+	commands, add Makefile.am code to generate Commands.pm from the doc
+	dorectory if needed.
+
 2025-12-16  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header):

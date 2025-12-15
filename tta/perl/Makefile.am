@@ -364,6 +364,10 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	    -e 's|[@]DEFAULT_TEST_LEVEL[@]|$(DEFAULT_TEST_LEVEL)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
+# target that can be built upon cd'ing to the build directory, as needed
+# for the documentation
+perl_commands_source_files: $(srcdir)/Texinfo/Commands.pm
+
 $(srcdir)/Texinfo/Commands.pm: ../data/command_data.txt $(srcdir)/../maintain/regenerate_commands_perl_info.pl
 	$(PERL) $(srcdir)/../maintain/regenerate_commands_perl_info.pl $(srcdir)/Texinfo/Commands.pm < $(srcdir)/../data/command_data.txt
 

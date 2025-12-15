@@ -56,13 +56,26 @@ BEGIN
   unshift @INC, join('/', ($lib_dir, 'lib', 'Text-Unidecode', 'lib'));
 }
 
+use Texinfo::Commands;
 use Texinfo::Convert::HTML;
 
 my $result = '';
-foreach my $cmdname (sort(keys(
+# use a generic item instead of a line per accent command
+my $accent_command_string = 'accent @@-command';
+foreach my $cmdname (sort($accent_command_string, keys(
          %Texinfo::Convert::HTML::html_default_commands_args))) {
-  my $args_spec = $Texinfo::Convert::HTML::html_default_commands_args{$cmdname};
-  my $line = '@item @code{@@'.$cmdname.'}';
+  my $args_spec;
+  my $item_arg;
+  if ($cmdname eq $accent_command_string) {
+    $args_spec = $Texinfo::Convert::HTML::html_default_commands_args{'^'};
+    $item_arg = $accent_command_string;
+  } elsif (exists($Texinfo::Commands::accent_commands{$cmdname})) {
+    next;
+  } else {
+    $item_arg = '@code{@@'.$cmdname.'}';
+    $args_spec = $Texinfo::Convert::HTML::html_default_commands_args{$cmdname};
+  }
+  my $line = '@item '.$item_arg;
   foreach my $spec (@$args_spec) {
     $line .= ' @tab '.join(', ', @$spec);
   }

@@ -1,15 +1,7 @@
-@item @code{@@"} @tab 
-@item @code{@@'} @tab 
-@item @code{@@,} @tab 
-@item @code{@@=} @tab 
-@item @code{@@H} @tab 
-@item @code{@@^} @tab 
-@item @code{@@`} @tab 
 @item @code{@@abbr} @tab normal @tab normal, string
+@item accent @@-command @tab 
 @item @code{@@acronym} @tab normal @tab normal, string
 @item @code{@@anchor} @tab monospacestring
-@item @code{@@dotaccent} @tab 
-@item @code{@@dotless} @tab 
 @item @code{@@email} @tab url, monospacestring @tab normal
 @item @code{@@footnote} @tab 
 @item @code{@@image} @tab monospacestring, filenametext, url @tab filenametext @tab filenametext @tab normal, string @tab filenametext
@@ -23,19 +15,11 @@
 @item @code{@@itemx} @tab 
 @item @code{@@link} @tab monospace @tab normal @tab filenametext
 @item @code{@@namedanchor} @tab monospacestring @tab normal
-@item @code{@@ogonek} @tab 
 @item @code{@@printindex} @tab 
 @item @code{@@pxref} @tab monospace @tab normal @tab normal @tab filenametext @tab normal
 @item @code{@@ref} @tab monospace @tab normal @tab normal @tab filenametext @tab normal
-@item @code{@@ringaccent} @tab 
 @item @code{@@sp} @tab 
-@item @code{@@tieaccent} @tab 
-@item @code{@@u} @tab 
-@item @code{@@ubaraccent} @tab 
-@item @code{@@udotaccent} @tab 
 @item @code{@@uref} @tab url, monospacestring @tab normal @tab normal
 @item @code{@@url} @tab url, monospacestring @tab normal @tab normal
-@item @code{@@v} @tab 
 @item @code{@@value} @tab monospacestring
 @item @code{@@xref} @tab monospace @tab normal @tab normal @tab filenametext @tab normal
-@item @code{@@~} @tab 
