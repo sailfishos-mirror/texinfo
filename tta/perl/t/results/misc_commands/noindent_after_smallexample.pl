@@ -98,6 +98,7 @@ $result_converted{'latex'}->{'noindent_after_smallexample'} = '\\documentclass{b
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
+\\newtitlemark{\\Texinfoheadingchaptername}%
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}

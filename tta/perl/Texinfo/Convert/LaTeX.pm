@@ -1446,6 +1446,7 @@ sub _latex_header($) {
 
   # this command is redefined when reaching appendices
   $header_code .= "\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}\n";
+  $header_code .= "\\newtitlemark{\\Texinfoheadingchaptername}%\n";
 
   # for @thistitle and headers
   $header_code .= "\\newcommand{\\Texinfosettitle}{$settitle}%\n";

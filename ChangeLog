@@ -1,3 +1,11 @@
+2025-12-15  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header):
+	Output use of \newtitlemark to define \Texinfoheadingchaptername
+	in a mark.  Otherwise it does not always have the correct value.
+
+	Report from Dimitris Papavasilio.
+
 2025-12-14 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header, _convert):

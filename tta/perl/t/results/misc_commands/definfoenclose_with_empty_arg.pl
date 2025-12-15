@@ -90,6 +90,7 @@ $result_converted{'latex'}->{'definfoenclose_with_empty_arg'} = '\\documentclass
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
+\\newtitlemark{\\Texinfoheadingchaptername}%
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}

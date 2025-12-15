@@ -126,6 +126,7 @@ $result_converted{'latex'}->{'quotation_author_in_example'} = '\\documentclass{b
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
+\\newtitlemark{\\Texinfoheadingchaptername}%
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}

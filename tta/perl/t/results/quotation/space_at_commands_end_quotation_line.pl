@@ -148,6 +148,7 @@ $result_converted{'latex'}->{'space_at_commands_end_quotation_line'} = '\\docume
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
 \\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
+\\newtitlemark{\\Texinfoheadingchaptername}%
 \\newcommand{\\Texinfosettitle}{No Title}%
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
