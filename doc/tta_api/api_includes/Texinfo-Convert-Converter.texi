@@ -502,6 +502,47 @@ with arguments based on @code{USE_UNICODE_COLLATION}, @code{COLLATION_LANGUAGE} 
 
 @end table
 
+@node Texinfo@asis{::}Convert@asis{::}Converter Accents conversion
+@subsection Accents conversion
+
+Accent @@-commands that take arguments can be nested in Texinfo code, as in
+@code{@@'@{@@^a@}}.  To handle this situation, a user defined function can be called
+for each of the accent commands, starting by the innermost accent command.  For
+this the user-defined function and the outermost accent command tree elements
+should be given to the @code{convert_accents} function:
+
+@table @asis
+@item $result = $converter->convert_accents($accent_command, \&format_accents, $output_encoded_characters, $in_upper_case)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->convert_accents($accent_command@comma{} \&format_accents@comma{} $output_encoded_characters@comma{} $in_upper_case)}
+@cindex @code{convert_accents}
+
+@emph{$accent_command} is an accent command tree elements, which may have other
+accent commands tree elements nested inside.  The function returns the accents
+formatted either as encoded letters if @emph{$output_encoded_characters} is set, or
+formatted by calling @emph{\&format_accents} repeatedly starting from the innermost
+accent command tree element within @emph{$accent_command}.  The innermost accent
+command argument (usually a letter), is also converted, by calling
+@ref{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->convert_tree($tree),, @code{$converter->convert_tree}}. If @emph{$in_upper_case} is
+set, the result should be uppercased.
+
+@item $result = &$format_accents($self, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = &$format_accents($self@comma{} $text@comma{} $accent_command@comma{} $index_in_stack@comma{} $accents_stack@comma{} $in_upper_case)}
+
+@emph{$self} is the converter in the call to @code{convert_accents}.
+For the innermost accent command, @emph{$text} is the text appearing within
+the accent command converted.  For the other accent commands,
+@emph{$text} is the result of the previously converted
+accent command.  @emph{$accent_command} the Texinfo tree element corresponding
+to the accent command being converted.  @emph{$index_in_stack} is the position
+in the @emph{$accents_stack} of the accent command being converted.  The
+@emph{$accents_stack} is an array holding the nested accent command
+Texinfo tree elements.  The innermost tree element command is last.
+@emph{$in_upper_case} is optional, and, if set, the text should be put
+in upper case.  The function should return the converted accent argument
+to be processed by the following accent command.
+
+@end table
+
 @node Texinfo@asis{::}Convert@asis{::}Converter Conversion to XML
 @subsection Conversion to XML
 
@@ -546,6 +587,9 @@ if possible, falling back to numeric entities if there is no named entity
 and returns the argument as last resort.  @emph{$use_numeric_entities}
 is optional.  If set, numerical entities are used instead of named entities
 if possible.
+
+This function is similar to the accent formatting function passed
+to @code{convert_accents} for @ref{Texinfo@asis{::}Convert@asis{::}Converter Accents conversion,, Accents conversion}.
 
 @item $result = $converter->xml_accents($accent_command, $in_upper_case)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->xml_accents($accent_command@comma{} $in_upper_case)}
@@ -602,16 +646,6 @@ an array with the @code{@@subentry} contents.  The result is returned as
 @code{contents} in the @emph{$contents_element} element, or @code{undef} if there is no
 such content.  @emph{$separator} is an optional separator argument used, if given,
 instead of the default: a comma followed by a space.
-
-@item $result = $converter->convert_accents($accent_command, \&format_accents, $output_encoded_characters, $in_upper_case)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->convert_accents($accent_command@comma{} \&format_accents@comma{} $output_encoded_characters@comma{} $in_upper_case)}
-@cindex @code{convert_accents}
-
-@emph{$accent_command} is an accent command, which may have other accent
-commands nested.  The function returns the accents formatted either
-as encoded letters if @emph{$output_encoded_characters} is set, or formatted
-using @emph{\&format_accents}.  If @emph{$in_upper_case} is set, the result should be
-uppercased.
 
 @item $succeeded = $converter->create_destination_directory($destination_directory_path, $destination_directory_name)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $succeeded = $converter->create_destination_directory($destination_directory_path@comma{} $destination_directory_name)}

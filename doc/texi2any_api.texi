@@ -2996,6 +2996,12 @@ normal context.  It should be present for most @@-commands with arguments,
 but not for all, for example @code{@@anchor} argument is only available
 as @code{monospacestring}.
 
+Accent commands do not have any formatted argument prepared, because the
+formatting of accent commands taking arguments is usually done by calling
+the @code{convert_accents} function.
+@xref{Texinfo::Convert::Converter $result = $converter->convert_accents($accent_command@comma{} \&format_accents@comma{} $in_upper_case),,
+Texinfo::Convert::Converter::convert_accents, texi2any_internals}.
+
 @var{$content} is the @@-command formatted contents.  It corresponds to the
 contents of block @@-commands, and to Texinfo code following @code{@@node},
 sectioning commands, @code{@@tab} and @code{@@item} in @code{@@enumerate} and
@@ -5438,7 +5444,7 @@ Texinfo::Convert::Utils::definition_category_tree, texi2any_internals}.
 Texinfo::Convert::Converter::float_name_caption, texi2any_internals}.
 Can be called as @code{$converter->float_name_caption}.
 
-@item accent @@-commands
+@item accent @@-commands with argument
 @xref{Texinfo::Convert::Converter $result = xml_accent($text@comma{} $accent_command@comma{} $in_upper_case@comma{} $use_numeric_entities),,
 Texinfo::Convert::Converter::xml_accent, texi2any_internals}.
 Can be called as @code{$converter->xml_accent}.

@@ -2620,6 +2620,45 @@ C<@documentlanguage>.
 
 =back
 
+=head2 Accents conversion
+
+Accent @-commands that take arguments can be nested in Texinfo code, as in
+C<@'{@^a}>.  To handle this situation, a user defined function can be called
+for each of the accent commands, starting by the innermost accent command.  For
+this the user-defined function and the outermost accent command tree elements
+should be given to the C<convert_accents> function:
+
+=over
+
+=item $result = $converter->convert_accents($accent_command, \&format_accents, $output_encoded_characters, $in_upper_case)
+X<C<convert_accents>>
+
+I<$accent_command> is an accent command tree elements, which may have other
+accent commands tree elements nested inside.  The function returns the accents
+formatted either as encoded letters if I<$output_encoded_characters> is set, or
+formatted by calling I<\&format_accents> repeatedly starting from the innermost
+accent command tree element within I<$accent_command>.  The innermost accent
+command argument (usually a letter), is also converted, by calling
+L<< C<< $converter->convert_tree >>|/$result = $converter->convert_tree($tree) >>. If I<$in_upper_case> is
+set, the result should be uppercased.
+
+=item $result = &$format_accents($self, $text, $accent_command, $index_in_stack, $accents_stack, $in_upper_case)
+
+I<$self> is the converter in the call to C<convert_accents>.
+For the innermost accent command, I<$text> is the text appearing within
+the accent command converted.  For the other accent commands,
+I<$text> is the result of the previously converted
+accent command.  I<$accent_command> the Texinfo tree element corresponding
+to the accent command being converted.  I<$index_in_stack> is the position
+in the I<$accents_stack> of the accent command being converted.  The
+I<$accents_stack> is an array holding the nested accent command
+Texinfo tree elements.  The innermost tree element command is last.
+I<$in_upper_case> is optional, and, if set, the text should be put
+in upper case.  The function should return the converted accent argument
+to be processed by the following accent command.
+
+=back
+
 =head2 Conversion to XML
 
 Some C<Texinfo::Convert::Converter> methods target conversion to XML.
@@ -2660,6 +2699,9 @@ if possible, falling back to numeric entities if there is no named entity
 and returns the argument as last resort.  I<$use_numeric_entities>
 is optional.  If set, numerical entities are used instead of named entities
 if possible.
+
+This function is similar to the accent formatting function passed
+to C<convert_accents> for L<Accents conversion>.
 
 =item $result = $converter->xml_accents($accent_command, $in_upper_case)
 X<C<xml_accents>>
@@ -2711,15 +2753,6 @@ an array with the C<@subentry> contents.  The result is returned as
 C<contents> in the I<$contents_element> element, or C<undef> if there is no
 such content.  I<$separator> is an optional separator argument used, if given,
 instead of the default: a comma followed by a space.
-
-=item $result = $converter->convert_accents($accent_command, \&format_accents, $output_encoded_characters, $in_upper_case)
-X<C<convert_accents>>
-
-I<$accent_command> is an accent command, which may have other accent
-commands nested.  The function returns the accents formatted either
-as encoded letters if I<$output_encoded_characters> is set, or formatted
-using I<\&format_accents>.  If I<$in_upper_case> is set, the result should be
-uppercased.
 
 =item $succeeded = $converter->create_destination_directory($destination_directory_path, $destination_directory_name)
 X<C<create_destination_directory>>

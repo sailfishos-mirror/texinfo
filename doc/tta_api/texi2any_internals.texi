@@ -306,6 +306,7 @@ Texinfo::Convert::Converter METHODS
 * Texinfo@asis{::}Convert@asis{::}Converter Registering error and warning messages::
 * Texinfo@asis{::}Convert@asis{::}Converter Translations in output documents::
 * Texinfo@asis{::}Convert@asis{::}Converter Index sorting::
+* Texinfo@asis{::}Convert@asis{::}Converter Accents conversion::
 * Texinfo@asis{::}Convert@asis{::}Converter Conversion to XML::
 * Texinfo@asis{::}Convert@asis{::}Converter Helper methods::
 

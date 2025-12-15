@@ -1,5 +1,14 @@
 2025-12-15 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Command Tree Element Conversion Functions),
+	tta/perl/Texinfo/Convert/Converter.pm (Accents conversion): add
+	a separate section for the accent tree elements conversion in
+	converter using convert_accents.  Refer to the convert_accent
+	documentation in the "Command Tree Element Conversion Functions"
+	node.
+
+2025-12-15 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/Makefile.am (html_default_commands_args.texi),
 	doc/generate_html_doc_texi.pl, tta/perl/Makefile.am
 	(perl_commands_source_files): only generate one item for all the
