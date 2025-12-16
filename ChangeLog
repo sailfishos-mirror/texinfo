@@ -1,3 +1,9 @@
+2025-12-17 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/HTML.pm: rename $command variable as
+	$cmdname when it is used for an @-command name string.  Use $command
+	for Texinfo tree elements.
+
 2025-12-15 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Command Tree Element Conversion Functions),

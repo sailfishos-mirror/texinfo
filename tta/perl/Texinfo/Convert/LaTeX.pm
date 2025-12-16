@@ -336,7 +336,7 @@ my %section_map = (
 );
 
 # associate the name of the created LaTeX macro to the usual LaTeX
-# sectoning command for unnumbered command that should appear in table
+# sectioning command for unnumbered command that should appear in table
 # of contents (every unnumbered commands except for @top).
 my %texinfo_unnumbered_macros_toc_latex;
 foreach my $unnumbered_command(keys(
