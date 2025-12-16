@@ -1468,8 +1468,11 @@ sub _latex_header($) {
     if ($txi_unnumbered_latex eq 'Texinfounnumberedchapter') {
       $header_code
      .= "\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%\n";
-    }
-    if ($txi_unnumbered_latex eq 'Texinfounnumberedpart'
+      $header_code
+     .= "\\chaptermark{#1}%\n";
+    } elsif ($txi_unnumbered_latex eq 'Texinfounnumberedsection') {
+      $header_code .= "\\sectionmark{#1}%\n";
+    } elsif ($txi_unnumbered_latex eq 'Texinfounnumberedpart'
         and exists($self->{'need_parttitle'})) {
       $header_code .= "\\renewcommand{\\Texinfoparttitle}{#1}%\n";
     }

@@ -1,3 +1,11 @@
+2025-12-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header):
+	Use \chaptermark and \sectionmark for @unnumbered and
+	@unnumberedsec so that the heading is updated.
+
+	Report from Dimitris Papavasilio.
+
 2025-12-15  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_latex_header):

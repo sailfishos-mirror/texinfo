@@ -206,6 +206,7 @@ $result_converted{'latex'}->{'empty_index_entry'} = '\\documentclass{book}
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
 \\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
+\\chaptermark{#1}%
 }%
 
 \\newcommand{\\Texinfounnumberedpart}[1]{\\part*{#1}
@@ -214,6 +215,7 @@ $result_converted{'latex'}->{'empty_index_entry'} = '\\documentclass{book}
 
 \\newcommand{\\Texinfounnumberedsection}[1]{\\section*{#1}
 \\addcontentsline{toc}{section}{\\protect\\textbf{#1}}%
+\\sectionmark{#1}%
 }%
 
 \\newcommand{\\Texinfounnumberedsubsection}[1]{\\subsection*{#1}
