@@ -336,12 +336,9 @@ static void free_html_no_arg_command_conversion (
                              HTML_NO_ARG_COMMAND_CONVERSION *format_spec,
                                    enum conversion_context cctx)
 {
-  if (cctx == HCC_type_normal && format_spec->translated_tree)
-    destroy_element_and_children (format_spec->translated_tree);
   free (format_spec->element);
   free (format_spec->text);
   free (format_spec->translated_converted);
-  free (format_spec->translated_to_convert);
 }
 
 void
@@ -424,10 +421,17 @@ html_free_converter (CONVERTER *self)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[j];
       enum conversion_context cctx;
+      HTML_NO_ARG_COMMAND_FORMATTING *no_arg_formatting
+        = &self->html_no_arg_command_conversion[cmd];
+
+      if (no_arg_formatting->translated_tree)
+        destroy_element_and_children (no_arg_formatting->translated_tree);
+      free (no_arg_formatting->translated_to_convert);
+
       for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
         {
           HTML_NO_ARG_COMMAND_CONVERSION *format_spec
-                = &self->html_no_arg_command_conversion[cmd][cctx];
+                = &no_arg_formatting->context_formatting[cctx];
           free_html_no_arg_command_conversion (format_spec, cctx);
         }
     }
@@ -436,10 +440,15 @@ html_free_converter (CONVERTER *self)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[j];
       enum conversion_context cctx;
+      HTML_NO_ARG_COMMAND_CUSTOMIZATION *customized_no_arg
+        = &self->customized_no_arg_commands_formatting[cmd];
+
+      free (customized_no_arg->translated_to_convert);
+
       for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
         {
           HTML_NO_ARG_COMMAND_CONVERSION *format_spec
-            = self->customized_no_arg_commands_formatting[cmd][cctx];
+            = customized_no_arg->context_formatting[cctx];
           if (format_spec)
             {
               free_html_no_arg_command_conversion (format_spec, cctx);

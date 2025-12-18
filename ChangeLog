@@ -1,3 +1,37 @@
+2025-12-18 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_html.c (html_translate_names),
+	tta/C/convert/html_converter_finish.c
+	(free_html_no_arg_command_conversion, html_free_converter),
+	tta/C/convert/html_prepare_converter.c
+	(copy_html_no_arg_command_conversion, html_initialize_output_state),
+	tta/C/main/converter_types.h (HTML_NO_ARG_COMMAND_CONVERSION)
+	(HTML_NO_ARG_COMMAND_FORMATTING, HTML_NO_ARG_COMMAND_CUSTOMIZATION)
+	(CONVERTER), tta/perl/Texinfo/Config.pm
+	(_GNUT_initialize_no_arg_commands_formatting_strings)
+	(texinfo_register_no_arg_command_formatting),
+	tta/perl/Texinfo/Convert/HTML.pm (_translate_names)
+	(converter_initialize, converter_destroy, conversion_initialization):
+	Do not put translated_to_convert nor translated_tree no arg command
+	formatting in the normal context information, instead put it outside
+	of the per-context information.
+
+	* tta/C/convert/build_html_perl_info.c
+	(build_no_arg_commands_formatting),
+	tta/C/convert/build_html_perl_state.c (build_html_translated_names),
+	tta/C/convert/convert_html.c
+	(reset_unset_no_arg_commands_formatting_context),
+	tta/C/convert/format_html.c (html_convert_no_arg_command)
+	(html_convert_css_string_for_list_mark),
+	tta/perl/Texinfo/Convert/HTML.pm
+	(_reset_unset_no_arg_commands_formatting_context),
+	tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): update users of no arg commands
+	formatting information, and Perl to C interfaces.
+
+	* tta/perl/XSTexinfo/convert/get_html_perl_info.c: remove unused
+	html_get_no_arg_commands_formatting_sv.
+
 2025-12-17 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/HTML.pm: rename $command variable as

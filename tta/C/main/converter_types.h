@@ -321,10 +321,19 @@ typedef struct HTML_NO_ARG_COMMAND_CONVERSION {
     char *element;
     int unset;
     char *text;
-    ELEMENT *translated_tree;
     char *translated_converted;
-    char *translated_to_convert;
 } HTML_NO_ARG_COMMAND_CONVERSION;
+
+typedef struct HTML_NO_ARG_COMMAND_FORMATTING {
+    HTML_NO_ARG_COMMAND_CONVERSION context_formatting[NO_ARG_COMMAND_CONTEXT_NR];
+    char *translated_to_convert;
+    ELEMENT *translated_tree;
+} HTML_NO_ARG_COMMAND_FORMATTING;
+
+typedef struct HTML_NO_ARG_COMMAND_CUSTOMIZATION {
+    HTML_NO_ARG_COMMAND_CONVERSION *context_formatting[NO_ARG_COMMAND_CONTEXT_NR];
+    char *translated_to_convert;
+} HTML_NO_ARG_COMMAND_CUSTOMIZATION;
 
 typedef struct HTML_STYLE_COMMAND_CONVERSION {
     char *element;
@@ -866,14 +875,14 @@ typedef struct CONVERTER {
     HTML_DIRECTION_STRING_TRANSLATED *translated_direction_strings[TDS_TRANSLATED_MAX_NR];
     HTML_DIRECTION_STRING_TRANSLATED **customized_translated_direction_strings[TDS_TRANSLATED_MAX_NR];
     HTML_STAGE_HANDLER_INFO_LIST html_stage_handlers[HSHT_type_finish +1];
-    HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_commands_formatting[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
+    HTML_NO_ARG_COMMAND_CUSTOMIZATION customized_no_arg_commands_formatting[BUILTIN_CMD_NUMBER];
     char ***customized_directions_strings[(TDS_TYPE_MAX_NR) - (TDS_TRANSLATED_MAX_NR)];
     PRE_CLASS_TYPE_INFO *html_customized_pre_class_types;
     COMMAND_ACCENT_ENTITY_INFO *html_customized_accent_entity_info;
     HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][STYLE_COMMAND_CONTEXT_NR];
     COMMAND_HTML_STYLE_COMMAND_CONVERSION *html_customized_style_commands;
     /* set for a converter, modified in a document */
-    HTML_NO_ARG_COMMAND_CONVERSION html_no_arg_command_conversion[BUILTIN_CMD_NUMBER][NO_ARG_COMMAND_CONTEXT_NR];
+    HTML_NO_ARG_COMMAND_FORMATTING html_no_arg_command_conversion[BUILTIN_CMD_NUMBER];
     char ***directions_strings[TDS_TYPE_MAX_NR];
     const char **main_units_direction_names;
     LANG_TRANSLATION **translation_cache;

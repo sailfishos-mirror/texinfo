@@ -6025,7 +6025,8 @@ html_convert_no_arg_command (CONVERTER *self, const enum command_id cmd,
     }
 
   specification
-    = &self->html_no_arg_command_conversion[formatted_cmd][context];
+    = &self->html_no_arg_command_conversion[formatted_cmd]
+           .context_formatting[context];
 
   text_element_conversion (self, specification, formatted_cmd, result);
 }
@@ -6047,7 +6048,7 @@ html_css_string_convert_no_arg_command (CONVERTER *self,
 
   text_append (result,
     self->html_no_arg_command_conversion[formatted_cmd]
-                                            [HCC_type_css_string].text);
+                         .context_formatting[HCC_type_css_string].text);
 }
 
 void
@@ -9053,8 +9054,10 @@ html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
     {
       enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
       special_list_mark_css_string_no_arg_command[i].saved
-        = self->html_no_arg_command_conversion[cmd][HCC_type_css_string].text;
-      self->html_no_arg_command_conversion[cmd][HCC_type_css_string].text
+        = self->html_no_arg_command_conversion[cmd]
+              .context_formatting[HCC_type_css_string].text;
+      self->html_no_arg_command_conversion[cmd]
+                     .context_formatting[HCC_type_css_string].text
         = special_list_mark_css_string_no_arg_command[i].string;
     }
 
@@ -9063,7 +9066,8 @@ html_convert_css_string_for_list_mark (CONVERTER *self, const ELEMENT *element,
   for (i = 0; special_list_mark_css_string_no_arg_command[i].cmd > 0; i++)
     {
       enum command_id cmd = special_list_mark_css_string_no_arg_command[i].cmd;
-      self->html_no_arg_command_conversion[cmd][HCC_type_css_string].text
+      self->html_no_arg_command_conversion[cmd]
+                  .context_formatting[HCC_type_css_string].text
         = special_list_mark_css_string_no_arg_command[i].saved;
       special_list_mark_css_string_no_arg_command[i].saved = 0;
     }

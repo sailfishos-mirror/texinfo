@@ -528,49 +528,40 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
                enum command_id cmd, enum conversion_context reset_context,
                enum conversion_context ref_context, int translate)
 {
-  HTML_NO_ARG_COMMAND_CONVERSION *no_arg_command_context;
+  HTML_NO_ARG_COMMAND_FORMATTING *no_arg_formatting
+    = &self->html_no_arg_command_conversion[cmd];
   HTML_NO_ARG_COMMAND_CONVERSION *conversion_contexts
-    = self->html_no_arg_command_conversion[cmd];
-  no_arg_command_context = &conversion_contexts[reset_context];
-  if (ref_context >= 0)
-    {
-      if (no_arg_command_context->unset)
-        {
-          HTML_NO_ARG_COMMAND_CONVERSION *no_arg_ref
-            = &conversion_contexts[ref_context];
+    = no_arg_formatting->context_formatting;
+  HTML_NO_ARG_COMMAND_CONVERSION *no_arg_command_context
+    = &conversion_contexts[reset_context];
 
-          if (no_arg_ref->text)
-            {
-              free (no_arg_command_context->text);
-              no_arg_command_context->text = strdup (no_arg_ref->text);
-            }
-          if (no_arg_ref->translated_tree)
-            no_arg_command_context->translated_tree
-              = no_arg_ref->translated_tree;
-          if (no_arg_ref->translated_converted)
-            {
-              free (no_arg_command_context->translated_converted);
-              no_arg_command_context->translated_converted
-                = strdup (no_arg_ref->translated_converted);
-            }
-          if (no_arg_ref->translated_to_convert)
-            {
-              free (no_arg_command_context->translated_to_convert);
-              no_arg_command_context->translated_to_convert
-                = strdup (no_arg_ref->translated_to_convert);
-            }
+  if (ref_context >= 0 && no_arg_command_context->unset)
+    {
+      HTML_NO_ARG_COMMAND_CONVERSION *no_arg_ref
+        = &conversion_contexts[ref_context];
+
+      if (no_arg_ref->text)
+        {
+          free (no_arg_command_context->text);
+          no_arg_command_context->text = strdup (no_arg_ref->text);
+        }
+      if (no_arg_ref->translated_converted)
+        {
+          free (no_arg_command_context->translated_converted);
+          no_arg_command_context->translated_converted
+            = strdup (no_arg_ref->translated_converted);
         }
     }
 
   if (translate
-      && no_arg_command_context->translated_tree
+      && no_arg_formatting->translated_tree
       && !no_arg_command_context->translated_converted)
     {
       char *translation_result = 0;
       char *explanation;
       char *context;
       ELEMENT *tree_built = 0;
-      ELEMENT *translated_tree = no_arg_command_context->translated_tree;
+      ELEMENT *translated_tree = no_arg_formatting->translated_tree;
       if (self->external_references_number > 0 && !translated_tree->sv)
         {
           add_to_element_list (&self->tree_to_build, translated_tree);
@@ -732,10 +723,36 @@ html_translate_names (CONVERTER *self)
           enum command_id cmd = no_arg_formatted_cmd.list[j];
           enum conversion_context cctx;
           int add_cmd = 0;
+          HTML_NO_ARG_COMMAND_FORMATTING *no_arg_formatting
+            = &self->html_no_arg_command_conversion[cmd];
+          ELEMENT *translated_tree = 0;
+
+          if (no_arg_formatting->translated_to_convert)
+            {/* it is very unlikely to have small strings to add,
+                but in case there are it should be ok */
+              translated_tree =
+                html_cdt_tree (no_arg_formatting->translated_to_convert,
+                               self, 0, 0);
+            }
+          else
+             translated_tree
+                        = converter_translated_command_tree (self, cmd,
+                                                             &html_cdt_tree);
+
+          if (translated_tree)
+            {
+              add_cmd = 1;
+              if (no_arg_formatting->translated_tree)
+                destroy_element_and_children (
+                          no_arg_formatting->translated_tree);
+
+              no_arg_formatting->translated_tree = translated_tree;
+            }
+
           for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
             {
               HTML_NO_ARG_COMMAND_CONVERSION *format_spec
-                = &self->html_no_arg_command_conversion[cmd][cctx];
+                = &no_arg_formatting->context_formatting[cctx];
               if (format_spec->translated_converted
                   && !format_spec->unset)
                 {
@@ -745,39 +762,14 @@ html_translate_names (CONVERTER *self)
                    = html_cdt_string (format_spec->translated_converted, self,
                                       0, 0);
                 }
-              else if (cctx == HCC_type_normal)
-                {
-                  ELEMENT *translated_tree = 0;
-                  if (format_spec->translated_to_convert)
-                    {/* it is very unlikely to have small strings to add,
-                        but in case there are it should be ok */
-                      translated_tree =
-                        html_cdt_tree (format_spec->translated_to_convert,
-                                       self, 0, 0);
-                    }
-                  else
-                    translated_tree
-                        = converter_translated_command_tree (self, cmd,
-                                                             &html_cdt_tree);
-
-                  if (translated_tree)
-                    {
-                      add_cmd = 1;
-                      if (format_spec->translated_tree)
-                        destroy_element_and_children (
-                                                 format_spec->translated_tree);
-
-                      format_spec->translated_tree = translated_tree;
-                    }
-                }
             }
+
           if (add_cmd)
             {
               translated_cmds->list[translated_cmds->number] = cmd;
               translated_cmds->number++;
             }
         }
-
 
       for (j = 0; j < translated_cmds->number; j++)
         {

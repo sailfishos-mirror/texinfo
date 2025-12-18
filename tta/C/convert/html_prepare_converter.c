@@ -2841,8 +2841,6 @@ copy_html_no_arg_command_conversion (HTML_NO_ARG_COMMAND_CONVERSION *to,
     to->text = strdup (from->text);
   if (from->translated_converted)
     to->translated_converted = strdup (from->translated_converted);
-  if (from->translated_to_convert)
-    to->translated_to_convert = strdup (from->translated_to_convert);
 }
 
 char ***
@@ -3065,12 +3063,25 @@ html_initialize_output_state (CONVERTER *self, const char *context)
     {
       enum command_id cmd = no_arg_formatted_cmd.list[j];
       enum conversion_context cctx;
+      HTML_NO_ARG_COMMAND_CUSTOMIZATION *customized_no_arg_cmd_formatting
+        = &self->customized_no_arg_commands_formatting[cmd];
+      HTML_NO_ARG_COMMAND_FORMATTING *result_formatting
+        = &self->html_no_arg_command_conversion[cmd];
+
+      if (customized_no_arg_cmd_formatting->translated_to_convert)
+        result_formatting->translated_to_convert
+          = strdup (
+            customized_no_arg_cmd_formatting->translated_to_convert);
+      else
+        result_formatting->translated_to_convert = 0;
+
       for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
         {
           HTML_NO_ARG_COMMAND_CONVERSION *customized_no_arg_cmd
-            = self->customized_no_arg_commands_formatting[cmd][cctx];
+            = customized_no_arg_cmd_formatting->context_formatting[cctx];
           HTML_NO_ARG_COMMAND_CONVERSION *result
-            = &self->html_no_arg_command_conversion[cmd][cctx];
+            = &result_formatting->context_formatting[cctx];
+
           if (customized_no_arg_cmd)
             {
               copy_html_no_arg_command_conversion (result,

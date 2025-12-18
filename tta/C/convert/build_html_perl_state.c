@@ -196,49 +196,54 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
           enum command_id cmd
             = converter->no_arg_formatted_cmd_translated.list[j];
           const char *cmdname = builtin_command_data[cmd].cmdname;
+          HTML_NO_ARG_COMMAND_FORMATTING *no_arg_cmd_formatting
+            = &converter->html_no_arg_command_conversion[cmd];
           SV **no_arg_command_sv
              = hv_fetch (no_arg_commands_formatting_hv,
                          cmdname, strlen (cmdname), 0);
           HV *no_arg_command_hv = (HV *) SvRV (*no_arg_command_sv);
+
           for (k = 0; k < NO_ARG_COMMAND_CONTEXT_NR; k++)
             {
               HTML_NO_ARG_COMMAND_CONVERSION *no_arg_cmd_context
-                  = &converter->html_no_arg_command_conversion[cmd][k];
+                  = &no_arg_cmd_formatting->context_formatting[k];
 
               const char *context_name = html_conversion_context_type_names[k];
               SV **context_sv = hv_fetch (no_arg_command_hv,
                                  context_name, strlen (context_name), 0);
               HV *context_hv = (HV *) SvRV (*context_sv);
 
- #define REPLACE_STR(key) \
-              if (no_arg_cmd_context->key) \
+ #define REPLACE_STR(key,variable_hv,variable) \
+              if (variable->key) \
                 {               \
-                  hv_store (context_hv, #key, strlen (#key), \
-                            newSVpv_utf8 (no_arg_cmd_context->key, 0), 0); \
+                  hv_store (variable_hv, #key, strlen (#key), \
+                            newSVpv_utf8 (variable->key, 0), 0); \
                 }   \
-              else if (hv_exists (context_hv, #key, strlen (#key))) \
-                hv_delete (context_hv, #key, strlen (#key), G_DISCARD);
+              else if (hv_exists (variable_hv, #key, strlen (#key))) \
+                hv_delete (variable_hv, #key, strlen (#key), G_DISCARD);
 
-              REPLACE_STR(text)
-              REPLACE_STR(translated_converted)
-              REPLACE_STR(translated_to_convert)
- #undef REPLACE_STR
-
-              if (no_arg_cmd_context->translated_tree)
-                {
-                  ELEMENT *translated_tree
-                    = no_arg_cmd_context->translated_tree;
-                  if (!translated_tree->sv)
-                    element_to_perl_hash (translated_tree, 1);
-                  hv_store (context_hv, "translated_tree",
-                            strlen ("translated_tree"),
-                            newSVsv ((SV *) translated_tree->sv), 0);
-                }
-              else if (hv_exists (context_hv, "translated_tree",
-                                  strlen ("translated_tree")))
-                hv_delete (context_hv, "translated_tree",
-                           strlen ("translated_tree"), G_DISCARD);
+              REPLACE_STR(text, context_hv, no_arg_cmd_context)
+              REPLACE_STR(translated_converted, context_hv, no_arg_cmd_context)
             }
+
+          REPLACE_STR(translated_to_convert, no_arg_command_hv,
+                      no_arg_cmd_formatting)
+
+ #undef REPLACE_STR
+          if (no_arg_cmd_formatting->translated_tree)
+            {
+              ELEMENT *translated_tree
+               = no_arg_cmd_formatting->translated_tree;
+              if (!translated_tree->sv)
+                element_to_perl_hash (translated_tree, 1);
+              hv_store (no_arg_command_hv, "translated_tree",
+                        strlen ("translated_tree"),
+                        newSVsv ((SV *) translated_tree->sv), 0);
+            }
+          else if (hv_exists (no_arg_command_hv, "translated_tree",
+                              strlen ("translated_tree")))
+            hv_delete (no_arg_command_hv, "translated_tree",
+                       strlen ("translated_tree"), G_DISCARD);
         }
 
       memset (converter->no_arg_formatted_cmd_translated.list, 0,

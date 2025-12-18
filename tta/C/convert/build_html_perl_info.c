@@ -128,15 +128,24 @@ build_no_arg_commands_formatting (const CONVERTER *converter)
       enum command_id cmd = no_arg_formatted_cmd.list[i];
       enum conversion_context cctx;
       const char *command_name = builtin_command_name (cmd);
+      const HTML_NO_ARG_COMMAND_FORMATTING *no_arg_formatting
+        = &converter->html_no_arg_command_conversion[cmd];
 
       HV *context_hv = newHV ();
       hv_store (no_arg_commands_formatting_hv, command_name,
                 strlen (command_name), newRV_noinc ((SV *) context_hv), 0);
 
+      if (no_arg_formatting->translated_to_convert)
+        {
+          hv_store (context_hv, "translated_to_convert",
+                    strlen ("translated_to_convert"),
+              newSVpv_utf8 (no_arg_formatting->translated_to_convert, 0), 0);
+        }
+
       for (cctx = 0; cctx < NO_ARG_COMMAND_CONTEXT_NR; cctx++)
         {
           const HTML_NO_ARG_COMMAND_CONVERSION *no_arg_format
-            = &converter->html_no_arg_command_conversion[cmd][cctx];
+            = &no_arg_formatting->context_formatting[cctx];
           const char *context_name = html_conversion_context_type_names[cctx];
 
           HV *spec_hv = newHV ();
@@ -156,8 +165,6 @@ build_no_arg_commands_formatting (const CONVERTER *converter)
 
           STORE_FIELD(text)
           STORE_FIELD(translated_converted)
-          STORE_FIELD(translated_to_convert)
-
 #undef STORE_FIELD
 #undef STORE
         }

@@ -692,8 +692,20 @@ html_converter_get_customization_sv (SV *converter_sv,
                         }
                       if (context_idx < 0)
                         {
-                          fprintf (stderr,
-                              "ERROR: %s: %s: unknown no arg context\n",
+                          if (!strcmp (context_name, "translated_to_convert"))
+                            {
+                              if (SvOK (format_spec_sv))
+                                {
+                                  const char *tmp_spec
+                                    = (char *) SvPVutf8_nolen (format_spec_sv);
+                                  converter->customized_no_arg_commands_formatting[cmd]
+                                   .translated_to_convert
+                                    = non_perl_strdup (tmp_spec);
+                                }
+                            }
+                          else
+                             fprintf (stderr,
+                               "ERROR: %s: %s: unknown no arg context\n",
                                          cmdname, context_name);
                           break;
                         }
@@ -710,8 +722,8 @@ html_converter_get_customization_sv (SV *converter_sv,
                               sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
                           memset (format_spec, 0,
                                   sizeof (HTML_NO_ARG_COMMAND_CONVERSION));
-                          converter->customized_no_arg_commands_formatting
-                                              [cmd][context_idx] = format_spec;
+                          converter->customized_no_arg_commands_formatting[cmd]
+                                .context_formatting[context_idx] = format_spec;
 
                           spec_number = hv_iterinit (format_spec_hv);
                           for (s = 0; s < spec_number; s++)
@@ -741,13 +753,6 @@ html_converter_get_customization_sv (SV *converter_sv,
                                   const char *tmp_spec
                                     = (char *) SvPVutf8_nolen (spec_sv);
                                   format_spec->translated_converted
-                                    = non_perl_strdup (tmp_spec);
-                                }
-                              else if (!strcmp (key, "translated_to_convert"))
-                                {
-                                  const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->translated_to_convert
                                     = non_perl_strdup (tmp_spec);
                                 }
                             }
@@ -1362,135 +1367,6 @@ html_converter_get_customization_sv (SV *converter_sv,
             }
         }
     }
-}
-
-/* not used, the initialization is done in C, with customization taken
-   from Perl when initializing the converter */
-/* To get converter->html_no_arg_command_conversion for no brace at commands
-   from $self->{'no_arg_commands_formatting'} (with customization applied) */
-void
-html_get_no_arg_commands_formatting_sv (SV *converter_sv, CONVERTER *converter)
-{
-  HV *converter_hv;
-  SV **no_arg_commands_formatting_sv;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-
-  FETCH(no_arg_commands_formatting)
-
-  if (no_arg_commands_formatting_sv)
-    {
-      I32 hv_number;
-      I32 i;
-
-      HV *no_arg_commands_formatting_hv
-        = (HV *)SvRV (*no_arg_commands_formatting_sv);
-
-      hv_number = hv_iterinit (no_arg_commands_formatting_hv);
-
-      for (i = 0; i < hv_number; i++)
-        {
-          char *cmdname;
-          I32 retlen;
-          SV *context_sv = hv_iternextsv (no_arg_commands_formatting_hv,
-                                          &cmdname, &retlen);
-          if (SvOK (context_sv))
-            {
-              HV *context_hv = (HV *)SvRV (context_sv);
-              enum command_id cmd = lookup_builtin_command (cmdname);
-
-              if (!cmd)
-                fprintf (stderr, "ERROR: %s: no no arg command\n", cmdname);
-              else
-                {
-                  I32 context_nr;
-                  I32 j;
-
-                  context_nr = hv_iterinit (context_hv);
-                  for (j = 0; j < context_nr; j++)
-                    {
-                      char *context_name;
-                      I32 retlen;
-                      enum conversion_context k;
-                      int context_idx = -1;
-                      SV *format_spec_sv = hv_iternextsv (context_hv,
-                                                 &context_name, &retlen);
-                      for (k = 0; k < NO_ARG_COMMAND_CONTEXT_NR; k++)
-                        {
-                          if (!strcmp (context_name,
-                                html_conversion_context_type_names[k]))
-                            {
-                              context_idx = k;
-                              break;
-                            }
-                        }
-                      if (context_idx < 0)
-                        {
-                          fprintf (stderr,
-                              "ERROR: %s: %s: unknown no arg context\n",
-                                         cmdname, context_name);
-                          break;
-                        }
-                      if (SvOK (format_spec_sv))
-                        {
-                          I32 spec_number;
-                          I32 s;
-                          HTML_NO_ARG_COMMAND_CONVERSION *format_spec;
-
-                          HV *format_spec_hv = (HV *)SvRV (format_spec_sv);
-
-                          format_spec
-                            = &converter
-                           ->html_no_arg_command_conversion[cmd][context_idx];
-
-                          spec_number = hv_iterinit (format_spec_hv);
-                          for (s = 0; s < spec_number; s++)
-                            {
-                              char *key;
-                              I32 retlen;
-                              SV *spec_sv = hv_iternextsv (format_spec_hv,
-                                                           &key, &retlen);
-                              if (!strcmp (key, "element"))
-                                {
-                                  const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->element
-                                    = non_perl_strdup (tmp_spec);
-                                }
-                              else if (!strcmp (key, "unset"))
-                                format_spec->unset = SvIV (spec_sv);
-                              else if (!strcmp (key, "text"))
-                                {
-                                  const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->text
-                                    = non_perl_strdup (tmp_spec);
-                                }
-                              else if (!strcmp (key, "translated_converted"))
-                                {
-                                  const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->translated_converted
-                                    = non_perl_strdup (tmp_spec);
-                                }
-                              else if (!strcmp (key, "translated_to_convert"))
-                                {
-                                  const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
-                                  format_spec->translated_to_convert
-                                    = non_perl_strdup (tmp_spec);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-  else
-    fprintf (stderr, "BUG: NO no_arg_commands_formatting\n");
 }
 
 /* not used, the initialization is done in C, with customization taken
