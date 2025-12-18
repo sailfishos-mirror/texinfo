@@ -59,6 +59,7 @@ $result_converted{'latex'}->{'indent_with_command_after_without_space'} = '\\doc
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newtitlemark{\\Texinfothechapterheading}%
 \\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newtitlemark{\\Texinfoheadingchaptername}%
 \\newcommand{\\Texinfosettitle}{No Title}%

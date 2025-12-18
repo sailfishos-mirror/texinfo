@@ -220,6 +220,7 @@ $result_converted{'latex'}->{'nodedescription'} = '\\documentclass{book}
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newtitlemark{\\Texinfothechapterheading}%
 \\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newtitlemark{\\Texinfoheadingchaptername}%
 \\newcommand{\\Texinfosettitle}{No Title}%

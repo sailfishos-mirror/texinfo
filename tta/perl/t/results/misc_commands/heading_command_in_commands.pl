@@ -153,6 +153,7 @@ $result_converted{'latex'}->{'heading_command_in_commands'} = '\\documentclass{b
 
 \\makeatletter
 \\newcommand{\\Texinfothechapterheading}{}
+\\newtitlemark{\\Texinfothechapterheading}%
 \\newcommand{\\Texinfoheadingchaptername}{\\chaptername}
 \\newtitlemark{\\Texinfoheadingchaptername}%
 \\newcommand{\\Texinfosettitle}{No Title}%

@@ -14,10 +14,12 @@
 
 \makeatletter
 \newcommand{\Texinfothechapterheading}{}
+\newtitlemark{\Texinfothechapterheading}%
 \newcommand{\Texinfoheadingchaptername}{\chaptername}
 \newtitlemark{\Texinfoheadingchaptername}%
 \newcommand{\Texinfosettitle}{No Title}%
 \newcommand{\Texinfotheinclude}{}%
+\newtitlemark{\Texinfotheinclude}%
 
 \newcommand{\Texinfounnumberedchapter}[1]{\chapter*{#1}
 \addcontentsline{toc}{chapter}{\protect\textbf{#1}}%

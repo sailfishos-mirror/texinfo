@@ -1443,6 +1443,7 @@ sub _latex_header($) {
   # and the chapter number if in a @chapter or @appendix, but set to
   # empty by @unnumbered.
   $header_code .= "\\newcommand{\\Texinfothechapterheading}{}\n";
+  $header_code .= "\\newtitlemark{\\Texinfothechapterheading}%\n";
 
   # this command is redefined when reaching appendices
   $header_code .= "\\newcommand{\\Texinfoheadingchaptername}{\\chaptername}\n";
@@ -1452,6 +1453,7 @@ sub _latex_header($) {
   $header_code .= "\\newcommand{\\Texinfosettitle}{$settitle}%\n";
   if (exists($self->{'collected_includes'})) {
     $header_code .= "\\newcommand{\\Texinfotheinclude}{}%\n";
+  $header_code .= "\\newtitlemark{\\Texinfotheinclude}%\n";
   }
   $header_code .= "\n";
 
