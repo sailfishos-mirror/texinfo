@@ -1,5 +1,12 @@
 2025-12-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Tests.pm (find_dirs_t2a)
+	(configure_document_locales),
+	tta/perl/t/z_misc/same_parser_multiple_files.t: add, based on
+	t/z_misc/same_parser_multiple_files.t code.
+
+2025-12-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Tests.pm: change call formatting, use ignore when
 	the value is not needed.
 

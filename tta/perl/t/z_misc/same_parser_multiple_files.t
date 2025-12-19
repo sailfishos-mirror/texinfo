@@ -15,8 +15,11 @@ use File::Spec;
 # for fileparse
 use File::Basename;
 
-use Texinfo::Tests qw(compare_dirs_files unlink_dir_files
-  prepare_format_directories);
+use Texinfo::Tests qw(
+  compare_dirs_files configure_document_locales
+  find_dirs_t2a prepare_format_directories
+  unlink_dir_files);
+
 
 use Texinfo::Parser;      
 #use Texinfo::Convert::Plaintext;
@@ -94,45 +97,11 @@ my $updir = File::Spec->updir();
 my $debug = 0;
 #my $debug = 1;
 
-# Find $t2a_srcdir for input files and $srcdir for test results
-my $t2a_srcdir = $Texinfo::ModulePath::t2a_srcdir;
-my $srcdir = $ENV{'srcdir'};
+my ($t2a_srcdir, $t2a_builddir, $srcdir)
+       = find_dirs_t2a($Texinfo::ModulePath::t2a_srcdir,
+                       $Texinfo::ModulePath::t2a_builddir);
 
-if (!defined($srcdir) and defined($t2a_srcdir)) {
-  $srcdir = join('/', ($t2a_srcdir, 'perl'));
-} elsif (defined($srcdir) and !defined($t2a_srcdir)) {
-  $t2a_srcdir = join('/', ($srcdir, $updir));
-}
-
-$srcdir = '.' if (!defined($srcdir) or $srcdir eq '');
-if (!defined($t2a_srcdir)) {
-  $t2a_srcdir = '..';
-}
-
-
-# Find locales in builddir
-my $t2a_builddir = $Texinfo::ModulePath::t2a_builddir;
-
-if (!defined($t2a_builddir)) {
-  $t2a_builddir = $updir;
-}
-
-# NOTE if the LocaleData directory is not found, the test could still succeed
-# if the translations for the strings textdomain are found elsewhere in the
-# system.  If the translations found elsewhere are too old, some tests could
-# still fail.
-my $locales_dir;
-foreach my $dir ('LocaleData', join('/', ($t2a_builddir, 'LocaleData'))) {
-  if (-d $dir) {
-    $locales_dir = $dir;
-  }
-}
-
-if (! defined($locales_dir)) {
-  warn "No locales directory found, some tests could fail\n";
-}
-
-Texinfo::Translations::configure($locales_dir);
+configure_document_locales($t2a_builddir);
 
 my $test_group = 'same_parser_multiple_files';
 
