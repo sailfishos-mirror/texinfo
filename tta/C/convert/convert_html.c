@@ -2369,6 +2369,8 @@ html_conversion_finalization (CONVERTER *self)
       free (self->html_files_information.list[i].info);
     }
   free (self->html_files_information.list);
+  self->html_files_information.list = 0;
+  self->html_files_information.number = 0;
 
   /* should not be possible with default code, as
      close_registered_sections_level(..., 0)
