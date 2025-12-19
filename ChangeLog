@@ -1,5 +1,10 @@
 2025-12-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Tests.pm: change call formatting, use ignore when
+	the value is not needed.
+
+2025-12-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_conversion_finalization): set
 	html_files_information to zero after free'ing.
 

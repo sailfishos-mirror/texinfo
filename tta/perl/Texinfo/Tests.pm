@@ -35,11 +35,8 @@ prepare_format_directories
 # not that subdirectories are not compared, so subdirectories generated
 # by INFO_JS_DIR, if different, will not trigger an error in test, but
 # will lead to different directories and files in diffs.
-sub compare_dirs_files($$;$)
-{
-  my $dir1 = shift;
-  my $dir2 = shift;
-  my $ignore_files = shift;
+sub compare_dirs_files($$;$) {
+  my ($dir1, $dir2, $ignore_files) = @_;
 
   my %dir1_files;
   my %dir2_files;
@@ -52,7 +49,7 @@ sub compare_dirs_files($$;$)
     my @files = readdir (DIR1);
     foreach my $file (@files) {
       next if (! -r "$dir1/$file" or ! -f "$dir1/$file"
-               or $ignored_files_hash{$file});
+               or exists($ignored_files_hash{$file}));
       $dir1_files{$file} = 1;
     }
     closedir (DIR1);
@@ -63,7 +60,7 @@ sub compare_dirs_files($$;$)
     my @files = readdir (DIR2);
     foreach my $file (@files) {
       next if (! -r "$dir2/$file" or ! -f "$dir2/$file"
-               or $ignored_files_hash{$file});
+               or exists($ignored_files_hash{$file}));
       $dir2_files{$file} = 1;
     }
     closedir (DIR2);
@@ -74,7 +71,7 @@ sub compare_dirs_files($$;$)
     return \@errors;
   }
   foreach my $file (sort(keys(%dir1_files))) {
-    if ($dir2_files{$file}) {
+    if (exists($dir2_files{$file})) {
       my $status = compare("$dir1/$file", "$dir2/$file");
       if ($status) {
         push @errors, "$dir1/$file and $dir2/$file differ: $status";
@@ -101,10 +98,9 @@ sub compare_dirs_files($$;$)
 #  }
 #}
 
-sub unlink_dir_files($;$)
-{
-  my $dir = shift;
-  my $ignore_files = shift;
+sub unlink_dir_files($;$) {
+  my ($dir, $ignore_files) = @_;
+
   my %ignored_files_hash;
   foreach my $ignored_file (@$ignore_files) {
     $ignored_files_hash{$ignored_file} = 1;
@@ -113,7 +109,7 @@ sub unlink_dir_files($;$)
     my @files = readdir (DIR);
     foreach my $file (@files) {
       next if (! -f "$dir/$file"
-               or $ignored_files_hash{$file});
+               or exists($ignored_files_hash{$file}));
       unlink "$dir/$file" or warn "Could not unlink $dir/$file: $!\n";
     }
     closedir (DIR);
@@ -124,10 +120,8 @@ sub unlink_dir_files($;$)
 
 my $default_result_base = 't/results/';
 
-sub create_group_directory($;$)
-{
-  my $test_group = shift;
-  my $result_base = shift;
+sub create_group_directory($;$) {
+  my ($test_group, $result_base) = @_;
 
   $result_base = $default_result_base if (!defined($result_base));
 
@@ -143,13 +137,8 @@ sub create_group_directory($;$)
   }
 }
 
-sub prepare_format_directories($$$$;$)
-{
-  my $srcdir = shift;
-  my $test_group = shift;
-  my $test_name = shift;
-  my $format_type = shift;
-  my $result_base = shift;
+sub prepare_format_directories($$$$;$) {
+  my ($srcdir, $test_group, $test_name, $format_type, $result_base) = @_;
 
   $result_base = $default_result_base if (!defined($result_base));
 
