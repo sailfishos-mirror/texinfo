@@ -62,7 +62,7 @@ $result_converted{'latex'}->{'exdent_no_line'} = '\\documentclass{book}
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
-\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
+\\renewcommand{\\Texinfothechapterheading}{}%
 \\chaptermark{#1}%
 }%
 

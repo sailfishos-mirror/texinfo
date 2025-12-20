@@ -192,7 +192,7 @@ $result_converted{'latex'}->{'float_type_with_tieaccent'} = '\\documentclass{boo
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
-\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
+\\renewcommand{\\Texinfothechapterheading}{}%
 \\chaptermark{#1}%
 }%
 

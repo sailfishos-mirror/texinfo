@@ -154,7 +154,7 @@ $result_converted{'latex'}->{'space_at_commands_end_quotation_line'} = '\\docume
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
-\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
+\\renewcommand{\\Texinfothechapterheading}{}%
 \\chaptermark{#1}%
 }%
 

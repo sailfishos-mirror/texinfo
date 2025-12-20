@@ -66,7 +66,7 @@ $result_converted{'latex'}->{'indent_with_command_after_without_space'} = '\\doc
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
-\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
+\\renewcommand{\\Texinfothechapterheading}{}%
 \\chaptermark{#1}%
 }%
 

@@ -313,7 +313,7 @@ $result_converted{'latex'}->{'empty_listoffloats_with_floats'} = '\\documentclas
 
 \\newcommand{\\Texinfounnumberedchapter}[1]{\\chapter*{#1}
 \\addcontentsline{toc}{chapter}{\\protect\\textbf{#1}}%
-\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%
+\\renewcommand{\\Texinfothechapterheading}{}%
 \\chaptermark{#1}%
 }%
 

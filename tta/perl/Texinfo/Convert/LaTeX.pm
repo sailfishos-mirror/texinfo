@@ -1469,7 +1469,7 @@ sub _latex_header($) {
          ."\\addcontentsline{toc}{${latex_command}}{\\protect\\textbf{#1}}%\n";
     if ($txi_unnumbered_latex eq 'Texinfounnumberedchapter') {
       $header_code
-     .= "\\renewcommand{\\Texinfothechapterheading}{\\Texinfoplaceholder}%\n";
+     .= "\\renewcommand{\\Texinfothechapterheading}{}%\n";
       $header_code
      .= "\\chaptermark{#1}%\n";
     } elsif ($txi_unnumbered_latex eq 'Texinfounnumberedsection') {
