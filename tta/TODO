@@ -12,6 +12,10 @@ Before next release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?
 
+Review reset converter code and modify to be able to always call it before
+conversion and before free'ing the converter, such that it is never needed
+to call it especially.  Similar to initialize_parsing in parsetexi/api.c.
+
 Initialize all the shared_conversion_state in html_initialize_output_state
 and always reset them?
 
@@ -81,6 +85,12 @@ converter_customization_options, unique_at_command_options.
 
 Delayed bugs/features
 =====================
+
+When a converter is called multiple time, the customization variables
+are not reset to their pre-conversion value when doing another conversion.
+It is not clear to what extent we want to be able to reuse converters, but it
+could be relevant to do so to avoid the converter initialization/destruction,
+which takes a small but not neglectable time.
 
 Do not add parent in tree in the first place instead of removing afterwards,
 in gdt?  Or, possibly even better mark parent as weak reference with
