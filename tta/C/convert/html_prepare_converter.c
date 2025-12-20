@@ -85,7 +85,7 @@ typedef struct COMMAND_ID_ARGS_SPECIFICATION {
     unsigned long flags[MAX_COMMAND_ARGS_NR];
 } COMMAND_ID_ARGS_SPECIFICATION;
 
-/* in main/conversion_data.c */
+/* in main/html_css_data.c */
 extern const CSS_SELECTOR_STYLE base_default_css_element_class_styles[];
 
 const char *html_global_unit_direction_names[] = {
@@ -293,7 +293,7 @@ clear_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles)
    */
 }
 
-void
+static void
 set_css_selector_style_list_size (CSS_SELECTOR_STYLE_LIST *selector_styles,
                                   size_t size)
 {
@@ -366,15 +366,16 @@ html_format_setup (void)
       enum command_id cmd = indented_format[i];
       html_commands_data[cmd].flags |= HF_indented_preformatted;
 
-      xasprintf (&css_selector, "div.%s", builtin_command_name (cmd));
-      html_css_set_selector_style (&default_css_element_class_styles,
-                                  css_selector,
-                                  "margin-left: 3.2em");
-      free (css_selector);
+      /* div.lisp is output as div.example */
+      if (cmd != CM_lisp)
+        {
+          xasprintf (&css_selector, "div.%s", builtin_command_name (cmd));
+          html_css_set_selector_style (&default_css_element_class_styles,
+                                       css_selector,
+                                       "margin-left: 3.2em");
+          free (css_selector);
+        }
     }
-  /* output as div.example instead */
-  html_css_set_selector_style (&default_css_element_class_styles,
-                               "div.lisp", 0);
 
   for (i = 0; small_block_associated_command[i][0]; i++)
     {
@@ -676,7 +677,7 @@ html_builtin_default_css_text (void)
     {
       CSS_SELECTOR_STYLE *selector_style
         = &default_css_element_class_styles.list[i];
-      if (selector_style->style && strlen (selector_style->style))
+      if (strlen (selector_style->style))
         text_printf (&css_text, "%s {%s}\n", selector_style->selector,
                                              selector_style->style);
     }
@@ -2975,7 +2976,6 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   int nr_dir_str_contexts = TDS_context_string + 1;
   enum direction_string_type DS_type;
   const char *line_break_element;
-  int css_style_idx = 0;
   int *non_default_special_unit_directions =
      determine_non_default_special_unit_directions (self);
 
@@ -3088,16 +3088,10 @@ html_initialize_output_state (CONVERTER *self, const char *context)
     {
       CSS_SELECTOR_STYLE *default_selector_style
         = &default_css_element_class_styles.list[j];
-      if (default_selector_style->style)
-        {
-          CSS_SELECTOR_STYLE *selector_style
-            = &self->css_element_class_styles.list[css_style_idx];
-          selector_style->selector = strdup (default_selector_style->selector);
-          selector_style->style = strdup (default_selector_style->style);
-          css_style_idx++;
-        }
-      else
-        self->css_element_class_styles.number--;
+      CSS_SELECTOR_STYLE *selector_style
+        = &self->css_element_class_styles.list[j];
+      selector_style->selector = strdup (default_selector_style->selector);
+      selector_style->style = strdup (default_selector_style->style);
     }
 
   for (j = 0; j < no_arg_formatted_cmd.number; j++)

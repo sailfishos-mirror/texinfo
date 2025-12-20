@@ -19,9 +19,6 @@ extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 
 void clear_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles);
-void set_css_selector_style_list_size
-                   (CSS_SELECTOR_STYLE_LIST *selector_styles,
-                                         size_t size);
 /* void html_format_setup (void); */
 /* char *html_builtin_default_css_text (void); */
 

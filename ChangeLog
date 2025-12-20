@@ -1,5 +1,38 @@
 2025-12-20 Patrice Dumas  <pertusus@free.fr>
 
+	Never store CSS selector style with undefined style
+
+	* tta/C/convert/html_conversion_state.c (compare_selector_style):
+	sort NULL selector last, such that it is easy to "remove" the selector
+	style by decreasing the number of elements in list after it has been
+	put last.
+
+	* tta/C/convert/html_conversion_state.c (html_css_set_selector_style):
+	if the selector was found but the style is NULL, remove the selector
+	style.  Do not add a selector with a NULL style.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_initialize_output_state): adapt to selector style never being
+	NULL anymore.
+
+	* tta/C/convert/html_prepare_converter.c
+	(set_css_selector_style_list_size): make static.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_collect_css_element_class)
+	(html_attribute_class, css_set_selector_style, css_get_info): never
+	add a selector style with an undef style.  Remove the selector if
+	css_set_selector_style is called with an undef style.
+
+	* tta/C/convert/html_prepare_converter.c (html_format_setup),
+	tta/perl/Texinfo/Convert/HTML.pm: do not add div.lisp selector in the
+	first place instead of adding and then removing it.
+
+	* tta/C/convert/html_conversion_state.c (html_css_get_info): always
+	clear css_element_class_list and reset the values to avoid returning
+	stale information if some selectors have been removed or added.
+
+2025-12-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_conversion_state.c (html_css_set_selector_style):
 	minor change to set to 0 only if needed.
 

@@ -441,7 +441,7 @@ sub _collect_css_element_class($$) {
   #  cluck "BUG: $element_class: CSS no current file";
   #}
 
-  if (defined($self->{'css_element_class_styles'}->{$element_class})) {
+  if (exists($self->{'css_element_class_styles'}->{$element_class})) {
     if ($self->{'document_global_context'}) {
       $self->{'document_global_context_css'}->{$element_class} = 1;
     } elsif (defined($self->{'current_filename'})) {
@@ -474,9 +474,9 @@ sub html_attribute_class($$;$) {
     my @styles = ();
     foreach my $style_class (@$classes) {
       if (not defined($style_class)) {
-        confess ("class not defined (for $element)");
+        confess("class not defined (for $element)");
       }
-      if (defined($self->{'css_element_class_styles'}
+      if (exists($self->{'css_element_class_styles'}
                                    ->{"$element.$style_class"})) {
         push @styles,
           $self->{'css_element_class_styles'}->{"$element.$style_class"};
@@ -608,7 +608,11 @@ sub css_add_info($$$) {
 sub css_set_selector_style($$$) {
   my ($self, $css_info, $css_style) = @_;
 
-  $self->{'css_element_class_styles'}->{$css_info} = $css_style;
+  if (!defined($css_style)) {
+    delete($self->{'css_element_class_styles'}->{$css_info});
+  } else {
+    $self->{'css_element_class_styles'}->{$css_info} = $css_style;
+  }
 }
 
 sub css_get_info($$) {
@@ -637,7 +641,7 @@ sub css_get_info($$) {
 sub css_get_selector_style($$) {
   my ($self, $css_info) = @_;
 
-  if (defined($self->{'css_element_class_styles'}->{$css_info})) {
+  if (exists($self->{'css_element_class_styles'}->{$css_info})) {
     return $self->{'css_element_class_styles'}->{$css_info};
   } else {
     return undef;
@@ -2891,11 +2895,12 @@ foreach my $indented_format ('example', 'display', 'lisp') {
   $indented_preformatted_commands{$indented_format} = 1;
   $indented_preformatted_commands{"small$indented_format"} = 1;
 
-  $default_css_element_class_styles{"div.$indented_format"}
-    = 'margin-left: 3.2em';
+  # div.lisp is output as div.example
+  if ($indented_format ne 'lisp') {
+    $default_css_element_class_styles{"div.$indented_format"}
+      = 'margin-left: 3.2em';
+  }
 }
-# output as div.example instead
-delete $default_css_element_class_styles{"div.lisp"};
 
 # types that are in code style in the default case.  '_code' is not
 # a type that can appear in the tree built from Texinfo code, it is used
