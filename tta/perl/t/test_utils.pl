@@ -344,6 +344,22 @@ sub close_files($)
   }
 }
 
+sub _convert($$$) {
+  my ($converter, $document, $do_convert) = @_;
+
+  my $result;
+
+  if ($do_convert) {
+    $result = $converter->convert($document);
+  } else {
+    $result = $converter->output($document);
+    close_files($converter);
+    $result = undef if (defined($result) and ($result eq ''));
+  }
+
+  return $result;
+}
+
 sub convert_to_plaintext($$$$$)
 {
   my $self = shift;
@@ -370,16 +386,9 @@ sub convert_to_plaintext($$$$$)
 
   my $converter = Texinfo::Convert::Plaintext->converter($converter_options);
 
-  my $result;
-  if (defined($converter_options->{'OUTFILE'})
-      and $converter_options->{'OUTFILE'} eq '') {
-    $result = $converter->convert($document);
-  } else {
-    $result = $converter->output($document);
-    close_files($converter);
-    $result = undef if (defined($result) and ($result eq ''));
-  }
-
+  my $result = _convert($converter, $document,
+                                   (defined($converter_options->{'OUTFILE'})
+                                    and $converter_options->{'OUTFILE'} eq ''));
   return ($result, $converter);
 }
 
@@ -396,8 +405,9 @@ sub convert_to_info($$$$$)
                                     $self->{'DEBUG'});
 
   my $converter = Texinfo::Convert::Info->converter($converter_options);
-  my $result = $converter->output($document);
-  close_files($converter);
+
+  my $result = _convert($converter, $document, 0);
+
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
 
   return ($result, $converter);
@@ -423,13 +433,7 @@ sub convert_to_html($$$$$)
 
   my $converter = Texinfo::Convert::HTML->converter($converter_options);
 
-  my $result;
-  if ($format eq 'html_text') {
-    $result = $converter->convert($document);
-  } else {
-    $result = $converter->output($document);
-    close_files($converter);
-  }
+  my $result = _convert($converter, $document, $format eq 'html_text');
 
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
 
@@ -450,16 +454,9 @@ sub convert_to_xml($$$$$)
 
   my $converter = Texinfo::Convert::TexinfoXML->converter($converter_options);
 
-  my $result;
-  if (defined($converter_options->{'OUTFILE'})
-      and $converter_options->{'OUTFILE'} eq '') {
-    $result = $converter->convert($document);
-  } else {
-    $result = $converter->output($document);
-    close_files($converter);
-    $result = undef if (defined($result) and ($result eq ''));
-  }
-
+  my $result = _convert($converter, $document,
+                                   (defined($converter_options->{'OUTFILE'})
+                                    and $converter_options->{'OUTFILE'} eq ''));
   return ($result, $converter);
 }
 
@@ -491,17 +488,10 @@ sub convert_to_docbook($$$$$)
   #my $converter = Texinfo::Example::ReadDocBook->converter($converter_options);
   my $converter = Texinfo::Convert::DocBook->converter($converter_options);
 
-  my $result;
-  if (defined($converter_options->{'OUTFILE'})
-      and $converter_options->{'OUTFILE'} eq ''
-      and $format ne 'docbook_doc') {
-    $result = $converter->convert($document);
-  } else {
-    $result = $converter->output($document);
-    close_files($converter);
-    $result = undef if (defined($result) and ($result eq ''));
-  }
-
+  my $result = _convert($converter, $document,
+                                    (defined($converter_options->{'OUTFILE'})
+                                     and $converter_options->{'OUTFILE'} eq ''
+                                     and $format ne 'docbook_doc'));
   return ($result, $converter);
 }
 
@@ -519,14 +509,7 @@ sub convert_to_latex($$$$$)
 
   my $converter = Texinfo::Convert::LaTeX->converter($converter_options);
 
-  my $result;
-  if ($format eq 'latex_text') {
-    $result = $converter->convert($document);
-  } else {
-    $result = $converter->output($document);
-    close_files($converter);
-    $result = undef if (defined($result) and ($result eq ''));
-  }
+  my $result = _convert($converter, $document, $format eq 'latex_text');
 
   return ($result, $converter);
 }
