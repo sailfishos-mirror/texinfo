@@ -80,6 +80,8 @@ void html_setup_output_simple_page (CONVERTER *self,
 
 void html_free_direction_icons_array (CONVERTER *self, char ***direction_icons);
 
+void html_free_pending_closes (CONVERTER *self);
+
 /* next three called separately for convert() */
 /* void html_prepare_direction_icons (CONVERTER *self); */
 /* void html_prepare_simpletitle (CONVERTER *self); */

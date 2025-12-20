@@ -552,6 +552,10 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
 
   set_output_encoding (converter->conf, converter->document);
 
+  if (converter->convert_text_options)
+    /* should only happen if a converter is reused */
+    destroy_text_options (converter->convert_text_options);
+
   converter->convert_text_options
     = copy_converter_options_for_convert_text (converter);
 }

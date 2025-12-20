@@ -474,6 +474,9 @@ html_convert_string_tree_new_formatting_context (CONVERTER *self,
 
 /* reset translated data and translate no args commands */
 
+/* TODO maybe also add a version which gets type_directions_strings
+   and nr_string_directions and nr_dir_str_contexts as argument
+   but not self */
 void
 html_clear_direction_string_type (const CONVERTER *self,
                                   char ***type_directions_strings)
@@ -966,6 +969,22 @@ html_prepare_direction_icons (CONVERTER *self)
     }
 }
 
+/* The string stacks per file should already be empty, either because
+   the code is consistent for opening and closing, or because they are
+   emptied after the conversion (with an error message) */
+void
+html_free_pending_closes (CONVERTER *self)
+{
+  size_t j;
+
+  for (j = 0; j < self->pending_closes.number; j++)
+    {
+      STRING_STACK *file_pending_closes = &self->pending_closes.list[j];
+      free (file_pending_closes->stack);
+    }
+  free (self->pending_closes.list);
+}
+
 /* setup a page (+global context) in case there are no files, ie called
    with convert or output with an empty string as filename. */
 void
@@ -985,6 +1004,9 @@ html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
           * sizeof (FILE_ASSOCIATED_INFO));
   memset (self->html_files_information.list, 0,
           self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
+
+  /* only useful if a converter is reused */
+  html_free_pending_closes (self);
 
   self->pending_closes.number = 1+1;
   self->pending_closes.list = (STRING_STACK *)
@@ -1231,6 +1253,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
           || strcmp (default_document_language, preamble_document_language)))
     html_translate_names (self);
 
+  /* reset in case the user changed customization variables in handlers */
   destroy_text_options (self->convert_text_options);
   self->convert_text_options
     = copy_converter_options_for_convert_text (self);

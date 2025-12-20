@@ -52,7 +52,9 @@
    new_htmlxref_manual_list htmlxref_split_type_names
    html_formatting_reference_names html_nr_string_directions */
 #include "html_prepare_converter.h"
-/* html_set_main_units_direction_names */
+/* html_set_main_units_direction_names
+   initialize_css_selector_style_list
+ */
 #include "html_conversion_api.h"
 /* html_special_unit_variety_direction_index html_get_target
    find_footnote_id_number open_quotation_titlepage_stack
@@ -1368,94 +1370,7 @@ html_converter_get_customization_sv (SV *converter_sv,
         }
     }
 }
-
-/* not used, the initialization is done in C, with customization taken
-   from Perl when initializing the converter */
-/* To get converter->directions_strings from $self->{'directions_strings'}
-   (with customization applied) */
-void
-html_get_directions_strings_sv (SV *converter_sv, CONVERTER *converter)
-{
-  HV *converter_hv;
-  SV **directions_strings_sv;
-  HV *directions_strings_hv;
-  enum direction_string_type DS_type;
-  int nr_string_directions;
-  int nr_dir_str_contexts = TDS_context_string +1;
-
-  dTHX;
-
-  converter_hv = (HV *)SvRV (converter_sv);
-  nr_string_directions = html_nr_string_directions (converter);
-
-  FETCH(directions_strings)
-
-  if (directions_strings_sv)
-    directions_strings_hv = (HV *) SvRV (*directions_strings_sv);
-
-  for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
-    {
-      int i;
-      SV **direction_sv = 0;
-      HV *direction_hv = 0;
-      const char *type_name = direction_string_type_names[DS_type];
-
-      converter->directions_strings[DS_type]
-        = new_directions_strings_type (nr_string_directions,
-                                       nr_dir_str_contexts);
-
-      if (directions_strings_sv)
-        {
-          direction_sv = hv_fetch (directions_strings_hv, type_name,
-                                   strlen (type_name), 0);
-          if (direction_sv)
-            direction_hv = (HV *) SvRV (*direction_sv);
-        }
-
-      for (i = 0; i < nr_string_directions; i++)
-        {
-          if (direction_sv)
-            {
-              const char *direction_name;
-              SV **context_sv;
-
-              if (i < FIRSTINFILE_MIN_IDX)
-                direction_name = html_button_direction_names[i];
-              else
-                direction_name
-                  = converter->special_unit_info[SUI_type_direction]
-                                   [i - FIRSTINFILE_MIN_IDX];
-
-              context_sv = hv_fetch (direction_hv, direction_name,
-                                          strlen (direction_name), 0);
-
-              if (context_sv)
-                {
-                  int j;
-                  HV *context_hv = (HV *) SvRV (*context_sv);
-
-                  for (j = 0; j < nr_dir_str_contexts; j++)
-                    {
-                      const char *context_name
-                        = direction_string_context_names[j];
-
-                      SV **value_sv = hv_fetch (context_hv, context_name,
-                                                strlen (context_name), 0);
-
-                      if (value_sv && SvOK (*value_sv))
-                        {
-                           const char *value
-                              = (char *) SvPVutf8_nolen (*value_sv);
-                           converter->directions_strings[DS_type][i][j]
-                             = non_perl_strdup (value);
-                        }
-                    }
-                }
-            }
-        }
-    }
 #undef FETCH
-}
 
 /* get jslicenses from Perl */
 /* currently unused, as jslicenses are setup in C.  Could be called like:

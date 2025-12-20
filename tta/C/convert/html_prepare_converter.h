@@ -18,6 +18,10 @@ extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 
 
+void free_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles);
+void initialize_css_selector_style_list
+                   (CSS_SELECTOR_STYLE_LIST *selector_styles,
+                                         size_t size);
 /* void html_format_setup (void); */
 /* char *html_builtin_default_css_text (void); */
 

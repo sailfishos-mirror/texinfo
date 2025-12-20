@@ -276,6 +276,32 @@ get_special_list_mark_css_string_no_arg_command (enum command_id cmd)
   return 0;
 }
 
+void
+free_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles)
+{
+  size_t j;
+
+  for (j = 0; j < selector_styles->number; j++)
+    {
+      CSS_SELECTOR_STYLE *selector_style = &selector_styles->list[j];
+      free (selector_style->selector);
+      free (selector_style->style);
+    }
+  free (selector_styles->list);
+  selector_styles->number = 0;
+}
+
+void
+initialize_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles,
+                                    size_t size)
+{
+  free_css_selector_style_list (selector_styles);
+  selector_styles->list = (CSS_SELECTOR_STYLE *)
+        malloc (size * sizeof (CSS_SELECTOR_STYLE));
+  selector_styles->space = size;
+  selector_styles->number = size;
+}
+
 /* set information that is independent of customization, only called once */
 void
 html_format_setup (void)
@@ -662,6 +688,7 @@ html_builtin_default_css_text (void)
    defaults based on customization variables.
    Apply specific customizations (from Perl) */
 
+/* This should be constant at the end of the converter initialization */
 int
 html_nr_string_directions (const CONVERTER *self)
 {
@@ -2834,13 +2861,22 @@ static void
 copy_html_no_arg_command_conversion (HTML_NO_ARG_COMMAND_CONVERSION *to,
                                      HTML_NO_ARG_COMMAND_CONVERSION *from)
 {
+  free (to->element);
   if (from->element)
     to->element = strdup (from->element);
+  else
+    to->element = 0;
   to->unset = from->unset;
+  free (to->text);
   if (from->text)
     to->text = strdup (from->text);
+  else
+    to->text = 0;
+  free (to->translated_converted);
   if (from->translated_converted)
     to->translated_converted = strdup (from->translated_converted);
+  else
+    to->translated_converted = 0;
 }
 
 char ***
@@ -3068,6 +3104,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       HTML_NO_ARG_COMMAND_FORMATTING *result_formatting
         = &self->html_no_arg_command_conversion[cmd];
 
+      free (result_formatting->translated_to_convert);
       if (customized_no_arg_cmd_formatting->translated_to_convert)
         result_formatting->translated_to_convert
           = strdup (
@@ -3158,9 +3195,13 @@ html_initialize_output_state (CONVERTER *self, const char *context)
       const char * const*default_converted_dir_str;
       char ***customized_type_dir_strings;
 
-      self->directions_strings[DS_type]
-        = new_directions_strings_type (nr_string_directions,
-                                       nr_dir_str_contexts);
+      if (!self->directions_strings[DS_type])
+        self->directions_strings[DS_type]
+          = new_directions_strings_type (nr_string_directions,
+                                         nr_dir_str_contexts);
+      else
+        html_clear_direction_string_type (self,
+                                          self->directions_strings[DS_type]);
 
       /* those will be determined from translatable strings */
       if (DS_type < TDS_TRANSLATED_MAX_NR)
@@ -5012,7 +5053,14 @@ html_prepare_conversion_units_targets (CONVERTER *self,
                                        const char *document_name)
 {
   size_t predicted_values = ids_hashmap_predicted_values (self);
-  self->registered_ids_c_hashmap = new_c_hashmap (predicted_values);
+
+  if (self->registered_ids_c_hashmap)
+    {
+      clear_c_hashmap (self->registered_ids_c_hashmap);
+      init_c_hashmap (self->registered_ids_c_hashmap, predicted_values);
+    }
+  else
+    self->registered_ids_c_hashmap = new_c_hashmap (predicted_values);
 
   /*
    Do that before the other elements, to be sure that special page ids
@@ -5906,6 +5954,9 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
    malloc (self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
   memset (self->html_files_information.list, 0,
           self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
+
+  /* only useful if a converter is reused */
+  html_free_pending_closes (self);
 
   self->pending_closes.number = self->output_unit_files.number +1;
   self->pending_closes.list = (STRING_STACK *)

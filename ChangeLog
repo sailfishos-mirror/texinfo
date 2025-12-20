@@ -1,5 +1,46 @@
 2025-12-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_free_pending_closes)
+	(html_setup_output_simple_page),
+	tta/C/convert/html_converter_finish.c (html_free_converter),
+	tta/C/convert/html_prepare_converter.c (html_set_pages_files): add
+	html_free_pending_closes based on html_free_converter.  Call it before
+	allocating pending_closes.
+
+	* tta/C/convert/converter.c (converter_set_document): destroy text
+	options, if they are already set, before setting them.
+
+	* tta/C/convert/html_conversion_state.c,
+	tta/C/convert/html_prepare_converter.c
+	(initialize_css_selector_style_list): move
+	initialize_css_selector_style_list to html_prepare_converter.c.
+
+	* tta/C/convert/html_converter_finish.c (html_free_converter),
+	tta/C/convert/html_prepare_converter.c (free_css_selector_style_list)
+	(initialize_css_selector_style_list): add free_css_selector_style_list
+	based on html_free_converter.  Call it before allocating a
+	css_selector_style_list.
+
+	* tta/C/convert/html_converter_finish.c (reset_html_targets)
+	(html_reset_converter): set list to 0 after free'ing.
+
+	* tta/C/convert/html_prepare_converter.c
+	(copy_html_no_arg_command_conversion, html_initialize_output_state):
+	free strings before (re)setting them, and set to 0 if not set.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_initialize_output_state): call html_clear_direction_string_type
+	on directions_strings type if already set instead of reallocating.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_prepare_conversion_units_targets): clear an existing hashmap
+	if there is already one instead of creating a new one.
+
+	* tta/perl/XSTexinfo/convert/get_html_perl_info.c: remove unused
+	html_get_directions_strings_sv.
+
+2025-12-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Tests.pm (find_dirs_t2a)
 	(configure_document_locales),
 	tta/perl/t/z_misc/same_parser_multiple_files.t: add, based on

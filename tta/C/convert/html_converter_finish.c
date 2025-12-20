@@ -34,9 +34,12 @@
 /* html_reset_translated_special_unit_info_tree
    html_clear_direction_string_type
    html_free_direction_icons_array
+   html_free_pending_closes
  */
 #include "convert_html.h"
-/* html_nr_string_directions html_free_customized_global_units_directions */
+/* html_nr_string_directions html_free_customized_global_units_directions
+   free_css_selector_style_list
+ */
 #include "html_prepare_converter.h"
 #include "html_converter_api.h"
 
@@ -106,7 +109,9 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
     {
       enum command_id cmd = self->html_target_cmds.stack[i];
       reset_html_targets_list (self, &targets[cmd]);
+      /* TODO not reset, but free'ed? */
       free (targets[cmd].list);
+      targets[cmd].list = 0;
       targets[cmd].space = 0;
     }
 }
@@ -173,7 +178,9 @@ html_reset_converter (CONVERTER *self)
   for (i = 0; i < ST_footnote_location+1; i++)
     {
       reset_html_targets_list (self, &self->html_special_targets[i]);
+      /* TODO not reset, but free'ed? */
       free (self->html_special_targets[i].list);
+      self->html_special_targets[i].list = 0;
       self->html_special_targets[i].space = 0;
     }
   self->html_target_cmds.top = 0;
@@ -404,14 +411,7 @@ html_free_converter (CONVERTER *self)
         }
     }
 
-  for (j = 0; j < self->css_element_class_styles.number; j++)
-    {
-      CSS_SELECTOR_STYLE *selector_style
-        = &self->css_element_class_styles.list[j];
-      free (selector_style->selector);
-      free (selector_style->style);
-    }
-  free (self->css_element_class_styles.list);
+  free_css_selector_style_list (&self->css_element_class_styles);
 
   free_strings_list (&self->css_element_class_list);
   free_strings_list (&self->css_rule_lines);
@@ -646,12 +646,7 @@ html_free_converter (CONVERTER *self)
   free (style_formatted_cmd.list);
  */
 
-  for (j = 0; j < self->pending_closes.number; j++)
-    {
-      STRING_STACK *file_pending_closes = &self->pending_closes.list[j];
-      free (file_pending_closes->stack);
-    }
-  free (self->pending_closes.list);
+  html_free_pending_closes (self);
 
   free (self->pending_inline_content.stack);
 

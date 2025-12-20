@@ -1160,16 +1160,6 @@ html_find_direction_name_global_unit (const CONVERTER *self,
 
 
 
-void
-initialize_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles,
-                                    size_t size)
-{
-  selector_styles->list = (CSS_SELECTOR_STYLE *)
-        malloc (size * sizeof (CSS_SELECTOR_STYLE));
-  selector_styles->space = size;
-  selector_styles->number = size;
-}
-
 enum css_info_type
 html_get_css_info_spec (const char *spec)
 {
