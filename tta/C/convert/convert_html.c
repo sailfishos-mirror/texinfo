@@ -991,6 +991,7 @@ void
 html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
 {
   NAME_NUMBER *page_name_number;
+
   self->page_css.number = 1+1;
   self->page_css.space = self->page_css.number;
   self->page_css.list = (CSS_LIST *)

@@ -55,6 +55,9 @@ sub _texi2any_tests_format_translate_message($$$;$)
 texinfo_register_formatting_function('format_translate_message',
                               \&_texi2any_tests_format_translate_message);
 
+# FIXME the function is incorrect, as there is not always an explicit return
+# status.  This could be interesting for tests, however to have a
+# function that returns a correct status once and fails the second time.
 # avoid doing twice if there are more than one manual processed
 my $button_added;
 sub _texi2any_tests_translate_add_button

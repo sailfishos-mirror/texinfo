@@ -188,6 +188,7 @@ html_reset_converter (CONVERTER *self)
   reset_special_unit_info_list (&self->customized_special_unit_info);
 
   free (self->shared_conversion_state.footnote_id_numbers);
+  self->shared_conversion_state.footnote_id_numbers = 0;
 
   free (self->shared_conversion_state.formatted_listoffloats_nr);
   self->shared_conversion_state.formatted_listoffloats_nr = 0;
@@ -214,6 +215,7 @@ html_reset_converter (CONVERTER *self)
           free (self->shared_conversion_state.formatted_index_entries[i]);
         }
       free (self->shared_conversion_state.formatted_index_entries);
+      self->shared_conversion_state.formatted_index_entries = 0;
     }
 
   /* change to 0 in releases? */
@@ -313,6 +315,9 @@ html_reset_converter (CONVERTER *self)
       free (page_css_list->page_name);
     }
   free (self->page_css.list);
+  self->page_css.list = 0;
+  self->page_css.number = 0;
+  self->page_css.space = 0;
 
   /* could change to 0 in releases? */
   if (1)
@@ -333,9 +338,8 @@ html_reset_converter (CONVERTER *self)
                 }
             }
         }
+      self->tree_to_build.number = 0;
     }
-  free (self->tree_to_build.list);
-
   clear_type_explanations (type_explanations);
 }
 
@@ -665,5 +669,7 @@ html_free_converter (CONVERTER *self)
   free (type_explanations->list);
 
   free_strings_list (&self->special_unit_varieties);
+
+  free (self->tree_to_build.list);
 }
 
