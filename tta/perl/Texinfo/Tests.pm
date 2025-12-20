@@ -21,6 +21,8 @@ use 5.006;
 
 use strict;
 
+use Test::More;
+
 use File::Compare qw(compare); # standard since 5.004
 use File::Spec;
 
@@ -31,9 +33,39 @@ our @EXPORT_OK = qw(
 compare_dirs_files
 configure_document_locales
 find_dirs_t2a
+is_diff
 prepare_format_directories
 unlink_dir_files
 );
+
+#eval {
+# require Test::Differences; Test::Differences->import(('eq_or_diff_text', 'unified_diff')); unified_diff();
+#};
+
+#my $test_differences_loading_error = $@;
+
+eval { require Text::Diff; Text::Diff->import('diff'); };
+
+my $text_diff_loading_error = $@;
+
+sub is_diff($$$)
+{
+  my $result = shift;
+  my $reference = shift;
+  my $test_name = shift;
+
+  #if (!$test_differences_loading_error) {
+  #  eq_or_diff_text($result, $reference, $test_name);
+  #} elsif ($text_diff_loading_error) {
+  if ($text_diff_loading_error or !defined($reference)
+      or ref($reference) ne '' or !defined($result)) {
+    is($result, $reference, $test_name);
+  } else {
+    ok($result eq $reference, $test_name)
+       or note((diff(\$result, \$reference)));
+    #is($result, $reference, $test_name) or note(diff(\$result, \$reference));
+  }
+}
 
 sub find_dirs_t2a(;$$) {
   my ($t2a_srcdir, $t2a_builddir) = @_;

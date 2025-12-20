@@ -1,5 +1,10 @@
 2025-12-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Tests.pm (is_diff), tta/perl/t/test_utils.pl: move
+	is_diff to Tests.pm.
+
+2025-12-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_free_pending_closes)
 	(html_setup_output_simple_page),
 	tta/C/convert/html_converter_finish.c (html_free_converter),

@@ -64,11 +64,7 @@ use Locale::Messages ();
 
 #my $test_differences_loading_error = $@;
 
-eval { require Text::Diff; Text::Diff->import('diff'); };
-
-my $text_diff_loading_error = $@;
-
-use Texinfo::Tests qw(compare_dirs_files unlink_dir_files);
+use Texinfo::Tests qw(compare_dirs_files is_diff unlink_dir_files);
 
 use Texinfo::Commands;
 use Texinfo::Options;
@@ -174,25 +170,6 @@ if (defined($locale_encoding)) {
   binmode $builder->output,         ":encoding($locale_encoding)";
   binmode $builder->failure_output, ":encoding($locale_encoding)";
   binmode $builder->todo_output,    ":encoding($locale_encoding)";
-}
-
-sub is_diff($$$)
-{
-  my $result = shift;
-  my $reference = shift;
-  my $test_name = shift;
-
-  #if (!$test_differences_loading_error) {
-  #  eq_or_diff_text($result, $reference, $test_name);
-  #} elsif ($text_diff_loading_error) {
-  if ($text_diff_loading_error or !defined($reference)
-      or ref($reference) ne '' or !defined($result)) {
-    is($result, $reference, $test_name);
-  } else {
-    ok($result eq $reference, $test_name)
-       or note((diff(\$result, \$reference)));
-    #is($result, $reference, $test_name) or note(diff(\$result, \$reference));
-  }
 }
 
 # used to check that there are no file overwritten with -o
