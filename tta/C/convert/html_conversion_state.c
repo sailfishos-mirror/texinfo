@@ -1262,9 +1262,10 @@ html_css_set_selector_style (CSS_SELECTOR_STYLE_LIST *css_element_class_styles,
   if (selector_style)
     {
       free (selector_style->style);
-      selector_style->style = 0;
       if (css_style)
         selector_style->style = strdup (css_style);
+      else
+        selector_style->style = 0;
     }
   else
     {
