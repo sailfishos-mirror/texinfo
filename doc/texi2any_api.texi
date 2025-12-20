@@ -5326,8 +5326,10 @@ entry added to CSS import lines if @var{$specification} is set to
 element and class attribute selector @var{$selector}, or @code{undef} if not
 found.
 
-With @code{css_set_selector_style}, @var{$selector} is a CSS rule selector and
-the associated style rule is set to @var{$css_style}.
+With @code{css_set_selector_style}, the style rule associated to the
+@var{$selector} CSS rule selector is set to @var{$css_style}.  If
+@var{$css_style} is @code{undef}, @var{$selector} is removed from the list of
+selectors with associated style.
 @end defun
 
 
@@ -5337,8 +5339,8 @@ Some examples of use:
 my $all_included_rules = $converter->css_get_info('rules');
 foreach my $rule (@@$all_included_rules) @{...@}
 
-my $all_default_selector_styles = $converter->css_get_info('styles');
-my $titlefont_header_style = $converter->css_get_selector_style('h1.titlefont');
+my $all_default_selectors = $converter->css_get_info('styles');
+my $titlefont_style = $converter->css_get_selector_style('h1.titlefont');
 
 $converter->css_set_selector_style('h1.titlefont', 'text-align:center');
 $converter->css_add_info('imports', "\@@import \"special.css\";\n");
@@ -5347,7 +5349,7 @@ $converter->css_add_info('imports', "\@@import \"special.css\";\n");
 Note that the CSS selectors and associated style rules that can be accessed and
 modified will not necessarily end up in the HTML output. They are output
 only if the HTML element and class corresponding to a selector is seen in the
-document. @xref{Customizing the CSS Lines}.
+HTML output file. @xref{Customizing the CSS Lines}.
 
 The simplest way to modify CSS rules would be to use a function
 registered for the @samp{structure} stage:
