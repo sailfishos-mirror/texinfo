@@ -4816,6 +4816,9 @@ prepare_footnotes_targets (CONVERTER *self)
 {
   const ELEMENT_LIST *global_footnotes
     = &self->document->global_commands.footnotes;
+
+  self->shared_conversion_state.footnote_number = 0;
+
   if (global_footnotes->number > 0)
     {
       size_t i;

@@ -1,5 +1,13 @@
 2025-12-19 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_prepare_converter.c (prepare_footnotes_targets):
+	reset shared_conversion_state.footnote_number.
+
+	* tta/perl/Makefile.tres, tta/perl/t/z_misc/same_converter_init.t:
+	check calling a converter twice.
+
+2025-12-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Tests.pm (is_diff), tta/perl/t/test_utils.pl: move
 	is_diff to Tests.pm.
 

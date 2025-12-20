@@ -12,6 +12,9 @@ Before next release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?
 
+Initialize all the shared_conversion_state in html_initialize_output_state
+and always reset them?
+
 Document 'style_commands_formatting' and 'no_arg_commands_formatting' in
 texi2any_api.texi
 
