@@ -18,8 +18,8 @@ extern const char *htmlxref_split_type_names[htmlxref_split_type_chapter + 1];
 
 
 
-void free_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles);
-void initialize_css_selector_style_list
+void clear_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles);
+void set_css_selector_style_list_size
                    (CSS_SELECTOR_STYLE_LIST *selector_styles,
                                          size_t size);
 /* void html_format_setup (void); */

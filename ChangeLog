@@ -1,5 +1,26 @@
 2025-12-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_finish.c (html_free_converter),
+	tta/C/convert/html_prepare_converter.c
+	(clear_css_selector_style_list, html_initialize_output_state): replace
+	free_css_selector_style_list by clear_css_selector_style_list,
+	possibly followed by a free.
+
+	* tta/C/convert/html_prepare_converter.c
+	(set_css_selector_style_list_size, html_format_setup)
+	(html_initialize_output_state): replace
+	initialize_css_selector_style_list by
+	set_css_selector_style_list_size, which uses realloc, such as to reuse
+	the already allocated memory.
+
+	* tta/C/convert/html_prepare_converter.c (html_format_setup): rename
+	css_selector_style as display_preformatted_css_selector_style.
+
+	* tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(html_converter_get_customization_sv): remove unused code.
+
+2025-12-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_finish.c (html_reset_converter): set
 	some converter variables to NULL after freeing them, such that if
 	they are freed again without being set, for example if the setup

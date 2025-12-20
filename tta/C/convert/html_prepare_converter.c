@@ -277,7 +277,7 @@ get_special_list_mark_css_string_no_arg_command (enum command_id cmd)
 }
 
 void
-free_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles)
+clear_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles)
 {
   size_t j;
 
@@ -287,18 +287,22 @@ free_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles)
       free (selector_style->selector);
       free (selector_style->style);
     }
-  free (selector_styles->list);
+  /* The following is not needed, as next the list is freed, or
+     set_css_selector_style_list_size is called, which sets number.
   selector_styles->number = 0;
+   */
 }
 
 void
-initialize_css_selector_style_list (CSS_SELECTOR_STYLE_LIST *selector_styles,
-                                    size_t size)
+set_css_selector_style_list_size (CSS_SELECTOR_STYLE_LIST *selector_styles,
+                                  size_t size)
 {
-  free_css_selector_style_list (selector_styles);
-  selector_styles->list = (CSS_SELECTOR_STYLE *)
-        malloc (size * sizeof (CSS_SELECTOR_STYLE));
-  selector_styles->space = size;
+  if (selector_styles->space < size)
+    {
+      selector_styles->list = (CSS_SELECTOR_STYLE *)
+        realloc (selector_styles->list, size * sizeof (CSS_SELECTOR_STYLE));
+      selector_styles->space = size;
+    }
   selector_styles->number = size;
 }
 
@@ -315,17 +319,17 @@ html_format_setup (void)
   int default_commands_args_nr
     = sizeof (default_commands_args) / sizeof (default_commands_args[0]);
   int max_args = MAX_COMMAND_ARGS_NR;
-  CSS_SELECTOR_STYLE *css_selector_style;
+  CSS_SELECTOR_STYLE *display_preformatted_css_selector_style;
   TEXT css_string_text;
-
-  html_default_options_setup ();
 
   const enum command_id indented_format[] = {
     CM_example, CM_display, CM_lisp, 0
   };
 
-  initialize_css_selector_style_list (&default_css_element_class_styles,
-                                      BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR);
+  html_default_options_setup ();
+
+  set_css_selector_style_list_size (&default_css_element_class_styles,
+                                    BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR);
   for (i = 0; i < BASE_DEFAULT_CSS_ELEMENT_CLASS_STYLE_NR; i++)
     {
       CSS_SELECTOR_STYLE *selector_style
@@ -337,12 +341,12 @@ html_format_setup (void)
     }
   sort_css_element_class_styles (&default_css_element_class_styles);
 
-  css_selector_style
+  display_preformatted_css_selector_style
     = find_css_selector_style (&default_css_element_class_styles,
                                "pre.display-preformatted");
   html_css_set_selector_style (&default_css_element_class_styles,
                                "pre.format-preformatted",
-                               css_selector_style->style);
+                               display_preformatted_css_selector_style->style);
 
   for (i = 0; i < default_commands_args_nr; i++)
     {
@@ -3077,8 +3081,9 @@ html_initialize_output_state (CONVERTER *self, const char *context)
   output_no_arg_commands_formatting[CM_ASTERISK][HCC_type_normal].text
     = (char *)self->line_break_element.string;
 
-  initialize_css_selector_style_list (&self->css_element_class_styles,
-                                      default_css_element_class_styles.number);
+  clear_css_selector_style_list (&self->css_element_class_styles);
+  set_css_selector_style_list_size (&self->css_element_class_styles,
+                                    default_css_element_class_styles.number);
   for (j = 0; j < default_css_element_class_styles.number; j++)
     {
       CSS_SELECTOR_STYLE *default_selector_style

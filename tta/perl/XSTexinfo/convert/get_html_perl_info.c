@@ -281,8 +281,6 @@ html_converter_get_customization_sv (SV *converter_sv,
   int nr_string_directions;
   enum direction_string_type DS_type;
   int nr_dir_str_contexts = TDS_context_string +1;
-  /* need to be passed as argument to get from Perl */
-  SV *default_css_element_class_styles = 0;
   const STRING_LIST *special_unit_varieties;
 
   dTHX;
@@ -307,38 +305,6 @@ html_converter_get_customization_sv (SV *converter_sv,
     = (HV *)SvRV (default_formatting_references);
   default_css_string_formatting_references_hv
     = (HV *)SvRV (default_css_string_formatting_references);
-
-  /* to get default_css_element_class_styles from Perl.
-     This code is never run as default_css_element_class_styles is always 0
-     as it is not passed from Perl but determined fully in C */
-  if (default_css_element_class_styles
-      && SvOK (default_css_element_class_styles))
-    {
-      I32 hv_number;
-      I32 i;
-
-      HV *css_element_class_styles_hv
-        = (HV *)SvRV (default_css_element_class_styles);
-
-      hv_number = hv_iterinit (css_element_class_styles_hv);
-
-      initialize_css_selector_style_list (&converter->css_element_class_styles,
-                                          hv_number);
-
-      for (i = 0; i < hv_number; i++)
-        {
-          HE *next = hv_iternext (css_element_class_styles_hv);
-          SV *selector_sv = hv_iterkeysv (next);
-          char *selector = (char *) SvPVutf8_nolen (selector_sv);
-          SV *style_sv = HeVAL(next);
-          char *style = (char *) SvPVutf8_nolen (style_sv);
-
-          CSS_SELECTOR_STYLE *selector_style
-            = &converter->css_element_class_styles.list[i];
-          selector_style->selector = non_perl_strdup (selector);
-          selector_style->style = non_perl_strdup (style);
-        }
-    }
 
   if (customized_upper_case_commands && SvOK (customized_upper_case_commands))
     {

@@ -415,7 +415,8 @@ html_free_converter (CONVERTER *self)
         }
     }
 
-  free_css_selector_style_list (&self->css_element_class_styles);
+  clear_css_selector_style_list (&self->css_element_class_styles);
+  free (self->css_element_class_styles.list);
 
   free_strings_list (&self->css_element_class_list);
   free_strings_list (&self->css_rule_lines);
