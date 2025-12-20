@@ -351,9 +351,14 @@ sub _convert($$$) {
 
   if ($do_convert) {
     $result = $converter->convert($document);
+    #$converter->reset_converter();
+    #$result = $converter->convert($document);
   } else {
     $result = $converter->output($document);
     close_files($converter);
+    #$converter->reset_converter();
+    #$result = $converter->output($document);
+    #close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
 
@@ -1541,11 +1546,14 @@ sub test($$)
         if ($reference_exists) {
           $tests_count += 1;
           ok(((not defined($converted_errors{$format})
-               and (not $result_converted_errors{$format}
+               and (not exists($result_converted_errors{$format})
                     or not exists(
                              $result_converted_errors{$format}->{$test_name})))
-              or $converted_errors{$format} eq
-                              $result_converted_errors{$format}->{$test_name}),
+              or (defined($converted_errors{$format})
+                  and exists($result_converted_errors{$format})
+                  and exists($result_converted_errors{$format}->{$test_name})
+                  and $converted_errors{$format} eq
+                              $result_converted_errors{$format}->{$test_name})),
              $test_name.' errors '.$format);
         }
       }

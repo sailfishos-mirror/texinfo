@@ -1,5 +1,10 @@
 2025-12-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): verify that both the reference
+	error string and the test result string are set before comparing them.
+
+2025-12-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (_convert, convert_to_*): use a function
 	for the code common for all the converters.
 
