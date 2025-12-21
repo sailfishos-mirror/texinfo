@@ -30,6 +30,8 @@ Done:
  line_break_element
  directions_strings
  html_no_arg_command_conversion
+ current_lang_translations
+ output_unit_files
 
 Initialize all the shared_conversion_state in html_initialize_output_state
 and always reset them?

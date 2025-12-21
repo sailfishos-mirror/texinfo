@@ -9959,8 +9959,6 @@ sub _html_set_pages_files($$$$$$$$) {
       $output_file, $destination_directory, $output_filename,
       $document_name) = @_;
 
-  $self->initialize_output_units_files();
-
   my @filenames_order;
   my %unit_file_name_paths;
   # associate a file to the source information leading to set the file
@@ -10334,6 +10332,10 @@ sub _prepare_units_directions_files($$$$$$$$) {
 
   Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
                                     $self->get_conf('SPLIT'));
+
+  # reset even if $output_file eq '', as 'file_counters' is accessed
+  # below, so it needs to be empty in the case of $output_file eq ''.
+  $self->initialize_output_units_files();
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.

@@ -5500,8 +5500,6 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
   char **unit_file_name_paths;
   size_t i;
 
-  initialize_output_units_files (self);
-
   files_source_info = &self->files_source_info;
 
   unit_file_name_paths = (char **)
@@ -6017,6 +6015,11 @@ html_prepare_units_directions_files (CONVERTER *self,
   html_prepare_output_units_global_targets (self);
 
   split_pages (output_units, nodes_list, self->conf->SPLIT.o.string);
+
+  /* needed even if !strlen (output_file), as self->output_unit_files.number
+     is checked below */
+  /* same as calling initialize_output_units_files in Perl */
+  clear_output_unit_files (&self->output_unit_files);
 
   if (strlen (output_file))
     {

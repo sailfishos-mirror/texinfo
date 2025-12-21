@@ -1637,13 +1637,6 @@ top_node_filename (const CONVERTER *self, const char *document_name)
 
 
 
-void
-initialize_output_units_files (CONVERTER *self)
-{
-  /* nothing to do, should have been initialized during converter
-     initialization */
-}
-
 static size_t
 find_output_unit_file (const CONVERTER *self, const char *filename, int *status)
 {
@@ -1854,7 +1847,6 @@ reset_generic_converter (CONVERTER *self)
   ERROR_MESSAGE_LIST *error_messages = 0;
 
   clear_output_files_information (&self->output_files_information);
-  clear_output_unit_files (&self->output_unit_files);
 
   if (check_counts)
     error_messages = set_check_element_interpreter_refcount ();

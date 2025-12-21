@@ -1,5 +1,21 @@
 2025-12-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (reset_generic_converter),
+	tta/C/convert/html_converter_finish.c (html_reset_converter),
+	tta/C/convert/html_prepare_converter.c
+	(html_prepare_units_directions_files, html_set_pages_files),
+	tta/perl/Texinfo/Convert/HTML.pm (_html_set_pages_files)
+	(_prepare_units_directions_files): call clear_output_unit_files in
+	html_prepare_units_directions_files and not in html_set_pages_files,
+	do not call clear_output_unit_files in *reset_*converter.  Similarly,
+	in Perl, call initialize_output_units_files in
+	_prepare_units_directions_files, not in _html_set_pages_files.
+
+	* tta/C/convert/converter.c: remove initialize_output_units_files,
+	clear_output_unit_files is called instead.
+
+2025-12-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_finish.c,
 	tta/C/convert/html_prepare_converter.c
 	(free_html_no_arg_command_conversion)

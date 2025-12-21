@@ -292,7 +292,6 @@ html_reset_converter (CONVERTER *self)
     }
 
   clear_output_files_information (&self->output_files_information);
-  clear_output_unit_files (&self->output_unit_files);
 
   clear_strings_list (&self->check_htmlxref_already_warned);
 
