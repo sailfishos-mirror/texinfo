@@ -12230,6 +12230,8 @@ sub conversion_initialization($$;$) {
   $self->{'css_rule_lines'} = [];
   $self->{'css_import_lines'} = [];
 
+  delete $self->{'current_root_command'};
+
   # for user-defined translation results.  Always reset such as not
   # to get a cached translation obtained for a previous conversion.
   $self->{'translation_cache'} = {};

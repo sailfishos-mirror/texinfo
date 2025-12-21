@@ -866,7 +866,7 @@ html_conversion_initialization (SV *converter_in, const char *context, SV *docum
            always be found when XS is used */
         self = converter_set_document_from_sv (converter_in, document_in);
 
-        html_initialize_output_state (self, context);
+        html_conversion_initialization (self, context);
 
         html_pass_conversion_initialization (self, converter_in);
 
@@ -1124,7 +1124,7 @@ html_output (SV *converter_in, SV *document_in)
         /* html_conversion_initialization */
         self = converter_set_document_from_sv (converter_in, document_in);
 
-        html_initialize_output_state (self, "_output");
+        html_conversion_initialization (self, "_output");
 
         html_pass_conversion_initialization (self, converter_in);
 
@@ -1237,7 +1237,7 @@ html_convert (SV *converter_in, SV *document_in)
         /* html_conversion_initialization */
         self = converter_set_document_from_sv (converter_in, document_in);
 
-        html_initialize_output_state (self, "_convert");
+        html_conversion_initialization (self, "_convert");
 
         html_pass_conversion_initialization (self, converter_in);
 

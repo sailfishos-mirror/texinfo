@@ -2855,7 +2855,7 @@ html_converter_customize (CONVERTER *self)
 
 
 /* Initialize output state.  Sequence of:
-     html_initialize_output_state
+     html_conversion_initialization
      html_setup_output for output() or html_setup_convert for convert()
 
    To be followed by setting up output units
@@ -2967,7 +2967,7 @@ static const enum command_id spaces_cmd[] = {
 /* called very early in conversion functions, before updating
    customization, before calling user-defined functions...  */
 void
-html_initialize_output_state (CONVERTER *self, const char *context)
+html_conversion_initialization (CONVERTER *self, const char *context)
 {
   int i;
   size_t j;
@@ -2981,7 +2981,7 @@ html_initialize_output_state (CONVERTER *self, const char *context)
 
   if (!self->document && self->conf->DEBUG.o.integer > 0)
     {
-      fprintf (stderr, "REMARK: html_initialize_output_state: no document\n");
+      fprintf (stderr, "REMARK: html_conversion_initialization: no document\n");
     }
 
   /* corresponds with default_no_arg_commands_formatting

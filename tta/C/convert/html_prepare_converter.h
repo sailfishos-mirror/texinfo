@@ -54,7 +54,7 @@ SPECIAL_UNIT_INFO *html_add_special_unit_info (
 char ***new_directions_strings_type (int nr_string_directions,
                                      int nr_dir_str_contexts);
 
-/* void html_initialize_output_state (CONVERTER *self, const char *context); */
+/* void html_conversion_initialization (CONVERTER *self, const char *context); */
 
 void initialize_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info,
                                    size_t size);
