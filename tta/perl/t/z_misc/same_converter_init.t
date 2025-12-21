@@ -8,7 +8,7 @@ use Test::More;
 # Verify that calling a converter twice does not break.  Can also
 # be used to check that there are no memory leaks with valgrind.
   
-BEGIN { plan tests => 1; }
+BEGIN { plan tests => 2; }
 
 # For consistent test results, use the C locale.
 $ENV{LC_ALL} = 'C';
@@ -59,17 +59,33 @@ if (!defined($document)) {
   die "Unexpected parsing errors: $parsing_errors";
 }
 
+my ($converter, $result_html, $second_result_html);
+$converter = Texinfo::Convert::HTML->converter({'TEST' => 1});
 
-my $converter = Texinfo::Convert::HTML->converter({'TEST' => 1});
-
-my $result_html = $converter->convert($document);
+$result_html = $converter->convert($document);
 #print STDERR "1 $result_html\n";
 
 $converter->reset_converter();
 
-my $second_result_html = $converter->convert($document);
+$second_result_html = $converter->convert($document);
 #print STDERR "2 $second_result_html\n";
 
 is_diff($result_html, $second_result_html,
    'two call of converter give the same result');
+
+$converter = Texinfo::Convert::HTML->converter({'TEST' => 1,
+                                        'OUTPUT_CHARACTERS' => 1});
+
+my $simple_document
+  = $parser->parse_texi_text(
+         'aa @equiv{} bb @geq{} cc @error{} @enddots{}'."\n");
+
+$result_html = $converter->convert($simple_document);
+
+$converter->reset_converter();
+
+$second_result_html = $converter->convert($simple_document);
+
+is_diff($result_html, $second_result_html,
+   'output characters simple doc two call of converter same result');
 

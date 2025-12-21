@@ -163,7 +163,7 @@ static enum command_id additional_format_context_cmd[] = {
 
 /* should correspond to enum html_special_character */
 /* HTML textual entity, UTF-8 encoded, unicode point, HTML numeric entity */
-char *special_characters_formatting[SC_non_breaking_space+1][4] = {
+const char *special_characters_formatting[SC_non_breaking_space+1][4] = {
   {"&para;", "\xC2\xB6", "00B6", "&#182;"},
   {"&lsquo;", "\xE2\x80\x98", "2018", "&#8216;"},
   {"&rsquo;", "\xE2\x80\x99", "2019", "&#8217;"},
@@ -3281,22 +3281,28 @@ html_converter_customize (CONVERTER *self)
      html_prepare_conversion_units
  */
 
+void
+free_html_no_arg_command_conversion (
+                         HTML_NO_ARG_COMMAND_CONVERSION *format_spec)
+{
+  free (format_spec->element);
+  free (format_spec->text);
+  free (format_spec->translated_converted);
+}
+
 static void
 copy_html_no_arg_command_conversion (HTML_NO_ARG_COMMAND_CONVERSION *to,
                                      HTML_NO_ARG_COMMAND_CONVERSION *from)
 {
-  free (to->element);
   if (from->element)
     to->element = strdup (from->element);
   else
     to->element = 0;
   to->unset = from->unset;
-  free (to->text);
   if (from->text)
     to->text = strdup (from->text);
   else
     to->text = 0;
-  free (to->translated_converted);
   if (from->translated_converted)
     to->translated_converted = strdup (from->translated_converted);
   else
@@ -3539,6 +3545,8 @@ html_conversion_initialization (CONVERTER *self, const char *context)
             = customized_no_arg_cmd_formatting->context_formatting[cctx];
           HTML_NO_ARG_COMMAND_CONVERSION *result
             = &result_formatting->context_formatting[cctx];
+
+          free_html_no_arg_command_conversion (result);
 
           if (customized_no_arg_cmd)
             {

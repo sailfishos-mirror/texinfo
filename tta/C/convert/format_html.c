@@ -1913,7 +1913,7 @@ special_unit_info_tree (CONVERTER *self,
         {
           enum special_unit_info_type string_type
             = translated_special_unit_info[j].string_type;
-          char *special_unit_info_string
+          const char *special_unit_info_string
             = self->special_unit_info[string_type][i];
           /* if set to undef in user customization. To be forbidden? */
           if (!special_unit_info_string)

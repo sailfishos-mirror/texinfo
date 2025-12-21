@@ -837,13 +837,10 @@ typedef struct CONVERTER {
     TYPE_INTEGER_INFORMATION *html_customized_code_types;
     char *pre_class_types[TXI_TREE_TYPES_NUMBER];
     ACCENT_ENTITY_INFO accent_entities[BUILTIN_CMD_NUMBER];
-    FIXED_STRING_WITH_LEN special_character[SC_non_breaking_space+1];
-    FIXED_STRING_WITH_LEN line_break_element;
-    CSS_SELECTOR_STYLE_LIST css_element_class_styles;
+    /* next two can be changed by handlers, but are not reset for
+       a conversion */
     STRING_LIST css_rule_lines;
     STRING_LIST css_import_lines;
-    /* filled based on css_element_class_styles when needed */
-    STRING_LIST css_element_class_list;
   /* perl function references. This should be SV *sv,
      but we don't want to include the Perl headers everywhere; */
     const void *file_id_setting_refs[FIS_external_target_non_split_name+1];
@@ -883,12 +880,22 @@ typedef struct CONVERTER {
     HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][STYLE_COMMAND_CONTEXT_NR];
     COMMAND_HTML_STYLE_COMMAND_CONVERSION *html_customized_style_commands;
     /* set for a converter, modified in a document */
-    HTML_NO_ARG_COMMAND_FORMATTING html_no_arg_command_conversion[BUILTIN_CMD_NUMBER];
-    char ***directions_strings[TDS_TYPE_MAX_NR];
     const char **main_units_direction_names;
     LANG_TRANSLATION **translation_cache;
 
     /* set for a document */
+    /* next two set in conversion initialization */
+    FIXED_STRING_WITH_LEN special_character[SC_non_breaking_space+1];
+    FIXED_STRING_WITH_LEN line_break_element;
+    /* reset and set in conversion initialization */
+    CSS_SELECTOR_STYLE_LIST css_element_class_styles;
+    /* filled based on css_element_class_styles when needed */
+    STRING_LIST css_element_class_list;
+    /* next two reset and set in conversion initialization based on
+       default and customized and on special characters and similar.
+    */
+    char ***directions_strings[TDS_TYPE_MAX_NR];
+    HTML_NO_ARG_COMMAND_FORMATTING html_no_arg_command_conversion[BUILTIN_CMD_NUMBER];
     size_t output_units_descriptors[OUDT_external_nodes_units+1];
     enum htmlxref_split_type document_htmlxref_split_type;
     const OUTPUT_UNIT **global_units_directions;

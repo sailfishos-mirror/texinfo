@@ -560,7 +560,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
       && no_arg_formatting->translated_tree
       && !no_arg_command_context->translated_converted)
     {
-      char *translation_result = 0;
+      char *translation_result;
       char *explanation;
       char *context;
       ELEMENT *tree_built = 0;
@@ -611,8 +611,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
         }
       free (explanation);
       free (context);
-      if (no_arg_command_context->text)
-        free (no_arg_command_context->text);
+      free (no_arg_command_context->text);
       no_arg_command_context->text = translation_result;
       if (tree_built)
         replace_remove_list_element (&self->tree_to_build, tree_built, 0);

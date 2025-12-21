@@ -37,7 +37,7 @@
  */
 #include "convert_html.h"
 /* html_nr_string_directions html_free_customized_global_units_directions
-   free_css_selector_style_list
+   free_css_selector_style_list free_html_no_arg_command_conversion
  */
 #include "html_prepare_converter.h"
 #include "html_converter_api.h"
@@ -337,15 +337,6 @@ html_reset_converter (CONVERTER *self)
   clear_type_explanations (type_explanations);
 }
 
-static void free_html_no_arg_command_conversion (
-                             HTML_NO_ARG_COMMAND_CONVERSION *format_spec,
-                                   enum conversion_context cctx)
-{
-  free (format_spec->element);
-  free (format_spec->text);
-  free (format_spec->translated_converted);
-}
-
 void
 html_free_converter (CONVERTER *self)
 {
@@ -431,7 +422,7 @@ html_free_converter (CONVERTER *self)
         {
           HTML_NO_ARG_COMMAND_CONVERSION *format_spec
                 = &no_arg_formatting->context_formatting[cctx];
-          free_html_no_arg_command_conversion (format_spec, cctx);
+          free_html_no_arg_command_conversion (format_spec);
         }
     }
 
@@ -450,7 +441,7 @@ html_free_converter (CONVERTER *self)
             = customized_no_arg->context_formatting[cctx];
           if (format_spec)
             {
-              free_html_no_arg_command_conversion (format_spec, cctx);
+              free_html_no_arg_command_conversion (format_spec);
               free (format_spec);
             }
         }

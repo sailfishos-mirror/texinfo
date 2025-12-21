@@ -51,6 +51,9 @@ SPECIAL_UNIT_INFO *html_add_special_unit_info (
 
 
 
+void free_html_no_arg_command_conversion (
+                         HTML_NO_ARG_COMMAND_CONVERSION *format_spec);
+
 char ***new_directions_strings_type (int nr_string_directions,
                                      int nr_dir_str_contexts);
 
