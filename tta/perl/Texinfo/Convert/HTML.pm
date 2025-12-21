@@ -8849,6 +8849,7 @@ sub converter_initialize($) {
     }
 
     _load_htmlxref_files($self);
+    _prepare_css($self);
   }
 
   $self->{'output_units_conversion'} = {};
@@ -9566,6 +9567,9 @@ sub _process_css_file($$$) {
 
 sub _prepare_css($) {
   my $self = shift;
+
+  $self->{'css_rule_lines'} = [];
+  $self->{'css_import_lines'} = [];
 
   return if ($self->get_conf('NO_CSS'));
 
@@ -12226,9 +12230,6 @@ sub conversion_initialization($$;$) {
   $self->{'pending_footnotes'} = [];
   $self->{'pending_closes'} = {};
 
-  $self->{'css_rule_lines'} = [];
-  $self->{'css_import_lines'} = [];
-
   delete $self->{'current_node'};
   delete $self->{'current_root_command'};
 
@@ -13596,8 +13597,6 @@ sub _setup_output($) {
   }
 
   $self->{'converter_info'}->{'jslicenses'} = $jslicenses;
-
-  _prepare_css($self);
 
   # this sets output_file (based on OUTFILE), to be used if not split,
   # but also the corresponding 'output_filename' that is useful in

@@ -1,6 +1,16 @@
 2025-12-21 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/html_prepare_converter.c
+	(html_converter_initialize_beginning, html_setup_output),
+	tta/perl/Texinfo/Convert/HTML.pm (converter_initialize)
+	(_prepare_css, conversion_initialization, _setup_output): call
+	html_prepare_css only once per converter initialization in
+	html_converter_initialize_beginning/converter_initialize, not once per
+	conversion.
+
+2025-12-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/html_prepare_converter.c
 	(html_conversion_initialization), tta/perl/Texinfo/Convert/HTML.pm
 	(conversion_initialization): always unset current_node and
 	current_root_command in conversion initialization.
