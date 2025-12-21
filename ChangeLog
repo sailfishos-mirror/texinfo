@@ -1,6 +1,13 @@
 2025-12-21 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization), tta/perl/Texinfo/Convert/HTML.pm
+	(conversion_initialization): always unset current_node and
+	current_root_command in conversion initialization.
+
+2025-12-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/html_prepare_converter.c
 	(html_conversion_initialization): rename html_initialize_output_state
 	as html_conversion_initialization.  Update callers.
 

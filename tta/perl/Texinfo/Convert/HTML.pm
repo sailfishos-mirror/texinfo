@@ -9304,14 +9304,13 @@ sub converter_reset($) {
 sub converter_destroy($) {
   my $self = shift;
 
-  delete $self->{'current_node'};
-
   if (exists($self->{'converter_info'})) {
     foreach my $key ('document', 'simpletitle_tree', 'title_tree') {
       delete $self->{'converter_info'}->{$key};
     }
   }
 
+  delete $self->{'current_node'};
   delete $self->{'current_root_command'};
 
   # a separate cache used if the user defines the translate_message function.
@@ -12230,6 +12229,7 @@ sub conversion_initialization($$;$) {
   $self->{'css_rule_lines'} = [];
   $self->{'css_import_lines'} = [];
 
+  delete $self->{'current_node'};
   delete $self->{'current_root_command'};
 
   # for user-defined translation results.  Always reset such as not

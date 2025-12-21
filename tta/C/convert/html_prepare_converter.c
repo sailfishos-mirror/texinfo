@@ -2992,6 +2992,9 @@ html_conversion_initialization (CONVERTER *self, const char *context)
 
   output_encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
 
+  self->current_node = 0;
+  self->current_root_command = 0;
+
   for (i = 0; i < SC_non_breaking_space+1; i++)
     {
       const char *unicode_point = special_characters_formatting[i][2];

@@ -16,6 +16,15 @@ Review reset converter code and modify to be able to always call it before
 conversion and before free'ing the converter, such that it is never needed
 to call it especially.  Similar to initialize_parsing in parsetexi/api.c.
 
+Done:
+ pending_closes
+ date_in_header
+ html_active_icons
+ html_passive_icons
+ current_formatting_references...
+ current_node
+ current_root_command
+
 Initialize all the shared_conversion_state in html_initialize_output_state
 and always reset them?
 
