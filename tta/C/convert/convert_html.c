@@ -913,14 +913,16 @@ compare_direction_icon (const void *a, const void *b)
   return strcmp (dicon_a->direction_name, dicon_b->direction_name);
 }
 
+/* fill DIRECTION_ICON_NAMES array with icon file names according
+   to the order in SELF main_units_direction_names directions names
+   for DIRECTION_ICONS pairs of file name and direction name.
+ */
 static void
-prepare_direction_icons_list (CONVERTER *self,
-                              DIRECTION_ICON_LIST *direction_icons,
-                              char ***direction_icon_names,
-                              size_t icons_nr)
+order_direction_icons_list (CONVERTER *self,
+                            DIRECTION_ICON_LIST *direction_icons,
+                            char ***direction_icon_names,
+                            size_t icons_nr)
 {
-  /* if the converter has been properly reset after each call to output or
-     convert, freeing should not be useful */
   html_free_direction_icons_array (self, direction_icon_names);
 
   /* there are always directions, so should always be true */
@@ -931,6 +933,8 @@ prepare_direction_icons_list (CONVERTER *self,
 
       *direction_icon_names = (char **) malloc (icons_nr * sizeof (char *));
 
+      /* sort the icon, direction pairs according to their direction names to
+         be able to find them fast based on the direction name */
       qsort (direction_icons->icons_list, direction_icons->number,
              sizeof (DIRECTION_ICON), compare_direction_icon);
 
@@ -960,29 +964,35 @@ html_prepare_direction_icons (CONVERTER *self)
   if (self->conf->ICONS.o.integer > 0)
     {
       if (self->conf->ACTIVE_ICONS.o.icons->number > 0)
-        prepare_direction_icons_list (self, self->conf->ACTIVE_ICONS.o.icons,
+        order_direction_icons_list (self, self->conf->ACTIVE_ICONS.o.icons,
                 &self->html_active_icons, icons_nr);
 
       if (self->conf->PASSIVE_ICONS.o.icons->number > 0)
-        prepare_direction_icons_list (self, self->conf->PASSIVE_ICONS.o.icons,
+        order_direction_icons_list (self, self->conf->PASSIVE_ICONS.o.icons,
                 &self->html_passive_icons, icons_nr);
     }
 }
 
-/* The string stacks per file should already be empty, either because
-   the code is consistent for opening and closing, or because they are
-   emptied after the conversion (with an error message) */
 void
-html_free_pending_closes (CONVERTER *self)
+html_initialize_pending_closes (CONVERTER *self, size_t number)
 {
-  size_t j;
-
-  for (j = 0; j < self->pending_closes.number; j++)
+  if (self->pending_closes.space < number)
     {
-      STRING_STACK *file_pending_closes = &self->pending_closes.list[j];
-      free (file_pending_closes->stack);
+      self->pending_closes.list = (STRING_STACK *)
+        realloc (self->pending_closes.list, number * sizeof (STRING_STACK));
+  /* The existing string stacks per file should already be empty, either because
+     the code is consistent for opening and closing, or because they are
+     emptied after the conversion (with an error message).
+
+     Therefore, only the newly allocated string stacks per file are
+     initialized.
+   */
+      memset (&self->pending_closes.list[self->pending_closes.space],
+              0, (number - self->pending_closes.space)
+                 * sizeof (STRING_STACK));
+      self->pending_closes.space = number;
     }
-  free (self->pending_closes.list);
+  self->pending_closes.number = number;
 }
 
 /* setup a page (+global context) in case there are no files, ie called
@@ -1006,14 +1016,7 @@ html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
   memset (self->html_files_information.list, 0,
           self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
 
-  /* only useful if a converter is reused */
-  html_free_pending_closes (self);
-
-  self->pending_closes.number = 1+1;
-  self->pending_closes.list = (STRING_STACK *)
-       malloc (self->pending_closes.number * sizeof (STRING_STACK));
-  memset (self->pending_closes.list, 0,
-          self->pending_closes.number * sizeof (STRING_STACK));
+  html_initialize_pending_closes (self, 1+1);
 
   self->page_name_number.number = 1;
   self->page_name_number.list = (NAME_NUMBER *)
@@ -2265,6 +2268,7 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
   if (self->conf->DATE_IN_HEADER.o.integer > 0)
     {
       html_default_format_date_in_header (self, &text);
+      free (self->date_in_header);
       self->date_in_header = strdup (text.text);
       text_reset (&text);
     }

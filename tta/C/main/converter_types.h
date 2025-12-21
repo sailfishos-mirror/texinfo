@@ -691,6 +691,7 @@ typedef struct ASSOCIATED_INFO_LIST {
 
 typedef struct STRING_STACK_LIST {
     size_t number;
+    size_t space;
     STRING_STACK *list;
 } STRING_STACK_LIST;
 
@@ -938,9 +939,11 @@ typedef struct CONVERTER {
     TYPE_CONVERSION_FUNCTION *current_types_conversion_function;
     COMMAND_CONVERSION_FUNCTION *current_commands_conversion_function;
     void (* current_format_protect_text) (const char *text, TEXT *result);
+
     int added_title_tree;
+    /* reset and set at the beginning of conversion */
     char *date_in_header;
-    /* next two setup based on conf before starting the conversion */
+    /* next two reset and set based on conf before starting the conversion */
     char **html_active_icons;
     char **html_passive_icons;
 

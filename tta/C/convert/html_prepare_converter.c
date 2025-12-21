@@ -3292,6 +3292,8 @@ html_initialize_output_state (CONVERTER *self, const char *context)
     option_set_conf (&self->conf->USE_ACCESSKEY, 1, 0);
 
 
+  /* modified when formatting a Texinfo as a CSS string, but always
+     reset to these values afterwards */
   self->current_formatting_references = &self->formatting_references[0];
   self->current_commands_conversion_function
      = &self->command_conversion_function[0];
@@ -5957,14 +5959,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
   memset (self->html_files_information.list, 0,
           self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
 
-  /* only useful if a converter is reused */
-  html_free_pending_closes (self);
-
-  self->pending_closes.number = self->output_unit_files.number +1;
-  self->pending_closes.list = (STRING_STACK *)
-    malloc (self->pending_closes.number * sizeof (STRING_STACK));
-  memset (self->pending_closes.list, 0,
-          self->pending_closes.number * sizeof (STRING_STACK));
+  html_initialize_pending_closes (self, self->output_unit_files.number +1);
 
   return files_source_info;
 }

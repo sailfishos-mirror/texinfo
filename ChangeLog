@@ -1,3 +1,29 @@
+2025-12-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_html.c (order_direction_icons_list): rename
+	prepare_direction_icons_list as order_direction_icons_list.
+
+	* tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter): call html_free_direction_icons_array in
+	html_free_converter and not in html_reset_converter as it is already
+	called when setting up the icon arrays in order_direction_icons_list.
+
+	* tta/C/convert/convert_html.c (html_convert_output)
+	tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter): free self->date_in_header just before setting
+	it and in html_free_converter.
+
+	* tta/C/convert/convert_html.c (html_initialize_pending_closes)
+	(html_setup_output_simple_page), tta/C/convert/html_converter_finish.c
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(html_set_pages_files), tta/C/main/converter_types.h
+	(STRING_STACK_LIST): add a space field in STRING_STACK_LIST.  Reuse
+	the pending_closes list instead of free'ing it, growing it if
+	there is not enough space.  Add html_initialize_pending_closes that
+	grows the pending_closes list if needed and initializes the newly
+	added string stacks.  Remove html_free_pending_closes, inlining
+	the code free'ing the pending_closes list in html_free_converter.
+
 2025-12-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_convert, _format_brace_command):

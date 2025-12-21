@@ -34,7 +34,6 @@
 /* html_reset_translated_special_unit_info_tree
    html_clear_direction_string_type
    html_free_direction_icons_array
-   html_free_pending_closes
  */
 #include "convert_html.h"
 /* html_nr_string_directions html_free_customized_global_units_directions
@@ -238,9 +237,6 @@ html_reset_converter (CONVERTER *self)
 
   clear_strings_list (&self->global_texts_direction_names);
 
-  html_free_direction_icons_array (self, &self->html_active_icons);
-  html_free_direction_icons_array (self, &self->html_passive_icons);
-
   free (self->special_units_direction_names);
   self->special_units_direction_names = 0;
   free (self->output_unit_file_indices);
@@ -255,8 +251,6 @@ html_reset_converter (CONVERTER *self)
   self->documentdescription_string = 0;
   free (self->copying_comment);
   self->copying_comment = 0;
-  free (self->date_in_header);
-  self->date_in_header = 0;
   free (self->destination_directory);
   self->destination_directory = 0;
   free (self->document_name);
@@ -593,6 +587,11 @@ html_free_converter (CONVERTER *self)
 
   free_strings_list (&self->global_texts_direction_names);
 
+  html_free_direction_icons_array (self, &self->html_active_icons);
+  html_free_direction_icons_array (self, &self->html_passive_icons);
+
+  free (self->date_in_header);
+
   free (self->html_customized_upper_case_commands);
   self->html_customized_upper_case_commands = 0;
 
@@ -651,7 +650,15 @@ html_free_converter (CONVERTER *self)
   free (style_formatted_cmd.list);
  */
 
-  html_free_pending_closes (self);
+  /* The string stacks per file should already be empty, either because
+     the code is consistent for opening and closing, or because they are
+     emptied after the conversion (with an error message) */
+  for (j = 0; j < self->pending_closes.space; j++)
+    {
+      STRING_STACK *file_pending_closes = &self->pending_closes.list[j];
+      free (file_pending_closes->stack);
+    }
+  free (self->pending_closes.list);
 
   free (self->pending_inline_content.stack);
 
