@@ -1,5 +1,20 @@
 2025-12-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_setup_output_simple_page),
+	tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter): call allocate_name_number_list in
+	html_setup_output_simple_page, since it also resets page_name_number.
+	Move free_name_number_list from html_reset_converter to
+	html_free_converter now that it is reset upon being allocated.
+
+	* tta/C/convert/convert_html.c (html_prepare_title_titlepage),
+	tta/C/convert/html_converter_api.c (html_convert),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_convert): call
+	html_setup_output_simple_page in convert, not in
+	html_prepare_title_titlepage.
+
+2025-12-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (reset_generic_converter),
 	tta/C/convert/html_converter_finish.c (html_reset_converter),
 	tta/C/convert/html_prepare_converter.c

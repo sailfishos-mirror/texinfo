@@ -1257,6 +1257,8 @@ html_convert (SV *converter_in, SV *document_in)
            output units references in Perl */
         html_prepare_conversion_units_targets (self, self->document_name);
 
+        html_setup_output_simple_page (self, "");
+
         /* setup global targets.  It is not clearly relevant to have those
            global targets when called as convert, but the Top global
            unit directions is often referred to in code, so at least this

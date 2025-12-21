@@ -828,7 +828,8 @@ typedef struct CONVERTER {
     /* reset for output */
     FILE_NAME_PATH_COUNTER_LIST output_unit_files;
 
-  /* to find index in output_unit_files based on name */
+    /* to find index in output_unit_files based on name */
+    /* reset upon allocation */
     NAME_NUMBER_LIST page_name_number;
 
   /* API to open, set encoding and register files */

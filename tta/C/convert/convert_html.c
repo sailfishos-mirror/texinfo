@@ -40,6 +40,7 @@
 #include "errors.h"
 /* xasprintf get_label_element output_conversions ENCODING_CONVERSION
    encode_with_iconv output_unit_type_names get_cmd_global_uniq_command
+   allocate_name_number_list
    */
 #include "utils.h"
 #include "manipulate_tree.h"
@@ -1017,9 +1018,7 @@ html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
 
   html_initialize_pending_closes (self, 1+1);
 
-  self->page_name_number.number = 1;
-  self->page_name_number.list = (NAME_NUMBER *)
-      malloc (self->page_name_number.number * sizeof (NAME_NUMBER));
+  allocate_name_number_list (&self->page_name_number, 1);
 
   page_name_number = &self->page_name_number.list[0];
   page_name_number->number = 1;
@@ -1041,9 +1040,6 @@ html_prepare_title_titlepage (CONVERTER *self, const char *output_file,
     }
   else
     {
-      /* case of convert() call.  Need to setup the page here */
-      if (self->page_name_number.number <= 0)
-         html_setup_output_simple_page (self, output_filename);
       self->current_filename.filename = output_filename;
       self->current_filename.file_number = 1;
     }

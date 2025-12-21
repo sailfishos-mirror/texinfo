@@ -295,8 +295,6 @@ html_reset_converter (CONVERTER *self)
 
   clear_strings_list (&self->check_htmlxref_already_warned);
 
-  free_name_number_list (&self->page_name_number);
-
   for (i = 0; i < self->page_css.number; i++)
     {
       size_t j;
@@ -369,6 +367,8 @@ html_free_converter (CONVERTER *self)
   html_free_files_source_info (&self->files_source_info);
 
   free_strings_list (&self->check_htmlxref_already_warned);
+
+  free_name_number_list (&self->page_name_number);
 
   for (i = 0; i < SUIT_type_heading+1; i++)
     {/* we assume that reset_translated_special_unit_info_tree

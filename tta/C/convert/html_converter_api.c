@@ -140,6 +140,7 @@ html_convert (CONVERTER *converter, DOCUMENT *document)
 
   /* converter->document_name should be 0 */
   html_prepare_conversion_units_targets (converter, converter->document_name);
+  html_setup_output_simple_page (converter, "");
 
         /* setup global targets.  It is not clearly relevant to have those
            global targets when called as convert, but the Top global
