@@ -929,11 +929,14 @@ typedef struct CONVERTER {
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     /* resized and reset at the beginning of the conversion */
     SORTED_INDEX_NAMES sorted_index_names;
+    /* set or reset before conversion */
     void *registered_ids_c_hashmap;
-    /* potentially one target list per command (only for some actually) */
+    /* potentially one target list per command (only for some actually,
+       registered in html_target_cmds */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
-    COMMAND_STACK html_target_cmds; /* list of cmd with targets */
+    /* list of cmd with targets that have been allocated */
+    COMMAND_STACK html_target_cmds;
     FILE_SOURCE_INFO_LIST files_source_info;
     JSLICENSE_CATEGORY_LIST jslicenses;
     /* associate cmd and index in special_unit_varieties STRING_LIST */

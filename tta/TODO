@@ -39,6 +39,7 @@ Done:
  translation_cache
  special_unit_info_tree
  sorted_index_names
+ registered_ids_c_hashmap
 
 Todo.  Can make sense to do something different, for instance an explicit
 reset when unclosed files have been closed.

@@ -4938,7 +4938,7 @@ set_heading_commands_targets (CONVERTER *self)
     }
 }
 
-/* duplicate in convert_html.c */
+/* duplicate in format_html.c */
 static int
 compare_element_target (const void *a, const void *b)
 {
@@ -5003,6 +5003,11 @@ sort_cmd_targets (CONVERTER *self)
   enum command_id cmd;
   int type;
 
+  /* holds the commands with targets that have been allocated, not only
+     those with actual targets.  There is a difference only if the
+     converter is reused */
+  self->html_target_cmds.top = 0;
+
   for (cmd = 0; cmd < BUILTIN_CMD_NUMBER; cmd++)
     {
       if (self->html_targets[cmd].number > 0)
@@ -5018,6 +5023,8 @@ sort_cmd_targets (CONVERTER *self)
                  sizeof (HTML_TARGET), compare_element_target);
           push_command (&self->html_target_cmds, cmd);
         }
+      else if (self->html_targets[cmd].space > 0)
+        push_command (&self->html_target_cmds, cmd);
     }
   for (type = 0; type < ST_footnote_location+1; type++)
     {

@@ -1,5 +1,21 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_finish.c (reset_html_targets_list):
+	remove a useless memset.
+
+	* tta/C/convert/html_converter_finish.c (reset_html_targets)
+	(html_reset_converter, html_free_converter),
+	tta/C/convert/html_prepare_converter.c (sort_cmd_targets): register
+	cmd that have been targets allocated in html_target_cmds.  Reuse
+	html_targets and html_special_targets targets lists memory, free the
+	lists in html_free_converter only.
+
+	* tta/C/convert/html_converter_finish.c (reset_html_targets): remove
+	registered_ids_c_hashmap clearing, it is cleared upon being set
+	already.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c: remove
 	find_element_target_number_linear and associated comments.
 

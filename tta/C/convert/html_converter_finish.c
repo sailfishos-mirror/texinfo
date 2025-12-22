@@ -93,8 +93,6 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
           free_tree_added_elements (self, &html_target->name_tree);
           free_tree_added_elements (self, &html_target->name_tree_nonumber);
         }
-      memset (targets->list, 0,
-              sizeof (HTML_TARGET) * targets->number);
       targets->number = 0;
     }
 }
@@ -107,10 +105,6 @@ reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
     {
       enum command_id cmd = self->html_target_cmds.stack[i];
       reset_html_targets_list (self, &targets[cmd]);
-      /* TODO not reset, but free'ed? */
-      free (targets[cmd].list);
-      targets[cmd].list = 0;
-      targets[cmd].space = 0;
     }
 }
 
@@ -170,17 +164,10 @@ html_reset_converter (CONVERTER *self)
   /* targets */
   reset_html_targets (self, self->html_targets);
 
-  clear_c_hashmap (self->registered_ids_c_hashmap);
-
   for (i = 0; i < ST_footnote_location+1; i++)
     {
       reset_html_targets_list (self, &self->html_special_targets[i]);
-      /* TODO not reset, but free'ed? */
-      free (self->html_special_targets[i].list);
-      self->html_special_targets[i].list = 0;
-      self->html_special_targets[i].space = 0;
     }
-  self->html_target_cmds.top = 0;
 
   reset_special_unit_info_list (&self->customized_special_unit_info);
 
@@ -328,6 +315,17 @@ html_free_converter (CONVERTER *self)
   free (self->special_unit_body_formatting);
 
   free (self->global_units_directions);
+
+  for (j = 0; j < self->html_target_cmds.top; j++)
+    {
+      enum command_id cmd = self->html_target_cmds.stack[j];
+      free (self->html_targets[cmd].list);
+    }
+
+  for (i = 0; i < ST_footnote_location+1; i++)
+    {
+      free (self->html_special_targets[i].list);
+    }
 
   free (self->html_target_cmds.stack);
 
