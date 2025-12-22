@@ -1,5 +1,10 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c: remove
+	find_element_target_number_linear and associated comments.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_conversion_finalization),
 	tta/C/convert/html_converter_finish.c (html_reset_converter): call
 	html_reset_translated_special_unit_info_tree in

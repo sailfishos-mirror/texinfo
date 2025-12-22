@@ -517,27 +517,6 @@ url_protect_file_text (CONVERTER *self, const char *input_string)
 
 /* target, links, href and root command text formatting, with caching */
 
-/* this number should be safe to use even after targets list has been
-   reallocated */
-
-size_t
-find_element_target_number_linear (const HTML_TARGET_LIST *targets,
-                                   const ELEMENT *element)
-{
-  size_t i;
-
-  if (!targets->number)
-    return 0;
-
-  for (i = 0; i < targets->number; i ++)
-    {
-      HTML_TARGET *target = &targets->list[i];
-      if (target->element == element)
-        return i + 1;
-    }
-  return 0;
-}
-
 static int
 compare_element_target (const void *a, const void *b)
 {
@@ -577,14 +556,6 @@ html_get_target (const CONVERTER *self, const ELEMENT *element)
 {
   enum command_id cmd = element_builtin_cmd (element);
   return find_element_target_search (&self->html_targets[cmd], element);
-  /* with a linear search:
-  size_t i = find_element_target_number_linear (&targets[cmd], element);
-
-  if (i > 0)
-    return &targets[cmd].list[i - 1];
-
-  return 0;
-  */
 }
 
 /* the target may not be known already, so the caller may fill the
@@ -594,14 +565,6 @@ find_element_special_target (const HTML_TARGET_LIST *targets,
                              const ELEMENT *element)
 {
   return find_element_target_search (targets, element);
-  /* with a linear search:
-  size_t i = find_element_target_number_linear (targets, element);
-
-  if (i > 0)
-    return &targets->list[i - 1];
-
-  return 0;
-  */
 }
 
 const char *
