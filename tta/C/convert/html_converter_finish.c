@@ -37,7 +37,7 @@
 #include "convert_html.h"
 /* html_nr_string_directions html_free_customized_global_units_directions
    free_css_selector_style_list free_html_no_arg_command_conversion
-   reset_html_targets
+   reset_html_targets html_reset_files_source_info free_js_categories_list
  */
 #include "html_prepare_converter.h"
 #include "html_converter_api.h"
@@ -77,18 +77,6 @@ clear_type_explanations (EXPLAINED_COMMAND_TYPE_LIST *type_explanations)
         }
       type_explanations->number = 0;
     }
-}
-
-static void
-html_reset_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
-{
-  size_t i;
-  for (i = 0; i < files_source_info->number; i++)
-    {
-      free (files_source_info->list[i].filename);
-      free (files_source_info->list[i].path);
-    }
-  files_source_info->number = 0;
 }
 
 static void
@@ -170,34 +158,6 @@ html_reset_converter (CONVERTER *self)
       destroy_element_and_children (self->title_tree);
 
       self->added_title_tree = 0;
-    }
-
-  html_reset_files_source_info (&self->files_source_info);
-
-  if (self->jslicenses.number)
-    {
-      size_t i;
-      for (i = 0; i < self->jslicenses.number; i++)
-        {
-          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
-            = &self->jslicenses.list[i];
-          free (jslicences_files_info->category);
-          if (jslicences_files_info->number)
-            {
-              size_t j;
-              for (j = 0; j < jslicences_files_info->number; j++)
-                {
-                  JSLICENSE_FILE_INFO *jslicense_file_info
-                    = &jslicences_files_info->list[j];
-                  free (jslicense_file_info->filename);
-                  free (jslicense_file_info->license);
-                  free (jslicense_file_info->url);
-                  free (jslicense_file_info->source);
-                }
-            }
-          free (jslicences_files_info->list);
-        }
-      free (self->jslicenses.list);
     }
 
   clear_output_files_information (&self->output_files_information);
@@ -505,6 +465,8 @@ html_free_converter (CONVERTER *self)
   free (self->global_units_direction_names.list);
 
   free (self->sorted_index_names.list);
+
+  free_js_categories_list (&self->jslicenses);
 
   html_free_direction_icons_array (self, &self->html_active_icons);
   html_free_direction_icons_array (self, &self->html_passive_icons);

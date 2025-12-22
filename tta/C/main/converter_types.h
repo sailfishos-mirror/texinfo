@@ -941,7 +941,9 @@ typedef struct CONVERTER {
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
     /* list of cmd with targets that have been allocated */
     COMMAND_STACK html_target_cmds;
+    /* reset before conversion before being filled */
     FILE_SOURCE_INFO_LIST files_source_info;
+    /* reset in conversion initialistation */
     JSLICENSE_CATEGORY_LIST jslicenses;
     /* associate cmd and index in special_unit_varieties STRING_LIST */
     /* number in sync with command_special_unit_variety, +1 for trailing 0 */

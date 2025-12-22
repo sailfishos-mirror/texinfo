@@ -3385,6 +3385,37 @@ close_lone_conf_element (OPTION *option)
     }
 }
 
+void
+free_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info)
+{
+  if (js_files_info->number)
+    {
+      size_t i;
+      for (i = 0; i < js_files_info->number; i++)
+        {
+          JSLICENSE_FILE_INFO_LIST *jslicences_files_info
+            = &js_files_info->list[i];
+          free (jslicences_files_info->category);
+          if (jslicences_files_info->number)
+            {
+              size_t j;
+              for (j = 0; j < jslicences_files_info->number; j++)
+                {
+                  JSLICENSE_FILE_INFO *jslicense_file_info
+                    = &jslicences_files_info->list[j];
+                  free (jslicense_file_info->filename);
+                  free (jslicense_file_info->license);
+                  free (jslicense_file_info->url);
+                  free (jslicense_file_info->source);
+                }
+            }
+          free (jslicences_files_info->list);
+        }
+      free (js_files_info->list);
+    }
+  js_files_info->number = 0;
+}
+
 static const enum command_id spaces_cmd[] = {
   CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie
 };
@@ -3422,6 +3453,10 @@ html_conversion_initialization (CONVERTER *self, const char *context)
 
   self->current_node = 0;
   self->current_root_command = 0;
+
+  /* it actually matters only with output, not with convert, but it is
+     better to reset in any case */
+  free_js_categories_list (&self->jslicenses);
 
   for (i = 0; i < SC_non_breaking_space+1; i++)
     {
@@ -5556,6 +5591,18 @@ html_setup_global_texts_direction_names (CONVERTER *self)
   sort_strings_list (&self->global_texts_direction_names);
 }
 
+void
+html_reset_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
+{
+  size_t i;
+  for (i = 0; i < files_source_info->number; i++)
+    {
+      free (files_source_info->list[i].filename);
+      free (files_source_info->list[i].path);
+    }
+  files_source_info->number = 0;
+}
+
 static char *
 add_to_unit_file_name_paths (char **unit_file_name_paths,
                              const char *filename,
@@ -6099,6 +6146,8 @@ html_prepare_units_directions_files (CONVERTER *self,
      is checked below */
   /* same as calling initialize_output_units_files in Perl */
   clear_output_unit_files (&self->output_unit_files);
+
+  html_reset_files_source_info (&self->files_source_info);
 
   if (strlen (output_file))
     {

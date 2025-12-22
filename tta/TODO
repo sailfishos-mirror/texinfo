@@ -45,6 +45,8 @@ Done:
  special_unit_info_tree
  sorted_index_names
  registered_ids_c_hashmap
+ files_source_info
+ jslicenses
 
 Todo.
  output_files_information:

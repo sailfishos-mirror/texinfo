@@ -1,5 +1,21 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_finish.c (html_reset_converter),
+	tta/C/convert/html_prepare_converter.c (html_reset_files_source_info)
+	(html_prepare_units_directions_files): move
+	html_reset_files_source_info to html_prepare_converter.c.  Do not call
+	html_reset_files_source_info in html_reset_converter, instead call it
+	in html_prepare_units_directions_files before being set.
+
+	* tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(free_js_categories_list, html_conversion_initialization): move the
+	code free'ing js categories list to html_prepare_converter.c and call
+	it in html_conversion_initialization and in html_free_converter, not
+	in html_reset_converter.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/get_html_perl_info.c: remove unused
 	html_get_jslicenses_sv function.
 
