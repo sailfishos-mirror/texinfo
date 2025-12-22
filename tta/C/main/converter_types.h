@@ -716,6 +716,7 @@ typedef struct JSLICENSE_CATEGORY_LIST {
 /* contains only indices with entries */
 typedef struct SORTED_INDEX_NAMES {
     size_t number;
+    size_t space;
     const INDEX **list;
 } SORTED_INDEX_NAMES;
 
@@ -923,7 +924,10 @@ typedef struct CONVERTER {
     /* free'd when global_units_directions are zeroed, set when first
        accessed (from XS only) */
     SPECIAL_UNIT_DIRECTION_LIST global_units_direction_names;
+    /* allocated at converter initialization, reset when translate_names
+       is called or at the end of the conversion */
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
+    /* resized and reset at the beginning of the conversion */
     SORTED_INDEX_NAMES sorted_index_names;
     void *registered_ids_c_hashmap;
     /* potentially one target list per command (only for some actually) */

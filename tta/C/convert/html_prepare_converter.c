@@ -3759,8 +3759,14 @@ html_conversion_initialization (CONVERTER *self, const char *context)
 
       /* store only non empty indices in sorted_index_names */
       self->sorted_index_names.number = non_empty_index_nr;
-      self->sorted_index_names.list = (const INDEX **)
-         malloc (self->sorted_index_names.number * sizeof (INDEX *));
+      /* resize if needed */
+      if (self->sorted_index_names.number > self->sorted_index_names.space)
+        {
+          self->sorted_index_names.space = self->sorted_index_names.number;
+          self->sorted_index_names.list = (const INDEX **)
+             realloc (self->sorted_index_names.list,
+                      self->sorted_index_names.space * sizeof (INDEX *));
+        }
       for (j = 0; j < index_nr; j++)
         {
           if (sorted_index_names[j]->entries_number > 0)
@@ -3772,6 +3778,8 @@ html_conversion_initialization (CONVERTER *self, const char *context)
         }
       free (sorted_index_names);
     }
+  else
+    self->sorted_index_names.number = 0;
 
   if (self->document)
     {

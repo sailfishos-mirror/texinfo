@@ -31,8 +31,7 @@
 #include "api_to_perl.h"
 #include "hashmap.h"
 #include "translations.h"
-/* html_reset_translated_special_unit_info_tree
-   html_clear_direction_string_type
+/* html_clear_direction_string_type
    html_free_direction_icons_array
  */
 #include "convert_html.h"
@@ -168,7 +167,6 @@ html_reset_converter (CONVERTER *self)
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
 
-  html_reset_translated_special_unit_info_tree (self);
   /* targets */
   reset_html_targets (self, self->html_targets);
 
@@ -216,9 +214,6 @@ html_reset_converter (CONVERTER *self)
               self->shared_conversion_state.elements_authors.top);
         }
     }
-
-  free (self->sorted_index_names.list);
-  memset (&self->sorted_index_names, 0, sizeof (INDEX_LIST));
 
   free (self->output_unit_file_indices);
   self->output_unit_file_indices = 0;
@@ -352,7 +347,7 @@ html_free_converter (CONVERTER *self)
   free_name_number_list (&self->page_name_number);
 
   for (i = 0; i < SUIT_type_heading+1; i++)
-    {/* we assume that reset_translated_special_unit_info_tree
+    {/* we assume that html_reset_translated_special_unit_info_tree
         has already been called */
       free (self->special_unit_info_tree[i]);
     }
@@ -561,6 +556,8 @@ html_free_converter (CONVERTER *self)
   free (self->special_units_direction_names);
 
   free (self->global_units_direction_names.list);
+
+  free (self->sorted_index_names.list);
 
   html_free_direction_icons_array (self, &self->html_active_icons);
   html_free_direction_icons_array (self, &self->html_passive_icons);

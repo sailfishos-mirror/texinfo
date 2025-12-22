@@ -1,3 +1,18 @@
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_html.c (html_conversion_finalization),
+	tta/C/convert/html_converter_finish.c (html_reset_converter): call
+	html_reset_translated_special_unit_info_tree in
+	html_conversion_finalization instead of html_reset_converter, because
+	it releases trees to build.
+
+	* tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization), tta/C/main/converter_types.h
+	(SORTED_INDEX_NAMES): add a space field to SORTED_INDEX_NAMES, reuse
+	the memory, do not free in html_reset_converter but free in
+	html_free_converter.
+
 2025-12-21 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/html_converter_finish.c (html_reset_converter)

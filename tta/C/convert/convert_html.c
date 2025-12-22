@@ -2397,6 +2397,9 @@ html_conversion_finalization (CONVERTER *self)
   self->html_files_information.list = 0;
   self->html_files_information.number = 0;
 
+  /* needed to remove trees to build */
+  html_reset_translated_special_unit_info_tree (self);
+
   /* should not be possible with default code, as
      close_registered_sections_level(..., 0)
      is called at the end of processing or at the end of each file.

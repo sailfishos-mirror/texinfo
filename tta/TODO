@@ -37,6 +37,8 @@ Done:
  global_texts_direction_names
  special_units_direction_names
  translation_cache
+ special_unit_info_tree
+ sorted_index_names
 
 Todo.  Can make sense to do something different, for instance an explicit
 reset when unclosed files have been closed.
