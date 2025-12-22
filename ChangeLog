@@ -1,5 +1,10 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/convert/get_html_perl_info.c: remove unused
+	html_get_jslicenses_sv function.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (free_tree_added_elements): set
 	list and space to 0 after free'ing, such that it is possible to call
 	the function twice.
