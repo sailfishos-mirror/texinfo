@@ -115,7 +115,7 @@ html_custom_translate_string (CONVERTER *self, const char *string,
   const FORMATTING_REFERENCE *formatting_reference
     = &self->formatting_references[FR_format_translate_message];
 
-  /* there is no place where FRS_status_ignore could be set, but
+  /* there is no place where FRS_status_ignored could be set, but
      it does not hurt to consider it possible */
   if (formatting_reference->status
       && formatting_reference->status != FRS_status_ignored
@@ -133,6 +133,8 @@ html_custom_translate_string (CONVERTER *self, const char *string,
   return 0;
 }
 
+/* Same as translations.c cache_translate_string, but using the
+   converter translations cache for user-defined translations */
 static TRANSLATION_TREE *
 html_cache_translate_string (CONVERTER *self, const char *string,
                              LANG_TRANSLATION *lang_translation,

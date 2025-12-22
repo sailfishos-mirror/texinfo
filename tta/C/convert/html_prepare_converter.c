@@ -3415,6 +3415,9 @@ html_conversion_initialization (CONVERTER *self, const char *context)
    output_no_arg_commands_formatting[BUILTIN_CMD_NUMBER]
                                               [NO_ARG_COMMAND_CONTEXT_NR];
 
+  free_translation_cache (self->translation_cache);
+  self->translation_cache = 0;
+
   output_encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
 
   self->current_node = 0;
@@ -3701,6 +3704,10 @@ html_conversion_initialization (CONVERTER *self, const char *context)
   memset (self->global_units_directions, 0,
     (D_Last + self->special_unit_varieties.number
      + self->added_global_units_directions.number +1) * sizeof (OUTPUT_UNIT));
+
+  free (self->global_units_direction_names.list);
+  self->global_units_direction_names.list = 0;
+  self->global_units_direction_names.number = 0;
 
   if (self->conf->NODE_NAME_IN_INDEX.o.integer < 0)
     option_set_conf (&self->conf->NODE_NAME_IN_INDEX,
@@ -5326,7 +5333,8 @@ html_prepare_output_units_global_targets (CONVERTER *self)
     }
 
   self->special_units_direction_names = (SPECIAL_UNIT_DIRECTION *)
-   malloc (sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
+    realloc (self->special_units_direction_names,
+             sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
   memset (self->special_units_direction_names, 0,
           sizeof (SPECIAL_UNIT_DIRECTION) * (all_special_units_nr+1));
 

@@ -42,6 +42,7 @@ TRANSLATION_TREE *add_translation_tree (
                    LANG_TRANSLATION_TREE_LIST *translations,
                       const char *translated);
 void free_lang_translation (LANG_TRANSLATION *lang_translation);
+void free_translation_cache (LANG_TRANSLATION **translation_cache);
 LANG_TRANSLATION *switch_lang_translations (
                           LANG_TRANSLATION ***lang_translations,
                           const char *in_lang,

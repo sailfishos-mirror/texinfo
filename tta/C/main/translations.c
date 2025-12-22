@@ -445,6 +445,24 @@ free_lang_translation (LANG_TRANSLATION *lang_translation)
     }
 }
 
+void
+free_translation_cache (LANG_TRANSLATION **translation_cache)
+{
+  if (translation_cache)
+    {
+      size_t i;
+
+      for (i = 0; translation_cache[i]; i++)
+        {
+          free_lang_translation (translation_cache[i]);
+          free (translation_cache[i]);
+        }
+      free (translation_cache);
+    }
+}
+
+  /* formatted_index_entries may not be initialized if there was an error
+     early and prepare_conversion_units_targets was never called */
 LANG_TRANSLATION **translation_cache;
 
 LANG_TRANSLATION *

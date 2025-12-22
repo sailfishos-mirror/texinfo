@@ -889,9 +889,15 @@ typedef struct CONVERTER {
     COMMAND_ACCENT_ENTITY_INFO *html_customized_accent_entity_info;
     HTML_STYLE_COMMAND_CONVERSION html_style_command_conversion[BUILTIN_CMD_NUMBER][STYLE_COMMAND_CONTEXT_NR];
     COMMAND_HTML_STYLE_COMMAND_CONVERSION *html_customized_style_commands;
-    /* set for a converter, modified in a document */
+    /* for global directions texts, for example Space.  The texts are available
+       at converter initialization, possibly based on customization.
+       The names are set when first accessed (from XS).
+     */
+    STRING_LIST global_texts_direction_names;
     const char **main_units_direction_names;
-    LANG_TRANSLATION **translation_cache;
+    DIRECTION_NODE_NAME_LIST customized_global_units_directions;
+    STRING_LIST added_global_units_directions;
+    STRING_LIST customized_global_text_directions;
 
     /* set for a document */
     /* next two set in conversion initialization */
@@ -906,18 +912,17 @@ typedef struct CONVERTER {
     */
     char ***directions_strings[TDS_TYPE_MAX_NR];
     HTML_NO_ARG_COMMAND_FORMATTING html_no_arg_command_conversion[BUILTIN_CMD_NUMBER];
-    size_t output_units_descriptors[OUDT_external_nodes_units+1];
     enum htmlxref_split_type document_htmlxref_split_type;
+    /* Allocated at converter initialization based on customization.
+       Zeroed before conversion, then filled. */
     const OUTPUT_UNIT **global_units_directions;
+    /* reallocated and reset when set */
     SPECIAL_UNIT_DIRECTION *special_units_direction_names;
     /* both for global units associated to normal output units and
        for special output units, sorted according to direction name */
+    /* free'd when global_units_directions are zeroed, set when first
+       accessed (from XS only) */
     SPECIAL_UNIT_DIRECTION_LIST global_units_direction_names;
-    /* for global directions texts, for example Space */
-    STRING_LIST global_texts_direction_names;
-    DIRECTION_NODE_NAME_LIST customized_global_units_directions;
-    STRING_LIST added_global_units_directions;
-    STRING_LIST customized_global_text_directions;
     ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
     SORTED_INDEX_NAMES sorted_index_names;
     void *registered_ids_c_hashmap;
@@ -943,6 +948,16 @@ typedef struct CONVERTER {
     char *copying_comment;
     char *destination_directory;
     char *document_name;
+    /* for user-defined translations */
+    /* reset before conversion */
+    LANG_TRANSLATION **translation_cache;
+
+    /* set for a document only in C */
+    /* output units lists descriptors for output units lists associated
+       to the converter, stored in document.
+       In Perl the output units lists are directly associated
+       to the converter. */
+    size_t output_units_descriptors[OUDT_external_nodes_units+1];
 
     /* state only in C converter */
     unsigned long modified_state; /* specifies which perl state to rebuild */

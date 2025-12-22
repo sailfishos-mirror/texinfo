@@ -1,5 +1,30 @@
 2025-12-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization), tta/C/main/translations.c
+	(free_translation_cache): add free_translation_cache based on
+	html_reset_converter code.  Call free_translation_cache in
+	html_free_converter and in html_conversion_initialization, but not in
+	html_reset_converter.
+
+	* tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization)
+	(html_prepare_output_units_global_targets): do not reset
+	global_units_direction_names, global_texts_direction_names and
+	special_units_direction_names in html_reset_converter.  Free
+	special_units_direction_names and global_units_direction_names list in
+	html_free_converter.  Free global_units_direction_names list in
+	html_conversion_initialization too.  Reuse
+	special_units_direction_names memory by using realloc.
+
+	* tta/C/convert/converter.c (converter_set_document): zero out
+	converter->output_units_descriptors if a new document is associated to
+	a converter.
+
+2025-12-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_setup_output_simple_page),
 	tta/C/convert/html_converter_finish.c (html_reset_converter)
 	(html_free_converter): call allocate_name_number_list in

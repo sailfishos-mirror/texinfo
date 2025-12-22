@@ -192,17 +192,6 @@ html_reset_converter (CONVERTER *self)
   free (self->shared_conversion_state.formatted_listoffloats_nr);
   self->shared_conversion_state.formatted_listoffloats_nr = 0;
 
-  if (self->translation_cache)
-    {
-      for (i = 0; self->translation_cache[i]; i++)
-        {
-          free_lang_translation (self->translation_cache[i]);
-          free (self->translation_cache[i]);
-        }
-      free (self->translation_cache);
-      self->translation_cache = 0;
-    }
-
   /* formatted_index_entries may not be initialized if there was an error
      early and prepare_conversion_units_targets was never called */
   if (self->document
@@ -231,14 +220,6 @@ html_reset_converter (CONVERTER *self)
   free (self->sorted_index_names.list);
   memset (&self->sorted_index_names, 0, sizeof (INDEX_LIST));
 
-  free (self->global_units_direction_names.list);
-  self->global_units_direction_names.list = 0;
-  self->global_units_direction_names.number = 0;
-
-  clear_strings_list (&self->global_texts_direction_names);
-
-  free (self->special_units_direction_names);
-  self->special_units_direction_names = 0;
   free (self->output_unit_file_indices);
   self->output_unit_file_indices = 0;
   free (self->special_unit_file_indices);
@@ -577,8 +558,14 @@ html_free_converter (CONVERTER *self)
 
   free_strings_list (&self->global_texts_direction_names);
 
+  free (self->special_units_direction_names);
+
+  free (self->global_units_direction_names.list);
+
   html_free_direction_icons_array (self, &self->html_active_icons);
   html_free_direction_icons_array (self, &self->html_passive_icons);
+
+  free_translation_cache (self->translation_cache);
 
   free (self->date_in_header);
 

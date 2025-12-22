@@ -193,6 +193,9 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
     }
 }
 
+/* Retrieve the output units lists associated to a converter
+   and release the associated Perl output units.
+ */
 void
 converter_release_output_units_built (CONVERTER *converter)
 {

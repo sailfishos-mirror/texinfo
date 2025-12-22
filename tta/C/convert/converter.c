@@ -548,6 +548,20 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
     }
     */
 
+  /*
+    If there is already an associated document, reset information linked
+    to the document as much as possible, without freeing anything as
+    it isn't clear what should be freed or not.
+    The output units could be freed through the document, at least
+    theoretically, although there is probably no code that does it.
+   */
+  if (converter->document)
+    {
+      int i;
+      for (i = 0; i < OUDT_external_nodes_units+1; i++)
+        converter->output_units_descriptors[i] = 0;
+    }
+
   converter->document = document;
 
   set_output_encoding (converter->conf, converter->document);

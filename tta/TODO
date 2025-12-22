@@ -32,6 +32,15 @@ Done:
  html_no_arg_command_conversion
  current_lang_translations
  output_unit_files
+ page_name_number
+ global_units_direction_names
+ global_texts_direction_names
+ special_units_direction_names
+ translation_cache
+
+Todo.  Can make sense to do something different, for instance an explicit
+reset when unclosed files have been closed.
+ output_files_information
 
 Initialize all the shared_conversion_state in html_initialize_output_state
 and always reset them?
