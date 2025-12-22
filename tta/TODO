@@ -16,6 +16,11 @@ Review reset converter code and modify to be able to always call it before
 conversion and before free'ing the converter, such that it is never needed
 to call it especially.  Similar to initialize_parsing in parsetexi/api.c.
 
+l 3964 format_html.c not clear where the element_tree is destroyed
+or removed from tree to build in case it is an external tree set
+with html_external_command_tree, but probably it is not possible
+to have an external node here, only an internal node or a sctioning command.
+
 Done:
  pending_closes
  date_in_header
@@ -41,9 +46,15 @@ Done:
  sorted_index_names
  registered_ids_c_hashmap
 
-Todo.  Can make sense to do something different, for instance an explicit
-reset when unclosed files have been closed.
- output_files_information
+Todo.
+ output_files_information:
+  Can make sense to do something different, for instance an explicit
+  reset when unclosed files have been closed.
+ html_targets, html_special_targets: trees, with trees to build can
+ reappear after a call to free_html_targets_trees if command text/title
+ related functions are called
+
+
 
 Initialize all the shared_conversion_state in html_initialize_output_state
 and always reset them?

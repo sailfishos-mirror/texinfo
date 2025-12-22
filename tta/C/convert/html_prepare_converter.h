@@ -68,6 +68,8 @@ void initialize_jslicense_files
 /* int html_setup_output (CONVERTER *self, char **paths); */
 /* void html_setup_convert (CONVERTER *self); */
 
+void reset_html_targets (CONVERTER *self);
+
 /* void html_prepare_conversion_units (CONVERTER *self); */
 
 

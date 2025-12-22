@@ -1437,6 +1437,8 @@ free_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
 {
   clear_tree_added_elements (self, tree_elements);
   free (tree_elements->added.list);
+  tree_elements->added.list = 0;
+  tree_elements->added.space = 0;
 }
 
 void

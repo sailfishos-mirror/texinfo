@@ -104,6 +104,8 @@ char *debug_print_html_contexts (const CONVERTER *self);
                            const char *document_name); */
 
 
+void free_html_targets_trees (CONVERTER *self);
+
 /* void html_conversion_finalization (CONVERTER *self); */
 
 void html_check_transfer_state_finalization (CONVERTER *self);

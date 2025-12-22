@@ -1,5 +1,27 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (free_tree_added_elements): set
+	list and space to 0 after free'ing, such that it is possible to call
+	the function twice.
+
+	* tta/C/convert/convert_html.c (free_html_targets_trees_list)
+	(free_html_targets_trees), tta/C/convert/html_converter_finish.c,
+	tta/C/convert/html_prepare_converter.c (reset_html_targets_list)
+	(reset_html_targets): move reset_html_targets_list and
+	reset_html_targets to html_prepare_converter.c.  Split freeing trees
+	outside of reset_html_targets and reset_html_targets_list to
+	free_html_targets_trees and free_html_targets_trees_list.
+
+	* tta/C/convert/convert_html.c (html_conversion_finalization),
+	tta/C/convert/format_html.c (html_output_internal_links): call
+	free_html_targets_trees.
+
+	* tta/C/convert/html_converter_finish.c (html_free_converter)
+	(html_reset_converter): call reset_html_targets in html_free_converter
+	only.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/z_misc/same_converter_init.t: set TEST to 2.
 	Destroy converter to trigger memory leaks report.
 

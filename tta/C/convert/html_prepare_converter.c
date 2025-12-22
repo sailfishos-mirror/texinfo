@@ -4983,6 +4983,60 @@ check_targets_order (enum command_id cmd, HTML_TARGET_LIST *element_targets)
   return result;
 }
 
+static void
+reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
+{
+  if (targets->number)
+    {
+      size_t i;
+      for (i = 0; i < targets->number; i++)
+        {
+          int j;
+          HTML_TARGET *html_target = &targets->list[i];
+          /* setup before conversion */
+          free (html_target->target);
+          free (html_target->special_unit_filename);
+          free (html_target->node_filename);
+          free (html_target->section_filename);
+          free (html_target->contents_target);
+          free (html_target->shortcontents_target);
+
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_text[j]);
+
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_description[j]);
+
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_name[j]);
+        }
+      targets->number = 0;
+    }
+}
+
+void
+reset_html_targets (CONVERTER *self)
+{
+  size_t i;
+
+  /* In general, this is not useful, as the trees have already been removed
+     after the conversion.  However, if they have been recreated afterwards,
+     we free them again here.
+   */
+  free_html_targets_trees (self);
+
+  for (i = 0; i < self->html_target_cmds.top; i++)
+    {
+      enum command_id cmd = self->html_target_cmds.stack[i];
+      reset_html_targets_list (self, &self->html_targets[cmd]);
+    }
+
+  for (i = 0; i < ST_footnote_location+1; i++)
+    {
+      reset_html_targets_list (self, &self->html_special_targets[i]);
+    }
+}
+
 /* It may not be efficient to sort and find back with bsearch if there is
    a small number of elements.  However, some target elements are more
    likely to already be ordered when they are accessed in their order of
@@ -5097,6 +5151,8 @@ html_prepare_conversion_units_targets (CONVERTER *self,
     }
   else
     self->registered_ids_c_hashmap = new_c_hashmap (predicted_values);
+
+  reset_html_targets (self);
 
   /*
    Do that before the other elements, to be sure that special page ids

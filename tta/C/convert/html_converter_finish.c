@@ -37,6 +37,7 @@
 #include "convert_html.h"
 /* html_nr_string_directions html_free_customized_global_units_directions
    free_css_selector_style_list free_html_no_arg_command_conversion
+   reset_html_targets
  */
 #include "html_prepare_converter.h"
 #include "html_converter_api.h"
@@ -59,53 +60,6 @@ free_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
 {
   reset_special_unit_info_list (special_unit_info_list);
   free (special_unit_info_list->list);
-}
-
-static void
-reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
-{
-  if (targets->number)
-    {
-      size_t i;
-      for (i = 0; i < targets->number; i++)
-        {
-          int j;
-          HTML_TARGET *html_target = &targets->list[i];
-          /* setup before conversion */
-          free (html_target->target);
-          free (html_target->special_unit_filename);
-          free (html_target->node_filename);
-          free (html_target->section_filename);
-          free (html_target->contents_target);
-          free (html_target->shortcontents_target);
-
-          for (j = 0; j < HTT_string_nonumber+1; j++)
-            free (html_target->command_text[j]);
-
-          for (j = 0; j < HTT_string_nonumber+1; j++)
-            free (html_target->command_description[j]);
-
-          for (j = 0; j < HTT_string_nonumber+1; j++)
-            free (html_target->command_name[j]);
-
-          free_tree_added_elements (self, &html_target->tree);
-          free_tree_added_elements (self, &html_target->tree_nonumber);
-          free_tree_added_elements (self, &html_target->name_tree);
-          free_tree_added_elements (self, &html_target->name_tree_nonumber);
-        }
-      targets->number = 0;
-    }
-}
-
-static void
-reset_html_targets (CONVERTER *self, HTML_TARGET_LIST *targets)
-{
-  size_t i;
-  for (i = 0; i < self->html_target_cmds.top; i++)
-    {
-      enum command_id cmd = self->html_target_cmds.stack[i];
-      reset_html_targets_list (self, &targets[cmd]);
-    }
 }
 
 static void
@@ -160,14 +114,6 @@ html_reset_converter (CONVERTER *self)
   size_t i;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
-
-  /* targets */
-  reset_html_targets (self, self->html_targets);
-
-  for (i = 0; i < ST_footnote_location+1; i++)
-    {
-      reset_html_targets_list (self, &self->html_special_targets[i]);
-    }
 
   reset_special_unit_info_list (&self->customized_special_unit_info);
 
@@ -315,6 +261,9 @@ html_free_converter (CONVERTER *self)
   free (self->special_unit_body_formatting);
 
   free (self->global_units_directions);
+
+  /* targets */
+  reset_html_targets (self);
 
   for (j = 0; j < self->html_target_cmds.top; j++)
     {

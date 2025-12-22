@@ -933,6 +933,10 @@ typedef struct CONVERTER {
     void *registered_ids_c_hashmap;
     /* potentially one target list per command (only for some actually,
        registered in html_target_cmds */
+    /* reset before being filled before starting the conversion, after
+       setting up the output units.  The trees are also free'd after
+       the conversion, to avoid having trees to build at that point.
+     */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
     HTML_TARGET_LIST html_special_targets[ST_footnote_location+1];
     /* list of cmd with targets that have been allocated */

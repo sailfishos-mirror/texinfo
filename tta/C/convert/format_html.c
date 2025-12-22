@@ -1895,7 +1895,7 @@ special_unit_info_tree (CONVERTER *self,
   return 0;
 }
 
-/* the returned TREE_ADDED_ELEMENTS may not be NUL but have a NUL tree
+/* the returned TREE_ADDED_ELEMENTS may not be NULL but have a NULL tree
    field, for instance in the case of an empty sectioning element
  */
 TREE_ADDED_ELEMENTS *
@@ -2026,7 +2026,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
   return 0;
 }
 
-TREE_ADDED_ELEMENTS *
+static TREE_ADDED_ELEMENTS *
 html_external_command_tree (CONVERTER *self, const ELEMENT *command,
                             ELEMENT *manual_content)
 {
@@ -2059,7 +2059,7 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   return tree;
 }
 
-TREE_ADDED_ELEMENTS *
+static TREE_ADDED_ELEMENTS *
 html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
 {
 
@@ -13590,6 +13590,11 @@ html_output_internal_links (CONVERTER *self)
             }
         }
     }
+
+  /* trees have been recreated in the function, free them. */
+  /* TODO have a more general converter reset code, but not too general
+     to be called by the caller? */
+  free_html_targets_trees (self);
 
   if (out_string.end == 0)
     {
