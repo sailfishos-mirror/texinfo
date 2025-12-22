@@ -5632,6 +5632,64 @@ add_to_unit_file_name_paths (char **unit_file_name_paths,
   return unit_file_name_paths[output_unit->index];
 }
 
+static void
+html_initialize_pending_closes (CONVERTER *self, size_t number)
+{
+  if (self->pending_closes.space < number)
+    {
+      self->pending_closes.list = (STRING_STACK *)
+        realloc (self->pending_closes.list, number * sizeof (STRING_STACK));
+  /* The existing string stacks per file should already be empty, either because
+     the code is consistent for opening and closing, or because they are
+     emptied after the conversion (with an error message).
+
+     Therefore, only the newly allocated string stacks per file are
+     initialized.
+   */
+      memset (&self->pending_closes.list[self->pending_closes.space],
+              0, (number - self->pending_closes.space)
+                 * sizeof (STRING_STACK));
+      self->pending_closes.space = number;
+    }
+  self->pending_closes.number = number;
+}
+
+/* setup a page (+global context) in case there are no files, ie called
+   with convert or output with an empty string as filename. */
+void
+html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
+{
+  NAME_NUMBER *page_name_number;
+
+  free (self->output_unit_file_indices);
+  self->output_unit_file_indices = 0;
+
+  free (self->special_unit_file_indices);
+  self->special_unit_file_indices = 0;
+
+  self->page_css.number = 1+1;
+  self->page_css.space = self->page_css.number;
+  self->page_css.list = (CSS_LIST *)
+       malloc (self->page_css.space * sizeof (CSS_LIST));
+  memset (self->page_css.list, 0,
+          self->page_css.number * sizeof (CSS_LIST));
+
+  self->html_files_information.number = 1+1;
+  self->html_files_information.list = (FILE_ASSOCIATED_INFO *)
+       malloc (self->html_files_information.number
+          * sizeof (FILE_ASSOCIATED_INFO));
+  memset (self->html_files_information.list, 0,
+          self->html_files_information.number * sizeof (FILE_ASSOCIATED_INFO));
+
+  html_initialize_pending_closes (self, 1+1);
+
+  allocate_name_number_list (&self->page_name_number, 1);
+
+  page_name_number = &self->page_name_number.list[0];
+  page_name_number->number = 1;
+  page_name_number->name = output_filename;
+}
+
 /* calls customization function requiring output units */
 static FILE_SOURCE_INFO_LIST *
 html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,

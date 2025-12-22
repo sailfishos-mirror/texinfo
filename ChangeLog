@@ -1,5 +1,12 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c, tta/C/convert/html_prepare_converter.c
+	(html_initialize_pending_closes, html_setup_output_simple_page): move
+	html_initialize_pending_closes and html_setup_output_simple_page to
+	html_prepare_converter.c.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_api.c (html_output, html_convert),
 	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_output, html_convert):
 	use consistently document_name and not converter->document_name, pass

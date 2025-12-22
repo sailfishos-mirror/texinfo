@@ -72,6 +72,9 @@ void initialize_jslicense_files
 
 void reset_html_targets (CONVERTER *self);
 
+/* void html_setup_output_simple_page (CONVERTER *self,
+                                    const char *output_filename); */
+
 /* void html_prepare_conversion_units (CONVERTER *self); */
 
 

@@ -75,12 +75,7 @@ void html_reset_translated_special_unit_info_tree (CONVERTER *self);
 int html_run_stage_handlers (CONVERTER *self,
                              enum html_stage_handler_stage_type stage);
 
-/* void html_setup_output_simple_page (CONVERTER *self,
-                                    const char *output_filename); */
-
 void html_free_direction_icons_array (CONVERTER *self, char ***direction_icons);
-
-void html_initialize_pending_closes (CONVERTER *self, size_t number);
 
 /* next three called separately for convert() */
 /* void html_prepare_direction_icons (CONVERTER *self); */
