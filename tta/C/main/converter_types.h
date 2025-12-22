@@ -899,6 +899,9 @@ typedef struct CONVERTER {
     DIRECTION_NODE_NAME_LIST customized_global_units_directions;
     STRING_LIST added_global_units_directions;
     STRING_LIST customized_global_text_directions;
+    /* associate cmd and index in special_unit_varieties STRING_LIST */
+    /* number in sync with command_special_unit_variety, +1 for trailing 0 */
+    COMMAND_ID_INDEX command_special_variety_name_index[4+1];
 
     /* set for a document */
     /* next two set in conversion initialization */
@@ -933,8 +936,7 @@ typedef struct CONVERTER {
     void *registered_ids_c_hashmap;
     /* potentially one target list per command (only for some actually,
        registered in html_target_cmds */
-    /* reset before being filled before starting the conversion, after
-       setting up the output units.  The trees are also free'd after
+    /* reset in conversion initialization.  The trees are also free'd after
        the conversion, to avoid having trees to build at that point.
      */
     HTML_TARGET_LIST html_targets[BUILTIN_CMD_NUMBER];
@@ -945,9 +947,6 @@ typedef struct CONVERTER {
     FILE_SOURCE_INFO_LIST files_source_info;
     /* reset in conversion initialistation */
     JSLICENSE_CATEGORY_LIST jslicenses;
-    /* associate cmd and index in special_unit_varieties STRING_LIST */
-    /* number in sync with command_special_unit_variety, +1 for trailing 0 */
-    COMMAND_ID_INDEX command_special_variety_name_index[4+1];
     size_t *output_unit_file_indices;   /* array of indices in output_unit_files
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */

@@ -1153,7 +1153,7 @@ html_output (SV *converter_in, SV *document_in)
         /* calls Perl customization functions, so need to be done after
            building output units to be able to retrieve
            output units references in Perl */
-        html_prepare_conversion_units_targets (self, self->document_name);
+        html_prepare_conversion_units_targets (self, document_name);
 
         /* html_translate_names */
         html_translate_names (self);
@@ -1255,7 +1255,7 @@ html_convert (SV *converter_in, SV *document_in)
         /* calls Perl customization functions, so need to be done after
            building output units to be able to retrieve
            output units references in Perl */
-        html_prepare_conversion_units_targets (self, self->document_name);
+        html_prepare_conversion_units_targets (self, 0);
 
         html_setup_output_simple_page (self, "");
 

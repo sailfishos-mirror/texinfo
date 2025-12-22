@@ -136,23 +136,6 @@ html_reset_converter (CONVERTER *self)
         }
     }
 
-  free (self->output_unit_file_indices);
-  self->output_unit_file_indices = 0;
-  free (self->special_unit_file_indices);
-  self->special_unit_file_indices = 0;
-  free (self->title_titlepage);
-  self->title_titlepage = 0;
-  free (self->title_string);
-  self->title_string = 0;
-  free (self->documentdescription_string);
-  self->documentdescription_string = 0;
-  free (self->copying_comment);
-  self->copying_comment = 0;
-  free (self->destination_directory);
-  self->destination_directory = 0;
-  free (self->document_name);
-  self->document_name = 0;
-
   if (self->added_title_tree)
     {
       destroy_element_and_children (self->title_tree);
@@ -241,11 +224,21 @@ html_free_converter (CONVERTER *self)
   clear_c_hashmap (self->registered_ids_c_hashmap);
   free (self->registered_ids_c_hashmap);
 
+  free (self->title_titlepage);
+  free (self->title_string);
+  free (self->documentdescription_string);
+  free (self->copying_comment);
+  free (self->destination_directory);
+  free (self->document_name);
+
   if (self->pl_info_hv)
     {
       unregister_perl_data (self->pl_info_hv);
       self->pl_info_hv = 0;
     }
+
+  free (self->output_unit_file_indices);
+  free (self->special_unit_file_indices);
 
   html_free_files_source_info (&self->files_source_info);
 

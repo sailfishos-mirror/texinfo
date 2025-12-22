@@ -1004,6 +1004,12 @@ html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
 {
   NAME_NUMBER *page_name_number;
 
+  free (self->output_unit_file_indices);
+  self->output_unit_file_indices = 0;
+
+  free (self->special_unit_file_indices);
+  self->special_unit_file_indices = 0;
+
   self->page_css.number = 1+1;
   self->page_css.space = self->page_css.number;
   self->page_css.list = (CSS_LIST *)

@@ -1,5 +1,31 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_api.c (html_output, html_convert),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_output, html_convert):
+	use consistently document_name and not converter->document_name, pass
+	directly 0 to html_prepare_conversion_units_targets for convert.
+
+	* tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization): reset title_titlepage, title_string,
+	documentdescription_string, copying_comment, destination_directory
+	and document_name in html_conversion_initialization, not in
+	html_reset_converter and free in html_free_converter.
+
+	* tta/C/convert/convert_html.c (html_setup_output_simple_page),
+	tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(html_set_pages_files): reset output_unit_file_indices and
+	special_unit_file_indices in html_set_pages_files and
+	html_setup_output_simple_page, not in html_reset_converter.  Free in
+	html_free_converter.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization): call reset_html_targets in
+	html_conversion_initialization.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_finish.c (html_reset_converter),
 	tta/C/convert/html_prepare_converter.c (html_reset_files_source_info)
 	(html_prepare_units_directions_files): move

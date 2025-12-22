@@ -74,7 +74,7 @@ html_output (CONVERTER *converter, DOCUMENT *document)
 
   html_prepare_conversion_units (converter);
 
-  html_prepare_conversion_units_targets (converter, converter->document_name);
+  html_prepare_conversion_units_targets (converter, document_name);
 
   html_translate_names (converter);
 
@@ -138,8 +138,7 @@ html_convert (CONVERTER *converter, DOCUMENT *document)
 
   html_prepare_conversion_units (converter);
 
-  /* converter->document_name should be 0 */
-  html_prepare_conversion_units_targets (converter, converter->document_name);
+  html_prepare_conversion_units_targets (converter, 0);
   html_setup_output_simple_page (converter, "");
 
         /* setup global targets.  It is not clearly relevant to have those

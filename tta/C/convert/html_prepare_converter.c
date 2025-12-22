@@ -3416,6 +3416,60 @@ free_js_categories_list (JSLICENSE_CATEGORY_LIST *js_files_info)
   js_files_info->number = 0;
 }
 
+static void
+reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
+{
+  if (targets->number)
+    {
+      size_t i;
+      for (i = 0; i < targets->number; i++)
+        {
+          int j;
+          HTML_TARGET *html_target = &targets->list[i];
+          /* setup before conversion */
+          free (html_target->target);
+          free (html_target->special_unit_filename);
+          free (html_target->node_filename);
+          free (html_target->section_filename);
+          free (html_target->contents_target);
+          free (html_target->shortcontents_target);
+
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_text[j]);
+
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_description[j]);
+
+          for (j = 0; j < HTT_string_nonumber+1; j++)
+            free (html_target->command_name[j]);
+        }
+      targets->number = 0;
+    }
+}
+
+void
+reset_html_targets (CONVERTER *self)
+{
+  size_t i;
+
+  /* In general, this is not useful, as the trees have already been removed
+     after the conversion.  However, if they have been recreated afterwards,
+     we free them again here.
+   */
+  free_html_targets_trees (self);
+
+  for (i = 0; i < self->html_target_cmds.top; i++)
+    {
+      enum command_id cmd = self->html_target_cmds.stack[i];
+      reset_html_targets_list (self, &self->html_targets[cmd]);
+    }
+
+  for (i = 0; i < ST_footnote_location+1; i++)
+    {
+      reset_html_targets_list (self, &self->html_special_targets[i]);
+    }
+}
+
 static const enum command_id spaces_cmd[] = {
   CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie
 };
@@ -3446,17 +3500,36 @@ html_conversion_initialization (CONVERTER *self, const char *context)
    output_no_arg_commands_formatting[BUILTIN_CMD_NUMBER]
                                               [NO_ARG_COMMAND_CONTEXT_NR];
 
-  free_translation_cache (self->translation_cache);
-  self->translation_cache = 0;
+  /* in Perl converter_info is reset here, in C corresponds to
+     different fields of the converter structure.
+     They are reset here when relevant */
 
-  output_encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
+  free (self->title_titlepage);
+  self->title_titlepage = 0;
+  free (self->title_string);
+  self->title_string = 0;
+  free (self->documentdescription_string);
+  self->documentdescription_string = 0;
+  free (self->copying_comment);
+  self->copying_comment = 0;
+  free (self->destination_directory);
+  self->destination_directory = 0;
+  free (self->document_name);
+  self->document_name = 0;
+
+  reset_html_targets (self);
 
   self->current_node = 0;
   self->current_root_command = 0;
 
+  free_translation_cache (self->translation_cache);
+  self->translation_cache = 0;
+
   /* it actually matters only with output, not with convert, but it is
      better to reset in any case */
   free_js_categories_list (&self->jslicenses);
+
+  output_encoding = self->conf->OUTPUT_ENCODING_NAME.o.string;
 
   for (i = 0; i < SC_non_breaking_space+1; i++)
     {
@@ -5018,60 +5091,6 @@ check_targets_order (enum command_id cmd, HTML_TARGET_LIST *element_targets)
   return result;
 }
 
-static void
-reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
-{
-  if (targets->number)
-    {
-      size_t i;
-      for (i = 0; i < targets->number; i++)
-        {
-          int j;
-          HTML_TARGET *html_target = &targets->list[i];
-          /* setup before conversion */
-          free (html_target->target);
-          free (html_target->special_unit_filename);
-          free (html_target->node_filename);
-          free (html_target->section_filename);
-          free (html_target->contents_target);
-          free (html_target->shortcontents_target);
-
-          for (j = 0; j < HTT_string_nonumber+1; j++)
-            free (html_target->command_text[j]);
-
-          for (j = 0; j < HTT_string_nonumber+1; j++)
-            free (html_target->command_description[j]);
-
-          for (j = 0; j < HTT_string_nonumber+1; j++)
-            free (html_target->command_name[j]);
-        }
-      targets->number = 0;
-    }
-}
-
-void
-reset_html_targets (CONVERTER *self)
-{
-  size_t i;
-
-  /* In general, this is not useful, as the trees have already been removed
-     after the conversion.  However, if they have been recreated afterwards,
-     we free them again here.
-   */
-  free_html_targets_trees (self);
-
-  for (i = 0; i < self->html_target_cmds.top; i++)
-    {
-      enum command_id cmd = self->html_target_cmds.stack[i];
-      reset_html_targets_list (self, &self->html_targets[cmd]);
-    }
-
-  for (i = 0; i < ST_footnote_location+1; i++)
-    {
-      reset_html_targets_list (self, &self->html_special_targets[i]);
-    }
-}
-
 /* It may not be efficient to sort and find back with bsearch if there is
    a small number of elements.  However, some target elements are more
    likely to already be ordered when they are accessed in their order of
@@ -5179,6 +5198,8 @@ html_prepare_conversion_units_targets (CONVERTER *self,
 {
   size_t predicted_values = ids_hashmap_predicted_values (self);
 
+  /* Not done as in Perl in conversion initialization, to be able to
+     have correctly predicted number of id */
   if (self->registered_ids_c_hashmap)
     {
       clear_c_hashmap (self->registered_ids_c_hashmap);
@@ -5186,8 +5207,6 @@ html_prepare_conversion_units_targets (CONVERTER *self,
     }
   else
     self->registered_ids_c_hashmap = new_c_hashmap (predicted_values);
-
-  reset_html_targets (self);
 
   /*
    Do that before the other elements, to be sure that special page ids
@@ -5899,7 +5918,8 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
     }
 
   self->output_unit_file_indices = (size_t *)
-    malloc (output_units->number * sizeof (size_t));
+    realloc (self->output_unit_file_indices,
+             output_units->number * sizeof (size_t));
 
   for (i = 0; i < output_units->number; i++)
     {
@@ -5988,7 +6008,8 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
     {
       size_t i;
       self->special_unit_file_indices = (size_t *)
-        malloc (special_units->number * sizeof (size_t));
+        realloc (self->special_unit_file_indices,
+                 special_units->number * sizeof (size_t));
       for (i = 0; i < special_units->number; i++)
         {
           size_t special_unit_file_idx = 0;
@@ -6034,6 +6055,11 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
             fprintf (stderr, "Special page: %s(%d)\n", filename,
                              special_unit_file->counter);
         }
+    }
+  else
+    {
+      free (self->special_unit_file_indices);
+      self->special_unit_file_indices = 0;
     }
 
   for (i = 0; i < files_source_info->number; i++)
