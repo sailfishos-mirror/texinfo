@@ -644,6 +644,13 @@ in <b>html</b> in copying ``
 # The elements that were copied that were not on the copied chapter command
 # line therefore were not destroyed.  For instance the @node the anchor
 # extra menu direction up points to were not destroyed.
+#
+# Note that even though there is no error message, @anchor on sectioning
+# command line is not valid.
+# The anchor actually disappear from the output, because the chapter
+# line is copied to be combined with the chapter sectioning
+# number through a translation and the copy is not marked as a target
+# element and therefore there is nothing output for the anchor.
 ['anchor_in_menu_on_sectioning_command_line',
 '@node chap
 @chapter chapter @anchor{ggg} after
@@ -651,6 +658,23 @@ in <b>html</b> in copying ``
 @menu
 * ggg::
 @end menu
+'],
+# Note that the anchor on the node associated to the chapter does not
+# appear in the output because the node is not used in any heading,
+# the chapter is.  The lone node is used for a heading.
+['anchor_on_node_line',
+'@node Top
+@top top
+
+@node lone node @anchor{iln} a
+
+@node chapter node @anchor{cnl} b
+@chapter chap
+
+@xref{iln}.
+
+@xref{cnl}
+
 '],
 # the output has nested <a> in @printindex formatting for @item
 # with @anchor on the line, which is invalid HTML.  However, it
