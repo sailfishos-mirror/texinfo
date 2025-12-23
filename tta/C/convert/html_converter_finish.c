@@ -136,13 +136,6 @@ html_reset_converter (CONVERTER *self)
         }
     }
 
-  if (self->added_title_tree)
-    {
-      destroy_element_and_children (self->title_tree);
-
-      self->added_title_tree = 0;
-    }
-
   clear_output_files_information (&self->output_files_information);
 
   clear_strings_list (&self->check_htmlxref_already_warned);
@@ -230,6 +223,9 @@ html_free_converter (CONVERTER *self)
   free (self->copying_comment);
   free (self->destination_directory);
   free (self->document_name);
+
+  if (self->added_title_tree)
+    destroy_element_and_children (self->title_tree);
 
   if (self->pl_info_hv)
     {

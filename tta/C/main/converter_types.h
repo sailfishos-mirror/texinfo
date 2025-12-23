@@ -945,12 +945,12 @@ typedef struct CONVERTER {
     COMMAND_STACK html_target_cmds;
     /* reset before conversion before being filled */
     FILE_SOURCE_INFO_LIST files_source_info;
-    /* reset in conversion initialistation */
+    /* reset in conversion initialization */
     JSLICENSE_CATEGORY_LIST jslicenses;
     size_t *output_unit_file_indices;   /* array of indices in output_unit_files
               each position corresponding to an output unit. */
     size_t *special_unit_file_indices;  /* same for special output units */
-    /* in converter_info in Perl */
+    /* Next are in converter_info in Perl.  Reset in conversion initialization */
     char *title_titlepage;
     ELEMENT *simpletitle_tree;
     enum command_id simpletitle_cmd;

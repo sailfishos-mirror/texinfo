@@ -3517,6 +3517,17 @@ html_conversion_initialization (CONVERTER *self, const char *context)
   free (self->document_name);
   self->document_name = 0;
 
+  self->simpletitle_tree = 0;
+  self->simpletitle_cmd = CM_NONE;
+
+  if (self->added_title_tree)
+    {
+      destroy_element_and_children (self->title_tree);
+
+      self->added_title_tree = 0;
+    }
+  self->title_tree = 0;
+
   reset_html_targets (self);
 
   self->current_node = 0;

@@ -1,5 +1,17 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization): reset title_tree and
+	added_title_tree in html_conversion_initialization instead of
+	html_reset_converter and free in html_free_converter.
+
+	* tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization): reset simpletitle_tree and
+	simpletitle_cmd.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c, tta/C/convert/html_prepare_converter.c
 	(html_initialize_pending_closes, html_setup_output_simple_page): move
 	html_initialize_pending_closes and html_setup_output_simple_page to
