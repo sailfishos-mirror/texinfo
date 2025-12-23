@@ -1,5 +1,10 @@
 2025-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\lattwochardefs): Use \ensuremath for definitions
+	of × and ÷.
+
+2025-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\latonechardefs): Change more definitions to
 	match \unicodechardefs.
 
