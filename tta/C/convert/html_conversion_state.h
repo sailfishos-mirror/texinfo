@@ -47,7 +47,8 @@ void html_unset_string_context (CONVERTER *self);
 void html_set_raw_context (CONVERTER *self);
 void html_unset_raw_context (CONVERTER *self);
 
-const char *html_in_multi_expanded (CONVERTER *self);
+const char *html_multi_expanded_region (CONVERTER *self);
+size_t html_in_multiple_conversions (const CONVERTER *self);
 void html_set_multiple_conversions (CONVERTER *self, const char *multiple_pass);
 void html_unset_multiple_conversions (CONVERTER *self);
 

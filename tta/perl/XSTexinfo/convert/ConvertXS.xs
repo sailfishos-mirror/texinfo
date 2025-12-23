@@ -1505,15 +1505,15 @@ html_unset_multiple_conversions (SV *converter_in)
           html_unset_multiple_conversions (self);
 
 SV *
-html_in_multi_expanded (SV *converter_in)
+html_multi_expanded_region (SV *converter_in)
      PREINIT:
         CONVERTER *self;
         const char *multi_expanded = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_multi_expanded");
+                                 "html_multi_expanded_region");
         if (self)
-          multi_expanded = html_in_multi_expanded (self);
+          multi_expanded = html_multi_expanded_region (self);
 
         if (multi_expanded)
           RETVAL = newSVpv_utf8 (multi_expanded, 0);
@@ -1669,7 +1669,7 @@ html_in_multiple_conversions (SV *converter_in)
      CODE:
         self = get_sv_converter (converter_in,
                                  "html_in_multiple_conversions");
-        RETVAL = self->multiple_pass.top;
+        RETVAL = html_in_multiple_conversions (self);
     OUTPUT:
         RETVAL
 

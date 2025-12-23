@@ -1,5 +1,22 @@
 2025-12-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_conversion_state.c (html_multi_expanded_region),
+	tta/perl/Texinfo/Convert/HTML.pm (multi_expanded_region),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_multi_expanded_region):
+	rename in_multi_expanded as multi_expanded_region.  Update callers.
+
+	* tta/C/convert/html_conversion_state.c
+	(html_in_multiple_conversions),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(html_in_multiple_conversions), tta/C/convert/format_html.c
+	(html_convert_raw_command): add html_in_multiple_conversions to be
+	more like Perl code.
+
+	* doc/texi2any_api.texi (Other Dynamic Information): update function
+	name and edits.
+
+2025-12-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_conversion_finalization),
 	tta/C/convert/format_html.c (html_convert_raw_command),
 	tta/C/convert/html_conversion_state.c (html_set_multiple_conversions)

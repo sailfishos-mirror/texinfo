@@ -597,7 +597,7 @@ html_unset_raw_context (CONVERTER *self)
 }
 
 const char *
-html_in_multi_expanded (CONVERTER *self)
+html_multi_expanded_region (CONVERTER *self)
 {
   if (self->multiple_pass.top > 0)
     return top_string_stack (&self->multiple_pass);
@@ -615,6 +615,12 @@ void
 html_unset_multiple_conversions (CONVERTER *self)
 {
   pop_string_stack (&self->multiple_pass);
+}
+
+size_t
+html_in_multiple_conversions (const CONVERTER *self)
+{
+  return self->multiple_pass.top;
 }
 
 void

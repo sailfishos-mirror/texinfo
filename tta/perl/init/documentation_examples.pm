@@ -363,7 +363,7 @@ sub my_test_documentation_convert_index_entry_command_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  if ($converter->in_multi_expanded()
+  if ($converter->multi_expanded_region()
       or $converter->in_string()) {
     return '';
   }

@@ -259,8 +259,8 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_preformatted_classes_stack",
   "Texinfo::Convert::HTML::in_align"
    => "Texinfo::Convert::ConvertXS::html_in_align",
-  "Texinfo::Convert::HTML::in_multi_expanded"
-   => "Texinfo::Convert::ConvertXS::html_in_multi_expanded",
+  "Texinfo::Convert::HTML::multi_expanded_region"
+   => "Texinfo::Convert::ConvertXS::html_multi_expanded_region",
   "Texinfo::Convert::HTML::current_filename"
    => "Texinfo::Convert::ConvertXS::html_current_filename",
   "Texinfo::Convert::HTML::current_output_unit"
@@ -835,7 +835,7 @@ sub in_align($) {
   }
 }
 
-sub in_multi_expanded($) {
+sub multi_expanded_region($) {
   my $self = shift;
 
   if (scalar(@{$self->{'multiple_pass'}})) {
@@ -1331,6 +1331,9 @@ sub _internal_command_tree($$$) {
           if ($section_number
               and ($self->get_conf('NUMBER_SECTIONS')
                    or !defined($self->get_conf('NUMBER_SECTIONS')))) {
+            # NOTE since there is a copy, the elements that are found using their
+            # hash won't be found during conversion.  This is the case for
+            # target elements such as @anchor.
             my $substituted_strings
               = {'number' =>
                   Texinfo::TreeElement::new({'text' => $section_number}),
@@ -1445,6 +1448,7 @@ sub _convert_command_tree($$$$$) {
   _push_referred_command_stack_command($self, $command);
   my $result = _convert($self, $tree_root, $explanation);
   _pop_referred_command_stack($self);
+
   _unset_multiple_conversions($self);
 
   _pop_document_context($self);
@@ -3457,7 +3461,7 @@ foreach my $explained_command (keys(%explained_commands)) {
 sub _convert_anchor_command($$$$) {
   my ($self, $cmdname, $command, $args) = @_;
 
-  if (!in_multi_expanded($self) and !in_string($self)) {
+  if (!multi_expanded_region($self) and !in_string($self)) {
     my $id = $self->command_id($command);
     if (defined($id) and $id ne '') {
       return &{$self->formatting_function('format_separate_anchor')}($self,
@@ -3508,7 +3512,7 @@ sub _convert_footnote_command($$$$) {
   my $docid;
 
   my $multiple_expanded_footnote = 0;
-  my $multi_expanded_region = in_multi_expanded($self);
+  my $multi_expanded_region = multi_expanded_region($self);
   if (defined($multi_expanded_region)) {
     # to avoid duplicate names, use a prefix that cannot happen in anchors
     my $target_prefix = "t_f";
@@ -3634,7 +3638,7 @@ sub _convert_image_command($$$$) {
     if (not defined($image_path)) {
       # it would have been relevant to output the message only if
       # if not ($self->in_multiple_conversions())
-      # However, @image formatted in multiple conversions context should be
+      # However, @image formatted multiple times should be
       # rare out of test suites (and probably always incorrect), so we avoid
       # complexity and slowdown.  We still check that source_info is set, if
       # not it should be a copy, therefore there is no need for error
@@ -7024,7 +7028,7 @@ sub _convert_index_entry_command_type($$$$) {
 
   my $index_id = $self->command_id($element);
   if (defined($index_id) and $index_id ne ''
-      and !in_multi_expanded($self)
+      and !multi_expanded_region($self)
       and !in_string($self)) {
     my $result = &{$self->formatting_function('format_separate_anchor')}($self,
                                                    $index_id, 'index-entry-id');
@@ -7559,7 +7563,7 @@ sub _convert_def_line_type($$$$) {
 
   my $index_label = '';
   my $index_id = $self->command_id($element);
-  if (defined($index_id) and $index_id ne '' and !in_multi_expanded($self)) {
+  if (defined($index_id) and $index_id ne '' and !multi_expanded_region($self)) {
     $index_label = " id=\"$index_id\"";
   }
   my ($category_element, $class_element,
@@ -8745,7 +8749,7 @@ sub _load_htmlxref_files($) {
 #  associated_inline_content
 #
 #    API exists
-#  multiple_conversions
+#  multiple_pass
 #
 #    API exists
 #  targets         for directions.  Keys are elements references, values are
@@ -11819,11 +11823,11 @@ sub _default_format_footnotes_sequence($) {
     }
 
     # NOTE the @-commands in @footnote that are formatted differently depending
-    # on in_multi_expanded($self) cannot know that the original context
+    # on multi_expanded_region($self) cannot know that the original context
     # of the @footnote in the main document was $multi_expanded_region.
     # We do not want to set multi_expanded in customizable code.  However, it
     # could be possible to set a shared_conversion_state based on $multi_expanded_region
-    # and have all the conversion functions calling in_multi_expanded($self)
+    # and have all the conversion functions calling multi_expanded_region($self)
     # also check the shared_conversion_state.  The special situations
     # with those @-commands in @footnote in multi expanded
     # region do not justify this additional code and complexity.  The consequences

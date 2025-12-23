@@ -2401,7 +2401,7 @@ If the alignment context is the default alignement context, return @code{undef}.
 Otherwise, returns the command name of the alignment context.
 @end deftypefun
 
-To determine if the conversion is in a context converted multiple times,
+To determine if in a context of multiple conversions,
 use @code{in_multiple_conversions}:
 @deftypefun {@var{$multiple_conversion} =} @var{$converter}->in_multiple_conversions ()
 Return true if the Texinfo tree being converted is converted multiple
@@ -2411,11 +2411,15 @@ For example, return true if a node name is converted as part of a direction
 string formating in a navigation panel, which is not the
 main expansion of the @code{@@node}.  The main @code{@@node} element
 expansion occurs where the @@-command is located.
+
+For another example, multiple conversion for index entries could happen
+if there are more than one @code{@@printindex} for an index in the converted
+manual.
 @end deftypefun
 
-To determine if the a mutiple expansion context is set, use
-@code{in_multi_expanded}:
-@deftypefun {@var{$multi_expanded_context_information} =} @var{$converter}->in_multi_expanded ()
+To determine if in a specific multiple expanded context, use
+@code{multi_expanded_region}:
+@deftypefun {@var{$multi_expanded_context_information} =} @var{$converter}->multi_expanded_region ()
 Return a string representing the multiple expanded context, or @code{undef} if
 not in a multiple expanded context.
 
@@ -2423,6 +2427,9 @@ A multiple expanded context implies to be in multiple conversions.  However,
 it is possible to be in multiple conversions without being in a multiple
 expanded context, as a multiple expanded context needs to be set explicitly,
 and is not always needed.
+
+Multiple expanded context happens for example in automatically-generated menu
+description, captions in list of floats or printindex converted more than once.
 @end deftypefun
 
 To get the current paragraph and preformatted number, use @code{paragraph_number}

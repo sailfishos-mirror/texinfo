@@ -3435,11 +3435,11 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
                     pending_footnote_info->footnote_location_filename);
    /*
       NOTE the @-commands in @footnote that are formatted differently depending
-      on in_multi_expanded($self) cannot know that the original context
+      on multi_expanded_region($self) cannot know that the original context
       of the @footnote in the main document was $multi_expanded_region.
       We do not want to set multi_expanded in customizable code.  However, it
       could be possible to set a shared_conversion_state based on $multi_expanded_region
-      and have all the conversion functions calling in_multi_expanded($self)
+      and have all the conversion functions calling multi_expanded_region($self)
       also check the shared_conversion_state.  The special situations
       with those @-commands in @footnote in multi expanded
       region do not justify this additional code and complexity.  The consequences
@@ -6353,7 +6353,7 @@ html_convert_anchor_command (CONVERTER *self, const enum command_id cmd,
                              const HTML_ARGS_FORMATTED *args_formatted,
                              const char *content, TEXT *result)
 {
-  if (!html_in_multi_expanded (self) && !html_in_string (self))
+  if (!html_multi_expanded_region (self) && !html_in_string (self))
     {
       const char *id = html_command_id (self, element);
       if (id && strlen (id))
@@ -6445,7 +6445,7 @@ html_convert_footnote_command (CONVERTER *self, const enum command_id cmd,
   /* ID for linking back to the main text from the footnote. */
   footnote_docid = html_footnote_location_target (self, element);
 
-  multi_expanded_region = html_in_multi_expanded (self);
+  multi_expanded_region = html_multi_expanded_region (self);
   if (multi_expanded_region)
     {
     /* to avoid duplicate names, use a prefix that cannot happen in anchors */
@@ -8353,7 +8353,7 @@ html_convert_raw_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  if (self->multiple_pass.top == 0)
+  if (!html_in_multiple_conversions (self))
     {
       message_list_command_warn (&self->error_messages,
                      (self->conf && self->conf->DEBUG.o.integer > 0),
@@ -11740,7 +11740,7 @@ html_convert_index_entry_command_type (CONVERTER *self,
 {
   const char *index_id;
 
-  if (html_in_string (self) || html_in_multi_expanded (self))
+  if (html_in_string (self) || html_multi_expanded_region (self))
     return;
 
   index_id = html_command_id (self, element);
@@ -12634,7 +12634,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       destroy_strings_list (classes);
       text_append (result, attribute_class);
       free (attribute_class);
-      if (index_id && strlen (index_id) && !html_in_multi_expanded (self))
+      if (index_id && strlen (index_id) && !html_multi_expanded_region (self))
         text_printf (result, " id=\"%s\"", index_id);
       text_append_n (result, ">", 1);
 
@@ -12670,7 +12670,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
   destroy_strings_list (classes);
   text_append (result, attribute_class);
   free (attribute_class);
-  if (index_id && strlen (index_id) && !html_in_multi_expanded (self))
+  if (index_id && strlen (index_id) && !html_multi_expanded_region (self))
     text_printf (result, " id=\"%s\"", index_id);
   text_append_n (result, ">", 1);
 
