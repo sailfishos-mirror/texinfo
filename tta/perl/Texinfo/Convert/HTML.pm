@@ -12469,8 +12469,7 @@ sub conversion_initialization($$;$) {
   # indirectly
   $self->{'referred_command_stack'} = [];
 
-  $self->{'check_htmlxref_already_warned'} = {}
-    if ($self->get_conf('CHECK_HTMLXREF'));
+  $self->{'check_htmlxref_already_warned'} = {};
 
   $self->{'converter_info'}->{'expanded_formats'}
     = $self->{'expanded_formats'};

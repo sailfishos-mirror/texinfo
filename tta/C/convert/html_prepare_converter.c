@@ -3828,6 +3828,8 @@ html_conversion_initialization (CONVERTER *self, const char *context)
   self->global_units_direction_names.list = 0;
   self->global_units_direction_names.number = 0;
 
+  clear_strings_list (&self->check_htmlxref_already_warned);
+
   if (self->conf->NODE_NAME_IN_INDEX.o.integer < 0)
     option_set_conf (&self->conf->NODE_NAME_IN_INDEX,
                      self->conf->USE_NODES.o.integer, 0);

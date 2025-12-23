@@ -1007,6 +1007,7 @@ typedef struct CONVERTER {
     HTML_PENDING_FOOTNOTE_STACK pending_footnotes;
     HTML_ASSOCIATED_INLINE_CONTENT_LIST associated_inline_content;
     PAGES_CSS_LIST page_css;
+    /* reset at conversion initialization */
     STRING_LIST check_htmlxref_already_warned;
     FILE_ASSOCIATED_INFO_LIST html_files_information;
     /* state common with perl converter, not transmitted to perl */

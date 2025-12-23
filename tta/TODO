@@ -47,6 +47,8 @@ Done:
  registered_ids_c_hashmap
  files_source_info
  jslicenses
+ check_htmlxref_already_warned
+ ...
 
 Todo.
  output_files_information:

@@ -93,8 +93,8 @@ void
 html_reset_converter (CONVERTER *self)
 {
   size_t i;
-  EXPLAINED_COMMAND_TYPE_LIST *type_explanations
-   = &self->shared_conversion_state.explained_commands;
+
+  clear_type_explanations (&self->shared_conversion_state.explained_commands);
 
   free (self->shared_conversion_state.footnote_id_numbers);
   self->shared_conversion_state.footnote_id_numbers = 0;
@@ -128,8 +128,6 @@ html_reset_converter (CONVERTER *self)
     }
 
   clear_output_files_information (&self->output_files_information);
-
-  clear_strings_list (&self->check_htmlxref_already_warned);
 
   for (i = 0; i < self->page_css.number; i++)
     {
@@ -167,7 +165,6 @@ html_reset_converter (CONVERTER *self)
         }
       self->tree_to_build.number = 0;
     }
-  clear_type_explanations (type_explanations);
 }
 
 void
@@ -177,8 +174,6 @@ html_free_converter (CONVERTER *self)
   size_t j;
   int nr_string_directions = html_nr_string_directions (self);
   int nr_dir_str_contexts = TDS_context_string + 1;
-  EXPLAINED_COMMAND_TYPE_LIST *type_explanations
-   = &self->shared_conversion_state.explained_commands;
 
   free_strings_list (&self->customized_special_unit_varieties);
 
@@ -535,7 +530,7 @@ html_free_converter (CONVERTER *self)
 
   free (self->shared_conversion_state.elements_authors.stack);
 
-  free (type_explanations->list);
+  free (self->shared_conversion_state.explained_commands.list);
 
   free_strings_list (&self->special_unit_varieties);
 
