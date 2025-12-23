@@ -1,5 +1,13 @@
 2025-12-22 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_finish.c (free_special_unit_info_list)
+	(html_reset_converter): do not call reset_special_unit_info_list on
+	customized_special_unit_info, this information should not change after
+	getting the customization.  remove reset_special_unit_info_list,
+	merging code to free_special_unit_info_list.
+
+2025-12-22 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_finish.c (html_reset_converter)
 	(html_free_converter), tta/C/convert/html_prepare_converter.c
 	(html_conversion_initialization): reset title_tree and

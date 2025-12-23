@@ -44,7 +44,7 @@
 
 
 static void
-reset_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
+free_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
 {
   size_t i;
   for (i = 0; i < special_unit_info_list->number; i++)
@@ -52,13 +52,6 @@ reset_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
       SPECIAL_UNIT_INFO *special_unit_info = &special_unit_info_list->list[i];
       free (special_unit_info->value);
     }
-  special_unit_info_list->number = 0;
-}
-
-static void
-free_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
-{
-  reset_special_unit_info_list (special_unit_info_list);
   free (special_unit_info_list->list);
 }
 
@@ -102,8 +95,6 @@ html_reset_converter (CONVERTER *self)
   size_t i;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
-
-  reset_special_unit_info_list (&self->customized_special_unit_info);
 
   free (self->shared_conversion_state.footnote_id_numbers);
   self->shared_conversion_state.footnote_id_numbers = 0;
@@ -188,8 +179,6 @@ html_free_converter (CONVERTER *self)
   int nr_dir_str_contexts = TDS_context_string + 1;
   EXPLAINED_COMMAND_TYPE_LIST *type_explanations
    = &self->shared_conversion_state.explained_commands;
-
-  free_special_unit_info_list (&self->customized_special_unit_info);
 
   free_strings_list (&self->customized_special_unit_varieties);
 
@@ -551,5 +540,7 @@ html_free_converter (CONVERTER *self)
   free_strings_list (&self->special_unit_varieties);
 
   free (self->tree_to_build.list);
+
+  free_special_unit_info_list (&self->customized_special_unit_info);
 }
 
