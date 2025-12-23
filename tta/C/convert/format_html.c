@@ -11740,7 +11740,7 @@ html_convert_index_entry_command_type (CONVERTER *self,
 {
   const char *index_id;
 
-  if (html_in_string (self) || html_multi_expanded_region (self))
+  if (html_in_string (self) || html_in_multiple_conversions (self))
     return;
 
   index_id = html_command_id (self, element);
@@ -12634,7 +12634,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       destroy_strings_list (classes);
       text_append (result, attribute_class);
       free (attribute_class);
-      if (index_id && strlen (index_id) && !html_multi_expanded_region (self))
+      if (index_id && strlen (index_id) && !html_in_multiple_conversions (self))
         text_printf (result, " id=\"%s\"", index_id);
       text_append_n (result, ">", 1);
 
@@ -12670,7 +12670,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
   destroy_strings_list (classes);
   text_append (result, attribute_class);
   free (attribute_class);
-  if (index_id && strlen (index_id) && !html_multi_expanded_region (self))
+  if (index_id && strlen (index_id) && !html_in_multiple_conversions (self))
     text_printf (result, " id=\"%s\"", index_id);
   text_append_n (result, ">", 1);
 

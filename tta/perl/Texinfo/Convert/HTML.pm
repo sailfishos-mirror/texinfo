@@ -3461,6 +3461,15 @@ foreach my $explained_command (keys(%explained_commands)) {
 sub _convert_anchor_command($$$$) {
   my ($self, $cmdname, $command, $args) = @_;
 
+  # in_multiple_conversions returning true while multi_expanded_region returns
+  # undef happens when expanding target and heading commands text.  Therefore
+  # if in_multiple_conversions was used, the output could be different.
+  # Note, however, that an anchor on a sectioning command line is never output
+  # because the sectioning command line is copied to be combined with
+  # the sectioning number through a translation and the copy is not registered
+  # as a target element and command_id will return undef.
+  # An anchor on a @node line can be output (it is invalid Texinfo) and it
+  # would be different for that case if in_multiple_conversions was used.
   if (!multi_expanded_region($self) and !in_string($self)) {
     my $id = $self->command_id($command);
     if (defined($id) and $id ne '') {
@@ -7027,8 +7036,12 @@ sub _convert_index_entry_command_type($$$$) {
   my ($self, $type, $element, $content) = @_;
 
   my $index_id = $self->command_id($element);
+  # since in_multiple_conversions returning true while multi_expanded_region
+  # returns undef can only happen when expanding target and heading commands
+  # text, in which there should not be index commands, using one function
+  # or the other in the conddition should not give a different result.
   if (defined($index_id) and $index_id ne ''
-      and !multi_expanded_region($self)
+      and !in_multiple_conversions($self)
       and !in_string($self)) {
     my $result = &{$self->formatting_function('format_separate_anchor')}($self,
                                                    $index_id, 'index-entry-id');
@@ -7563,7 +7576,12 @@ sub _convert_def_line_type($$$$) {
 
   my $index_label = '';
   my $index_id = $self->command_id($element);
-  if (defined($index_id) and $index_id ne '' and !multi_expanded_region($self)) {
+  # since in_multiple_conversions returning true while multi_expanded_region
+  # returns undef can only happen when expanding target and heading commands
+  # text, in which there should not be @def*, using one function
+  # or the other in the conddition should not give a different result.
+  if (defined($index_id) and $index_id ne ''
+      and !in_multiple_conversions($self)) {
     $index_label = " id=\"$index_id\"";
   }
   my ($category_element, $class_element,

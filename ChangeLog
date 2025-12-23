@@ -1,5 +1,15 @@
 2025-12-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_convert_index_entry_command_type)
+	(html_convert_def_line_type), tta/perl/Texinfo/Convert/HTML.pm
+	(_convert_index_entry_command_type, _convert_def_line_type): use
+	in_multiple_conversions instead of multi_expanded_region in
+	conditions.  The result is the same, but it makes more sense to avoid
+	outputting a target for an index entry more than once irrespective
+	of the context.
+
+2025-12-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t
 	(anchor_on_node_line): add test of anchor on node line expanded in
 	output (on a @node line of a node not associated to sectioning
