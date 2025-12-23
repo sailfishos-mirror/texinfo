@@ -1669,7 +1669,7 @@ html_in_multiple_conversions (SV *converter_in)
      CODE:
         self = get_sv_converter (converter_in,
                                  "html_in_multiple_conversions");
-        RETVAL = self->multiple_conversions;
+        RETVAL = self->multiple_pass.top;
     OUTPUT:
         RETVAL
 

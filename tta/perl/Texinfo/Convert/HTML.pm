@@ -794,7 +794,7 @@ sub in_raw($) {
 sub in_multiple_conversions($) {
   my $self = shift;
 
-  return $self->{'multiple_conversions'};
+  return scalar(@{$self->{'multiple_pass'}});
 }
 
 sub paragraph_number($) {
@@ -8266,14 +8266,12 @@ sub _unset_raw_context($) {
 sub _set_multiple_conversions($$) {
   my ($self, $multiple_pass) = @_;
 
-  $self->{'multiple_conversions'}++;
   push @{$self->{'multiple_pass'}}, $multiple_pass;
 }
 
 sub _unset_multiple_conversions($) {
   my $self = shift;
 
-  $self->{'multiple_conversions'}--;
   pop @{$self->{'multiple_pass'}};
 }
 

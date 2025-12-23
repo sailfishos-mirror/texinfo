@@ -8353,7 +8353,7 @@ html_convert_raw_command (CONVERTER *self, const enum command_id cmd,
       return;
     }
 
-  if (!self->multiple_conversions)
+  if (self->multiple_pass.top == 0)
     {
       message_list_command_warn (&self->error_messages,
                      (self->conf && self->conf->DEBUG.o.integer > 0),

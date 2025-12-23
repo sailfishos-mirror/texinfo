@@ -608,14 +608,12 @@ html_in_multi_expanded (CONVERTER *self)
 void
 html_set_multiple_conversions (CONVERTER *self, const char *multiple_pass)
 {
-  self->multiple_conversions++;
   push_string_stack_string (&self->multiple_pass, multiple_pass);
 }
 
 void
 html_unset_multiple_conversions (CONVERTER *self)
 {
-  self->multiple_conversions--;
   pop_string_stack (&self->multiple_pass);
 }
 

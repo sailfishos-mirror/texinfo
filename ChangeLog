@@ -1,5 +1,17 @@
 2025-12-23 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (html_conversion_finalization),
+	tta/C/convert/format_html.c (html_convert_raw_command),
+	tta/C/convert/html_conversion_state.c (html_set_multiple_conversions)
+	(html_unset_multiple_conversions), tta/C/main/converter_types.h
+	(CONVERTER), tta/perl/Texinfo/Convert/HTML.pm
+	(in_multiple_conversions, _set_multiple_conversions)
+	(_unset_multiple_conversions), tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(html_in_multiple_conversions): remove multiple_conversions, use the
+	size of multiple_pass instead.
+
+2025-12-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_converter_finish.c (html_reset_converter),
 	tta/C/convert/html_prepare_converter.c
 	(html_conversion_initialization): reset check_htmlxref_already_warned

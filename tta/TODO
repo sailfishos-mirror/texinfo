@@ -48,7 +48,7 @@ Done:
  files_source_info
  jslicenses
  check_htmlxref_already_warned
- ...
+ variables in converter_info in Perl
 
 Todo.
  output_files_information:

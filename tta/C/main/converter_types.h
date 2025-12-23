@@ -993,7 +993,6 @@ typedef struct CONVERTER {
 
     /* state common with perl converter */
     int document_global_context;
-    int multiple_conversions;
     const ELEMENT *current_root_command;
     const ELEMENT *current_node;
     const OUTPUT_UNIT *current_output_unit;
