@@ -1,5 +1,10 @@
 2025-12-23  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\latonechardefs): Change more definitions to
+	match \unicodechardefs.
+
+2025-12-23  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\latonechardefs): Define ^^b1 using \ensuremath,
 	matching definition in \unicodechardefs.  Report from Patrice Dumas.
 
