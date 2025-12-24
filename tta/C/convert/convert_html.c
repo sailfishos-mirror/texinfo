@@ -2454,9 +2454,9 @@ html_conversion_finalization (CONVERTER *self)
       if (self->html_document_context.top > 0)
         fprintf (stderr, "BUG: document context top > 0: %zu\n",
                          self->html_document_context.top);
-      if (self->document_global_context)
-        fprintf (stderr, "BUG: document_global_context: %d\n",
-                         self->document_global_context);
+      if (self->document_global_context_counter)
+        fprintf (stderr, "BUG: document_global_context_counter: %d\n",
+                         self->document_global_context_counter);
       if (self->multiple_pass.top > 0)
         fprintf (stderr, "BUG: multiple_conversions: %zu\n",
                          self->multiple_pass.top);

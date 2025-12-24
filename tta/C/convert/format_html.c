@@ -2541,7 +2541,7 @@ collect_css_element_class (CONVERTER *self, const char *selector)
       size_t i;
       size_t css_files_index;
       CSS_LIST *page_css_list;
-      if (self->document_global_context)
+      if (self->document_global_context_counter)
         {
           css_files_index = 0;
         }

@@ -49,6 +49,7 @@ Done:
  jslicenses
  check_htmlxref_already_warned
  variables in converter_info in Perl
+ document_global_context_counter
 
 Todo.
  output_files_information:

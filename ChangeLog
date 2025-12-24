@@ -1,3 +1,16 @@
+2025-12-24 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/converter_types.h (CONVERTER),
+	tta/perl/Texinfo/Convert/HTML.pm: rename converter field
+	document_global_context as document_global_context_counter (to avoid
+	mistaking with the document_global_context strings).  Update code
+	accessing document_global_context_counter.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (conversion_initialization),
+	tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization): initialize
+	document_global_context_counter.
+
 2025-12-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Inserting Math): Move from a section

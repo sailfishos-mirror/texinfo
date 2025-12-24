@@ -436,13 +436,13 @@ sub set_global_direction($$;$) {
 sub _collect_css_element_class($$) {
   my ($self, $element_class) = @_;
 
-  #if (not $self->{'document_global_context'}
+  #if (not $self->{'document_global_context_counter'}
   #    and not defined($self->{'current_filename'})) {
   #  cluck "BUG: $element_class: CSS no current file";
   #}
 
   if (exists($self->{'css_element_class_styles'}->{$element_class})) {
-    if ($self->{'document_global_context'}) {
+    if ($self->{'document_global_context_counter'}) {
       $self->{'document_global_context_css'}->{$element_class} = 1;
     } elsif (defined($self->{'current_filename'})) {
       $self->{'page_css'}->{$self->{'current_filename'}} = {}
@@ -8232,7 +8232,7 @@ sub _new_document_context($$;$$) {
            'block_commands' => [],
           };
   if (defined($document_global_context)) {
-    $self->{'document_global_context'}++;
+    $self->{'document_global_context_counter'}++;
   }
   if (defined($block_command)) {
     push @{$self->{'document_context'}->[-1]->{'block_commands'}},
@@ -8245,7 +8245,7 @@ sub _pop_document_context($) {
 
   my $context = pop @{$self->{'document_context'}};
   if (defined($context->{'document_global_context'})) {
-    $self->{'document_global_context'}--;
+    $self->{'document_global_context_counter'}--;
   }
 }
 
@@ -12219,6 +12219,7 @@ sub conversion_initialization($$;$) {
   $self->{'shared_conversion_state'} = {};
 
   $self->{'document_context'} = [];
+  $self->{'document_global_context_counter'} = 0;
 
   $self->{'associated_inline_content'} = {};
 

@@ -992,7 +992,7 @@ typedef struct CONVERTER {
     char **html_passive_icons;
 
     /* state common with perl converter */
-    int document_global_context;
+    int document_global_context_counter;
     const ELEMENT *current_root_command;
     const ELEMENT *current_node;
     const OUTPUT_UNIT *current_output_unit;

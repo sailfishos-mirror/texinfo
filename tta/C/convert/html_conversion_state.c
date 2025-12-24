@@ -98,7 +98,7 @@ html_new_document_context (CONVERTER *self,
 
   if (document_global_context)
     {
-      self->document_global_context++;
+      self->document_global_context_counter++;
     }
 
   push_html_formatting_context (&doc_context->formatting_context,
@@ -132,7 +132,7 @@ html_pop_document_context (CONVERTER *self)
 
   if (document_ctx->document_global_context)
     {
-      self->document_global_context--;
+      self->document_global_context_counter--;
     }
 
   stack->top--;
