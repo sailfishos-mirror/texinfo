@@ -1,3 +1,9 @@
+2025-12-24  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Inserting Math): Move from a section
+	to a chapter as it is doesn't fit well with the rest of the
+	chapter ("Special Insertions").
+
 2025-12-24 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.tres, tta/perl/t/formats_encodings.t

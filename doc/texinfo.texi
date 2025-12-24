@@ -9626,108 +9626,6 @@ better to use @TeX{}'s @samp{_} and @samp{^} characters.  See the
 next section.
 
 
-@node Inserting Math
-@nodedescription Formatting mathematical expressions.
-@section @code{@@math} and @code{@@displaymath}: Formatting Mathematics
-
-@anchor{math}@c old name
-@findex math
-@cindex Mathematical expressions, inserting
-@cindex Formulas, mathematical
-You can write a mathematical expression, equation or formula using
-the @code{@@math} command.  Write the @TeX{} math notation between
-braces, like this:
-
-@example
-@@math@{\partial_\alpha \partial^\alpha A^\beta = \mu_0 J^\beta@}
-@end example
-
-@code{@@math} is formatted inline when used inside a paragraph,
-like @math{\partial_\alpha \partial^\alpha A^\beta = \mu_0 J^\beta} in
-this example.
-
-By default, the @code{@@math} command has no special effect on the Info
-output, merely outputting the contents verbatim.  You can use the
-experimental @code{INFO_MATH_IMAGES} variable to produce images; see
-@ref{Info and Plaintext Customization Variables}.
-
-For printed output, @code{@@math} switches into @TeX{} ``math mode''.
-In that context, @samp{\} must be used instead of @samp{@@}
-for plain @TeX{} math control sequences for symbols, functions,
-and so on.
-
-@cindex Math output for HTML
-@cindex HTML output @subentry math
-By default, the HTML output is only emphasized.
-@command{texi2any} provides three options for displaying properly
-formatted mathematics for HTML.  You can select these with the
-@code{HTML_MATH} variable (@pxref{HTML Customization for Math}).
-With @code{HTML_MATH} set to @samp{l2h}, @command{texi2any} attempts
-to use the @command{latex2html} program to produce image files for
-mathematical material.  With the @samp{t4h} setting, @command{texi2any}
-attempts to use the @command{tex4ht} program.  With the @samp{mathjax}
-setting, @command{texi2any} inserts references in the output files
-to MathJax scripts to format the material.  The MathJax option
-requires JavaScript to be enabled in the browser to work.  See also
-@ref{MathJax Customization Variables}, @ref{@command{latex2html}
-Customization Variables} and @ref{@command{tex4ht} Customization
-Variables}.
-
-@cindex Displayed equations
-@cindex Equations, displayed
-@findex displaymath
-For displayed equations, you can use the @code{@@displaymath}
-command.  Example:
-
-@example
-@@displaymath
-f(x) = @{1\over\sigma\sqrt@{2\pi@}@}
-e^@{-@{1\over2@}\left(@{x-\mu\over\sigma@}\right)^2@}
-@@end displaymath
-@end example
-
-@noindent which produces:
-
-@displaymath
-f(x) = {1\over\sigma\sqrt{2\pi}}
-e^{-{1\over2}\left({x-\mu\over\sigma}\right)^2}
-@end displaymath
-
-In general, the contents of @code{@@math} or @code{@@displaymath}
-should be plain @TeX{} only, with no interspersed Texinfo commands.
-If you do use any Texinfo commands, then you should mark these with
-@samp{@@} as usual, rather than @samp{\} (e.g.@: @samp{@@var} rather than
-@samp{\var}), but we do not guarantee which Texinfo commands will work.
-
-Although @code{@@sub} and @code{@@sup} may work inside math mode in
-some contexts, it is better to use @TeX{}'s @samp{_} and @samp{^}
-characters to denote subscripts and superscripts within mathematical
-expressions.
-
-@LaTeX{}-specific code will only work when the output format is @LaTeX{},
-and with the @code{HTML_MATH} options (although @command{tex4ht} needs
-@code{T4H_MATH_CONVERSION} to be set to @samp{latex};
-@pxref{@command{tex4ht} Customization Variables}).
-
-@ignore
-@findex @sortas{\} \ @r{(literal \ in @code{@@math})}
-Since @samp{\} is an escape character inside @code{@@math}, you can
-use @code{@@\} to get a literal backslash (@code{\\} will work in
-@TeX{}, but you'd get the literal two characters @samp{\\} in Info).
-@code{@@\} is not defined outside of @code{@@math}, since a @samp{\}
-ordinarily produces a literal (typewriter) @samp{\}.  You can also use
-@code{@@backslashchar@{@}} in any mode to get a typewriter backslash.
-@xref{Inserting a Backslash}.
-@end ignore
-
-@findex \mathopsup
-Due to the conflict with Texinfo's @code{@@sup} command, you can access
-the plain @TeX{} command @code{\sup} as @code{\mathopsup} instead,
-in the unlikely occurrence that you want to do this (but only when
-processing with @TeX{}, not when outputting @LaTeX{} nor with any of the
-@code{HTML_MATH} options).
-
-
 @node Glyphs for Text
 @nodedescription Inserting dots, bullets, currencies, etc.
 @section Glyphs for Text
@@ -10346,6 +10244,108 @@ given character is not supported in that encoding.
 In Info and plain text, if the output encoding is not UTF-8, the output 
 is the ASCII sequence @samp{U+@var{hex}}, as in the six ASCII characters 
 @samp{U+0132} for the example above.
+
+
+@node Inserting Math
+@nodedescription Formatting mathematical expressions.
+@chapter Formatting Mathematics
+
+@anchor{math}@c old name
+@findex math
+@cindex Mathematical expressions, inserting
+@cindex Formulas, mathematical
+You can write a mathematical expression, equation or formula using
+the @code{@@math} command.  Write the @TeX{} math notation between
+braces, like this:
+
+@example
+@@math@{\partial_\alpha \partial^\alpha A^\beta = \mu_0 J^\beta@}
+@end example
+
+@code{@@math} is formatted inline when used inside a paragraph,
+like @math{\partial_\alpha \partial^\alpha A^\beta = \mu_0 J^\beta} in
+this example.
+
+By default, the @code{@@math} command has no special effect on the Info
+output, merely outputting the contents verbatim.  You can use the
+experimental @code{INFO_MATH_IMAGES} variable to produce images; see
+@ref{Info and Plaintext Customization Variables}.
+
+For printed output, @code{@@math} switches into @TeX{} ``math mode''.
+In that context, @samp{\} must be used instead of @samp{@@}
+for plain @TeX{} math control sequences for symbols, functions,
+and so on.
+
+@cindex Math output for HTML
+@cindex HTML output @subentry math
+By default, the HTML output is only emphasized.
+@command{texi2any} provides three options for displaying properly
+formatted mathematics for HTML.  You can select these with the
+@code{HTML_MATH} variable (@pxref{HTML Customization for Math}).
+With @code{HTML_MATH} set to @samp{l2h}, @command{texi2any} attempts
+to use the @command{latex2html} program to produce image files for
+mathematical material.  With the @samp{t4h} setting, @command{texi2any}
+attempts to use the @command{tex4ht} program.  With the @samp{mathjax}
+setting, @command{texi2any} inserts references in the output files
+to MathJax scripts to format the material.  The MathJax option
+requires JavaScript to be enabled in the browser to work.  See also
+@ref{MathJax Customization Variables}, @ref{@command{latex2html}
+Customization Variables} and @ref{@command{tex4ht} Customization
+Variables}.
+
+@cindex Displayed equations
+@cindex Equations, displayed
+@findex displaymath
+For displayed equations, you can use the @code{@@displaymath}
+command.  Example:
+
+@example
+@@displaymath
+f(x) = @{1\over\sigma\sqrt@{2\pi@}@}
+e^@{-@{1\over2@}\left(@{x-\mu\over\sigma@}\right)^2@}
+@@end displaymath
+@end example
+
+@noindent which produces:
+
+@displaymath
+f(x) = {1\over\sigma\sqrt{2\pi}}
+e^{-{1\over2}\left({x-\mu\over\sigma}\right)^2}
+@end displaymath
+
+In general, the contents of @code{@@math} or @code{@@displaymath}
+should be plain @TeX{} only, with no interspersed Texinfo commands.
+If you do use any Texinfo commands, then you should mark these with
+@samp{@@} as usual, rather than @samp{\} (e.g.@: @samp{@@var} rather than
+@samp{\var}), but we do not guarantee which Texinfo commands will work.
+
+Although @code{@@sub} and @code{@@sup} may work inside math mode in
+some contexts, it is better to use @TeX{}'s @samp{_} and @samp{^}
+characters to denote subscripts and superscripts within mathematical
+expressions.
+
+@LaTeX{}-specific code will only work when the output format is @LaTeX{},
+and with the @code{HTML_MATH} options (although @command{tex4ht} needs
+@code{T4H_MATH_CONVERSION} to be set to @samp{latex};
+@pxref{@command{tex4ht} Customization Variables}).
+
+@ignore
+@findex @sortas{\} \ @r{(literal \ in @code{@@math})}
+Since @samp{\} is an escape character inside @code{@@math}, you can
+use @code{@@\} to get a literal backslash (@code{\\} will work in
+@TeX{}, but you'd get the literal two characters @samp{\\} in Info).
+@code{@@\} is not defined outside of @code{@@math}, since a @samp{\}
+ordinarily produces a literal (typewriter) @samp{\}.  You can also use
+@code{@@backslashchar@{@}} in any mode to get a typewriter backslash.
+@xref{Inserting a Backslash}.
+@end ignore
+
+@findex \mathopsup
+Due to the conflict with Texinfo's @code{@@sup} command, you can access
+the plain @TeX{} command @code{\sup} as @code{\mathopsup} instead,
+in the unlikely occurrence that you want to do this (but only when
+processing with @TeX{}, not when outputting @LaTeX{} nor with any of the
+@code{HTML_MATH} options).
 
 
 @node Breaks
