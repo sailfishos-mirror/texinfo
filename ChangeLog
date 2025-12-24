@@ -1,5 +1,23 @@
 2025-12-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c (clear_type_explanations)
+	(html_reset_shared_conversion_state),
+	tta/C/convert/html_converter_finish.c (html_reset_converter): move
+	code resetting shared_conversion_state to convert_html.c
+	html_reset_shared_conversion_state.
+
+	* tta/C/convert/convert_html.c (html_reset_shared_conversion_state):
+	clear shared_conversion_state->elements_authors.top if not empty.
+	Zero in_skipped_node_top, footnote_number and html_menu_entry_index.
+
+	* tta/C/convert/convert_html.c (html_conversion_finalization),
+	tta/C/convert/html_prepare_converter.c
+	(html_reset_shared_conversion_state): call
+	html_reset_shared_conversion_state in html_conversion_finalization and
+	html_reset_shared_conversion_state (and not in html_reset_converter).
+
+2025-12-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/get_html_perl_info.c (get_authors_list):
 	rename warn argument as access_elements_authors and sv_in as
 	quotation_titlepage_nr_sv.

@@ -100,6 +100,7 @@ char *debug_print_html_contexts (const CONVERTER *self);
 
 
 void free_html_targets_trees (CONVERTER *self);
+void html_reset_shared_conversion_state (CONVERTER *self);
 
 /* void html_conversion_finalization (CONVERTER *self); */
 

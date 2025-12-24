@@ -19,7 +19,15 @@ to call it especially.  Similar to initialize_parsing in parsetexi/api.c.
 l 3964 format_html.c not clear where the element_tree is destroyed
 or removed from tree to build in case it is an external tree set
 with html_external_command_tree, but probably it is not possible
-to have an external node here, only an internal node or a sctioning command.
+to have an external node here, only an internal node or a sectioning command.
+in file_header_information
+          if (!command_tree)
+            {
+    /* this should not happen, as the command_string should be empty already */
+              TREE_ADDED_ELEMENTS *element_tree
+                  = html_command_tree (self, command, 0);
+              command_tree = element_tree->tree;
+            }
 
 Done:
  pending_closes
@@ -53,6 +61,8 @@ Done:
  document_global_context_counter
  html_document_context
  multiple_pass
+ referred_command_stack (locally set/reset only)
+ shared_conversion_state
 
 Todo.
  output_files_information:

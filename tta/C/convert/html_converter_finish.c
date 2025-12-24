@@ -56,23 +56,6 @@ free_special_unit_info_list (SPECIAL_UNIT_INFO_LIST *special_unit_info_list)
 }
 
 static void
-clear_type_explanations (EXPLAINED_COMMAND_TYPE_LIST *type_explanations)
-{
-  if (type_explanations->number > 0)
-    {
-      size_t i;
-      for (i = 0; i < type_explanations->number; i++)
-        {
-          EXPLAINED_COMMAND_TYPE *type_explanation
-            = &type_explanations->list[i];
-          free (type_explanation->type);
-          free (type_explanation->explanation);
-        }
-      type_explanations->number = 0;
-    }
-}
-
-static void
 html_free_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 {
   html_reset_files_source_info (files_source_info);
@@ -93,39 +76,6 @@ void
 html_reset_converter (CONVERTER *self)
 {
   size_t i;
-
-  clear_type_explanations (&self->shared_conversion_state.explained_commands);
-
-  free (self->shared_conversion_state.footnote_id_numbers);
-  self->shared_conversion_state.footnote_id_numbers = 0;
-
-  free (self->shared_conversion_state.formatted_listoffloats_nr);
-  self->shared_conversion_state.formatted_listoffloats_nr = 0;
-
-  /* formatted_index_entries may not be initialized if there was an error
-     early and prepare_conversion_units_targets was never called */
-  if (self->document
-      && self->document->indices_info.number
-      && self->shared_conversion_state.formatted_index_entries)
-    {
-      for (i = 0; i < self->sorted_index_names.number; i++)
-        {
-          free (self->shared_conversion_state.formatted_index_entries[i]);
-        }
-      free (self->shared_conversion_state.formatted_index_entries);
-      self->shared_conversion_state.formatted_index_entries = 0;
-    }
-
-  /* change to 0 in releases? */
-  if (1)
-    {
-      if (self->shared_conversion_state.elements_authors.top > 0)
-        {
-          fprintf (stderr,
-              "BUG: shared_conversion_state.elements_authors.top: %zu\n",
-              self->shared_conversion_state.elements_authors.top);
-        }
-    }
 
   clear_output_files_information (&self->output_files_information);
 

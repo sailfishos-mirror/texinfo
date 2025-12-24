@@ -2363,9 +2363,72 @@ free_html_targets_trees (CONVERTER *self)
     }
 }
 
+static void
+clear_type_explanations (EXPLAINED_COMMAND_TYPE_LIST *type_explanations)
+{
+  if (type_explanations->number > 0)
+    {
+      size_t i;
+      for (i = 0; i < type_explanations->number; i++)
+        {
+          EXPLAINED_COMMAND_TYPE *type_explanation
+            = &type_explanations->list[i];
+          free (type_explanation->type);
+          free (type_explanation->explanation);
+        }
+      type_explanations->number = 0;
+    }
+}
+
+void
+html_reset_shared_conversion_state (CONVERTER *self)
+{
+  size_t i;
+  HTML_SHARED_CONVERSION_STATE *shared_conversion_state
+    = &self->shared_conversion_state;
+
+  clear_type_explanations (&shared_conversion_state->explained_commands);
+
+  free (shared_conversion_state->footnote_id_numbers);
+  shared_conversion_state->footnote_id_numbers = 0;
+
+  free (shared_conversion_state->formatted_listoffloats_nr);
+  shared_conversion_state->formatted_listoffloats_nr = 0;
+
+  /* formatted_index_entries may not be initialized if there was an error
+     early and prepare_conversion_units_targets was never called */
+  if (self->shared_conversion_state.formatted_index_entries)
+    {
+      for (i = 0; i < self->sorted_index_names.number; i++)
+        {
+          free (self->shared_conversion_state.formatted_index_entries[i]);
+        }
+      free (self->shared_conversion_state.formatted_index_entries);
+      self->shared_conversion_state.formatted_index_entries = 0;
+    }
+
+  /* cannot happen with default Perl code, but could happen with
+     user-defined code */
+  if (shared_conversion_state->elements_authors.top > 0)
+    {
+      fprintf (stderr,
+              "BUG: shared_conversion_state->elements_authors.top: %zu\n",
+               shared_conversion_state->elements_authors.top);
+      for (i = 0; i < shared_conversion_state->elements_authors.top; i++)
+        {
+          destroy_element_reference_stack (
+            shared_conversion_state->elements_authors.stack[i]);
+        }
+      shared_conversion_state->elements_authors.top = 0;
+    }
+
+  shared_conversion_state->in_skipped_node_top = 0;
+  shared_conversion_state->footnote_number = 0;
+  shared_conversion_state->html_menu_entry_index = 0;
+}
+
 /* This function cleans up the conversion state that is relevant during
-   conversion.  Other information is removed when calling reset_parser
-   later on and should not be freed here */
+   conversion. */
 void
 html_conversion_finalization (CONVERTER *self)
 {
@@ -2383,6 +2446,8 @@ html_conversion_finalization (CONVERTER *self)
 
   /* release the trees that could contain trees to build */
   free_html_targets_trees (self);
+
+  html_reset_shared_conversion_state (self);
 
   /* should not be possible with default code, as
      close_registered_sections_level(..., 0)

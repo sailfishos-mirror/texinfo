@@ -69,7 +69,7 @@
 #include "api.h"
 /* html_complete_no_arg_commands_formatting html_run_stage_handlers
    html_add_to_files_source_info html_find_file_source_info
-   html_setup_output_simple_page */
+   html_reset_shared_conversion_state */
 #include "convert_html.h"
 #include "html_prepare_converter.h"
 #include "html_conversion_api.h"
@@ -3527,6 +3527,8 @@ html_conversion_initialization (CONVERTER *self, const char *context)
       self->added_title_tree = 0;
     }
   self->title_tree = 0;
+
+  html_reset_shared_conversion_state (self);
 
   reset_html_targets (self);
 
