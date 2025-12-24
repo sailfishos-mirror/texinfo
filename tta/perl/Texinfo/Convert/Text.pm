@@ -954,7 +954,7 @@ sub convert($$) {
   if (defined($document)) {
     $global_info = $document->global_information();
 
-    # same as Texinfo::Common::set_output_encoding
+    # similar to Texinfo::Common::set_output_encoding
     $self->{'OUTPUT_ENCODING_NAME'} = $global_info->{'input_encoding_name'}
       if (defined($global_info)
           and exists($global_info->{'input_encoding_name'}));
@@ -991,7 +991,7 @@ sub output($$) {
   if ($document) {
     $global_info = $document->global_information();
 
-    # same as Texinfo::Common::set_output_encoding
+    # similar to Texinfo::Common::set_output_encoding
     $self->{'OUTPUT_ENCODING_NAME'} = $global_info->{'input_encoding_name'}
       if (defined($global_info)
           and exists($global_info->{'input_encoding_name'}));

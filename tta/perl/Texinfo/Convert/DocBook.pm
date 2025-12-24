@@ -57,7 +57,6 @@ my %defaults = (
   # Customization option variables
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'xml', # dbk?
-  'OUTPUT_ENCODING_NAME' => 'utf-8',
   'SPLIT'                => '',
   'OPEN_QUOTE_SYMBOL'    => '&#'.hex('2018').';',
   'CLOSE_QUOTE_SYMBOL'   => '&#'.hex('2019').';',

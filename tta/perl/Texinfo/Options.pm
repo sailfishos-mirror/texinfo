@@ -331,7 +331,6 @@ my %html_converter_regular_options_defaults = (
   'NO_NUMBER_FOOTNOTE_SYMBOL'        => '*',
   'NODE_NAME_IN_MENU'                => 1,
   'OPEN_QUOTE_SYMBOL'                => undef,
-  'OUTPUT_ENCODING_NAME'             => 'utf-8',
   'SECTION_NAME_IN_TITLE'            => 0,
   'SHORT_TOC_LINK_TO_TOC'            => 1,
   'SHOW_TITLE'                       => undef,

@@ -104,7 +104,6 @@ set_html_converter_regular_options_defaults (OPTIONS *options)
   option_set_conf (&options->NO_NUMBER_FOOTNOTE_SYMBOL, -2, "*");
   option_set_conf (&options->NODE_NAME_IN_MENU, 1, 0);
   option_set_conf (&options->OPEN_QUOTE_SYMBOL, -2, 0);
-  option_set_conf (&options->OUTPUT_ENCODING_NAME, -2, "utf-8");
   option_set_conf (&options->SECTION_NAME_IN_TITLE, 0, 0);
   option_set_conf (&options->SHORT_TOC_LINK_TO_TOC, 1, 0);
   option_set_conf (&options->SHOW_TITLE, -1, 0);
@@ -159,7 +158,6 @@ add_html_converter_regular_options_defaults (OPTIONS_LIST *options_list)
   add_option_value (options_list, "NO_NUMBER_FOOTNOTE_SYMBOL", -2, "*");
   add_option_value (options_list, "NODE_NAME_IN_MENU", 1, 0);
   add_option_value (options_list, "OPEN_QUOTE_SYMBOL", -2, 0);
-  add_option_value (options_list, "OUTPUT_ENCODING_NAME", -2, "utf-8");
   add_option_value (options_list, "SECTION_NAME_IN_TITLE", 0, 0);
   add_option_value (options_list, "SHORT_TOC_LINK_TO_TOC", 1, 0);
   add_option_value (options_list, "SHOW_TITLE", -1, 0);

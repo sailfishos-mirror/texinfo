@@ -45,7 +45,6 @@ my %defaults = (
   # Customization option variables
   'FORMAT_MENU'          => 'menu',
   'EXTENSION'            => 'xml',
-  'OUTPUT_ENCODING_NAME' => 'utf-8',
   'SPLIT'                => '',
 );
 

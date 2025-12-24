@@ -1338,10 +1338,13 @@ sub set_output_encoding($$) {
   if (defined($document)) {
     $document_information = $document->global_information();
   }
-  $customization_information->set_conf('OUTPUT_ENCODING_NAME',
-               $document_information->{'input_encoding_name'})
-     if (defined($document_information)
-         and exists($document_information->{'input_encoding_name'}));
+
+  if (!$customization_information->get_conf('OUTPUT_ENCODING_NAME')
+      and defined($document_information)
+      and exists($document_information->{'input_encoding_name'})) {
+    $customization_information->set_conf('OUTPUT_ENCODING_NAME',
+                 $document_information->{'input_encoding_name'})
+  }
 }
 
 # $DOCUMENT is the parsed Texinfo document.  It is optional, but it

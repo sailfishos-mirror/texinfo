@@ -208,6 +208,7 @@ void
 set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
 {
   if (customization_information
+      && !customization_information->OUTPUT_ENCODING_NAME.o.string
       && document && document->global_info.input_encoding_name) {
     option_set_conf (&customization_information->OUTPUT_ENCODING_NAME, -1,
                      document->global_info.input_encoding_name);

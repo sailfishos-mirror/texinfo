@@ -70,6 +70,9 @@ See the manual for detailed information.
   . Info output:
     . new (experimental) variable INFO_MATH_IMAGES allows outputting
       images for mathematics notation
+  . LaTeX output:
+     . use UTF-8 encoding for output by default, regardless of input
+       encoding.  override with OUTPUT_ENCODING_NAME.
   . Remove the Texinfo::TeX4HT customization package.
   . XML output:
       . use HTML entities names for @H and @dotaccent accents types

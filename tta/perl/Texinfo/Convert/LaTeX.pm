@@ -819,6 +819,7 @@ my %defaults = (
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'tex',
   'paragraphindent'      => undef, # global default is for Info/Plaintext
+  'OUTPUT_ENCODING_NAME' => 'utf-8'
 );
 
 
