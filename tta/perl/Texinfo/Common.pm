@@ -1339,7 +1339,7 @@ sub set_output_encoding($$) {
     $document_information = $document->global_information();
   }
 
-  if (!$customization_information->get_conf('OUTPUT_ENCODING_NAME')
+  if (!defined($customization_information->get_conf('OUTPUT_ENCODING_NAME'))
       and defined($document_information)
       and exists($document_information->{'input_encoding_name'})) {
     $customization_information->set_conf('OUTPUT_ENCODING_NAME',

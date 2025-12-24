@@ -1,3 +1,8 @@
+2025-12-23 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Common.pm (set_output_encoding): test if
+	OUTPUT_ENCODING_NAME is undefined to use input encoding.
+
 2025-12-24  Gavin Smith <gavinsmith0123@gmail.com>
 
 	UTF-8 by default for LaTeX output
