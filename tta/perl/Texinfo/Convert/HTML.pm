@@ -437,14 +437,14 @@ sub _collect_css_element_class($$) {
   my ($self, $element_class) = @_;
 
   #if (not $self->{'document_global_context_counter'}
-  #    and not defined($self->{'current_filename'})) {
+  #    and not exists($self->{'current_filename'})) {
   #  cluck "BUG: $element_class: CSS no current file";
   #}
 
   if (exists($self->{'css_element_class_styles'}->{$element_class})) {
     if ($self->{'document_global_context_counter'}) {
       $self->{'document_global_context_css'}->{$element_class} = 1;
-    } elsif (defined($self->{'current_filename'})) {
+    } elsif (exists($self->{'current_filename'})) {
       $self->{'page_css'}->{$self->{'current_filename'}} = {}
         if (!exists($self->{'page_css'}->{$self->{'current_filename'}}));
       $self->{'page_css'}->{$self->{'current_filename'}}->{$element_class} = 1;
@@ -2532,7 +2532,7 @@ sub get_associated_formatted_inline_content($$) {
 sub register_file_information($$$) {
   my ($self, $key, $value) = @_;
 
-  if (!defined($self->{'current_filename'})) {
+  if (!exists($self->{'current_filename'})) {
     cluck();
   }
 
@@ -12548,7 +12548,7 @@ sub _prepare_title_titlepage($$$$) {
   # title
   $self->{'converter_info'}->{'title_titlepage'}
     = &{$self->formatting_function('format_title_titlepage')}($self);
-  $self->{'current_filename'} = undef;
+  delete $self->{'current_filename'};
 }
 
 sub _html_convert_convert($$$$) {
@@ -12568,7 +12568,7 @@ sub _html_convert_convert($$$$) {
     $result .= $output_unit_text;
     $unit_nr++;
   }
-  $self->{'current_filename'} = undef;
+  delete $self->{'current_filename'};
   return $result;
 }
 
@@ -13167,8 +13167,6 @@ sub _html_convert_output($$$$$$$$) {
     $text_output .= $file_beginning;
     $text_output .= $body;
     $text_output .= $file_end;
-
-    $self->{'current_filename'} = undef;
   } else {
     # output with pages
     print STDERR "DO Units with filenames\n"
@@ -13235,6 +13233,7 @@ sub _html_convert_output($$$$$$$$) {
           $self->converter_document_error(
                sprintf(__("could not open %s for writing: %s"),
                                     $out_filepath, $error_message));
+          delete $self->{'current_filename'};
           return undef;
         }
         # do end file first in case it requires some CSS
@@ -13257,13 +13256,14 @@ sub _html_convert_output($$$$$$$$) {
             $self->converter_document_error(
                        sprintf(__("error on closing %s: %s"),
                                   $out_filepath, $!));
+            delete $self->{'current_filename'};
             return undef;
           }
         }
       }
     }
-    delete $self->{'current_filename'};
   }
+  delete $self->{'current_filename'};
   return $text_output;
 }
 
@@ -13276,7 +13276,7 @@ sub _prepare_node_redirection_page($$$) {
   my $redirection_page
    = &{$self->formatting_function('format_node_redirection_page')}($self,
                                     $target_element, $redirection_filename);
-  $self->{'current_filename'} = undef;
+  delete $self->{'current_filename'};
 
   return $redirection_page;
 }
@@ -13291,7 +13291,7 @@ sub _node_redirections($$$$) {
 
   my $redirection_files_done = 0;
   # do node redirection pages
-  $self->{'current_filename'} = undef;
+  delete $self->{'current_filename'};
   if ($self->get_conf('NODE_FILES')
       and defined($labels_list) and $output_file ne '') {
 
@@ -13514,7 +13514,9 @@ sub _node_redirections($$$$) {
 sub _setup_output($) {
   my $self = shift;
 
-  $self->{'current_filename'} = undef;
+  # Should not actually be needed, as it is already deleted after conversion
+  # and each time it is set out of the conversion.
+  delete $self->{'current_filename'};
 
   # no splitting when writing to the null device or to stdout or returning
   # a string

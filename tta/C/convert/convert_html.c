@@ -1997,7 +1997,7 @@ html_convert_convert (CONVERTER *self, const ELEMENT *root)
         }
     }
 
-  self->current_filename.filename = 0;
+  memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
 
   return result.text;
 }
@@ -2265,7 +2265,6 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
           text_append (&result, file_end);
           free (file_end);
         }
-      self->current_filename.filename = 0;
     }
   else
     {
@@ -2312,10 +2311,10 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
               unit_nr++;
             }
         }
-      memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
     }
 
  out:
+  memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
   free (text.text);
 
   if (status)

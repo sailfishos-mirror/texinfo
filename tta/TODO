@@ -29,6 +29,7 @@ Done:
  current_formatting_references...
  current_node
  current_root_command
+ current_filename
  css_element_class_styles
  css_element_class_list
  special_character
@@ -50,6 +51,8 @@ Done:
  check_htmlxref_already_warned
  variables in converter_info in Perl
  document_global_context_counter
+ html_document_context
+ multiple_pass
 
 Todo.
  output_files_information:

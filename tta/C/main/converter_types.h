@@ -995,10 +995,17 @@ typedef struct CONVERTER {
     int document_global_context_counter;
     const ELEMENT *current_root_command;
     const ELEMENT *current_node;
+    /* unset right after an output unit conversion */
     const OUTPUT_UNIT *current_output_unit;
     HTML_DOCUMENT_CONTEXT_STACK html_document_context;
     STRING_STACK multiple_pass;
+    /* allocated or resized if needed when setting up page files.
+       should be empty at the end of conversion, if not there is an
+       error message output and it is cleared */
     STRING_STACK_LIST pending_closes;
+    /* reset after the conversion and each time it is set outside
+       of the conversion.  Also reset before calling output
+       (although it is not needed) */
     FILE_NUMBER_NAME current_filename;
     ELEMENT_REFERENCE_STACK referred_command_stack;
     HTML_SHARED_CONVERSION_STATE shared_conversion_state;

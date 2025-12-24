@@ -3976,6 +3976,10 @@ html_setup_output (CONVERTER *self, char **paths)
   const char *body_lang;
   char *body_element_attributes;
 
+  /* Should not actually be needed, as it is already deleted after conversion
+     and each time it is set out of the conversion. */
+  memset (&self->current_filename, 0, sizeof (FILE_NUMBER_NAME));
+
   if (self->conf->OUTFILE.o.string)
     {
       int i;

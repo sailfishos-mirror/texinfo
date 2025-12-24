@@ -1,5 +1,24 @@
 2025-12-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_collect_css_element_class)
+	(register_file_information, _prepare_title_titlepage)
+	(_html_convert_convert, _html_convert_output)
+	(_prepare_node_redirection_page, _node_redirections): delete
+	current_filename instead of setting undef.
+
+	* tta/C/convert/convert_html.c (html_convert_output),
+	tta/perl/Texinfo/Convert/HTML.pm (_html_convert_output): make sure
+	that current_filename is unset wen exiting the function.
+
+	* tta/C/convert/convert_html.c (html_convert_convert)
+	(html_convert_output), tta/C/convert/html_prepare_converter.c
+	(html_setup_output): reset current_filename in html_setup_output to do
+	like in Perl, even though it is not needed as it is already deleted
+	after conversion and each time it is set out of the conversion.
+	Always reset the whole structure to simplify code and thinking.
+
+2025-12-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/converter_types.h (CONVERTER),
 	tta/perl/Texinfo/Convert/HTML.pm: rename converter field
 	document_global_context as document_global_context_counter (to avoid
