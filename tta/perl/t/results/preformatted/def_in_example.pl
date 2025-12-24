@@ -123,7 +123,7 @@ $result_converted{'html'}->{'def_in_example'} = '<!DOCTYPE html>
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 div.example {margin-left: 3.2em}
 span:hover a.copiable-link {visibility: visible}
-strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: 1rem}
 </style>
 
 

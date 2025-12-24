@@ -123,7 +123,7 @@ $result_converted{'html'}->{'deftypeline'} = '<!DOCTYPE html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <style type="text/css">
-strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: 1rem}
 </style>
 
 

@@ -24,7 +24,7 @@ const CSS_SELECTOR_STYLE base_default_css_element_class_styles[] = {
     {"span.r", "font-family: initial; font-weight: normal; font-style: normal"},
     {"kbd.key", "font-style: normal"},
     {"kbd.kbd", "font-style: oblique"},
-    {"strong.def-name", "font-family: monospace; font-weight: bold; font-size: larger"},
+    {"strong.def-name", "font-family: monospace; font-weight: bold; font-size: 1rem"},
     {"p.flushleft-paragraph", "text-align:left"},
     {"p.flushright-paragraph", "text-align:right"},
     {"h1.centerchap", "text-align:center"},

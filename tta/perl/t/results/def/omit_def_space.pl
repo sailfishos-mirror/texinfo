@@ -207,7 +207,7 @@ $result_converted{'html'}->{'omit_def_space'} = '<!DOCTYPE html>
 <style type="text/css">
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 span:hover a.copiable-link {visibility: visible}
-strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: 1rem}
 </style>
 
 
