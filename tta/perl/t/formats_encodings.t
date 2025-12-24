@@ -378,6 +378,15 @@ undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'},
 # to test transliteration too
 {'TRANSLITERATE_FILE_NAMES' => 1},
 ],
+# This is interesting to test OUTPUT_ENCODING_NAME, but also
+# to have a test with latin1 for formats that specify an output
+# encoding, such as LaTeX
+['char_latin1_latin1_in_refs_output_encoding_latin1',
+undef, {'test_file' => 'char_latin1_latin1_in_refs.texi'},
+# to test transliteration too
+{'TRANSLITERATE_FILE_NAMES' => 1,
+ 'OUTPUT_ENCODING_NAME' => 'ISO-8859-1'},
+],
 ['char_us_ascii_latin1_in_refs',
 undef, {'test_file' => 'char_us_ascii_latin1_in_refs.texi'},
 # to test transliteration too
@@ -452,6 +461,7 @@ my %html_tests = (
 
 my %xml_file_tests = (
  'char_latin1_latin1_in_refs' => 1,
+ 'char_latin1_latin1_in_refs_output_encoding_latin1' => 1,
 );
 
 my %latex_tests = ();

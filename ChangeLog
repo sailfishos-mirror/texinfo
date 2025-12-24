@@ -1,4 +1,13 @@
-2025-12-23 Patrice Dumas  <pertusus@free.fr>
+2025-12-24 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Makefile.tres, tta/perl/t/formats_encodings.t
+	(char_latin1_latin1_in_refs_output_encoding_latin1): add a test
+	similar to char_latin1_latin1_in_refs, but with OUTPUT_ENCODING_NAME
+	set to ISO-8859-1, both to test the effect of setting
+	OUTPUT_ENCODING_NAME, and also to test LaTeX with latin1, now that the
+	default encoding is UTF-8 for LaTeX.
+
+2025-12-24 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Common.pm (set_output_encoding): test if
 	OUTPUT_ENCODING_NAME is undefined to use input encoding.
