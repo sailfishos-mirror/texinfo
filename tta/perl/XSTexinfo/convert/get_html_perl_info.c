@@ -1454,7 +1454,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
   index_entry_hv = (HV *) SvRV (index_entry_sv);
 
   index_name_sv = hv_fetch (index_entry_hv, "index_name",
-                            strlen ("index_name") ,0);
+                            strlen ("index_name"), 0);
   if (index_name_sv)
     {
       index_name = SvPVutf8_nolen (*index_name_sv);
@@ -1463,7 +1463,7 @@ find_index_entry_numbers_index_entry_sv (CONVERTER *converter,
   if (index_name)
     {
       SV **number_sv = hv_fetch (index_entry_hv, "entry_number",
-                                 strlen ("entry_number") ,0);
+                                 strlen ("entry_number"), 0);
 
       if (number_sv)
         {
@@ -1495,17 +1495,27 @@ find_node_target_info_nodedescription_sv (CONVERTER *converter,
   return 0;
 }
 
+/* We only allow to get or set in the top of the quotation and titlepage
+   stack, therefore we check that QUOTATION_TITLEPAGE_NR_SV value
+   is at the top.
+
+   ACCESS_ELEMENTS_AUTHORS set means that elements_authors is set
+   or get there.  We only allow that in a quotation, for which
+   an authors list should have been set when put on the stack
+   by setting element_authors_number (to 0) after setting
+   quotation_titlepage_stack.
+ */
 static ELEMENT_REFERENCE_STACK *
-get_authors_list (CONVERTER *converter, SV *sv_in, int warn)
+get_authors_list (CONVERTER *converter, SV *quotation_titlepage_nr_sv,
+                  int access_elements_authors)
 {
   size_t quotation_titlepage_nr;
   ELEMENT_REFERENCE_STACK_STACK *elements_authors;
 
   dTHX;
 
-  quotation_titlepage_nr = (size_t) SvIV (sv_in);
-  elements_authors
-    = &converter->shared_conversion_state.elements_authors;
+  elements_authors = &converter->shared_conversion_state.elements_authors;
+  quotation_titlepage_nr = (size_t) SvIV (quotation_titlepage_nr_sv);
   if (quotation_titlepage_nr != elements_authors->top)
     {
       fprintf (stderr,
@@ -1516,9 +1526,10 @@ get_authors_list (CONVERTER *converter, SV *sv_in, int warn)
     {
       ELEMENT_REFERENCE_STACK *authors
         = elements_authors->stack[elements_authors->top -1];
-      if (!authors && warn)
+      if (!authors && access_elements_authors)
         fprintf (stderr,
-          "BUG: quotation_titlepage_nr %zu NULL authors list\n",
+          "BUG: access element_authors "
+          "quotation_titlepage_nr %zu NULL authors list\n",
                quotation_titlepage_nr);
       else
         return authors;
@@ -1526,9 +1537,6 @@ get_authors_list (CONVERTER *converter, SV *sv_in, int warn)
   return 0;
 }
 
-/* This function could be in a build* file as it builds perl data.
-   However, since it has a lot of code and logic in common with the
-   associated get function below, it is kept here. */
 void
 html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                                const char *cmdname, const char *state_name,
@@ -1545,7 +1553,9 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
         = find_index_entry_numbers_index_entry_sv (converter,
                                                 args_sv[0], &index_nr);
 
-      converter->shared_conversion_state
+      /* We could error out or notify a bug if the index entry is not found */
+      if (entry_number != 0)
+        converter->shared_conversion_state
          .formatted_index_entries[index_nr-1][entry_number-1] = formatted_nr;
     }
   else if (!strcmp (state_name, "html_menu_entry_index"))
@@ -1576,29 +1586,38 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
       EXPLAINED_COMMAND_TYPE_LIST *type_explanations
        = &converter->shared_conversion_state.explained_commands;
       enum command_id cmd = lookup_builtin_command (cmdname);
-      char *type = (char *)SvPVutf8_nolen (args_sv[0]);
-      char *explanation = (char *)SvPVutf8_nolen (args_sv[1]);
-      register_explained_command_string (type_explanations,
-                                         cmd, type, explanation);
+      /* avoid registering CM_NONE, as it is not not correct and not useful,
+         it would never be found back anyway.
+         There could also be an error.
+       */
+      if (cmd != CM_NONE)
+        {
+          char *type = (char *)SvPVutf8_nolen (args_sv[0]);
+          char *explanation = (char *)SvPVutf8_nolen (args_sv[1]);
+          register_explained_command_string (type_explanations,
+                                             cmd, type, explanation);
+        }
     }
   else if (!strcmp (state_name, "formatted_nodedescriptions"))
     {
       HTML_TARGET *target_info
         = find_node_target_info_nodedescription_sv (converter, args_sv[0]);
-      int number = SvIV (args_sv[1]);
 
       if (target_info)
-        target_info->formatted_nodedescription_nr = number;
+        {
+          int number = SvIV (args_sv[1]);
+          target_info->formatted_nodedescription_nr = number;
+        }
     }
   else if (!strcmp (state_name, "formatted_listoffloats"))
     {
-      char *type = (char *)SvPVutf8_nolen (args_sv[0]);
-      int number = SvIV (args_sv[1]);
       if (converter->document && converter->document->listoffloats.number > 0)
         {
+          char *type = (char *)SvPVutf8_nolen (args_sv[0]);
           size_t i;
-          const LISTOFFLOATS_TYPE_LIST
-            *listoffloats = &converter->document->listoffloats;
+          const LISTOFFLOATS_TYPE_LIST *listoffloats
+            = &converter->document->listoffloats;
+
           for (i = 0; i < listoffloats->number; i++)
             {
               LISTOFFLOATS_TYPE *float_types = &listoffloats->float_types[i];
@@ -1606,6 +1625,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                 {
                   if (float_types->float_list.number > 0)
                     {
+                      int number = SvIV (args_sv[1]);
                       int *formatted_listoffloats_nr
                         = &converter->shared_conversion_state
                             .formatted_listoffloats_nr[i];
@@ -1618,24 +1638,30 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     }
   else if (!strcmp (state_name, "quotation_titlepage_stack"))
     {
-      size_t quotation_titlepage_nr = (size_t) SvIV (args_sv[0]);
-      ELEMENT_REFERENCE_STACK_STACK *elements_authors
-        = &converter->shared_conversion_state.elements_authors;
-
-      /* difference should only be 1 */
-      while (quotation_titlepage_nr < elements_authors->top)
+      int quotation_titlepage_int = SvIV (args_sv[0]);
+      if (quotation_titlepage_int >= 0)
         {
-          ELEMENT_REFERENCE_STACK *authors
-            = elements_authors->stack[elements_authors->top -1];
-          if (authors)
+          size_t quotation_titlepage_nr = quotation_titlepage_int;
+          ELEMENT_REFERENCE_STACK_STACK *elements_authors
+            = &converter->shared_conversion_state.elements_authors;
+
+          /* difference should only be 1 with default Perl code as
+             a quotation or title page is added on top of the stack
+             or removed from the top of the stack */
+          while (quotation_titlepage_nr < elements_authors->top)
             {
-              destroy_element_reference_stack (authors);
-              elements_authors->stack[elements_authors->top -1] = 0;
+              ELEMENT_REFERENCE_STACK *authors
+                = elements_authors->stack[elements_authors->top -1];
+              if (authors)
+                {
+                  destroy_element_reference_stack (authors);
+                  elements_authors->stack[elements_authors->top -1] = 0;
+                }
+              elements_authors->top--;
             }
-          elements_authors->top--;
+          while (quotation_titlepage_nr > elements_authors->top)
+            open_quotation_titlepage_stack (converter, 0);
         }
-      while (quotation_titlepage_nr > elements_authors->top)
-        open_quotation_titlepage_stack (converter, 0);
     }
   else if (!strcmp (state_name, "element_authors_number"))
     {
@@ -1645,6 +1671,11 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
 
       if (author_nr < 0)
         {
+         /* if author_nr < 0, it means that we should be in
+            titlepage/documentinfo where authors are not supposed to be
+            collected, therefore we should not have an authors list
+            set on the top of the stack.
+          */
           if (authors)
             fprintf (stderr, "BUG: negative element_authors_number"
                               " unexpected authors list\n");
@@ -1653,6 +1684,9 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
         {
           if (author_nr == 0)
             {
+              /* this should only happen when initializing a quotation
+                 authors list, therefore the authors list should not
+                 exist already. */
               if (authors)
                 fprintf (stderr, "BUG: 0 element_authors_number"
                               " unexpected authors list\n");
@@ -1666,28 +1700,47 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
             }
           else
             {
-              /* do not do anything, there should have been
-                 elements_authors set just before */
+              /* nothing to do except to verify that the authors number
+                 is already the number in the stack, as elements_authors should
+                 have been set just before and the number of authors
+                 already increased when the author element was added.
+               */
               /* unlikely integer overflow */
               if ((size_t) author_nr != authors->top)
                 fprintf (stderr, "BUG: unexpected element_authors_number"
                                  "%d != %zu\n", author_nr, authors->top);
-
             }
         }
     }
   else if (!strcmp (state_name, "elements_authors"))
     {
+      /* It could be possible to check that args_sv[2] is not undef instead
+         of having SvRV (hopefully) fail, as it should be considered
+         incorrect to set elements_authors with an undef element
+       */
+      /*
+         Normally, this should only be called in quotation with
+         a quotation stack index args_sv[0] at the top of the stack
+         as it should come from a previous get of quotation_titlepage_stack
+         and with a list of authors, as args_sv[1] the author_nr should have
+         been obtained by element_authors_number to know where to put the new
+         author and checked to be >= 0 as should be in quotation, before trying
+         to set this shared state.
+
+         Indeed, we only allow to set an elements_authors in the top
+         quotation and on top of the authors stack of the quotation.
+        */
       ELEMENT_REFERENCE_STACK *authors = get_authors_list (converter,
                                                       args_sv[0], 1);
       if (authors)
         {
+          /* should be on top and, in default code, have been obtained by
+             getting element_authors_number */
           size_t author_idx = (size_t) SvIV (args_sv[1]);
           if (author_idx != authors->top)
             {
               fprintf (stderr, "BUG: unexpected elements_authors number"
                                  "%zu != %zu\n", author_idx, authors->top);
-
             }
           else
             {
@@ -1705,6 +1758,9 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     }
 }
 
+/* This function could be in a build* file as it builds perl data.
+   However, since it has a lot of code and logic in common with the
+   associated function above, it is kept here. */
 SV *
 html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
                                const char *cmdname, const char *state_name,
@@ -1741,14 +1797,18 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     {
       char *type = (char *)SvPVutf8_nolen (args_sv[0]);
       enum command_id cmd = lookup_builtin_command (cmdname);
-      EXPLAINED_COMMAND_TYPE_LIST *type_explanations
-       = &converter->shared_conversion_state.explained_commands;
-      EXPLAINED_COMMAND_TYPE *type_explanation
-         = find_explained_command_string (type_explanations, cmd, type);
-      if (type_explanation)
+
+      if (cmd != CM_NONE)
         {
-          char *explanation_string = type_explanation->explanation;
-          return newSVpv_utf8 (explanation_string, 0);
+          EXPLAINED_COMMAND_TYPE_LIST *type_explanations
+            = &converter->shared_conversion_state.explained_commands;
+          EXPLAINED_COMMAND_TYPE *type_explanation
+            = find_explained_command_string (type_explanations, cmd, type);
+          if (type_explanation)
+            {
+              char *explanation_string = type_explanation->explanation;
+              return newSVpv_utf8 (explanation_string, 0);
+            }
         }
     }
   else if (!strcmp (state_name, "formatted_nodedescriptions"))
@@ -1806,7 +1866,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
               ELEMENT_REFERENCE *author = &authors->stack[author_idx];
               if (author->element)
                 return newSVsv ((SV *)author->element->sv);
-              else
+              else if (author->hv)
                 return newRV_inc ((SV *)(HV *)author->hv);
             }
         }
