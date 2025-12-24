@@ -660,35 +660,25 @@ html_register_footnote (CONVERTER *self, const ELEMENT *command,
     pending_footnote->multi_expanded_region = 0;
 }
 
-HTML_PENDING_FOOTNOTE_STACK *
-html_get_pending_footnotes (CONVERTER *self)
+void
+html_free_pending_footnote (HTML_PENDING_FOOTNOTE *pending_footnote)
 {
-  HTML_PENDING_FOOTNOTE_STACK *stack = (HTML_PENDING_FOOTNOTE_STACK *)
-     malloc (sizeof (HTML_PENDING_FOOTNOTE_STACK));
-
-  stack->top = self->pending_footnotes.top;
-  stack->space = self->pending_footnotes.space;
-  stack->stack = self->pending_footnotes.stack;
-
-  memset (&self->pending_footnotes, 0, sizeof (HTML_PENDING_FOOTNOTE_STACK));
-
-  return stack;
+  free (pending_footnote->multi_expanded_region);
+  free (pending_footnote->footid);
+  free (pending_footnote->docid);
+  free (pending_footnote->footnote_location_filename);
+  free (pending_footnote);
 }
 
 void
-destroy_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack)
+html_clear_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack)
 {
   size_t i;
   for (i = 0; i < stack->top; i++)
     {
-      free (stack->stack[i]->multi_expanded_region);
-      free (stack->stack[i]->footid);
-      free (stack->stack[i]->docid);
-      free (stack->stack[i]->footnote_location_filename);
-      free (stack->stack[i]);
+      html_free_pending_footnote (stack->stack[i]);
     }
-  free (stack->stack);
-  free (stack);
+  stack->top = 0;
 }
 
 void

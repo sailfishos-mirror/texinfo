@@ -55,8 +55,8 @@ void html_unset_multiple_conversions (CONVERTER *self);
 void html_register_footnote (CONVERTER *self, const ELEMENT *command,
      const char *footid, const char *docid, const int number_in_doc,
      const char *footnote_location_filename, const char *multi_expanded_region);
-HTML_PENDING_FOOTNOTE_STACK *html_get_pending_footnotes (CONVERTER *self);
-void destroy_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack);
+void html_free_pending_footnote (HTML_PENDING_FOOTNOTE *pending_footnote);
+void html_clear_pending_footnotes (HTML_PENDING_FOOTNOTE_STACK *stack);
 
 void html_register_pending_formatted_inline_content (CONVERTER *self,
                              const char *category, const char *inline_content);

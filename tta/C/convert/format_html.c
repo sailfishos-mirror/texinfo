@@ -3417,7 +3417,7 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 {
   size_t i;
   HTML_PENDING_FOOTNOTE_STACK *pending_footnotes
-   = html_get_pending_footnotes (self);
+   = &self->pending_footnotes;
 
   if (pending_footnotes->top > 0)
     {
@@ -3459,9 +3459,11 @@ html_default_format_footnotes_sequence (CONVERTER *self, TEXT *result)
 
           free (footnote_mark);
           free (footnote_location_href);
+
+          html_free_pending_footnote (pending_footnotes->stack[i]);
         }
+      pending_footnotes->top = 0;
     }
-  destroy_pending_footnotes (pending_footnotes);
 }
 
 void

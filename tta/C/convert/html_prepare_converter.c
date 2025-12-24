@@ -3532,6 +3532,8 @@ html_conversion_initialization (CONVERTER *self, const char *context)
 
   reset_html_targets (self);
 
+  html_clear_pending_footnotes (&self->pending_footnotes);
+
   self->current_node = 0;
   self->current_root_command = 0;
 

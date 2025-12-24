@@ -2445,6 +2445,7 @@ sub register_footnote($$$$$$$) {
   }
 }
 
+# No equivalent function in C, the pending_footnotes are accessed directly
 sub get_pending_footnotes($) {
   my $self = shift;
 

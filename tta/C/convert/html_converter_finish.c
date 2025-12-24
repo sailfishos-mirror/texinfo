@@ -466,6 +466,8 @@ html_free_converter (CONVERTER *self)
     }
   free (self->pending_closes.list);
 
+  free (self->pending_footnotes.stack);
+
   free (self->pending_inline_content.stack);
 
   free (self->associated_inline_content.list);

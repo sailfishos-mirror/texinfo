@@ -63,6 +63,9 @@ Done:
  multiple_pass
  referred_command_stack (locally set/reset only)
  shared_conversion_state
+ associated_inline_content
+ pending_inline_content
+ pending_footnotes
 
 Todo.
  output_files_information:
@@ -71,7 +74,7 @@ Todo.
  html_targets, html_special_targets: trees, with trees to build can
  reappear after a call to free_html_targets_trees if command text/title
  related functions are called
-
+ HTML_TARGET formatted_nodedescription_nr
 
 
 Initialize all the shared_conversion_state in html_initialize_output_state

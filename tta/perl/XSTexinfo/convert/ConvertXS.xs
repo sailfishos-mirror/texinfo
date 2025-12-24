@@ -2671,14 +2671,15 @@ html_get_pending_footnotes (SV *converter_in)
         self = get_sv_converter (converter_in,
                                  "html_register_footnote");
         pending_footnotes_av = newAV ();
-        if (self)
+        if (self && self->pending_footnotes.top)
           {
             HTML_PENDING_FOOTNOTE_STACK *stack
-             = html_get_pending_footnotes (self);
+             = &self->pending_footnotes;
 
-            build_pending_footnotes (pending_footnotes_av, stack);
+            build_pending_footnotes (pending_footnotes_av,
+                                     stack);
 
-            destroy_pending_footnotes (stack);
+            html_clear_pending_footnotes (stack);
           }
         RETVAL = newRV_noinc ((SV *) pending_footnotes_av);
    OUTPUT:

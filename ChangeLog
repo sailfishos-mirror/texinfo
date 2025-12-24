@@ -1,5 +1,31 @@
 2025-12-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_conversion_state.c (html_free_pending_footnote):
+	add to free one pending footnote.
+
+	* tta/C/convert/format_html.c
+	(html_default_format_footnotes_sequence),
+	tta/C/convert/html_conversion_state.c (html_clear_pending_footnotes),
+	tta/C/convert/html_converter_finish.c (html_free_converter),
+	tta/C/convert/html_prepare_converter.c
+	(html_conversion_initialization),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_get_pending_footnotes):
+	access directly the converter pending footnotes in
+	html_default_format_footnotes_sequence and in html_get_pending_footnotes
+	instead of calling html_get_pending_footnotes.  Free each pending
+	footnote after it is formatted in
+	html_default_format_footnotes_sequence.  Add html_clear_pending_footnotes
+	to free all the pending footnotes, but keep the allocated memory.
+	Call html_clear_pending_footnotes in html_conversion_initialization,
+	html_conversion_finalization and html_get_pending_footnotes.  Free the
+	converter pending_footnotes stack in html_free_converter.
+	Remove html_get_pending_footnotes and destroy_pending_footnotes.
+
+	* tta/C/convert/convert_html.c (html_conversion_finalization): output
+	a warning if there are pending footnotes.
+
+2025-12-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (clear_type_explanations)
 	(html_reset_shared_conversion_state),
 	tta/C/convert/html_converter_finish.c (html_reset_converter): move

@@ -1008,9 +1008,11 @@ typedef struct CONVERTER {
        (although it is not needed) */
     FILE_NUMBER_NAME current_filename;
     ELEMENT_REFERENCE_STACK referred_command_stack;
+    /* next three reset both in conversion initialization and finalization */
     HTML_SHARED_CONVERSION_STATE shared_conversion_state;
     HTML_INLINE_CONTENT_STACK pending_inline_content;
     HTML_PENDING_FOOTNOTE_STACK pending_footnotes;
+    /* checked to be empty and reset if not in conversion finalization */
     HTML_ASSOCIATED_INLINE_CONTENT_LIST associated_inline_content;
     PAGES_CSS_LIST page_css;
     /* reset at conversion initialization */

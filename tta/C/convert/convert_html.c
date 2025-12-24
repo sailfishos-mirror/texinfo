@@ -2510,6 +2510,14 @@ html_conversion_finalization (CONVERTER *self)
     }
   self->associated_inline_content.number = 0;
 
+  if (self->pending_footnotes.top > 0)
+    {
+      message_list_document_warn (&self->error_messages, self->conf, 0,
+                                  "%zu pending footnotes",
+                                  self->pending_footnotes.top);
+      html_clear_pending_footnotes (&self->pending_footnotes);
+    }
+
   html_pop_document_context (self);
 
   /* could change to 0 in releases? */
