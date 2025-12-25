@@ -29,51 +29,21 @@ in file_header_information
               command_tree = element_tree->tree;
             }
 
-Done:
- pending_closes
- date_in_header
- html_active_icons
- html_passive_icons
- current_formatting_references...
- current_node
- current_root_command
- current_filename
- css_element_class_styles
- css_element_class_list
- special_character
- line_break_element
- directions_strings
- html_no_arg_command_conversion
- current_lang_translations
- output_unit_files
- page_name_number
- global_units_direction_names
- global_texts_direction_names
- special_units_direction_names
- translation_cache
- special_unit_info_tree
- sorted_index_names
- registered_ids_c_hashmap
- files_source_info
- jslicenses
- check_htmlxref_already_warned
- variables in converter_info in Perl
- document_global_context_counter
- html_document_context
- multiple_pass
- referred_command_stack (locally set/reset only)
- shared_conversion_state
- associated_inline_content
- pending_inline_content
- pending_footnotes
- page_css
- output_files_information
+To verify that a simpler way cannot be found to avoid adding to
+tree to build at one point and removing much later on, which
+makes for complex code, and it is difficult to make sure that
+a tree to build is not readded after calling the function that
+resets them:
+ special_unit_info_tree self->special_unit_info_tree[type][i]
+ html_reset_translated_special_unit_info_tree self->special_unit_info_tree[tree_type][i]
 
-Todo.
- html_targets, html_special_targets: trees, with trees to build can
- reappear after a call to free_html_targets_trees if command text/title
- related functions are called
- tree_to_build
+ html_internal_command_tree target_info->tree->tree
+ html_translate_names or free_html_targets_trees_list
+
+ html_command_tree
+  html_external_command_tree tree->tree
+  -> never removed, cf above
+
 
 Document 'style_commands_formatting' and 'no_arg_commands_formatting' in
 texi2any_api.texi

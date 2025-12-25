@@ -52,6 +52,9 @@
 #include "builtin_commands.h"
 /* also for cmd_text data */
 #include "convert_to_text.h"
+/* for error message for debugging */
+/* convert_to_texinfo */
+#include "convert_to_texinfo.h"
 #include "node_name_normalization.h"
 /* cdt_tree expand_today... */
 #include "convert_utils.h"
@@ -75,7 +78,7 @@
 CONVERTER_FORMAT_DATA converter_format_data[] = {
   {"html", "Texinfo::Convert::HTML", 0, &html_converter_defaults,
    &html_converter_initialize, &html_output, &html_convert,
-   &html_convert_tree, &html_reset_converter, &html_free_converter},
+   &html_convert_tree, 0, &html_free_converter},
   {"rawtext", "Texinfo::Convert::Text", &rawtext_converter,
    0, 0, &rawtext_output,
    &rawtext_convert, &rawtext_convert_tree, 0, 0},
@@ -1885,6 +1888,29 @@ destroy_converter_output_units (CONVERTER *self)
     }
 }
 
+static void
+reset_tree_to_build (CONVERTER *self)
+{
+  if (self->tree_to_build.number > 0)
+    {
+      fprintf (stderr, "BUG: tree_to_build: %zu\n",
+                       self->tree_to_build.number);
+      if (self->conf->DEBUG.o.integer > 0)
+        {
+          size_t i;
+          for (i = 0; i < self->tree_to_build.number; i++)
+            {
+              ELEMENT *element = self->tree_to_build.list[i];
+          /* in most cases, the trees have been destroyed, so this
+             will often segfault */
+              fprintf (stderr, " %zu: '%s'\n", i,
+                               convert_to_texinfo (element));
+            }
+        }
+    }
+  self->tree_to_build.number = 0;
+}
+
 void
 reset_converter (CONVERTER *self)
 {
@@ -1899,6 +1925,15 @@ reset_converter (CONVERTER *self)
     }
 
   destroy_converter_output_units (self);
+
+  /* HTML specific, but good to be here.
+     If there is still tree to build at this point, this means
+     will almost certainty that there is something wrong, as
+     the associated trees are most likely to have been destroyed
+     and having the output units is a sign that conversion data
+     should have been reset or could be reset at any time.
+   */
+  reset_tree_to_build (self);
 }
 
 void

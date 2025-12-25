@@ -74,34 +74,6 @@ html_destroy_files_source_info (FILE_SOURCE_INFO_LIST *files_source_info)
 }
 
 void
-html_reset_converter (CONVERTER *self)
-{
-  size_t i;
-
-  /* could change to 0 in releases? */
-  if (1)
-    {
-      if (self->tree_to_build.number > 0)
-        {
-          fprintf (stderr, "BUG: tree_to_build: %zu\n",
-                           self->tree_to_build.number);
-          if (self->conf->DEBUG.o.integer > 0)
-            {
-              for (i = 0; i < self->tree_to_build.number; i++)
-                {
-                  ELEMENT *element = self->tree_to_build.list[i];
-              /* in most cases, the trees have been destroyed, so this
-                 will often segfault */
-                  fprintf (stderr, " %zu: '%s'\n", i,
-                                   convert_to_texinfo (element));
-                }
-            }
-        }
-      self->tree_to_build.number = 0;
-    }
-}
-
-void
 html_free_converter (CONVERTER *self)
 {
   int i;

@@ -1,5 +1,14 @@
 2025-12-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (converter_format_data)
+	(reset_tree_to_build, reset_converter),
+	tta/C/convert/html_converter_finish.c: add reset_tree_to_build based
+	on html_converter_finish.c reset_converter code and call it in
+	converter.c reset_converter.  Remove html_converter_finish.c
+	html_free_converter function.
+
+2025-12-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (reset_converter): do not set the document
 	to NULL, it is not useful to do it at that point.
 
