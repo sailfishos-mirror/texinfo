@@ -803,7 +803,7 @@ html_converter_initialize_beginning (SV *converter_in)
         if (self)
           {
             html_converter_initialize_beginning (self);
-            html_pass_xtmlxref (&self->htmlxref, converter_in);
+            html_pass_htmlxref (&self->htmlxref, converter_in);
           }
 
 void

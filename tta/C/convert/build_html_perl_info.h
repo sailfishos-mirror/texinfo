@@ -8,7 +8,7 @@
 #include "tree_types.h"
 #include "converter_types.h"
 
-void html_pass_xtmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv);
+void html_pass_htmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv);
 
 void html_pass_conversion_initialization (CONVERTER *converter,
                                           SV *converter_sv);

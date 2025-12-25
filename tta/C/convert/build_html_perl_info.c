@@ -98,7 +98,7 @@ build_htmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list)
 }
 
 void
-html_pass_xtmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv)
+html_pass_htmlxref (HTMLXREF_MANUAL_LIST *htmlxref_list, SV *converter_sv)
 {
   HV *converter_hv;
   HV *htmlxref_hv;
