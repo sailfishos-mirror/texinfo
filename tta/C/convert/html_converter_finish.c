@@ -78,8 +78,6 @@ html_reset_converter (CONVERTER *self)
 {
   size_t i;
 
-  clear_output_files_information (&self->output_files_information);
-
   /* could change to 0 in releases? */
   if (1)
     {

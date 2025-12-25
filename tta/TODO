@@ -67,11 +67,9 @@ Done:
  pending_inline_content
  pending_footnotes
  page_css
+ output_files_information
 
 Todo.
- output_files_information:
-  Can make sense to do something different, for instance an explicit
-  reset when unclosed files have been closed.
  html_targets, html_special_targets: trees, with trees to build can
  reappear after a call to free_html_targets_trees if command text/title
  related functions are called

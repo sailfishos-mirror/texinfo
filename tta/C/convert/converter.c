@@ -1862,8 +1862,6 @@ reset_generic_converter (CONVERTER *self)
   int check_counts = (self->conf->TEST.o.integer > 1);
   ERROR_MESSAGE_LIST *error_messages = 0;
 
-  clear_output_files_information (&self->output_files_information);
-
   if (check_counts)
     error_messages = set_check_element_interpreter_refcount ();
   for (i = 0; i < OUDT_external_nodes_units+1; i++)

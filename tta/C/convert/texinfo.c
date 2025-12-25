@@ -44,7 +44,7 @@
 #include "base_utils.h"
 #include "conf.h"
 #include "errors.h"
-/* parse_file_path */
+/* parse_file_path free_output_files_information */
 #include "utils.h"
 #include "customization_options.h"
 #include "document.h"
@@ -651,6 +651,7 @@ txi_converter_output (CONVERTER *converter, DOCUMENT *document,
       free (output_text_files_info);
       return text_result;
     }
+
   return converter_output (converter, document);
 }
 

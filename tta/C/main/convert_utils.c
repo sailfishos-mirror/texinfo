@@ -1181,38 +1181,6 @@ register_unclosed_file (OUTPUT_FILES_INFORMATION *self, const char *file_path,
   return;
 }
 
-static void
-free_unclosed_files (FILE_STREAM_LIST *unclosed_files)
-{
-  if (unclosed_files->number)
-    {
-      size_t i;
-      for (i = 0; i < unclosed_files->number; i++)
-        {
-          free (unclosed_files->list[i].file_path);
-        }
-    }
-}
-
-/* not zeroed, left to the caller, if needed */
-void
-free_output_files_information (OUTPUT_FILES_INFORMATION *self)
-{
-  free_unclosed_files (&self->unclosed_files);
-  free (self->unclosed_files.list);
-
-  free_strings_list (&self->opened_files);
-}
-
-void
-clear_output_files_information (OUTPUT_FILES_INFORMATION *self)
-{
-  free_unclosed_files (&self->unclosed_files);
-  self->unclosed_files.number = 0;
-
-  clear_strings_list (&self->opened_files);
-}
-
 /*
  FILE_PATH is the file path, it should be a binary string.
  If BINARY is set, set binary mode.

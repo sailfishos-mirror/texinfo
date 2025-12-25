@@ -3028,6 +3028,10 @@ main (int argc, char *argv[], char *env[])
             }
         }
 
+    /* Reset now that we got the information.  Could be important if we reused
+       the converter. */
+      clear_output_files_information (&converter->output_files_information);
+
       if (format_specification->flags & STTF_internal_links
           && file_index == 0)
         {

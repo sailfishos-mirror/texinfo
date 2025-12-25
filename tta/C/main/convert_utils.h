@@ -123,8 +123,6 @@ FILE *output_files_open_out (OUTPUT_FILES_INFORMATION *self,
                      char **error_message, int *overwritten_file, int binary);
 void output_files_register_closed (OUTPUT_FILES_INFORMATION *self,
                                    const char *file_path);
-void free_output_files_information (OUTPUT_FILES_INFORMATION *self);
-void clear_output_files_information (OUTPUT_FILES_INFORMATION *self);
 void register_unclosed_file (OUTPUT_FILES_INFORMATION *self,
                              const char *file_path, FILE *stream, void *io);
 

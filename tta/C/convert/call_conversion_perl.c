@@ -313,8 +313,9 @@ call_converter_output (CONVERTER *self, DOCUMENT *document)
   LEAVE;
 
   /* already set in the converter, no need to get from Perl.
-     Case of converters with file opening implemented in C,
-     for instance HTML, called through XS interfaces */
+     Case of converters with file opening implemented in C, called through
+     XS interfaces, that would not transfer files information to Perl.
+   */
   if (self->output_files_information.opened_files.number > 0
       || self->output_files_information.unclosed_files.number > 0)
     return result;

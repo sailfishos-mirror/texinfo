@@ -278,6 +278,8 @@ void copy_translated_commands (TRANSLATED_COMMAND_LIST *dst_translated_commands,
                     const TRANSLATED_COMMAND_LIST *translated_commands);
 
 OUTPUT_FILES_INFORMATION *new_output_files_information (void);
+void free_output_files_information (OUTPUT_FILES_INFORMATION *self);
+void clear_output_files_information (OUTPUT_FILES_INFORMATION *self);
 FILE_STREAM *allocate_file_stream (OUTPUT_FILES_INFORMATION *self,
                                    const char *file_path);
 

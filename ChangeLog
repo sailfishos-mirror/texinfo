@@ -1,5 +1,21 @@
 2025-12-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/convert/ConvertXS.xs (html_output): call
+	build_output_files_information as late as possible to catch all the
+	opened files.
+
+	* tta/C/main/convert_utils.c, tta/C/main/utils.c (free_unclosed_files)
+	(free_output_files_information, clear_output_files_information): move
+	to utils.c.
+
+	* tta/C/texi2any.c (main), tta/C/convert/converter.c
+	(reset_generic_converter, html_reset_converter),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (html_output): do not call
+	clear_output_files_information in *reset_*converter, call in main
+	program and when building the data to Perl.
+
+2025-12-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Utils.pm (output_files_reset): add.
 
 	* tta/perl/t/test_utils.pl (close_files), tta/perl/texi2any.pl: call

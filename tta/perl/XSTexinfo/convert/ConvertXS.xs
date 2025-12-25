@@ -1181,9 +1181,6 @@ html_output (SV *converter_in, SV *document_in)
                         document_name);
 
             build_html_formatting_state (self);
-
-            build_output_files_information (converter_in,
-                                            &self->output_files_information);
           }
 
         if (!result)
@@ -1214,6 +1211,15 @@ html_output (SV *converter_in, SV *document_in)
           }
         /* html_conversion_finalization */
         html_conversion_finalization (self);
+
+        /* do that as late as possible, to pass all the files */
+        build_output_files_information (converter_in,
+                                        &self->output_files_information);
+
+        /* consider that the files information is now a responsibility of
+           Perl */
+
+        clear_output_files_information (&self->output_files_information);
 
         html_check_transfer_state_finalization (self);
 
