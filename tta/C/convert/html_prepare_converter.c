@@ -3470,6 +3470,24 @@ reset_html_targets (CONVERTER *self)
     }
 }
 
+void
+reset_html_page_css (CONVERTER *self)
+{
+  size_t i;
+
+  for (i = 0; i < self->page_css.number; i++)
+    {
+      size_t j;
+      CSS_LIST *page_css_list = &self->page_css.list[i];
+
+      for (j = 0; j < page_css_list->number; j++)
+        free (page_css_list->list[j]);
+      free (page_css_list->list);
+      free (page_css_list->page_name);
+    }
+  self->page_css.number = 0;
+}
+
 static const enum command_id spaces_cmd[] = {
   CM_SPACE, CM_TAB, CM_NEWLINE, CM_tie
 };
@@ -3529,6 +3547,8 @@ html_conversion_initialization (CONVERTER *self, const char *context)
   self->title_tree = 0;
 
   html_reset_shared_conversion_state (self);
+
+  reset_html_page_css (self);
 
   reset_html_targets (self);
 
@@ -5676,6 +5696,27 @@ html_initialize_pending_closes (CONVERTER *self, size_t number)
   self->pending_closes.number = number;
 }
 
+static void
+prepare_page_css (CONVERTER *self, size_t pages_number)
+{
+  /* 0 is for document_global_context_css, the remaining indices
+     for the output unit files or the unique page with convert */
+  size_t css_pages_number = pages_number +1;
+
+  if (self->page_css.space < css_pages_number)
+    {
+      self->page_css.space = css_pages_number;
+      self->page_css.list = (CSS_LIST *)
+       realloc (self->page_css.list,
+                self->page_css.space * sizeof (CSS_LIST));
+    }
+
+  memset (self->page_css.list, 0,
+          css_pages_number * sizeof (CSS_LIST));
+
+  self->page_css.number = css_pages_number;
+}
+
 /* setup a page (+global context) in case there are no files, ie called
    with convert or output with an empty string as filename. */
 void
@@ -5689,12 +5730,7 @@ html_setup_output_simple_page (CONVERTER *self, const char *output_filename)
   free (self->special_unit_file_indices);
   self->special_unit_file_indices = 0;
 
-  self->page_css.number = 1+1;
-  self->page_css.space = self->page_css.number;
-  self->page_css.list = (CSS_LIST *)
-       malloc (self->page_css.space * sizeof (CSS_LIST));
-  memset (self->page_css.list, 0,
-          self->page_css.number * sizeof (CSS_LIST));
+  prepare_page_css (self, 1);
 
   self->html_files_information.number = 1+1;
   self->html_files_information.list = (FILE_ASSOCIATED_INFO *)
@@ -6184,14 +6220,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
         }
     }
 
-  /* 0 is for document_global_context_css, the remaining indices
-     for the output unit files */
-  self->page_css.number = self->output_unit_files.number +1;
-  self->page_css.space = self->page_css.number;
-  self->page_css.list = (CSS_LIST *)
-       malloc (self->page_css.space * sizeof (CSS_LIST));
-  memset (self->page_css.list, 0,
-          self->page_css.number * sizeof (CSS_LIST));
+  prepare_page_css (self, self->output_unit_files.number);
 
   self->html_files_information.number = self->output_unit_files.number +1;
   self->html_files_information.list = (FILE_ASSOCIATED_INFO *)

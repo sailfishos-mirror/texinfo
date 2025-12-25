@@ -1,5 +1,21 @@
 2025-12-24 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_converter_finish.c (html_reset_converter)
+	(html_free_converter), tta/C/convert/html_prepare_converter.c
+	(reset_html_page_css, html_conversion_initialization)
+	(prepare_page_css, html_setup_output_simple_page)
+	(html_set_pages_files): add reset_html_page_css to
+	html_prepare_converter.c based on html_reset_converter code.
+	Reuse the memory allocated in converter page_css.  Call
+	reset_html_page_css in html_free_converter and html_free_converter.
+	Free page_css list in html_free_converter.
+	Add prepare_page_css based on code used to setup page_css in
+	html_setup_output_simple_page and html_set_pages_files, updated to
+	reuse the page_css memory.  Call in html_setup_output_simple_page
+	and html_set_pages_files.
+
+2025-12-24 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_conversion_state.c (html_free_pending_footnote):
 	add to free one pending footnote.
 
@@ -62,7 +78,7 @@
 
 	* tta/C/convert/convert_html.c (html_convert_output),
 	tta/perl/Texinfo/Convert/HTML.pm (_html_convert_output): make sure
-	that current_filename is unset wen exiting the function.
+	that current_filename is unset when exiting the function.
 
 	* tta/C/convert/convert_html.c (html_convert_convert)
 	(html_convert_output), tta/C/convert/html_prepare_converter.c

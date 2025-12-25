@@ -38,6 +38,7 @@
 /* html_nr_string_directions html_free_customized_global_units_directions
    free_css_selector_style_list free_html_no_arg_command_conversion
    reset_html_targets html_reset_files_source_info free_js_categories_list
+   reset_html_page_css
  */
 #include "html_prepare_converter.h"
 #include "html_converter_api.h"
@@ -78,21 +79,6 @@ html_reset_converter (CONVERTER *self)
   size_t i;
 
   clear_output_files_information (&self->output_files_information);
-
-  for (i = 0; i < self->page_css.number; i++)
-    {
-      size_t j;
-      CSS_LIST *page_css_list = &self->page_css.list[i];
-
-      for (j = 0; j < page_css_list->number; j++)
-        free (page_css_list->list[j]);
-      free (page_css_list->list);
-      free (page_css_list->page_name);
-    }
-  free (self->page_css.list);
-  self->page_css.list = 0;
-  self->page_css.number = 0;
-  self->page_css.space = 0;
 
   /* could change to 0 in releases? */
   if (1)
@@ -171,6 +157,9 @@ html_free_converter (CONVERTER *self)
   free (self->special_unit_file_indices);
 
   html_free_files_source_info (&self->files_source_info);
+
+  reset_html_page_css (self);
+  free (self->page_css.list);
 
   free_strings_list (&self->check_htmlxref_already_warned);
 

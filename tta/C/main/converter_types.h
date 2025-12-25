@@ -1014,6 +1014,8 @@ typedef struct CONVERTER {
     HTML_PENDING_FOOTNOTE_STACK pending_footnotes;
     /* checked to be empty and reset if not in conversion finalization */
     HTML_ASSOCIATED_INLINE_CONTENT_LIST associated_inline_content;
+    /* reset in conversion initialization, resized and zeroed when the
+       number of output units associated files are known. */
     PAGES_CSS_LIST page_css;
     /* reset at conversion initialization */
     STRING_LIST check_htmlxref_already_warned;
