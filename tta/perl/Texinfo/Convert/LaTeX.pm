@@ -866,26 +866,12 @@ sub converter_initialize($) {
   return $self;
 }
 
-sub converter_reset($) {
-  my $self = shift;
-
-  # TODO warn if some includes remain?  Should never happen.
-  delete $self->{'collected_includes'};
-
-  delete $self->{'need_parttitle'};
-
-  delete $self->{'settitle_tree'};
-  delete $self->{'normalized_float_latex'};
-  delete $self->{'latex_floats'};
-  delete $self->{'titlepage_formatting'};
-  # 'prev_chapter_new_page_substitution'
-}
-
 # delete keys that are reset when starting conversion, otherwise
 # they cannot be reclaimed by Perl and refer to Texinfo tree elements.
 sub converter_destroy($) {
   my $self = shift;
 
+  delete $self->{'settitle_tree'};
   delete $self->{'index_entries'};
   delete $self->{'normalized_nodes_associated_section'};
 }
@@ -896,6 +882,14 @@ sub conversion_initialization($;$) {
   if (defined($document)) {
     $self->set_document($document);
   }
+
+  # initialization for a new document
+  delete $self->{'index_entries'};
+  delete $self->{'settitle_tree'};
+  # TODO warn if some includes remain?  Should never happen.
+  delete $self->{'collected_includes'};
+  delete $self->{'need_parttitle'};
+  delete $self->{'normalized_float_latex'};
 
   %{$self->{'quotes_map'}} = %quotes_map;
 
@@ -952,7 +946,7 @@ sub _prepare_floats($) {
 
   if (defined($floats)) {
     $self->{'normalized_float_latex'} = {};
-    $self->{'latex_floats'} = {};
+    my %latex_floats;
 
     my $no_unidecode;
     $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
@@ -982,13 +976,12 @@ sub _prepare_floats($) {
       } else {
         # for floats without type, and to avoid name clashes
         my $latex_float_name = 'TexinfoFloat'.$latex_variable_float_name;
-        if (exists($self->{'latex_floats'}->{$latex_float_name})) {
-          while (exists($self->{'latex_floats'}->{$latex_float_name})) {
+        if (exists($latex_floats{$latex_float_name})) {
+          while (exists($latex_floats{$latex_float_name})) {
             $latex_float_name .= 'a';
           }
         }
-        $self->{'latex_floats'}->{$latex_float_name}
-          = $normalized_float_type;
+        $latex_floats{$latex_float_name} = $normalized_float_type;
         $self->{'normalized_float_latex'}->{$normalized_float_type}
           = $latex_float_name;
       }
@@ -1028,7 +1021,7 @@ sub _prepare_indices($) {
 sub _prepare_conversion($;$) {
   my ($self, $root) = @_;
 
-  # initialization for a new output
+  # state initialization for a new output
   $self->{'page_styles'} = {};
   $self->{'list_environments'} = {};
   $self->{'description_format_commands'} = {};
@@ -1043,11 +1036,7 @@ sub _prepare_conversion($;$) {
   # Delete in any case to have a clean state, in particular for exists,
   # and if the first time a key is set there is something specific done.
   delete $self->{'custom_heading'};
-  delete $self->{'index_entries'};
   delete $self->{'prev_chapter_new_page_substitution'};
-  delete $self->{'settitle_tree'};
-  delete $self->{'collected_includes'};
-  delete $self->{'need_parttitle'};
   delete $self->{'titlepage_formatting'};
   delete $self->{'appendix_done'};
 

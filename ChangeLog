@@ -1,5 +1,17 @@
 2025-12-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/LaTeX.pm (_prepare_floats): make
+	latex_floats a local variable.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (conversion_initialization)
+	(_prepare_conversion): move resetting converter fields related to the
+	document to conversion_initialization.  Remove converter_reset.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (converter_destroy): delete
+	settitle_tree too.
+
+2025-12-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/ConvertXS.xs (html_output): call
 	build_output_files_information as late as possible to catch all the
 	opened files.
