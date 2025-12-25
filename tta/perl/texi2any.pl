@@ -2235,15 +2235,12 @@ while (@input_files) {
   #  @output_units_lists = $converter->XS_get_output_units_lists();
   #}
 
-  # Texinfo::Converter::Text does not define it. Alternatively could be
-  # a mandated part of the converter API
-  # Destroying the converter means releasing the output units and, if there
-  # is XS freeing memory related to the conversion.  If the program
-  # is about to exit, all the memory will be released, so we only cleanup
-  # at all if TEST is set.
-  if ($converter->can('reset_converter')
+  # Texinfo::Converter::Text does not define it.
+  # If the program is about to exit, all the memory will be released,
+  # so we only cleanup at all if TEST is set.
+  if ($converter->can('converter_remove_output_units')
       and ($test_level or $file_index < $input_files_nr -1)) {
-    $converter->reset_converter();
+    $converter->converter_remove_output_units();
   }
 
   # When the output units are created from XS, they are not registered
@@ -2337,7 +2334,7 @@ while (@input_files) {
            = merge_opened_files($error_sort_element_count_file,
                       \%opened_files, $sort_element_count_file_opened_file);
 
-    $converter_element_count->reset_converter();
+    $converter_element_count->converter_remove_output_units();
     $converter_element_count->destroy_converter();
     # we do not need to go through unclosed files of
     # $sort_elem_files_information as we know that the file is

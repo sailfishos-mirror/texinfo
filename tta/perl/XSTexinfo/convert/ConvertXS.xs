@@ -682,7 +682,7 @@ merge_converter_error_messages_lists (SV *dst_in, SV *src_in)
                                     &src->error_messages);
 
 void
-reset_converter (SV *converter_in)
+converter_remove_output_units (SV *converter_in)
       PREINIT:
         CONVERTER *self;
       CODE:
@@ -693,7 +693,7 @@ reset_converter (SV *converter_in)
 
             call_object_perl_converter_remove_output_units (self);
 
-            reset_converter (self);
+            converter_remove_output_units (self);
           }
 
 void

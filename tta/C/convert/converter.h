@@ -93,7 +93,7 @@ typedef struct CONVERTER_FORMAT_DATA {
        probably be better to stick to that API to be consistent with Perl */
     char * (* converter_convert_tree) (CONVERTER *converter,
                                        const ELEMENT *tree);
-    void (* converter_reset) (CONVERTER *self);
+    void (* converter_release_output_units) (CONVERTER *self);
     void (* converter_free) (CONVERTER *self);
 } CONVERTER_FORMAT_DATA;
 
@@ -156,7 +156,7 @@ converter_output_tree (CONVERTER *converter, DOCUMENT *document,
 char *converter_output (CONVERTER *self, DOCUMENT *document);
 char *converter_convert (CONVERTER *self, DOCUMENT *document);
 
-void reset_converter (CONVERTER *converter);
+void converter_remove_output_units (CONVERTER *converter);
 void destroy_converter (CONVERTER *converter);
 
 void determine_files_and_directory (CONVERTER *self, const char *output_format,

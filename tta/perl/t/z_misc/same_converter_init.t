@@ -65,12 +65,12 @@ $converter = Texinfo::Convert::HTML->converter({'TEST' => 2});
 $result_html = $converter->convert($document);
 #print STDERR "1 $result_html\n";
 
-$converter->reset_converter();
+$converter->converter_remove_output_units();
 
 $second_result_html = $converter->convert($document);
 #print STDERR "2 $second_result_html\n";
 
-$converter->reset_converter();
+$converter->converter_remove_output_units();
 $converter->destroy_converter();
 
 is_diff($result_html, $second_result_html,
@@ -85,11 +85,11 @@ my $simple_document
 
 $result_html = $converter->convert($simple_document);
 
-$converter->reset_converter();
+$converter->converter_remove_output_units();
 
 $second_result_html = $converter->convert($simple_document);
 
-$converter->reset_converter();
+$converter->converter_remove_output_units();
 $converter->destroy_converter();
 
 is_diff($result_html, $second_result_html,

@@ -735,11 +735,12 @@ txi_destroy_document (DOCUMENT *document, const char *external_module,
 
 /* ALTIMP Texinfo::Convert::Converter */
 void
-txi_reset_converter (CONVERTER *converter, const char *external_module)
+txi_converter_remove_output_units (CONVERTER *converter,
+                                   const char *external_module)
 {
   if (external_module)
     call_object_perl_converter_remove_output_units (converter);
-  reset_converter (converter);
+  converter_remove_output_units (converter);
 }
 
 /* ALTIMP Texinfo::Convert::Converter */

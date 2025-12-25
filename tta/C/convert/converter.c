@@ -1912,16 +1912,16 @@ reset_tree_to_build (CONVERTER *self)
 }
 
 void
-reset_converter (CONVERTER *self)
+converter_remove_output_units (CONVERTER *self)
 {
   enum converter_format converter_format = self->format;
 
   if (converter_format != COF_none
-      && converter_format_data[converter_format].converter_reset)
+      && converter_format_data[converter_format].converter_release_output_units)
     {
-      void (* format_converter_reset) (CONVERTER *self)
-        = converter_format_data[converter_format].converter_reset;
-      format_converter_reset (self);
+      void (* format_converter_release_output_units) (CONVERTER *self)
+       = converter_format_data[converter_format].converter_release_output_units;
+      format_converter_release_output_units (self);
     }
 
   destroy_converter_output_units (self);

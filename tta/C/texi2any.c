@@ -3118,8 +3118,7 @@ main (int argc, char *argv[], char *env[])
       if ((test_option && test_option->o.integer > 0)
           || file_index < input_files.number -1)
         {
-          /* free after output */
-          txi_reset_converter (converter, external_module);
+          txi_converter_remove_output_units (converter, external_module);
 
           /* destroy converter */
           txi_destroy_converter (converter, external_module);
@@ -3263,9 +3262,10 @@ main (int argc, char *argv[], char *env[])
               free (encoded_sort_element_count_file_name);
               free (sort_element_count_text);
 
-              /* destroy converter and sort_element_count_info */
-              txi_reset_converter (sort_element_count_info->converter,
+              txi_converter_remove_output_units (
+                                   sort_element_count_info->converter,
                                    elt_count_external_module);
+              /* destroy converter and sort_element_count_info */
               txi_destroy_converter (sort_element_count_info->converter,
                                      elt_count_external_module);
               free (sort_element_count_info);

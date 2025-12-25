@@ -119,8 +119,8 @@ my %XS_overrides = (
    => "Texinfo::Convert::ConvertXS::get_converter_indices_sorted_by_index",
   "Texinfo::Convert::Converter::set_global_document_commands"
    => "Texinfo::Convert::ConvertXS::converter_set_global_document_commands",
-  "Texinfo::Convert::Converter::reset_converter"
-   => "Texinfo::Convert::ConvertXS::reset_converter",
+  "Texinfo::Convert::Converter::converter_remove_output_units"
+   => "Texinfo::Convert::ConvertXS::converter_remove_output_units",
   "Texinfo::Convert::Converter::destroy_converter"
    => "Texinfo::Convert::ConvertXS::destroy_converter",
 
@@ -493,7 +493,7 @@ sub converter_release_output_units($) {
 my $output_unit_SV_target_count = 2;
 my $output_unit_object_target_count = 1;
 
-# ALTIMP convert/converter.c reset_converter
+# ALTIMP convert/converter.c destroy_converter_output_units
 # Also called from C.
 sub perl_converter_remove_output_units($) {
   my $self = shift;
@@ -505,7 +505,8 @@ sub perl_converter_remove_output_units($) {
   # C/XS converters.
   # For a C/XS converter, we go through the C data output units lists
   # and remove references to output units Perl data for each of the output
-  # units, in a separate code called through reset_converter XS interface.
+  # units, in a separate code called through converter_remove_output_units
+  #XS interface.
   my $output_units_lists = $self->get_output_units_lists();
 
   if (defined($output_units_lists)) {
@@ -558,9 +559,9 @@ sub perl_converter_remove_output_units($) {
   }
 }
 
-# ALTIMP convert/texinfo.c txi_reset_converter
+# ALTIMP convert/texinfo.c txi_converter_remove_output_units
 # TODO document
-sub reset_converter($) {
+sub converter_remove_output_units($) {
   my $self = shift;
 
   $self->perl_converter_remove_output_units();
