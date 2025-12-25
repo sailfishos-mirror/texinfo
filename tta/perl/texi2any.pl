@@ -2164,6 +2164,10 @@ while (@input_files) {
       }
     }
   }
+  # Reset now that we got the information.  Could be important if we reused
+  # the converter.
+  Texinfo::Convert::Utils::output_files_reset(
+                        $converter->output_files_information());
 
   if (defined(get_conf('INTERNAL_LINKS')) and $file_index == 0
       and exists($formats_table{$converted_format}->{'internal_links'})) {

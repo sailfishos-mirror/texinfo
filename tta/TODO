@@ -76,6 +76,8 @@ Todo.
  reappear after a call to free_html_targets_trees if command text/title
  related functions are called
  HTML_TARGET formatted_nodedescription_nr
+ tree_to_build
+ see generic converter
 
 
 Initialize all the shared_conversion_state in html_initialize_output_state

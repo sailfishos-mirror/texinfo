@@ -1,3 +1,14 @@
+2025-12-25 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/Utils.pm (output_files_reset): add.
+
+	* tta/perl/t/test_utils.pl (close_files), tta/perl/texi2any.pl: call
+	output_files_reset when the files information has been transfered to
+	the main program.
+
+	* tta/C/main/get_perl_info.c (get_output_files_information): clear
+	Perl output files information.
+
 2025-12-24 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/html_converter_finish.c (html_reset_converter)

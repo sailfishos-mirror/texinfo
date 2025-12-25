@@ -342,6 +342,9 @@ sub close_files($)
     }
     die if ($close_error_nr > 0);
   }
+
+  Texinfo::Convert::Utils::output_files_reset(
+                        $converter->output_files_information());
 }
 
 sub _convert($$$) {

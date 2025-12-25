@@ -250,6 +250,9 @@ sub output($$) {
           }
           # remove the main file from opened files since it was renamed
           # and add the file with a number.
+          # TODO incorrect, should be in
+          # $self->output_files_information(), not in $self, or, better yet
+          # add a function that does that in Texinfo::Convert::Utils
           @{$self->{'opened_files'}} = grep {$_ ne $output_file}
                @{$self->{'opened_files'}};
           push @{$self->{'opened_files'}},

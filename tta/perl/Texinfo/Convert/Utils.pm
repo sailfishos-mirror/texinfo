@@ -63,10 +63,17 @@ our $VERSION = '7.2.90';
 # In general $SELF is stored as $converter->{'output_files'}
 # and should be accessed through $converter->output_files_information();
 
-# TODO next four functions not documented anywhere, probably relevant to
+# TODO next five functions not documented anywhere, probably relevant to
 # document both in POD and in HTML Customization API.
 sub output_files_initialize {
   return {'unclosed_files' => {}, 'opened_files' => {}};
+}
+
+sub output_files_reset($) {
+  my $self = shift;
+
+  $self->{'unclosed_files'} = {};
+  $self->{'opened_files'} = {};
 }
 
 sub output_files_disable_output_encoding($$) {
