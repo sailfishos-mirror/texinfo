@@ -95,7 +95,6 @@ ET_bracketed_linemacro_arg,
 ET_text,
 ET__code,
 ET__converted,
-ET__string,
 ET_special_unit_element,
 };
 

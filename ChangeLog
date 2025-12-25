@@ -1,5 +1,16 @@
 2025-12-25 Patrice Dumas  <pertusus@free.fr>
 
+	Remove the _string special HTML only container
+
+	* tta/C/convert/html_conversion_state.c
+	(html_open_type_update_context, html_convert_type_update_context),
+	tta/C/main/element_types.txt, tta/perl/Texinfo/Convert/HTML.pm
+	(_open_type_update_context, _convert_type_update_context): remove the
+	_string special HTML only container, the new
+	convert_tree_new_formatting_context argument should be used instead.
+
+2025-12-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c
 	(html_convert_tree_new_formatting_context)
 	(html_convert_string_tree_new_formatting_context)

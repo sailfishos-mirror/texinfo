@@ -189,7 +189,6 @@ text
 # for HTML converter
 _code
 _converted                                text
-_string
 
 # not in parser, for virtual element associated to special output units
 special_unit_element

@@ -96,6 +96,5 @@ TYPE_DATA type_data[] = {
 {"text", 0, 0},
 {"_code", 0, 0},
 {"_converted", TF_text, 0},
-{"_string", 0, 0},
 {"special_unit_element", 0, 0},
 };

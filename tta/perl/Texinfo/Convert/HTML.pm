@@ -13846,9 +13846,6 @@ sub _open_type_update_context($$) {
   if ($self->{'code_types'}->{$type_name}) {
     push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
   }
-  if ($type_name eq '_string') {
-    $self->{'document_context'}->[-1]->{'string'}++;
-  }
 }
 
 sub _convert_type_update_context($$) {
@@ -13856,9 +13853,6 @@ sub _convert_type_update_context($$) {
 
   if ($self->{'code_types'}->{$type_name}) {
     pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-  }
-  if ($type_name eq '_string') {
-    $self->{'document_context'}->[-1]->{'string'}--;
   }
   if ($self->{'pre_class_types'}->{$type_name}) {
     pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};

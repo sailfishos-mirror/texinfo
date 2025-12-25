@@ -343,11 +343,6 @@ html_open_type_update_context (CONVERTER *self, enum element_type type)
     {
       push_integer_stack_integer (&top_document_ctx->monospace, 1);
     }
-
-  if (type == ET__string)
-    {
-      top_document_ctx->string_ctx++;
-    }
 }
 
 void
@@ -358,11 +353,6 @@ html_convert_type_update_context (CONVERTER *self, enum element_type type)
   if (self->code_types[type])
     {
       pop_integer_stack (&top_document_ctx->monospace);
-    }
-
-  if (type == ET__string)
-    {
-      top_document_ctx->string_ctx--;
     }
 
   if (self->pre_class_types[type])
