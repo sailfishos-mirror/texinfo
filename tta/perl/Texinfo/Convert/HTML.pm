@@ -136,24 +136,6 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::output_internal_links"
     => "Texinfo::Convert::ConvertXS::html_output_internal_links",
 
-  # following are not called when output and convert are overriden
-  # (since 2024-07).
-  # NOTE not possible to simply remove output or convert overriding,
-  # there are errors because overrides related to passing output
-  # units were removed when some associated code was modified in 2025-08.
-  "Texinfo::Convert::HTML::conversion_initialization"
-   => "Texinfo::Convert::ConvertXS::html_conversion_initialization",
-  "Texinfo::Convert::HTML::_setup_convert"
-   => "Texinfo::Convert::ConvertXS::html_setup_convert",
-  "Texinfo::Convert::HTML::_setup_output"
-   => "Texinfo::Convert::ConvertXS::html_setup_output",
-  "Texinfo::Convert::HTML::conversion_finalization"
-   => "Texinfo::Convert::ConvertXS::html_conversion_finalization",
-  "Texinfo::Convert::HTML::_prepare_simpletitle"
-   => "Texinfo::Convert::ConvertXS::html_prepare_simpletitle",
-  "Texinfo::Convert::HTML::_prepare_converted_output_info"
-   => "Texinfo::Convert::ConvertXS::html_prepare_converted_output_info",
-
   "Texinfo::Convert::HTML::command_id"
    => "Texinfo::Convert::ConvertXS::html_command_id",
   "Texinfo::Convert::HTML::command_contents_target"
@@ -317,18 +299,6 @@ my %XS_conversion_overrides = (
 
   "Texinfo::Convert::HTML::_translate_names"
    => "Texinfo::Convert::ConvertXS::html_translate_names",
-
-  # following are not called when output and convert are overriden
-  "Texinfo::Convert::HTML::_prepare_title_titlepage"
-   => "Texinfo::Convert::ConvertXS::html_prepare_title_titlepage",
-  "Texinfo::Convert::HTML::_html_convert_convert"
-   => "Texinfo::Convert::ConvertXS::html_convert_convert",
-  "Texinfo::Convert::HTML::_html_convert_output"
-   => "Texinfo::Convert::ConvertXS::html_convert_output",
-  "Texinfo::Convert::HTML::_prepare_node_redirection_page"
-   => "Texinfo::Convert::ConvertXS::html_prepare_node_redirection_page",
-  "Texinfo::Convert::HTML::_node_redirections"
-   => "Texinfo::Convert::ConvertXS::html_node_redirections",
 
   # Cannot be overriden, in general the trees are not registered in Perl
   #"Texinfo::Convert::HTML::_XS_html_convert_tree"

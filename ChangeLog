@@ -1,5 +1,19 @@
 2025-12-25 Patrice Dumas  <pertusus@free.fr>
 
+	Remove XS interface of functions called by output or convert
+
+	* tta/perl/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs: remove XS overrides for
+	functions called by output and convert, they are not called.  Also
+	their code is not up to date.  Remove html_conversion_initialization,
+	html_setup_output, html_setup_convert, html_conversion_finalization,
+	html_prepare_simpletitle, html_prepare_converted_output_info,
+	html_prepare_title_titlepage, html_convert_convert,
+	html_convert_output, html_prepare_node_redirection_page,
+	html_node_redirections.
+
+2025-12-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (converter_remove_output_units),
 	tta/C/convert/converter.h (CONVERTER_FORMAT_DATA),
 	tta/C/convert/texinfo.c (txi_converter_remove_output_units),
