@@ -1,5 +1,22 @@
 2025-12-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/call_conversion_perl.c
+	(call_object_perl_converter_remove_output_units),
+	tta/perl/Texinfo/Convert/Converter.pm
+	(converter_release_output_units, perl_converter_remove_output_units),
+	tta/perl/Texinfo/Convert/HTML.pm (converter_release_output_units):
+	rename converter_reset as converter_release_output_units, rename
+	reset_perl_converter as perl_converter_remove_output_units, and rename
+	call_object_reset_perl_converter as
+	call_object_perl_converter_remove_output_units.  Update callers.
+
+	* tta/C/convert/converter.c (destroy_converter_output_units)
+	(reset_converter): rename reset_generic_converter as
+	destroy_converter_output_units and move setting document to 0 directly
+	in reset_converter.
+
+2025-12-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/LaTeX.pm (_prepare_floats): make
 	latex_floats a local variable.
 

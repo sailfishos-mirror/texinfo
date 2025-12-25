@@ -9309,7 +9309,7 @@ sub converter_initialize($) {
 
 # remove data that leads to cycles related to output units
 # and references to output units.
-sub converter_reset($) {
+sub converter_release_output_units($) {
   my $self = shift;
 
   # remove references to output units

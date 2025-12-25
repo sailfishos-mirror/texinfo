@@ -54,7 +54,8 @@
 #include "build_perl_info.h"
 #include "build_html_perl_state.h"
 #include "get_converter_perl_info.h"
-/* call_object_reset_perl_converter call_object_converter_perl_release */
+/* call_object_perl_converter_remove_output_units
+   call_object_converter_perl_release */
 #include "call_conversion_perl.h"
 #include "build_html_perl_info.h"
 #include "html_conversion_state.h"
@@ -690,7 +691,7 @@ reset_converter (SV *converter_in)
           {
             converter_release_output_units_built (self);
 
-            call_object_reset_perl_converter (self);
+            call_object_perl_converter_remove_output_units (self);
 
             reset_converter (self);
           }

@@ -738,7 +738,7 @@ void
 txi_reset_converter (CONVERTER *converter, const char *external_module)
 {
   if (external_module)
-    call_object_reset_perl_converter (converter);
+    call_object_perl_converter_remove_output_units (converter);
   reset_converter (converter);
 }
 

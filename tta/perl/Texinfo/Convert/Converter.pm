@@ -486,7 +486,7 @@ sub get_output_units_lists($) {
 
 # should be redefined by converters if needed
 # TODO document
-sub converter_reset($) {
+sub converter_release_output_units($) {
   my $self = shift;
 }
 
@@ -495,11 +495,11 @@ my $output_unit_object_target_count = 1;
 
 # ALTIMP convert/converter.c reset_converter
 # Also called from C.
-sub reset_perl_converter($) {
+sub perl_converter_remove_output_units($) {
   my $self = shift;
 
   # call format specific method
-  $self->converter_reset();
+  $self->converter_release_output_units();
 
   # Pure Perl converters register the output units in converter, not
   # C/XS converters.
@@ -563,7 +563,7 @@ sub reset_perl_converter($) {
 sub reset_converter($) {
   my $self = shift;
 
-  $self->reset_perl_converter();
+  $self->perl_converter_remove_output_units();
 }
 
 # Should be redefined in converters if needed

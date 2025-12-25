@@ -74,7 +74,7 @@ Todo.
  reappear after a call to free_html_targets_trees if command text/title
  related functions are called
  tree_to_build
- see generic converter
+ output_units_descriptors
 
 Document 'style_commands_formatting' and 'no_arg_commands_formatting' in
 texi2any_api.texi

@@ -195,7 +195,7 @@ call_module_converter (const char *module_name,
 }
 
 void
-call_object_reset_perl_converter (const CONVERTER *self)
+call_object_perl_converter_remove_output_units (const CONVERTER *self)
 {
   int count;
 
@@ -212,13 +212,13 @@ call_object_reset_perl_converter (const CONVERTER *self)
   PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
   PUTBACK;
 
-  count = call_method ("reset_perl_converter",
+  count = call_method ("perl_converter_remove_output_units",
                        G_DISCARD|G_SCALAR);
 
   SPAGAIN;
 
   if (count != 0)
-    croak ("call: object reset_perl_converter should return 0 item\n");
+    croak ("call: object perl_converter_remove_output_units should return 0 item\n");
 
   PUTBACK;
 

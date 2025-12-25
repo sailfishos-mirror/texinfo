@@ -1853,10 +1853,8 @@ free_output_unit_files (FILE_NAME_PATH_COUNTER_LIST *output_unit_files)
 
 
 
-/* reset parser structures tied to a document to be ready for a
-   new conversion */
-void
-reset_generic_converter (CONVERTER *self)
+static void
+destroy_converter_output_units (CONVERTER *self)
 {
   int i;
   int check_counts = (self->conf->TEST.o.integer > 1);
@@ -1882,10 +1880,6 @@ reset_generic_converter (CONVERTER *self)
         merge_error_messages_lists (&self->error_messages, error_messages);
       unset_check_element_interpreter_refcount ();
     }
-
-  /* should be cleaner.  Probably not much effect as long as converters
-     are destroyed right after being reset in most cases */
-  self->document = 0;
 }
 
 void
@@ -1901,7 +1895,12 @@ reset_converter (CONVERTER *self)
       format_converter_reset (self);
     }
 
-  reset_generic_converter (self);
+  destroy_converter_output_units (self);
+
+  /* FIXME Should be done in another function?  Or not done at all?
+     This is not done in Perl.
+   */
+  self->document = 0;
 }
 
 void
