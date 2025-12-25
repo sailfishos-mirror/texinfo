@@ -1,5 +1,12 @@
 2025-12-25 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_convert_command_tree),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_command_tree): set string
+	context instead of creating a tree with _string type at its root
+	to convert the tree if the text type is string.
+
+2025-12-25 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_info.c (html_pass_htmlxref): fix typo
 	in function name.
 

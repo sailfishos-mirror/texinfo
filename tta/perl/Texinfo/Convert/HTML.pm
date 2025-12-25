@@ -1405,18 +1405,18 @@ sub _convert_command_tree($$$$$) {
 
   _new_document_context($self, $context_name, $explanation);
 
-  my $tree_root;
-  if ($type eq 'string' or $type eq 'string_nonumber') {
-    $tree_root = Texinfo::TreeElement::new({'type' => '_string',
-                                    'contents' => [$selected_tree]});
-  } else {
-    $tree_root = $selected_tree;
-  }
-
   _set_multiple_conversions($self, undef);
 
   _push_referred_command_stack_command($self, $command);
-  my $result = _convert($self, $tree_root, $explanation);
+  if ($type eq 'string' or $type eq 'string_nonumber') {
+    $self->{'document_context'}->[-1]->{'string'}++;
+  }
+
+  my $result = _convert($self, $selected_tree, $explanation);
+
+  if ($type eq 'string' or $type eq 'string_nonumber') {
+    $self->{'document_context'}->[-1]->{'string'}--;
+  }
   _pop_referred_command_stack($self);
 
   _unset_multiple_conversions($self);

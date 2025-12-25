@@ -2079,7 +2079,6 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
                            ELEMENT *selected_tree,
                            const char *command_info)
 {
-  ELEMENT *tree_root;
   char *explanation = 0;
   const char *context_name;
   char *result;
@@ -2105,32 +2104,24 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
     }
   html_new_document_context (self, context_name, explanation, 0);
 
-  if (type == HTT_string || type == HTT_string_nonumber)
-    {
-      tree_root = new_element (ET__string);
-      add_to_contents_as_array (tree_root, selected_tree);
-      add_tree_to_build (self, tree_root);
-    }
-  else
-    tree_root = selected_tree;
-
   html_set_multiple_conversions (self, 0);
   push_element_reference_stack_element (&self->referred_command_stack,
                                         command, get_sv_hv (command->sv));
+  if (type == HTT_string || type == HTT_string_nonumber)
+    html_set_string_context (self);
+
   result
-    = html_convert_tree_explanation (self, tree_root, explanation);
+    = html_convert_tree_explanation (self, selected_tree, explanation);
   free (explanation);
+
+  if (type == HTT_string || type == HTT_string_nonumber)
+    html_unset_string_context (self);
   pop_element_reference_stack (&self->referred_command_stack);
 
   html_unset_multiple_conversions (self);
 
   html_pop_document_context (self);
 
-  if (type == HTT_string)
-    {
-      remove_tree_to_build (self, tree_root);
-      destroy_element (tree_root);
-    }
   return result;
 }
 
