@@ -550,10 +550,13 @@ converter_set_document (CONVERTER *converter, DOCUMENT *document)
 
   /*
     If there is already an associated document, reset information linked
-    to the document as much as possible, without freeing anything as
-    it isn't clear what should be freed or not.
-    The output units could be freed through the document, at least
-    theoretically, although there is probably no code that does it.
+    to the document.
+
+    We do not call destroy_converter_output_units because it should be the
+    caller responsibility to decide when the output units should be
+    destroyed.
+
+    The output units will be freed if the document is destroyed anyway.
    */
   if (converter->document)
     {
@@ -1896,11 +1899,6 @@ reset_converter (CONVERTER *self)
     }
 
   destroy_converter_output_units (self);
-
-  /* FIXME Should be done in another function?  Or not done at all?
-     This is not done in Perl.
-   */
-  self->document = 0;
 }
 
 void

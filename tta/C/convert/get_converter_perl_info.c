@@ -193,8 +193,10 @@ get_expanded_formats (HV *hv, EXPANDED_FORMAT **expanded_formats)
     }
 }
 
-/* Retrieve the output units lists associated to a converter
-   and release the associated Perl output units.
+/* Retrieve the output units lists associated to a converter and release the
+   associated Perl output units.  Same effect as calling
+   Texinfo::OutputUnits::release_output_units_list on all the converter
+   output unit lists.
  */
 void
 converter_release_output_units_built (CONVERTER *converter)

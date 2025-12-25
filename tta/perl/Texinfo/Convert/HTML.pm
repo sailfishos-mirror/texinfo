@@ -9307,8 +9307,8 @@ sub converter_initialize($) {
   return $self;
 }
 
-# remove data that leads to cycles related to output units
-# and references to output units.
+# remove data that leads to cycles related to output units and references
+# to output units.
 sub converter_release_output_units($) {
   my $self = shift;
 
