@@ -646,8 +646,7 @@ sub html_convert_css_string($$$) {
       = $default_css_string_formatting_references{$formatting_reference};
   }
   my $css_string_context_str = 'CSS string '.$context_str;
-  _new_document_context($self, $css_string_context_str);
-  _set_string_context($self);
+  _new_document_context($self, $css_string_context_str, 'string');
   my $result
    = $self->convert_tree($element, "new_fmt_ctx C($css_string_context_str)");
   _pop_document_context($self);
@@ -1403,20 +1402,19 @@ sub _convert_command_tree($$$$$) {
     }
   }
 
-  _new_document_context($self, $context_name, $explanation);
+  my $context_type;
+  if ($type eq 'string' or $type eq 'string_nonumber') {
+    $context_type = 'string';
+  }
+
+  _new_document_context($self, $context_name, $context_type, $explanation);
 
   _set_multiple_conversions($self, undef);
 
   _push_referred_command_stack_command($self, $command);
-  if ($type eq 'string' or $type eq 'string_nonumber') {
-    $self->{'document_context'}->[-1]->{'string'}++;
-  }
 
   my $result = _convert($self, $selected_tree, $explanation);
 
-  if ($type eq 'string' or $type eq 'string_nonumber') {
-    $self->{'document_context'}->[-1]->{'string'}--;
-  }
   _pop_referred_command_stack($self);
 
   _unset_multiple_conversions($self);
@@ -1481,10 +1479,6 @@ sub command_text($$;$) {
   if (exists($command->{'extra'})
       and exists($command->{'extra'}->{'manual_content'})) {
     my $tree = _external_command_tree($self, $command);
-    if ($type eq 'string' or $type eq 'string_nonumber') {
-      $tree = Texinfo::TreeElement::new({'type' => '_string',
-                                         'contents' => [$tree]});
-    }
     my $context_str = "command_text $type ";
     if (exists($command->{'cmdname'})) {
       # this never happens, as the external node label tree
@@ -1494,6 +1488,12 @@ sub command_text($$;$) {
     } elsif (exists($command->{'type'})) {
       $context_str .= $command->{'type'};
     }
+
+    my $context_type;
+    if ($type eq 'string' or $type eq 'string_nonumber') {
+      $context_type = 'string';
+    }
+
     # NOTE the multiple pass argument is not unicized, and no global
     # context argument is given because this external node manual label
     # should in general be converted only once.
@@ -1501,8 +1501,9 @@ sub command_text($$;$) {
     # @-commands which should better be converted only once to be present.
     my $result
       = $self->convert_tree_new_formatting_context($tree,
-                                                   $context_str,
+                                               $context_str, $context_type,
                                                'command_text-manual_content');
+
     return $result;
   }
 
@@ -1684,18 +1685,15 @@ sub command_description($$;$) {
         = 'node-description-'.$formatted_nodedescription_nr;
     }
 
-    my $tree_root;
+    my $context_type;
     if ($type eq 'string') {
-      $tree_root = Texinfo::TreeElement::new({'type' => '_string',
-                               'contents' => [$description_element]});
-    } else {
-      $tree_root = $description_element;
+      $context_type = 'string';
     }
 
     $target->{$cached_type}
-      = $self->convert_tree_new_formatting_context($tree_root,
-                                                   $context_name,
-                                     $multiple_formatted, $explanation);
+      = $self->convert_tree_new_formatting_context($description_element,
+                                         $context_name, $context_type,
+                                       $multiple_formatted, $explanation);
 
     return $target->{$cached_type};
   }
@@ -2040,19 +2038,19 @@ sub direction_string($$$;$) {
         = $self->pcdt($translation_context,
                       $translated_directions_strings->{$string_type}
                                             ->{$direction}->{'to_convert'});
-      my $converted_tree;
-      if ($context eq 'string') {
-        $converted_tree = Texinfo::TreeElement::new({
-                             'type' => '_string',
-                             'contents' => [$translated_tree]});
-      } else {
-        $converted_tree = $translated_tree;
-      }
+
       my $context_str = "DIRECTION $direction ($string_type/$context)";
+
+      my $context_type;
+      if ($context eq 'string') {
+        $context_type = 'string';
+      }
+
       my $result_string
-         = $self->convert_tree_new_formatting_context($converted_tree,
-                                                      $context_str,
+         = $self->convert_tree_new_formatting_context($translated_tree,
+                                              $context_str, $context_type,
                                                       undef, $context_str);
+
       # NOTE direction strings should be simple Texinfo code, but it is
       # possible to set to anything through customization.  Since
       # anything except simple code is incorrect, there is no guarantee
@@ -2566,12 +2564,12 @@ sub get_info($$) {
 }
 
 # Call convert_tree out of the main conversion flow.
-sub convert_tree_new_formatting_context($$$;$$$) {
-  my ($self, $tree, $context_string, $multiple_pass, $document_global_context,
-      $block_command) = @_;
+sub convert_tree_new_formatting_context($$$;$$$$) {
+  my ($self, $tree, $context_string, $context_type, $multiple_pass,
+      $document_global_context, $block_command) = @_;
 
-  _new_document_context($self, $context_string, $document_global_context,
-                               $block_command);
+  _new_document_context($self, $context_string, $context_type,
+                        $document_global_context, $block_command);
 
   my $context_string_str = "C($context_string)";
   my $multiple_pass_str = '';
@@ -5207,7 +5205,8 @@ sub _convert_listoffloats_command($$$$) {
           $multiple_formatted .= '-'.($formatted_listoffloats_nr - 1);
         }
         $caption_text = $self->convert_tree_new_formatting_context(
-          $caption_element->{'contents'}->[0], $cmdname, $multiple_formatted);
+          $caption_element->{'contents'}->[0], $cmdname, undef,
+          $multiple_formatted);
         push @caption_classes, "${caption_cmdname}-in-${cmdname}";
       } else {
         $caption_text = '';
@@ -6241,7 +6240,7 @@ sub _convert_printindex_command($$$$) {
           # call with multiple_pass argument
           $entry
            = $self->convert_tree_new_formatting_context($entry_trees[$level],
-                                                        $convert_info,
+                                                        $convert_info, undef,
                                   "index-formatted-$formatted_index_entry_nr");
         } else {
           $entry = $self->convert_tree($entry_trees[$level],
@@ -6313,7 +6312,7 @@ sub _convert_printindex_command($$$$) {
           if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($result_tree,
-                                                                $convert_info,
+                                                     $convert_info, undef,
                                   "index-formatted-$formatted_index_entry_nr");
           } else {
             $entry = $self->convert_tree($result_tree, $convert_info);
@@ -6330,11 +6329,11 @@ sub _convert_printindex_command($$$$) {
           if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_tree,
-                                                                $conv_str_entry,
+                                                    $conv_str_entry, undef,
                                    "index-formatted-$formatted_index_entry_nr");
             $reference
                = $self->convert_tree_new_formatting_context($reference_tree,
-                                                        $conv_str_reference,
+                                                 $conv_str_reference, undef,
                                 "index-formatted-$formatted_index_entry_nr");
           } else {
             $entry = $self->convert_tree($entry_tree,
@@ -6377,7 +6376,7 @@ sub _convert_printindex_command($$$$) {
           if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_tree,
-                                                            $convert_info,
+                                                    $convert_info, undef,
                                "index-formatted-$formatted_index_entry_nr");
           } else {
             $entry = $self->convert_tree($entry_tree, $convert_info);
@@ -7408,7 +7407,7 @@ sub _convert_menu_entry_type($$$) {
       $description
         .= $self->convert_tree_new_formatting_context($description_element,
                                    'menu_arg node description preformatted',
-                                   $multiple_formatted, undef,
+                                   undef, $multiple_formatted, undef,
                                    'menu');
     } elsif ($menu_description) {
       $description .= $self->convert_tree($menu_description,
@@ -7473,7 +7472,7 @@ sub _convert_menu_entry_type($$$) {
     }
     $description
       = $self->convert_tree_new_formatting_context($description_element,
-                                            'menu_arg node description',
+                                     'menu_arg node description', undef,
                                      $multiple_formatted, undef, 'menu');
   } elsif (defined($menu_description)) {
     $description = $self->convert_tree($menu_description,
@@ -8189,8 +8188,9 @@ sub _default_format_element_footer($$$$;$) {
 # is not done within the document formatting flow, but the formatted
 # output may still end up in the document.  In particular for
 # command_text() which caches its computations.
-sub _new_document_context($$;$$) {
-  my ($self, $context, $document_global_context, $block_command) = @_;
+sub _new_document_context($$;$$$) {
+  my ($self, $context, $context_type, $document_global_context,
+      $block_command) = @_;
 
   push @{$self->{'document_context'}},
           {'context' => $context,
@@ -8208,6 +8208,9 @@ sub _new_document_context($$;$$) {
   if (defined($block_command)) {
     push @{$self->{'document_context'}->[-1]->{'block_commands'}},
             $block_command;
+  }
+  if (defined($context_type) and $context_type eq 'string') {
+    $self->{'document_context'}->[-1]->{'string'}++;
   }
 }
 
@@ -8363,8 +8366,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$) {
       _convert_command_update_context($self, $preformatted_cmdname);
       _pop_document_context($self);
     } elsif ($reset_context eq 'string') {
-      _new_document_context($self, $context_str);
-      _set_string_context($self);
+      _new_document_context($self, $context_str, 'string');
       $translation_result = $self->convert_tree($translated_tree,
                                                 $explanation);
       _pop_document_context($self);
@@ -11482,11 +11484,8 @@ sub _file_header_information($$;$) {
       # for each file.  We are in string context, though, so it is
       # probably not important.
       $title
-        = $self->convert_tree_new_formatting_context(
-                  Texinfo::TreeElement::new({'type' => '_string',
-                                             'contents' => [$title_tree]}),
-                                                     $context_str,
-                                                     'element_title');
+        = $self->convert_tree_new_formatting_context($title_tree,
+                                  $context_str, 'string', 'element_title');
     }
     $command_description = $self->command_description($command, 'string');
   }
@@ -13001,10 +13000,8 @@ sub _prepare_converted_output_info($$$$) {
   if (defined($fulltitle_tree)) {
     $title_tree = $fulltitle_tree;
     $html_title_string
-      = $self->convert_tree_new_formatting_context(
-                    Texinfo::TreeElement::new({'type' => '_string',
-                                       'contents' => [$title_tree]}),
-                                                   'title_string');
+      = $self->convert_tree_new_formatting_context($title_tree,
+                                                   'title_string', 'string');
     if ($html_title_string !~ /\S/) {
       $html_title_string = undef;
     }
@@ -13014,11 +13011,8 @@ sub _prepare_converted_output_info($$$$) {
     $title_tree = $default_title;
     $self->{'converter_info'}->{'title_tree'} = $title_tree;
     $self->{'converter_info'}->{'title_string'}
-      = $self->convert_tree_new_formatting_context(
-                  Texinfo::TreeElement::new({'type' => '_string',
-                                     'contents' => [$title_tree]}),
-                                                   'title_string');
-
+      = $self->convert_tree_new_formatting_context($title_tree,
+                                                   'title_string', 'string');
     my $input_file_name;
     if (exists($self->{'document'})) {
       my $document_info = $self->{'document'}->global_information();
@@ -13060,11 +13054,11 @@ sub _prepare_converted_output_info($$$$) {
            and exists($global_commands->{'documentdescription'})) {
     my $tmp = Texinfo::TreeElement::new({'contents'
                => $global_commands->{'documentdescription'}->{'contents'}});
+
     my $documentdescription_string
-      = $self->convert_tree_new_formatting_context(
-           Texinfo::TreeElement::new({'type' => '_string',
-                                      'contents' => [$tmp],}),
-                                                   'documentdescription');
+      = $self->convert_tree_new_formatting_context($tmp,
+                                 'documentdescription', 'string');
+
     chomp($documentdescription_string);
     $self->{'converter_info'}->{'documentdescription_string'}
       = $documentdescription_string;
@@ -14073,17 +14067,14 @@ sub _convert($$;$) {
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);
               _pop_code_context($self);
             } elsif ($arg_type eq 'string') {
-              _new_document_context($self, $command_type);
-              _set_string_context($self);
+              _new_document_context($self, $command_type, 'string');
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);
               #_unset_string_context($self);
               _pop_document_context($self);
             } elsif ($arg_type eq 'monospacestring') {
-              _new_document_context($self, $command_type);
+              _new_document_context($self, $command_type, 'string');
               _set_code_context($self, 1);
-              _set_string_context($self);
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);
-              #_unset_string_context($self);
               _pop_code_context($self);
               _pop_document_context($self);
             } elsif ($arg_type eq 'monospacetext') {

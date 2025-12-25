@@ -1097,25 +1097,34 @@ html_output_internal_links (SV *converter_in)
 
 void
 html_new_document_context (SV *converter_in, char *context_name, ...)
-      PROTOTYPE: $$;$$
+      PROTOTYPE: $$;$$$
       PREINIT:
         CONVERTER *self;
         const char *document_global_context = 0;
         const char *block_command_name = 0;
+        const char *context_type_str = 0;
         enum command_id block_command = 0;
       CODE:
         self = get_sv_converter (converter_in, "html_new_document_context");
         if (items > 2 && SvOK(ST(2)))
-          document_global_context = SvPVutf8_nolen (ST(2));
+          context_type_str = SvPVutf8_nolen (ST(2));
         if (items > 3 && SvOK(ST(3)))
-          block_command_name = SvPVutf8_nolen (ST(3));
+          document_global_context = SvPVutf8_nolen (ST(3));
+        if (items > 4 && SvOK(ST(4)))
+          block_command_name = SvPVutf8_nolen (ST(4));
         if (block_command_name)
           block_command = lookup_builtin_command (block_command_name);
 
         if (self)
           {
-            html_new_document_context (self, context_name,
+            enum conversion_context context_type = 0;
+
+            if (context_type_str && !strcmp (context_type_str, "string"))
+              context_type = HCC_type_string;
+
+            html_new_document_context (self, context_name, context_type,
                                        document_global_context, block_command);
+
           }
 
 void

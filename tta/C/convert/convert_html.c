@@ -355,6 +355,7 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree)
 char *
 html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
                                           const char *context_string,
+                                          enum conversion_context context_type,
                                           const char *multiple_pass,
                                           const char *document_global_context,
                                           enum command_id block_cmd)
@@ -364,7 +365,7 @@ html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
   char *explanation;
   char *context_string_str;
 
-  html_new_document_context (self, context_string,
+  html_new_document_context (self, context_string, context_type,
                              document_global_context, block_cmd);
   xasprintf (&context_string_str, "C(%s)", context_string);
 
@@ -430,8 +431,8 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
   xasprintf (&context_string_str, "C(%s)", css_string_context_str);
   xasprintf (&explanation, "new_fmt_ctx %s", context_string_str);
 
-  html_new_document_context (self, css_string_context_str, 0, 0);
-  html_set_string_context (self);
+  html_new_document_context (self, css_string_context_str,
+                             HCC_type_string, 0, 0);
 
   result = html_convert_tree_explanation (self, element, explanation);
 
@@ -457,18 +458,11 @@ html_convert_string_tree_new_formatting_context (CONVERTER *self,
                         ELEMENT *tree, const char *context_string,
                         const char *multiple_pass)
 {
-  ELEMENT *tree_root_string = new_element (ET__string);
   char *result;
 
-  add_to_contents_as_array (tree_root_string, tree);
+  result = html_convert_tree_new_formatting_context (self, tree,
+                        context_string, HCC_type_string, multiple_pass, 0, 0);
 
-  add_tree_to_build (self, tree_root_string);
-
-  result = html_convert_tree_new_formatting_context (self, tree_root_string,
-                                       context_string, multiple_pass, 0, 0);
-
-  remove_tree_to_build (self, tree_root_string);
-  destroy_element (tree_root_string);
   return result;
 }
 
@@ -588,7 +582,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
         {
           enum command_id preformatted_cmd = CM_example;
           /* there does not seems to be anything simpler... */
-          html_new_document_context (self, context, 0, 0);
+          html_new_document_context (self, context, 0, 0, 0);
           html_open_command_update_context (self, preformatted_cmd);
           translation_result
               = html_convert_tree_explanation (self, translated_tree,
@@ -598,8 +592,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
         }
       else if (reset_context == HCC_type_string)
         {
-          html_new_document_context (self, context, 0, 0);
-          html_set_string_context (self);
+          html_new_document_context (self, context, HCC_type_string, 0, 0);
 
           translation_result
              = html_convert_tree_explanation (self, translated_tree,
@@ -1103,10 +1096,13 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
 
       self->title_tree = default_title;
 
+      add_tree_to_build (self, default_title);
+
       html_title_string
          = html_convert_string_tree_new_formatting_context (self,
                                        default_title, "title_string", 0);
 
+      remove_tree_to_build (self, default_title);
       self->added_title_tree = 1;
 
       if (self->document->global_info.input_file_name)
@@ -1163,9 +1159,13 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       tmp->e.c->contents
         = self->document->global_commands.documentdescription->e.c->contents;
 
+      add_tree_to_build (self, tmp);
+
       documentdescription_string
             = html_convert_string_tree_new_formatting_context (self,
                                        tmp, "documentdescription", 0);
+
+      remove_tree_to_build (self, tmp);
 
       tmp->e.c->contents.list = 0;
       destroy_element (tmp);
@@ -1607,12 +1607,9 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                     }
                   if (arg_flags & F_AFT_string)
                     {
-                      HTML_DOCUMENT_CONTEXT *string_document_ctx;
                       text_reset (&formatted_arg);
                       html_new_document_context (self, command_type.text,
-                                                 0, 0);
-                      string_document_ctx = html_top_document_context (self);
-                      string_document_ctx->string_ctx++;
+                                                 HCC_type_string, 0, 0);
 
                       xasprintf (&explanation, "%s A[%zu]string",
                                                command_type.text, arg_idx);
@@ -1631,9 +1628,8 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                       HTML_DOCUMENT_CONTEXT *string_document_ctx;
                       text_reset (&formatted_arg);
                       html_new_document_context (self, command_type.text,
-                                                 0, 0);
+                                                 HCC_type_string, 0, 0);
                       string_document_ctx = html_top_document_context (self);
-                      string_document_ctx->string_ctx++;
                       push_integer_stack_integer (
                            &string_document_ctx->monospace, 1);
                       xasprintf (&explanation, "%s A[%zu]monospacestring",

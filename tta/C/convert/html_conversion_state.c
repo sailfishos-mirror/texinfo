@@ -71,7 +71,8 @@ pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
 
 void
 html_new_document_context (CONVERTER *self,
-        const char *context_name, const char *document_global_context,
+        const char *context_name, enum conversion_context context_type,
+        const char *document_global_context,
         enum command_id block_command)
 {
   HTML_DOCUMENT_CONTEXT_STACK *stack = &self->html_document_context;
@@ -103,8 +104,10 @@ html_new_document_context (CONVERTER *self,
 
   push_html_formatting_context (&doc_context->formatting_context,
                                 "_format");
-
   stack->top++;
+
+  if (context_type == HCC_type_string)
+    html_set_string_context (self);
 }
 
 void
@@ -151,7 +154,7 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
       && builtin_command_data[data_cmd].data == BRACE_context)
     {
       html_new_document_context (self,
-                       builtin_command_data[data_cmd].cmdname, 0, 0);
+                   builtin_command_data[data_cmd].cmdname, 0, 0, 0);
 
     }
   top_document_ctx = html_top_document_context (self);

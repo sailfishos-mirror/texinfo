@@ -3882,7 +3882,7 @@ html_conversion_initialization (CONVERTER *self, const char *context)
   self->current_types_conversion_function = &self->type_conversion_function[0];
   self->current_format_protect_text = &html_default_format_protect_text;
 
-  html_new_document_context (self, context, 0, 0);
+  html_new_document_context (self, context, 0, 0, 0);
   self->document_global_context_counter = 0;
 
   if (self->document && self->document->indices_info.number)
