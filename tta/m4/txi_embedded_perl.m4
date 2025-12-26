@@ -28,7 +28,7 @@ AC_DEFUN([txi_EMBEDDED_PERL],
   # compilation rules.
   CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
   CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
-  LDFLAGS="$PERL_EXT_LDFLAGS perl_conf_LDFLAGS"
+  LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
 
   # NOTE The tested code is a simplified version of
   # tta/C/convert/call_embed_perl.c
