@@ -1,3 +1,7 @@
+2025-12-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/txi-pt.tex, doc/txi-pt_BR.tex: update comments
+
 2025-12-26 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/get_converter_perl_info.c, tta/C/main/get_perl_info.c
