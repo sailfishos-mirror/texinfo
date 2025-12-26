@@ -47,6 +47,7 @@
 #include "targets.h"
 #include "parser_conf.h"
 #include "document.h"
+/* retrieve_output_units ... */
 #include "output_unit.h"
 #include "get_perl_info.h"
 
@@ -1504,7 +1505,7 @@ get_output_files_information (SV *output_files_sv)
 /* destruction */
 
 /* Same as Texinfo::OutputUnits release_output_units_list */
-void
+static void
 release_output_units_list_built (OUTPUT_UNIT_LIST *output_units)
 {
   dTHX;
@@ -1560,6 +1561,29 @@ release_output_units_list_built (OUTPUT_UNIT_LIST *output_units)
 
            hv_delete (output_unit->hv, "associated_document_unit",
                       strlen ("associated_document_unit"), G_DISCARD);
+        }
+    }
+}
+
+/* Retrieve the output units lists associated to a converter and release the
+   associated Perl output units.  Same effect as calling
+   Texinfo::OutputUnits::release_output_units_list on all the converter
+   output unit lists.
+ */
+void
+converter_release_output_units_built (CONVERTER *converter)
+{
+  int i;
+
+  for (i = 0; i < OUDT_external_nodes_units+1; i++)
+    {
+      if (converter->output_units_descriptors[i])
+        {
+          OUTPUT_UNIT_LIST *output_unit_list
+            = retrieve_output_units (converter->document,
+                                     converter->output_units_descriptors[i]);
+          if (output_unit_list)
+            release_output_units_list_built (output_unit_list);
         }
     }
 }

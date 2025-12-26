@@ -1,5 +1,22 @@
 2025-12-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/get_converter_perl_info.c, tta/C/main/get_perl_info.c
+	(converter_release_output_units_built): move
+	converter_release_output_units_built to get_perl_info.c.
+
+	* tta/C/convert/call_conversion_perl.c
+	(release_converter_output_units_remove_perl_output_units): add to call
+	both converter_release_output_units_built and
+	call_object_perl_converter_remove_output_units to release and remove
+	Perl output units from C.
+
+	* tta/C/convert/texinfo.c (txi_converter_remove_output_units),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(converter_remove_output_units): call
+	release_converter_output_units_remove_perl_output_units.
+
+2025-12-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (mini_toc_internal),
 	tta/perl/Texinfo/Convert/HTML.pm (_mini_toc): use command_text instead
 	of getting the tree and converting.

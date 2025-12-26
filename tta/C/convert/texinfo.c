@@ -739,7 +739,7 @@ txi_converter_remove_output_units (CONVERTER *converter,
                                    const char *external_module)
 {
   if (external_module)
-    call_object_perl_converter_remove_output_units (converter);
+    release_converter_output_units_remove_perl_output_units (converter);
   converter_remove_output_units (converter);
 }
 

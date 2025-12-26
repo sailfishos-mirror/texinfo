@@ -689,9 +689,7 @@ converter_remove_output_units (SV *converter_in)
         self = get_sv_converter (converter_in, 0);
         if (self)
           {
-            converter_release_output_units_built (self);
-
-            call_object_perl_converter_remove_output_units (self);
+            release_converter_output_units_remove_perl_output_units (self);
 
             converter_remove_output_units (self);
           }
