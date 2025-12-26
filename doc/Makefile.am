@@ -65,8 +65,8 @@ $(srcdir)/html_default_commands_args.texi: $(top_srcdir)/tta/perl/Texinfo/Conver
 TXI_XLATE = txi-ca.tex txi-cs.tex txi-de.tex txi-en.tex txi-es.tex \
 	    txi-fi.tex txi-fr.tex txi-hu.tex txi-is.tex txi-it.tex \
 	    txi-ja.tex txi-nb.tex txi-nl.tex txi-nn.tex txi-pl.tex \
-	    txi-pt.tex txi-ru.tex txi-sr.tex txi-tr.tex txi-uk.tex \
-	    txi-zh.tex
+	    txi-pt.tex txi-pt_BR.tex \
+	    txi-ru.tex txi-sr.tex txi-tr.tex txi-uk.tex txi-zh.tex
 
 # Include our texinfo.tex, not Automake's.
 EXTRA_DIST = epsf.tex fdl.texi generate_html_doc_texi.pl \
@@ -81,7 +81,7 @@ install-data-local:
 	@echo
 	@echo "WARNING: If your texmf tree does not already contain"
 	@echo "         up-to-date versions, you must install"
-	@echo "             texinfo.tex and txi-??.tex manually,"
+	@echo "         texinfo.tex, txi-??.tex and txi-??_??.tex manually,"
 	@echo "         perhaps in TEXMF/tex/texinfo/,"
 	@echo "         where TEXMF is a root of your TeX tree."
 	@echo "         See INSTALL for some considerations."
