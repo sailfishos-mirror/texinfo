@@ -4179,9 +4179,6 @@ $result_headings_list{'at_commands_in_refs_latin1'} = '';
 $result_converted_errors{'file_html'}->{'at_commands_in_refs_latin1'} = '* W l95|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
-* W l95|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
- warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
-
 * W l93|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 

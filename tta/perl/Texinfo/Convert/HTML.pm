@@ -11161,15 +11161,9 @@ sub _mini_toc($$) {
     foreach my $section_relations
                          (@{$section_relations->{'section_children'}}) {
       my $section = $section_relations->{'element'};
-      # using command_text leads to the same HTML formatting, but does not give
-      # the same result for the other files, as the formatting is done in a
-      # global context, while taking the tree first and calling convert_tree
-      # converts in the current page context.
-      #my $text = $self->command_text($section, 'text_nonumber');
-      my $tree = $self->command_tree($section, 1);
-      # happens with empty sectioning command
-      next if (!defined($tree));
-      my $text = $self->convert_tree($tree, "mini_toc \@$section->{'cmdname'}");
+      my $text = $self->command_text($section, 'text_nonumber');
+      # could happen with empty sectioning command
+      next if (!defined($text) or $text eq '');
 
       $entry_index++;
       my $accesskey = '';
@@ -11177,15 +11171,13 @@ sub _mini_toc($$) {
         if ($self->get_conf('USE_ACCESSKEY') and $entry_index < 10);
 
       my $href = $self->command_href($section);
-      if ($text ne '') {
-        $result .= "<li>";
-        if (defined($href)) {
-          $result .= "<a href=\"$href\"$accesskey>$text</a>";
-        } else {
-          $result .= $text;
-        }
-        $result .= "</li>\n";
+      $result .= "<li>";
+      if (defined($href)) {
+        $result .= "<a href=\"$href\"$accesskey>$text</a>";
+      } else {
+        $result .= $text;
       }
+      $result .= "</li>\n";
     }
     $result .= "</ul>\n";
   }
@@ -11473,6 +11465,7 @@ sub _file_header_information($$;$) {
       } else {
         # happens for @node and special_unit_element.
         # Also for @anchor and @namedanchor for redirection files.
+        # FIXME having a tree does not allow to use command_name
         $element_tree = $self->command_tree($command);
       }
       # TRANSLATORS: sectioning element title for the page header
@@ -11731,6 +11724,7 @@ $after_body_open";
 sub _default_format_node_redirection_page($$;$) {
   my ($self, $command, $filename) = @_;
 
+  # TODO use command_name?  Only if xrefautomaticsectiontitle is on?
   my $name = $self->command_text($command);
   my $href = $self->command_href($command, $filename);
   my $direction = "<a href=\"$href\">$name</a>";

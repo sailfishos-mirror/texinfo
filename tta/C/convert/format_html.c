@@ -7257,30 +7257,15 @@ mini_toc_internal (CONVERTER *self, const SECTION_RELATIONS *section_relations,
       for (i = 0; i < section_children->number; i++)
         {
           const ELEMENT *section = section_children->list[i]->element;
-     /* using command_text leads to the same HTML formatting, but does not give
-        the same result for the other files, as the formatting is done in a
-        global context, while taking the tree first and calling convert_tree
-        converts in the current page context.
-         text = html_command_text (self, section, HTT_text_nonumber);
-      */
-          TREE_ADDED_ELEMENTS *command_tree
-             = html_command_tree (self, section, 1);
-          char *explanation;
+          char *text = html_command_text (self, section, HTT_text_nonumber);
           char *accesskey;
-          char *text;
           char *href;
 
-          /* happens with empty sectioning command */
-          if (!command_tree->tree)
+          /* could happen with empty sectioning command */
+          if (!text || !strlen(text))
             continue;
 
           href = html_command_href (self, section, 0, 0, 0);
-
-          xasprintf (&explanation, "mini_toc @%s",
-                     element_command_name (section));
-          text = html_convert_tree_explanation (self, command_tree->tree,
-                                                explanation);
-          free (explanation);
 
           entry_index++;
 
@@ -7291,18 +7276,16 @@ mini_toc_internal (CONVERTER *self, const SECTION_RELATIONS *section_relations,
           else
             accesskey = strdup ("");
 
-          if (strlen (text))
+          if (href)
             {
-              if (href)
-                {
-                  text_printf (result, "<li><a href=\"%s\"%s>%s</a>",
-                               href, accesskey, text);
-                }
-              else
-                text_printf (result, "<li>%s", text);
-
-              text_append_n (result, "</li>\n", 6);
+              text_printf (result, "<li><a href=\"%s\"%s>%s</a>",
+                           href, accesskey, text);
             }
+          else
+            text_printf (result, "<li>%s", text);
+
+          text_append_n (result, "</li>\n", 6);
+
           free (text);
           free (href);
           free (accesskey);

@@ -4615,9 +4615,6 @@ span:hover a.copiable-link {visibility: visible}
 $result_converted_errors{'html'}->{'at_commands_in_refs'} = '* W l92|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
-* W l92|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
- warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
-
 * W l90|@image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
  warning: @image file `f--ile1\' (for HTML) not found, using `f--ile1.jpg\'
 
