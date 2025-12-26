@@ -1510,6 +1510,7 @@ sub command_text($$;$) {
   return _internal_command_text($self, $command, $type);
 }
 
+# Return undef if there is no tree for the name
 sub _internal_command_name_tree($$$) {
   my ($self, $command, $no_number) = @_;
 
@@ -11464,13 +11465,14 @@ sub _file_header_information($$;$) {
         }
       }
       if (defined($associated_title_command)) {
-        # associated section arguments_line type element
+        # associated sectioning or heading command arguments_line type element
         my $arguments_line
           = $associated_title_command->{'contents'}->[0];
         # line_arg type element containing the sectioning command line argument
         $element_tree = $arguments_line->{'contents'}->[0];
       } else {
-        # this should not happen, as the command_string should be empty already
+        # happens for @node and special_unit_element.
+        # Also for @anchor and @namedanchor for redirection files.
         $element_tree = $self->command_tree($command);
       }
       # TRANSLATORS: sectioning element title for the page header

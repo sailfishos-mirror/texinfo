@@ -1204,6 +1204,17 @@ my @file_tests = (
 
 ', {}, {'SPLIT' => 'section', 'USE_NODES' => 1}
 ],
+['namedanchor_in_redirection_file',
+'@node Top
+@top top
+
+@node chap
+@chapter Chap
+
+@anchor{notitle}
+
+@namedanchor{the spot, named in a way}
+'],
 # test that the node name that goes in the redirection file with
 # TRANSLITERATE_FILE_NAMES is reproducible.
 ['redirection_same_labels',

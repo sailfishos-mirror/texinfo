@@ -772,6 +772,8 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/html_tests/menu.pl \
   t/results/html_tests/menu_in_documentdescription.pl \
   t/results/html_tests/menu_in_example.pl \
+  t/results/html_tests/namedanchor_in_redirection_file.pl \
+  t/results/html_tests/namedanchor_in_redirection_file/res_html \
   t/results/html_tests/no_content.pl \
   t/results/html_tests/no_content/res_html \
   t/results/html_tests/no_content_do_contents.pl \

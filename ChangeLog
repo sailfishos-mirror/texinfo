@@ -1,5 +1,11 @@
 2025-12-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t
+	(namedanchor_in_redirection_file): test with @namedanchor in
+	redirection file.
+
+2025-12-26 Patrice Dumas  <pertusus@free.fr>
+
 	Update po files
 
 2025-12-26 Patrice Dumas  <pertusus@free.fr>

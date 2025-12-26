@@ -3921,7 +3921,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
           if (associated_title_command)
             {
-              /* associated section arguments_line type element */
+    /* associated sectioning or heading command arguments_line type element */
               const ELEMENT *arguments_line
                 = associated_title_command->e.c->contents.list[0];
     /* line_arg type element containing the sectioning command line argument */
@@ -3930,7 +3930,9 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
           if (!command_tree)
             {
-    /* this should not happen, as the command_string should be empty already */
+              /* happens for @node and special_unit_element.
+                 Also for @anchor and @namedanchor for redirection files.
+               */
               TREE_ADDED_ELEMENTS *element_tree
                   = html_command_tree (self, command, 0);
               command_tree = element_tree->tree;
