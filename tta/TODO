@@ -12,23 +12,6 @@ Before next release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?
 
-Review reset converter code and modify to be able to always call it before
-conversion and before free'ing the converter, such that it is never needed
-to call it especially.  Similar to initialize_parsing in parsetexi/api.c.
-
-l 3964 format_html.c not clear where the element_tree is destroyed
-or removed from tree to build in case it is an external tree set
-with html_external_command_tree, but probably it is not possible
-to have an external node here, only an internal node or a sectioning command.
-in file_header_information
-          if (!command_tree)
-            {
-    /* this should not happen, as the command_string should be empty already */
-              TREE_ADDED_ELEMENTS *element_tree
-                  = html_command_tree (self, command, 0);
-              command_tree = element_tree->tree;
-            }
-
 To verify that a simpler way cannot be found to avoid adding to
 tree to build at one point and removing much later on, which
 makes for complex code, and it is difficult to make sure that
@@ -39,10 +22,6 @@ resets them:
 
  html_internal_command_tree target_info->tree->tree
  html_translate_names or free_html_targets_trees_list
-
- html_command_tree
-  html_external_command_tree tree->tree
-  -> never removed, cf above
 
 
 Document 'style_commands_formatting' and 'no_arg_commands_formatting' in
