@@ -11438,40 +11438,41 @@ sub _file_header_information($$;$) {
 
   my $title;
   my $command_description;
+
+  my $title_string = $self->get_info('title_string');
   if (defined($command)) {
-    my $command_string = $self->command_text($command, 'string');
-    if (defined($command_string) and $command_string ne ''
-        and $command_string ne $self->get_info('title_string')) {
-      my $element_tree;
+    my $command_string;
+    if ($self->get_conf('SECTION_NAME_IN_TITLE')
+        and exists($command->{'cmdname'})
+        and $command->{'cmdname'} eq 'node') {
       my $associated_title_command;
-      if ($self->get_conf('SECTION_NAME_IN_TITLE')
-          and exists($command->{'cmdname'})
-          and $command->{'cmdname'} eq 'node') {
-        my $document = $self->get_info('document');
-        if (defined($document)) {
-          my $nodes_list = $document->nodes_list();
-          my $node_relations
-            = $nodes_list->[$command->{'extra'}->{'node_number'} -1];
-          $associated_title_command
-            = $node_relations->{'associated_title_command'};
+      my $document = $self->get_info('document');
+      if (defined($document)) {
+        my $nodes_list = $document->nodes_list();
+        my $node_relations
+          = $nodes_list->[$command->{'extra'}->{'node_number'} -1];
+        $associated_title_command
+          = $node_relations->{'associated_title_command'};
+
+        if (defined($associated_title_command)) {
+          $command_string
+            = $self->command_text($associated_title_command, 'string');
         }
       }
-      if (defined($associated_title_command)) {
-        # associated sectioning or heading command arguments_line type element
-        my $arguments_line
-          = $associated_title_command->{'contents'}->[0];
-        # line_arg type element containing the sectioning command line argument
-        $element_tree = $arguments_line->{'contents'}->[0];
-      } else {
-        # happens for @node and special_unit_element.
-        # Also for @anchor and @namedanchor for redirection files.
-        # FIXME having a tree does not allow to use command_name
-        $element_tree = $self->command_tree($command);
-      }
+    }
+    if (!defined($command_string) or $command_string eq '') {
+      # happens for @node and special_unit_element.
+      # Also for @anchor and @namedanchor for redirection files.
+      $command_string = $self->command_text($command, 'string');
+    }
+    if (defined($command_string) and $command_string ne ''
+        and $command_string ne $title_string) {
       # TRANSLATORS: sectioning element title for the page header
       my $title_tree = $self->cdt('{element_text} ({title})',
-                                  {'title' => $self->get_info('title_tree'),
-                                   'element_text' => $element_tree });
+                                  {'title' => {'text' => $title_string,
+                                               'type' => '_converted'},
+                                   'element_text' => {'text' => $command_string,
+                                                       'type' => '_converted'}});
 
       my $context_str = 'file_header_title-element-';
       if (exists($command->{'cmdname'})) {
@@ -11488,7 +11489,7 @@ sub _file_header_information($$;$) {
     }
     $command_description = $self->command_description($command, 'string');
   }
-  $title = $self->get_info('title_string') if (!defined($title));
+  $title = $title_string if (!defined($title));
 
   my $keywords = $command_description;
   $keywords = $title if (not defined($keywords) or $keywords eq '');

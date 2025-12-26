@@ -2048,7 +2048,8 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   return tree;
 }
 
-static TREE_ADDED_ELEMENTS *
+/* Unused */
+TREE_ADDED_ELEMENTS *
 html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
 {
 
@@ -3894,56 +3895,50 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
   if (command)
     {
-      char *command_string = html_command_text (self, command, HTT_string);
+      char *command_string = 0;
+      if (self->conf->SECTION_NAME_IN_TITLE.o.integer > 0
+          && command->e.c->cmd == CM_node && self->document)
+        {
+          int status;
+          size_t node_number
+            = lookup_extra_integer (command, AI_key_node_number, &status);
+          const NODE_RELATIONS *node_relations
+            = self->document->nodes_list.list[node_number -1];
+          const ELEMENT *associated_title_command = associated_title_command
+            = node_relations->associated_title_command;
+
+          if (associated_title_command)
+            {
+              command_string = html_command_text (self,
+                                associated_title_command, HTT_string);
+            }
+        }
+      if (!command_string || !strlen (command_string))
+        {
+          /* happens for @node and special_unit_element.
+             Also for @anchor and @namedanchor for redirection files.
+           */
+          command_string = html_command_text (self, command, HTT_string);
+        }
+
+
       if (command_string && strlen (command_string)
           && strcmp (command_string, self->title_string))
         {
           char *context_str;
           NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
-          ELEMENT *title_tree_copy = copy_tree (self->title_tree, 0);
-          ELEMENT *element_tree_copy;
           ELEMENT *title_tree;
-          ELEMENT *command_tree = 0;
-          const ELEMENT *associated_title_command = 0;
+          ELEMENT *element_text = new_text_element (ET__converted);
+          ELEMENT *title_element = new_text_element (ET__converted);
 
-          if (self->conf->SECTION_NAME_IN_TITLE.o.integer > 0
-              && command->e.c->cmd == CM_node && self->document)
-            {
-              int status;
-              size_t node_number
-                = lookup_extra_integer (command, AI_key_node_number, &status);
-              const NODE_RELATIONS *node_relations
-                = self->document->nodes_list.list[node_number -1];
-              associated_title_command
-                = node_relations->associated_title_command;
-            }
-
-          if (associated_title_command)
-            {
-    /* associated sectioning or heading command arguments_line type element */
-              const ELEMENT *arguments_line
-                = associated_title_command->e.c->contents.list[0];
-    /* line_arg type element containing the sectioning command line argument */
-              command_tree = arguments_line->e.c->contents.list[0];
-            }
-
-          if (!command_tree)
-            {
-              /* happens for @node and special_unit_element.
-                 Also for @anchor and @namedanchor for redirection files.
-               */
-              TREE_ADDED_ELEMENTS *element_tree
-                  = html_command_tree (self, command, 0);
-              command_tree = element_tree->tree;
-            }
-
-          element_tree_copy = copy_tree (command_tree, 0);
+          text_append (element_text->e.text, command_string);
+          text_append (title_element->e.text, self->title_string);
 
           add_element_to_named_string_element_list (substrings, "title",
-                                                    title_tree_copy);
+                                                    title_element);
           add_element_to_named_string_element_list (substrings, "element_text",
-                                                    element_tree_copy);
+                                                    element_text);
 
           /* TRANSLATORS: sectioning element title for the page header */
           title_tree
