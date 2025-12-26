@@ -1,5 +1,14 @@
 2025-12-26 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c, tta/perl/Texinfo/Convert/HTML.pm
+	(output_internal_links): remove command_tree and html_command_tree.
+	Replace by calls to _internal_command_tree in output_internal_links.
+
+	* doc/texi2any_api.texi (Target Tree Element Link): remove
+	documentation of command_tree.
+
+2025-12-26 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (file_header_information),
 	tta/perl/Texinfo/Convert/HTML.pm (_file_header_information): determine
 	the string of the element actually used for the element text before

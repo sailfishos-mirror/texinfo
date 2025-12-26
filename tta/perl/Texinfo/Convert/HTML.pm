@@ -1350,21 +1350,6 @@ sub _external_command_tree($$) {
   return $tree;
 }
 
-sub command_tree($$;$) {
-  my ($self, $command, $no_number) = @_;
-
-  if (!defined($command)) {
-    cluck "in command_tree command not defined";
-  }
-
-  if (exists($command->{'extra'})
-      and exists($command->{'extra'}->{'manual_content'})) {
-    return _external_command_tree($self, $command);
-  }
-
-  return _internal_command_tree($self, $command, $no_number);
-}
-
 sub _push_referred_command_stack_command($$) {
   my ($self, $command) = @_;
 
@@ -11463,6 +11448,7 @@ sub _file_header_information($$;$) {
     if (!defined($command_string) or $command_string eq '') {
       # happens for @node and special_unit_element.
       # Also for @anchor and @namedanchor for redirection files.
+      # TODO use command_name?  If SECTION_NAME_IN_TITLE?
       $command_string = $self->command_text($command, 'string');
     }
     if (defined($command_string) and $command_string ne ''
@@ -12698,7 +12684,7 @@ sub output_internal_links($) {
     if (defined($command)) {
       # Use '' for filename, to force a filename in href.
       $href = $self->command_href($command, '');
-      my $tree = $self->command_tree($command);
+      my $tree = _internal_command_tree($self, $command, 0);
       if (defined($tree)) {
         $text = Texinfo::Convert::Text::convert_to_text($tree,
                                   $self->{'convert_text_options'});
@@ -12717,7 +12703,7 @@ sub output_internal_links($) {
     foreach my $section_relations (@{$sections_list}) {
       my $command = $section_relations->{'element'};
       my $href = $self->command_href($command, '');
-      my $tree = $self->command_tree($command);
+      my $tree = _internal_command_tree($self, $command, 0);
       my $text;
       if (defined($tree)) {
         $text = Texinfo::Convert::Text::convert_to_text($tree,

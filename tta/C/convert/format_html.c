@@ -2048,21 +2048,6 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
   return tree;
 }
 
-/* Unused */
-TREE_ADDED_ELEMENTS *
-html_command_tree (CONVERTER *self, const ELEMENT *command, int no_number)
-{
-
-  ELEMENT *manual_content = lookup_extra_container (command,
-                                                  AI_key_manual_content);
-  if (manual_content)
-    {
-      return html_external_command_tree (self, command, manual_content);
-    }
-
-  return html_internal_command_tree (self, command, no_number);
-}
-
 static char *
 html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
                            const enum html_text_type type,
