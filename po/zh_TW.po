@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.1\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-13 19:26+0000\n"
+"POT-Creation-Date: 2025-12-26 11:13+0100\n"
 "PO-Revision-Date: 2002-03-08 04:56+0800\n"
 "Last-Translator: Abel Cheung <maddog@linux.org.hk>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -329,8 +329,8 @@ msgstr "試試 --help 以取得更多的資訊.\n"
 #, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
-"html>\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/"
+"gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
@@ -2081,8 +2081,8 @@ msgstr "顯示版本資訊, 然後離開"
 #, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
-"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl."
-"html>\n"
+"License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/"
+"gpl.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law."
 msgstr ""
@@ -2121,7 +2121,7 @@ msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:537 Pod-Simple-Texinfo/pod2texi.pl:645
-#: tta/perl/texi2any.pl:2202 tta/perl/texi2any.pl:2324
+#: tta/perl/texi2any.pl:2206 tta/perl/texi2any.pl:2325
 #, perl-format
 msgid "%s: could not open %s for writing: %s"
 msgstr ""
@@ -2132,8 +2132,8 @@ msgid "%s: could not open %s: %s"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:596 Pod-Simple-Texinfo/pod2texi.pl:694
-#: tta/perl/texi2any.pl:2159 tta/perl/texi2any.pl:2378
-#: tta/C/convert/texinfo.c:763
+#: tta/perl/texi2any.pl:2159 tta/perl/texi2any.pl:2379
+#: tta/C/convert/texinfo.c:765
 #, c-format, perl-format
 msgid "%s: error on closing %s: %s"
 msgstr ""
@@ -2183,7 +2183,7 @@ msgstr ""
 msgid "error parsing %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2705
+#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2780
 #, c-format, perl-format
 msgid "error reading %s: %s"
 msgstr ""
@@ -2216,13 +2216,13 @@ msgstr "未知的命令 `%s'"
 msgid "unknown variable from command line: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Config.pm:675 tta/perl/Texinfo/Config.pm:711
-#: tta/perl/Texinfo/Config.pm:733 tta/perl/Texinfo/Config.pm:756
+#: tta/perl/Texinfo/Config.pm:676 tta/perl/Texinfo/Config.pm:714
+#: tta/perl/Texinfo/Config.pm:736 tta/perl/Texinfo/Config.pm:759
 #, fuzzy, perl-format
 msgid "%s: unknown formatting context %s"
 msgstr "未知的命令 `%s'"
 
-#: tta/perl/Texinfo/Config.pm:899
+#: tta/perl/Texinfo/Config.pm:902
 #, perl-format
 msgid "%s: unknown special element information type %s"
 msgstr ""
@@ -2242,64 +2242,64 @@ msgid "here is the previous definition as @%s"
 msgstr "這裡是 `%s' 之前的定義"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:422
-#: tta/perl/Texinfo/Convert/HTML.pm:12150
-#: tta/perl/Texinfo/Convert/HTML.pm:13190
-#: tta/perl/Texinfo/Convert/HTML.pm:13446 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:426 tta/perl/Texinfo/Convert/LaTeX.pm:1168
+#: tta/perl/Texinfo/Convert/HTML.pm:12151
+#: tta/perl/Texinfo/Convert/HTML.pm:13203
+#: tta/perl/Texinfo/Convert/HTML.pm:13461 tta/perl/Texinfo/Convert/IXIN.pm:358
+#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1158
 #: tta/perl/Texinfo/Convert/Plaintext.pm:768
 #: tta/perl/Texinfo/Convert/Plaintext.pm:823
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
 #: tta/perl/texi2any.pl:1935 tta/perl/texi2any.pl:2072
-#: tta/C/convert/converter.c:691 tta/C/convert/convert_html.c:2134
-#: tta/C/convert/convert_html.c:2498 tta/C/convert/rawtext_converter_api.c:232
+#: tta/C/convert/converter.c:715 tta/C/convert/convert_html.c:2093
+#: tta/C/convert/convert_html.c:2573 tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/Converter.pm:448
-#: tta/perl/Texinfo/Convert/HTML.pm:12145
-#: tta/perl/Texinfo/Convert/HTML.pm:13212 tta/perl/Texinfo/Convert/IXIN.pm:1039
-#: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:264
-#: tta/perl/Texinfo/Convert/Info.pm:319 tta/perl/Texinfo/Convert/Info.pm:397
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1254
+#: tta/perl/Texinfo/Convert/HTML.pm:12146
+#: tta/perl/Texinfo/Convert/HTML.pm:13226 tta/perl/Texinfo/Convert/IXIN.pm:1039
+#: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:267
+#: tta/perl/Texinfo/Convert/Info.pm:322 tta/perl/Texinfo/Convert/Info.pm:400
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1244
 #: tta/perl/Texinfo/Convert/Plaintext.pm:796
 #: tta/perl/Texinfo/Convert/Plaintext.pm:844
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
-#: tta/C/convert/converter.c:761 tta/C/convert/convert_html.c:2199
-#: tta/C/convert/convert_html.c:2537 tta/C/convert/rawtext_converter_api.c:269
+#: tta/C/convert/converter.c:785 tta/C/convert/convert_html.c:2158
+#: tta/C/convert/convert_html.c:2612 tta/C/convert/rawtext_converter_api.c:269
 #: tta/C/parsetexi/input.c:352
 #, fuzzy, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/perl/Texinfo/Convert/Converter.pm:753
-#: tta/perl/Texinfo/Convert/Converter.pm:769
-#: tta/perl/Texinfo/Convert/Converter.pm:790
+#: tta/perl/Texinfo/Convert/Converter.pm:754
+#: tta/perl/Texinfo/Convert/Converter.pm:770
+#: tta/perl/Texinfo/Convert/Converter.pm:791
 #, fuzzy, perl-format
 msgid "unknown customization variable: %s"
 msgstr "未知的命令 `%s'"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1174
+#: tta/perl/Texinfo/Convert/Converter.pm:1175
 #: tta/perl/Texinfo/Convert/Text.pm:1060 tta/perl/Texinfo/Convert/Text.pm:1082
-#: tta/C/convert/converter.c:1012
+#: tta/C/convert/converter.c:1036
 #, fuzzy, c-format, perl-format
 #| msgid "Could not create output file `%s'."
 msgid "could not create directory `%s': %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1574
+#: tta/perl/Texinfo/Convert/Converter.pm:1575
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, fuzzy, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1583
+#: tta/perl/Texinfo/Convert/Converter.pm:1584
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
 msgstr "@image 檔案 `%s' 無法讀取: %s"
 
-#: tta/perl/Texinfo/Convert/DocBook.pm:1525
+#: tta/perl/Texinfo/Convert/DocBook.pm:1524
 #: tta/perl/Texinfo/Example/ReadDocBook.pm:1622
 #: tta/perl/Texinfo/Example/TreeElementReadDocBook.pm:1620
 #, fuzzy, perl-format
@@ -2307,265 +2307,265 @@ msgstr "@image 檔案 `%s' 無法讀取: %s"
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image 檔案 `%s' 無法讀取: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:427
-#: tta/C/convert/html_prepare_converter.c:704
+#: tta/perl/Texinfo/Convert/HTML.pm:397
+#: tta/C/convert/html_prepare_converter.c:736
 #, c-format, perl-format
 msgid "not setting an unknown direction: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:3643 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6809
+#: tta/perl/Texinfo/Convert/HTML.pm:3626 tta/perl/ext/epub3.pm:287
+#: tta/C/convert/format_html.c:6744
 #, fuzzy, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "@image 檔案 `%s' 無法讀取: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4784 tta/C/convert/format_html.c:8396
+#: tta/perl/Texinfo/Convert/HTML.pm:4767 tta/C/convert/format_html.c:8331
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6451 tta/C/convert/format_html.c:10778
+#: tta/perl/Texinfo/Convert/HTML.pm:6439 tta/C/convert/format_html.c:10716
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "索引 `%s' 的項目不在任何的節點內"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6482 tta/C/convert/format_html.c:10818
+#: tta/perl/Texinfo/Convert/HTML.pm:6470 tta/C/convert/format_html.c:10756
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "索引 `%s' 的項目不在任何的節點內"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8437
-#: tta/C/convert/html_prepare_converter.c:974
+#: tta/perl/Texinfo/Convert/HTML.pm:8438
+#: tta/C/convert/html_prepare_converter.c:1006
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8466
-#: tta/C/convert/html_prepare_converter.c:1084
+#: tta/perl/Texinfo/Convert/HTML.pm:8467
+#: tta/C/convert/html_prepare_converter.c:1116
 #, fuzzy, c-format, perl-format
 msgid "missing type"
 msgstr "%c%s 遺漏右大括號"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8470
-#: tta/C/convert/html_prepare_converter.c:1095
+#: tta/perl/Texinfo/Convert/HTML.pm:8471
+#: tta/C/convert/html_prepare_converter.c:1127
 #, fuzzy, c-format, perl-format
 #| msgid "%s: unrecognized option `--%s'\n"
 msgid "unrecognized type: %s"
 msgstr "%s: 未知的選項 `--%s'\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8508
-#: tta/C/convert/html_prepare_converter.c:1194
+#: tta/perl/Texinfo/Convert/HTML.pm:8509
+#: tta/C/convert/html_prepare_converter.c:1226
 #, fuzzy, c-format, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8534
-#: tta/C/convert/html_prepare_converter.c:1235
+#: tta/perl/Texinfo/Convert/HTML.pm:8535
+#: tta/C/convert/html_prepare_converter.c:1267
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8653 tta/perl/texi2any.pl:635
-#: tta/C/convert/html_prepare_converter.c:1465
+#: tta/perl/Texinfo/Convert/HTML.pm:8654 tta/perl/texi2any.pl:635
+#: tta/C/convert/html_prepare_converter.c:1497
 #, fuzzy, c-format, perl-format
 #| msgid "%c%s is obsolete; use %c%s instead"
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "%c%s 已廢棄不用; 請改用 %c%s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9075
+#: tta/perl/Texinfo/Convert/HTML.pm:9077
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9093
+#: tta/perl/Texinfo/Convert/HTML.pm:9095
 #, fuzzy, perl-format
 msgid "Unknown formatting function: %s"
 msgstr "未知的命令 `%s'"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9556
-#: tta/C/convert/html_prepare_converter.c:3581
+#: tta/perl/Texinfo/Convert/HTML.pm:9555
+#: tta/C/convert/html_prepare_converter.c:1784
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9558
-#: tta/C/convert/html_prepare_converter.c:3589
+#: tta/perl/Texinfo/Convert/HTML.pm:9557
+#: tta/C/convert/html_prepare_converter.c:1792
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9560
-#: tta/C/convert/html_prepare_converter.c:3597
+#: tta/perl/Texinfo/Convert/HTML.pm:9559
+#: tta/C/convert/html_prepare_converter.c:1800
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9593
-#: tta/C/convert/html_prepare_converter.c:3649
+#: tta/perl/Texinfo/Convert/HTML.pm:9595
+#: tta/C/convert/html_prepare_converter.c:1852
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9605
-#: tta/C/convert/html_prepare_converter.c:3671
+#: tta/perl/Texinfo/Convert/HTML.pm:9607
+#: tta/C/convert/html_prepare_converter.c:1874
 #, fuzzy, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "無法開啟至 `%s' 的管道."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9623
+#: tta/perl/Texinfo/Convert/HTML.pm:9625
 #, fuzzy, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9828
-#: tta/C/convert/html_prepare_converter.c:4607
+#: tta/perl/Texinfo/Convert/HTML.pm:9830
+#: tta/C/convert/html_prepare_converter.c:4835
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10155
-#: tta/C/convert/html_prepare_converter.c:5737
+#: tta/C/convert/html_prepare_converter.c:6070
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10159
-#: tta/C/convert/html_prepare_converter.c:5747
+#: tta/C/convert/html_prepare_converter.c:6080
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10163
-#: tta/C/convert/html_prepare_converter.c:5756
+#: tta/C/convert/html_prepare_converter.c:6089
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10749
-#: tta/C/convert/html_prepare_converter.c:5214
+#: tta/perl/Texinfo/Convert/HTML.pm:10753
+#: tta/C/convert/html_prepare_converter.c:5461
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node `%s'."
 msgid "could not find %s node `%s'"
 msgstr "找不到 `%s' 節點."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11016 tta/C/convert/format_html.c:874
+#: tta/perl/Texinfo/Convert/HTML.pm:11020 tta/C/convert/format_html.c:837
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11053
-#: tta/perl/Texinfo/Convert/HTML.pm:11059 tta/C/convert/format_html.c:923
-#: tta/C/convert/format_html.c:934
+#: tta/perl/Texinfo/Convert/HTML.pm:11057
+#: tta/perl/Texinfo/Convert/HTML.pm:11063 tta/C/convert/format_html.c:886
+#: tta/C/convert/format_html.c:897
 #, fuzzy, c-format, perl-format
 #| msgid "no index entries found for `%s'\n"
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "找不到包含 `%s' 的索引項目\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11564 tta/C/convert/format_html.c:4125
+#: tta/perl/Texinfo/Convert/HTML.pm:11565 tta/C/convert/format_html.c:4058
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "@%s 在 `@%s' 區塊之內, 並不具有意義"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12089 tta/C/convert/convert_html.c:2582
+#: tta/perl/Texinfo/Convert/HTML.pm:12090 tta/C/convert/convert_html.c:2657
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12136 tta/C/convert/convert_html.c:2606
+#: tta/perl/Texinfo/Convert/HTML.pm:12137 tta/C/convert/convert_html.c:2681
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12832 tta/C/convert/convert_html.c:843
+#: tta/perl/Texinfo/Convert/HTML.pm:12852 tta/C/convert/convert_html.c:832
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12839 tta/C/convert/convert_html.c:855
+#: tta/perl/Texinfo/Convert/HTML.pm:12859 tta/C/convert/convert_html.c:844
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12887
+#: tta/perl/Texinfo/Convert/HTML.pm:12907
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12896 tta/C/convert/convert_html.c:2827
+#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:2902
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12901 tta/C/convert/convert_html.c:2839
+#: tta/perl/Texinfo/Convert/HTML.pm:12921 tta/C/convert/convert_html.c:2914
 #, fuzzy, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13015
-#: tta/perl/Texinfo/Convert/HTML.pm:13019 tta/C/convert/convert_html.c:1159
-#: tta/C/convert/convert_html.c:1164
+#: tta/perl/Texinfo/Convert/HTML.pm:13030
+#: tta/perl/Texinfo/Convert/HTML.pm:13034 tta/C/convert/convert_html.c:1117
+#: tta/C/convert/convert_html.c:1122
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13299 tta/C/convert/convert_html.c:3039
+#: tta/perl/Texinfo/Convert/HTML.pm:13314 tta/C/convert/convert_html.c:3114
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13317 tta/C/convert/convert_html.c:3054
+#: tta/perl/Texinfo/Convert/HTML.pm:13332 tta/C/convert/convert_html.c:3129
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13320 tta/C/convert/convert_html.c:3057
+#: tta/perl/Texinfo/Convert/HTML.pm:13335 tta/C/convert/convert_html.c:3132
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13323 tta/C/convert/convert_html.c:3060
+#: tta/perl/Texinfo/Convert/HTML.pm:13338 tta/C/convert/convert_html.c:3135
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13326 tta/C/convert/convert_html.c:3063
+#: tta/perl/Texinfo/Convert/HTML.pm:13341 tta/C/convert/convert_html.c:3138
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13329 tta/C/convert/convert_html.c:3067
+#: tta/perl/Texinfo/Convert/HTML.pm:13344 tta/C/convert/convert_html.c:3142
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13337 tta/C/convert/convert_html.c:3081
+#: tta/perl/Texinfo/Convert/HTML.pm:13352 tta/C/convert/convert_html.c:3156
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13349 tta/C/convert/convert_html.c:3097
+#: tta/perl/Texinfo/Convert/HTML.pm:13364 tta/C/convert/convert_html.c:3172
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13363 tta/C/convert/convert_html.c:3117
+#: tta/perl/Texinfo/Convert/HTML.pm:13378 tta/C/convert/convert_html.c:3192
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13376 tta/C/convert/convert_html.c:3130
+#: tta/perl/Texinfo/Convert/HTML.pm:13391 tta/C/convert/convert_html.c:3205
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13454
+#: tta/perl/Texinfo/Convert/HTML.pm:13469
 #, fuzzy, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
@@ -2586,95 +2586,95 @@ msgstr ""
 msgid "rename %s failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Info.pm:361
+#: tta/perl/Texinfo/Convert/Info.pm:364
 #, perl-format
 msgid "@%s output more than once: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Info.pm:533
+#: tta/perl/Texinfo/Convert/Info.pm:536
 #, fuzzy, perl-format
 #| msgid "(outside of any node)"
 msgid "@%s outside of any node"
 msgstr "(不在任何的節點內)"
 
-#: tta/perl/Texinfo/Convert/Info.pm:662
+#: tta/perl/Texinfo/Convert/Info.pm:665
 #, perl-format
 msgid "@%s cross-reference name should not contain `:'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Info.pm:733
+#: tta/perl/Texinfo/Convert/Info.pm:736
 #, perl-format
 msgid "@%s node name should not contain `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Info.pm:803
+#: tta/perl/Texinfo/Convert/Info.pm:806
 #, fuzzy, perl-format
 #| msgid "`.' or `,' must follow cross reference, not %c"
 msgid "`.' or `,' must follow @xref, not %s"
 msgstr "`.' 或 `,' 必須跟著交互參照, 而不是 %c"
 
-#: tta/perl/Texinfo/Convert/Info.pm:807
+#: tta/perl/Texinfo/Convert/Info.pm:810
 #, fuzzy
 #| msgid "`.' or `,' must follow cross reference, not %c"
 msgid "`.' or `,' must follow @xref"
 msgstr "`.' 或 `,' 必須跟著交互參照, 而不是 %c"
 
-#: tta/perl/Texinfo/Convert/Info.pm:859
+#: tta/perl/Texinfo/Convert/Info.pm:862
 #, perl-format
 msgid "@node name should not contain `,': %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Info.pm:900
+#: tta/perl/Texinfo/Convert/Info.pm:903
 #, perl-format
 msgid "@node %s name should not contain `,': %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3388
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3402
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3428
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3442
 #, fuzzy, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image 檔案 `%s' 無法讀取: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4950
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4970
 #, perl-format
 msgid "math to images: could not open %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5039
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5059
 #, perl-format
 msgid "math to images: chdir %s failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5047
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
 #, perl-format
 msgid "math to images: output file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5073
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5093
 #, perl-format
 msgid "math to images: command failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5078
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5098
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5094
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5114
 #, perl-format
 msgid "math to images: dvi file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5109
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5129
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5116
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5136
 #, perl-format
 msgid "math to images: unable to return to initial directory: %s"
 msgstr ""
@@ -2726,21 +2726,21 @@ msgstr ""
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Utils.pm:481
+#: tta/perl/Texinfo/Convert/Utils.pm:488
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
 #: tta/C/main/convert_utils.c:535
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Utils.pm:503
+#: tta/perl/Texinfo/Convert/Utils.pm:510
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
 #: tta/C/main/convert_utils.c:580
 #, fuzzy, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/perl/Texinfo/Convert/Utils.pm:510
+#: tta/perl/Texinfo/Convert/Utils.pm:517
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
 #: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
@@ -4521,12 +4521,12 @@ msgstr "無法建立輸出檔案 `%s'."
 msgid "error on closing structure dump file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/perl/texi2any.pl:2191
+#: tta/perl/texi2any.pl:2195
 #, perl-format
 msgid "%s: error on closing internal links file %s: %s"
 msgstr ""
 
-#: tta/perl/texi2any.pl:2312
+#: tta/perl/texi2any.pl:2313
 #, fuzzy, perl-format
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
@@ -4548,57 +4548,62 @@ msgstr ""
 msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr "%s: --paragraph-indent 的引數必須為 數值/`none'/`asis', 而不是 `%s'.\n"
 
-#: tta/C/convert/convert_html.c:2397
+#: tta/C/convert/convert_html.c:2464
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2407
+#: tta/C/convert/convert_html.c:2474
 #, c-format
 msgid "%zu registered inline contents: %s"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2424
+#: tta/C/convert/convert_html.c:2491
 #, c-format
 msgid "left inline content associated to %s: '%s'"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2431
+#: tta/C/convert/convert_html.c:2498
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2436
+#: tta/C/convert/convert_html.c:2503
 #, c-format
 msgid "left inline content associated: '%s'"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2663
+#: tta/C/convert/convert_html.c:2512
+#, c-format
+msgid "%zu pending footnotes"
+msgstr ""
+
+#: tta/C/convert/convert_html.c:2738
 #, c-format
 msgid "error while opening %s for reading: %s"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2673
+#: tta/C/convert/convert_html.c:2748
 #, fuzzy, c-format
 msgid "cannot open %s for writing: %s"
 msgstr "無法開啟至 `%s' 的管道."
 
-#: tta/C/convert/convert_html.c:2691
+#: tta/C/convert/convert_html.c:2766
 #, c-format
 msgid "error writing %s: %s"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2717
+#: tta/C/convert/convert_html.c:2792
 #, fuzzy, c-format
 msgid "error closing %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/C/convert/html_prepare_converter.c:3698
+#: tta/C/convert/html_prepare_converter.c:1901
 #, fuzzy, c-format
 msgid "error on closing CSS file  %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
 
-#: tta/C/convert/texinfo.c:775
+#: tta/C/convert/texinfo.c:777
 #, fuzzy, c-format
 msgid "%s: error on closing io %s: %s"
 msgstr "無法建立輸出檔案 `%s'."
