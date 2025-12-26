@@ -6280,11 +6280,6 @@ sub _convert_printindex_command($$$$) {
 
       # index entry with @seeentry or @seealso
       if (defined($referred_entry)) {
-        my $referred_tree = Texinfo::TreeElement::new({});
-        $referred_tree->{'type'} = '_code' if ($in_code);
-        if (exists($referred_entry->{'contents'})) {
-          $referred_tree->{'contents'} = [$referred_entry];
-        }
         my $entry;
         # for @seealso, to appear where chapter/node ususally appear
         my $reference = '';
@@ -6298,14 +6293,14 @@ sub _convert_printindex_command($$$$) {
           # TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
         = $self->cdt('@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}',
                                         {'main_index_entry' => $entry_tree,
-                                         'seeentry' => $referred_tree});
+                                         'seeentry' => $referred_entry});
           } else {
             $result_tree
           # TRANSLATORS: redirect to another index entry
           # TRANSLATORS: @: is discardable and used to avoid a msgfmt error
                = $self->cdt('{main_index_entry}, @emph{See@:} {seeentry}',
                                         {'main_index_entry' => $entry_tree,
-                                         'seeentry' => $referred_tree});
+                                         'seeentry' => $referred_entry});
           }
           my $convert_info
               = "index $index_name l $letter index entry $entry_nr seeentry";
@@ -6319,9 +6314,18 @@ sub _convert_printindex_command($$$$) {
           }
           $section_class = "$cmdname-index-see-entry-section";
         } else {
-          # TRANSLATORS: refer to another index entry
-          my $reference_tree = $self->cdt('@emph{See also} {see_also_entry}',
-                                       {'see_also_entry' => $referred_tree});
+          my $reference_tree;
+          if ($in_code) {
+            # TRANSLATORS: refer to another index entry
+            $reference_tree
+                = $self->cdt('@emph{See also} @code{{see_also_entry}}',
+                                       {'see_also_entry' => $referred_entry});
+          } else {
+            # TRANSLATORS: refer to another index entry
+            $reference_tree
+                = $self->cdt('@emph{See also} {see_also_entry}',
+                                       {'see_also_entry' => $referred_entry});
+          }
           my $conv_str_entry
         = "index $index_name l $letter index entry $entry_nr (with seealso)";
           my $conv_str_reference

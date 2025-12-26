@@ -1,3 +1,12 @@
+2025-12-26 Patrice Dumas  <pertusus@free.fr>
+
+	In index formatted in code context use a true code for @seealso
+
+	* tta/C/convert/format_html.c (html_convert_printindex_command),
+	tta/perl/Texinfo/Convert/HTML.pm (_convert_printindex_command): if in
+	code formatted index, use an actual @code{} for the @seealso
+	in-document converted string.
+
 2025-12-25 Patrice Dumas  <pertusus@free.fr>
 
 	Remove the _string special HTML only container

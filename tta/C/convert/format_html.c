@@ -10435,23 +10435,11 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
             {
               NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
-              ELEMENT *referred_tree;
               char *entry;
               char *reference = 0;
 
-              if (in_code)
-                referred_tree = new_element (ET__code);
-              else
-                referred_tree = new_element (ET_NONE);
-
-              if (referred_entry->e.c->contents.number > 0
-                  && referred_entry->e.c->contents.list[0]
-                                            ->e.c->contents.number > 0)
-                {
-                  ELEMENT *referred_copy
-                    = copy_tree (referred_entry->e.c->contents.list[0], 0);
-                  add_to_contents_as_array (referred_tree, referred_copy);
-                }
+              ELEMENT *referred_copy
+                = copy_tree (referred_entry->e.c->contents.list[0], 0);
 
               if (seeentry)
                 {
@@ -10461,7 +10449,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                   add_element_to_named_string_element_list (substrings,
                                     "main_index_entry", entry_tree_copy);
                   add_element_to_named_string_element_list (substrings,
-                                             "seeentry", referred_tree);
+                                             "seeentry", referred_copy);
                   if (in_code)
                     {
        /* TRANSLATORS: redirect to another index entry */
@@ -10502,16 +10490,27 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 }
               else
                 {
-                  /* TRANSLATORS: refer to another index entry */
                   ELEMENT *reference_tree;
                   char *conv_str_entry;
                   char *conv_str_reference;
 
                   add_element_to_named_string_element_list (substrings,
-                                             "see_also_entry", referred_tree);
-                  reference_tree = html_cdt_tree (
+                                             "see_also_entry", referred_copy);
+
+                  if (in_code)
+                    {
+                      /* TRANSLATORS: refer to another index entry */
+                      reference_tree = html_cdt_tree (
+                                  "@emph{See also} @code{{see_also_entry}}",
+                                      self, substrings, 0);
+                    }
+                  else
+                    {
+                      /* TRANSLATORS: refer to another index entry */
+                      reference_tree = html_cdt_tree (
                                   "@emph{See also} {see_also_entry}",
                                       self, substrings, 0);
+                    }
 
                   xasprintf (&conv_str_entry,
                              "index %s l %s index entry %zu (with seealso)",
@@ -10554,7 +10553,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
                 add_string (entry_class_seeentry, entry_classes);
               if (last_entry_level == 0)
                 add_string (cmd_index_entry_class, entry_classes);
-             else if (last_entry_level > 0)
+              else if (last_entry_level > 0)
                 {
                   char *index_entry_level;
                   xasprintf (&index_entry_level,
