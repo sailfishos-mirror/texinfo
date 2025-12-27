@@ -1916,7 +1916,7 @@ html_special_unit_info_text (CONVERTER *self,
 /* the returned TREE_ADDED_ELEMENTS may not be NULL but have a NULL tree
    field, for instance in the case of an empty sectioning element
  */
-TREE_ADDED_ELEMENTS *
+static TREE_ADDED_ELEMENTS *
 html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                             int no_number)
 {
@@ -1943,7 +1943,6 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                    || command->e.c->cmd == CM_anchor
                    || command->e.c->cmd == CM_namedanchor)
             {
-              ELEMENT *root_code = new_element_added (tree, ET__code);
               ELEMENT *label_element;
               if (command->e.c->cmd == CM_anchor
                   || command->e.c->cmd == CM_namedanchor)
@@ -1955,8 +1954,9 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                     = command->e.c->contents.list[0];
                   label_element = arguments_line->e.c->contents.list[0];
                 }
-              add_to_contents_as_array (root_code, label_element);
-              tree->tree = root_code;
+              tree->tree = label_element;
+              tree->status = tree_added_status_reused_tree;
+              tree->in_code = 1;
             }
           else if (command->e.c->cmd == CM_float)
             {
@@ -2164,7 +2164,8 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
 
           target_info->command_text[type]
             = html_convert_command_tree (self, command, type, selected_tree,
-                                         0, "command_text");
+                                         command_tree->in_code,
+                                         "command_text");
           return strdup (target_info->command_text[type]);
         }
     }
@@ -2297,7 +2298,8 @@ html_internal_command_name (CONVERTER *self, const ELEMENT *command,
 
           target_info->command_name[type]
             = html_convert_command_tree (self, command, type, selected_tree,
-                                         0, "command_name");
+                                         command_name_tree->in_code,
+                                         "command_name");
           return strdup (target_info->command_name[type]);
         }
     }

@@ -1,5 +1,21 @@
 2025-12-27 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_internal_command_tree),
+	tta/C/main/tree_types.h (TREE_ADDED_ELEMENTS),
+	tta/perl/Texinfo/Convert/HTML.pm (_internal_command_tree)
+	(_internal_command_name_tree): instead of adding a _code type element,
+	keep the information that the tree should be in code either in target
+	and as return code in Perl, or in TREE_ADDED_ELEMENTS new in_code
+	field in C.  Update callers in Perl.
+
+	* tta/C/convert/format_html.c (html_internal_command_text)
+	(html_internal_command_name), tta/perl/Texinfo/Convert/HTML.pm
+	(_internal_command_text, _internal_command_name): use the tree added
+	elements or the internal_command_tree in_code information to set the
+	convert_command_tree argument.
+
+2025-12-27 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (special_unit_info_text): rename
 	$context_type as $context.
 

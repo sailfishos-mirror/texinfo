@@ -465,6 +465,7 @@ typedef struct TREE_ADDED_ELEMENTS {
     ELEMENT *tree;
     ELEMENT_LIST added; /* list of added elements in tree that are not in the
                            document Texinfo tree */
+    int in_code;
     enum tree_added_elements_status status;
 } TREE_ADDED_ELEMENTS;
 

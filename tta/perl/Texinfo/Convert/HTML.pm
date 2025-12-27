@@ -1263,6 +1263,7 @@ sub _internal_command_tree($$$) {
   if (defined($target)) {
     if (!exists($target->{'tree'})) {
       my $tree;
+      my $in_code;
       if (exists($command->{'type'})
           and $command->{'type'} eq 'special_unit_element') {
         my $special_unit_variety
@@ -1285,8 +1286,8 @@ sub _internal_command_tree($$$) {
           my $arguments_line = $command->{'contents'}->[0];
           $label_element = $arguments_line->{'contents'}->[0];
         }
-        $tree = Texinfo::TreeElement::new({'type' => '_code',
-                                           'contents' => [$label_element]});
+        $tree = $label_element;
+        $in_code = 1;
       } elsif (exists($command->{'cmdname'})
                and ($command->{'cmdname'} eq 'float')) {
         $tree = $self->float_type_number($command);
@@ -1334,13 +1335,16 @@ sub _internal_command_tree($$$) {
         $target->{'tree_nonumber'} = $line_arg;
       }
       $target->{'tree'} = $tree;
+      if ($in_code) {
+        $target->{'in_code'} = $in_code;
+      }
     }
 
-    return $target->{'tree_nonumber'}
+    return $target->{'tree_nonumber'}, $target->{'in_code'}
          if ($no_number and exists($target->{'tree_nonumber'}));
-    return $target->{'tree'};
+    return $target->{'tree'}, $target->{'in_code'};
   }
-  return undef;
+  return undef, undef;
 }
 
 sub _external_command_tree($$) {
@@ -1427,8 +1431,7 @@ sub _internal_command_text($$$) {
     if (exists($target->{$type})) {
       return $target->{$type};
     }
-    my $in_code;
-    my $command_tree = _internal_command_tree($self, $command, 0);
+    my ($command_tree, $in_code) = _internal_command_tree($self, $command, 0);
     return '' if (!defined($command_tree));
 
     my $selected_tree;
@@ -1527,9 +1530,9 @@ sub _internal_command_name_tree($$$) {
     # currently not possible
     #return $target->{'name_tree_nonumber'} if ($no_number
     #                                  and $target->{'name_tree_nonumber'});
-    return $target->{'name_tree'};
+    return $target->{'name_tree'}, $target->{'in_code'};
   }
-  return undef;
+  return undef, undef;
 }
 
 sub _internal_command_name($$$) {
@@ -1542,11 +1545,12 @@ sub _internal_command_name($$$) {
     if (exists($target->{$name_type})) {
       return $target->{$name_type};
     }
-    my $in_code;
-    my $command_name_tree = _internal_command_name_tree($self, $command, 0);
+    my ($command_name_tree, $in_code)
+      = _internal_command_name_tree($self, $command, 0);
 
     if (!defined($command_name_tree)) {
-      $command_name_tree = _internal_command_tree($self, $command, 0);
+      ($command_name_tree, $in_code)
+         = _internal_command_tree($self, $command, 0);
     }
     return '' if (!defined($command_name_tree));
 
@@ -12716,7 +12720,7 @@ sub output_internal_links($) {
     if (defined($command)) {
       # Use '' for filename, to force a filename in href.
       $href = $self->command_href($command, '');
-      my $tree = _internal_command_tree($self, $command, 0);
+      my ($tree, $in_code) = _internal_command_tree($self, $command, 0);
       if (defined($tree)) {
         $text = Texinfo::Convert::Text::convert_to_text($tree,
                                   $self->{'convert_text_options'});
@@ -12735,7 +12739,7 @@ sub output_internal_links($) {
     foreach my $section_relations (@{$sections_list}) {
       my $command = $section_relations->{'element'};
       my $href = $self->command_href($command, '');
-      my $tree = _internal_command_tree($self, $command, 0);
+      my ($tree, $in_code) = _internal_command_tree($self, $command, 0);
       my $text;
       if (defined($tree)) {
         $text = Texinfo::Convert::Text::convert_to_text($tree,
