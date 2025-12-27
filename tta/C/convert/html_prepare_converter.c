@@ -137,11 +137,9 @@ static COMMAND_ID_ARGS_SPECIFICATION default_commands_args[] = {
   {CM_acronym, {F_AFT_normal, F_AFT_string | F_AFT_normal}},
 };
 
-/* types that are in code style in the default case.  '_code' is not
-   a type that can appear in the tree built from Texinfo code, it is used
-   to format a tree fragment as if it was in a @code @-command.  */
+/* types that are in code style in the default case. */
 static enum element_type default_code_types[] = {
-  ET__code, 0,
+  0,
 };
 
 const PRE_CLASS_TYPE_INFO default_pre_class_types[] = {

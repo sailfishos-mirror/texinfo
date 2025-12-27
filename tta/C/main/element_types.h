@@ -93,7 +93,6 @@ ET_linemacro_call,
 ET_macro_call_arg_text,
 ET_bracketed_linemacro_arg,
 ET_text,
-ET__code,
 ET__converted,
 ET_special_unit_element,
 };

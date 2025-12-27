@@ -187,7 +187,6 @@ bracketed_linemacro_arg                    text
 text
 
 # for HTML converter
-_code
 _converted                                text
 
 # not in parser, for virtual element associated to special output units

@@ -1352,8 +1352,7 @@ sub _external_command_tree($$) {
 
   my $node_content = $command->{'extra'}->{'node_content'};
   my $tree = Texinfo::TreeElement::new(
-       {'type' => '_code',
-        'contents' => [Texinfo::TreeElement::new({'text' => '('}),
+       {'contents' => [Texinfo::TreeElement::new({'text' => '('}),
                        $command->{'extra'}->{'manual_content'},
                        Texinfo::TreeElement::new({'text' => ')'})]});
   if (exists($command->{'extra'}->{'node_content'})) {
@@ -1489,9 +1488,9 @@ sub command_text($$;$) {
       $context_str .= $command->{'type'};
     }
 
-    my $context_type;
+    my $context_type = $CTXF_in_code;
     if ($type eq 'string' or $type eq 'string_nonumber') {
-      $context_type = $CTXF_string;
+      $context_type |= $CTXF_string;
     }
 
     # NOTE the multiple pass argument is not unicized, and no global
@@ -2904,11 +2903,8 @@ foreach my $indented_format ('example', 'display', 'lisp') {
   }
 }
 
-# types that are in code style in the default case.  '_code' is not
-# a type that can appear in the tree built from Texinfo code, it is used
-# to format a tree fragment as if it was in a @code @-command.
+# types that are in code style in the default case.
 my %default_code_types = (
- '_code' => 1,
 );
 
 # specification of arguments formatting
@@ -5909,19 +5905,17 @@ sub _convert_xref_commands($$$$) {
         $label_element->{'extra'} = {};
       }
       $label_element->{'extra'}->{'manual_content'} = $manual_content;
-      my $file_with_node_tree
-       = Texinfo::TreeElement::new({'type' => '_code',
-                                    'contents' => [$manual_content]});
-      $file = $self->convert_tree($file_with_node_tree, 'node file in ref');
+      _set_code_context($self, 1);
+      $file = $self->convert_tree($manual_content, 'node file in ref');
+      _pop_code_context($self);
     }
 
     if (!defined($name)) {
       if (defined($book)) {
         if (defined($node_content)) {
-          my $node_no_file_tree
-            = Texinfo::TreeElement::new({'type' => '_code',
-                                         'contents' => [$node_content]});
-          my $node_name = $self->convert_tree($node_no_file_tree, 'node in ref');
+          _set_code_context($self, 1);
+          my $node_name = $self->convert_tree($node_content, 'node in ref');
+          _pop_code_context($self);
           if (defined($node_name) and $node_name ne 'Top') {
             $name = $node_name;
           }
@@ -6187,7 +6181,6 @@ sub _convert_printindex_command($$$$) {
        if ($indices_information->{$index_entry_ref->{'index_name'}}->{'in_code'});
       my $entry_ref_tree
         = Texinfo::TreeElement::new({'contents' => [$entry_content_element]});
-      $entry_ref_tree->{'type'} = '_code' if ($in_code);
 
 
       # determine the trees and normalized main entry and subentries, to be
@@ -6219,7 +6212,6 @@ sub _convert_printindex_command($$$$) {
             }
             $subentry_tree
               = Texinfo::TreeElement::new({'contents' => \@contents});
-            $subentry_tree->{'type'} = '_code' if ($in_code);
           }
           if ($subentry_level >= $subentries_max_level) {
             # at the max, concatenate the remaining subentries
@@ -6232,7 +6224,6 @@ sub _convert_printindex_command($$$$) {
               } else {
                 $subentry_tree = Texinfo::TreeElement::new(
                   {'contents' => [@{$other_subentries_tree->{'contents'}}]});
-                $subentry_tree->{'type'} = '_code' if ($in_code);
               }
             }
           } elsif (defined($subentry_tree)) {
@@ -6244,6 +6235,10 @@ sub _convert_printindex_command($$$$) {
           $subentry_level++;
           last if ($subentry_level > $subentries_max_level);
         }
+      }
+      my $formatting_context;
+      if ($in_code) {
+        $formatting_context = $CTXF_in_code;
       }
       #print STDERR join('|', @new_normalized_entry_levels)."\n";
       # level/index of the last entry
@@ -6269,11 +6264,13 @@ sub _convert_printindex_command($$$$) {
           # call with multiple_pass argument
           $entry
            = $self->convert_tree_new_formatting_context($entry_trees[$level],
-                                                        $convert_info, undef,
+                                          $convert_info, $formatting_context,
                                   "index-formatted-$formatted_index_entry_nr");
         } else {
+          _set_code_context($self, 1) if ($in_code);
           $entry = $self->convert_tree($entry_trees[$level],
                                        $convert_info);
+          _pop_code_context($self) if ($in_code);
         }
         $entry = '<code>' .$entry .'</code>' if ($in_code);
         my @td_entry_classes = ();
@@ -6362,15 +6359,17 @@ sub _convert_printindex_command($$$$) {
           if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_tree,
-                                                    $conv_str_entry, undef,
+                                         $conv_str_entry, $formatting_context,
                                    "index-formatted-$formatted_index_entry_nr");
             $reference
                = $self->convert_tree_new_formatting_context($reference_tree,
                                                  $conv_str_reference, undef,
                                 "index-formatted-$formatted_index_entry_nr");
           } else {
+            _set_code_context($self, 1) if ($in_code);
             $entry = $self->convert_tree($entry_tree,
                                          $conv_str_entry);
+            _pop_code_context($self) if ($in_code);
             $reference = $self->convert_tree($reference_tree,
                                              $conv_str_reference);
           }
@@ -6409,10 +6408,12 @@ sub _convert_printindex_command($$$$) {
           if ($formatted_index_entry_nr > 1) {
             # call with multiple_pass argument
             $entry = $self->convert_tree_new_formatting_context($entry_tree,
-                                                    $convert_info, undef,
+                                       $convert_info, $formatting_context,
                                "index-formatted-$formatted_index_entry_nr");
           } else {
+            _set_code_context($self, 1) if ($in_code);
             $entry = $self->convert_tree($entry_tree, $convert_info);
+            _pop_code_context($self) if ($in_code);
           }
         }
 
@@ -7399,10 +7400,10 @@ sub _convert_menu_entry_type($$$) {
     }
 
     if (defined($menu_entry_node)) {
-      my $name = $self->convert_tree(
-         Texinfo::TreeElement::new({'type' => '_code',
-                                    'contents' => [$menu_entry_node]}),
+      _set_code_context($self, 1);
+      my $name = $self->convert_tree($menu_entry_node,
                        "menu_arg menu_entry_node preformatted");
+      _pop_code_context($self);
       if (defined($href) and !$in_string) {
         $result_name_node .= "<a href=\"$href\"$rel$accesskey>$name</a>";
       } else {
@@ -7473,10 +7474,12 @@ sub _convert_menu_entry_type($$$) {
         $name = $self->command_text($menu_entry_node);
       } elsif (exists($menu_entry_node->{'extra'})
                and exists($menu_entry_node->{'extra'}->{'node_content'})) {
+        _set_code_context($self, 1);
         $name = $self->convert_tree(
-                 Texinfo::TreeElement::new({'type' => '_code',
+                 Texinfo::TreeElement::new({
             'contents' => [$menu_entry_node->{'extra'}->{'node_content'}]}),
                                     'menu_arg name');
+        _pop_code_context($self);
       } else {
         $name = '';
       }
@@ -7624,10 +7627,10 @@ sub _convert_def_line_type($$$$) {
   my $def_call = '';
   if (defined($type_element)) {
     my $explanation = "DEF_TYPE $def_command";
-    my $type_text = $self->convert_tree(
-         Texinfo::TreeElement::new({'type' => '_code',
-                                    'contents' => [$type_element]}),
+    _set_code_context($self, 1);
+    my $type_text = $self->convert_tree($type_element,
                                         $explanation);
+    _pop_code_context($self);
     if ($type_text ne '') {
       $def_call .= $self->html_attribute_class('code', ['def-type']).'>'.
           $type_text .'</code>';
@@ -7643,12 +7646,12 @@ sub _convert_def_line_type($$$$) {
   }
 
   if (defined($name_element)) {
+    _set_code_context($self, 1);
     $def_call .= $self->html_attribute_class('strong', ['def-name']).'>'.
-       $self->convert_tree(
-          Texinfo::TreeElement::new({'type' => '_code',
-                                     'contents' => [$name_element]}),
+       $self->convert_tree($name_element,
                            "DEF_NAME $def_command")
        .'</strong>';
+    _pop_code_context($self);
   }
 
   if (defined($arguments)) {
@@ -7656,11 +7659,11 @@ sub _convert_def_line_type($$$$) {
   # arguments not only metasyntactic variables
   # (deftypefn, deftypevr, deftypeop, deftypecv)
     if (exists($Texinfo::Common::def_no_var_arg_commands{$base_command_name})) {
+      _set_code_context($self, 1);
       my $arguments_formatted
-        = $self->convert_tree(
-          Texinfo::TreeElement::new({'type' => '_code',
-                                     'contents' => [$arguments]}),
+        = $self->convert_tree($arguments,
                               $explanation);
+      _pop_code_context($self);
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
         $def_call .= $self->html_attribute_class('code',

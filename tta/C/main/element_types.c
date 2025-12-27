@@ -94,7 +94,6 @@ TYPE_DATA type_data[] = {
 {"macro_call_arg_text", TF_text, 0},
 {"bracketed_linemacro_arg", TF_text, 0},
 {"text", 0, 0},
-{"_code", 0, 0},
 {"_converted", TF_text, 0},
 {"special_unit_element", 0, 0},
 };
