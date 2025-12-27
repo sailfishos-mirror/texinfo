@@ -3964,9 +3964,9 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
             context_str = strdup ("file_header_title-element-");
 
           begin_info->title
-                 = html_convert_string_tree_new_formatting_context (self,
-                          title_tree, context_str,
-                          "element_title");
+                 = html_convert_tree_new_formatting_context (self,
+                          title_tree, context_str, HCC_type_string,
+                          "element_title", 0, 0);
 
           free (context_str);
           remove_tree_to_build (self, title_tree);

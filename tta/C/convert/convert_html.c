@@ -452,20 +452,6 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
   return result;
 }
 
-/* return string to be freed by the caller */
-char *
-html_convert_string_tree_new_formatting_context (CONVERTER *self,
-                        ELEMENT *tree, const char *context_string,
-                        const char *multiple_pass)
-{
-  char *result;
-
-  result = html_convert_tree_new_formatting_context (self, tree,
-                        context_string, HCC_type_string, multiple_pass, 0, 0);
-
-  return result;
-}
-
 
 
 /* reset translated data and translate no args commands */
@@ -1075,8 +1061,9 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       self->title_tree = fulltitle_tree;
 
       html_title_string
-          = html_convert_string_tree_new_formatting_context (self,
-                                       fulltitle_tree, "title_string", 0);
+          = html_convert_tree_new_formatting_context (self,
+                                       fulltitle_tree, "title_string",
+                                       HCC_type_string, 0, 0, 0);
       if (html_title_string[strspn (html_title_string, whitespace_chars)]
            == '\0')
         {
@@ -1096,8 +1083,9 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       add_tree_to_build (self, default_title);
 
       html_title_string
-         = html_convert_string_tree_new_formatting_context (self,
-                                       default_title, "title_string", 0);
+         = html_convert_tree_new_formatting_context (self,
+                                       default_title, "title_string",
+                                       HCC_type_string, 0, 0, 0);
 
       remove_tree_to_build (self, default_title);
       self->added_title_tree = 1;
@@ -1159,8 +1147,9 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       add_tree_to_build (self, tmp);
 
       documentdescription_string
-            = html_convert_string_tree_new_formatting_context (self,
-                                       tmp, "documentdescription", 0);
+            = html_convert_tree_new_formatting_context (self,
+                                       tmp, "documentdescription",
+                                       HCC_type_string, 0, 0, 0);
 
       remove_tree_to_build (self, tmp);
 

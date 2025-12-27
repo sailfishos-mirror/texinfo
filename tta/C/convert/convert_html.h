@@ -57,10 +57,6 @@ char *html_convert_tree_new_formatting_context (CONVERTER *self,
                                           enum command_id block_cmd);
 char *html_convert_css_string (CONVERTER *self, const ELEMENT *element,
                                const char *context_str);
-char *html_convert_string_tree_new_formatting_context (CONVERTER *self,
-                               ELEMENT *tree, const char *context_string,
-                               const char *multiple_pass);
-
 
 void html_clear_direction_string_type (const CONVERTER *self,
                                        char ***type_directions_strings);
