@@ -1937,6 +1937,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
               ELEMENT *heading_tree = special_unit_info_tree (self,
                                    SUIT_type_heading, special_unit_variety);
               tree->tree = heading_tree;
+              tree->status = tree_added_status_reused_tree;
             }
           else if (command->e.c->cmd == CM_node
                    || command->e.c->cmd == CM_anchor

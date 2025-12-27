@@ -154,10 +154,6 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_internal_command_href",
   "Texinfo::Convert::HTML::command_contents_href"
    => "Texinfo::Convert::ConvertXS::html_command_contents_href",
-  "Texinfo::Convert::HTML::_internal_command_tree"
-   => "Texinfo::Convert::ConvertXS::html_internal_command_tree",
-  "Texinfo::Convert::HTML::_internal_command_name_tree"
-   => "Texinfo::Convert::ConvertXS::html_internal_command_name_tree",
   "Texinfo::Convert::HTML::_internal_command_text"
    => "Texinfo::Convert::ConvertXS::html_internal_command_text",
   "Texinfo::Convert::HTML::_internal_command_name"
@@ -179,6 +175,10 @@ my %XS_conversion_overrides = (
   "Texinfo::Convert::HTML::get_info"
    => "Texinfo::Convert::ConvertXS::html_get_info",
 
+  # Following functions are sometimes called from converting functions,
+  # but mainly from within calls of convert_tree called from
+  # converting functions.  The make sure that the formatting contexts
+  # accessed and modified are only the formatting contexts in C data.
   "Texinfo::Convert::HTML::_open_command_update_context"
    => "Texinfo::Convert::ConvertXS::html_open_command_update_context",
   "Texinfo::Convert::HTML::_convert_command_update_context",

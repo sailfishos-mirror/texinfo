@@ -1890,68 +1890,6 @@ html_footnote_location_href (SV *converter_in, SV *element_sv, SV *source_filena
         RETVAL
 
 SV *
-html_internal_command_tree (SV *converter_in, SV *element_sv, SV* no_number_sv)
-     PREINIT:
-        CONVERTER *self;
-        ELEMENT *command_tree = 0;
-        const ELEMENT *element;
-     CODE:
-        element = element_converter_from_sv (converter_in, element_sv,
-                                        "html_internal_command_tree", &self);
-        if (element)
-          {
-            int no_number = 0;
-            TREE_ADDED_ELEMENTS *tree;
-
-            if (SvOK (no_number_sv))
-              no_number = SvIV (no_number_sv);
-
-            tree = html_internal_command_tree (self, element, no_number);
-            build_tree_to_build (&self->tree_to_build);
-
-            if (tree)
-              command_tree = tree->tree;
-          }
-
-        if (command_tree)
-          RETVAL = newSVsv ((SV *) command_tree->sv);
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
-SV *
-html_internal_command_name_tree (SV *converter_in, SV *element_sv, SV *no_number_sv)
-     PREINIT:
-        CONVERTER *self;
-        ELEMENT *command_tree = 0;
-        const ELEMENT *element;
-     CODE:
-        element = element_converter_from_sv (converter_in, element_sv,
-                                   "html_internal_command_name_tree", &self);
-        if (element)
-          {
-            int no_number = 0;
-            TREE_ADDED_ELEMENTS *tree;
-
-            if (SvOK (no_number_sv))
-              no_number = SvIV (no_number_sv);
-
-            tree = html_internal_command_name_tree (self, element, no_number);
-            build_tree_to_build (&self->tree_to_build);
-
-            if (tree)
-              command_tree = tree->tree;
-          }
-
-        if (command_tree)
-          RETVAL = newSVsv ((SV *) command_tree->sv);
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
-SV *
 html_internal_command_text (SV *converter_in, SV *element_sv, const char *type)
      PREINIT:
         CONVERTER *self;
