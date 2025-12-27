@@ -1873,7 +1873,6 @@ special_unit_info_tree (CONVERTER *self,
     = html_pcdt_tree (translation_context, special_unit_info_string,
                       self, 0);
   free (translation_context);
-  add_tree_to_build (self, self->translated_special_unit_info_tree[type][i]);
   return self->translated_special_unit_info_tree[type][i];
 }
 
@@ -1883,13 +1882,13 @@ special_unit_info_text (CONVERTER *self,
                         const char *special_unit_variety,
                         enum conversion_context context_type)
 {
-  const ELEMENT *tree;
+  ELEMENT *unit_info_tree;
   char *explanation;
   char *result;
 
-  tree = special_unit_info_tree (self,
+  unit_info_tree = special_unit_info_tree (self,
                               type, special_unit_variety);
-  if (!tree)
+  if (!unit_info_tree)
     return strdup ("");
 
   xasprintf (&explanation, "convert %s %s/%s",
@@ -1897,12 +1896,16 @@ special_unit_info_text (CONVERTER *self,
                            special_unit_info_tree_names[type],
                            html_command_text_type_name[context_type]);
 
+  add_tree_to_build (self, unit_info_tree);
+
   if (context_type == HCC_type_string)
     result = html_convert_tree_new_formatting_context (self,
-                                     tree, explanation, context_type,
-                                     0, 0, 0);
+                                     unit_info_tree, explanation,
+                                     context_type, 0, 0, 0);
   else
-    result = html_convert_tree_explanation (self, tree, explanation);
+    result = html_convert_tree_explanation (self, unit_info_tree, explanation);
+
+  remove_tree_to_build (self, unit_info_tree);
 
   free (explanation);
 
@@ -1953,13 +1956,11 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                 }
               add_to_contents_as_array (root_code, label_element);
               tree->tree = root_code;
-              add_tree_to_build (self, tree->tree);
             }
           else if (command->e.c->cmd == CM_float)
             {
               tree->tree = float_type_number (self, command);
               tree->status = tree_added_status_new_tree;
-              add_tree_to_build (self, tree->tree);
             }
           else
             {
@@ -2018,7 +2019,6 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
 
                       destroy_named_string_element_list (replaced_substrings);
                       tree->status = tree_added_status_new_tree;
-                      add_tree_to_build (self, tree->tree);
                     }
                   else
                     {
@@ -2070,7 +2070,6 @@ html_external_command_tree (CONVERTER *self, const ELEMENT *command,
     add_to_contents_as_array (root_code, node_content);
 
   tree->tree = root_code;
-  add_tree_to_build (self, tree->tree);
   return tree;
 }
 
@@ -2114,9 +2113,14 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
   html_set_multiple_conversions (self, 0);
   push_element_reference_stack_element (&self->referred_command_stack,
                                         command, get_sv_hv (command->sv));
+
+  add_tree_to_build (self, selected_tree);
+
   result
     = html_convert_tree_explanation (self, selected_tree, explanation);
   free (explanation);
+
+  remove_tree_to_build (self, selected_tree);
 
   pop_element_reference_stack (&self->referred_command_stack);
 
@@ -2208,12 +2212,14 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       if (type == HTT_string || type == HTT_string_nonumber)
         context_type = HCC_type_string;
 
+      add_tree_to_build (self, command_tree->tree);
       result = html_convert_tree_new_formatting_context (self,
                                      command_tree->tree,
                                      context_str, context_type,
                                      "command_text-manual_content", 0, 0);
 
       free (context_str);
+      remove_tree_to_build (self, command_tree->tree);
 
       destroy_tree_added_elements (self, command_tree);
       return result;
@@ -9617,7 +9623,10 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
           text_append_n (result, "</dt>\n", 6);
 
           if (tree)
-            destroy_tree_added_elements (self, tree);
+            {
+              remove_tree_to_build (self, tree->tree);
+              destroy_tree_added_elements (self, tree);
+            }
         }
     }
   else if (element->e.c->parent->type == ET_row)

@@ -1399,8 +1399,6 @@ float_name_caption (CONVERTER *self, const ELEMENT *float_e)
 
 
 /* FIXME move to the same file where TREE_ADDED_ELEMENTS is setup */
-/* NOTE in addition to freeing memory, the tree root is removed from
-   tree_to_build if relevant. */
 void
 clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
 {
@@ -1417,10 +1415,6 @@ clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
       fprintf (stderr, "CTAE: %p no status (%zu)\n", tree_elements, tree_elements->added.number);
     }
    */
-
-  if (tree_elements->tree
-      && tree_elements->status != tree_added_status_reused_tree)
-    replace_remove_list_element (&self->tree_to_build, tree_elements->tree, 0);
 
   if (tree_elements->status == tree_added_status_new_tree)
     destroy_element_and_children (tree_elements->tree);

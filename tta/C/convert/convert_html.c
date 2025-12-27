@@ -511,11 +511,8 @@ html_reset_translated_special_unit_info_tree (CONVERTER *self)
         {
           if (self->translated_special_unit_info_tree[tree_type][i])
             {
-              remove_tree_to_build (self,
-                  self->translated_special_unit_info_tree[tree_type][i]);
               destroy_element_and_children (
                 self->translated_special_unit_info_tree[tree_type][i]);
-
             }
           self->translated_special_unit_info_tree[tree_type][i] = 0;
         }

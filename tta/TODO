@@ -12,18 +12,6 @@ Before next release
 
 system.h macros are duplicated in C/main/utils.h.  Ok?
 
-To verify that a simpler way cannot be found to avoid adding to
-tree to build at one point and removing much later on, which
-makes for complex code, and it is difficult to make sure that
-a tree to build is not readded after calling the function that
-resets them:
- special_unit_info_tree self->special_unit_info_tree[type][i]
- html_reset_translated_special_unit_info_tree self->special_unit_info_tree[tree_type][i]
-
- html_internal_command_tree target_info->tree->tree
- html_translate_names or free_html_targets_trees_list
-
-
 Document 'style_commands_formatting' and 'no_arg_commands_formatting' in
 texi2any_api.texi
 
