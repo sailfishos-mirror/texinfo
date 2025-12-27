@@ -624,7 +624,7 @@ sub css_get_selector_style($$) {
 # passing multiple arguments or hashes, and also could be easier for
 # passing to C.
 my $CTXF_string = 0x0001;
-my $CTXF_in_code = 0x0002;
+my $CTXF_code = 0x0002;
 
 my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
@@ -1415,7 +1415,7 @@ sub _convert_command_tree($$$$$$) {
     $context_type |= $CTXF_string;
   }
   if ($in_code) {
-    $context_type |= $CTXF_in_code;
+    $context_type |= $CTXF_code;
   }
 
   _new_document_context($self, $context_name, $context_type, $explanation);
@@ -1500,7 +1500,7 @@ sub command_text($$;$) {
       $context_str .= $command->{'type'};
     }
 
-    my $context_type = $CTXF_in_code;
+    my $context_type = $CTXF_code;
     if ($type eq 'string' or $type eq 'string_nonumber') {
       $context_type |= $CTXF_string;
     }
@@ -6250,7 +6250,7 @@ sub _convert_printindex_command($$$$) {
       }
       my $formatting_context;
       if ($in_code) {
-        $formatting_context = $CTXF_in_code;
+        $formatting_context = $CTXF_code;
       }
       #print STDERR join('|', @new_normalized_entry_levels)."\n";
       # level/index of the last entry
@@ -8260,7 +8260,7 @@ sub _new_document_context($$;$$$) {
     if ($context_type & $CTXF_string) {
       $self->{'document_context'}->[-1]->{'string'}++;
     }
-    if ($context_type & $CTXF_in_code) {
+    if ($context_type & $CTXF_code) {
       set_code_context($self, 1);
     }
   }
@@ -14094,7 +14094,7 @@ sub _convert($$;$) {
               _pop_document_context($self);
             } elsif ($arg_type eq 'monospacestring') {
               _new_document_context($self, $command_type,
-                                    $CTXF_string | $CTXF_in_code);
+                                    $CTXF_string | $CTXF_code);
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);
               _pop_document_context($self);
             } elsif ($arg_type eq 'monospacetext') {

@@ -15,6 +15,10 @@ system.h macros are duplicated in C/main/utils.h.  Ok?
 Document 'style_commands_formatting' and 'no_arg_commands_formatting' in
 texi2any_api.texi
 
+Document
+ set_code_context
+ pop_code_context
+
 
 Bugs
 ====
@@ -28,9 +32,6 @@ Issues
 Some private function used in conversion
 _convert_printindex_command
  _new_document_context
-_convert_def_line_type
- _set_code_context
- _pop_code_context
 
 
 Missing documentation

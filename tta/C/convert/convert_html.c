@@ -1613,7 +1613,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                     {
                       text_reset (&formatted_arg);
                       html_new_document_context (self, command_type.text,
-                                                 CTXF_string | CTXF_in_code,
+                                                 CTXF_string | CTXF_code,
                                                  0, 0);
                       xasprintf (&explanation, "%s A[%zu]monospacestring",
                                                command_type.text, arg_idx);

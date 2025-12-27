@@ -37,7 +37,7 @@ struct TEXT_OPTIONS;
 
 /* formatting context flags */
 #define CTXF_string     0x0001
-#define CTXF_in_code    0x0002
+#define CTXF_code       0x0002
 
 enum converter_format {
    COF_none = -1,

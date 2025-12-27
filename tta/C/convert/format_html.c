@@ -2109,7 +2109,7 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
   if (type == HTT_string || type == HTT_string_nonumber)
     context_type |= CTXF_string;
   if (in_code)
-    context_type |= CTXF_in_code;
+    context_type |= CTXF_code;
 
   html_new_document_context (self, context_name, context_type,
                              explanation, 0);
@@ -2197,7 +2197,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       char *context_str;
       TREE_ADDED_ELEMENTS *command_tree
         = html_external_command_tree (self, command, manual_content);
-      unsigned long context_type = CTXF_in_code;
+      unsigned long context_type = CTXF_code;
 
       if (command->e.c->cmd)
         /* this never happens, as the external node label tree
@@ -10325,7 +10325,7 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
           last_entry_level = subentry_level - 1;
 
           if (in_code)
-            formatting_context |= CTXF_in_code;
+            formatting_context |= CTXF_code;
 
     /* format the leading entries when there are subentries (all entries
        except the last one), and when there is not such a subentry already

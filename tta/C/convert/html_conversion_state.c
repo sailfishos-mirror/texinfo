@@ -91,7 +91,7 @@ html_new_document_context (CONVERTER *self,
   if (document_global_context)
     doc_context->document_global_context = strdup (document_global_context);
 
-  if (context_type & CTXF_in_code)
+  if (context_type & CTXF_code)
     push_integer_stack_integer (&doc_context->monospace, 1);
   else
     push_integer_stack_integer (&doc_context->monospace, 0);
