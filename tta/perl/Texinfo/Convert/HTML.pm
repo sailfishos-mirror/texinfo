@@ -623,8 +623,8 @@ sub css_get_selector_style($$) {
 # flags used to specify the conversion contexts.  Use flags to avoid
 # passing multiple arguments or hashes, and also could be easier for
 # passing to C.
-my $CTXF_string = 0x0001;
-my $CTXF_code = 0x0002;
+our $CTXF_string = 0x0001;
+our $CTXF_code = 0x0002;
 
 my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
