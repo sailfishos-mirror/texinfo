@@ -86,6 +86,10 @@ char *html_internal_command_name (CONVERTER *self, const ELEMENT *command,
                                   const enum html_text_type type);
 char *html_command_description (CONVERTER *self, const ELEMENT *command,
                                 const enum html_text_type type);
+char *html_special_unit_info_text (CONVERTER *self,
+                                const enum special_unit_info_tree type,
+                                const char *special_unit_variety,
+                                enum conversion_context context_type);
 
 OUTPUT_UNIT *html_get_top_unit (DOCUMENT *document,
                                 const OUTPUT_UNIT_LIST *output_units);

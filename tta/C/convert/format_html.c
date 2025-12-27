@@ -1845,7 +1845,7 @@ html_footnote_location_href (CONVERTER *self, const ELEMENT *command,
   return href.text;
 }
 
-ELEMENT *
+static ELEMENT *
 special_unit_info_tree (CONVERTER *self,
                         const enum special_unit_info_tree type,
                         const char *special_unit_variety)
@@ -1877,10 +1877,10 @@ special_unit_info_tree (CONVERTER *self,
 }
 
 char *
-special_unit_info_text (CONVERTER *self,
-                        const enum special_unit_info_tree type,
-                        const char *special_unit_variety,
-                        enum conversion_context context_type)
+html_special_unit_info_text (CONVERTER *self,
+                             const enum special_unit_info_tree type,
+                             const char *special_unit_variety,
+                             enum conversion_context context_type)
 {
   ELEMENT *unit_info_tree;
   char *explanation;
@@ -3515,8 +3515,8 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
       text_append_n (result, "\n", 1);
     }
 
-  footnote_heading = special_unit_info_text (self, SUIT_type_heading,
-                                             "footnotes", 0);
+  footnote_heading = html_special_unit_info_text (self, SUIT_type_heading,
+                                                  "footnotes", 0);
 
   level = self->conf->FOOTNOTE_END_HEADER_LEVEL.o.integer;
 

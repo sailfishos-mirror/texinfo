@@ -2057,6 +2057,66 @@ html_command_description (SV *converter_in, SV *element_sv, const char *type=0)
          RETVAL
 
 SV *
+html_special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *context_type_sv=0)
+        const char *type_name = (char *)SvPVutf8_nolen($arg);
+        const char *special_unit_variety = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+        CONVERTER *self;
+        char *text = 0;
+     CODE:
+        self = get_sv_converter (converter_in,
+                                 "html_special_unit_info_text");
+        if (self)
+          {
+            int j;
+            enum conversion_context context_type = 0;
+            enum special_unit_info_tree type = SUIT_type_none;
+
+            for (j = 0; j < SPECIAL_UNIT_INFO_TREE_NR; j++)
+              {
+                if (!strcmp (special_unit_info_tree_names[j], type_name))
+                  {
+                    type = j;
+                    break;
+                  }
+              }
+
+            if (type == SUIT_type_none)
+              {
+                message_list_document_error (&self->error_messages,
+                                             self->conf, 0,
+                                  "unknown special unit info tree: %s",
+                                   type_name);
+              }
+
+            else
+              {
+                if (context_type_sv && SvOK (context_type_sv))
+                  {
+                    const char *context_type_name
+                       = (char *)SvPVutf8_nolen(context_type_sv);
+
+                    if (!strcmp (context_type_name, "string"))
+                      context_type = HCC_type_string;
+                  }
+                text
+                  = html_special_unit_info_text (self, type,
+                                                 special_unit_variety,
+                                                 context_type);
+              }
+          }
+
+         if (text)
+           {
+             RETVAL = newSVpv_utf8 (text, 0);
+             non_perl_free (text);
+           }
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+SV *
 html_global_direction_unit (SV *converter_in, direction_name)
         const char *direction_name = (char *)SvPVutf8_nolen($arg);
      PREINIT:
