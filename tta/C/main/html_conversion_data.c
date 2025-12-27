@@ -16,6 +16,10 @@ const char *special_unit_info_type_names[] = {
    "heading",
 };
 
+const char *special_unit_info_tree_names[] = {
+   "heading",
+};
+
 const TRANSLATED_SUI_ASSOCIATION translated_special_unit_info[] = {
   {SUIT_type_heading, SUI_type_heading},
   /* these special types end the list */
@@ -37,6 +41,9 @@ const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][4] = {
   {"30", "20", "10", "40", }, /* order */
   {"_toc", "_ovr", "_fot", "_abt", }, /* file_string */
   {"SEC_Contents", "SEC_Shortcontents", "SEC_Footnotes", "SEC_About", }, /* target */
+};
+
+const char * const default_special_unit_tree_info[SPECIAL_UNIT_INFO_TREE_NR][4] = {
   {pgdt_noop("contents section heading", "Table of Contents"), pgdt_noop("shortcontents section heading", "Short Table of Contents"), pgdt_noop("footnotes section heading", "Footnotes"), pgdt_noop("about section heading", "About This Document"), }, /* heading */
 };
 

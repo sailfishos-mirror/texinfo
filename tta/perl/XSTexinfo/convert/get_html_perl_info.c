@@ -173,7 +173,7 @@ html_converter_init_special_unit_sv (SV *converter_sv,
 
       special_unit_info_hv = (HV *) SvRV(customized_special_unit_info);
 
-      for (j = 0; j < SPECIAL_UNIT_INFO_TYPE_NR; j++)
+      for (j = 0; j < CUSTOMIZED_SPECIAL_UNIT_INFO_TYPE_NR; j++)
         {
           SV **special_unit_info_type_sv;
           const char *sui_type = special_unit_info_type_names[j];
@@ -213,7 +213,6 @@ html_converter_init_special_unit_sv (SV *converter_sv,
 
                   if (variety_nr)
                     {
-
                       if (SvOK (value_sv))
                         value = (char *) SvPVutf8_nolen (value_sv);
 

@@ -166,11 +166,22 @@ if ($C_format) {
   print OUT "};\n\n";
   print HDR "};\n\n";
 
-  print HDR "#define SPECIAL_UNIT_INFO_TYPE_NR "
-    .(scalar(@su_ordered_untranslated_hashes)
-      + scalar(@su_ordered_translated_hashes))."\n\n";
+  print OUT "const char *special_unit_info_tree_names[] = {\n";
+  foreach my $type (@su_ordered_translated_hashes) {
+    print OUT "   \"${type}\",\n";
+  }
+  print OUT "};\n\n";
 
-  print HDR "/* translated from corresponding SUI_type* */\n";
+  print HDR "#define SPECIAL_UNIT_INFO_TYPE_NR "
+    .(scalar(@su_ordered_untranslated_hashes))."\n\n";
+
+  print HDR "#define SPECIAL_UNIT_INFO_TREE_NR "
+    .(scalar(@su_ordered_translated_hashes))."\n\n";
+
+  print HDR "#define CUSTOMIZED_SPECIAL_UNIT_INFO_TYPE_NR "
+  ."(SPECIAL_UNIT_INFO_TYPE_NR + SPECIAL_UNIT_INFO_TREE_NR)\n\n";
+
+  print HDR "/* translated */\n";
   print HDR "enum special_unit_info_tree {\n"
          ."   SUIT_type_none = -1,\n\n";
 
@@ -184,7 +195,6 @@ if ($C_format) {
          ."};\n\n";
 
   print HDR "};\n\n";
-
 }
 
 # gather for direction structures below
@@ -282,12 +292,20 @@ if ($perl_format) {
   print OUT "#define pgdt_noop(Context,String) String\n";
 
   print OUT "const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][$special_units_nr] = {\n";
-  foreach my $type (@su_ordered_untranslated_hashes, @su_ordered_translated_hashes) {
+  foreach my $type (@su_ordered_untranslated_hashes) {
+    print OUT "  {".$su_hash_lines{$type}."}, /* $type */\n";
+  }
+  print OUT "};\n\n";
+
+  print OUT "const char * const default_special_unit_tree_info[SPECIAL_UNIT_INFO_TREE_NR][$special_units_nr] = {\n";
+  foreach my $type (@su_ordered_translated_hashes) {
     print OUT "  {".$su_hash_lines{$type}."}, /* $type */\n";
   }
   print OUT "};\n\n";
 
   print HDR "extern const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][$special_units_nr];\n\n";
+
+  print HDR "extern const char * const default_special_unit_tree_info[SPECIAL_UNIT_INFO_TREE_NR][$special_units_nr];\n\n";
 }
 
 

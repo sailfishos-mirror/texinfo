@@ -1853,36 +1853,62 @@ special_unit_info_tree (CONVERTER *self,
   /* number is index +1 */
   size_t number = find_string (&self->special_unit_varieties,
                                special_unit_variety);
-  int j;
   int i = number -1;
+  const char *special_unit_info_string;
+  char *translation_context;
 
-  if (self->special_unit_info_tree[type][i])
-    return self->special_unit_info_tree[type][i];
+  if (self->translated_special_unit_info_tree[type][i])
+    return self->translated_special_unit_info_tree[type][i];
 
-  for (j = 0; translated_special_unit_info[j].tree_type != SUIT_type_none; j++)
-    {
-      if (translated_special_unit_info[j].tree_type == type)
-        {
-          enum special_unit_info_type string_type
-            = translated_special_unit_info[j].string_type;
-          const char *special_unit_info_string
-            = self->special_unit_info[string_type][i];
-          /* if set to undef in user customization. To be forbidden? */
-          if (!special_unit_info_string)
-            return 0;
-          char *translation_context;
-          xasprintf (&translation_context, "%s section heading",
-                     special_unit_variety);
-          self->special_unit_info_tree[type][i]
-            = html_pcdt_tree (translation_context, special_unit_info_string,
-                              self, 0);
-          free (translation_context);
-          add_tree_to_build (self, self->special_unit_info_tree[type][i]);
-          return self->special_unit_info_tree[type][i];
-        }
-    }
-  return 0;
+  special_unit_info_string
+    = self->translated_special_unit_info_texinfo[type][i];
+
+  /* if set to undef in user customization. To be forbidden? */
+  if (!special_unit_info_string)
+    return 0;
+
+  xasprintf (&translation_context, "%s section %s",
+             special_unit_variety, special_unit_info_tree_names[type]);
+  self->translated_special_unit_info_tree[type][i]
+    = html_pcdt_tree (translation_context, special_unit_info_string,
+                      self, 0);
+  free (translation_context);
+  add_tree_to_build (self, self->translated_special_unit_info_tree[type][i]);
+  return self->translated_special_unit_info_tree[type][i];
 }
+
+char *
+special_unit_info_text (CONVERTER *self,
+                        const enum special_unit_info_tree type,
+                        const char *special_unit_variety,
+                        enum conversion_context context_type)
+{
+  const ELEMENT *tree;
+  char *explanation;
+  char *result;
+
+  tree = special_unit_info_tree (self,
+                              type, special_unit_variety);
+  if (!tree)
+    return strdup ("");
+
+  xasprintf (&explanation, "convert %s %s/%s",
+                           special_unit_variety,
+                           special_unit_info_tree_names[type],
+                           html_command_text_type_name[context_type]);
+
+  if (context_type == HCC_type_string)
+    result = html_convert_tree_new_formatting_context (self,
+                                     tree, explanation, context_type,
+                                     0, 0, 0);
+  else
+    result = html_convert_tree_explanation (self, tree, explanation);
+
+  free (explanation);
+
+  return result;
+}
+
 
 /* the returned TREE_ADDED_ELEMENTS may not be NULL but have a NULL tree
    field, for instance in the case of an empty sectioning element
@@ -3447,7 +3473,6 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
   char *attribute_class;
   char *class;
   STRING_LIST *classes;
-  const ELEMENT *footnote_heading_tree;
   char *footnote_heading;
   int level;
   TEXT foot_lines;
@@ -3484,18 +3509,8 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
       text_append_n (result, "\n", 1);
     }
 
-  footnote_heading_tree = special_unit_info_tree (self,
-                              SUIT_type_heading, "footnotes");
-  if (footnote_heading_tree)
-    {
-      footnote_heading
-        = html_convert_tree_explanation (self, footnote_heading_tree,
-                                    "convert footnotes special heading");
-    }
-  else
-    {
-      footnote_heading = "";
-    }
+  footnote_heading = special_unit_info_text (self, SUIT_type_heading,
+                                             "footnotes", 0);
 
   level = self->conf->FOOTNOTE_END_HEADER_LEVEL.o.integer;
 
@@ -3509,8 +3524,7 @@ default_format_footnotes_segment (CONVERTER *self, TEXT *result)
   destroy_strings_list (classes);
   text_append_n (result, "\n", 1);
 
-  if (footnote_heading_tree)
-    free (footnote_heading);
+  free (footnote_heading);
 
   text_append (result, foot_lines.text);
   free (foot_lines.text);

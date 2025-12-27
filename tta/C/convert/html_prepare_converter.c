@@ -2043,6 +2043,7 @@ html_converter_init_special_units_info (CONVERTER *self)
     {
       size_t i;
       enum special_unit_info_type j;
+      enum special_unit_info_tree l;
       for (j = 0; j < SPECIAL_UNIT_INFO_TYPE_NR; j++)
         {
           size_t k;
@@ -2056,19 +2057,60 @@ html_converter_init_special_units_info (CONVERTER *self)
                   = strdup (default_special_unit_info[j][k]);
             }
         }
+      for (l = 0; l < SPECIAL_UNIT_INFO_TREE_NR; l++)
+        {
+          size_t k;
+
+          self->translated_special_unit_info_texinfo[l]
+            = new_special_unit_info_type (nr_special_units);
+          for (k = 0; k < nr_special_units; k++)
+            {
+              if (default_special_unit_tree_info[l][k])
+                self->translated_special_unit_info_texinfo[l][k]
+                  = strdup (default_special_unit_tree_info[l][k]);
+            }
+        }
       /* apply customization */
       for (i = 0; i < self->customized_special_unit_info.number; i++)
         {
-          SPECIAL_UNIT_INFO *special_unit_info
+          int t;
+          SPECIAL_UNIT_INFO *custom_unit_info
             = &self->customized_special_unit_info.list[i];
-          size_t variety_idx = special_unit_info->variety_nr -1;
-          enum special_unit_info_type type = special_unit_info->type;
+          size_t variety_idx = custom_unit_info->variety_nr -1;
+          enum special_unit_info_type type = custom_unit_info->type;
+          enum special_unit_info_tree tree_type = SUIT_type_none;
+
+          for (t = 0; translated_special_unit_info[t].tree_type
+                                                     != SUIT_type_none; t++)
+            {
+              enum special_unit_info_type string_type
+                = translated_special_unit_info[t].string_type;
+              if (string_type == type)
+                {
+                  tree_type = translated_special_unit_info[t].tree_type;
+
+                  free (self->translated_special_unit_info_texinfo[tree_type]
+                                                                [variety_idx]);
+
+                  if (custom_unit_info->value)
+                    self->translated_special_unit_info_texinfo[tree_type]
+                                                               [variety_idx]
+                      = strdup (custom_unit_info->value);
+                  else
+                    self->translated_special_unit_info_texinfo[tree_type]
+                                                           [variety_idx] = 0;
+                  break;
+                }
+            }
+
+          if (tree_type != SUIT_type_none)
+            continue;
 
           free (self->special_unit_info[type][variety_idx]);
 
-          if (special_unit_info->value)
+          if (custom_unit_info->value)
             self->special_unit_info[type][variety_idx]
-              = strdup (special_unit_info->value);
+              = strdup (custom_unit_info->value);
           else
             self->special_unit_info[type][variety_idx] = 0;
         }
@@ -2817,11 +2859,11 @@ html_converter_customize (CONVERTER *self)
 
   /* allocate space for translated tree types, they will be created
      on-demand during the conversion */
-  for (l = 0; l < SUIT_type_heading+1; l++)
+  for (l = 0; l < SPECIAL_UNIT_INFO_TREE_NR; l++)
     {
-      self->special_unit_info_tree[l] = (ELEMENT **)
+      self->translated_special_unit_info_tree[l] = (ELEMENT **)
         malloc ((nr_special_units +1) * sizeof (ELEMENT *));
-      memset (self->special_unit_info_tree[l], 0,
+      memset (self->translated_special_unit_info_tree[l], 0,
                (nr_special_units +1) * sizeof (ELEMENT *));
     }
 

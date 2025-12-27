@@ -872,6 +872,7 @@ typedef struct CONVERTER {
     STRING_LIST customized_special_unit_varieties;
     SPECIAL_UNIT_INFO_LIST customized_special_unit_info;
     char **special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR];
+    char **translated_special_unit_info_texinfo[SPECIAL_UNIT_INFO_TREE_NR];
     HTMLXREF_MANUAL_LIST htmlxref;
     TYPE_CONVERSION_FUNCTION type_conversion_function[TXI_TREE_TYPES_NUMBER];
     TYPE_CONVERSION_FUNCTION css_string_type_conversion_function[TXI_TREE_TYPES_NUMBER];
@@ -929,7 +930,7 @@ typedef struct CONVERTER {
     SPECIAL_UNIT_DIRECTION_LIST global_units_direction_names;
     /* allocated at converter initialization, reset when translate_names
        is called or at the end of the conversion */
-    ELEMENT **special_unit_info_tree[SUIT_type_heading+1];
+    ELEMENT **translated_special_unit_info_tree[SUIT_type_heading+1];
     /* resized and reset at the beginning of the conversion */
     SORTED_INDEX_NAMES sorted_index_names;
     /* set or reset before conversion */

@@ -1260,7 +1260,7 @@ sub _internal_command_tree($$$) {
         my $special_unit_variety
            = $command->{'associated_unit'}->{'special_unit_variety'};
         $tree
-          = $self->special_unit_info('heading_tree',
+          = $self->_special_unit_info_tree('heading',
                                       $special_unit_variety);
       } elsif (exists($command->{'cmdname'})
                and ($command->{'cmdname'} eq 'node'
@@ -1705,6 +1705,55 @@ sub label_command($$) {
   return undef;
 }
 
+# Currently the only possibility for $TYPE is heading
+sub _special_unit_info_tree($$$) {
+  my ($self, $type, $special_unit_variety) = @_;
+
+  if (exists($self->{'translated_special_unit_info_texinfo'}->{$type})) {
+    if (not exists($self->{'translated_special_unit_info_tree'}->{$type}
+                                    ->{$special_unit_variety})) {
+      my $special_unit_info_texinfo_string
+         = $self->{'translated_special_unit_info_texinfo'}->{$type}
+                                            ->{$special_unit_variety};
+      my $translated_tree;
+      if (defined($special_unit_info_texinfo_string)) {
+        # NOTE to be kept in sync with generated context in
+        # generate_code_convert_data.pl
+        my $translation_context = "$special_unit_variety section $type";
+        $translated_tree = $self->pcdt($translation_context,
+                                       $special_unit_info_texinfo_string);
+      }
+      $self->{'translated_special_unit_info_tree'}->{$type}
+         ->{$special_unit_variety}
+              = $translated_tree;
+      return $translated_tree;
+    } else {
+      return $self->{'translated_special_unit_info_tree'}->{$type}
+                                        ->{$special_unit_variety};
+    }
+  }
+  return undef;
+}
+
+# Currently the only possibility for $TYPE is heading
+sub special_unit_info_text($$$;$) {
+  my ($self, $type, $special_unit_variety, $context_type) = @_;
+
+  my $tree = $self->_special_unit_info_tree($type,
+                                       $special_unit_variety);
+
+  return '' if (!defined($tree));
+
+  $context_type = 'normal' if (!defined($context_type));
+
+  my $context = "convert $special_unit_variety $type/$context_type";
+  if ($context_type eq 'string') {
+    return $self->convert_tree_new_formatting_context($tree, $context, $context_type);
+  } else {
+    return $self->convert_tree($tree, $context);
+  }
+}
+
 sub command_name_special_unit_information($$) {
   my ($self, $cmdname) = @_;
 
@@ -2064,37 +2113,12 @@ sub direction_string($$$;$) {
 sub get_special_unit_info_varieties($$) {
   my ($self, $type) = @_;
 
-  if (exists($self->{'translated_special_unit_info'}->{$type})) {
-    my $translated_special_unit_info
-      = $self->{'translated_special_unit_info'}->{$type}->[1];
-    return sort(keys(%{$translated_special_unit_info}));
-  }
   return sort(keys(%{$self->{'special_unit_info'}->{$type}}));
 }
 
 sub special_unit_info($$$) {
   my ($self, $type, $special_unit_variety) = @_;
 
-  if (exists($self->{'translated_special_unit_info'}->{$type})) {
-    my $translated_special_unit_info
-      = $self->{'translated_special_unit_info'}->{$type}->[1];
-
-    if (not exists($self->{'special_unit_info'}->{$type}
-                                    ->{$special_unit_variety})) {
-      my $special_unit_info_string = $translated_special_unit_info
-                                            ->{$special_unit_variety};
-      my $translated_tree;
-      if (defined($special_unit_info_string)) {
-        # NOTE to be kept in sync with generated context in
-        # generate_code_convert_data.pl
-        my $translation_context = "$special_unit_variety section heading";
-        $translated_tree = $self->pcdt($translation_context,
-                                       $special_unit_info_string);
-      }
-      $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
-        = $translated_tree;
-    }
-  }
   return $self->{'special_unit_info'}->{$type}->{$special_unit_variety};
 }
 
@@ -2620,10 +2644,11 @@ foreach my $buttons ('CHAPTER_FOOTER_BUTTONS', 'TOP_FOOTER_BUTTONS') {
   $defaults{$buttons} = [@{$defaults{'SECTION_FOOTER_BUTTONS'}}];
 }
 
-
+# class, direction, order, file_string, target
 my %default_special_unit_info
   = %{ Texinfo::HTMLData::get_default_special_unit_info() };
 
+# heading
 my %default_translated_special_unit_info
   = %{ Texinfo::HTMLData::get_default_translated_special_unit_info() };
 
@@ -2677,9 +2702,9 @@ sub _translate_names($) {
     $self->{'directions_strings'}->{$string_type} = {};
   }
 
-  # could also use keys of $self->{'translated_special_unit_info'}
+  # could also use keys of $self->{'translated_special_unit_info_texinfo'}
   foreach my $type (keys(%default_translated_special_unit_info)) {
-    $self->{'special_unit_info'}->{$type.'_tree'} = {};
+    $self->{'translated_special_unit_info_tree'}->{$type} = {};
   }
 
   # delete the tree and formatted results for special elements
@@ -9119,22 +9144,22 @@ sub converter_initialize($) {
     }
   }
 
-  $self->{'translated_special_unit_info'} = {};
+  $self->{'translated_special_unit_info_texinfo'} = {};
+  $self->{'translated_special_unit_info_tree'} = {};
   foreach my $type (keys(%default_translated_special_unit_info)) {
-    $self->{'special_unit_info'}->{$type} = {};
-    $self->{'special_unit_info'}->{$type.'_tree'} = {};
-    $self->{'translated_special_unit_info'}->{$type.'_tree'} = [$type, {}];
+    $self->{'translated_special_unit_info_texinfo'}->{$type} = {};
+    $self->{'translated_special_unit_info_tree'}->{$type} = {};
     foreach my $special_unit_variety
                  (keys(%{$default_translated_special_unit_info{$type}})) {
       if (exists($customized_special_unit_info->{$type})
           and exists($customized_special_unit_info
                           ->{$type}->{$special_unit_variety})) {
-        $self->{'translated_special_unit_info'}->{$type.'_tree'}
-                                               ->[1]->{$special_unit_variety}
+        $self->{'translated_special_unit_info_texinfo'}->{$type}
+                                                 ->{$special_unit_variety}
          = $customized_special_unit_info->{$type}->{$special_unit_variety};
       } else {
-        $self->{'translated_special_unit_info'}->{$type.'_tree'}
-                                               ->[1]->{$special_unit_variety}
+        $self->{'translated_special_unit_info_texinfo'}->{$type}
+                                               ->{$special_unit_variety}
           = $default_translated_special_unit_info{$type}
                                                    ->{$special_unit_variety};
       }
@@ -9327,10 +9352,7 @@ sub converter_destroy($) {
     }
   }
 
-  # could have been better to remove references to trees only, but it
-  # requires analysing the key names.
-  delete $self->{'special_unit_info'};
-  delete $self->{'translated_special_unit_info'};
+  delete $self->{'translated_special_unit_info_tree'};
 
   if (exists($self->{'targets'})) {
     foreach my $command (keys(%{$self->{'targets'}})) {
@@ -11826,16 +11848,7 @@ sub _default_format_footnotes_segment($) {
   $result .= $self->get_conf('DEFAULT_RULE') . "\n"
      if (defined($self->get_conf('DEFAULT_RULE'))
          and $self->get_conf('DEFAULT_RULE') ne '');
-  my $footnote_heading_tree = $self->special_unit_info('heading_tree',
-                                                          'footnotes');
-  my $footnote_heading;
-  if (defined($footnote_heading_tree)) {
-    $footnote_heading
-      = $self->convert_tree($footnote_heading_tree,
-                            'convert footnotes special heading');
-  } else {
-    $footnote_heading = '';
-  }
+  my $footnote_heading = $self->special_unit_info_text('heading', 'footnotes');
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
   $result .= &{$self->formatting_function('format_heading_text')}($self, undef,
                           [$class.'-heading'], $footnote_heading, $level)."\n";

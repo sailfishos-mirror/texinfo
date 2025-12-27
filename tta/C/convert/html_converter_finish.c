@@ -135,10 +135,10 @@ html_free_converter (CONVERTER *self)
 
   free_name_number_list (&self->page_name_number);
 
-  for (i = 0; i < SUIT_type_heading+1; i++)
+  for (i = 0; i < SPECIAL_UNIT_INFO_TREE_NR; i++)
     {/* we assume that html_reset_translated_special_unit_info_tree
         has already been called */
-      free (self->special_unit_info_tree[i]);
+      free (self->translated_special_unit_info_tree[i]);
     }
 
   for (i = 1; i < TXI_TREE_TYPES_NUMBER; i++)
@@ -321,7 +321,7 @@ html_free_converter (CONVERTER *self)
     }
   free (self->htmlxref.list);
 
-  for (i = 0; i < SUI_type_heading+1; i++)
+  for (i = 0; i < SPECIAL_UNIT_INFO_TYPE_NR; i++)
     {
       size_t k;
       for (k = 0; k < self->special_unit_varieties.number; k++)

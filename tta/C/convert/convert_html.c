@@ -509,15 +509,15 @@ html_reset_translated_special_unit_info_tree (CONVERTER *self)
         = translated_special_unit_info[j].tree_type;
       for (i = 0; i < special_unit_varieties->number; i++)
         {
-          if (self->special_unit_info_tree[tree_type][i])
+          if (self->translated_special_unit_info_tree[tree_type][i])
             {
               remove_tree_to_build (self,
-                             self->special_unit_info_tree[tree_type][i]);
+                  self->translated_special_unit_info_tree[tree_type][i]);
               destroy_element_and_children (
-                self->special_unit_info_tree[tree_type][i]);
+                self->translated_special_unit_info_tree[tree_type][i]);
 
             }
-          self->special_unit_info_tree[tree_type][i] = 0;
+          self->translated_special_unit_info_tree[tree_type][i] = 0;
         }
     }
 }

@@ -18,9 +18,13 @@ enum special_unit_info_type {
    SUI_type_heading,
 };
 
-#define SPECIAL_UNIT_INFO_TYPE_NR 6
+#define SPECIAL_UNIT_INFO_TYPE_NR 5
 
-/* translated from corresponding SUI_type* */
+#define SPECIAL_UNIT_INFO_TREE_NR 1
+
+#define CUSTOMIZED_SPECIAL_UNIT_INFO_TYPE_NR (SPECIAL_UNIT_INFO_TYPE_NR + SPECIAL_UNIT_INFO_TREE_NR)
+
+/* translated */
 enum special_unit_info_tree {
    SUIT_type_none = -1,
 
@@ -28,6 +32,8 @@ enum special_unit_info_tree {
 };
 
 extern const char * const default_special_unit_info[SPECIAL_UNIT_INFO_TYPE_NR][4];
+
+extern const char * const default_special_unit_tree_info[SPECIAL_UNIT_INFO_TREE_NR][4];
 
 extern const char *direction_type_translation_context[];
 

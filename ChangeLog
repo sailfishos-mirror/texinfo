@@ -1,3 +1,43 @@
+2025-12-27 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/convert_html.c
+	(html_reset_translated_special_unit_info_tree),
+	tta/C/convert/format_html.c (special_unit_info_tree),
+	tta/C/convert/html_converter_finish.c (html_free_converter),
+	tta/C/convert/html_prepare_converter.c
+	(html_converter_init_special_units_info), tta/C/main/converter_types.h
+	(translated_special_unit_info_texinfo)
+	(translated_special_unit_info_tree),
+	tta/C/convert/html_converter_types.h (special_unit_info_tree_names),
+	tta/maintain/generate_code_convert_data.pl,
+	tta/perl/Texinfo/Convert/HTML.pm (_internal_command_tree)
+	(_special_unit_info_tree, special_unit_info, _translate_names)
+	(converter_initialize, converter_destroy),
+	tta/perl/XSTexinfo/convert/get_html_perl_info.c
+	(html_converter_init_special_unit_sv): split default information for
+	tree special unit (heading) in a separate
+	default_special_unit_tree_info array and add
+	special_unit_info_tree_names.  Split tree unit special info texinfo
+	strings out of the main special_unit_info data to
+	translated_special_unit_info_texinfo.  Rename special_unit_info_tree
+	as translated_special_unit_info_tree.  Never set a *_tree in Perl,
+	always use directly the name.  Update C code for the separation
+	of defaults.  In Perl, split code setting
+	translated_special_unit_info_tree out of special_unit_info to
+	_special_unit_info_tree and call directly this function for
+	translated/tree special unit.
+	Set and use consistently *SPECIAL_UNIT_INFO_*NR sizes in C.
+
+	* tta/C/convert/format_html.c (special_unit_info_text)
+	(default_format_footnotes_segment), tta/perl/Texinfo/Convert/HTML.pm
+	(special_unit_info_text, _default_format_footnotes_segment): add
+	special_unit_info_text that gets the tree and do the conversion.
+	Use it in code such that the tree is never accessed in code that could
+	be user-defined.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (get_special_unit_info_varieties):
+	only consider non-tree special unit info.
+
 2025-12-26 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/format_html.c, tta/perl/Texinfo/Convert/HTML.pm
