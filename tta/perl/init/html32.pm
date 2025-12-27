@@ -297,7 +297,8 @@ sub html32_convert_item_command($$$$$) {
       # case of invalid constructs
       $prepend = $self->convert_tree_new_formatting_context(
                                  $prepended_element,
-                                 $command->{'cmdname'}, 'item_prepended');
+                                 $command->{'cmdname'}, undef,
+                                 'item_prepended');
     }
     if ($content =~ /\S/) {
       return '<li>' . $prepend .' '. $content . '</li>';
