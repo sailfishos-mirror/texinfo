@@ -1,5 +1,11 @@
 2025-12-27 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/build_html_perl_state.c (build_html_translated_names):
+	remove code related to the previous way to store special unit info
+	trees.
+
+2025-12-27 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_special_unit_info_text): rename
 	special_unit_info_text as html_special_unit_info_text.  Update caller.
 

@@ -40,8 +40,7 @@
  */
 /* newSVpv_utf8 element_to_perl_hash */
 #include "build_perl_info.h"
-/* for html_conversion_context_type_names translated_special_unit_info
-   special_unit_info_type_names */
+/* for html_conversion_context_type_names */
 #include "html_converter_types.h"
 #include "build_html_perl_state.h"
 
@@ -125,11 +124,8 @@ switch_perl_lang_translations (HV *converter_hv, const char *lang)
 static void
 build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {
-  int j;
   SV **directions_strings_sv;
   HV *directions_strings_hv;
-  SV **special_unit_info_sv;
-  HV *special_unit_info_hv;
   SV **no_arg_commands_formatting_sv;
   HV *direction_string_hv;
   SV **convert_text_options_sv;
@@ -163,24 +159,6 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
     }
 
   switch_perl_lang_translations (converter_hv, documentlanguage);
-
-  FETCH(special_unit_info);
-  special_unit_info_hv = (HV *) SvRV (*special_unit_info_sv);
-
-  /* reset with empty hash */
-  for (j = 0; translated_special_unit_info[j].tree_type != SUIT_type_none; j++)
-    {
-      enum special_unit_info_type string_type
-        = translated_special_unit_info[j].string_type;
-      const char *type_name = special_unit_info_type_names[string_type];
-      char *key;
-      HV *special_unit_hv = newHV ();
-      key = malloc (strlen (type_name) + strlen ("_tree") + 1);
-      sprintf (key, "%s_tree", type_name);
-      hv_store (special_unit_info_hv, key, strlen (key),
-                newRV_noinc ((SV *) special_unit_hv), 0);
-      free (key);
-    }
 
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)
