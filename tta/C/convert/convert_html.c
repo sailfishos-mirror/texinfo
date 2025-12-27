@@ -2322,41 +2322,6 @@ html_convert_output (CONVERTER *self, const ELEMENT *root,
 
 
 static void
-free_html_targets_trees_list (CONVERTER *self, HTML_TARGET_LIST *targets)
-{
-  if (targets->number)
-    {
-      size_t i;
-      for (i = 0; i < targets->number; i++)
-        {
-          HTML_TARGET *html_target = &targets->list[i];
-          free_tree_added_elements (self, &html_target->tree);
-          free_tree_added_elements (self, &html_target->tree_nonumber);
-          free_tree_added_elements (self, &html_target->name_tree);
-          free_tree_added_elements (self, &html_target->name_tree_nonumber);
-        }
-    }
-}
-
-/* free tree elements, with the objective to remove all the trees
-   to build.  This is therefore done separately from reset_html_targets */
-void
-free_html_targets_trees (CONVERTER *self)
-{
-  size_t i;
-  for (i = 0; i < self->html_target_cmds.top; i++)
-    {
-      enum command_id cmd = self->html_target_cmds.stack[i];
-      free_html_targets_trees_list (self, &self->html_targets[cmd]);
-    }
-
-  for (i = 0; i < ST_footnote_location+1; i++)
-    {
-      free_html_targets_trees_list (self, &self->html_special_targets[i]);
-    }
-}
-
-static void
 clear_type_explanations (EXPLAINED_COMMAND_TYPE_LIST *type_explanations)
 {
   if (type_explanations->number > 0)
@@ -2436,9 +2401,6 @@ html_conversion_finalization (CONVERTER *self)
 
   /* needed to remove trees to build */
   html_reset_translated_special_unit_info_tree (self);
-
-  /* release the trees that could contain trees to build */
-  free_html_targets_trees (self);
 
   html_reset_shared_conversion_state (self);
 

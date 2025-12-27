@@ -13550,11 +13550,6 @@ html_output_internal_links (CONVERTER *self)
         }
     }
 
-  /* trees have been recreated in the function, free them. */
-  /* TODO have a more general converter reset code, but not too general
-     to be called by the caller? */
-  free_html_targets_trees (self);
-
   if (out_string.end == 0)
     {
       free (out_string.text);
