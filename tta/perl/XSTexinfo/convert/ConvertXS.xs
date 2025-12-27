@@ -1100,12 +1100,12 @@ html_new_document_context (SV *converter_in, char *context_name, ...)
         CONVERTER *self;
         const char *document_global_context = 0;
         const char *block_command_name = 0;
-        const char *context_type_str = 0;
+        unsigned long context_type = 0;
         enum command_id block_command = 0;
       CODE:
         self = get_sv_converter (converter_in, "html_new_document_context");
         if (items > 2 && SvOK(ST(2)))
-          context_type_str = SvPVutf8_nolen (ST(2));
+          context_type = SvIV (ST(2));
         if (items > 3 && SvOK(ST(3)))
           document_global_context = SvPVutf8_nolen (ST(3));
         if (items > 4 && SvOK(ST(4)))
@@ -1115,14 +1115,8 @@ html_new_document_context (SV *converter_in, char *context_name, ...)
 
         if (self)
           {
-            enum conversion_context context_type = 0;
-
-            if (context_type_str && !strcmp (context_type_str, "string"))
-              context_type = HCC_type_string;
-
             html_new_document_context (self, context_name, context_type,
                                        document_global_context, block_command);
-
           }
 
 void
@@ -1130,7 +1124,7 @@ html_pop_document_context (SV *converter_in)
       PREINIT:
         CONVERTER *self;
       CODE:
-        self = get_sv_converter (converter_in, "html_new_document_context");
+        self = get_sv_converter (converter_in, "html_pop_document_context");
         if (self)
           {
             html_pop_document_context (self);

@@ -71,7 +71,7 @@ pop_html_formatting_context (HTML_FORMATTING_CONTEXT_STACK *stack)
 
 void
 html_new_document_context (CONVERTER *self,
-        const char *context_name, enum conversion_context context_type,
+        const char *context_name, unsigned long context_type,
         const char *document_global_context,
         enum command_id block_command)
 {
@@ -91,7 +91,10 @@ html_new_document_context (CONVERTER *self,
   if (document_global_context)
     doc_context->document_global_context = strdup (document_global_context);
 
-  push_integer_stack_integer (&doc_context->monospace, 0);
+  if (context_type & CTXF_in_code)
+    push_integer_stack_integer (&doc_context->monospace, 1);
+  else
+    push_integer_stack_integer (&doc_context->monospace, 0);
   push_integer_stack_integer (&doc_context->preformatted_context, 0);
   push_command_or_type (&doc_context->composition_context, 0, 0);
   if (block_command)
@@ -106,7 +109,7 @@ html_new_document_context (CONVERTER *self,
                                 "_format");
   stack->top++;
 
-  if (context_type == HCC_type_string)
+  if (context_type & CTXF_string)
     html_set_string_context (self);
 }
 

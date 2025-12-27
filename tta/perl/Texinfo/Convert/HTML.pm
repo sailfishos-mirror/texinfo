@@ -620,6 +620,12 @@ sub css_get_selector_style($$) {
   }
 }
 
+# flags used to specify the conversion contexts.  Use flags to avoid
+# passing multiple arguments or hashes, and also could be easier for
+# passing to C.
+my $CTXF_string = 0x0001;
+my $CTXF_in_code = 0x0002;
+
 my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
 my %default_css_string_formatting_references;
@@ -648,7 +654,7 @@ sub html_convert_css_string($$$) {
       = $default_css_string_formatting_references{$formatting_reference};
   }
   my $css_string_context_str = 'CSS string '.$context_str;
-  _new_document_context($self, $css_string_context_str, 'string');
+  _new_document_context($self, $css_string_context_str, $CTXF_string);
   my $result
    = $self->convert_tree($element, "new_fmt_ctx C($css_string_context_str)");
   _pop_document_context($self);
@@ -1370,8 +1376,8 @@ sub _command_is_in_referred_command_stack($$) {
   return grep {$_ eq $command} @{$self->{'referred_command_stack'}};
 }
 
-sub _convert_command_tree($$$$$) {
-  my ($self, $command, $type, $selected_tree, $command_info) = @_;
+sub _convert_command_tree($$$$$$) {
+  my ($self, $command, $type, $selected_tree, $in_code, $command_info) = @_;
 
   my $explanation;
   my $context_name;
@@ -1389,9 +1395,12 @@ sub _convert_command_tree($$$$$) {
     }
   }
 
-  my $context_type;
+  my $context_type = 0;
   if ($type eq 'string' or $type eq 'string_nonumber') {
-    $context_type = 'string';
+    $context_type |= $CTXF_string;
+  }
+  if ($in_code) {
+    $context_type |= $CTXF_in_code;
   }
 
   _new_document_context($self, $context_name, $context_type, $explanation);
@@ -1418,6 +1427,7 @@ sub _internal_command_text($$$) {
     if (exists($target->{$type})) {
       return $target->{$type};
     }
+    my $in_code;
     my $command_tree = _internal_command_tree($self, $command, 0);
     return '' if (!defined($command_tree));
 
@@ -1431,7 +1441,7 @@ sub _internal_command_text($$$) {
     }
 
     $target->{$type}
-      = _convert_command_tree($self, $command, $type, $selected_tree,
+      = _convert_command_tree($self, $command, $type, $selected_tree, $in_code,
                               'command_text');
     return $target->{$type};
   }
@@ -1478,7 +1488,7 @@ sub command_text($$;$) {
 
     my $context_type;
     if ($type eq 'string' or $type eq 'string_nonumber') {
-      $context_type = 'string';
+      $context_type = $CTXF_string;
     }
 
     # NOTE the multiple pass argument is not unicized, and no global
@@ -1532,6 +1542,7 @@ sub _internal_command_name($$$) {
     if (exists($target->{$name_type})) {
       return $target->{$name_type};
     }
+    my $in_code;
     my $command_name_tree = _internal_command_name_tree($self, $command, 0);
 
     if (!defined($command_name_tree)) {
@@ -1549,7 +1560,7 @@ sub _internal_command_name($$$) {
     }
 
     $target->{$name_type}
-      = _convert_command_tree($self, $command, $type, $selected_tree,
+      = _convert_command_tree($self, $command, $type, $selected_tree, $in_code,
                               'command_name');
     return $target->{$name_type};
   }
@@ -1675,7 +1686,7 @@ sub command_description($$;$) {
 
     my $context_type;
     if ($type eq 'string') {
-      $context_type = 'string';
+      $context_type = $CTXF_string;
     }
 
     $target->{$cached_type}
@@ -1739,20 +1750,21 @@ sub _special_unit_info_tree($$$) {
 
 # Currently the only possibility for $TYPE is heading
 sub special_unit_info_text($$$;$) {
-  my ($self, $type, $special_unit_variety, $context_type) = @_;
+  my ($self, $type, $special_unit_variety, $context) = @_;
 
   my $tree = $self->_special_unit_info_tree($type,
                                        $special_unit_variety);
 
   return '' if (!defined($tree));
 
-  $context_type = 'normal' if (!defined($context_type));
+  $context = 'normal' if (!defined($context));
 
-  my $context = "convert $special_unit_variety $type/$context_type";
-  if ($context_type eq 'string') {
-    return $self->convert_tree_new_formatting_context($tree, $context, $context_type);
+  my $explanation = "convert $special_unit_variety $type/$context";
+  if ($context eq 'string') {
+    return $self->convert_tree_new_formatting_context($tree, $explanation,
+                                                      $CTXF_string);
   } else {
-    return $self->convert_tree($tree, $context);
+    return $self->convert_tree($tree, $explanation);
   }
 }
 
@@ -2080,7 +2092,7 @@ sub direction_string($$$;$) {
 
       my $context_type;
       if ($context eq 'string') {
-        $context_type = 'string';
+        $context_type = $CTXF_string;
       }
 
       my $result_string
@@ -8226,8 +8238,13 @@ sub _new_document_context($$;$$$) {
     push @{$self->{'document_context'}->[-1]->{'block_commands'}},
             $block_command;
   }
-  if (defined($context_type) and $context_type eq 'string') {
-    $self->{'document_context'}->[-1]->{'string'}++;
+  if (defined($context_type)) {
+    if ($context_type & $CTXF_string) {
+      $self->{'document_context'}->[-1]->{'string'}++;
+    }
+    if ($context_type & $CTXF_in_code) {
+      _set_code_context($self, 1);
+    }
   }
 }
 
@@ -8383,7 +8400,7 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$) {
       _convert_command_update_context($self, $preformatted_cmdname);
       _pop_document_context($self);
     } elsif ($reset_context eq 'string') {
-      _new_document_context($self, $context_str, 'string');
+      _new_document_context($self, $context_str, $CTXF_string);
       $translation_result = $self->convert_tree($translated_tree,
                                                 $explanation);
       _pop_document_context($self);
@@ -11495,7 +11512,7 @@ sub _file_header_information($$;$) {
       # probably not important.
       $title
         = $self->convert_tree_new_formatting_context($title_tree,
-                                  $context_str, 'string', 'element_title');
+                                  $context_str, $CTXF_string, 'element_title');
     }
     $command_description = $self->command_description($command, 'string');
   }
@@ -13003,7 +13020,8 @@ sub _prepare_converted_output_info($$$$) {
     $title_tree = $fulltitle_tree;
     $html_title_string
       = $self->convert_tree_new_formatting_context($title_tree,
-                                                   'title_string', 'string');
+                                                   'title_string',
+                                                   $CTXF_string);
     if ($html_title_string !~ /\S/) {
       $html_title_string = undef;
     }
@@ -13014,7 +13032,8 @@ sub _prepare_converted_output_info($$$$) {
     $self->{'converter_info'}->{'title_tree'} = $title_tree;
     $self->{'converter_info'}->{'title_string'}
       = $self->convert_tree_new_formatting_context($title_tree,
-                                                   'title_string', 'string');
+                                                   'title_string',
+                                                   $CTXF_string);
     my $input_file_name;
     if (exists($self->{'document'})) {
       my $document_info = $self->{'document'}->global_information();
@@ -13059,7 +13078,7 @@ sub _prepare_converted_output_info($$$$) {
 
     my $documentdescription_string
       = $self->convert_tree_new_formatting_context($tmp,
-                                 'documentdescription', 'string');
+                                 'documentdescription', $CTXF_string);
 
     chomp($documentdescription_string);
     $self->{'converter_info'}->{'documentdescription_string'}
@@ -14063,15 +14082,14 @@ sub _convert($$;$) {
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);
               _pop_code_context($self);
             } elsif ($arg_type eq 'string') {
-              _new_document_context($self, $command_type, 'string');
+              _new_document_context($self, $command_type, $CTXF_string);
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);
               #_unset_string_context($self);
               _pop_document_context($self);
             } elsif ($arg_type eq 'monospacestring') {
-              _new_document_context($self, $command_type, 'string');
-              _set_code_context($self, 1);
+              _new_document_context($self, $command_type,
+                                    $CTXF_string | $CTXF_in_code);
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);
-              _pop_code_context($self);
               _pop_document_context($self);
             } elsif ($arg_type eq 'monospacetext') {
               Texinfo::Convert::Text::set_options_code(

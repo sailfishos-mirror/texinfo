@@ -1525,7 +1525,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
           ELEMENT *description_element;
           const char *command_name;
           enum command_id cmd;
-          enum conversion_context context_type = 0;
+          unsigned long context_type = 0;
 
           if (command->type == ET_special_unit_element)
             return 0;
@@ -1602,7 +1602,7 @@ html_command_description (CONVERTER *self, const ELEMENT *command,
                      command_name);
 
           if (type == HTT_string)
-            context_type = HCC_type_string;
+            context_type |= CTXF_string;
 
           target_info->command_description[type]
             = html_convert_tree_new_formatting_context (self,
@@ -1901,7 +1901,7 @@ html_special_unit_info_text (CONVERTER *self,
   if (context_type == HCC_type_string)
     result = html_convert_tree_new_formatting_context (self,
                                      unit_info_tree, explanation,
-                                     context_type, 0, 0, 0);
+                                     CTXF_string, 0, 0, 0);
   else
     result = html_convert_tree_explanation (self, unit_info_tree, explanation);
 
@@ -2078,11 +2078,12 @@ static char *
 html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
                            const enum html_text_type type,
                            ELEMENT *selected_tree,
+                           int in_code,
                            const char *command_info)
 {
   char *explanation = 0;
   const char *context_name;
-  enum conversion_context context_type = 0;
+  unsigned long context_type = 0;
   char *result;
 
   if (command->e.c->cmd)
@@ -2106,7 +2107,9 @@ html_convert_command_tree (CONVERTER *self, const ELEMENT *command,
     }
 
   if (type == HTT_string || type == HTT_string_nonumber)
-    context_type = HCC_type_string;
+    context_type |= CTXF_string;
+  if (in_code)
+    context_type |= CTXF_in_code;
 
   html_new_document_context (self, context_name, context_type,
                              explanation, 0);
@@ -2161,7 +2164,7 @@ html_internal_command_text (CONVERTER *self, const ELEMENT *command,
 
           target_info->command_text[type]
             = html_convert_command_tree (self, command, type, selected_tree,
-                                         "command_text");
+                                         0, "command_text");
           return strdup (target_info->command_text[type]);
         }
     }
@@ -2193,7 +2196,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       char *context_str;
       TREE_ADDED_ELEMENTS *command_tree
         = html_external_command_tree (self, command, manual_content);
-      enum conversion_context context_type = 0;
+      unsigned long context_type = 0;
 
       if (command->e.c->cmd)
         /* this never happens, as the external node label tree
@@ -2211,7 +2214,7 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
                    html_command_text_type_name[type]);
 
       if (type == HTT_string || type == HTT_string_nonumber)
-        context_type = HCC_type_string;
+        context_type |= CTXF_string;
 
       add_tree_to_build (self, command_tree->tree);
       result = html_convert_tree_new_formatting_context (self,
@@ -2294,7 +2297,7 @@ html_internal_command_name (CONVERTER *self, const ELEMENT *command,
 
           target_info->command_name[type]
             = html_convert_command_tree (self, command, type, selected_tree,
-                                         "command_name");
+                                         0, "command_name");
           return strdup (target_info->command_name[type]);
         }
     }
@@ -2820,7 +2823,7 @@ direction_string (CONVERTER *self, int direction,
           TEXT translation_context;
           char *context_str;
           ELEMENT *translated_tree;
-          enum conversion_context context_type = 0;
+          unsigned long context_type = 0;
           const char *direction_name;
 
           text_init (&translation_context);
@@ -2843,7 +2846,7 @@ direction_string (CONVERTER *self, int direction,
                     direction_string_context_names[context]);
 
           if (context == TDS_context_string)
-            context_type = HCC_type_string;
+            context_type |= CTXF_string;
 
           add_tree_to_build (self, translated_tree);
           result_string
@@ -3966,7 +3969,7 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
           begin_info->title
                  = html_convert_tree_new_formatting_context (self,
-                          title_tree, context_str, HCC_type_string,
+                          title_tree, context_str, CTXF_string,
                           "element_title", 0, 0);
 
           free (context_str);

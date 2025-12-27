@@ -5,7 +5,7 @@
 #include "html_converter_types.h"
 
 void html_new_document_context (CONVERTER *self,
-        const char *context_name, enum conversion_context context_type,
+        const char *context_name, unsigned long context_type,
         const char *document_global_context,
         enum command_id block_command);
 void html_pop_document_context (CONVERTER *self);

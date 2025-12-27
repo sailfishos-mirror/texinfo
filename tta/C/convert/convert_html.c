@@ -355,7 +355,7 @@ html_convert_tree (CONVERTER *self, const ELEMENT *tree)
 char *
 html_convert_tree_new_formatting_context (CONVERTER *self, const ELEMENT *tree,
                                           const char *context_string,
-                                          enum conversion_context context_type,
+                                          unsigned long context_type,
                                           const char *multiple_pass,
                                           const char *document_global_context,
                                           enum command_id block_cmd)
@@ -432,7 +432,7 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
   xasprintf (&explanation, "new_fmt_ctx %s", context_string_str);
 
   html_new_document_context (self, css_string_context_str,
-                             HCC_type_string, 0, 0);
+                             CTXF_string, 0, 0);
 
   result = html_convert_tree_explanation (self, element, explanation);
 
@@ -575,7 +575,7 @@ reset_unset_no_arg_commands_formatting_context (CONVERTER *self,
         }
       else if (reset_context == HCC_type_string)
         {
-          html_new_document_context (self, context, HCC_type_string, 0, 0);
+          html_new_document_context (self, context, CTXF_string, 0, 0);
 
           translation_result
              = html_convert_tree_explanation (self, translated_tree,
@@ -1063,7 +1063,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       html_title_string
           = html_convert_tree_new_formatting_context (self,
                                        fulltitle_tree, "title_string",
-                                       HCC_type_string, 0, 0, 0);
+                                       CTXF_string, 0, 0, 0);
       if (html_title_string[strspn (html_title_string, whitespace_chars)]
            == '\0')
         {
@@ -1085,7 +1085,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       html_title_string
          = html_convert_tree_new_formatting_context (self,
                                        default_title, "title_string",
-                                       HCC_type_string, 0, 0, 0);
+                                       CTXF_string, 0, 0, 0);
 
       remove_tree_to_build (self, default_title);
       self->added_title_tree = 1;
@@ -1149,7 +1149,7 @@ html_prepare_converted_output_info (CONVERTER *self, const char *output_file,
       documentdescription_string
             = html_convert_tree_new_formatting_context (self,
                                        tmp, "documentdescription",
-                                       HCC_type_string, 0, 0, 0);
+                                       CTXF_string, 0, 0, 0);
 
       remove_tree_to_build (self, tmp);
 
@@ -1595,7 +1595,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                     {
                       text_reset (&formatted_arg);
                       html_new_document_context (self, command_type.text,
-                                                 HCC_type_string, 0, 0);
+                                                 CTXF_string, 0, 0);
 
                       xasprintf (&explanation, "%s A[%zu]string",
                                                command_type.text, arg_idx);
@@ -1611,21 +1611,16 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                     }
                   if (arg_flags & F_AFT_monospacestring)
                     {
-                      HTML_DOCUMENT_CONTEXT *string_document_ctx;
                       text_reset (&formatted_arg);
                       html_new_document_context (self, command_type.text,
-                                                 HCC_type_string, 0, 0);
-                      string_document_ctx = html_top_document_context (self);
-                      push_integer_stack_integer (
-                           &string_document_ctx->monospace, 1);
+                                                 CTXF_string | CTXF_in_code,
+                                                 0, 0);
                       xasprintf (&explanation, "%s A[%zu]monospacestring",
                                                command_type.text, arg_idx);
                       html_convert_tree_append (self, arg, &formatted_arg,
                                                 explanation);
 
                       free (explanation);
-                      pop_integer_stack
-                          (&string_document_ctx->monospace);
                       html_pop_document_context (self);
                       arg_formatted->formatted[AFT_type_monospacestring]
                        = strdup (formatted_arg.text);

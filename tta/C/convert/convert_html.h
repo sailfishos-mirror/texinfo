@@ -51,7 +51,7 @@ void html_translate_convert_tree_append (const char *string,
 char *html_convert_tree_new_formatting_context (CONVERTER *self,
                                           const ELEMENT *tree,
                                           const char *context_string,
-                                          enum conversion_context context_type,
+                                          unsigned long context_type,
                                           const char *multiple_pass,
                                           const char *document_global_context,
                                           enum command_id block_cmd);
