@@ -4313,8 +4313,10 @@ In the current setup, special output units are associated with @code{@@contents}
 
 To customize special output units formatting, a simple possibility is to
 change the information associated with the special output units.
+Two types of item can be customized, simple items and Texinfo code.
+The Texinfo code is translated and converted.
 
-The following items common to all the special units may be customized:
+The following simple items may be customized:
 
 @table @code
 @item class
@@ -4322,12 +4324,6 @@ String for special element HTML class attributes.
 
 @item direction
 Direction corresponding to the special element. @xref{Directions}.
-
-@item heading
-Special element heading Texinfo code.
-
-@item heading_tree
-Special element heading Texinfo tree.
 
 @item order
 Index determining the sorting order of special elements.
@@ -4342,12 +4338,14 @@ as id attribute and in href attribute.
 
 @end table
 
-The heading string is set with @code{heading}, and should be a Texinfo code
-string.  @code{heading_tree} cannot be set directly, but can be retrieved.
-It is determined from @code{heading} after translation and conversion to
-a Texinfo tree.
+The following Texinfo code item  may be customized:
 
-To set the information, use @code{texinfo_register_special_unit_info}
+@table @code
+@item heading
+Special element heading Texinfo code.
+@end table
+
+To set both type of information, use @code{texinfo_register_special_unit_info}
 in an init file:
 
 @defun texinfo_register_special_unit_info ($item_type, @
@@ -4359,25 +4357,37 @@ Set @var{$item_type} information for the special unit variety
 needed for the other items for formatting.
 @end defun
 
-To get the list of varieties, use @code{get_special_unit_info_varieties}:
+To get the list of varieties, use @code{get_special_unit_info_varieties} on
+a simple item:
 
 @deftypefun {@var{$list} =} @var{$converter}->get_special_unit_info_varieties @
                (@var{$item_type})
-@var{$item_type} is the type of information to be retrieved as described above.
+@var{$item_type} is the simple item information to be retrieved as described above.
 The list of the special units varieties with information for the
 @var{$item_type} is returned.
 @end deftypefun
 
-To retrieve the information for formatting, use @code{special_unit_info}:
+To retrieve simple item information for formatting, use @code{special_unit_info}:
 
-@deftypefun {@var{$list_or_value} =} @var{$converter}->special_unit_info @
+@deftypefun {@var{$value} =} @var{$converter}->special_unit_info @
                   (@var{$item_type}, @var{$special_unit_variety})
-@var{$item_type} is the type of information to be retrieved as described above.
+@var{$item_type} is the simple item to be retrieved as described above.
 @var{$special_unit_variety} is a special unit variety, the corresponding
 value is returned.
+@end deftypefun
 
-The value returned is translated and converted to a Texinfo tree
-for @samp{heading_tree}.
+To get converted text corresponding to a Texinfo code item use
+@code{special_unit_info_text}:
+
+@deftypefun {@var{$result} =} @var{$converter}->special_unit_info_text @
+                  (@var{$item_type}, @var{$special_unit_variety}, @
+                   @var{$context})
+@var{$item_type} is a Texinfo code item as described above.
+@var{$special_unit_variety} is a special unit variety.  @var{$context} is
+@samp{normal} or @samp{string}.  @xref{Init File Expansion Contexts}.  If
+@var{$context} is @code{undef}, the @samp{normal} context is assumed.
+The corresponding Texinfo code is translated, parsed to a Texinfo tree,
+converted in the specified expansion context and the result is returned.
 @end deftypefun
 
 

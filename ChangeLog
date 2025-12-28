@@ -1,5 +1,11 @@
 2025-12-28 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Special Units Information Customization):
+	remove heading_tree, separate simple item and Texinfo code item and
+	describe special_unit_info_text.
+
+2025-12-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_conversion_state.c (html_new_document_context):
 	allow an undefined context_name.
 
