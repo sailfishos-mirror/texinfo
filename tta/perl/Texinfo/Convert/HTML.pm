@@ -7693,6 +7693,8 @@ sub _convert_def_line_type($$$$) {
     } else {
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
       # TODO not in API
+      # Has an effect only for those @def* in @example and similar block
+      # commands that sets code expansion.
       _set_code_context($self, 0);
       my $arguments_formatted = $self->convert_tree($arguments, $explanation);
       _pop_code_context($self);
