@@ -1359,20 +1359,6 @@ sub _internal_command_tree($$$) {
   return undef, undef;
 }
 
-sub _external_command_tree($$) {
-  my ($self, $command) = @_;
-
-  my $node_content = $command->{'extra'}->{'node_content'};
-  my $tree = Texinfo::TreeElement::new(
-       {'contents' => [Texinfo::TreeElement::new({'text' => '('}),
-                       $command->{'extra'}->{'manual_content'},
-                       Texinfo::TreeElement::new({'text' => ')'})]});
-  if (exists($command->{'extra'}->{'node_content'})) {
-    push @{$tree->{'contents'}}, $command->{'extra'}->{'node_content'};
-  }
-  return $tree;
-}
-
 sub _push_referred_command_stack_command($$) {
   my ($self, $command) = @_;
 
@@ -1489,7 +1475,15 @@ sub command_text($$;$) {
 
   if (exists($command->{'extra'})
       and exists($command->{'extra'}->{'manual_content'})) {
-    my $tree = _external_command_tree($self, $command);
+
+    my $tree = Texinfo::TreeElement::new(
+       {'contents' => [Texinfo::TreeElement::new({'text' => '('}),
+                       $command->{'extra'}->{'manual_content'},
+                       Texinfo::TreeElement::new({'text' => ')'})]});
+    if (exists($command->{'extra'}->{'node_content'})) {
+      push @{$tree->{'contents'}}, $command->{'extra'}->{'node_content'};
+    }
+
     my $context_str = "command_text $type ";
     if (exists($command->{'cmdname'})) {
       # this never happens, as the external node label tree
@@ -9184,6 +9178,8 @@ sub converter_initialize($) {
     }
   }
 
+  # Note that with XS this information is not actually used, as
+  # it is only accessed through functions that are overriden
   $self->{'translated_special_unit_info_texinfo'} = {};
   $self->{'translated_special_unit_info_tree'} = {};
   foreach my $type (keys(%default_translated_special_unit_info)) {

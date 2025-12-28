@@ -1929,7 +1929,7 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
       if (!target_info->tree.status)
         {
           tree = &target_info->tree;
-          tree->status = tree_added_status_elements_added;
+          tree->status = tree_added_status_reused_tree;
           if (command->type == ET_special_unit_element)
             {
               const char *special_unit_variety
@@ -1937,7 +1937,6 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
               ELEMENT *heading_tree = special_unit_info_tree (self,
                                    SUIT_type_heading, special_unit_variety);
               tree->tree = heading_tree;
-              tree->status = tree_added_status_reused_tree;
             }
           else if (command->e.c->cmd == CM_node
                    || command->e.c->cmd == CM_anchor
@@ -1955,7 +1954,6 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                   label_element = arguments_line->e.c->contents.list[0];
                 }
               tree->tree = label_element;
-              tree->status = tree_added_status_reused_tree;
               tree->in_code = 1;
             }
           else if (command->e.c->cmd == CM_float)
@@ -2023,7 +2021,6 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                     }
                   else
                     {
-                      tree->status = tree_added_status_reused_tree;
                       tree->tree = line_arg;
                     }
                 }
@@ -2040,38 +2037,6 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
     }
 
   return 0;
-}
-
-static TREE_ADDED_ELEMENTS *
-html_external_command_tree (CONVERTER *self, const ELEMENT *command,
-                            ELEMENT *manual_content)
-{
-  TREE_ADDED_ELEMENTS *tree;
-
-  ELEMENT *root_code;
-  ELEMENT *open_p;
-  ELEMENT *close_p;
-
-  ELEMENT *node_content = lookup_extra_container (command,
-                                                AI_key_node_content);
-
-  tree = new_tree_added_elements (tree_added_status_elements_added);
-
-  root_code = new_element_added (tree, ET_NONE);
-  open_p = new_text_element_added (tree, ET_normal_text);
-  close_p = new_text_element_added (tree, ET_normal_text);
-
-  text_append_n (open_p->e.text, "(", 1);
-  text_append_n (close_p->e.text, ")", 1);
-
-  add_to_contents_as_array (root_code, open_p);
-  add_to_contents_as_array (root_code, manual_content);
-  add_to_contents_as_array (root_code, close_p);
-  if (node_content)
-    add_to_contents_as_array (root_code, node_content);
-
-  tree->tree = root_code;
-  return tree;
 }
 
 static char *
@@ -2193,11 +2158,25 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
   ELEMENT *manual_content = lookup_extra_container (command,
                                                   AI_key_manual_content);
   if (manual_content)
-    {
-      char *context_str;
-      TREE_ADDED_ELEMENTS *command_tree
-        = html_external_command_tree (self, command, manual_content);
+    { /* external node */
       unsigned long context_type = CTXF_code;
+      char *context_str;
+      ELEMENT *command_tree = new_element (ET_NONE);
+      ELEMENT *open_p = new_text_element (ET_normal_text);
+      ELEMENT *close_p = new_text_element (ET_normal_text);
+
+      ELEMENT *node_content = lookup_extra_container (command,
+                                                AI_key_node_content);
+
+      text_append_n (open_p->e.text, "(", 1);
+      text_append_n (close_p->e.text, ")", 1);
+
+      add_to_contents_as_array (command_tree, open_p);
+      add_to_contents_as_array (command_tree, manual_content);
+      add_to_contents_as_array (command_tree, close_p);
+
+      if (node_content)
+        add_to_contents_as_array (command_tree, node_content);
 
       if (command->e.c->cmd)
         /* this never happens, as the external node label tree
@@ -2217,16 +2196,18 @@ html_command_text (CONVERTER *self, const ELEMENT *command,
       if (type == HTT_string || type == HTT_string_nonumber)
         context_type |= CTXF_string;
 
-      add_tree_to_build (self, command_tree->tree);
+      add_tree_to_build (self, command_tree);
       result = html_convert_tree_new_formatting_context (self,
-                                     command_tree->tree,
+                                     command_tree,
                                      context_str, context_type,
                                      "command_text-manual_content", 0, 0);
 
       free (context_str);
-      remove_tree_to_build (self, command_tree->tree);
+      remove_tree_to_build (self, command_tree);
 
-      destroy_tree_added_elements (self, command_tree);
+      destroy_element (open_p);
+      destroy_element (close_p);
+      destroy_element (command_tree);
       return result;
     }
 
