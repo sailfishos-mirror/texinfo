@@ -191,9 +191,9 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::html_new_document_context",
   "Texinfo::Convert::HTML::_pop_document_context"
    => "Texinfo::Convert::ConvertXS::html_pop_document_context",
-  "Texinfo::Convert::HTML::set_code_context"
+  "Texinfo::Convert::HTML::_set_code_context"
    => "Texinfo::Convert::ConvertXS::html_set_code_context",
-  "Texinfo::Convert::HTML::pop_code_context"
+  "Texinfo::Convert::HTML::_pop_code_context"
    => "Texinfo::Convert::ConvertXS::html_pop_code_context",
   "Texinfo::Convert::HTML::_set_string_context"
    => "Texinfo::Convert::ConvertXS::html_set_string_context",
@@ -851,13 +851,13 @@ sub is_format_expanded($$) {
   return $self->{'expanded_formats'}->{$format};
 }
 
-sub set_code_context($$) {
+sub _set_code_context($$) {
   my ($self, $code) = @_;
 
   push @{$self->{'document_context'}->[-1]->{'monospace'}}, $code;
 }
 
-sub pop_code_context($) {
+sub _pop_code_context($) {
   my $self = shift;
 
   pop @{$self->{'document_context'}->[-1]->{'monospace'}};
@@ -2600,6 +2600,16 @@ sub get_info($$) {
     return $self->{'converter_info'}->{$converter_info};
   }
   return undef;
+}
+
+sub convert_tree_in_code_context($$;$) {
+  my ($self, $tree, $explanation) = @_;
+
+  _set_code_context($self, 1);
+  my $result = $self->convert_tree($tree, $explanation);
+  _pop_code_context($self);
+
+  return $result;
 }
 
 # Call convert_tree out of the main conversion flow.
@@ -5917,17 +5927,15 @@ sub _convert_xref_commands($$$$) {
         $label_element->{'extra'} = {};
       }
       $label_element->{'extra'}->{'manual_content'} = $manual_content;
-      set_code_context($self, 1);
-      $file = $self->convert_tree($manual_content, 'node file in ref');
-      pop_code_context($self);
+      $file = $self->convert_tree_in_code_context($manual_content,
+                                                  'node file in ref');
     }
 
     if (!defined($name)) {
       if (defined($book)) {
         if (defined($node_content)) {
-          set_code_context($self, 1);
-          my $node_name = $self->convert_tree($node_content, 'node in ref');
-          pop_code_context($self);
+          my $node_name = $self->convert_tree_in_code_context($node_content,
+                                                              'node in ref');
           if (defined($node_name) and $node_name ne 'Top') {
             $name = $node_name;
           }
@@ -6279,10 +6287,13 @@ sub _convert_printindex_command($$$$) {
                                           $convert_info, $formatting_context,
                                   "index-formatted-$formatted_index_entry_nr");
         } else {
-          set_code_context($self, 1) if ($in_code);
-          $entry = $self->convert_tree($entry_trees[$level],
-                                       $convert_info);
-          pop_code_context($self) if ($in_code);
+          if ($in_code) {
+            $entry = $self->convert_tree_in_code_context($entry_trees[$level],
+                                                         $convert_info);
+          } else {
+            $entry = $self->convert_tree($entry_trees[$level],
+                                         $convert_info);
+          }
         }
         $entry = '<code>' .$entry .'</code>' if ($in_code);
         my @td_entry_classes = ();
@@ -6378,10 +6389,14 @@ sub _convert_printindex_command($$$$) {
                                                  $conv_str_reference, undef,
                                 "index-formatted-$formatted_index_entry_nr");
           } else {
-            set_code_context($self, 1) if ($in_code);
-            $entry = $self->convert_tree($entry_tree,
-                                         $conv_str_entry);
-            pop_code_context($self) if ($in_code);
+            if ($in_code) {
+              $entry = $self->convert_tree_in_code_context($entry_tree,
+                                                           $conv_str_entry);
+            } else {
+              $entry = $self->convert_tree($entry_tree,
+                                           $conv_str_entry);
+            }
+
             $reference = $self->convert_tree($reference_tree,
                                              $conv_str_reference);
           }
@@ -6423,9 +6438,12 @@ sub _convert_printindex_command($$$$) {
                                        $convert_info, $formatting_context,
                                "index-formatted-$formatted_index_entry_nr");
           } else {
-            set_code_context($self, 1) if ($in_code);
-            $entry = $self->convert_tree($entry_tree, $convert_info);
-            pop_code_context($self) if ($in_code);
+            if ($in_code) {
+              $entry = $self->convert_tree_in_code_context($entry_tree,
+                                                           $convert_info);
+            } else {
+              $entry = $self->convert_tree($entry_tree, $convert_info);
+            }
           }
         }
 
@@ -7412,10 +7430,8 @@ sub _convert_menu_entry_type($$$) {
     }
 
     if (defined($menu_entry_node)) {
-      set_code_context($self, 1);
-      my $name = $self->convert_tree($menu_entry_node,
-                       "menu_arg menu_entry_node preformatted");
-      pop_code_context($self);
+      my $name = $self->convert_tree_in_code_context($menu_entry_node,
+                              "menu_arg menu_entry_node preformatted");
       if (defined($href) and !$in_string) {
         $result_name_node .= "<a href=\"$href\"$rel$accesskey>$name</a>";
       } else {
@@ -7486,12 +7502,10 @@ sub _convert_menu_entry_type($$$) {
         $name = $self->command_text($menu_entry_node);
       } elsif (exists($menu_entry_node->{'extra'})
                and exists($menu_entry_node->{'extra'}->{'node_content'})) {
-        set_code_context($self, 1);
-        $name = $self->convert_tree(
+        $name = $self->convert_tree_in_code_context(
                  Texinfo::TreeElement::new({
             'contents' => [$menu_entry_node->{'extra'}->{'node_content'}]}),
                                     'menu_arg name');
-        pop_code_context($self);
       } else {
         $name = '';
       }
@@ -7639,10 +7653,8 @@ sub _convert_def_line_type($$$$) {
   my $def_call = '';
   if (defined($type_element)) {
     my $explanation = "DEF_TYPE $def_command";
-    set_code_context($self, 1);
-    my $type_text = $self->convert_tree($type_element,
-                                        $explanation);
-    pop_code_context($self);
+    my $type_text = $self->convert_tree_in_code_context($type_element,
+                                                        $explanation);
     if ($type_text ne '') {
       $def_call .= $self->html_attribute_class('code', ['def-type']).'>'.
           $type_text .'</code>';
@@ -7658,12 +7670,11 @@ sub _convert_def_line_type($$$$) {
   }
 
   if (defined($name_element)) {
-    set_code_context($self, 1);
+    my $def_name_text = $self->convert_tree_in_code_context($name_element,
+                                                     "DEF_NAME $def_command");
+
     $def_call .= $self->html_attribute_class('strong', ['def-name']).'>'.
-       $self->convert_tree($name_element,
-                           "DEF_NAME $def_command")
-       .'</strong>';
-    pop_code_context($self);
+       $def_name_text .'</strong>';
   }
 
   if (defined($arguments)) {
@@ -7671,11 +7682,8 @@ sub _convert_def_line_type($$$$) {
   # arguments not only metasyntactic variables
   # (deftypefn, deftypevr, deftypeop, deftypecv)
     if (exists($Texinfo::Common::def_no_var_arg_commands{$base_command_name})) {
-      set_code_context($self, 1);
-      my $arguments_formatted
-        = $self->convert_tree($arguments,
-                              $explanation);
-      pop_code_context($self);
+      my $arguments_formatted = $self->convert_tree_in_code_context($arguments,
+                                                                 $explanation);
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
         $def_call .= $self->html_attribute_class('code',
@@ -7684,9 +7692,10 @@ sub _convert_def_line_type($$$$) {
       }
     } else {
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
-      set_code_context($self, 0);
+      # TODO not in API
+      _set_code_context($self, 0);
       my $arguments_formatted = $self->convert_tree($arguments, $explanation);
-      pop_code_context($self);
+      _pop_code_context($self);
       if ($arguments_formatted =~ /\S/) {
         $def_call .= ' ' unless($element->{'extra'}->{'omit_def_name_space'});
         $def_call .= $self->html_attribute_class('var',
@@ -14088,9 +14097,9 @@ sub _convert($$;$) {
                   = _convert($self, $arg, $explanation);
               }
             } elsif ($arg_type eq 'monospace') {
-              set_code_context($self, 1);
+              _set_code_context($self, 1);
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);
-              pop_code_context($self);
+              _pop_code_context($self);
             } elsif ($arg_type eq 'string') {
               _new_document_context($self, $command_type, $CTXF_string);
               $arg_formatted->{$arg_type} = _convert($self, $arg, $explanation);

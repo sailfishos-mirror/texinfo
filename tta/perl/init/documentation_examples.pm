@@ -295,9 +295,9 @@ sub my_tree_element_convert_paragraph_type($$$$)
   my @contents = @{$element->{'contents'}};
   push @contents, {'text' => ' <code>HTML</code> text ',
                    'type' => '_converted'};
-  $converter->set_code_context(1);
-  my $result = $converter->convert_tree({'contents' => \@contents});
-  $converter->pop_code_context();
+  my $result
+    = $converter->convert_tree_in_code_context(
+      Texinfo::TreeElement::new({'contents' => \@contents}));
   return "<p>".$result."</p>";
 }
 
@@ -321,10 +321,8 @@ sub my_final_convert_paragraph_type($$$$)
   push @contents,
     Texinfo::TreeElement::new({'text' => ' <code>HTML</code> text ',
                                'type' => '_converted'});
-  $converter->set_code_context(1);
-  my $result = $converter->convert_tree(
+  my $result = $converter->convert_tree_in_code_context(
      Texinfo::TreeElement::new({'contents' => \@contents}));
-  $converter->pop_code_context();
   return "<p>".$prepended.$result."</p>";
 }
 

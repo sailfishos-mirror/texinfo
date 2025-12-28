@@ -1,5 +1,15 @@
 2025-12-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (_set_code_context)
+	(_pop_code_context, convert_tree_in_code_context): rename
+	set_code_context as _set_code_context and pop_code_context as
+	_pop_code_context.  Add convert_tree_in_code_context that calls
+	_set_code_context, then convert tree and _pop_code_context.  Use that
+	function instead of _set_code_context and convert_tree in code that
+	could be user-defined.
+
+2025-12-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_conversion_state.c (html_new_document_context),
 	tta/perl/Texinfo/Convert/HTML.pm (_new_document_context): reorganize
 	code and modify Perl code to be more similar to C code.
