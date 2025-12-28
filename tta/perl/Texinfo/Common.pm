@@ -1169,6 +1169,7 @@ sub informative_command_value($) {
   return undef, undef;
 }
 
+# ALTIMP C/main/utils.c
 # Handle @set txicodequoteundirected as an
 # alternative to @codequoteundirected.
 sub element_value_equivalent($) {
@@ -1195,6 +1196,10 @@ sub element_value_equivalent($) {
         }
       }
     }
+    # returning a cmdname avoid having the argument checked, and
+    # having an undef value means that the value will be ignored.
+    # So this return value leads to the command being ignored.
+    return ($cmdname, undef);
   }
 
   return (undef, undef);

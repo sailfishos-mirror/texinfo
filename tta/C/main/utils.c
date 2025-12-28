@@ -2281,6 +2281,7 @@ get_cmd_global_uniq_command (const GLOBAL_COMMANDS *global_commands_ref,
    }
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 /* Handle @set txicodequoteundirected as an
    alternative to @codequoteundirected. */
 const char *
@@ -2307,6 +2308,8 @@ element_value_equivalent (const ELEMENT *element, enum command_id *cmd_out)
                 return "off";
             }
         }
+
+      *cmd_out = cmd;
     }
   return 0;
 }

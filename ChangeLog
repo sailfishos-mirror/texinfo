@@ -1,5 +1,15 @@
 2025-12-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/utils.c (element_value_equivalent),
+	tta/perl/Texinfo/Common.pm (element_value_equivalent): return the
+	input command name and an undefined value if an equivalent command is
+	not found.
+
+	* tta/perl/Texinfo/Convert/LaTeX.pm (%informative_commands): fix a
+	typo in module name.
+
+2025-12-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_internal_command_tree): use better
 	default for tree->status.
 
