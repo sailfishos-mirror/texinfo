@@ -87,26 +87,29 @@ html_new_document_context (CONVERTER *self,
 
   doc_context = &stack->stack[stack->top];
   memset (doc_context, 0, sizeof (HTML_DOCUMENT_CONTEXT));
-  doc_context->context = strdup (context_name);
-  if (document_global_context)
-    doc_context->document_global_context = strdup (document_global_context);
 
-  if (context_type & CTXF_code)
-    push_integer_stack_integer (&doc_context->monospace, 1);
-  else
-    push_integer_stack_integer (&doc_context->monospace, 0);
+  doc_context->context = strdup (context_name);
   push_integer_stack_integer (&doc_context->preformatted_context, 0);
   push_command_or_type (&doc_context->composition_context, 0, 0);
-  if (block_command)
-    push_command (&doc_context->block_commands, block_command);
+  push_html_formatting_context (&doc_context->formatting_context,
+                                "_format");
+
+  if (document_global_context)
+    doc_context->document_global_context = strdup (document_global_context);
 
   if (document_global_context)
     {
       self->document_global_context_counter++;
     }
 
-  push_html_formatting_context (&doc_context->formatting_context,
-                                "_format");
+  if (context_type & CTXF_code)
+    push_integer_stack_integer (&doc_context->monospace, 1);
+  else
+    push_integer_stack_integer (&doc_context->monospace, 0);
+
+  if (block_command)
+    push_command (&doc_context->block_commands, block_command);
+
   stack->top++;
 
   if (context_type & CTXF_string)

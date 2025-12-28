@@ -8239,31 +8239,35 @@ sub _new_document_context($$;$$$) {
   my ($self, $context, $context_type, $document_global_context,
       $block_command) = @_;
 
-  push @{$self->{'document_context'}},
-          {'context' => $context,
+  my $doc_context =
+         {'context' => $context,
            'formatting_context' => [{'context_name' => '_format'}],
            'composition_context' => [''],
            'preformatted_context' => [0],
            'inside_preformatted' => 0,
-           'monospace' => [0],
            'document_global_context' => $document_global_context,
            'block_commands' => [],
           };
+
   if (defined($document_global_context)) {
     $self->{'document_global_context_counter'}++;
   }
+
+  if (defined($context_type) and ($context_type & $CTXF_code)) {
+    $doc_context->{'monospace'} = [1];
+  } else {
+    $doc_context->{'monospace'} = [0];
+  }
+
   if (defined($block_command)) {
-    push @{$self->{'document_context'}->[-1]->{'block_commands'}},
+    push @{$doc_context->{'block_commands'}},
             $block_command;
   }
-  if (defined($context_type)) {
-    if ($context_type & $CTXF_string) {
-      $self->{'document_context'}->[-1]->{'string'}++;
-    }
-    if ($context_type & $CTXF_code) {
-      set_code_context($self, 1);
-    }
+
+  if (defined($context_type) and ($context_type & $CTXF_string)) {
+    $doc_context->{'string'}++;
   }
+  push @{$self->{'document_context'}}, $doc_context;
 }
 
 sub _pop_document_context($) {
