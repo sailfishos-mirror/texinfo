@@ -2491,14 +2491,20 @@ panels, menus or indices, may appear more than once in the document and be
 converted more than once, if language changes, for example.
 
 For such cases, the function is
-@code{convert_tree_new_formatting_context} which sets the context appropriately.
+@code{convert_tree_new_formatting_context} which creates a new document
+formatting context appropriately.
 @code{convert_tree_new_formatting_context} ultimately calls @code{convert_tree}.
 
 @deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree_new_formatting_context @
-      (@var{\%element}, @var{$context}, @var{$multiple_pass}, @var{$global_context}, @
+      (@var{\%element}, @var{$context}, @var{$expansion_context_flags}, @var{$multiple_pass}, @var{$global_context}, @
        @var{$block_command_name})
-@var{\%element} is a Texinfo tree element.  @var{$context} describes the new
-context setup to format out of the main conversion flow.  @var{$multiple_pass}
+@var{\%element} is a Texinfo tree element.  @var{$context} is a string that
+describes the new context setup to format out of the main conversion flow.
+The value is used for debugging output only.  @var{$expansion_context_flags}
+is an optional integer specifying the expansion context that is wanted for
+the new document context, and is described next
+(@pxref{Setting the Expansion Context for Conversion}).
+@var{$multiple_pass}
 is an optional string that marks that the conversion is done more than once.
 It should be unique and suitable for inclusion in targets and identifiers.
 @var{$global_context} is an optional string that marks that the formatting may
@@ -2511,44 +2517,93 @@ The function returns @var{\%element} converted, setting the conversion context
 according to the arguments.
 @end deftypefun
 
-@xref{Setting the Context for Conversion} on how to set a specific context for
-a Texinfo tree conversion.
 
+@node Setting the Expansion Context for Conversion
+@subsection Setting the Expansion Context for Conversion
 
-@node Setting the Context for Conversion
-@subsection Setting the Context for Conversion
+The expansion context is not generally customizable, as it is
+implied by the Texinfo command being converted
+(@pxref{Init File Expansion Contexts}).  However, it
+is possible to set the code or the string expansion context
+explicitly if needed.  You often need expansion in string context
+for HTML elements attributes.  The
+code expansion context is already set for @@-commands such as @code{@@code} or
+@code{@@example}.  However, it cannot be set automatically in every situation
+where it is relevant, in those cases you should set it explicitly.  For
+example, node names appearing in headings,
+most parts of the definition lines (except for the category), and index
+entries in index defined by @code{@@defcodeindex} in
+@code{@@printindex} formatting should be formatted in code expansion context.
 
-Special container types are recognized by the converter and can
-be used to convert a Texinfo tree in a specific context.  Those
-types cannot appear in a regular Texinfo tree.  In general they
-should be the type of tree root elements setup by the user.
+To set code expansion in the main formatting document context, call
+@code{convert_tree_in_code_context}:
 
-The types are:
+@deftypefun {@var{$converted_text} =} @var{$converter}->convert_tree_in_code_context (@var{\%element}, @var{$explanation})
+@var{\%element} is a Texinfo tree element. @var{$explanation} is
+optional, it is a string explaining why the function was called, to help
+in case of debugging.  The function sets code expansion context and
+returns @var{\%element} converted by @code{convert_tree}.
+@end deftypefun
+
+In the following example, the content of an existing tree element is copied,
+text is prependended and the resulting new tree element is converted in
+code expansion context:
+@example
+@group
+my @@contents = @@@{$element->@{'contents'@}@};
+push @@contents, Texinfo::TreeElement::new(@{'text' => ' HTML text '@});
+my $new_element = Texinfo::TreeElement::new(@{'contents' => \@@contents@});
+my $result = $converter->convert_tree_in_code_context($new_element);
+return "<p>".$result."</p>";
+@end group
+@end example
+
+Since the main document expansion context should never be in string expansion
+context it is not possible to set string expansion context in the main
+formatting document context.
+
+You can set the expansion context with
+@code{convert_tree_new_formatting_context}
+by setting the expansion context flags argument with flags
+set for the expansions you want.  You can set different flags concurrently,
+in case you want to set multiple explansion contexts.  The flags
+are:
 
 @table @code
-@item _code
-In this container, the conversion is done in a code context
-@xref{Init File Expansion Contexts}.  For a container tree element.
+@item $Texinfo::Convert::HTML::CTXF_string
+Add this flag for an expansion in string context.
 
-@item _converted
-The text of this text element is considered to be already formatted.
-
-@item _string
-In this container, the conversion is done in a string context.
-@xref{Init File Expansion Contexts}.  For a container tree element.
-
+@item $Texinfo::Convert::HTML::CTXF_code
+Add this flag for an expansion in code context.
 @end table
 
-These contexts are typically used together with converter conversion
-functions (@pxref{Texinfo Tree Conversion Functions}).
 For example:
 
 @example
-my @@contents = @@@{$element->@{'contents'@}@};
-push @@contents, @{'text' => ' <code>HTML</code> text ',
-                   'type' => '_converted'@};
-my $result = $converter->convert_tree(@{'type' => '_code',
-                                  'contents' => \@@contents @});
+@group
+# conversion in string context
+my $result_string = $converter->convert_tree_new_formatting_context(
+                     $element, 'in string',
+                     $Texinfo::Convert::HTML::CTXF_string);
+@end group
+
+@group
+my $multi_flag = 0;
+$multi_flag |= $Texinfo::Convert::HTML::CTXF_string;
+$multi_flag |= $Texinfo::Convert::HTML::CTXF_code;
+# conversion in code and string context
+my $result_code_string
+    = $converter->convert_tree_new_formatting_context(
+                     $element, 'in code string', $multi_flag);
+@end group
+
+@group
+if ($converter->in_string()) @{
+  return $result_string;
+@}
+return "<i title=\"$result_string\">$text</i>\n"
+        . "<i title=\"$result_code_string\">again $text</i>\n";
+@end group
 @end example
 
 
@@ -3483,8 +3538,8 @@ which should only be the case for types ignored in HTML.
 
 Here is an example of paragraph formatting that prepends some HTML code
 to each paragraph and formats in code context
-(@pxref{Setting the Context for Conversion}).  It also shows how string
-context can be taken into account.
+(@pxref{Setting the Expansion Context for Conversion}).  It also shows how
+string context can be taken into account.
 
 @example
 @group
@@ -3504,10 +3559,9 @@ sub my_tree_element_convert_paragraph_type($$$$)
 
 @group
   my @@contents = @@@{$element->@{'contents'@}@};
-  push @@contents, @{'text' => ' <code>HTML</code> text ',
-                   'type' => '_converted'@};
-  my $result = $converter->convert_tree(@{'type' => '_code',
-                                   'contents' => \@@contents @});
+  push @@contents, Texinfo::TreeElement::new(@{'text' => ' HTML text '@});
+  my $new_element = Texinfo::TreeElement::new(@{'contents' => \@@contents@});
+  my $result = $converter->convert_tree_in_code_context($new_element);
   return "<p>".$result."</p>";
 @}
 @end group
@@ -3755,10 +3809,9 @@ sub my_final_convert_paragraph_type($$$$)
 
 @group
   my @@contents = @@@{$element->@{'contents'@}@};
-  push @@contents, @{'text' => ' <code>HTML</code> text ',
-                   'type' => '_converted'@};
-  my $result = $converter->convert_tree(@{'type' => '_code',
-                                   'contents' => \@@contents @});
+  push @@contents, Texinfo::TreeElement::new(@{'text' => ' HTML text '@});
+  my $new_element = Texinfo::TreeElement::new(@{'contents' => \@@contents@});
+  my $result = $converter->convert_tree_in_code_context($new_element);
   return "<p>".$prepended.$result."</p>";
 @}
 @end group
@@ -4046,6 +4099,13 @@ Texinfo tree elements.
       @{ 'homepage' => @{ 'text' => $converter->get_conf('PACKAGE_URL') @},
         'program' => @{ 'text' => $converter->get_conf('PROGRAM') @}@});
 @end example
+
+@cindex @code{_converted} special text element
+@cindex Special text element, @code{_converted}
+When combining conversion and translation, it can be useful to insert
+already converted text.  A special text element with type @code{_converted}
+can be used for that purpose, the text of this text element is considered
+to be already formatted.
 
 An example of combining conversion with translation:
 @example

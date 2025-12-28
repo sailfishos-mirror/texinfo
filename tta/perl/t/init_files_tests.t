@@ -77,6 +77,7 @@ my $documentation_examples_text = '
 @email{a@@b.c, someone}
 @sc{in Sc}
 @var{in var}
+@slanted{``slant--@code{this}}
 
 @math{@sansserif{in--math} @- a=b @error{} @equiv{}}
 

@@ -15,9 +15,6 @@ system.h macros are duplicated in C/main/utils.h.  Ok?
 Document 'style_commands_formatting' and 'no_arg_commands_formatting' in
 texi2any_api.texi
 
-Document
- convert_tree_in_code_context
-
 Bugs
 ====
 

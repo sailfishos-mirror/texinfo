@@ -1,5 +1,27 @@
 2025-12-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_conversion_state.c (html_new_document_context):
+	allow an undefined context_name.
+
+	* doc/texi2any_api.texi (Texinfo Tree Conversion Functions)
+	(Setting the Expansion Context for Conversion)
+	(Internationalization of Strings Function): rename "Setting the
+	Context for Conversion" as "Setting the Expansion Context for
+	Conversion".  Modify for changes in
+	convert_tree_new_formatting_context call and changes in setting the
+	context.  Document _converted special text element in
+	"Internationalization of Strings Function".
+
+	* tta/perl/init/documentation_examples.pm,
+	tta/perl/t/init_files_tests.t ($documentation_examples_text): add
+	example of convert_tree_new_formatting_context call, simplify the
+	convert_tree_in_code_context example use.
+
+	* doc/texi2any_api.texi (Inline Text Containers Formatting)
+	(Type Tree Element Conversion Functions): update with simpler example.
+
+2025-12-28 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (_set_code_context)
 	(_pop_code_context, convert_tree_in_code_context): rename
 	set_code_context as _set_code_context and pop_code_context as
@@ -17,7 +39,7 @@
 2025-12-27 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/HTML.pm ($CTXF_string, $CTXF_code): make
-	our. 
+	our.
 
 2025-12-27 Patrice Dumas  <pertusus@free.fr>
 

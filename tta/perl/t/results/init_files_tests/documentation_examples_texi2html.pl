@@ -136,7 +136,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    *brace_container C1
     {in titlefont}
   {\\n}
-  *paragraph C6
+  *paragraph C8
    *@email C2 l15
     *brace_arg C3
      {a}
@@ -156,55 +156,62 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     *brace_container C1
      {in var}
    {\\n}
+   *@slanted C1 l18
+    *brace_container C2
+     {``slant--}
+     *@code C1 l18
+      *brace_container C1
+       {this}
+   {\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@math C1 l19
+   *@math C1 l20
     *brace_command_context C7
-     *@sansserif C1 l19
+     *@sansserif C1 l20
       *brace_container C1
        {in--math}
      { }
      *@-
      { a=b }
-     *@error C1 l19
+     *@error C1 l20
       *brace_container
      { }
-     *@equiv C1 l19
+     *@equiv C1 l20
       *brace_container
    {\\n}
   {empty_line:\\n}
-  *@indentedblock C3 l21
+  *@indentedblock C3 l22
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
-   *@example C3 l22
+   *@example C3 l23
     *arguments_line C1
      *block_line_arg
      |INFO
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
     *preformatted C10
-     *@sansserif C1 l23
+     *@sansserif C1 l24
       *brace_container C1
        {in--example}
      { }
      *@-
      { c. }
-     *@error C1 l23
+     *@error C1 l24
       *brace_container
      { }
-     *@equiv C1 l23
+     *@equiv C1 l24
       *brace_container
      {\\n}
-     *@email C1 l24
+     *@email C1 l25
       *brace_arg C3
        {a}
        *@@
        {example}
      {\\n}
-    *@end C1 l25
+    *@end C1 l26
     |INFO
     |spaces_before_argument:
      |{spaces_before_argument: }
@@ -215,7 +222,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
      |spaces_after_argument:
       |{spaces_after_argument:\\n}
       {example}
-   *@end C1 l26
+   *@end C1 l27
    |INFO
    |spaces_before_argument:
     |{spaces_before_argument: }
@@ -227,20 +234,20 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
      |{spaces_after_argument:\\n}
      {indentedblock}
   {empty_line:\\n}
-  *@display C3 l28
+  *@display C3 l29
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
    *preformatted C2
-    *@email C1 l29
+    *@email C1 l30
      *brace_arg C3
       {a}
       *@@
       {display}
     {\\n}
-   *@end C1 l30
+   *@end C1 l31
    |INFO
    |spaces_before_argument:
     |{spaces_before_argument: }
@@ -252,28 +259,28 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
      |{spaces_after_argument:\\n}
      {display}
   {empty_line:\\n}
-  *@displaymath C9 l32
+  *@displaymath C9 l33
    *arguments_line C1
     *block_line_arg
     |INFO
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
    {\\frac}
-   *balanced_braces C1 l33
+   *balanced_braces C1 l34
     {{h}}
-   *balanced_braces C3 l33
+   *balanced_braces C3 l34
     {{j}
-    *@sup C1 l33
+    *@sup C1 l34
      *brace_container C1
       {2}
     {}}
    { \\dv[n]}
-   *balanced_braces C1 l33
+   *balanced_braces C1 l34
     {{f}}
-   *balanced_braces C1 l33
+   *balanced_braces C1 l34
     {{x}}
    {\\n}
-   *@end C1 l34
+   *@end C1 l35
    |INFO
    |spaces_before_argument:
     |{spaces_before_argument: }
@@ -285,7 +292,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
      |{spaces_after_argument:\\n}
      {displaymath}
   {empty_line:\\n}
-  *index_entry_command@cindex C1 l36
+  *index_entry_command@cindex C1 l37
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
@@ -296,10 +303,10 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
-    *@file C1 l36
+    *@file C1 l37
      *brace_container C1
       {e1}
-  *index_entry_command@cindex C1 l37
+  *index_entry_command@cindex C1 l38
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
@@ -312,13 +319,13 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |{spaces_after_argument:\\n}
     {i2}
   {empty_line:\\n}
-  *index_entry_command@vindex C1 l39
+  *index_entry_command@vindex C1 l40
    *line_arg
    |INFO
    |spaces_after_argument:
     |{spaces_after_argument:    \\n}
   {empty_line:\\n}
-  *@documentlanguage C1 l41
+  *@documentlanguage C1 l42
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
@@ -332,16 +339,16 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     {fr}
   {empty_line:\\n}
   *paragraph C2
-   *@error C1 l43
+   *@error C1 l44
     *brace_container
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@equiv C1 l45
+   *@equiv C1 l46
     *brace_container
    {\\n}
   {empty_line:\\n}
-  *@contents C1 l47
+  *@contents C1 l48
   |EXTRA
   |global_command_number:{2}
    *line_arg
@@ -349,7 +356,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
   {empty_line:\\n}
- *@node C1 l49 {my node}
+ *@node C1 l50 {my node}
  |INFO
  |spaces_before_argument:
   |{spaces_before_argument: }
@@ -363,7 +370,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
     {my node}
- *@chapter C8 l50 {New node}
+ *@chapter C8 l51 {New node}
  |INFO
  |spaces_before_argument:
   |{spaces_before_argument: }
@@ -378,7 +385,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |{spaces_after_argument:\\n}
     {New node}
   {empty_line:\\n}
-  *@documentlanguage C1 l52
+  *@documentlanguage C1 l53
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
@@ -392,16 +399,16 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     {pl}
   {empty_line:\\n}
   *paragraph C2
-   *@error C1 l54
+   *@error C1 l55
     *brace_container
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
-   *@equiv C1 l56
+   *@equiv C1 l57
     *brace_container
    {\\n}
   {empty_line:\\n}
- *@node C1 l58 {Index}
+ *@node C1 l59 {Index}
  |INFO
  |spaces_before_argument:
   |{spaces_before_argument: }
@@ -416,7 +423,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
     {Index}
- *@appendix C4 l59 {Index}
+ *@appendix C4 l60 {Index}
  |INFO
  |spaces_before_argument:
   |{spaces_before_argument: }
@@ -431,7 +438,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |{spaces_after_argument:\\n}
     {Index}
   {empty_line:\\n}
-  *@printindex C1 l61
+  *@printindex C1 l62
   |INFO
   |spaces_before_argument:
    |{spaces_before_argument: }
@@ -444,7 +451,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
     |{spaces_after_argument:\\n}
     {cp}
   {empty_line:\\n}
- *@node C1 l63 {Second appendix}
+ *@node C1 l64 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{spaces_before_argument: }
@@ -458,7 +465,7 @@ $result_tree_text{'documentation_examples_texi2html'} = '*document_root C11
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
     {Second appendix}
- *@appendix C2 l64 {Second appendix}
+ *@appendix C2 l65 {Second appendix}
  |INFO
  |spaces_before_argument:
   |{spaces_before_argument: }
@@ -493,6 +500,7 @@ $result_texis{'documentation_examples_texi2html'} = '
 @email{a@@b.c, someone}
 @sc{in Sc}
 @var{in var}
+@slanted{``slant--@code{this}}
 
 @math{@sansserif{in--math} @- a=b @error{} @equiv{}}
 
@@ -558,6 +566,7 @@ in titlefont
 someone
 IN SC
 in var
+"slant-this
 
 in--math  a=b error-> ==
 
@@ -593,7 +602,7 @@ Appendix B Second appendix
 
 ';
 
-$result_errors{'documentation_examples_texi2html'} = '* W l39|@vindex missing argument
+$result_errors{'documentation_examples_texi2html'} = '* W l40|@vindex missing argument
  warning: @vindex missing argument
 
 ';
