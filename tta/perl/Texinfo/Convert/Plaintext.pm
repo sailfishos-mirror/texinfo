@@ -435,6 +435,9 @@ sub conversion_initialization($;$) {
     $self->set_document($document);
   }
 
+  $self->set_global_document_commands('before', \@informative_global_commands);
+  $self->set_global_document_commands('before', \@contents_commands);
+
   $self->{'context'} = [];
   $self->{'format_context'} = [];
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
@@ -450,6 +453,10 @@ sub conversion_initialization($;$) {
   $self->{'index_entry_node_colon'} = {};
   $self->{'index_entries_no_node'} = {};
   $self->{'seen_node_descriptions'} = {};
+
+  delete $self->{'outside_of_any_node_text'};
+
+  delete $self->{'current_node'};
 
   # for INFO_MATH_IMAGES
   #$self->{'elements_images'};
@@ -586,6 +593,7 @@ sub conversion_finalization($) {
     $self->present_bug_message("Remaining count_context at finalization (".
                         $count_contexts_nr . ")\n");
   }
+
   if ($count_contexts_nr > 0) {
     splice(@{$self->{'count_context'}}, 0, $count_contexts_nr);
   }

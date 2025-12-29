@@ -157,6 +157,8 @@
 #
 # @def* body should not have a wider right margin.  The wider margin
 # is because they are in quote environment.
+#
+# codequotebacktick and codequoteundirected could be relevant to handle.
 
 package Texinfo::Convert::LaTeX;
 
@@ -208,6 +210,19 @@ my %paper_geometry_commands = (
   'smallbook' => 'paperheight=9.25in,paperwidth=7in',
 );
 
+# All the line oriented informative commands are processed, even those whose
+# value is not used at all.
+# Commands with values used are those handled in _informative_command_output,
+# commands in heading_spec_commands, commands handled in _convert
+# contents, shortcontents and summarycontents and commands whose values are
+# used in conversion, deftypefnnewline and kbdinputstyle and
+# xrefautomaticsectiontitle.
+# Some of the commands not handled are in the TODO list at the beginning.
+# There are not that many other informative commands, a few are not relevant
+# for the conversion or not for printed output and the
+# odd/every/evenfoot/headingmarks are ignored.
+# Since most commands are useful, we handle or call set_conf for all of them,
+# it is less error-prone than selecting some.
 my %informative_commands;
 foreach my $informative_command
      (keys (%Texinfo::Common::document_settable_at_commands)) {
@@ -882,6 +897,14 @@ sub conversion_initialization($;$) {
   if (defined($document)) {
     $self->set_document($document);
   }
+
+  # note that we use Texinfo::Common::document_settable_at_commands and not
+  # informative_commands as in informative_commands set and clear have
+  # been added such as to process them during conversion in case they map to
+  # another command, but these two commands cannot be used to set default values.
+  my @all_informative_commands
+    = keys(%Texinfo::Common::document_settable_at_commands);
+  $self->set_global_document_commands('before', \@all_informative_commands);
 
   # initialization for a new document
   delete $self->{'index_entries'};
@@ -1872,6 +1895,8 @@ sub _informative_command_output($$) {
   return '';
 }
 
+# Defaults for LaTeX documents.  If set to those values, do not output
+# anything.
 my %LaTeX_defaults = (
   'firstparagraphindent' => 'none',
   'fonttextsize' => 11,

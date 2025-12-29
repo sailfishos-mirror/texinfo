@@ -441,7 +441,8 @@ count_errors (ERROR_MESSAGE_LIST *error_messages)
 }
 
 /* add file information to message and print out.  Similar to texi2any.pl
-   _output_error_messages.  Used from C only */
+   _output_error_messages.  Main difference is that converter
+   error messages are cleared in this function.  Used from C only */
 size_t
 output_error_messages (ERROR_MESSAGE_LIST *error_messages,
                        const char *message_encoding,

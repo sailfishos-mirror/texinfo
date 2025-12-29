@@ -226,6 +226,7 @@ set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
       const COMMAND_OPTION_NUMBER_CMD *option_nr_cmd
         = &txi_options_command_map[i];
       const OPTION *option = sorted_options[option_nr_cmd->option_number -1];
+
       if (if_set_in_list && !(option->flags & OF_set_in_list))
         continue;
       if (option->type == GOT_integer)
@@ -247,6 +248,7 @@ set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
           else
             commands_init_conf[option_nr_cmd->cmd].v.string = 0;
         }
+      commands_init_conf[option_nr_cmd->cmd].set = 1;
     }
 }
 
@@ -347,6 +349,14 @@ set_converter_init_information (CONVERTER *converter,
   if (format_defaults)
     {
       apply_converter_info (converter, format_defaults, 0);
+
+      /* Note that it is important to use format_defaults and not
+         converter similar data even though the options values are
+         copied to the converter, because the flags are not copied, and
+         are needed for set_commands_options_value with third argument
+         set */
+      set_commands_options_value (converter->commands_init_conf,
+                                  format_defaults->conf.sorted_options, 1);
     }
 
   if (user_conf)
@@ -1095,8 +1105,11 @@ command_init (enum command_id cmd, COMMAND_OPTION_VALUE *commands_init_conf)
   if (commands_init_conf)
     {
       const COMMAND_OPTION_VALUE *cmd_init_conf = &commands_init_conf[cmd];
+       /*
       if (cmd_init_conf->type == GOT_integer && cmd_init_conf->v.value >= 0
           || cmd_init_conf->type == GOT_char && cmd_init_conf->v.string)
+        */
+      if (cmd_init_conf->set)
         {
           result = (COMMAND_OPTION_VALUE *)
                           malloc (sizeof (COMMAND_OPTION_VALUE));

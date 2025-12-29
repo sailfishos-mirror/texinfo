@@ -656,13 +656,22 @@ get_converter_errors (SV *converter_in)
       PREINIT:
         CONVERTER *self = 0;
         const ERROR_MESSAGE_LIST *error_messages = 0;
+        HV *converter_hv = 0;
+        AV *empty_av;
       CODE:
+        /* the C converter may have been destroyed already */
         self = get_sv_converter (converter_in, 0);
         if (self && self->error_messages.number)
           error_messages = &self->error_messages;
         RETVAL = pass_errors_to_hv (error_messages,
                                     converter_in,
                                     "error_warning_messages");
+        /* replace the messages from the converter by an empty array */
+        converter_hv = (HV *) SvRV (converter_in);
+        empty_av = newAV ();
+        hv_store (converter_hv, "error_warning_messages",
+                  strlen ("error_warning_messages"),
+                  newRV_noinc ((SV *) empty_av), 0);
         if (error_messages)
           wipe_error_message_list (&self->error_messages);
     OUTPUT:

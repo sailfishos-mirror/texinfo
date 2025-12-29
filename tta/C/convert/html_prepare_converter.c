@@ -183,6 +183,11 @@ static const enum command_id conf_for_special_units[]
 static const enum command_id contents_elements_options[]
              = {CM_contents, CM_shortcontents, CM_summarycontents, 0};
 
+static const enum command_id informative_global_commands[]
+             = {CM_documentlanguage, CM_footnotestyle,
+                CM_xrefautomaticsectiontitle,
+                CM_deftypefnnewline, 0};
+
 static const enum command_id conf_for_documentlanguage[]
                           = {CM_documentlanguage, 0};
 
@@ -3584,6 +3589,9 @@ html_conversion_initialization (CONVERTER *self, const char *context)
       self->added_title_tree = 0;
     }
   self->title_tree = 0;
+
+  set_global_document_commands (self, CL_before, informative_global_commands);
+  set_global_document_commands (self, CL_before, contents_elements_options);
 
   html_reset_shared_conversion_state (self);
 

@@ -202,6 +202,7 @@ typedef struct COMMAND_OPTION_NUMBER_CMD {
 /* definitions for table of options corresponding to commands */
 typedef struct COMMAND_OPTION_VALUE {
     enum global_option_type type;
+    int set;
     union {
       int value;
       char *string;

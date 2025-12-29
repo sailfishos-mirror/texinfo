@@ -277,9 +277,13 @@ sub _generic_converter_init($$;$) {
 
   my %defaults = %all_converters_defaults;
 
+  $converter->{'commands_init_conf'} = {};
   if (defined($format_defaults)) {
     foreach my $key (keys(%$format_defaults)) {
       $defaults{$key} = $format_defaults->{$key};
+      if (exists($Texinfo::Common::document_settable_at_commands{$key})) {
+        $converter->{'commands_init_conf'}->{$key} = $defaults{$key};
+      }
     }
   }
   $converter->{'conf'} = {};
@@ -293,7 +297,6 @@ sub _generic_converter_init($$;$) {
 
   $converter->{'configured'} = {};
   # customization options obtained from command-line for @-commands.
-  $converter->{'commands_init_conf'} = {};
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if (Texinfo::Common::valid_customization_option($key)) {
@@ -717,7 +720,10 @@ sub converter_document_warn($$;$) {
 sub get_converter_errors($) {
   my $self = shift;
 
-  return $self->{'error_warning_messages'};
+  my $errors = $self->{'error_warning_messages'};
+
+  $self->{'error_warning_messages'} = [];
+  return $errors;
 }
 
 sub merge_converter_error_messages_lists_noxs($$) {
@@ -1416,7 +1422,7 @@ sub get_command_init($$) {
   # Texinfo::Common::document_settable_at_commands, we do not check here.
   # If it is not the case, it should not make a difference anyway, as this
   # function should only be called with those commands in argument.
-  if (defined($init_conf->{$global_command})) {
+  if (exists($init_conf->{$global_command})) {
     return $init_conf->{$global_command};
   }
   return $Texinfo::Common::document_settable_at_commands{$global_command};
@@ -1447,8 +1453,8 @@ sub set_global_document_commands($$$) {
       # for commands not appearing in the document, this should set to
       # the converter initialization value, which is in init_conf,
       # or generic default
-      $self->set_conf($global_command,
-                      get_command_init($global_command, $init_conf));
+      my $conf_value = get_command_init($global_command, $init_conf);
+      $self->set_conf($global_command, $conf_value);
       # NOTE if the variable is set from an handler, or in the converter after
       # $init_conf was set, but before starting the conversion, it is ignored
       # here and the $init_conf value is set.  The previously set value

@@ -12222,6 +12222,10 @@ sub conversion_initialization($$;$) {
     $self->{'converter_info'}->{'document'} = $document;
   }
 
+  # needed if a converter is reused
+  $self->set_global_document_commands('before', \@informative_global_commands);
+  $self->set_global_document_commands('before', \@contents_commands);
+
   $self->{'shared_conversion_state'} = {};
 
   $self->{'document_context'} = [];

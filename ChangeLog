@@ -1,3 +1,36 @@
+2025-12-29 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/convert/converter.c (set_commands_options_value)
+	(command_init), tta/C/main/option_types.h (COMMAND_OPTION_VALUE): add
+	set field to COMMAND_OPTION_VALUE, set it when the value is set and
+	use the value to determine if the command value is set.  This allows
+	to pass 'undef' by avoiding to consider a command value set if not
+	NULL for strings and positive for integers.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (get_command_init): set the
+	value from init_conf if it exists, such that undef values registered
+	in commands_init_conf are obtained.
+
+	* tta/C/convert/converter.c (set_converter_init_information),
+	tta/perl/Texinfo/Convert/Converter.pm (_generic_converter_init): set
+	converter format defaults in commands_init_conf.
+
+	* tta/C/convert/html_prepare_converter.c (informative_global_commands)
+	(html_conversion_initialization), tta/perl/Texinfo/Convert/HTML.pm
+	(conversion_initialization), tta/perl/Texinfo/Convert/LaTeX.pm
+	(conversion_initialization), tta/perl/Texinfo/Convert/Plaintext.pm
+	(conversion_initialization): call set_global_document_commands on the
+	lists of relevant global commands for the different formats.  For
+	LaTeX, most of the commands are used, so do it for all the commands in
+	Texinfo::Common::document_settable_at_commands.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (conversion_initialization):
+	reset outside_of_any_node_text and current_node.
+
+	* tta/perl/Texinfo/Convert/Converter.pm (get_converter_errors),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (get_converter_errors):
+	remove the errors at the end of the call to get_converter_errors.
+
 2025-12-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/utils.c (element_value_equivalent),
