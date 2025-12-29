@@ -91,10 +91,15 @@ texinfo_register_command_formatting('setchapternewpage',
 texinfo_register_global_direction ('Appendix');
 texinfo_register_direction_string_info ('Appendix', 'text', undef, 'Appendix');
 
+my $counter = 0;
+
 my $shown_styles;
 my $footnotestyle;
 sub my_function_set_some_css {
   my $converter = shift;
+
+  $counter = 0;
+
   my $all_included_rules = $converter->css_get_info('rules');
   my $all_default_selectors = $converter->css_get_info('styles');
   my $titlefont_style = $converter->css_get_selector_style('h1.titlefont');
@@ -126,6 +131,7 @@ sub my_function_set_some_css {
 
 texinfo_register_handler('setup', \&my_function_set_some_css);
 
+my $buttons_done;
 sub _set_appendix_direction_node_name
 {
   my ($self, $document, $stage) = @_;
@@ -154,11 +160,15 @@ sub _set_appendix_direction_node_name
     }
   }
 
-  my $section_header_buttons_list
-    = $self->get_conf('SECTION_BUTTONS');
-  my @modified_buttons = @$section_header_buttons_list;
-  push @modified_buttons, 'Appendix';
-  $self->set_conf('SECTION_BUTTONS', \@modified_buttons);
+  if (!$buttons_done) {
+    my $section_header_buttons_list
+      = $self->get_conf('SECTION_BUTTONS');
+    my @modified_buttons = @$section_header_buttons_list;
+    push @modified_buttons, 'Appendix';
+    $self->set_conf('SECTION_BUTTONS', \@modified_buttons);
+
+    $buttons_done = 1;
+  }
 
   return 0;
 }
@@ -391,7 +401,6 @@ sub my_test_documentation_convert_indented_command($$$$$)
 texinfo_register_command_formatting('indentedblock',
                 \&my_test_documentation_convert_indented_command);
 
-my $counter = 0;
 sub my_test_documentation_convert_index_entry_command_type($$$$)
 {
   my $converter = shift;

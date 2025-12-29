@@ -1,5 +1,11 @@
 2025-12-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/init/documentation_examples.pm: initialize and
+	re-initialize variables to allow for multiple calls of the functions
+	for the same converter.
+
+2025-12-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (set_commands_options_value)
 	(command_init), tta/C/main/option_types.h (COMMAND_OPTION_VALUE): add
 	set field to COMMAND_OPTION_VALUE, set it when the value is set and
