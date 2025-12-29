@@ -359,7 +359,9 @@ sub _convert($$$) {
   } else {
     $result = $converter->output($document);
     close_files($converter);
-    #$converter->converter_remove_output_units();
+    $converter->converter_remove_output_units();
+    # forget the error messages of the first conversion
+    #$converter->get_converter_errors();
     #$result = $converter->output($document);
     #close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));

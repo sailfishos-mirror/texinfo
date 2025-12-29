@@ -571,8 +571,8 @@ BODY-OF-DESCRIPTION
 do something with input
 @end deftypefun
 
-']
-,['tex_expanded_in_copying',
+'],
+['tex_expanded_in_copying',
 '@copying
 @tex
 aa
@@ -998,6 +998,23 @@ In top@footnote{Additional text}.
 @chapter Chap
 
 ',{}, {'MONOLITHIC' => 0},],
+['deftypefnnewline_on_in_middle',
+'@node Top
+@top top
+
+@node chap
+@chapter Chapter
+
+@deftypefun void something input
+do something with input
+@end deftypefun
+
+@deftypefnnewline on
+
+@deftypefun TYPE NAME ARGUMENTS...
+BODY-OF-DESCRIPTION
+@end deftypefun
+'],
 );
 
 my $file_name_case_insensitive_conflict_node = '@node Top

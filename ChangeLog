@@ -1,5 +1,11 @@
 2025-12-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t
+	(deftypefnnewline_on_in_middle): add test setting deftypefnnewline on
+	in the middle of a document or HTML.
+
+2025-12-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/init/documentation_examples.pm: initialize and
 	re-initialize variables to allow for multiple calls of the functions
 	for the same converter.
