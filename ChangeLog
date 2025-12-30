@@ -1,6 +1,6 @@
 2025-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
-	* info/info.c (dump_node_to_file_and_quit): New wrapper function.
+	* info/info.c (dump_nodes_to_file_and_quit): New wrapper function.
 	(main) <--all, --output>: Use it.
 
 2025-12-30  Gavin Smith <gavinsmith0123@gmail.com>
