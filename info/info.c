@@ -713,6 +713,25 @@ add_file_directory_to_path (char *filename)
   free (directory_name);
 }
 
+static void
+info_session_or_dump_one_node (NODE *node,
+                               const char *user_output_filename)
+{
+  if (!user_output_filename)
+    info_session_one_node (node);
+  else
+    {
+      FILE *output_stream = 0;
+      if (strcmp (user_output_filename, "-") == 0)
+        output_stream = stdout;
+      else
+        output_stream = fopen (user_output_filename, "w");
+
+      if (output_stream)
+        write_node_to_stream (node, output_stream);
+    }
+}
+
 
 /* **************************************************************** */
 /*                                                                  */
@@ -1025,7 +1044,7 @@ main (int argc, char *argv[])
           NODE *man_node = get_manpage_node (argv[0]);
           if (man_node)
             {
-              info_session_one_node (man_node);
+              info_session_or_dump_one_node (man_node, user_output_filename);
               exit (0);
             }
         }
@@ -1044,28 +1063,11 @@ main (int argc, char *argv[])
       initial_fb = info_find_file (initial_file);
       if (initial_fb)
         {
-          NODE *node = create_virtual_index (initial_fb,
-                                             index_search_string);
+          NODE *node = create_virtual_index (initial_fb, index_search_string);
           if (node)
             {
-              if (user_output_filename)
-                {
-                  FILE *output_stream = 0;
-                  if (strcmp (user_output_filename, "-") == 0)
-                    output_stream = stdout;
-                  else
-                    output_stream = fopen (user_output_filename, "w");
-                  if (output_stream)
-                    {
-                      write_node_to_stream (node, output_stream);
-                    }
-                  exit (0);
-                }
-              else
-                {
-                  info_session_one_node (node);
-                  exit (0);
-                }
+              info_session_or_dump_one_node (node, user_output_filename);
+              exit (0);
             }
         }
     }
