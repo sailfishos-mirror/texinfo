@@ -1,3 +1,8 @@
+2025-12-30 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/t/test_utils.pl (_convert, convert_to_*): get converter
+	initialization errors separately from conversion errors.
+
 2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Character reference for @print{} in HTML

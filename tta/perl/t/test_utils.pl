@@ -352,22 +352,28 @@ sub _convert($$$) {
 
   my $result;
 
+  # Get the errors in converter before doing any conversion
+  my $converter_init_errors = $converter->get_converter_errors();
+
   if ($do_convert) {
     $result = $converter->convert($document);
-    #$converter->converter_remove_output_units();
+    $converter->converter_remove_output_units();
+    ## forget the error messages of the first conversion
+    #$converter->get_converter_errors();
     #$result = $converter->convert($document);
+    #$converter->converter_remove_output_units();
   } else {
     $result = $converter->output($document);
     close_files($converter);
     $converter->converter_remove_output_units();
-    # forget the error messages of the first conversion
+    ## forget the error messages of the first conversion
     #$converter->get_converter_errors();
     #$result = $converter->output($document);
     #close_files($converter);
     $result = undef if (defined($result) and ($result eq ''));
   }
 
-  return $result;
+  return $result, $converter_init_errors;
 }
 
 sub convert_to_plaintext($$$$$)
@@ -396,10 +402,10 @@ sub convert_to_plaintext($$$$$)
 
   my $converter = Texinfo::Convert::Plaintext->converter($converter_options);
 
-  my $result = _convert($converter, $document,
+  my ($result, $converter_init_errors) = _convert($converter, $document,
                                    (defined($converter_options->{'OUTFILE'})
                                     and $converter_options->{'OUTFILE'} eq ''));
-  return ($result, $converter);
+  return ($result, $converter, $converter_init_errors);
 }
 
 sub convert_to_info($$$$$)
@@ -416,11 +422,11 @@ sub convert_to_info($$$$$)
 
   my $converter = Texinfo::Convert::Info->converter($converter_options);
 
-  my $result = _convert($converter, $document, 0);
+  my ($result, $converter_init_errors) = _convert($converter, $document, 0);
 
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
 
-  return ($result, $converter);
+  return ($result, $converter, $converter_init_errors);
 }
 
 sub convert_to_html($$$$$)
@@ -443,11 +449,12 @@ sub convert_to_html($$$$$)
 
   my $converter = Texinfo::Convert::HTML->converter($converter_options);
 
-  my $result = _convert($converter, $document, $format eq 'html_text');
+  my ($result, $converter_init_errors)
+     = _convert($converter, $document, $format eq 'html_text');
 
   die if (!defined($converter_options->{'SUBDIR'}) and !defined($result));
 
-  return ($result, $converter);
+  return ($result, $converter, $converter_init_errors);
 }
 
 sub convert_to_xml($$$$$)
@@ -464,10 +471,10 @@ sub convert_to_xml($$$$$)
 
   my $converter = Texinfo::Convert::TexinfoXML->converter($converter_options);
 
-  my $result = _convert($converter, $document,
+  my ($result, $converter_init_errors) = _convert($converter, $document,
                                    (defined($converter_options->{'OUTFILE'})
                                     and $converter_options->{'OUTFILE'} eq ''));
-  return ($result, $converter);
+  return ($result, $converter, $converter_init_errors);
 }
 
 sub convert_to_docbook($$$$$)
@@ -498,11 +505,11 @@ sub convert_to_docbook($$$$$)
   #my $converter = Texinfo::Example::ReadDocBook->converter($converter_options);
   my $converter = Texinfo::Convert::DocBook->converter($converter_options);
 
-  my $result = _convert($converter, $document,
+  my ($result, $converter_init_errors) = _convert($converter, $document,
                                     (defined($converter_options->{'OUTFILE'})
                                      and $converter_options->{'OUTFILE'} eq ''
                                      and $format ne 'docbook_doc'));
-  return ($result, $converter);
+  return ($result, $converter, $converter_init_errors);
 }
 
 sub convert_to_latex($$$$$)
@@ -519,9 +526,10 @@ sub convert_to_latex($$$$$)
 
   my $converter = Texinfo::Convert::LaTeX->converter($converter_options);
 
-  my $result = _convert($converter, $document, $format eq 'latex_text');
+  my ($result, $converter_init_errors)
+     = _convert($converter, $document, $format eq 'latex_text');
 
-  return ($result, $converter);
+  return ($result, $converter, $converter_init_errors);
 }
 
 sub output_preamble_postamble_html($$)
@@ -1120,8 +1128,9 @@ sub test($$)
         if (!exists($format_converter_options->{'TEST'}));
       $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'/t/include/'];
-      my $converter;
-      ($converted{$format}, $converter)
+      #print STDERR "Doing $test_name: $format\n";
+      my ($converter, $converter_init_errors);
+      ($converted{$format}, $converter, $converter_init_errors)
            = &{$formats{$format}}($self, $test_name, $format_type,
                                   $document, $format_converter_options);
 
@@ -1138,6 +1147,8 @@ sub test($$)
       }
       # output converted result and errors in files if $arg_output is set
       if ($arg_output) {
+        # FIXME wrong for errors, should output errors after they have been
+        # collected.
         mkdir ("$output_files_dir/$self->{'name'}")
           if (! -d "$output_files_dir/$self->{'name'}");
         my $extension;
@@ -1209,12 +1220,14 @@ sub test($$)
       $converter->converter_remove_output_units();
       $converter->destroy_converter();
 
+      my $converter_errors = [@{$converter_init_errors}];
       my $conversion_errors = $converter->get_converter_errors();
-      if (!scalar(@$conversion_errors)) {
+      push @{$converter_errors}, @{$conversion_errors};
+      if (!scalar(@$converter_errors)) {
         $converted_errors{$format} = undef;
       } else {
         $converted_errors{$format}
-          = Texinfo::Report::errors_print_details($conversion_errors,
+          = Texinfo::Report::errors_print_details($converter_errors,
                                           $input_file_names_encoding, 1);
       }
 
