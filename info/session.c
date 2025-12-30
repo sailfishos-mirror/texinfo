@@ -1376,3 +1376,198 @@ info_abort (void)
   info_initialize_numeric_arg ();
 }
 
+
+
+/* **************************************************************** */
+/*                                                                  */
+/*                 Dumping and Printing Nodes                       */
+/*                                                                  */
+/* **************************************************************** */
+
+struct info_namelist_entry
+{
+  struct info_namelist_entry *next;
+  char name[1];
+};
+
+static int
+info_namelist_add (struct info_namelist_entry **ptop, const char *name)
+{
+  struct info_namelist_entry *p;
+
+  for (p = *ptop; p; p = p->next)
+    if (fncmp (p->name, name) == 0)
+      return 1;
+
+  p = xmalloc (sizeof (*p) + strlen (name));
+  strcpy (p->name, name);
+  p->next = *ptop;
+  *ptop = p;
+  return 0;
+}
+
+static void
+info_namelist_free (struct info_namelist_entry *top)
+{
+  while (top)
+    {
+      struct info_namelist_entry *next = top->next;
+      free (top);
+      top = next;
+    }
+}
+
+enum
+  {
+    DUMP_SUCCESS,
+    DUMP_INFO_ERROR,
+    DUMP_SYS_ERROR
+  };
+
+static int dump_node_to_stream (FILE_BUFFER *file_buffer,
+                          char *nodename, FILE *stream, int dump_subnodes);
+static void initialize_dumping (void);
+
+/* Dump the nodes specified with REFERENCES to the file named
+   in OUTPUT_FILENAME.  If DUMP_SUBNODES is set, recursively dump
+   the nodes which appear in the menu of each node dumped. */
+void
+dump_nodes_to_file (REFERENCE **references,
+                    char *output_filename, int dump_subnodes)
+{
+  int i;
+  FILE *output_stream;
+
+  if (!references)
+    return;
+
+  /* Get the stream to print the nodes to.  Special case of an output
+     filename of "-" means to dump the nodes to stdout. */
+  if (strcmp (output_filename, "-") == 0)
+    output_stream = stdout;
+  else
+    output_stream = fopen (output_filename, "w");
+
+  if (!output_stream)
+    {
+      info_error (_("Could not create output file '%s'"), output_filename);
+      return;
+    }
+
+  initialize_dumping ();
+
+  /* Print each node to stream. */
+  for (i = 0; references[i]; i++)
+    {
+      FILE_BUFFER *file_buffer;
+      char *nodename;
+
+      file_buffer = info_find_file (references[i]->filename);
+      if (!file_buffer)
+        {
+          if (info_recent_file_error)
+            info_error ("%s", info_recent_file_error);
+          continue;
+        }
+      if (references[i]->nodename && *references[i]->nodename)
+        nodename = references[i]->nodename;
+      else
+        nodename = "Top";
+      if (dump_node_to_stream (file_buffer, nodename,
+                               output_stream, dump_subnodes) == DUMP_SYS_ERROR)
+        {
+          info_error (_("error writing to %s: %s"), output_filename,
+                      strerror (errno));
+          exit (EXIT_FAILURE);
+        }
+    }
+
+  if (output_stream != stdout)
+    fclose (output_stream);
+
+  debug (1, (_("closing %s"), output_filename));
+}
+
+/* A place to remember already dumped nodes. */
+static struct info_namelist_entry *dumped_already;
+
+static void
+initialize_dumping (void)
+{
+  info_namelist_free (dumped_already);
+  dumped_already = NULL;
+}
+
+/* Get and print the node specified by FILENAME and NODENAME to STREAM.
+   If DUMP_SUBNODES is non-zero, recursively dump the nodes which appear
+   in the menu of each node dumped. */
+static int
+dump_node_to_stream (FILE_BUFFER *file_buffer,
+                     char *nodename,
+                     FILE *stream, int dump_subnodes)
+{
+  register int i;
+  NODE *node;
+
+  node = info_get_node_of_file_buffer (file_buffer, nodename);
+
+  if (!node)
+    {
+      info_error (msg_cant_find_node, nodename);
+      return DUMP_INFO_ERROR;
+    }
+
+  /* If we have already dumped this node, don't dump it again. */
+  if (info_namelist_add (&dumped_already, node->nodename))
+    {
+      free_node (node);
+      return DUMP_SUCCESS;
+    }
+
+  /* Maybe we should print some information about the node being output. */
+  debug (1, (_("writing node %s..."), node_printed_rep (node)));
+
+  if (write_node_to_stream (node, stream))
+    {
+      free_node (node);
+      return DUMP_SYS_ERROR;
+    }
+
+  /* If we are dumping subnodes, get the list of menu items in this node,
+     and dump each one recursively. */
+  if (dump_subnodes)
+    {
+      REFERENCE **menu = NULL;
+
+      /* If this node is an Index, do not dump the menu references. */
+      if (string_in_line ("Index", node->nodename) == -1)
+        menu = node->references;
+
+      if (menu)
+        {
+          for (i = 0; menu[i]; i++)
+            {
+              if (REFERENCE_MENU_ITEM != menu[i]->type) continue;
+
+              /* We don't dump Info files which are different than the
+                 current one. */
+              if (!menu[i]->filename)
+                if (dump_node_to_stream (file_buffer, menu[i]->nodename,
+                      stream, dump_subnodes) == DUMP_SYS_ERROR)
+                  {
+                    free_node (node);
+                    return DUMP_SYS_ERROR;
+                  }
+            }
+        }
+    }
+
+  free_node (node);
+  return DUMP_SUCCESS;
+}
+
+int
+write_node_to_stream (NODE *node, FILE *stream)
+{
+  return fwrite (node->contents, node->nodelen, 1, stream) != 1;
+}

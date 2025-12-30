@@ -1,5 +1,15 @@
 2025-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Move dumping functions between files
+
+	* info/session-cmd.c, info/session.c
+	(dump_nodes_to_file, write_node_to_stream)
+	(struct info_namelist_entry, info_namelist_free)
+	(dump_node_to_stream, initialize_dumping, dumped_already)
+	Move to session.c.
+
+2025-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	info: Fix outputting manpage to file
 
 	* info/info.c (info_session_or_dump_one_node):
