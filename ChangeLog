@@ -1,3 +1,16 @@
+2025-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info: Fix outputting manpage to file
+
+	* info/info.c (info_session_or_dump_one_node):
+	New function, wrapping info_session_one_node.  Dump node to
+	output file if --output given or info output was piped.
+	(main): Call info_session_or_dump_one_node both for manpage nodes
+	and for "virtual index" nodes.
+
+	This fixes piping the output of 'info' when a manpage is loaded,
+	as in "info man | head".  Report from Arne Babenhauserheide.
+
 2025-12-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.tres, tta/perl/t/html_tests.t
