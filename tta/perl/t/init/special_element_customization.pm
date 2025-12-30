@@ -33,9 +33,9 @@ my %translations = (
 );
 
 
-sub _texi2any_tests_special_unit_translate_message($$$;$)
-{
+sub _texi2any_tests_special_unit_translate_message($$$;$) {
   my ($converter, $string, $lang, $translation_context) = @_;
+
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})
@@ -52,8 +52,7 @@ texinfo_register_formatting_function('format_translate_message',
 
 # avoid doing twice if there are more than one manual processed
 my $button_added;
-sub _texi2any_tests_special_unit_add_button
-{
+sub _texi2any_tests_special_unit_add_button {
   my ($self, $document, $stage) = @_;
 
   if (!$button_added) {
@@ -62,6 +61,8 @@ sub _texi2any_tests_special_unit_add_button
     $self->set_conf('SECTION_BUTTONS', \@section_buttons);
     $button_added = 1;
   }
+
+  return 0;
 }
 
 texinfo_register_handler('setup', \&_texi2any_tests_special_unit_add_button);

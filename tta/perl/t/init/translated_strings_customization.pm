@@ -38,9 +38,9 @@ my %translations = (
           },
 );
 
-sub _texi2any_tests_format_translate_message($$$;$)
-{
+sub _texi2any_tests_format_translate_message($$$;$) {
   my ($converter, $string, $lang, $translation_context) = @_;
+
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})
@@ -60,8 +60,7 @@ texinfo_register_formatting_function('format_translate_message',
 # function that returns a correct status once and fails the second time.
 # avoid doing twice if there are more than one manual processed
 my $button_added;
-sub _texi2any_tests_translate_add_button
-{
+sub _texi2any_tests_translate_add_button {
   my ($self, $document, $stage) = @_;
 
   if (!$button_added) {
@@ -79,6 +78,8 @@ sub _texi2any_tests_translate_add_button
 
     $button_added = 1;
   }
+
+  return 0;
 }
 
 texinfo_register_handler('setup', \&_texi2any_tests_translate_add_button);

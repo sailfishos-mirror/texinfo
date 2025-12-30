@@ -3,8 +3,7 @@ use strict;
 
 # avoid doing twice if there are more than one manual processed
 my $button_added;
-sub _texi2any_tests_special_unit_replace_button
-{
+sub _texi2any_tests_special_unit_replace_button {
   my ($self, $document, $stage) = @_;
 
   if (!$button_added) {
@@ -25,6 +24,8 @@ sub _texi2any_tests_special_unit_replace_button
     }
     $button_added = 1;
   }
+
+  return 0;
 }
 
 texinfo_register_handler('setup', \&_texi2any_tests_special_unit_replace_button);
