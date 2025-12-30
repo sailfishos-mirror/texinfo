@@ -1100,7 +1100,6 @@ main (int argc, char *argv[])
 
       fprintf (stderr, _("no index entries found for '%s'\n"),
                index_search_string);
-      close_dribble_file ();
       exit (1);
     }
 
