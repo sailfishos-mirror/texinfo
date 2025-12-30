@@ -732,6 +732,21 @@ info_session_or_dump_one_node (NODE *node,
     }
 }
 
+static void
+dump_nodes_to_file_and_quit (REFERENCE **references, char *output_filename,
+                             int dump_subnodes, const char *error)
+{
+  preprocess_nodes_p = 0;
+  dump_nodes_to_file (ref_list, user_output_filename, dump_subnodes);
+
+  if (error)
+    {
+      info_error ("%s", error);
+      exit (1);
+    }
+  exit (0);
+}
+
 
 /* **************************************************************** */
 /*                                                                  */
@@ -1003,6 +1018,13 @@ main (int argc, char *argv[])
 
           for (i = 0; ref_list[i]; i++)
             printf ("%s\n", ref_list[i]->filename);
+          exit (0);
+        }
+
+      if (user_output_filename)
+        {
+          dump_nodes_to_file_and_quit (ref_list, user_output_filename,
+                                       dump_subnodes, error);
         }
       else
         {
@@ -1011,8 +1033,8 @@ main (int argc, char *argv[])
             info_session_allfiles (ref_list, user_filename, error);
           else
             info_session (ref_list, error);
+          exit (0);
         }
-      exit (0);
     }
 
   /* --show-options */
@@ -1117,15 +1139,8 @@ main (int argc, char *argv[])
   /* --output */
   if (user_output_filename)
     {
-      preprocess_nodes_p = 0;
-      dump_nodes_to_file (ref_list, user_output_filename, dump_subnodes);
-
-      if (error)
-        {
-          info_error ("%s", error);
-          exit (1);
-        }
-      exit (0);
+      dump_nodes_to_file_and_quit (ref_list, user_output_filename,
+                                   dump_subnodes, error);
     }
 
   if (ref_index == 0)
