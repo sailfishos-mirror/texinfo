@@ -1,5 +1,14 @@
 2025-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/session.c (dump_nodes_to_file):
+	Call initialize_dumping for each node in the list we were passed
+	to dump.  This means we reset the list of dumped nodes each time
+	round.  This makes "info --all MANUAL --output=-" work as
+	expected: before, only one version of an installed manual would
+	be output.
+
+2025-12-30  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info.c (dump_nodes_to_file_and_quit): New wrapper function.
 	(main) <--all, --output>: Use it.
 

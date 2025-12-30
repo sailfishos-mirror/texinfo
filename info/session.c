@@ -1454,13 +1454,13 @@ dump_nodes_to_file (REFERENCE **references,
       return;
     }
 
-  initialize_dumping ();
-
   /* Print each node to stream. */
   for (i = 0; references[i]; i++)
     {
       FILE_BUFFER *file_buffer;
       char *nodename;
+
+      initialize_dumping ();
 
       file_buffer = info_find_file (references[i]->filename);
       if (!file_buffer)
