@@ -164,6 +164,10 @@ int info_windows_initialized_p = 0;
 static void info_short_help (void);
 static void init_messages (void);
 
+static void info_session_or_dump_one_node (NODE *node);
+static void dump_nodes_to_file_and_quit (REFERENCE **references,
+                 char *output_filename, int dump_subnodes, const char *error);
+
 
 
 /* Debugging messages */
@@ -339,7 +343,7 @@ get_initial_file (int *argc, char ***argv, char **error)
             }
 
           NODE *node = node_from_hook_output (hook_name, hook_output, -1);
-          info_session_one_node (node);
+          info_session_or_dump_one_node (node);
           exit (0);
         }
       else if (status != 127)
@@ -513,7 +517,7 @@ add_initial_nodes (int argc, char **argv, char **error)
         invoc_node = info_intuit_options_node (top_node, program);
       if (invoc_node)
         {
-          info_session_one_node (invoc_node);
+          info_session_or_dump_one_node (invoc_node);
           exit (0);
         }
       free (program);
@@ -714,8 +718,7 @@ add_file_directory_to_path (char *filename)
 }
 
 static void
-info_session_or_dump_one_node (NODE *node,
-                               const char *user_output_filename)
+info_session_or_dump_one_node (NODE *node)
 {
   if (!user_output_filename)
     info_session_one_node (node);
@@ -1066,7 +1069,7 @@ main (int argc, char *argv[])
           NODE *man_node = get_manpage_node (argv[0]);
           if (man_node)
             {
-              info_session_or_dump_one_node (man_node, user_output_filename);
+              info_session_or_dump_one_node (man_node);
               exit (0);
             }
         }
@@ -1088,7 +1091,7 @@ main (int argc, char *argv[])
           NODE *node = create_virtual_index (initial_fb, index_search_string);
           if (node)
             {
-              info_session_or_dump_one_node (node, user_output_filename);
+              info_session_or_dump_one_node (node);
               exit (0);
             }
         }

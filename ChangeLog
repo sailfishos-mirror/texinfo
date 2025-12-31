@@ -1,3 +1,14 @@
+2025-12-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info: Avoid starting interactive session with --output flag
+
+	* info/info.c (get_initial_file, add_initial_files)
+	<hook node, invocation node>:
+	Call info_session_or_dump_one_node instead of info_session_one_node.
+
+	(info_session_or_dump_one_node): Get user output filename from
+	file-global variable rather than as a variable.
+
 2025-12-30  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/session.c (dump_nodes_to_file):
