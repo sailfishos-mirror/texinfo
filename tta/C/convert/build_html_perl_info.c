@@ -54,6 +54,8 @@
 /* for htmlxref_split_type_names
    html_nr_string_directions */
 #include "html_prepare_converter.h"
+/* to debug refcounts */
+#include "api_to_perl.h"
 #include "build_html_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -266,6 +268,7 @@ html_pass_conversion_initialization (CONVERTER *converter,
   HV *converter_hv;
   HV *converter_info_hv;
   HV *translation_cache_hv;
+  SV **converter_info_sv;
 
   dTHX;
 
@@ -276,14 +279,30 @@ html_pass_conversion_initialization (CONVERTER *converter,
 
   pass_converter_text_options (converter, converter_sv);
 
-  /* always set "converter_info" for calls to get_info in Perl. */
-  converter_info_hv = newHV ();
+  /* always set "converter_info" for calls to get_info in Perl.
+     Reuse, such that there are no stale references to trees
+     left.
+   */
+  converter_info_sv = hv_fetch (converter_hv, "converter_info",
+                                strlen ("converter_info"), 0);
+  if (converter_info_sv)
+    {
+      converter_info_hv = (HV *) SvRV (*converter_info_sv);
+      hv_clear (converter_info_hv);
 
-  STORE("converter_info", newRV_noinc ((SV *)converter_info_hv));
-  /* store in C to be sure that the caching is in the same Perl object
-     even if the Perl data changes */
-  converter->pl_info_hv = converter_info_hv;
-  SvREFCNT_inc (converter_info_hv);
+      if (converter_info_hv != converter->pl_info_hv)
+        fprintf (stderr, "REMARK: Perl and C stored converter_info differ\n");
+    }
+  else
+    {
+      converter_info_hv = newHV ();
+
+      STORE("converter_info", newRV_noinc ((SV *)converter_info_hv));
+      /* store in C to be sure that the caching is in the same Perl object
+        even if the Perl data changes */
+      converter->pl_info_hv = converter_info_hv;
+      SvREFCNT_inc (converter_info_hv);
+    }
 
   /* always (re)set.  For user-defined translations */
   translation_cache_hv = newHV ();
@@ -295,8 +314,8 @@ html_pass_conversion_initialization (CONVERTER *converter,
 
   if (converter->conf->CONVERT_TO_LATEX_IN_MATH.o.integer > 0)
     {
-      HV *options_latex_math_hv =
-      latex_build_options_for_convert_to_latex_math (converter);
+      HV *options_latex_math_hv
+       = latex_build_options_for_convert_to_latex_math (converter);
       hv_store (converter_hv, "options_latex_math",
                 strlen ("options_latex_math"),
                 newRV_noinc ((SV *)options_latex_math_hv), 0);
@@ -668,7 +687,8 @@ pass_sv_converter_info (const CONVERTER *converter,
     {
       hv_store (converter_info_hv, converter_info,
                 strlen (converter_info), new_sv, 0);
-      return newSVsv (new_sv);
+      SV *result = newSVsv (new_sv);
+      return result;
     }
 
   return newSV (0);
