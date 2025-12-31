@@ -1926,11 +1926,10 @@ html_prepare_css (CONVERTER *self)
         }
     }
 
-  for (i = 0; i < css_import_lines->number; i++)
-    html_css_add_info (self, CI_css_info_imports, css_import_lines->list[i]);
-
-  for (i = 0; i < css_rule_lines->number; i++)
-    html_css_add_info (self, CI_css_info_rules, css_rule_lines->list[i]);
+  clear_strings_list (&self->files_css_import_lines);
+  clear_strings_list (&self->files_css_rule_lines);
+  copy_strings (&self->files_css_import_lines, css_import_lines);
+  copy_strings (&self->files_css_rule_lines, css_rule_lines);
 
   destroy_strings_list (css_import_lines);
   destroy_strings_list (css_rule_lines);
@@ -3592,6 +3591,11 @@ html_conversion_initialization (CONVERTER *self, const char *context)
 
   set_global_document_commands (self, CL_before, informative_global_commands);
   set_global_document_commands (self, CL_before, contents_elements_options);
+
+  clear_strings_list (&self->css_import_lines);
+  clear_strings_list (&self->css_rule_lines);
+  copy_strings (&self->css_import_lines, &self->files_css_import_lines);
+  copy_strings (&self->css_rule_lines, &self->files_css_rule_lines);
 
   html_reset_shared_conversion_state (self);
 

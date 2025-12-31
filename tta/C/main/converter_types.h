@@ -852,10 +852,8 @@ typedef struct CONVERTER {
     TYPE_INTEGER_INFORMATION *html_customized_code_types;
     char *pre_class_types[TXI_TREE_TYPES_NUMBER];
     ACCENT_ENTITY_INFO accent_entities[BUILTIN_CMD_NUMBER];
-    /* next two can be changed by handlers, but are not reset for
-       a conversion */
-    STRING_LIST css_rule_lines;
-    STRING_LIST css_import_lines;
+    STRING_LIST files_css_rule_lines;
+    STRING_LIST files_css_import_lines;
   /* perl function references. This should be SV *sv,
      but we don't want to include the Perl headers everywhere; */
     const void *file_id_setting_refs[FIS_external_target_non_split_name+1];
@@ -912,6 +910,10 @@ typedef struct CONVERTER {
     /* next two set in conversion initialization */
     FIXED_STRING_WITH_LEN special_character[SC_non_breaking_space+1];
     FIXED_STRING_WITH_LEN line_break_element;
+    /* reset and set in conversion initialization, based on information
+       obtained at converter initialization in files_css_* */
+    STRING_LIST css_rule_lines;
+    STRING_LIST css_import_lines;
     /* reset and set in conversion initialization */
     CSS_SELECTOR_STYLE_LIST css_element_class_styles;
     /* filled based on css_element_class_styles when needed */
