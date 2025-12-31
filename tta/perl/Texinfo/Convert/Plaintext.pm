@@ -454,6 +454,13 @@ sub conversion_initialization($;$) {
   $self->{'index_entries_no_node'} = {};
   $self->{'seen_node_descriptions'} = {};
 
+  # If a tree is reused, for example is converted twice, it could
+  # be possible and more efficient to reuse the converted node names.
+  # However, in that case, the error messages emitted during their
+  # conversion will not be emitted at each conversion, which seems
+  # to be preferrable.
+  $self->{'node_names_text'} = {};
+
   delete $self->{'outside_of_any_node_text'};
 
   delete $self->{'current_node'};
