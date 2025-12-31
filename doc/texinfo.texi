@@ -8919,8 +8919,8 @@ typeset the ampersand character.
 However, the ampersand character is treated specially in just
 one restricted context.   In the argument to a definition command
 (@pxref{Definition Commands}), an ampersand followed by a series
-of letters may be typeset specially when processing with @TeX{}
-@footnote{This syntax is used for Emacs Lisp keywords. @xref{A
+of letters may be typeset specially when processing with
+@TeX{}@footnote{This syntax is used for Emacs Lisp keywords. @xref{A
 Sample Function Description,,, elisp, GNU Emacs Lisp Reference
 Manual}.} (@pxref{Def Cmd Conventions}).  For example:
 
