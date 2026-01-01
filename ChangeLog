@@ -1,6 +1,20 @@
 2026-01-01 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Simple Customization for Commands Without
+	Arguments, Simple Output Customization for Simple Commands with
+	Braces): add code to the contexts handled with preformatted.
+
+	* doc/texi2any_api.texi (Commands Without Arguments Formatting):
+	explain how to access to information on formatting for commands
+	without argument, through no_arg_commands_formatting.
+
+	* doc/texi2any_api.texi (Simple Commands with Braces Formatting):
+	explain how to access to information on formatting for simple commands
+	with braces formatting, through style_commands_formatting.
+
+2026-01-01 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Simple Customization for Commands Without
 	Arguments), tta/perl/Texinfo/Config.pm
 	(texinfo_register_no_arg_command_formatting)
 	(texinfo_register_no_arg_command_texinfo): add another function to

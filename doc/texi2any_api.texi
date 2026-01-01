@@ -605,9 +605,9 @@ with @code{texinfo_register_no_arg_command_formatting}:
         $context, $text, $html_element, $translated_string_converted)
 @var{$command_name} is the @@-command name, without the leading @@.
 @var{$context} is @samp{normal}, @samp{preformatted} or @samp{string}.
-There is no separate math context, @samp{preformatted} should be used
-for math context. @xref{Init File Expansion Contexts}.  If @var{$context}
-is @code{undef}, the @samp{normal} context is assumed.
+There is no separate math nor code context, @samp{preformatted} should be used
+for math and code contexts. @xref{Init File Expansion Contexts}.  If
+@var{$context} is @code{undef}, the @samp{normal} context is assumed.
 
 The remaining arguments determine the formatting.  If @var{$text} is set,
 the corresponding text is output when the @@-command is formatted.  @var{$text}
@@ -717,12 +717,12 @@ arguments (e.g., @code{@@asis}, @code{@@clicksequence}, @code{@@sup},
 @defun texinfo_register_style_command_formatting ($command_name, @
                                      $html_element, $in_quotes, $context)
 @var{$command_name} is the @@-command name, without the leading @@.
-@var{$context} is @samp{normal} or @samp{preformatted}.
-There is no separate math context, @samp{preformatted} should be used
-for math context. @xref{Init File Expansion Contexts}.  There is no string
-context either, as in string context simple formatting without the need
-for per command information should be sufficient.  If @var{$context}
-is @code{undef}, the @samp{normal} context is assumed.
+@var{$context} is @samp{normal} or @samp{preformatted}.  There is no separate
+math nor code context, @samp{preformatted} should be used for math and code
+context. @xref{Init File Expansion Contexts}.  There is no string context
+either, as in string context simple formatting without the need for per command
+information should be sufficient.  If @var{$context} is @code{undef}, the
+@samp{normal} context is assumed.
 
 If @var{$html_element} is set, the argument is enclosed between the
 @var{$html_element} element opening and the element closing.
@@ -3440,6 +3440,93 @@ my ($output_unit, $root_command)
  = $converter->get_element_root_command_element($printindex_element);
 my $index_element_id = $converter->command_id($root_command);
 @end example
+
+
+@node Commands Without Arguments Formatting
+@subsection Commands Without Arguments Formatting
+
+The information on commands without arguments formatting obtained from defaults
+and customization (@pxref{Simple Customization for Commands Without Arguments})
+can be accessed through the @samp{no_arg_commands_formatting} key of the
+converter.  The value is a hash, with command name keys (without @@).  The
+value associated to a command name is also a hash with the following
+keys corresponding to expansion contexts (@pxref{Init File Expansion Contexts}):
+
+@table @code
+@item normal
+Formatting for the normal context.
+
+@item preformatted
+Formatting for the code, preformatted and math context.
+
+@item string
+Formatting for the string context.
+
+@end table
+
+The value associated is also a hash, with the following
+keys:
+
+@table @code
+@item text
+HTML text, possibly with elements (not in the string expansion context) corresponding
+to the @@-command.  Can be directly specified or obtained through translation,
+and also possibly through translation and conversion.
+
+@item element
+HTML element.  Directly specified.
+@end table
+
+for example, for the @code{@@equiv} command in preformatted context:
+@example
+@group
+if ($converter->in_preformatted_context() or $converter->in_math()) @{
+  my $specification
+   = $converter->@{'no_arg_commands_formatting'@}->@{'equiv'@}
+                                             ->@{'preformatted'@};
+  my $text = '';
+  if (exists($specification->@{'text'@})) @{
+    $text = $specification->@{'text'@};
+  @}
+  if (exists($specification->@{'element'@})) @{
+    return '<'.$specification->@{'element'@}.'>'
+       . $text . '</'.$specification->@{'element'@}.'>';
+  @} else @{
+    return $text;
+  @}
+@}
+@end group
+@end example
+
+
+@node Simple Commands with Braces Formatting
+@subsection Simple Commands with Braces Formatting
+
+The information on commands without arguments formatting obtained from defaults
+and customization (@pxref{Simple Output Customization for Simple Commands with Braces})
+can be accessed through the @samp{style_commands_formatting} key of the
+converter.  The value is a hash, with command name keys (without @@).  The
+value associated to a command name is also a hash with the following
+keys corresponding to expansion contexts (@pxref{Init File Expansion Contexts}):
+
+@table @code
+@item normal
+Formatting for the normal context.
+
+@item preformatted
+Formatting for the code, preformatted and math context.
+@end table
+
+The value associated is also a hash, with the following
+keys:
+
+@table @code
+@item element
+HTML element.
+
+@item quote
+Set if the argument is expected to be in quotes.
+@end table
 
 
 @node Specific Formatting for Indices
