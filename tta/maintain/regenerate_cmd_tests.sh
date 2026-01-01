@@ -2,7 +2,7 @@
 # Use information from test driving files to regenerate test scripts
 # that run only one test, and file lists to be used in Makefiles.
 #
-# Copyright 2013-2025 Free Software Foundation, Inc.
+# Copyright 2013-2026 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without

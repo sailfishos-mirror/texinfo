@@ -1,6 +1,6 @@
 #! /usr/bin/env perl
 # pod2texi -- convert Pod to Texinfo.
-# Copyright 2012-2025 Free Software Foundation, Inc.
+# Copyright 2012-2026 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -856,7 +856,7 @@ Texinfo home page: L<https://www.gnu.org/software/texinfo/>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2012-2025 Free Software Foundation, Inc.
+Copyright 2012-2026 Free Software Foundation, Inc.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

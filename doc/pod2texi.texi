@@ -161,7 +161,7 @@ Texinfo home page: @url{https://www.gnu.org/software/texinfo/}
 @subsubheading pod2texi COPYRIGHT AND LICENSE
 @anchor{pod2texi COPYRIGHT AND LICENSE}
 
-Copyright 2012-2025 Free Software Foundation, Inc.
+Copyright 2012-2026 Free Software Foundation, Inc.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

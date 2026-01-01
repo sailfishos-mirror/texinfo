@@ -8,7 +8,7 @@
 # tests, but to check that the resulting XML can be parsed and contain the
 # same information as in the corresponding Texinfo code.
 #
-# Copyright 2022-2025 Free Software Foundation, Inc.
+# Copyright 2022-2026 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without

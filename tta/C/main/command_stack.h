@@ -1,7 +1,7 @@
 /* command_stack.h - declarations for command_stack.c */
 #ifndef COMMAND_STACK_H
 #define COMMAND_STACK_H
-/* Copyright 2010-2025 Free Software Foundation, Inc.
+/* Copyright 2010-2026 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by

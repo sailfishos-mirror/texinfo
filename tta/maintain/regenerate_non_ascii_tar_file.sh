@@ -1,7 +1,7 @@
 #! /bin/sh
 # Regenerate tta/tests/input/non_ascii.tar
 #
-# Copyright 2024-2025 Free Software Foundation, Inc.
+# Copyright 2024-2026 Free Software Foundation, Inc.
 #
 
 #set -x

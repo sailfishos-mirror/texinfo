@@ -2,7 +2,7 @@
 # test_refold.sh: compare the output of parse_refold.pl and the original
 # file for all the Texinfo manuals generated based on tta/perl/t/*.t tests
 
-# Copyright 2025 Free Software Foundation, Inc.
+# Copyright 2025-2026 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

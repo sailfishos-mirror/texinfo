@@ -1,7 +1,7 @@
 /* use_interpreter_types.h - types for interpreter use */
 #ifndef USE_INTEPRETER_TYPES_H
 #define USE_INTEPRETER_TYPES_H
-/* Copyright 2025 Free Software Foundation, Inc.
+/* Copyright 2025-2026 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by

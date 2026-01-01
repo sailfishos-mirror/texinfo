@@ -1,6 +1,6 @@
 # Makefile.am for texinfo/util.
 #
-# Copyright 2005-2025 Free Software Foundation, Inc.
+# Copyright 2005-2026 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without

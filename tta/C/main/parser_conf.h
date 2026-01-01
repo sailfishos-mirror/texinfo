@@ -1,7 +1,7 @@
 /* parser_conf.h - declarations for parser_conf.c */
 #ifndef PARSER_CONF_H
 #define PARSER_CONF_H
-/* Copyright 2010-2025 Free Software Foundation, Inc.
+/* Copyright 2010-2026 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
