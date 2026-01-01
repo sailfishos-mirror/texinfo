@@ -1,3 +1,8 @@
+2026-01-01 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/init/documentation_examples.pm (my_function_set_some_css):
+	set $footnotestyle_before_setting only once.
+
 2025-12-31 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/Plaintext.pm (conversion_initialization):

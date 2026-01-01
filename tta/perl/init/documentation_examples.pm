@@ -95,6 +95,7 @@ my $counter = 0;
 
 my $shown_styles;
 my $footnotestyle;
+my $footnotestyle_before_setting;
 sub my_function_set_some_css {
   my $converter = shift;
 
@@ -108,9 +109,12 @@ sub my_function_set_some_css {
             $converter->css_get_selector_style('h1.shorttitlepage');
   $converter->css_set_selector_style('h1.titlefont', 'text-align:center');
 
-  my $footnotestyle_before_setting = $converter->get_conf('footnotestyle');
-  $footnotestyle_before_setting = 'UNDEF'
-     if (not defined($footnotestyle_before_setting));
+  # Need to set it only once, since it will be changed
+  if (!defined($footnotestyle_before_setting)) {
+    $footnotestyle_before_setting = $converter->get_conf('footnotestyle');
+    $footnotestyle_before_setting = 'UNDEF'
+      if (not defined($footnotestyle_before_setting));
+  }
   $converter->set_conf('footnotestyle', 'separate');
   $footnotestyle = $main_program_footnotestyle
                     .'|'.$footnotestyle_before_setting
@@ -121,8 +125,8 @@ sub my_function_set_some_css {
   # is called.
   #print STDERR "all_included_rules: ".join('|', @$all_included_rules)."\n";
 
-  $converter->define_shared_conversion_state ('quotation', 'color',
-                                              ['string', 'integer']);
+  $converter->define_shared_conversion_state('quotation', 'color',
+                                             ['string', 'integer']);
   $converter->set_shared_conversion_state('quotation', 'color',
                                           'special_black', 42);
 
