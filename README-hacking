@@ -251,6 +251,11 @@ Look for omissions by running, e.g.
 at the top level.  It's likely that the script doesn't find all the
 years that should be updated yet.
 
+Update copyright years in usage notices (can also be done at release
+time but may as well do at New Year's as well):
+* util/texi2dvi, util/texi2pdf, tta/perl/texi2any.pl, info/info.c,
+  install-info/install-info.c, texindex/ti.twjr, Pod-Simple-Texinfo/pod2texi
+
 
 - Note on "reproducible builds"
 
