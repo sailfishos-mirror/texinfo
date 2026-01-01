@@ -1,5 +1,11 @@
 2026-01-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/ext/epub3.pm (epub_setup, epub_finish): save values of
+	OUTFILE and SUBDIR before setting them with force_conf, and reset them
+	after the convversion.
+
+2026-01-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/init/documentation_examples.pm (my_function_set_some_css):
 	set $footnotestyle_before_setting only once.
 

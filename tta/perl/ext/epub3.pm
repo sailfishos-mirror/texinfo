@@ -498,6 +498,7 @@ sub epub_setup($)
   }
 
   my $split = $self->get_conf('SPLIT');
+
   # determine main epub directory and directory for xhtml files,
   # reset OUTFILE and SUBDIR to match with the epub directory
   # for XHTML output
@@ -507,6 +508,7 @@ sub epub_setup($)
     # if not undef, OUTFILE will be used as directory name in
     # determine_files_and_directory() which does not make sense
     if ($split) {
+      $self->{'saved_OUTFILE'} = $epub_outfile;
       $self->force_conf('OUTFILE', undef);
     }
   }
@@ -518,9 +520,10 @@ sub epub_setup($)
   # the $epub_destination_directory is removed automatically,
   # so we try to set it to a directory that the user would not create
   # nor populate with files.
-  if (defined($self->get_conf('SUBDIR'))) {
-    $epub_destination_directory = join('/', ($self->get_conf('SUBDIR'),
-                                          $document_name . '_epub_package'));
+  my $subdir = $self->get_conf('SUBDIR');
+  if ($subdir) {
+    $epub_destination_directory = join('/', ($subdir,
+                                  $document_name . '_epub_package'));
   } elsif ($split) {
     $epub_destination_directory = $destination_directory;
   } else {
@@ -531,8 +534,8 @@ sub epub_setup($)
                           $epub_document_dir_name, $epub_xhtml_dir));
   # set for XHTML conversion
   if ($split) {
+    $self->{'saved_SUBDIR'} = $subdir;
     $self->force_conf('SUBDIR', $epub_document_destination_directory);
-    $self->force_conf('OUTFILE', undef);
   } else {
     my $xhtml_output_file = $document_name;
     $xhtml_output_file .= '.'.$self->get_conf('EXTENSION')
@@ -590,6 +593,17 @@ sub epub_finish($$)
 
   my @epub_output_filenames = (@epub_output_units_filenames,
                                @epub_special_elements_filenames);
+
+  # Reset to the values before using force_conf.
+  if (exists($self->{'saved_OUTFILE'})) {
+    $self->force_conf('OUTFILE', $self->{'saved_OUTFILE'});
+    delete $self->{'saved_OUTFILE'};
+  }
+
+  if (exists($self->{'saved_SUBDIR'})) {
+    $self->force_conf('SUBDIR', $self->{'saved_SUBDIR'});
+    delete $self->{'saved_SUBDIR'};
+  }
 
   if (scalar(@epub_output_filenames) == 0) {
     if (defined($self->{'current_filename'})) {
