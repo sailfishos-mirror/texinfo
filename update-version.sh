@@ -31,7 +31,7 @@ perl -wpli -e 's/^(AC_INIT\(\[GNU Texinfo\]).*$/$1, ['$version']\)/' tta/perl/Ch
 perl -wpli -e 's/\(GNU Texinfo .*$/(GNU Texinfo '$version')/' util/texi2dvi
 perl -wpli -e 's/\(GNU Texinfo .*$/(GNU Texinfo '$version')/' util/texi2pdf
 perl -wpli -e \
-  's/(Texinfo documentation viewer )[0-9.]*(,)/${1}'$version'${2}/' \
+  's/(Texinfo documentation viewer )[0-9a-z.]*(,)/${1}'$version'${2}/' \
   js/info.js
 perl -wpli -e \
   's/(\\versionTexinfo\{).*$/${1}'$version'}/' \

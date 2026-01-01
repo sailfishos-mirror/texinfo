@@ -1,5 +1,10 @@
 2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* update-version.sh: fix updating info.js version to replace "dev"
+	suffix on version number.
+
+2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: note on updating version number in usage messages.
 
 2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
