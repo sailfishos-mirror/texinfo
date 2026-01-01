@@ -1,5 +1,12 @@
 2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@pounds, @textdegree):
+	Do not report that these commands could be output as "#" or
+	"o" respectively.  This is unlikely for real users' use cases
+	and would not be considered correct.
+
+2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/data/commands_values.txt:
 	correct name of Texinfo::Convert::NodeNameNormalization module
 	in a comment.

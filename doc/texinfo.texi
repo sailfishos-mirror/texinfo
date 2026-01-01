@@ -9771,7 +9771,13 @@ places.  The distribution includes installation instructions.
 
 Use the @code{@@pounds@{@}} command to generate `@pounds{}'.  Where
 possible, this is the symbol for the pounds sterling British currency.
+@ignore
+@c Unlikely to occur in user's output.
+@c Occurs with "-c OUTPUT_ENCODING_NAME=ascii" or
+@c "-c TEXINFO_OUTPUT_FORMAT=text".
+@c See also @textdegree{}.
 Otherwise, it is @samp{#}.
+@end ignore
 
 
 @node @code{@@textdegree}
@@ -9783,8 +9789,10 @@ Otherwise, it is @samp{#}.
 @cindex Degree symbol
 
 Use the @code{@@textdegree@{@}} command to generate `@textdegree{}'.
-Where possible, this is the normal symbol for degrees.  Otherwise,
-it is an @samp{o}.
+Where possible, this is the normal symbol for degrees.
+@ignore @c see @pounds{}
+Otherwise, it is an @samp{o}.
+@end ignore
 
 
 @node @code{@@minus}
