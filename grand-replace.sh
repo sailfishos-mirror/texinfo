@@ -101,7 +101,11 @@ not="-not -name grand-replace.sh"
 
 find_dir=.
 extensions='c|h|sh|pm|pl|texi|xs'
-named_files='configure.ac|Makefile.am|README|README-alpha|README-hacking|TODO'
+
+# note omit configure.ac and Makefile.am as touching these forces
+# configure to run next time "make" is run.  easier to update these
+# manually.
+named_files='README|README-alpha|README-hacking|TODO'
 
 ext_pattern=".*\.($extensions)"
 named_pattern=".*\/($named_files)"
