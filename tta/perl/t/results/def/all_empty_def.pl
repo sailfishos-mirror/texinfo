@@ -307,6 +307,9 @@ $result_converted{'html'}->{'all_empty_def'} = '<!DOCTYPE html>
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
+<style type="text/css">
+dt.def-line {font-size: 1rem}
+</style>
 
 
 </head>
