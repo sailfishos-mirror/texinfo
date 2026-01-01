@@ -16,7 +16,7 @@ find_missed () {
     -name "build-aux" -prune -o \
     -name "contrib" -prune -o \
     -wholename "./js/node_modules" -prune -o \
-    -wholename "./tta/t/results" -prune -o \
+    -wholename "./tta/perl/t/results" -prune -o \
     -wholename "./tta/tests/*/{res,out}_*" -prune -o \
     -type f \
     \( -name '*' \) \
@@ -39,7 +39,7 @@ find_missed () {
     -not -name "ChangeLog.*" \
     -not -name "COPYING" \
     -not -name "fdl.texi" \
-    -not -wholename "./tta/texi2any" \
+    -not -wholename "./tta/perl/texi2any" \
     -not -wholename "./util/htmlxref.d/Texinfo_GNU.cnf" \
     -not -wholename "./util/htmlxref.d/Texinfo_nonGNU.cnf" \
     -not -wholename "./Pod-Simple-Texinfo/pod2texi" \
@@ -129,7 +129,7 @@ not='-not -name htmlxref.cnf -not -name texi2dvi -not -name texi2pdf'
 
 change_files
 
-find_dir=tta/Texinfo
+find_dir=tta/perl/Texinfo
 extensions='txt|awk'
 ext_pattern=".*\.($extensions)"
 named_files=""
