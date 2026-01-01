@@ -178,6 +178,12 @@ named_pattern='.*\.(i|t|py)'
 
 change_files
 
+find_dir=texindex
+ext_pattern=".*\.(twjr|awk|in)"
+named_pattern='texindex'
+
+change_files
+
 find_dir=man
 extensions='1|5|h2m'
 named_files=''

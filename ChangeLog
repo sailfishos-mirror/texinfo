@@ -1,5 +1,9 @@
 2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* grand-replace.sh: further updates
+
+2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* grand-replace.sh: do not touch configure.ac or Makefile.am in
 	top-level directory.
 
