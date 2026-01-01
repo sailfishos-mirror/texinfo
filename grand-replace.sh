@@ -31,6 +31,7 @@ find_missed () {
     -not -name "*.info" \
     -not -name "*.info-?" \
     -not -wholename "./doc/txi-??.tex" \
+    -not -wholename "./doc/txi-??_??.tex" \
     -not -wholename "./doc/texinfo-ja.tex" \
     -not -wholename "./doc/texinfo-zh.tex" \
     -not -wholename "./doc/short-sample-*.texi" \
@@ -95,9 +96,12 @@ prune="-regex ($prune_dirs) -prune"
 # Don't touch this file itself
 not="-not -name grand-replace.sh"
 
+###############################################################
+
+
 find_dir=.
 extensions='c|h|sh|pm|pl|texi|xs'
-named_files='configure.ac|Makefile.am|README|README-hacking|TODO'
+named_files='configure.ac|Makefile.am|README|README-alpha|README-hacking|TODO'
 
 ext_pattern=".*\.($extensions)"
 named_pattern=".*\/($named_files)"
@@ -106,7 +110,13 @@ change_files
 
 find_dir=.
 ext_pattern=""
-named_pattern='./NEWS|./INSTALL|./AUTHORS|./js/info.js|./pre-inst-env'
+named_pattern='./NEWS|./INSTALL|./AUTHORS'
+
+change_files
+
+find_dir=.
+ext_pattern=""
+named_pattern='./js/info.js|./build-aux/pre-inst-env.in|./pre-inst-env'
 
 change_files
 
@@ -124,6 +134,18 @@ ext_pattern=".*\.(sh)"
 
 change_files
 
+find_dir=info/t
+ext_pattern=""
+named_pattern='.*\.inc'
+
+change_files
+
+find_dir=info/info-hooks-default
+ext_pattern=""
+named_pattern='.*'
+
+change_files
+
 find_dir=util
 ext_pattern=""
 named_pattern=".*"
@@ -132,11 +154,23 @@ not='-not -name htmlxref.cnf -not -name texi2dvi -not -name texi2pdf'
 
 change_files
 
-find_dir=tta/perl/Texinfo
+find_dir=tta/C/main
 extensions='txt|awk'
 ext_pattern=".*\.($extensions)"
 named_files=""
 named_pattern=".*\/($named_files)"
+
+change_files
+
+find_dir=tta/data
+ext_pattern=""
+named_pattern='.*\.(txt|csv)'
+
+change_files
+
+find_dir=tta/swig
+ext_pattern=""
+named_pattern='.*\.(i|t|py)'
 
 change_files
 
