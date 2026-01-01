@@ -218,6 +218,7 @@ our %xml_text_entity_no_arg_commands = (
     'ordm'    => '&ordm;',
     'point'    => '&lowast;',
     'pounds'    => '&pound;',
+    'print'    => '&#8867;',
     'questiondown'    => '&iquest;',
     'registeredsymbol'    => '&reg;',
     'result'    => '&rArr;',

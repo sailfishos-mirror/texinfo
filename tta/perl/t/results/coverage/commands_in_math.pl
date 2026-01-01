@@ -516,7 +516,7 @@ a sunny day
 <pre class="displaymath">&rarr;
 &#x0075;
 TeX LaTeX &bull; &copy; ... ... &equiv;
-error&rarr; &rarr; &minus; &lowast; -| &rArr;
+error&rarr; &rarr; &minus; &lowast; &#8867; &rArr;
 &aring; &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH;
 &THORN; &eth; &thorn; &iexcl; &iquest; &pound;
 &reg; &ordf; &ordm; , 

@@ -307,7 +307,7 @@ ordf               &ordf;
 ordm               &ordm;
 point              &lowast;
 pounds             &pound;
-# print              -|
+print              &#8867;
 questiondown       &iquest;
 registeredsymbol   &reg;
 result             &rArr;

@@ -4339,7 +4339,7 @@ span:hover a.copiable-link {visibility: visible}
 <li><a href="#LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e" accesskey="4">LaTeX TeX &bull; , &copy; &hellip; <small class="enddots">...</small></a></li>
 <li><a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="5">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a></li>
 <li><a href="#g_t_2265-_2264-_2192" accesskey="6">&ge; &le; &rarr;</a></li>
-<li><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="7">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a></li>
+<li><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="7">&ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;</a></li>
 <li><a href="#g_t_21d2-_00b0-a-b-_00e5" accesskey="8">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></li>
 <li><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="9">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></li>
 <li><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></li>
@@ -4399,7 +4399,7 @@ span:hover a.copiable-link {visibility: visible}
 </div>
 <div class="chapter-level-extent" id="g_t_2265-_2264-_2192">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="n" rel="next">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="p" rel="prev">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="n" rel="next">&ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212" accesskey="p" rel="prev">&equiv; error&rarr; &euro; &iexcl; &rarr; &minus;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="g_t_2265-_2264-_2192-1"><span>6 &ge; &le; &rarr;<a class="copiable-link" href="#g_t_2265-_2264-_2192-1"> &para;</a></span></h2>
 
 <hr>
@@ -4407,13 +4407,13 @@ span:hover a.copiable-link {visibility: visible}
 <div class="chapter-level-extent" id="g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_21d2-_00b0-a-b-_00e5" accesskey="n" rel="next">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_2265-_2264-_2192" accesskey="p" rel="prev">&ge; &le; &rarr;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
-<h2 class="chapter" id="g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae-1"><span>7 &ordf; &ordm; &lowast; &pound; -| &iquest; &reg;<a class="copiable-link" href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae-1"> &para;</a></span></h2>
+<h2 class="chapter" id="g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae-1"><span>7 &ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;<a class="copiable-link" href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae-1"> &para;</a></span></h2>
 
 <hr>
 </div>
 <div class="chapter-level-extent" id="g_t_21d2-_00b0-a-b-_00e5">
 <p class="nav-panel">
-<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="n" rel="next">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="p" rel="prev">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="n" rel="next">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae" accesskey="p" rel="prev">&ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" accesskey="u" rel="up">Top</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h2 class="chapter" id="g_t_21d2-_00b0-a-b-_00e5-1"><span>8 &rArr; &deg; a&nbsp;b a sunny day &aring;<a class="copiable-link" href="#g_t_21d2-_00b0-a-b-_00e5-1"> &para;</a></span></h2>
 
 <hr>
@@ -4561,7 +4561,7 @@ span:hover a.copiable-link {visibility: visible}
 </p>
 <p><a class="ref" href="#g_t_2265-_2264-_2192">&ge; &le; &rarr;</a>
 </p>
-<p><a class="ref" href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a>
+<p><a class="ref" href="#g_t_00aa-_00ba-_22c6-_00a3-_22a3-_00bf-_00ae">&ordf; &ordm; &lowast; &pound; &#8867; &iquest; &reg;</a>
 </p>
 <p><a class="ref" href="#g_t_21d2-_00b0-a-b-_00e5">&rArr; &deg; a&nbsp;b a sunny day &aring;</a>
 </p>

@@ -283,7 +283,7 @@ const char *xml_text_entity_no_arg_commands[] = {
 0,
 "&lowast;",  /* point */
 "&pound;",  /* pounds */
-0,
+"&#8867;",  /* print */
 0,
 0,
 0,
