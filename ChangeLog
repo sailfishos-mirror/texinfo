@@ -1,3 +1,9 @@
+2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/data/commands_values.txt:
+	correct name of Texinfo::Convert::NodeNameNormalization module
+	in a comment.
+
 2025-12-31  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Inserting an Ampersand): Remove unintended

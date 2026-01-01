@@ -41,7 +41,7 @@
 # should only appear in math
 \\ \\
 
-# used by Texinfo::Convert::Text, Texinfo::Convert::NodeNormalization
+# used by Texinfo::Convert::Text, Texinfo::Convert::NodeNameNormalization
 # and Texinfo::Convert::TextContent.
 # 'today' is not set here.
 -- text_brace_no_arg_commands
