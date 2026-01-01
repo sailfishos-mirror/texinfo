@@ -42,9 +42,7 @@ my $parser = Texinfo::Parser::parser(
 {
   package Texinfo::Config;
 
-  texinfo_register_no_arg_command_formatting('equiv', undef, undef, undef,
-                                         undef, 'is the @strong{same} as');
-
+  texinfo_register_no_arg_command_texinfo('equiv', 'is the @strong{same} as');
 }
 
 #my $document = $parser->parse_texi_text('aa @equiv{} bb'."\n");

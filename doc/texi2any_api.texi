@@ -598,12 +598,11 @@ character, such as @code{@@@@}, and those with a normal alphabetic
 name but whose braces should be empty, such as @code{@@TeX@{@}} and
 @code{@@AA@{@}}.
 
-To change the formatting of a command, the functions is
-@code{texinfo_register_no_arg_command_formatting}:
+You can set directly the formatting of those commands in different contexts
+with @code{texinfo_register_no_arg_command_formatting}:
 
 @defun texinfo_register_no_arg_command_formatting ($command_name, @
-    $context, $text, $html_element, $translated_string_converted, @
-    $translated_string_to_convert)
+        $context, $text, $html_element, $translated_string_converted)
 @var{$command_name} is the @@-command name, without the leading @@.
 @var{$context} is @samp{normal}, @samp{preformatted} or @samp{string}.
 There is no separate math context, @samp{preformatted} should be used
@@ -616,18 +615,25 @@ can contain HTML elements if needed.  If @var{$html_element} is set, the text
 is enclosed between the @var{$html_element} element opening and the element
 closing.  If @var{$translated_string_converted} is set, the corresponding
 text is translated when the document language changes and used as text.
-@var{$translated_string_converted} should already be HTML.  If
-@var{$translated_string_to_convert} is set, the corresponding
-text is translated when the document language changes and converted from
-Texinfo code to HTML.  Since the conversion is done in the appropriate
-context, @var{$translated_string_to_convert} should only be set for the
-@samp{normal} context. @xref{Texinfo::Translations
-METHODS,,,texi2any_internals}.
+@var{$translated_string_converted} should already be HTML.
 @end defun
 
 It is not required to set values for all the contexts.  If preformatted context
 output is not set, normal context output is used.  If string context output is not set,
 preformatted context output is used.
+
+@defun texinfo_register_no_arg_command_formatting ($command_name, @
+    $translated_string_to_convert)
+@var{$command_name} is the @@-command name, without the leading @@.
+@var{$translated_string_to_convert} is the Texinfo code used for the
+command formatting.  This Texinfo code is translated when the document
+language changes and converted from Texinfo to HTML in the different
+expansion contexts, @samp{normal}, @samp{preformatted} and @samp{string}.
+@xref{Texinfo::Translations METHODS,,,texi2any_internals}.
+@end defun
+
+If both Texinfo code and explicit formatting are specified, the explicit
+formatting takes precedence.
 
 For example, if you want @code{&shy;} to be output
 for @code{@@-} in normal, preformatted (and math) and string context, call
@@ -639,26 +645,32 @@ texinfo_register_no_arg_command_formatting('-', undef, '&shy;');
 If you want ``@code{<small>...</small>}'' to be output for @code{@@enddots}
 in normal context and @code{...} to be output in other contexts, call
 @example
+@group
 texinfo_register_no_arg_command_formatting('enddots',
                                            'normal', '...', 'small');
 texinfo_register_no_arg_command_formatting('enddots',
                                            'preformatted', '...');
+@end group
 @end example
 
 If you want ``@code{error--&gt;}'' to be used for @code{@@error} in every context,
 with a translation when the document language changes, call
 
 @example
+@group
 texinfo_register_no_arg_command_formatting('error', undef, undef, undef,
                                            'error--&gt;');
+@end group
 @end example
 
 If you want ``@code{is the @strong{same} as}'' to be used for @code{@@equiv},
 translated when the document language changes, and converted from Texinfo to
-HTML in the context of the translation, call
+HTML in the different expansion contexts, call
 @example
-texinfo_register_no_arg_command_formatting('equiv', undef, undef, undef,
-                                 undef, 'is the @@strong@{same@} as');
+@group
+texinfo_register_no_arg_command_texinfo('equiv',
+                                        'is the @@strong@{same@} as');
+@end group
 @end example
 
 @xref{Translated Strings Customization} for

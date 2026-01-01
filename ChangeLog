@@ -1,5 +1,15 @@
 2026-01-01 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Simple Customization for Commands Without
+	Arguments), tta/perl/Texinfo/Config.pm
+	(texinfo_register_no_arg_command_formatting)
+	(texinfo_register_no_arg_command_texinfo): add another function to
+	specify Texinfo code for no args command formatting, that was
+	previously the last argument of
+	texinfo_register_no_arg_command_formatting.  Update callers.
+
+2026-01-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/ext/epub3.pm (epub_setup, epub_finish): save values of
 	OUTFILE and SUBDIR before setting them with force_conf, and reset them
 	after the convversion.

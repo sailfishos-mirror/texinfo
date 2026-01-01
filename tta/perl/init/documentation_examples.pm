@@ -65,8 +65,7 @@ texinfo_register_no_arg_command_formatting('-', undef, '&shy;');
 texinfo_register_no_arg_command_formatting('error', undef, undef, undef,
                                            'error--&gt;');
 
-texinfo_register_no_arg_command_formatting('equiv', undef, undef, undef,
-                                         undef, 'is the @strong{same} as');
+texinfo_register_no_arg_command_texinfo('equiv', 'is the @strong{same} as');
 
 $translations{'fr'}->{'is the @strong{same} as'}
     = {'' => 'est la @strong{m@^eme} que',};

@@ -660,15 +660,10 @@ sub _GNUT_initialize_special_unit_info()
 _GNUT_initialize_special_unit_info();
 
 # $translated_converted_string is supposed to be already formatted.
-sub texinfo_register_no_arg_command_formatting($$;$$$$)
-{
-  my $command = shift;
-  my $context = shift;
-  my $text = shift;
+sub texinfo_register_no_arg_command_formatting($$;$$$) {
+  my ($command, $context, $text,
   # html element
-  my $element = shift;
-  my $translated_converted_string = shift;
-  my $translated_to_convert_string = shift;
+      $element, $translated_converted_string) = @_;
 
   if (!defined($context)) {
     $context = $default_formatting_context;
@@ -690,15 +685,20 @@ sub texinfo_register_no_arg_command_formatting($$;$$$$)
   }
   $GNUT_no_arg_commands_formatting_strings->{$context}->{$command}
     = $specification;
+  return 1;
+}
+
+# Independent of context, as the Texinfo code will be converted in
+# the appropriate context.
+sub texinfo_register_no_arg_command_texinfo($$) {
+  my ($command, $translated_to_convert_string) = @_;
+
   if (defined($translated_to_convert_string)) {
-    # Independent of context, as the Texinfo code
-    # will be converted in the appropriate context.
-    if ($context ne $default_formatting_context) {
-      return 0;
-    }
-    $GNUT_no_arg_commands_formatting_strings
-     ->{'translated_to_convert'}->{$command}
-      = $translated_to_convert_string;
+    $GNUT_no_arg_commands_formatting_strings->{'translated_to_convert'}
+      ->{$command} = $translated_to_convert_string;
+  } else {
+    delete $GNUT_no_arg_commands_formatting_strings->{'translated_to_convert'}
+      ->{$command};
   }
   return 1;
 }
