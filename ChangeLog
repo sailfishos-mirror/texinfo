@@ -1,5 +1,10 @@
 2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* grand-replace.sh (find_missed): update script to work for
+	other years than 2025.
+
+2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* grand-replace.sh: update some paths
 
 2026-01-01  Gavin Smith <gavinsmith0123@gmail.com>

@@ -4,6 +4,7 @@
 
 # list files that have possibly been missed by this script
 find_missed () {
+  YY=`date +%y`
   find . \
     -name autom4te.cache -prune -o \
     -name .git -prune -o \
@@ -46,7 +47,9 @@ find_missed () {
     -not -wholename "./install-info/tests/defs" \
     -not -wholename "./INSTALL.generic" \
     -not -name "*~" \
-    -exec perl -wnl -e '/20\d[^5] Free/ && print "$ARGV:$_"' '{}' \;
+    -exec perl -wnl -e '/20\d\d Free/
+                        && !/20'$YY' Free/
+                        && print "$ARGV:$_"' '{}' \;
 }
 
 change_files () {
