@@ -1072,9 +1072,9 @@ our_CFLAGS='-g -O0 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses 
 # some speed penalty
 our_CFLAGS='-g -O2 -D_FORTIFY_SOURCE=2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -fstack-protector-all -Wextra -fno-omit-frame-pointer'
 our_CFLAGS='-g -O2 -Wformat-security -Wstrict-prototypes -Wall -Wno-parentheses -Wno-missing-braces -Wno-unused-parameter -Wextra'
-./configure --enable-additional-checks "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
-./configure --enable-c-texi2any --enable-additional-checks "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
+./configure --with-swig --enable-additional-checks "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
+./configure --with-swig --enable-c-texi2any --enable-additional-checks "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 
 # test non-XS build
-./configure --disable-perl-xs --enable-additional-checks "CFLAGS=$our_CFLAGS" PERL_EXT_CFLAGS=fail
+./configure --disable-perl-xs --with-swig --enable-additional-checks "CFLAGS=$our_CFLAGS" PERL_EXT_CFLAGS=fail
