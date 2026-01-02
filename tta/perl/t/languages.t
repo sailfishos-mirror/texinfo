@@ -36,7 +36,7 @@ my @test_cases = (
 # REMARK it is worth noting that the
 # @defivar in @insertcopying after @documentlanguage de appears
 # in german in the document, (and after @documentlanguage pt at
-# the end appears in portruguese) but the index entry is in fr, because
+# the end appears in portuguese) but the index entry is in fr, because
 # the index entry is set in the @copying block which is in
 # @documentlanguage fr.
 # Also the copying comment at the beginning of each file is in fr

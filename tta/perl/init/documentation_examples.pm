@@ -70,8 +70,10 @@ texinfo_register_no_arg_command_texinfo('equiv', 'is the @strong{same} as');
 $translations{'fr'}->{'is the @strong{same} as'}
     = {'' => 'est la @strong{m@^eme} que',};
 
-texinfo_register_style_command_formatting('sansserif', 'code', 0, 'normal');
-texinfo_register_style_command_formatting('sansserif', 'code', 1, 'preformatted');
+texinfo_register_style_command_formatting('sansserif', 'code', 'normal');
+texinfo_register_style_command_formatting('sansserif', 'code', 'preformatted');
+texinfo_style_command_set_quoting('sansserif', 0, 'normal');
+texinfo_style_command_set_quoting('sansserif', 1, 'preformatted');
 texinfo_register_upper_case_command('sc', 0);
 texinfo_register_upper_case_command('var', 1);
 

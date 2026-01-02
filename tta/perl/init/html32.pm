@@ -105,9 +105,9 @@ foreach my $dots ('dots') {
 
 foreach my $context ('preformatted', 'normal') {
   foreach my $command('sansserif', 'r') {
-    texinfo_register_style_command_formatting($command, undef, undef, $context);
+    texinfo_register_style_command_formatting($command, undef, $context);
   }
-  texinfo_register_style_command_formatting('t', 'tt', undef, $context);
+  texinfo_register_style_command_formatting('t', 'tt', $context);
 }
 
 # no inodot in HTML3.2

@@ -3,8 +3,7 @@ use strict;
 texinfo_register_upper_case_command('sc', 0);
 
 foreach my $context ('normal', 'preformatted') {
-  texinfo_register_style_command_formatting ('sc', 'span',
-                                             undef, $context);
+  texinfo_register_style_command_formatting ('sc', 'span', $context);
 }
 
 sub sc_formatting_with_css_set_css {

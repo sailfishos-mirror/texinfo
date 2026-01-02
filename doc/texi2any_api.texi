@@ -709,29 +709,47 @@ texinfo_register_upper_case_command('var', 1);
 @cindex Simple commands, customizing HTML for
 @cindex Style commands, customizing HTML for
 
-You can change the formatting of the output produced by ``indicator'' and font
+You can change the formatting of the ``indicator'' and font
 commands (e.g., @code{@@code}, @code{@@t}), and other simple commands with
 arguments (e.g., @code{@@asis}, @code{@@clicksequence}, @code{@@sup},
-@code{@@verb}) with @code{texinfo_register_style_command_formatting}:
+@code{@@verb}).
+
+You specify the HTML element associated to a command in a given
+expansion context by calling the
+@code{texinfo_register_style_command_formatting} function:
 
 @defun texinfo_register_style_command_formatting ($command_name, @
+                                                  $html_element, $context)
+@var{$command_name} is the @@-command name, without the leading @@.
+@var{$context} is @samp{normal} or @samp{preformatted}.  There is no separate
+math nor code context, @samp{preformatted} should be used for math and code
+context. @xref{Init File Expansion Contexts}.  There is no way to specify
+string context, as in string context HTML elements are not output.
+If @var{$context} is @code{undef}, the @samp{normal} context is assumed.
+
+If @var{$html_element} is set, the argument is enclosed between the
+@var{$html_element} element opening and the element closing.
+If @var{$html_element} is undefined, no HTML element is output.
+@end defun
+
+To specify the whether quotes should be output for an @@-command
+conversion, you should call the @code{texinfo_style_command_set_quoting}
+function:
+
+@defun texinfo_style_command_set_quoting ($command_name, @
                                      $html_element, $in_quotes, $context)
 @var{$command_name} is the @@-command name, without the leading @@.
 @var{$context} is @samp{normal} or @samp{preformatted}.  There is no separate
 math nor code context, @samp{preformatted} should be used for math and code
 context. @xref{Init File Expansion Contexts}.  There is no string context
-either, as in string context simple formatting without the need for per command
+as in string context simple formatting without the need for per command
 information should be sufficient.  If @var{$context} is @code{undef}, the
 @samp{normal} context is assumed.
 
-If @var{$html_element} is set, the argument is enclosed between the
-@var{$html_element} element opening and the element closing.
 If @var{$in_quotes} is true, the result is enclosed in quotes associated with
 customization variables @code{OPEN_QUOTE_SYMBOL} and @code{CLOSE_QUOTE_SYMBOL}
-(@pxref{Customization of HTML Code Inserted,,, texinfo, Texinfo}).
-
-If @var{$html_element} is undefined and @var{$in_quotes} is not set,
-the formatted argument is output as is.
+(@pxref{Customization of HTML Code Inserted,,, texinfo, Texinfo}).  Otherwise,
+no quotes are output.
 @end defun
 
 For example, to set @code{@@sansserif@{argument@}} to be formatted as
@@ -739,17 +757,20 @@ For example, to set @code{@@sansserif@{argument@}} to be formatted as
 with quotes in preformatted context, use:
 
 @example
-texinfo_register_style_command_formatting('sansserif', 'code', 0,
+texinfo_register_style_command_formatting('sansserif', 'code',
                                           'normal');
-texinfo_register_style_command_formatting('sansserif', 'code', 1,
+texinfo_register_style_command_formatting('sansserif', 'code',
                                           'preformatted');
+
+texinfo_style_command_set_quoting('sansserif', 0, 'normal');
+texinfo_style_command_set_quoting('sansserif', 1, 'preformatted');
 @end example
 
 To output the formatted argument of @code{@@t} as is:
 @example
 foreach my $context ('normal', 'preformatted') @{
-  texinfo_register_style_command_formatting ('t', undef,
-                                             undef, $context);
+  texinfo_register_style_command_formatting ('t', undef, $context);
+  texinfo_style_command_set_quoting ('t', undef, $context);
 @}
 @end example
 

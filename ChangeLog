@@ -1,3 +1,13 @@
+2026-02-01 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Simple Output Customization for Simple
+	Commands with Braces), tta/perl/Texinfo/Config.pm
+	(texinfo_register_style_command_formatting)
+	(texinfo_style_command_set_quoting): add
+	texinfo_style_command_set_quoting separately from
+	texinfo_register_style_command_formatting to set quoting.  Update
+	callers.
+
 2026-01-01 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Simple Customization for Commands Without

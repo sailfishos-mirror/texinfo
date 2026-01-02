@@ -723,12 +723,8 @@ sub GNUT_get_no_arg_command_formatting($;$)
 }
 
 # called from init files
-sub texinfo_register_style_command_formatting($$;$$)
-{
-  my $command = shift;
-  my $html_element = shift;
-  my $in_quotes = shift;
-  my $context = shift;
+sub texinfo_register_style_command_formatting($$;$) {
+  my ($command, $html_element, $context) = @_;
 
   if (!defined($context)) {
     $context = $default_formatting_context;
@@ -737,14 +733,44 @@ sub texinfo_register_style_command_formatting($$;$$)
                   'texinfo_register_style_command_formatting', $context));
     return 0;
   }
-  my $specification = {};
-  if ($in_quotes) {
-    $specification->{'quote'} = $in_quotes;
+
+  if (!defined($html_element)) {
+    if (exists($GNUT_style_commands_formatting_info->{$context}->{$command})) {
+      delete $GNUT_style_commands_formatting_info->{$context}
+                                           ->{$command}->{'element'};
+    }
+  } else {
+    $GNUT_style_commands_formatting_info->{$context}->{$command} = {}
+      if (!exists($GNUT_style_commands_formatting_info->{$context}->{$command}));
+    $GNUT_style_commands_formatting_info->{$context}->{$command}->{'element'}
+      = $html_element;
   }
-  if (defined($html_element)) {
-    $specification->{'element'} = $html_element;
+  return 1;
+}
+
+# called from init files
+sub texinfo_style_command_set_quoting($$;$) {
+  my ($command, $in_quotes, $context) = @_;
+
+  if (!defined($context)) {
+    $context = $default_formatting_context;
+  } elsif (not defined($GNUT_style_commands_formatting_info->{$context})) {
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s"),
+                           'texinfo_style_command_set_quoting', $context));
+    return 0;
   }
-  $GNUT_style_commands_formatting_info->{$context}->{$command} = $specification;
+
+  if (!defined($in_quotes)) {
+    if (exists($GNUT_style_commands_formatting_info->{$context}->{$command})) {
+      delete $GNUT_style_commands_formatting_info->{$context}
+                                           ->{$command}->{'quote'};
+    }
+  } elsif ($in_quotes) {
+    $GNUT_style_commands_formatting_info->{$context}->{$command} = {}
+      if (!exists($GNUT_style_commands_formatting_info->{$context}->{$command}));
+    $GNUT_style_commands_formatting_info->{$context}->{$command}->{'quote'}
+      = $in_quotes;
+  }
   return 1;
 }
 
