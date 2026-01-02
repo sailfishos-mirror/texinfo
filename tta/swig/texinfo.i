@@ -64,6 +64,8 @@
 #include "swig_parser_api.h"
 %}
 
+#define interface_version 0
+
 // Initialization
 
 %init %{
