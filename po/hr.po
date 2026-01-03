@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo-7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-26 11:13+0100\n"
+"POT-Creation-Date: 2026-01-03 12:13+0100\n"
 "PO-Revision-Date: 2025-03-26 21:00-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -281,47 +281,47 @@ msgstr "Nema indeksnih unosa koji sadrže ‘%s’."
 msgid "No available info files have '%s' in their indices"
 msgstr "Nijedna od dostupnih info datoteka ne sadrži ‘%s’ u indeksima"
 
-#: info/info.c:316 info/session-cmd.c:1968
+#: info/info.c:320 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Nema stavke izbornika u čvoru‘%s’ ‘%s’"
 
-#: info/info.c:472 info/info.c:1236
+#: info/info.c:476 info/info.c:1255
 #, c-format
 msgid "Cannot find node '%s'"
 msgstr "Nije moguće pronaći čvor ‘%s’."
 
-#: info/info.c:494
+#: info/info.c:498
 #, c-format
 msgid "No program name given"
 msgstr "Nije navedeno ime programa (npr. info -O cp)"
 
-#: info/info.c:685
+#: info/info.c:689
 #, c-format
 msgid "invalid number: %s\n"
 msgstr "nevaljani broj: %s\n"
 
-#: info/info.c:868
+#: info/info.c:905
 #, c-format
 msgid "malformed variable assignment: %s"
 msgstr "loše formirana namjena varijabli: %s"
 
-#: info/info.c:875 info/infokey.c:566
+#: info/info.c:912 info/infokey.c:566
 #, c-format
 msgid "%s: no such variable"
 msgstr "%s: takva varijabla ne postoji"
 
-#: info/info.c:881 info/infokey.c:568
+#: info/info.c:918 info/infokey.c:568
 #, c-format
 msgid "value %s is not valid for variable %s"
 msgstr "vrijednost %s nije valjana za varijablu %s"
 
-#: info/info.c:893
+#: info/info.c:930
 #, c-format
 msgid "Try --help for more information.\n"
 msgstr "Pokušajte --help za više informacija.\n"
 
-#: info/info.c:912 install-info/install-info.c:2281
+#: info/info.c:949 install-info/install-info.c:2281
 #, fuzzy, c-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -342,12 +342,12 @@ msgstr ""
 "Ovo je slobodan softver: slobodno ga mijenjajte i distribuirajte.\n"
 "NEMA JAMSTVA do granica dopuštenih zakonom.\n"
 
-#: info/info.c:1099
+#: info/info.c:1126
 #, c-format
 msgid "no index entries found for '%s'\n"
 msgstr "nisu pronađeni indeksni unosi za ‘%s”\n"
 
-#: info/info.c:1150
+#: info/info.c:1169
 #, c-format
 msgid ""
 "Usage: %s [OPTION]... [MENU-ITEM...]\n"
@@ -358,74 +358,74 @@ msgstr ""
 "\n"
 "Čitanje dokumentacije u Info formatu.\n"
 
-#: info/info.c:1157
+#: info/info.c:1176
 #, fuzzy
 #| msgid "Input file options:"
 msgid "Frequently-used options:"
 msgstr "Opcije ulazne datoteke:"
 
-#: info/info.c:1158
+#: info/info.c:1177
 #, fuzzy
 #| msgid "    --top                   top for the main manual"
 msgid "  -a, --all                    use all matching manuals"
 msgstr "    --top                   vrh glavnog priručnika"
 
-#: info/info.c:1159
+#: info/info.c:1178
 msgid ""
 "  -k, --apropos=STRING         look up STRING in all indices of all manuals"
 msgstr ""
 
-#: info/info.c:1160
+#: info/info.c:1179
 msgid "  -d, --directory=DIR          add DIR to INFOPATH"
 msgstr ""
 
-#: info/info.c:1161
+#: info/info.c:1180
 msgid "  -f, --file=MANUAL            specify Info manual to visit"
 msgstr ""
 
-#: info/info.c:1162
+#: info/info.c:1181
 #, fuzzy
 #| msgid "    --help                  display this help and exit"
 msgid "  -h, --help                   display this help and exit"
 msgstr "    --help                  pokaže ovu pomoć i iziđe"
 
-#: info/info.c:1163
+#: info/info.c:1182
 msgid "      --index-search=STRING    go to node pointed by index entry STRING"
 msgstr ""
 
-#: info/info.c:1164
+#: info/info.c:1183
 msgid "  -n, --node=NODENAME          specify nodes in first visited Info file"
 msgstr ""
 
-#: info/info.c:1165
+#: info/info.c:1184
 msgid "  -o, --output=FILE            output selected nodes to FILE"
 msgstr ""
 
-#: info/info.c:1168
+#: info/info.c:1187
 msgid "  -b, --speech-friendly        be friendly to speech synthesizers"
 msgstr "  -b, --speech-friendly        izlaz prilagoditi sintetizatoru govora"
 
-#: info/info.c:1171
+#: info/info.c:1190
 #, fuzzy
 #| msgid "      --force                 preserve output even if errors."
 msgid "      --subnodes               recursively output menu items"
 msgstr "      --force                 zadrži (spremi) izlaz iako ima grešaka."
 
-#: info/info.c:1172
+#: info/info.c:1191
 msgid "  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"
 msgstr ""
 
-#: info/info.c:1173
+#: info/info.c:1192
 #, fuzzy
 #| msgid "      --version               display version information and exit."
 msgid "      --version                display version information and exit"
 msgstr "      --version               pokaže podatke o inačici i iziđe."
 
-#: info/info.c:1174
+#: info/info.c:1193
 msgid "  -w, --where, --location      print physical location of Info file"
 msgstr ""
 
-#: info/info.c:1178
+#: info/info.c:1197
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -451,7 +451,7 @@ msgstr ""
 "Svi preostali argumenti, ako postoje, tretiraju se kao imena stavki\n"
 "izbornika u odnosu na početno posjećeni čvor."
 
-#: info/info.c:1185
+#: info/info.c:1204
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -461,43 +461,43 @@ msgstr ""
 "\n"
 "Za popis naredbi (tipke i prečaci) pritisnite H unutar Info."
 
-#: info/info.c:1188
+#: info/info.c:1207
 #, fuzzy
 #| msgid "Examples:"
 msgid " Examples:"
 msgstr "Primjeri:"
 
-#: info/info.c:1189
+#: info/info.c:1208
 msgid "  info                         show top-level dir menu"
 msgstr "  info                         pokaže vrh glavnog priručnika"
 
-#: info/info.c:1190
+#: info/info.c:1209
 msgid "  info info-stnd               show the manual for this Info program"
 msgstr "  info info-stnd               pokaže priručnik za taj Info program"
 
-#: info/info.c:1191
+#: info/info.c:1210
 msgid "  info emacs                   start at emacs node from top-level dir"
 msgstr ""
 "  info emacs                   počne na emacs čvoru iz direktorija najviše "
 "razine"
 
-#: info/info.c:1192
+#: info/info.c:1211
 msgid ""
 "  info emacs buffers           select buffers menu entry in emacs manual"
 msgstr ""
 "  info emacs buffers           odabere stavku izbornika za međuspremnike u "
 "priručniku za emacs"
 
-#: info/info.c:1193
+#: info/info.c:1212
 msgid "  info emacs -n Files          start at Files node within emacs manual"
 msgstr ""
 "  info emacs -n Files          počne na Files čvoru unutar emacs priručnika"
 
-#: info/info.c:1194
+#: info/info.c:1213
 msgid "  info '(emacs)Files'          alternative way to start at Files node"
 msgstr "  info '(emacs)Files'          drugi način započinjanja na Files čvoru"
 
-#: info/info.c:1195
+#: info/info.c:1214
 msgid ""
 "  info --subnodes -o out.txt emacs\n"
 "                               dump entire emacs manual to out.txt"
@@ -505,34 +505,34 @@ msgstr ""
 "  info --subnodes -o out.txt emacs\n"
 "                               izbaci cijeli emacs priručnik u out.txt"
 
-#: info/info.c:1197
+#: info/info.c:1216
 msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 "  info -f ./foo.info           pokaže datoteku ./foo.info, a ne traži "
 "direktorij"
 
-#: info/info.c:1237
+#: info/info.c:1256
 #, c-format
 msgid "Cannot find node '(%s)%s'"
 msgstr "Nije moguće pronaći čvor ‘(%s)%s’."
 
-#: info/info.c:1238
+#: info/info.c:1257
 msgid "Point doesn't appear within this window's node!"
 msgstr "Kursor se ne nalazi unutar čvora ovog prozora!"
 
-#: info/info.c:1239
+#: info/info.c:1258
 msgid "No menu in this node"
 msgstr "Nema izbornika u ovom čvoru"
 
-#: info/info.c:1240
+#: info/info.c:1259
 msgid "No cross references in this node"
 msgstr "Nema unakrsnih poveznica u ovom čvoru"
 
-#: info/info.c:1241
+#: info/info.c:1260
 msgid "Only one window"
 msgstr "Postoji samo jedan prozor"
 
-#: info/info.c:1242
+#: info/info.c:1261
 msgid "Resulting window would be too small"
 msgstr "Nastali prozor bio bi premalen"
 
@@ -997,6 +997,26 @@ msgstr "‘%s’ nije valjan"
 msgid "Quit"
 msgstr "Napusti(te)"
 
+#: info/session.c:1453
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Nije moguće napraviti izlaznu datoteku ‘%s’"
+
+#: info/session.c:1479
+#, c-format
+msgid "error writing to %s: %s"
+msgstr "greška pri pisanju u %s: %s"
+
+#: info/session.c:1488
+#, c-format
+msgid "closing %s"
+msgstr "zatvara se %s"
+
+#: info/session.c:1528
+#, c-format
+msgid "writing node %s..."
+msgstr "zapisujemo čvor %s..."
+
 #: info/session-cmd.c:42
 msgid "Show all matching files"
 msgstr "Prikaži sve podudarne datoteke"
@@ -1331,222 +1351,202 @@ msgstr "Nađi datoteku: "
 msgid "Cannot find '%s'"
 msgstr "Nije moguće pronaći ‘%s’"
 
-#: info/session-cmd.c:2923
-#, c-format
-msgid "Could not create output file '%s'"
-msgstr "Nije moguće napraviti izlaznu datoteku ‘%s’"
-
-#: info/session-cmd.c:2949
-#, c-format
-msgid "error writing to %s: %s"
-msgstr "greška pri pisanju u %s: %s"
-
-#: info/session-cmd.c:2958
-#, c-format
-msgid "closing %s"
-msgstr "zatvara se %s"
-
-#: info/session-cmd.c:2998
-#, c-format
-msgid "writing node %s..."
-msgstr "zapisujemo čvor %s..."
-
-#: info/session-cmd.c:3044
+#: info/session-cmd.c:2862
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr "Propusti sadržaj ovog čvora kroz INFO_PRINT_COMMAND"
 
-#: info/session-cmd.c:3072
+#: info/session-cmd.c:2890
 #, c-format
 msgid "Cannot open pipe to '%s'"
 msgstr "Nije moguće otvoriti cijev na ‘%s’"
 
-#: info/session-cmd.c:3077
+#: info/session-cmd.c:2895
 #, c-format
 msgid "printing node %s..."
 msgstr "printamo čvor %s..."
 
-#: info/session-cmd.c:3085
+#: info/session-cmd.c:2903
 #, c-format
 msgid "finished printing node %s"
 msgstr "printanje čvora %s je završeno"
 
-#: info/session-cmd.c:3117
+#: info/session-cmd.c:2930
 msgid "Toggle the usage of regular expressions in searches"
 msgstr "Promjena uporabe regularnih izraza u pretraživanju"
 
-#: info/session-cmd.c:3121
+#: info/session-cmd.c:2934
 #, c-format
 msgid "Using regular expressions for searches"
 msgstr "Za pretraživanje se koristi regularni izraz"
 
-#: info/session-cmd.c:3122
+#: info/session-cmd.c:2935
 #, c-format
 msgid "Using literal strings for searches"
 msgstr "Za pretraživanje se koristi obični tekst"
 
-#: info/session-cmd.c:3325
+#: info/session-cmd.c:3138
 msgid "Search continued from the end of the document"
 msgstr "Pretraga se nastavlja od kraja dokumenta"
 
-#: info/session-cmd.c:3330
+#: info/session-cmd.c:3143
 msgid "Search continued from the beginning of the document"
 msgstr "Pretraga se nastavlja od početka dokumenta"
 
-#: info/session-cmd.c:3347
+#: info/session-cmd.c:3160
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr "Tražimo poddatoteku %s ..."
 
-#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#: info/session-cmd.c:3200 info/session-cmd.c:3469 info/session-cmd.c:3582
 #, c-format
 msgid "Search failed"
 msgstr "Traženi string nije (više) pronađen"
 
-#: info/session-cmd.c:3407
+#: info/session-cmd.c:3220
 #, c-format
 msgid "%s%s%s [%s]: "
 msgstr "%s%s%s [%s]: "
 
-#: info/session-cmd.c:3408 info/session-cmd.c:3414
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
 msgid "Regexp search"
 msgstr "Traži string (regularni izraz)"
 
-#: info/session-cmd.c:3408 info/session-cmd.c:3414
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
 msgid "Search"
 msgstr "Traži"
 
-#: info/session-cmd.c:3409 info/session-cmd.c:3415
+#: info/session-cmd.c:3222 info/session-cmd.c:3228
 msgid " case-sensitively"
 msgstr " <pazite na slova!>"
 
-#: info/session-cmd.c:3410 info/session-cmd.c:3416
+#: info/session-cmd.c:3223 info/session-cmd.c:3229
 msgid " backward"
 msgstr " unatrag"
 
-#: info/session-cmd.c:3413
+#: info/session-cmd.c:3226
 #, c-format
 msgid "%s%s%s: "
 msgstr "%s%s%s: "
 
-#: info/session-cmd.c:3433
+#: info/session-cmd.c:3246
 msgid "Search string too short"
 msgstr "String za pretraživanje je prekratak"
 
-#: info/session-cmd.c:3627
+#: info/session-cmd.c:3440
 #, c-format
 msgid "Going back to last match from %s"
 msgstr "Vraćanje na zadnje podudaranje od %s"
 
-#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#: info/session-cmd.c:3469 info/session-cmd.c:3582
 #, c-format
 msgid "No more matches"
 msgstr "Nema više podudaranja"
 
-#: info/session-cmd.c:3796
+#: info/session-cmd.c:3609
 msgid "Search this node and subnodes for a string"
 msgstr "Traži string u ovom čvoru i podčvorovima"
 
 #. TRANSLATORS: %s is the title of a node.
-#: info/session-cmd.c:3803
+#: info/session-cmd.c:3616
 #, c-format
 msgid "Search under %s: "
 msgstr "Traži ispod %s: "
 
-#: info/session-cmd.c:3818
+#: info/session-cmd.c:3631
 msgid "Go to next match in Info sub-tree"
 msgstr "Na sljedeći nalaz u Info podstablu"
 
-#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#: info/session-cmd.c:3635 info/session-cmd.c:3647
 #, c-format
 msgid "No active search"
 msgstr "Nema aktivnog traženja"
 
-#: info/session-cmd.c:3830
+#: info/session-cmd.c:3643
 msgid "Go to previous match in Info sub-tree"
 msgstr "Na prethodni nalaz u Info podstablu"
 
-#: info/session-cmd.c:3843
+#: info/session-cmd.c:3656
 msgid "Read a string and search for it case-sensitively"
 msgstr "Traži specificirani string (pazite na slova!)"
 
-#: info/session-cmd.c:3848
+#: info/session-cmd.c:3661
 msgid "Read a string and search for it"
 msgstr "Traži specificirani string"
 
-#: info/session-cmd.c:3854
+#: info/session-cmd.c:3667
 msgid "Read a string and search backward for it"
 msgstr "Traži unatrag specificirani string"
 
-#: info/session-cmd.c:3862
+#: info/session-cmd.c:3675
 msgid "Repeat last search in the same direction"
 msgstr "Ponovi zadnju pretragu u istom smjeru"
 
-#: info/session-cmd.c:3876 info/session-cmd.c:3927
+#: info/session-cmd.c:3689 info/session-cmd.c:3740
 msgid "No previous search string"
 msgstr "Nema stringa od prethodnog traženja"
 
-#: info/session-cmd.c:3913
+#: info/session-cmd.c:3726
 msgid "Repeat last search in the reverse direction"
 msgstr "Ponovi zadnju pretragu u suprotnom smjeru"
 
-#: info/session-cmd.c:3966
+#: info/session-cmd.c:3779
 msgid "Clear displayed search matches"
 msgstr "Poništi isticanje prikazanih nalaza (rezultata pretraživanja)"
 
-#: info/session-cmd.c:3982 info/session-cmd.c:3988
+#: info/session-cmd.c:3795 info/session-cmd.c:3801
 msgid "Search interactively for a string as you type it"
 msgstr "Postupno tražite string dok ga tipkate"
 
-#: info/session-cmd.c:4108
+#: info/session-cmd.c:3921
 msgid "Regexp I-search backward: "
 msgstr "Postupno tražite unatrag regularni izraz: "
 
-#: info/session-cmd.c:4109
+#: info/session-cmd.c:3922
 msgid "I-search backward: "
 msgstr "Postupno tražite unatrag: "
 
-#: info/session-cmd.c:4111
+#: info/session-cmd.c:3924
 msgid "Regexp I-search: "
 msgstr "Postupno tražite regularni izraz: "
 
-#: info/session-cmd.c:4112
+#: info/session-cmd.c:3925
 msgid "I-search: "
 msgstr "Postupno tražite: "
 
-#: info/session-cmd.c:4137 info/session-cmd.c:4140
+#: info/session-cmd.c:3950 info/session-cmd.c:3953
 msgid "Failing "
 msgstr "*Nema više podudaranja* "
 
-#: info/session-cmd.c:4507
+#: info/session-cmd.c:4320
 msgid "Cancel current operation"
 msgstr "Poništi aktualnu operaciju"
 
-#: info/session-cmd.c:4513
+#: info/session-cmd.c:4326
 msgid "Display version of Info being run"
 msgstr "Ispiše inačicu od Info programa"
 
-#: info/session-cmd.c:4515
+#: info/session-cmd.c:4328
 #, c-format
 msgid "GNU Info version %s"
 msgstr "GNU Info inačica %s"
 
-#: info/session-cmd.c:4520
+#: info/session-cmd.c:4333
 msgid "Redraw the display"
 msgstr "Obnovi ovaj prozor"
 
-#: info/session-cmd.c:4557
+#: info/session-cmd.c:4370
 msgid "Quit using Info"
 msgstr "Iziđite iz Info"
 
-#: info/session-cmd.c:4573
+#: info/session-cmd.c:4386
 msgid "Run command bound to this key's lowercase variant"
 msgstr "Izvrši naredbu povezanu na malo slovo ove tipke"
 
-#: info/session-cmd.c:4578
+#: info/session-cmd.c:4391
 msgid "Add this digit to the current numeric argument"
 msgstr "Aktualnom brojčanom argumentu dodajte ovu znamenku"
 
-#: info/session-cmd.c:4585
+#: info/session-cmd.c:4398
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr "Započni (ili pomnoži s 4) aktualni brojčani argument"
 
@@ -2229,7 +2229,7 @@ msgstr "%s: %s"
 msgid "error parsing %s: %s"
 msgstr "greška pri raščlanbi %s: %s"
 
-#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2780
+#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2723
 #, c-format, perl-format
 msgid "error reading %s: %s"
 msgstr "greška pri učitavanju %s: %s"
@@ -2262,14 +2262,15 @@ msgstr "%s: nepoznata varijabla %s"
 msgid "unknown variable from command line: %s"
 msgstr "nepoznata varijabla iz naredbenog retka: %s\n"
 
-#: tta/perl/Texinfo/Config.pm:676 tta/perl/Texinfo/Config.pm:714
-#: tta/perl/Texinfo/Config.pm:736 tta/perl/Texinfo/Config.pm:759
+#: tta/perl/Texinfo/Config.pm:671 tta/perl/Texinfo/Config.pm:714
+#: tta/perl/Texinfo/Config.pm:732 tta/perl/Texinfo/Config.pm:758
+#: tta/perl/Texinfo/Config.pm:785
 #, fuzzy, perl-format
 #| msgid "%s: unknown formatting context %s\n"
 msgid "%s: unknown formatting context %s"
 msgstr "%s: nepoznati kontekst formatiranja %s\n"
 
-#: tta/perl/Texinfo/Config.pm:902
+#: tta/perl/Texinfo/Config.pm:928
 #, fuzzy, perl-format
 #| msgid "%s: unknown special element information type %s\n"
 msgid "%s: unknown special element information type %s"
@@ -2287,59 +2288,59 @@ msgstr "@%s „%s” je prethodno definiran"
 msgid "here is the previous definition as @%s"
 msgstr "ovdje je prethodna definicija kao @%s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:422
-#: tta/perl/Texinfo/Convert/HTML.pm:12151
-#: tta/perl/Texinfo/Convert/HTML.pm:13203
-#: tta/perl/Texinfo/Convert/HTML.pm:13461 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1158
-#: tta/perl/Texinfo/Convert/Plaintext.pm:768
-#: tta/perl/Texinfo/Convert/Plaintext.pm:823
+#: tta/perl/Texinfo/Convert/Converter.pm:425
+#: tta/perl/Texinfo/Convert/HTML.pm:12190
+#: tta/perl/Texinfo/Convert/HTML.pm:13251
+#: tta/perl/Texinfo/Convert/HTML.pm:13509 tta/perl/Texinfo/Convert/IXIN.pm:358
+#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1181
+#: tta/perl/Texinfo/Convert/Plaintext.pm:783
+#: tta/perl/Texinfo/Convert/Plaintext.pm:838
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
 #: tta/perl/texi2any.pl:1935 tta/perl/texi2any.pl:2072
-#: tta/C/convert/converter.c:715 tta/C/convert/convert_html.c:2093
-#: tta/C/convert/convert_html.c:2573 tta/C/convert/rawtext_converter_api.c:232
+#: tta/C/convert/converter.c:725 tta/C/convert/convert_html.c:2074
+#: tta/C/convert/convert_html.c:2516 tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "nije (bilo) moguće otvoriti %s za pisanje: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:448
-#: tta/perl/Texinfo/Convert/HTML.pm:12146
-#: tta/perl/Texinfo/Convert/HTML.pm:13226 tta/perl/Texinfo/Convert/IXIN.pm:1039
+#: tta/perl/Texinfo/Convert/Converter.pm:451
+#: tta/perl/Texinfo/Convert/HTML.pm:12185
+#: tta/perl/Texinfo/Convert/HTML.pm:13274 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:267
 #: tta/perl/Texinfo/Convert/Info.pm:322 tta/perl/Texinfo/Convert/Info.pm:400
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1244
-#: tta/perl/Texinfo/Convert/Plaintext.pm:796
-#: tta/perl/Texinfo/Convert/Plaintext.pm:844
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1267
+#: tta/perl/Texinfo/Convert/Plaintext.pm:811
+#: tta/perl/Texinfo/Convert/Plaintext.pm:859
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
-#: tta/C/convert/converter.c:785 tta/C/convert/convert_html.c:2158
-#: tta/C/convert/convert_html.c:2612 tta/C/convert/rawtext_converter_api.c:269
+#: tta/C/convert/converter.c:795 tta/C/convert/convert_html.c:2139
+#: tta/C/convert/convert_html.c:2555 tta/C/convert/rawtext_converter_api.c:269
 #: tta/C/parsetexi/input.c:352
 #, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "greška pri zatvaranju %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:754
-#: tta/perl/Texinfo/Convert/Converter.pm:770
-#: tta/perl/Texinfo/Convert/Converter.pm:791
+#: tta/perl/Texinfo/Convert/Converter.pm:760
+#: tta/perl/Texinfo/Convert/Converter.pm:776
+#: tta/perl/Texinfo/Convert/Converter.pm:797
 #, perl-format
 msgid "unknown customization variable: %s"
 msgstr "nepoznata varijabla prilagodbe:%s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1175
+#: tta/perl/Texinfo/Convert/Converter.pm:1181
 #: tta/perl/Texinfo/Convert/Text.pm:1060 tta/perl/Texinfo/Convert/Text.pm:1082
-#: tta/C/convert/converter.c:1036
+#: tta/C/convert/converter.c:1046
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "nije (bilo) moguće napraviti direktorij „%s”: %s"
 
 # tekstna datoteka slike ili datoteka teksta slike? (TK)
-#: tta/perl/Texinfo/Convert/Converter.pm:1575
+#: tta/perl/Texinfo/Convert/Converter.pm:1581
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "greška pri zatvaranju %s (datoteka s tekstnim opisom slike): %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1584
+#: tta/perl/Texinfo/Convert/Converter.pm:1590
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
@@ -2352,168 +2353,168 @@ msgstr "nije moguće pročitati @image datoteku „%s”: %s"
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image datoteka „%s” nije pronađena, koristimo „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:397
-#: tta/C/convert/html_prepare_converter.c:736
+#: tta/perl/Texinfo/Convert/HTML.pm:404
+#: tta/C/convert/html_prepare_converter.c:739
 #, c-format, perl-format
 msgid "not setting an unknown direction: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:3626 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6744
+#: tta/perl/Texinfo/Convert/HTML.pm:3672 tta/perl/ext/epub3.pm:287
+#: tta/C/convert/format_html.c:6733
 #, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "@image datoteka „%s” (za HTML) nije pronađena, koristimo „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4767 tta/C/convert/format_html.c:8331
+#: tta/perl/Texinfo/Convert/HTML.pm:4813 tta/C/convert/format_html.c:8292
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "neobrađeni format %s nije pretvoren"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6439 tta/C/convert/format_html.c:10716
+#: tta/perl/Texinfo/Convert/HTML.pm:6498 tta/C/convert/format_html.c:10695
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "unos za indeks „%s” za @printindex %s je izvan bilo kojeg čvora"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6470 tta/C/convert/format_html.c:10756
+#: tta/perl/Texinfo/Convert/HTML.pm:6529 tta/C/convert/format_html.c:10735
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "unos za indeks „%s” za @printindex %s je izvan bilo kojeg odlomka"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8438
-#: tta/C/convert/html_prepare_converter.c:1006
+#: tta/perl/Texinfo/Convert/HTML.pm:8488
+#: tta/C/convert/html_prepare_converter.c:1009
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr ""
 "nije moguće otvoriti konfiguracijsku datoteku unakrsnih poveznica HTML-a %s: "
 "%s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8467
-#: tta/C/convert/html_prepare_converter.c:1116
+#: tta/perl/Texinfo/Convert/HTML.pm:8517
+#: tta/C/convert/html_prepare_converter.c:1119
 #, c-format, perl-format
 msgid "missing type"
 msgstr "nema vrste"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8471
-#: tta/C/convert/html_prepare_converter.c:1127
+#: tta/perl/Texinfo/Convert/HTML.pm:8521
+#: tta/C/convert/html_prepare_converter.c:1130
 #, c-format, perl-format
 msgid "unrecognized type: %s"
 msgstr "neprepoznata vrsta: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8509
-#: tta/C/convert/html_prepare_converter.c:1226
+#: tta/perl/Texinfo/Convert/HTML.pm:8559
+#: tta/C/convert/html_prepare_converter.c:1229
 #, c-format, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr ""
 "greška pri zatvaranju konfiguracijske datoteke unakrsnih poveznica HTML-a "
 "%s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8535
-#: tta/C/convert/html_prepare_converter.c:1267
+#: tta/perl/Texinfo/Convert/HTML.pm:8585
+#: tta/C/convert/html_prepare_converter.c:1270
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr "nije moguće naći ‘html refs’ konfiguracijsku datoteku %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8654 tta/perl/texi2any.pl:635
-#: tta/C/convert/html_prepare_converter.c:1497
+#: tta/perl/Texinfo/Convert/HTML.pm:8704 tta/perl/texi2any.pl:635
+#: tta/C/convert/html_prepare_converter.c:1500
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "%s direktorij je zastario. Umjesto toga koristite %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9077
+#: tta/perl/Texinfo/Convert/HTML.pm:9132
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr "Nepoznata funkcija za postavljanje datoteke i ID-a: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9095
+#: tta/perl/Texinfo/Convert/HTML.pm:9150
 #, perl-format
 msgid "Unknown formatting function: %s"
 msgstr "Nepoznata funkcija formatiranja: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9555
-#: tta/C/convert/html_prepare_converter.c:1784
+#: tta/perl/Texinfo/Convert/HTML.pm:9609
+#: tta/C/convert/html_prepare_converter.c:1787
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "string nije zatvoren u CSS datoteci"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9557
-#: tta/C/convert/html_prepare_converter.c:1792
+#: tta/perl/Texinfo/Convert/HTML.pm:9611
+#: tta/C/convert/html_prepare_converter.c:1795
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "--css-include završava u komentaru"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9559
-#: tta/C/convert/html_prepare_converter.c:1800
+#: tta/perl/Texinfo/Convert/HTML.pm:9613
+#: tta/C/convert/html_prepare_converter.c:1803
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "@import nije završen u CSS datoteci"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9595
-#: tta/C/convert/html_prepare_converter.c:1852
+#: tta/perl/Texinfo/Convert/HTML.pm:9649
+#: tta/C/convert/html_prepare_converter.c:1855
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "CSS datoteka %s nije pronađena"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9607
-#: tta/C/convert/html_prepare_converter.c:1874
+#: tta/perl/Texinfo/Convert/HTML.pm:9661
+#: tta/C/convert/html_prepare_converter.c:1877
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "nije (bilo) moguće otvoriti --include-file %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9625
+#: tta/perl/Texinfo/Convert/HTML.pm:9679
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "greška pri zatvaranju CSS datoteke %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9830
-#: tta/C/convert/html_prepare_converter.c:4835
+#: tta/perl/Texinfo/Convert/HTML.pm:9881
+#: tta/C/convert/html_prepare_converter.c:4886
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr "naziv datoteke korisnikom definiranog čvora nije postavljen za „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10155
-#: tta/C/convert/html_prepare_converter.c:6070
+#: tta/perl/Texinfo/Convert/HTML.pm:10206
+#: tta/C/convert/html_prepare_converter.c:6121
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "redefiniramo stazu %s datoteke %s na %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10159
-#: tta/C/convert/html_prepare_converter.c:6080
+#: tta/perl/Texinfo/Convert/HTML.pm:10210
+#: tta/C/convert/html_prepare_converter.c:6131
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr "resetiramo stazu %s datoteke iz relativne staze na %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10163
-#: tta/C/convert/html_prepare_converter.c:6089
+#: tta/perl/Texinfo/Convert/HTML.pm:10214
+#: tta/C/convert/html_prepare_converter.c:6140
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr "resetiramo stazu %s datoteke iz %s na relativnu stazu"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10753
-#: tta/C/convert/html_prepare_converter.c:5461
+#: tta/perl/Texinfo/Convert/HTML.pm:10804
+#: tta/C/convert/html_prepare_converter.c:5512
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node '%s'"
 msgid "could not find %s node `%s'"
 msgstr "Nije moguće pronaći čvor ‘%s’."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11020 tta/C/convert/format_html.c:837
+#: tta/perl/Texinfo/Convert/HTML.pm:11071 tta/C/convert/format_html.c:837
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr "ne postavljati sufiks %s kao poveznicu za priručnik „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11057
-#: tta/perl/Texinfo/Convert/HTML.pm:11063 tta/C/convert/format_html.c:886
+#: tta/perl/Texinfo/Convert/HTML.pm:11108
+#: tta/perl/Texinfo/Convert/HTML.pm:11114 tta/C/convert/format_html.c:886
 #: tta/C/convert/format_html.c:897
 #, fuzzy, c-format, perl-format
 #| msgid "no htmlxref.cnf entry found for `%s'"
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "nije pronađena stavka htmlxref.cnf za „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11565 tta/C/convert/format_html.c:4058
+#: tta/perl/Texinfo/Convert/HTML.pm:11612 tta/C/convert/format_html.c:4047
 #, c-format, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s nema smisla za nerazdijeljeni izlaz"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12090 tta/C/convert/convert_html.c:2657
+#: tta/perl/Texinfo/Convert/HTML.pm:12129 tta/C/convert/convert_html.c:2600
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2522,96 +2523,96 @@ msgstr ""
 "nije moguće koristiti apsolutnu stazu ili URL „%s” za JS_WEBLABELS_FILE pri "
 "generiranju oznaka WWW (web) datoteke"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12137 tta/C/convert/convert_html.c:2681
+#: tta/perl/Texinfo/Convert/HTML.pm:12176 tta/C/convert/convert_html.c:2624
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "pišemo preko izlazne datoteke s licencijom: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12852 tta/C/convert/convert_html.c:832
+#: tta/perl/Texinfo/Convert/HTML.pm:12898 tta/C/convert/convert_html.c:815
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "rukovatelj %d faze %s prioriteta %s: nenumerički status"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12859 tta/C/convert/convert_html.c:844
+#: tta/perl/Texinfo/Convert/HTML.pm:12905 tta/C/convert/convert_html.c:827
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "rukovatelj %d na etapi %s prioriteta %s nije uspješan"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12907
+#: tta/perl/Texinfo/Convert/HTML.pm:12953
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "greška pri kopiranju %s u %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:2902
+#: tta/perl/Texinfo/Convert/HTML.pm:12962 tta/C/convert/convert_html.c:2845
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "greška pri stvaranju praznog %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12921 tta/C/convert/convert_html.c:2914
+#: tta/perl/Texinfo/Convert/HTML.pm:12967 tta/C/convert/convert_html.c:2857
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "greška pri zatvaranju praznog %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13030
-#: tta/perl/Texinfo/Convert/HTML.pm:13034 tta/C/convert/convert_html.c:1117
-#: tta/C/convert/convert_html.c:1122
+#: tta/perl/Texinfo/Convert/HTML.pm:13078
+#: tta/perl/Texinfo/Convert/HTML.pm:13082 tta/C/convert/convert_html.c:1102
+#: tta/C/convert/convert_html.c:1107
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "morate navesti naslov naredbom naslova ili @top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13314 tta/C/convert/convert_html.c:3114
+#: tta/perl/Texinfo/Convert/HTML.pm:13362 tta/C/convert/convert_html.c:3057
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s postoji datoteka „%s” %s za preusmjerenje"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13332 tta/C/convert/convert_html.c:3129
+#: tta/perl/Texinfo/Convert/HTML.pm:13380 tta/C/convert/convert_html.c:3072
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "sukob s cijelom datotekom dokumnta"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13335 tta/C/convert/convert_html.c:3132
+#: tta/perl/Texinfo/Convert/HTML.pm:13383 tta/C/convert/convert_html.c:3075
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "sukob s datotekom Top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13338 tta/C/convert/convert_html.c:3135
+#: tta/perl/Texinfo/Convert/HTML.pm:13386 tta/C/convert/convert_html.c:3078
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "sukob s datotekom definiranom korisnikom"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13341 tta/C/convert/convert_html.c:3138
+#: tta/perl/Texinfo/Convert/HTML.pm:13389 tta/C/convert/convert_html.c:3081
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "sukob s nepoznatom  datotekom čvora"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13344 tta/C/convert/convert_html.c:3142
+#: tta/perl/Texinfo/Convert/HTML.pm:13392 tta/C/convert/convert_html.c:3085
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "sukob s datotekom iz nepoznatog izvora"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13352 tta/C/convert/convert_html.c:3156
+#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3099
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "sukob s datotekom @%s „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13364 tta/C/convert/convert_html.c:3172
+#: tta/perl/Texinfo/Convert/HTML.pm:13412 tta/C/convert/convert_html.c:3115
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "sukob s preusmjerenom datotekom @%s „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13378 tta/C/convert/convert_html.c:3192
+#: tta/perl/Texinfo/Convert/HTML.pm:13426 tta/C/convert/convert_html.c:3135
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "sukob s datotekom @%s „%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13391 tta/C/convert/convert_html.c:3205
+#: tta/perl/Texinfo/Convert/HTML.pm:13439 tta/C/convert/convert_html.c:3148
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "sukob sa specijalnim elementom %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13469
+#: tta/perl/Texinfo/Convert/HTML.pm:13517
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "greška pri zatvaranju %s (datoteka s preusmjernicama za čvorove): %s"
@@ -2670,91 +2671,91 @@ msgstr "@node -- ime ne smije sadržavati „,”: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "ime @node %s ne smije sadržavati „,”: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3402
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3427
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "\\verb graničnik „%s” (za LaTeX) korišten u tekstu `%s'"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3442
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3467
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image datoteka „%s” (za LaTex) nije pronađena"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4970
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4995
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: nije (bilo) moguće otvoriti %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5059
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5084
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: promjena direktorija na %s nije uspjela: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5092
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: nema izlazne datoteke: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5093
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5118
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: naredba nije uspjela: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5098
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5123
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm: nije uspjelo završiti razmjenu podataka: %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5114
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5139
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: nema izlazne datoteke: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5129
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5154
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5136
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5161
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
 msgstr "tex4ht.pm: nije moguće vratiti se u početni direktorij: %s"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:691
+#: tta/perl/Texinfo/Convert/Plaintext.pm:706
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr "%s: izlaz nije kompatibilan s razdiobom"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2027
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2042
 #, perl-format
 msgid "Index entry in @%s with : produces invalid Info: %s"
 msgstr "Stavka u indeksu @%s s(a) : proizvela je nevaljani Info: %s"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2069
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2084
 #: tta/perl/Texinfo/ParserNonXS.pm:3658 tta/C/parsetexi/indices.c:319
 #, c-format, perl-format
 msgid "entry for index `%s' outside of any node"
 msgstr "stavka za indeks „%s” je izvan svih čvorova"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2085
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2100
 #, perl-format
 msgid "node name with index entries should not contain `%s'"
 msgstr "ime čvora s indeksiranim stavkama ne smije sadržavati „%s”"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2385
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2400
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr ""
 "nije (bilo) moguće naći ni @image datoteku „%s.txt” ni alternativni tekst"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:3117
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3132
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
@@ -2762,16 +2763,16 @@ msgstr ""
 "@strong{Note...} proizvodi lažnu Info unakrsnu poveznicu; odaberite drukčiju "
 "riječ da to izbjegnete"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4103
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4118
 #, perl-format
 msgid "menu entry node name should not contain `%s'"
 msgstr "ime čvora u stavki izbornika ne smije sadržavati „%s”"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4114
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4129
 msgid "menu entry node name should not contain `:'"
 msgstr "ime čvora u stavki izbornika ne smije sadržavati „:”"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4149
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4164
 msgid "menu entry name should not contain `:'"
 msgstr "ime stavke u izbornika ne smije sadržavati „:”"
 
@@ -3762,50 +3763,50 @@ msgstr "greška pri brisanju direktorija: %s: razvezujemo %s: %s"
 msgid "Archive::Zip is required for EPUB file output"
 msgstr "Archive::Zip je neophodan za izlaznu EPUB datoteku"
 
-#: tta/perl/ext/epub3.pm:567
+#: tta/perl/ext/epub3.pm:570
 #, perl-format
 msgid "error creating directory: %s: %s"
 msgstr "greška pri stvaranju direktorija: %s: %s"
 
-#: tta/perl/ext/epub3.pm:572
+#: tta/perl/ext/epub3.pm:575
 #, perl-format
 msgid "error creating directory: %s: creating %s: %s"
 msgstr "greška pri stvaranju direktorija: %s stvaramo %s: %s"
 
-#: tta/perl/ext/epub3.pm:598
+#: tta/perl/ext/epub3.pm:612
 #, perl-format
 msgid "epub: no filename output"
 msgstr "epub: izlaz u neimenovanu datoteku"
 
-#: tta/perl/ext/epub3.pm:609
+#: tta/perl/ext/epub3.pm:623
 #, perl-format
 msgid "could not create meta informations directory `%s': %s"
 msgstr "nije (bilo) moguće stvoriti direktorij metapodataka „%s”: %s"
 
-#: tta/perl/ext/epub3.pm:623 tta/perl/ext/epub3.pm:664
-#: tta/perl/ext/epub3.pm:697 tta/perl/ext/epub3.pm:832
+#: tta/perl/ext/epub3.pm:637 tta/perl/ext/epub3.pm:678
+#: tta/perl/ext/epub3.pm:711 tta/perl/ext/epub3.pm:846
 #, perl-format
 msgid "epub3.pm: could not open %s for writing: %s\n"
 msgstr "epub3.pm: nije (bilo) moguće otvoriti %s za pisanje: %s\n"
 
-#: tta/perl/ext/epub3.pm:648 tta/perl/ext/epub3.pm:676
-#: tta/perl/ext/epub3.pm:788 tta/perl/ext/epub3.pm:999
+#: tta/perl/ext/epub3.pm:662 tta/perl/ext/epub3.pm:690
+#: tta/perl/ext/epub3.pm:802 tta/perl/ext/epub3.pm:1013
 #, perl-format
 msgid "epub3.pm: error on closing %s: %s"
 msgstr "epub3.pm: greška pri zatvaranju %s: %s"
 
-#: tta/perl/ext/epub3.pm:951
+#: tta/perl/ext/epub3.pm:965
 #, perl-format
 msgid "epub3.pm: readdir %s error: %s"
 msgstr "epub3.pm: greška readdir %s: %s"
 
-#: tta/perl/ext/epub3.pm:1019 tta/perl/ext/epub3.pm:1028
-#: tta/perl/ext/epub3.pm:1041
+#: tta/perl/ext/epub3.pm:1033 tta/perl/ext/epub3.pm:1042
+#: tta/perl/ext/epub3.pm:1055
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
 msgstr "epub3.pm: greška pri dodavanju %s arhivi"
 
-#: tta/perl/ext/epub3.pm:1050
+#: tta/perl/ext/epub3.pm:1064
 #, perl-format
 msgid "epub3.pm: error writing archive %s"
 msgstr "epub3.pm: greška pri zapisivanju arhive %s"
@@ -4792,57 +4793,57 @@ msgstr ""
 "%s: --paragraph-indent argument mora biti: broj, „none” ili „asis”, a ne "
 "„%s”\n"
 
-#: tta/C/convert/convert_html.c:2464
+#: tta/C/convert/convert_html.c:2407
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
 msgstr "%s: %zu registrirane otvorene sekcije nisu zatvorene"
 
-#: tta/C/convert/convert_html.c:2474
+#: tta/C/convert/convert_html.c:2417
 #, c-format
 msgid "%zu registered inline contents: %s"
 msgstr "%zu registrirani ugrađeni podaci: %s"
 
-#: tta/C/convert/convert_html.c:2491
+#: tta/C/convert/convert_html.c:2434
 #, c-format
 msgid "left inline content associated to %s: '%s'"
 msgstr "preostali ugrađeni podaci povezani s %s: ‘%s’"
 
-#: tta/C/convert/convert_html.c:2498
+#: tta/C/convert/convert_html.c:2441
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr "preostali pridruženi ugrađeni podaci %p: ‘%s’"
 
-#: tta/C/convert/convert_html.c:2503
+#: tta/C/convert/convert_html.c:2446
 #, c-format
 msgid "left inline content associated: '%s'"
 msgstr "preostali pridruženi ugrađeni podaci: ‘%s’"
 
-#: tta/C/convert/convert_html.c:2512
+#: tta/C/convert/convert_html.c:2455
 #, c-format
 msgid "%zu pending footnotes"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2738
+#: tta/C/convert/convert_html.c:2681
 #, c-format
 msgid "error while opening %s for reading: %s"
 msgstr "nije (bilo) moguće otvoriti %s za čitanje: %s"
 
-#: tta/C/convert/convert_html.c:2748
+#: tta/C/convert/convert_html.c:2691
 #, c-format
 msgid "cannot open %s for writing: %s"
 msgstr "nije (bilo) moguće otvoriti %s za pisanje: %s"
 
-#: tta/C/convert/convert_html.c:2766
+#: tta/C/convert/convert_html.c:2709
 #, c-format
 msgid "error writing %s: %s"
 msgstr "greška pri pisanju %s: %s"
 
-#: tta/C/convert/convert_html.c:2792
+#: tta/C/convert/convert_html.c:2735
 #, c-format
 msgid "error closing %s: %s"
 msgstr "greška pri zatvaranju %s: %s"
 
-#: tta/C/convert/html_prepare_converter.c:1901
+#: tta/C/convert/html_prepare_converter.c:1904
 #, c-format
 msgid "error on closing CSS file  %s: %s"
 msgstr "greška pri zatvaranju CSS datoteke  %s: %s"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-26 11:13+0100\n"
+"POT-Creation-Date: 2026-01-03 12:13+0100\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -281,47 +281,47 @@ msgstr "Không có mục nào trong mục lục có chứa “%s”."
 msgid "No available info files have '%s' in their indices"
 msgstr "Không có tập tin thông tin sẵn sàng chứa “%s” trong chỉ mục"
 
-#: info/info.c:316 info/session-cmd.c:1968
+#: info/info.c:320 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Không có mục trình đơn “%s” trong nút “%s”"
 
-#: info/info.c:472 info/info.c:1236
+#: info/info.c:476 info/info.c:1255
 #, c-format
 msgid "Cannot find node '%s'"
 msgstr "Không thể tìm thấy nút thông tin “%s”"
 
-#: info/info.c:494
+#: info/info.c:498
 #, c-format
 msgid "No program name given"
 msgstr "Chưa đưa ra tên chương trình"
 
-#: info/info.c:685
+#: info/info.c:689
 #, c-format
 msgid "invalid number: %s\n"
 msgstr "con số không hợp lệ: %s\n"
 
-#: info/info.c:868
+#: info/info.c:905
 #, c-format
 msgid "malformed variable assignment: %s"
 msgstr "gán biến sai dạng: %s"
 
-#: info/info.c:875 info/infokey.c:566
+#: info/info.c:912 info/infokey.c:566
 #, c-format
 msgid "%s: no such variable"
 msgstr "%s: không có biến như thế"
 
-#: info/info.c:881 info/infokey.c:568
+#: info/info.c:918 info/infokey.c:568
 #, c-format
 msgid "value %s is not valid for variable %s"
 msgstr "giá trị %s là không hợp lệ với biến %s"
 
-#: info/info.c:893
+#: info/info.c:930
 #, c-format
 msgid "Try --help for more information.\n"
 msgstr "Hãy thử lệnh trợ giúp “--help” để xem thông tin thêm.\n"
 
-#: info/info.c:912 install-info/install-info.c:2281
+#: info/info.c:949 install-info/install-info.c:2281
 #, fuzzy, c-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -342,12 +342,12 @@ msgstr ""
 "Đây là phần mềm tự do: bạn có quyền thay đổi và phát hành lại nó.\n"
 "KHÔNG CÓ BẢO HÀNH GÌ CẢ, với điều kiện được pháp luật cho phép.\n"
 
-#: info/info.c:1099
+#: info/info.c:1126
 #, c-format
 msgid "no index entries found for '%s'\n"
 msgstr "không tìm thấy chỉ mục cho “%s”\n"
 
-#: info/info.c:1150
+#: info/info.c:1169
 #, c-format
 msgid ""
 "Usage: %s [OPTION]... [MENU-ITEM...]\n"
@@ -358,69 +358,69 @@ msgstr ""
 "\n"
 "Đọc tài liệu hướng dẫn theo định dạng Info.\n"
 
-#: info/info.c:1157
+#: info/info.c:1176
 msgid "Frequently-used options:"
 msgstr ""
 
-#: info/info.c:1158
+#: info/info.c:1177
 msgid "  -a, --all                    use all matching manuals"
 msgstr ""
 
-#: info/info.c:1159
+#: info/info.c:1178
 msgid ""
 "  -k, --apropos=STRING         look up STRING in all indices of all manuals"
 msgstr ""
 
-#: info/info.c:1160
+#: info/info.c:1179
 msgid "  -d, --directory=DIR          add DIR to INFOPATH"
 msgstr ""
 
-#: info/info.c:1161
+#: info/info.c:1180
 msgid "  -f, --file=MANUAL            specify Info manual to visit"
 msgstr ""
 
-#: info/info.c:1162
+#: info/info.c:1181
 #, fuzzy
 #| msgid " -h, --help   display this help and exit"
 msgid "  -h, --help                   display this help and exit"
 msgstr " -h, --help   hiển thị trợ giúp này rồi thoát"
 
-#: info/info.c:1163
+#: info/info.c:1182
 msgid "      --index-search=STRING    go to node pointed by index entry STRING"
 msgstr ""
 
-#: info/info.c:1164
+#: info/info.c:1183
 msgid "  -n, --node=NODENAME          specify nodes in first visited Info file"
 msgstr ""
 
-#: info/info.c:1165
+#: info/info.c:1184
 msgid "  -o, --output=FILE            output selected nodes to FILE"
 msgstr ""
 
-#: info/info.c:1168
+#: info/info.c:1187
 msgid "  -b, --speech-friendly        be friendly to speech synthesizers"
 msgstr ""
 "  -b, --speech-friendly        thân thiện với thiết bị tổng hợp tiếng nói"
 
-#: info/info.c:1171
+#: info/info.c:1190
 msgid "      --subnodes               recursively output menu items"
 msgstr ""
 
-#: info/info.c:1172
+#: info/info.c:1191
 msgid "  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"
 msgstr ""
 
-#: info/info.c:1173
+#: info/info.c:1192
 #, fuzzy
 #| msgid " --version    display version information and exit"
 msgid "      --version                display version information and exit"
 msgstr " --version    hiển thị thông tin phiên bản rồi thoát"
 
-#: info/info.c:1174
+#: info/info.c:1193
 msgid "  -w, --where, --location      print physical location of Info file"
 msgstr ""
 
-#: info/info.c:1178
+#: info/info.c:1197
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -445,7 +445,7 @@ msgstr ""
 "Bất cứ đối số còn lại nào được xử lý như tên của mục trình đơn\n"
 "tương đối với nút đầu tiên được thăm."
 
-#: info/info.c:1185
+#: info/info.c:1204
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -455,67 +455,67 @@ msgstr ""
 "\n"
 "Để xem bản tóm tắt các tổ hợp phím, hãy gõ “H” bên trong Info."
 
-#: info/info.c:1188
+#: info/info.c:1207
 msgid " Examples:"
 msgstr ""
 
-#: info/info.c:1189
+#: info/info.c:1208
 msgid "  info                         show top-level dir menu"
 msgstr ""
 
-#: info/info.c:1190
+#: info/info.c:1209
 msgid "  info info-stnd               show the manual for this Info program"
 msgstr ""
 
-#: info/info.c:1191
+#: info/info.c:1210
 msgid "  info emacs                   start at emacs node from top-level dir"
 msgstr ""
 
-#: info/info.c:1192
+#: info/info.c:1211
 msgid ""
 "  info emacs buffers           select buffers menu entry in emacs manual"
 msgstr ""
 
-#: info/info.c:1193
+#: info/info.c:1212
 msgid "  info emacs -n Files          start at Files node within emacs manual"
 msgstr ""
 
-#: info/info.c:1194
+#: info/info.c:1213
 msgid "  info '(emacs)Files'          alternative way to start at Files node"
 msgstr ""
 
-#: info/info.c:1195
+#: info/info.c:1214
 msgid ""
 "  info --subnodes -o out.txt emacs\n"
 "                               dump entire emacs manual to out.txt"
 msgstr ""
 
-#: info/info.c:1197
+#: info/info.c:1216
 msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
-#: info/info.c:1237
+#: info/info.c:1256
 #, c-format
 msgid "Cannot find node '(%s)%s'"
 msgstr "Không thể tìm thấy nút thông tin “(%s)%s”"
 
-#: info/info.c:1238
+#: info/info.c:1257
 msgid "Point doesn't appear within this window's node!"
 msgstr "Điểm không xuất hiện bên trong cái nút thông tin của cửa sổ này."
 
-#: info/info.c:1239
+#: info/info.c:1258
 msgid "No menu in this node"
 msgstr "Không có trình đơn trong nút thông tin này"
 
-#: info/info.c:1240
+#: info/info.c:1259
 msgid "No cross references in this node"
 msgstr "Không có tham chiếu chéo trong nút thông tin này"
 
-#: info/info.c:1241
+#: info/info.c:1260
 msgid "Only one window"
 msgstr "Chỉ một cửa sổ"
 
-#: info/info.c:1242
+#: info/info.c:1261
 msgid "Resulting window would be too small"
 msgstr "Cửa sổ kết quả quá nhỏ"
 
@@ -976,6 +976,27 @@ msgstr "“%s” không hợp lệ"
 msgid "Quit"
 msgstr "Thoát"
 
+#: info/session.c:1453
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Không thể tạo tập tin xuất “%s”"
+
+#: info/session.c:1479
+#, fuzzy, c-format
+#| msgid "error writing to %s: %s"
+msgid "error writing to %s: %s"
+msgstr "gặp lỗi khi ghi vào “%s”: %s"
+
+#: info/session.c:1488
+#, c-format
+msgid "closing %s"
+msgstr "đang đóng %s"
+
+#: info/session.c:1528
+#, c-format
+msgid "writing node %s..."
+msgstr "đang ghi nút %s…"
+
 #: info/session-cmd.c:42
 msgid "Show all matching files"
 msgstr "Hiển thị mọi tập tin khớp mẫu"
@@ -1311,225 +1332,204 @@ msgstr "Tìm tập tin: "
 msgid "Cannot find '%s'"
 msgstr "Không tìm thấy “%s”"
 
-#: info/session-cmd.c:2923
-#, c-format
-msgid "Could not create output file '%s'"
-msgstr "Không thể tạo tập tin xuất “%s”"
-
-#: info/session-cmd.c:2949
-#, fuzzy, c-format
-#| msgid "error writing to %s: %s"
-msgid "error writing to %s: %s"
-msgstr "gặp lỗi khi ghi vào “%s”: %s"
-
-#: info/session-cmd.c:2958
-#, c-format
-msgid "closing %s"
-msgstr "đang đóng %s"
-
-#: info/session-cmd.c:2998
-#, c-format
-msgid "writing node %s..."
-msgstr "đang ghi nút %s…"
-
-#: info/session-cmd.c:3044
+#: info/session-cmd.c:2862
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr ""
 "Gửi nội dung của nút nay qua ống dẫn kiểu “INFO_PRINT_COMMAND” (Info in ra "
 "lệnh)"
 
-#: info/session-cmd.c:3072
+#: info/session-cmd.c:2890
 #, c-format
 msgid "Cannot open pipe to '%s'"
 msgstr "Không thể mở ống dẫn đến “%s”"
 
-#: info/session-cmd.c:3077
+#: info/session-cmd.c:2895
 #, c-format
 msgid "printing node %s..."
 msgstr "đang in nút %s…"
 
-#: info/session-cmd.c:3085
+#: info/session-cmd.c:2903
 #, c-format
 msgid "finished printing node %s"
 msgstr "đã hoàn tất việc in nút %s"
 
-#: info/session-cmd.c:3117
+#: info/session-cmd.c:2930
 msgid "Toggle the usage of regular expressions in searches"
 msgstr "Bật/tắt khả năng sử dụng biểu thức chính quy khi tìm kiếm"
 
-#: info/session-cmd.c:3121
+#: info/session-cmd.c:2934
 #, c-format
 msgid "Using regular expressions for searches"
 msgstr "Dùng biểu thức chính quy khi tìm kiếm"
 
-#: info/session-cmd.c:3122
+#: info/session-cmd.c:2935
 #, c-format
 msgid "Using literal strings for searches"
 msgstr "Dùng chuỗi nghĩa chữ khi tìm kiếm"
 
-#: info/session-cmd.c:3325
+#: info/session-cmd.c:3138
 msgid "Search continued from the end of the document"
 msgstr "Tiến trình tìm kiếm đã tiếp tục từ cuối của tài liệu"
 
-#: info/session-cmd.c:3330
+#: info/session-cmd.c:3143
 msgid "Search continued from the beginning of the document"
 msgstr "Tiến trình tìm kiếm đã tiếp tục từ đầu của tài liệu"
 
-#: info/session-cmd.c:3347
+#: info/session-cmd.c:3160
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr "Đang tìm kiếm tập tin phụ %s…"
 
-#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#: info/session-cmd.c:3200 info/session-cmd.c:3469 info/session-cmd.c:3582
 #, c-format
 msgid "Search failed"
 msgstr "Gặp lỗi khi tìm kiếm"
 
-#: info/session-cmd.c:3407
+#: info/session-cmd.c:3220
 #, c-format
 msgid "%s%s%s [%s]: "
 msgstr "%s%s%s [%s]: "
 
-#: info/session-cmd.c:3408 info/session-cmd.c:3414
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
 msgid "Regexp search"
 msgstr "Tìm kiếm dùng biểu thức chính quy"
 
-#: info/session-cmd.c:3408 info/session-cmd.c:3414
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
 msgid "Search"
 msgstr "Tìm kiếm"
 
-#: info/session-cmd.c:3409 info/session-cmd.c:3415
+#: info/session-cmd.c:3222 info/session-cmd.c:3228
 msgid " case-sensitively"
 msgstr " phân biết chữ hoa/thường "
 
-#: info/session-cmd.c:3410 info/session-cmd.c:3416
+#: info/session-cmd.c:3223 info/session-cmd.c:3229
 msgid " backward"
 msgstr " ngược"
 
-#: info/session-cmd.c:3413
+#: info/session-cmd.c:3226
 #, c-format
 msgid "%s%s%s: "
 msgstr "%s%s%s: "
 
-#: info/session-cmd.c:3433
+#: info/session-cmd.c:3246
 msgid "Search string too short"
 msgstr "Chuỗi tìm kiếm quá ngắn"
 
-#: info/session-cmd.c:3627
+#: info/session-cmd.c:3440
 #, c-format
 msgid "Going back to last match from %s"
 msgstr "Trở lại đến chỗ khớp cuối từ %s"
 
-#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#: info/session-cmd.c:3469 info/session-cmd.c:3582
 #, c-format
 msgid "No more matches"
 msgstr "Không tìm thấy thêm nữa"
 
-#: info/session-cmd.c:3796
+#: info/session-cmd.c:3609
 msgid "Search this node and subnodes for a string"
 msgstr "Tìm một chuỗi trong nút này và nút con"
 
 #. TRANSLATORS: %s is the title of a node.
-#: info/session-cmd.c:3803
+#: info/session-cmd.c:3616
 #, c-format
 msgid "Search under %s: "
 msgstr "Tìm kiếm dưới %s:"
 
-#: info/session-cmd.c:3818
+#: info/session-cmd.c:3631
 msgid "Go to next match in Info sub-tree"
 msgstr "Đi đến chỗ khớp kế tiếp trong cây-con Info"
 
-#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#: info/session-cmd.c:3635 info/session-cmd.c:3647
 #, c-format
 msgid "No active search"
 msgstr "Không có tìm kiếm nào hiện đang hoạt động"
 
-#: info/session-cmd.c:3830
+#: info/session-cmd.c:3643
 msgid "Go to previous match in Info sub-tree"
 msgstr "Đi đến chỗ khớp kế trước trong cây-con Info"
 
-#: info/session-cmd.c:3843
+#: info/session-cmd.c:3656
 msgid "Read a string and search for it case-sensitively"
 msgstr "Đọc chuỗi và tìm kiếm nó, có phân biệt HOA/thường"
 
-#: info/session-cmd.c:3848
+#: info/session-cmd.c:3661
 msgid "Read a string and search for it"
 msgstr "Đọc chuỗi và tìm kiếm nó"
 
-#: info/session-cmd.c:3854
+#: info/session-cmd.c:3667
 msgid "Read a string and search backward for it"
 msgstr "Đọc chuỗi và tìm kiếm theo hướng ngược"
 
-#: info/session-cmd.c:3862
+#: info/session-cmd.c:3675
 msgid "Repeat last search in the same direction"
 msgstr "Làm lại việc tìm kiếm cuối với cùng hướng"
 
-#: info/session-cmd.c:3876 info/session-cmd.c:3927
+#: info/session-cmd.c:3689 info/session-cmd.c:3740
 msgid "No previous search string"
 msgstr "Không có chuỗi tìm kiếm trước"
 
-#: info/session-cmd.c:3913
+#: info/session-cmd.c:3726
 msgid "Repeat last search in the reverse direction"
 msgstr "Làm lại việc tìm kiếm cuối, về ngược phía hướng"
 
-#: info/session-cmd.c:3966
+#: info/session-cmd.c:3779
 msgid "Clear displayed search matches"
 msgstr "Xóa trình bày khớp mẫu"
 
-#: info/session-cmd.c:3982 info/session-cmd.c:3988
+#: info/session-cmd.c:3795 info/session-cmd.c:3801
 msgid "Search interactively for a string as you type it"
 msgstr "Tìm kiếm tương tác chuỗi đang gõ"
 
-#: info/session-cmd.c:4108
+#: info/session-cmd.c:3921
 msgid "Regexp I-search backward: "
 msgstr "Tìm kiếm ngược I dùng biểu thức chính quy: "
 
-#: info/session-cmd.c:4109
+#: info/session-cmd.c:3922
 msgid "I-search backward: "
 msgstr "Tìm kiếm ngược I: "
 
-#: info/session-cmd.c:4111
+#: info/session-cmd.c:3924
 msgid "Regexp I-search: "
 msgstr "Tìm kiếm I dùng biểu thức chính quy: "
 
-#: info/session-cmd.c:4112
+#: info/session-cmd.c:3925
 msgid "I-search: "
 msgstr "Tìm kiếm I: "
 
-#: info/session-cmd.c:4137 info/session-cmd.c:4140
+#: info/session-cmd.c:3950 info/session-cmd.c:3953
 msgid "Failing "
 msgstr "Đang thất bại "
 
-#: info/session-cmd.c:4507
+#: info/session-cmd.c:4320
 msgid "Cancel current operation"
 msgstr "Hủy thao tác đang chạy"
 
-#: info/session-cmd.c:4513
+#: info/session-cmd.c:4326
 msgid "Display version of Info being run"
 msgstr "Hiển thị thông tin phiên bản của Info đang chạy"
 
-#: info/session-cmd.c:4515
+#: info/session-cmd.c:4328
 #, c-format
 msgid "GNU Info version %s"
 msgstr "GNU Info phiên bản %s"
 
-#: info/session-cmd.c:4520
+#: info/session-cmd.c:4333
 msgid "Redraw the display"
 msgstr "Vẽ lại màn hình"
 
-#: info/session-cmd.c:4557
+#: info/session-cmd.c:4370
 msgid "Quit using Info"
 msgstr "Thoát khỏi Info"
 
-#: info/session-cmd.c:4573
+#: info/session-cmd.c:4386
 msgid "Run command bound to this key's lowercase variant"
 msgstr "Chạy lệnh đã đóng kết đến biến thế chữ thường của phím này"
 
-#: info/session-cmd.c:4578
+#: info/session-cmd.c:4391
 msgid "Add this digit to the current numeric argument"
 msgstr "Thêm chữ số này vào đối số thuộc số hiện tại"
 
-#: info/session-cmd.c:4585
+#: info/session-cmd.c:4398
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr "Bắt đầu (hoặc nhân với 4) đối số thuộc số hiện tại)"
 
@@ -2188,7 +2188,7 @@ msgstr ""
 msgid "error parsing %s: %s"
 msgstr "lỗi tải %s: %s\n"
 
-#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2780
+#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2723
 #, fuzzy, c-format, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error reading %s: %s"
@@ -2224,14 +2224,15 @@ msgstr "%s: không hiểu biến %s"
 msgid "unknown variable from command line: %s"
 msgstr "%s: không hiểu biến %s"
 
-#: tta/perl/Texinfo/Config.pm:676 tta/perl/Texinfo/Config.pm:714
-#: tta/perl/Texinfo/Config.pm:736 tta/perl/Texinfo/Config.pm:759
+#: tta/perl/Texinfo/Config.pm:671 tta/perl/Texinfo/Config.pm:714
+#: tta/perl/Texinfo/Config.pm:732 tta/perl/Texinfo/Config.pm:758
+#: tta/perl/Texinfo/Config.pm:785
 #, fuzzy, perl-format
 #| msgid "%s: unknown variable %s"
 msgid "%s: unknown formatting context %s"
 msgstr "%s: không hiểu biến %s"
 
-#: tta/perl/Texinfo/Config.pm:902
+#: tta/perl/Texinfo/Config.pm:928
 #, fuzzy, perl-format
 #| msgid "unknown tree transformation %s"
 msgid "%s: unknown special element information type %s"
@@ -2249,59 +2250,59 @@ msgstr "@%s “%s” đã định nghĩa từ trước"
 msgid "here is the previous definition as @%s"
 msgstr "ở đây có định nghĩa trước như là @%s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:422
-#: tta/perl/Texinfo/Convert/HTML.pm:12151
-#: tta/perl/Texinfo/Convert/HTML.pm:13203
-#: tta/perl/Texinfo/Convert/HTML.pm:13461 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1158
-#: tta/perl/Texinfo/Convert/Plaintext.pm:768
-#: tta/perl/Texinfo/Convert/Plaintext.pm:823
+#: tta/perl/Texinfo/Convert/Converter.pm:425
+#: tta/perl/Texinfo/Convert/HTML.pm:12190
+#: tta/perl/Texinfo/Convert/HTML.pm:13251
+#: tta/perl/Texinfo/Convert/HTML.pm:13509 tta/perl/Texinfo/Convert/IXIN.pm:358
+#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1181
+#: tta/perl/Texinfo/Convert/Plaintext.pm:783
+#: tta/perl/Texinfo/Convert/Plaintext.pm:838
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
 #: tta/perl/texi2any.pl:1935 tta/perl/texi2any.pl:2072
-#: tta/C/convert/converter.c:715 tta/C/convert/convert_html.c:2093
-#: tta/C/convert/convert_html.c:2573 tta/C/convert/rawtext_converter_api.c:232
+#: tta/C/convert/converter.c:725 tta/C/convert/convert_html.c:2074
+#: tta/C/convert/convert_html.c:2516 tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "không thể mở “%s” để ghi: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:448
-#: tta/perl/Texinfo/Convert/HTML.pm:12146
-#: tta/perl/Texinfo/Convert/HTML.pm:13226 tta/perl/Texinfo/Convert/IXIN.pm:1039
+#: tta/perl/Texinfo/Convert/Converter.pm:451
+#: tta/perl/Texinfo/Convert/HTML.pm:12185
+#: tta/perl/Texinfo/Convert/HTML.pm:13274 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:267
 #: tta/perl/Texinfo/Convert/Info.pm:322 tta/perl/Texinfo/Convert/Info.pm:400
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1244
-#: tta/perl/Texinfo/Convert/Plaintext.pm:796
-#: tta/perl/Texinfo/Convert/Plaintext.pm:844
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1267
+#: tta/perl/Texinfo/Convert/Plaintext.pm:811
+#: tta/perl/Texinfo/Convert/Plaintext.pm:859
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
-#: tta/C/convert/converter.c:785 tta/C/convert/convert_html.c:2158
-#: tta/C/convert/convert_html.c:2612 tta/C/convert/rawtext_converter_api.c:269
+#: tta/C/convert/converter.c:795 tta/C/convert/convert_html.c:2139
+#: tta/C/convert/convert_html.c:2555 tta/C/convert/rawtext_converter_api.c:269
 #: tta/C/parsetexi/input.c:352
 #, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:754
-#: tta/perl/Texinfo/Convert/Converter.pm:770
-#: tta/perl/Texinfo/Convert/Converter.pm:791
+#: tta/perl/Texinfo/Convert/Converter.pm:760
+#: tta/perl/Texinfo/Convert/Converter.pm:776
+#: tta/perl/Texinfo/Convert/Converter.pm:797
 #, fuzzy, perl-format
 #| msgid "%s: unknown variable %s"
 msgid "unknown customization variable: %s"
 msgstr "%s: không hiểu biến %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1175
+#: tta/perl/Texinfo/Convert/Converter.pm:1181
 #: tta/perl/Texinfo/Convert/Text.pm:1060 tta/perl/Texinfo/Convert/Text.pm:1082
-#: tta/C/convert/converter.c:1036
+#: tta/C/convert/converter.c:1046
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "không thể tạo thư mục “%s”: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1575
+#: tta/perl/Texinfo/Convert/Converter.pm:1581
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin ảnh dạng text %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1584
+#: tta/perl/Texinfo/Convert/Converter.pm:1590
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
@@ -2314,270 +2315,270 @@ msgstr "Không thể đọc tập tin @image “%s”: %s"
 msgid "@image file `%s' not found, using `%s'"
 msgstr "không tìm thấy tập tin @image “%s”, đang dùng “%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:397
-#: tta/C/convert/html_prepare_converter.c:736
+#: tta/perl/Texinfo/Convert/HTML.pm:404
+#: tta/C/convert/html_prepare_converter.c:739
 #, c-format, perl-format
 msgid "not setting an unknown direction: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:3626 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6744
+#: tta/perl/Texinfo/Convert/HTML.pm:3672 tta/perl/ext/epub3.pm:287
+#: tta/C/convert/format_html.c:6733
 #, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "Tập tin @image “%s” (cho HTML) không đọc được, dùng “%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4767 tta/C/convert/format_html.c:8331
+#: tta/perl/Texinfo/Convert/HTML.pm:4813 tta/C/convert/format_html.c:8292
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "định dạng thô %s không được chuyển đổi"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6439 tta/C/convert/format_html.c:10716
+#: tta/perl/Texinfo/Convert/HTML.pm:6498 tta/C/convert/format_html.c:10695
 #, fuzzy, c-format, perl-format
 #| msgid "entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6470 tta/C/convert/format_html.c:10756
+#: tta/perl/Texinfo/Convert/HTML.pm:6529 tta/C/convert/format_html.c:10735
 #, fuzzy, c-format, perl-format
 #| msgid "entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8438
-#: tta/C/convert/html_prepare_converter.c:1006
+#: tta/perl/Texinfo/Convert/HTML.pm:8488
+#: tta/C/convert/html_prepare_converter.c:1009
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr "không thể mở tập tin cấu hình dùng để tham chiếu html %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8467
-#: tta/C/convert/html_prepare_converter.c:1116
+#: tta/perl/Texinfo/Convert/HTML.pm:8517
+#: tta/C/convert/html_prepare_converter.c:1119
 #, c-format, perl-format
 msgid "missing type"
 msgstr "thiếu kiểu"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8471
-#: tta/C/convert/html_prepare_converter.c:1127
+#: tta/perl/Texinfo/Convert/HTML.pm:8521
+#: tta/C/convert/html_prepare_converter.c:1130
 #, c-format, perl-format
 msgid "unrecognized type: %s"
 msgstr "không nhận ra kiểu: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8509
-#: tta/C/convert/html_prepare_converter.c:1226
+#: tta/perl/Texinfo/Convert/HTML.pm:8559
+#: tta/C/convert/html_prepare_converter.c:1229
 #, c-format, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin cấu hình tham chiếu cho html %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8535
-#: tta/C/convert/html_prepare_converter.c:1267
+#: tta/perl/Texinfo/Convert/HTML.pm:8585
+#: tta/C/convert/html_prepare_converter.c:1270
 #, fuzzy, c-format, perl-format
 #| msgid "could not open html refs config file %s: %s"
 msgid "could not find html refs config file %s"
 msgstr "không thể mở tập tin cấu hình dùng để tham chiếu html %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8654 tta/perl/texi2any.pl:635
-#: tta/C/convert/html_prepare_converter.c:1497
+#: tta/perl/Texinfo/Convert/HTML.pm:8704 tta/perl/texi2any.pl:635
+#: tta/C/convert/html_prepare_converter.c:1500
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9077
+#: tta/perl/Texinfo/Convert/HTML.pm:9132
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9095
+#: tta/perl/Texinfo/Convert/HTML.pm:9150
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "hành động lạ “%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9555
-#: tta/C/convert/html_prepare_converter.c:1784
+#: tta/perl/Texinfo/Convert/HTML.pm:9609
+#: tta/C/convert/html_prepare_converter.c:1787
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "chuỗi chưa được đóng trong tập tin css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9557
-#: tta/C/convert/html_prepare_converter.c:1792
+#: tta/perl/Texinfo/Convert/HTML.pm:9611
+#: tta/C/convert/html_prepare_converter.c:1795
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "“--css-include” kết thúc tại phần ghi chú"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9559
-#: tta/C/convert/html_prepare_converter.c:1800
+#: tta/perl/Texinfo/Convert/HTML.pm:9613
+#: tta/C/convert/html_prepare_converter.c:1803
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "@import chưa hoàn thiện trong tập tin css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9595
-#: tta/C/convert/html_prepare_converter.c:1852
+#: tta/perl/Texinfo/Convert/HTML.pm:9649
+#: tta/C/convert/html_prepare_converter.c:1855
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "không tìm thấy tập tin CSS %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9607
-#: tta/C/convert/html_prepare_converter.c:1874
+#: tta/perl/Texinfo/Convert/HTML.pm:9661
+#: tta/C/convert/html_prepare_converter.c:1877
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "không thể mở --include-file %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9625
+#: tta/perl/Texinfo/Convert/HTML.pm:9679
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin CSS %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9830
-#: tta/C/convert/html_prepare_converter.c:4835
+#: tta/perl/Texinfo/Convert/HTML.pm:9881
+#: tta/C/convert/html_prepare_converter.c:4886
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10155
-#: tta/C/convert/html_prepare_converter.c:6070
+#: tta/perl/Texinfo/Convert/HTML.pm:10206
+#: tta/C/convert/html_prepare_converter.c:6121
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10159
-#: tta/C/convert/html_prepare_converter.c:6080
+#: tta/perl/Texinfo/Convert/HTML.pm:10210
+#: tta/C/convert/html_prepare_converter.c:6131
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10163
-#: tta/C/convert/html_prepare_converter.c:6089
+#: tta/perl/Texinfo/Convert/HTML.pm:10214
+#: tta/C/convert/html_prepare_converter.c:6140
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10753
-#: tta/C/convert/html_prepare_converter.c:5461
+#: tta/perl/Texinfo/Convert/HTML.pm:10804
+#: tta/C/convert/html_prepare_converter.c:5512
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node '%s'"
 msgid "could not find %s node `%s'"
 msgstr "Không thể tìm thấy nút thông tin “%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11020 tta/C/convert/format_html.c:837
+#: tta/perl/Texinfo/Convert/HTML.pm:11071 tta/C/convert/format_html.c:837
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11057
-#: tta/perl/Texinfo/Convert/HTML.pm:11063 tta/C/convert/format_html.c:886
+#: tta/perl/Texinfo/Convert/HTML.pm:11108
+#: tta/perl/Texinfo/Convert/HTML.pm:11114 tta/C/convert/format_html.c:886
 #: tta/C/convert/format_html.c:897
 #, fuzzy, c-format, perl-format
 #| msgid "no htmlxref.cnf entry found for `%s'"
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "không tìm thấy mục htmlxref.cnf dành cho “%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11565 tta/C/convert/format_html.c:4058
+#: tta/perl/Texinfo/Convert/HTML.pm:11612 tta/C/convert/format_html.c:4047
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "@%s không có nghĩa bên trong khối “@%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12090 tta/C/convert/convert_html.c:2657
+#: tta/perl/Texinfo/Convert/HTML.pm:12129 tta/C/convert/convert_html.c:2600
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12137 tta/C/convert/convert_html.c:2681
+#: tta/perl/Texinfo/Convert/HTML.pm:12176 tta/C/convert/convert_html.c:2624
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12852 tta/C/convert/convert_html.c:832
+#: tta/perl/Texinfo/Convert/HTML.pm:12898 tta/C/convert/convert_html.c:815
 #, fuzzy, c-format, perl-format
 #| msgid "handler %s of stage %s priority %s failed"
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "bộ tiếp hợp %s của trạng thái %s mức ưu tiên %s gặp lỗi"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12859 tta/C/convert/convert_html.c:844
+#: tta/perl/Texinfo/Convert/HTML.pm:12905 tta/C/convert/convert_html.c:827
 #, fuzzy, c-format, perl-format
 #| msgid "handler %s of stage %s priority %s failed"
 msgid "handler %d of stage %s priority %s failed"
 msgstr "bộ tiếp hợp %s của trạng thái %s mức ưu tiên %s gặp lỗi"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12907
+#: tta/perl/Texinfo/Convert/HTML.pm:12953
 #, fuzzy, perl-format
 #| msgid "error on closing %s: %s"
 msgid "error on copying %s into %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:2902
+#: tta/perl/Texinfo/Convert/HTML.pm:12962 tta/C/convert/convert_html.c:2845
 #, fuzzy, c-format, perl-format
 #| msgid "error on closing %s: %s"
 msgid "error on creating empty %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12921 tta/C/convert/convert_html.c:2914
+#: tta/perl/Texinfo/Convert/HTML.pm:12967 tta/C/convert/convert_html.c:2857
 #, fuzzy, c-format, perl-format
 #| msgid "error on closing %s: %s"
 msgid "error on closing empty %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13030
-#: tta/perl/Texinfo/Convert/HTML.pm:13034 tta/C/convert/convert_html.c:1117
-#: tta/C/convert/convert_html.c:1122
+#: tta/perl/Texinfo/Convert/HTML.pm:13078
+#: tta/perl/Texinfo/Convert/HTML.pm:13082 tta/C/convert/convert_html.c:1102
+#: tta/C/convert/convert_html.c:1107
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "phải chỉ định một tiêu đề cùng với lệnh title hay @top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13314 tta/C/convert/convert_html.c:3114
+#: tta/perl/Texinfo/Convert/HTML.pm:13362 tta/C/convert/convert_html.c:3057
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13332 tta/C/convert/convert_html.c:3129
+#: tta/perl/Texinfo/Convert/HTML.pm:13380 tta/C/convert/convert_html.c:3072
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13335 tta/C/convert/convert_html.c:3132
+#: tta/perl/Texinfo/Convert/HTML.pm:13383 tta/C/convert/convert_html.c:3075
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13338 tta/C/convert/convert_html.c:3135
+#: tta/perl/Texinfo/Convert/HTML.pm:13386 tta/C/convert/convert_html.c:3078
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13341 tta/C/convert/convert_html.c:3138
+#: tta/perl/Texinfo/Convert/HTML.pm:13389 tta/C/convert/convert_html.c:3081
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13344 tta/C/convert/convert_html.c:3142
+#: tta/perl/Texinfo/Convert/HTML.pm:13392 tta/C/convert/convert_html.c:3085
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13352 tta/C/convert/convert_html.c:3156
+#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3099
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13364 tta/C/convert/convert_html.c:3172
+#: tta/perl/Texinfo/Convert/HTML.pm:13412 tta/C/convert/convert_html.c:3115
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13378 tta/C/convert/convert_html.c:3192
+#: tta/perl/Texinfo/Convert/HTML.pm:13426 tta/C/convert/convert_html.c:3135
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13391 tta/C/convert/convert_html.c:3205
+#: tta/perl/Texinfo/Convert/HTML.pm:13439 tta/C/convert/convert_html.c:3148
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13469
+#: tta/perl/Texinfo/Convert/HTML.pm:13517
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin nút chuyển hướng %s: %s"
@@ -2637,92 +2638,92 @@ msgstr "tên @node không được chứa “,”: %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "tên @node không được chứa “,”: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3402
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3427
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3442
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3467
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "Tập tin @image “%s” (cho HTML) không đọc được, dùng “%s”"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4970
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4995
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm: không thể mở %s: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5059
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5084
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm: chdir %s gặp lỗi: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5092
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm: thiếu tập tin đầu ra: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5093
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5118
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm: lệnh gặp lỗi: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5098
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5123
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5114
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5139
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm: thiếu tập tin đầu ra: %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5129
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5154
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5136
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5161
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
 msgstr "tex4ht.pm: không thể trả về thư mục khởi tạo: %s"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:691
+#: tta/perl/Texinfo/Convert/Plaintext.pm:706
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr "%s: kết xuất không tương thích với split (chia tách)"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2027
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2042
 #, perl-format
 msgid "Index entry in @%s with : produces invalid Info: %s"
 msgstr "Mục chỉ số trong @%s với: sản sinh Info không hợp lệ: %s"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2069
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2084
 #: tta/perl/Texinfo/ParserNonXS.pm:3658 tta/C/parsetexi/indices.c:319
 #, c-format, perl-format
 msgid "entry for index `%s' outside of any node"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2085
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2100
 #, fuzzy, perl-format
 #| msgid "@%s node name should not contain `%s'"
 msgid "node name with index entries should not contain `%s'"
 msgstr "tên nút @%s không được chứa “%s”"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2385
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2400
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr ""
 "không thể tìm thấy tập tin @image “%s.txt” mà cũng không có chữ thay thế"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:3117
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3132
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
@@ -2730,16 +2731,16 @@ msgstr ""
 "“@strong{Note…}” tạo một tham chiếu chéo giả trong Info; hãy sửa đổi để "
 "tránh nó"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4103
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4118
 #, perl-format
 msgid "menu entry node name should not contain `%s'"
 msgstr "tên mục trình đơn không được chứa “%s”"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4114
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4129
 msgid "menu entry node name should not contain `:'"
 msgstr "tên nút mục trình đơn không được chứa dấu hai chấm “:”"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4149
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4164
 msgid "menu entry name should not contain `:'"
 msgstr "tên mục trình đơn không được chứa dấu hai chấm “:”"
 
@@ -3805,56 +3806,56 @@ msgstr "gặp lỗi khi đóng %s: %s"
 msgid "Archive::Zip is required for EPUB file output"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:567
+#: tta/perl/ext/epub3.pm:570
 #, fuzzy, perl-format
 #| msgid "error writing to %s: %s"
 msgid "error creating directory: %s: %s"
 msgstr "gặp lỗi khi ghi vào “%s”: %s"
 
-#: tta/perl/ext/epub3.pm:572
+#: tta/perl/ext/epub3.pm:575
 #, fuzzy, perl-format
 #| msgid "error on closing redirection node file %s: %s"
 msgid "error creating directory: %s: creating %s: %s"
 msgstr "gặp lỗi khi đóng tập tin nút chuyển hướng %s: %s"
 
-#: tta/perl/ext/epub3.pm:598
+#: tta/perl/ext/epub3.pm:612
 #, perl-format
 msgid "epub: no filename output"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:609
+#: tta/perl/ext/epub3.pm:623
 #, fuzzy, perl-format
 #| msgid "could not create directory `%s': %s"
 msgid "could not create meta informations directory `%s': %s"
 msgstr "không thể tạo thư mục “%s”: %s"
 
-#: tta/perl/ext/epub3.pm:623 tta/perl/ext/epub3.pm:664
-#: tta/perl/ext/epub3.pm:697 tta/perl/ext/epub3.pm:832
+#: tta/perl/ext/epub3.pm:637 tta/perl/ext/epub3.pm:678
+#: tta/perl/ext/epub3.pm:711 tta/perl/ext/epub3.pm:846
 #, fuzzy, perl-format
 #| msgid "chm.pm: could not open %s for writing: %s\n"
 msgid "epub3.pm: could not open %s for writing: %s\n"
 msgstr "chm.pm: không thể mở %s để ghi: %s\n"
 
-#: tta/perl/ext/epub3.pm:648 tta/perl/ext/epub3.pm:676
-#: tta/perl/ext/epub3.pm:788 tta/perl/ext/epub3.pm:999
+#: tta/perl/ext/epub3.pm:662 tta/perl/ext/epub3.pm:690
+#: tta/perl/ext/epub3.pm:802 tta/perl/ext/epub3.pm:1013
 #, fuzzy, perl-format
 #| msgid "chm.pm: error on closing %s: %s"
 msgid "epub3.pm: error on closing %s: %s"
 msgstr "chm.pm: gặp lỗi khi đang đóng %s: %s"
 
-#: tta/perl/ext/epub3.pm:951
+#: tta/perl/ext/epub3.pm:965
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "epub3.pm: readdir %s error: %s"
 msgstr "tex4ht.pm: chdir %s gặp lỗi: %s"
 
-#: tta/perl/ext/epub3.pm:1019 tta/perl/ext/epub3.pm:1028
-#: tta/perl/ext/epub3.pm:1041
+#: tta/perl/ext/epub3.pm:1033 tta/perl/ext/epub3.pm:1042
+#: tta/perl/ext/epub3.pm:1055
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:1050
+#: tta/perl/ext/epub3.pm:1064
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "epub3.pm: error writing archive %s"
@@ -4710,64 +4711,64 @@ msgstr ""
 " * asis       như thế\n"
 "không phải “%s”.\n"
 
-#: tta/C/convert/convert_html.c:2464
+#: tta/C/convert/convert_html.c:2407
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2474
+#: tta/C/convert/convert_html.c:2417
 #, fuzzy, c-format
 #| msgid "reserved index name %s"
 msgid "%zu registered inline contents: %s"
 msgstr "đã đảo ngược tên chỉ mục %s"
 
-#: tta/C/convert/convert_html.c:2491
+#: tta/C/convert/convert_html.c:2434
 #, fuzzy, c-format
 #| msgid "no sectioning command associated with @%s"
 msgid "left inline content associated to %s: '%s'"
 msgstr "không có lệnh chương nào tổ hợp cùng với @%s"
 
-#: tta/C/convert/convert_html.c:2498
+#: tta/C/convert/convert_html.c:2441
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2503
+#: tta/C/convert/convert_html.c:2446
 #, fuzzy, c-format
 #| msgid "no sectioning command associated with @%s"
 msgid "left inline content associated: '%s'"
 msgstr "không có lệnh chương nào tổ hợp cùng với @%s"
 
-#: tta/C/convert/convert_html.c:2512
+#: tta/C/convert/convert_html.c:2455
 #, c-format
 msgid "%zu pending footnotes"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2738
+#: tta/C/convert/convert_html.c:2681
 #, fuzzy, c-format
 #| msgid "could not open %s for writing: %s"
 msgid "error while opening %s for reading: %s"
 msgstr "không thể mở “%s” để ghi: %s"
 
-#: tta/C/convert/convert_html.c:2748
+#: tta/C/convert/convert_html.c:2691
 #, fuzzy, c-format
 #| msgid "Can't open %s for writing: %s\n"
 msgid "cannot open %s for writing: %s"
 msgstr "Không thể mở %s để ghi: %s\n"
 
-#: tta/C/convert/convert_html.c:2766
+#: tta/C/convert/convert_html.c:2709
 #, fuzzy, c-format
 #| msgid "error writing to %s: %s"
 msgid "error writing %s: %s"
 msgstr "gặp lỗi khi ghi vào “%s”: %s"
 
-#: tta/C/convert/convert_html.c:2792
+#: tta/C/convert/convert_html.c:2735
 #, fuzzy, c-format
 #| msgid "error on closing %s: %s"
 msgid "error closing %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tta/C/convert/html_prepare_converter.c:1901
+#: tta/C/convert/html_prepare_converter.c:1904
 #, fuzzy, c-format
 #| msgid "error on closing CSS file %s: %s"
 msgid "error on closing CSS file  %s: %s"

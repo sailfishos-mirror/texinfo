@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-26 11:13+0100\n"
+"POT-Creation-Date: 2026-01-03 12:13+0100\n"
 "PO-Revision-Date: 2024-12-16 19:10+0100\n"
 "Last-Translator: Jean-Charles Malahieude <lilyfan@orange.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -282,47 +282,47 @@ msgstr "Aucune entrée d'index contenant « %s »."
 msgid "No available info files have '%s' in their indices"
 msgstr "« %s » n'est présent dans aucun des index disponibles."
 
-#: info/info.c:316 info/session-cmd.c:1968
+#: info/info.c:320 info/session-cmd.c:1968
 #, c-format
 msgid "No menu item '%s' in node '%s'"
 msgstr "Aucune entrée de menu « %s » dans le nœud « %s »."
 
-#: info/info.c:472 info/info.c:1236
+#: info/info.c:476 info/info.c:1255
 #, c-format
 msgid "Cannot find node '%s'"
 msgstr "Impossible de trouver le nœud « %s »."
 
-#: info/info.c:494
+#: info/info.c:498
 #, c-format
 msgid "No program name given"
 msgstr "Aucun nom de programme donné."
 
-#: info/info.c:685
+#: info/info.c:689
 #, c-format
 msgid "invalid number: %s\n"
 msgstr "nombre invalide : %s\n"
 
-#: info/info.c:868
+#: info/info.c:905
 #, c-format
 msgid "malformed variable assignment: %s"
 msgstr "assignation de variable mal formée : %s"
 
-#: info/info.c:875 info/infokey.c:566
+#: info/info.c:912 info/infokey.c:566
 #, c-format
 msgid "%s: no such variable"
 msgstr "%s : variable inconnue"
 
-#: info/info.c:881 info/infokey.c:568
+#: info/info.c:918 info/infokey.c:568
 #, c-format
 msgid "value %s is not valid for variable %s"
 msgstr "la valeur %s est invalide pour une variable %s"
 
-#: info/info.c:893
+#: info/info.c:930
 #, c-format
 msgid "Try --help for more information.\n"
 msgstr "Utilisez --help pour plus d'informations.\n"
 
-#: info/info.c:912 install-info/install-info.c:2281
+#: info/info.c:949 install-info/install-info.c:2281
 #, fuzzy, c-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -344,12 +344,12 @@ msgstr ""
 "diffuser.\n"
 "Aucune garantie n'est offerte, dans les limites permises par la loi.\n"
 
-#: info/info.c:1099
+#: info/info.c:1126
 #, c-format
 msgid "no index entries found for '%s'\n"
 msgstr "aucune entrée d'index trouvée pour « %s »\n"
 
-#: info/info.c:1150
+#: info/info.c:1169
 #, c-format
 msgid ""
 "Usage: %s [OPTION]... [MENU-ITEM...]\n"
@@ -360,76 +360,76 @@ msgstr ""
 "\n"
 "Lit un document au format Info.\n"
 
-#: info/info.c:1157
+#: info/info.c:1176
 #, fuzzy
 #| msgid "Input file options:"
 msgid "Frequently-used options:"
 msgstr "Options des fichier d'entrée :"
 
-#: info/info.c:1158
+#: info/info.c:1177
 #, fuzzy
 #| msgid "    --top                   top for the main manual"
 msgid "  -a, --all                    use all matching manuals"
 msgstr "    --top                   « top » du document principal"
 
-#: info/info.c:1159
+#: info/info.c:1178
 msgid ""
 "  -k, --apropos=STRING         look up STRING in all indices of all manuals"
 msgstr ""
 
-#: info/info.c:1160
+#: info/info.c:1179
 msgid "  -d, --directory=DIR          add DIR to INFOPATH"
 msgstr ""
 
-#: info/info.c:1161
+#: info/info.c:1180
 msgid "  -f, --file=MANUAL            specify Info manual to visit"
 msgstr ""
 
-#: info/info.c:1162
+#: info/info.c:1181
 #, fuzzy
 #| msgid "    --help                  display this help and exit"
 msgid "  -h, --help                   display this help and exit"
 msgstr "    --help                  Affiche cette aide et sort."
 
-#: info/info.c:1163
+#: info/info.c:1182
 msgid "      --index-search=STRING    go to node pointed by index entry STRING"
 msgstr ""
 
-#: info/info.c:1164
+#: info/info.c:1183
 msgid "  -n, --node=NODENAME          specify nodes in first visited Info file"
 msgstr ""
 
-#: info/info.c:1165
+#: info/info.c:1184
 msgid "  -o, --output=FILE            output selected nodes to FILE"
 msgstr ""
 
-#: info/info.c:1168
+#: info/info.c:1187
 msgid "  -b, --speech-friendly        be friendly to speech synthesizers"
 msgstr ""
 "  -b, --speech-friendly        Compatibilité avec les synthétiseurs vocaux."
 
-#: info/info.c:1171
+#: info/info.c:1190
 #, fuzzy
 #| msgid "      --force                 preserve output even if errors."
 msgid "      --subnodes               recursively output menu items"
 msgstr ""
 "      --force                 Conserve la sortie même s'il y a des erreurs."
 
-#: info/info.c:1172
+#: info/info.c:1191
 msgid "  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"
 msgstr ""
 
-#: info/info.c:1173
+#: info/info.c:1192
 #, fuzzy
 #| msgid "      --version               display version information and exit."
 msgid "      --version                display version information and exit"
 msgstr "    --version               Affiche l'information de version et sort."
 
-#: info/info.c:1174
+#: info/info.c:1193
 msgid "  -w, --where, --location      print physical location of Info file"
 msgstr ""
 
-#: info/info.c:1178
+#: info/info.c:1197
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -455,7 +455,7 @@ msgstr ""
 "Tout argument restant sera considéré comme un nom d'entrée de menu\n"
 "relatif au premier nœud visité."
 
-#: info/info.c:1185
+#: info/info.c:1204
 #, fuzzy
 #| msgid ""
 #| "\n"
@@ -466,43 +466,43 @@ msgstr ""
 "Pour obtenir un résumé des raccourcis clavier, entrer H depuis\n"
 "le programme."
 
-#: info/info.c:1188
+#: info/info.c:1207
 #, fuzzy
 #| msgid "Examples:"
 msgid " Examples:"
 msgstr "Exemples :"
 
-#: info/info.c:1189
+#: info/info.c:1208
 msgid "  info                         show top-level dir menu"
 msgstr ""
 "  info                         Affiche le menu du répertoire de\n"
 "                                 plus haut niveau."
 
-#: info/info.c:1190
+#: info/info.c:1209
 msgid "  info info-stnd               show the manual for this Info program"
 msgstr ""
 "  info info-stnd             Affiche le manuel spécifique de ce lecteur Info."
 
-#: info/info.c:1191
+#: info/info.c:1210
 msgid "  info emacs                   start at emacs node from top-level dir"
 msgstr "  info emacs                 Démarre au nœud Emacs du haut."
 
-#: info/info.c:1192
+#: info/info.c:1211
 msgid ""
 "  info emacs buffers           select buffers menu entry in emacs manual"
 msgstr ""
 "  info emacs buffers         Sélectionne une entrée du menu buffers du\n"
 "                               manuel Emacs."
 
-#: info/info.c:1193
+#: info/info.c:1212
 msgid "  info emacs -n Files          start at Files node within emacs manual"
 msgstr "  info emacs -n Files        Démarre au nœud Files du manuel Emacs."
 
-#: info/info.c:1194
+#: info/info.c:1213
 msgid "  info '(emacs)Files'          alternative way to start at Files node"
 msgstr "  info emacs -n Files        Démarre au nœud Files du manuel Emacs."
 
-#: info/info.c:1195
+#: info/info.c:1214
 msgid ""
 "  info --subnodes -o out.txt emacs\n"
 "                               dump entire emacs manual to out.txt"
@@ -510,34 +510,34 @@ msgstr ""
 "  info --subnodes -o copie.txt emacs\n"
 "                             Copie l'intégralité du manuel dans copie.txt."
 
-#: info/info.c:1197
+#: info/info.c:1216
 msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 "  info -f ./foo.info         Affiche ./foo.info, sans parcourir\n"
 "                               l'arborescence."
 
-#: info/info.c:1237
+#: info/info.c:1256
 #, c-format
 msgid "Cannot find node '(%s)%s'"
 msgstr "Impossible de trouver le nœud « (%s)%s »."
 
-#: info/info.c:1238
+#: info/info.c:1257
 msgid "Point doesn't appear within this window's node!"
 msgstr "Le point n'apparaît pas dans le nœud de cette fenêtre !"
 
-#: info/info.c:1239
+#: info/info.c:1258
 msgid "No menu in this node"
 msgstr "Aucun menu dans ce nœud."
 
-#: info/info.c:1240
+#: info/info.c:1259
 msgid "No cross references in this node"
 msgstr "Aucun renvoi dans ce nœud."
 
-#: info/info.c:1241
+#: info/info.c:1260
 msgid "Only one window"
 msgstr "Une seule fenêtre."
 
-#: info/info.c:1242
+#: info/info.c:1261
 msgid "Resulting window would be too small"
 msgstr "La fenêtre résultante serait trop petite."
 
@@ -1001,6 +1001,26 @@ msgstr "« %s » est invalide"
 msgid "Quit"
 msgstr "Quitte"
 
+#: info/session.c:1453
+#, c-format
+msgid "Could not create output file '%s'"
+msgstr "Impossible de créer le fichier de sortie « %s »."
+
+#: info/session.c:1479
+#, c-format
+msgid "error writing to %s: %s"
+msgstr "erreur d'écriture dans %s : %s"
+
+#: info/session.c:1488
+#, c-format
+msgid "closing %s"
+msgstr "fermeture de %s"
+
+#: info/session.c:1528
+#, c-format
+msgid "writing node %s..."
+msgstr "écriture du nœud %s..."
+
 #: info/session-cmd.c:42
 msgid "Show all matching files"
 msgstr "Afficher tous les fichiers correspondant"
@@ -1335,222 +1355,202 @@ msgstr "Trouve le fichier : "
 msgid "Cannot find '%s'"
 msgstr "Impossible de trouver « %s »."
 
-#: info/session-cmd.c:2923
-#, c-format
-msgid "Could not create output file '%s'"
-msgstr "Impossible de créer le fichier de sortie « %s »."
-
-#: info/session-cmd.c:2949
-#, c-format
-msgid "error writing to %s: %s"
-msgstr "erreur d'écriture dans %s : %s"
-
-#: info/session-cmd.c:2958
-#, c-format
-msgid "closing %s"
-msgstr "fermeture de %s"
-
-#: info/session-cmd.c:2998
-#, c-format
-msgid "writing node %s..."
-msgstr "écriture du nœud %s..."
-
-#: info/session-cmd.c:3044
+#: info/session-cmd.c:2862
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr "Envoie le contenu de ce nœud à la commande INFO_PRINT_COMMAND"
 
-#: info/session-cmd.c:3072
+#: info/session-cmd.c:2890
 #, c-format
 msgid "Cannot open pipe to '%s'"
 msgstr "Impossible d'ouvrir un tube vers « %s »."
 
-#: info/session-cmd.c:3077
+#: info/session-cmd.c:2895
 #, c-format
 msgid "printing node %s..."
 msgstr "impression du nœud %s..."
 
-#: info/session-cmd.c:3085
+#: info/session-cmd.c:2903
 #, c-format
 msgid "finished printing node %s"
 msgstr "impression du nœud « %s » terminée"
 
-#: info/session-cmd.c:3117
+#: info/session-cmd.c:2930
 msgid "Toggle the usage of regular expressions in searches"
 msgstr "Marche-arrêt des expressions rationnelles dans les recherches"
 
-#: info/session-cmd.c:3121
+#: info/session-cmd.c:2934
 #, c-format
 msgid "Using regular expressions for searches"
 msgstr "La recherche utilise des expressions rationnelles."
 
-#: info/session-cmd.c:3122
+#: info/session-cmd.c:2935
 #, c-format
 msgid "Using literal strings for searches"
 msgstr "La recherche utilise des chaînes littérales."
 
-#: info/session-cmd.c:3325
+#: info/session-cmd.c:3138
 msgid "Search continued from the end of the document"
 msgstr "Poursuite de la recherche depuis la fin du document."
 
-#: info/session-cmd.c:3330
+#: info/session-cmd.c:3143
 msgid "Search continued from the beginning of the document"
 msgstr "Poursuite de la recherche depuis le début du document."
 
-#: info/session-cmd.c:3347
+#: info/session-cmd.c:3160
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr "Recherche dans le sous-fichier « %s »..."
 
-#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#: info/session-cmd.c:3200 info/session-cmd.c:3469 info/session-cmd.c:3582
 #, c-format
 msgid "Search failed"
 msgstr "Échec de la recherche."
 
-#: info/session-cmd.c:3407
+#: info/session-cmd.c:3220
 #, c-format
 msgid "%s%s%s [%s]: "
 msgstr "%s%s%s [%s] : "
 
-#: info/session-cmd.c:3408 info/session-cmd.c:3414
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
 msgid "Regexp search"
 msgstr "Recherche une expr. rationnelle"
 
-#: info/session-cmd.c:3408 info/session-cmd.c:3414
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
 msgid "Search"
 msgstr "Recherche"
 
-#: info/session-cmd.c:3409 info/session-cmd.c:3415
+#: info/session-cmd.c:3222 info/session-cmd.c:3228
 msgid " case-sensitively"
 msgstr " respectant la casse"
 
-#: info/session-cmd.c:3410 info/session-cmd.c:3416
+#: info/session-cmd.c:3223 info/session-cmd.c:3229
 msgid " backward"
 msgstr " vers l'arrière"
 
-#: info/session-cmd.c:3413
+#: info/session-cmd.c:3226
 #, c-format
 msgid "%s%s%s: "
 msgstr "%s%s%s : "
 
-#: info/session-cmd.c:3433
+#: info/session-cmd.c:3246
 msgid "Search string too short"
 msgstr "Chaîne à rechercher trop courte"
 
-#: info/session-cmd.c:3627
+#: info/session-cmd.c:3440
 #, c-format
 msgid "Going back to last match from %s"
 msgstr "Va à la dernière correspondance à partir de %s"
 
-#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#: info/session-cmd.c:3469 info/session-cmd.c:3582
 #, c-format
 msgid "No more matches"
 msgstr "Pas d'autre correspondance."
 
-#: info/session-cmd.c:3796
+#: info/session-cmd.c:3609
 msgid "Search this node and subnodes for a string"
 msgstr "Recherche une chaîne dans ce nœud et ses enfants."
 
 #. TRANSLATORS: %s is the title of a node.
-#: info/session-cmd.c:3803
+#: info/session-cmd.c:3616
 #, c-format
 msgid "Search under %s: "
 msgstr "Recherche dans le sous-fichier « %s »..."
 
-#: info/session-cmd.c:3818
+#: info/session-cmd.c:3631
 msgid "Go to next match in Info sub-tree"
 msgstr "Va à la correspondance suivante dans l'arborescence Info"
 
-#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#: info/session-cmd.c:3635 info/session-cmd.c:3647
 #, c-format
 msgid "No active search"
 msgstr "Pas de recherche en cours"
 
-#: info/session-cmd.c:3830
+#: info/session-cmd.c:3643
 msgid "Go to previous match in Info sub-tree"
 msgstr "Va à la correspondance précédante dans l'arborescence Info"
 
-#: info/session-cmd.c:3843
+#: info/session-cmd.c:3656
 msgid "Read a string and search for it case-sensitively"
 msgstr "Lit une chaîne et la recherche en respectant la casse"
 
-#: info/session-cmd.c:3848
+#: info/session-cmd.c:3661
 msgid "Read a string and search for it"
 msgstr "Lit une chaîne et la recherche"
 
-#: info/session-cmd.c:3854
+#: info/session-cmd.c:3667
 msgid "Read a string and search backward for it"
 msgstr "Lit une chaîne et la recherche vers l'arrière"
 
-#: info/session-cmd.c:3862
+#: info/session-cmd.c:3675
 msgid "Repeat last search in the same direction"
 msgstr "Recommence la dernière recherche dans la même direction"
 
-#: info/session-cmd.c:3876 info/session-cmd.c:3927
+#: info/session-cmd.c:3689 info/session-cmd.c:3740
 msgid "No previous search string"
 msgstr "Aucune chaîne de recherche antérieure"
 
-#: info/session-cmd.c:3913
+#: info/session-cmd.c:3726
 msgid "Repeat last search in the reverse direction"
 msgstr "Répète la dernière recherche dans la direction opposée"
 
-#: info/session-cmd.c:3966
+#: info/session-cmd.c:3779
 msgid "Clear displayed search matches"
 msgstr "Efface les mises en surbrillance"
 
-#: info/session-cmd.c:3982 info/session-cmd.c:3988
+#: info/session-cmd.c:3795 info/session-cmd.c:3801
 msgid "Search interactively for a string as you type it"
 msgstr "Recherche interactive de la chaîne en cours de frappe"
 
-#: info/session-cmd.c:4108
+#: info/session-cmd.c:3921
 msgid "Regexp I-search backward: "
 msgstr "Recherche arrière interactive d'exp. ration. : "
 
-#: info/session-cmd.c:4109
+#: info/session-cmd.c:3922
 msgid "I-search backward: "
 msgstr "Recherche arrière interactive : "
 
-#: info/session-cmd.c:4111
+#: info/session-cmd.c:3924
 msgid "Regexp I-search: "
 msgstr "Recherche interactive d'exp. ration. : "
 
-#: info/session-cmd.c:4112
+#: info/session-cmd.c:3925
 msgid "I-search: "
 msgstr "Recherche interactive : "
 
-#: info/session-cmd.c:4137 info/session-cmd.c:4140
+#: info/session-cmd.c:3950 info/session-cmd.c:3953
 msgid "Failing "
 msgstr "Échec "
 
-#: info/session-cmd.c:4507
+#: info/session-cmd.c:4320
 msgid "Cancel current operation"
 msgstr "Annule l'opération en cours"
 
-#: info/session-cmd.c:4513
+#: info/session-cmd.c:4326
 msgid "Display version of Info being run"
 msgstr "Affiche la version d'Info en cours"
 
-#: info/session-cmd.c:4515
+#: info/session-cmd.c:4328
 #, c-format
 msgid "GNU Info version %s"
 msgstr "\"GNU Info version %s"
 
-#: info/session-cmd.c:4520
+#: info/session-cmd.c:4333
 msgid "Redraw the display"
 msgstr "Redessine l'écran"
 
-#: info/session-cmd.c:4557
+#: info/session-cmd.c:4370
 msgid "Quit using Info"
 msgstr "Quitte Info"
 
-#: info/session-cmd.c:4573
+#: info/session-cmd.c:4386
 msgid "Run command bound to this key's lowercase variant"
 msgstr "Exécute la commande liée à la minuscule associée à cette touche"
 
-#: info/session-cmd.c:4578
+#: info/session-cmd.c:4391
 msgid "Add this digit to the current numeric argument"
 msgstr "Ajouter ce chiffre à l'argument numérique courant"
 
-#: info/session-cmd.c:4585
+#: info/session-cmd.c:4398
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr "Démarre (ou multiplie par 4) l'argument numérique courant"
 
@@ -2243,7 +2243,7 @@ msgstr "%s : %s"
 msgid "error parsing %s: %s"
 msgstr "erreur d'analyse de %s : %s"
 
-#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2780
+#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2723
 #, c-format, perl-format
 msgid "error reading %s: %s"
 msgstr "erreur de lecture de %s : %s"
@@ -2276,14 +2276,15 @@ msgstr "%s : variable %s inconnue"
 msgid "unknown variable from command line: %s"
 msgstr "variable en ligne de commande inconnue : %s\n"
 
-#: tta/perl/Texinfo/Config.pm:676 tta/perl/Texinfo/Config.pm:714
-#: tta/perl/Texinfo/Config.pm:736 tta/perl/Texinfo/Config.pm:759
+#: tta/perl/Texinfo/Config.pm:671 tta/perl/Texinfo/Config.pm:714
+#: tta/perl/Texinfo/Config.pm:732 tta/perl/Texinfo/Config.pm:758
+#: tta/perl/Texinfo/Config.pm:785
 #, fuzzy, perl-format
 #| msgid "%s: unknown formatting context %s\n"
 msgid "%s: unknown formatting context %s"
 msgstr "%s : formatage du contexte %s inconnu\n"
 
-#: tta/perl/Texinfo/Config.pm:902
+#: tta/perl/Texinfo/Config.pm:928
 #, fuzzy, perl-format
 #| msgid "%s: unknown special element information type %s\n"
 msgid "%s: unknown special element information type %s"
@@ -2301,58 +2302,58 @@ msgstr "@%s « %s » déjà défini"
 msgid "here is the previous definition as @%s"
 msgstr "voici la définition précédente de @%s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:422
-#: tta/perl/Texinfo/Convert/HTML.pm:12151
-#: tta/perl/Texinfo/Convert/HTML.pm:13203
-#: tta/perl/Texinfo/Convert/HTML.pm:13461 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1158
-#: tta/perl/Texinfo/Convert/Plaintext.pm:768
-#: tta/perl/Texinfo/Convert/Plaintext.pm:823
+#: tta/perl/Texinfo/Convert/Converter.pm:425
+#: tta/perl/Texinfo/Convert/HTML.pm:12190
+#: tta/perl/Texinfo/Convert/HTML.pm:13251
+#: tta/perl/Texinfo/Convert/HTML.pm:13509 tta/perl/Texinfo/Convert/IXIN.pm:358
+#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1181
+#: tta/perl/Texinfo/Convert/Plaintext.pm:783
+#: tta/perl/Texinfo/Convert/Plaintext.pm:838
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
 #: tta/perl/texi2any.pl:1935 tta/perl/texi2any.pl:2072
-#: tta/C/convert/converter.c:715 tta/C/convert/convert_html.c:2093
-#: tta/C/convert/convert_html.c:2573 tta/C/convert/rawtext_converter_api.c:232
+#: tta/C/convert/converter.c:725 tta/C/convert/convert_html.c:2074
+#: tta/C/convert/convert_html.c:2516 tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "impossible d'ouvrir %s en écriture : %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:448
-#: tta/perl/Texinfo/Convert/HTML.pm:12146
-#: tta/perl/Texinfo/Convert/HTML.pm:13226 tta/perl/Texinfo/Convert/IXIN.pm:1039
+#: tta/perl/Texinfo/Convert/Converter.pm:451
+#: tta/perl/Texinfo/Convert/HTML.pm:12185
+#: tta/perl/Texinfo/Convert/HTML.pm:13274 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:267
 #: tta/perl/Texinfo/Convert/Info.pm:322 tta/perl/Texinfo/Convert/Info.pm:400
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1244
-#: tta/perl/Texinfo/Convert/Plaintext.pm:796
-#: tta/perl/Texinfo/Convert/Plaintext.pm:844
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1267
+#: tta/perl/Texinfo/Convert/Plaintext.pm:811
+#: tta/perl/Texinfo/Convert/Plaintext.pm:859
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
-#: tta/C/convert/converter.c:785 tta/C/convert/convert_html.c:2158
-#: tta/C/convert/convert_html.c:2612 tta/C/convert/rawtext_converter_api.c:269
+#: tta/C/convert/converter.c:795 tta/C/convert/convert_html.c:2139
+#: tta/C/convert/convert_html.c:2555 tta/C/convert/rawtext_converter_api.c:269
 #: tta/C/parsetexi/input.c:352
 #, c-format, perl-format
 msgid "error on closing %s: %s"
 msgstr "erreur lors de la fermeture de %s : %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:754
-#: tta/perl/Texinfo/Convert/Converter.pm:770
-#: tta/perl/Texinfo/Convert/Converter.pm:791
+#: tta/perl/Texinfo/Convert/Converter.pm:760
+#: tta/perl/Texinfo/Convert/Converter.pm:776
+#: tta/perl/Texinfo/Convert/Converter.pm:797
 #, perl-format
 msgid "unknown customization variable: %s"
 msgstr "variable de personnalisation inconnue : %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1175
+#: tta/perl/Texinfo/Convert/Converter.pm:1181
 #: tta/perl/Texinfo/Convert/Text.pm:1060 tta/perl/Texinfo/Convert/Text.pm:1082
-#: tta/C/convert/converter.c:1036
+#: tta/C/convert/converter.c:1046
 #, c-format, perl-format
 msgid "could not create directory `%s': %s"
 msgstr "impossible de créer les répertoires « %s » : %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1575
+#: tta/perl/Texinfo/Convert/Converter.pm:1581
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "erreur de fermeture du fichier texte image %s : %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1584
+#: tta/perl/Texinfo/Convert/Converter.pm:1590
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
@@ -2365,170 +2366,170 @@ msgstr "fichier @image « %s » illisible : %s"
 msgid "@image file `%s' not found, using `%s'"
 msgstr "fichier @image « %s » non trouvé ; utilisation de « %s »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:397
-#: tta/C/convert/html_prepare_converter.c:736
+#: tta/perl/Texinfo/Convert/HTML.pm:404
+#: tta/C/convert/html_prepare_converter.c:739
 #, c-format, perl-format
 msgid "not setting an unknown direction: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:3626 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6744
+#: tta/perl/Texinfo/Convert/HTML.pm:3672 tta/perl/ext/epub3.pm:287
+#: tta/C/convert/format_html.c:6733
 #, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr ""
 "fichier @image « %s » (pour le HTML) non trouvé ; utilisation de « %s »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4767 tta/C/convert/format_html.c:8331
+#: tta/perl/Texinfo/Convert/HTML.pm:4813 tta/C/convert/format_html.c:8292
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "le format brut %s n'est pas converti"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6439 tta/C/convert/format_html.c:10716
+#: tta/perl/Texinfo/Convert/HTML.pm:6498 tta/C/convert/format_html.c:10695
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr ""
 "l'entrée de l'index « %s » pour @printindex %s\n"
 "  est hors de tout nœud"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6470 tta/C/convert/format_html.c:10756
+#: tta/perl/Texinfo/Convert/HTML.pm:6529 tta/C/convert/format_html.c:10735
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr ""
 "l'entrée de l'index « %s » pour @printindex %s\n"
 "  est hors de toute section"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8438
-#: tta/C/convert/html_prepare_converter.c:1006
+#: tta/perl/Texinfo/Convert/HTML.pm:8488
+#: tta/C/convert/html_prepare_converter.c:1009
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr "impossible d'ouvrir le fichier de param. des réf. html %s : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8467
-#: tta/C/convert/html_prepare_converter.c:1116
+#: tta/perl/Texinfo/Convert/HTML.pm:8517
+#: tta/C/convert/html_prepare_converter.c:1119
 #, c-format, perl-format
 msgid "missing type"
 msgstr "type manquant"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8471
-#: tta/C/convert/html_prepare_converter.c:1127
+#: tta/perl/Texinfo/Convert/HTML.pm:8521
+#: tta/C/convert/html_prepare_converter.c:1130
 #, c-format, perl-format
 msgid "unrecognized type: %s"
 msgstr "type inconnu : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8509
-#: tta/C/convert/html_prepare_converter.c:1226
+#: tta/perl/Texinfo/Convert/HTML.pm:8559
+#: tta/C/convert/html_prepare_converter.c:1229
 #, c-format, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr "erreur de fermeture du fichier de param. des réf. html %s : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8535
-#: tta/C/convert/html_prepare_converter.c:1267
+#: tta/perl/Texinfo/Convert/HTML.pm:8585
+#: tta/C/convert/html_prepare_converter.c:1270
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr "fichier %s de config. des réf. html introuvable"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8654 tta/perl/texi2any.pl:635
-#: tta/C/convert/html_prepare_converter.c:1497
+#: tta/perl/Texinfo/Convert/HTML.pm:8704 tta/perl/texi2any.pl:635
+#: tta/C/convert/html_prepare_converter.c:1500
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "le répertoire %s est abondonné ; utilisez plutôt %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9077
+#: tta/perl/Texinfo/Convert/HTML.pm:9132
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr "Fonction de fichier et de définition d'itentifiant inconnue : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9095
+#: tta/perl/Texinfo/Convert/HTML.pm:9150
 #, perl-format
 msgid "Unknown formatting function: %s"
 msgstr "fonction de formatage « %s » inconnue"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9555
-#: tta/C/convert/html_prepare_converter.c:1784
+#: tta/perl/Texinfo/Convert/HTML.pm:9609
+#: tta/C/convert/html_prepare_converter.c:1787
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "chaîne non terminée dans le fichier css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9557
-#: tta/C/convert/html_prepare_converter.c:1792
+#: tta/perl/Texinfo/Convert/HTML.pm:9611
+#: tta/C/convert/html_prepare_converter.c:1795
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "--css-include s'est terminé dans un commentaire"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9559
-#: tta/C/convert/html_prepare_converter.c:1800
+#: tta/perl/Texinfo/Convert/HTML.pm:9613
+#: tta/C/convert/html_prepare_converter.c:1803
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "@import non terminé dans le fichier css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9595
-#: tta/C/convert/html_prepare_converter.c:1852
+#: tta/perl/Texinfo/Convert/HTML.pm:9649
+#: tta/C/convert/html_prepare_converter.c:1855
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "fichier CSS %s non trouvé"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9607
-#: tta/C/convert/html_prepare_converter.c:1874
+#: tta/perl/Texinfo/Convert/HTML.pm:9661
+#: tta/C/convert/html_prepare_converter.c:1877
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "impossible d'ouvrir --include-file %s : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9625
+#: tta/perl/Texinfo/Convert/HTML.pm:9679
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "erreur de fermeture du fichier CSS %s : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9830
-#: tta/C/convert/html_prepare_converter.c:4835
+#: tta/perl/Texinfo/Convert/HTML.pm:9881
+#: tta/C/convert/html_prepare_converter.c:4886
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr "nom de fichier de nœud défini par l'utilisateur non réglé pour « %s »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10155
-#: tta/C/convert/html_prepare_converter.c:6070
+#: tta/perl/Texinfo/Convert/HTML.pm:10206
+#: tta/C/convert/html_prepare_converter.c:6121
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "réinitialise le chemin du fichier %s de %s à %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10159
-#: tta/C/convert/html_prepare_converter.c:6080
+#: tta/perl/Texinfo/Convert/HTML.pm:10210
+#: tta/C/convert/html_prepare_converter.c:6131
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr ""
 "réinitialise le chemin du fichier %s à partir du chemin relatif vers %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10163
-#: tta/C/convert/html_prepare_converter.c:6089
+#: tta/perl/Texinfo/Convert/HTML.pm:10214
+#: tta/C/convert/html_prepare_converter.c:6140
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr "réinitialise le chemin du fichier %s  de %s en chemin relatif"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10753
-#: tta/C/convert/html_prepare_converter.c:5461
+#: tta/perl/Texinfo/Convert/HTML.pm:10804
+#: tta/C/convert/html_prepare_converter.c:5512
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node '%s'"
 msgid "could not find %s node `%s'"
 msgstr "Impossible de trouver le nœud « %s »."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11020 tta/C/convert/format_html.c:837
+#: tta/perl/Texinfo/Convert/HTML.pm:11071 tta/C/convert/format_html.c:837
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr "ne pas définir %s comme suffixe en référence au manuel « %s »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11057
-#: tta/perl/Texinfo/Convert/HTML.pm:11063 tta/C/convert/format_html.c:886
+#: tta/perl/Texinfo/Convert/HTML.pm:11108
+#: tta/perl/Texinfo/Convert/HTML.pm:11114 tta/C/convert/format_html.c:886
 #: tta/C/convert/format_html.c:897
 #, fuzzy, c-format, perl-format
 #| msgid "no htmlxref.cnf entry found for `%s'"
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "aucune entrée htmlxref.cnf trouvée pour « %s »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11565 tta/C/convert/format_html.c:4058
+#: tta/perl/Texinfo/Convert/HTML.pm:11612 tta/C/convert/format_html.c:4047
 #, c-format, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s n'a aucun sens pour une sortie monolithique"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12090 tta/C/convert/convert_html.c:2657
+#: tta/perl/Texinfo/Convert/HTML.pm:12129 tta/C/convert/convert_html.c:2600
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2537,98 +2538,98 @@ msgstr ""
 "impossible d'utiliser un chemin absolu ou l'URL « %s » pour "
 "JS_WEBLABELS_FILE dans la génération du fichier de libellés web"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12137 tta/C/convert/convert_html.c:2681
+#: tta/perl/Texinfo/Convert/HTML.pm:12176 tta/C/convert/convert_html.c:2624
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "écrasement des fichiers de sortie avec les licences js : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12852 tta/C/convert/convert_html.c:832
+#: tta/perl/Texinfo/Convert/HTML.pm:12898 tta/C/convert/convert_html.c:815
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr ""
 "échec du gestionnaire %d de l'étape %s priorité %s :\n"
 "statut non-numérique"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12859 tta/C/convert/convert_html.c:844
+#: tta/perl/Texinfo/Convert/HTML.pm:12905 tta/C/convert/convert_html.c:827
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "échec du gestionnaire %d de l'étape %s priorité %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12907
+#: tta/perl/Texinfo/Convert/HTML.pm:12953
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "erreur lors de la copie de %s dans %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:2902
+#: tta/perl/Texinfo/Convert/HTML.pm:12962 tta/C/convert/convert_html.c:2845
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "erreur lors de création de %s vide : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12921 tta/C/convert/convert_html.c:2914
+#: tta/perl/Texinfo/Convert/HTML.pm:12967 tta/C/convert/convert_html.c:2857
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "erreur lors de la fermeture de %s vide : %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13030
-#: tta/perl/Texinfo/Convert/HTML.pm:13034 tta/C/convert/convert_html.c:1117
-#: tta/C/convert/convert_html.c:1122
+#: tta/perl/Texinfo/Convert/HTML.pm:13078
+#: tta/perl/Texinfo/Convert/HTML.pm:13082 tta/C/convert/convert_html.c:1102
+#: tta/C/convert/convert_html.c:1107
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "vous devez indiquer un titre avec @top ou une commande de titrage"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13314 tta/C/convert/convert_html.c:3114
+#: tta/perl/Texinfo/Convert/HTML.pm:13362 tta/C/convert/convert_html.c:3057
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s « %s » redirige déjà vers le fichier %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13332 tta/C/convert/convert_html.c:3129
+#: tta/perl/Texinfo/Convert/HTML.pm:13380 tta/C/convert/convert_html.c:3072
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "conflit avec le document monolithique"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13335 tta/C/convert/convert_html.c:3132
+#: tta/perl/Texinfo/Convert/HTML.pm:13383 tta/C/convert/convert_html.c:3075
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "conflit avec le fichier « Top »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13338 tta/C/convert/convert_html.c:3135
+#: tta/perl/Texinfo/Convert/HTML.pm:13386 tta/C/convert/convert_html.c:3078
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "conflit avec le fichier défini par l'utilisateur"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13341 tta/C/convert/convert_html.c:3138
+#: tta/perl/Texinfo/Convert/HTML.pm:13389 tta/C/convert/convert_html.c:3081
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "conflit avec un fichier de nœud inconnu"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13344 tta/C/convert/convert_html.c:3142
+#: tta/perl/Texinfo/Convert/HTML.pm:13392 tta/C/convert/convert_html.c:3085
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "conflit avec un fichier sans source connue"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13352 tta/C/convert/convert_html.c:3156
+#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3099
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "conflit avec le fichier de @%s « %s »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13364 tta/C/convert/convert_html.c:3172
+#: tta/perl/Texinfo/Convert/HTML.pm:13412 tta/C/convert/convert_html.c:3115
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "conflit avec le fichier de redirection pour @%s « %s »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13378 tta/C/convert/convert_html.c:3192
+#: tta/perl/Texinfo/Convert/HTML.pm:13426 tta/C/convert/convert_html.c:3135
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "conflit avec le fichier de @%s « %s »"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13391 tta/C/convert/convert_html.c:3205
+#: tta/perl/Texinfo/Convert/HTML.pm:13439 tta/C/convert/convert_html.c:3148
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "conflit avec l'élément spécial %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13469
+#: tta/perl/Texinfo/Convert/HTML.pm:13517
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "erreur de fermeture du fichier de redirection des nœuds %s : %s"
@@ -2687,91 +2688,91 @@ msgstr "nom de @node ne doit pas contenir de « , » : %s"
 msgid "@node %s name should not contain `,': %s"
 msgstr "nom du @node %s ne doit pas contenir de « , » : %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3402
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3427
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr "délimiteur de \\verb « %s » (pour LaTeX) présent dans le texte « %s »"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3442
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3467
 #, perl-format
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "fichier @image « %s » (pour LaTeX) non trouvé"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4970
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4995
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: could not open %s: %s"
 msgid "math to images: could not open %s: %s"
 msgstr "tex4ht.pm : impossible d'ouvrir %s : %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5059
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5084
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: chdir %s failed: %s"
 msgid "math to images: chdir %s failed: %s"
 msgstr "tex4ht.pm : impossible de passer dans le répertoire %s : %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5092
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: output file missing: %s"
 msgstr "tex4ht.pm : fichier de sortie absent : %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5093
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5118
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: command failed: %s"
 msgid "math to images: command failed: %s"
 msgstr "tex4ht.pm : commande en échec : %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5098
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5123
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: closing communication failed: %s: %s"
 msgid "math to images: closing communication failed: %s: %s"
 msgstr "tex4ht.pm : fermeture de communication en échec : %s : %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5114
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5139
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: output file missing: %s"
 msgid "math to images: dvi file missing: %s"
 msgstr "tex4ht.pm : fichier de sortie absent : %s"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5129
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5154
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5136
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5161
 #, fuzzy, perl-format
 #| msgid "tex4ht.pm: unable to return to initial directory: %s"
 msgid "math to images: unable to return to initial directory: %s"
 msgstr "tex4ht.pm : impossible de retourner au répertoire initial : %s"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:691
+#: tta/perl/Texinfo/Convert/Plaintext.pm:706
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr "%s : sortie incompatible avec des divisions"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2027
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2042
 #, perl-format
 msgid "Index entry in @%s with : produces invalid Info: %s"
 msgstr ""
 "Une entrée d'index dans @%s comporte un : qui produit de l'Info invalide : %s"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2069
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2084
 #: tta/perl/Texinfo/ParserNonXS.pm:3658 tta/C/parsetexi/indices.c:319
 #, c-format, perl-format
 msgid "entry for index `%s' outside of any node"
 msgstr "l'entrée de l'index « %s » est hors de tout nœud"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2085
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2100
 #, perl-format
 msgid "node name with index entries should not contain `%s'"
 msgstr "un nom de nœud avec entrée d'index ne devrait pas contenir de « %s »"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2385
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2400
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr "fichier @image « %s.txt » et texte de remplacement non trouvés"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:3117
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3132
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
@@ -2779,16 +2780,16 @@ msgstr ""
 "@strong{Note...} produit un renvoi parasite dans Info ; reformulez pour "
 "éviter cela"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4103
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4118
 #, perl-format
 msgid "menu entry node name should not contain `%s'"
 msgstr "un nom de nœud en entrée de menu ne devrait contenir de « %s »"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4114
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4129
 msgid "menu entry node name should not contain `:'"
 msgstr "un nom de nœud en entrée de menu ne devrait contenir de « : »"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4149
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4164
 msgid "menu entry name should not contain `:'"
 msgstr "une entrée de menu ne devrait pas contenir de « : »"
 
@@ -3796,50 +3797,50 @@ msgstr ""
 msgid "Archive::Zip is required for EPUB file output"
 msgstr "Archive::zip est requis pour une sortie EPUB"
 
-#: tta/perl/ext/epub3.pm:567
+#: tta/perl/ext/epub3.pm:570
 #, perl-format
 msgid "error creating directory: %s: %s"
 msgstr "erreur de création du répertoire : %s : %s"
 
-#: tta/perl/ext/epub3.pm:572
+#: tta/perl/ext/epub3.pm:575
 #, perl-format
 msgid "error creating directory: %s: creating %s: %s"
 msgstr "erreur de création du répertoire : %s : création de %s : %s"
 
-#: tta/perl/ext/epub3.pm:598
+#: tta/perl/ext/epub3.pm:612
 #, perl-format
 msgid "epub: no filename output"
 msgstr "epub : absence de nom de fichier de sortie"
 
-#: tta/perl/ext/epub3.pm:609
+#: tta/perl/ext/epub3.pm:623
 #, perl-format
 msgid "could not create meta informations directory `%s': %s"
 msgstr "impossible de créer le répertoire de métadonnées « %s » : %s"
 
-#: tta/perl/ext/epub3.pm:623 tta/perl/ext/epub3.pm:664
-#: tta/perl/ext/epub3.pm:697 tta/perl/ext/epub3.pm:832
+#: tta/perl/ext/epub3.pm:637 tta/perl/ext/epub3.pm:678
+#: tta/perl/ext/epub3.pm:711 tta/perl/ext/epub3.pm:846
 #, perl-format
 msgid "epub3.pm: could not open %s for writing: %s\n"
 msgstr "epub3.pm : impossible d'ouvrir %s en écriture : %s\n"
 
-#: tta/perl/ext/epub3.pm:648 tta/perl/ext/epub3.pm:676
-#: tta/perl/ext/epub3.pm:788 tta/perl/ext/epub3.pm:999
+#: tta/perl/ext/epub3.pm:662 tta/perl/ext/epub3.pm:690
+#: tta/perl/ext/epub3.pm:802 tta/perl/ext/epub3.pm:1013
 #, perl-format
 msgid "epub3.pm: error on closing %s: %s"
 msgstr "eupb3.pm : erreur lors de la fermeture de %s : %s"
 
-#: tta/perl/ext/epub3.pm:951
+#: tta/perl/ext/epub3.pm:965
 #, perl-format
 msgid "epub3.pm: readdir %s error: %s"
 msgstr "epub3.pm : erreur de lecture de %s : %s"
 
-#: tta/perl/ext/epub3.pm:1019 tta/perl/ext/epub3.pm:1028
-#: tta/perl/ext/epub3.pm:1041
+#: tta/perl/ext/epub3.pm:1033 tta/perl/ext/epub3.pm:1042
+#: tta/perl/ext/epub3.pm:1055
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
 msgstr "epub3.pm : erreur lors de l'ajout de %s à l'archive"
 
-#: tta/perl/ext/epub3.pm:1050
+#: tta/perl/ext/epub3.pm:1064
 #, perl-format
 msgid "epub3.pm: error writing archive %s"
 msgstr "epub3.pm : erreur d'écriture de l'archive %s"
@@ -4835,57 +4836,57 @@ msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
 "%s : --paragraph-indent est numérique, « none » ou « asis », pas « %s ».\n"
 
-#: tta/C/convert/convert_html.c:2464
+#: tta/C/convert/convert_html.c:2407
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
 msgstr "%s : %zu sections déclarées ouvertes ne sont pas clôturées."
 
-#: tta/C/convert/convert_html.c:2474
+#: tta/C/convert/convert_html.c:2417
 #, c-format
 msgid "%zu registered inline contents: %s"
 msgstr "%zu contenus intégrés déclarés : %s"
 
-#: tta/C/convert/convert_html.c:2491
+#: tta/C/convert/convert_html.c:2434
 #, c-format
 msgid "left inline content associated to %s: '%s'"
 msgstr "il reste du contenu intégré associé à %s : %s"
 
-#: tta/C/convert/convert_html.c:2498
+#: tta/C/convert/convert_html.c:2441
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr "il reste du contenu intégré de %p : %s"
 
-#: tta/C/convert/convert_html.c:2503
+#: tta/C/convert/convert_html.c:2446
 #, c-format
 msgid "left inline content associated: '%s'"
 msgstr "il rete du contenu intégré associé : %s"
 
-#: tta/C/convert/convert_html.c:2512
+#: tta/C/convert/convert_html.c:2455
 #, c-format
 msgid "%zu pending footnotes"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2738
+#: tta/C/convert/convert_html.c:2681
 #, c-format
 msgid "error while opening %s for reading: %s"
 msgstr "erreur à l'ouverture de %s en lecture : %s"
 
-#: tta/C/convert/convert_html.c:2748
+#: tta/C/convert/convert_html.c:2691
 #, c-format
 msgid "cannot open %s for writing: %s"
 msgstr "impossible d'ouvrir %s en écriture : %s"
 
-#: tta/C/convert/convert_html.c:2766
+#: tta/C/convert/convert_html.c:2709
 #, c-format
 msgid "error writing %s: %s"
 msgstr "erreur d'écriture de %s : %s"
 
-#: tta/C/convert/convert_html.c:2792
+#: tta/C/convert/convert_html.c:2735
 #, c-format
 msgid "error closing %s: %s"
 msgstr "erreur de fermeture de %s : %s"
 
-#: tta/C/convert/html_prepare_converter.c:1901
+#: tta/C/convert/html_prepare_converter.c:1904
 #, c-format
 msgid "error on closing CSS file  %s: %s"
 msgstr "erreur de fermeture du fichier CSS %s : %s"

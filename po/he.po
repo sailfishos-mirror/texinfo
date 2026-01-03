@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.2\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2025-12-26 11:13+0100\n"
+"POT-Creation-Date: 2026-01-03 12:13+0100\n"
 "PO-Revision-Date: 2002-04-03 12:31+0300\n"
 "Last-Translator: Eli Zaretskii <eliz@gnu.org>\n"
 "Language-Team: Hebrew <eliz@gnu.org>\n"
@@ -289,51 +289,51 @@ msgstr ".\"%s\" תזורחמ םיליכמה סקדניא יטירפ%s ןיא"
 msgid "No available info files have '%s' in their indices"
 msgstr ".ולש סקדניאב \"%s\" ליכמ ןאכ םינקתומהמ Info ץבוק ףא"
 
-#: info/info.c:316 info/session-cmd.c:1968
+#: info/info.c:320 info/session-cmd.c:1968
 #, fuzzy, c-format
 #| msgid "No menu item `%s' in node `%s'."
 msgid "No menu item '%s' in node '%s'"
 msgstr ".`%s' ףיעס ןיא `%s' הקסיפ לש טירפתב"
 
-#: info/info.c:472 info/info.c:1236
+#: info/info.c:476 info/info.c:1255
 #, fuzzy, c-format
 #| msgid "Cannot find node `%s'."
 msgid "Cannot find node '%s'"
 msgstr ".האצמנ אל `%s' הקסיפ"
 
-#: info/info.c:494
+#: info/info.c:498
 #, c-format
 msgid "No program name given"
 msgstr ""
 
-#: info/info.c:685
+#: info/info.c:689
 #, fuzzy, c-format
 #| msgid "Invalid node name: `%s'"
 msgid "invalid number: %s\n"
 msgstr "`%s' :יוגש (node) הקסיפ םש"
 
-#: info/info.c:868
+#: info/info.c:905
 #, c-format
 msgid "malformed variable assignment: %s"
 msgstr ""
 
-#: info/info.c:875 info/infokey.c:566
+#: info/info.c:912 info/infokey.c:566
 #, c-format
 msgid "%s: no such variable"
 msgstr ""
 
-#: info/info.c:881 info/infokey.c:568
+#: info/info.c:918 info/infokey.c:568
 #, fuzzy, c-format
 #| msgid "Set the value of an Info variable"
 msgid "value %s is not valid for variable %s"
 msgstr "Info הנתשמ לש ךרע הנש"
 
-#: info/info.c:893
+#: info/info.c:930
 #, c-format
 msgid "Try --help for more information.\n"
 msgstr ".רתוי בר עדימ תגצהל --help הסנ\n"
 
-#: info/info.c:912 install-info/install-info.c:2281
+#: info/info.c:949 install-info/install-info.c:2281
 #, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -343,13 +343,13 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: info/info.c:1099
+#: info/info.c:1126
 #, fuzzy, c-format
 #| msgid "no index entries found for `%s'\n"
 msgid "no index entries found for '%s'\n"
 msgstr "`%s' תזורחמ םיליכמה סקדניא יטירפ ןיא\n"
 
-#: info/info.c:1150
+#: info/info.c:1169
 #, c-format
 msgid ""
 "Usage: %s [OPTION]... [MENU-ITEM...]\n"
@@ -357,71 +357,71 @@ msgid ""
 "Read documentation in Info format.\n"
 msgstr ""
 
-#: info/info.c:1157
+#: info/info.c:1176
 msgid "Frequently-used options:"
 msgstr ""
 
-#: info/info.c:1158
+#: info/info.c:1177
 msgid "  -a, --all                    use all matching manuals"
 msgstr ""
 
-#: info/info.c:1159
+#: info/info.c:1178
 msgid ""
 "  -k, --apropos=STRING         look up STRING in all indices of all manuals"
 msgstr ""
 
-#: info/info.c:1160
+#: info/info.c:1179
 msgid "  -d, --directory=DIR          add DIR to INFOPATH"
 msgstr ""
 
-#: info/info.c:1161
+#: info/info.c:1180
 msgid "  -f, --file=MANUAL            specify Info manual to visit"
 msgstr ""
 
-#: info/info.c:1162
+#: info/info.c:1181
 #, fuzzy
 #| msgid "display this help and exit"
 msgid "  -h, --help                   display this help and exit"
 msgstr "תינכתהמ אצו הז הרזע ךסמ גצה"
 
-#: info/info.c:1163
+#: info/info.c:1182
 msgid "      --index-search=STRING    go to node pointed by index entry STRING"
 msgstr ""
 
-#: info/info.c:1164
+#: info/info.c:1183
 msgid "  -n, --node=NODENAME          specify nodes in first visited Info file"
 msgstr ""
 
-#: info/info.c:1165
+#: info/info.c:1184
 msgid "  -o, --output=FILE            output selected nodes to FILE"
 msgstr ""
 
-#: info/info.c:1168
+#: info/info.c:1187
 #, fuzzy
 #| msgid "  -b, --speech-friendly        be friendly to speech synthesizers.\n"
 msgid "  -b, --speech-friendly        be friendly to speech synthesizers"
 msgstr ""
 "      .רוביד זתנסמל ומיאתהל ידכ ךסמל הביתכ ןפוא הנש -b, --speech-friendly\n"
 
-#: info/info.c:1171
+#: info/info.c:1190
 msgid "      --subnodes               recursively output menu items"
 msgstr ""
 
-#: info/info.c:1172
+#: info/info.c:1191
 msgid "  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"
 msgstr ""
 
-#: info/info.c:1173
+#: info/info.c:1192
 #, fuzzy
 #| msgid "display version information and exit"
 msgid "      --version                display version information and exit"
 msgstr "אצו תינכתה תסריג לע עדימ גצה"
 
-#: info/info.c:1174
+#: info/info.c:1193
 msgid "  -w, --where, --location      print physical location of Info file"
 msgstr ""
 
-#: info/info.c:1178
+#: info/info.c:1197
 msgid ""
 "The first non-option argument, if present, is the menu entry to start from;\n"
 "it is searched for in all 'dir' files along INFOPATH.\n"
@@ -430,78 +430,78 @@ msgid ""
 "items relative to the initial node visited."
 msgstr ""
 
-#: info/info.c:1185
+#: info/info.c:1204
 msgid "For a summary of key bindings, type H within Info."
 msgstr ""
 
-#: info/info.c:1188
+#: info/info.c:1207
 msgid " Examples:"
 msgstr ""
 
-#: info/info.c:1189
+#: info/info.c:1208
 msgid "  info                         show top-level dir menu"
 msgstr ""
 
-#: info/info.c:1190
+#: info/info.c:1209
 msgid "  info info-stnd               show the manual for this Info program"
 msgstr ""
 
-#: info/info.c:1191
+#: info/info.c:1210
 msgid "  info emacs                   start at emacs node from top-level dir"
 msgstr ""
 
-#: info/info.c:1192
+#: info/info.c:1211
 msgid ""
 "  info emacs buffers           select buffers menu entry in emacs manual"
 msgstr ""
 
-#: info/info.c:1193
+#: info/info.c:1212
 msgid "  info emacs -n Files          start at Files node within emacs manual"
 msgstr ""
 
-#: info/info.c:1194
+#: info/info.c:1213
 msgid "  info '(emacs)Files'          alternative way to start at Files node"
 msgstr ""
 
-#: info/info.c:1195
+#: info/info.c:1214
 msgid ""
 "  info --subnodes -o out.txt emacs\n"
 "                               dump entire emacs manual to out.txt"
 msgstr ""
 
-#: info/info.c:1197
+#: info/info.c:1216
 msgid "  info -f ./foo.info           show file ./foo.info, not searching dir"
 msgstr ""
 
-#: info/info.c:1237
+#: info/info.c:1256
 #, fuzzy, c-format
 #| msgid "Cannot find node `(%s)%s'."
 msgid "Cannot find node '(%s)%s'"
 msgstr ".האצמנ אל `%s' ץבוקב `%s' הקסיפ"
 
-#: info/info.c:1238
+#: info/info.c:1257
 msgid "Point doesn't appear within this window's node!"
 msgstr "!הז ןולחב תגצומה הקסיפב אצמנ וניא ןמסה"
 
-#: info/info.c:1239
+#: info/info.c:1258
 #, fuzzy
 #| msgid "No menu in this node."
 msgid "No menu in this node"
 msgstr ".םיטירפת ןיא וז הקסיפב"
 
-#: info/info.c:1240
+#: info/info.c:1259
 #, fuzzy
 #| msgid "No cross references in this node."
 msgid "No cross references in this node"
 msgstr ".םירושיק ןיא וז הקסיפב"
 
-#: info/info.c:1241
+#: info/info.c:1260
 #, fuzzy
 #| msgid "Only one window."
 msgid "Only one window"
 msgstr ".דחא ןולח קר םייק"
 
-#: info/info.c:1242
+#: info/info.c:1261
 #, fuzzy
 #| msgid "Resulting window would be too small."
 msgid "Resulting window would be too small"
@@ -1034,6 +1034,32 @@ msgstr "\"%s\" היוגש הדוקפ"
 msgid "Quit"
 msgstr "לטוב"
 
+#: info/session.c:1453
+#, fuzzy, c-format
+#| msgid "cannot create output file `%s'"
+msgid "Could not create output file '%s'"
+msgstr "`%s' טלפ ץבוק תריציב הלקת"
+
+#: info/session.c:1479
+#, fuzzy, c-format
+#| msgid "error writing to `%s'"
+msgid "error writing to %s: %s"
+msgstr "`%s'-ל הביתכב הלקת"
+
+#: info/session.c:1488
+#, fuzzy, c-format
+#| msgid "error closing output file `%s'"
+msgid "closing %s"
+msgstr "`%s' טלפ ץבוק תריגסב הלקת"
+
+# No ellipsis because that would look awkward when the translation of
+# "Done." is appended.
+#: info/session.c:1528
+#, fuzzy, c-format
+#| msgid "Writing node %s..."
+msgid "writing node %s..."
+msgstr "`%s' הקסיפ טלפ"
+
 #: info/session-cmd.c:42
 msgid "Show all matching files"
 msgstr ""
@@ -1392,37 +1418,11 @@ msgstr "Find file: "
 msgid "Cannot find '%s'"
 msgstr ".אצמנ אל `%s' ץבוק"
 
-#: info/session-cmd.c:2923
-#, fuzzy, c-format
-#| msgid "cannot create output file `%s'"
-msgid "Could not create output file '%s'"
-msgstr "`%s' טלפ ץבוק תריציב הלקת"
-
-#: info/session-cmd.c:2949
-#, fuzzy, c-format
-#| msgid "error writing to `%s'"
-msgid "error writing to %s: %s"
-msgstr "`%s'-ל הביתכב הלקת"
-
-#: info/session-cmd.c:2958
-#, fuzzy, c-format
-#| msgid "error closing output file `%s'"
-msgid "closing %s"
-msgstr "`%s' טלפ ץבוק תריגסב הלקת"
-
-# No ellipsis because that would look awkward when the translation of
-# "Done." is appended.
-#: info/session-cmd.c:2998
-#, fuzzy, c-format
-#| msgid "Writing node %s..."
-msgid "writing node %s..."
-msgstr "`%s' הקסיפ טלפ"
-
-#: info/session-cmd.c:3044
+#: info/session-cmd.c:2862
 msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr "INFO_PRINT_COMMAND ךרד וז הקסיפ ןכות ספדה"
 
-#: info/session-cmd.c:3072
+#: info/session-cmd.c:2890
 #, fuzzy, c-format
 #| msgid "Cannot open pipe to `%s'."
 msgid "Cannot open pipe to '%s'"
@@ -1430,7 +1430,7 @@ msgstr ".`%s'-ל קיפא תחיתפב הלקת"
 
 # No ellipsis because that would look awkward when the translation of
 # "Done." is appended.
-#: info/session-cmd.c:3077
+#: info/session-cmd.c:2895
 #, fuzzy, c-format
 #| msgid "Printing node %s..."
 msgid "printing node %s..."
@@ -1438,62 +1438,62 @@ msgstr "%s הקסיפ תספדה"
 
 # No ellipsis because that would look awkward when the translation of
 # "Done." is appended.
-#: info/session-cmd.c:3085
+#: info/session-cmd.c:2903
 #, fuzzy, c-format
 #| msgid "Printing node %s..."
 msgid "finished printing node %s"
 msgstr "%s הקסיפ תספדה"
 
-#: info/session-cmd.c:3117
+#: info/session-cmd.c:2930
 msgid "Toggle the usage of regular expressions in searches"
 msgstr ""
 
-#: info/session-cmd.c:3121
+#: info/session-cmd.c:2934
 #, c-format
 msgid "Using regular expressions for searches"
 msgstr ""
 
-#: info/session-cmd.c:3122
+#: info/session-cmd.c:2935
 #, c-format
 msgid "Using literal strings for searches"
 msgstr ""
 
-#: info/session-cmd.c:3325
+#: info/session-cmd.c:3138
 msgid "Search continued from the end of the document"
 msgstr ""
 
-#: info/session-cmd.c:3330
+#: info/session-cmd.c:3143
 #, fuzzy
 #| msgid "Kill to the beginning of the line"
 msgid "Search continued from the beginning of the document"
 msgstr "הרוש תליחת דע קחמ"
 
-#: info/session-cmd.c:3347
+#: info/session-cmd.c:3160
 #, c-format
 msgid "Searching subfile %s ..."
 msgstr "... %s ץבוק-תת קרוס"
 
-#: info/session-cmd.c:3387 info/session-cmd.c:3656 info/session-cmd.c:3769
+#: info/session-cmd.c:3200 info/session-cmd.c:3469 info/session-cmd.c:3582
 #, fuzzy, c-format
 #| msgid "Search failed."
 msgid "Search failed"
 msgstr ".האצמנ אל תזורחמה"
 
-#: info/session-cmd.c:3407
+#: info/session-cmd.c:3220
 #, fuzzy, c-format
 #| msgid "%s%sfor string [%s]: "
 msgid "%s%s%s [%s]: "
 msgstr "%s%sfor string [%s]: "
 
-#: info/session-cmd.c:3408 info/session-cmd.c:3414
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
 msgid "Regexp search"
 msgstr ""
 
-#: info/session-cmd.c:3408 info/session-cmd.c:3414
+#: info/session-cmd.c:3221 info/session-cmd.c:3227
 msgid "Search"
 msgstr "Search"
 
-#: info/session-cmd.c:3409 info/session-cmd.c:3415
+#: info/session-cmd.c:3222 info/session-cmd.c:3228
 #, fuzzy
 #| msgid " case-sensitively "
 msgid " case-sensitively"
@@ -1501,145 +1501,145 @@ msgstr " case-sensitively "
 
 # The following 4 are untranslated because they are used with the
 # format string above in a prompt, and we don't translate prompts.
-#: info/session-cmd.c:3410 info/session-cmd.c:3416
+#: info/session-cmd.c:3223 info/session-cmd.c:3229
 #, fuzzy
 #| msgid "Search backward"
 msgid " backward"
 msgstr "Search backward"
 
-#: info/session-cmd.c:3413
+#: info/session-cmd.c:3226
 #, c-format
 msgid "%s%s%s: "
 msgstr ""
 
-#: info/session-cmd.c:3433
+#: info/session-cmd.c:3246
 msgid "Search string too short"
 msgstr ""
 
-#: info/session-cmd.c:3627
+#: info/session-cmd.c:3440
 #, c-format
 msgid "Going back to last match from %s"
 msgstr ""
 
-#: info/session-cmd.c:3656 info/session-cmd.c:3769
+#: info/session-cmd.c:3469 info/session-cmd.c:3582
 #, c-format
 msgid "No more matches"
 msgstr ""
 
-#: info/session-cmd.c:3796
+#: info/session-cmd.c:3609
 msgid "Search this node and subnodes for a string"
 msgstr ""
 
 #. TRANSLATORS: %s is the title of a node.
-#: info/session-cmd.c:3803
+#: info/session-cmd.c:3616
 #, fuzzy, c-format
 #| msgid "Searching subfile %s ..."
 msgid "Search under %s: "
 msgstr "... %s ץבוק-תת קרוס"
 
-#: info/session-cmd.c:3818
+#: info/session-cmd.c:3631
 msgid "Go to next match in Info sub-tree"
 msgstr ""
 
-#: info/session-cmd.c:3822 info/session-cmd.c:3834
+#: info/session-cmd.c:3635 info/session-cmd.c:3647
 #, c-format
 msgid "No active search"
 msgstr ""
 
-#: info/session-cmd.c:3830
+#: info/session-cmd.c:3643
 msgid "Go to previous match in Info sub-tree"
 msgstr ""
 
-#: info/session-cmd.c:3843
+#: info/session-cmd.c:3656
 msgid "Read a string and search for it case-sensitively"
 msgstr "תוישירב תובשחתה ךות התוא שפחו תזורחמ ארק"
 
-#: info/session-cmd.c:3848
+#: info/session-cmd.c:3661
 msgid "Read a string and search for it"
 msgstr "התוא שפחו תזורחמ ארק"
 
-#: info/session-cmd.c:3854
+#: info/session-cmd.c:3667
 msgid "Read a string and search backward for it"
 msgstr "הרוחא התוא שפחו תזורחמ ארק"
 
-#: info/session-cmd.c:3862
+#: info/session-cmd.c:3675
 msgid "Repeat last search in the same direction"
 msgstr "ןוויכ ותואב ןורחא שופיח לע רוזח"
 
-#: info/session-cmd.c:3876 info/session-cmd.c:3927
+#: info/session-cmd.c:3689 info/session-cmd.c:3740
 msgid "No previous search string"
 msgstr "ןורחא שופיחמ תזורחמ ןיא"
 
-#: info/session-cmd.c:3913
+#: info/session-cmd.c:3726
 msgid "Repeat last search in the reverse direction"
 msgstr "ךופה ןוויכב ןורחא שופיח לע רוזח"
 
-#: info/session-cmd.c:3966
+#: info/session-cmd.c:3779
 msgid "Clear displayed search matches"
 msgstr ""
 
-#: info/session-cmd.c:3982 info/session-cmd.c:3988
+#: info/session-cmd.c:3795 info/session-cmd.c:3801
 msgid "Search interactively for a string as you type it"
 msgstr "התוא ה/דילקמ ה/תאש ידכ ךות תזורחמ שפח"
 
-#: info/session-cmd.c:4108
+#: info/session-cmd.c:3921
 #, fuzzy
 #| msgid "I-search backward: "
 msgid "Regexp I-search backward: "
 msgstr "I-search backward: "
 
-#: info/session-cmd.c:4109
+#: info/session-cmd.c:3922
 msgid "I-search backward: "
 msgstr "I-search backward: "
 
-#: info/session-cmd.c:4111
+#: info/session-cmd.c:3924
 #, fuzzy
 #| msgid "I-search: "
 msgid "Regexp I-search: "
 msgstr "I-search: "
 
-#: info/session-cmd.c:4112
+#: info/session-cmd.c:3925
 msgid "I-search: "
 msgstr "I-search: "
 
 # Untranslated because is used with the I-search: prompt.
-#: info/session-cmd.c:4137 info/session-cmd.c:4140
+#: info/session-cmd.c:3950 info/session-cmd.c:3953
 msgid "Failing "
 msgstr "Failing "
 
-#: info/session-cmd.c:4507
+#: info/session-cmd.c:4320
 #, fuzzy
 #| msgid "Cancel or quit operation"
 msgid "Cancel current operation"
 msgstr "הנורחא הלועפ קספה וא לטב"
 
-#: info/session-cmd.c:4513
+#: info/session-cmd.c:4326
 msgid "Display version of Info being run"
 msgstr ""
 
-#: info/session-cmd.c:4515
+#: info/session-cmd.c:4328
 #, fuzzy, c-format
 #| msgid "This is %s, produced by makeinfo version %s from %s.\n"
 msgid "GNU Info version %s"
 msgstr "This is %s, produced by makeinfo version %s from %s.\n"
 
-#: info/session-cmd.c:4520
+#: info/session-cmd.c:4333
 msgid "Redraw the display"
 msgstr "הגוצת שדח"
 
-#: info/session-cmd.c:4557
+#: info/session-cmd.c:4370
 msgid "Quit using Info"
 msgstr "Info תינכותמ אצ"
 
-#: info/session-cmd.c:4573
+#: info/session-cmd.c:4386
 msgid "Run command bound to this key's lowercase variant"
 msgstr "הז שקמ לש תונטק תויתוא תסריגל הרושקה הדוקפ לעפה"
 
-#: info/session-cmd.c:4578
+#: info/session-cmd.c:4391
 msgid "Add this digit to the current numeric argument"
 msgstr "יחכונ ירמונ טנמוגראל וז הרפס ףסוה"
 
-#: info/session-cmd.c:4585
+#: info/session-cmd.c:4398
 msgid "Start (or multiply by 4) the current numeric argument"
 msgstr "4-ב םייק ךרע לופכ וא ,ירמונ טנמוגרא לש הדלקה לחתה"
 
@@ -2240,7 +2240,7 @@ msgstr ""
 msgid "error parsing %s: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2780
+#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2723
 #, fuzzy, c-format, perl-format
 #| msgid "error writing to `%s'"
 msgid "error reading %s: %s"
@@ -2275,14 +2275,15 @@ msgstr "העודי הנניא `%s' הדוקפ"
 msgid "unknown variable from command line: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Config.pm:676 tta/perl/Texinfo/Config.pm:714
-#: tta/perl/Texinfo/Config.pm:736 tta/perl/Texinfo/Config.pm:759
+#: tta/perl/Texinfo/Config.pm:671 tta/perl/Texinfo/Config.pm:714
+#: tta/perl/Texinfo/Config.pm:732 tta/perl/Texinfo/Config.pm:758
+#: tta/perl/Texinfo/Config.pm:785
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "%s: unknown formatting context %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tta/perl/Texinfo/Config.pm:902
+#: tta/perl/Texinfo/Config.pm:928
 #, perl-format
 msgid "%s: unknown special element information type %s"
 msgstr ""
@@ -2301,62 +2302,62 @@ msgstr "םדןק רדגוה רבכ `%s' ורקאמ"
 msgid "here is the previous definition as @%s"
 msgstr "הנושארל רדגוה `%s' ןאכ"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:422
-#: tta/perl/Texinfo/Convert/HTML.pm:12151
-#: tta/perl/Texinfo/Convert/HTML.pm:13203
-#: tta/perl/Texinfo/Convert/HTML.pm:13461 tta/perl/Texinfo/Convert/IXIN.pm:358
-#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1158
-#: tta/perl/Texinfo/Convert/Plaintext.pm:768
-#: tta/perl/Texinfo/Convert/Plaintext.pm:823
+#: tta/perl/Texinfo/Convert/Converter.pm:425
+#: tta/perl/Texinfo/Convert/HTML.pm:12190
+#: tta/perl/Texinfo/Convert/HTML.pm:13251
+#: tta/perl/Texinfo/Convert/HTML.pm:13509 tta/perl/Texinfo/Convert/IXIN.pm:358
+#: tta/perl/Texinfo/Convert/Info.pm:429 tta/perl/Texinfo/Convert/LaTeX.pm:1181
+#: tta/perl/Texinfo/Convert/Plaintext.pm:783
+#: tta/perl/Texinfo/Convert/Plaintext.pm:838
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
 #: tta/perl/texi2any.pl:1935 tta/perl/texi2any.pl:2072
-#: tta/C/convert/converter.c:715 tta/C/convert/convert_html.c:2093
-#: tta/C/convert/convert_html.c:2573 tta/C/convert/rawtext_converter_api.c:232
+#: tta/C/convert/converter.c:725 tta/C/convert/convert_html.c:2074
+#: tta/C/convert/convert_html.c:2516 tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Converter.pm:448
-#: tta/perl/Texinfo/Convert/HTML.pm:12146
-#: tta/perl/Texinfo/Convert/HTML.pm:13226 tta/perl/Texinfo/Convert/IXIN.pm:1039
+#: tta/perl/Texinfo/Convert/Converter.pm:451
+#: tta/perl/Texinfo/Convert/HTML.pm:12185
+#: tta/perl/Texinfo/Convert/HTML.pm:13274 tta/perl/Texinfo/Convert/IXIN.pm:1039
 #: tta/perl/Texinfo/Convert/Info.pm:235 tta/perl/Texinfo/Convert/Info.pm:267
 #: tta/perl/Texinfo/Convert/Info.pm:322 tta/perl/Texinfo/Convert/Info.pm:400
-#: tta/perl/Texinfo/Convert/LaTeX.pm:1244
-#: tta/perl/Texinfo/Convert/Plaintext.pm:796
-#: tta/perl/Texinfo/Convert/Plaintext.pm:844
+#: tta/perl/Texinfo/Convert/LaTeX.pm:1267
+#: tta/perl/Texinfo/Convert/Plaintext.pm:811
+#: tta/perl/Texinfo/Convert/Plaintext.pm:859
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
-#: tta/C/convert/converter.c:785 tta/C/convert/convert_html.c:2158
-#: tta/C/convert/convert_html.c:2612 tta/C/convert/rawtext_converter_api.c:269
+#: tta/C/convert/converter.c:795 tta/C/convert/convert_html.c:2139
+#: tta/C/convert/convert_html.c:2555 tta/C/convert/rawtext_converter_api.c:269
 #: tta/C/parsetexi/input.c:352
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:754
-#: tta/perl/Texinfo/Convert/Converter.pm:770
-#: tta/perl/Texinfo/Convert/Converter.pm:791
+#: tta/perl/Texinfo/Convert/Converter.pm:760
+#: tta/perl/Texinfo/Convert/Converter.pm:776
+#: tta/perl/Texinfo/Convert/Converter.pm:797
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "unknown customization variable: %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1175
+#: tta/perl/Texinfo/Convert/Converter.pm:1181
 #: tta/perl/Texinfo/Convert/Text.pm:1060 tta/perl/Texinfo/Convert/Text.pm:1082
-#: tta/C/convert/converter.c:1036
+#: tta/C/convert/converter.c:1046
 #, fuzzy, c-format, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create directory `%s': %s"
 msgstr "`%s' היקית תריציב (%s) הלקת"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1575
+#: tta/perl/Texinfo/Convert/Converter.pm:1581
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing image text file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1584
+#: tta/perl/Texinfo/Convert/Converter.pm:1590
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
@@ -2370,275 +2371,275 @@ msgstr "@image רובע `%s' ץבוק תאירקב (%s) הלקת"
 msgid "@image file `%s' not found, using `%s'"
 msgstr "@image רובע `%s' ץבוק תאירקב (%s) הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:397
-#: tta/C/convert/html_prepare_converter.c:736
+#: tta/perl/Texinfo/Convert/HTML.pm:404
+#: tta/C/convert/html_prepare_converter.c:739
 #, c-format, perl-format
 msgid "not setting an unknown direction: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:3626 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6744
+#: tta/perl/Texinfo/Convert/HTML.pm:3672 tta/perl/ext/epub3.pm:287
+#: tta/C/convert/format_html.c:6733
 #, fuzzy, c-format, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "(HTML רובע שרדנ) @image רובע `%s' ץבוק תאירקב (%s) הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4767 tta/C/convert/format_html.c:8331
+#: tta/perl/Texinfo/Convert/HTML.pm:4813 tta/C/convert/format_html.c:8292
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6439 tta/C/convert/format_html.c:10716
+#: tta/perl/Texinfo/Convert/HTML.pm:6498 tta/C/convert/format_html.c:10695
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "הקסיפ לכל ץוחמ רדגומ `%s' סקדניא טירפ"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6470 tta/C/convert/format_html.c:10756
+#: tta/perl/Texinfo/Convert/HTML.pm:6529 tta/C/convert/format_html.c:10735
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "הקסיפ לכל ץוחמ רדגומ `%s' סקדניא טירפ"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8438
-#: tta/C/convert/html_prepare_converter.c:1006
+#: tta/perl/Texinfo/Convert/HTML.pm:8488
+#: tta/C/convert/html_prepare_converter.c:1009
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8467
-#: tta/C/convert/html_prepare_converter.c:1116
+#: tta/perl/Texinfo/Convert/HTML.pm:8517
+#: tta/C/convert/html_prepare_converter.c:1119
 #, fuzzy, c-format, perl-format
 #| msgid "missing action name"
 msgid "missing type"
 msgstr "הדוקפ םש רסח"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8471
-#: tta/C/convert/html_prepare_converter.c:1127
+#: tta/perl/Texinfo/Convert/HTML.pm:8521
+#: tta/C/convert/html_prepare_converter.c:1130
 #, fuzzy, c-format, perl-format
 #| msgid "%s: unrecognized option `--%s'\n"
 msgid "unrecognized type: %s"
 msgstr "%s תינכת רובע `--%s' ההוזמ-יתלב ןייפאמ\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8509
-#: tta/C/convert/html_prepare_converter.c:1226
+#: tta/perl/Texinfo/Convert/HTML.pm:8559
+#: tta/C/convert/html_prepare_converter.c:1229
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing html refs config file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8535
-#: tta/C/convert/html_prepare_converter.c:1267
+#: tta/perl/Texinfo/Convert/HTML.pm:8585
+#: tta/C/convert/html_prepare_converter.c:1270
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8654 tta/perl/texi2any.pl:635
-#: tta/C/convert/html_prepare_converter.c:1497
+#: tta/perl/Texinfo/Convert/HTML.pm:8704 tta/perl/texi2any.pl:635
+#: tta/C/convert/html_prepare_converter.c:1500
 #, fuzzy, c-format, perl-format
 #| msgid "%c%s is obsolete; use %c%s instead"
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "%c%s-ב שמתשהל ףידע ;תנשוימ הניה %c%s הארוה"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9077
+#: tta/perl/Texinfo/Convert/HTML.pm:9132
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9095
+#: tta/perl/Texinfo/Convert/HTML.pm:9150
 #, fuzzy, perl-format
 #| msgid "unknown action `%s'"
 msgid "Unknown formatting function: %s"
 msgstr "העודי הנניא `%s' הדוקפ"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9555
-#: tta/C/convert/html_prepare_converter.c:1784
+#: tta/perl/Texinfo/Convert/HTML.pm:9609
+#: tta/C/convert/html_prepare_converter.c:1787
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9557
-#: tta/C/convert/html_prepare_converter.c:1792
+#: tta/perl/Texinfo/Convert/HTML.pm:9611
+#: tta/C/convert/html_prepare_converter.c:1795
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9559
-#: tta/C/convert/html_prepare_converter.c:1800
+#: tta/perl/Texinfo/Convert/HTML.pm:9613
+#: tta/C/convert/html_prepare_converter.c:1803
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9595
-#: tta/C/convert/html_prepare_converter.c:1852
+#: tta/perl/Texinfo/Convert/HTML.pm:9649
+#: tta/C/convert/html_prepare_converter.c:1855
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9607
-#: tta/C/convert/html_prepare_converter.c:1874
+#: tta/perl/Texinfo/Convert/HTML.pm:9661
+#: tta/C/convert/html_prepare_converter.c:1877
 #, fuzzy, c-format, perl-format
 #| msgid "cannot open input file `%s'"
 msgid "could not open --include-file %s: %s"
 msgstr "`%s' טלק ץבוק תחיתפב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9625
+#: tta/perl/Texinfo/Convert/HTML.pm:9679
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing CSS file %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9830
-#: tta/C/convert/html_prepare_converter.c:4835
+#: tta/perl/Texinfo/Convert/HTML.pm:9881
+#: tta/C/convert/html_prepare_converter.c:4886
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10155
-#: tta/C/convert/html_prepare_converter.c:6070
+#: tta/perl/Texinfo/Convert/HTML.pm:10206
+#: tta/C/convert/html_prepare_converter.c:6121
 #, fuzzy, c-format, perl-format
 #| msgid "Making %s file `%s' from `%s'.\n"
 msgid "resetting %s file path %s to %s"
 msgstr ".%s טמרופב `%s'-ל `%s' ץבוק דבעמ\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10159
-#: tta/C/convert/html_prepare_converter.c:6080
+#: tta/perl/Texinfo/Convert/HTML.pm:10210
+#: tta/C/convert/html_prepare_converter.c:6131
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10163
-#: tta/C/convert/html_prepare_converter.c:6089
+#: tta/perl/Texinfo/Convert/HTML.pm:10214
+#: tta/C/convert/html_prepare_converter.c:6140
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10753
-#: tta/C/convert/html_prepare_converter.c:5461
+#: tta/perl/Texinfo/Convert/HTML.pm:10804
+#: tta/C/convert/html_prepare_converter.c:5512
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node `%s'."
 msgid "could not find %s node `%s'"
 msgstr ".האצמנ אל `%s' הקסיפ"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11020 tta/C/convert/format_html.c:837
+#: tta/perl/Texinfo/Convert/HTML.pm:11071 tta/C/convert/format_html.c:837
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11057
-#: tta/perl/Texinfo/Convert/HTML.pm:11063 tta/C/convert/format_html.c:886
+#: tta/perl/Texinfo/Convert/HTML.pm:11108
+#: tta/perl/Texinfo/Convert/HTML.pm:11114 tta/C/convert/format_html.c:886
 #: tta/C/convert/format_html.c:897
 #, fuzzy, c-format, perl-format
 #| msgid "no index entries found for `%s'\n"
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "`%s' תזורחמ םיליכמה סקדניא יטירפ ןיא\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11565 tta/C/convert/format_html.c:4058
+#: tta/perl/Texinfo/Convert/HTML.pm:11612 tta/C/convert/format_html.c:4047
 #, fuzzy, c-format, perl-format
 #| msgid "@%s not meaningful inside `@%s' block"
 msgid "%s not meaningful for non-split output"
 msgstr "`@%s' ךותב @%s-ל תועמשמ ןיא"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12090 tta/C/convert/convert_html.c:2657
+#: tta/perl/Texinfo/Convert/HTML.pm:12129 tta/C/convert/convert_html.c:2600
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12137 tta/C/convert/convert_html.c:2681
+#: tta/perl/Texinfo/Convert/HTML.pm:12176 tta/C/convert/convert_html.c:2624
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12852 tta/C/convert/convert_html.c:832
+#: tta/perl/Texinfo/Convert/HTML.pm:12898 tta/C/convert/convert_html.c:815
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12859 tta/C/convert/convert_html.c:844
+#: tta/perl/Texinfo/Convert/HTML.pm:12905 tta/C/convert/convert_html.c:827
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12907
+#: tta/perl/Texinfo/Convert/HTML.pm:12953
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on copying %s into %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:2902
+#: tta/perl/Texinfo/Convert/HTML.pm:12962 tta/C/convert/convert_html.c:2845
 #, fuzzy, c-format, perl-format
 #| msgid "error writing to `%s'"
 msgid "error on creating empty %s: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12921 tta/C/convert/convert_html.c:2914
+#: tta/perl/Texinfo/Convert/HTML.pm:12967 tta/C/convert/convert_html.c:2857
 #, fuzzy, c-format, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing empty %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13030
-#: tta/perl/Texinfo/Convert/HTML.pm:13034 tta/C/convert/convert_html.c:1117
-#: tta/C/convert/convert_html.c:1122
+#: tta/perl/Texinfo/Convert/HTML.pm:13078
+#: tta/perl/Texinfo/Convert/HTML.pm:13082 tta/C/convert/convert_html.c:1102
+#: tta/C/convert/convert_html.c:1107
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13314 tta/C/convert/convert_html.c:3114
+#: tta/perl/Texinfo/Convert/HTML.pm:13362 tta/C/convert/convert_html.c:3057
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13332 tta/C/convert/convert_html.c:3129
+#: tta/perl/Texinfo/Convert/HTML.pm:13380 tta/C/convert/convert_html.c:3072
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13335 tta/C/convert/convert_html.c:3132
+#: tta/perl/Texinfo/Convert/HTML.pm:13383 tta/C/convert/convert_html.c:3075
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13338 tta/C/convert/convert_html.c:3135
+#: tta/perl/Texinfo/Convert/HTML.pm:13386 tta/C/convert/convert_html.c:3078
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13341 tta/C/convert/convert_html.c:3138
+#: tta/perl/Texinfo/Convert/HTML.pm:13389 tta/C/convert/convert_html.c:3081
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13344 tta/C/convert/convert_html.c:3142
+#: tta/perl/Texinfo/Convert/HTML.pm:13392 tta/C/convert/convert_html.c:3085
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13352 tta/C/convert/convert_html.c:3156
+#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3099
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13364 tta/C/convert/convert_html.c:3172
+#: tta/perl/Texinfo/Convert/HTML.pm:13412 tta/C/convert/convert_html.c:3115
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13378 tta/C/convert/convert_html.c:3192
+#: tta/perl/Texinfo/Convert/HTML.pm:13426 tta/C/convert/convert_html.c:3135
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13391 tta/C/convert/convert_html.c:3205
+#: tta/perl/Texinfo/Convert/HTML.pm:13439 tta/C/convert/convert_html.c:3148
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13469
+#: tta/perl/Texinfo/Convert/HTML.pm:13517
 #, fuzzy, perl-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing redirection node file %s: %s"
@@ -2703,101 +2704,101 @@ msgstr ""
 msgid "@node %s name should not contain `,': %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3402
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3427
 #, perl-format
 msgid "\\verb delimiter `%s' (for LaTeX) used in text `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:3442
+#: tta/perl/Texinfo/Convert/LaTeX.pm:3467
 #, fuzzy, perl-format
 #| msgid "@image file `%s' (for HTML) not readable: %s"
 msgid "@image file `%s' (for LaTeX) not found"
 msgstr "(HTML רובע שרדנ) @image רובע `%s' ץבוק תאירקב (%s) הלקת"
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:4970
+#: tta/perl/Texinfo/Convert/LaTeX.pm:4995
 #, perl-format
 msgid "math to images: could not open %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5059
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5084
 #, perl-format
 msgid "math to images: chdir %s failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5067
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5092
 #, perl-format
 msgid "math to images: output file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5093
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5118
 #, perl-format
 msgid "math to images: command failed: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5098
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5123
 #, perl-format
 msgid "math to images: closing communication failed: %s: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5114
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5139
 #, perl-format
 msgid "math to images: dvi file missing: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5129
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5154
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/LaTeX.pm:5136
+#: tta/perl/Texinfo/Convert/LaTeX.pm:5161
 #, perl-format
 msgid "math to images: unable to return to initial directory: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:691
+#: tta/perl/Texinfo/Convert/Plaintext.pm:706
 #, perl-format
 msgid "%s: output incompatible with split"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2027
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2042
 #, perl-format
 msgid "Index entry in @%s with : produces invalid Info: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2069
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2084
 #: tta/perl/Texinfo/ParserNonXS.pm:3658 tta/C/parsetexi/indices.c:319
 #, fuzzy, c-format, perl-format
 #| msgid "Entry for index `%s' outside of any node"
 msgid "entry for index `%s' outside of any node"
 msgstr "הקסיפ לכל ץוחמ רדגומ `%s' סקדניא טירפ"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2085
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2100
 #, fuzzy, perl-format
 #| msgid "no index entries found for `%s'\n"
 msgid "node name with index entries should not contain `%s'"
 msgstr "`%s' תזורחמ םיליכמה סקדניא יטירפ ןיא\n"
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:2385
+#: tta/perl/Texinfo/Convert/Plaintext.pm:2400
 #, perl-format
 msgid "could not find @image file `%s.txt' nor alternate text"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:3117
+#: tta/perl/Texinfo/Convert/Plaintext.pm:3132
 msgid ""
 "@strong{Note...} produces a spurious cross-reference in Info; reword to "
 "avoid that"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4103
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4118
 #, perl-format
 msgid "menu entry node name should not contain `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4114
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4129
 msgid "menu entry node name should not contain `:'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/Plaintext.pm:4149
+#: tta/perl/Texinfo/Convert/Plaintext.pm:4164
 msgid "menu entry name should not contain `:'"
 msgstr ""
 
@@ -3845,53 +3846,53 @@ msgstr ""
 msgid "Archive::Zip is required for EPUB file output"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:567
+#: tta/perl/ext/epub3.pm:570
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "error creating directory: %s: %s"
 msgstr "`%s' היקית תריציב (%s) הלקת"
 
-#: tta/perl/ext/epub3.pm:572
+#: tta/perl/ext/epub3.pm:575
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "error creating directory: %s: creating %s: %s"
 msgstr "`%s' היקית תריציב (%s) הלקת"
 
-#: tta/perl/ext/epub3.pm:598
+#: tta/perl/ext/epub3.pm:612
 #, perl-format
 msgid "epub: no filename output"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:609
+#: tta/perl/ext/epub3.pm:623
 #, fuzzy, perl-format
 #| msgid "Can't create directory `%s': %s"
 msgid "could not create meta informations directory `%s': %s"
 msgstr "`%s' היקית תריציב (%s) הלקת"
 
-#: tta/perl/ext/epub3.pm:623 tta/perl/ext/epub3.pm:664
-#: tta/perl/ext/epub3.pm:697 tta/perl/ext/epub3.pm:832
+#: tta/perl/ext/epub3.pm:637 tta/perl/ext/epub3.pm:678
+#: tta/perl/ext/epub3.pm:711 tta/perl/ext/epub3.pm:846
 #, perl-format
 msgid "epub3.pm: could not open %s for writing: %s\n"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:648 tta/perl/ext/epub3.pm:676
-#: tta/perl/ext/epub3.pm:788 tta/perl/ext/epub3.pm:999
+#: tta/perl/ext/epub3.pm:662 tta/perl/ext/epub3.pm:690
+#: tta/perl/ext/epub3.pm:802 tta/perl/ext/epub3.pm:1013
 #, perl-format
 msgid "epub3.pm: error on closing %s: %s"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:951
+#: tta/perl/ext/epub3.pm:965
 #, perl-format
 msgid "epub3.pm: readdir %s error: %s"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:1019 tta/perl/ext/epub3.pm:1028
-#: tta/perl/ext/epub3.pm:1041
+#: tta/perl/ext/epub3.pm:1033 tta/perl/ext/epub3.pm:1042
+#: tta/perl/ext/epub3.pm:1055
 #, perl-format
 msgid "epub3.pm: error adding %s to archive"
 msgstr ""
 
-#: tta/perl/ext/epub3.pm:1050
+#: tta/perl/ext/epub3.pm:1064
 #, fuzzy, perl-format
 #| msgid "error writing to `%s'"
 msgid "epub3.pm: error writing archive %s"
@@ -4695,60 +4696,60 @@ msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
 "%s: `%s' אל ,`asis'/`none'/ירמונ תויהל --paragraph-indent לש טנמוגרא לע\n"
 
-#: tta/C/convert/convert_html.c:2464
+#: tta/C/convert/convert_html.c:2407
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2474
+#: tta/C/convert/convert_html.c:2417
 #, c-format
 msgid "%zu registered inline contents: %s"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2491
+#: tta/C/convert/convert_html.c:2434
 #, c-format
 msgid "left inline content associated to %s: '%s'"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2498
+#: tta/C/convert/convert_html.c:2441
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2503
+#: tta/C/convert/convert_html.c:2446
 #, c-format
 msgid "left inline content associated: '%s'"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2512
+#: tta/C/convert/convert_html.c:2455
 #, c-format
 msgid "%zu pending footnotes"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2738
+#: tta/C/convert/convert_html.c:2681
 #, c-format
 msgid "error while opening %s for reading: %s"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2748
+#: tta/C/convert/convert_html.c:2691
 #, fuzzy, c-format
 #| msgid "cannot open input file `%s'"
 msgid "cannot open %s for writing: %s"
 msgstr "`%s' טלק ץבוק תחיתפב הלקת"
 
-#: tta/C/convert/convert_html.c:2766
+#: tta/C/convert/convert_html.c:2709
 #, fuzzy, c-format
 #| msgid "error writing to `%s'"
 msgid "error writing %s: %s"
 msgstr "`%s'-ל הביתכב הלקת"
 
-#: tta/C/convert/convert_html.c:2792
+#: tta/C/convert/convert_html.c:2735
 #, fuzzy, c-format
 #| msgid "error closing output file `%s'"
 msgid "error closing %s: %s"
 msgstr "`%s' טלפ ץבוק תריגסב הלקת"
 
-#: tta/C/convert/html_prepare_converter.c:1901
+#: tta/C/convert/html_prepare_converter.c:1904
 #, fuzzy, c-format
 #| msgid "error closing output file `%s'"
 msgid "error on closing CSS file  %s: %s"
