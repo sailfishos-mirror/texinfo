@@ -1334,6 +1334,7 @@ normalize_encoding_name (const char *text, int *possible_encoding)
   return normalized_text;
 }
 
+/* Same as File::Basename fileparse in Perl */
 /* RESULT should be an array of size two.  Upon return, it holds
    the file name in the first position and directory, if any, in
    the second position.  The file name and directory should be
@@ -1365,6 +1366,7 @@ parse_file_path (const char *input_file_path, char **result)
     }
 }
 
+/* Same as File::Spec->splitpath in Perl */
 /* RESULT should be an array of size three.  Upon return, it holds
    the volume, if any, in the first position, the directory, if any, in
    the second position and the file name in the third position.
