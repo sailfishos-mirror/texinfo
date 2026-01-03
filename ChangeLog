@@ -1,3 +1,8 @@
+2026-02-03 Patrice Dumas  <pertusus@free.fr>
+
+	* po_document/POTFILES.in: remove
+	tta/perl/init/documentation_examples.pm.
+
 2026-02-01 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/texinfo.i (interface_version): add.

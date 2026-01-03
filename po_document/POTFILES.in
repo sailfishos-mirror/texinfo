@@ -8,7 +8,6 @@
 # the output from processing Texinfo documents.
 
 tta/perl/ext/epub3.pm
-tta/perl/init/documentation_examples.pm
 tta/perl/init/html32.pm
 tta/perl/Texinfo/Common.pm
 tta/perl/Texinfo/HTMLData.pm
