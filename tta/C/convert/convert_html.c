@@ -19,6 +19,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
+/* for _O_BINARY */
+#include <fcntl.h>
 
 #include "html_conversion_data.h"
 #include "text.h"

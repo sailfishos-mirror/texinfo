@@ -10,9 +10,6 @@ This is the todo list for texi2any
 Before next release
 ===================
 
-system.h macros are duplicated in C/main/utils.h.  Ok?
-
-
 Bugs
 ====
 

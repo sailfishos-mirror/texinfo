@@ -1,5 +1,15 @@
 2026-02-03 Patrice Dumas  <pertusus@free.fr>
 
+	Add missing includes for _O_BINARY and S_IFMT and similar
+
+	* tta/C/convert/convert_html.c, tta/C/main/utils.h: add fcntl.h
+	include for _O_BINARY.  Report from Gavin.
+
+	* tta/C/main/utils.h: ass sys/stat.h include for S_ISDIR, S_IFDIR and
+	S_IFMT.  Report from Gavin.
+
+2026-02-03 Patrice Dumas  <pertusus@free.fr>
+
 	* po_document/POTFILES.in: remove
 	tta/perl/init/documentation_examples.pm.
 
@@ -45,7 +55,7 @@
 
 	* tta/perl/ext/epub3.pm (epub_setup, epub_finish): save values of
 	OUTFILE and SUBDIR before setting them with force_conf, and reset them
-	after the convversion.
+	after the conversion.
 
 2026-01-01 Patrice Dumas  <pertusus@free.fr>
 
