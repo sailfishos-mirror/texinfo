@@ -1,5 +1,9 @@
 2026-02-03 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Config.pm: reformat functions beginning.
+
+2026-02-03 Patrice Dumas  <pertusus@free.fr>
+
 	Add missing includes for _O_BINARY and S_IFMT and similar
 
 	* tta/C/convert/convert_html.c, tta/C/main/utils.h: add fcntl.h

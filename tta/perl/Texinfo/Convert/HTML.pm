@@ -13485,8 +13485,8 @@ sub _node_redirections($$$$) {
                'file_info_label_element' => $label_element};
 
         my $redirection_page
-          = _prepare_node_redirection_page ($self, $target_element,
-                                             $redirection_filename);
+          = _prepare_node_redirection_page($self, $target_element,
+                                           $redirection_filename);
 
         my $out_filepath;
         if ($destination_directory ne '') {

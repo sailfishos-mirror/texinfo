@@ -119,6 +119,7 @@ sub GNUT_initialize_customization($$$) {
   $real_command_name = shift;
   $options_defaults = shift;
   $cmdline_options = shift;
+
   # highest precedence options passed for initialization from the main context
   # should only be list options
   foreach my $cmdline_option (keys(%$cmdline_options)) {
@@ -136,9 +137,9 @@ sub GNUT_initialize_customization($$$) {
 }
 
 # duplicated from texi2any.pl
-sub _GNUT_encode_message($)
-{
+sub _GNUT_encode_message($) {
   my $text = shift;
+
   my $encoding = texinfo_get_conf('MESSAGE_ENCODING');
   if (defined($encoding)) {
     return Encode::encode($encoding, $text);
@@ -163,7 +164,9 @@ sub _GNUT_decode_input($)
 # duplicated from texi2any.pl
 sub _GNUT_document_warn($) {
   return if (texinfo_get_conf('NO_WARN'));
+
   my $text = shift;
+
   warn(_GNUT_encode_message(
         sprintf(__p("program name: warning: warning_message",
                    "%s: warning: %s"), $real_command_name, $text)."\n"));
@@ -171,6 +174,7 @@ sub _GNUT_document_warn($) {
 
 sub _GNUT_document_fatal($) {
   my $text = shift;
+
   warn(_GNUT_encode_message(
         sprintf(__p("program name: error_message",
                    "%s: %s"), $real_command_name, $text)."\n"));
@@ -184,6 +188,7 @@ my @init_file_loading_messages;
 # eval $FILE in the Texinfo::Config namespace. $FILE should be a binary string.
 sub GNUT_load_init_file($) {
   my $file = shift;
+
   push @init_file_loading_messages, [];
 
   my $result = do($file);
@@ -238,6 +243,7 @@ sub GNUT_load_init_file($) {
 # called from init files in case of errors at loading.
 sub texinfo_register_init_loading_error($) {
   my $message = shift;
+
   push @{$init_file_loading_messages[-1]}, {'type' => 'error',
                                             'text' => $message};
 }
@@ -245,6 +251,7 @@ sub texinfo_register_init_loading_error($) {
 # called from init files in case of warnings at loading.
 sub texinfo_register_init_loading_warning($) {
   my $message = shift;
+
   push @{$init_file_loading_messages[-1]}, {'type' => 'warning',
                                             'text' => $message};
 }
@@ -254,10 +261,8 @@ sub texinfo_register_init_loading_warning($) {
 # NOTE this has not been done consistently, many options were renamed
 # without doing something here.
 # NOTE in C there is no mapping of values.
-sub _GNUT_map_obsolete_options($$)
-{
-  my $input_var = shift;
-  my $input_value = shift;
+sub _GNUT_map_obsolete_options($$) {
+  my ($input_var, $input_value) = @_;
 
   my $var = $input_var;
   my $value = $input_value;
@@ -278,8 +283,7 @@ sub _GNUT_map_obsolete_options($$)
 
 # Called from init files to set configuration options.
 sub texinfo_set_from_init_file($$) {
-  my $var = shift;
-  my $value = shift;
+  my ($var, $value) = @_;
 
   ($var, $value) = _GNUT_map_obsolete_options($var, $value);
   if (!defined($var)) {
@@ -300,10 +304,8 @@ sub texinfo_set_from_init_file($$) {
 
 # set option from the command line, called from main program.
 # Highest precedence.
-sub GNUT_set_from_cmdline($$)
-{
-  my $var = shift;
-  my $value = shift;
+sub GNUT_set_from_cmdline($$) {
+  my ($var, $value) = @_;
 
   ($var, $value) = _GNUT_map_obsolete_options($var, $value);
   if (!defined($var)) {
@@ -322,10 +324,8 @@ sub GNUT_set_from_cmdline($$)
 }
 
 # add default based, for instance, on the format.
-sub GNUT_set_customization_default($$)
-{
-  my $var = shift;
-  my $value = shift;
+sub GNUT_set_customization_default($$) {
+  my ($var, $value) = @_;
 
   ($var, $value) = _GNUT_map_obsolete_options($var, $value);
   if (!defined($var)) {
@@ -340,11 +340,8 @@ sub GNUT_set_customization_default($$)
 
 # called both from main program and init files, for %options_as_lists
 # options with lists set in main program.
-sub texinfo_add_to_option_list($$;$)
-{
-  my $var = shift;
-  my $values_array_ref = shift;
-  my $prepend = shift;
+sub texinfo_add_to_option_list($$;$) {
+  my ($var, $values_array_ref, $prepend) = @_;
 
   if (not $options_as_lists{$var}) {
     return 0;
@@ -363,10 +360,9 @@ sub texinfo_add_to_option_list($$;$)
 }
 
 # called both from main program and init files.
-sub texinfo_remove_from_option_list($$)
-{
-  my $var = shift;
-  my $values_array_ref = shift;
+sub texinfo_remove_from_option_list($$) {
+  my ($var, $values_array_ref) = @_;
+
   if (not $options_as_lists{$var}) {
     return 0;
   }
@@ -390,9 +386,11 @@ sub texinfo_remove_from_option_list($$)
 sub texinfo_get_conf($)
 {
   my $var = shift;
+
   confess("BUG: texinfo_get_conf: undef \$cmdline_options."
          ." Call GNUT_initialize_customization")
     if (!$cmdline_options);
+
   if (exists($cmdline_options->{$var})) {
     return $cmdline_options->{$var};
   } elsif (exists($init_files_options->{$var})) {
@@ -412,13 +410,11 @@ sub texinfo_get_conf($)
 # in init files.
 
 my $init_file_format;
-sub texinfo_set_format_from_init_file($)
-{
+sub texinfo_set_format_from_init_file($) {
   $init_file_format = shift;
 }
 
-sub GNUT_get_format_from_init_file()
-{
+sub GNUT_get_format_from_init_file() {
   return $init_file_format;
 }
 
@@ -438,8 +434,7 @@ my $default_priority = 'default';
 
 my $GNUT_stage_handlers;
 
-sub _GNUT_initialize_stage_handlers()
-{
+sub _GNUT_initialize_stage_handlers() {
   $GNUT_stage_handlers = {};
 
   foreach my $stage (@possible_stages) {
@@ -449,11 +444,8 @@ sub _GNUT_initialize_stage_handlers()
 
 _GNUT_initialize_stage_handlers();
 
-sub texinfo_register_handler($$;$)
-{
-  my $stage = shift;
-  my $handler = shift;
-  my $priority = shift;
+sub texinfo_register_handler($$;$) {
+  my ($stage, $handler, $priority) = @_;
 
   if (!$GNUT_stage_handlers->{$stage}) {
     carp ("Unknown stage $stage\n");
@@ -467,8 +459,7 @@ sub texinfo_register_handler($$;$)
 # called from the Converter.  Sort according to priority and return sorted
 # handlers by stage.  (Return actually handler and priority pairs in case the
 # priority name information is interesting).
-sub GNUT_get_stage_handlers()
-{
+sub GNUT_get_stage_handlers() {
   my %sorted_stage_handlers;
   foreach my $stage (keys(%$GNUT_stage_handlers)) {
     $sorted_stage_handlers{$stage} = [];
@@ -505,115 +496,98 @@ my $GNUT_direction_string_info = {};
 my $GNUT_special_unit_info = {};
 
 # called from init files
-sub texinfo_register_file_id_setting_function($$)
-{
-  my $thing = shift;
-  my $handler = shift;
+sub texinfo_register_file_id_setting_function($$) {
+  my ($thing, $handler) = @_;
+
   $GNUT_file_id_setting_references->{$thing} = $handler;
 }
 
 # called from the Converter
-sub GNUT_get_file_id_setting_references()
-{
+sub GNUT_get_file_id_setting_references() {
   return $GNUT_file_id_setting_references;
 }
 
 # called from init files
-sub texinfo_register_formatting_function($$)
-{
-  my $thing = shift;
-  my $handler = shift;
+sub texinfo_register_formatting_function($$) {
+  my ($thing, $handler) = @_;
+
   $GNUT_formatting_references->{$thing} = $handler;
 }
 
 # called from the Converter
-sub GNUT_get_formatting_references()
-{
+sub GNUT_get_formatting_references() {
   return $GNUT_formatting_references;
 }
 
 # called from init files
-sub texinfo_register_command_formatting($$)
-{
-  my $command = shift;
-  my $reference = shift;
+sub texinfo_register_command_formatting($$) {
+  my ($command, $reference) = @_;
+
   $GNUT_commands_conversion->{$command} = $reference;
 }
 
 # called from the Converter
-sub GNUT_get_commands_conversion()
-{
+sub GNUT_get_commands_conversion() {
   return $GNUT_commands_conversion;
 }
 
 # called from init files
-sub texinfo_register_command_opening($$)
-{
-  my $command = shift;
-  my $reference = shift;
+sub texinfo_register_command_opening($$) {
+  my ($command, $reference) = @_;
+
   $GNUT_commands_open->{$command} = $reference;
 }
 
 # called from the Converter
-sub GNUT_get_commands_open()
-{
+sub GNUT_get_commands_open() {
   return $GNUT_commands_open;
 }
 
 # called from init files
-sub texinfo_register_output_unit_formatting($$)
-{
-  my $command = shift;
-  my $reference = shift;
+sub texinfo_register_output_unit_formatting($$) {
+  my ($command, $reference) = @_;
+
   $GNUT_output_units_conversion->{$command} = $reference;
 }
 
 # called from the Converter
-sub GNUT_get_output_units_conversion()
-{
+sub GNUT_get_output_units_conversion() {
   return $GNUT_output_units_conversion;
 }
 
 # called from init files
-sub texinfo_register_type_formatting($$)
-{
-  my $command = shift;
-  my $reference = shift;
+sub texinfo_register_type_formatting($$) {
+  my ($command, $reference) = @_;
+
   $GNUT_types_conversion->{$command} = $reference;
 }
 
 # called from the Converter
-sub GNUT_get_types_conversion()
-{
+sub GNUT_get_types_conversion() {
   return $GNUT_types_conversion;
 }
 
 # called from init files
-sub texinfo_register_type_opening($$)
-{
-  my $type = shift;
-  my $reference = shift;
+sub texinfo_register_type_opening($$) {
+  my ($type, $reference) = @_;
+
   $GNUT_types_open->{$type} = $reference;
 }
 
 # called from the Converter
-sub GNUT_get_types_open()
-{
+sub GNUT_get_types_open() {
   return $GNUT_types_open;
 }
 
 # called from init files
-sub texinfo_register_formatting_special_unit_body($$)
-{
-  my $special_unit_variety = shift;
-  my $handler = shift;
+sub texinfo_register_formatting_special_unit_body($$) {
+  my ($special_unit_variety, $handler) = @_;
 
   $GNUT_formatting_special_unit_body->{$special_unit_variety} = $handler;
 }
 
 # called from the Converter
-sub GNUT_get_formatting_special_unit_body_references()
-{
+sub GNUT_get_formatting_special_unit_body_references() {
   return $GNUT_formatting_special_unit_body;
 }
 
@@ -621,8 +595,7 @@ my $default_formatting_context = 'normal';
 my @all_possible_formatting_context = ($default_formatting_context,
                                'preformatted', 'string', 'css_string');
 
-sub _GNUT_initialize_no_arg_commands_formatting_strings()
-{
+sub _GNUT_initialize_no_arg_commands_formatting_strings() {
   $GNUT_no_arg_commands_formatting_strings = {};
   foreach my $possible_formatting_context (@all_possible_formatting_context,
                                            'translated_to_convert') {
@@ -635,8 +608,7 @@ my @all_style_commands_formatting_context = ($default_formatting_context,
 
 _GNUT_initialize_no_arg_commands_formatting_strings();
 
-sub _GNUT_initialize_style_commands_formatting_info()
-{
+sub _GNUT_initialize_style_commands_formatting_info() {
   $GNUT_style_commands_formatting_info = {};
   foreach my $possible_formatting_context
                             (@all_style_commands_formatting_context) {
@@ -649,8 +621,7 @@ _GNUT_initialize_style_commands_formatting_info();
 my @all_special_unit_info_types = ('class', 'direction', 'heading', 'order',
                              'file_string', 'target');
 
-sub _GNUT_initialize_special_unit_info()
-{
+sub _GNUT_initialize_special_unit_info() {
   $GNUT_special_unit_info = {};
   foreach my $possible_type (@all_special_unit_info_types) {
     $GNUT_special_unit_info->{$possible_type} = {};
@@ -703,10 +674,8 @@ sub texinfo_register_no_arg_command_texinfo($$) {
   return 1;
 }
 
-sub GNUT_get_no_arg_command_formatting($;$)
-{
-  my $command = shift;
-  my $context = shift;
+sub GNUT_get_no_arg_command_formatting($;$) {
+  my ($command, $context) = @_;
 
   if (!defined($context)) {
     $context = $default_formatting_context;
@@ -774,10 +743,8 @@ sub texinfo_style_command_set_quoting($$;$) {
   return 1;
 }
 
-sub GNUT_get_style_command_formatting($;$)
-{
-  my $command = shift;
-  my $context = shift;
+sub GNUT_get_style_command_formatting($;$) {
+  my ($command, $context) = @_;
 
   if (!defined($context)) {
     $context = $default_formatting_context;
@@ -794,10 +761,8 @@ sub GNUT_get_style_command_formatting($;$)
 }
 
 # called from init files
-sub texinfo_register_upper_case_command($$)
-{
-  my $command = shift;
-  my $value = shift;
+sub texinfo_register_upper_case_command($$) {
+  my ($command, $value) = @_;
 
   if ($value) {
     $GNUT_upper_case_commands->{$command} = 1;
@@ -807,17 +772,14 @@ sub texinfo_register_upper_case_command($$)
 }
 
 # called from the Converter
-sub GNUT_get_upper_case_commands_info()
-{
+sub GNUT_get_upper_case_commands_info() {
   return $GNUT_upper_case_commands;
 }
 
 # called from init files
-sub texinfo_register_accent_command_formatting($$$)
-{
-  my $command = shift;
-  my $accent_command_entity = shift;
-  my $accent_command_text_with_entities = shift;
+sub texinfo_register_accent_command_formatting($$$) {
+  my ($command, $accent_command_entity,
+      $accent_command_text_with_entities) = @_;
 
   $GNUT_accent_command_formatting_info->{$command}
     = [$accent_command_entity, $accent_command_text_with_entities];
@@ -825,76 +787,62 @@ sub texinfo_register_accent_command_formatting($$$)
 }
 
 # called from the Converter
-sub GNUT_get_accent_command_formatting($)
-{
+sub GNUT_get_accent_command_formatting($) {
   my $command = shift;
+
   if (exists($GNUT_accent_command_formatting_info->{$command})) {
     return @{$GNUT_accent_command_formatting_info->{$command}};
   }
   return (undef, undef);
 }
 
-sub texinfo_register_type_code($$)
-{
-  my $type = shift;
-  my $code_type = shift;
+sub texinfo_register_type_code($$) {
+  my ($type, $code_type) = @_;
 
   $GNUT_types_code_info->{$type} = $code_type;
 }
 
-sub texinfo_register_type_pre_class($$)
-{
-  my $type = shift;
-  my $pre_class_type = shift;
+sub texinfo_register_type_pre_class($$) {
+  my ($type, $pre_class_type) = @_;
 
   $GNUT_types_pre_class->{$type} = $pre_class_type;
 }
 
-sub GNUT_get_types_code_info()
-{
+sub GNUT_get_types_code_info() {
   return { %$GNUT_types_code_info };
 }
 
-sub GNUT_get_types_pre_class()
-{
+sub GNUT_get_types_pre_class() {
   return { %$GNUT_types_pre_class };
 }
 
 # if $NODE_TEXI_NAME is undef, the direction is a direction text not
 # associated to an output unit
-sub texinfo_register_global_direction($;$)
-{
-  my $direction = shift;
-  my $node_texi_name = shift;
+sub texinfo_register_global_direction($;$) {
+  my ($direction, $node_texi_name) = @_;
 
   $GNUT_global_directions->{$direction} = $node_texi_name;
 }
 
-sub texinfo_register_text_direction($)
-{
+sub texinfo_register_text_direction($) {
   my $direction = shift;
+
   $GNUT_text_directions->{$direction} = 1;
 }
 
-sub GNUT_get_global_directions()
-{
+sub GNUT_get_global_directions() {
   return { %$GNUT_global_directions };
 }
 
-sub GNUT_get_text_directions()
-{
+sub GNUT_get_text_directions() {
   return { %$GNUT_text_directions };
 }
 
 # no check on type and direction, but only the ones known in the HTML
 # converted will be used
-sub texinfo_register_direction_string_info($$;$$$)
-{
-  my $direction = shift;
-  my $type = shift;
-  my $converted_string = shift;
-  my $string_to_convert = shift;
-  my $context = shift;
+sub texinfo_register_direction_string_info($$;$$$) {
+  my ($direction, $type, $converted_string,
+      $string_to_convert, $context) = @_;
 
   $context = 'normal' if (!defined($context));
 
@@ -912,16 +860,12 @@ sub texinfo_register_direction_string_info($$;$$$)
   }
 }
 
-sub GNUT_get_direction_string_info()
-{
+sub GNUT_get_direction_string_info() {
   return { %$GNUT_direction_string_info };
 }
 
-sub texinfo_register_special_unit_info($$$)
-{
-  my $type = shift;
-  my $variety = shift;
-  my $thing = shift;
+sub texinfo_register_special_unit_info($$$) {
+  my ($type, $variety, $thing) = @_;
 
   if (not defined($GNUT_special_unit_info->{$type})) {
     _GNUT_document_warn(
@@ -935,8 +879,7 @@ sub texinfo_register_special_unit_info($$$)
   return 1;
 }
 
-sub GNUT_get_special_unit_info()
-{
+sub GNUT_get_special_unit_info() {
   return { %$GNUT_special_unit_info };
 }
 
@@ -944,8 +887,7 @@ sub GNUT_get_special_unit_info()
 # Not needed from the main program, as the init files should affect all
 # the manuals, but needed for tests, to have isolated tests.
 
-sub GNUT_reinitialize_init_files()
-{
+sub GNUT_reinitialize_init_files() {
   @init_file_loading_messages = ();
   foreach my $reference ($init_files_options,
      $GNUT_file_id_setting_references,
@@ -974,18 +916,15 @@ sub GNUT_reinitialize_init_files()
 # Texinfo::Config::texinfo_get_conf().
 package Texinfo::MainConfig;
 
-sub new()
-{
+sub new() {
   # setup additional config to be used with other Texinfo::Config information.
   my $config = {};
   bless $config;
   return $config;
 }
 
-sub get_conf($$)
-{
-  my $self = shift;
-  my $var = shift;
+sub get_conf($$) {
+  my ($self, $var) = @_;
 
   # as get_conf, but with self having precedence on
   # main calling context defaults
@@ -1001,11 +940,9 @@ sub get_conf($$)
   return undef;
 }
 
-sub set_conf($$$)
-{
-  my $self = shift;
-  my $var = shift;
-  my $val = shift;
+sub set_conf($$$) {
+  my ($self, $var, $val) = @_;
+
   $self->{$var} = $val;
 
   return 1;
@@ -1015,8 +952,7 @@ sub set_conf($$$)
 # customization variables afterwards as the information on
 # precedence has been lost, so this should be called when all the
 # options have been definitively set.
-sub get_customization_options_hash($)
-{
+sub get_customization_options_hash($) {
   my $self = shift;
 
   my %options = %{$options_defaults};
