@@ -2596,11 +2596,6 @@ Hooks are intended to offer similar functionality to the
 Search and Execution,,, bash, The GNU Bash Reference Manual}), which
 is used to advise on uninstalled programs.
 
-@c avoid the terminology "hook script" as a "script" properly refers
-@c to a program that automates a task a user would otherwise do by
-@c issuing commands manually, whereas it is not possible for a user to
-@c enter and run shell commands at the time of a hook running.
-
 To define a hook, you place an executable program by the same name
 in the directory @code{@var{XDG_CONFIG_DIRS}/texinfo/info-hooks},
 where @var{XDG_CONFIG_DIRS} is one of the XDG directories described
