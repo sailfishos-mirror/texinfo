@@ -15107,7 +15107,7 @@ In HTML mode, output a tab-separated file containing three columns:
 the internal link to an item, the type of the item and the name of the item
 or the term corresponding to the item which was indexed or entered.
 
-The item output are:
+The items output are:
 @table @asis
 @item output units
 Output units are the main unit of output documents.  Output units contain the
