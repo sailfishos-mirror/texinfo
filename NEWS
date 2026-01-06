@@ -11,29 +11,34 @@ See the manual for detailed information.
 
 * Language
   . new commands for title page creation: @documentinfo, @publication,
-    @maketitle
-  . heading command supported after @node
-  . new command @xrefname can follow @node
-  . new command @namedanchor
-  . deprecate @clickstyle
+    and @maketitle.  you can use these instead of explicit formatting
+    inside @titlepage.
+  . you can use heading commands such as @heading after @node.  nodes
+    defined this way are not part of the chapter structure of the document
+    (unlike if @section etc. were used).
+  . new command @xrefname can follow @node in place of a heading command.
+    this is for when you do not want any heading at all to be displayed.
+  . new command @namedanchor for defining text to be used for a cross-
+    reference to an anchor (with @xrefautomaticsectiontitle on)
   . new command @thispart to print part name in headings or footings
-  . do not consider en_US to be the default document language, the language
-    is unspecified if there is no @documentlanguage.  Default strings are
-    in english, however.
+  . @clickstyle is deprecated
+  . if there is no @documentlanguage, the language is unspecified, rather
+    than en_US.  texi2any will still use English strings by default,
+    but will not put en_US in the output (depending on output format).
 
 * texi2any
-  . keep input file name leading directory components in messages.
-    (Reverses 6.8 release change, 2021).
-  . texi2any program implementation in C embedding Perl.
-    Use --enable-c-texi2any to prefer the C implementation
+  . report leading directory components of input file names in messages
+    (this reverses 6.8 release change, 2021).
   . texi2any uses the Perl extensions in C for converters when possible.
-    Set the `TEXINFO_XS_CONVERT' environment variable to 0 for pure Perl
+    set the `TEXINFO_XS_CONVERT' environment variable to 0 for pure Perl.
+  . optional texi2any program implementation in C embedding Perl.
+    use --enable-c-texi2any to prefer the C implementation.
   . when CHECK_NORMAL_MENU_STRUCTURE is on, give the line number of the
     problem menu entry
   . remove USE_REL_REV variable; former effect is now always on
-  . rename LINKS_BUTTONS customization variable to LINKS_DIRECTIONS
   . DUMP_TREE should now be a file name, or - to output to standard error
-  . rename space direction ' ' to 'Space'
+  . (API only) rename LINKS_BUTTONS customization variable to LINKS_DIRECTIONS
+  . (API only) rename space direction ' ' to 'Space'
   . HTML output:
       . the HIGHLIGHT_SYNTAX variable can be used for syntax highlighting
         of code samples.  this feature was present in earlier releases but
@@ -43,18 +48,19 @@ See the manual for detailed information.
         the bottom of fairly short nodes.
       . do not wrap the contents of <style> elements in an HTML comment,
         as this is no longer needed for browser compatibility
-      . use last @printindex for the Index direction
+      . use the last @printindex in the input file for the Index direction
       . only output 'accesskey' attributes when splitting by node
       . you can set FORMAT_MENU to 'menu_no_detailmenu' to omit an
         automatically generated @detailmenu from the Top node
-      . remove the buttons specifications with scalar references, direction
-        text or functions references should be used instead
-      . change --internal-links file item types names and output more item
-        types
-      . read files ending with the .cnf extension in the htmlxref.d directories
-        for HTML cross-references customization
-      . an empty URL in HTML cross-references customization triggers link
-        to local manual
+      . --internal-links outputs more types of internal link, including
+        anchors, sections and floats.  the possible type names reported
+        in the second column have changed.
+      . for locations of external manuals, use files ending with the
+        .cnf extension in the htmlxref.d directories (in addition to
+        files called htmlxref.cnf).  this should make it easier to
+        combine information on HTML cross-references from different sources.
+      . in an htmlxref file, you can explicity trigger a link to a local
+        manual by using an empty URL.
       . the --transliterate-file-names option (which sets the
         TRANSLITERATE_FILE_NAMES variable) is now off by default.
       . when creating redirection files with --node-files (the default),
@@ -63,17 +69,19 @@ See the manual for detailed information.
       . likewise, ignore these variables for links to external manuals (they
         are still used for the file names generated for the converted manual
         content).
-      . USE_NEXT_HEADING_FOR_LONE_NODE removed.  Former effect
-        is now always on.
+      . USE_NEXT_HEADING_FOR_LONE_NODE removed.  former effect is now
+        always on.
       . info.js (with INFO_JS_DIR) fixes and improvements:
         . avoid pointless pop-up over Top node and display the correct title
+      . (API only) remove the buttons specifications with scalar references,
+        direction text or functions references should be used instead
   . Info output:
-    . new (experimental) variable INFO_MATH_IMAGES allows outputting
+    . new experimental variable INFO_MATH_IMAGES allows outputting
       images for mathematics notation
   . LaTeX output:
      . use UTF-8 encoding for output by default, regardless of input
        encoding.  override with OUTPUT_ENCODING_NAME.
-  . Remove the Texinfo::TeX4HT customization package.
+  . (API only) remove the Texinfo::TeX4HT customization package
   . XML output:
       . use HTML entities names for @H and @dotaccent accents types
 
@@ -85,7 +93,9 @@ See the manual for detailed information.
   . separate adjacent footnote markers with commas, e.g. '1, 2' not '1 2'
 
 * info
-  . info manual not found hook
+  . you can use hook scripts to handle an info manual not being found.
+    these hooks can provide a message to the user with information on
+    how to install the manual.
   . when run as 'info TOPIC INDEX-ENTRY', prefer index entries that
     refer to the node that would be loaded by 'info TOPIC'.  this aids
     in retrieving documentation of command-line options when multiple
