@@ -20239,6 +20239,10 @@ with @code{@@end documentdescription}.  @xref{@code{@@documentdescription}}.
 Declare the input encoding to be @var{enc}.
 @xref{@code{@@documentencoding}}.
 
+@item @@documentinfo
+Start the document metadata block. Pair with @samp{@@end documentinfo}.
+@xref{Document Metadata}.
+
 @item @@documentlanguage @var{CC}
 Declare the document language as the two-character ISO-639 abbreviation
 @var{CC}.  @xref{@code{@@documentlanguage}}.
@@ -20610,6 +20614,10 @@ on. @xref{Raise/lower sections, , @code{@@raisesections} and
 Define a new Texinfo command @code{@@@var{macroname}@{@var{params}@}}.
 Pair with @code{@@end macro}.  @xref{Defining Macros}.
 
+@item @@maketitle
+Generate a title page and possibly also the following page.  @xref{Document
+Metadata}.
+
 @item @@majorheading @var{title}
 Print an unnumbered chapter-like heading, but omit from the table of
 contents.  This generates more vertical whitespace before the heading
@@ -20633,6 +20641,9 @@ Generate a minus sign, `@minus{}'.  @xref{@code{@@minus}}.
 Begin a multi-column table.  Begin each row with @code{@@item} or
 @code{@@headitem}, and separate columns with @code{@@tab}.  Pair with
 @code{@@end multitable}.  @xref{Multitable Column Widths}.
+
+@item @@namedanchor@{@var{anchor-name}, @var{xref-name}@}
+Define a target for a cross-reference.  @xref{@code{@@anchor}}.
 
 @item @@need @var{n}
 Start a new page in a printed manual if fewer than @var{n} mils
@@ -20708,6 +20719,10 @@ contents.
 @item @@pindex @var{entry}
 Add @var{entry} to the index of programs.  @xref{Index Entries, , Defining
 the Entries of an Index}.
+
+@item @@publication
+Start information about the publication of the document.  Pair with
+@samp{@@end publication}.  @xref{Document Metadata}.
 
 @item @@point@{@}
 Indicate the position of point in a buffer to the reader with a glyph:

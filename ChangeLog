@@ -1,5 +1,10 @@
 2026-01-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Command List):
+	Add @documentinfo, @publication, @maketitle, @namedanchor.
+
+2026-01-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* Makefile.am (po_document-check): update path of excluded file
 
 2026-01-06  Gavin Smith <gavinsmith0123@gmail.com>
