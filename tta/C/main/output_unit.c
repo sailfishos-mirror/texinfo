@@ -396,7 +396,7 @@ destroy_output_unit (OUTPUT_UNIT *output_unit)
               const char *msg = "DEBUG Output unit refcounts %p: %d\n";
               fprintf (stderr, msg,
                        output_unit->hv, hv_refcount);
-              message_list_document_warn (error_messages, 0, 0, msg,
+              message_list_document_warn_no_xlate (error_messages, 0, 0, msg,
                        output_unit->hv, hv_refcount);
             }
         }

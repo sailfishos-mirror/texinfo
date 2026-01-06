@@ -1,3 +1,18 @@
+2026-01-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	po-check fix
+
+	* tta/C/main/errors.h (message_list_document_warn_no_xlate):
+	Define as alias for message_list_document_warn.
+	* tta/C/main/output_unit.c (destroy_output_unit): use it.
+	* tta/C/main/tree.c (destroy_element): use it.
+	
+	This prevents files showing up in the output of "make po-check"
+	when they do not have translatable strings.
+
+	* Makefile.am (update-po): Refer to po/Makevars in a comment.
+	* po/Makevars: edit comment.
+
 2026-02-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Config.pm: reformat functions beginning.

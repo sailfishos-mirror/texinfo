@@ -50,6 +50,11 @@ void message_list_document_warn (ERROR_MESSAGE_LIST *error_messages,
                                  const OPTIONS *conf, int continuation,
                                  const char *format, ...);
 
+/* Define an alias to avoid file being picked up by "make po-check" or
+   by xgettext.  This should only be used when not passed a string
+   literal that is to be translated. */
+#define message_list_document_warn_no_xlate message_list_document_warn
+
 size_t count_errors (ERROR_MESSAGE_LIST *error_messages);
 
 void error_message_text (const ERROR_MESSAGE *error_msg, int use_filename,

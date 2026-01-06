@@ -274,7 +274,7 @@ destroy_element (ELEMENT *e)
                 = "C Element refcount (%d, %d) for HV %p, SV %p; %s\n";
               fprintf (stderr, msg, sv_refcount, hv_refcount, hv, e->sv,
                        e_dbg_txt);
-              message_list_document_warn (error_messages, 0, 0, msg,
+              message_list_document_warn_no_xlate (error_messages, 0, 0, msg,
                         sv_refcount, hv_refcount, hv, e->sv, e_dbg_txt);
             }
          /*
