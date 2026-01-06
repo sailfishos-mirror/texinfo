@@ -162,7 +162,7 @@ po_document-check:
 	      man/* ) continue;;	\
 	      texinfo-*/*) continue;;					\
 	      tta/maintain/*) continue;;				\
-	      tta/init/documentation_examples.pm) continue;;		\
+	      tta/perl/init/documentation_examples.pm) continue;;	\
 	      tta/perl/XSTexinfo/parser_document/DocumentXS.c) continue;;		\
 	      tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.c) continue;;	\
 	    esac;							\
