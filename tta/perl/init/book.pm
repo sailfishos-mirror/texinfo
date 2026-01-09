@@ -44,14 +44,10 @@ sub book_in_contents_button($$$) {
   my ($self, $direction, $element) = @_;
 
   if (exists($element->{'cmdname'}) and $element->{'cmdname'} eq 'node') {
-    my $document = $self->get_info('document');
-    if (defined($document)) {
-      my $nodes_list = $document->nodes_list();
-      my $node_relations
-        = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
-      if (exists($node_relations->{'associated_section'})) {
-        $element = $node_relations->{'associated_section'}->{'element'};
-      }
+    my $node_relations = $self->converter_node_relations_of_node($element);
+    if (defined($node_relations)
+        and exists($node_relations->{'associated_section'})) {
+      $element = $node_relations->{'associated_section'}->{'element'};
     }
   }
 
@@ -112,15 +108,11 @@ texinfo_register_handler('init', \&book_init);
 sub book_print_up_toc($$) {
   my ($converter, $command) = @_;
 
-  my $document = $converter->get_info('document');
-
-  return '' if (!defined($document));
-
-  my $sections_list = $document->sections_list();
+  my $current_relations
+    = $converter->converter_section_relations_of_section($command);
+  return '' if (!defined($current_relations));
 
   my $result = '';
-  my $current_relations
-    = $sections_list->[$command->{'extra'}->{'section_number'} -1];
 
   my @up_commands;
   while (exists($current_relations->{'section_directions'})
@@ -131,7 +123,7 @@ sub book_print_up_toc($$) {
     unshift @up_commands, $current_relations->{'element'};
   }
   # this happens for example for top tree unit
-  return '' if !(@up_commands);
+  return '' if (! scalar(@up_commands));
   my $up = shift @up_commands;
   #print STDERR "$up ".Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($up)."\n";
   $result .= $converter->html_attribute_class('ul', [$toc_numbered_mark_class])."><li>"

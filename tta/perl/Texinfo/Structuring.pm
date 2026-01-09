@@ -126,8 +126,8 @@ my %command_structuring_level = %Texinfo::CommandsValues::command_structuring_le
 my %appendix_commands = %Texinfo::Commands::appendix_commands;
 my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 
-# Go through the sectioning commands (e.g. @chapter, not @node), and
-# set:
+# Go through the sectioning commands (e.g. @chapter, not @node) and
+# associated sectioning commands relations, and set:
 # 'section_level'
 # 'section_heading_number'
 # 'section_children'

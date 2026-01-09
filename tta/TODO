@@ -53,12 +53,15 @@ source marks.
 
 special_unit_element type (only in HTML code)
 
-Node, headings and section relations explicit documentation?  They are
-mentioned in Texinfo::Structuring POD without being correctly documented.
-See also FIXMEs in ParserNonXS.pm in =begin comment blocks.
+Node, headings and section relations are explicitly and correctly documented in
+the HTML customization manual.  However, they are also mentioned in
+Texinfo::Structuring POD without being clearly introduced in this POD.  See
+also FIXMEs in ParserNonXS.pm in =begin comment blocks.  It is not clear
+whether there need to be something more explicit in the POD documentation,
+what is in the HTML customization manual may be sufficient.
 
-Related to the relations documentation, extra node_number, heading_number
-and section_number.
+extra node_number, heading_number and section_number are not documented
+anywhere.
 
 Other
 -----

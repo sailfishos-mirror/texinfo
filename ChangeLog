@@ -1,5 +1,29 @@
 2026-02-09 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(converter_node_relations_of_node)
+	(converter_section_relations_of_section)
+	(converter_heading_relations_of_heading): add for user-defined
+	HTML customization code, to get the relations information associated
+	to tree elements, hiding the implementation details.
+
+	* doc/texi2any_api.texi (Tree Elements and Document Structure)
+	(Sectioning Commands Elements and Document Structure)
+	(Node Elements and Document Structure)
+	(Heading Elements and Document Structure): add to document the
+	relations.
+
+	* tta/perl/init/book.pm (book_in_contents_button, book_print_up_toc),
+	tta/perl/t/init/index_direction_from_index_name.pm: use the functions
+	to get the relations information in init files.
+
+	* doc/texi2any_api.texi (Converter General Information): add
+	nodes_list.
+
+	* tta/TODO: update.
+
+2026-02-09 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Example/TestReader.pm,
 	tta/perl/Texinfo/ReaderNonXS.pm, tta/perl/Texinfo/TreeElementNonXS.pm:
 	reformat functions beginning.  Use defined or exists in conditions

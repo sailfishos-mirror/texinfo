@@ -1344,6 +1344,66 @@ sub determine_files_and_directory($$) {
           $document_name, $input_basefile);
 }
 
+# ALTIMP partial in structuring_transfo/structuring.c
+# For user-defined HTML customization, documented in the specific manual.
+# The bulk of the function could be better in Texinfo::Structuring, but since
+# it is not used internally, it is kept here.
+sub converter_node_relations_of_node($$) {
+  my ($self, $node_element) = @_;
+
+  if (!exists($self->{'document'})) {
+    return undef;
+  }
+  if (!exists($node_element->{'extra'})
+      or not $node_element->{'extra'}->{'node_number'}) {
+    return undef;
+  }
+
+  my $nodes_list = $self->{'document'}->nodes_list();
+
+  return $nodes_list->[$node_element->{'extra'}->{'node_number'} -1];
+}
+
+# No equivalent in C.
+# For user-defined HTML customization, documented in the specific manual.
+sub converter_section_relations_of_section($$) {
+  my ($self, $element) = @_;
+
+  if (!exists($self->{'document'})) {
+    return undef;
+  }
+  # Note that this cannot happen if the element is actually a sectioning
+  # command tree element.
+  if (!exists($element->{'extra'})
+      or not $element->{'extra'}->{'section_number'}) {
+    return undef;
+  }
+
+  my $sections_list = $self->{'document'}->sections_list();
+
+  return $sections_list->[$element->{'extra'}->{'section_number'} -1];
+}
+
+# No equivalent in C.
+# For user-defined HTML customization, documented in the specific manual.
+sub converter_heading_relations_of_heading($$) {
+  my ($self, $element) = @_;
+
+  if (!exists($self->{'document'})) {
+    return undef;
+  }
+  # Note that this cannot happen if the element is actually a heading
+  # command tree element.
+  if (!exists($element->{'extra'})
+      or not $element->{'extra'}->{'heading_number'}) {
+    return undef;
+  }
+
+  my $headings_list = $self->{'document'}->headings_list();
+
+  return $headings_list->[$element->{'extra'}->{'heading_number'} -1];
+}
+
 # Reverse the decoding of the file name from the input encoding.
 # A wrapper around Texinfo::Utils::encoded_input_file_name().
 sub encoded_input_file_name($$;$) {

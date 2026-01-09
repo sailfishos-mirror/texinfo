@@ -41,25 +41,25 @@ sub _set_index_global_direction_from_index_name
   if ($global_commands_information
       and $global_commands_information->{'printindex'}) {
     foreach my $element (@{$global_commands_information->{'printindex'}}) {
-      if ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
+      if (exists($element->{'extra'})
+          and exists($element->{'extra'}->{'misc_args'})
           and $element->{'extra'}->{'misc_args'}->[0] eq $selected_index_name) {
         my ($output_unit, $top_level_element)
            = $self->get_element_root_command_element($element);
-        if ($top_level_element) {
-          if ($top_level_element->{'cmdname'} eq 'node') {
+        if (defined($top_level_element)) {
+          if (exists($top_level_element->{'cmdname'})
+              and $top_level_element->{'cmdname'} eq 'node') {
             $index_printindex_top_level_node = $top_level_element;
           } else {
-            my $sections_list = $document->sections_list();
-            if ($sections_list) {
-              my $section_relations
-         = $sections_list->[$top_level_element->{'extra'}->{'section_number'}];
-              if ($section_relations->{'associated_node'}) {
-                $index_printindex_top_level_node
-                  = $section_relations->{'associated_node'}->{'element'};
-              }
+            my $section_relations
+         = $self->converter_section_relations_of_section($top_level_element);
+            if (defined($section_relations)
+                and exists($section_relations->{'associated_node'})) {
+              $index_printindex_top_level_node
+                = $section_relations->{'associated_node'}->{'element'};
             }
           }
-          last if ($index_printindex_top_level_node);
+          last if (defined($index_printindex_top_level_node));
         }
       }
     }
