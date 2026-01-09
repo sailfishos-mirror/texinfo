@@ -1478,7 +1478,6 @@ init_iframe ()
   function
   on_load ()
   {
-    document.body.classList.add ("in-iframe");
     fix_links (document.links);
     var links = {};
     var linkid = basename (window.location.pathname, /[.]x?html$/);
