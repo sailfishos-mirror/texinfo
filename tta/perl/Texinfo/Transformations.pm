@@ -98,14 +98,13 @@ sub import {
 # end of $PARENT.
 # If $MODIFIER is set to -1, add raise/lowersections to go from
 # the normal level to the $SECTION level.
-sub _correct_level($$;$)
-{
-  my $section = shift;
-  my $parent = shift;
-  my $modifier = shift;
+sub _correct_level($$;$) {
+  my ($section, $parent, $modifier) = @_;
+
   $modifier = 1 if (!defined($modifier));
 
-  if ($section->{'extra'} and $section->{'extra'}->{'level_modifier'}) {
+  if (exists($section->{'extra'})
+      and $section->{'extra'}->{'level_modifier'}) {
     my $level_to_remove = $modifier * $section->{'extra'}->{'level_modifier'};
     my $cmdname;
     if ($level_to_remove < 0) {
@@ -131,10 +130,8 @@ sub _correct_level($$;$)
   }
 }
 
-sub fill_gaps_in_sectioning_in_document($;$)
-{
-  my $document = shift;
-  my $commands_heading_content = shift;
+sub fill_gaps_in_sectioning_in_document($;$) {
+  my ($document, $commands_heading_content) = @_;
 
   my $root = $document->tree();
 
@@ -150,8 +147,8 @@ sub fill_gaps_in_sectioning_in_document($;$)
   my $idx = 0;
   while ($idx < $contents_nr) {
     my $content = $root->{'contents'}->[$idx];
-    if (! $content->{'cmdname'} or $content->{'cmdname'} eq 'node'
-        or ! $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
+    if (! exists($content->{'cmdname'}) or $content->{'cmdname'} eq 'node'
+      or ! exists($Texinfo::Commands::root_commands{$content->{'cmdname'}})) {
     } elsif ($idx_current_section < 0) {
       $idx_current_section = $idx;
     } elsif ($idx_next_section < 0) {
@@ -206,7 +203,7 @@ sub fill_gaps_in_sectioning_in_document($;$)
         $arguments_line->{'contents'} = [$line_arg];
 
         my $line_content;
-        if ($commands_heading_content) {
+        if (defined($commands_heading_content)) {
           $line_content
             = Texinfo::ManipulateTree::copy_contentsNonXS(
                                                $commands_heading_content);
@@ -247,8 +244,8 @@ sub fill_gaps_in_sectioning_in_document($;$)
     $idx_next_section = $idx_current_section +1;
     while ($idx_next_section < $contents_nr) {
       my $content = $root->{'contents'}->[$idx_next_section];
-      if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-          and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
+      if (exists($content->{'cmdname'}) and $content->{'cmdname'} ne 'node'
+       and exists($Texinfo::Commands::root_commands{$content->{'cmdname'}})) {
         last;
       }
       $idx_next_section++;
@@ -266,18 +263,15 @@ sub fill_gaps_in_sectioning_in_document($;$)
 # constructed node names trees, as node names cannot contain
 # reference @-command while there could be some in the tree used in
 # input for the node name tree.
-sub _reference_to_arg($$$)
-{
-  my $type = shift;
-  my $current = shift;
-  my $document = shift;
+sub _reference_to_arg($$$) {
+  my ($type, $current, $document) = @_;
 
-  if ($current->{'cmdname'} and
-      $Texinfo::Commands::ref_commands{$current->{'cmdname'}}
-      and $current->{'contents'}) {
+  if (exists($current->{'cmdname'}) and
+      exists($Texinfo::Commands::ref_commands{$current->{'cmdname'}})
+      and exists($current->{'contents'})) {
 
     # remove from internal references
-    if ($document) {
+    if (defined($document)) {
       my $internal_references = $document->internal_references_information();
       Texinfo::Common::replace_remove_list_element($internal_references,
                                                    $current);
@@ -316,10 +310,8 @@ sub _reference_to_arg($$$)
   }
 }
 
-sub reference_to_arg_in_tree($;$)
-{
-  my $tree = shift;
-  my $document = shift;
+sub reference_to_arg_in_tree($;$) {
+  my ($tree, $document) = @_;
 
   return Texinfo::ManipulateTree::modify_tree($tree, \&_reference_to_arg,
                                               $document);
@@ -327,8 +319,7 @@ sub reference_to_arg_in_tree($;$)
 
 # Has an XS override. Defined to be able to test Perl and XS. Undocumented
 # on purpose.
-sub reference_to_arg_in_document($)
-{
+sub reference_to_arg_in_document($) {
   my $document = shift;
 
   reference_to_arg_in_tree($document->tree(), $document);
@@ -340,10 +331,8 @@ sub reference_to_arg_in_document($)
 # The $DOCUMENT error_messages is used to register error messages.
 # Does not matter much, as the code checks that the new node target label does
 # not exist already, therefore there cannot be any error.
-sub _new_node($$)
-{
-  my $node_tree = shift;
-  my $document = shift;
+sub _new_node($$) {
+  my ($node_tree, $document) = @_;
 
   # We protect for all the contexts, as the node name should be
   # the same in the different contexts, even if some protections
@@ -364,14 +353,13 @@ sub _new_node($$)
   $node_tree = reference_to_arg_in_tree($node_tree, $document);
 
   my $empty_node = 0;
-  if (!$node_tree->{'contents'}
-      or !scalar(@{$node_tree->{'contents'}})) {
+  if (!exists($node_tree->{'contents'})) {
     $node_tree->{'contents'} = [Texinfo::TreeElement::new({'text' => ''})];
     $empty_node = 1;
   }
 
   my $comment_at_end;
-  if ($node_tree->{'contents'}->[-1]->{'cmdname'}
+  if (exists($node_tree->{'contents'}->[-1]->{'cmdname'})
       and ($node_tree->{'contents'}->[-1]->{'cmdname'} eq 'c'
            or $node_tree->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
     $comment_at_end = pop @{$node_tree->{'contents'}};
@@ -390,7 +378,8 @@ sub _new_node($$)
 
   my $identifier_target = $document->labels_information();
   while (!defined($node)
-         or ($identifier_target and $identifier_target->{$normalized})) {
+         or (defined($identifier_target)
+             and $identifier_target->{$normalized})) {
 
     if (defined($node)) {
       # remove cycles to release the previous node, which will not be used
@@ -454,16 +443,13 @@ sub _new_node($$)
 }
 
 # reassociate a tree element to the new node, from previous node
-sub _reassociate_to_node($$$)
-{
-  my $type = shift;
-  my $current = shift;
-  my $argument = shift;
+sub _reassociate_to_node($$$) {
+  my ($type, $current, $argument) = @_;
   my ($new_node_relations, $previous_node_relations) = @{$argument};
 
-  if ($current->{'cmdname'} and $current->{'cmdname'} eq 'menu') {
-    if ($previous_node_relations) {
-      if (!$previous_node_relations->{'menus'}
+  if (exists($current->{'cmdname'}) and $current->{'cmdname'} eq 'menu') {
+    if (defined($previous_node_relations)) {
+      if (!exists($previous_node_relations->{'menus'})
           or not scalar(@{$previous_node_relations->{'menus'}})
           or not (grep {$current eq $_} @{$previous_node_relations->{'menus'}})) {
         print STDERR
@@ -472,12 +458,13 @@ sub _reassociate_to_node($$$)
         @{$previous_node_relations->{'menus'}}
           = grep {$_ ne $current} @{$previous_node_relations->{'menus'}};
         delete $previous_node_relations->{'menus'}
-          if !(@{$previous_node_relations->{'menus'}});
+          if (!scalar(@{$previous_node_relations->{'menus'}}));
       }
     }
     push @{$new_node_relations->{'menus'}}, $current;
-  } elsif ($current->{'extra'} and $current->{'extra'}->{'element_node'}) {
-    if ($previous_node_relations) {
+  } elsif (exists($current->{'extra'})
+           and exists($current->{'extra'}->{'element_node'})) {
+    if (defined($previous_node_relations)) {
       my $previous_node = $previous_node_relations->{'element'};
       if ($current->{'extra'}->{'element_node'}
           ne $previous_node->{'extra'}->{'normalized'}) {
@@ -491,23 +478,23 @@ sub _reassociate_to_node($$$)
     }
     $current->{'extra'}->{'element_node'}
       = $new_node_relations->{'element'}->{'extra'}->{'normalized'};
-  } elsif ($current->{'cmdname'}
+  } elsif (exists($current->{'cmdname'})
            and $current->{'cmdname'} eq 'nodedescription') {
-    if (!$new_node_relations->{'node_description'}) {
+    if (!exists($new_node_relations->{'node_description'})) {
       $new_node_relations->{'node_description'} = $current;
     }
-    if ($previous_node_relations
-        and $previous_node_relations->{'node_description'}
+    if (defined($previous_node_relations)
+        and exists($previous_node_relations->{'node_description'})
         and $previous_node_relations->{'node_description'} eq $current) {
       delete $previous_node_relations->{'node_description'};
     }
-  } elsif ($current->{'cmdname'}
+  } elsif (exists($current->{'cmdname'})
            and $current->{'cmdname'} eq 'nodedescriptionblock') {
-    if (!$new_node_relations->{'node_long_description'}) {
+    if (!exists($new_node_relations->{'node_long_description'})) {
       $new_node_relations->{'node_long_description'} = $current;
     }
-    if ($previous_node_relations
-        and $previous_node_relations->{'node_long_description'}
+    if (defined($previous_node_relations)
+        and exists($previous_node_relations->{'node_long_description'})
         and $previous_node_relations->{'node_long_description'} eq $current) {
       delete $previous_node_relations->{'node_long_description'};
     }
@@ -515,8 +502,7 @@ sub _reassociate_to_node($$$)
   return undef;
 }
 
-sub insert_nodes_for_sectioning_commands($)
-{
+sub insert_nodes_for_sectioning_commands($) {
   my $document = shift;
 
   my $root = $document->tree();
@@ -535,9 +521,9 @@ sub insert_nodes_for_sectioning_commands($)
   my $node_idx = 0;
   for (my $idx = 0; $idx < $contents_nr; $idx++) {
     my $content = $root->{'contents'}->[$idx];
-    if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
+    if (exists($content->{'cmdname'}) and $content->{'cmdname'} ne 'node'
         and $content->{'cmdname'} ne 'part'
-        and $Texinfo::Commands::root_commands{$content->{'cmdname'}}) {
+        and exists($Texinfo::Commands::root_commands{$content->{'cmdname'}})) {
       my $section_relations
         = $sections_list->[$content->{'extra'}->{'section_number'} -1];
       if ($section_relations->{'associated_node'}) {
@@ -568,7 +554,7 @@ sub insert_nodes_for_sectioning_commands($)
         $new_node->{'extra'}->{'node_number'} = $node_idx;
         $section_relations->{'associated_node'} = $new_node_relations;
         $new_node->{'parent'} = $content->{'parent'}
-          if exists($content->{'parent'});
+          if (exists($content->{'parent'}));
         push @added_nodes, $new_node;
         # reassociate index entries and menus
         Texinfo::ManipulateTree::modify_tree($content, \&_reassociate_to_node,
@@ -576,9 +562,9 @@ sub insert_nodes_for_sectioning_commands($)
       }
     }
     # check is_target to avoid erroneous nodes, such as duplicates
-    if ($content->{'cmdname'}
+    if (exists($content->{'cmdname'})
         and $content->{'cmdname'} eq 'node'
-        and $content->{'extra'}
+        and exists($content->{'extra'})
         and $content->{'extra'}->{'is_target'}) {
       $previous_node_relations = $nodes_list->[$node_idx];
       # debug
@@ -595,11 +581,8 @@ sub insert_nodes_for_sectioning_commands($)
   return \@added_nodes;
 }
 
-sub _prepend_new_menu_in_node_section($$$)
-{
-  my $node_relations = shift;
-  my $section = shift;
-  my $current_menu = shift;
+sub _prepend_new_menu_in_node_section($$$) {
+  my ($node_relations, $section, $current_menu) = @_;
 
   if (not defined($current_menu)) {
     cluck "input menu undef";
@@ -612,10 +595,8 @@ sub _prepend_new_menu_in_node_section($$$)
   push @{$node_relations->{'menus'}}, $current_menu;
 }
 
-sub _complete_node_menu($;$)
-{
-  my $node_relations = shift;
-  my $use_sections = shift;
+sub _complete_node_menu($;$) {
+  my ($node_relations, $use_sections) = @_;
 
   my @node_childs
    = Texinfo::Structuring::get_node_node_childs_from_sectioning(
@@ -623,10 +604,11 @@ sub _complete_node_menu($;$)
 
   if (scalar(@node_childs)) {
     my %existing_entries;
-    if ($node_relations->{'menus'} and scalar(@{$node_relations->{'menus'}})) {
+    if (exists($node_relations->{'menus'})
+        and scalar(@{$node_relations->{'menus'}})) {
       foreach my $menu (@{$node_relations->{'menus'}}) {
         foreach my $entry (@{$menu->{'contents'}}) {
-          if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
+          if (exists($entry->{'type'}) and $entry->{'type'} eq 'menu_entry') {
             my $normalized_entry_node
               = Texinfo::ManipulateTree::normalized_menu_entry_internal_node(
                                                                        $entry);
@@ -643,10 +625,10 @@ sub _complete_node_menu($;$)
     foreach my $node_entry_relations (@node_childs) {
       my $node_entry = $node_entry_relations->{'element'};
       my $normalized = $node_entry->{'extra'}->{'normalized'};
-      if ($existing_entries{$normalized}) {
+      if (exists($existing_entries{$normalized})) {
         my $entry;
         ($current_menu, $entry) = @{$existing_entries{$normalized}};
-        if (@pending) {
+        if (scalar(@pending)) {
           my $index;
           for ($index = 0; $index < scalar(@{$current_menu->{'contents'}}); $index++) {
             #print STDERR "$index, ".scalar(@{$current_menu->{'contents'}})."\n";
@@ -668,7 +650,7 @@ sub _complete_node_menu($;$)
       }
     }
     if (scalar(@pending)) {
-      if (!$current_menu) {
+      if (!defined($current_menu)) {
         my $section = $node_relations->{'associated_section'}->{'element'};
         $current_menu
           = Texinfo::TreeElement::new({'contents' => \@pending,
@@ -677,7 +659,7 @@ sub _complete_node_menu($;$)
         _prepend_new_menu_in_node_section($node_relations,
                                           $section, $current_menu);
       } else {
-        if ($current_menu->{'contents'}->[-1]->{'cmdname'}
+        if (exists($current_menu->{'contents'}->[-1]->{'cmdname'})
             and $current_menu->{'contents'}->[-1]->{'cmdname'} eq 'end') {
           splice (@{$current_menu->{'contents'}}, -1, 0, @pending);
         } else {
@@ -692,8 +674,7 @@ sub _complete_node_menu($;$)
   }
 }
 
-sub _get_non_automatic_nodes_with_sections($)
-{
+sub _get_non_automatic_nodes_with_sections($) {
   my $document = shift;
 
   my $root = $document->tree();
@@ -703,7 +684,7 @@ sub _get_non_automatic_nodes_with_sections($)
   foreach my $node_relations (@{$nodes_list}) {
     my $node_element = $node_relations->{'element'};
     if (not (scalar(@{$node_element->{'contents'}->[0]->{'contents'}}) > 1)
-        and $node_relations->{'associated_section'}) {
+        and exists($node_relations->{'associated_section'})) {
       push @non_automatic_nodes, $node_relations;
     }
   }
@@ -711,10 +692,8 @@ sub _get_non_automatic_nodes_with_sections($)
 }
 
 # This should be called after Texinfo::Structuring::sectioning_structure.
-sub complete_tree_nodes_menus_in_document($;$)
-{
-  my $document = shift;
-  my $use_sections = shift;
+sub complete_tree_nodes_menus_in_document($;$) {
+  my ($document, $use_sections) = @_;
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node_relations (@{$non_automatic_nodes}) {
@@ -724,17 +703,15 @@ sub complete_tree_nodes_menus_in_document($;$)
 
 # this only complete menus if there was no menu
 # The document is used to pass customization information for the gdt() call.
-sub complete_tree_nodes_missing_menu($;$)
-{
-  my $document = shift;
-  my $use_sections = shift;
+sub complete_tree_nodes_missing_menu($;$) {
+  my ($document, $use_sections) = @_;
 
   my $lang_translations = [$document->get_conf('documentlanguage')];
   my $debug = $document->get_conf('DEBUG');
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($document);
   foreach my $node_relations (@{$non_automatic_nodes}) {
-    if (not $node_relations->{'menus'}
+    if (not exists($node_relations->{'menus'})
         or not scalar(@{$node_relations->{'menus'}})) {
       my $current_menu
         = Texinfo::Structuring::new_complete_node_menu($node_relations,
@@ -749,10 +726,8 @@ sub complete_tree_nodes_missing_menu($;$)
 }
 
 # The document is passed as customization information
-sub regenerate_master_menu($;$)
-{
-  my $document = shift;
-  my $use_sections = shift;
+sub regenerate_master_menu($;$) {
+  my ($document, $use_sections) = @_;
 
   my $identifier_target = $document->labels_information();
   my $nodes_list = $document->nodes_list();
@@ -764,8 +739,8 @@ sub regenerate_master_menu($;$)
   my $top_node_relations
     = $nodes_list->[$top_node->{'extra'}->{'node_number'} -1];
 
-  return if (!$top_node_relations->{'menus'}
-             or !scalar(@{$top_node_relations->{'menus'}}));
+  return undef if (!exists($top_node_relations->{'menus'})
+                   or !scalar(@{$top_node_relations->{'menus'}}));
 
   my $new_detailmenu
       = Texinfo::Structuring::new_detailmenu(
@@ -785,7 +760,8 @@ sub regenerate_master_menu($;$)
     for (my $current_idx = 0; $current_idx < $menu_contents_len;
          $current_idx++) {
       my $entry = $menu->{'contents'}->[$current_idx];
-      if ($entry->{'cmdname'} and $entry->{'cmdname'} eq 'detailmenu') {
+      if (exists($entry->{'cmdname'})
+          and $entry->{'cmdname'} eq 'detailmenu') {
         # replace existing detailmenu by the master menu
         $new_detailmenu->{'parent'} = $menu;
         splice (@{$menu->{'contents'}}, $current_idx, 1,
@@ -804,10 +780,10 @@ sub regenerate_master_menu($;$)
         # remove internal refs of removed entries
         my $internal_references = $document->internal_references_information();
         foreach my $detailmenu_entry (@{$entry->{'contents'}}) {
-          if ($detailmenu_entry->{'type'}
+          if (exists($detailmenu_entry->{'type'})
               and $detailmenu_entry->{'type'} eq 'menu_entry') {
             foreach my $entry_content (@{$detailmenu_entry->{'contents'}}) {
-              if ($entry_content->{'type'}
+              if (exists($entry_content->{'type'})
                   and $entry_content->{'type'} eq 'menu_entry_node') {
                 Texinfo::Common::replace_remove_list_element(
                                                       $internal_references,
@@ -826,15 +802,16 @@ sub regenerate_master_menu($;$)
   if ($index
       and $last_menu->{'contents'}->[$index-1]->{'cmdname'}
       and $last_menu->{'contents'}->[$index-1]->{'cmdname'} eq 'end') {
-    $index --;
+    $index--;
   }
 
   $new_detailmenu->{'parent'} = $last_menu;
   if ($index) {
     my $last_element = $last_menu->{'contents'}->[$index-1];
-    if ($last_element->{'type'} and $last_element->{'type'} eq 'menu_comment'
+    if (exists($last_element->{'type'})
+        and $last_element->{'type'} eq 'menu_comment'
         and scalar(@{$last_element->{'contents'}})
-        and $last_element->{'contents'}->[-1]->{'type'}
+        and exists($last_element->{'contents'}->[-1]->{'type'})
         and $last_element->{'contents'}->[-1]->{'type'} eq 'preformatted') {
       {
         # already a menu comment at the end of the menu, add an empty line
@@ -844,7 +821,7 @@ sub regenerate_master_menu($;$)
                                        'text' => "\n",});
         push @{$preformatted->{'contents'}}, $empty_line;
       }
-    } elsif ($last_element->{'type'}
+    } elsif (exists($last_element->{'type'})
              and $last_element->{'type'} eq 'menu_entry') {
       # there is a last menu entry, add a menu comment containing an empty line
       # after it
@@ -874,15 +851,15 @@ sub regenerate_master_menu($;$)
 # last merge preformatted.
 sub menu_to_simple_menu($);
 
-sub menu_to_simple_menu($)
-{
+sub menu_to_simple_menu($) {
   my $menu = shift;
 
   my @contents;
   foreach my $content (@{$menu->{'contents'}}) {
-    if ($content->{'type'} and $content->{'type'} eq 'menu_comment') {
+    if (exists($content->{'type'}) and $content->{'type'} eq 'menu_comment') {
       push @contents, @{$content->{'contents'}};
-    } elsif ($content->{'type'} and $content->{'type'} eq 'menu_entry') {
+    } elsif (exists($content->{'type'})
+             and $content->{'type'} eq 'menu_entry') {
       my $preformatted = {'type' => 'preformatted', 'contents' => [$content]};
       push @contents, $preformatted;
       $content->{'parent'} = $preformatted;
@@ -891,7 +868,8 @@ sub menu_to_simple_menu($)
       my @args = @{$content->{'contents'}};
       @{$content->{'contents'}} = ();
       while (@args) {
-        if ($args[0]->{'type'} and $args[0]->{'type'} eq 'menu_entry_description') {
+        if (exists($args[0]->{'type'})
+            and $args[0]->{'type'} eq 'menu_entry_description') {
           my $description = shift @args;
           push @contents, @{$description->{'contents'}};
           push @contents, @args;
@@ -901,8 +879,8 @@ sub menu_to_simple_menu($)
           push @{$content->{'contents'}}, $arg;
         }
       }
-    } elsif ($content->{'cmdname'}
-             and $Texinfo::Commands::block_commands{$content->{'cmdname'}}
+    } elsif (exists($content->{'cmdname'})
+   and exists($Texinfo::Commands::block_commands{$content->{'cmdname'}})
   and $Texinfo::Commands::block_commands{$content->{'cmdname'}} eq 'menu') {
       menu_to_simple_menu($content);
       push @contents, $content;
@@ -916,7 +894,7 @@ sub menu_to_simple_menu($)
   my $current_preformatted;
   foreach my $content (@contents) {
     $content->{'parent'} = $menu;
-    if ($content->{'type'} and $content->{'type'} eq 'preformatted') {
+    if (exists($content->{'type'}) and $content->{'type'} eq 'preformatted') {
       if (!defined($current_preformatted)) {
         $current_preformatted = $content;
         push @{$menu->{'contents'}}, $content;
@@ -933,11 +911,8 @@ sub menu_to_simple_menu($)
   }
 }
 
-sub _protect_hashchar_at_line_beginning($$$)
-{
-  my $type = shift;
-  my $parent = shift;
-  my $argument = shift;
+sub _protect_hashchar_at_line_beginning($$$) {
+  my ($type, $parent, $argument) = @_;
 
   my $document = $argument;
 
@@ -947,21 +922,21 @@ sub _protect_hashchar_at_line_beginning($$$)
   my $parent_contents_nr = scalar(@{$parent->{'contents'}});
   for (my $i = 0; $i < $parent_contents_nr; $i++) {
     my $current = $parent->{'contents'}->[$i];
-    if ($current->{'text'} and
+    if (exists($current->{'text'}) and
       $current->{'text'} =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/) {
       # protect if first in container, or if after a newline
       if ($i == 0
-          or ($i == 1 and $parent->{'contents'}->[0]->{'type'}
+          or ($i == 1 and exists($parent->{'contents'}->[0]->{'type'})
               and $parent->{'contents'}->[0]->{'type'} eq 'arguments_line')
-          or ($parent->{'contents'}->[$i-1]->{'text'}
+          or (exists($parent->{'contents'}->[$i-1]->{'text'})
               and $parent->{'contents'}->[$i-1]->{'text'} =~ /\n$/)) {
         # do not actually protect in raw block command, but warn
-        if ($current->{'type'} and $current->{'type'} eq 'raw') {
+        if (exists($current->{'type'}) and $current->{'type'} eq 'raw') {
           my $parent_for_warn = $parent;
           while ($parent_for_warn) {
-            if ($parent_for_warn->{'cmdname'}
-                and $parent_for_warn->{'source_info'}) {
-              if ($document) {
+            if (exists($parent_for_warn->{'cmdname'})
+                and exists($parent_for_warn->{'source_info'})) {
+              if (defined($document)) {
                 $document->document_line_warn(sprintf(__(
                     "could not protect hash character in \@%s"),
                          $parent_for_warn->{'cmdname'}),
@@ -974,7 +949,7 @@ sub _protect_hashchar_at_line_beginning($$$)
         } else {
           my $remaining_source_marks;
           my $current_position = 0;
-          if ($current->{'source_marks'}) {
+          if (exists($current->{'source_marks'})) {
             $remaining_source_marks = [@{$current->{'source_marks'}}];
             delete $current->{'source_marks'};
           }
@@ -1014,10 +989,8 @@ sub _protect_hashchar_at_line_beginning($$$)
   return undef;
 }
 
-sub protect_hashchar_at_line_beginning($;$)
-{
-  my $tree = shift;
-  my $document = shift;
+sub protect_hashchar_at_line_beginning($;$) {
+  my ($tree, $document) = @_;
 
   return Texinfo::ManipulateTree::modify_tree($tree,
                      \&_protect_hashchar_at_line_beginning,
@@ -1026,21 +999,18 @@ sub protect_hashchar_at_line_beginning($;$)
 
 # Has an XS override. Defined to be able to test Perl and XS. Undocumented
 # on purpose.
-sub protect_hashchar_at_line_beginning_in_document($)
-{
+sub protect_hashchar_at_line_beginning_in_document($) {
   my $document = shift;
+
   protect_hashchar_at_line_beginning($document->tree(), $document);
   return;
 }
 
-sub _protect_first_parenthesis_in_targets($$$)
-{
-  my $type = shift;
-  my $current = shift;
-  my $argument = shift;
+sub _protect_first_parenthesis_in_targets($$$) {
+  my ($type, $current, $argument) = @_;
 
   my $element_label = Texinfo::Common::get_label_element($current);
-  if ($element_label) {
+  if (defined($element_label) and $element_label ne '') {
     Texinfo::ManipulateTree::protect_first_parenthesis($element_label);
   }
   return undef;
@@ -1048,8 +1018,7 @@ sub _protect_first_parenthesis_in_targets($$$)
 
 # Used in Pod::Simple::Texinfo
 # TODO document
-sub protect_first_parenthesis_in_targets($)
-{
+sub protect_first_parenthesis_in_targets($) {
   my $tree = shift;
 
   Texinfo::ManipulateTree::modify_tree($tree,
@@ -1058,8 +1027,7 @@ sub protect_first_parenthesis_in_targets($)
 
 # Has an XS override. Defined to be able to test Perl and XS. Undocumented
 # on purpose.
-sub protect_first_parenthesis_in_targets_in_document($)
-{
+sub protect_first_parenthesis_in_targets_in_document($) {
   my $document = shift;
 
   protect_first_parenthesis_in_targets($document->tree());

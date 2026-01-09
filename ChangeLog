@@ -1,3 +1,9 @@
+2026-02-09 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Structuring.pm, tta/perlTexinfo/Transformations.pm:
+	reformat functions beginning.  Use defined or exists in conditions
+	when not interested in the value.
+
 2026-01-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/Makefile.am (wwwdoc-build): reference gnulib CSS file

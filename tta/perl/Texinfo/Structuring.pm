@@ -133,8 +133,7 @@ my %unnumbered_commands = %Texinfo::Commands::unnumbered_commands;
 # 'section_children'
 # 'section_directions'
 # 'toplevel_directions'
-sub sectioning_structure($)
-{
+sub sectioning_structure($) {
   my $document = shift;
 
   my $sections_list = $document->sections_list();
@@ -158,11 +157,11 @@ sub sectioning_structure($)
   my @command_unnumbered;
   foreach my $section_relations (@{$sections_list}) {
     my $content = $section_relations->{'element'};
-    if ($content->{'cmdname'} eq 'top' and not $top_relations) {
+    if ($content->{'cmdname'} eq 'top' and not defined($top_relations)) {
       $top_relations = $section_relations;
     }
 
-    $content->{'extra'} = {} if (! $content->{'extra'});
+    $content->{'extra'} = {} if (! exists($content->{'extra'}));
 
     my $level = Texinfo::Common::section_level($content);
     if (!defined($level)) {
@@ -171,7 +170,7 @@ sub sectioning_structure($)
       $level = 0;
     }
 
-    if ($previous_section_relations) {
+    if (defined($previous_section_relations)) {
       my $previous_section = $previous_section_relations->{'element'};
       my $prev_section_level = $previous_section->{'extra'}->{'section_level'};
       if ($prev_section_level < $level) {
@@ -191,12 +190,12 @@ sub sectioning_structure($)
 
         # if the up is unnumbered, the number information has to be kept,
         # to avoid reusing an already used number.
-        if (!$unnumbered_commands{$previous_section->{'cmdname'}}) {
+        if (!exists($unnumbered_commands{$previous_section->{'cmdname'}})) {
           $command_numbers[$level] = undef;
-        } elsif (!$unnumbered_commands{$content->{'cmdname'}}) {
+        } elsif (!exists($unnumbered_commands{$content->{'cmdname'}})) {
           $command_numbers[$level]++;
         }
-        if ($unnumbered_commands{$content->{'cmdname'}}) {
+        if (exists($unnumbered_commands{$content->{'cmdname'}})) {
           $command_unnumbered[$level] = 1;
         } else {
           $command_unnumbered[$level] = 0;
@@ -208,8 +207,8 @@ sub sectioning_structure($)
         my $up_relations = $previous_section_relations;
         my $up_section_directions = $up_relations->{'section_directions'};
 
-        while ($up_section_directions
-               and $up_section_directions->{'up'}
+        while (defined($up_section_directions)
+               and exists($up_section_directions->{'up'})
                and $up->{'extra'}->{'section_level'} >= $level) {
           $up_relations = $up_section_directions->{'up'};
           $up = $up_relations->{'element'};
@@ -242,13 +241,14 @@ sub sectioning_structure($)
             }
           }
         }
-        if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix
+        if (exists($appendix_commands{$content->{'cmdname'}}) and !$in_appendix
             and $level <= $number_top_level
-            and $up and $up->{'cmdname'} and $up->{'cmdname'} eq 'part') {
+            and $up and exists($up->{'cmdname'})
+            and $up->{'cmdname'} eq 'part') {
           $up = undef;
           $up_relations = $sec_root;
         }
-        if ($new_upper_part_element) {
+        if (defined($new_upper_part_element)) {
           # In that case the root level has to be updated because the first
           # 'part' just appeared, no direction to set.
           $sec_root->{'section_root_level'} = $level - 1;
@@ -264,12 +264,12 @@ sub sectioning_structure($)
           $section_relations->{'section_directions'}->{'prev'}
             = $prev_relations;
           $prev_relations->{'section_directions'} = {}
-              if (!$prev_relations->{'section_directions'});
+              if (!exists($prev_relations->{'section_directions'}));
           $prev_relations->{'section_directions'}->{'next'}
             = $section_relations;
           push @{$up_relations->{'section_children'}}, $section_relations;
         }
-        if (!$unnumbered_commands{$content->{'cmdname'}}) {
+        if (!exists($unnumbered_commands{$content->{'cmdname'}})) {
           $command_numbers[$level]++;
           $command_unnumbered[$level] = 0;
         } else {
@@ -288,7 +288,7 @@ sub sectioning_structure($)
       # the level of chapter/unnumbered...
       $number_top_level = 1 if (!$number_top_level);
       if ($content->{'cmdname'} ne 'top') {
-        if (!$unnumbered_commands{$content->{'cmdname'}}) {
+        if (!exists($unnumbered_commands{$content->{'cmdname'}})) {
           $command_unnumbered[$level] = 0;
         } else {
           $command_unnumbered[$level] = 1;
@@ -299,13 +299,13 @@ sub sectioning_structure($)
     $content->{'extra'}->{'section_level'} = $level;
 
     if (!defined($command_numbers[$level])) {
-      if ($unnumbered_commands{$content->{'cmdname'}}) {
+      if (exists($unnumbered_commands{$content->{'cmdname'}})) {
         $command_numbers[$level] = 0;
       } else {
         $command_numbers[$level] = 1;
       }
     }
-    if ($appendix_commands{$content->{'cmdname'}} and !$in_appendix
+    if (exists($appendix_commands{$content->{'cmdname'}}) and !$in_appendix
         and $level == $number_top_level) {
       $in_appendix = 1;
       # NOTE we rely on perl auto-increment operator 'magic' for variables
@@ -313,7 +313,7 @@ sub sectioning_structure($)
       # character within its range, with carry (see perlop).
       $command_numbers[$level] = 'A';
     }
-    if (!$unnumbered_commands{$content->{'cmdname'}}) {
+    if (!exists($unnumbered_commands{$content->{'cmdname'}})) {
       # construct the number, if not below an unnumbered
       if (!$command_unnumbered[$number_top_level]) {
         my $section_number = "$command_numbers[$number_top_level]";
@@ -334,24 +334,25 @@ sub sectioning_structure($)
     $previous_section_relations = $section_relations;
 
     if ($content->{'cmdname'} ne 'part' and $level <= $number_top_level) {
-      if ($previous_toplevel_relations
-          or ($top_relations and $section_relations ne $top_relations)) {
+      if (defined($previous_toplevel_relations)
+          or (defined($top_relations)
+              and $section_relations ne $top_relations)) {
         $section_relations->{'toplevel_directions'} = {};
-        if ($previous_toplevel_relations) {
+        if (defined($previous_toplevel_relations)) {
           $previous_toplevel_relations->{'toplevel_directions'} = {}
-             if (!$previous_toplevel_relations->{'toplevel_directions'});
+           if (!exists($previous_toplevel_relations->{'toplevel_directions'}));
           $previous_toplevel_relations->{'toplevel_directions'}->{'next'}
             = $section_relations;
           $section_relations->{'toplevel_directions'}->{'prev'}
             = $previous_toplevel_relations;
         }
-        if ($top_relations and $section_relations ne $top_relations) {
+        if (defined($top_relations) and $section_relations ne $top_relations) {
           $section_relations->{'toplevel_directions'}->{'up'} = $top_relations;
         }
       }
       $previous_toplevel_relations = $section_relations;
     } elsif ($content->{'cmdname'} eq 'part'
-             and not $section_relations->{'part_associated_section'}) {
+             and not exists($section_relations->{'part_associated_section'})) {
 
       $document->document_line_warn(
         sprintf(__("no sectioning command associated with \@%s"),
@@ -362,9 +363,9 @@ sub sectioning_structure($)
 
 # for debugging
 sub _print_sectioning_tree($);
-sub _print_sectioning_tree($)
-{
+sub _print_sectioning_tree($) {
   my $current_relations = shift;
+
   my $current = $current_relations->{'element'};
   my $result = ' ' x $current->{'extra'}->{'section_level'}
    . Texinfo::Convert::Texinfo::root_heading_command_to_texinfo($current)."\n";
@@ -374,15 +375,14 @@ sub _print_sectioning_tree($)
   return $result;
 }
 
-sub warn_non_empty_parts($)
-{
+sub warn_non_empty_parts($) {
   my $document = shift;
 
   my $customization_information = $document;
 
   my $global_commands = $document->global_commands_information();
 
-  if ($global_commands->{'part'}) {
+  if (exists($global_commands->{'part'})) {
     foreach my $part (@{$global_commands->{'part'}}) {
       if (!Texinfo::Common::is_content_empty($part)) {
         $document->document_line_warn(
@@ -400,20 +400,16 @@ my %direction_texts = (
  'up' => 'Up'
 );
 
-sub _check_menu_entry($$$$$)
-{
-  my $document = shift;
-  my $identifier_target = shift;
-  my $command = shift;
-  my $menu_content = shift;
-  my $menu_entry_node = shift;
+sub _check_menu_entry($$$$$) {
+  my ($document, $identifier_target, $command, $menu_content,
+      $menu_entry_node) = @_;
 
   if (defined($menu_entry_node->{'extra'}->{'normalized'})) {
     my $normalized_menu_node = $menu_entry_node->{'extra'}->{'normalized'};
 
     my $menu_node = $identifier_target->{$normalized_menu_node};
 
-    if (!$menu_node) {
+    if (!defined($menu_node)) {
       $document->document_line_error(
                   sprintf(__("\@%s reference to nonexistent node `%s'"),
                           $command,
@@ -434,20 +430,17 @@ sub _check_menu_entry($$$$$)
   }
 }
 
-sub _register_menu_node_targets($$$)
-{
-  my $identifier_target = shift;
-  my $node_relations = shift;
-  my $register = shift;
+sub _register_menu_node_targets($$$) {
+  my ($identifier_target, $node_relations, $register) = @_;
 
-  if ($node_relations->{'menus'}) {
+  if (exists($node_relations->{'menus'})) {
     foreach my $menu (@{$node_relations->{'menus'}}) {
       foreach my $menu_content (@{$menu->{'contents'}}) {
-        if ($menu_content->{'type'}
+        if (exists($menu_content->{'type'})
             and $menu_content->{'type'} eq 'menu_entry') {
           my $menu_node = normalized_entry_associated_internal_node
                             ($menu_content, $identifier_target);
-          $register->{$menu_node} = 1 if ($menu_node);
+          $register->{$menu_node} = 1 if (defined($menu_node));
         }
       }
     }
@@ -455,20 +448,18 @@ sub _register_menu_node_targets($$$)
 }
 
 # Should be called after sectioning_structure.
-sub get_node_node_childs_from_sectioning($)
-{
+sub get_node_node_childs_from_sectioning($) {
   my $node_relations = shift;
 
   my @node_childs;
 
-  if ($node_relations->{'associated_section'}) {
+  if (exists($node_relations->{'associated_section'})) {
     my $associated_relations = $node_relations->{'associated_section'};
 
-    if ($associated_relations
-        and $associated_relations->{'section_children'}) {
+    if (exists($associated_relations->{'section_children'})) {
       foreach my $child_relations
                         (@{$associated_relations->{'section_children'}}) {
-        if ($child_relations->{'associated_node'}) {
+        if (exists($child_relations->{'associated_node'})) {
           push @node_childs, $child_relations->{'associated_node'};
         }
       }
@@ -477,22 +468,22 @@ sub get_node_node_childs_from_sectioning($)
     # @top.
     if ($associated_relations->{'element'}->{'cmdname'} eq 'top') {
       my $current_relations = $associated_relations;
-      while ($current_relations->{'section_directions'}
-             and $current_relations->{'section_directions'}->{'next'}) {
+      while (exists($current_relations->{'section_directions'})
+         and exists($current_relations->{'section_directions'}->{'next'})) {
         $current_relations
           = $current_relations->{'section_directions'}->{'next'};
         if ($current_relations->{'element'}->{'cmdname'} eq 'part') {
-          if ($current_relations->{'section_children'}) {
+          if (exists($current_relations->{'section_children'})) {
             foreach my $child_relations
                          (@{$current_relations->{'section_children'}}) {
-              if ($child_relations->{'associated_node'}) {
+              if (exists($child_relations->{'associated_node'})) {
                 push @node_childs,
                      $child_relations->{'associated_node'};
               }
             }
           }
         } else {
-          if ($current_relations->{'associated_node'}) {
+          if (exists($current_relations->{'associated_node'})) {
             # for @appendix, and what follows, as it stops a @part, but is
             # not below @top
             push @node_childs,
@@ -505,8 +496,7 @@ sub get_node_node_childs_from_sectioning($)
   return @node_childs;
 }
 
-sub _node_automatic_directions ($)
-{
+sub _node_automatic_directions ($) {
   my $node = shift;
 
   my $arguments_line = $node->{'contents'}->[0];
@@ -517,8 +507,7 @@ my @node_directions_names = ('next', 'prev', 'up');
 # In general should be called only after complete_node_tree_with_menus
 # to generate the Top node first node directions automatically when there
 # are no sections nor menus before checking.
-sub check_nodes_are_referenced($)
-{
+sub check_nodes_are_referenced($) {
   my $document = shift;
 
   my $customization_information = $document;
@@ -526,10 +515,10 @@ sub check_nodes_are_referenced($)
   my $identifier_target = $document->labels_information();
   my $refs = $document->internal_references_information();
 
-  return unless ($nodes_list and scalar(@{$nodes_list}));
+  return unless (defined($nodes_list) and scalar(@{$nodes_list}));
 
   my $top_node = $identifier_target->{'Top'};
-  $top_node = $nodes_list->[0]->{'element'} if (!$top_node);
+  $top_node = $nodes_list->[0]->{'element'} if (!defined($top_node));
 
   my %referenced_nodes = ($top_node => 1);
   my %referenced_in_menus = ();
@@ -537,7 +526,7 @@ sub check_nodes_are_referenced($)
     my $node = $node_relations->{'element'};
     # gather referenced nodes based on node pointers
     my $node_directions = $node_relations->{'node_directions'};
-    if ($node_directions) {
+    if (defined($node_directions)) {
       foreach my $direction (@node_directions_names) {
         if ($node_directions->{$direction}
             and not $node_directions->{$direction}
@@ -546,7 +535,7 @@ sub check_nodes_are_referenced($)
         }
       }
     }
-    if ($node_relations->{'menus'}) {
+    if (exists($node_relations->{'menus'})) {
       _register_menu_node_targets($identifier_target, $node_relations,
                                  \%referenced_in_menus);
       %referenced_nodes = (%referenced_nodes, %referenced_in_menus);
@@ -568,13 +557,13 @@ sub check_nodes_are_referenced($)
   # consider nodes in internal @*ref commands to be referenced
   if (defined($refs)) {
     foreach my $ref (@$refs) {
-      if ($ref->{'contents'} and scalar(@{$ref->{'contents'}})
-          and $ref->{'contents'}->[0]->{'extra'}) {
+      if (exists($ref->{'contents'})
+          and exists($ref->{'contents'}->[0]->{'extra'})) {
         my $label_arg = $ref->{'contents'}->[0];
         my $label_normalized = $label_arg->{'extra'}->{'normalized'};
         if ($label_normalized) {
           my $node_target = $identifier_target->{$label_normalized};
-          if ($node_target and $node_target->{'cmdname'} eq 'node') {
+          if (defined($node_target) and $node_target->{'cmdname'} eq 'node') {
             $referenced_nodes{$node_target} = 1;
           }
         }
@@ -595,7 +584,7 @@ sub check_nodes_are_referenced($)
                                              'CHECK_NORMAL_MENU_STRUCTURE')
                and $node->{'extra'}->{'normalized'} ne 'Top'
                and scalar(@{$nodes_list}) > 1) {
-        if (not (($node_relations->{'associated_section'}
+        if (not ((exists($node_relations->{'associated_section'})
                   and _node_automatic_directions($node))
                  or $referenced_in_menus{$node})) {
           $document->document_line_warn(sprintf(__("node `%s' not in menu"),
@@ -608,8 +597,7 @@ sub check_nodes_are_referenced($)
 }
 
 # Set node_directions and complete automatic directions with menus.
-sub complete_node_tree_with_menus($)
-{
+sub complete_node_tree_with_menus($) {
   my $document = shift;
 
   my $customization_information = $document;
@@ -617,7 +605,7 @@ sub complete_node_tree_with_menus($)
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
 
-  return undef unless ($nodes_list and scalar(@{$nodes_list}));
+  return undef unless (defined($nodes_list) and scalar(@{$nodes_list}));
 
   my $format_menu = $customization_information->get_conf('FORMAT_MENU');
 
@@ -635,7 +623,7 @@ sub complete_node_tree_with_menus($)
   #
   foreach my $node_relations (@{$nodes_list}) {
     my $node = $node_relations->{'element'};
-    if ($node_relations->{'menus'}) {
+    if (exists($node_relations->{'menus'})) {
       if (scalar(@{$node_relations->{'menus'}}) > 1) {
         foreach my $menu (@{$node_relations->{'menus'}}[1 .. $#{$node_relations->{'menus'}}]) {
           $document->document_line_warn(sprintf(__("multiple \@%s"),
@@ -646,14 +634,14 @@ sub complete_node_tree_with_menus($)
         my $previous_node_relations;
         my $previous_node;
         foreach my $menu_content (@{$menu->{'contents'}}) {
-          if ($menu_content->{'type'}
+          if (exists($menu_content->{'type'})
               and $menu_content->{'type'} eq 'menu_entry') {
             my $menu_node;
             my $menu_node_relations;
             foreach my $content (@{$menu_content->{'contents'}}) {
               if ($content->{'type'} eq 'menu_entry_node') {
-                if ($content->{'extra'}) {
-                  if (!$content->{'extra'}->{'manual_content'}) {
+                if (exists($content->{'extra'})) {
+                  if (!exists($content->{'extra'}->{'manual_content'})) {
                     if ($check_menu_entries) {
                       _check_menu_entry($document,
                                         $identifier_target, 'menu',
@@ -662,18 +650,20 @@ sub complete_node_tree_with_menus($)
                     if (defined($content->{'extra'}->{'normalized'})) {
                       $menu_node
                         = $identifier_target->{$content->{'extra'}->{'normalized'}};
-                      if ($menu_node and $menu_node->{'cmdname'} eq 'node') {
+                      if (defined($menu_node)
+                          and $menu_node->{'cmdname'} eq 'node') {
                         $menu_node_relations
                           = $nodes_list->[$menu_node->{'extra'}->{'node_number'} -1];
-                        if ((!$top_node or $menu_node ne $top_node)
+                        if ((!defined($top_node) or $menu_node ne $top_node)
                             and _node_automatic_directions($menu_node)) {
                           $menu_node_relations->{'node_directions'} = {}
-                            if !defined($menu_node_relations->{'node_directions'});
-                          my $menu_node_directions = $menu_node_relations->{'node_directions'};
-                          if (!$menu_node_directions or !$menu_node_directions->{'up'}) {
+                           if (!exists($menu_node_relations->{'node_directions'}));
+                          my $menu_node_directions
+                            = $menu_node_relations->{'node_directions'};
+                          if (!defined($menu_node_directions)
+                              or !exists($menu_node_directions->{'up'})) {
                             $menu_node_directions->{'up'} = $node;
                           }
-
                         }
                       }
                     }
@@ -684,27 +674,29 @@ sub complete_node_tree_with_menus($)
                 last;
               }
             }
-            if ($menu_node and $previous_node_relations
-                and !$previous_node_relations->{'element'}
-                                    ->{'extra'}->{'manual_content'}) {
-              if ((!$top_node or $previous_node ne $top_node)
+            if (defined($menu_node) and defined($previous_node_relations)
+                and !exists($previous_node_relations->{'element'}
+                                    ->{'extra'}->{'manual_content'})) {
+              if ((!defined($top_node) or $previous_node ne $top_node)
                   and _node_automatic_directions($previous_node)) {
                 $previous_node_relations->{'node_directions'} = {}
-                  if !defined($previous_node_relations->{'node_directions'});
-                my $previous_node_directions = $previous_node_relations->{'node_directions'};
-                if (!$previous_node_directions or !$previous_node_directions->{'next'}) {
+                  if (!exists($previous_node_relations->{'node_directions'}));
+                my $previous_node_directions
+                  = $previous_node_relations->{'node_directions'};
+                if (!$previous_node_directions->{'next'}) {
                   $previous_node_directions->{'next'} = $menu_node;
                 }
               }
             }
-            if ($menu_node_relations and $previous_node
-                and !$menu_node->{'extra'}->{'manual_content'}) {
-              if ((!$top_node or $menu_node ne $top_node)
+            if (defined($menu_node_relations) and defined($previous_node)
+                and !exists($menu_node->{'extra'}->{'manual_content'})) {
+              if ((!defined($top_node) or $menu_node ne $top_node)
                   and _node_automatic_directions($menu_node)) {
                 $menu_node_relations->{'node_directions'} = {}
-                  if !defined($menu_node_relations->{'node_directions'});
-                my $menu_node_directions = $menu_node_relations->{'node_directions'};
-                if (!$menu_node_directions or !$menu_node_directions->{'prev'}) {
+                  if (!exists($menu_node_relations->{'node_directions'}));
+                my $menu_node_directions
+                  = $menu_node_relations->{'node_directions'};
+                if (!exists($menu_node_directions->{'prev'})) {
                   $menu_node_directions->{'prev'} = $previous_node;
                 }
               }
@@ -717,15 +709,15 @@ sub complete_node_tree_with_menus($)
     }
   }
   # Check @detailmenu
-  if ($check_menu_entries and $global_commands->{'detailmenu'}) {
+  if ($check_menu_entries and exists($global_commands->{'detailmenu'})) {
     foreach my $detailmenu (@{$global_commands->{'detailmenu'}}) {
       foreach my $menu_content (@{$detailmenu->{'contents'}}) {
-        if ($menu_content->{'type'}
+        if (exists($menu_content->{'type'})
             and $menu_content->{'type'} eq 'menu_entry') {
           foreach my $content (@{$menu_content->{'contents'}}) {
             if ($content->{'type'} eq 'menu_entry_node') {
-              if (not ($content->{'extra'}
-                       and $content->{'extra'}->{'manual_content'})) {
+              if (not (exists($content->{'extra'})
+                       and exists($content->{'extra'}->{'manual_content'}))) {
                 _check_menu_entry($document,
                     $identifier_target, 'detailmenu', $menu_content, $content);
               }
@@ -742,21 +734,20 @@ sub complete_node_tree_with_menus($)
 # from section_directions.  It could also be from
 # toplevel_directions if going through parts, except for @top
 # as prev or next.
-sub _section_direction_associated_node($$)
-{
-  my $section_relations = shift;
-  my $direction = shift;
+sub _section_direction_associated_node($$) {
+  my ($section_relations, $direction) = @_;
 
   foreach my $direction_base ('section', 'toplevel') {
-    if ($section_relations->{$direction_base.'_directions'}
-        and $section_relations->{$direction_base.'_directions'}->{$direction}
+    if (exists($section_relations->{$direction_base.'_directions'})
+        and exists($section_relations->{$direction_base.'_directions'}
+                                                             ->{$direction})
         and ($direction_base ne 'toplevel'
              or $direction eq 'up'
              or $section_relations->{$direction_base.'_directions'}->{$direction}
                                           ->{'element'}->{'cmdname'} ne 'top')) {
        my $direction_relation
          = $section_relations->{$direction_base.'_directions'}->{$direction};
-       if ($direction_relation->{'associated_node'}) {
+       if (exists($direction_relation->{'associated_node'})) {
         return $direction_relation->{'associated_node'};
       }
     }
@@ -765,15 +756,14 @@ sub _section_direction_associated_node($$)
 }
 
 # Checks on structure related to menus.
-sub check_node_tree_menu_structure($)
-{
+sub check_node_tree_menu_structure($) {
   my $document = shift;
 
   my $customization_information = $document;
   my $nodes_list = $document->nodes_list();
   my $identifier_target = $document->labels_information();
 
-  return unless ($nodes_list and scalar(@{$nodes_list}));
+  return unless (defined($nodes_list) and scalar(@{$nodes_list}));
 
   # Used to suppress later errors about a node if an error was
   # already reported to avoid deluging the user with error
@@ -785,14 +775,14 @@ sub check_node_tree_menu_structure($)
     foreach my $node_relations (@{$nodes_list}) {
       my $node = $node_relations->{'element'};
 
-      if ($node_relations->{'menus'}) {
+      if (exists($node_relations->{'menus'})) {
         foreach my $menu (@{$node_relations->{'menus'}}) {
           foreach my $menu_content (@{$menu->{'contents'}}) {
-            next if !$menu_content->{'type'}
-              or $menu_content->{'type'} ne 'menu_entry';
+            next if (!exists($menu_content->{'type'})
+                     or $menu_content->{'type'} ne 'menu_entry');
             my $menu_node = normalized_entry_associated_internal_node
                               ($menu_content, $identifier_target);
-            if ($menu_node and $menu_node->{'cmdname'} eq 'node') {
+            if (defined($menu_node) and $menu_node->{'cmdname'} eq 'node') {
               my $menu_node_relations = $nodes_list
                 ->[$menu_node->{'extra'}->{'node_number'} -1];
 
@@ -801,21 +791,19 @@ sub check_node_tree_menu_structure($)
 
               # possibly a lone @node that is not part of the
               # section structure.
-              next if !$section_relations;
-              next if !_node_automatic_directions($menu_node);
+              next if (!defined($section_relations));
+              next if (!_node_automatic_directions($menu_node));
 
               my $section_up_node
-                = _section_direction_associated_node ($section_relations,'up');
-              if (!$section_up_node) {
+                = _section_direction_associated_node($section_relations,'up');
+              if (!defined($section_up_node)) {
                 $document->document_line_warn(
     sprintf(__("node `%s' in menu in `%s' but not under it in sectioning"),
                              target_element_to_texi_label($menu_node),
                              target_element_to_texi_label($node)),
                     $menu_content->{'source_info'});
                 $node_errors{$menu_node->{'extra'}->{'node_number'}} = 1;
-              } elsif ($section_up_node
-                         and $section_up_node->{'element'}
-                         and $section_up_node->{'element'} ne $node) {
+              } elsif ($section_up_node->{'element'} ne $node) {
                 $document->document_line_warn(
     sprintf(__("node `%s' in menu in `%s' but under `%s' in sectioning"),
                     target_element_to_texi_label($menu_node),
@@ -836,27 +824,27 @@ sub check_node_tree_menu_structure($)
   # nodes.
   if ($customization_information->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
     foreach my $node_relations (@{$nodes_list}) {
-      next if !$node_relations->{'menus'};
+      next if (! exists($node_relations->{'menus'}));
 
-      next if !$node_relations->{'associated_section'};
+      next if (! exists($node_relations->{'associated_section'}));
       my $section_children = $node_relations->{'associated_section'}
                                           ->{'section_children'};
-      next if !defined($section_children) or !@{$section_children};
+      next if (!defined($section_children) or !scalar(@{$section_children}));
 
       # Find the first subordinate section, which should appear first
       # in the menu.
       my $first_child = $section_children->[0];
-      while (!defined($first_child->{'associated_node'})
-               and defined($first_child->{'section_directions'})
-               and defined($first_child->{'section_directions'}->{'next'})) {
+      while (!exists($first_child->{'associated_node'})
+             and exists($first_child->{'section_directions'})
+             and exists($first_child->{'section_directions'}->{'next'})) {
         $first_child = $first_child->{'section_directions'}->{'next'};
       }
 
       my $first_child_node_relations = $first_child->{'associated_node'};
-      next if !defined($first_child_node_relations);
+      next if (!defined($first_child_node_relations));
 
       my $section_node = $first_child_node_relations->{'element'};
-      next if !defined($section_node);
+      next if (!defined($section_node));
       my $last_menu_node_relations;
 
       foreach my $menu (@{$node_relations->{'menus'}}) {
@@ -865,14 +853,14 @@ sub check_node_tree_menu_structure($)
         # to see based on what came before.
         MENU_CONTENT:
         foreach my $menu_content (@{$menu->{'contents'}}) {
-          next if !defined($menu_content->{'type'})
-            or $menu_content->{'type'} ne 'menu_entry';
+          next if (!exists($menu_content->{'type'})
+                   or $menu_content->{'type'} ne 'menu_entry');
           my $menu_node
             = Texinfo::ManipulateTree::normalized_entry_associated_internal_node
                 ($menu_content, $identifier_target);
-          next if !defined($menu_node)
-            or !defined($menu_node->{'extra'})
-            or !defined($menu_node->{'extra'}->{'node_number'});
+          next if (!defined($menu_node)
+                   or !exists($menu_node->{'extra'})
+                   or !exists($menu_node->{'extra'}->{'node_number'}));
 
           my $menu_node_element_number
             = $menu_node->{'extra'}->{'node_number'};
@@ -916,31 +904,32 @@ sub check_node_tree_menu_structure($)
 
           $last_menu_node_relations
             = $nodes_list->[$menu_node_element_number - 1];
-          next MENU_CONTENT if !$last_menu_node_relations
-              or !defined($last_menu_node_relations->{'associated_section'});
+          # FIXME is it possible not to have last_menu_node_relations defined?
+          next MENU_CONTENT if (!defined($last_menu_node_relations)
+              or !exists($last_menu_node_relations->{'associated_section'}));
 
           my $menu_section_dirs
             = $last_menu_node_relations->{'associated_section'}
                 ->{'section_directions'};
 
           next MENU_CONTENT
-            if !defined($menu_section_dirs)
-               or !defined($menu_section_dirs->{'up'})
-               or !defined($menu_section_dirs->{'up'}->{'associated_node'});
+            if (!defined($menu_section_dirs)
+                or !exists($menu_section_dirs->{'up'})
+                or !exists($menu_section_dirs->{'up'}->{'associated_node'}));
 
           my $menu_node_up = $menu_section_dirs->{'up'}->{'associated_node'};
           if ($menu_node_up ne $node_relations) {
             # Keep the same expected section as the current menu node
             # is misplaced.
-          } elsif (defined($menu_section_dirs->{'next'})) {
+          } elsif (exists($menu_section_dirs->{'next'})) {
             my $section_next = $menu_section_dirs->{'next'};
             while (defined($section_next)
-                   and !defined($section_next->{'associated_node'})
-                   and defined($section_next->{'section_directions'})) {
+                   and !exists($section_next->{'associated_node'})
+                   and exists($section_next->{'section_directions'})) {
               $section_next = $section_next->{'section_directions'}->{'next'};
             }
             if (defined($section_next)
-                and defined($section_next->{'associated_node'})) {
+                and exists($section_next->{'associated_node'})) {
               $section_node = $section_next->{'associated_node'}->{'element'};
             } else {
               undef $section_node;
@@ -964,7 +953,7 @@ sub check_node_tree_menu_structure($)
       next if $node_errors{$node->{'extra'}->{'node_number'}};
 
       my $section_relations = $node_relations->{'associated_section'};
-      next if !defined($section_relations);
+      next if (!defined($section_relations));
 
       # We need to check both toplevel_ and section_directions in case
       # the up section is a @part.
@@ -975,23 +964,23 @@ sub check_node_tree_menu_structure($)
 
       my ($up_node_relations, $up_node);
 
-      if ($section_directions
-          and $section_directions->{'up'}) {
+      if (defined($section_directions)
+          and exists($section_directions->{'up'})) {
         $up_node_relations = $section_directions->{'up'}->{'associated_node'};
-        if ($up_node_relations) {
+        if (defined($up_node_relations)) {
           $up_node = $up_node_relations->{'element'};
         }
       }
 
       if ($up_node
           # No check if node up is an external manual
-          and not $up_node->{'extra'}->{'manual_content'}
+          and not exists($up_node->{'extra'}->{'manual_content'})
           # no check for a redundant node, the node registered in the menu
           # was the main equivalent node
           and $node->{'extra'}->{'is_target'}) {
 
         # check only if there are menus
-        next if !$up_node_relations->{'menus'};
+        next if (!exists($up_node_relations->{'menus'}));
 
         if (!$cached_menu_nodes{$up_node}) {
           $cached_menu_nodes{$up_node} = {};
@@ -1031,9 +1020,9 @@ sub check_node_tree_menu_structure($)
             or $menu_content->{'type'} ne 'menu_entry';
           my $menu_node = normalized_entry_associated_internal_node
                             ($menu_content, $identifier_target);
-          next if !defined($menu_node)
-            or !defined($menu_node->{'extra'})
-            or !defined($menu_node->{'extra'}->{'node_number'});
+          next if (!defined($menu_node)
+                   or !exists($menu_node->{'extra'})
+                   or !exists($menu_node->{'extra'}->{'node_number'}));
           my $menu_node_element_number
             = $menu_node->{'extra'}->{'node_number'};
           my $menu_node_relations
@@ -1044,9 +1033,9 @@ sub check_node_tree_menu_structure($)
             $menu_node_directions = $menu_node_relations->{'node_directions'};
           }
 
-          if ($menu_node_directions
-                and defined($menu_node_directions->{'up'})
-                and $menu_node_directions->{'up'} ne $node) {
+          if (defined($menu_node_directions)
+              and exists($menu_node_directions->{'up'})
+              and $menu_node_directions->{'up'} ne $node) {
             my $direction = 'up';
             $document->document_line_warn(
      sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
@@ -1064,9 +1053,9 @@ sub check_node_tree_menu_structure($)
             # next pointer for menu_prev_node should be menu_node, and
             # prev pointer for menu_node should be menu_prev_node.
 
-            if ($menu_prev_node_directions
-                  and defined($menu_prev_node_directions->{'next'})
-                  and $menu_prev_node_directions->{'next'} ne $menu_node) {
+            if (defined($menu_prev_node_directions)
+                and exists($menu_prev_node_directions->{'next'})
+                and $menu_prev_node_directions->{'next'} ne $menu_node) {
                 my $direction = 'next';
                 $document->document_line_warn(
          sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
@@ -1080,11 +1069,11 @@ sub check_node_tree_menu_structure($)
             }
 
 
-            if ($menu_node_directions
-                  and defined($menu_node_directions->{'prev'})
-                  and $menu_node_directions->{'prev'} ne $menu_prev_node) {
-                my $direction = 'prev';
-                $document->document_line_warn(
+            if (defined($menu_node_directions)
+                and exists($menu_node_directions->{'prev'})
+                and $menu_node_directions->{'prev'} ne $menu_prev_node) {
+              my $direction = 'prev';
+              $document->document_line_warn(
          sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
                           $direction,
                           target_element_to_texi_label($menu_node),
@@ -1108,14 +1097,12 @@ sub check_node_tree_menu_structure($)
 # is special, and usually points to the first chapter in the
 # document.   Set it using sectioning if possible, otherwise using
 # menus.  Return reference to Top node.
-sub _set_top_node_next($$)
-{
-  my $nodes_list = shift;
-  my $identifier_target = shift;
+sub _set_top_node_next($$) {
+  my ($nodes_list, $identifier_target) = @_;
 
   my $top_node = $identifier_target->{'Top'};
 
-  return undef if (!$top_node);
+  return undef if (!defined($top_node));
 
   if (_node_automatic_directions($top_node)) {
     my $top_node_next;
@@ -1126,25 +1113,25 @@ sub _set_top_node_next($$)
     my $node_directions = $node_relations->{'node_directions'};
 
     # Special case for Top node, use first section
-    if ($node_relations->{'associated_section'}) {
+    if (exists($node_relations->{'associated_section'})) {
       my $associated_relations = $node_relations->{'associated_section'};
       my $section_children = $associated_relations->{'section_children'};
-      if ($section_children and scalar(@$section_children)) {
+      if (defined($section_children) and scalar(@$section_children)) {
         my $section_child_relations = $section_children->[0];
-        if ($section_child_relations->{'associated_node'}) {
+        if (exists($section_child_relations->{'associated_node'})) {
           $top_node_next
             = $section_child_relations->{'associated_node'}->{'element'};
           $node_directions = {}
-              if (! $node_directions);
+              if (! defined($node_directions));
           $node_relations->{'node_directions'} = {}
-              if (!$node_relations->{'node_directions'});
+              if (!exists($node_relations->{'node_directions'}));
           $node_relations->{'node_directions'}->{'next'}
            = $top_node_next;
         }
       }
     }
 
-    if (!$top_node_next) {
+    if (!defined($top_node_next)) {
       # use first menu entry if available as next for Top
       my $menu_child
          = Texinfo::ManipulateTree::first_menu_node($node_relations,
@@ -1162,19 +1149,19 @@ sub _set_top_node_next($$)
           }
         }
       }
-      if ($top_node_next) {
+      if (defined($top_node_next)) {
         $node_relations->{'node_directions'} = {}
-           if (!$node_relations->{'node_directions'});
+           if (!exists($node_relations->{'node_directions'}));
         $node_relations->{'node_directions'}->{'next'}
           = $top_node_next;
-        if (defined($top_node_next->{'extra'}->{'manual_content'})
-              or $top_node_next->{'cmdname'} ne 'node') {
+        if (exists($top_node_next->{'extra'}->{'manual_content'})
+            or $top_node_next->{'cmdname'} ne 'node') {
           $top_node_next = undef;
         }
       }
     }
     # prev defined as first Top node menu entry node
-    if ($top_node_next) {
+    if (defined($top_node_next)) {
       if (_node_automatic_directions($top_node_next)) {
         my $next_node_number = $top_node_next->{'extra'}->{'node_number'};
         # different from Top node and after Top node
@@ -1182,8 +1169,8 @@ sub _set_top_node_next($$)
           my $next_node_relations = $nodes_list->[$next_node_number -1];
 
           $next_node_relations->{'node_directions'} = {}
-            if (!$next_node_relations->{'node_directions'});
-          if (!$next_node_relations->{'node_directions'}->{'prev'}) {
+            if (!exists($next_node_relations->{'node_directions'}));
+          if (!exists($next_node_relations->{'node_directions'}->{'prev'})) {
             $next_node_relations->{'node_directions'}->{'prev'}
               = $top_node;
           }
@@ -1195,8 +1182,7 @@ sub _set_top_node_next($$)
 }
 
 # set node directions based on sectioning and @node explicit directions
-sub construct_nodes_tree($)
-{
+sub construct_nodes_tree($) {
   my $document = shift;
 
   my $customization_information = $document;
@@ -1212,14 +1198,14 @@ sub construct_nodes_tree($)
     my $node = $node_relations->{'element'};
 
     if (_node_automatic_directions($node)) {
-      if (!$top_node or $node ne $top_node) {
+      if (!defined($top_node) or $node ne $top_node) {
         foreach my $direction (@node_directions_names) {
-          if ($node_relations->{'associated_section'}) {
+          if (exists($node_relations->{'associated_section'})) {
             my $direction_relation = $node_relations->{'associated_section'};
 
             # Prefer the section associated with a @part for node directions.
             if ($direction_relation
-                and $direction_relation->{'part_associated_section'}) {
+                and exists($direction_relation->{'part_associated_section'})) {
               $direction_relation
                 = $direction_relation->{'part_associated_section'};
             }
@@ -1229,7 +1215,7 @@ sub construct_nodes_tree($)
                                                    $direction);
             if ($direction_associated_node) {
               $node_relations->{'node_directions'} = {}
-                 if (!$node_relations->{'node_directions'});
+                 if (!exists($node_relations->{'node_directions'}));
               $node_relations->{'node_directions'}->{$direction}
                               = $direction_associated_node->{'element'};
             }
@@ -1243,20 +1229,20 @@ sub construct_nodes_tree($)
         my $direction = $node_directions_names[$i-1];
 
         # external node
-        if ($direction_element->{'extra'}
-            and $direction_element->{'extra'}->{'manual_content'}) {
+        if (exists($direction_element->{'extra'})
+            and exists($direction_element->{'extra'}->{'manual_content'})) {
           $node_relations->{'node_directions'} = {}
-             if (!defined($node_relations->{'node_directions'}));
+             if (!exists($node_relations->{'node_directions'}));
           $node_relations->{'node_directions'}->{$direction}
              = $direction_element;
-        } elsif ($direction_element->{'extra'}
+        } elsif (exists($direction_element->{'extra'})
                  and defined($direction_element->{'extra'}->{'normalized'})) {
           my $direction_normalized = $direction_element->{'extra'}->{'normalized'};
           if ($identifier_target->{$direction_normalized}) {
             my $node_target
                = $identifier_target->{$direction_normalized};
             $node_relations->{'node_directions'} = {}
-               if (!defined($node_relations->{'node_directions'}));
+               if (!exists($node_relations->{'node_directions'}));
             $node_relations->{'node_directions'}->{$direction} = $node_target;
 
             if (!$customization_information->get_conf('novalidate')
@@ -1287,15 +1273,14 @@ sub construct_nodes_tree($)
   }
 }
 
-sub _print_line_command($)
-{
+sub _print_line_command($) {
   my $element = shift;
 
-  if ($Texinfo::Commands::root_commands{$element->{'cmdname'}}) {
+  if (exists($Texinfo::Commands::root_commands{$element->{'cmdname'}})) {
     return Texinfo::ManipulateTree::root_command_element_string($element);
   } else {
-    if ($element->{'contents'}->[0]
-        and $element->{'contents'}->[0]->{'contents'}) {
+    if (scalar(@{$element->{'contents'}})
+        and exists($element->{'contents'}->[0]->{'contents'})) {
       my $root_command_texi
         = Texinfo::Convert::Texinfo::convert_to_texinfo(
            Texinfo::TreeElement::new(
@@ -1306,10 +1291,8 @@ sub _print_line_command($)
   }
 }
 
-sub _print_line_command_key_element($$)
-{
-  my $key = shift;
-  my $element = shift;
+sub _print_line_command_key_element($$) {
+  my ($key, $element) = @_;
 
   my $line_command_text = _print_line_command($element);
   if (!defined($line_command_text)) {
@@ -1319,10 +1302,8 @@ sub _print_line_command_key_element($$)
   }
 }
 
-sub _print_key_section_with_number($$)
-{
-  my $section_key = shift;
-  my $element = shift;
+sub _print_key_section_with_number($$) {
+  my ($section_key, $element) = @_;
 
   my $section_texi
       = Texinfo::ManipulateTree::root_command_element_string($element);
@@ -1333,8 +1314,7 @@ sub _print_key_section_with_number($$)
   }
 }
 
-sub _print_root_command($)
-{
+sub _print_root_command($) {
   my $element = shift;
   #if (!defined($element)) {
   #  confess('_print_root_command element undef');
@@ -1344,8 +1324,8 @@ sub _print_root_command($)
   #}
 
   my $argument_line = $element->{'contents'}->[0];
-  if ($argument_line->{'contents'}
-      and $argument_line->{'contents'}->[0]->{'contents'}) {
+  if (exists($argument_line->{'contents'})
+      and exists($argument_line->{'contents'}->[0]->{'contents'})) {
     my $root_command_texi
       = Texinfo::Convert::Texinfo::convert_to_texinfo(
          Texinfo::TreeElement::new(
@@ -1356,14 +1336,14 @@ sub _print_root_command($)
 }
 
 # used in t/*.t tests
-sub _print_menu_node($)
-{
+sub _print_menu_node($) {
   my $element = shift;
-  if ($element->{'cmdname'} and $element->{'cmdname'} eq 'node') {
+
+  if (exists($element->{'cmdname'}) and $element->{'cmdname'} eq 'node') {
     return _print_root_command($element);
-  } elsif (defined($element->{'cmdname'})
-           and $element->{'contents'}->[0]
-           and $element->{'contents'}->[0]->{'contents'}) {
+  } elsif (exists($element->{'cmdname'})
+           and exists($element->{'contents'})
+           and exists($element->{'contents'}->[0]->{'contents'})) {
     return Texinfo::Convert::Texinfo::convert_to_texinfo(
              Texinfo::TreeElement::new(
                {'contents' => $element->{'contents'}->[0]->{'contents'}}));
@@ -1372,8 +1352,7 @@ sub _print_menu_node($)
   }
 }
 
-sub print_sections_list($)
-{
+sub print_sections_list($) {
   my $document = shift;
 
   my $sections_list = $document->sections_list();
@@ -1394,7 +1373,7 @@ sub print_sections_list($)
     foreach my $node_relations_key (('associated_anchor_command',
                                       'associated_node',
                                      'part_following_node')) {
-      if ($section_relations->{$node_relations_key}) {
+      if (exists($section_relations->{$node_relations_key})) {
         $result .= " $node_relations_key: "
             ._print_root_command(
             $section_relations->{$node_relations_key}->{'element'})."\n";
@@ -1403,18 +1382,18 @@ sub print_sections_list($)
 
     foreach my $section_relations_key (('associated_part',
                                         'part_associated_section')) {
-      if ($section_relations->{$section_relations_key}) {
+      if (exists($section_relations->{$section_relations_key})) {
         $result .= _print_key_section_with_number($section_relations_key,
                $section_relations->{$section_relations_key}->{'element'});
       }
     }
 
     foreach my $directions_key (('section_directions', 'toplevel_directions')) {
-      if ($section_relations->{$directions_key}) {
+      if (exists($section_relations->{$directions_key})) {
         my $value = $section_relations->{$directions_key};
         $result .= " $directions_key:\n";
         foreach my $d_key (@node_directions_names) {
-          if ($value->{$d_key}) {
+          if (exists($value->{$d_key})) {
             my $e = $value->{$d_key}->{'element'};
             my $direction_texi = _print_root_command($e);
             if (defined($direction_texi)) {
@@ -1428,7 +1407,7 @@ sub print_sections_list($)
       }
     }
 
-    if ($section_relations->{'section_children'}) {
+    if (exists($section_relations->{'section_children'})) {
       my $key = 'section_children';
       $result .= " $key:\n";
       my $value = $section_relations->{$key};
@@ -1451,8 +1430,7 @@ sub print_sections_list($)
   return $result;
 }
 
-sub print_sectioning_root($)
-{
+sub print_sectioning_root($) {
   my $document = shift;
 
   my $sectioning_root = $document->sectioning_root();
@@ -1479,8 +1457,7 @@ sub print_sectioning_root($)
   return $result;
 }
 
-sub print_headings_list($)
-{
+sub print_headings_list($) {
   my $document = shift;
 
   my $headings_list = $document->headings_list();
@@ -1492,8 +1469,8 @@ sub print_headings_list($)
   foreach my $heading_relations (@$headings_list) {
     my $element = $heading_relations->{'element'};
     my $root_command_texi;
-    if ($element->{'contents'}->[0]
-        and $element->{'contents'}->[0]->{'contents'}) {
+    if (exists($element->{'contents'})
+        and exists($element->{'contents'}->[0]->{'contents'})) {
       $root_command_texi
         = Texinfo::Convert::Texinfo::convert_to_texinfo(
             Texinfo::TreeElement::new(
@@ -1506,7 +1483,7 @@ sub print_headings_list($)
     }
 
     foreach my $node_relations_key (('associated_anchor_command')) {
-      if ($heading_relations->{$node_relations_key}) {
+      if (exists($heading_relations->{$node_relations_key})) {
         $result .= " $node_relations_key: "
        ._print_root_command(
           $heading_relations->{$node_relations_key}->{'element'})."\n";
@@ -1518,8 +1495,7 @@ sub print_headings_list($)
   return $result;
 }
 
-sub print_nodes_list($)
-{
+sub print_nodes_list($) {
   my $document = shift;
 
   my $nodes_list = $document->nodes_list();
@@ -1537,32 +1513,32 @@ sub print_nodes_list($)
       $result .= "$idx|$root_command_texi\n";
     }
     foreach my $section_key (('associated_section', 'node_preceding_part')) {
-      if ($node_relations->{$section_key}) {
+      if (exists($node_relations->{$section_key})) {
         $result .= _print_key_section_with_number($section_key,
                              $node_relations->{$section_key}->{'element'});
       }
     }
     foreach my $line_cmd_key (('associated_title_command',
                                'node_description')) {
-      if ($node_relations->{$line_cmd_key}) {
+      if (exists($node_relations->{$line_cmd_key})) {
         $result .= _print_line_command_key_element($line_cmd_key,
                                   $node_relations->{$line_cmd_key});
       }
     }
 
     foreach my $command_key (('node_long_description')) {
-      if ($node_relations->{$command_key}) {
+      if (exists($node_relations->{$command_key})) {
         my $command_element = $node_relations->{$command_key};
         $result .= " $command_key: @".$command_element->{'cmdname'}."\n";
       }
     }
 
-    if ($node_relations->{'menus'}
+    if (exists($node_relations->{'menus'})
         and scalar(@{$node_relations->{'menus'}})) {
       $result .= " menus:\n";
       foreach my $menu (@{$node_relations->{'menus'}}) {
         foreach my $menu_content (@{$menu->{'contents'}}) {
-          if ($menu_content->{'type'}
+          if (exists($menu_content->{'type'})
               and $menu_content->{'type'} eq 'menu_entry') {
             my $menu_node;
             foreach my $content (@{$menu_content->{'contents'}}) {
@@ -1579,11 +1555,11 @@ sub print_nodes_list($)
       }
     }
 
-    if ($node_relations->{'node_directions'}) {
+    if (exists($node_relations->{'node_directions'})) {
       my $value = $node_relations->{'node_directions'};
       $result .= " node_directions:\n";
       foreach my $d_key (@node_directions_names) {
-        if ($value->{$d_key}) {
+        if (exists($value->{$d_key})) {
           my $e = $value->{$d_key};
           my $node_direction_texi = _print_menu_node($e);
           $result .= "  ${d_key}->$node_direction_texi\n";
@@ -1599,8 +1575,7 @@ sub print_nodes_list($)
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
 # NonXS version, used in a test of internal pure Perl function.
-sub associate_internal_referencesNonXS($)
-{
+sub associate_internal_referencesNonXS($) {
   my $document = shift;
 
   my $customization_information = $document;
@@ -1612,14 +1587,14 @@ sub associate_internal_referencesNonXS($)
 
   foreach my $ref (@$refs) {
     my $label_element;
-    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
+    if (exists($ref->{'type'}) and $ref->{'type'} eq 'menu_entry_node') {
       $label_element = $ref;
     } else {
       $label_element = $ref->{'contents'}->[0];
     }
 
-    if ($label_element->{'extra'}
-        and $label_element->{'extra'}->{'node_content'}) {
+    if (exists($label_element->{'extra'})
+        and exists($label_element->{'extra'}->{'node_content'})) {
       my $normalized =
         Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
             $label_element->{'extra'}->{'node_content'});
@@ -1627,10 +1602,10 @@ sub associate_internal_referencesNonXS($)
         if (defined($normalized) and $normalized ne '');
     }
 
-    if ($ref->{'type'} and $ref->{'type'} eq 'menu_entry_node') {
+    if (exists($ref->{'type'}) and $ref->{'type'} eq 'menu_entry_node') {
       # similar messages are output in _check_menu_entry
       next;
-    } elsif ($label_element->{'extra'}) {
+    } elsif (exists($label_element->{'extra'})) {
       my $normalized = $label_element->{'extra'}->{'normalized'};
       if (!defined($normalized)
           or !defined($identifier_target->{$normalized})) {
@@ -1660,15 +1635,13 @@ sub associate_internal_referencesNonXS($)
   }
 }
 
-sub associate_internal_references($)
-{
+sub associate_internal_references($) {
   my $document = shift;
 
   associate_internal_referencesNonXS($document);
 }
 
-sub number_floats($)
-{
+sub number_floats($) {
   my $document = shift;
 
   my $listoffloats_and_sections = $document->floats_information();
@@ -1716,13 +1689,12 @@ sub number_floats($)
   }
 }
 
-sub section_level_adjusted_command_name($)
-{
+sub section_level_adjusted_command_name($) {
   my $element = shift;
 
   # the following condition should only be false if sectioning_structure was
   # not called
-  if ($element->{'extra'}
+  if (exists($element->{'extra'})
       and defined($element->{'extra'}->{'section_level'})) {
     my $heading_level = $element->{'extra'}->{'section_level'};
     if ($heading_level ne $Texinfo::CommandsValues::command_structuring_level{
@@ -1742,8 +1714,7 @@ sub section_level_adjusted_command_name($)
 # returns the Texinfo tree corresponding to a single menu entry pointing
 # to $NODE.
 # if $USE_SECTIONS is set, use the section name as menu entry name.
-sub new_node_menu_entry($;$)
-{
+sub new_node_menu_entry($;$) {
   my ($node_relations, $use_sections) = @_;
 
   my $node = $node_relations->{'element'};
@@ -1762,7 +1733,7 @@ sub new_node_menu_entry($;$)
     my $name_element;
     # use associated_title_command and not associated_section as
     # it is more logical here.
-    if ($node_relations->{'associated_title_command'}) {
+    if (exists($node_relations->{'associated_title_command'})) {
       my $arguments_line = $node_relations->{'associated_title_command'}
                ->{'contents'}->[0];
       $name_element = $arguments_line->{'contents'}->[0];
@@ -1784,7 +1755,7 @@ sub new_node_menu_entry($;$)
 
   my $entry = Texinfo::TreeElement::new({'type' => 'menu_entry'});
 
-  if ($node->{'source_info'}) {
+  if (exists($node->{'source_info'})) {
     $entry->{'source_info'} = {%{$node->{'source_info'}}};
   }
 
@@ -1853,10 +1824,8 @@ sub new_node_menu_entry($;$)
   return $entry;
 }
 
-sub new_block_command($$)
-{
-  my $element = shift;
-  my $command_name = shift;
+sub new_block_command($$) {
+  my ($element, $command_name) = @_;
 
   $element->{'cmdname'} = $command_name;
 
@@ -1894,12 +1863,9 @@ sub new_block_command($$)
   return $element;
 }
 
-sub _insert_menu_comment_content($$$;$)
-{
-  my $menu_contents = shift;
-  my $position = shift;
-  my $inserted_element = shift;
-  my $no_leading_empty_line = shift;
+sub _insert_menu_comment_content($$$;$) {
+  my ($menu_contents, $position, $inserted_element,
+      $no_leading_empty_line) = @_;
 
   my $menu_comment
     = Texinfo::TreeElement::new({'type' => 'menu_comment', 'contents' => []});
@@ -1929,8 +1895,7 @@ sub _insert_menu_comment_content($$$;$)
 # $LANG_TRANSLATIONS and $DEBUG are only used for the top menu.
 sub new_complete_node_menu($;$$$)
 {
-  my ($node_relations, $lang_translations,
-      $debug, $use_sections) = @_;
+  my ($node_relations, $lang_translations, $debug, $use_sections) = @_;
 
   my @node_childs
     = get_node_node_childs_from_sectioning($node_relations);
@@ -1955,7 +1920,7 @@ sub new_complete_node_menu($;$$$)
   my $node = $node_relations->{'element'};
   # in top node, additionally insert menu comments for parts and for
   # the first appendix.
-  if ($associated_relations
+  if (defined($associated_relations)
       and $associated_relations->{'element'}->{'cmdname'} eq 'top'
       and $node->{'extra'}->{'normalized'} eq 'Top') {
     my $content_index = 0;
@@ -1965,11 +1930,11 @@ sub new_complete_node_menu($;$$$)
         next;
       }
       my $child_relations = $node_child_relations->{'associated_section'};
-      if ($child_relations) {
+      if (defined($child_relations)) {
         my $child_section = $child_relations->{'element'};
         my $part_added = 0;
         my $associated_part = $child_relations->{'associated_part'};
-        if ($associated_part) {
+        if (defined($associated_part)) {
           my $part_arguments_line
             = $associated_part->{'element'}->{'contents'}->[0];
           my $part_line_arg = $part_arguments_line->{'contents'}->[0];
@@ -2009,16 +1974,9 @@ sub new_complete_node_menu($;$$$)
 # Create a new @detailmenu element.
 # used in tree transformations.  Used in converters through
 # new_complete_menu_master_menu.
-sub new_detailmenu($$$$$$;$$)
-{
-  my $lang_translations = shift;
-  my $converter = shift;
-  my $document = shift;
-  my $identifier_target = shift;
-  my $nodes_list = shift;
-  my $menus = shift;
-  my $debug = shift;
-  my $use_sections = shift;
+sub new_detailmenu($$$$$$;$$) {
+  my ($lang_translations, $converter, $document, $identifier_target,
+      $nodes_list, $menus, $debug, $use_sections) = @_;
 
   # only holds contents here, will be turned into a proper block
   # command in new_block_command
@@ -2029,11 +1987,11 @@ sub new_detailmenu($$$$$$;$$)
   if (defined($menus) and scalar(@$menus)) {
     foreach my $menu (@$menus) {
       foreach my $entry (@{$menu->{'contents'}}) {
-        if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
+        if (exists($entry->{'type'}) and $entry->{'type'} eq 'menu_entry') {
           my $node
         = Texinfo::ManipulateTree::normalized_entry_associated_internal_node(
                                                   $entry, $identifier_target);
-          if ($node) {
+          if (defined($node)) {
             push @{$new_detailmenu->{'contents'}},
                          _print_down_menus($node, undef,
                                            $converter,
@@ -2078,12 +2036,8 @@ sub new_detailmenu($$$$$$;$$)
 # Returns a @menu element for $NODE, formatted with a master menu with a
 # @detailmenu if $NODE is the Top node.
 # $SELF should be a converter.
-sub new_complete_menu_master_menu($$$$)
-{
-  my $self = shift;
-  my $labels = shift;
-  my $nodes_list = shift;
-  my $node_relations = shift;
+sub new_complete_menu_master_menu($$$$) {
+  my ($self, $labels, $nodes_list, $node_relations) = @_;
 
   my $menu_node
     = new_complete_node_menu($node_relations,
@@ -2092,10 +2046,10 @@ sub new_complete_menu_master_menu($$$$)
 
   my $node = $node_relations->{'element'};
 
-  if ($menu_node
-      and $node->{'extra'}->{'normalized'}
+  if (defined($menu_node)
+      and exists($node->{'extra'}->{'normalized'})
       and $node->{'extra'}->{'normalized'} eq 'Top') {
-    if ($node_relations->{'associated_section'}
+    if (exists($node_relations->{'associated_section'})
   and $node_relations->{'associated_section'}->{'element'}->{'cmdname'} eq 'top') {
       my $detailmenu = new_detailmenu($self->{'current_lang_translations'},
                                       $self, undef, $labels, $nodes_list,
@@ -2167,7 +2121,7 @@ sub _print_down_menus($$$$$$;$) {
     }
   }
 
-  if (!@menus) {
+  if (!scalar(@menus)) {
     my $current_menu
       = new_complete_node_menu($node_relations,
                                undef, undef, $use_sections);
@@ -2188,7 +2142,7 @@ sub _print_down_menus($$$$$$;$) {
         my $node
           = Texinfo::ManipulateTree::normalized_entry_associated_internal_node(
                                                  $entry, $identifier_target);
-        if ($node) {
+        if (defined($node)) {
           push @node_children, $node;
         }
       }
