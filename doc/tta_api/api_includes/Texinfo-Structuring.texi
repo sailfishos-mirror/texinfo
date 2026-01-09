@@ -202,10 +202,10 @@ The level in the sectioning tree hierarchy.  0 is for @code{@@top} or
 @code{@@part}, 1 for @code{@@chapter}, @code{@@appendix}...  This level is corrected
 by @code{@@raisesections} and @code{@@lowersections}.
 
-@item section_number
-@anchor{Texinfo@asis{::}Structuring section_number}
+@item section_heading_number
+@anchor{Texinfo@asis{::}Structuring section_heading_number}
 
-The sectioning element number.
+The sectioning command formatted number.
 
 @end table
 

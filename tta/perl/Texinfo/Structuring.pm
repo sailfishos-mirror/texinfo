@@ -2389,9 +2389,9 @@ The level in the sectioning tree hierarchy.  0 is for C<@top> or
 C<@part>, 1 for C<@chapter>, C<@appendix>...  This level is corrected
 by C<@raisesections> and C<@lowersections>.
 
-=item section_number
+=item section_heading_number
 
-The sectioning element number.
+The sectioning command formatted number.
 
 =back
 
