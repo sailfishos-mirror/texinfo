@@ -138,9 +138,8 @@ gendocs_mathjax = -c HTML_MATH=mathjax \
                   -c MATHJAX_SOURCE=$(mathjax_root)/mathjax-instructions.html
 
 gendocs_options = --email $(gendocs_email) --html '$(gendocs_mathjax) \
-                  -c TOP_NODE_UP_URL=$(gendocs_dir_url)'
-# A nice side effect of using --html is to eliminate the fancy css default;
-# otherwise, we could use gendocs_template_min.
+                  -c TOP_NODE_UP_URL=$(gendocs_dir_url) \
+                  --css-ref=https://www.gnu.org/software/gnulib/manual.css'
 #
 gendocs_invoke = env $(gendocs_envvars) $(gendocs) $(gendocs_options)
 

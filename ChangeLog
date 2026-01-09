@@ -1,3 +1,8 @@
+2026-01-09  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/Makefile.am (wwwdoc-build): reference gnulib CSS file
+	on www.gnu.org.
+
 2026-01-06  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* NEWS: further edits and reordering
