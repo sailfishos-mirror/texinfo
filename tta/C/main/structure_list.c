@@ -114,7 +114,7 @@ setup_reallocate_relations_list(heading,HEADING)
 static void
 reallocate_const_node_relations_list (CONST_NODE_RELATIONS_LIST *list)
 {
-    if (list->number + 1 >= list->space)
+  if (list->number + 1 >= list->space)
     {
       list->space += 10;
       list->list = realloc (list->list,

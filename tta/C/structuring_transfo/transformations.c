@@ -188,6 +188,8 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
   /* index in sections_list */
   size_t section_idx = 0;
 
+  /* This loop initializes the index of the first and next section
+     in the tree root element contents list */
   while (idx < root->e.c->contents.number)
     {
       const ELEMENT *content = root->e.c->contents.list[idx];
@@ -226,6 +228,13 @@ fill_gaps_in_sectioning_in_document (DOCUMENT *document,
       if (next_section_level - current_section_level > 1)
         {
           ELEMENT_LIST *new_sections = new_list ();
+ /* to handle the case of a section having its level raised or lowered,
+    we go back to the "normal" level with a correct_level call before
+    inserting the @-commands that outputs @raisesections or @lowersections
+    @-commands
+    After having done the insertion, another call to correct_level with
+    a modifier argument outputs complementary @raisesections or @lowersections
+    to come back to the level corresponding to the current section level */
           correct_level (next_section, current_section, 1);
           while (next_section_level - current_section_level > 1)
             {

@@ -28,12 +28,8 @@ our @ISA = qw(Texinfo::Convert::Converter);
 
 our $VERSION = '7.2.90';
 
-sub _convert($$;$$)
-{
-  my $self = shift;
-  my $tree = shift;
-  my $fname_encoding = shift;
-  my $use_filename = shift;
+sub _convert($$;$$) {
+  my ($self, $tree, $fname_encoding, $use_filename) = @_;
 
   my $reader = Texinfo::Reader::new($tree);
 
@@ -61,20 +57,16 @@ sub _convert($$;$$)
   }
 }
 
-sub convert_tree($$)
-{
-  my $self = shift;
-  my $tree = shift;
+sub convert_tree($$) {
+  my ($self, $tree) = @_;
 
   $self->_convert($tree);
 
   return '';
 }
 
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub output($$) {
+  my ($self, $document) = @_;
 
   my $tree = $document->tree();
 
@@ -82,10 +74,8 @@ sub output($$)
   return undef;
 }
 
-sub convert($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub convert($$) {
+  my ($self, $document) = @_;
 
   my $tree = $document->tree();
 

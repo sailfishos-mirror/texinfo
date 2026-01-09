@@ -9,6 +9,10 @@ Texinfo::TreeElement - Texinfo tree element interface
 @node Texinfo@asis{::}TreeElement SYNOPSIS
 @section Texinfo::TreeElement SYNOPSIS
 
+@verbatim
+  my $element = Texinfo::TreeElement::new({});
+@end verbatim
+
 @node Texinfo@asis{::}TreeElement NOTES
 @section Texinfo::TreeElement NOTES
 
@@ -18,15 +22,15 @@ Texinfo to other formats.  There is no promise of API stability.
 @node Texinfo@asis{::}TreeElement DESCRIPTION
 @section Texinfo::TreeElement DESCRIPTION
 
-@code{Texinfo::TreeElement} defines accessors and methods for
-Texinfo tree elements obtained from parsing Texinfo code.
+@code{Texinfo::TreeElement::new} should be called on every Perl tree
+elements created.
 
-The Texinfo Perl modules can be setup to use Perl XS module extensions in
-native code (written in C) that replace Perl package or methods by native code
-for faster execution. If XS extensions are used, it may be important to
-use the @code{Texinfo::TreeElement} accessors that return elements instead of using
-hash keys described in @ref{Texinfo@asis{::}Parser TEXINFO TREE}.  Otherwise there is no
-specific advantage of using the accessors.
+@code{Texinfo::TreeElement} defines accessors and methods for Texinfo tree elements
+obtained from parsing Texinfo code.  There is no specific advantage of using
+the accessors, but they may be needed when some Texinfo modules XS interfaces
+are used.
+
+These accessors are not used in @code{texi2any}.
 
 @node Texinfo@asis{::}TreeElement METHODS
 @section Texinfo::TreeElement METHODS
@@ -39,7 +43,9 @@ specific advantage of using the accessors.
 Turns the @emph{$element_hash} element hash into a @code{Texinfo::TreeElement} object.
 
 This function is called on all the tree elements created in Texinfo modules
-codes.
+codes.  Since no accessors are used in @code{texi2any} Texinfo modules,
+the call to @code{new} is mainly cosmetic.  It also allows to distinguish a
+Texinfo tree element from a hash.
 
 @item $type = $element->type()
 @anchor{Texinfo@asis{::}TreeElement $type = $element->type()}
@@ -107,6 +113,13 @@ Insert @emph{$added_element} at the end of the @emph{$element} contents
 
 @node Texinfo@asis{::}TreeElement @code{Texinfo@asis{::}TreeElement} and XS extensions
 @subsection @code{Texinfo::TreeElement} and XS extensions
+
+The Texinfo Perl modules can be setup to use Perl XS module extensions in
+native code (written in C) that replace Perl package or methods by native code
+for faster execution.  It may be important to use the @code{Texinfo::TreeElement}
+accessors that return elements instead of using hash keys described in
+@ref{Texinfo@asis{::}Parser TEXINFO TREE} when some Texinfo modules XS interfaces are
+used.
 
 The Texinfo modules XS interface is designed such that the Texinfo tree
 actually processed is not the Perl elements tree, but a tree stored in

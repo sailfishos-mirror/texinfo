@@ -18,6 +18,8 @@
 # This module has an implementation as XS extension:
 # ALTIMP TreeElement.pm
 # ALTIMP XSTexinfo/reader_element/TreeElement.xs
+# In C, the tree element structure fields are accessed directly, there are
+# no equivalent functions.
 
 # The new() method of this module should be used for each creation
 # of a Texinfo tree element.
@@ -38,49 +40,46 @@ use warnings;
 # check that autovivification do not happen incorrectly.
 #no autovivification qw(fetch delete exists store strict);
 
-sub new($)
-{
+sub new($) {
   my $element = shift;
+
   bless $element;
   return $element;
 }
 
-# next accessors are not actually used because using an accessor is much
+# next 3 accessors are not actually used because using an accessor is much
 # slower than accessing hash values
-sub type($)
-{
+sub type($) {
   my $element = shift;
+
   return $element->{'type'};
 }
 
-sub cmdname($)
-{
+sub cmdname($) {
   my $element = shift;
+
   return $element->{'cmdname'};
 }
 
-sub text($)
-{
+sub text($) {
   my $element = shift;
+
   return $element->{'text'};
 }
 
-sub children_number($)
-{
+sub children_number($) {
   my $element = shift;
 
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     return scalar(@{$element->{'contents'}});
   }
   return 0;
 }
 
-sub get_child($$)
-{
-  my $element = shift;
-  my $index = shift;
+sub get_child($$) {
+  my ($element, $index) = @_;
 
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     return $element->{'contents'}->[$index];
   }
   return undef;
@@ -88,60 +87,54 @@ sub get_child($$)
 
 # NOTE it is a complex type and not an element, so it complexify the
 # API, but is simplifies code and could be more efficient
-sub get_children($)
-{
+sub get_children($) {
   my $element = shift;
 
   return $element->{'contents'};
 }
 
-# Accessors that need to be used when the C tree data is not fully
-# built to Perl such as to use the XS interface if loaded
-sub parent($)
-{
+sub parent($) {
   my $element = shift;
+
   return $element->{'parent'};
 }
 
-sub source_info($)
-{
+sub source_info($) {
   my $element = shift;
+
   return $element->{'source_info'};
 }
 
-sub get_attribute($$)
-{
-  my $element = shift;
-  my $attribute = shift;
+sub get_attribute($$) {
+  my ($element, $attribute) = @_;
 
-  if ($element->{'extra'} and exists($element->{'extra'}->{$attribute})) {
+  if (exists($element->{'extra'})
+      and exists($element->{'extra'}->{$attribute})) {
     return $element->{'extra'}->{$attribute};
-  } elsif ($element->{'info'} and exists($element->{'info'}->{$attribute})) {
+  } elsif (exists($element->{'info'})
+           and exists($element->{'info'}->{$attribute})) {
     return $element->{'info'}->{$attribute};
   }
   return undef;
 }
 
-sub source_marks_number($)
-{
+sub source_marks_number($) {
   my $element = shift;
 
-  if ($element->{'source_marks'}) {
+  if (exists($element->{'source_marks'})) {
     return scalar(@{$element->{'source_marks'}});
   }
   return 0;
 }
 
-sub add_to_element_contents($$)
-{
-  my $parent_element = shift;
-  my $element = shift;
+sub add_to_element_contents($$) {
+  my ($parent_element, $element) = @_;
 
   $element->{'parent'} = $parent_element;
   push @{$parent_element->{'contents'}}, $element;
 }
 
-# TODO debug functions in Texinfo::Common cannot be used when the TreeElement
+# NOTE debug functions in Texinfo::Common cannot be used when the TreeElement
 # interface only is used, they should be reimplemented with use of accessors.
 # Could have been a good place for those functions (debug_print_element,
 # debug_print_element_details and similar functions).
@@ -154,6 +147,8 @@ Texinfo::TreeElement - Texinfo tree element interface
 
 =head1 SYNOPSIS
 
+  my $element = Texinfo::TreeElement::new({});
+
 =head1 NOTES
 
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
@@ -161,15 +156,15 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-C<Texinfo::TreeElement> defines accessors and methods for
-Texinfo tree elements obtained from parsing Texinfo code.
+C<Texinfo::TreeElement::new> should be called on every Perl tree
+elements created.
 
-The Texinfo Perl modules can be setup to use Perl XS module extensions in
-native code (written in C) that replace Perl package or methods by native code
-for faster execution. If XS extensions are used, it may be important to
-use the C<Texinfo::TreeElement> accessors that return elements instead of using
-hash keys described in L<Texinfo::Parser/TEXINFO TREE>.  Otherwise there is no
-specific advantage of using the accessors.
+C<Texinfo::TreeElement> defines accessors and methods for Texinfo tree elements
+obtained from parsing Texinfo code.  There is no specific advantage of using
+the accessors, but they may be needed when some Texinfo modules XS interfaces
+are used.
+
+These accessors are not used in C<texi2any>.
 
 =head1 METHODS
 
@@ -181,7 +176,9 @@ X<C<new>>
 Turns the I<$element_hash> element hash into a C<Texinfo::TreeElement> object.
 
 This function is called on all the tree elements created in Texinfo modules
-codes.
+codes.  Since no accessors are used in C<texi2any> Texinfo modules,
+the call to C<new> is mainly cosmetic.  It also allows to distinguish a
+Texinfo tree element from a hash.
 
 =item $type = $element->type()
 X<C<type>>
@@ -238,6 +235,13 @@ Insert I<$added_element> at the end of the I<$element> contents
 =back
 
 =head2 C<Texinfo::TreeElement> and XS extensions
+
+The Texinfo Perl modules can be setup to use Perl XS module extensions in
+native code (written in C) that replace Perl package or methods by native code
+for faster execution.  It may be important to use the C<Texinfo::TreeElement>
+accessors that return elements instead of using hash keys described in
+L<Texinfo::Parser/TEXINFO TREE> when some Texinfo modules XS interfaces are
+used.
 
 The Texinfo modules XS interface is designed such that the Texinfo tree
 actually processed is not the Perl elements tree, but a tree stored in

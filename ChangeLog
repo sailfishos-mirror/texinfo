@@ -1,5 +1,15 @@
 2026-02-09 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Example/TestReader.pm,
+	tta/perl/Texinfo/ReaderNonXS.pm, tta/perl/Texinfo/TreeElementNonXS.pm:
+	reformat functions beginning.  Use defined or exists in conditions
+	when not interested in the value.
+
+	* tta/C/main/reader.c, tta/C/structuring_transfo/transformations.c,
+	tta/C/main/structure_list.c: minor changes in spacing and comments.
+
+2026-02-09 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Structuring.pm, tta/perlTexinfo/Transformations.pm:
 	reformat functions beginning.  Use defined or exists in conditions
 	when not interested in the value.

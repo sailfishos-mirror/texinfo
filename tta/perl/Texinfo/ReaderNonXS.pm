@@ -24,6 +24,7 @@
 
 # ALTIMP Reader.pm
 # ALTIMP XSTexinfo/reader_element/ReaderXS.xs
+# ALTIMP C/main/reader.c
 
 package Texinfo::Reader;
 
@@ -50,13 +51,12 @@ foreach my $text_type (
   $ignorable_text_types{$text_type} = 1;
 }
 
-# The stack holds pair of children and index in this array.
+# The stack holds pair of the children array and the index in this array.
 # The index is the index of the previous element, starting at -1 when
 # pushing on the stack.  When popping the stack, the parent element is
 # at the current index.
 
-sub new($)
-{
+sub new($) {
   my $tree = shift;
 
   if (!defined($tree)) {
@@ -79,50 +79,48 @@ sub new($)
 # with XS.  This is only relevant if the return value is needed, if the
 # return value is ignored, it may not be an issue if the non-overriden
 # function is called when there is no XS.
-sub register_token_element($)
-{
+sub register_token_element($) {
   my $reader = shift;
+
   return undef;
 }
 
 # For XS
-sub register_token_element_child($;$)
-{
+sub register_token_element_child($;$) {
 }
 
-sub _end_element($)
-{
+sub _end_element($) {
   my $reader = shift;
+
   pop @{$reader->{'stack'}};
   if (!scalar(@{$reader->{'stack'}})) {
     return undef;
   }
 
   my $context = $reader->{'stack'}->[-1];
-  my ($index, $array) = @{$context};
+  my ($index, $contents_array) = @{$context};
 
-  my $token = {'element' => $array->[$index],
+  my $token = {'element' => $contents_array->[$index],
                'category' => Texinfo::Reader->TXI_READ_ELEMENT_END};
 
   return $token;
 }
 
-sub read($)
-{
+sub read($) {
   my $reader = shift;
 
   my $context = $reader->{'stack'}->[-1];
-  my ($index, $array) = @{$context};
-  #print STDERR "EREAD @{$reader->{'stack'}}| $index ".scalar(@$array)
-  #  ." $array\n";
+  my ($index, $contents_array) = @{$context};
+  #print STDERR "EREAD @{$reader->{'stack'}}| $index ".scalar(@$contents_array)
+  #  ." $contents_array\n";
 
   $context->[0]++;
 
-  if ($context->[0] +1 > scalar(@$array)) {
+  if ($context->[0] +1 > scalar(@$contents_array)) {
     return _end_element($reader);
   }
 
-  my $element = $array->[$context->[0]];
+  my $element = $contents_array->[$context->[0]];
 
   my $token = {'element' => $element};
 
@@ -132,16 +130,16 @@ sub read($)
     cluck();
   }
 
-  if (defined($element->{'text'})) {
+  if (exists($element->{'text'})) {
     my $type = $element->{'type'};
-    if ($type and $ignorable_text_types{$type}) {
+    if (defined($type) and $ignorable_text_types{$type}) {
       $token->{'category'} = Texinfo::Reader->TXI_READ_IGNORABLE_TEXT;
     } else {
       $token->{'category'} = Texinfo::Reader->TXI_READ_TEXT;
     }
   } else {
     my $contents = $element->{'contents'};
-    if ($contents) {
+    if (defined($contents)) {
       push @{$reader->{'stack'}}, [-1, $contents];
       $token->{'category'} = Texinfo::Reader->TXI_READ_ELEMENT_START;
     } else {
@@ -154,10 +152,8 @@ sub read($)
 
 # The $ELEMENT argument is solely used to check that the end element
 # matches.
-sub skip_children($;$)
-{
-  my $reader = shift;
-  my $element = shift;
+sub skip_children($;$) {
+  my ($reader, $element) = @_;
 
   my $token = _end_element($reader);
 
@@ -173,10 +169,8 @@ sub skip_children($;$)
   return $token;
 }
 
-sub reader_collect_commands_list($$)
-{
-  my $root = shift;
-  my $commands_list = shift;
+sub reader_collect_commands_list($$) {
+  my ($root, $commands_list) = @_;
 
   my $collected_commands_list = [];
   my $commands_hash = {};
@@ -192,7 +186,7 @@ sub reader_collect_commands_list($$)
         or $category == Texinfo::Reader->TXI_READ_EMPTY) {
       my $element = $next->{'element'};
       my $cmdname = $element->{'cmdname'};
-      if (defined($cmdname) and defined($commands_hash->{$cmdname})) {
+      if (defined($cmdname) and exists($commands_hash->{$cmdname})) {
         push @{$collected_commands_list}, $element;
       }
     }

@@ -13,6 +13,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
+/* ALTIMP perl/Texinfo/ReaderNonXS.pm */
+
 #include <config.h>
 
 #include <sys/types.h>
@@ -141,7 +143,7 @@ push_reader_context (READER *reader)
     {
       reader->stack = realloc (reader->stack,
                 (reader->space += 2) * sizeof (READER_CONTEXT));
-      memset (&reader->stack[reader->top], 0, 2 *sizeof (READER_CONTEXT));
+      memset (&reader->stack[reader->top], 0, 2 * sizeof (READER_CONTEXT));
     }
   reader->stack[reader->top].index = -1;
   reader->top++;
