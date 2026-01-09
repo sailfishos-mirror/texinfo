@@ -304,6 +304,7 @@ sub _remove_section_relations_references($) {
 
 sub _remove_node_relations_references($) {
   my $node_relation = shift;
+
   foreach my $relation ('element', 'associated_title_command',
                         'node_description', 'node_long_description',
                         'menus', 'node_directions') {
@@ -333,6 +334,13 @@ sub remove_document_references($;$) {
   foreach my $section_relation (@$sections_list) {
     _remove_section_relations_relations($section_relation);
   }
+
+  # We do not need to remove any node relation key to remove cycles, because
+  # * the cycles with the sections relations are removed by removing section
+  #   relations keys.
+  # * there is no cycle with next and prev node directions because for
+  #   the node relations, the next and prev are tree elements, not other
+  #   node relations.
 
   if (defined($tree)) {
     Texinfo::ManipulateTree::tree_remove_parents($tree);

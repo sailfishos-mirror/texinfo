@@ -65,7 +65,7 @@ environment variables to the in-source tta/ directory.
 
 Running tests:
 
-Tests in perl/t/ test the Perl modules used by the texi2any command/
+Tests in perl/t/ test the Perl modules used by the texi2any command.
 To run those tests, you also need:
   Test::More, Data::Compare, Test::Deep
 On Debian-based distros, Test::More is part of perl-modules and thus
@@ -74,8 +74,8 @@ are named:
   libdata-compare-perl libtest-deep-perl
 
 Devel::Refcount is needed for some checks.  It is detected at configure
-time.  If those tests fail Devel::FindRef, detected at runtime, gives
-additional interesting debugging information.
+time.  If checks using Devel::Refcount fail, Devel::FindRef, detected at
+runtime, gives additional interesting debugging information.
 
 For tests in perl/t/, if the Text::Diff module is installed, the difference
 between reference and obtained test results are shown as a diff, which
@@ -87,11 +87,14 @@ Tests of cycles in Perl data require the Devel::Cycle module and uncommenting
 the find_cycle calls in Perl modules codes manually.  This intervention
 is needed because the run time increases significantly with these calls.
 Cycles being found do not cause the tests to fail, so the test logs should
-be checked for this information.  Cycles in data prevent Perl from releasing
-memory.  Removing cycles requires to specifically remove some data that
-creates the cycles.  Not having cycles is not important, as cycles are not
-removed by default, since it takes more time to do so than to let the memory
-be released at the end of a run.
+be checked for this information.
+
+Cycles in data are relevant, because they prevent Perl from releasing
+memory.  Note, however, that cycles are not removed by default, since it
+takes more time to do so than to let the memory be released at the end of a
+run.  Removing cycles requires to specifically remove some data that creates
+the cycles and is only activated in some cases (more than one manual
+converted, tests).
 
 
 Internals:

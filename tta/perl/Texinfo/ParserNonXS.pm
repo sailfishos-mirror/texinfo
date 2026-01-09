@@ -3723,6 +3723,7 @@ sub _text_contents_to_plain_text($) {
   return ($text, $superfluous_arg);
 }
 
+# ALTIMP partly in tta/C/main/structure_list.c (not setting the extra key)
 sub _add_to_relations_list($$$) {
   my ($document, $type, $element) = @_;
 
