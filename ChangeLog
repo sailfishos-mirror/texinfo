@@ -59,6 +59,11 @@
 
 2026-01-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: reorder and edit headings slightly.  remove
+	expired advice about release/7.1 branch.
+
+2026-01-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac (AM_INIT_AUTOMAKE): Add 'dist-xz' option.
 
 2026-01-10  Gavin Smith <gavinsmith0123@gmail.com>
