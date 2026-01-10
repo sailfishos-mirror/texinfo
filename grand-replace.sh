@@ -153,8 +153,9 @@ change_files
 find_dir=util
 ext_pattern=""
 named_pattern=".*"
-# update these manually for now
-not='-not -name htmlxref.cnf -not -name texi2dvi -not -name texi2pdf'
+# update these manually for now.  htmlxref.cnf files have separate
+# timestamps.
+not='-not -name *.cnf -not -name texi2dvi -not -name texi2pdf'
 
 change_files
 

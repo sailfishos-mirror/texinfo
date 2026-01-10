@@ -59,6 +59,11 @@
 
 2026-01-10  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* grand-replace.sh: do not touch util/htmlxref.d/*.cnf
+	files.
+
+2026-01-10  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* util/htmlxref.cnf: track file in git only as a source
 	for the stub file on ftp.gnu.org.
 
