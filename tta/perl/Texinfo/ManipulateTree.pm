@@ -1164,8 +1164,9 @@ sub tree_print_details($;$$) {
 
 # Texinfo tree transformations used in main output formats conversion.
 
-# TODO there is no recursion in elements_oot, nor in modified elements.
-# Should this be added in modify_tree, or be left to &OPERATION?
+# NOTE for now, if there is a need to recurse, for instance in elements_oot
+# extra information or in modified elements, it should be done in
+# &OPERATION.  If it becomes common, it could be done in modify_tree instead.
 sub modify_tree($$;$);
 sub modify_tree($$;$) {
   my ($tree, $operation, $argument) = @_;
@@ -1194,7 +1195,7 @@ sub modify_tree($$;$) {
       }
     }
   }
-  # TODO this is probably unneeded, the call on each element of the
+  # This is probably unneeded, the call on each element of the
   # tree just above allows to modify source marks already.
   #if ($tree->{'source_marks'}) {
   #  my @source_marks = @{$tree->{'source_marks'}};
@@ -1695,6 +1696,11 @@ sub first_menu_node($$) {
 
 
 
+# Print listoffloats information for tests
+
+# ALTIMP tta/C/main/floats.c
+# no equivalent in Perl, so in this module.
+
 sub _print_caption_shortcaption($$$$$) {
   my ($element, $float, $caption_type, $type, $float_number) = @_;
 
@@ -1731,9 +1737,6 @@ sub _print_caption_shortcaption($$$$$) {
   }
   return $result;
 }
-
-# Print listoffloats information.  In a separate floats.c file in C,
-# no equivalent in Perl, so use this file.  Used in tests.
 
 sub print_listoffloats_types($) {
   my $listoffloats_list = shift;

@@ -270,7 +270,11 @@ txi_ICONV_CONVERTS_EUC_CN
 AC_CHECK_FUNCS(newlocale strxfrm_l)
 
 # This is useful on platforms where gettext functions are present, but
-# setting the locale through LANGUAGE is not implemented.
+# setting the locale through LANGUAGE is not implemented.  In 2024 this is
+# the case of the musl libc libintl implementation, for example.
+# Setting locale through LANGUAGE is not automatically detected, but it
+# is possible to manually set --enable-xs-perl-libintl to use libintl-perl
+# to always get the correct output.
 AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
               [prefer Perl libintl-perl gettext in XS modules]),

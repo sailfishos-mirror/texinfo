@@ -341,12 +341,9 @@ AC_ARG_ENABLE([installvendorlib],
     AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl default)]))
 
 # This is useful on platforms where gettext functions are present, but
-# setting the locale through LANGUAGE is not implemented.  In 2024 this is
-# the case of the musl libc libintl implementation, for example.
-# Setting locale through LANGUAGE is not automatically detected, but it
-# is possible to manually set --enable-xs-perl-libintl to use libintl-perl
-# to always get the correct output (there is a TODO for automatic detection in
-# tta/configure.ac).
+# setting the locale through LANGUAGE is not implemented.
+# It is possible to manually set --enable-xs-perl-libintl to use libintl-perl
+# to always get the correct output.
 AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
             [prefer Perl libintl-perl gettext in XS modules]))

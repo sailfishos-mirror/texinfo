@@ -77,7 +77,7 @@ enum extra_type {
 /* not in Perl */
 #define EF_def_line                      0x0800
 /* transiently used for numbering of the elements for the representation
-   of the tree */
+   of the tree.  Not currently used. */
 #define EF_numbered                      0x1000
 
 /* indices in ELEMENT elt_info */

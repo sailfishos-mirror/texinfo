@@ -193,6 +193,7 @@ print_indented (const char *text, TEXT *result)
     }
 }
 
+/* ALTIMP perl/Texinfo/ManipulateTree.pm */
 static void
 print_caption_shortcaption (const ELEMENT *element, const ELEMENT *float_e,
                             const char *caption_type,
@@ -222,9 +223,11 @@ print_caption_shortcaption (const ELEMENT *element, const ELEMENT *float_e,
   free (caption_texi);
 }
 
+/* ALTIMP perl/Texinfo/ManipulateTree.pm */
 /* this should be mainly to verify listoffloats types, association with
    floats.  The captions are there mainly to identify floats */
 /* The list should already be sorted in float_list_to_listoffloats_list */
+/* Used in tests */
 char *
 print_listoffloats_types (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
 {

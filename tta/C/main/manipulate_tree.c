@@ -52,10 +52,16 @@
    the references to the copies.
  */
 
-ELEMENT *
+static ELEMENT *
 copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees);
 
-void
+/* OTHER_TREES is currently only used as an indicator.  If NULL,
+   the extra_types that point to other parts of the tree are not
+   copied.
+
+   See more on that subject in the comment before copy_tree.
+ */
+static void
 copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
                       ELEMENT_LIST *other_trees)
 {
@@ -189,7 +195,13 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
     }
 }
 
-ELEMENT *
+/* OTHER_TREES is currently only used as an indicator.  If NULL,
+   the extra_types that point to other parts of the tree are not
+   copied.
+
+   See more on that subject in the comment before copy_tree.
+ */
+static ELEMENT *
 copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees)
 {
   ELEMENT *new;
@@ -198,9 +210,11 @@ copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees)
 
   if (current->flags & EF_copy)
     {
+    /* the reference to the copy element is last in elt_info */
       return current->elt_info[elt_info_nr];
     }
 
+  /* not already copied, do the copy */
   if (type_data[current->type].flags & TF_text)
     new = new_text_element (current->type);
   else if (current->e.c->cmd)
@@ -270,10 +284,10 @@ copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees)
   return new;
 }
 
-void
+static void
 remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements);
 
-void
+static void
 remove_associated_copy_info (ASSOCIATED_INFO *info,
                              ELEMENT_LIST *added_root_elements)
 {
@@ -342,7 +356,15 @@ remove_associated_copy_info (ASSOCIATED_INFO *info,
     }
 }
 
-void
+/*
+   If ADDED_ROOT_ELEMENT is set, new element without parent is registered
+   there, to try to get a reference to the elements copied not in the main
+   tree.
+
+   This does not work, but it is not needed right now either, as explained
+   in the comment above copy_tree.
+ */
+static void
 remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
 {
   size_t i;
@@ -355,6 +377,7 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
 
   elt_info_nr = type_data[current->type].elt_info_number;
   new_elt = current->elt_info[elt_info_nr];
+  /* new element without parent is recorded as an added root element */
   if (!(type_data[new_elt->type].flags & TF_text) && !new_elt->e.c->parent)
     {
       if (added_root_elements)
@@ -413,7 +436,19 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
     }
 }
 
-/* TODO not to be done for now, without extra_type pointing outside used.
+/*
+   NOTE extra_types that could point outside of the tree
+   may appear in the tree only if there is extra information
+   with this type.  Code could still exist for extra_types that
+   are not actually used in any code.  See AI_KEYS_LIST in tree_types.h
+   for the list of possible extra information.  In 2025 there are no
+   extra_types that can point to another part of the tree in extra information
+   (no extra_element, extra_contents nor extra_directions).
+
+   The following notes apply to extra information that can point to another
+   part of the tree, therefore these notes are not relevant for now.  They
+   are kept, as they may become relevant again if the extra_types that point
+   to another part of the tree are used again in the future.
 
    The extra elements references can be out of the children of
    the copied tree if the copied tree is not a tree root.  In that case,
@@ -429,21 +464,19 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
    used as an indicator; if NULL, elements in extra information
    that could point outside of the tree are not copied.
 
-   The current setup should work as long as the function is only
-   called on complete trees when ADDED_ROOT_ELEMENTS is set and thus
-   other_trees is set.  It is the caller responsibility to call
+   This setup works with any kind of extra information as long as the
+   function is only called on complete trees when ADDED_ROOT_ELEMENTS is
+   set and thus other_trees is set.  It is the caller responsibility to call
    copy_tree with ADDED_ROOT_ELEMENTS set only for complete
    self-contained trees.
-
-   As a last note, extra_types that could point outside of the tree
-   may appear in the tree only if there is extra information
-   with this type.  Code could still be there for extra_types that
-   cannot appear anywhere.  See AI_KEYS_LIST in tree_types.h for the list
-   of possible extra information.  In 2025 there were none of those
-   extra_types in extra information, which means that there is nothing to be
-   actually improved here.  These extra_types could be used again in the
-   future, however.
  */
+
+ /*
+   ADDED_ROOT_ELEMENTS is used to register copies outside of the main
+   copied tree that are also tree roots, ie without parent.  See the
+   comment above explaining why it does not work, and also why it is
+   not needed for now.
+  */
 ELEMENT *
 copy_tree (ELEMENT *element, ELEMENT_LIST *added_root_elements)
 {
@@ -570,7 +603,7 @@ tree_remove_parents (ELEMENT *element)
 
 
 
-/* Source marks low level handling functionsa and relocate_source_marks */
+/* Source marks low level handling functions and relocate_source_marks */
 
 void
 add_source_mark (SOURCE_MARK *source_mark, ELEMENT *e)
@@ -982,13 +1015,17 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
 
 
+/*
+   Tree detailed print code.  Used in *.t tests and for debugging.
+ */
+
 /* set_element_tree_numbers does nothing as there are no reference
    to tree elements in the tree extra information currently, consistently
    no command is selected, so this function has no effect.
   */
+
 /* since it has no effect set to a noop and rename the function
    implementing the code that would have been useful otherwise */
-
 uintptr_t
 set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
 {
@@ -1024,11 +1061,11 @@ unused_set_element_tree_numbers (ELEMENT *element, uintptr_t current_nr)
           if (element->flags & EF_copy)
             fprintf (stderr, "WARNING: can't number, copy is set: %p '%s'\n",
                              element, debug_str);
-          /* TODO not possible for now, but this has happened in tests in
+          /* NOTE not possible for now, but this has happened in tests in
              the past.  It may have been because of a bug
              where the element was numbered instead of the elt_info.
              If/when this code can be tested again, it should be checked
-             if this bug is still there and if yes, it should be removed.
+             if this bug is still there and if yes, it should be fixed.
           else
             fprintf (stderr, "WARNING: already numbered: %p E%"
                                  PRIuPTR " '%s'\n", element,
@@ -1513,7 +1550,7 @@ print_element_extra (ELEMENT *element, int level,
           }
         case extra_container:
           { /* node_content and node_manual */
-            /* Contains references to elements in tree, but these are
+            /* Contains references to elements in tree, including
                text elements that we do not want to number, so instead we
                present the Texinfo code */
             char *container_value = convert_to_texinfo (k_pair->k.element);
@@ -1807,8 +1844,9 @@ element_print_details (ELEMENT *element, const char *fname_encoding,
 
 
 /* the caller should make sure that the tree is not a text element */
-/* TODO add recursion in elements_oot, or in modified elements?
-   It is not clear whether this should be in modify_tree, or in &OPERATION.
+/* NOTE for now, if there is a need to recurse, for instance in elements_oot
+   extra information or in modified elements, it should be done in
+   &OPERATION.  If it becomes common, it could be done in modify_tree instead.
  */
 ELEMENT *
 modify_tree (ELEMENT *tree,
@@ -1837,7 +1875,7 @@ modify_tree (ELEMENT *tree,
             modify_tree (content, operation, argument);
         }
     }
-  /* this is probably unneeded, the call on each element of the
+  /* This is probably unneeded, the call on each element of the
      tree just above allows to modify source marks already.
 
   if (tree->source_mark_list != 0)
@@ -2056,6 +2094,12 @@ protect_node_after_label_in_document (DOCUMENT *document)
 
 
 
+/* Methods used to get information on menu entries and nodes.  Used in
+   structuring and transformation codes.
+ */
+
+/* return the identifier corresponding to
+   the internal node referred to by menu entry ENTRY */
 const char *
 normalized_menu_entry_internal_node (const ELEMENT *entry)
 {
@@ -2075,6 +2119,7 @@ normalized_menu_entry_internal_node (const ELEMENT *entry)
   return 0;
 }
 
+/* Return the node element referred to by menu entry ENTRY. */
 ELEMENT *
 normalized_entry_associated_internal_node (const ELEMENT *entry,
                                   const C_HASHMAP *identifiers_target)
@@ -2089,6 +2134,11 @@ normalized_entry_associated_internal_node (const ELEMENT *entry,
   return 0;
 }
 
+/*
+  In NODE, find the first menu entry in the first menu.  If the node
+  in the menu refers to a target element in the document, return that
+  element.  Otherwise, return the 'menu_entry_node' element.
+ */
 const ELEMENT *
 first_menu_node (const NODE_RELATIONS *node_relations,
                  const C_HASHMAP *identifiers_target)

@@ -582,9 +582,9 @@ and doing many XS interfaces and different code in Perl.
 Therefore, currently this code is not used in texi2any, and not developped
 further.  The SWIG interface in util/swig, even if less flexible and less
 elegantly integrated in Perl also allows to wrap the C code, is much easier
-to develop and maintain and multi output formats.
+to develop and maintain, and multi language.
 
-The TODO information follows in case this code would be developped again.
+The following information was kept in case this code would be developped again.
 
 There could be a TreeElement interface for element destruction that
 would nullify the corresponding handle in document->element_handles, and
@@ -623,7 +623,7 @@ accessors for TreeElements:
  * command_name [OK]
  * source marks
     SourceMarksCount
-    SourceMark[n]
+    SourceMark(n)
  * attributes (extra/info)
      getAttribute (name) [OK]
      attributeCount ()
@@ -635,7 +635,7 @@ accessors for TreeElements:
 
 Tree access
  ChildElementCount [OK]
- ChildElement[n] [OK]
+ ChildElement(n) [OK]
 
 Cross references:
  * getTargetById [OK, but untested]
@@ -644,10 +644,14 @@ Cross references:
 Interrogations and remarks
 ==========================
 
-No more extra element, content, direction, all have been put in
-structure information in sections, nodes, headings structure info
-lists.  We keep the corresponding code in case we need those extra
-categories back again.
+In general, it is better to avoid extra information in the tree that
+can be retrieved, or that is better in separate data, such as node,
+sectioning commands and heading relations.  In particular to avoid
+referring to elements in other parts of the tree.  Right now, there
+isn't any extra information referring to elements in other parts of
+the tree (no extra element, contents nor directions).  It would
+be better to keep it like this, but we keep the corresponding code in
+case we need those extra categories back again.
 
 For converters in C, agreed with Gavin that, in general, it is better not to
 translate a perl tree in input, but access directly the C tree that was setup
