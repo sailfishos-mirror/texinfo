@@ -119,13 +119,13 @@ our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     if ($XS_parser) {
-      for my $sub (keys %XS_overrides) {
-        Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
+      foreach my $sub (keys(%XS_overrides)) {
+        Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
       }
     }
     if ($XS_structuring) {
-      for my $sub (keys %XS_structure_overrides) {
-        Texinfo::XSLoader::override ($sub, $XS_structure_overrides{$sub});
+      foreach my $sub (keys(%XS_structure_overrides)) {
+        Texinfo::XSLoader::override($sub, $XS_structure_overrides{$sub});
       }
     }
     $module_loaded = 1;
@@ -161,109 +161,103 @@ sub new_document($) {
   return $document;
 }
 
-sub register_tree($$)
-{
-  my $document = shift;
-  my $tree = shift;
+sub register_tree($$) {
+  my ($document, $tree) = @_;
+
   $document->{'tree'} = $tree;
 }
 
-sub set_document_global_info($$$)
-{
-  my $document = shift;
-  my $key = shift;
-  my $value = shift;
+sub set_document_global_info($$$) {
+  my ($document, $key, $value) = @_;
+
   $document->{'global_info'}->{$key} = $value;
 }
 
-sub tree($;$)
-{
-  my $self = shift;
+# $HANDLER_ONLY is only relevant in XS.
+sub tree($;$) {
+  my ($self, $handler_only) = @_;
+
   return $self->{'tree'};
 }
 
 # return indices information
-sub indices_information($)
-{
+sub indices_information($) {
   my $self = shift;
+
   return $self->{'indices'};
 }
 
-sub floats_information($)
-{
+sub floats_information($) {
   my $self = shift;
+
   return $self->{'listoffloats_list'};
 }
 
-sub internal_references_information($)
-{
+sub internal_references_information($) {
   my $self = shift;
+
   return $self->{'internal_references'};
 }
 
-sub global_commands_information($)
-{
+sub global_commands_information($) {
   my $self = shift;
+
   return $self->{'commands_info'};
 }
 
-sub global_information($)
-{
+sub global_information($) {
   my $self = shift;
+
   return $self->{'global_info'};
 }
 
-sub labels_information($)
-{
+sub labels_information($) {
   my $self = shift;
+
   return $self->{'identifiers_target'};
 }
 
-sub labels_list($)
-{
+sub labels_list($) {
   my $self = shift;
+
   return $self->{'labels_list'};
 }
 
-sub nodes_list($)
-{
+sub nodes_list($) {
   my $self = shift;
+
   return $self->{'nodes_list'};
 }
 
-sub sections_list($)
-{
+sub sections_list($) {
   my $self = shift;
+
   return $self->{'sections_list'};
 }
 
-sub sectioning_root($)
-{
+sub sectioning_root($) {
   my $self = shift;
+
   return $self->{'sectioning_root'};
 }
 
-sub headings_list($)
-{
+sub headings_list($) {
   my $self = shift;
+
   return $self->{'headings_list'};
 }
 
 # Useful for options used in structuring/tree transformations.
-sub register_document_options($$)
-{
-  my $self = shift;
-  my $options = shift;
+sub register_document_options($$) {
+  my ($self, $options) = @_;
 
   $self->{'options'} = $options;
 }
 
-sub get_conf($$)
-{
-  my $self = shift;
-  my $var = shift;
+sub get_conf($$) {
+  my ($self, $var) = @_;
 
-  if ($self->{'options'}) {
+  if (exists($self->{'options'})) {
     return $self->{'options'}->{$var};
   }
 
@@ -277,45 +271,48 @@ sub get_conf($$)
 
 # remove cycles
 sub _remove_section_relations_relations($) {
-  my $section_relation = shift;
+  my $section_relations = shift;
+
   foreach my $relation ('associated_anchor_command', 'associated_node',
                         'part_following_node', 'part_associated_section',
                         'section_children') {
-    delete $section_relation->{$relation};
+    delete $section_relations->{$relation};
   }
-  if (exists($section_relation->{'section_directions'})) {
+  if (exists($section_relations->{'section_directions'})) {
     # next/prev cycles
-    delete $section_relation->{'section_directions'}->{'next'};
+    delete $section_relations->{'section_directions'}->{'next'};
   }
-  if (exists($section_relation->{'toplevel_directions'})) {
+  if (exists($section_relations->{'toplevel_directions'})) {
     # next/prev cycles, but also next/up and prev/up as the first
     # chapter level relation is next for top and also up
-    delete $section_relation->{'toplevel_directions'}->{'next'};
-    delete $section_relation->{'toplevel_directions'}->{'prev'};
+    delete $section_relations->{'toplevel_directions'}->{'next'};
+    delete $section_relations->{'toplevel_directions'}->{'prev'};
   }
 }
 
 sub _remove_section_relations_references($) {
-  my $section_relation = shift;
+  my $section_relations = shift;
+
   foreach my $relation ('element') {
-    delete $section_relation->{$relation};
+    delete $section_relations->{$relation};
   }
 }
 
 sub _remove_node_relations_references($) {
-  my $node_relation = shift;
+  my $node_relations = shift;
 
   foreach my $relation ('element', 'associated_title_command',
                         'node_description', 'node_long_description',
                         'menus', 'node_directions') {
-    delete $node_relation->{$relation};
+    delete $node_relations->{$relation};
   }
 }
 
 sub _remove_heading_relations_references($) {
-  my $heading_relation = shift;
+  my $heading_relations = shift;
+
   foreach my $relation ('element') {
-    delete $heading_relation->{$relation};
+    delete $heading_relations->{$relation};
   }
 }
 
@@ -430,6 +427,7 @@ sub remove_document_references($;$) {
   }
 }
 
+# For XS only
 sub _XS_destroy_document($;$) {
   my ($document, $remove_references) = @_;
 }
@@ -444,24 +442,20 @@ sub destroy_document($;$) {
 
 # this method does nothing, but the XS override rebuilds the Perl
 # tree based on XS data.
-sub build_tree($;$)
-{
-  my $tree = shift;
-  my $no_store = shift;
+sub build_tree($;$) {
+  my ($tree, $no_store) = @_;
 
   return $tree;
 }
 
 
 
-sub document_line_warn($$$;$)
-{
-  my $document = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
+# Errors and warnings handling
 
-  $continuation = 0 if !defined($continuation);
+sub document_line_warn($$$;$) {
+  my ($document, $text, $error_location_info, $continuation) = @_;
+
+  $continuation = 0 if (!defined($continuation));
 
   my $error_messages = $document->{'error_messages'};
   my $debug = $document->get_conf('DEBUG');
@@ -470,12 +464,8 @@ sub document_line_warn($$$;$)
                            $error_location_info, $continuation, $debug);
 }
 
-sub document_line_error($$$;$)
-{
-  my $document = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
+sub document_line_error($$$;$) {
+  my ($document, $text, $error_location_info, $continuation) = @_;
 
   $continuation = 0 if !defined($continuation);
 
@@ -487,8 +477,7 @@ sub document_line_error($$$;$)
                                       $continuation, $debug);
 }
 
-sub parser_errors($)
-{
+sub parser_errors($) {
   my $document = shift;
 
   my $errors_output = [@{$document->{'parser_error_messages'}}];
@@ -500,8 +489,7 @@ sub parser_errors($)
 
 # The XS override pass C error messages to the document
 # error_messages and remove error messages in C.
-sub errors($)
-{
+sub errors($) {
   my $document = shift;
 
   my $errors_output = [splice(@{$document->{'error_messages'}})];
@@ -511,6 +499,8 @@ sub errors($)
 
 
 
+# Indices
+
 # No XS override.
 # This method is already called by other methods, in particular
 # sorted_indices_by_* when the indexes are sorted.  When the indexes
@@ -519,12 +509,11 @@ sub errors($)
 # XS override is not needed, if the converters calling this function
 # are implemented in C, even partly, they should call the C counterpart
 # rather than go through an XS interface.
-sub merged_indices($)
-{
+sub merged_indices($) {
   my $self = shift;
 
-  if ($self->{'indices'}) {
-    if (!$self->{'merged_indices'}) {
+  if (exists($self->{'indices'})) {
+    if (!exists($self->{'merged_indices'})) {
       $self->{'merged_indices'}
         = Texinfo::Indices::merge_indices($self->{'indices'});
     }
@@ -537,12 +526,10 @@ sub merged_indices($)
 # In general, it is not needed to call that function directly,
 # as it is called by Texinfo::Indices::sort_indices_by_*.  It could
 # be called in advance if errors need to be collected early.
-sub setup_indices_sort_strings($$)
-{
-  my $document = shift;
-  my $converter = shift;
+sub setup_indices_sort_strings($$) {
+  my ($document, $converter) = @_;
 
-  if (!$document->{'index_entries_sort_strings'}) {
+  if (!exists($document->{'index_entries_sort_strings'})) {
     my $indices_sort_strings
       = Texinfo::Indices::setup_index_entries_sort_strings($document,
               $converter, $document->merged_indices(),
@@ -552,13 +539,11 @@ sub setup_indices_sort_strings($$)
 }
 
 # index_entries_sort_strings accessor.  A different function from
-# setup_indices_sort_strings such that there is no need to build C data
-# to Perl when calling setup_indices_sort_strings, to make it possible
-# to delay building Perl data for indices_sort_strings function call in XS.
-sub indices_sort_strings($$)
-{
-  my $document = shift;
-  my $converter = shift;
+# setup_indices_sort_strings such that there is no necessity to build C data
+# to Perl when setup_indices_sort_strings is called.  It is thus possible
+# to delay building Perl data until indices_sort_strings function is called.
+sub indices_sort_strings($$) {
+  my ($document, $converter) = @_;
 
   setup_indices_sort_strings($document, $converter);
   return $document->{'index_entries_sort_strings'};
@@ -570,12 +555,8 @@ sub indices_sort_strings($$)
 # get_converter_indices_sorted_by_letter should be called directly.
 # In general a CONVERTER argument is given, but if not the DOCUMENT is
 # used instead to register error messages.
-sub sorted_indices_by_letter($$$$)
-{
-  my $document = shift;
-  my $converter = shift;
-  my $use_unicode_collation = shift;
-  my $locale_lang = shift;
+sub sorted_indices_by_letter($$$$) {
+  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
 
   my $lang_key;
   if (!$use_unicode_collation) {
@@ -589,9 +570,9 @@ sub sorted_indices_by_letter($$$$)
   }
 
   $document->{'sorted_indices_by_letter'} = {}
-    if (!$document->{'sorted_indices_by_letter'});
+    if (!exists($document->{'sorted_indices_by_letter'}));
 
-  if (!$document->{'sorted_indices_by_letter'}->{$lang_key}) {
+  if (!exists($document->{'sorted_indices_by_letter'}->{$lang_key})) {
     $document->merged_indices();
     $document->{'sorted_indices_by_letter'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_letter
@@ -607,12 +588,8 @@ sub sorted_indices_by_letter($$$$)
 # get_converter_indices_sorted_by_index should be called directly.
 # In general a CONVERTER argument is given, but if not the DOCUMENT is
 # used instead to register error messages.
-sub sorted_indices_by_index($$$$)
-{
-  my $document = shift;
-  my $converter = shift;
-  my $use_unicode_collation = shift;
-  my $locale_lang = shift;
+sub sorted_indices_by_index($$$$) {
+  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
 
   my $lang_key;
   if (!$use_unicode_collation) {
@@ -626,9 +603,9 @@ sub sorted_indices_by_index($$$$)
   }
 
   $document->{'sorted_indices_by_index'} = {}
-    if (!$document->{'sorted_indices_by_index'});
+    if (!exists($document->{'sorted_indices_by_index'}));
 
-  if (!$document->{'sorted_indices_by_index'}->{$lang_key}) {
+  if (!exists($document->{'sorted_indices_by_index'}->{$lang_key})) {
     $document->merged_indices();
     $document->{'sorted_indices_by_index'}->{$lang_key}
       = Texinfo::Indices::sort_indices_by_index
@@ -642,15 +619,14 @@ sub sorted_indices_by_index($$$$)
 
 # wrapper on print_listoffloats_types that can be used for XS overriding.
 # Used in tests only.
-sub print_document_listoffloats($)
-{
+sub print_document_listoffloats($) {
   my $document = shift;
 
   my $float_text;
 
   if ($document) {
     my $floats = $document->floats_information();
-    if ($floats) {
+    if (defined($floats)) {
       $float_text
           = Texinfo::ManipulateTree::print_listoffloats_types($floats);
     }
@@ -661,15 +637,14 @@ sub print_document_listoffloats($)
 
 # wrapper on print_indices_information that can be used for XS overriding.
 # Used in tests only.
-sub print_document_indices_information($)
-{
+sub print_document_indices_information($) {
   my $document = shift;
 
   my $indices_info_text;
 
-  if ($document) {
+  if (defined($document)) {
     my $indices_information = $document->indices_information();
-    if ($indices_information) {
+    if (defined($indices_information)) {
       $indices_info_text
         = Texinfo::Indices::print_indices_information($indices_information);
     }
@@ -679,8 +654,7 @@ sub print_document_indices_information($)
 }
 
 # for tests, to be used for overriding
-sub print_document_indices_sort_strings($)
-{
+sub print_document_indices_sort_strings($) {
   my $document = shift;
 
   # read from C data if needed
@@ -690,7 +664,7 @@ sub print_document_indices_sort_strings($)
 
   # use merged indices here as there are only indices with
   # entries in that data
-  return undef unless ($merged_index_entries);
+  return undef unless (defined($merged_index_entries));
 
   my $use_unicode_collation
     = $document->get_conf('USE_UNICODE_COLLATION');
@@ -728,18 +702,14 @@ sub print_document_indices_sort_strings($)
 
 
 # In general, we avoid passing error messages separate from the object holding
-# them.  In that case, however, when called from parser, we want
-# parser_error_messages error messages to be modified from a document, and not
+# them.  In that case, however, when called from the Parser, we want
+# parser_error_messages error messages to be modified in the document, and not
 # the error messages of the document, so we pass the error messages list
 # separately.
-sub _existing_label_error($$;$$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $error_messages = shift;
-  my $debug = shift;
+sub _existing_label_error($$;$$) {
+  my ($self, $element, $error_messages, $debug) = @_;
 
-  if ($element->{'extra'}
+  if (exists($element->{'extra'})
       and defined($element->{'extra'}->{'normalized'})) {
     my $normalized = $element->{'extra'}->{'normalized'};
     if (defined($error_messages)) {
@@ -759,15 +729,13 @@ sub _existing_label_error($$;$$)
   }
 }
 
-sub _add_element_to_identifiers_target($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _add_element_to_identifiers_target($$) {
+  my ($self, $element) = @_;
 
-  if ($element->{'extra'}
+  if (exists($element->{'extra'})
       and defined($element->{'extra'}->{'normalized'})) {
     my $normalized = $element->{'extra'}->{'normalized'};
-    if (!defined $self->{'identifiers_target'}->{$normalized}) {
+    if (!exists($self->{'identifiers_target'}->{$normalized})) {
       $self->{'identifiers_target'}->{$normalized} = $element;
       $element->{'extra'}->{'is_target'} = 1;
       return 1;
@@ -780,19 +748,17 @@ sub _add_element_to_identifiers_target($$)
 # This should be considered an internal function of the parser.
 # It is here to reuse code.
 # Sets $self->{'identifiers_target'} based on $self->{'labels_list'}.
-sub set_labels_identifiers_target($$;$)
-{
-  my $self = shift;
-  my $error_messages = shift;
-  my $debug = shift;
+sub set_labels_identifiers_target($$;$) {
+  my ($self, $error_messages, $debug) = @_;
 
   my @elements_with_error;
 
-  $self->{'identifiers_target'} = {};
-  if (defined $self->{'labels_list'}) {
+  # initialized at document creation
+  #$self->{'identifiers_target'} = {};
+  if (exists($self->{'labels_list'})) {
     foreach my $element (@{$self->{'labels_list'}}) {
       my $retval = _add_element_to_identifiers_target($self, $element);
-      if (!$retval and $element->{'extra'}
+      if (!$retval and exists($element->{'extra'})
           and defined($element->{'extra'}->{'normalized'})) {
         push @elements_with_error, $element;
       }
@@ -817,12 +783,8 @@ sub set_labels_identifiers_target($$;$)
 # There is no XS override but the function modifies Perl data that is also
 # in C when XS is used.  Therefore this function should only be called from
 # Perl if there is no XS used.
-sub register_label_element($$;$$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $error_messages = shift;
-  my $debug = shift;
+sub register_label_element($$;$$) {
+  my ($self, $element, $error_messages, $debug) = @_;
 
   my $retval = _add_element_to_identifiers_target($self, $element);
   if (!$retval) {
