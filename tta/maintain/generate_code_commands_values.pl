@@ -28,51 +28,14 @@ use File::Basename;
 
 my $program_name = basename($0);
 
-sub _protect_char
-{
-  my $char = shift;
-  return '\\n' if ($char eq "\n");
-  if (ord($char) < 127 and $char ne '\\' and $char ne '"') {
-    return $char;
-  }
-  my $encoded = Encode::encode('UTF-8', $char);
-  return join('', map {"\\x".sprintf("%02x",ord($_))} split('', $encoded));
-}
-
-sub _unicode_characters
-{
-  my $unicode_map = shift;
-
-  my $result = {};
-
-  foreach my $command (keys(%$unicode_map)) {
-  # FIXME Using charnames::vianame as in the following is the clean documented
-  # way to create an unicode character at runtime.  However, in tests of perl
-  # 5.10.1 (on solaris), if charnames::vianame is used for @aa{} '00E5', uc()
-  # on the resulting character does not leads to \x{00C5} (@AA{}) (when
-  # formatting @sc{@aa{}} or @var{@aa{}} in plaintext).
-  #  $result->{$command}
-  #    = charnames::vianame("U+$unicode_map{$command}");
-    my $char_nr = hex($unicode_map->{$command});
-    if ($char_nr > 126 and $char_nr < 255) {
-      # this is very strange, indeed.  The reason lies certainly in the
-      # magic backward compatibility support in Perl for 8bit encodings.
-      $result->{$command} =
-         Encode::decode("iso-8859-1", chr($char_nr));
-    } else {
-      $result->{$command} = chr($char_nr);
-    }
-  }
-  return $result;
-}
-
 my $commands_text_file = $ARGV[0];
 die "Need an input file\n" if (!defined($commands_text_file));
 
 open(CMD, $commands_text_file)
   or die "open $commands_text_file: $!";
 
-my %commands_map = (
+# map name used in input file to character used for value and @-command name
+my %input_string_map = (
  '\\t' => "\t",
  '\\n' => "\n",
  '\\x20' => ' ',
@@ -80,12 +43,13 @@ my %commands_map = (
   '\\\\' => '\\',
 );
 
-# map to the preferred name for command
-my %character_command_name;
-foreach my $command (keys(%commands_map)) {
-  my $character = $commands_map{$command};
+# map to a string representing the character that can be used in double
+# quoted string.
+my %character_protected_string;
+foreach my $command (keys(%input_string_map)) {
+  my $character = $input_string_map{$command};
   if ($character ne ' ' and $character ne '"') {
-    $character_command_name{$commands_map{$command}} = $command;
+    $character_protected_string{$input_string_map{$command}} = $command;
   }
 }
 
@@ -98,7 +62,7 @@ while (<CMD>) {
     chomp;
     if (/^ *-- *(\S+)/) {
       $map = $1;
-      if (!defined($maps{$map})) {
+      if (!exists($maps{$map})) {
         $maps{$map} = {};
         $ordered_maps{$map} = [];
       }
@@ -115,13 +79,13 @@ while (<CMD>) {
         $command = $1;
       }
       my $command_name;
-      if (exists $commands_map{$command}) {
-        $command_name = $commands_map{$command};
+      if (exists($input_string_map{$command})) {
+        $command_name = $input_string_map{$command};
       } else {
         $command_name = $command;
       }
-      if (defined($value) and exists $commands_map{$value}) {
-        $value = $commands_map{$value};
+      if (exists($input_string_map{$value})) {
+        $value = $input_string_map{$value};
       }
 
       $maps{$map}->{$command_name} = $value;
@@ -166,14 +130,14 @@ if ($perl_format) {
       my ($command, $value) = @$command_value;
       my $command_double_quotes = 0;
       my $value_double_quotes = 0;
-      if (exists($character_command_name{$command})) {
-        $command = $character_command_name{$command};
+      if (exists($character_protected_string{$command})) {
+        $command = $character_protected_string{$command};
         $command_double_quotes = 1;
       } elsif ($command eq "'") {
         $command_double_quotes = 1;
       }
-      if (exists($character_command_name{$value})) {
-        $value = $character_command_name{$value};
+      if (exists($character_protected_string{$value})) {
+        $value = $character_protected_string{$value};
         $value_double_quotes = 1;
       } elsif ($value eq "'") {
         $value_double_quotes = 1;
@@ -201,7 +165,20 @@ if ($perl_format) {
   exit(0);
 }
 
+
 # Remainder if for $C_format
+
+sub _protect_char($) {
+  my $char = shift;
+
+  return '\\n' if ($char eq "\n");
+  if (ord($char) < 127 and $char ne '\\' and $char ne '"') {
+    return $char;
+  }
+  my $encoded = Encode::encode('UTF-8', $char);
+  return join('', map {"\\x".sprintf("%02x",ord($_))} split('', $encoded));
+}
+
 my $unicode_diacritics = $maps{'unicode_diacritics'};
 
 my ($normalization_file, $unicode_file, $commands_order_file);
@@ -230,8 +207,8 @@ while (<ORDER>) {
   }
   next if (!defined($command));
   my $command_name = $command;
-  if (exists $commands_map{$command}) {
-    $command_name = $commands_map{$command};
+  if (exists($input_string_map{$command})) {
+    $command_name = $input_string_map{$command};
     $name_commands{$command_name} = $command;
   }
   push @commands_order, $command_name;
@@ -252,7 +229,7 @@ foreach my $command_name (@commands_order) {
     $command = $name_commands{$command_name};
   }
 
-  if (defined($unicode_diacritics->{$command_name})) {
+  if (exists($unicode_diacritics->{$command_name})) {
     my $numeric_codepoint = hex($unicode_diacritics->{$command_name});
     my $result = chr($numeric_codepoint);
     my $protected = join ('', map {_protect_char($_)} split ('', $result));
@@ -264,9 +241,32 @@ foreach my $command_name (@commands_order) {
 }
 print UNIC "};\n\n";
 
+# sets up a mapping with characters based on a mapping with
+# hexadecimal string representation.
+sub _unicode_characters_map($) {
+  my $unicode_map = shift;
+
+  my $result = {};
+
+  foreach my $command (keys(%$unicode_map)) {
+  # NOTE should be synced with the perl/Texinfo/Convert/Unicode.pm
+  # code setting unicode_character_brace_no_arg_commands
+    my $char_nr = hex($unicode_map->{$command});
+    if ($char_nr > 126 and $char_nr < 255) {
+      # this is very strange, indeed.  The reason lies certainly in the
+      # magic backward compatibility support in Perl for 8bit encodings.
+      $result->{$command} =
+         Encode::decode("iso-8859-1", chr($char_nr));
+    } else {
+      $result->{$command} = chr($char_nr);
+    }
+  }
+  return $result;
+}
+
 foreach my $map ('base_unicode_map', 'extra_unicode_map') {
   my $unicode_map = $maps{$map};
-  my $unicode_chars_map = _unicode_characters($unicode_map);
+  my $unicode_chars_map = _unicode_characters_map($unicode_map);
   print UNIC "const COMMAND_UNICODE_CHARACTER $map\[] = {\n";
   foreach my $command_name (@commands_order) {
     my $command = $command_name;
@@ -275,7 +275,7 @@ foreach my $map ('base_unicode_map', 'extra_unicode_map') {
     }
     #print UNIC "$command; ";
 
-    if (defined($unicode_map->{$command_name})) {
+    if (exists($unicode_map->{$command_name})) {
       my $encoded_character = $unicode_chars_map->{$command_name};
       my $protected = '"'.join ('', map {_protect_char($_)} split ('', $encoded_character)).'"';
       my $codepoint = '"'.$unicode_map->{$command_name}.'"';
