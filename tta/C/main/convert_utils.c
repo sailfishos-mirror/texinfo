@@ -113,6 +113,55 @@ new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
   return new;
 }
 
+void
+clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  /*
+   HTML targets have all associated tree added elements structures that can be
+   left as 0, in particular with tree_added_status_none if nothing refers to
+   them, and are always cleared in the end.  So it is normal to have cleared
+   tree added elements with status none, but they also should not have any
+   added elements.
+   */
+   /*
+  if (tree_elements->status == tree_added_status_none)
+    {
+      fprintf (stderr, "CTAE: %p no status (%zu)\n", tree_elements, tree_elements->added.number);
+    }
+   */
+
+  if (tree_elements->status == tree_added_status_new_tree)
+    destroy_element_and_children (tree_elements->tree);
+  else if (tree_elements->status == tree_added_status_elements_added)
+    {
+      size_t i;
+      for (i = 0; i < tree_elements->added.number; i++)
+        {
+          ELEMENT *added_e = tree_elements->added.list[i];
+          destroy_element (added_e);
+        }
+      tree_elements->added.number = 0;
+    }
+  tree_elements->tree = 0;
+  tree_elements->status = 0;
+}
+
+void
+free_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  clear_tree_added_elements (self, tree_elements);
+  free (tree_elements->added.list);
+  tree_elements->added.list = 0;
+  tree_elements->added.space = 0;
+}
+
+void
+destroy_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+{
+  free_tree_added_elements (self, tree_elements);
+  free (tree_elements);
+}
+
 
 
 static DOCUMENT_INFO *

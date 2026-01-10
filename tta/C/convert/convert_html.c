@@ -59,7 +59,9 @@
 #include "node_name_normalization.h"
 /* converter_encoded_output_file_name
    output_files_open_out
-   output_files_register_closed */
+   output_files_register_closed
+   clear_tree_added_elements
+ */
 #include "convert_utils.h"
 /* call_latex_convert_to_latex_math */
 #include "call_perl_function.h"
@@ -68,7 +70,7 @@
 #include "document.h"
 #include "targets.h"
 /* txi_paths_info create_destination_directory
-   set_global_document_commands clear_tree_added_elements
+   set_global_document_commands
    register_normalize_case_filename converter_translated_command_tree */
 #include "converter.h"
 #include "html_conversion_state.h"
