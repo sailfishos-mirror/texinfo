@@ -45,6 +45,7 @@
 
 static const char *command_normalization_text[BUILTIN_CMD_NUMBER];
 
+/* Should be called only once */
 void
 setup_node_name_normalization (void)
 {
@@ -320,9 +321,9 @@ char *normalize_top_name (const char *text)
 
 /* to be freed by caller */
 char *
-convert_to_node_identifier (const ELEMENT *root)
+convert_to_node_identifier (const ELEMENT *element)
 {
-  char *converted_name = convert_to_normalized (root);
+  char *converted_name = convert_to_normalized (element);
   char *normalized_name = normalize_NFC (converted_name);
   char *protected = unicode_to_protected (normalized_name);
   char *result = normalize_top_name (protected);
@@ -349,9 +350,9 @@ convert_contents_to_node_identifier (const ELEMENT *e)
 
 /* to be freed by caller */
 char *
-convert_to_identifier (const ELEMENT *root)
+convert_to_identifier (const ELEMENT *element)
 {
-  char *converted_name = convert_to_normalized (root);
+  char *converted_name = convert_to_normalized (element);
   char *normalized_name = normalize_NFC (converted_name);
   char *result = unicode_to_protected (normalized_name);
 

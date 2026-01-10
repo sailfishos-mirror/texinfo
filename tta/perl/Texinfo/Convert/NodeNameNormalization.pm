@@ -105,9 +105,9 @@ foreach my $type (
 
 
 sub convert_to_node_identifier($) {
-  my $root = shift;
+  my $element = shift;
 
-  my $result = _convert($root);
+  my $result = _convert($element);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected($result);
   $result = 'Top' if ($result =~ /^Top$/i);
@@ -115,18 +115,18 @@ sub convert_to_node_identifier($) {
 }
 
 sub convert_to_identifier($) {
-  my $root = shift;
+  my $element = shift;
 
-  my $result = _convert($root);
+  my $result = _convert($element);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected($result);
   return $result;
 }
 
 sub normalize_transliterate_texinfo($;$$) {
-  my ($root, $in_test, $no_unidecode) = @_;
+  my ($element, $in_test, $no_unidecode) = @_;
 
-  my $result = _convert($root);
+  my $result = _convert($element);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_protected(
                 _unicode_to_transliterate($result, $in_test, $no_unidecode));
@@ -134,16 +134,15 @@ sub normalize_transliterate_texinfo($;$$) {
 }
 
 sub transliterate_texinfo($;$$) {
-  my ($root, $in_test, $no_unidecode) = @_;
+  my ($element, $in_test, $no_unidecode) = @_;
 
-  my $result = _convert($root);
+  my $result = _convert($element);
   $result = Unicode::Normalize::NFC($result);
   $result = _unicode_to_transliterate($result, $in_test, $no_unidecode);
   return $result;
 }
 
-sub transliterate_protect_file_name($;$$)
-{
+sub transliterate_protect_file_name($;$$) {
   my ($input_text, $in_test, $no_unidecode) = @_;
 
   my $result = Unicode::Normalize::NFC($input_text);
@@ -152,15 +151,13 @@ sub transliterate_protect_file_name($;$$)
   return $result;
 }
 
-sub convert_to_normalized($)
-{
-  my $root = shift;
+sub convert_to_normalized($) {
+  my $element = shift;
 
-  my $result = _convert($root);
+  my $result = _convert($element);
 }
 
-sub _protect_unicode_char($)
-{
+sub _protect_unicode_char($) {
   my $char = shift;
 
   if (exists($Texinfo::UnicodeData::unicode_simple_character_map{$char})) {
@@ -174,8 +171,7 @@ sub _protect_unicode_char($)
   }
 }
 
-sub _unicode_to_protected($)
-{
+sub _unicode_to_protected($) {
   my $text = shift;
 
   my $result = '';
@@ -197,8 +193,7 @@ sub _unicode_to_protected($)
   return $result;
 }
 
-sub _unicode_to_file_name($)
-{
+sub _unicode_to_file_name($) {
   my $text = shift;
 
   my $result = '';
@@ -219,12 +214,11 @@ sub _unicode_to_file_name($)
   return $result;
 }
 
-sub _unicode_to_transliterate($;$$)
-{
+sub _unicode_to_transliterate($;$$) {
   my ($text, $in_test, $no_unidecode) = @_;
 
   if (chomp($text)) {
-     warn "Bug: end of line to transliterate: $text\n";
+    warn "Bug: end of line to transliterate: $text\n";
   }
   my $result = '';
   while ($text ne '') {
@@ -290,8 +284,7 @@ sub _unicode_to_transliterate($;$$)
 
 sub _convert($);
 
-sub _convert($)
-{
+sub _convert($) {
   my $element = shift;
 
   if (exists($element->{'text'})) {
@@ -305,7 +298,7 @@ sub _convert($)
   return '' if ((exists($element->{'type'})
                  and $ignored_types{$element->{'type'}})
           or (exists($element->{'cmdname'})
-             and ($ignored_brace_commands{$element->{'cmdname'}}
+             and (exists($ignored_brace_commands{$element->{'cmdname'}})
                  # here ignore the 'regular' line commands
                  or (exists($element->{'contents'})
                      and exists($element->{'contents'}->[0]->{'type'})
@@ -320,13 +313,13 @@ sub _convert($)
  and $element->{'contents'}->[0]->{'contents'}->[0]->{'type'} eq 'line_arg'))));
   if (exists($element->{'cmdname'})) {
     my $cmdname = $element->{'cmdname'};
-    if (defined($normalize_node_nobrace_symbol_text{$cmdname})) {
+    if (exists($normalize_node_nobrace_symbol_text{$cmdname})) {
       return $normalize_node_nobrace_symbol_text{$cmdname};
-    } elsif (defined($normalize_node_brace_no_arg_commands{$cmdname})) {
+    } elsif (exists($normalize_node_brace_no_arg_commands{$cmdname})) {
       my $result = $normalize_node_brace_no_arg_commands{$cmdname};
       return $result;
     # commands with braces
-    } elsif ($accent_commands{$cmdname}) {
+    } elsif (exists($accent_commands{$cmdname})) {
       my ($contents_element, $stack)
         = Texinfo::Common::find_innermost_accent_contents($element);
       return '' if (!defined($contents_element));
@@ -337,7 +330,7 @@ sub _convert($)
          = Texinfo::Convert::Unicode::encoded_accents(undef, $accent_text,
                                                   $stack, 'utf-8', undef);
       return $accented_char;
-    } elsif ($Texinfo::Commands::ref_commands{$cmdname}) {
+    } elsif (exists($Texinfo::Commands::ref_commands{$cmdname})) {
       return '' if (!exists($element->{'contents'}));
       my @args_try_order;
       if ($cmdname eq 'inforef' or $cmdname eq 'link') {

@@ -251,8 +251,7 @@ foreach my $command (keys(%unicode_accented_letters)) {
   }
 }
 
-sub unicode_accent($$$$)
-{
+sub unicode_accent($$$$) {
   my ($text, $command, $index_in_stack, $accents_stack) = @_;
 
   my $accent = $command->{'cmdname'};
@@ -298,9 +297,8 @@ sub unicode_accent($$$$)
   return undef;
 }
 
-sub unicode_text {
-  my $text = shift;
-  my $in_code = shift;
+sub unicode_text($;$) {
+  my ($text, $in_code) = @_;
 
   if (!$in_code) {
     $text =~ s/---/\x{2014}/g;
@@ -314,10 +312,8 @@ sub unicode_text {
 }
 
 # return the hexadecimal 8 bit string, if it exists, and the unicode codepoint
-sub eight_bit_and_unicode_point($$)
-{
-  my $char = shift;
-  my $encoding = shift;
+sub eight_bit_and_unicode_point($$) {
+  my ($char, $encoding) = @_;
 
   my ($eight_bit, $codepoint);
   if (ord($char) < 127) {
@@ -505,7 +501,7 @@ sub encoded_accents($$$$$;$) {
     if ($encoding eq 'utf-8') {
       return _format_unicode_accents_stack($converter, $text, $stack,
                                            $format_accent, $set_case);
-    } elsif ($unicode_to_eight_bit{$encoding}) {
+    } elsif (exists($unicode_to_eight_bit{$encoding})) {
       return _format_eight_bit_accents_stack($converter, $text, $stack,
                                              $encoding,
                                              $format_accent, $set_case);
@@ -529,20 +525,19 @@ sub unicode_point_decoded_in_encoding($$) {
   }
 
   return 1 if ((!defined($encoding) or $encoding eq 'utf-8')
-                    or ($unicode_to_eight_bit{$encoding}
-                        and ($unicode_to_eight_bit{$encoding}->{$unicode_point}
-                             # excludes 127 \x{7F} DEL
-                             or hex($unicode_point) < 127)));
+               or (exists($unicode_to_eight_bit{$encoding})
+                   and (exists($unicode_to_eight_bit{$encoding}->{$unicode_point})
+                        # excludes 127 \x{7F} DEL
+                        or hex($unicode_point) < 127)));
   return 0;
 }
 
 # returns the text for a command with brace and no arg
 # if it is known that it is present for $encoding
 sub brace_no_arg_command($$) {
-  my $command = shift;
-  my $encoding = shift;
+  my ($command, $encoding) = @_;
 
-  if ($unicode_character_brace_no_arg_commands{$command}
+  if (exists($unicode_character_brace_no_arg_commands{$command})
       and unicode_point_decoded_in_encoding($encoding, $unicode_map{$command})) {
     return $unicode_character_brace_no_arg_commands{$command};
   } else {
@@ -557,10 +552,8 @@ sub brace_no_arg_command($$) {
 #
 # return 1 if the conversion is possible and can be attempted, 0 otherwise.
 # the second argument triggers debugging output if the conversion failed.
-sub check_unicode_point_conversion($;$)
-{
-  my $arg = shift;
-  my $output_debug = shift;
+sub check_unicode_point_conversion($;$) {
+  my ($arg, $output_debug) = @_;
 
   # The warning about non-characters is only given when the code
   # point is attempted to be output, not just manipulated.
@@ -627,8 +620,7 @@ sub check_unicode_point_conversion($;$)
 
 # string length size taking into account that east asian characters
 # may take 2 spaces.
-sub string_width($)
-{
+sub string_width($) {
   my $string = shift;
 
   # Optimise for the common case where we can just return the length

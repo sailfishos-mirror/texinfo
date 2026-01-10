@@ -41,6 +41,7 @@ xs_process_text (text)
 SV *
 xs_unicode_text (text, ...)
      char *text = (char *)SvPVutf8_nolen ($arg);
+ PROTOTYPE: $;$
  PREINIT:
      int in_code = 0;
      char *retval;
