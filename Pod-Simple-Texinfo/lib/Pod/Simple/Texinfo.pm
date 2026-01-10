@@ -163,7 +163,7 @@ sub new
   $new->accept_targets(@raw_formats);
   $new->preserve_whitespace(1);
   $new->texinfo_debug(0);
-  # TODO set to 0 when the time has come.
+  # TODO change to 0 when it becomes better not to have setfilename at all.
   #$new->texinfo_generate_setfilename(0);
   $new->texinfo_section_nodes(0);
   $new->texinfo_sectioning_base_level($sectioning_base_level);

@@ -201,7 +201,7 @@ my $unnumbered_sections = 0;
 my $appendix_sections = 0;
 my $headings_as_sections = 0;
 my $generate_node_menus = 0;
-# TODO change to 0 when the time has come.
+# TODO change to 0 when it becomes better not to have setfilename at all.
 my $generate_setfilename = 1;
 my $outdir;
 my $output = '-';
@@ -283,7 +283,6 @@ if ($base_level > 0) {
     my $manual_name;
     # we don't want to read from STDIN, as the input read would be lost
     # same with named pipe and socket...
-    # TODO are there other file types that have the same problem?
     if ($file eq '-' or -p $file or -S $file) {
       # do not read file
     } else {
@@ -351,11 +350,11 @@ sub _parsed_manual_tree($$$$$)
   # if debug is not high.
   # The functions called on the document below, and elsewhere in
   # the code call get_conf for structuring information and menu
-  # generation on the document.
-  # TODO always call register_document_options(), maybe with an empty hash?
+  # generation on the document.  This should not be an issue.
   if ($debug > 3) {
-    # there is not much debug output in structuring code used with the
-    # document, but it could still be interesting to debug.
+    # there is not much debug output in structuring code getting
+    # customization from the document, but it could still be interesting
+    # to debug.
     $document->register_document_options({'DEBUG' => $debug - 3});
   }
 

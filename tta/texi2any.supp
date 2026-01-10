@@ -235,7 +235,7 @@
    fun:switch_messages_locale
    ...
 }
-# FIXME next are not very specific
+# next are not very specific, they seem to be fixed in Perl 5.38
 {
    fixed-in-perl/Error/translations/getenv/5
    Memcheck:Addr2
@@ -280,7 +280,7 @@
    fun:translate_string
    ...
 }
-# FIXME non specific, not even getenv in the trace
+# non specific, not even getenv in the trace. Fixed in Perl 5.38
 {
    fixed-in-perl/Error/translations/getenv?/11
    Memcheck:Addr1

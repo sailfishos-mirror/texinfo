@@ -340,8 +340,8 @@ WORDS_IN_PAGE                      converter_customization undef   integer
 XREF_USE_FLOAT_LABEL               converter_customization undef   integer
 XREF_USE_NODE_NAME_ARG             converter_customization undef   integer
 
-# Not documented for now.  If set, conversion/formatting not in C.
-# FIXME keep/document?
+# TODO Not documented for now.
+# If set, conversion/formatting not in C.
 XS_EXTERNAL_CONVERSION             converter_customization undef   integer
 XS_EXTERNAL_FORMATTING             converter_customization undef   integer
 

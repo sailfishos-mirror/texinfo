@@ -85,7 +85,7 @@ our %unicode_map = (%Texinfo::CommandsValues::base_unicode_map,
 # corresponding to the textual hex value in %unicode_map.
 our %unicode_character_brace_no_arg_commands;
 foreach my $command (keys(%unicode_map)) {
-# FIXME Using charnames::vianame as in the following is the clean documented
+# TODO Using charnames::vianame as in the following is the clean documented
 # way to create an unicode character at runtime.  However, in tests of perl
 # 5.10.1 (on solaris), if charnames::vianame is used for @aa{} '00E5', uc()
 # on the resulting character does not leads to \x{00C5} (@AA{}) (when

@@ -1,5 +1,9 @@
 2026-02-10 Patrice Dumas  <pertusus@free.fr>
 
+	Changes in comments, remove/downgrade FIXME to TODO
+
+2026-02-10 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/generate_code_commands_values.pl: move functions
 	code around.  Add a comment expliciting that some code need to be
 	synced with tta/perl/Texinfo/Convert/Unicode.pm code.  Change names
