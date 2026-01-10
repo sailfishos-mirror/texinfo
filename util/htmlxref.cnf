@@ -1,0 +1,17 @@
+htmlxrefversion=2025-06-26.15; # UTC
+
+# htmlxref.cnf is no longer distributed as a single file.
+# It has been replaced by two files which you can download from
+# https://ftpmirror.gnu.org/gnu/texinfo/htmlxref.d/:
+#
+# https://ftpmirror.gnu.org/gnu/texinfo/htmlxref.d/Texinfo_GNU.cnf
+#   This gives the definitive locations for GNU manuals on the World Wide Web.
+#
+# https://ftpmirror.gnu.org/gnu/texinfo/htmlxref.d/Texinfo_nonGNU.cnf
+#   This gives web locations for other, non-GNU manuals that we know about.
+#
+# If you are using a version of Texinfo that does not support htmlxref.d
+# directories, you can simply concatenate the two files to produce a
+# usable htmlxref.cnf file.
+#
+# You can email any questions about the use of htmlxref files to bug-texinfo@gnu.org.

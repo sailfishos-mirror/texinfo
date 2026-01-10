@@ -57,6 +57,11 @@
 
 	* tta/TODO: update
 
+2026-01-10  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* util/htmlxref.cnf: track file in git only as a source
+	for the stub file on ftp.gnu.org.
+
 2026-01-09  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking, tta/perl/t/README: update file location
