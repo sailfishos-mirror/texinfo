@@ -114,7 +114,7 @@ new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
 }
 
 void
-clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+clear_tree_added_elements (TREE_ADDED_ELEMENTS *tree_elements)
 {
   /*
    HTML targets have all associated tree added elements structures that can be
@@ -147,18 +147,18 @@ clear_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
 }
 
 void
-free_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+free_tree_added_elements (TREE_ADDED_ELEMENTS *tree_elements)
 {
-  clear_tree_added_elements (self, tree_elements);
+  clear_tree_added_elements (tree_elements);
   free (tree_elements->added.list);
   tree_elements->added.list = 0;
   tree_elements->added.space = 0;
 }
 
 void
-destroy_tree_added_elements (CONVERTER *self, TREE_ADDED_ELEMENTS *tree_elements)
+destroy_tree_added_elements (TREE_ADDED_ELEMENTS *tree_elements)
 {
-  free_tree_added_elements (self, tree_elements);
+  free_tree_added_elements (tree_elements);
   free (tree_elements);
 }
 

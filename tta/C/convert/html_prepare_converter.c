@@ -3478,10 +3478,10 @@ reset_html_targets_list (CONVERTER *self, HTML_TARGET_LIST *targets)
           free (html_target->contents_target);
           free (html_target->shortcontents_target);
 
-          free_tree_added_elements (self, &html_target->tree);
-          free_tree_added_elements (self, &html_target->tree_nonumber);
-          free_tree_added_elements (self, &html_target->name_tree);
-          free_tree_added_elements (self, &html_target->name_tree_nonumber);
+          free_tree_added_elements (&html_target->tree);
+          free_tree_added_elements (&html_target->tree_nonumber);
+          free_tree_added_elements (&html_target->name_tree);
+          free_tree_added_elements (&html_target->name_tree_nonumber);
 
           for (j = 0; j < HTT_string_nonumber+1; j++)
             free (html_target->command_text[j]);

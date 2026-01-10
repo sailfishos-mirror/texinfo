@@ -33,12 +33,9 @@ ELEMENT *new_element_added (TREE_ADDED_ELEMENTS *added_elements,
                             enum element_type type);
 ELEMENT *new_text_element_added (TREE_ADDED_ELEMENTS *added_elements,
                                  enum element_type type);
-void clear_tree_added_elements (CONVERTER *self,
-                                TREE_ADDED_ELEMENTS *tree_elements);
-void free_tree_added_elements (CONVERTER *self,
-                               TREE_ADDED_ELEMENTS *tree_elements);
-void destroy_tree_added_elements (CONVERTER *self,
-                                  TREE_ADDED_ELEMENTS *tree_elements);
+void clear_tree_added_elements (TREE_ADDED_ELEMENTS *tree_elements);
+void free_tree_added_elements (TREE_ADDED_ELEMENTS *tree_elements);
+void destroy_tree_added_elements (TREE_ADDED_ELEMENTS *tree_elements);
 
 DOCUMENT_INFO *get_document_documentinfo (DOCUMENT *document);
 DOCUMENT_INFO *get_titlepage_publication_info (DOCUMENT *document);

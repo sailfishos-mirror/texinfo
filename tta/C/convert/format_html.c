@@ -9601,7 +9601,7 @@ html_convert_item_command (CONVERTER *self, const enum command_id cmd,
           if (tree)
             {
               remove_tree_to_build (self, tree->tree);
-              destroy_tree_added_elements (self, tree);
+              destroy_tree_added_elements (tree);
             }
         }
     }
