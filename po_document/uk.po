@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document 7.1.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-01-03 12:13+0100\n"
+"POT-Creation-Date: 2026-01-09 23:27+0000\n"
 "PO-Revision-Date: 2024-10-26 16:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -406,18 +406,18 @@ msgctxt "About direction button label"
 msgid "About"
 msgstr "Відомості"
 
-#: tta/perl/Texinfo/Structuring.pm:1979
+#: tta/perl/Texinfo/Structuring.pm:1944
 #: tta/C/structuring_transfo/structuring.c:2362
 #, perl-brace-format
 msgid "Part: {part_title}"
 msgstr "Частина: {part_title}"
 
-#: tta/perl/Texinfo/Structuring.pm:1991
+#: tta/perl/Texinfo/Structuring.pm:1956
 #: tta/C/structuring_transfo/structuring.c:2378
 msgid "Appendices"
 msgstr "Додатки"
 
-#: tta/perl/Texinfo/Structuring.pm:2055
+#: tta/perl/Texinfo/Structuring.pm:2013
 #: tta/C/structuring_transfo/structuring.c:2681
 msgid " --- The Detailed Node Listing ---"
 msgstr " --- Докладний список вузлів ---"
@@ -442,41 +442,41 @@ msgstr "{name} {class}"
 msgid "error@arrow{}"
 msgstr "error@arrow{}"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1610
-#: tta/perl/Texinfo/Convert/Converter.pm:1673 tta/C/convert/converter.c:1321
+#: tta/perl/Texinfo/Convert/Converter.pm:1670
+#: tta/perl/Texinfo/Convert/Converter.pm:1733 tta/C/convert/converter.c:1321
 #: tta/C/convert/converter.c:1386
 #, perl-brace-format
 msgid "{float_type} {float_number}"
 msgstr "{float_type} {float_number}"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1615
-#: tta/perl/Texinfo/Convert/Converter.pm:1675 tta/C/convert/converter.c:1324
+#: tta/perl/Texinfo/Convert/Converter.pm:1675
+#: tta/perl/Texinfo/Convert/Converter.pm:1735 tta/C/convert/converter.c:1324
 #: tta/C/convert/converter.c:1389
 #, perl-brace-format
 msgid "{float_type}"
 msgstr "{float_type}"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1619
-#: tta/perl/Texinfo/Convert/Converter.pm:1683 tta/C/convert/converter.c:1327
+#: tta/perl/Texinfo/Convert/Converter.pm:1679
+#: tta/perl/Texinfo/Convert/Converter.pm:1743 tta/C/convert/converter.c:1327
 #: tta/C/convert/converter.c:1400
 #, perl-brace-format
 msgid "{float_number}"
 msgstr "{float_number}"
 
 #. TRANSLATORS: added before caption
-#: tta/perl/Texinfo/Convert/Converter.pm:1666 tta/C/convert/converter.c:1376
+#: tta/perl/Texinfo/Convert/Converter.pm:1726 tta/C/convert/converter.c:1376
 #, perl-brace-format
 msgid "{float_type} {float_number}: "
 msgstr "{float_type} {float_number}: "
 
 #. TRANSLATORS: added before caption, no float label
-#: tta/perl/Texinfo/Convert/Converter.pm:1669 tta/C/convert/converter.c:1380
+#: tta/perl/Texinfo/Convert/Converter.pm:1729 tta/C/convert/converter.c:1380
 #, perl-brace-format
 msgid "{float_type}: "
 msgstr "{float_type}: "
 
 #. TRANSLATORS: added before caption, no float type
-#: tta/perl/Texinfo/Convert/Converter.pm:1681 tta/C/convert/converter.c:1397
+#: tta/perl/Texinfo/Convert/Converter.pm:1741 tta/C/convert/converter.c:1397
 #, perl-brace-format
 msgid "{float_number}: "
 msgstr "{float_number}: "
@@ -1216,7 +1216,7 @@ msgstr "Підрозділ один-три"
 msgid "Subsection One-Four"
 msgstr "Підрозділ один-чотири"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13061 tta/C/convert/convert_html.c:1077
+#: tta/perl/Texinfo/Convert/HTML.pm:13061 tta/C/convert/convert_html.c:1079
 msgid "Untitled Document"
 msgstr "Документ без назви"
 
@@ -1292,20 +1292,6 @@ msgstr "{category} @code{{class}}"
 #, perl-brace-format
 msgid "{month} {day}, {year}"
 msgstr "{day} {month} {year}"
-
-#, fuzzy, perl-brace-format
-#~| msgid ""
-#~| "This document was generated on @emph{@today{}} using "
-#~| "@uref{{program_homepage}, @emph{{program}}}."
-#~ msgid "Generated @emph{@today{}} using @uref{{homepage}, @emph{{program}}}."
-#~ msgstr ""
-#~ "Цей документ створено @emph{@today{}} за допомогою "
-#~ "@uref{{program_homepage}, @emph{{program}}}."
-
-#, fuzzy, perl-brace-format
-#~| msgid "@{No value for `{value}'@}"
-#~ msgid "No value for @strong{{item}}"
-#~ msgstr "@{Немає значення для `{value}'@}"
 
 #~ msgid "Index Entry"
 #~ msgstr "Запис покажчика"

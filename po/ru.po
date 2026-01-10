@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-01-03 12:13+0100\n"
+"POT-Creation-Date: 2026-01-09 23:27+0000\n"
 "PO-Revision-Date: 2025-04-11 11:26+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <gnu@d07.ru>\n"
@@ -2206,77 +2206,77 @@ msgstr "%s не является допустимым кодом языка"
 msgid "%s is not a valid region code"
 msgstr "%s не является допустимым кодом области"
 
-#: tta/perl/Texinfo/Config.pm:169 tta/perl/texi2any.pl:613
+#: tta/perl/Texinfo/Config.pm:172 tta/perl/texi2any.pl:613
 #, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
 msgstr "%s: предупреждение: %s"
 
-#: tta/perl/Texinfo/Config.pm:176
+#: tta/perl/Texinfo/Config.pm:180
 #, perl-format
 msgctxt "program name: error_message"
 msgid "%s: %s"
 msgstr "%s: %s"
 
-#: tta/perl/Texinfo/Config.pm:197
+#: tta/perl/Texinfo/Config.pm:202
 #, perl-format
 msgid "error parsing %s: %s"
 msgstr "ошибка разбора %s: %s"
 
-#: tta/perl/Texinfo/Config.pm:201 tta/C/convert/convert_html.c:2723
+#: tta/perl/Texinfo/Config.pm:206 tta/C/convert/convert_html.c:2725
 #, c-format, perl-format
 msgid "error reading %s: %s"
 msgstr "ошибка чтения %s: %s"
 
-#: tta/perl/Texinfo/Config.pm:222
+#: tta/perl/Texinfo/Config.pm:227
 #, perl-format
 msgctxt "init file: error_message"
 msgid "%s: %s"
 msgstr "%s: %s"
 
-#: tta/perl/Texinfo/Config.pm:228
+#: tta/perl/Texinfo/Config.pm:233
 #, perl-format
 msgctxt "init file: warning: warning_message"
 msgid "%s: warning: %s"
 msgstr "%s: предупреждение: %s"
 
-#: tta/perl/Texinfo/Config.pm:266
+#: tta/perl/Texinfo/Config.pm:271
 #, perl-format
 msgid "obsolete option: %s"
 msgstr "устаревший параметр: %s"
 
-#: tta/perl/Texinfo/Config.pm:291
+#: tta/perl/Texinfo/Config.pm:295
 #, perl-format
 msgid "%s: unknown variable %s"
 msgstr "%s: неизвестная переменная %s"
 
-#: tta/perl/Texinfo/Config.pm:316
+#: tta/perl/Texinfo/Config.pm:318
 #, fuzzy, perl-format
 #| msgid "unknown variable from command line: %s\n"
 msgid "unknown variable from command line: %s"
 msgstr "неизвестная переменная командной строки: %s\n"
 
-#: tta/perl/Texinfo/Config.pm:671 tta/perl/Texinfo/Config.pm:714
-#: tta/perl/Texinfo/Config.pm:732 tta/perl/Texinfo/Config.pm:758
-#: tta/perl/Texinfo/Config.pm:785
+#: tta/perl/Texinfo/Config.pm:642 tta/perl/Texinfo/Config.pm:683
+#: tta/perl/Texinfo/Config.pm:701 tta/perl/Texinfo/Config.pm:727
+#: tta/perl/Texinfo/Config.pm:752
 #, fuzzy, perl-format
 #| msgid "%s: unknown formatting context %s\n"
 msgid "%s: unknown formatting context %s"
 msgstr "%s: неизвестный форматирующий контекст %s\n"
 
-#: tta/perl/Texinfo/Config.pm:928
+#: tta/perl/Texinfo/Config.pm:872
 #, fuzzy, perl-format
 #| msgid "%s: unknown special element information type %s\n"
 msgid "%s: unknown special element information type %s"
 msgstr "%s: неизвестный информационный тип специального элемента %s\n"
 
-#: tta/perl/Texinfo/Document.pm:741 tta/C/main/targets.c:158
+#: tta/perl/Texinfo/Document.pm:749 tta/C/main/targets.c:158
 #: tta/C/parsetexi/labels.c:122
 #, c-format, perl-format
 msgid "@%s `%s' previously defined"
 msgstr "@%s «%s» было определено раньше"
 
-#: tta/perl/Texinfo/Document.pm:747 tta/C/main/targets.c:164
+#: tta/perl/Texinfo/Document.pm:755 tta/C/main/targets.c:164
 #: tta/C/parsetexi/labels.c:128
 #, c-format, perl-format
 msgid "here is the previous definition as @%s"
@@ -2291,8 +2291,8 @@ msgstr "место предыдущего определения @%s"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:838
 #: tta/perl/Texinfo/Convert/Text.pm:1106 tta/perl/texi2any.pl:1852
 #: tta/perl/texi2any.pl:1935 tta/perl/texi2any.pl:2072
-#: tta/C/convert/converter.c:725 tta/C/convert/convert_html.c:2074
-#: tta/C/convert/convert_html.c:2516 tta/C/convert/rawtext_converter_api.c:232
+#: tta/C/convert/converter.c:725 tta/C/convert/convert_html.c:2076
+#: tta/C/convert/convert_html.c:2518 tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
 msgstr "невозможно открыть %s на запись: %s"
@@ -2306,8 +2306,8 @@ msgstr "невозможно открыть %s на запись: %s"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:811
 #: tta/perl/Texinfo/Convert/Plaintext.pm:859
 #: tta/perl/Texinfo/Convert/Text.pm:1135 tta/perl/Texinfo/ParserNonXS.pm:2685
-#: tta/C/convert/converter.c:795 tta/C/convert/convert_html.c:2139
-#: tta/C/convert/convert_html.c:2555 tta/C/convert/rawtext_converter_api.c:269
+#: tta/C/convert/converter.c:795 tta/C/convert/convert_html.c:2141
+#: tta/C/convert/convert_html.c:2557 tta/C/convert/rawtext_converter_api.c:269
 #: tta/C/parsetexi/input.c:352
 #, c-format, perl-format
 msgid "error on closing %s: %s"
@@ -2327,13 +2327,13 @@ msgstr "неизвестная переменная настройки: %s"
 msgid "could not create directory `%s': %s"
 msgstr "невозможно создать каталог «%s»: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1581
+#: tta/perl/Texinfo/Convert/Converter.pm:1641
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1045
 #, perl-format
 msgid "error on closing image text file %s: %s"
 msgstr "ошибка при закрытии файла текста изображения %s: %s"
 
-#: tta/perl/Texinfo/Convert/Converter.pm:1590
+#: tta/perl/Texinfo/Convert/Converter.pm:1650
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1054
 #, perl-format
 msgid "@image file `%s' unreadable: %s"
@@ -2503,7 +2503,7 @@ msgstr "элемент htmlxref.cnf не найден в «%s»"
 msgid "%s not meaningful for non-split output"
 msgstr "%s не имеет смысла для не разделяемого вывода"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12129 tta/C/convert/convert_html.c:2600
+#: tta/perl/Texinfo/Convert/HTML.pm:12129 tta/C/convert/convert_html.c:2602
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2512,17 +2512,17 @@ msgstr ""
 "невозможно использовать абсолютный путь или URL «%s» для JS_WEBLABELS_FILE "
 "при генерации файл меток веба"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12176 tta/C/convert/convert_html.c:2624
+#: tta/perl/Texinfo/Convert/HTML.pm:12176 tta/C/convert/convert_html.c:2626
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "перезаписываем выходной файл с лицензиями js: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12898 tta/C/convert/convert_html.c:815
+#: tta/perl/Texinfo/Convert/HTML.pm:12898 tta/C/convert/convert_html.c:817
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "обработчик %d на стадии %s с приоритетом %s: не числовой результат"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12905 tta/C/convert/convert_html.c:827
+#: tta/perl/Texinfo/Convert/HTML.pm:12905 tta/C/convert/convert_html.c:829
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "ошибка в обработчике %d на стадии %s с приоритетом %s"
@@ -2532,71 +2532,71 @@ msgstr "ошибка в обработчике %d на стадии %s с при
 msgid "error on copying %s into %s"
 msgstr "ошибка при копировании %s в %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12962 tta/C/convert/convert_html.c:2845
+#: tta/perl/Texinfo/Convert/HTML.pm:12962 tta/C/convert/convert_html.c:2847
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "ошибка при создании пустого %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12967 tta/C/convert/convert_html.c:2857
+#: tta/perl/Texinfo/Convert/HTML.pm:12967 tta/C/convert/convert_html.c:2859
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "ошибка при закрытии пустого %s: %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:13078
-#: tta/perl/Texinfo/Convert/HTML.pm:13082 tta/C/convert/convert_html.c:1102
-#: tta/C/convert/convert_html.c:1107
+#: tta/perl/Texinfo/Convert/HTML.pm:13082 tta/C/convert/convert_html.c:1104
+#: tta/C/convert/convert_html.c:1109
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "должен быть задан заголовок командой заголовка или @top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13362 tta/C/convert/convert_html.c:3057
+#: tta/perl/Texinfo/Convert/HTML.pm:13362 tta/C/convert/convert_html.c:3059
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s «%s» файл перенаправлений %s существует"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13380 tta/C/convert/convert_html.c:3072
+#: tta/perl/Texinfo/Convert/HTML.pm:13380 tta/C/convert/convert_html.c:3074
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "конфликт со всем файлом документации"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13383 tta/C/convert/convert_html.c:3075
+#: tta/perl/Texinfo/Convert/HTML.pm:13383 tta/C/convert/convert_html.c:3077
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "конфликт с файлом Top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13386 tta/C/convert/convert_html.c:3078
+#: tta/perl/Texinfo/Convert/HTML.pm:13386 tta/C/convert/convert_html.c:3080
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "конфликт с файлом, указанным пользователем"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13389 tta/C/convert/convert_html.c:3081
+#: tta/perl/Texinfo/Convert/HTML.pm:13389 tta/C/convert/convert_html.c:3083
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "конфликт с файлом неизвестной ноды"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13392 tta/C/convert/convert_html.c:3085
+#: tta/perl/Texinfo/Convert/HTML.pm:13392 tta/C/convert/convert_html.c:3087
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "конфликт с файлом без известного источника"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3099
+#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3101
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "конфликт с @%s «%s» файла"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13412 tta/C/convert/convert_html.c:3115
+#: tta/perl/Texinfo/Convert/HTML.pm:13412 tta/C/convert/convert_html.c:3117
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "конфликт с @%s «%s» файла перенаправлений"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13426 tta/C/convert/convert_html.c:3135
+#: tta/perl/Texinfo/Convert/HTML.pm:13426 tta/C/convert/convert_html.c:3137
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "конфликт с @%s «%s» файла"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13439 tta/C/convert/convert_html.c:3148
+#: tta/perl/Texinfo/Convert/HTML.pm:13439 tta/C/convert/convert_html.c:3150
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "конфликт со специальным элементом %s"
@@ -2780,7 +2780,7 @@ msgstr "ошибка при закрытии файла @verbatiminclude %s: %s"
 
 #: tta/perl/Texinfo/Convert/Utils.pm:517
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
-#: tta/perl/Texinfo/ParserNonXS.pm:3889 tta/C/main/convert_utils.c:592
+#: tta/perl/Texinfo/ParserNonXS.pm:3890 tta/C/main/convert_utils.c:592
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: невозможно найти %s"
@@ -2806,22 +2806,22 @@ msgstr "невозможно открыть %s: %s"
 msgid "multiple %s (@%s)"
 msgstr "несколько @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1267 tta/perl/Texinfo/Structuring.pm:641
+#: tta/perl/Texinfo/ParserNonXS.pm:1267 tta/perl/Texinfo/Structuring.pm:629
 #: tta/C/parsetexi/parser.c:424 tta/C/structuring_transfo/structuring.c:955
 #, c-format, perl-format
 msgid "multiple @%s"
 msgstr "несколько @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1407 tta/perl/Texinfo/ParserNonXS.pm:4547
-#: tta/perl/Texinfo/ParserNonXS.pm:4587 tta/C/parsetexi/end_line.c:1065
+#: tta/perl/Texinfo/ParserNonXS.pm:1407 tta/perl/Texinfo/ParserNonXS.pm:4548
+#: tta/perl/Texinfo/ParserNonXS.pm:4588 tta/C/parsetexi/end_line.c:1065
 #: tta/C/parsetexi/end_line.c:1101 tta/C/parsetexi/macro.c:159
 #, c-format, perl-format
 msgid "@%s requires a name"
 msgstr "@%s нужно указать имя"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:1414 tta/perl/Texinfo/ParserNonXS.pm:4591
-#: tta/perl/Texinfo/ParserNonXS.pm:8146 tta/perl/Texinfo/ParserNonXS.pm:8159
-#: tta/perl/Texinfo/ParserNonXS.pm:8173 tta/C/parsetexi/end_line.c:1105
+#: tta/perl/Texinfo/ParserNonXS.pm:1414 tta/perl/Texinfo/ParserNonXS.pm:4592
+#: tta/perl/Texinfo/ParserNonXS.pm:8147 tta/perl/Texinfo/ParserNonXS.pm:8160
+#: tta/perl/Texinfo/ParserNonXS.pm:8174 tta/C/parsetexi/end_line.c:1105
 #: tta/C/parsetexi/macro.c:167
 #, c-format, perl-format
 msgid "bad name for @%s"
@@ -2890,15 +2890,15 @@ msgid "no matching `@end %s'"
 msgstr "нет парной «@end %s»"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:2246 tta/perl/Texinfo/ParserNonXS.pm:2257
-#: tta/perl/Texinfo/ParserNonXS.pm:6684 tta/C/parsetexi/close.c:451
+#: tta/perl/Texinfo/ParserNonXS.pm:6685 tta/C/parsetexi/close.c:451
 #: tta/C/parsetexi/close.c:461 tta/C/parsetexi/separator.c:233
 #, c-format, perl-format
 msgid "misplaced {"
 msgstr "здесь не должно быть {"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:2292 tta/perl/Texinfo/ParserNonXS.pm:4488
-#: tta/perl/Texinfo/ParserNonXS.pm:4882 tta/perl/Texinfo/ParserNonXS.pm:7501
-#: tta/perl/Texinfo/ParserNonXS.pm:7590 tta/perl/Texinfo/ParserNonXS.pm:7627
+#: tta/perl/Texinfo/ParserNonXS.pm:2292 tta/perl/Texinfo/ParserNonXS.pm:4489
+#: tta/perl/Texinfo/ParserNonXS.pm:4883 tta/perl/Texinfo/ParserNonXS.pm:7502
+#: tta/perl/Texinfo/ParserNonXS.pm:7591 tta/perl/Texinfo/ParserNonXS.pm:7628
 #: tta/C/parsetexi/close.c:512 tta/C/parsetexi/end_line.c:986
 #: tta/C/parsetexi/end_line.c:1979 tta/C/parsetexi/parser.c:2105
 #: tta/C/parsetexi/parser.c:2222 tta/C/parsetexi/parser.c:2272
@@ -2931,170 +2931,170 @@ msgstr "макрос «%s», объявленный без аргумента, �
 msgid "\\ in @%s expansion followed `%s' instead of parameter name or \\"
 msgstr "\\ в раскрытии @%s следует «%s», а не имя параметра или \\"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3824 tta/perl/Texinfo/ParserNonXS.pm:4049
-#: tta/perl/Texinfo/ParserNonXS.pm:8226 tta/C/parsetexi/end_line.c:135
+#: tta/perl/Texinfo/ParserNonXS.pm:3825 tta/perl/Texinfo/ParserNonXS.pm:4050
+#: tta/perl/Texinfo/ParserNonXS.pm:8227 tta/C/parsetexi/end_line.c:135
 #: tta/C/parsetexi/end_line.c:1258 tta/C/parsetexi/end_line.c:1612
 #, c-format, perl-format
 msgid "@%s missing argument"
 msgstr "@%s пропущен аргумент"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3838 tta/C/parsetexi/end_line.c:1276
+#: tta/perl/Texinfo/ParserNonXS.pm:3839 tta/C/parsetexi/end_line.c:1276
 #, c-format, perl-format
 msgid "unknown @end %s"
 msgstr "неизвестный @end %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3856 tta/perl/Texinfo/ParserNonXS.pm:3985
-#: tta/perl/Texinfo/ParserNonXS.pm:4502 tta/perl/Texinfo/ParserNonXS.pm:8372
-#: tta/perl/Texinfo/ParserNonXS.pm:8410 tta/perl/Texinfo/ParserNonXS.pm:8444
-#: tta/perl/Texinfo/ParserNonXS.pm:8553 tta/C/parsetexi/end_line.c:392
+#: tta/perl/Texinfo/ParserNonXS.pm:3857 tta/perl/Texinfo/ParserNonXS.pm:3986
+#: tta/perl/Texinfo/ParserNonXS.pm:4503 tta/perl/Texinfo/ParserNonXS.pm:8373
+#: tta/perl/Texinfo/ParserNonXS.pm:8411 tta/perl/Texinfo/ParserNonXS.pm:8445
+#: tta/perl/Texinfo/ParserNonXS.pm:8554 tta/C/parsetexi/end_line.c:392
 #: tta/C/parsetexi/end_line.c:470 tta/C/parsetexi/end_line.c:1004
 #: tta/C/parsetexi/end_line.c:1526
 #, c-format, perl-format
 msgid "bad argument to @%s: %s"
 msgstr "неверный аргумент для @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3884
+#: tta/perl/Texinfo/ParserNonXS.pm:3885
 #, perl-format
 msgid "@%s: could not open %s: %s"
 msgstr "@%s: невозможно открыть %s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3915 tta/C/parsetexi/end_line.c:1371
+#: tta/perl/Texinfo/ParserNonXS.pm:3916 tta/C/parsetexi/end_line.c:1371
 #, c-format, perl-format
 msgid "bad encoding name `%s'"
 msgstr "некорректное имя кодировки «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3921 tta/C/parsetexi/end_line.c:1406
+#: tta/perl/Texinfo/ParserNonXS.pm:3922 tta/C/parsetexi/end_line.c:1406
 #, c-format, perl-format
 msgid "encoding `%s' is not a canonical texinfo encoding"
 msgstr "кодировка «%s» не является каноничной кодировкой texinfo"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3952 tta/C/parsetexi/end_line.c:1473
+#: tta/perl/Texinfo/ParserNonXS.pm:3953 tta/C/parsetexi/end_line.c:1473
 #, c-format, perl-format
 msgid "unhandled encoding name `%s'"
 msgstr "необработанное имя кодировки «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4013 tta/perl/Texinfo/ParserNonXS.pm:6735
+#: tta/perl/Texinfo/ParserNonXS.pm:4014 tta/perl/Texinfo/ParserNonXS.pm:6736
 #: tta/C/parsetexi/end_line.c:1570 tta/C/parsetexi/separator.c:305
 #, c-format, perl-format
 msgid "empty argument in @%s"
 msgstr "пустой аргумент в @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4116 tta/perl/Texinfo/ParserNonXS.pm:4123
+#: tta/perl/Texinfo/ParserNonXS.pm:4117 tta/perl/Texinfo/ParserNonXS.pm:4124
 #: tta/C/parsetexi/end_line.c:1703 tta/C/parsetexi/end_line.c:1712
 #, c-format, perl-format
 msgid "ignoring multiple @%s"
 msgstr "игнорируется многократный @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4177
+#: tta/perl/Texinfo/ParserNonXS.pm:4178
 #, perl-format
 msgid "@%s after the first element"
 msgstr "@%s после первого элемента"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4186
+#: tta/perl/Texinfo/ParserNonXS.pm:4187
 #, perl-format
 msgid "@%s only meaningful on a @multitable line"
 msgstr "@%s имеет смысл только в строке @multitable"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4228
+#: tta/perl/Texinfo/ParserNonXS.pm:4229
 #, perl-format
 msgid "@node precedes @%s, but parts may not be associated with nodes"
 msgstr "@node стоит до @%s, но части не могут быть связаны с нодами"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4266 tta/C/parsetexi/end_line.c:795
+#: tta/perl/Texinfo/ParserNonXS.pm:4267 tta/C/parsetexi/end_line.c:795
 #, c-format, perl-format
 msgid "missing category for @%s"
 msgstr "пропущена категория для @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4325 tta/C/parsetexi/end_line.c:789
+#: tta/perl/Texinfo/ParserNonXS.pm:4326 tta/C/parsetexi/end_line.c:789
 #, c-format, perl-format
 msgid "missing name for @%s"
 msgstr "пропущено имя для @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4407 tta/perl/Texinfo/ParserNonXS.pm:4532
+#: tta/perl/Texinfo/ParserNonXS.pm:4408 tta/perl/Texinfo/ParserNonXS.pm:4533
 #: tta/C/parsetexi/end_line.c:889 tta/C/parsetexi/end_line.c:1043
 #, c-format, perl-format
 msgid "unexpected argument on @%s line: %s"
 msgstr "неожиданный аргумент на строке @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4418 tta/C/parsetexi/end_line.c:899
+#: tta/perl/Texinfo/ParserNonXS.pm:4419 tta/C/parsetexi/end_line.c:899
 #, c-format
 msgid "empty multitable"
 msgstr "пустая мультитаблица"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4453 tta/perl/Texinfo/ParserNonXS.pm:8232
+#: tta/perl/Texinfo/ParserNonXS.pm:4454 tta/perl/Texinfo/ParserNonXS.pm:8233
 #: tta/C/parsetexi/end_line.c:142 tta/C/parsetexi/end_line.c:939
 #, c-format, perl-format
 msgid "superfluous argument to @%s"
 msgstr "лишний аргумент для @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4459 tta/perl/Texinfo/ParserNonXS.pm:8268
+#: tta/perl/Texinfo/ParserNonXS.pm:4460 tta/perl/Texinfo/ParserNonXS.pm:8269
 #: tta/C/parsetexi/end_line.c:952
 #, c-format, perl-format
 msgid "bad argument to @%s"
 msgstr "некорректный аргумент для @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4474 tta/C/parsetexi/end_line.c:973
+#: tta/perl/Texinfo/ParserNonXS.pm:4475 tta/C/parsetexi/end_line.c:973
 #, c-format, perl-format
 msgid "accent command `@%s' not allowed as @%s argument"
 msgstr "выделенная команда «@%s» недопустима как аргумент @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4506 tta/C/parsetexi/end_line.c:1010
+#: tta/perl/Texinfo/ParserNonXS.pm:4507 tta/C/parsetexi/end_line.c:1010
 #, c-format, perl-format
 msgid "missing @%s argument"
 msgstr "пропущен аргумент @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4514 tta/C/parsetexi/end_line.c:1019
+#: tta/perl/Texinfo/ParserNonXS.pm:4515 tta/C/parsetexi/end_line.c:1019
 #, c-format, perl-format
 msgid "command @%s not accepting argument in brace should not be on @%s line"
 msgstr ""
 "команды @%s, не принимающей аргументов в скобках, не должно быть в строке @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4957 tta/C/parsetexi/labels.c:62
+#: tta/perl/Texinfo/ParserNonXS.pm:4958 tta/C/parsetexi/labels.c:62
 #, c-format, perl-format
 msgid "syntax for an external node used for `%s'"
 msgstr "синтаксис для внешней ноды используется для «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4968 tta/C/parsetexi/labels.c:72
+#: tta/perl/Texinfo/ParserNonXS.pm:4969 tta/C/parsetexi/labels.c:72
 #, c-format, perl-format
 msgid "empty node name after expansion `%s'"
 msgstr "пустое имя ноды после раскрытия «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5009 tta/C/parsetexi/menus.c:59
+#: tta/perl/Texinfo/ParserNonXS.pm:5010 tta/C/parsetexi/menus.c:59
 #, c-format, perl-format
 msgid "empty menu entry name in `%s'"
 msgstr "пустое имя элемента меню в «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5018 tta/C/parsetexi/menus.c:74
+#: tta/perl/Texinfo/ParserNonXS.pm:5019 tta/C/parsetexi/menus.c:74
 #, c-format
 msgid "empty node name in menu entry"
 msgstr "пустое имя ноды в элементе меню"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5216 tta/C/parsetexi/parser.c:1394
+#: tta/perl/Texinfo/ParserNonXS.pm:5217 tta/C/parsetexi/parser.c:1394
 #, c-format, perl-format
 msgid "@%s should not appear in @%s"
 msgstr "@%s не должен появляться в @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5227 tta/C/parsetexi/parser.c:1408
+#: tta/perl/Texinfo/ParserNonXS.pm:5228 tta/C/parsetexi/parser.c:1408
 #, c-format, perl-format
 msgid "@%s should not appear anywhere inside caption"
 msgstr "@%s не должен появляться внутри заголовка"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5244 tta/C/parsetexi/parser.c:1462
+#: tta/perl/Texinfo/ParserNonXS.pm:5245 tta/C/parsetexi/parser.c:1462
 #, c-format, perl-format
 msgid "@%s should not appear anywhere inside @%s"
 msgstr "@%s не должен появляться внутри @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5270 tta/C/parsetexi/parser.c:1477
+#: tta/perl/Texinfo/ParserNonXS.pm:5271 tta/C/parsetexi/parser.c:1477
 #, c-format, perl-format
 msgid "@%s should not appear on @%s line"
 msgstr "@%s не должен появляться в строке @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5284 tta/C/parsetexi/parser.c:1491
+#: tta/perl/Texinfo/ParserNonXS.pm:5285 tta/C/parsetexi/parser.c:1491
 #, c-format, perl-format
 msgid "@%s should not appear in @%s block"
 msgstr "@%s не должен появляться в блоке @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5338 tta/C/parsetexi/macro.c:834
+#: tta/perl/Texinfo/ParserNonXS.pm:5339 tta/C/parsetexi/macro.c:834
 #, c-format, perl-format
 msgid ""
 "macro call nested too deeply (set MAX_MACRO_CALL_NESTING to override; "
@@ -3103,105 +3103,105 @@ msgstr ""
 "вызов макроса вложен слишком глубоко (можно изменить через "
 "MAX_MACRO_CALL_NESTING; текущее значение: %d)"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5349 tta/C/parsetexi/macro.c:824
+#: tta/perl/Texinfo/ParserNonXS.pm:5350 tta/C/parsetexi/macro.c:824
 #, c-format, perl-format
 msgid "recursive call of macro %s is not allowed; use @rmacro if needed"
 msgstr ""
 "рекурсивный вызов макроса %s не допускается; если нужно, используйте @rmacro"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5391 tta/C/parsetexi/macro.c:872
+#: tta/perl/Texinfo/ParserNonXS.pm:5392 tta/C/parsetexi/macro.c:872
 #, c-format, perl-format
 msgid ""
 "@%s defined with zero or more than one argument should be invoked with {}"
 msgstr ""
 "@%s определён с нулём или более чем одним аргументом, должен вызываться с {}"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5704 tta/C/parsetexi/handle_commands.c:434
+#: tta/perl/Texinfo/ParserNonXS.pm:5705 tta/C/parsetexi/handle_commands.c:434
 #, c-format, perl-format
 msgid "@%s should only appear in heading or footing"
 msgstr "@%s должен появляться только в заголовке или нижнем колонтитуле"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5711
+#: tta/perl/Texinfo/ParserNonXS.pm:5712
 #, perl-format
 msgid "@%s should only appear in math context"
 msgstr "@%s должен появляться только в совпадающем контексте"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5748 tta/perl/Texinfo/ParserNonXS.pm:5756
+#: tta/perl/Texinfo/ParserNonXS.pm:5749 tta/perl/Texinfo/ParserNonXS.pm:5757
 #: tta/C/parsetexi/handle_commands.c:486 tta/C/parsetexi/handle_commands.c:495
 #, c-format, perl-format
 msgid "@%s not meaningful inside `@%s' block"
 msgstr "@%s не имеет смысла внутри блока «@%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5763 tta/C/parsetexi/handle_commands.c:511
+#: tta/perl/Texinfo/ParserNonXS.pm:5764 tta/C/parsetexi/handle_commands.c:511
 #, c-format, perl-format
 msgid "@%s in empty multitable"
 msgstr "@%s в пустой мультитаблице"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5769 tta/C/parsetexi/handle_commands.c:519
+#: tta/perl/Texinfo/ParserNonXS.pm:5770 tta/C/parsetexi/handle_commands.c:519
 #, c-format
 msgid "@tab before @item"
 msgstr "@tab перед @item"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5772 tta/C/parsetexi/handle_commands.c:523
+#: tta/perl/Texinfo/ParserNonXS.pm:5773 tta/C/parsetexi/handle_commands.c:523
 #, c-format, perl-format
 msgid "too many columns in multitable item (max %d)"
 msgstr "слишком много столбцов в мультитабличном элементе (максимум %d)"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5809 tta/C/parsetexi/handle_commands.c:565
+#: tta/perl/Texinfo/ParserNonXS.pm:5810 tta/C/parsetexi/handle_commands.c:565
 #, c-format
 msgid "ignoring @tab outside of multitable"
 msgstr "@tab вне мультитаблицы игнорирован"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5813 tta/perl/Texinfo/ParserNonXS.pm:6155
+#: tta/perl/Texinfo/ParserNonXS.pm:5814 tta/perl/Texinfo/ParserNonXS.pm:6156
 #: tta/C/parsetexi/handle_commands.c:570 tta/C/parsetexi/handle_commands.c:1000
 #, c-format, perl-format
 msgid "@%s outside of table or list"
 msgstr "@%s вне таблицы или списка"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5825 tta/C/parsetexi/handle_commands.c:585
+#: tta/perl/Texinfo/ParserNonXS.pm:5826 tta/C/parsetexi/handle_commands.c:585
 #, c-format, perl-format
 msgid "@%s is useless inside of a paragraph"
 msgstr "@%s бесполезен внутри параграфа"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:5995 tta/C/parsetexi/handle_commands.c:806
+#: tta/perl/Texinfo/ParserNonXS.pm:5996 tta/C/parsetexi/handle_commands.c:806
 #, c-format, perl-format
 msgid "@%s not allowed inside `@copying' block"
 msgstr "@%s не допускается внутри блока «@copying»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6088 tta/perl/Texinfo/ParserNonXS.pm:6100
-#: tta/perl/Texinfo/ParserNonXS.pm:8193 tta/C/parsetexi/handle_commands.c:389
+#: tta/perl/Texinfo/ParserNonXS.pm:6089 tta/perl/Texinfo/ParserNonXS.pm:6101
+#: tta/perl/Texinfo/ParserNonXS.pm:8194 tta/C/parsetexi/handle_commands.c:389
 #: tta/C/parsetexi/handle_commands.c:915 tta/C/parsetexi/handle_commands.c:929
 #, c-format, perl-format
 msgid "remaining argument on @%s line: %s"
 msgstr "оставшийся аргумент в строке @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6169 tta/C/parsetexi/handle_commands.c:1026
+#: tta/perl/Texinfo/ParserNonXS.pm:6170 tta/C/parsetexi/handle_commands.c:1026
 #, c-format
 msgid "multiple node @nodedescription"
 msgstr "несколько нод @nodedescription"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6175 tta/C/parsetexi/handle_commands.c:1031
+#: tta/perl/Texinfo/ParserNonXS.pm:6176 tta/C/parsetexi/handle_commands.c:1031
 #, c-format
 msgid "@nodedescription outside of any node"
 msgstr "@nodedescription вне какой-либо ноды"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6182 tta/perl/Texinfo/ParserNonXS.pm:6503
+#: tta/perl/Texinfo/ParserNonXS.pm:6183 tta/perl/Texinfo/ParserNonXS.pm:6504
 #: tta/C/parsetexi/handle_commands.c:1445
 #, c-format, perl-format
 msgid "@%s should only appear in an index entry"
 msgstr "@%s должен появляться только в пункте алфавитного указателя"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6198 tta/C/parsetexi/handle_commands.c:1058
+#: tta/perl/Texinfo/ParserNonXS.pm:6199 tta/C/parsetexi/handle_commands.c:1058
 #, c-format
 msgid "no more than two levels of index subentry are allowed"
 msgstr "допускается не более двух уровней вложенности индексных подэлементов"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6241 tta/C/parsetexi/handle_commands.c:1142
+#: tta/perl/Texinfo/ParserNonXS.pm:6242 tta/C/parsetexi/handle_commands.c:1142
 #, c-format, perl-format
 msgid "must be after `@%s' to use `@%s'"
 msgstr "должно быть после «@%s», чтобы использовать «@%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6294 tta/C/parsetexi/handle_commands.c:1195
+#: tta/perl/Texinfo/ParserNonXS.pm:6295 tta/C/parsetexi/handle_commands.c:1195
 #, fuzzy, c-format
 #| msgid ""
 #| "@author not meaningful outside `@titlepage' and `@quotation' environments"
@@ -3210,143 +3210,143 @@ msgid ""
 "`@quotation' environments"
 msgstr "@author не имеет смысла вне окружения «@titlepage» или «@quotation»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6298 tta/C/parsetexi/handle_commands.c:1199
+#: tta/perl/Texinfo/ParserNonXS.pm:6299 tta/C/parsetexi/handle_commands.c:1199
 #, c-format
 msgid "@dircategory after first node"
 msgstr "@dircategory после первой ноды"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6409 tta/C/parsetexi/handle_commands.c:1337
+#: tta/perl/Texinfo/ParserNonXS.pm:6410 tta/C/parsetexi/handle_commands.c:1337
 #, c-format
 msgid "@direntry after first node"
 msgstr "@direntry после первой ноды"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6420 tta/C/parsetexi/handle_commands.c:1342
+#: tta/perl/Texinfo/ParserNonXS.pm:6421 tta/C/parsetexi/handle_commands.c:1342
 #, c-format
 msgid "@menu in invalid context"
 msgstr "@menu в неверном контексте"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6433 tta/C/parsetexi/handle_commands.c:1363
+#: tta/perl/Texinfo/ParserNonXS.pm:6434 tta/C/parsetexi/handle_commands.c:1363
 #, c-format
 msgid "multiple node @nodedescriptionblock"
 msgstr "несколько нод @nodedescriptionblock"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6439 tta/C/parsetexi/handle_commands.c:1368
+#: tta/perl/Texinfo/ParserNonXS.pm:6440 tta/C/parsetexi/handle_commands.c:1368
 #, c-format
 msgid "@nodedescriptionblock outside of any node"
 msgstr "@nodedescriptionblock вне какой-либо ноды"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6558 tta/C/parsetexi/separator.c:87
+#: tta/perl/Texinfo/ParserNonXS.pm:6559 tta/C/parsetexi/separator.c:87
 #, c-format
 msgid "@verb without associated character"
 msgstr "@verb без соответствующего символа"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6579 tta/C/parsetexi/separator.c:122
+#: tta/perl/Texinfo/ParserNonXS.pm:6580 tta/C/parsetexi/separator.c:122
 #, c-format, perl-format
 msgid "@%s is not meaningful outside `@float' environment"
 msgstr "@%s не имеет смысла вне окружения «@float»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6583 tta/C/parsetexi/separator.c:127
+#: tta/perl/Texinfo/ParserNonXS.pm:6584 tta/C/parsetexi/separator.c:127
 #, c-format, perl-format
 msgid "@%s should be right below `@float'"
 msgstr "@%s должен быть сразу после «@float»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6768 tta/C/parsetexi/separator.c:335
+#: tta/perl/Texinfo/ParserNonXS.pm:6769 tta/C/parsetexi/separator.c:335
 #, c-format, perl-format
 msgid "command @%s missing a node or external manual argument"
 msgstr "у команда @%s отсутствует нода или внешний указанный вручную аргумент"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6793 tta/C/parsetexi/separator.c:391
+#: tta/perl/Texinfo/ParserNonXS.pm:6794 tta/C/parsetexi/separator.c:391
 #, c-format, perl-format
 msgid "in @%s empty cross reference name after expansion `%s'"
 msgstr "в @%s указана пустое имя перекрёстной ссылки после раскрытого «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6803 tta/C/parsetexi/separator.c:410
+#: tta/perl/Texinfo/ParserNonXS.pm:6804 tta/C/parsetexi/separator.c:410
 #, c-format, perl-format
 msgid "in @%s empty cross reference title after expansion `%s'"
 msgstr ""
 "в @%s указан пустой заголовок перекрёстной ссылки после раскрытого «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6814 tta/C/parsetexi/separator.c:424
+#: tta/perl/Texinfo/ParserNonXS.pm:6815 tta/C/parsetexi/separator.c:424
 #, c-format
 msgid "@image missing filename argument"
 msgstr "после @image пропущен аргумент, задающий файл"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6829 tta/perl/Texinfo/ParserNonXS.pm:7621
+#: tta/perl/Texinfo/ParserNonXS.pm:6830 tta/perl/Texinfo/ParserNonXS.pm:7622
 #: tta/C/parsetexi/parser.c:2264 tta/C/parsetexi/separator.c:441
 #, c-format, perl-format
 msgid "@dotless expects `i' or `j' as argument, not `%s'"
 msgstr "@dotless ожидает в качестве аргумента «i» или «j», а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6839 tta/C/parsetexi/separator.c:453
+#: tta/perl/Texinfo/ParserNonXS.pm:6840 tta/C/parsetexi/separator.c:453
 #, c-format, perl-format
 msgid "@%s missing first argument"
 msgstr "у @%s пропущен первый аргумент"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6855 tta/C/parsetexi/separator.c:475
+#: tta/perl/Texinfo/ParserNonXS.pm:6856 tta/C/parsetexi/separator.c:475
 #, c-format
 msgid "no argument specified for @U"
 msgstr "не задан аргумент для @U"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6858 tta/C/parsetexi/separator.c:483
+#: tta/perl/Texinfo/ParserNonXS.pm:6859 tta/C/parsetexi/separator.c:483
 #, c-format, perl-format
 msgid "non-hex digits in argument for @U: %s"
 msgstr "найдены не шестнадцатеричные цифры в аргументе для @U: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6863 tta/C/parsetexi/separator.c:488
+#: tta/perl/Texinfo/ParserNonXS.pm:6864 tta/C/parsetexi/separator.c:488
 #, c-format, perl-format
 msgid "fewer than four hex digits in argument for @U: %s"
 msgstr ""
 "количество шестнадцатеричных цифр в аргументе больше четырёх для @U : %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6880 tta/C/parsetexi/separator.c:504
+#: tta/perl/Texinfo/ParserNonXS.pm:6881 tta/C/parsetexi/separator.c:504
 #, c-format, perl-format
 msgid "argument for @U exceeds Unicode maximum 0x10FFFF: %s"
 msgstr "аргумент @U превышает максимальное значение 0x10FFFF Юникода: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6891 tta/C/parsetexi/separator.c:519
+#: tta/perl/Texinfo/ParserNonXS.pm:6892 tta/C/parsetexi/separator.c:519
 #, c-format, perl-format
 msgid "command @%s does not accept arguments"
 msgstr "команда @%s не допускает аргументов"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:6926 tta/C/parsetexi/separator.c:571
+#: tta/perl/Texinfo/ParserNonXS.pm:6927 tta/C/parsetexi/separator.c:571
 #, c-format, perl-format
 msgid "misplaced }"
 msgstr "здесь не должно быть }"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7148 tta/perl/Texinfo/ParserNonXS.pm:7238
-#: tta/perl/Texinfo/ParserNonXS.pm:8038 tta/C/parsetexi/parser.c:1521
+#: tta/perl/Texinfo/ParserNonXS.pm:7149 tta/perl/Texinfo/ParserNonXS.pm:7239
+#: tta/perl/Texinfo/ParserNonXS.pm:8039 tta/C/parsetexi/parser.c:1521
 #: tta/C/parsetexi/parser.c:1674 tta/C/parsetexi/parser.c:2773
 #, c-format, perl-format
 msgid "expected @end %s"
 msgstr "ожидался @end %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7168 tta/perl/Texinfo/ParserNonXS.pm:7256
+#: tta/perl/Texinfo/ParserNonXS.pm:7169 tta/perl/Texinfo/ParserNonXS.pm:7257
 #: tta/C/parsetexi/parser.c:1579 tta/C/parsetexi/parser.c:1712
 #, c-format, perl-format
 msgid "@end %s should only appear at the beginning of a line"
 msgstr "@end %s должен появляться только в начале строки"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7175 tta/C/parsetexi/parser.c:1595
+#: tta/perl/Texinfo/ParserNonXS.pm:7176 tta/C/parsetexi/parser.c:1595
 #, c-format, perl-format
 msgid "macro `%s' previously defined"
 msgstr "макрос «%s» был определён раньше"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7178 tta/C/parsetexi/parser.c:1598
+#: tta/perl/Texinfo/ParserNonXS.pm:7179 tta/C/parsetexi/parser.c:1598
 #, c-format, perl-format
 msgid "here is the previous definition of `%s'"
 msgstr "место предыдущего определения «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7185 tta/C/parsetexi/parser.c:1605
+#: tta/perl/Texinfo/ParserNonXS.pm:7186 tta/C/parsetexi/parser.c:1605
 #, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
 msgstr "переопределение команды языка Texinfo: @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7389 tta/C/parsetexi/parser.c:1947
+#: tta/perl/Texinfo/ParserNonXS.pm:7390 tta/C/parsetexi/parser.c:1947
 #, c-format
 msgid "unexpected @"
 msgstr "неожиданный символ @"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7443 tta/C/parsetexi/parser.c:2028
+#: tta/perl/Texinfo/ParserNonXS.pm:7444 tta/C/parsetexi/parser.c:2028
 #, c-format, perl-format
 msgid ""
 "value call nested too deeply (set MAX_MACRO_CALL_NESTING to override; "
@@ -3355,197 +3355,197 @@ msgstr ""
 "вызов макроса вложен слишком глубоко (можно изменить через "
 "MAX_MACRO_CALL_NESTING; текущее значение: %d)"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7514 tta/C/parsetexi/parser.c:2140
+#: tta/perl/Texinfo/ParserNonXS.pm:7515 tta/C/parsetexi/parser.c:2140
 #, c-format, perl-format
 msgid "unknown command `%s'"
 msgstr "неизвестная команда «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7549 tta/C/parsetexi/parser.c:2173
+#: tta/perl/Texinfo/ParserNonXS.pm:7550 tta/C/parsetexi/parser.c:2173
 #, c-format, perl-format
 msgid "command `@%s' must not be followed by new line"
 msgstr "после команды «@%s» не должно быть новой строки"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7658 tta/C/parsetexi/parser.c:2343
+#: tta/perl/Texinfo/ParserNonXS.pm:7659 tta/C/parsetexi/parser.c:2343
 #, c-format, perl-format
 msgid "undefined flag: %s"
 msgstr "неопределенный флаг: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7677 tta/C/parsetexi/parser.c:2383
+#: tta/perl/Texinfo/ParserNonXS.pm:7678 tta/C/parsetexi/parser.c:2383
 #, c-format, perl-format
 msgid "bad syntax for @%s"
 msgstr "некорректный синтаксис для @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7685 tta/C/parsetexi/parser.c:2393
+#: tta/perl/Texinfo/ParserNonXS.pm:7686 tta/C/parsetexi/parser.c:2393
 #, c-format, perl-format
 msgid "@%s is obsolete"
 msgstr "@%s устарела"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7709 tta/C/parsetexi/parser.c:2421
+#: tta/perl/Texinfo/ParserNonXS.pm:7710 tta/C/parsetexi/parser.c:2421
 #, c-format, perl-format
 msgid "@%s should only appear at the beginning of a line"
 msgstr "@%s должен появляться только в начале строки"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:7858 tta/C/parsetexi/parser.c:2573
+#: tta/perl/Texinfo/ParserNonXS.pm:7859 tta/C/parsetexi/parser.c:2573
 #, c-format
 msgid "superfluous arguments for node"
 msgstr "лишние аргументы у ноды"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8143 tta/C/parsetexi/handle_commands.c:262
+#: tta/perl/Texinfo/ParserNonXS.pm:8144 tta/C/parsetexi/handle_commands.c:262
 #, c-format
 msgid "@set requires a name"
 msgstr "@set нужно указать имя"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8156 tta/C/parsetexi/handle_commands.c:296
+#: tta/perl/Texinfo/ParserNonXS.pm:8157 tta/C/parsetexi/handle_commands.c:296
 #, c-format
 msgid "@clear requires a name"
 msgstr "@clear нужно указать имя"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8170 tta/C/parsetexi/handle_commands.c:326
+#: tta/perl/Texinfo/ParserNonXS.pm:8171 tta/C/parsetexi/handle_commands.c:326
 #, c-format
 msgid "@unmacro requires a name"
 msgstr "@unmacro нужно указать имя"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8199 tta/C/parsetexi/handle_commands.c:398
+#: tta/perl/Texinfo/ParserNonXS.pm:8200 tta/C/parsetexi/handle_commands.c:398
 #, c-format, perl-format
 msgid "@clickstyle should only accept an @-command as argument, not `%s'"
 msgstr ""
 "@clickstyle должна принимать только @-команду в качестве аргумента, а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8249 tta/C/parsetexi/end_line.c:198
+#: tta/perl/Texinfo/ParserNonXS.pm:8250 tta/C/parsetexi/end_line.c:198
 #, c-format, perl-format
 msgid "environment command %s as argument to @alias"
 msgstr "команда окружения %s в качестве аргумента для @alias"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8258 tta/C/parsetexi/end_line.c:206
+#: tta/perl/Texinfo/ParserNonXS.pm:8259 tta/C/parsetexi/end_line.c:206
 #, c-format, perl-format
 msgid "recursive alias definition of %s through %s ignored"
 msgstr "игнорируется рекурсивное определение псевдонима с %s по %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8285 tta/C/parsetexi/end_line.c:277
+#: tta/perl/Texinfo/ParserNonXS.pm:8286 tta/C/parsetexi/end_line.c:277
 #, c-format, perl-format
 msgid "cannot redefine with @definfoenclose: %s"
 msgstr "невозможно переопределить @definfoenclose: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8309 tta/C/parsetexi/end_line.c:300
+#: tta/perl/Texinfo/ParserNonXS.pm:8310 tta/C/parsetexi/end_line.c:300
 #, c-format, perl-format
 msgid "bad argument to @definfoenclose"
 msgstr "некорректный аргумент для @definfoenclose"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8315 tta/C/parsetexi/end_line.c:311
+#: tta/perl/Texinfo/ParserNonXS.pm:8316 tta/C/parsetexi/end_line.c:311
 #, c-format
 msgid "empty @columnfractions"
 msgstr "пустой @columnfractions"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8323 tta/C/parsetexi/end_line.c:331
+#: tta/perl/Texinfo/ParserNonXS.pm:8324 tta/C/parsetexi/end_line.c:331
 #, c-format, perl-format
 msgid "column fraction not a number: %s"
 msgstr "часть столбца не является числом: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8332 tta/C/parsetexi/end_line.c:351
+#: tta/perl/Texinfo/ParserNonXS.pm:8333 tta/C/parsetexi/end_line.c:351
 #, c-format, perl-format
 msgid "@sp arg must be numeric, not `%s'"
 msgstr "@sp аргумент должен быть числовым, а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8344 tta/C/parsetexi/end_line.c:397
+#: tta/perl/Texinfo/ParserNonXS.pm:8345 tta/C/parsetexi/end_line.c:397
 #, c-format, perl-format
 msgid "reserved index name %s"
 msgstr "зарезервированное имя алфавитного указателя %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8385 tta/C/parsetexi/end_line.c:438
+#: tta/perl/Texinfo/ParserNonXS.pm:8386 tta/C/parsetexi/end_line.c:438
 #, c-format, perl-format
 msgid "unknown source index in @%s: %s"
 msgstr "неизвестный источник алфавитного указателя в @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8388 tta/C/parsetexi/end_line.c:441
+#: tta/perl/Texinfo/ParserNonXS.pm:8389 tta/C/parsetexi/end_line.c:441
 #, c-format, perl-format
 msgid "unknown destination index in @%s: %s"
 msgstr "неизвестное назначение алфавитного указателя в @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8404 tta/C/parsetexi/end_line.c:461
+#: tta/perl/Texinfo/ParserNonXS.pm:8405 tta/C/parsetexi/end_line.c:461
 #, c-format, perl-format
 msgid "@%s leads to a merging of %s in itself, ignoring"
 msgstr "@%s ведёт к слиянию %s с самим собой, игнорируется"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8421 tta/C/parsetexi/end_line.c:489
+#: tta/perl/Texinfo/ParserNonXS.pm:8422 tta/C/parsetexi/end_line.c:489
 #, c-format, perl-format
 msgid "unknown index `%s' in @printindex"
 msgstr "неизвестный алфавитный указатель «%s» в @printindex"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8429 tta/C/parsetexi/end_line.c:496
+#: tta/perl/Texinfo/ParserNonXS.pm:8430 tta/C/parsetexi/end_line.c:496
 #, c-format, perl-format
 msgid "printing an index `%s' merged in another one, `%s'"
 msgstr "выводится алфавитный указатель «%s», объединённый в другой — «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8437 tta/C/parsetexi/end_line.c:502
+#: tta/perl/Texinfo/ParserNonXS.pm:8438 tta/C/parsetexi/end_line.c:502
 #, c-format, perl-format
 msgid "printindex before document beginning: @printindex %s"
 msgstr "printindex до начала документа: @printindex %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8451 tta/C/parsetexi/end_line.c:535
+#: tta/perl/Texinfo/ParserNonXS.pm:8452 tta/C/parsetexi/end_line.c:535
 #, c-format, perl-format
 msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
 msgstr "Поддерживаются только @fonttextsize 10 или 11, а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8459 tta/C/parsetexi/end_line.c:546
+#: tta/perl/Texinfo/ParserNonXS.pm:8460 tta/C/parsetexi/end_line.c:546
 #, c-format, perl-format
 msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
 msgstr ""
 "значением аргумента @footnotestyle должно быть «separate» или «end», а не "
 "«%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8467 tta/C/parsetexi/end_line.c:558
+#: tta/perl/Texinfo/ParserNonXS.pm:8468 tta/C/parsetexi/end_line.c:558
 #, c-format, perl-format
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
 msgstr ""
 "значением аргумента @setchapternewpage должно быть «on», «off» или «odd», а "
 "не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8475 tta/C/parsetexi/end_line.c:569
+#: tta/perl/Texinfo/ParserNonXS.pm:8476 tta/C/parsetexi/end_line.c:569
 #, c-format, perl-format
 msgid "bad argument to @need: %s"
 msgstr "неверный аргумент для @need: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8485 tta/perl/Texinfo/ParserNonXS.pm:8490
+#: tta/perl/Texinfo/ParserNonXS.pm:8486 tta/perl/Texinfo/ParserNonXS.pm:8491
 #: tta/C/parsetexi/end_line.c:579
 #, c-format, perl-format
 msgid "@paragraphindent arg must be numeric/`none'/`asis', not `%s'"
 msgstr ""
 "@paragraphindent аргумент должен быть числовым/«none»/«asis», а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8498 tta/C/parsetexi/end_line.c:590
+#: tta/perl/Texinfo/ParserNonXS.pm:8499 tta/C/parsetexi/end_line.c:590
 #, c-format, perl-format
 msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
 msgstr ""
 "@firstparagraphindent аргумент должен быть «none» или «insert», а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8508 tta/C/parsetexi/end_line.c:600
+#: tta/perl/Texinfo/ParserNonXS.pm:8509 tta/C/parsetexi/end_line.c:600
 #, c-format, perl-format
 msgid "@exampleindent arg must be numeric/`asis', not `%s'"
 msgstr "@exampleindent аргумент должен быть числовым/«asis», а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8520 tta/C/parsetexi/end_line.c:616
+#: tta/perl/Texinfo/ParserNonXS.pm:8521 tta/C/parsetexi/end_line.c:616
 #, c-format, perl-format
 msgid "expected @%s on or off, not `%s'"
 msgstr "ожидался @%s on или off, а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8529 tta/C/parsetexi/end_line.c:636
+#: tta/perl/Texinfo/ParserNonXS.pm:8530 tta/C/parsetexi/end_line.c:636
 #, c-format, perl-format
 msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
 msgstr ""
 "@kbdinputstyle аргумент должен быть «code»/«example»/«distinct», а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8537 tta/C/parsetexi/end_line.c:648
+#: tta/perl/Texinfo/ParserNonXS.pm:8538 tta/C/parsetexi/end_line.c:648
 #, c-format, perl-format
 msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
 msgstr "@allowcodebreaks аргумент должен быть «true» или «false», а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8545 tta/C/parsetexi/end_line.c:660
+#: tta/perl/Texinfo/ParserNonXS.pm:8546 tta/C/parsetexi/end_line.c:660
 #, c-format, perl-format
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
 msgstr ""
 "@urefbreakstyle аргумент должен быть «after»/«before»/«none», а не «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8563 tta/C/parsetexi/end_line.c:523
+#: tta/perl/Texinfo/ParserNonXS.pm:8564 tta/C/parsetexi/end_line.c:523
 #, c-format, perl-format
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "@%s аргумент должен быть «top» или «bottom», а не «%s»"
@@ -3580,26 +3580,26 @@ msgctxt "whole document warning"
 msgid "warning: %s"
 msgstr "предупреждение: %s"
 
-#: tta/perl/Texinfo/Structuring.pm:181
+#: tta/perl/Texinfo/Structuring.pm:180
 #: tta/C/structuring_transfo/structuring.c:152
 #, c-format, perl-format
 msgid "raising the section level of @%s which is too low"
 msgstr "повышается уровень раздел @%s, так как слишком мал"
 
-#: tta/perl/Texinfo/Structuring.pm:234
+#: tta/perl/Texinfo/Structuring.pm:233
 #: tta/C/structuring_transfo/structuring.c:234
 #, c-format, perl-format
 msgid "no chapter-level command before @%s"
 msgstr "отсутствует команда chapter-level до @%s"
 
-#: tta/perl/Texinfo/Structuring.pm:239
+#: tta/perl/Texinfo/Structuring.pm:238
 #: tta/C/structuring_transfo/structuring.c:241
 #, c-format, perl-format
 msgid "lowering the section level of @%s appearing after a lower element"
 msgstr ""
 "понижается уровень раздела @%s, появившегося после понижающего элемента"
 
-#: tta/perl/Texinfo/Structuring.pm:357
+#: tta/perl/Texinfo/Structuring.pm:358
 #: tta/C/structuring_transfo/structuring.c:412
 #, c-format, perl-format
 msgid "no sectioning command associated with @%s"
@@ -3612,69 +3612,69 @@ msgid "@%s not empty"
 msgstr "@%s не пуст"
 
 #  здесь %s может быть `cross' или `menu'
-#: tta/perl/Texinfo/Structuring.pm:418 tta/perl/Texinfo/Structuring.pm:1639
+#: tta/perl/Texinfo/Structuring.pm:414 tta/perl/Texinfo/Structuring.pm:1614
 #: tta/C/structuring_transfo/structuring.c:460
 #: tta/C/structuring_transfo/structuring.c:2003
 #, c-format, perl-format
 msgid "@%s reference to nonexistent node `%s'"
 msgstr "@%s ссылается на несуществующую ноду «%s»"
 
-#: tta/perl/Texinfo/Structuring.pm:426
+#: tta/perl/Texinfo/Structuring.pm:422
 #: tta/C/structuring_transfo/structuring.c:474
 #, c-format, perl-format
 msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "@%s имя появившейся ноды «%s» отличается от %s имени «%s»"
 
-#: tta/perl/Texinfo/Structuring.pm:590
+#: tta/perl/Texinfo/Structuring.pm:579
 #: tta/C/structuring_transfo/structuring.c:868
 #, c-format, perl-format
 msgid "node `%s' unreferenced"
 msgstr "узел «%s» не имеет ссылки"
 
-#: tta/perl/Texinfo/Structuring.pm:601
+#: tta/perl/Texinfo/Structuring.pm:590
 #: tta/C/structuring_transfo/structuring.c:885
 #, fuzzy, c-format, perl-format
 #| msgid "node `%s' appears in its own menus"
 msgid "node `%s' not in menu"
 msgstr "нода «%s» появляется в своих собственных меню"
 
-#: tta/perl/Texinfo/Structuring.pm:811
+#: tta/perl/Texinfo/Structuring.pm:801
 #: tta/C/structuring_transfo/structuring.c:1236
 #, fuzzy, c-format, perl-format
 #| msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgid "node `%s' in menu in `%s' but not under it in sectioning"
 msgstr "нода «%s» соответствует %s для «%s» в меню, но не в разделах"
 
-#: tta/perl/Texinfo/Structuring.pm:820
+#: tta/perl/Texinfo/Structuring.pm:808
 #: tta/C/structuring_transfo/structuring.c:1258
 #, fuzzy, c-format, perl-format
 #| msgid "node %s `%s' in menu `%s' and in sectioning `%s' differ"
 msgid "node `%s' in menu in `%s' but under `%s' in sectioning"
 msgstr "нода %s «%s» в меню «%s» и в разделах «%s» различна"
 
-#: tta/perl/Texinfo/Structuring.pm:901
+#: tta/perl/Texinfo/Structuring.pm:889
 #: tta/C/structuring_transfo/structuring.c:1378
 #, fuzzy, c-format, perl-format
 #| msgid "node `%s' unreferenced"
 msgid "node `%s' in menu where `%s' expected"
 msgstr "узел «%s» не имеет ссылки"
 
-#: tta/perl/Texinfo/Structuring.pm:908
+#: tta/perl/Texinfo/Structuring.pm:896
 #: tta/C/structuring_transfo/structuring.c:1391
 #, fuzzy, c-format, perl-format
 #| msgid "unreferenced node `%s'"
 msgid "unexpected node `%s' in menu"
 msgstr "на ноду «%s» нет ссылок"
 
-#: tta/perl/Texinfo/Structuring.pm:1009
+#: tta/perl/Texinfo/Structuring.pm:998
 #: tta/C/structuring_transfo/structuring.c:1534
 #, fuzzy, c-format, perl-format
 #| msgid "node `%s' lacks menu item for `%s' despite being its Up target"
 msgid "node `%s' lacks menu item for `%s' but is above it in sectioning"
 msgstr "нода «%s» не имеет пункта меню для «%s», хотя на неё ссылается цель Up"
 
-#: tta/perl/Texinfo/Structuring.pm:1052 tta/perl/Texinfo/Structuring.pm:1072
-#: tta/perl/Texinfo/Structuring.pm:1088
+#: tta/perl/Texinfo/Structuring.pm:1041 tta/perl/Texinfo/Structuring.pm:1061
+#: tta/perl/Texinfo/Structuring.pm:1077
 #: tta/C/structuring_transfo/structuring.c:1606
 #: tta/C/structuring_transfo/structuring.c:1636
 #: tta/C/structuring_transfo/structuring.c:1661
@@ -3684,32 +3684,32 @@ msgstr ""
 "нода %s указатель для «%s» соответствует «%s», но %s соответствует «%s» в "
 "меню"
 
-#: tta/perl/Texinfo/Structuring.pm:1267
+#: tta/perl/Texinfo/Structuring.pm:1253
 #: tta/C/structuring_transfo/structuring.c:1900
 #, c-format, perl-format
 msgid "%s pointer `%s' (for node `%s') different from %s name `%s'"
 msgstr "%s указатель «%s» (для ноды «%s») отличается от %s с именем «%s»"
 
-#: tta/perl/Texinfo/Structuring.pm:1278
+#: tta/perl/Texinfo/Structuring.pm:1264
 #: tta/C/structuring_transfo/structuring.c:1921
 #, c-format, perl-format
 msgid "%s reference to nonexistent `%s'"
 msgstr "%s ссылается на несуществующий «%s»"
 
-#: tta/perl/Texinfo/Structuring.pm:1651
+#: tta/perl/Texinfo/Structuring.pm:1626
 #: tta/C/structuring_transfo/structuring.c:2023
 #, c-format, perl-format
 msgid "@%s to `%s', different from %s name `%s'"
 msgstr "@%s на «%s», отличается от %s с именем «%s»"
 
-#: tta/perl/Texinfo/Structuring.pm:2229
+#: tta/perl/Texinfo/Structuring.pm:2183
 #: tta/C/structuring_transfo/structuring.c:2576
 #, c-format, perl-format
 msgid "node `%s' appears in its own menus"
 msgstr "нода «%s» появляется в своих собственных меню"
 
-#: tta/perl/Texinfo/Transformations.pm:966
-#: tta/C/structuring_transfo/transformations.c:1497
+#: tta/perl/Texinfo/Transformations.pm:941
+#: tta/C/structuring_transfo/transformations.c:1506
 #, c-format, perl-format
 msgid "could not protect hash character in @%s"
 msgstr "невозможно защитить хэш-символ в @%s"
@@ -4787,52 +4787,52 @@ msgstr ""
 "%s: аргумент --paragraph-indent должен быть числовым/«none»/«asis», а не "
 "«%s».\n"
 
-#: tta/C/convert/convert_html.c:2407
+#: tta/C/convert/convert_html.c:2409
 #, c-format
 msgid "%s: %zu registered opened sections not closed"
 msgstr "%s: %zu зарезервированных открытых разделов не закрыто"
 
-#: tta/C/convert/convert_html.c:2417
+#: tta/C/convert/convert_html.c:2419
 #, c-format
 msgid "%zu registered inline contents: %s"
 msgstr "зарегистрировано %zu встроенного содержимого: %s"
 
-#: tta/C/convert/convert_html.c:2434
+#: tta/C/convert/convert_html.c:2436
 #, c-format
 msgid "left inline content associated to %s: '%s'"
 msgstr "отсутствует встроенное содержимое, связанное с %s: «%s»"
 
-#: tta/C/convert/convert_html.c:2441
+#: tta/C/convert/convert_html.c:2443
 #, c-format
 msgid "left inline content of %p: '%s'"
 msgstr "отсутствует встроенное содержимое %p: «%s»"
 
-#: tta/C/convert/convert_html.c:2446
+#: tta/C/convert/convert_html.c:2448
 #, c-format
 msgid "left inline content associated: '%s'"
 msgstr "отсутствует связанное встроенное содержимое: «%s»"
 
-#: tta/C/convert/convert_html.c:2455
+#: tta/C/convert/convert_html.c:2457
 #, c-format
 msgid "%zu pending footnotes"
 msgstr ""
 
-#: tta/C/convert/convert_html.c:2681
+#: tta/C/convert/convert_html.c:2683
 #, c-format
 msgid "error while opening %s for reading: %s"
 msgstr "ошибка при открытии %s на чтение: %s"
 
-#: tta/C/convert/convert_html.c:2691
+#: tta/C/convert/convert_html.c:2693
 #, c-format
 msgid "cannot open %s for writing: %s"
 msgstr "невозможно открыть %s для записи: %s"
 
-#: tta/C/convert/convert_html.c:2709
+#: tta/C/convert/convert_html.c:2711
 #, c-format
 msgid "error writing %s: %s"
 msgstr "ошибка записи в %s: %s"
 
-#: tta/C/convert/convert_html.c:2735
+#: tta/C/convert/convert_html.c:2737
 #, c-format
 msgid "error closing %s: %s"
 msgstr "ошибка при закрытии %s: %s"
