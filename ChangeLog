@@ -59,6 +59,10 @@
 
 2026-01-09  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking, tta/perl/t/README: update file location
+
+2026-01-09  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.js (init_iframe) <on_load>:
 	Do not add "in-iframe" class to <body> element as this is
 	no longer used for anything.

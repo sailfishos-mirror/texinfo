@@ -9,7 +9,7 @@ at Savannah:
   https://savannah.gnu.org/git/?group=texinfo
 
 See also files:
-tta/README, tta/t/README, tta/tests/README, TODO, TODO.HTML
+tta/README, tta/perl/t/README, tta/tests/README, TODO, TODO.HTML
 
 Development tools
 -----------------
