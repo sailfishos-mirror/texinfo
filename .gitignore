@@ -393,8 +393,8 @@ tta/C/parsetexi/.libs
 tta/C/parsetexi/*.lo
 tta/C/convert/.libs
 tta/C/convert/*.lo
-tta/C/swig/.libs
-tta/C/swig/*.lo
+tta/C/api_for_swig/.libs
+tta/C/api_for_swig/*.lo
 tta/C/tree_elements/.libs
 tta/C/tree_elements/*.lo
 
