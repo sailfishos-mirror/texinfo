@@ -45,12 +45,15 @@ use strict;
 # debugging
 use Carp qw(cluck confess);
 
-# Next three only needed for debugging, if customization variable TEST
-# is set > 2 (which never happens automatically).
-use Devel::Peek;
-eval { require Devel::Refcount; Devel::Refcount->import(); };
+# Do not used Devel::Peek, instead implement SvREFCNT as Devel::Peek
+# cannot be loaded in an eval
+#use Devel::Peek;
 # SvREFCNT counts are wrong if loaded through eval?
 #eval { require Devel::Peek; Devel::Peek->import(); };
+
+# Next two only needed for debugging, if customization variable TEST
+# is set > 2 (which never happens automatically).
+eval { require Devel::Refcount; Devel::Refcount->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
 
 my $devel_findref_loading_error = $@;
@@ -98,6 +101,11 @@ our %XS_overrides = (
     => "Texinfo::StructTransfXS::protect_node_after_label_in_document",
   "Texinfo::ManipulateTree::tree_print_details"
     => "Texinfo::StructTransfXS::tree_print_details",
+
+  # Devel::Peek is not present on all the platforms, and we cannot load it
+  # in an eval, so we reimplement trivially SvREFCNT
+  "Texinfo::ManipulateTree::SvREFCNT"
+    => "Texinfo::StructTransfXS::SvREFCNT",
 );
 
 our $module_loaded = 0;
@@ -409,6 +417,18 @@ sub copy_contentsNonXS($;$) {
 
 
 
+# The XS override returns the SvREFCNT value.
+#   $EXPECTED_COUNT should be set to the reference count expected, for
+#   instance the reference count expected in a test that follows the
+#   call to SvREFCNT.
+sub SvREFCNT($;$) {
+  # If there is no XS, return the expected count instead of showing the
+  # true reference count.
+  my ($variable, $expected_count) = @_;
+
+  return $expected_count;
+}
+
 # for debugging
 sub _print_tree_elements_ref($$);
 sub _print_tree_elements_ref($$)
@@ -422,7 +442,7 @@ sub _print_tree_elements_ref($$)
     $parent = '';
   }
 
-  my $reference_count = Devel::Peek::SvREFCNT($element);
+  my $reference_count = SvREFCNT($element, -1);
   my $object_count = Devel::Refcount::refcount($element);
 
   print STDERR "". (' ' x $level) . $element
@@ -597,7 +617,7 @@ sub _element_remove_references($;$$) {
   #   Texinfo::ManipulateTree::element_print_details($element)."\n";
 
   if (defined($check_refcount) and not $silent_refcount) {
-    my $reference_count = Devel::Peek::SvREFCNT($element);
+    my $reference_count = SvREFCNT($element, $element_SV_target_count);
     my $object_count = Devel::Refcount::refcount($element);
     #if (1) {
     #Devel::Peek::Dump($element);

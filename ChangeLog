@@ -1,5 +1,20 @@
 2026-01-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm (%XS_overrides, SvREFCNT),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs (SvREFCNT):
+	implement SvREFCNT XS interface to get the SvREFCNT.  Add a second
+	argument to return this value if there is no XS.
+
+	* tta/perl/Texinfo/Convert/Converter.pm
+	(perl_converter_remove_output_units),
+	tta/perl/Texinfo/ManipulateTree.pm (_print_tree_elements_ref)
+	(_element_remove_references): call ManipulateTree.pm SvREFCNT.
+
+	* tta/perl/Texinfo/OutputUnits.pm (release_output_units_list): do not
+	show the SvREFCNT, it is not that useful and adds a dependency.
+
+2026-01-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/z_misc/same_converter_init.t ($default_test_level):
 	set $default_test_level based on Texinfo::ModulePath, which is in turn
 	based on configure DEFAULT_TEST_LEVEL and use it for TEST value.

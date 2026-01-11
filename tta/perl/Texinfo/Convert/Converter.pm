@@ -38,7 +38,6 @@ use Storable;
 
 use Carp qw(cluck confess);
 
-use Devel::Peek;
 eval { require Devel::Refcount; Devel::Refcount->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
 
@@ -532,7 +531,9 @@ sub perl_converter_remove_output_units($) {
     if ($check_output_units_references) {
       foreach my $output_units_list (@$output_units_lists) {
         foreach my $output_unit (@$output_units_list) {
-          my $reference_count = Devel::Peek::SvREFCNT($output_unit);
+          my $reference_count
+           = Texinfo::ManipulateTree::SvREFCNT($output_unit,
+                                               $output_unit_SV_target_count);
           my $object_count = Devel::Refcount::refcount($output_unit);
           # only one object count remaining corresponding to the last refcount
           # of the output unit.

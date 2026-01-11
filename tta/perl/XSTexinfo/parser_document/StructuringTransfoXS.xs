@@ -384,6 +384,20 @@ tree_print_details (SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
     OUTPUT:
         RETVAL
 
+# Simplistic wrapper around SvREFCNT.  Should be similar to
+# Devel::Peek::SvREFCNT, but we do not use Devel::Peek as it cannot be loaded
+# in an eval.
+# The second argument is only used in the Perl subroutine.
+int
+SvREFCNT (SV *sv, ...)
+    PROTOTYPE: $;$
+    CODE:
+        if (!SvOK (sv))
+          RETVAL = -1;
+        else
+          RETVAL = SvREFCNT (sv);
+    OUTPUT:
+        RETVAL
 
 # unused, avoid using
 SV *

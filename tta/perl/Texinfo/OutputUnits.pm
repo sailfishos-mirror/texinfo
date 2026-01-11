@@ -40,7 +40,6 @@ use Carp qw(cluck confess);
 # for fileparse
 use File::Basename;
 
-use Devel::Peek;
 eval { require Devel::Refcount; Devel::Refcount->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
 
@@ -322,7 +321,6 @@ sub release_output_units_list($) {
       print STDERR " $output_unit ["
              .(exists($output_unit->{'unit_contents'}) ?
                 scalar(@{$output_unit->{'unit_contents'}}) : '-')."]: ".
-                   Devel::Peek::SvREFCNT($output_unit).
        " HV: ".Devel::Refcount::refcount($output_unit)."\n"
         .Devel::FindRef::track($output_unit)."\n";
     }
