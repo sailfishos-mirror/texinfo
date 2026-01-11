@@ -29,6 +29,12 @@ my ($t2a_srcdir, $t2a_builddir, $srcdir)
 
 configure_document_locales($t2a_builddir);
 
+my $default_test_level = 1;
+if (defined($Texinfo::ModulePath::default_test_level)
+    and ($Texinfo::ModulePath::default_test_level == 1
+         or $Texinfo::ModulePath::default_test_level == 2)) {
+  $default_test_level = $Texinfo::ModulePath::default_test_level;
+}
 
 my $manual_file = join('/', ($t2a_srcdir, $updir, 'doc', 'texinfo.texi'));
 my $manual_include_dir = join('/', ($t2a_srcdir, $updir, 'doc'));
@@ -58,7 +64,7 @@ if (!defined($document)) {
 }
 
 my ($converter, $result_html, $second_result_html);
-$converter = Texinfo::Convert::HTML->converter({'TEST' => 2});
+$converter = Texinfo::Convert::HTML->converter({'TEST' => $default_test_level});
 
 $result_html = $converter->convert($document);
 #print STDERR "1 $result_html\n";
@@ -74,7 +80,7 @@ $converter->destroy_converter();
 is_diff($result_html, $second_result_html,
    'two call of converter give the same result');
 
-$converter = Texinfo::Convert::HTML->converter({'TEST' => 2,
+$converter = Texinfo::Convert::HTML->converter({'TEST' => $default_test_level,
                                         'OUTPUT_CHARACTERS' => 1});
 
 my $simple_document
