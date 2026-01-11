@@ -1,5 +1,15 @@
 2026-01-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	info: Remove OSC sequences from manpages
+
+	* info/man.c (ecma_48_osc_sequence): New function.
+	(clean_manpage): Call it to remove OSC sequences (output
+	by groff to show the location of hyperlinks in manpages).
+	
+	Report from G. Branden Robinson.
+
+2026-01-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/util.c (ansi_escape, ansi_sgr_escape): Rename.
 
 2026-01-11  Gavin Smith <gavinsmith0123@gmail.com>

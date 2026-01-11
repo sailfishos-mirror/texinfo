@@ -271,6 +271,40 @@ get_page_and_section (const char *pagename)
     }
 }
 
+/* If INPUT points to a ECMA-48 OSC ("Operating System Command") sequence,
+   return true and set *LEN to its length in bytes.  Some newer versions
+   of groff use this to mark text as a hyperlink. */
+static int
+ecma_48_osc_sequence (const char *input, int *len)
+{
+  const char *p = input;
+  if (*p == '\033' && p[1] == ']')
+    {
+      p += 2;
+      /* Move past permissible bytes. */
+      while ((0x20 <= *p && *p <= 0x7e)
+              || (0x08 <= *p && *p <= 0x0d))
+        {
+          p++;
+        }
+      /* Check for terminating sequence. */
+      if (*p == '\033' && p[1] == '\\')
+        {
+          p += 2;
+          *len = p - input;
+          return 1;
+        }
+      /* BEL recognized as alternative terminator. */
+      else if (*p == '\a')
+        {
+          p++;
+          *len = p - input;
+          return 1;
+        }
+    }
+  return 0;
+}
+
 void
 clean_manpage (char *manpage)
 {
@@ -293,6 +327,11 @@ clean_manpage (char *manpage)
             {
               if (np >= newpage + prev_len)
                 np -= prev_len;
+            }
+          else if (ecma_48_osc_sequence (cur_ptr, &cur_len))
+            {
+              /* do not copy */
+              ITER_SETBYTES (iter, cur_len);
             }
           else if (ansi_sgr_escape (iter, &cur_len))
             {
