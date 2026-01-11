@@ -12,7 +12,7 @@ char *filename_non_directory (char *pathname);
 #define ITER_SETBYTES(iter,n) ((iter).cur.bytes = n)
 #define ITER_LIMIT(iter) ((iter).limit - (iter).cur.ptr)
 
-int ansi_escape (mbi_iterator_t iter, int *plen);
+int ansi_sgr_escape (mbi_iterator_t iter, int *plen);
 
 
 struct text_buffer

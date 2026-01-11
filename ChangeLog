@@ -1,5 +1,9 @@
 2026-01-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/util.c (ansi_escape, ansi_sgr_escape): Rename.
+
+2026-01-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/Makefile.am (wwwdoc-build): Reference (as-yet non-existent)
 	CSS file under the Texinfo area on www.gnu.org, rather than CSS
 	Gnulib directly.  This means we will be easily able to fix any

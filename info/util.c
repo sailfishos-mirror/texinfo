@@ -67,12 +67,12 @@ filename_non_directory (char *pathname)
 }
 
 
-/* If ITER points to an ANSI escape sequence, process it, set PLEN to its
-   length in bytes, and return 1.
+/* If ITER points to an ANSI escape sequence (Select Graphic Rendition),
+   process it, set PLEN to its length in bytes, and return 1.
    Otherwise, return 0.
  */
 int
-ansi_escape (mbi_iterator_t iter, int *plen)
+ansi_sgr_escape (mbi_iterator_t iter, int *plen)
 {
   if (raw_escapes_p && *mbi_cur_ptr (iter) == '\033' && mbi_avail (iter))
     {

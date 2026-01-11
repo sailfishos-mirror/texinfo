@@ -527,7 +527,7 @@ printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
           text_buffer_add_char (rep, ' ');
           return cur_ptr;
         }
-      else if (ansi_escape (*iter, &cur_len))
+      else if (ansi_sgr_escape (*iter, &cur_len))
         {
           *pchars = 0;
           *pbytes = cur_len;

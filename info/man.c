@@ -294,7 +294,7 @@ clean_manpage (char *manpage)
               if (np >= newpage + prev_len)
                 np -= prev_len;
             }
-          else if (ansi_escape (iter, &cur_len))
+          else if (ansi_sgr_escape (iter, &cur_len))
             {
               memcpy (np, cur_ptr, cur_len);
               np += cur_len;
