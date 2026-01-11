@@ -1,3 +1,7 @@
+2026-01-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* README-hacking: add note to "git push" before doing release.
+
 2026-02-10 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/convert_utils.c (clear_tree_added_elements): remove

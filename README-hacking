@@ -553,6 +553,10 @@ notice in ChangeLog.
 one last "git diff" to check release commit looks good
 make distcheck
 (export MALLOC_CHECK_=2; make distcheck)  # repeat until clean
+
+# do this before uploading the release, in case of any commits by other
+# contributors.  otherwise the git history will not reflect what is in
+# the release.
 git commit and push
 
 (If on a release branch, copy the NEWS message to NEWS on master)
