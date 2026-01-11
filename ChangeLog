@@ -1,5 +1,14 @@
 2026-01-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/texi2any.pl: comment out use Devel::Peek, it is only used
+	in commented out debugging codes.
+
+	* configure.ac (perl_version_requirement), tta/configure.ac
+	(refcount_checks): do not test for Devel::Peek presence, now that it
+	is not used anymore.
+
+2026-01-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (%XS_overrides, SvREFCNT),
 	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs (SvREFCNT):
 	implement SvREFCNT XS interface to get the SvREFCNT.  Add a second

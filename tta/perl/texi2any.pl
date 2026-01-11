@@ -76,7 +76,7 @@ use Storable;
 #use Data::Dumper;
 
 #use Devel::Cycle;
-use Devel::Peek;
+#use Devel::Peek;
 eval { require Devel::FindRef; Devel::FindRef->import(); };
 eval { require Devel::Refcount; Devel::Refcount->import(); };
 

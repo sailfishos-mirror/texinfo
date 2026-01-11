@@ -23,7 +23,7 @@ Module requirements
 These modules and libraries are required (all have been standard
 parts of Perl for years, at least since 5.7.3):
   Carp, Config, Data::Dumper, Encode, File::Basename, File::Spec
-  Getopt::Long, Unicode::Normalize, Storable, Devel::Peek
+  Getopt::Long, Unicode::Normalize, Storable
 
 Unicode::Collate (also a standard module since 5.7.3) is required for
 correct index sorting.

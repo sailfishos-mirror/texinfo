@@ -397,9 +397,7 @@ AC_ARG_ENABLE([refcounts-checks],
        refcount_checks='yes'
      fi],
     [
-     # Devel::Peek already checked because it cannot be a soft dependency,
-     # but it logically belongs here.
-     if $PERL -e "use Devel::Peek; use Devel::Refcount;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     if $PERL -e "use Devel::Refcount;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
      then
        refcount_checks='yes'
      else

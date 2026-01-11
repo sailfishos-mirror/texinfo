@@ -942,7 +942,9 @@ dblatex -o texinfo-dblatex.pdf texinfo.xml
 Open a specific info file in Emacs Info reader: C-u C-h i
 
 Count reference of the SV
-Devel::Peek::SvREFCNT
+Devel::Peek::SvREFCNT.  Not actually used because it cannot load in an eval.
+Instead implemented in
+Texinfo::ManipulateTree::SvREFCNT
 Count reference of the object pointed to
 Devel::Refcount::refcount
 
