@@ -32,13 +32,13 @@ if SWIG_INTERFACES
 
 BUILT_SOURCES = python_texinfo_wrap.c Texinfo.py
 
-SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/swig
+SWIG_include_directories = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/api_for_swig
 SWIG_header_dependencies = \
                  $(txi_libs_srcdir)/main/use_interpreter_types.h \
                  $(txi_libs_srcdir)/main/source_mark_types.h \
-                 $(txi_libs_srcdir)/swig/swig_element_data.h \
-                 $(txi_libs_srcdir)/swig/swig_text_options.h \
-                 $(txi_libs_srcdir)/swig/swig_error_messages_types.h
+                 $(txi_libs_srcdir)/api_for_swig/swig_element_data.h \
+                 $(txi_libs_srcdir)/api_for_swig/swig_text_options.h \
+                 $(txi_libs_srcdir)/api_for_swig/swig_error_messages_types.h
 
 python_texinfo_wrap.c Texinfo.py: $(srcdir)/../texinfo.i $(SWIG_header_dependencies)
 	$(SWIG) $(AX_SWIG_PYTHON_OPT) $(SWIG_include_directories) -o python_texinfo_wrap.c $(srcdir)/../texinfo.i
@@ -72,7 +72,7 @@ endif
 endif
 # Same as ctexi2any, not sure whether it is needed or not
 _Texinfo_la_LIBADD += $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
-_Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi -I$(txi_libs_srcdir)/convert -I$(txi_libs_srcdir)/swig ${PYTHON_CPPFLAGS}
+_Texinfo_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi -I$(txi_libs_srcdir)/convert -I$(txi_libs_srcdir)/api_for_swig ${PYTHON_CPPFLAGS}
 
 clean-local:
 	rm -rf __pycache__

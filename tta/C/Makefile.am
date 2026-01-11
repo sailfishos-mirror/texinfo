@@ -596,15 +596,15 @@ libperlembed_libtexinfo_main_la_CPPFLAGS = $(perl_conf_CPPFLAGS)
 # from Perl, not in PERL_EXTUTILS_EMBED_ccopts.
 
 C_libtexinfo_main_sources = \
-                       swig/swig_element_data.h \
-                       swig/swig_element_types.h \
-                       swig/swig_text_options.h \
-                       swig/swig_text_options_types.h \
-                       swig/swig_error_messages_types.h \
-                       swig/swig_interface.c \
-                       swig/swig_interface.h \
-                       swig/swig_parser_api.c \
-                       swig/swig_parser_api.h \
+                       api_for_swig/swig_element_data.h \
+                       api_for_swig/swig_element_types.h \
+                       api_for_swig/swig_text_options.h \
+                       api_for_swig/swig_text_options_types.h \
+                       api_for_swig/swig_error_messages_types.h \
+                       api_for_swig/swig_interface.c \
+                       api_for_swig/swig_interface.h \
+                       api_for_swig/swig_parser_api.c \
+                       api_for_swig/swig_parser_api.h \
                        convert/texinfo.c \
                        convert/texinfo.h
 

@@ -1,5 +1,12 @@
 2026-01-11 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/api_for_swig/*.c, tta/C/Makefile.am
+	(C_libtexinfo_main_sources), tta/swig/perl/Makefile.am,
+	tta/swig/python/Makefile.am: move tta/C/swig to tta/C/api_for_swig.
+	Gavin idea.
+
+2026-01-11 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/texi2any.pl: comment out use Devel::Peek, it is only used
 	in commented out debugging codes.
 
