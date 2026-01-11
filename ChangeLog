@@ -1,5 +1,14 @@
 2026-01-11  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (wwwdoc-build): Reference (as-yet non-existent)
+	CSS file under the Texinfo area on www.gnu.org, rather than CSS
+	Gnulib directly.  This means we will be easily able to fix any
+	CSS problems without relying on Gnulib and/or GNU webmasters to
+	make changes, and without regenerating and re-uploading entire
+	HTML manuals.
+
+2026-01-11  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: add note to "git push" before doing release.
 
 2026-02-10 Patrice Dumas  <pertusus@free.fr>

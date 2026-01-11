@@ -139,7 +139,7 @@ gendocs_mathjax = -c HTML_MATH=mathjax \
 
 gendocs_options = --email $(gendocs_email) --html '$(gendocs_mathjax) \
                   -c TOP_NODE_UP_URL=$(gendocs_dir_url) \
-                  --css-ref=https://www.gnu.org/software/gnulib/manual.css'
+                  --css-ref=https://www.gnu.org/software/texinfo/manual.css'
 #
 gendocs_invoke = env $(gendocs_envvars) $(gendocs) $(gendocs_options)
 
