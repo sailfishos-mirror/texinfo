@@ -1,3 +1,9 @@
+2026-01-12 Patrice Dumas  <pertusus@free.fr>
+
+	* tta: add glob module from gnulib, missing on mingw.  Report from
+	Bruno.
+	Run gnulib-tool --add-import glob.
+
 2026-01-11 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/api_for_swig/*.c, tta/C/Makefile.am
