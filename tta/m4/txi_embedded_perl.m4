@@ -15,19 +15,17 @@ AC_DEFUN([txi_EMBEDDED_PERL],
   saved_LDFLAGS=$LDFLAGS
   old_LIBS=$LIBS
 
-  # NOTE the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
-  # linker flags that should be in LDFLAGS according to the automake
-  # documentation, but also -L and -l flags that need to be last.
-  # We favor having the variable last and use LIBS otherwise linking fails.
-  LIBS="$PERL_EXTUTILS_EMBED_ldopts"
+  # corresponds to the ExtUtils::Embed ldopts corresponding to LIBS
+  LIBS="$perl_conf_LIBS"
 
   # NOTE perl_conf_CPPFLAGS associated to perl_conf_CFLAGS
-  # corresponds to the PERL_EXTUTILS_EMBED_ccopts variable that contains
+  # corresponds to the ExtUtils::Embed ccopts that contains
   # both preprocessor suited for CPPFLAGS and compiler flags, suited for CFLAGS.
   # We use the PERL_EXT_var user variables for Perl XS extensions to match
   # compilation rules.
   CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
   CFLAGS="$PERL_EXT_CFLAGS $perl_conf_CFLAGS"
+  # contains ExtUtils::Embed ldopts corresponding to LDFLAGS.
   LDFLAGS="$PERL_EXT_LDFLAGS $perl_conf_LDFLAGS"
 
   # NOTE The tested code is a simplified version of

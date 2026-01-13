@@ -1,3 +1,14 @@
+2026-01-13 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/m4/txi_perl_conf.m4 (perl_conf_LDFLAGS): add PERL_CONF_ccdlflags
+	by making perl_conf_LDFLAGS a copy of perl_conf_LIB_LDFLAGS.
+
+	* tta/C/Makefile.am (libperlembed_libtexinfo_main_la_LIBADD)
+	(libtexinfo_main_la_LIBADD, ctexi2any_LDADD), tta/configure.ac,
+	tta/m4/txi_embedded_perl.m4, tta/swig/python/Makefile.am: remove
+	unused PERL_EXTUTILS_EMBED_ccopts.  Replace PERL_EXTUTILS_EMBED_ldopts
+	by perl_conf_LIBS.
+
 2026-01-12 Patrice Dumas  <pertusus@free.fr>
 
 	* tta: add glob module from gnulib, missing on mingw.  Report from

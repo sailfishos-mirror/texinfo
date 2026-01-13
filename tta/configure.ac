@@ -81,15 +81,16 @@ else
 fi
 AC_MSG_RESULT($extutils_embed)
 
-PERL_EXTUTILS_EMBED_ccopts=
-PERL_EXTUTILS_EMBED_ldopts=
-if test "z$extutils_embed" = 'zyes' ; then
-  PERL_EXTUTILS_EMBED_ccopts=`${PERL} -MExtUtils::Embed -e ccopts`
-  PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts`
-fi
+# Not used, similar information is reconstituted
+#PERL_EXTUTILS_EMBED_ccopts=
+#PERL_EXTUTILS_EMBED_ldopts=
+#if test "z$extutils_embed" = 'zyes' ; then
+#  PERL_EXTUTILS_EMBED_ccopts=`${PERL} -MExtUtils::Embed -e ccopts`
+#  PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts`
+#fi
 
-AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])
-AC_SUBST([PERL_EXTUTILS_EMBED_ldopts], [$PERL_EXTUTILS_EMBED_ldopts])
+dnl AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])
+dnl AC_SUBST([PERL_EXTUTILS_EMBED_ldopts], [$PERL_EXTUTILS_EMBED_ldopts])
 
 # Before Perl 5.38.0 getenv/setenv and similar cannot be reliably used in
 # XS and could lead to memory corruption, depending on the platform.

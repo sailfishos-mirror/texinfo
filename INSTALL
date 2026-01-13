@@ -105,7 +105,7 @@ Installation notes specific to Texinfo:
   structure step.  For the conversion step, however, Perl code is often
   needed, therefore the C texi2any implementation embeds a Perl interpreter
   to call Perl code.  In that case, XS modules are always used.  It may
-  still be  relevant to set TEXINFO_XS=debug to print additional information.
+  still be relevant to set TEXINFO_XS=debug to print additional information.
 
 * Native code (in the C implementation or in XS modules) get translations
   for strings to be put in output files using libc gettext, using the

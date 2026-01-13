@@ -38,6 +38,7 @@ AM_CFLAGS = $(perl_conf_LIB_CFLAGS)
 # used for executables.  The different libraries have specific flags
 # because the can have libtool version arguments and also because those
 # compiled against Gnulib code may need specific flags.
+# This corresponds to part of ExtUtils::Embed ldopts corresponding to LDFLAGS
 AM_LDFLAGS = $(perl_conf_LDFLAGS)
 
 xsdir = $(converterlibdir)
@@ -574,12 +575,8 @@ libperlembed_libtexinfo_main_la_SOURCES += convert/replace_call_embed_perl.c
 endif
 
 if PERL_EMBEDDED
-# In PERL_EXTUTILS_EMBED_ldopts flags that should be either in
-# LDFLAGS (program-specific linker flags according to the automake
-# documentation) or LIBADD (linked libraries flags) are mixed.
-# Since we also set LDFLAGS to be the Perl linking flags these
-# flags are duplicated.
-libperlembed_libtexinfo_main_la_LIBADD = $(PERL_EXTUTILS_EMBED_ldopts)
+# contains part of ExtUtils::Embed ldopts corresponding to LIBADD
+libperlembed_libtexinfo_main_la_LIBADD = $(perl_conf_LIBS)
 else
 libperlembed_libtexinfo_main_la_LIBADD = $(platform_PERL_LIBADD)
 endif
@@ -590,10 +587,10 @@ libperlembed_libtexinfo_main_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS)
 # is better in CPPFLAGS.
 libperlembed_libtexinfo_main_la_CPPFLAGS = $(perl_conf_CPPFLAGS)
 # The flags that are used through AM_CFLAGS contain
-# flags part of PERL_EXTUTILS_EMBED_ccopts corresponding to
+# flags part of ExtUtils::Embed ccopts corresponding to
 # Perl config ccflags.  May contain flags that would have better been
-# in CPPFLAGS. Also flags for compilation as part of a library
-# from Perl, not in PERL_EXTUTILS_EMBED_ccopts.
+# in CPPFLAGS.  Also flags for compilation as part of a library
+# from Perl, not in ExtUtils::Embed ccopts.
 
 C_libtexinfo_main_sources = \
                        api_for_swig/swig_element_data.h \
@@ -616,11 +613,10 @@ libtexinfo_main_la_SOURCES = \
 libtexinfo_main_la_CPPFLAGS = -I$(srcdir)/main -I$(srcdir)/convert -I$(srcdir)/structuring_transfo -I$(srcdir)/parsetexi $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 libtexinfo_main_la_LIBADD = $(libtexinfoxs_la_as_dependency) libtexinfo.la libtexinfo-convert.la libperlembed_libtexinfo_main.la $(top_builddir)/gnulib/lib/libgnu.la
 if PERL_EMBEDDED
-# in LIBADD and not LDFLAGS to have the libraries link flags at the end,
-# otherwise the link fails.  There is a duplication with flags in
-# $(perl_conf_LIB_LDFLAGS) used in libtexinfo_main_la_LDFLAGS.
-libtexinfo_main_la_LIBADD += $(PERL_EXTUTILS_EMBED_ldopts)
+# contains part of ExtUtils::Embed ldopts corresponding to LIBADD
+libtexinfo_main_la_LIBADD += $(perl_conf_LIBS)
 endif
+# contains part of ExtUtils::Embed ldopts corresponding to LDFLAGS
 libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LIB_LDFLAGS)
 # example to trigger errors associated with no undefined
 #libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
@@ -652,17 +648,14 @@ endif
 ctexi2any_SOURCES = \
                        texi2any.c
 
-# NOTE the PERL_EXTUTILS_EMBED_ldopts variable contains program-specific
-# linker flags that should be in LDFLAGS according to the automake
-# documentation, but also -L and -l flags that need to be last
-# on LDADD.  We favor LDADD otherwise linking fails.
+# perl_conf_LIBS contains part of ExtUtils::Embed ldopts corresponding to LDADD
 # Gnulib is directly needed on some platforms for getopt-gnu.
 # The Gnulib link variables are needed at least on Solaris and not added
 # by libtool.
-ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(PERL_EXTUTILS_EMBED_ldopts) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libtexinfo.la $(top_builddir)/gnulib/lib/libgnu.la $(perl_conf_LIBS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 # NOTE it is important to use perl_conf_CFLAGS here to match
-# with PERL_EXTUTILS_EMBED_ldopts used for linking, or in some platforms where
+# with perl_conf_LDFLAGS used for linking, or in some platforms where
 # the compiling and linking flags must match there will be a failure to
 # build (for example AlmaLinux).
 ctexi2any_CFLAGS = $(perl_conf_CFLAGS)

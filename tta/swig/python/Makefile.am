@@ -57,7 +57,8 @@ nodist__Texinfo_la_SOURCES = python_texinfo_wrap.c
 _Texinfo_la_LDFLAGS = -module ${PYTHON_LDFLAGS}
 _Texinfo_la_LIBADD = $(top_builddir)/C/libtexinfo.la $(top_builddir)/C/libtexinfo-main.la
 if PERL_EMBEDDED
-_Texinfo_la_LIBADD += $(PERL_EXTUTILS_EMBED_ldopts)
+# part of ExtUtils::Embed ldopts corresponding to LIBADD
+_Texinfo_la_LIBADD += $(perl_conf_LIBS)
 else
 # We need an explicit link against libperl as there is no Perl process involved
 # (Perl C code used through XS extensions can use the Perl interpreter
