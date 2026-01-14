@@ -1,5 +1,11 @@
 2026-01-13 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/m4/txi_perl_conf.m4 (perl_conf_LIBS): remove PERL_CONF_perllibs,
+	it could add wrong flags on some platforms, and was not needed before.
+	Report from Eli Zaretskii.
+
+2026-01-13 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/m4/txi_perl_conf.m4 (perl_conf_LDFLAGS): add PERL_CONF_ccdlflags
 	by making perl_conf_LDFLAGS a copy of perl_conf_LIB_LDFLAGS.
 

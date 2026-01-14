@@ -313,6 +313,7 @@ fi
 # symlink.
 
 embedded_perl=no
+# Note that we do not actually use ExtUtils::Embed anywhere.
 if test x$enable_xs != xno -a $extutils_embed = yes ; then
   txi_EMBEDDED_PERL
 fi
