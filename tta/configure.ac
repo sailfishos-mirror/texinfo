@@ -210,6 +210,16 @@ if test x$enable_xs != xno; then
   # NOTE Specific checks against Perl should not have the Autoconf/Gnulib
   # includes set but could set the following:
   #CPPFLAGS="$PERL_EXT_CPPFLAGS $perl_conf_CPPFLAGS"
+else
+  # unset perl flags, such that it is still possible to build C-only
+  # libraries and executable.  All the features needing Perl will be
+  # lacking.
+  perl_conf_CPPFLAGS=
+  perl_conf_CFLAGS=
+  perl_conf_LIB_CFLAGS=
+  perl_conf_LIB_LDFLAGS=$platform_LDFLAGS
+  platform_PERL_LIBADD=
+  perl_conf_LIBS=
 fi
 
 # Wipe cache values in case -C was given at the top level

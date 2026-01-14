@@ -1,3 +1,10 @@
+2026-01-14 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/configure.ac: unset perl_conf* variables if XS is disabled.
+	Set perl_conf_LIB_LDFLAGS to platform_LDFLAGS as platforms needing
+	-no-undefined probably still need this flag.  Based on a report by
+	Bruno.
+
 2026-01-13 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/m4/txi_perl_conf.m4 (perl_conf_LIBS): remove PERL_CONF_perllibs,
