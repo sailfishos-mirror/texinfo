@@ -1,5 +1,11 @@
 2026-01-15 Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t (protected - external pod
+	as url): add comment to explain that the test fails with old
+	Pod::Simple::XHTML (before 2011 or 2012).  Report from Nelson Beebe.
+
+2026-01-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/xs_utils.c (non_perl_realloc): add.
 
 	* tta/C/main/build_perl_info.c (output_unit_to_perl_hash),
