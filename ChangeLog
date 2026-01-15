@@ -1,5 +1,11 @@
 2026-01-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c (switch_messages_locale): do not try to
+	setenv LANG if setenv LC_ALL failed, asa the only possibility for
+	failure is being out of memory.  Report from Bruno Haible.
+
+2026-01-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/api_to_perl.c (show_sv_hv, get_sv_hv),
 	tta/C/main/get_perl_info.c (find_index_entry_subentry): add missing
 	dTHX.  Report and code from Eli Zaretskii.
