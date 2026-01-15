@@ -1079,6 +1079,8 @@ find_index_entry_subentry (const ELEMENT *index_element, const HV *element_hv)
   size_t l;
   CONST_ELEMENT_LIST subentries_list;
 
+  dTHX;
+
   memset (&subentries_list, 0, sizeof (CONST_ELEMENT_LIST));
 
   collect_subentries (index_element, &subentries_list);

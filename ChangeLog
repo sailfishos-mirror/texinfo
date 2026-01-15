@@ -1,5 +1,11 @@
 2026-01-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/api_to_perl.c (show_sv_hv, get_sv_hv),
+	tta/C/main/get_perl_info.c (find_index_entry_subentry): add missing
+	dTHX.  Report and code from Eli Zaretskii.
+
+2026-01-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/texi2any.c: define WIN32_LEAN_AND_MEAN when including Windows
 	headers to have a more minimal set of includes and avoid clashing
 	symbol names.  Code from Eli Zaretskii.

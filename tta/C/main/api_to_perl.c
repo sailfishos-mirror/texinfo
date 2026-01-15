@@ -115,12 +115,16 @@ croak_message (char *message)
 void
 show_sv_hv (const void *sv, const char *msg)
 {
+  dTHX;
+
   fprintf (stderr, "show_sv_hv: %s: %p %p\n", msg, sv, SvRV ((SV *) sv));
 }
 
 void *
 get_sv_hv (const void *sv)
 {
+  dTHX;
+
   if (sv)
     return (void *) SvRV ((SV *) sv);
   return 0;
