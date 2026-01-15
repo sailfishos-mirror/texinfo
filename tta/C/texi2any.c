@@ -42,6 +42,9 @@
 #include <getopt.h>
 #ifdef _WIN32
 /* for GetACP */
+/* Set WIN32_LEAN_AND_MEAN for a more minimal set of includes to avoid
+   clashing symbol names */
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #endif
 
