@@ -81,12 +81,21 @@ else
 fi
 AC_MSG_RESULT($extutils_embed)
 
-# Not used, similar information is reconstituted
+# Not used for now, similar flags are reconstituted based on Perl configuration
+# information
 #PERL_EXTUTILS_EMBED_ccopts=
 #PERL_EXTUTILS_EMBED_ldopts=
 #if test "z$extutils_embed" = 'zyes' ; then
-#  PERL_EXTUTILS_EMBED_ccopts=`${PERL} -MExtUtils::Embed -e ccopts`
-#  PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts`
+  # the backslashes are replaced by forward slashes for mingw where those
+  # file separators may be emited and then cause Bash to produce nonsensical
+  # file names.
+  # It is unlikely to have backslashes on other platforms in Perl paths,
+  # if it is reported, the replacement of backslashes could be done
+  # conditionally.
+  # Error messages on stderr are removed such that they do not interact with
+  # configure.
+#  PERL_EXTUTILS_EMBED_ccopts=`${PERL} -MExtUtils::Embed -e ccopts 2> /dev/null | sed -e 's,\\\\,/,g'`
+#  PERL_EXTUTILS_EMBED_ldopts=`${PERL} -MExtUtils::Embed -e ldopts 2> /dev/null | sed -e 's,\\\\,/,g'`
 #fi
 
 dnl AC_SUBST([PERL_EXTUTILS_EMBED_ccopts], [$PERL_EXTUTILS_EMBED_ccopts])

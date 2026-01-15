@@ -1,3 +1,13 @@
+2026-01-15 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/configure.ac (PERL_EXTUTILS_EMBED_*): remove error messages on
+	stderr and substitute backslashes by forward slashes for mingw where
+	those file separators may be emited and then cause Bash to produce
+	nonsensical file names.  Report and code by Eli Zaretskii.
+	The modified code is in comments because we do not need those
+	variables, but it is a good thing to keep the possibility to use
+	ExtUtils::Embed output.
+
 2026-01-14 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/configure.ac: unset perl_conf* variables if XS is disabled.
