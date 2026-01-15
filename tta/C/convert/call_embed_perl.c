@@ -56,7 +56,7 @@ EXTERN_C void xs_init (pTHX);
 EXTERN_C void boot_DynaLoader (pTHX_ CV* cv);
 
 EXTERN_C void
-xs_init(pTHX)
+xs_init (pTHX)
 {
     static const char file[] = __FILE__;
     dXSUB_SYS;
@@ -88,17 +88,17 @@ call_init_perl (int *argc_ref, char ***argv_ref, char ***env_ref,
   /* PERL_SYS_INIT3(&argc,&argv,&env); */
   PERL_SYS_INIT3 (argc_ref, argv_ref, env_ref);
   /* PERL_SYS_INIT3((int *)NULL,(char ***)NULL,(char ***)NULL); */
-  my_perl = perl_alloc();
-  perl_construct(my_perl);
+  my_perl = perl_alloc ();
+  perl_construct (my_perl);
   PL_exit_flags |= PERL_EXIT_DESTRUCT_END;
-  parse_status = perl_parse(my_perl, xs_init, 3, embedding, (char **)NULL);
+  parse_status = perl_parse (my_perl, xs_init, 3, embedding, (char **)NULL);
   if (parse_status)
     return parse_status;
   /*
   fprintf (stderr, "call_init_perl %s parse_status: %d\n",
            load_txi_modules_path, parse_status);
    */
-  run_status = perl_run(my_perl);
+  run_status = perl_run (my_perl);
   /*
   fprintf (stderr, "call_init_perl run_status: %d\n", run_status);
    */
@@ -115,7 +115,7 @@ call_finish_perl (void)
      PERL_DESTRUCT_LEVEL env variable overrides the value.
    */
   PL_perl_destruct_level = 0;
-  perl_destruct(my_perl);
-  perl_free(my_perl);
-  PERL_SYS_TERM();
+  perl_destruct (my_perl);
+  perl_free (my_perl);
+  PERL_SYS_TERM ();
 }
