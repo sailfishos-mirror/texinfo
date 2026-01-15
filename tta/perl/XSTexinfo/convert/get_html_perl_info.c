@@ -781,14 +781,14 @@ html_converter_get_customization_sv (SV *converter_sv,
               DIRECTION_NODE_NAME *direction_node_name
                = &converter->customized_global_units_directions.list[i];
 
-              direction_node_name->direction = strdup (direction);
+              direction_node_name->direction = non_perl_strdup (direction);
 
               if (SvOK (node_texi_sv))
                 {
                   const char *node_texi
                     = (char *) SvPVutf8_nolen (node_texi_sv);
 
-                  direction_node_name->node_name = strdup (node_texi);
+                  direction_node_name->node_name = non_perl_strdup (node_texi);
                 }
               else
                 direction_node_name->node_name = 0;
@@ -824,7 +824,7 @@ html_converter_get_customization_sv (SV *converter_sv,
             {
               translated = 1;
               converter->customized_translated_direction_strings[DS_type]
-                = (HTML_DIRECTION_STRING_TRANSLATED **) malloc
+                = (HTML_DIRECTION_STRING_TRANSLATED **) non_perl_malloc
                    (nr_string_directions
                      * sizeof (HTML_DIRECTION_STRING_TRANSLATED *));
               memset (converter
@@ -875,8 +875,9 @@ html_converter_get_customization_sv (SV *converter_sv,
                                                      strlen ("to_convert"), 0);
 
                           dir_string_translated
-                           = (HTML_DIRECTION_STRING_TRANSLATED *) malloc
-                              (sizeof (HTML_DIRECTION_STRING_TRANSLATED));
+                           = (HTML_DIRECTION_STRING_TRANSLATED *)
+                               non_perl_malloc
+                                 (sizeof (HTML_DIRECTION_STRING_TRANSLATED));
                           memset (dir_string_translated, 0,
                                   sizeof (HTML_DIRECTION_STRING_TRANSLATED));
                           converter

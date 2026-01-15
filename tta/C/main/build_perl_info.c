@@ -110,8 +110,8 @@
 
       To be sure to use non Perl defined functions, constructors and wrappers
       must be used, from xs_utils.h:
-       non_perl_free, non_perl_malloc, non_perl_strdup, non_perl_strndup,
-       non_perl_xvasprintf, non_perl_xasprintf.
+       non_perl_free, non_perl_malloc, non_perl_realloc, non_perl_strdup,
+       non_perl_strndup, non_perl_xvasprintf.
 
       This is often needed, when memory is allocated or free'd in
       'pure' C code (code that does not include Perl headers), as it is
@@ -2223,9 +2223,9 @@ output_unit_to_perl_hash (OUTPUT_UNIT *output_unit)
               char *output_unit_text = output_unit_texi (output_unit);
               xasprintf (&msg, "Missing output unit unit_command sv: %s",
                          output_unit_text);
-              free (output_unit_text);
+              non_perl_free (output_unit_text);
               fatal (msg);
-              free (msg);
+              non_perl_free (msg);
             }
 
           sv = newSVsv ((SV *) command->sv);

@@ -36,6 +36,12 @@ non_perl_malloc (size_t size)
   return malloc (size);
 }
 
+void *
+non_perl_realloc (void *ptr, size_t size)
+{
+  return realloc (ptr, size);
+}
+
 char *
 non_perl_strdup (const char *s)
 {
@@ -56,18 +62,6 @@ non_perl_xvasprintf (char **ptr, const char *template, va_list ap)
   ret = vasprintf (ptr, template, ap);
   if (ret < 0)
     abort (); /* out of memory */
-  return ret;
-}
-
-/* wrapper for asprintf */
-int
-non_perl_xasprintf (char **ptr, const char *template, ...)
-{
-  int ret;
-  va_list v;
-  va_start (v, template);
-  ret = non_perl_xvasprintf (ptr, template, v);
-  va_end (v);
   return ret;
 }
 

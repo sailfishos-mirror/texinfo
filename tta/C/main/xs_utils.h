@@ -30,9 +30,9 @@ int has_perl_interpreter (void);
 
 void non_perl_free (void *ptr);
 void *non_perl_malloc (size_t size);
+void *non_perl_realloc (void *ptr, size_t size);
 char *non_perl_strdup (const char *s);
 char *non_perl_strndup (const char *s, size_t n);
 int non_perl_xvasprintf (char **ptr, const char *template, va_list ap);
-int non_perl_xasprintf (char **ptr, const char *template, ...);
 
 #endif
