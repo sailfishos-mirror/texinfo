@@ -439,7 +439,7 @@ run_test($protected_dash_pod,
 
 ', 'protected -', 0);
 
-# NOTE Pod::Simple::XHTML idify() before 2011 did not Strip trailing
+# NOTE Pod::Simple::XHTML idify() before 2011 or 2012 did not Strip trailing
 # punctuation, which leads to a different output and an error for this
 # test for old unmaintained platforms (Centos 5.11).
 run_test($protected_dash_pod,
