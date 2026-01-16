@@ -5523,7 +5523,6 @@ html_prepare_output_units_global_targets (CONVERTER *self)
     {
       int i;
       fprintf (stderr, "GLOBAL DIRECTIONS:\n");
-      /* TODO show all the global directions, with those added by the user */
       for (i = 0; i < D_Last+1; i++)
         {
           if (self->global_units_directions[i])
@@ -5538,9 +5537,11 @@ html_prepare_output_units_global_targets (CONVERTER *self)
       fprintf (stderr, "\n");
     }
 
-  /* determine total number of special output units and fill
-     special_units_directions_name_unit.  Used to simplify building perl
-     directions */
+  /* In addition to setting global_units_directions as in Perl,
+     determine total number of special output units and fill
+     special_units_direction_names.  Used to setup the complete
+     list of global output units based on a direction name.
+   */
   for (i = 0; i < 2; i++)
     {
       size_t special_units_descriptor = special_output_units_lists[i];

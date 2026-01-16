@@ -10812,6 +10812,7 @@ sub _prepare_output_units_global_targets($$$$) {
   }
 
   if ($self->get_conf('DEBUG')) {
+    # TODO also show the global directions added by the user
     print STDERR "GLOBAL DIRECTIONS:\n";
     foreach my $global_direction (@global_directions_order) {
       if (defined($self->global_direction_unit($global_direction))) {
@@ -10825,6 +10826,7 @@ sub _prepare_output_units_global_targets($$$$) {
     print STDERR "\n";
   }
 
+  # TODO show the special units directions if DEBUG is set?
   foreach my $units_list ($special_units, $associated_special_units) {
     if (defined($units_list) and scalar(@$units_list)) {
       foreach my $special_unit (@$units_list) {

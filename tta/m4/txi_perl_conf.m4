@@ -108,8 +108,8 @@ txi_LOOKUP_PERL_CONF_VALUES([[archlibexp], [privlibexp]])
 # perl_inc in ExtUtils::Embed
 perl_conf_CPPFLAGS="-I${PERL_CONF_archlibexp}/CORE"
 
-# Do not use $PERL_CONF_perllibs as it may add incorrect flags on some platforms
-# (mingw) and does not seems to be needed
+# Do not use $PERL_CONF_perllibs as it may require libs that are not installed
+# and does not seem to be needed, even though it is in ExtUtils::Embed ldopts.
 #perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl $PERL_CONF_perllibs"
 perl_conf_LIBS="-L${PERL_CONF_archlibexp}/CORE $PERL_CONF_libperl"
 

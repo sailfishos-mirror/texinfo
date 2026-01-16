@@ -940,8 +940,7 @@ sub print_output_units_tree_details($$;$$) {
 # Used for debugging and in test suite, but not generally useful. Not
 # documented in pod section and not exportable as it should not, in
 # general, be used.
-sub print_output_unit_directions($)
-{
+sub print_output_unit_directions($) {
   my $output_unit = shift;
 
   my $result = 'output unit: '.output_unit_texi($output_unit)."\n";

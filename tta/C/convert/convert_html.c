@@ -460,9 +460,6 @@ html_convert_css_string (CONVERTER *self, const ELEMENT *element,
 
 /* reset translated data and translate no args commands */
 
-/* TODO maybe also add a version which gets type_directions_strings
-   and nr_string_directions and nr_dir_str_contexts as argument
-   but not self */
 void
 html_clear_direction_string_type (const CONVERTER *self,
                                   char ***type_directions_strings)

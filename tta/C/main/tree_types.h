@@ -279,7 +279,12 @@ typedef struct ELEMENT {
 } ELEMENT;
 
 typedef struct NODE_RELATIONS {
-    /* TODO try to add const.  Not easy as it is used for current_node */
+    /* NOTE it could have been good to have the element be const, as
+       node relations associated to node elements are not supposed to
+       be modified.
+       However, the current_node in the Parser is a NODE_RELATIONS
+       and the current_node element is modified.  Because of this, it is
+       not possible to set the element field to be const */
     ELEMENT *element;
     const struct SECTION_RELATIONS *associated_section;
     /* it can be associated to an heading or a section relations

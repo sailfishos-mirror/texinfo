@@ -370,8 +370,17 @@ my $configured_information = {
 my $main_program_set_options = {
     'PROGRAM' => $real_command_name,
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
+    # Used for :
+    #  * decoding command-line, including file names
+    #  * error and warning messages translations encoding
     'COMMAND_LINE_ENCODING' => $locale_encoding,
+    # Used for:
+    # * encoding command-line before executing a command
+    # * error and warning messages output encoding
     'MESSAGE_ENCODING' => $locale_encoding,
+    # Used to encode input file names and output file names, if
+    # DOC_ENCODING_FOR_INPUT_FILE_NAME and DOC_ENCODING_FOR_OUTPUT_FILE_NAME
+    # respectively are not set.
     'LOCALE_ENCODING' => $locale_encoding,
  # better than making it the default value independently of the implementation
     'TEXINFO_OUTPUT_FORMAT' => 'info',

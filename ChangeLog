@@ -1,5 +1,15 @@
 2026-01-16 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/convert_html.c,
+	tta/C/convert/html_prepare_converter.c, tta/C/main/tree_types.h,
+	tta/C/parsetexi/parser.c, tta/m4/txi_perl_conf.m4,
+	tta/perl/Texinfo/Convert/HTML.pm, tta/perl/texi2any.pl: improve
+	comments, remove TODO and replace with notes, add TODO.
+
+	* tta/perl/Texinfo/OutputUnits.pm: change in spacing.
+
+2026-01-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (test): rename $errors as $dir_errors.
 	Use defined in conditions when the value is not needed.
 
