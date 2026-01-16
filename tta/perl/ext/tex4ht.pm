@@ -364,7 +364,7 @@ sub tex4ht_process_format($$) {
   my $options = '';
 
   my $cmd = "$formats{$format}->{'exec'} $formats{$format}->{'basefile_name'} $options";
-  my $encoding = $self->get_conf('MESSAGE_ENCODING');
+  my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
   my $encoded_exec;
   my $encoded_options;
   if (defined($encoding)) {

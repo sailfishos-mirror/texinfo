@@ -15891,12 +15891,16 @@ collation and so no linguistic tailoring either.
 See also the @code{DOCUMENTLANGUAGE_COLLATION} variable, described below.
 
 @item COMMAND_LINE_ENCODING
-Encoding used to decode command-line arguments.  Default is based on the locale
-encoding.  This may affect file names inserted into output files or error
-messages printed by the program.
+Encoding used to decode and encode command-line arguments.  Default is based on
+the locale encoding.  This may affect file names inserted into output files or
+error messages printed by the program.
 
 Note that some file and directory names from the command line may
 not be decoded immediately, and may not be decoded at all.
+
+It is also used to encode command-line argument passed to commands called from
+@command{texi2any}.  For example, @command{latex2html} will be called from
+@command{texi2any} if @code{HTML_MATH} is set to @samp{l2h}.
 
 @item CPP_LINE_DIRECTIVES
 Recognize @code{#line} directives in a ``preprocessing'' pass
@@ -16002,10 +16006,6 @@ avoid infinite recursions.
 @item MESSAGE_ENCODING
 Encoding used to encode messages output by @command{texi2any}.  Default is
 based on the locale encoding.
-
-It is also used for command-line argument passed to commands called from
-@command{texi2any}.  For example, @command{latex2html} will be called from
-@command{texi2any} if @code{HTML_MATH} is set to @samp{l2h}.
 
 @item NO_INDEX
 If set, index entries are not recorded and @@-commands related to

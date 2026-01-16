@@ -575,7 +575,7 @@ sub highlight_process($$) {
 
     warn "# highlight_syntax: exec ($language): $cmd\n" if ($verbose);
 
-    my $encoding = $self->get_conf('MESSAGE_ENCODING');
+    my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
     my $encoded_cmd;
     if (defined($encoding)) {
       $encoded_cmd = encode($encoding, $cmd);

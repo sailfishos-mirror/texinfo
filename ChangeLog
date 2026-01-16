@@ -1,5 +1,20 @@
 2026-01-16 Patrice Dumas  <pertusus@free.fr>
 
+	Use COMMAND_LINE_ENCODING to encode executed command-lines
+
+	* doc/texi2any_api.texi (Encoding File Path Strings),
+	doc/texinfo.texi (Global Customization Variables),
+	tta/perl/Texinfo/Convert/LaTeX.pm (convert_math_to_images),
+	tta/perl/ext/highlight_syntax.pm (highlight_process),
+	tta/perl/ext/latex2html.pm (l2h_to_html), tta/perl/ext/tex4ht.pm
+	(tex4ht_process_format): use COMMAND_LINE_ENCODING encoding to
+	to encode command-line before executing a command.  This is done to
+	simplify setting the right encoding on Windows, but it is also more
+	consistent as the same variable is used to decode from the
+	command-line.
+
+2026-01-16 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c,
 	tta/C/convert/html_prepare_converter.c, tta/C/main/tree_types.h,
 	tta/C/parsetexi/parser.c, tta/m4/txi_perl_conf.m4,

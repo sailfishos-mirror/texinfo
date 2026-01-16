@@ -372,11 +372,10 @@ my $main_program_set_options = {
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     # Used for :
     #  * decoding command-line, including file names
+    #  * encoding command-line before executing a command
     #  * error and warning messages translations encoding
     'COMMAND_LINE_ENCODING' => $locale_encoding,
-    # Used for:
-    # * encoding command-line before executing a command
-    # * error and warning messages output encoding
+    # Used for error and warning messages output encoding
     'MESSAGE_ENCODING' => $locale_encoding,
     # Used to encode input file names and output file names, if
     # DOC_ENCODING_FOR_INPUT_FILE_NAME and DOC_ENCODING_FOR_OUTPUT_FILE_NAME

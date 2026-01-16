@@ -470,7 +470,7 @@ sub l2h_to_html($$$)
   # NOTE MESSAGE_ENCODING is the encoding generally used for the command line, it is
   # a logical choice here.  However since we use a specific encoding for paths
   # on the command line just below, it could be possible to also use it here
-  my $encoding = $self->get_conf('MESSAGE_ENCODING');
+  my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
   my $encoded_call_start;
   if (defined($encoding)) {
     $encoded_call_start = encode($encoding, $call_start);

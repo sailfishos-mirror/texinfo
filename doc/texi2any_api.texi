@@ -1662,10 +1662,10 @@ There is also a similar function for the input file names encoding,
 @code{encoded_input_file_name}, which uses @code{INPUT_FILE_NAME_ENCODING}
 and @code{DOC_ENCODING_FOR_INPUT_FILE_NAME} and is less likely to be useful.
 
-@vindex MESSAGE_ENCODING
+@vindex COMMAND_LINE_ENCODING
 When calling external commands, the command line arguments should also
 be encoded.  To do similarly with other codes, the customization variable
-@code{MESSAGE_ENCODING} should be used.  Already encoded file
+@code{COMMAND_LINE_ENCODING} should be used.  Already encoded file
 names may be used.  For example
 
 @example
@@ -1681,7 +1681,7 @@ my $fh = open($encoded_file_path);
 .....
 
 my $call_start = "command --set '$action' ";
-my $encoding = $converter->get_conf('MESSAGE_ENCODING');
+my $encoding = $converter->get_conf('COMMAND_LINE_ENCODING');
 if (defined($encoding)) @{
   $encoded_call_start = encode($encoding, $call_start);
 @} else @{

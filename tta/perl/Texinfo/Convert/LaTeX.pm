@@ -5095,7 +5095,7 @@ sub convert_math_to_images($$$;$) {
 
   my $exec = 'latex';
   my $cmd = "$exec $math2img_latex_basefile";
-  my $encoding = $self->get_conf('MESSAGE_ENCODING');
+  my $encoding = $self->get_conf('COMMAND_LINE_ENCODING');
 
   my $encoded_exec;
   if (defined($encoding)) {
