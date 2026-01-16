@@ -937,6 +937,7 @@ main (int argc, char *argv[], char *env[])
   int getopt_long_index;
   const char *langinfo_locale_encoding;
   char *locale_encoding = 0;
+  char *console_output_encoding = 0;
   const char *input_file_arg;
   int status;
   char *program_file_name_and_directory[2];
@@ -1132,23 +1133,36 @@ main (int argc, char *argv[], char *env[])
 #ifdef HAVE_LANGINFO_CODESET
   langinfo_locale_encoding = nl_langinfo (CODESET);
   if (langinfo_locale_encoding)
-    locale_encoding = strdup (langinfo_locale_encoding);
+    {
+      locale_encoding = strdup (langinfo_locale_encoding);
+      console_output_encoding = strdup (langinfo_locale_encoding);
+    }
 #endif
 
 #ifdef _WIN32
   if (!locale_encoding)
     {
-      unsigned cp = GetACP ();
-      xasprintf (&locale_encoding, "cp%u", cp);
+      UINT cp = GetACP ();
+      UINT cp_output = GetConsoleOutputCP ();
+      if (cp == CP_UTF8)
+        locale_encoding = strdup ("UTF-8");
+      else
+        xasprintf (&locale_encoding, "cp%u", cp);
+
+      if (cp_output == CP_UTF8)
+        console_output_encoding = strdup ("UTF-8");
+      else
+        xasprintf (&console_output_encoding, "cp%u", cp);
     }
 #endif
 
   /* Set initial configuration */
   /* program_options corresponds to main_program_set_options in texi2any */
   txi_set_base_default_options (&program_options, locale_encoding,
-                                program_file);
+                                console_output_encoding, program_file);
 
   free (locale_encoding);
+  free (console_output_encoding);
 
   /* NOTE this is not exactly the same as in Perl.  In Perl, when uninstalled,
      it is possible to be configured or not, and +nc is only postpended if

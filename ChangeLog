@@ -1,5 +1,19 @@
 2026-01-16 Patrice Dumas  <pertusus@free.fr>
 
+	Distinguish locale encoding and output messages encoding
+
+	* tta/C/convert/texinfo.c (txi_set_base_default_options),
+	tta/C/texi2any.c (main), tta/perl/texi2any.pl: distinguish locale
+	encoding from console output encoding.  Set MESSAGE_ENCODING to
+	console output encoding.
+	On Windows, set console output encoding with GetConsoleOutputCP().
+	Idea from Eli Zaretskii.
+
+	* tta/C/texi2any.c (main): handle especially UTF-8 codepage on
+	Windows.  Idea and code from Eli Zaretskii.
+
+2026-01-16 Patrice Dumas  <pertusus@free.fr>
+
 	Use COMMAND_LINE_ENCODING to encode executed command-lines
 
 	* doc/texi2any_api.texi (Encoding File Path Strings),

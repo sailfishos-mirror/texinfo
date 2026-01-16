@@ -189,6 +189,7 @@ err_add_option_value (OPTIONS_LIST *options_list, const char *option_name,
 void
 txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
                               const char *locale_encoding,
+                              const char *console_output_encoding,
                               const char *program_file)
 {
   const char *configured_version = PACKAGE_VERSION_CONFIG;
@@ -217,7 +218,7 @@ txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
   err_add_option_value (main_program_set_options, "COMMAND_LINE_ENCODING", 0,
                         locale_encoding);
   err_add_option_value (main_program_set_options, "MESSAGE_ENCODING", 0,
-                        locale_encoding);
+                        console_output_encoding);
   err_add_option_value (main_program_set_options, "LOCALE_ENCODING", 0,
                         locale_encoding);
 

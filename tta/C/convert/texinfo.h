@@ -57,9 +57,10 @@ extern const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[];
 
 unsigned long txi_find_tree_transformation (const char *transformation_name);
 
-void txi_set_base_default_options (OPTIONS_LIST *options,
-                                   const char *locale_encoding,
-                                   const char *program_file);
+void txi_set_base_default_options (OPTIONS_LIST *main_program_set_options,
+                              const char *locale_encoding,
+                              const char *console_output_encoding,
+                              const char *program_file);
 
 void txi_general_output_strings_setup (int use_external_translate_string);
 

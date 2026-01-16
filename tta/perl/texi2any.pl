@@ -241,11 +241,19 @@ my $internal_extension_dirs = [$extensions_dir];
 # file names encoding, Perl is expecting sequences of bytes, not unicode
 # code points.
 my $locale_encoding;
+# the encoding used to encode messages.
+my $console_output_encoding;
 
 eval 'require I18N::Langinfo';
 if (!$@) {
-  $locale_encoding = I18N::Langinfo::langinfo(I18N::Langinfo::CODESET());
-  $locale_encoding = undef if ($locale_encoding eq '');
+  my $langinfo_locale_encoding
+    = I18N::Langinfo::langinfo(I18N::Langinfo::CODESET());
+
+  if (defined($langinfo_locale_encoding)
+      and $langinfo_locale_encoding ne '') {
+    $locale_encoding = $langinfo_locale_encoding;
+    $console_output_encoding = $langinfo_locale_encoding;
+  }
 }
 
 if (!defined($locale_encoding) and $^O eq 'MSWin32') {
@@ -255,6 +263,11 @@ if (!defined($locale_encoding) and $^O eq 'MSWin32') {
     my $CP = GetACP();
     if (defined($CP)) {
       $locale_encoding = 'cp'.$CP;
+    }
+    Win32::API::More->Import("kernel32", "int GetConsoleOutputCP()");
+    my $CP_output = GetConsoleOutputCP();
+    if (defined($CP_output)) {
+      $console_output_encoding = 'cp'.$CP_output;
     }
   }
 }
@@ -376,7 +389,7 @@ my $main_program_set_options = {
     #  * error and warning messages translations encoding
     'COMMAND_LINE_ENCODING' => $locale_encoding,
     # Used for error and warning messages output encoding
-    'MESSAGE_ENCODING' => $locale_encoding,
+    'MESSAGE_ENCODING' => $console_output_encoding,
     # Used to encode input file names and output file names, if
     # DOC_ENCODING_FOR_INPUT_FILE_NAME and DOC_ENCODING_FOR_OUTPUT_FILE_NAME
     # respectively are not set.
