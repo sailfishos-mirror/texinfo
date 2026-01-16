@@ -1464,7 +1464,7 @@ sub test($$)
           if (-d $reference_dir) {
             $reference_exists = 1;
             $tests_count += 1;
-            my $errors = compare_dirs_files($reference_dir, $results_dir);
+            my $dir_errors = compare_dirs_files($reference_dir, $results_dir);
 
             # compare *_epub_package/EPUB and *_epub_package/EPUB/xhtml
             # contents too for epub
@@ -1494,11 +1494,11 @@ sub test($$)
                     my $EPUB_dir_errors
                       = compare_dirs_files($reference_EPUB_dir,
                                            $results_EPUB_dir);
-                    if ($EPUB_dir_errors) {
-                      if (!$errors) {
-                        $errors = [];
+                    if (defined($EPUB_dir_errors)) {
+                      if (!defined($dir_errors)) {
+                        $dir_errors = [];
                       }
-                      push @$errors, @$EPUB_dir_errors;
+                      push @$dir_errors, @$EPUB_dir_errors;
                     }
 
                     $reference_xhtml_dir
@@ -1509,11 +1509,11 @@ sub test($$)
                       my $xhtml_dir_errors
                         = compare_dirs_files($reference_xhtml_dir,
                                              $results_xhtml_dir);
-                      if ($xhtml_dir_errors) {
-                        if (!$errors) {
-                          $errors = [];
+                      if (defined($xhtml_dir_errors)) {
+                        if (!defined($dir_errors)) {
+                          $dir_errors = [];
                         }
-                        push @$errors, @$xhtml_dir_errors;
+                        push @$dir_errors, @$xhtml_dir_errors;
                       }
                     }
                   }
@@ -1527,12 +1527,12 @@ sub test($$)
             if ($todos{$format}) {
               SKIP: {
                 skip $todos{$format}, 1;
-                ok(!defined($errors), $test_name.' converted '.$format)
-                  or diag(join("\n", @$errors));
+                ok(!defined($dir_errors), $test_name.' converted '.$format)
+                  or diag(join("\n", @$dir_errors));
               }
             } else {
-              ok(!defined($errors), $test_name.' converted '.$format)
-                or diag(join("\n", @$errors));
+              ok(!defined($dir_errors), $test_name.' converted '.$format)
+                or diag(join("\n", @$dir_errors));
             }
           } else {
             print STDERR "\n$format $test_name: \n$results_dir\n";
@@ -1561,6 +1561,11 @@ sub test($$)
                     $test_name.' converted '.$format);
           }
         }
+
+        # TODO for HTML format tests, it could be a good idea to produce
+        # and check a representation of global directions, including added
+        # directions and special units directions.
+
         if ($reference_exists) {
           $tests_count += 1;
           ok(((not defined($converted_errors{$format})

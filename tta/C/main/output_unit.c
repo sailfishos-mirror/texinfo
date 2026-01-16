@@ -1079,9 +1079,10 @@ add_ou_direction (STRING_LIST *ou_directions,
     }
 }
 
-/* the caller should have prepared the Texinfo tree elements for detailed
-   printing, namely by calling functions to number elements.  The argument
-   CURRENT_NR should consistently be the numbering function return value
+/* If numbering elements is needed, the caller should have prepared the
+   Texinfo tree elements for detailed printing by calling functions
+   to number elements.  The argument CURRENT_NR should be the numbering
+   function return value.
  */
 static uintptr_t
 print_output_units_details (OUTPUT_UNIT_LIST *output_units,
@@ -1228,8 +1229,6 @@ print_output_units_details (OUTPUT_UNIT_LIST *output_units,
         }
       clear_strings_list (&ou_directions);
 
-      /* TODO add global directions, included added and special units
-         directions? */
       for (j = 0; j < RUD_type_FirstInFileNodeBack+1; j++)
         {
           const OUTPUT_UNIT *direction = output_unit->directions[j];

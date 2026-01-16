@@ -1,3 +1,12 @@
+2026-01-16 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/t/test_utils.pl (test): rename $errors as $dir_errors.
+	Use defined in conditions when the value is not needed.
+
+	* tta/perl/t/test_utils.pl (test), tta/C/main/output_unit.c
+	(print_output_units_details): move a TODO where it is more relevant.
+	Change in comments.
+
 2026-01-15 Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t (protected - external pod
