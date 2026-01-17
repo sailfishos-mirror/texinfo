@@ -99,6 +99,12 @@ not="-not -name grand-replace.sh"
 ###############################################################
 
 
+find_dir=tta/m4
+ext_pattern=""
+named_pattern=".*\.m4"
+
+change_files
+
 find_dir=.
 extensions='c|h|sh|pm|pl|texi|xs'
 
