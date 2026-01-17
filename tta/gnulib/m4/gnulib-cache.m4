@@ -41,6 +41,7 @@
 #  getline \
 #  getopt-gnu \
 #  gettext-h \
+#  glob \
 #  iconv \
 #  libunistring \
 #  locale \
@@ -81,6 +82,7 @@ gl_MODULES([
   getline
   getopt-gnu
   gettext-h
+  glob
   iconv
   libunistring
   locale
