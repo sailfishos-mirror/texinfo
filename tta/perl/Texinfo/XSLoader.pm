@@ -57,10 +57,13 @@ sub set_XS_embedded {
   $embedded_xs = 1;
 }
 
+our $disable_XS;
+
 sub XS_parser_enabled {
   return ($embedded_xs or
-          ((not defined($ENV{TEXINFO_XS})
-            or $ENV{TEXINFO_XS} ne 'omit')
+          (!$disable_XS
+           and (not defined($ENV{TEXINFO_XS})
+                or $ENV{TEXINFO_XS} ne 'omit')
            and (not defined($ENV{TEXINFO_XS_PARSER})
                 or $ENV{TEXINFO_XS_PARSER} eq '1')));
 }
@@ -78,8 +81,6 @@ sub XS_convert_enabled {
             and (not defined $ENV{TEXINFO_XS_CONVERT}
                  or $ENV{TEXINFO_XS_CONVERT} ne '0')));
 }
-
-our $disable_XS;
 
 # set from Texinfo/Parser.pm
 my $xs_parser_loaded;

@@ -1,5 +1,17 @@
 2026-01-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (import),
+	tta/perl/Texinfo/Convert/Unicode.pm (import),
+	tta/perl/Texinfo/ParserNonXS.pm (import): do not load MiscXS functions
+	if $Texinfo::XSLoader::disable_XS is true.
+
+	* tta/perl/Texinfo/Translations.pm (import),
+	tta/perl/Texinfo/XSLoader.pm (XS_parser_enabled): have
+	XS_parser_enabled return false if !$disable_XS.
+	Load XS in Translations.pm only if XS_parser_enabled returns true.
+
+2026-01-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Config.pm, tta/perl/Texinfo/Document.pm,
 	tta/perl/Texinfo/ManipulateTree.pm,
 	tta/perl/Texinfo/Transformations.pm: use my for XS_overrides hashes.

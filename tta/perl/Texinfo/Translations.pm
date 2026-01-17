@@ -37,6 +37,8 @@ use Locale::Messages;
 
 use Storable qw(dclone);
 
+use Texinfo::XSLoader;
+
 use Texinfo::TreeElement;
 
 # for __()
@@ -59,6 +61,8 @@ use Texinfo::ManipulateTree;
 
 our $VERSION = '7.2.90';
 
+my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
+
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.
 Locale::Messages->select_package ('gettext_pp');
@@ -66,9 +70,11 @@ Locale::Messages->select_package ('gettext_pp');
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    Texinfo::XSLoader::override(
-      "Texinfo::Translations::_XS_configure",
-      "Texinfo::DocumentXS::configure_output_strings_translations");
+    if ($XS_parser) {
+      Texinfo::XSLoader::override(
+        "Texinfo::Translations::_XS_configure",
+        "Texinfo::DocumentXS::configure_output_strings_translations");
+    }
     $module_loaded = 1;
   }
   # The usual import method

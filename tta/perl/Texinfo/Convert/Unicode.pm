@@ -50,8 +50,10 @@ require Exporter;
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    Texinfo::XSLoader::override("Texinfo::Convert::Unicode::unicode_text",
-                                "Texinfo::MiscXS::unicode_text");
+    if (!$Texinfo::XSLoader::disable_XS) {
+      Texinfo::XSLoader::override("Texinfo::Convert::Unicode::unicode_text",
+                                  "Texinfo::MiscXS::unicode_text");
+    }
     $module_loaded = 1;
   }
   # The usual import method.

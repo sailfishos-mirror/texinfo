@@ -36,6 +36,8 @@ use strict;
 use Carp qw(cluck confess);
 use Encode;
 
+use Texinfo::XSLoader;
+
 use Texinfo::Commands;
 use Texinfo::CommandsValues;
 use Texinfo::Common;
@@ -62,9 +64,11 @@ our @ISA = qw(Texinfo::Convert::Converter);
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    Texinfo::XSLoader::override(
-      "Texinfo::Convert::Plaintext::_process_text_internal",
-      "Texinfo::MiscXS::process_text");
+    if (!$Texinfo::XSLoader::disable_XS) {
+      Texinfo::XSLoader::override(
+        "Texinfo::Convert::Plaintext::_process_text_internal",
+        "Texinfo::MiscXS::process_text");
+    }
     $module_loaded = 1;
   }
   # The usual import method

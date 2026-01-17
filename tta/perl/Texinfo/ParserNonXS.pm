@@ -79,6 +79,8 @@ use File::Basename;
 # here, but Clone is not in Perl core modules, so we use Storable::dclone.
 use Storable qw(dclone); # standard in 5.007003
 
+use Texinfo::XSLoader;
+
 # commands definitions
 use Texinfo::Commands;
 use Texinfo::Common;
@@ -110,10 +112,12 @@ require Exporter;
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    Texinfo::XSLoader::override ("Texinfo::Parser::_parse_texi_regex",
-      "Texinfo::MiscXS::parse_texi_regex");
-    Texinfo::XSLoader::override ("Texinfo::Parser::_parse_command_name",
-      "Texinfo::MiscXS::parse_command_name");
+    if (!$Texinfo::XSLoader::disable_XS) {
+      Texinfo::XSLoader::override ("Texinfo::Parser::_parse_texi_regex",
+        "Texinfo::MiscXS::parse_texi_regex");
+      Texinfo::XSLoader::override ("Texinfo::Parser::_parse_command_name",
+        "Texinfo::MiscXS::parse_command_name");
+    }
     $module_loaded = 1;
   }
   # The usual import method
