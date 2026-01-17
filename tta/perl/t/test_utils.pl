@@ -64,14 +64,6 @@ use Locale::Messages ();
 
 #my $test_differences_loading_error = $@;
 
-BEGIN {
-  if ($Texinfo::ModulePath::enable_xs eq 'no') {
-    package Texinfo::XSLoader;
-    our $disable_XS;
-    $disable_XS = 1;
-  }
-}
-
 use Texinfo::Tests qw(compare_dirs_files is_diff unlink_dir_files);
 
 use Texinfo::Commands;

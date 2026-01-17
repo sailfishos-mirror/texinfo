@@ -1,5 +1,13 @@
 2026-01-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm (BEGIN): set disable_XS if
+	$Texinfo::ModulePath::enable_xs is 'no'.  Gavin idea.
+
+	* tta/perl/texi2any.pl, tta/perl/t/test_utils.pl: remove BEGIN blocks
+	that set disable_XS, as it is done in XSLoader now.
+
+2026-01-17 Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS, configure.ac (using-c-texi2any), doc/texinfo.texi (Generic
 	Translator @command{texi2any}), tta/configure.ac (c-texi2any),
 	INSTALL: rename --enable-c-texi2any as --enable-using-c-texi2any and

@@ -162,19 +162,17 @@ BEGIN
   }
 } # end BEGIN
 
-# This allows disabling use of XS modules when Texinfo is built.
-BEGIN {
-  my $enable_xs = '@enable_xs@';
-  if ($enable_xs eq '@' . 'enable_xs@') {
-    # Texinfo::ModulePath is always 'configured'
-    $enable_xs = $Texinfo::ModulePath::enable_xs;
-  }
-  if ($enable_xs eq 'no') {
-    package Texinfo::XSLoader;
-    our $disable_XS;
-    $disable_XS = 1;
-  }
-}
+# This is not useful as this is already done in Texinfo::XSLoader based
+# on the enable_xs information from Texinfo::ModulePath.
+## This allows disabling use of XS modules when Texinfo is built.
+#BEGIN {
+#  my $enable_xs = '@enable_xs@';
+#  if ($enable_xs eq 'no') {
+#    package Texinfo::XSLoader;
+#    our $disable_XS;
+#    $disable_XS = 1;
+#  }
+#}
 
 use Texinfo::XSLoader;
 

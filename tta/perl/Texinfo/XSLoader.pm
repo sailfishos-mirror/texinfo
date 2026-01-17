@@ -23,6 +23,8 @@ use DynaLoader;
 
 #use version;
 
+our $disable_XS;
+
 BEGIN {
   eval 'require Texinfo::ModulePath';
   if ($@ ne '') {
@@ -30,6 +32,10 @@ BEGIN {
     # not loaded.
     $Texinfo::ModulePath::texinfo_uninstalled = 1;
     $Texinfo::ModulePath::t2a_builddir = '';
+  } else {
+    if ($Texinfo::ModulePath::enable_xs eq 'no') {
+      $disable_XS = 1;
+    }
   }
 }
 
@@ -56,8 +62,6 @@ our $embedded_xs;
 sub set_XS_embedded {
   $embedded_xs = 1;
 }
-
-our $disable_XS;
 
 sub XS_parser_enabled {
   return ($embedded_xs or
