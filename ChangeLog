@@ -1,5 +1,18 @@
 2026-01-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (Texinfo/ModulePath.pm),
+	tta/perl/Texinfo/ModulePath.pm.in ($enable_xs): set enable_xs to the
+	value set by configure.
+
+	* tta/perl/t/test_utils.pl (BEGIN): add a BEGIN block to disable XS if
+	$Texinfo::ModulePath::enable_xs is 'no'.
+
+	* tta/perl/texi2any.pl (BEGIN): if @enable_xs@ was not substituted,
+	use the $Texinfo::ModulePath::enable_xs value to determine if XS
+	should be disabled.
+
+2026-01-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm (import),
 	tta/perl/Texinfo/Convert/Unicode.pm (import),
 	tta/perl/Texinfo/ParserNonXS.pm (import): do not load MiscXS functions

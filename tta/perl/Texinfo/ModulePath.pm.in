@@ -38,6 +38,9 @@ our $converterxsdir;
 our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
 our $default_test_level = '@DEFAULT_TEST_LEVEL@';
 
+# Passed to texi2any.pl, which is not configured, and to t/test_utils.pl.
+our $enable_xs = '@enable_xs@';
+
 # If $LIB_DIR and $LIBEXEC_DIR are given,
 # (likely the installation directories)
 # use them to add directories
