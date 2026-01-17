@@ -52,7 +52,6 @@ gnulib/lib/charset.alias
 gnulib/lib/ref-add.sed
 gnulib/lib/ref-del.sed
 gnulib/lib/libgnu.a
-
 gnulib/lib/alloca.h
 gnulib/lib/argz.h
 gnulib/lib/assert.h
@@ -116,17 +115,14 @@ tta/perl/CheckXS/*.lo
 tta/perl/CheckXS/libtool
 
 tta/gnulib/lib/assert.h
-tta/gnulib/lib/ctype.h
 tta/gnulib/lib/dirent.h
 tta/gnulib/lib/error.h
 tta/gnulib/lib/fcntl.h
 tta/gnulib/lib/float.h
 tta/gnulib/lib/getopt.h
 tta/gnulib/lib/getopt-cdefs.h
-tta/gnulib/lib/glob.h
 tta/gnulib/lib/inttypes.h
 tta/gnulib/lib/locale.h
-tta/gnulib/lib/malloc/*.lo
 tta/gnulib/lib/sys/stat.h
 tta/gnulib/lib/sys/time.h
 tta/gnulib/lib/time.h
