@@ -31,7 +31,7 @@ See the manual for detailed information.
     which results in a large speed-up for HTML output.
     set the `TEXINFO_XS_CONVERT' environment variable to 0 for pure Perl.
   . optional texi2any program implementation in C embedding Perl.
-    use --enable-c-texi2any to prefer the C implementation.
+    use --enable-using-c-texi2any to prefer the C implementation.
   . report leading directory components of input file names in messages
     (this reverses 6.8 release change, 2021).
   . when CHECK_NORMAL_MENU_STRUCTURE is on, give the line number of the

@@ -14829,7 +14829,7 @@ require Perl.
 
 In the default case, the Perl implementation is installed.  You can select
 the C implementation instead at build time by passing
-the @option{--enable-c-texi2any} option to @command{configure}.
+the @option{--enable-using-c-texi2any} option to @command{configure}.
 
 
 @node Invoking @command{texi2any}

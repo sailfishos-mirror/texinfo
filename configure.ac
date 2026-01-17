@@ -315,8 +315,8 @@ AC_ARG_ENABLE([additional-checks],
 AC_ARG_ENABLE([perl-xs],
     AS_HELP_STRING([--enable-perl-xs],[build Perl XS modules for speed (default: check)]))
 
-AC_ARG_ENABLE([c-texi2any],
-    AS_HELP_STRING([--enable-c-texi2any],[Use texi2any program implemented in C if possible]))
+AC_ARG_ENABLE([using-c-texi2any],
+    AS_HELP_STRING([--enable-using-c-texi2any],[Install texi2any program implemented in C if built]))
 
 AC_ARG_WITH([swig],
    AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: no)]))

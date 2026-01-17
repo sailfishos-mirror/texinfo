@@ -338,8 +338,8 @@ if test x$enable_xs != xno -a $extutils_embed = yes ; then
 fi
 AM_CONDITIONAL([PERL_EMBEDDED], [test "z$embedded_perl" = 'zyes'])
 
-AC_ARG_ENABLE([c-texi2any],
-    AS_HELP_STRING([--enable-c-texi2any],[Use texi2any program implemented in C if possible]),
+AC_ARG_ENABLE([using-c-texi2any],
+    AS_HELP_STRING([--enable-using-c-texi2any],[Install texi2any program implemented in C if built]),
     [ prefer_c_t2a=$enableval],
     [ prefer_c_t2a=no])
 

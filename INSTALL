@@ -56,7 +56,7 @@ Installation notes specific to Texinfo:
 
 * The `texi2any' (makeinfo) program is a Perl program in the default case.
   If you prefer a C implementation of the texi2any program, you can give
-  the --enable-c-texi2any flag to `configure'.  The C implementation will
+  the --enable-using-c-texi2any flag to `configure'.  The C implementation will
   only be actually used if all the prerequisites are found, which includes
   a working iconv library, the possibility to embed a Perl interpreter
   and enabled Perl extension modules, known as XS modules.
