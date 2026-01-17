@@ -1,5 +1,11 @@
 2026-01-17 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Config.pm, tta/perl/Texinfo/Document.pm,
+	tta/perl/Texinfo/ManipulateTree.pm,
+	tta/perl/Texinfo/Transformations.pm: use my for XS_overrides hashes.
+
+2026-01-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/texi2any.pl: handle especially unicode/UTF-8 codepage on
 	Windows.  Report and check from Eli Zaretskii.
 

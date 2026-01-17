@@ -56,7 +56,7 @@ our $VERSION = '7.2.90';
 
 my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
 
-our %XS_overrides = (
+my %XS_overrides = (
   "Texinfo::Document::_XS_destroy_document"
     => "Texinfo::DocumentXS::destroy_document",
   "Texinfo::Document::set_document_global_info",
@@ -109,7 +109,7 @@ our %XS_overrides = (
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
-our %XS_structure_overrides = (
+my %XS_structure_overrides = (
   "Texinfo::Document::print_document_listoffloats"
     => "Texinfo::DocumentXS::print_document_listoffloats",
 );

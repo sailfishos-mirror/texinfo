@@ -48,7 +48,7 @@ use Texinfo::Common;
 
 use Texinfo::ConfigXS;
 
-our %XS_overrides = (
+my %XS_overrides = (
   "Texinfo::Config::texinfo_get_conf"
     => "Texinfo::ConfigXS::texinfo_get_conf",
   "Texinfo::Config::texinfo_add_to_option_list"

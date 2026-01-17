@@ -86,7 +86,7 @@ our $VERSION = '7.2.90';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
-our %XS_overrides = (
+my %XS_overrides = (
   "Texinfo::ManipulateTree::copy_tree"
     => "Texinfo::StructTransfXS::copy_tree",
   "Texinfo::ManipulateTree::relate_index_entries_to_table_items_in_document"

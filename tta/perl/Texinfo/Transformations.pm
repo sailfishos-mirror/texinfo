@@ -60,7 +60,7 @@ our $VERSION = '7.2.90';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
-our %XS_overrides = (
+my %XS_overrides = (
   "Texinfo::Transformations::fill_gaps_in_sectioning_in_document"
     => "Texinfo::StructTransfXS::fill_gaps_in_sectioning_in_document",
   "Texinfo::Transformations::reference_to_arg_in_document"
