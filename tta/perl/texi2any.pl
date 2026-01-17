@@ -259,15 +259,24 @@ if (!$@) {
 if (!defined($locale_encoding) and $^O eq 'MSWin32') {
   eval 'require Win32::API';
   if (!$@) {
+    my $win32_utf8_codepage = '65001';
     Win32::API::More->Import("kernel32", "int GetACP()");
     my $CP = GetACP();
     if (defined($CP)) {
-      $locale_encoding = 'cp'.$CP;
+      if ($CP eq $win32_utf8_codepage) {
+        $locale_encoding = 'UTF-8';
+      } else {
+        $locale_encoding = 'cp'.$CP;
+      }
     }
     Win32::API::More->Import("kernel32", "int GetConsoleOutputCP()");
     my $CP_output = GetConsoleOutputCP();
     if (defined($CP_output)) {
-      $console_output_encoding = 'cp'.$CP_output;
+      if ($CP_output eq $win32_utf8_codepage) {
+        $console_output_encoding = 'UTF-8';
+      } else {
+        $console_output_encoding = 'cp'.$CP_output;
+      }
     }
   }
 }
