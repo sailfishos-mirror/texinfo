@@ -62,6 +62,8 @@ my $DEFAULT_ENCODING = 'utf-8';
 static char *working_locale = 0;
 static char *locale_command = 0;
 
+static int no_local_found_error_output = 0;
+
 static const char *strings_textdomain = "texinfo_document";
 
 static int use_external_translate_string;
@@ -196,6 +198,15 @@ switch_messages_locale (void)
  _("Cannot switch to a locale compatible with document strings translations"));
           free (working_locale);
           working_locale = strdup (locale);
+        }
+    }
+  else
+    {
+      if (!no_local_found_error_output)
+        {
+          fprintf (stderr, "%s\n",
+ _("Cannot find a locale compatible with document strings translations"));
+          no_local_found_error_output = 1;
         }
     }
 }

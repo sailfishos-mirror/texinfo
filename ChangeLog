@@ -1,5 +1,10 @@
 2026-01-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/translations.c (switch_messages_locale): add a message if
+	no locale other than C/POSIX is found.  Report from Bruno Haible.
+
+2026-01-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Translations.pm (_switch_messages_locale): add a
 	message if no locale other than C/POSIX is found.  Report from Bruno
 	Haible.
