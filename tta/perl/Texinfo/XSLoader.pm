@@ -23,6 +23,10 @@ use DynaLoader;
 
 #use version;
 
+# Right now, disable_XS is only read and set in this file, so it could
+# be local and declared with my.
+# Before 2026 this was different.  We leave the possibility open for scripts
+# and modules to read and set the value and therefore keep our.
 our $disable_XS;
 
 BEGIN {
@@ -65,8 +69,7 @@ sub set_XS_embedded {
 
 sub XS_parser_enabled {
   return ($embedded_xs or
-          (!$disable_XS
-           and (not defined($ENV{TEXINFO_XS})
+          ((not defined($ENV{TEXINFO_XS})
                 or $ENV{TEXINFO_XS} ne 'omit')
            and (not defined($ENV{TEXINFO_XS_PARSER})
                 or $ENV{TEXINFO_XS_PARSER} eq '1')));
@@ -392,9 +395,19 @@ sub init {
   return  $fallback_module;
 } # end init
 
+my $XS_disable_for_override_error_output;
+
 # Override subroutine $TARGET with $SOURCE.
 sub override {
   my ($target, $source) = @_;
+
+  if ($disable_XS) {
+    if (!$XS_disable_for_override_error_output) {
+      _debug("use of XS for override was disabled when Texinfo was built");
+      $XS_disable_for_override_error_output = 1;
+    }
+    return;
+  }
 
   _debug("attempting to override $target with $source...");
 

@@ -112,12 +112,10 @@ require Exporter;
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (!$Texinfo::XSLoader::disable_XS) {
-      Texinfo::XSLoader::override ("Texinfo::Parser::_parse_texi_regex",
-        "Texinfo::MiscXS::parse_texi_regex");
-      Texinfo::XSLoader::override ("Texinfo::Parser::_parse_command_name",
-        "Texinfo::MiscXS::parse_command_name");
-    }
+    Texinfo::XSLoader::override ("Texinfo::Parser::_parse_texi_regex",
+      "Texinfo::MiscXS::parse_texi_regex");
+    Texinfo::XSLoader::override ("Texinfo::Parser::_parse_command_name",
+      "Texinfo::MiscXS::parse_command_name");
     $module_loaded = 1;
   }
   # The usual import method

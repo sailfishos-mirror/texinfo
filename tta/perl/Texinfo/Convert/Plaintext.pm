@@ -64,11 +64,9 @@ our @ISA = qw(Texinfo::Convert::Converter);
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if (!$Texinfo::XSLoader::disable_XS) {
-      Texinfo::XSLoader::override(
-        "Texinfo::Convert::Plaintext::_process_text_internal",
-        "Texinfo::MiscXS::process_text");
-    }
+    Texinfo::XSLoader::override(
+      "Texinfo::Convert::Plaintext::_process_text_internal",
+      "Texinfo::MiscXS::process_text");
     $module_loaded = 1;
   }
   # The usual import method
