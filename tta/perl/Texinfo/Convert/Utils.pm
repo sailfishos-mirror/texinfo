@@ -690,6 +690,7 @@ sub find_root_command_next_heading_command($$;$$) {
   return undef;
 }
 
+# ALTIMP C/main/convert_utils.c
 sub encoded_output_file_name($$$$;$) {
   my ($file_name, $output_file_name_encoding,
       $doc_encoding_for_output_file_name, $locale_encoding, $document) = @_;
@@ -714,6 +715,7 @@ sub encoded_output_file_name($$$$;$) {
   return Texinfo::Common::encode_file_name($file_name, $encoding);
 }
 
+# ALTIMP C/main/convert_utils.c
 # The input file encoding can be given as $INPUT_FILE_ENCODING optional
 # argument, it will be used if $DOC_ENCODING_FOR_INPUT_FILE_NAME is
 # undef or set.

@@ -60,7 +60,7 @@ static char *input_pushback_string;
 
 static ENCODING_CONVERSION *current_encoding_conversion = 0;
 
-/* used in encode_file_name */
+/* used in parser_encode_file_name */
 static ENCODING_CONVERSION *filename_encoding_conversion = 0;
 
 /* ENCODING should always be lower cased */
@@ -137,11 +137,12 @@ convert_to_utf8 (char *s)
   return ret;
 }
 
+/* In Perl Parser _encode_file_name */
 /* Reverse the decoding of the filename to the input encoding, to retrieve
    the bytes that were present in the original Texinfo file.  Return
    value is freed when freeing small_strings. */
 char *
-encode_file_name (char *filename)
+parser_encode_file_name (char *filename)
 {
 
   if (!filename_encoding_conversion)
@@ -188,7 +189,7 @@ save_line_directive (int line_nr, char *filename)
 
   if (filename)
     {
-      char *encoded_filename = encode_file_name (filename);
+      char *encoded_filename = parser_encode_file_name (filename);
       f = save_string (encoded_filename);
       free (encoded_filename);
     }

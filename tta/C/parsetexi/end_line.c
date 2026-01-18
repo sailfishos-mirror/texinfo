@@ -1305,7 +1305,7 @@ end_line_misc_line (ELEMENT *current)
               int status;
               char *fullpath, *file_path;
 
-              file_path = encode_file_name (text);
+              file_path = parser_encode_file_name (text);
               fullpath = parser_locate_include_file (file_path);
               free (file_path);
 
@@ -1351,7 +1351,7 @@ end_line_misc_line (ELEMENT *current)
                                       global_info->input_encoding_name);
               /* gather included file for 'included_files'.  No errors, they
                  should be output by converters */
-              file_path = encode_file_name (text);
+              file_path = parser_encode_file_name (text);
               fullpath = parser_locate_include_file (file_path);
               free (file_path);
               if (fullpath && access (fullpath, R_OK) == 0)

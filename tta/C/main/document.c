@@ -204,6 +204,7 @@ register_document_options (DOCUMENT *document, OPTIONS *options,
   document->sorted_options = sorted_options;
 }
 
+/* ALTIMP Texinfo::Common */
 void
 set_output_encoding (OPTIONS *customization_information, DOCUMENT *document)
 {

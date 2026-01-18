@@ -21,7 +21,7 @@ int expanding_macro (const char *macro);
 int top_file_index (void);
 
 char *parser_locate_include_file (const char *filename);
-char *encode_file_name (char *filename);
+char *parser_encode_file_name (char *filename);
 char *convert_to_utf8 (char *s);
 int set_input_encoding (const char *encoding);
 

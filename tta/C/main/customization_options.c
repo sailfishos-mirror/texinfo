@@ -778,6 +778,7 @@ get_converter_command_option (OPTION **sorted_options, enum command_id cmd)
   return result;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 void
 set_informative_command_value (OPTION **sorted_options,
                                const ELEMENT *element)
@@ -801,6 +802,7 @@ set_informative_command_value (OPTION **sorted_options,
     }
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 /*
   Notice that the only effect is to use set_conf (directly or through
   set_informative_command_value), no @-commands setting side effects are done

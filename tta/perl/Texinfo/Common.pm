@@ -457,6 +457,7 @@ foreach my $internal_command (keys(%Texinfo::Commands::internal_commands)) {
 # functions used in main program, Parser and/or Texinfo::Structuring.
 # Not supposed to be called in user-defined code.
 
+# ALTIMP C/main/utils.c analyze_documentlanguage_argument (no message)
 # for Parser and main program
 sub warn_unknown_language($) {
   my $lang = shift;
@@ -485,44 +486,7 @@ sub warn_unknown_language($) {
 # next functions are for code used in Structuring or Indices in addition
 # to Parser.  Also possibly used in Texinfo::Transformations.
 
-sub _find_end_brace($$) {
-  my ($text, $braces_count) = @_;
-
-  my $before = '';
-  while ($braces_count > 0 and length($text)) {
-    if ($text =~ s/([^()]*)([()])//) {
-      $before .= $1.$2;
-      my $brace = $2;
-      if ($brace eq '(') {
-        $braces_count++;
-      } else {
-        $braces_count--;
-        if ($braces_count == 0) {
-          return ($before, $text, 0);
-        }
-      }
-    } else {
-      $before .= $text;
-      $text = '';
-    }
-  }
-  return ($before, undef, $braces_count);
-}
-
-# This only counts opening braces, and returns 0 once all the parentheses
-# are closed
-sub _count_opened_tree_braces($$);
-sub _count_opened_tree_braces($$) {
-  my ($current, $braces_count) = @_;
-
-  if (defined($current->{'text'})) {
-    my ($before, $after);
-    ($before, $after, $braces_count) = _find_end_brace($current->{'text'},
-                                                          $braces_count);
-  }
-  return $braces_count;
-}
-
+# ALTIMP C/main/utils.c
 sub ultimate_index($$) {
   my ($indices_information, $index) = @_;
 
@@ -532,6 +496,7 @@ sub ultimate_index($$) {
   return $index;
 }
 
+# ALTIMP C/main/manipulate_tree.c
 # relocate $SOURCE_MARKS source marks with position between
 # $BEGIN_POSITION and $BEGIN_POSITION + $ADDED_LEN to be relative to
 # $BEGIN_POSITION, and move to element $E.
@@ -594,6 +559,45 @@ sub relocate_source_marks($$$$) {
   return $end_position;
 }
 
+sub _find_end_brace($$) {
+  my ($text, $braces_count) = @_;
+
+  my $before = '';
+  while ($braces_count > 0 and length($text)) {
+    if ($text =~ s/([^()]*)([()])//) {
+      $before .= $1.$2;
+      my $brace = $2;
+      if ($brace eq '(') {
+        $braces_count++;
+      } else {
+        $braces_count--;
+        if ($braces_count == 0) {
+          return ($before, $text, 0);
+        }
+      }
+    } else {
+      $before .= $text;
+      $text = '';
+    }
+  }
+  return ($before, undef, $braces_count);
+}
+
+# This only counts opening braces, and returns 0 once all the parentheses
+# are closed
+sub _count_opened_tree_braces($$);
+sub _count_opened_tree_braces($$) {
+  my ($current, $braces_count) = @_;
+
+  if (defined($current->{'text'})) {
+    my ($before, $after);
+    ($before, $after, $braces_count) = _find_end_brace($current->{'text'},
+                                                          $braces_count);
+  }
+  return $braces_count;
+}
+
+# ALTIMP C/main/manipulate_tree.c
 # retrieve a leading manual name in parentheses, if there is one.
 # $LABEL_CONTENTS_CONTAINER->{'contents'} is the Texinfo for the specification
 # of a node.  It is relevant in any situation when a label is expected,
@@ -772,6 +776,7 @@ sub parse_node_manual($;$) {
 
 # misc functions used in diverse contexts and useful in converters
 
+# ALTIMP C/convert/converter.c
 # Used in converters
 # find the accent commands stack and the innermost text contents
 sub find_innermost_accent_contents($) {
@@ -825,6 +830,7 @@ sub find_innermost_accent_contents($) {
   }
 }
 
+# ALTIMP C/main/utils.c
 # TODO document
 # Used in converters
 sub multitable_columnfractions($) {
@@ -843,10 +849,10 @@ sub multitable_columnfractions($) {
   return $columnfractions;
 }
 
+# ALTIMP C/main/utils.c
 # there is a command as argument for a block command (@itemize or
 # @table, @vtable...) if there is only one argument on the line,
 # it is a brace command but not an accent command and it is empty.
-# also used by the tree only interface.
 sub block_line_argument_command($) {
   my $block_line_arg = shift;
 
@@ -871,6 +877,7 @@ sub block_line_argument_command($) {
 
 my $default_bullet_command = Texinfo::TreeElement::new({'cmdname' => 'bullet'});
 
+# ALTIMP C/main/convert_utils.c
 sub itemize_line_prepended_element($) {
   my $block_line_arg = shift;
 
@@ -895,6 +902,7 @@ sub item_itemize_prepended($) {
   return itemize_line_prepended_element($block_line_arg);
 }
 
+# ALTIMP C/main/convert_utils.c
 sub item_line_block_line_argument_command($) {
   my $block_line_arg = shift;
 
@@ -913,6 +921,7 @@ sub item_line_block_line_argument_command($) {
 
 my $default_asis_command = Texinfo::TreeElement::new({'cmdname' => 'asis'});
 
+# ALTIMP C/main/convert_utils.c
 # always return something
 sub block_item_line_command($) {
   my $block_line_arg = shift;
@@ -925,6 +934,7 @@ sub block_item_line_command($) {
   return $arg;
 }
 
+# ALTIMP C/main/utils.c
 sub find_float_caption_shortcaption($) {
   my $float = shift;
 
@@ -945,6 +955,7 @@ sub find_float_caption_shortcaption($) {
   return ($caption, $shortcaption);
 }
 
+# ALTIMP C/main/utils.c
 # TODO document
 # used in Texinfo::Indices and converters
 sub collect_subentries($$);
@@ -963,6 +974,7 @@ sub collect_subentries($$) {
 
 sub index_entry_referred_entry($$);
 
+# ALTIMP C/main/utils.c
 # TODO document
 # Used in converters
 sub index_entry_referred_entry($$) {
@@ -985,6 +997,7 @@ sub index_entry_referred_entry($$) {
   return undef;
 }
 
+# ALTIMP C/main/utils.c
 # Used in main program, tests and HTML Converter.
 # TODO document?
 #
@@ -1092,6 +1105,7 @@ sub encode_file_name($$) {
   return ($encoded_file_name, $encoding);
 }
 
+# ALTIMP C/main/utils.c
 sub locate_include_file($;$) {
   my ($input_file_path, $include_directories) = @_;
 
@@ -1135,6 +1149,7 @@ sub locate_include_file($;$) {
   return undef;
 }
 
+# ALTIMP C/main/utils.c
 # TODO document?
 sub informative_command_value($) {
   my $element = shift;
@@ -1205,6 +1220,7 @@ sub element_value_equivalent($) {
   return (undef, undef);
 }
 
+# ALTIMP C/main/customization_options.c
 # REMARK documentencoding handling is not reverted by resetting a value with
 # set_conf, as the encodings are set using other sources of information
 # (possibly based on @documentencoding) in converter.
@@ -1234,6 +1250,7 @@ sub _in_preamble($) {
   return 0;
 }
 
+# ALTIMP C/main/utils.c
 # $COMMAND_LOCATION is 'last', 'preamble' or 'preamble_or_first'
 # 'preamble' means setting sequentially to the values in the preamble.
 # 'preamble_or_first'  means setting to the first value for the command
@@ -1279,6 +1296,7 @@ sub get_global_document_command($$$) {
   return $element;
 }
 
+# ALTIMP C/main/customization_options.c
 # Notice that the only effect is to use set_conf (directly or through
 # set_informative_command_value), no @-commands setting side effects are done
 # and associated customization variables are not set/reset either.
@@ -1295,6 +1313,7 @@ sub set_global_document_command($$$$) {
   return $element;
 }
 
+# ALTIMP C/main/utils.c
 sub lookup_index_entry($$) {
   my ($index_entry_info, $indices_information) = @_;
 
@@ -1336,6 +1355,7 @@ sub replace_remove_list_element($$;$) {
   return undef;
 }
 
+# ALTIMP C/main/document.c
 sub set_output_encoding($$) {
   my ($customization_information, $document) = @_;
 
@@ -1352,6 +1372,7 @@ sub set_output_encoding($$) {
   }
 }
 
+# ALTIMP C/main/utils.c
 # $DOCUMENT is the parsed Texinfo document.  It is optional, but it
 # is recommended to pass it to get the input encoding name.
 # The input file encoding can be given as $INPUT_FILE_ENCODING optional
@@ -1390,6 +1411,7 @@ sub input_file_name_encoding($$$;$$) {
 my $min_level = $command_structuring_level{'chapter'};
 my $max_level = $command_structuring_level{'subsubsection'};
 
+# ALTIMP C/main/utils.c
 # Return numbered level of an element, as modified by raise/lowersections
 sub section_level($) {
   my $section = shift;
@@ -1429,6 +1451,7 @@ sub _decompose_integer($$) {
   return @result;
 }
 
+# ALTIMP C/main/utils.c
 sub enumerate_number_representation($$) {
   my ($specification, $number) = @_;
 
@@ -1448,6 +1471,7 @@ sub enumerate_number_representation($$) {
   return $number;
 }
 
+# ALTIMP C/main/utils.c
 sub enumerate_item_representation($) {
   my $element = shift;
 
@@ -1465,6 +1489,7 @@ sub enumerate_item_representation($) {
   return $number;
 }
 
+# ALTIMP C/main/utils.c
 sub is_content_empty($;$);
 sub is_content_empty($;$) {
   my ($tree, $do_not_ignore_index_entries) = @_;
@@ -1625,6 +1650,7 @@ sub count_bytes($;$) {
   }
 }
 
+# ALTIMP C/main/manipulate_indices.c
 # if $PREFER_REFERENCE_ELEMENT is set, prefer an untranslated element.
 # Seems to be used in converter only
 sub index_content_element($;$) {
@@ -1780,6 +1806,7 @@ sub _collect_commands_list_in_tree($$$) {
 # Common to different module, but not meant to be used in user-defined
 # codes.
 
+# ALTIMP C/main/utils.c
 sub get_label_element($) {
   my $current = shift;
 

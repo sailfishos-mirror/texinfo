@@ -997,6 +997,7 @@ item_line_parent (ELEMENT *current)
   return 0;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 /* The caller should take care not to call get_label_element on a text
    element */
 ELEMENT *
@@ -1395,6 +1396,7 @@ splitpath (const char *input_file_path, char **result)
   result[1] = file_name_and_directory[1];
 }
 
+/* Done in Texinfo::Common warn_unknown_language */
 /* Check validity of TEXT as @documentlanguage argument.
 
    Return the language code part of the argument.
@@ -2316,6 +2318,7 @@ element_value_equivalent (const ELEMENT *element, enum command_id *cmd_out)
   return 0;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 char *
 informative_command_value (const ELEMENT *element, enum command_id *cmd_out)
 {
@@ -2404,6 +2407,7 @@ in_preamble (ELEMENT *element)
   return 0;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 /*
   COMMAND_LOCATION is 'last', 'preamble' or 'preamble_or_first'
   'preamble' means setting sequentially to the values in the preamble.
@@ -2563,6 +2567,7 @@ destroy_accent_stack (ACCENTS_STACK *accent_stack)
 
 
 
+/* ALTIMP perl/Texinfo/Common.pm */
 const char *
 input_file_name_encoding (const char *name_encoding,
                           int doc_encoding_for_input_file_name,
@@ -2747,6 +2752,7 @@ decompose_integer (int number, int base, int *decomposed_nr)
   return result;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 char *
 enumerate_number_representation (const char *specification, int number)
 {
@@ -2784,6 +2790,7 @@ enumerate_number_representation (const char *specification, int number)
   return result.text;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
 char *
 enumerate_item_representation (const ELEMENT *element)
 {
