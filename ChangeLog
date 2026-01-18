@@ -1,5 +1,9 @@
 2026-01-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm (_message): rename _fatal as _message.
+
+2026-01-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm (import),
 	tta/perl/Texinfo/Convert/Unicode.pm (import),
 	tta/perl/Texinfo/ParserNonXS.pm (import), tta/perl/Texinfo/XSLoader.pm

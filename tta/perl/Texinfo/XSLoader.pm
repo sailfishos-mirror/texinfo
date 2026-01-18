@@ -110,7 +110,7 @@ sub _debug($) {
 }
 
 # For messages to say that XS module couldn't be loaded
-sub _fatal($) {
+sub _message($) {
   my $msg = shift;
   if ($TEXINFO_XS eq 'debug'
       or $TEXINFO_XS eq 'required'
@@ -152,7 +152,7 @@ sub load_libtool_library {
   my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
   if (!$libtool_archive) {
     if (!$try_direct_load) {
-      _fatal("$module_name: couldn't find Libtool archive file");
+      _message("$module_name: couldn't find Libtool archive file");
       return 0;
     } else {
       $dlname = $module_name;
@@ -167,7 +167,7 @@ sub load_libtool_library {
     my $fh;
     open $fh, $libtool_archive;
     if (!$fh) {
-      _fatal("$module_name: couldn't open Libtool archive file");
+      _message("$module_name: couldn't open Libtool archive file");
       return 0;
     }
 
@@ -179,7 +179,7 @@ sub load_libtool_library {
       }
     }
     if (!defined($dlname) or $dlname eq '') {
-      _fatal("$module_name: couldn't find name of shared object");
+      _message("$module_name: couldn't find name of shared object");
       return 0;
     }
 
@@ -203,7 +203,7 @@ sub load_libtool_library {
 
   my @found_files = DynaLoader::dl_findfile($dlname);
   if (scalar(@found_files) == 0) {
-    _fatal("$module_name: couldn't find $dlname");
+    _message("$module_name: couldn't find $dlname");
     return 0;
   }
   my $dlpath = $found_files[0];
@@ -213,7 +213,7 @@ sub load_libtool_library {
   my $libref = DynaLoader::dl_load_file($dlpath, $flags);
   if (!defined($libref)) {
     my $message = DynaLoader::dl_error();
-    _fatal("$module_name: couldn't load file $dlpath: $message");
+    _message("$module_name: couldn't load file $dlpath: $message");
     return 0;
   }
   _debug("$dlpath loaded");
@@ -221,7 +221,7 @@ sub load_libtool_library {
 
   my @undefined_symbols = DynaLoader::dl_undef_symbols();
   if (scalar(@undefined_symbols) != 0) {
-    _fatal("$module_name: still have undefined symbols after dl_load_file");
+    _message("$module_name: still have undefined symbols after dl_load_file");
   }
   return $libref;
 }
@@ -269,7 +269,7 @@ sub init {
   }
 
   if ($disable_XS) {
-    _fatal("use of XS modules was disabled when Texinfo was built");
+    _message("use of XS modules was disabled when Texinfo was built");
     goto FALLBACK;
   }
 
@@ -314,7 +314,7 @@ sub init {
   _debug("looking for $bootname");
   my $symref = DynaLoader::dl_find_symbol($libref, $bootname);
   if (!defined($symref)) {
-    _fatal("$module_name: couldn't find $bootname symbol");
+    _message("$module_name: couldn't find $bootname symbol");
     goto FALLBACK;
   }
   _debug("trying to call $bootname...");
@@ -322,7 +322,7 @@ sub init {
                                                   $symref); #, $dlname);
 
   if (!defined($boot_fn)) {
-    _fatal("$module_name: couldn't bootstrap");
+    _message("$module_name: couldn't bootstrap");
     goto FALLBACK;
   }
   _debug("  ...succeeded");
@@ -347,7 +347,7 @@ sub init {
                                  $Texinfo::ModulePath::converterdatadir,
                                  $Texinfo::ModulePath::t2a_builddir,
                                  $Texinfo::ModulePath::t2a_srcdir)) {
-    _fatal("$module_name: error initializing");
+    _message("$module_name: error initializing");
     goto FALLBACK;
   }
 
