@@ -117,6 +117,9 @@ sub _decode_i18n_string($$) {
 }
 
 my $working_locale;
+
+my $no_local_found_error_output;
+
 sub _switch_messages_locale() {
   my $locale;
 
@@ -161,6 +164,12 @@ sub _switch_messages_locale() {
       warn
   __("Cannot switch to a locale compatible with document strings translations")."\n";
       $working_locale = $locale;
+    }
+  } else {
+    if (!$no_local_found_error_output) {
+      warn
+    __("Cannot find a locale compatible with document strings translations")."\n";
+      $no_local_found_error_output = 1;
     }
   }
 }
