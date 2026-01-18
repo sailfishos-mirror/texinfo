@@ -2608,7 +2608,7 @@ main (int argc, char *argv[], char *env[])
       add_string (curdir, &prepended_include_directories);
 
       if (input_directory)
-        canon_input_dir = canonpath (input_directory);
+        canon_input_dir = file_separator_canonpath (input_directory);
 
       if (canon_input_dir && strcmp (curdir, canon_input_dir))
         add_string (input_directory, &prepended_include_directories);

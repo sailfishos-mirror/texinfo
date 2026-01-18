@@ -941,7 +941,7 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
       if (self->conf->SUBDIR.o.string && strlen (output_file))
         {
           char *new_output_file;
-          char *dir = canonpath (self->conf->SUBDIR.o.string);
+          char *dir = file_separator_canonpath (self->conf->SUBDIR.o.string);
           xasprintf (&new_output_file, "%s/%s", dir, output_file);
           free (dir);
           free (output_file);
@@ -1013,7 +1013,8 @@ determine_files_and_directory (CONVERTER *self, const char *output_format,
 
   if (strlen (destination_directory))
     {
-      char *new_destination_directory = canonpath (destination_directory);
+      char *new_destination_directory
+        = file_separator_canonpath (destination_directory);
       free (destination_directory);
       destination_directory = new_destination_directory;
     }

@@ -776,6 +776,23 @@ sub parse_node_manual($;$) {
 
 # misc functions used in diverse contexts and useful in converters
 
+# Wrapper around File::Spec->canonpath that replace backslashes by
+# forward slashes.
+sub file_separator_canonpath($) {
+  my $dir = shift;
+
+  my $canon_dir = File::Spec->canonpath($dir);
+
+  # normalize to forward slash, as we use forward slashes as much as
+  # possible in the code.
+  if ($^O eq 'MSWin32') {
+    my @dir_parts = File::Spec->splitdir($canon_dir);
+    return join('/', @dir_parts);
+  } else {
+    return $canon_dir;
+  }
+}
+
 # ALTIMP C/convert/converter.c
 # Used in converters
 # find the accent commands stack and the innermost text contents

@@ -1285,7 +1285,8 @@ sub determine_files_and_directory($$) {
       $document_path = $output_file;
     }
     if (defined($self->get_conf('SUBDIR')) and $output_file ne '') {
-      my $dir = File::Spec->canonpath($self->get_conf('SUBDIR'));
+      my $dir
+        = Texinfo::Common::file_separator_canonpath($self->get_conf('SUBDIR'));
       $output_file = join('/', ($dir, $output_file));
     }
   } else {
@@ -1339,7 +1340,8 @@ sub determine_files_and_directory($$) {
     $destination_directory = $output_dir;
   }
   if ($destination_directory ne '') {
-    $destination_directory = File::Spec->canonpath($destination_directory);
+    $destination_directory
+      = Texinfo::Common::file_separator_canonpath($destination_directory);
   }
   return ($output_file, $destination_directory, $output_filename,
           $document_name, $input_basefile);

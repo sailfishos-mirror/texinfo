@@ -1787,7 +1787,8 @@ while (@input_files) {
     $input_directory = $curdir;
     $canon_input_dir = $curdir;
   } else {
-    $canon_input_dir = File::Spec->canonpath($input_directory);
+    $canon_input_dir
+      = Texinfo::Common::file_separator_canonpath($input_directory);
   }
 
   #my $input_file_base = $input_file_name;

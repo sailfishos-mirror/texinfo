@@ -1048,7 +1048,8 @@ sub output($$) {
     if (defined($outfile)) {
       $outfile .= '.txt';
       if (defined($self->{'SUBDIR'})) {
-        my $destination_directory = File::Spec->canonpath($self->{'SUBDIR'});
+        my $destination_directory
+         = Texinfo::Common::file_separator_canonpath($self->{'SUBDIR'});
         my ($encoded_destination_directory, $destination_directory_encoding)
           = Texinfo::Convert::Utils::encoded_output_file_name(
              $destination_directory, $self->{'OUTPUT_FILE_NAME_ENCODING'},

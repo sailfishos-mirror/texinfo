@@ -159,7 +159,7 @@ void delete_global_commands (GLOBAL_COMMANDS *global_commands_ref);
 
 char *texinfo_input_file_basename (const char *input_basefile);
 char *remove_extension (const char *input_string);
-char *canonpath (const char *input_file);
+char *file_separator_canonpath (const char *input_file);
 char *normalize_encoding_name (const char *text, int *possible_encoding);
 
 /* create a new element based on type and command name */

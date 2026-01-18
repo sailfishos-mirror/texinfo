@@ -146,7 +146,7 @@ rawtext_output (CONVERTER *converter, DOCUMENT *document)
           if (converter->conf->SUBDIR.o.string)
             {
               char *destination_directory
-                = canonpath (converter->conf->SUBDIR.o.string);
+                = file_separator_canonpath (converter->conf->SUBDIR.o.string);
               char *dir_encoding;
               int succeeded;
               char *encoded_destination_directory

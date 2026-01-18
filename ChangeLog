@@ -1,5 +1,20 @@
 2026-01-18 Patrice Dumas  <pertusus@free.fr>
 
+	Replace backslashes by forward slashes in paths canonicalization
+
+	* tta/C/main/utils.c (file_separator_canonpath): rename canonpath as
+	file_separator_canonpath and modify to put only forward slash in
+	output file name.  Update callers.
+
+	* tta/perl/Texinfo/Common.pm (file_separator_canonpath),
+	tta/perl/Texinfo/Convert/Converter.pm (determine_files_and_directory),
+	tta/perl/Texinfo/Convert/Text.pm (output), tta/perl/texi2any.pl: add
+	file_separator_canonpath as a wrapper around File::Spec->canonpath
+	that replace backslashes by forward slashes on Windows.  Report and
+	analysis from Eli Zaretskii.
+
+2026-01-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/parsetexi/input.c (parser_encode_file_name): rename
 	encode_file_name as parser_encode_file_name for consistency with Perl
 	functions names, as it corresponds to _encode_file_name in Perl
