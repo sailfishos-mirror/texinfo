@@ -20,12 +20,16 @@ MAINTAINERCLEANFILES =
 
 ######################## Gnulib ################################
 
-AM_CPPFLAGS = -I$(srcdir)
+# We do not set an explicit -I to find config.h, as it is in the
+# top buildir and automake knows how to add flags to find it there.
 
 GNULIB_CPPFLAGS = -I$(top_srcdir)/gnulib/lib \
   -I$(top_builddir)/gnulib/lib
 
 ################### End Gnulib section #########################
+
+# for ppport.h that is needed by a few source files.
+AM_CPPFLAGS = -I$(srcdir)
 
 converterlibdir = $(libdir)/$(CONVERTER)
 

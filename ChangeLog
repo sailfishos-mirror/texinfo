@@ -1,5 +1,10 @@
 2026-01-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am: add comments and move code to clarify why we add
+	-I$(srcdir) to AM_CPPFLAGS.
+
+2026-01-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/CheckXS/TestXS.pm (BEGIN): unset
 	$Texinfo::XSLoader::disable_XS such as not to depend on value
 	previously set by configure+make.
