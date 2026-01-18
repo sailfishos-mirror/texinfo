@@ -23,10 +23,8 @@ use DynaLoader;
 
 #use version;
 
-# Right now, disable_XS is only read and set in this file, so it could
-# be local and declared with my.
-# Before 2026 this was different.  We leave the possibility open for scripts
-# and modules to read and set the value and therefore keep our.
+# disable_XS is set in CheckXS TestXS.pm to override the
+# Texinfo::ModulePath::enable_xs based on the previous configure+make
 our $disable_XS;
 
 BEGIN {

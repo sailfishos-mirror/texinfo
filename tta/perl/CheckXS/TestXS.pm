@@ -22,6 +22,9 @@ use warnings;
 BEGIN {
   require Texinfo::XSLoader;
 
+  # ignore the value set by a previous configure+make run
+  $Texinfo::XSLoader::disable_XS = 0;
+
   Texinfo::XSLoader::init (
     "TestXS",
     undef,
