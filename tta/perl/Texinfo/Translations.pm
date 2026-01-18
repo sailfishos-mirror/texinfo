@@ -116,10 +116,10 @@ sub _decode_i18n_string($$) {
   return Encode::decode($encoding, $string);
 }
 
+my $working_locale;
 sub _switch_messages_locale() {
   my $locale;
 
-  our $working_locale;
   if (defined($working_locale)) {
     $locale = POSIX::setlocale(LC_MESSAGES, $working_locale);
   }

@@ -1,5 +1,10 @@
 2026-01-18 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Translations.pm (_switch_messages_locale): turn
+	$working_locale to a file scoped variable.
+
+2026-01-18 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am: add comments and move code to clarify why we add
 	-I$(srcdir) to AM_CPPFLAGS.
 
