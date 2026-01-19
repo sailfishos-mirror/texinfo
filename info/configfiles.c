@@ -174,12 +174,17 @@ run_info_hook (const char *hook, char *argv[], char **hook_output)
 #define exit_notfound 127
   char *hook_name;
   char *hook_file;
+  const char *hook_ext = "";
 
   debug (1, ("running %s hook", hook));
 
+#ifdef __MINGW32__
+  hook_ext = ".cmd";
+#endif
+
   hook_name = xmalloc (strlen (INFO_HOOKS_DIR) + strlen ("/")
-                       + strlen (hook) + 1);
-  sprintf (hook_name, "%s/%s", INFO_HOOKS_DIR, hook);
+                       + strlen (hook) + strlen (hook_ext) + 1);
+  sprintf (hook_name, "%s/%s%s", INFO_HOOKS_DIR, hook, hook_ext);
   hook_file = locate_init_file (hook_name, 0);
   free (hook_name);
   if (!hook_file)

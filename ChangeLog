@@ -1,3 +1,8 @@
+2026-01-19  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/configfiles.c (run_info_hook) [__MINGW32__]:
+	Append .cmd extension to hook file name.  From Eli.
+
 2026-01-18 Patrice Dumas  <pertusus@free.fr>
 
 	Replace backslashes by forward slashes in paths canonicalization
