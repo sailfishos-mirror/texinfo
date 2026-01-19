@@ -1,3 +1,12 @@
+2026-01-20 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Adding Text And Global Output Units
+	Directions, Sectioning Commands Elements and Document Structure)
+	(Node Elements and Document Structure)
+	(Setting Global Directions From Document Information),
+	tta/perl/init/documentation_examples.pm: improve documentation of
+	Global output units addition and association to node name.
+
 2026-01-19  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/configfiles.c (run_info_hook) [__MINGW32__]:
@@ -196,7 +205,7 @@
 2026-01-15 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/translations.c (switch_messages_locale): do not try to
-	setenv LANG if setenv LC_ALL failed, asa the only possibility for
+	setenv LANG if setenv LC_ALL failed, as the only possibility for
 	failure is being out of memory.  Report from Bruno Haible.
 
 2026-01-15 Patrice Dumas  <pertusus@free.fr>

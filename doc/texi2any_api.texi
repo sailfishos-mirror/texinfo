@@ -1209,6 +1209,8 @@ or @code{texinfo_register_global_direction},
 and then you should set the strings associated to the direction with
 @code{texinfo_register_direction_string_info}.
 
+@cindex Text direction, adding
+
 You add a new text direction by calling @code{texinfo_register_text_direction}:
 @defun texinfo_register_text_direction ($direction)
 @var{$direction} is a new direction name.  The function
@@ -1232,6 +1234,8 @@ texinfo_register_direction_string_info('Home', 'text',
 texinfo_register_direction_string_info('Home', 'text',
  'Home myhomepage.example.com', undef, 'string');
 @end example
+
+@cindex Global direction, adding
 
 You add a global output unit direction by calling
 @code{texinfo_register_global_direction}.  You associate the global output
@@ -1259,8 +1263,9 @@ texinfo_register_global_direction ('Global link');
 @end example
 
 This allows to specify the direction strings associated to the new direction
-even if the node name is not yet known.
-@c TODO link to explanation where a dynamic node name is associated
+even if the node name is not yet known.  @xref{Setting Global Directions
+From Document Information}, for an example of association to a node name
+based on the document structure.
 
 
 @node Simple Navigation Panel Customization
@@ -2746,7 +2751,7 @@ and level 1 to @code{@@chapter} level sectioning commands.
 @xref{Raise/lower sections,,, texinfo, Texinfo}.
 @end table
 
-@cindex sectioning command relations
+@cindex Sectioning command relations
 
 Most of the information on document structure associated to a sectioning
 command tree element is available in the sectioning command relations
@@ -2803,6 +2808,10 @@ to the @code{@@part}.
 
 @end table
 
+Sections relations can also be retrieved by calling
+@code{$document->sections_list()} on the @code{$document} obtained
+through @code{get_info} (@pxref{Converter General Information}).
+
 
 @node Node Elements and Document Structure
 @subsubsection Node Elements and Document Structure
@@ -2815,7 +2824,7 @@ can be interesting in user-defined formatting and conversion functions:
 Normalized node name. @xref{HTML Xref,,, texinfo, Texinfo}.
 @end table
 
-@cindex node relations
+@cindex Node relations
 
 Most of the information on document structure associated to a @code{@@node}
 tree element is available in the node relations
@@ -2866,11 +2875,15 @@ corresponding to a @code{@@nodedescriptionblock} tree element.
 
 @end table
 
+Nodes relations can also be retrieved by calling
+@code{$document->nodes_list()} on the @code{$document} obtained
+through @code{get_info} (@pxref{Converter General Information}).
+
 
 @node Heading Elements and Document Structure
 @subsubsection Heading Elements and Document Structure
 
-@cindex heading relations
+@cindex Heading relations
 
 Information on document structure associated to an heading
 command or to an @code{@@xrefname} command
@@ -5010,6 +5023,9 @@ All the formatting functions take a converter object as first argument.
 @node Setting Global Directions From Document Information
 @section Setting Global Directions From Document Information
 
+@cindex Setting global directions node
+@cindex Global direction, set from node name
+
 Global directions may be added or modified before any conversion takes
 place (@pxref{Adding Text And Global Output Units Directions}).  It is also
 possible to associate a global output unit direction with a node name Texinfo
@@ -5030,7 +5046,8 @@ Texinfo document.
 @end defun
 
 For example, to associate the first @code{@@appendix} command to the
-@samp{Appendix} direction:
+@samp{Appendix} direction by using section and node relations
+(@pxref{Tree Elements and Document Structure}):
 
 @example
 use Texinfo::Common;
@@ -5041,26 +5058,26 @@ texinfo_register_global_direction ('Appendix');
 texinfo_register_direction_string_info (@dots{})
 @dots{}
 
-sub _set_appendix_direction_node_name
-@{
+@group
+sub _set_appendix_direction_node_name @{
   my ($self, $document, $stage) = @@_;
 
   my $sections_list = $document->sections_list();
 
-  if (!$sections_list or !scalar(@@@{$sections_list@})) @{
+  if (!defined($sections_list) or !scalar(@@@{$sections_list@})) @{
     return 0;
   @}
 
-  foreach my $section_structure (@@@{$sections_list@}) @{
-    my $section = $section_structure->@{'element'@};
+  foreach my $section_relations (@@@{$sections_list@}) @{
+    my $section = $section_relations->@{'element'@};
     if ($section->@{'cmdname'@} eq 'appendix') @{
-      if ($section_structure->@{'associated_node'@}) @{
-        my $node_structure = $section_structure->@{'associated_node'@};
-        my $node = $node_structure->@{'element'@};
+      if (exists($section_relations->@{'associated_node'@})) @{
+        my $node_relations = $section_relations->@{'associated_node'@};
+        my $node = $node_relations->@{'element'@};
         my $label_element = Texinfo::Common::get_label_element($node);
         if (defined($label_element)) @{
           my $node_name = Texinfo::Convert::Texinfo::convert_to_texinfo(
-                            @{'contents' => $label_element->@{'contents'@}@});
+                         @{'contents' => $label_element->@{'contents'@}@});
           $self->set_global_direction('Appendix', $node_name);
         @}
       @}
@@ -5070,6 +5087,7 @@ sub _set_appendix_direction_node_name
 
   return 0;
 @}
+@end group
 
 texinfo_register_handler('setup',
             \&_set_appendix_direction_node_name);

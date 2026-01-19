@@ -137,20 +137,19 @@ sub my_function_set_some_css {
 texinfo_register_handler('setup', \&my_function_set_some_css);
 
 my $buttons_done;
-sub _set_appendix_direction_node_name
-{
+sub _set_appendix_direction_node_name {
   my ($self, $document, $stage) = @_;
 
   my $sections_list = $document->sections_list();
 
-  if (!$sections_list or !scalar(@{$sections_list})) {
+  if (!defined($sections_list) or !scalar(@{$sections_list})) {
     return 0;
   }
 
   foreach my $section_relations (@{$sections_list}) {
     my $section = $section_relations->{'element'};
     if ($section->{'cmdname'} eq 'appendix') {
-      if ($section_relations->{'associated_node'}) {
+      if (exists($section_relations->{'associated_node'})) {
         my $node_relations = $section_relations->{'associated_node'};
         my $node = $node_relations->{'element'};
         my $label_element = Texinfo::Common::get_label_element($node);
