@@ -324,6 +324,10 @@ Manual testing:
 . if necessary, check if the HTML customization API can be updated for
   - lilypond Documentation/lilypond.init
   - ffmpeg doc/t2h.pm
+. if necessary, on a platform where libtool generated .la files can be
+  removed such as GNU/Linux, install, remove the .la files in the installation
+  directory and verify that XS modules are still loaded when converting with
+  texi2any.
 
 check for C compiler warnings by configuring with
 
