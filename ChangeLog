@@ -1,5 +1,13 @@
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm (_find_file): rename
+	added_converter_libdir as added_xsdir.  Fix the xsdir value set by
+	postpending XS_extension.
+	Use defined to test if the function arguments are unset.
+	Minor stylistic changes.
+
+2026-01-20 Patrice Dumas  <pertusus@free.fr>
+
 	C libraries and XS modules installed in subdirs of converter libdir
 
 	* tta/C/Makefile.am (librarydir, library_LTLIBRARIES),
