@@ -12942,7 +12942,7 @@ sub _do_js_files($$) {
         my $jssrcdir;
         if (!$Texinfo::ModulePath::texinfo_uninstalled) {
           $jssrcdir = join('/', (
-            $Texinfo::ModulePath::converterdatadir, 'js'));
+            $Texinfo::ModulePath::converter_datadir, 'js'));
         } else {
           $jssrcdir = join('/', (
             $Texinfo::ModulePath::t2a_srcdir, $updir, 'js'));

@@ -1,5 +1,21 @@
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/document.h (INSTALLED_PATHS): rename converterdatadir as
+	converter_datadir.  Update users.
+
+	* tta/C/convert/texinfo.c (txi_setup_main_load_interpreter),
+	tta/C/main/call_perl_function.c (call_modulepath_init)
+	(call_eval_load_texinfo_modules), tta/C/main/document.c
+	(setup_txi_paths_information, setup_texinfo_main), tta/C/texi2any.c
+	(main), tta/perl/Texinfo/ModulePath.pm.in ($converter_datadir)
+	($converter_libdir, init), tta/perl/Texinfo/XSLoader.pm
+	(load_libtool_library), tta/perl/load_txi_modules.pl (BEGIN),
+	tta/perl/texi2any.pl (BEGIN): rename converterdatadir as
+	converter_datadir, xsdir, converterxsdir and converterlibdir as
+	converter_libdir and lib_dir as perl_modules_dir.
+
+2026-01-20 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi (Adding Text And Global Output Units
 	Directions, Sectioning Commands Elements and Document Structure)
 	(Node Elements and Document Structure)

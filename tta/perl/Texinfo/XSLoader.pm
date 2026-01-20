@@ -133,11 +133,11 @@ sub _find_file($) {
   return undef;
 }
 
-my $added_converterxsdir;
+my $added_converter_libdir;
 my %dl_path_prepended_dirs;
 
 # If $TRY_DIRECT_LOAD is set and no .la file is found in @INC, add
-# the converterxsdir directory to the DynaLoader path and let DynaLoader
+# the converter_libdir directory to the DynaLoader path and let DynaLoader
 # find the module file using the usual file names.
 # This allows to have modules found even if packagers remove .la files
 # installed in the default case on platforms where modules have usual names
@@ -154,12 +154,12 @@ sub load_libtool_library {
       return 0;
     } else {
       $dlname = $module_name;
-      if (!defined($added_converterxsdir)
-          and defined($Texinfo::ModulePath::converterxsdir)) {
-        $added_converterxsdir = $Texinfo::ModulePath::converterxsdir;
-        unshift @DynaLoader::dl_library_path, $added_converterxsdir;
+      if (!defined($added_converter_libdir)
+          and defined($Texinfo::ModulePath::converter_libdir)) {
+        $added_converter_libdir = $Texinfo::ModulePath::converter_libdir;
+        unshift @DynaLoader::dl_library_path, $added_converter_libdir;
       }
-      _debug("try direct load $module_name: $added_converterxsdir");
+      _debug("try direct load $module_name: $added_converter_libdir");
     }
   } else {
     my $fh;
@@ -342,7 +342,7 @@ sub init {
 
   if (defined &{"${module}::init"}
       and !&{"${module}::init"} ($Texinfo::ModulePath::texinfo_uninstalled,
-                                 $Texinfo::ModulePath::converterdatadir,
+                                 $Texinfo::ModulePath::converter_datadir,
                                  $Texinfo::ModulePath::t2a_builddir,
                                  $Texinfo::ModulePath::t2a_srcdir)) {
     _message("$module_name: error initializing");

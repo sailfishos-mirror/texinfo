@@ -1000,7 +1000,7 @@ main (int argc, char *argv[], char *env[])
   size_t format_menu_option_nr;
   char *conversion_format_menu_default = 0;
   int texinfo_uninstalled = 0;
-  const char *converterdatadir = DATADIR "/" CONVERTER_CONFIG;
+  const char *converter_datadir = DATADIR "/" CONVERTER_CONFIG;
   const char *curdir = ".";
   CONVERTER_INITIALIZATION_INFO *converter_init_info;
   const char *external_module = 0;
@@ -1098,7 +1098,7 @@ main (int argc, char *argv[], char *env[])
       xasprintf (&extensions_dir, "%s/perl/ext", t2a_srcdir);
     }
   else
-    xasprintf (&extensions_dir, "%s/ext", converterdatadir);
+    xasprintf (&extensions_dir, "%s/ext", converter_datadir);
 
   free (command_directory);
 
@@ -1117,9 +1117,11 @@ main (int argc, char *argv[], char *env[])
      Done early because options defaults are used in help
      and paths are needed to locate file used for interpreter embedding
      and setup by the interpreter */
+  /* no converter_libdir argument because it is only needed when
+     (re)using a Perl interpreter, which is never the case here */
   txi_setup_main_load_interpreter (embedded_interpreter,
                         texinfo_uninstalled,
-                        converterdatadir, 0, t2a_builddir, t2a_srcdir, 0,
+                        converter_datadir, 0, t2a_builddir, t2a_srcdir, 0,
                         &argc, &argv, &env,
                         version_for_embedded_interpreter_check);
 

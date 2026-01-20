@@ -13,7 +13,7 @@
 struct TEXT_OPTIONS;
 
 typedef struct INSTALLED_PATHS {
-    char *converterdatadir;
+    char *converter_datadir;
 } INSTALLED_PATHS;
 
 typedef struct UNINSTALLED_PATHS {
@@ -32,11 +32,11 @@ typedef struct PATHS_INFORMATION {
 extern PATHS_INFORMATION txi_paths_info;
 
 void setup_texinfo_main (int texinfo_uninstalled,
-                    const char *converterdatadir,
+                    const char *converter_datadir,
                  const char *t2a_builddir, const char *t2a_srcdir);
 
 void setup_txi_paths_information (int texinfo_uninstalled,
-                             const char *converterdatadir,
+                             const char *converter_datadir,
                              const char *t2a_builddir,
                              const char *t2a_srcdir);
 

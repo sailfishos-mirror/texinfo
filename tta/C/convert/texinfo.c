@@ -94,8 +94,8 @@ txi_find_tree_transformation (const char *transformation_name)
 void
 txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
                       int texinfo_uninstalled,
-                      const char *converterdatadir,
-                      const char *converterlibdir,
+                      const char *converter_datadir,
+                      const char *converter_libdir,
                       const char *t2a_builddir,
                       const char *t2a_srcdir, int updirs,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
@@ -110,7 +110,7 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
         xasprintf (&load_modules_path, "%s/perl/%s.pl",
                    t2a_srcdir, load_txi_modules_basename);
       else
-        xasprintf (&load_modules_path, "%s/%s", converterdatadir,
+        xasprintf (&load_modules_path, "%s/%s", converter_datadir,
                    load_txi_modules_basename);
       status = call_init_perl (argc_ref, argv_ref, env_ref, load_modules_path,
                                version_checked);
@@ -131,7 +131,7 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
              txi_interpreter_use_no_interpreter, it is the default in
              that case */
           messages_and_encodings_setup ();
-          setup_texinfo_main (texinfo_uninstalled, converterdatadir,
+          setup_texinfo_main (texinfo_uninstalled, converter_datadir,
                               t2a_builddir, t2a_srcdir);
         }
       free (load_modules_path);
@@ -142,13 +142,13 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
         Used from the Perl SWIG interface */
       int loaded
          = call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
-                                      updirs, converterdatadir,
-                                      converterlibdir);
+                                      updirs, converter_datadir,
+                                      converter_libdir);
       if (loaded <= 0)
         {
           /* XS was not loaded, the C library is not initialized, do it now */
           messages_and_encodings_setup ();
-          setup_texinfo_main (texinfo_uninstalled, converterdatadir,
+          setup_texinfo_main (texinfo_uninstalled, converter_datadir,
                               t2a_builddir, t2a_srcdir);
         }
 
@@ -167,7 +167,7 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
      which calls the functions */
       /* sets up gettext and iconv */
       messages_and_encodings_setup ();
-      setup_texinfo_main (texinfo_uninstalled, converterdatadir,
+      setup_texinfo_main (texinfo_uninstalled, converter_datadir,
                           t2a_builddir, t2a_srcdir);
 
       set_use_perl_interpreter (txi_interpreter_use_no_interpreter);
@@ -259,10 +259,10 @@ txi_general_output_strings_setup (int use_external_translate_string)
       if (not_found)
         fprintf (stderr, "Locales dir for document strings not found\n");
     }
-  else if (txi_paths_info.p.installed.converterdatadir)
+  else if (txi_paths_info.p.installed.converter_datadir)
     {
       xasprintf (&locales_dir, "%s/locale",
-                 txi_paths_info.p.installed.converterdatadir);
+                 txi_paths_info.p.installed.converter_datadir);
       configure_output_strings_translations (locales_dir, 0,
                                            use_external_translate_string);
       free (locales_dir);

@@ -59,7 +59,7 @@ BEGIN
   my $datadir = '@datadir@';
   my $converter = '@CONVERTER@';
   my $libdir = '@libdir@';
-  my $xsdir;
+  my $converter_libdir;
 
   if ($datadir eq '@' .'datadir@'
       or defined($ENV{'TEXINFO_DEV_SOURCE'})
@@ -80,10 +80,8 @@ BEGIN
     # Look for modules in their installed locations.
     my $modules_dir = join('/', ($datadir, $converter));
     # look for package data in the installed location.
-    # actually the same as $converterdatadir in main program below, but use
-    # another name to avoid confusion.
-    my $modules_converterdatadir = $modules_dir;
-    $xsdir = join('/', ($libdir, $converter));
+    my $converter_datadir = $modules_dir;
+    $converter_libdir = join('/', ($libdir, $converter));
 
     # try to make package relocatable, will only work if
     # standard relative paths are used
@@ -92,18 +90,16 @@ BEGIN
                           $converter, 'Texinfo', 'Parser.pm'))) {
       $modules_dir = join('/', ($command_directory, $updir,
                                 'share', $converter));
-      $modules_converterdatadir
-                  = join('/', ($command_directory, $updir,
-                                               'share', $converter));
-      $xsdir = join('/', ($command_directory, $updir,
+      $converter_datadir = $modules_dir;
+      $converter_libdir = join('/', ($command_directory, $updir,
                                           'lib', $converter));
     }
 
     unshift @INC, $modules_dir;
 
     require Texinfo::ModulePath;
-    Texinfo::ModulePath::init($modules_dir, $xsdir,
-                              $modules_converterdatadir,
+    Texinfo::ModulePath::init($modules_dir, $converter_libdir,
+                              $converter_datadir,
                               'installed' => 1);
   }
 } # end BEGIN
@@ -136,7 +132,6 @@ my $prefix = '@prefix@';
 my $datadir;
 my $datarootdir;
 my $sysconfdir;
-#my $pkgdatadir;
 my $converter;
 
 my $fallback_prefix = File::Spec->rootdir() . join('/', ('usr', 'local'));

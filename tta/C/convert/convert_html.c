@@ -2779,7 +2779,7 @@ html_do_js_files (CONVERTER *self)
               if (!txi_paths_info.texinfo_uninstalled)
                 {
                   xasprintf (&jssrcdir, "%s/%s",
-                        txi_paths_info.p.installed.converterdatadir,
+                        txi_paths_info.p.installed.converter_datadir,
                              "js");
                 }
               else

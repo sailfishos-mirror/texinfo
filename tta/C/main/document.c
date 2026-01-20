@@ -70,12 +70,12 @@ free_converter_paths_information (PATHS_INFORMATION *paths_info)
       free (paths_info->p.uninstalled.t2a_srcdir);
     }
   else
-    free (paths_info->p.installed.converterdatadir);
+    free (paths_info->p.installed.converter_datadir);
 }
 
 void
 setup_txi_paths_information (int texinfo_uninstalled,
-                             const char *converterdatadir,
+                             const char *converter_datadir,
                              const char *t2a_builddir,
                              const char *t2a_srcdir)
 {
@@ -97,10 +97,10 @@ setup_txi_paths_information (int texinfo_uninstalled,
     }
   else
     {
-      if (converterdatadir)
+      if (converter_datadir)
         {
-          txi_paths_info.p.installed.converterdatadir
-            = strdup (converterdatadir);
+          txi_paths_info.p.installed.converter_datadir
+            = strdup (converter_datadir);
         }
     }
 }
@@ -108,7 +108,7 @@ setup_txi_paths_information (int texinfo_uninstalled,
 /* should be called only once. */
 void
 setup_texinfo_main (int texinfo_uninstalled,
-                    const char *converterdatadir,
+                    const char *converter_datadir,
                  const char *t2a_builddir, const char *t2a_srcdir)
 {
   char *silent_refcount = getenv ("TEXINFO_SILENT_REFCOUNT");
@@ -118,7 +118,7 @@ setup_texinfo_main (int texinfo_uninstalled,
 
   /* used in converters and in main C program at early steps, not in Parser */
   setup_txi_paths_information (texinfo_uninstalled,
-                             converterdatadir, t2a_builddir, t2a_srcdir);
+                             converter_datadir, t2a_builddir, t2a_srcdir);
 
   set_element_type_name_info ();
   txi_initialise_base_options ();

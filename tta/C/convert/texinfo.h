@@ -66,8 +66,8 @@ void txi_general_output_strings_setup (int use_external_translate_string);
 
 void txi_setup_main_load_interpreter (enum interpreter_use embedded_interpreter,
                       int texinfo_uninstalled,
-                      const char *converterdatadir,
-                      const char *converterlibdir,
+                      const char *converter_datadir,
+                      const char *converter_libdir,
                       const char *t2a_builddir,
                       const char *t2a_srcdir, int updirs,
                       int *argc_ref, char ***argv_ref, char ***env_ref,
