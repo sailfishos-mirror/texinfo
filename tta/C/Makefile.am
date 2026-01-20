@@ -45,13 +45,13 @@ AM_CFLAGS = $(perl_conf_LIB_CFLAGS)
 # This corresponds to part of ExtUtils::Embed ldopts corresponding to LDFLAGS
 AM_LDFLAGS = $(perl_conf_LDFLAGS)
 
-xsdir = $(converterlibdir)
+librarydir = $(converterlibdir)/lib
 
 # -------------------------------------------------------
 
 noinst_LTLIBRARIES =
 
-xs_LTLIBRARIES =
+library_LTLIBRARIES =
 
 ############ Convenience library for code calling Perl from C and for XS
 # interfaces, separate to use different flags to be sure that Perl headers
@@ -76,7 +76,7 @@ libperlcall_utils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 ########################## shared common, parser and structure library
 
 if HAVE_ICONV
-xs_LTLIBRARIES += libtexinfo.la
+library_LTLIBRARIES += libtexinfo.la
 endif
 
 # The files in the main directory correspond to code used both
@@ -421,7 +421,7 @@ MAINTAINERCLEANFILES += $(products_css_data) stamp.css_data
 
 if ! DISABLE_XS
 if HAVE_ICONV
-xs_LTLIBRARIES += libtexinfoxs.la
+library_LTLIBRARIES += libtexinfoxs.la
 libtexinfoxs_la_as_dependency = libtexinfoxs.la
 endif
 endif
@@ -446,7 +446,7 @@ libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # share converter data among the XS objects used for conversion.
 
 if HAVE_ICONV
-xs_LTLIBRARIES += libtexinfo-convert.la
+library_LTLIBRARIES += libtexinfo-convert.la
 endif
 
 C_libtexinfo_convert_sources = \
@@ -522,7 +522,7 @@ libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(E
 
 if ! DISABLE_XS
 if HAVE_ICONV
-xs_LTLIBRARIES += libtexinfo-convertxs.la
+library_LTLIBRARIES += libtexinfo-convertxs.la
 endif
 endif
 
@@ -557,7 +557,7 @@ libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # ctexi2any cannot be built in that situation.
 
 if HAVE_ICONV
-xs_LTLIBRARIES += libtexinfo-main.la
+library_LTLIBRARIES += libtexinfo-main.la
 endif
 
 # convenience library for embedded Perl called from libtexinfo-main C code,

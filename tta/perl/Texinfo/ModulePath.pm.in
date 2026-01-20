@@ -107,7 +107,10 @@ sub init {
     }
     # for the XS modules and the C libraries
     if (defined($converter_libdir)) {
-      unshift @INC, $converter_libdir;
+      # For XS Modules
+      unshift @INC, join('/', ($converter_libdir, 'XS_extension'));
+      # For C libraries
+      unshift @INC, join('/', ($converter_libdir, 'lib'));
     }
   }
 

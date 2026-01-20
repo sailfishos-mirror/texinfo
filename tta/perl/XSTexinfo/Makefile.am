@@ -42,7 +42,7 @@ GNULIB_CPPFLAGS = -I$(txi_libs_srcdir) -I$(top_srcdir)/gnulib/lib \
 
 converterlibdir = $(libdir)/$(CONVERTER)
 
-xsdir = $(converterlibdir)
+xsdir = $(converterlibdir)/XS_extension
 
 .xs.c:
 	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $*.c

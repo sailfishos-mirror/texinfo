@@ -1,5 +1,20 @@
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
+	C libraries and XS modules installed in subdirs of converter libdir
+
+	* tta/C/Makefile.am (librarydir, library_LTLIBRARIES),
+	tta/perl/XSTexinfo/Makefile.am (xsdir),
+	tta/perl/Texinfo/ModulePath.pm.in (init): add librarydir in
+	C/Makefile.am as the lib subdir of libdir/texi2any and use it for
+	libraries installation, define xsdir in XSTexinfo/Makefile.am as the
+	XS_extension subdir of libdir/texi2any.  Update paths in
+	Texinfo/ModulePath.pm.in.
+	In addition to separating C libraries from XS modules, this also
+	allows to keep a bin directory added by libtool at the same level
+	within libdir/texi2any.
+
+2026-01-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/Makefile.am (EXTRA_DIST),
 	tta/swig/perl/Texinfo_SWIG_Interface_Tests.pm, tta/swig/perl/t/*.t:
 	rename tta/swig/perl/_Texinfo_Tests.pm as
