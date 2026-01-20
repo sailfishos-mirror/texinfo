@@ -26,18 +26,21 @@ our $VERSION = '7.2.90';
 
 use Texinfo::XSLoader;
 
-# Used from C/XS to initialize the C libraries when Texinfo::Document is
-# used but the Document XS extension is not loaded.  Not used from Perl.
+# Used from C/XS to detect that the C library needs to be initialized when the
+# Texinfo::Document Perl module is loaded but the Document XS extension is not
+# loaded.  Used when loading Perl modules from C, not used from Perl.
 our $XS_package;
 
 BEGIN {
-  $XS_package = Texinfo::XSLoader::init (
+  if (Texinfo::XSLoader::XS_parser_enabled()) {
+    $XS_package = Texinfo::XSLoader::init (
       "Texinfo::DocumentXS",
       undef,
       "DocumentXS",
       undef,
       ['texinfo', 'texinfoxs'],
-  );
+    );
+  }
 }
 
 1;

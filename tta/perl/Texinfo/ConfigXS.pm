@@ -25,13 +25,17 @@ our $VERSION = '7.2.90';
 use Texinfo::XSLoader;
 
 BEGIN {
-  Texinfo::XSLoader::init (
+  # Functions are overriden only if Perl is embedded, no point
+  # in loading otherwise.
+  if ($Texinfo::XSLoader::embedded_xs) {
+    Texinfo::XSLoader::init (
       "Texinfo::ConfigXS",
       undef,
       "ConfigXS",
       undef,
       ['texinfo', 'texinfoxs'],
-  );
+    );
+  }
 }
 
 1;
