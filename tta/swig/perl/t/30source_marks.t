@@ -23,18 +23,18 @@ use Test::More;
 
 plan tests => 3;
 
-# to find _Texinfo_Tests in source
+# to find Texinfo_SWIG_Interface_Tests in source
 use lib '.';
 
 BEGIN {
-  # to find _Texinfo_Tests in out of source builds
+  # to find Texinfo_SWIG_Interface_Tests in out of source builds
   my $srcdir = $ENV{'srcdir'};
   if (defined($srcdir)) {
     unshift @INC, $srcdir;
   }
 }
 
-use _Texinfo_Tests;
+use Texinfo_SWIG_Interface_Tests;
 
 use Texinfo;
 
@@ -84,10 +84,12 @@ text before @onearg  another arg@comment am I there?
 
 Texinfo::destroy_parser($parser);
 
-my $error_messages = _Texinfo_Tests::get_parser_error_messages($document);
+my $error_messages
+  = Texinfo_SWIG_Interface_Tests::get_parser_error_messages($document);
 
 #foreach my $message (@$error_messages) {
-#  print STDERR "'"._Texinfo_Tests::protect_perl_string($message)."',\n";
+#  print STDERR "'"
+#    .Texinfo_SWIG_Interface_Tests::protect_perl_string($message)."',\n";
 #}
 
 my @reference_messages = ('28: misplaced { (possibly involving @lm)
@@ -168,7 +170,7 @@ while (1) {
   }
 }
 
-#my $result_string = _Texinfo_Tests::protect_perl_string($result);
+#my $result_string = Texinfo_SWIG_Interface_Tests::protect_perl_string($result);
 #print STDERR "'$result_string'\n";
 
 my $reference = '[T: View toto.  And then mine and yours . .\\n]|4
@@ -208,6 +210,7 @@ bracketed_arg|1
  0: c:4; s:2; p:0|
 ';
 
-_Texinfo_Tests::is_diff($result, $reference, 'source marks representation');
+Texinfo_SWIG_Interface_Tests::is_diff($result, $reference,
+                                      'source marks representation');
 
 1;

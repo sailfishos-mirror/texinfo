@@ -1,5 +1,12 @@
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (EXTRA_DIST),
+	tta/swig/perl/Texinfo_SWIG_Interface_Tests.pm, tta/swig/perl/t/*.t:
+	rename tta/swig/perl/_Texinfo_Tests.pm as
+	Texinfo_SWIG_Interface_Tests.pm.
+
+2026-01-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/Makefile.am (nodist_perlarch_DATA): install Texinfo.pm
 	in perlarch, as it seems to be the usual convention for Perl modules
 	loading XS modules.

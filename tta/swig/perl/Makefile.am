@@ -129,7 +129,7 @@ endif
 endif
 
 EXTRA_DIST = \
- _Texinfo_Tests.pm \
+ Texinfo_SWIG_Interface_Tests.pm \
  $(t_test_files) $(scripts_test_files) \
  test_refold.sh \
  parse_refold.pl \

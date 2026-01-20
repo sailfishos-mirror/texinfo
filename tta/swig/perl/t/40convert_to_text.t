@@ -5,18 +5,18 @@ use Encode;
 
 BEGIN { plan tests => 1; }
 
-# to find _Texinfo_Tests in source
+# to find Texinfo_SWIG_Interface_Tests in source
 use lib '.';
 
 BEGIN {
-  # to find _Texinfo_Tests in out of source builds
+  # to find Texinfo_SWIG_Interface_Tests in out of source builds
   my $srcdir = $ENV{'srcdir'};
   if (defined($srcdir)) {
     unshift @INC, $srcdir;
   }
 }
 
-use _Texinfo_Tests;
+use Texinfo_SWIG_Interface_Tests;
 
 use Texinfo;
 
@@ -88,6 +88,6 @@ Texinfo::text_options_set_encoding($text_options, $encoding);
 my $text = Texinfo::convert_to_text($tree, $text_options);
 my $result_text = _decode($text);
 
-_Texinfo_Tests::is_diff($result_text, $reference_result_text,
-                        'convert to text');
+Texinfo_SWIG_Interface_Tests::is_diff($result_text, $reference_result_text,
+                                     'convert to text');
 

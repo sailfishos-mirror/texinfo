@@ -1,3 +1,5 @@
+# Set path to find modules and utility functions for tests
+
 # Copyright 2024-2026 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
@@ -13,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-package _Texinfo_Tests;
+package Texinfo_SWIG_Interface_Tests;
 
 use strict;
 

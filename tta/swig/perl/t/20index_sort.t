@@ -26,11 +26,11 @@ use Test::More;
 
 plan tests => 2;
 
-# to find _Texinfo_Tests in source
+# to find Texinfo_SWIG_Interface_Tests in source
 use lib '.';
 
 BEGIN {
-  # to find _Texinfo_Tests in out of source builds
+  # to find Texinfo_SWIG_Interface_Tests in out of source builds
   my $srcdir = $ENV{'srcdir'};
   if (defined($srcdir)) {
     unshift @INC, $srcdir;
@@ -47,7 +47,7 @@ use Texinfo::Convert::Texinfo;
 use Texinfo::Common;
 
 # load SWIG interface Perl module
-use _Texinfo_Tests;
+use Texinfo_SWIG_Interface_Tests;
 use Texinfo;
 
 Texinfo::setup(1);
@@ -123,10 +123,12 @@ Texinfo::destroy_parser($swig_parser);
 
 #Texinfo::output_parser_error_messages($document);
 
-my $error_messages = _Texinfo_Tests::get_parser_error_messages($document);
+my $error_messages
+  = Texinfo_SWIG_Interface_Tests::get_parser_error_messages($document);
 
 #foreach my $message (@$error_messages) {
-#  print STDERR "'"._Texinfo_Tests::protect_perl_string($message)."',\n";
+#  print STDERR "'"
+#       .Texinfo_SWIG_Interface_Tests::protect_perl_string($message)."',\n";
 #}
 
 my @reference_messages = ('10: warning: @cindex missing argument
