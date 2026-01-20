@@ -23,7 +23,7 @@
 # by texinfo_.
 # Functions prefixed by _GNUT_ are private.
 #
-# This package is documented in the customization_api Texinfo manual.  This
+# This package is documented in the texi2any_api Texinfo manual.  This
 # package is integrated with the Texinfo main program and the Texinfo
 # HTML converter, such that it does not make sense to document the
 # public interface separately.
@@ -66,7 +66,7 @@ sub import {
   if (!$module_loaded) {
     # override only if Perl is embedded
     if ($Texinfo::XSLoader::embedded_xs) {
-      for my $sub (keys %XS_overrides) {
+      foreach my $sub (keys(%XS_overrides)) {
         Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
       }
     }

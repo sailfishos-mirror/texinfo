@@ -227,7 +227,7 @@ sub load_libtool_library {
   return $libref;
 }
 
-our $loaded_additional_libraries = {};
+my $loaded_additional_libraries = {};
 
 # Load module $MODULE, either from XS implementation in
 # Libtool file $MODULE_NAME and Perl file $PERL_EXTRA_FILE,
@@ -284,17 +284,20 @@ sub init {
   my $uninstalled = (not defined($Texinfo::ModulePath::texinfo_uninstalled)
                      or $Texinfo::ModulePath::texinfo_uninstalled);
 
-  if ($additional_libraries) {
+  if (defined($additional_libraries)) {
     foreach my $additional_library_name (@{$additional_libraries}) {
       my $additional_library = 'lib' . $additional_library_name;
-      if (!$loaded_additional_libraries->{$additional_library}) {
+      # Note that we do not try to load again a library that didn't load
+      # before.
+      if (!exists($loaded_additional_libraries->{$additional_library})) {
         my $ref = load_libtool_library($additional_library);
-        # If the libraries are installed but cannot be found, maybe because
-        # .la were removed, it may still be possible for them to be found through
-        # dynamic linking when the XS module is loaded if there are RUNPATH or
-        # similar pointing to the installation directory in the XS modules objects
-        # themselves.  Therefore, we only fallback if the libraries are not found
-        # and we are in-source.
+        # If library is installed but cannot be found, maybe because
+        # .la files were removed, it may still be possible for the library to
+        # be found through dynamic linking when the XS module is loaded if
+        # there are RUNPATH or similar pointing to the installation directory
+        # in the XS modules objects themselves.
+        # Therefore, we only fallback if the library is not found and we
+        # are in-source.
         if (!$ref and $uninstalled) {
           goto FALLBACK;
         } else {
@@ -375,8 +378,9 @@ sub init {
       warn "falling back to pure Perl module $fallback_module\n";
     }
   }
-  # if there is no fallback, it may be relevant to have access to the
-  # return value in perl code, to check if the package was loaded.
+
+  # undef is returned only if there is no fallback and loading the module
+  # failed.
   if (!defined($fallback_module)) {
     if ($TEXINFO_XS eq 'warn' or $TEXINFO_XS eq 'debug') {
       warn "no fallback module for $module\n";

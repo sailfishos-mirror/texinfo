@@ -1,5 +1,16 @@
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm ($loaded_additional_libraries): make
+	the variable local to the file.
+
+	* tta/perl/Texinfo/XSLoader.pm (init): use defined when the value is
+	not needed.
+	Try to (pre) load a library only one, do not retry if it failed.
+
+	* tta/perl/Texinfo/Config.pm: stylistic change.
+
+2026-01-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ConfigXS.pm (BEGIN), tta/perl/Texinfo/DocumentXS.pm
 	(BEGIN): load XS modules only if there will be overriden functions
 	later on.
