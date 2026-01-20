@@ -1,5 +1,20 @@
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/Makefile.am (nodist_perlarch_DATA): install Texinfo.pm
+	in perlarch, as it seems to be the usual convention for Perl modules
+	loading XS modules.
+
+	* tta/swig/perl/_Texinfo_Tests.pm: change formatting of functions
+	beginning.
+
+	* tta/swig/perl/parse_refold.pl (BEGIN): sync better with
+	_Texinfo_Tests.pm code.  Try to load MakeMaker generated files even if
+	t2a_builddir is not set.
+
+	Changes in comments.
+
+2026-01-20 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/document.h (INSTALLED_PATHS): rename converterdatadir as
 	converter_datadir.  Update users.
 

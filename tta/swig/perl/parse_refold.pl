@@ -63,17 +63,20 @@ BEGIN {
     # this is correct for in-source builds only.
     $t2a_builddir = join('/', ($srcdir, $updir, $updir));
   }
+  my $xs_found;
   if (defined($t2a_builddir)) {
-    my $libs_directory = join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
-    if (-d $libs_directory) {
+    my $xsdir = join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
+    if (-d $xsdir) {
+      $xs_found = 1;
       # for Texinfo.pm
       unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl'));
       # for XS
-      unshift @INC, join('/', ($t2a_builddir, 'swig', 'perl', '.libs'));
-    } elsif (-d 'blib' and -f 'Makefile.PL') {
-      # with Perl build system, in-source paths
-      unshift @INC, 'blib/arch', 'blib/lib';
+      unshift @INC, $xsdir;
     }
+  }
+  if (not $xs_found and -d 'blib' and -f 'Makefile.PL') {
+    # with Perl build system, in-source paths
+    unshift @INC, 'blib/arch', 'blib/lib';
   }
 }
 
@@ -209,7 +212,7 @@ my $global_info = Texinfo::document_global_information($document);
 #}
 
 my $encoding = $global_info->swig_input_encoding_name_get();
-# not actually possible, encoding is set to in the default case.
+# not actually possible, encoding is also set in the default case.
 $encoding = 'UTF-8' if (!defined($encoding));
 
 # To support old manuals in which US-ASCII can be specified although
@@ -308,6 +311,7 @@ sub _convert($$$;$);
 
 sub _handle_source_marks($$$$) {
   my ($element, $type, $inputs, $current_smark) = @_;
+
   my $result = $inputs->[-1]->[1];
   my $last_position;
   my $smark_e_text;
@@ -628,6 +632,7 @@ sub _convert($$$;$) {
   }
   return ($result, $current_smark);
 }
+
 my $result_text = '';
 my $inputs = [[$input_filename, \$result_text, -1, undef]];
 my ($result, $current_smark) = _convert($tree, $document, $inputs);

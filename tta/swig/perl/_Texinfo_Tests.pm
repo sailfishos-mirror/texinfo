@@ -36,7 +36,7 @@ if (!defined($srcdir)) {
 }
 unshift @INC, $srcdir;
 
-# To find the XS extension
+# To find the Perl module and the XS module
 my $t2a_builddir = $ENV{'t2a_builddir'};
 if (!defined($t2a_builddir) and defined($srcdir)) {
   # this is correct for in-source builds only.
@@ -55,11 +55,8 @@ eval { require Text::Diff; Text::Diff->import('diff'); };
 
 my $text_diff_loading_error = $@;
 
-sub is_diff($$$)
-{
-  my $result = shift;
-  my $reference = shift;
-  my $test_name = shift;
+sub is_diff($$$) {
+  my ($result, $reference, $test_name) = @_;
 
   #if (!$test_differences_loading_error) {
   #  eq_or_diff_text($result, $reference, $test_name);
@@ -75,9 +72,9 @@ sub is_diff($$$)
 }
 
 # also in tta/perl/t/test_utils.pl
-sub protect_perl_string($)
-{
+sub protect_perl_string($) {
   my $string = shift;
+
   #if (!defined($string)) {
   #  cluck();
   #}
@@ -88,8 +85,7 @@ sub protect_perl_string($)
   return $string;
 }
 
-sub get_parser_error_messages($)
-{
+sub get_parser_error_messages($) {
   my $document = shift;
 
   my @error_messages;

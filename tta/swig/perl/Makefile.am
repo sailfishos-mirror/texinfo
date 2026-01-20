@@ -56,13 +56,13 @@ all-local: .libs/auto/Texinfo
 
 # SWIG generated Texinfo.pm XS loading code calls Dynaloader bootstrap,
 # which searches first in @INC directories auto/Texinfo/ subdirectories.
-# .libs is first in @INC, but it is not enough to have the XS extension
-# from .libs loaded first because of this search in auto/Texinfo/.
+# .libs is set first in @INC in tests and scripts called from the build
+# directory, but it is not enough to have the XS extension from .libs
+# loaded first because of the search in auto/Texinfo/.
 # To make sure that the XS extension in builddir .libs is found before
-# installed XS extensions in some dir in @INC with an auto/Texinfo subdir
-# do a link from auto/Texinfo to .libs, such that the extension
-# in .libs/auto/Texinfo, loaded first is the extension in .libs in build
-# directory.
+# installed XS extensions in some dir in @INC with an auto/Texinfo subdir,
+# do a link from auto/Texinfo to .libs, such that the first extension
+# loaded is in .libs/auto/Texinfo in .libs in build directory.
 
 .libs/auto/Texinfo:
 	$(MKDIR_P) .libs/auto
@@ -71,14 +71,17 @@ all-local: .libs/auto/Texinfo
 # We do not add an explicit clean action as .libs is already removed with
 # clean.
 
-# as explained on the Dynaloader documentation (but it is hard to
-# find more general information on the expected directories layout), the
-# .so should be installed in
-# installsitearch or installvendorarch/auto/$module
-# The .pm that load the XS modules seem to be in
-# installsitearch or installvendorarch/
+# As explained on the Dynaloader bootstrap documentation an XS module
+# is searched for in @INC directories auto/$module.  No more information
+# on expected installation directories layout could be found.  We
+# install in platform-dependent directories installsitearch/auto/$module
+# or installvendorarch/auto/$module.
+# The .pm that load the XS modules seems to always be installed in
+# installsitearch or installvendorarch.
+# configure sets archlibdir to installsitearch or installvendorarch depending
+# on configure flags, also taking prefix into account as should be.
 if HAVE_ICONV
-nodist_perllib_DATA = Texinfo.pm
+nodist_perlarch_DATA = Texinfo.pm
 
 module = Texinfo
 archlibdir = $(perlarchdir)/auto/$(module)
