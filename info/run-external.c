@@ -88,12 +88,21 @@ get_output_from_program (char *filename, char *formatter_args[],
   {
     FILE *fpipe;
     char *cmdline;
-    size_t cmdlen = 0;
     int save_stderr = dup (fileno (stderr));
     int fd_err = open (NULL_DEVICE, O_WRONLY, 0666);
+    size_t cmdlen = strlen (filename);
     int i;
 
-    for (i = 0; formatter_args[i]; i++)
+#ifdef __MINGW32__
+    /* Mirror all forward slashes in FILENAME to backslashes, since
+       otherwise the Windows shell might fail to run the script.  */
+    filename = xstrdup (filename);
+    for (i = 0; i < cmdlen; i++)
+      if (filename[i] == '/')
+	filename[i] = '\\';
+#endif
+
+    for (i = 1; formatter_args[i]; i++)
       cmdlen += strlen (formatter_args[i]);
     /* Add-ons: 2 blanks, 2 quotes for the formatter program, 1
        terminating null character.  */
@@ -102,8 +111,11 @@ get_output_from_program (char *filename, char *formatter_args[],
 
     if (fd_err > 2)
       dup2 (fd_err, fileno (stderr)); /* Don't print errors. */
-    sprintf (cmdline, "\"%s\" %s %s",
-             formatter_args[0], formatter_args[1], formatter_args[2]);
+    sprintf (cmdline, "\"%s\" %s %s", filename,
+	     formatter_args[1], formatter_args[2] ? formatter_args[2] : "");
+#ifdef __MINGW32__
+    free (filename);
+#endif
     fpipe = popen (cmdline, "r");
     free (cmdline);
     if (fd_err > 2)

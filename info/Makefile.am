@@ -212,6 +212,9 @@ EXTRA_DIST += $(info_tests) $(info_tests_with_pseudotty) $(XFAIL_TESTS) \
   t/config/texinfo/infokey t/node-target
 dist_check_SCRIPTS = t/config/texinfo/info-hooks/manual-not-found
 
+# for MS-Windows
+dist_check_SCRIPTS += t/config/texinfo/info-hooks/manual-not-found.cmd
+
 dist-hook:
 	rm -rf `find $(distdir)/t/infodir -name '*~'`
 

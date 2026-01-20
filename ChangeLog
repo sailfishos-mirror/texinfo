@@ -1,3 +1,14 @@
+2026-01-20  Eli Zaretskii <eliz@gnu.org>
+
+	* info/run-external.c (get_output_from_program) [!PIPE_USE_FORK]:
+	Use 'filename' argument in popen call, rather than argument 0.
+	Add check for null argument.
+	[!PIPE_USE_FORK && __MINGW32__]: Change / to \ in command name
+	before calling popen.
+
+	* info/t/config/texinfo/info-hooks/manual-not-found.cmd:
+	Add dummy file.
+
 2026-01-20  Gavin Smith <gavinsmith0123@gmail.com>
 
 	info: read compressed input via fork/execlp.
