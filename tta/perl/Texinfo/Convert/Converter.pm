@@ -2253,6 +2253,9 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
       $self->set_document($document);
     }
 
+    $self->set_global_document_commands('before', \@global_commands);
+    ...
+
     $self->{'document_context'} = [{}];
     ...
   }
@@ -2497,6 +2500,15 @@ L<< set_document|/$converter->set_document($document) >> to associate the C<Texi
 document passed in argument to the converter.  A subclass converter redefining
 C<conversion_initialization> should in general call C<set_document> in the
 redefined function too to associate the converted document to the converter.
+
+For a converter to be reusable for multiple documents conversion, variables
+values corresponding to @-commands that can be set in the document
+and influence formatting should be reset at conversion initialization.
+This can be done with L<< C<set_global_document_commands>|/$converter->set_global_document_commands($commands_location, $selected_commands) >>.  If the list
+of such @-commands is C<@global_commands>, the following call would reset them
+to the values they had before starting the conversion:
+
+  $self->set_global_document_commands('before', \@global_commands);
 
 =item $beginning = $converter->conversion_output_begin($output_file, $output_filename)
 

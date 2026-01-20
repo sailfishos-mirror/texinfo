@@ -31,6 +31,9 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
       $self->set_document($document);
     }
 
+    $self->set_global_document_commands('before', \@global_commands);
+    ...
+
     $self->{'document_context'} = [{}];
     ...
   }
@@ -291,6 +294,17 @@ In the default case, @code{conversion_initialization} calls
 document passed in argument to the converter.  A subclass converter redefining
 @code{conversion_initialization} should in general call @code{set_document} in the
 redefined function too to associate the converted document to the converter.
+
+For a converter to be reusable for multiple documents conversion, variables
+values corresponding to @@-commands that can be set in the document
+and influence formatting should be reset at conversion initialization.
+This can be done with @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter->set_global_document_commands($commands_location@comma{} $selected_commands),, @code{set_global_document_commands}}.  If the list
+of such @@-commands is @code{@@global_commands}, the following call would reset them
+to the values they had before starting the conversion:
+
+@verbatim
+  $self->set_global_document_commands('before', \@global_commands);
+@end verbatim
 
 @item $beginning = $converter->conversion_output_begin($output_file, $output_filename)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $beginning = $converter->conversion_output_begin($output_file@comma{} $output_filename)}

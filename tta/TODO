@@ -76,11 +76,16 @@ converter_customization_options, unique_at_command_options.
 Delayed bugs/features
 =====================
 
-When a converter is called multiple time, the customization variables
-are not reset to their pre-conversion value when doing another conversion.
-It is not clear to what extent we want to be able to reuse converters, but it
-could be relevant to do so to avoid the converter initialization/destruction,
-which takes a small but not neglectable time.
+Revisit the use of @INC to register C libraries and XS modules paths and use
+of @INC in XSLoader _find_file.  For C libraries it does not make much sense
+to use @INC.  In general, we also do not want to find XS modules in @INC, but
+we prefer finding them in-build or where they should be installed, either
+using configure-set paths or relative paths to a command.  In general we
+also do not want to find XS modules in Perl paths.  If we did, it would be
+strange to look for the XS modules directly in directories, while the
+convention corresponding to Dynaloader bootstrap is to have XS modules in
+auto/$package.  All in all, it would be better to look directly for files
+in directories obtained from Texinfo::ModulePath.
 
 Do not add parent in tree in the first place instead of removing afterwards,
 in gdt?  Or, possibly even better mark parent as weak reference with
