@@ -146,7 +146,8 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
                                       converter_libdir);
       if (loaded <= 0)
         {
-          /* XS was not loaded, the C library is not initialized, do it now */
+          /* XS code that calls C library initialization was not loaded,
+             initialize the C library now */
           messages_and_encodings_setup ();
           setup_texinfo_main (texinfo_uninstalled, converter_datadir,
                               t2a_builddir, t2a_srcdir);

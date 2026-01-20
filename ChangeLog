@@ -1,5 +1,10 @@
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/call_perl_function.c (call_eval_load_texinfo_modules):
+	fix name of Perl variable read from C.
+
+2026-01-20 Patrice Dumas  <pertusus@free.fr>
+
 	* README-hacking: note on manual testing of .la installed files
 	removing.
 

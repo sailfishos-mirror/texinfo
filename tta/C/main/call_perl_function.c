@@ -365,7 +365,7 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
   eval_pv (str, TRUE);
 
   /* should be false if DocumentXS was not loaded */
-  document_loader_sv = get_sv ("Texinfo::DocumentXS::XSLoader", 0);
+  document_loader_sv = get_sv ("Texinfo::DocumentXS::XS_package", 0);
 
   /* TODO add more from load_txi_modules.pl when there is code to test?
      For example loading messages for error messages translation and
