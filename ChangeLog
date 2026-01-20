@@ -1,3 +1,23 @@
+2026-01-20  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info: read compressed input via fork/execlp.
+
+	* info/filesys.c (filesys_read_compressed, filesys_read_from_stream):
+	Split out filesys_read_from_stream.  Close stream with fclose rather
+	than pclose.
+
+	(COMPRESSION_ALIST, compress_suffixes): Store command options
+	as separate strings, rather than in a single space separated
+	string.
+	(filesys_decompressor_for_file): Return type changed.
+
+	(filesys_read_compressed): Obtain command line by concatenating
+	strings in compress_suffixes with spaces.
+	[PIPE_USE_FORK]: Use fork and execlp to run decompressor program,
+	rather than popen.  This avoids any need to sanitise the argument
+	to popen.
+	[!PIPE_USE_FORK]: Run popen as before.
+
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/XSLoader.pm (_find_file): rename

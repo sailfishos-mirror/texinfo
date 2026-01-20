@@ -27,15 +27,15 @@ static char *info_file_in_path (const char *filename, struct stat *finfo);
 
 static char *filesys_read_compressed (char *pathname, size_t *filesize);
 
-/* Return the command string that would be used to decompress FILENAME. */
-static char *filesys_decompressor_for_file (char *filename);
-static int compressed_filename_p (char *filename);
-
 typedef struct
 {
   char *suffix;
   char *decompressor;
+  const char *args[2];
 } COMPRESSION_ALIST;
+
+static COMPRESSION_ALIST *filesys_decompressor_for_file (char *filename);
+static int compressed_filename_p (char *filename);
 
 static char *info_suffixes[] = {
   ".info",
@@ -55,15 +55,15 @@ static COMPRESSION_ALIST compress_suffixes[] = {
   { ".gz", "gunzip" },
   { ".lz", "lunzip" },
 #else
-  { ".gz", "gzip -d" },
-  { ".lz", "lzip -d" },
+  { ".gz", "gzip", "-d" },
+  { ".lz", "lzip", "-d" },
 #endif
   { ".xz", "unxz" },
   { ".bz2", "bunzip2" },
   { ".z", "gunzip" },
   { ".lzma", "unlzma" },
   { ".Z", "uncompress" },
-  { ".zst", "unzstd --rm -q" },
+  { ".zst", "unzstd", "--rm", "-q" },
   { ".Y", "unyabba" },
 #ifdef __MSDOS__
   { "gz", "gunzip" },
@@ -71,6 +71,7 @@ static COMPRESSION_ALIST compress_suffixes[] = {
 #endif
   { NULL, NULL }
 };
+/* Note: unspecified args default to null. */
 
 /* Look for the filename PARTIAL in INFOPATH in order to find the correct file.
    Return file name and set *FINFO with information about file.  If it
@@ -389,11 +390,14 @@ filesys_read_info_file (char *pathname, size_t *filesize,
 /* We use some large multiple of that. */
 #define FILESYS_PIPE_BUFFER_SIZE (16 * BASIC_PIPE_BUFFER)
 
+static char *filesys_read_from_stream (FILE *stream, size_t *filesize);
+
 static char *
 filesys_read_compressed (char *pathname, size_t *filesize)
 {
   FILE *stream;
-  char *command, *decompressor;
+  char *command, *command_line;
+  COMPRESSION_ALIST *decompressor;
   char *contents = NULL;
 
   *filesize = filesys_error_number = 0;
@@ -403,72 +407,163 @@ filesys_read_compressed (char *pathname, size_t *filesize)
   if (!decompressor)
     return NULL;
 
-  command = xmalloc (15 + strlen (pathname) + strlen (decompressor));
-  /* Explicit .exe suffix makes the diagnostics of `popen'
-     better on systems where COMMAND.COM is the stock shell.  */
-  sprintf (command, "%s%s < %s",
-	   decompressor, STRIP_DOT_EXE ? ".exe" : "", pathname);
+  size_t command_len = 0;
+  command_len += strlen (decompressor->decompressor) + 1;
+
+  if (STRIP_DOT_EXE)
+    {
+      command_len += strlen (".exe");
+    }
+
+  int decompressor_nargs = sizeof (decompressor->args)
+                          /sizeof (decompressor->args[0]);
+  int i;
+  for (i = 0; i < decompressor_nargs; i++)
+    {
+      if (decompressor->args[i])
+        {
+          /* + 1 for space or terminating null */
+          command_len += strlen (decompressor->args[i]) + 1;
+        }
+    }
+
+  command = xmalloc (command_len);
+
+  char *p = command;
+  strcpy (p, decompressor->decompressor);
+  p += strlen (decompressor->decompressor);
+
+  if (STRIP_DOT_EXE)
+    {
+      /* Explicit .exe suffix makes the diagnostics of `popen'
+         better on systems where COMMAND.COM is the stock shell.  */
+      strcpy (p, ".exe");
+      p += strlen (".exe");
+    }
+
+  for (i = 0; i < decompressor_nargs; i++)
+    {
+      if (decompressor->args[i])
+        {
+          strcpy (p++, " ");
+          strcpy (p, decompressor->args[i]);
+          p += strlen (decompressor->args[i]);
+        }
+    }
+
+  xasprintf (&command_line, "%s < %s", command, pathname);
 
   if (info_windows_initialized_p)
     {
       char *temp;
 
-      temp = xmalloc (5 + strlen (command));
-      sprintf (temp, "%s...", command);
+      temp = xmalloc (5 + strlen (command_line));
+      sprintf (temp, "%s...", command_line);
       message_in_echo_area ("%s", temp);
       free (temp);
     }
 
-  stream = popen (command, FOPEN_RBIN);
-  free (command);
+#if PIPE_USE_FORK
+  int pipes[2];
+  if (pipe (pipes) == -1)
+    goto cleanup;
 
-  /* Read chunks from this file until there are none left to read. */
-  if (stream)
+  pid_t child = fork ();
+  if (child == -1)
+    goto cleanup;
+
+  if (child != 0)
     {
-      size_t offset, size;
-      char *chunk;
-    
-      offset = size = 0;
-      chunk = xmalloc (FILESYS_PIPE_BUFFER_SIZE);
-
-      while (1)
-        {
-          size_t bytes_read;
-
-          bytes_read = fread (chunk, 1, FILESYS_PIPE_BUFFER_SIZE, stream);
-
-          if (bytes_read + offset >= size)
-            contents = xrealloc
-              (contents, size += (2 * FILESYS_PIPE_BUFFER_SIZE));
-
-          memcpy (contents + offset, chunk, bytes_read);
-          offset += bytes_read;
-          if (bytes_read != FILESYS_PIPE_BUFFER_SIZE)
-            break;
-        }
-
-      free (chunk);
-      if (pclose (stream) == -1)
-	{
-	  if (contents)
-	    free (contents);
-	  contents = NULL;
-	  filesys_error_number = errno;
-	}
-      else
-	{
-	  contents = xrealloc (contents, 1 + offset);
-	  contents[offset] = '\0';
-	  *filesize = offset;
-	}
+      /* In parent. */
+      close (pipes[1]); /* close writing end */
+      stream = fdopen (pipes[0], "r");
+      if (stream)
+        contents = filesys_read_from_stream (stream, filesize);
     }
   else
     {
-      filesys_error_number = errno;
+      /* In child. */
+      close (pipes[0]); /* close reading end */
+
+      FILE *new_stdin = freopen (pathname, "r", stdin);
+      if (!new_stdin)
+        exit (1); /* couldn't open file */
+
+      dup2 (pipes[1], fileno (stdout));
+
+      /* command name, max two arguments, and terminator */
+      static const char *argv[4];
+      argv[0] = decompressor->decompressor;
+      argv[1] = decompressor->args[0];
+      argv[2] = decompressor->args[1];
+      argv[3] = NULL;
+
+      execvp (decompressor->decompressor, (char * const *) argv);
+
+      /* couldn't exec. */
+      close (pipes[1]);
+      exit (1);
     }
+#else /* !PIPE_USE_FORK */
+  stream = popen (command_line, FOPEN_RBIN);
+
+  /* Read chunks from this file until there are none left to read. */
+  if (stream)
+    contents = filesys_read_from_stream (stream, filesize);
+  else
+    filesys_error_number = errno;
+#endif /* !PIPE_USE_FORK */
+
+ cleanup:
+  free (command);
+  free (command_line);
 
   if (info_windows_initialized_p)
     unmessage_in_echo_area ();
+  return contents;
+}
+
+static char *
+filesys_read_from_stream (FILE *stream, size_t *filesize)
+{
+  size_t offset, size;
+  char *chunk;
+  char *contents = NULL;
+
+  offset = size = 0;
+  chunk = xmalloc (FILESYS_PIPE_BUFFER_SIZE);
+
+  while (1)
+    {
+      size_t bytes_read;
+
+      bytes_read = fread (chunk, 1, FILESYS_PIPE_BUFFER_SIZE, stream);
+
+      if (bytes_read + offset >= size)
+        contents = xrealloc
+          (contents, size += (2 * FILESYS_PIPE_BUFFER_SIZE));
+
+      memcpy (contents + offset, chunk, bytes_read);
+      offset += bytes_read;
+      if (bytes_read != FILESYS_PIPE_BUFFER_SIZE)
+        break;
+    }
+
+  free (chunk);
+  if (fclose (stream) == -1)
+    {
+      if (contents)
+        free (contents);
+      contents = NULL;
+      filesys_error_number = errno;
+    }
+  else
+    {
+      contents = xrealloc (contents, 1 + offset);
+      contents[offset] = '\0';
+      *filesize = offset;
+    }
+
   return contents;
 }
 
@@ -476,7 +571,7 @@ filesys_read_compressed (char *pathname, size_t *filesize)
 static int
 compressed_filename_p (char *filename)
 {
-  char *decompressor;
+  COMPRESSION_ALIST *decompressor;
 
   /* Find the final extension of this filename, and see if it matches one
      of our known ones. */
@@ -488,8 +583,8 @@ compressed_filename_p (char *filename)
     return 0;
 }
 
-/* Return the command string that would be used to decompress FILENAME. */
-static char *
+/* Return information on how to to decompress FILENAME. */
+static COMPRESSION_ALIST *
 filesys_decompressor_for_file (char *filename)
 {
   register int i;
@@ -509,7 +604,7 @@ filesys_decompressor_for_file (char *filename)
 
   for (i = 0; compress_suffixes[i].suffix; i++)
     if (FILENAME_CMP (extension, compress_suffixes[i].suffix) == 0)
-      return compress_suffixes[i].decompressor;
+      return &compress_suffixes[i];
 
 #if defined (__MSDOS__)
   /* If no other suffix matched, allow any extension which ends
@@ -518,7 +613,7 @@ filesys_decompressor_for_file (char *filename)
      every weird suffix thus produced would be a pain.  */
   if (extension[strlen (extension) - 1] == 'z' ||
       extension[strlen (extension) - 1] == 'Z')
-    return "gunzip";
+    return filesys_decompressor_for_file ("XXX.gz");
 #endif
 
   return NULL;
