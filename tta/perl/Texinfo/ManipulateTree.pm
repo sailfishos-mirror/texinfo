@@ -126,7 +126,7 @@ sub import {
 
 # copy a Texinfo tree.
 
-# To do the copy, we do two pass.  First with copy_tree_internal, the tree is
+# To do the copy, we do two pass.  First with _copy_tree, the tree is
 # copied and a reference to the copy is put in all the elements,
 # taking care that each element is processed once only.
 # Then, remove_element_copy_info goes through the tree again and remove
@@ -136,14 +136,17 @@ sub import {
 # up, next and prev that point to elements.
 # it could also have been possible to determine that it is
 # an extra_directions if the keys are only up, next and prev
+# NOTE these are not in tree but in relations information.  The code is kept
+# nevertheless in case some directions are put back in extra in the tree.
 my %extra_directions;
-foreach my $type ('menu', 'node', 'section', 'toplevel') {
+foreach my $type ('node', 'section', 'toplevel') {
   $extra_directions{$type.'_directions'} = 1;
 }
 
 # $OTHER_TREES sould be used to put subtree roots, for instance to make sure
 # that all the references are within one tree.  For now, if undef, the extra
-# references are not followed.
+# references to elements are not followed, except for elements that are not
+# in other parts of the tree.
 sub _copy_tree($;$);
 sub _copy_tree($;$) {
   my ($current, $other_trees) = @_;
@@ -208,7 +211,7 @@ sub _copy_tree($;$) {
       if (ref($value) eq '') {
         $new->{$info_type}->{$key} = $value;
       } elsif (ref($value) eq 'ARRAY') {
-        # menus
+        # formerly menus, now in node relations
         if (ref($value->[0]) eq 'HASH'
             or ref($value->[0]) eq 'Texinfo::TreeElement') {
           #print STDERR "II ARRAY $key $value\n";
@@ -229,8 +232,14 @@ sub _copy_tree($;$) {
       } elsif (ref($value) eq 'HASH' or ref($value) eq 'Texinfo::TreeElement') {
         #print STDERR "II HASH $key $value\n";
         if (not $other_trees
-            and ($info_type eq 'extra' and $key ne 'node_content'
-                 and $key ne 'node_manual')) {
+            and ($info_type eq 'extra'
+                 # elements that do not point to other parts of the tree,
+                 # point to associated element
+                 and $key ne 'node_content'
+                 and $key ne 'node_manual'
+                 # point to element only in extra, not in the document tree
+                 and $key ne 'def_index_element'
+                 and $key ne 'def_index_ref_element')) {
           next;
         }
         if ($extra_directions{$key}) {
@@ -343,6 +352,8 @@ sub _remove_element_copy_info($;$$) {
 # TODO document?
 # If $ADDED_ROOT_ELEMENTS is set, links in extra to other subtrees are
 # followed and subtree roots should be put in there.
+# NOTE right now there are no extra types that points to other parts
+# of the tree used in any code.  See comment in C code for more information.
 sub copy_tree($;$)
 {
   my ($current, $added_root_elements) = @_;

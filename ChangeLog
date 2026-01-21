@@ -1,5 +1,16 @@
 2026-01-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm: remove menu directions, they do
+	not exist anywhere.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (_copy_tree): copy
+	def_index_element and def_index_ref_element even if other_trees is not
+	set, as in C.
+
+	* tta/perl/Texinfo/ManipulateTree.pm: improve/update comments.
+
+2026-01-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/XSLoader.pm (XS_parser_enabled): check that
 	TEXINFO_XS_PARSER is not 0 instead of comparing to 1.  It makes more
 	sense since the default is true, it matches the documentation and

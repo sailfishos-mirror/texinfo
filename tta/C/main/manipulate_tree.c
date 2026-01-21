@@ -437,7 +437,7 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
 }
 
 /*
-   NOTE extra_types that could point outside of the tree
+   NOTE extra_types that could point outside of the tree being copied
    may appear in the tree only if there is extra information
    with this type.  Code could still exist for extra_types that
    are not actually used in any code.  See AI_KEYS_LIST in tree_types.h
