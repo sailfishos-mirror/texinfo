@@ -29,6 +29,12 @@
 # include <iconv.h>
 #endif
 
+#ifdef __MINGW32__
+/* MinGW uses a replacement nl_langinfo, see pcterm.c.  */
+# define nl_langinfo rpl_nl_langinfo
+extern char * rpl_nl_langinfo (nl_item);
+#endif
+
 /* Variable which holds the most recent filename parsed as a result of
    calling info_parse_xxx (). */
 char *info_parsed_filename = NULL;

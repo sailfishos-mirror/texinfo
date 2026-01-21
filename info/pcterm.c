@@ -827,32 +827,25 @@ rpl_nl_langinfo (nl_item item)
   if (item == CODESET)
     {
       static char buf[100];
+      UINT console_cp = GetConsoleOutputCP ();
 
-      /* We need all the help we can get from GNU libiconv, so we
-	 request transliteration as well.  */
-      sprintf (buf, "CP%u//TRANSLIT", GetConsoleOutputCP ());
+      /* The rest of the code wants to see "UTF-8" and nothing else.  */
+      if (console_cp == CP_UTF8)
+	memcpy (buf, "UTF-8", sizeof "UTF-8");
+      else if (console_cp == CP_UTF7)
+ 	sprintf (buf, "CP%u", console_cp);
+      else
+	{
+	  /* For non-UTF output encoding, we need all the help we can
+	     get from GNU libiconv, so we request transliteration as
+	     well.  */
+	  sprintf (buf, "CP%u//TRANSLIT", console_cp);
+	}
       return buf;
     }
   else
     return nl_langinfo (item);
 }
-
-#ifndef HAVE_WCWIDTH
-/* A replacement for wcwidth.  The Gnulib version calls setlocale for
-   every character Info is about to display, which makes display of
-   large nodes annoyingly slow.
-
-   Note that the Gnulib version is still compiled and put into
-   libgnu.a, because the configure script doesn't know about this
-   replacement.  But the linker will not pull the Gnulib version into
-   the binary, because it resolves the calls to this replacement
-   function.  */
-int
-wcwidth (wchar_t wc)
-{
-  return wc == 0 ? 0 : iswprint (wc) ? 1 : -1;
-}
-#endif
 
 #endif	/* _WIN32 */
 
@@ -1019,7 +1012,7 @@ pc_goto_xy (int x, int y)
 
 /* Print STRING to the terminal at the current position. */
 static void
-pc_put_text (char *string)
+pc_put_text (const char *string)
 {
   if (speech_friendly)
     fputs (string, stdout);
@@ -1049,7 +1042,7 @@ pc_ring_bell (void)
 
 /* Print NCHARS from STRING to the terminal at the current position. */
 static void
-pc_write_chars (char *string, int nchars)
+pc_write_chars (const char *string, int nchars)
 {
   if (!nchars)
     return;

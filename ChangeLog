@@ -1,3 +1,16 @@
+2026-01-21  Eli Zaretskii <eliz@gnu.org>
+
+	Minor MinGW-related cleanups
+	
+	* info/pcterm.c (rpl_nl_langinfo): Treat CP_UTF8 and CP_UTF7
+	return values from GetConsoleOutputCP specially.
+	(wcwidth) [not defined HAVE_WCWIDTH]: remove definition.
+	(pc_put_text, pc_write_chars): declare argument as const char *.
+
+	* info/scan.c [__MINGW32__]: Declare rpl_nl_langinfo here.
+	* info/util.c [__MINGW32__]: Remove declaration of rpl_nl_langinfo.
+	Allow gnulib wcwidth to be used.
+
 2026-01-21  Eli Zaretskii  <eliz@gnu.org>
 
 	* .gitattributes: Checkout all *.cmd files with CRLF EOLs.
