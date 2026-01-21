@@ -34,16 +34,13 @@ if (!defined($t2a_srcdir)) {
 my $debug = 0;
 #my $debug = 1;
 
-my $with_XS = ((not defined($ENV{TEXINFO_XS})
-                or $ENV{TEXINFO_XS} ne 'omit')
-               and (!defined $ENV{TEXINFO_XS_PARSER}
-                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
-
 ok(1, 'modules loading');
 
-# FIXME does not test the XS code
 # a tree with a reference seen after one within the extra tree.
 # Not sure that it exists in real trees, so check it here
+# NOTE does not test the XS code.  This is not a real issue, as right now
+# extra information pointing to elements elsewhere in the tree does not
+# happen.
 my $tref = Texinfo::TreeElement::new({'type' => 'document_root',
             'contents' => [Texinfo::TreeElement::new({'text' => 'x'}),
                            Texinfo::TreeElement::new({'type' => 'paragraph',

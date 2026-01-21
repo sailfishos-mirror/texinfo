@@ -7,6 +7,7 @@ use Test::More;
 
 BEGIN { plan tests => 6; }
 
+use Texinfo::XSLoader;
 use Texinfo::Transformations;
 use Texinfo::Parser;
 use Texinfo::Convert::Texinfo;
@@ -60,15 +61,10 @@ sub test_correction($$$;$)
   }
 }
 
-my $with_XS = ((not defined($ENV{TEXINFO_XS})
-                or $ENV{TEXINFO_XS} ne 'omit')
-               and (!defined $ENV{TEXINFO_XS_PARSER}
-                    or $ENV{TEXINFO_XS_PARSER} eq '1'));
-
-
 SKIP:
 {
-  skip 'test perl not XS', 2 if ($with_XS);
+  # TODO maybe it would be better to use Texinfo::XSLoader::XS_parser_loaded
+  skip 'test perl not XS', 2 if (Texinfo::XSLoader::XS_parser_enabled());
 
 test_correction('@raisesections
 

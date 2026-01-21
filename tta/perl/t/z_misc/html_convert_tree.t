@@ -54,12 +54,13 @@ my $result_from_handle = $converter->convert_tree($tree_handle);
 
 my $reference_output = '<p>N <toto class="code">M</toto></p>';
 my $reference_from_handle;
+
 SKIP: {
+  # Even if $XS_parser is set, if iconv is not functional the Parser XS
+  # won't be built, so we cannot be sure that the XS function is called,
+  # therefore we skip the test if $XS_parser.
   skip 'Parser may not be XS even with XS_parser set', 1 if ($XS_parser);
 
-# Even if $XS_parser is set, if iconv is not functional the Parser XS
-# won't be built, so we cannot be sure that the XS function is called,
-# therefore we skip the test if $XS_parser.
 if ($XS_parser) {
   # there is no Perl tree, as there is only a handle, convert_tree
   # returns an empty string.

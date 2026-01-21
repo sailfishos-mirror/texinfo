@@ -70,7 +70,7 @@ sub XS_parser_enabled {
           ((not defined($ENV{TEXINFO_XS})
                 or $ENV{TEXINFO_XS} ne 'omit')
            and (not defined($ENV{TEXINFO_XS_PARSER})
-                or $ENV{TEXINFO_XS_PARSER} eq '1')));
+                or $ENV{TEXINFO_XS_PARSER} ne '0')));
 }
 
 sub XS_structuring_enabled {
