@@ -1,3 +1,10 @@
+2026-01-21  Eli Zaretskii  <eliz@gnu.org>
+
+	* .gitattributes: Checkout all *.cmd files with CRLF EOLs.
+
+	* info/t/config/texinfo/info-hooks/manual-not-found.cmd: Use CRLF
+	end-of-line format.
+
 2026-01-20 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/XSLoader.pm ($loaded_additional_libraries): make

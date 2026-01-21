@@ -9,3 +9,8 @@ ChangeLog       merge=merge-changelog
 #        xfuncname = "^(@node .*)$"
 
 tp/t/results/*/*.pl  diff
+
+# A few UTF-8-compatible text files use CRLF endings,
+# even on non-Microsoft platforms.
+# Do not warn about trailing whitespace with these files.
+*.cmd whitespace=cr-at-eol
