@@ -1,5 +1,10 @@
 2026-01-22  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/Makefile.am: distribute manual-not-found.cmd and
+	gnu-manuals.awk even if HOST_IS_WINDOWS is false.
+
+2026-01-22  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/info-hooks-default/manual-not-found.in:
 	add note to keep inline awk program synched with separate file.
 
