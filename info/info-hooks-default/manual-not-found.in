@@ -35,6 +35,8 @@ if test -f "$hook_dir/gnu-manuals-locations.dat" ; then
         print url ; exit }
       $1 == "@setvar" && NF == 3 { file_vars[$2] = $3 }
 '`
+  # Note: keep awk program in sync with separate gnu-manuals.awk file, only
+  # installed on MS-Windows.
 
   if test -z "$url" ; then
     # If we don't know anything about this manual, just revert to Info's

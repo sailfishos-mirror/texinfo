@@ -1,3 +1,8 @@
+2026-01-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/info-hooks-default/manual-not-found.in:
+	add note to keep inline awk program synched with separate file.
+
 2026-01-22  Eli Zaretskii <eliz@gnu.org>
 
 	* info/info-hooks-default/manual-not-found.cmd: new
