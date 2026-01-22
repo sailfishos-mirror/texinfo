@@ -1,3 +1,8 @@
+2026-01-22  Eli Zaretskii <eliz@gnu.org>
+
+	* info/info-hooks-default/manual-not-found.cmd: new
+	* info/info-hooks-default/gnu-manuals.awk: new
+
 2026-01-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	info: Add raw-utf8-output.
