@@ -319,6 +319,11 @@ filesys_read_info_file (char *pathname, size_t *filesize,
   stat (pathname, finfo);
   stat_fsize = finfo->st_size;
 
+  /* shouldn't happen but this silences a -Wstringop-overflow warning
+     on gcc 13.3.0. */
+  if (stat_fsize < 0)
+    stat_fsize = 0;
+
   if (compressed_filename_p (pathname))
     {
       /* NOTE convert positive unsigned off_t to size_t */
