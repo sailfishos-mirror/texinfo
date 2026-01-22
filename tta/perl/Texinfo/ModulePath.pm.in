@@ -33,6 +33,8 @@ our $t2a_srcdir;
 # installed locations paths, if not $Texinfo::ModulePath::texinfo_uninstalled
 our $converter_datadir;
 our $converter_libdir;
+# C libraries directory
+our $libraries_dir;
 
 # Other information passed to modules from configure
 our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
@@ -94,8 +96,8 @@ sub init {
     if (defined($t2a_builddir)) {
       # For XS Modules
       unshift @INC, join('/', ($t2a_builddir, 'perl', 'XSTexinfo'));
-      # For C libraries
-      unshift @INC, join('/', ($t2a_builddir, 'C'));
+      # for C libraries
+      $libraries_dir = join('/', ($t2a_builddir, 'C'));
     }
 
   } else {
@@ -110,7 +112,7 @@ sub init {
       # For XS Modules
       unshift @INC, join('/', ($converter_libdir, 'XS_extension'));
       # For C libraries
-      unshift @INC, join('/', ($converter_libdir, 'lib'));
+      $libraries_dir = join('/', ($converter_libdir, 'lib'));
     }
   }
 

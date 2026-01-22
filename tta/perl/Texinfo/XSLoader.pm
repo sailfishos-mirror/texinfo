@@ -120,7 +120,7 @@ sub _message($) {
 
 # We look for the .la and .so files in @INC because this allows us to override
 # which modules are used using -I flags to "perl".
-sub _find_file($) {
+sub _find_file_in_inc($) {
   my $file = shift;
   for my $dir (@INC) {
     next if (ref($dir) ne '');
@@ -143,12 +143,11 @@ my %dl_path_prepended_dirs;
 # installed in the default case on platforms where modules have usual names
 # and are found by DynaLoader.
 sub load_libtool_library {
-  my ($module_name, $try_direct_load) = @_;
+  my ($module_name, $libtool_dir, $libtool_archive, $try_direct_load) = @_;
 
   my $dlname;
 
-  my ($libtool_dir, $libtool_archive) = _find_file("$module_name.la");
-  if (!$libtool_archive) {
+  if (!defined($libtool_archive)) {
     if (!$try_direct_load) {
       _message("$module_name: couldn't find Libtool archive file");
       return 0;
@@ -290,8 +289,21 @@ sub init {
       # Note that we do not try to load again a library that didn't load
       # before.
       if (!exists($loaded_additional_libraries->{$additional_library})) {
-        my $ref = load_libtool_library($additional_library);
-        # If library is installed but cannot be found, maybe because
+        my $libdir = $Texinfo::ModulePath::libraries_dir;
+        my $ref;
+        if (defined($libdir)) {
+          my $libtool_lib_archive = "$libdir/$additional_library.la";
+          if (-f $libtool_lib_archive) {
+            _debug("found dependency $additional_library.la in $libdir");
+            $ref = load_libtool_library($additional_library, $libdir,
+                                        $libtool_lib_archive);
+          } else {
+            _debug("dependency $additional_library.la not found in $libdir");
+          }
+        } else {
+          _debug("no directory for dependency $additional_library");
+        }
+        # If library is installed but .la file cannot be found, maybe because
         # .la files were removed, it may still be possible for the library to
         # be found through dynamic linking when the XS module is loaded if
         # there are RUNPATH or similar pointing to the installation directory
@@ -307,10 +319,12 @@ sub init {
     }
   }
 
+  my ($libtool_dir, $libtool_archive) = _find_file_in_inc("$module_name.la");
   # If installed, try direct load of modules if .la file is not found, as
   # it should work in that case on platforms where libtool has installed
   # the module in the specified directory.
-  my $libref = load_libtool_library($module_name, !$uninstalled);
+  my $libref = load_libtool_library($module_name, $libtool_dir,
+                                    $libtool_archive, !$uninstalled);
   if (!$libref) {
     goto FALLBACK;
   }
