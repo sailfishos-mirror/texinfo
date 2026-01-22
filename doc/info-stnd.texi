@@ -2140,6 +2140,17 @@ set @code{nodeline} to the value @code{print}, which will include the
 filename and name of the node.  To not display the header line at all,
 use the value @code{no}.
 
+@item raw-utf8-output
+When set to @samp{On}, always display non-ASCII UTF-8 sequences in
+nodes by sending the bytes to the terminal, rather than iterating
+over them with locale-dependent functions first.
+
+This variable will mainly be of use on MS-Windows in use cases where
+the terminal is set up to support UTF-8, but a UTF-8 locale is not
+fully supported by the system.  This should allow viewing Info files
+with non-ASCII characters on such systems, although some minor breakage
+in handling such characters may remain.
+
 @anchor{scroll-behavior}
 @item scroll-behavior
 @itemx scroll-behaviour

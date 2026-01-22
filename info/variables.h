@@ -79,6 +79,7 @@ extern int key_time;
 extern int mouse_protocol;
 extern int follow_strategy;
 extern int nodeline_print;
+extern int raw_utf8_output_p;
 
 typedef struct {
     unsigned long mask;

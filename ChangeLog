@@ -1,3 +1,19 @@
+2026-01-22  Gavin Smith <gavinsmith0123@gmail.com>
+
+	info: Add raw-utf8-output.
+
+	* info/variables.c (VARIABLE_ALIST):
+	Add "raw-utf8-output" user variable.
+	* info/display.c (raw_utf8_output_p): new.
+
+	(printed_representation): If raw_utf8_output_p is set, do not
+	use locale functions to process UTF-8 output.
+
+	* doc/info-stnd.texi (Variables): Add raw-utf8-output.
+	* NEWS: announce
+
+	Report from Eli for codepage 65001 on MSVCRT runtime on MS-Windows.
+
 2026-01-22 Patrice Dumas  <pertusus@free.fr>
 
 	Search for C libraries directly in the directory they are in

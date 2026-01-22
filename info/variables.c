@@ -164,6 +164,10 @@ VARIABLE_ALIST info_variables[] = {
       N_("How to print the information line at the start of a node"),
       CHOICES_VAR(nodeline_print, nodeline_choices) },
 
+  { "raw-utf8-output",
+      N_("Always pass through non-ASCII UTF-8 bytes in files to terminal"),
+      ON_OFF_VAR(raw_utf8_output_p) },
+
   { NULL }
 };
 

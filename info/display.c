@@ -482,6 +482,8 @@ display_process_line (WINDOW *win,
 
 static struct text_buffer printed_rep = { 0 };
 
+int raw_utf8_output_p = 0;
+
 /* Return pointer to string that is the printed representation of character
    (or other logical unit) at ITER if it were printed at screen column
    PL_CHARS.  Use ITER_SETBYTES (util.h) on ITER if we need to advance
@@ -501,7 +503,38 @@ printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
 
   text_buffer_reset (&printed_rep);
 
-  if (mb_isprint (mbi_cur (*iter)))
+  if (raw_utf8_output_p && (unsigned char) *cur_ptr >= 0x80)
+    {
+      /* For systems without a working UTF-8 locale but where UTF-8
+         actually works on the terminal.  This may happen in an MS-Windows
+         UTF-8 terminal with the MSVCRT run-time.
+
+         Pass through UTF-8 bytes to the terminal.  Count each character as
+         a single screen column.  This at least allows viewing (mostly
+         correctly) non-ASCII characters in UTF-8 Info files.
+
+         Searching, user entry etc. of non-ASCII characters may still
+         not work correctly. */
+
+      unsigned char c = *cur_ptr;
+      if ((c & 0xc0) == 0xc0)
+        {
+          /* UTF-8 initial byte. */
+          *pchars = 1;
+          *pbytes = 1;
+          ITER_SETBYTES (*iter, 1);
+          return cur_ptr;
+        }
+      if ((c & 0xc0) == 0x80)
+        {
+          /* UTF-8 continuation byte. */
+          *pchars = 0;
+          *pbytes = 1;
+          ITER_SETBYTES (*iter, 1);
+          return cur_ptr;
+        }
+    }
+  else if (mb_isprint (mbi_cur (*iter)))
     {
       /* cur.wc gives a wchar_t object.  See mbiter.h in the
          gnulib/lib directory. */
