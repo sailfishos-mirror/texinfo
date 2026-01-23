@@ -1,3 +1,12 @@
+2026-01-23 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/texi2any.pl: exchange the order in a condition.
+
+	* INSTALL: edit to explain that PERL_EXT_* variables values are used
+	only if XS modules are used,
+
+	Update POD documentation.
+
 2026-01-22  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* info/filesys.c (filesys_read_info_file):

@@ -487,7 +487,6 @@ sub get_output_units_lists($) {
 }
 
 # should be redefined by converters if needed
-# TODO document
 sub converter_release_output_units($) {
   my $self = shift;
 }
@@ -508,7 +507,7 @@ sub perl_converter_remove_output_units($) {
   # For a C/XS converter, we go through the C data output units lists
   # and remove references to output units Perl data for each of the output
   # units, in a separate code called through converter_remove_output_units
-  #XS interface.
+  # XS interface.
   my $output_units_lists = $self->get_output_units_lists();
 
   if (defined($output_units_lists)) {
@@ -564,7 +563,6 @@ sub perl_converter_remove_output_units($) {
 }
 
 # ALTIMP convert/texinfo.c txi_converter_remove_output_units
-# TODO document
 sub converter_remove_output_units($) {
   my $self = shift;
 
@@ -572,7 +570,6 @@ sub converter_remove_output_units($) {
 }
 
 # Should be redefined in converters if needed
-# TODO document
 sub converter_destroy($) {
   my $self = shift;
 }
@@ -608,7 +605,8 @@ sub converter_perl_release($) {
 
 # ALTIMP convert/texinfo.c txi_destroy_converter
 #        convert/converter.c destroy_converter
-# TODO document
+# Has an XS override, that calls the converter_perl_release Perl function
+# in addition to C code.
 sub destroy_converter($) {
   my $self = shift;
 
@@ -1202,7 +1200,7 @@ sub write_or_return($$$) {
 my $STDIN_DOCU_NAME = 'stdin';
 
 # this requires a document, and is, in general, used in output(), therefore
-# a document need to be associated to the converter, not only a tree.
+# a document need to be associated with the converter, not only a tree.
 sub determine_files_and_directory($$) {
   my ($self, $output_format) = @_;
 
@@ -2110,7 +2108,7 @@ our %xml_accent_entities = (
           'H', 'dblac',
          );
 
-# There are more in HTML 5.0, and letters associated to other accent
+# There are more in HTML 5.0, and letters associated with other accent
 # entities.  We stick to HTML 4 entities to keep compatibility as
 # there is no clear gain to have more accent entities, numeric
 # entities used instead work well.
@@ -2289,6 +2287,13 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
     ...
   }
 
+  # if some data needs to be released explicitly
+  sub converter_destroy($) {
+    my $self = shift;
+
+    ...
+  }
+
   # end of Texinfo::Convert::MyConverter
 
   my $converter = Texinfo::Convert::MyConverter->converter();
@@ -2361,18 +2366,6 @@ takes a I<$converter> and a Texinfo parsed document C<Texinfo::Document>
 I<$document> as arguments.  Returns the output as a character string.  Not
 mandatory, not called from C<texi2any>, but used in the C<texi2any> test suite.
 
-=item $result = $converter->convert_output_unit($output_unit)
-X<C<convert_output_unit>>
-
-Can be used for the conversion of output units by converters.
-C<convert_output_unit> takes a I<$converter> and an output unit
-I<$output_unit> as argument.  The implementation of
-C<convert_output_unit> of C<Texinfo::Convert::Converter> could be suitable in
-many cases.  Output units are typically returned by L<C<Texinfo::OutputUnits>
-C<split_by_section>|Texinfo::OutputUnits/$output_units = split_by_section($document)>
-or L<C<Texinfo::OutputUnits> C<split_by_node>|Texinfo::OutputUnits/$output_units =
-split_by_node($document)>.
-
 =back
 
 Two methods, C<converter_defaults> and C<converter_initialize> are
@@ -2424,6 +2417,7 @@ C<Texinfo::Convert::Converter>.
 =over
 
 =item $converter = MyConverter->converter($options)
+X<C<converter>>
 
 The I<$options> hash reference holds options for the converter.
 These options should be Texinfo customization options.  The
@@ -2449,7 +2443,7 @@ holds options for the converter.  This method is called through a converter
 by L<<< C<converter>|/$converter = MyConverter->converter($options) >>>,
 but it may also be called through a converter module class.
 
-=item converter_initialize
+=item $converter->converter_initialize()
 X<C<converter_initialize>>
 
 This method is called at the end of the C<Texinfo::Convert::Converter>
@@ -2460,7 +2454,7 @@ converter initialization.
 =head2 Conversion
 
 For conversion with C<output> and C<convert> a document to convert should be
-associated to the converter, in general the document passed in argument of
+associated with the converter, in general the document passed in argument of
 C<output> or C<convert>.  The C<set_document> function associates a
 C<Texinfo::Document> to a converter.  This function is used in the default
 implementations.
@@ -2538,7 +2532,91 @@ C<Texinfo::Convert::Converter> C<conversion_initialization> implementation is
 also recommended to avoid having to explictely call C<set_document>.
 If C<conversion_initialization> is defined in a converter subclass it is
 recommended to call C<set_document> at the very beginning of the function to
-have the document associated to the converter.
+have the document associated with the converter.
+
+If a converter uses output units, the C<convert_output_unit> method can
+be used and can be redefined if needed:
+
+=over
+
+=item $result = $converter->convert_output_unit($output_unit)
+X<C<convert_output_unit>>
+
+Can be used for the conversion of output units by converters.
+C<convert_output_unit> takes a I<$converter> and an output unit
+I<$output_unit> as argument.  This method is not needed for all the converters.
+The implementation of
+C<convert_output_unit> of C<Texinfo::Convert::Converter> could be suitable in
+many cases.  Output units are typically returned by L<C<Texinfo::OutputUnits>
+C<split_by_section>|Texinfo::OutputUnits/$output_units = split_by_section($document)>
+or L<C<Texinfo::OutputUnits> C<split_by_node>|Texinfo::OutputUnits/$output_units =
+split_by_node($document)>.
+
+=back
+
+=head2 Output units and converter destruction
+
+Removing output units and destroying the converter is only needed if one
+want to be sure that the memory held is released or reused.  It is optional,
+and in general takes longer than having the memory be released at the
+end of a script.
+
+Output units associated with a converter are removed by calling
+the C<converter_remove_output_units> method that should be inherited from
+C<Texinfo::Convert::Converter>.
+
+=over
+
+=item $converter->converter_remove_output_units()
+X<C<destroy_converter>>
+
+Release the output units associated with a converter.  It does not necessarily
+means that the output units are explicitly undefined, it could be that cycles
+in output units are removed such that Perl can release or reuse the memory.
+
+=back
+
+To help with the output units release, the modules subclassing
+C<Texinfo::Convert::Converter> can define the method:
+
+=over
+
+=item $converter->converter_release_output_units()
+X<C<converter_release_output_units>>
+
+This method is called at the beginning of the C<Texinfo::Convert::Converter>
+converter output units removal.
+
+=back
+
+A module subclassing C<Texinfo::Convert::Converter> is destroyed by calling
+the C<destroy_converter> method that should be inherited from
+C<Texinfo::Convert::Converter>.
+
+=over
+
+=item $converter->destroy_converter()
+X<C<destroy_converter>>
+
+Destroy converter data.
+
+=back
+
+To help with the destruction, the modules subclassing
+C<Texinfo::Convert::Converter> can define the method:
+
+=over
+
+=item $converter->converter_destroy()
+X<C<converter_destroy>>
+
+This method is called at the beginning of the C<Texinfo::Convert::Converter>
+converter destruction.
+
+=back
+
+The default C<converter_release_output_units> and C<converter_destroy>
+methods do nothing.
 
 
 =head2 Getting and setting customization variables
@@ -2906,7 +2984,7 @@ I<$float> is a Texinfo tree C<@float> element.  This function
 returns the type and number of the float as a Texinfo tree with
 translations.
 
-=item $filename = sub $converter->node_information_filename($normalized, $label_element)
+=item $filename = $converter->node_information_filename($normalized, $label_element)
 X<C<node_information_filename>>
 
 Returns the normalized file name corresponding to the I<$normalized>

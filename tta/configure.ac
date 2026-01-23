@@ -319,7 +319,7 @@ if test $use_libintl_perl_in_xs = yes ; then
 fi
 
 
-# Check if it is possible to embed a Perl interpreter.  Set PERL_EMBEDDED.
+# Check if it is possible to embed a Perl interpreter.  Set PERL_EMBEDDED
 # conditional, used in C/Makefile.am and swig/python/Makefile.am.  This
 # is only used for the ctexi2any implementation of texi2any and for the SWIG
 # interface, neither of which is used by default.
@@ -547,8 +547,8 @@ AC_ARG_ENABLE([installvendorlib],
 swig_perl_tests=no
 if test x$enable_xs != xno ; then
   if $PERL -e "use Test::More; use Data::Compare; use Test::Deep;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
-    then
-      swig_perl_tests=yes
+  then
+    swig_perl_tests=yes
   fi
 
   if test $perl_install_mode = custom ; then

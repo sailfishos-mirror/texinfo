@@ -19,6 +19,11 @@ Texinfo::TreeElement - Texinfo tree element interface
 The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
 Texinfo to other formats.  There is no promise of API stability.
 
+Note that this module is not used in @code{texi2any} (except for the @code{new} method,
+which is trivial and could be moved to another module).
+
+Note that this module could be removed at any time.
+
 @node Texinfo@asis{::}TreeElement DESCRIPTION
 @section Texinfo::TreeElement DESCRIPTION
 

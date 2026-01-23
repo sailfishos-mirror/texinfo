@@ -67,16 +67,15 @@ Installation notes specific to Texinfo:
   you can give the --disable-perl-xs flag to `configure'; likewise, to use
   them without checking, give the --enable-perl-xs flag.
 
-* When `configure' is running in the texi2any subdirectory, instead of the
-  standard CC, CFLAGS, LDFLAGS etc., it uses special variables with a
-  PERL_EXT_ prefix.  These are all listed in the output of `configure
-  --help'.  This is necessary because it is possible that the C compiler
-  being used to compile Perl extension modules and other texi2any C codes
-  is a different compiler to that used for the rest of the package.
-  (However, if you need to override these variables when running `make',
-  use the unprefixed variants, e.g. CFLAGS instead of PERL_EXT_CFLAGS.
-  Exception: you cannot override CPPFLAGS this way as gnulib uses this
-  variable.)
+* When `configure' is running in the texi2any subdirectory and XS modules
+  are used, instead of the standard CC, CFLAGS, LDFLAGS etc., it uses special
+  variables with a PERL_EXT_ prefix.  These are all listed in the output of
+  `configure --help'.  This is necessary because it is possible that the C
+  compiler being used to compile Perl extension modules and other texi2any C
+  codes is a different compiler to that used for the rest of the package.
+  (However, if you need to override these variables when running `make', use
+  the unprefixed variants, e.g. CFLAGS instead of PERL_EXT_CFLAGS.  Exception:
+  you cannot override CPPFLAGS this way as gnulib uses this variable.)
 
 * After building the program, the use of XS modules in the Perl
   texi2any implementation can be controlled with the `TEXINFO_XS'

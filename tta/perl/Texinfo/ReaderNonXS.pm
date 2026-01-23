@@ -235,6 +235,10 @@ Texinfo::Reader - Texinfo tree reader
 The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
 Texinfo to other formats.  There is no promise of API stability.
 
+Note that this module is not used in C<texi2any>.
+
+Note that this module could be removed at any time.
+
 =head1 DESCRIPTION
 
 C<Texinfo::Reader> offers an interface to a Texinfo tree obtained from

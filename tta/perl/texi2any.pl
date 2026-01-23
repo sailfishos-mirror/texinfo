@@ -2266,8 +2266,8 @@ while (@input_files) {
   # Texinfo::Converter::Text does not define it.
   # If the program is about to exit, all the memory will be released,
   # so we only cleanup at all if TEST is set.
-  if ($converter->can('converter_remove_output_units')
-      and ($test_level or $file_index < $input_files_nr -1)) {
+  if (($test_level or $file_index < $input_files_nr -1)
+      and $converter->can('converter_remove_output_units')) {
     $converter->converter_remove_output_units();
   }
 

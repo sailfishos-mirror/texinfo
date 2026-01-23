@@ -67,6 +67,13 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
     ...
   }
 
+  # if some data needs to be released explicitly
+  sub converter_destroy($) {
+    my $self = shift;
+
+    ...
+  }
+
   # end of Texinfo::Convert::MyConverter
 
   my $converter = Texinfo::Convert::MyConverter->converter();
@@ -148,19 +155,6 @@ takes a @emph{$converter} and a Texinfo parsed document @code{Texinfo::Document}
 @emph{$document} as arguments.  Returns the output as a character string.  Not
 mandatory, not called from @code{texi2any}, but used in the @code{texi2any} test suite.
 
-@item $result = $converter->convert_output_unit($output_unit)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->convert_output_unit($output_unit)}
-@cindex @code{convert_output_unit}
-
-Can be used for the conversion of output units by converters.
-@code{convert_output_unit} takes a @emph{$converter} and an output unit
-@emph{$output_unit} as argument.  The implementation of
-@code{convert_output_unit} of @code{Texinfo::Convert::Converter} could be suitable in
-many cases.  Output units are typically returned by @ref{Texinfo@asis{::}OutputUnits $output_units = split_by_section($document),, @code{Texinfo::OutputUnits}
-@code{split_by_section}}
-or @ref{Texinfo@asis{::}OutputUnits $output_units =
-split_by_node($document),, @code{Texinfo::OutputUnits} @code{split_by_node}}.
-
 @end table
 
 Two methods, @code{converter_defaults} and @code{converter_initialize} are
@@ -214,6 +208,7 @@ the @code{converter} method that should be inherited from
 @table @asis
 @item $converter = MyConverter->converter($options)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options)}
+@cindex @code{converter}
 
 The @emph{$options} hash reference holds options for the converter.
 These options should be Texinfo customization options.  The
@@ -239,8 +234,8 @@ holds options for the converter.  This method is called through a converter
 by @ref{Texinfo@asis{::}Convert@asis{::}Converter $converter = MyConverter->converter($options),, @code{converter}},
 but it may also be called through a converter module class.
 
-@item converter_initialize
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter converter_initialize}
+@item $converter->converter_initialize()
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $converter->converter_initialize()}
 @cindex @code{converter_initialize}
 
 This method is called at the end of the @code{Texinfo::Convert::Converter}
@@ -252,7 +247,7 @@ converter initialization.
 @subsection Conversion
 
 For conversion with @code{output} and @code{convert} a document to convert should be
-associated to the converter, in general the document passed in argument of
+associated with the converter, in general the document passed in argument of
 @code{output} or @code{convert}.  The @code{set_document} function associates a
 @code{Texinfo::Document} to a converter.  This function is used in the default
 implementations.
@@ -337,7 +332,92 @@ not need to define @code{conversion_initialization}, calling the default
 also recommended to avoid having to explictely call @code{set_document}.
 If @code{conversion_initialization} is defined in a converter subclass it is
 recommended to call @code{set_document} at the very beginning of the function to
-have the document associated to the converter.
+have the document associated with the converter.
+
+If a converter uses output units, the @code{convert_output_unit} method can
+be used and can be redefined if needed:
+
+@table @asis
+@item $result = $converter->convert_output_unit($output_unit)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $result = $converter->convert_output_unit($output_unit)}
+@cindex @code{convert_output_unit}
+
+Can be used for the conversion of output units by converters.
+@code{convert_output_unit} takes a @emph{$converter} and an output unit
+@emph{$output_unit} as argument.  This method is not needed for all the converters.
+The implementation of
+@code{convert_output_unit} of @code{Texinfo::Convert::Converter} could be suitable in
+many cases.  Output units are typically returned by @ref{Texinfo@asis{::}OutputUnits $output_units = split_by_section($document),, @code{Texinfo::OutputUnits}
+@code{split_by_section}}
+or @ref{Texinfo@asis{::}OutputUnits $output_units =
+split_by_node($document),, @code{Texinfo::OutputUnits} @code{split_by_node}}.
+
+@end table
+
+@node Texinfo@asis{::}Convert@asis{::}Converter Output units and converter destruction
+@subsection Output units and converter destruction
+
+Removing output units and destroying the converter is only needed if one
+want to be sure that the memory held is released or reused.  It is optional,
+and in general takes longer than having the memory be released at the
+end of a script.
+
+Output units associated with a converter are removed by calling
+the @code{converter_remove_output_units} method that should be inherited from
+@code{Texinfo::Convert::Converter}.
+
+@table @asis
+@item $converter->converter_remove_output_units()
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $converter->converter_remove_output_units()}
+@cindex @code{destroy_converter}
+
+Release the output units associated with a converter.  It does not necessarily
+means that the output units are explicitly undefined, it could be that cycles
+in output units are removed such that Perl can release or reuse the memory.
+
+@end table
+
+To help with the output units release, the modules subclassing
+@code{Texinfo::Convert::Converter} can define the method:
+
+@table @asis
+@item $converter->converter_release_output_units()
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $converter->converter_release_output_units()}
+@cindex @code{converter_release_output_units}
+
+This method is called at the beginning of the @code{Texinfo::Convert::Converter}
+converter output units removal.
+
+@end table
+
+A module subclassing @code{Texinfo::Convert::Converter} is destroyed by calling
+the @code{destroy_converter} method that should be inherited from
+@code{Texinfo::Convert::Converter}.
+
+@table @asis
+@item $converter->destroy_converter()
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $converter->destroy_converter()}
+@cindex @code{destroy_converter}
+
+Destroy converter data.
+
+@end table
+
+To help with the destruction, the modules subclassing
+@code{Texinfo::Convert::Converter} can define the method:
+
+@table @asis
+@item $converter->converter_destroy()
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $converter->converter_destroy()}
+@cindex @code{converter_destroy}
+
+This method is called at the beginning of the @code{Texinfo::Convert::Converter}
+converter destruction.
+
+@end table
+
+The default @code{converter_release_output_units} and @code{converter_destroy}
+methods do nothing.
 
 @node Texinfo@asis{::}Convert@asis{::}Converter Getting and setting customization variables
 @subsection Getting and setting customization variables
@@ -739,8 +819,8 @@ of the float.
 returns the type and number of the float as a Texinfo tree with
 translations.
 
-@item $filename = sub $converter->node_information_filename($normalized, $label_element)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter $filename = sub $converter->node_information_filename($normalized@comma{} $label_element)}
+@item $filename = $converter->node_information_filename($normalized, $label_element)
+@anchor{Texinfo@asis{::}Convert@asis{::}Converter $filename = $converter->node_information_filename($normalized@comma{} $label_element)}
 @cindex @code{node_information_filename}
 
 Returns the normalized file name corresponding to the @emph{$normalized}

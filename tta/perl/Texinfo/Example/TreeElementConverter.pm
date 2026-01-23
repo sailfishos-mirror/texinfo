@@ -1625,61 +1625,15 @@ Texinfo::Example::TreeElementConverter - Parent class for TreeElement based conv
   use Texinfo::Example::TreeElementConverter;
   our @ISA = qw(Texinfo::Example::TreeElementConverter);
 
-  sub converter_defaults ($;$) {
-    return \%myconverter_defaults;
-  }
-  sub converter_initialize($) {
-    my $self = shift;
-    ...
-  }
+  # define the methods needed for Texinfo::Convert::Converter
 
-  sub conversion_initialization($;$) {
-    my $self = shift;
-    my $document = shift;
-
-    if ($document) {
-      $self->set_document($document);
-    }
-
-    $self->{'document_context'} = [{}];
-    ...
-  }
-
-  sub conversion_finalization($) {
-    my $self = shift;
-  }
+  ...
 
   sub convert_tree($$) {
     ...
   }
 
-  sub convert($$) {
-    my $self = shift;
-    my $document = shift;
-
-    $self->conversion_initialization($document);
-
-    ...
-
-    $document->register_document_relations_lists_elements();
-
-    ...
-    $self->conversion_finalization();
-  }
-
-  sub output($$) {
-    my $self = shift;
-    my $document = shift;
-
-    $self->conversion_initialization($document);
-
-    ...
-    $document->register_document_relations_lists_elements();
-
-    ...
-    $self->conversion_finalization();
-    ...
-  }
+  ...
 
   # end of Texinfo::Convert::MyConverter
 
@@ -1692,6 +1646,8 @@ The Texinfo Perl module main purpose is to be used in C<texi2any> to convert
 Texinfo to other formats.  There is no promise of API stability.
 
 Note that this module is not used in C<texi2any>.
+
+Note that this module could be removed at any time.
 
 =head1 DESCRIPTION
 

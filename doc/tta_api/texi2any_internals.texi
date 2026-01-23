@@ -302,6 +302,7 @@ Texinfo::Convert::Converter METHODS
 
 * Texinfo@asis{::}Convert@asis{::}Converter Converter Initialization::
 * Texinfo@asis{::}Convert@asis{::}Converter Conversion::
+* Texinfo@asis{::}Convert@asis{::}Converter Output units and converter destruction::
 * Texinfo@asis{::}Convert@asis{::}Converter Getting and setting customization variables::
 * Texinfo@asis{::}Convert@asis{::}Converter Registering error and warning messages::
 * Texinfo@asis{::}Convert@asis{::}Converter Translations in output documents::

@@ -9355,7 +9355,7 @@ sub converter_release_output_units($) {
   $self->{'document_units'} = [];
 }
 
-# remove data that leads to cycles.
+# remove data that leads to cycles and references to elements.
 sub converter_destroy($) {
   my $self = shift;
 
