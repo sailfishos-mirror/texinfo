@@ -274,7 +274,8 @@ command elements out of paragraphs.
 @subsubsection Line command tree element
 
 There are three main types of line commands, regular line commands,
-@emph{lineraw} line commands and definition line commands.
+@emph{lineraw} line commands and definition line commands.  All the line commands
+hold @emph{line_arg} containers for their arguments.
 
 @table @asis
 @item @emph{lineraw} line commands
@@ -285,6 +286,8 @@ usual macro expansion.  @emph{lineraw} line commands with
 arguments are, for example, @code{@@set}, @code{@@unmacro}
 and @code{@@comment}.  @code{@@raisesections}, @code{@@contents} and @code{@@novalidate}
 are examples of @emph{lineraw} line commands without arguments.
+They only have one @emph{line_arg} container, which should only contain
+one @emph{rawline_text} text element.
 
 @item regular line commands
 @anchor{Texinfo@asis{::}Parser regular line commands}
@@ -309,13 +312,13 @@ turn contains the specific definition line containers such as @emph{def_category
 @node Texinfo@asis{::}Parser Block command tree element
 @subsubsection Block command tree element
 
-The first element of most block command @code{contents} is an @emph{arguments_line}
+The first element of block command @code{contents} is an @emph{arguments_line}
 container holding the command arguments appearing on the @@-command line,
 similar to node and sectioning command elements.  The @emph{arguments_line} holds
-@emph{line_arg} containers for each of the arguments separated by commas, similar
-to line commands.  Definition block commands such as @code{@@deffn} do not follow
-the same rule and do not have an @emph{arguments_line} container.  @code{@@defblock}
-command element, however, is like regular block commands, with an
+@emph{block_line_arg} containers for each of the arguments separated by commas,
+similar to line commands.  Definition block commands such as @code{@@deffn} do not
+follow the same rule and do not have an @emph{arguments_line} container.
+@code{@@defblock} command element, however, is like regular block commands, with an
 @emph{arguments_line} container as first @code{contents} element.
 
 The remaining elements in @code{contents} depend on the block command.  Block
@@ -1103,6 +1106,13 @@ associated with each argument element.
 @subsubsection Extra keys available for more than one @@-command
 
 @table @asis
+@item input_encoding_name
+@anchor{Texinfo@asis{::}Parser input_encoding_name}
+
+Normalized argument of @code{@@documentencoding}.  For @code{@@documentencoding}
+itself, and also for @@-command arguments that name a file, which could make
+use of the document encoding at the localtion they are defined.
+
 @item element_node
 @anchor{Texinfo@asis{::}Parser element_node}
 
@@ -1222,11 +1232,6 @@ definition name and arguments should be omitted.
 @emph{begin} holds the string beginning the @code{@@definfoenclose},
 @emph{end} holds the string ending the @code{@@definfoenclose}.
 
-@item @code{@@documentencoding}
-@anchor{Texinfo@asis{::}Parser @code{@@documentencoding}}
-
-The argument, normalized is in @emph{input_encoding_name}.
-
 @item @code{@@float}
 @anchor{Texinfo@asis{::}Parser @code{@@float} 1}
 
@@ -1300,6 +1305,7 @@ should be formatted as code, the @emph{command_as_argument_kbd_code}
 @item @code{@@macro}
 @anchor{Texinfo@asis{::}Parser @code{@@macro}}
 
+@emph{macro_name} holds the macro name.
 @emph{invalid_syntax} is set if there was an error on the @code{@@macro}
 line.
 
@@ -1362,6 +1368,13 @@ the @code{@@multitable}.
 
 If the level of the document was modified by @code{@@raisections}
 or @code{@@lowersections}, the differential level is in @emph{level_modifier}.
+
+The section level, taking into account @code{@@raisections} and
+@code{@@lowersections} is in @emph{section_level}.  Level 0 corresponds to @code{@@top}
+or @code{@@part} and level 1 to @code{@@chapter}.
+The sectioning command formatted number is in @emph{section_heading_number}.
+This information is only present if the sectioning structure has been
+determined by @ref{Texinfo@asis{::}Structuring sectioning_structure($document),, @code{Texinfo::Structuring::sectioning_structure}}.
 
 @item @code{untranslated_def_line_arg}
 @anchor{Texinfo@asis{::}Parser @code{untranslated_def_line_arg} 1}

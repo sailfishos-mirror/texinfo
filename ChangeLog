@@ -1,5 +1,9 @@
 2026-01-23 Patrice Dumas  <pertusus@free.fr>
 
+	Update POD for tree elements
+
+2026-01-23 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/texi2any.pl: exchange the order in a condition.
 
 	* INSTALL: edit to explain that PERL_EXT_* variables values are used

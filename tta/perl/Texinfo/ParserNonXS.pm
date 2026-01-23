@@ -8820,7 +8820,8 @@ command elements out of paragraphs.
 =head3 Line command tree element
 
 There are three main types of line commands, regular line commands,
-I<lineraw> line commands and definition line commands.
+I<lineraw> line commands and definition line commands.  All the line commands
+hold I<line_arg> containers for their arguments.
 
 =over
 
@@ -8831,6 +8832,8 @@ usual macro expansion.  I<lineraw> line commands with
 arguments are, for example, C<@set>, C<@unmacro>
 and C<@comment>.  C<@raisesections>, C<@contents> and C<@novalidate>
 are examples of I<lineraw> line commands without arguments.
+They only have one I<line_arg> container, which should only contain
+one I<rawline_text> text element.
 
 =item regular line commands
 
@@ -8852,13 +8855,13 @@ I<def_arg> and some special text elements such as I<space>.
 
 =head3 Block command tree element
 
-The first element of most block command C<contents> is an I<arguments_line>
+The first element of block command C<contents> is an I<arguments_line>
 container holding the command arguments appearing on the @-command line,
 similar to node and sectioning command elements.  The I<arguments_line> holds
-I<line_arg> containers for each of the arguments separated by commas, similar
-to line commands.  Definition block commands such as C<@deffn> do not follow
-the same rule and do not have an I<arguments_line> container.  C<@defblock>
-command element, however, is like regular block commands, with an
+I<block_line_arg> containers for each of the arguments separated by commas,
+similar to line commands.  Definition block commands such as C<@deffn> do not
+follow the same rule and do not have an I<arguments_line> container.
+C<@defblock> command element, however, is like regular block commands, with an
 I<arguments_line> container as first C<contents> element.
 
 The remaining elements in C<contents> depend on the block command.  Block
@@ -9528,6 +9531,12 @@ X<Texinfo tree element extra key>
 
 =over
 
+=item input_encoding_name
+
+Normalized argument of C<@documentencoding>.  For C<@documentencoding>
+itself, and also for @-command arguments that name a file, which could make
+use of the document encoding at the localtion they are defined.
+
 =item element_node
 
 The node element identifier in the parsed tree containing the element.
@@ -9632,10 +9641,6 @@ definition name and arguments should be omitted.
 I<begin> holds the string beginning the C<@definfoenclose>,
 I<end> holds the string ending the C<@definfoenclose>.
 
-=item C<@documentencoding>
-
-The argument, normalized is in I<input_encoding_name>.
-
 =item C<@float>
 
 =item C<@listoffloats>
@@ -9693,6 +9698,7 @@ I<code> is set depending on the context and C<@kbdinputstyle>.
 
 =item C<@macro>
 
+I<macro_name> holds the macro name.
 I<invalid_syntax> is set if there was an error on the C<@macro>
 line.
 
@@ -9779,13 +9785,19 @@ the C<@multitable>.
 If the level of the document was modified by C<@raisections>
 or C<@lowersections>, the differential level is in I<level_modifier>.
 
+The section level, taking into account C<@raisections> and
+C<@lowersections> is in I<section_level>.  Level 0 corresponds to C<@top>
+or C<@part> and level 1 to C<@chapter>.
+The sectioning command formatted number is in I<section_heading_number>.
+This information is only present if the sectioning structure has been
+determined by L<< C<Texinfo::Structuring::sectioning_structure>|Texinfo::Structuring/sectioning_structure($document) >>.
+
 =begin comment
 
 FIXME relations are separate.
 
 The node preceding the command is in I<associated_node>.
 The part preceding the command is in I<associated_part>.
-Other C<extra> keys are set when you call L<Texinfo::Structuring::sectioning_structure|Texinfo::Structuring/sectioning_structure($document)>.
 
 =end comment
 
