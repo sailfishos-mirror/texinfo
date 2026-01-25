@@ -2145,6 +2145,10 @@ When set to @samp{On}, always display non-ASCII UTF-8 sequences in
 nodes by sending the bytes to the terminal, rather than iterating
 over them with locale-dependent functions first.
 
+By default, the default value is usually @samp{Off}.  It is set to
+@samp{On} by default on MS-Windows when the
+console's output encoding is UTF-8 (codepage 65001).
+
 This variable will mainly be of use on MS-Windows in use cases where
 the terminal is set up to support UTF-8, but a UTF-8 locale is not
 fully supported by the system.  This should allow viewing Info files

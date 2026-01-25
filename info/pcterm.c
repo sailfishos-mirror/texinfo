@@ -831,7 +831,11 @@ rpl_nl_langinfo (nl_item item)
 
       /* The rest of the code wants to see "UTF-8" and nothing else.  */
       if (console_cp == CP_UTF8)
-	memcpy (buf, "UTF-8", sizeof "UTF-8");
+        {
+      	  memcpy (buf, "UTF-8", sizeof "UTF-8");
+      	  VARIABLE_ALIST *raw_utf8_var = variable_by_name ("raw-utf8-output");
+      	  set_variable_to_value (raw_utf8_var, "On", SET_BY_DEFAULT);
+        }
       else if (console_cp == CP_UTF7)
  	sprintf (buf, "CP%u", console_cp);
       else
