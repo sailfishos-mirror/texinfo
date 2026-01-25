@@ -1,5 +1,9 @@
 2026-01-25  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* info/display.c: add comment
+
+2026-01-25  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* info/pcterm.c (rpl_nl_langinfo): Set "raw-utf8-output" variable to
 	'On' by default if console codepage is 65001.
 	* doc/info-stnd.texi (Variables) <raw-utf8-output>: Document default

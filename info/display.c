@@ -514,7 +514,12 @@ printed_representation (mbi_iterator_t *iter, int *delim, size_t pl_chars,
          correctly) non-ASCII characters in UTF-8 Info files.
 
          Searching, user entry etc. of non-ASCII characters may still
-         not work correctly. */
+         not work correctly.
+
+         We don't go to the effort of extracting a UTF-8 codepoint and processing
+         it to find the wcwidth as this would entail adding a libunistring
+         dependency, which is not warranted just for this marginal use
+         case. */
 
       unsigned char c = *cur_ptr;
       if ((c & 0xc0) == 0xc0)
