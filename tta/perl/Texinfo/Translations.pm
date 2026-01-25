@@ -33,6 +33,20 @@ use strict;
 use Encode;
 use POSIX qw(setlocale LC_ALL LC_MESSAGES);
 use Carp qw(cluck confess);
+
+sub fake_setlocale { return "en_US.UTF-8"; }
+BEGIN {
+  if ($^O eq 'openbsd') {
+    # It appears impossible for POSIX::setlocale(LC_MESSAGES, ...) to return
+    # anything but "C" on OpenBSD, which breaks translations of document
+    # strings.
+    # Overriding this here means that Locale::Messages uses our fake version
+    # and enables translations.
+    no warnings;
+    *POSIX::setlocale = \&fake_setlocale;
+  }
+}
+
 use Locale::Messages;
 
 use Storable qw(dclone);
