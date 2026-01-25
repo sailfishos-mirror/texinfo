@@ -1,3 +1,8 @@
+2026-01-25  Bruno Haible <bruno@clisp.org>
+
+	* install-info/install-info.c (split_entry): Change type of ptr and endptr
+	to conform to ISO C 23.
+
 2026-01-23 Patrice Dumas  <pertusus@free.fr>
 
 	Update POD for tree elements
