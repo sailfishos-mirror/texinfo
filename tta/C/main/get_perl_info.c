@@ -49,6 +49,8 @@
 #include "document.h"
 /* retrieve_output_units ... */
 #include "output_unit.h"
+/* newSVpv_utf8 */
+#include "build_perl_info.h"
 #include "get_perl_info.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
@@ -1349,16 +1351,20 @@ get_language_document_hv_sorted_indices (HV *document_hv, const char *key,
     }
   else
     {
-      SV **language_sv;
+      SV *lang_sv = newSVpv_utf8 (language, 0);
+      HE *language_indices_he;
 
       sorted_indices_hv = (HV *)SvRV (*sorted_indices_sv);
       *out_sorted_indices_hv = sorted_indices_hv;
 
-      language_sv = hv_fetch (sorted_indices_hv, language,
-                              strlen (language), 0);
-      if (language_sv && SvOK (*language_sv))
+      language_indices_he = hv_fetch_ent (sorted_indices_hv, lang_sv,
+                                          0, 0);
+      if (language_indices_he)
         {
-          return *language_sv;
+          SV *language_indices_sv = HeVAL (language_indices_he);
+
+          if (SvOK (language_indices_sv))
+            return language_indices_sv;
         }
     }
   return 0;

@@ -533,9 +533,9 @@ get_converter_indices_sorted_by_index (SV *converter_sv)
                       language is set, cache the sorted indices */
                     if (language_document_sorted_indices_hv && language)
                       {
-                        hv_store (language_document_sorted_indices_hv,
-                              language, strlen(language),
-                              newRV_inc ((SV *) index_entries_by_index_hv), 0);
+                        SV *lang_sv = newSVpv_utf8 (language, 0);
+                        hv_store_ent (language_document_sorted_indices_hv, lang_sv,
+                                      newRV_inc ((SV *) index_entries_by_index_hv), 0);
                       }
                   }
               }
