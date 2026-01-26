@@ -1,3 +1,8 @@
+2026-01-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/makedoc.c (process_one_file):
+	prevent a warning with gcc -Wstringop-overflow.
+
 2026-01-26 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/utils.c (encode_with_iconv, encode_string): replace the

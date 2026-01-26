@@ -169,12 +169,15 @@ process_one_file (char *filename, FILE *doc_stream, FILE *funs_stream)
   if (stat (filename, &finfo) == -1)
     fatal_file_error (filename);
 
-  descriptor = open (filename, O_RDONLY, 0666);
+  file_size = (long) finfo.st_size;
+  /* This shouldn't happen but stops a gcc warning with -Wstringop-overflow. */
+  if (file_size < 0)
+    fatal_file_error (filename);
 
+  descriptor = open (filename, O_RDONLY, 0666);
   if (descriptor == -1)
     fatal_file_error (filename);
 
-  file_size = (long) finfo.st_size;
   buffer = xmalloc (1 + file_size);
   /* On some systems, the buffer will actually contain
      less characters than the full file's size, because
