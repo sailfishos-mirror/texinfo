@@ -1,3 +1,11 @@
+2026-01-26  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Avoid glob function
+
+	* tta/C/convert/html_prepare_converter.c (load_htmlxref_files):
+	Rewrite not to use glob as this doesn't exist on mingw and would
+	require adding gnulib modules to use portably.
+
 2026-01-25  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Force translations to be enabled on OpenBSD.
