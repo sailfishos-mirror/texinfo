@@ -1,5 +1,11 @@
 2026-01-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Remove gnulib glob module and dependencies.
+	
+	Reverts change on 2026-01-12.
+
+2026-01-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Avoid glob function
 
 	* tta/C/convert/html_prepare_converter.c (load_htmlxref_files):

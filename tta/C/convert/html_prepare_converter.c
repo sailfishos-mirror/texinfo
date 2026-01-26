@@ -22,7 +22,7 @@
 #include <errno.h>
 #include <inttypes.h>
 #include <sys/stat.h>
-#include <glob.h>
+#include <dirent.h>
 /* for euidaccess.  Not portable, use gnulib */
 #include <unistd.h>
 
@@ -1421,30 +1421,39 @@ load_htmlxref_files (CONVERTER *self)
 
                   if (stat (cnf_dir, &finfo) == 0 && S_ISDIR (finfo.st_mode))
                     {
-                      int file_found = 0;
-                      glob_t possible_files;
-                      int glob_status;
-                      char *glob_format;
-
-                      xasprintf (&glob_format, "%s/*.cnf", cnf_dir);
-
-                      glob_status = glob (glob_format, 0, 0, &possible_files);
-
-                      if (!glob_status)
+                      DIR *dir = opendir (cnf_dir);
+                      char *possible_file;
+                      if (dir)
                         {
-                          size_t j;
+                          int file_found = 0;
 
-                          for (j = 0; j < possible_files.gl_pathc; j++)
+                          struct dirent *entry;
+                          while ((entry = readdir (dir)))
                             {
-                              if (possible_files.gl_pathv[j]
-                                  && euidaccess (possible_files.gl_pathv[j],
-                                                 R_OK) == 0)
+#ifdef _DIRENT_HAVE_DTYPE
+                              if (entry->d_type != S_REG
+                                  && entry->d_type != S_UNKNOWN)
+                                continue;
+#endif
+
+                              size_t len = strlen (entry->d_name);
+                              if (len >= 4
+                                  && !memcmp (&entry->d_name[len - 4],
+                                              ".cnf", 4))
                                 {
-                                  add_string (possible_files.gl_pathv[j],
-                                              &htmlxref_files);
-                                  file_found = 1;
+                                  xasprintf (&possible_file, "%s/%s",
+                                             cnf_dir, entry->d_name);
+                                  if (euidaccess (possible_file, R_OK) == 0)
+                                    {
+                                      add_string (possible_file,
+                                                  &htmlxref_files);
+                                      file_found = 1;
+                                    }
+                                  free (possible_file);
                                 }
                             }
+                          (void) closedir (dir);
+
                           if (!deprecated_dir_set && file_found
                               && deprecated_dirs)
                             {
@@ -1457,8 +1466,6 @@ load_htmlxref_files (CONVERTER *self)
                               deprecated_dir_set = 1;
                             }
                         }
-                      globfree (&possible_files);
-                      free (glob_format);
                     }
                   free (cnf_dir);
                 }
