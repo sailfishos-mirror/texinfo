@@ -520,7 +520,8 @@ tree_element_expand_today (SV *test_sv, SV *lang_translations_sv, SV *debug_sv, 
             int debug = 0;
             int test = 0;
             LANG_TRANSLATION *lang_translations
-              = get_lang_translations_sv (lang_translations_sv);
+              = get_lang_translations_sv (lang_translations_sv,
+                        document->options->COMMAND_LINE_ENCODING.o.string);
 
             if (SvOK (build_tree_sv))
               build_tree = SvIV (build_tree_sv);
@@ -573,7 +574,8 @@ tree_element_gdt (string, SV *lang_translations_sv, SV *document_sv, ...)
           {
             NAMED_STRING_ELEMENT_LIST *replaced_substrings = 0;
             LANG_TRANSLATION *lang_translations
-              = get_lang_translations_sv (lang_translations_sv);
+              = get_lang_translations_sv (lang_translations_sv,
+                        document->options->COMMAND_LINE_ENCODING.o.string);
             ELEMENT *e_result;
 
             if (replaced_substrings_sv)

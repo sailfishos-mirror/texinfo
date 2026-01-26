@@ -729,10 +729,16 @@ destroy_parsed_def (PARSED_DEF *parsed_def)
 }
 
 /* the CONVERTER and CDT_TREE_FN arguments allow to use the HTML converter
-   specific translation function */
+   specific translation function.
+   If they are not specified, LANG_TRANSLATION is used for translations
+   information.
+   If not set, translation is based on information in the element and
+   COMMAND_LINE_ENCODING is also used.
+ */
 ELEMENT *
 definition_category_tree (const ELEMENT *current,
                           LANG_TRANSLATION *lang_translation,
+                          const char *command_line_encoding,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,
@@ -810,7 +816,7 @@ definition_category_tree (const ELEMENT *current,
           const char *documentlanguage
                 = lookup_extra_string (current, AI_key_documentlanguage);
           LANG_TRANSLATION *lang_translation
-           = new_lang_translation (documentlanguage);
+           = new_lang_translation (documentlanguage, command_line_encoding);
 
           result = gdt_tree ("{category} on @code{{class}}", 0,
                              lang_translation, substrings, 0, 0);
@@ -850,7 +856,7 @@ definition_category_tree (const ELEMENT *current,
           const char *documentlanguage
                 = lookup_extra_string (current, AI_key_documentlanguage);
           LANG_TRANSLATION *lang_translation
-           = new_lang_translation (documentlanguage);
+           = new_lang_translation (documentlanguage, command_line_encoding);
 
           result = gdt_tree ("{category} of @code{{class}}", 0,
                              lang_translation, substrings, 0, 0);

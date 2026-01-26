@@ -2723,7 +2723,8 @@ sub _translate_names($) {
                                        $self->get_conf('documentlanguage'));
 
   Texinfo::Convert::Utils::switch_lang_translations($self,
-                                       $self->get_conf('documentlanguage'));
+                                       $self->get_conf('documentlanguage'),
+                                    $self->get_conf('COMMAND_LINE_ENCODING'));
 
   if ($self->get_conf('DEBUG')) {
     my $output_encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
@@ -7711,6 +7712,7 @@ sub _convert_def_line_type($$$$) {
     my $def_category_tree
       = Texinfo::Convert::Utils::definition_category_tree($element,
                                      $self->{'current_lang_translations'},
+                                     $self->get_conf('COMMAND_LINE_ENCODING'),
                                      $self->get_conf('DEBUG'), $self);
     $category_result
       = $self->convert_tree($def_category_tree)

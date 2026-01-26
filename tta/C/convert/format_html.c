@@ -12553,6 +12553,7 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       ELEMENT *def_category_tree
          = definition_category_tree (element,
                             self->current_lang_translations,
+                            self->conf->COMMAND_LINE_ENCODING.o.string,
                             self->conf->DEBUG.o.integer, self,
                             &html_cdt_tree);
 

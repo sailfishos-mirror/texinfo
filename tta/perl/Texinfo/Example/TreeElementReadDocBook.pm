@@ -450,7 +450,9 @@ sub conversion_output_begin($;$$)
   my $documentlanguage = $self->get_conf('documentlanguage');
   if (defined($documentlanguage)) {
     $lang_attribute = " lang=\"$documentlanguage\"";
-    Texinfo::Convert::Utils::switch_lang_translations($self, $documentlanguage);
+    Texinfo::Convert::Utils::switch_lang_translations($self,
+                                   $documentlanguage,
+                                   $self->get_conf('COMMAND_LINE_ENCODING'));
     push @{$self->{'lang_stack'}}, $documentlanguage;
   } else {
     $lang_attribute = '';
@@ -601,7 +603,8 @@ sub conversion_output_begin($;$$)
   $self->tree_element_set_global_document_commands('before',
                                                    ['documentlanguage']);
   Texinfo::Convert::Utils::switch_lang_translations($self,
-                                       $self->get_conf('documentlanguage'));
+                                       $self->get_conf('documentlanguage'),
+                                   $self->get_conf('COMMAND_LINE_ENCODING'));
 
   my $document_info = '';
   $document_info .= $title_info . $authors_info;
@@ -1101,7 +1104,8 @@ sub _convert($$)
                       $self, $element);
             if ($cmdname eq 'documentlanguage') {
               Texinfo::Convert::Utils::switch_lang_translations($self,
-                                         $self->get_conf('documentlanguage'));
+                                   $self->get_conf('documentlanguage'),
+                                   $self->get_conf('COMMAND_LINE_ENCODING'));
             }
           } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
             my $section_relations;

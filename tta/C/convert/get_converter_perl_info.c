@@ -214,6 +214,7 @@ copy_sv_options_for_convert_text (SV *sv_in)
   SV **DOC_ENCODING_FOR_INPUT_FILE_NAME_sv;
   SV **INPUT_FILE_NAME_ENCODING_sv;
   SV **LOCALE_ENCODING_sv;
+  SV **COMMAND_LINE_ENCODING_sv;
   SV **translated_commands_sv;
   TEXT_OPTIONS *text_options = new_text_options ();
   const char *documentlanguage = 0;
@@ -295,6 +296,12 @@ copy_sv_options_for_convert_text (SV *sv_in)
       && SvOK (*LOCALE_ENCODING_sv))
     text_options->LOCALE_ENCODING
       = non_perl_strdup (SvPVutf8_nolen (*LOCALE_ENCODING_sv));
+
+  FETCH(COMMAND_LINE_ENCODING)
+  if (COMMAND_LINE_ENCODING_sv
+      && SvOK (*COMMAND_LINE_ENCODING_sv))
+    text_options->COMMAND_LINE_ENCODING
+      = non_perl_strdup (SvPVutf8_nolen (*COMMAND_LINE_ENCODING_sv));
 
   FETCH(translated_commands)
   if (translated_commands_sv)

@@ -4022,7 +4022,8 @@ sub _convert($$) {
       Texinfo::Common::set_informative_command_value($self, $element);
       if ($cmdname eq 'documentlanguage') {
         Texinfo::Convert::Utils::switch_lang_translations($self,
-                                         $self->get_conf('documentlanguage'));
+                                         $self->get_conf('documentlanguage'),
+                                   $self->get_conf('COMMAND_LINE_ENCODING'));
       }
       return;
     } else {

@@ -211,7 +211,8 @@ sub copy_options_for_convert_text($;$) {
     }
   }
 
-  foreach my $string_option ('documentlanguage', 'INPUT_FILE_NAME_ENCODING',
+  foreach my $string_option ('COMMAND_LINE_ENCODING',
+                             'documentlanguage', 'INPUT_FILE_NAME_ENCODING',
                              'LOCALE_ENCODING') {
     $options{$string_option} = $converter->get_conf($string_option);
   }
@@ -219,7 +220,8 @@ sub copy_options_for_convert_text($;$) {
   my $documentlanguage = $options{'documentlanguage'};
   if (defined($documentlanguage)) {
     Texinfo::Convert::Utils::switch_lang_translations(\%options,
-                                                      $documentlanguage);
+                                                      $documentlanguage,
+                                        $options{'COMMAND_LINE_ENCODING'});
   }
 
   my $include_directories = $converter->get_conf('INCLUDE_DIRECTORIES');
@@ -297,7 +299,8 @@ sub reset_options_encoding($) {
 sub set_language($$) {
   my ($options, $lang) = @_;
 
-  Texinfo::Convert::Utils::switch_lang_translations($options, $lang);
+  Texinfo::Convert::Utils::switch_lang_translations($options, $lang,
+                                       $options->{'COMMAND_LINE_ENCODING'});
 }
 
 
@@ -461,6 +464,7 @@ sub _convert_def_line($$) {
   my $parsed_definition_category
     = Texinfo::Convert::Utils::definition_category_tree($element,
                                    $options->{'current_lang_translations'},
+                                   $options->{'COMMAND_LINE_ENCODING'},
                                    $options->{'DEBUG'});
   if (defined($parsed_definition_category)) {
     my $converted_element = Texinfo::TreeElement::new(
@@ -817,9 +821,14 @@ sub _convert($$) {
       } else {
         # if there is no documentlanguage information, we use the
         # documentlanguage available in the tree.
+        my $new_lang_translations
+           = Texinfo::Translations::new_lang_translation(
+                                  $element->{'extra'}->{'documentlanguage'},
+                                  $options->{'COMMAND_LINE_ENCODING'});
+
         $tree = Texinfo::Translations::gdt($category_text,
-                             [$element->{'extra'}->{'documentlanguage'}],
-                             undef, undef, $translation_context);
+                             $new_lang_translations, undef, undef,
+                             $translation_context);
       }
       $result = _convert($options, $tree);
       return $result;
@@ -1260,6 +1269,7 @@ Convert a Texinfo tree to simple text.  I<$text_options> is a hash reference of
 options.
 
 The C<ASCII_GLYPH>, C<DEBUG>, C<DOC_ENCODING_FOR_INPUT_FILE_NAME>,
+C<COMMAND_LINE_ENCODING>,
 C<NUMBER_SECTIONS>, C<TEST>, C<documentlanguage>, C<INPUT_FILE_NAME_ENCODING>,
 C<LOCALE_ENCODING> and C<INCLUDE_DIRECTORIES> options corresponding to
 customization variables may be set in I<$text_options>.

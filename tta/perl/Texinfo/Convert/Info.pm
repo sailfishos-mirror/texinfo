@@ -476,7 +476,8 @@ sub _info_header($$$) {
   my @informative_global_commands = $self->get_informative_global_commands();
   $self->set_global_document_commands('preamble', \@informative_global_commands);
   Texinfo::Convert::Utils::switch_lang_translations($self,
-                               $self->get_conf('documentlanguage'));
+                               $self->get_conf('documentlanguage'),
+                            $self->get_conf('COMMAND_LINE_ENCODING'));
   if (defined($global_commands) and exists($global_commands->{'copying'})) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
@@ -487,7 +488,8 @@ sub _info_header($$$) {
   }
   $self->set_global_document_commands('before', \@informative_global_commands);
   Texinfo::Convert::Utils::switch_lang_translations($self,
-                               $self->get_conf('documentlanguage'));
+                               $self->get_conf('documentlanguage'),
+                            $self->get_conf('COMMAND_LINE_ENCODING'));
 
   if (exists($global_commands->{'dircategory_direntry'})) {
     delete $self->{'ignored_commands'}->{'direntry'};

@@ -57,6 +57,27 @@ domain.
 
 @end table
 
+The @code{new_lang_translation} method sets up a lang translation object that
+is used as argument inthe other method, that contains the language and
+associated already translated strings.
+
+@table @asis
+@item $lang_translations = new_lang_translation($lang, $locale_encoding)
+@anchor{Texinfo@asis{::}Translations $lang_translations = new_lang_translation($lang@comma{} $locale_encoding)}
+@cindex @code{new_lang_translation}
+
+@emph{$lang} is the language of the returned lang translations.  @emph{$locale}
+encoding is optional and should be the encoding used to encode character
+strings to for environment variables.  In general, you should base it on
+the @emph{COMMAND_LINE_ENCODING} customization variable value.
+
+The returned @emph{$lang_translations} is an array reference.  The first element of
+the array is the language.  The second element is the language encoded to the
+local encoding.  The third element should be set to an hash reference holding
+translations already done.
+
+@end table
+
 The @code{gdt} and @code{pgdt} methods are used to translate strings to be output in
 converted documents, and return a Texinfo tree.  The @code{gdt_string} is similar
 but returns a simple string, for already converted strings.

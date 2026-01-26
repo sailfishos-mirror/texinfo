@@ -1820,8 +1820,8 @@ while (@input_files) {
   # The following variables are used in Structuring/Transformations:
   # novalidate, FORMAT_MENU, CHECK_NORMAL_MENU_STRUCTURE,
   # CHECK_MISSING_MENU_ENTRY.  And DEBUG.
-  # documentlanguage is used in Structuring/Transformations for
-  # translations.
+  # documentlanguage and COMMAND_LINE_ENCODING is used in
+  # Structuring/Transformations for translations.
   my $main_configuration = Texinfo::MainConfig::new();
 
   my $document_information = $document->global_information();

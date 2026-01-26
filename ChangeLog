@@ -1,3 +1,49 @@
+2026-01-26 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/utils.c (encode_with_iconv, encode_string): replace the
+	silent integer argument by a status argument, such that, if set, the
+	function is silent and the information that there was an error in
+	encoding is returned.
+
+	* tta/C/convert/get_converter_perl_info.c
+	(copy_sv_options_for_convert_text), tta/C/main/build_perl_info.c
+	(build_convert_text_options), tta/C/main/convert_to_text.c
+	(destroy_text_options, copy_options_for_convert_text),
+	tta/C/main/convert_to_text.h (TEXT_OPTIONS),
+	tta/perl/Texinfo/Convert/Text.pm (copy_options_for_convert_text): add
+	COMMAND_LINE_ENCODING to text options.
+
+	* tta/perl/Texinfo/Convert/Text.pm (_convert),
+	tta/perl/Texinfo/Convert/Utils.pm (switch_lang_translations)
+	(definition_category_tree), tta/perl/Texinfo/Transformations.pm
+	(complete_tree_nodes_menus_in_document, regenerate_master_menu),
+	tta/perl/Texinfo/Translations.pm (new_lang_translation): add
+	new_lang_translation in Perl too, and use it to initialize lang
+	translations arrays.  In addition to hiding to some extent the
+	implementation details, it allows to mark in the code where the
+	lang translations are initialized.
+
+	* tta/C/convert/build_html_perl_state.c
+	(switch_perl_lang_translations, build_html_translated_names),
+	tta/C/main/convert_utils.c (definition_category_tree),
+	tta/C/main/translations.c (new_lang_translation, get_lang_translation),
+	tta/C/main/tree_types.h (LANG_TRANSLATION), tta/C/parsetexi/indices.c
+	(complete_indices), tta/C/tree_elements/get_perl_tree_elements.c
+	(get_lang_translations_sv), tta/perl/Texinfo/Convert/Utils.pm
+	(switch_lang_translations, definition_category_tree),
+	tta/perl/Texinfo/Translations.pm (translate_string)
+	(cache_translate_string, complete_indices): pass COMMAND_LINE_ENCODING
+	trought to new_lang_translation.  In new_lang_translation encode lang
+	and pass it in lang translations objects.  Use the encoded lang in
+	translate_string to set environment varibles, as should be.
+
+	* tta/tests/Makefile.onetst, tta/tests/other/Makefile.am (EXTRA_DIST),
+	tta/tests/other/list-of-tests
+	(accented_lang_index_collation_documentlanguage_collation),
+	tta/tests/other/accented_lang_index_collation.texi: new test of
+	DOCUMENTLANGUAGE_COLLATION set with @documentlanguage with non-ascii
+	non-latin1 characters.
+
 2026-01-26  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* INSTALL: list having a non-default locale installed as a
@@ -3025,11 +3071,11 @@
 	* tta/C/Makefile.am (libtexinfo_convertxs_la_SOURCES),
 	tta/perl/XSTexinfo/Makefile.am (TreeElementXS_la_CPPFLAGS)
 	(TreeElementConverterXS_la_CPPFLAGS, ReaderXS_la_CPPFLAGS),
-	tta/C/main/build_perl_info.c (build_new_base_element, document_tree), 
+	tta/C/main/build_perl_info.c (build_new_base_element, document_tree),
 	tta/C/main/get_perl_info.c, tta/perl/Texinfo/Document.pm
 	(%XS_structure_overrides),
 	tta/perl/Texinfo/Example/TreeElementConverter.pm (%XS_overrides)
-	(register_document_relations_lists_elements), 
+	(register_document_relations_lists_elements),
 	tta/perl/XSTexinfo/reader_element/TreeElementConverterXS.xs
 	(register_document_relations_lists_elements),
 	tta/C/tree_elements/build_perl_tree_elements.c

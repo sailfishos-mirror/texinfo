@@ -67,6 +67,7 @@ PARSED_DEF *definition_arguments_content (const ELEMENT *element);
 void destroy_parsed_def (PARSED_DEF *parsed_def);
 ELEMENT *definition_category_tree (const ELEMENT *current,
                           LANG_TRANSLATION *lang_translation,
+                          const char *command_line_encoding,
                           int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
                              NAMED_STRING_ELEMENT_LIST *replaced_substrings,

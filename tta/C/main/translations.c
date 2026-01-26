@@ -401,14 +401,35 @@ translate_string (const char *string, const char *in_lang,
 }
 
 LANG_TRANSLATION *
-new_lang_translation (const char *lang)
+new_lang_translation (const char *lang, const char *locale_encoding)
 {
   LANG_TRANSLATION *result = (LANG_TRANSLATION *)
     malloc (sizeof (LANG_TRANSLATION));
   if (lang)
-    result->lang = strdup (lang);
+    {
+      int status;
+      int iconv_status = 0;
+      char *encoded_lang;
+
+      result->lang = strdup (lang);
+      /* encode_string allows a NULL encoding */
+      /* cast to remove const */
+      encoded_lang = encode_string ((char *)lang, locale_encoding,
+                                    &status, 0, &iconv_status);
+      if (iconv_status)
+        {/* happens if the conversion to the locale encoding is not
+            possible */
+          free (encoded_lang);
+          result->encoded_lang = strdup (lang);
+        }
+      else
+        result->encoded_lang = encoded_lang;
+    }
   else
-    result->lang = strdup ("");
+    {
+      result->lang = strdup ("");
+      result->encoded_lang = strdup ("");
+    }
   result->translations = 0;
 
   return result;
@@ -466,7 +487,8 @@ LANG_TRANSLATION **translation_cache;
 
 LANG_TRANSLATION *
 get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang, size_t cache_size)
+                      const char *lang, const char *locale_encoding,
+                      size_t cache_size)
 {
   size_t i = 0;
   LANG_TRANSLATION **lang_translations = *lang_translations_ptr;
@@ -489,7 +511,7 @@ get_lang_translation (LANG_TRANSLATION ***lang_translations_ptr,
   lang_translations = *lang_translations_ptr;
 
   lang_translations[i+1] = 0;
-  lang_translations[i] = new_lang_translation (lang);
+  lang_translations[i] = new_lang_translation (lang, locale_encoding);
 
   lang_translations[i]->translations = (LANG_TRANSLATION_TREE_LIST *)
      malloc (sizeof(LANG_TRANSLATION_TREE_LIST));
@@ -505,6 +527,7 @@ LANG_TRANSLATION *
 switch_lang_translations (LANG_TRANSLATION ***lang_translations,
                           const char *in_lang,
                           LANG_TRANSLATION *current_lang_translations,
+                          const char *command_line_encoding,
                           size_t cache_size)
 {
   const char *lang;
@@ -520,7 +543,8 @@ switch_lang_translations (LANG_TRANSLATION ***lang_translations,
     return current_lang_translations;
 
   lang_translation
-    = get_lang_translation (lang_translations, lang, cache_size);
+    = get_lang_translation (lang_translations, lang,
+                            command_line_encoding, cache_size);
   return lang_translation;
 }
 
@@ -587,8 +611,12 @@ cache_translate_string (const char *string,
     translations = lang_translation->translations;
   else
     {
+      /* TODO When does this happen?  We do not know the command line
+         encoding here, we could get it as arguments.  It is only in
+         rare cases and one should consider the documentlanguage
+         name with non-ASCII characters is invalid */
       LANG_TRANSLATION *general_lang_translation
-        = get_lang_translation (&translation_cache, lang,
+        = get_lang_translation (&translation_cache, lang, 0,
                                 TXI_CONVERT_STRINGS_NR);
       translations = general_lang_translation->translations;
     }

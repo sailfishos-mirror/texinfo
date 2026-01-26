@@ -164,6 +164,8 @@ foreach my $dir ('t', 't/results', $output_files_dir) {
 my $locale_encoding = langinfo(CODESET);
 $locale_encoding = undef if ($locale_encoding eq '');
 
+# TODO use same code as in texi2any for MSWin32
+
 # to encode is() diagnostic messages.  From Test::More documentation
 if (defined($locale_encoding)) {
   my $builder = Test::More->builder;

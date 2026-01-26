@@ -36,8 +36,10 @@ void configure_output_strings_translations (const char *localesdir,
 
 LANG_TRANSLATION *get_lang_translation (
                       LANG_TRANSLATION ***lang_translations_ptr,
-                      const char *lang, size_t cache_size);
-LANG_TRANSLATION *new_lang_translation (const char *lang);
+                      const char *lang, const char *locale_encoding,
+                      size_t cache_size);
+LANG_TRANSLATION *new_lang_translation (const char *lang,
+                                        const char *locale_encoding);
 TRANSLATION_TREE *add_translation_tree (
                    LANG_TRANSLATION_TREE_LIST *translations,
                       const char *translated);
@@ -47,6 +49,7 @@ LANG_TRANSLATION *switch_lang_translations (
                           LANG_TRANSLATION ***lang_translations,
                           const char *in_lang,
                           LANG_TRANSLATION *current_lang_translations,
+                          const char *command_line_encoding,
                           size_t cache_size);
 char *translate_string (const char * string, const char *lang,
                         const char *translation_context);

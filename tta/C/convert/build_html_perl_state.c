@@ -50,14 +50,16 @@
 static const char *lang_trans_key = "current_lang_translations";
 
 #define FETCH(key) key##_sv = hv_fetch (converter_hv, #key, strlen (#key), 0);
-/* identical to Texinfo::Convert::Utils::switch_lang_translations */
+/* similar to Texinfo::Convert::Utils::switch_lang_translations */
 static void
-switch_perl_lang_translations (HV *converter_hv, const char *lang)
+switch_perl_lang_translations (HV *converter_hv, const char *lang,
+                               const char *encoded_lang)
 {
   AV *current_lang_translations_av;
   const char *translation_lang;
   SV *translations;
   SV *lang_sv;
+  SV *encoded_lang_sv;
   SV **translations_sv;
   HV *translations_hv;
   HE *translations_lang_he;
@@ -72,6 +74,7 @@ switch_perl_lang_translations (HV *converter_hv, const char *lang)
     translation_lang = "";
 
   lang_sv = newSVpv_utf8 (translation_lang, 0);
+  encoded_lang_sv = newSVpv_byte (encoded_lang, 0);
 
   FETCH(current_lang_translations);
   if (current_lang_translations_sv
@@ -114,6 +117,7 @@ switch_perl_lang_translations (HV *converter_hv, const char *lang)
 
   current_lang_translations_av = newAV ();
   av_push (current_lang_translations_av, lang_sv);
+  av_push (current_lang_translations_av, encoded_lang_sv);
   av_push (current_lang_translations_av,
            newRV_inc ((SV *) translations_lang_hv));
 
@@ -131,6 +135,9 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
   SV **convert_text_options_sv;
   const char *documentlanguage
     = converter->conf->documentlanguage.o.string;
+  const char *command_line_encoding
+    = converter->conf->COMMAND_LINE_ENCODING.o.string;
+  char *encoded_lang = 0;
 
   dTHX;
 
@@ -158,7 +165,30 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                 strlen ("documentlanguage"), documentlanguage_sv, 0);
     }
 
-  switch_perl_lang_translations (converter_hv, documentlanguage);
+  if (documentlanguage)
+    {
+      if (command_line_encoding)
+        {
+          int status;
+          int iconv_status = 0;
+
+          /* cast to drop const */
+          encoded_lang = encode_string ((char *)documentlanguage,
+                                        command_line_encoding,
+                                        &status, 0, &iconv_status);
+          if (!iconv_status)
+            {
+              free (encoded_lang);
+              encoded_lang = strdup (documentlanguage);
+            }
+        }
+      else
+        encoded_lang = strdup (documentlanguage);
+    }
+  switch_perl_lang_translations (converter_hv, documentlanguage,
+                                 encoded_lang);
+
+  free (encoded_lang);
 
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)

@@ -3196,6 +3196,10 @@ build_convert_text_options (TEXT_OPTIONS *text_options)
     STORE("LOCALE_ENCODING",
            newSVpv_utf8 (text_options->LOCALE_ENCODING, 0));
 
+  if (text_options->COMMAND_LINE_ENCODING)
+    STORE("COMMAND_LINE_ENCODING",
+           newSVpv_utf8 (text_options->COMMAND_LINE_ENCODING, 0));
+
   expanded_formats_hv = build_expanded_formats (text_options->expanded_formats);
   STORE("expanded_formats", newRV_noinc ((SV *)expanded_formats_hv));
 

@@ -375,6 +375,7 @@ set_converter_init_information (CONVERTER *converter,
       converter->current_lang_translations
        = switch_lang_translations (&translation_cache,
                          converter->conf->documentlanguage.o.string, 0,
+                         converter->conf->COMMAND_LINE_ENCODING.o.string,
                             TXI_CONVERT_STRINGS_NR);
     }
 

@@ -475,8 +475,13 @@ complete_indices (DOCUMENT *document, int debug_level)
 
                       if (!current_lang || strcmp (lang, current_lang))
                         {
+                          const char *command_line_encoding = 0;
+                          if (document && document->options)
+                            command_line_encoding
+                      = document->options->COMMAND_LINE_ENCODING.o.string;
                           current_lang_translations
                            = get_lang_translation (&lang_translations, lang,
+                                                   command_line_encoding,
                                                    TXI_PARSER_STRINGS_NR);
                           current_lang = lang;
                         }

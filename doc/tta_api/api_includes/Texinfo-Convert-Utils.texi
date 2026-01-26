@@ -68,18 +68,22 @@ Arguments correspond to text following the other elements
 on the @@-command line.  If there is no argument, @emph{$arguments}
 will be @code{undef}.
 
-@item $tree = definition_category_tree($def_line, $lang_translations, $debug, $converter)
-@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = definition_category_tree($def_line@comma{} $lang_translations@comma{} $debug@comma{} $converter)}
+@item $tree = definition_category_tree($def_line, $lang_translations, $command_line_encoding, $debug, $converter)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $tree = definition_category_tree($def_line@comma{} $lang_translations@comma{} $command_line_encoding@comma{} $debug@comma{} $converter)}
 @cindex @code{definition_category_tree}
 
 @emph{$def_line} is a @code{def_line} Texinfo tree container.  This function returns a
 Texinfo tree corresponding to the category of the @emph{$def_line} taking the class
 into account, if there is one.  The @emph{$lang_translations} optional argument
-should be an array reference with one or two elements.  The first element of
-the array is the language the resulting string is translated to.  The second
-element, if set, should be an hash reference holding translations already done.
-If @emph{$lang_translations} is set, the optional @emph{$debug} argument is passed to
-the translation function.  If the optional @emph{$converter} argument is set, the
+should be an array reference holding information on the current language and
+translations.  It could be obtained from the converter
+@code{current_lang_translations} or be setup by a call to
+@ref{Texinfo@asis{::}Translations $lang_translations = new_lang_translation($lang@comma{} $locale_encoding),, @code{Texinfo::Translations::new_lang_translation}}.
+If @emph{$lang_translations} is set,
+@emph{$command_line_encoding} should be set to the encoding suitable for
+environment variables, usually obtained from the @emph{COMMAND_LINE_ENCODING}
+customization variable, and the optional @emph{$debug} argument is passed to the
+translation function.  If the optional @emph{$converter} argument is set, the
 translation is done by a converter method.  In that case, @emph{$lang_translations}
 and @emph{$debug} are ignored, the converter method uses similar converter
 information.

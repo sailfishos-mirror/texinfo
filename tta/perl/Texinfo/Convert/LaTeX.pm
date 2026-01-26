@@ -1811,7 +1811,8 @@ sub _informative_command_output($$) {
 
   if ($cmdname eq 'documentlanguage') {
     my $language = $self->get_conf($cmdname);
-    Texinfo::Convert::Utils::switch_lang_translations($self, $language);
+    Texinfo::Convert::Utils::switch_lang_translations($self, $language,
+                                $self->get_conf('COMMAND_LINE_ENCODING'));
     $language =~ s/_/-/;
     $self->{'packages'}->{'babel'} = 1;
     return "\\selectlanguage{$language}%\n";
@@ -2784,6 +2785,7 @@ sub _convert_def_line($$) {
     my $category
       = Texinfo::Convert::Utils::definition_category_tree($element,
                                      $self->{'current_lang_translations'},
+                                     $self->get_conf('COMMAND_LINE_ENCODING'),
                                              $self->get_conf('DEBUG'));
     if (defined($category)) {
       # category is converted in normal text context

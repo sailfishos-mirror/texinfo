@@ -526,13 +526,18 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
   return iconv_ret;
 }
 
+/* If SILENT_STATUS is set, no message is output and the argument is used
+   to pass a status as reference, set to 0 if there was no error */
 char *
 encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
-                   int silent)
+                   int *silent_status)
 {
   static TEXT t;
   ICONV_CONST char *inptr; size_t bytes_left;
   size_t iconv_ret;
+
+  if (silent_status)
+    *silent_status = 0;
 
   t.end = 0; /* reset internal TEXT buffer */
   inptr = s;
@@ -563,7 +568,7 @@ encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
           break;
         case EILSEQ:
         default:
-          if (! silent)
+          if (! silent_status)
             {
               if (source_info)
                 fprintf (stderr, "%s:%d: C:encoding error at byte 0x%02x\n",
@@ -573,6 +578,8 @@ encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
                 fprintf (stderr, "C:encoding error at byte 0x%02x\n",
                                  *(unsigned char *)inptr);
             }
+          else
+            *silent_status = 1;
           inptr++; bytes_left--;
           break;
         }
@@ -609,13 +616,13 @@ decode_string (char *input_string, const char *encoding, int *status,
 
 char *
 encode_string (char *input_string, const char *encoding, int *status,
-               const SOURCE_INFO *source_info, int silent)
+               const SOURCE_INFO *source_info, int *silent_status)
 {
   char *result;
   *status = 0;
   /* could happen in specific cases, such as, for file names,
      DOC_ENCODING_FOR_INPUT_FILE_NAME set to 0 and no locales encoding
-     information */
+     information.  Also probably for lang encoding in rare cases.  */
   if (!encoding)
     return strdup (input_string);
 
@@ -628,7 +635,7 @@ encode_string (char *input_string, const char *encoding, int *status,
   *status = 1;
 
   result = encode_with_iconv (conversion->iconv, input_string, source_info,
-                              silent);
+                              silent_status);
   return result;
 }
 

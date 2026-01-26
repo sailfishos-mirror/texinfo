@@ -72,6 +72,7 @@ destroy_text_options (TEXT_OPTIONS *text_options)
   free (text_options->expanded_formats);
   free (text_options->documentlanguage);
   free (text_options->LOCALE_ENCODING);
+  free (text_options->COMMAND_LINE_ENCODING);
   free (text_options->INPUT_FILE_NAME_ENCODING);
   free_strings_list (&text_options->include_directories);
   free_translated_commands (&text_options->translated_commands);
@@ -120,9 +121,14 @@ copy_options_for_convert_text (OPTIONS *options)
     text_options->documentlanguage
       = strdup (options->documentlanguage.o.string);
 
+  if (options->COMMAND_LINE_ENCODING.o.string)
+    text_options->COMMAND_LINE_ENCODING
+      = strdup (options->COMMAND_LINE_ENCODING.o.string);
+
   text_options->current_lang_translations
     = switch_lang_translations (&translation_cache,
                                 text_options->documentlanguage, 0,
+                                text_options->COMMAND_LINE_ENCODING,
                                 TXI_CONVERT_STRINGS_NR);
 
   if (options->INPUT_FILE_NAME_ENCODING.o.string)
@@ -237,6 +243,7 @@ text_set_language (TEXT_OPTIONS *text_options, const char *lang)
   text_options->current_lang_translations
     = switch_lang_translations (&translation_cache,
                                 text_options->documentlanguage, 0,
+                                text_options->COMMAND_LINE_ENCODING,
                                 TXI_CONVERT_STRINGS_NR);
 }
 
@@ -448,6 +455,7 @@ convert_def_line (const ELEMENT *element, TEXT_OPTIONS *text_options,
   ELEMENT *parsed_definition_category
      = definition_category_tree (element,
                                  text_options->current_lang_translations,
+                                 text_options->COMMAND_LINE_ENCODING,
                                  text_options->DEBUG, 0, 0);
   if (parsed_definition_category)
     {
@@ -1053,7 +1061,8 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           const char *documentlanguage
             = lookup_extra_string (element, AI_key_documentlanguage);
           LANG_TRANSLATION *lang_translation
-             = new_lang_translation (documentlanguage);
+             = new_lang_translation (documentlanguage,
+                                     text_options->COMMAND_LINE_ENCODING);
 
           /* there is a possibility that some small strings are associated
              to the tree, and there is no document to get them.  However

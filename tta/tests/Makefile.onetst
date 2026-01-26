@@ -151,5 +151,6 @@ type_other_one_test_files_generated_list =  \
     test_scripts/other_index_collation_test_collation_locale_en_US.sh \
     test_scripts/other_index_collation_test_collation_locale_sv.sh \
     test_scripts/other_index_collation_test_documentlanguage_collation.sh \
+    test_scripts/other_accented_lang_index_collation_documentlanguage_collation.sh \
     test_scripts/info_tex_tex_math_info_math_images.sh
 

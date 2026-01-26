@@ -56,6 +56,7 @@ Convert a Texinfo tree to simple text.  @emph{$text_options} is a hash reference
 options.
 
 The @code{ASCII_GLYPH}, @code{DEBUG}, @code{DOC_ENCODING_FOR_INPUT_FILE_NAME},
+@code{COMMAND_LINE_ENCODING},
 @code{NUMBER_SECTIONS}, @code{TEST}, @code{documentlanguage}, @code{INPUT_FILE_NAME_ENCODING},
 @code{LOCALE_ENCODING} and @code{INCLUDE_DIRECTORIES} options corresponding to
 customization variables may be set in @emph{$text_options}.

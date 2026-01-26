@@ -8114,6 +8114,7 @@ sub _parse_texi($$) {
   Texinfo::Document::set_labels_identifiers_target($document,
            $document->{'parser_error_messages'}, $self->{'conf'}->{'DEBUG'});
   Texinfo::Translations::complete_indices($document->{'indices'},
+                                   $self->{'conf'}->{'COMMAND_LINE_ENCODING'},
                                           $self->{'conf'}->{'DEBUG'});
 
   $document->register_tree($current);

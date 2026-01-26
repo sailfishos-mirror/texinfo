@@ -194,7 +194,8 @@ new_element_from_sv (DOCUMENT *document, const SV *element_hash,
    but if it was not the case, it may be relevant to have another
    function too or a converter argument */
 LANG_TRANSLATION *
-get_lang_translations_sv (SV *lang_translations_sv)
+get_lang_translations_sv (SV *lang_translations_sv,
+                          const char *command_line_encoding)
 {
   LANG_TRANSLATION *lang_translations = 0;
 
@@ -215,7 +216,8 @@ get_lang_translations_sv (SV *lang_translations_sv)
       lang = (char *)SvPVutf8_nolen(*lang_sv);
       lang_translations
        = switch_lang_translations (&translation_cache, lang,
-                                   0, TXI_CONVERT_STRINGS_NR);
+                                   0, command_line_encoding,
+                                   TXI_CONVERT_STRINGS_NR);
     }
   return lang_translations;
 }

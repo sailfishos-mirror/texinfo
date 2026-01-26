@@ -189,8 +189,9 @@ sub output_files_unclosed_files($) {
 
 
 # TODO document?
-sub switch_lang_translations($$) {
-  my ($self, $lang) = @_;
+# SELF is a converter or Texinfo::Text options hash
+sub switch_lang_translations($$;$) {
+  my ($self, $lang, $command_line_encoding) = @_;
 
   $lang = '' if (!defined($lang));
 
@@ -212,8 +213,11 @@ sub switch_lang_translations($$) {
     $translations->{$lang} = {};
   }
 
-  $self->{'current_lang_translations'} = [$lang,
-                                       $translations->{$lang}];
+  my $new_lang_translations
+    = Texinfo::Translations::new_lang_translation($lang,
+                                      $command_line_encoding);
+  $new_lang_translations->[2] = $translations->{$lang};
+  $self->{'current_lang_translations'} = $new_lang_translations;
 }
 
 
@@ -327,8 +331,9 @@ sub definition_arguments_content($) {
 # use the cdt method of the specific converter and not the generic cdt,
 # which is equivalent with the use of gdt in the function.  This should
 # only be relevant for the HTML converter which redefines cdt.
-sub definition_category_tree($;$$$) {
-  my ($current, $lang_translations, $debug, $converter) = @_;
+sub definition_category_tree($;$$$$) {
+  my ($current, $lang_translations, $command_line_encoding,
+      $debug, $converter) = @_;
 
   return undef if (!exists($current->{'contents'}->[0]->{'contents'}));
 
@@ -368,9 +373,11 @@ sub definition_category_tree($;$$$) {
                                             $lang_translations, $substrings,
                                             $debug);
     } else {
+      my $new_lang_translations = Texinfo::Translations::new_lang_translation(
+                                  $current->{'extra'}->{'documentlanguage'},
+                                  $command_line_encoding);
       my $tree = Texinfo::Translations::gdt('{category} on @code{{class}}',
-                                 [$current->{'extra'}->{'documentlanguage'}],
-                                 $substrings);
+                                 $new_lang_translations, $substrings);
       return $tree;
     }
   } elsif ($def_command eq 'defivar'
@@ -388,9 +395,11 @@ sub definition_category_tree($;$$$) {
                                         $lang_translations, $substrings,
                                         $debug);
     } else {
+      my $new_lang_translations = Texinfo::Translations::new_lang_translation(
+                                  $current->{'extra'}->{'documentlanguage'},
+                                  $command_line_encoding);
       return Texinfo::Translations::gdt('{category} of @code{{class}}',
-                                 [$current->{'extra'}->{'documentlanguage'}],
-                                 $substrings);
+                                 $new_lang_translations, $substrings);
     }
   }
 }
@@ -796,17 +805,21 @@ Arguments correspond to text following the other elements
 on the @-command line.  If there is no argument, I<$arguments>
 will be C<undef>.
 
-=item $tree = definition_category_tree($def_line, $lang_translations, $debug, $converter)
+=item $tree = definition_category_tree($def_line, $lang_translations, $command_line_encoding, $debug, $converter)
 X<C<definition_category_tree>>
 
 I<$def_line> is a C<def_line> Texinfo tree container.  This function returns a
 Texinfo tree corresponding to the category of the I<$def_line> taking the class
 into account, if there is one.  The I<$lang_translations> optional argument
-should be an array reference with one or two elements.  The first element of
-the array is the language the resulting string is translated to.  The second
-element, if set, should be an hash reference holding translations already done.
-If I<$lang_translations> is set, the optional I<$debug> argument is passed to
-the translation function.  If the optional I<$converter> argument is set, the
+should be an array reference holding information on the current language and
+translations.  It could be obtained from the converter
+C<current_lang_translations> or be setup by a call to
+L<< C<Texinfo::Translations::new_lang_translation>|Texinfo::Translations/$lang_translations = new_lang_translation($lang, $locale_encoding) >>.
+If I<$lang_translations> is set,
+I<$command_line_encoding> should be set to the encoding suitable for
+environment variables, usually obtained from the I<COMMAND_LINE_ENCODING>
+customization variable, and the optional I<$debug> argument is passed to the
+translation function.  If the optional I<$converter> argument is set, the
 translation is done by a converter method.  In that case, I<$lang_translations>
 and I<$debug> are ignored, the converter method uses similar converter
 information.

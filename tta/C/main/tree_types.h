@@ -511,6 +511,7 @@ typedef struct LANG_TRANSLATION_TREE_LIST {
 
 typedef struct LANG_TRANSLATION {
     char *lang;
+    char *encoded_lang;
     LANG_TRANSLATION_TREE_LIST *translations;
 } LANG_TRANSLATION;
 

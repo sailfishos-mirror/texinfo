@@ -166,6 +166,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
         lang = "";
 
       user_lang_transl = get_lang_translation (&self->translation_cache, lang,
+                                   self->conf->COMMAND_LINE_ENCODING.o.string,
                                                TXI_CONVERT_STRINGS_NR);
       translations = user_lang_transl->translations;
 
@@ -625,6 +626,7 @@ html_translate_names (CONVERTER *self)
     switch_lang_translations (&translation_cache,
                               self->conf->documentlanguage.o.string,
                               self->current_lang_translations,
+                              self->conf->COMMAND_LINE_ENCODING.o.string,
                               TXI_CONVERT_STRINGS_NR);
 
   if (self->conf->DEBUG.o.integer > 0)

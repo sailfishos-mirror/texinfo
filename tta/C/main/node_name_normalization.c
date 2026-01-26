@@ -381,6 +381,8 @@ unicode_to_transliterate (char *text, int external,
 {
   char *result;
   int status;
+  int iconv_status = 0;
+
   if (external)
     {
       result = call_nodenamenormalization_unicode_to_transliterate (text,
@@ -393,7 +395,8 @@ unicode_to_transliterate (char *text, int external,
      solaris 11).  The calling code should never depend on a specific
      transliteration result, transliteration should only be used for
      internal identifiers. */
-  result = encode_string (text, "us-ascii//TRANSLIT", &status, 0, 1);
+  result = encode_string (text, "us-ascii//TRANSLIT", &status, 0,
+                          &iconv_status);
 
   return result;
 }

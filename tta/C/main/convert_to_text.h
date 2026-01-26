@@ -26,6 +26,7 @@ typedef struct TEXT_OPTIONS {
     char *documentlanguage;
     char *INPUT_FILE_NAME_ENCODING;
     char *LOCALE_ENCODING;
+    char *COMMAND_LINE_ENCODING;
     TRANSLATED_COMMAND_LIST translated_commands;
     CONVERTER *converter;
     ERROR_MESSAGE_LIST error_messages; /* used if there is a Perl text

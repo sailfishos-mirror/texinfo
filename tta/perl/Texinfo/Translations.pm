@@ -190,8 +190,8 @@ sub _switch_messages_locale() {
 
 # TODO document?
 # LANG should not be undef nor an empty string.
-sub translate_string($$;$) {
-  my ($string, $lang, $translation_context) = @_;
+sub translate_string($$$;$) {
+  my ($string, $lang, $encoded_lang, $translation_context) = @_;
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
@@ -223,8 +223,9 @@ sub translate_string($$;$) {
   # As a side note, the best could have been to directly decode using the
   # charset used in the po/gmo files, but it does not seems to be available.
 
-  my @langs = ($lang);
-  if ($lang =~ /^([a-z]+)_([A-Z]+)/) {
+  my @langs = ($encoded_lang);
+  # TODO use /a modifier?
+  if ($encoded_lang =~ /^([a-z]+)_([A-Z]+)/) {
     my $main_lang = $1;
     my $region_code = $2;
     push @langs, $main_lang;
@@ -261,6 +262,18 @@ sub translate_string($$;$) {
   return $translated_string;
 }
 
+sub new_lang_translation($;$) {
+  my ($lang, $locale_encoding) = @_;
+
+  my $encoded_lang;
+  if (defined($lang) and defined($locale_encoding)) {
+    $encoded_lang = Encode::encode($locale_encoding, $lang);
+  } else {
+    $encoded_lang = $lang;
+  }
+  return [$lang, $encoded_lang];
+}
+
 # Cache translations in a hash to avoid having to go through the locale
 # system rigmarole every time.
 our $translation_cache = {};
@@ -277,15 +290,20 @@ sub cache_translate_string($$;$) {
   #  confess("cache_translate_string: undef string\n");
   #}
   my $lang;
+  my $encoded_lang;
   my $translations;
   if (defined($lang_translations)) {
     $lang = $lang_translations->[0];
-    if (scalar(@$lang_translations) > 1) {
-      $translations = $lang_translations->[1];
+    $encoded_lang = $lang_translations->[1];
+    if (scalar(@$lang_translations) > 2) {
+      $translations = $lang_translations->[2];
     }
   }
 
-  $lang = '' if (!defined($lang));
+  if (!defined($lang)) {
+    $lang = '';
+    $encoded_lang = '';
+  }
 
   my $translation_context_str;
   if (defined($translation_context)) {
@@ -321,7 +339,7 @@ sub cache_translate_string($$;$) {
     return $result;
   }
 
-  my $translated_string = translate_string($string, $lang,
+  my $translated_string = translate_string($string, $lang, $encoded_lang,
                                            $translation_context);
 
   my $result = [$translated_string];
@@ -542,8 +560,8 @@ my $lang_translations = {};
 # For some @def* commands, we delay storing the contents of the
 # index entry until now to avoid needing Texinfo::Translations::gdt
 # in the main code of ParserNonXS.pm.
-sub complete_indices($;$) {
-  my ($index_names, $debug_level) = @_;
+sub complete_indices($;$$) {
+  my ($index_names, $command_line_encoding, $debug_level) = @_;
 
   my $current_lang;
   my $current_lang_translations;
@@ -586,10 +604,10 @@ sub complete_indices($;$) {
             delete $element_copy->{'type'};
             if (exists($element_copy->{'contents'})
                 and exists($element_copy->{'contents'}->[0]->{'type'})
-           # use brace_arg instead of bracketed_arg to avoid specific def
-           # type for the conversion of the index entry, but still have
-           # a type that have the same memory layout as bracketed_arg for C
-           and $element_copy->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
+            # use brace_arg instead of bracketed_arg to avoid specific def
+            # type for the conversion of the index entry, but still have
+            # a type that have the same memory layout as bracketed_arg for C
+            and $element_copy->{'contents'}->[0]->{'type'} eq 'bracketed_arg') {
               $element_copy->{'contents'}->[0]->{'type'} = 'brace_arg';
             }
           }
@@ -605,8 +623,9 @@ sub complete_indices($;$) {
               $lang_translations->{$entry_language} = {};
             }
             $current_lang_translations
-              = [$entry_language, $lang_translations->{$entry_language}];
-            $current_lang = $entry_language;
+              = new_lang_translation($entry_language, $command_line_encoding);
+            $current_lang_translations->[2]
+              = $lang_translations->{$entry_language};
           }
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
@@ -701,6 +720,28 @@ for gettext based
 internationalization|https://www.gnu.org/software/gettext/manual/html_node/Locating-Catalogs.html>.
 The I<$strings_textdomain> is optional, if set, it determines the translation
 domain.
+
+=back
+
+The C<new_lang_translation> method sets up a lang translation object that
+is used as argument inthe other method, that contains the language and
+associated already translated strings.
+
+=over
+
+=item $lang_translations = new_lang_translation($lang, $locale_encoding)
+X<C<new_lang_translation>>
+
+I<$lang> is the language of the returned lang translations.  I<$locale>
+encoding is optional and should be the encoding used to encode character
+strings to for environment variables.  In general, you should base it on
+the I<COMMAND_LINE_ENCODING> customization variable value.
+
+The returned I<$lang_translations> is an array reference.  The first element of
+the array is the language.  The second element is the language encoded to the
+local encoding.  The third element should be set to an hash reference holding
+translations already done.
+
 
 =back
 
