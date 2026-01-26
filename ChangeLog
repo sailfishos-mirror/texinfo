@@ -1,5 +1,10 @@
 2026-01-26  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* INSTALL: list having a non-default locale installed as a
+	dependency of translations by texi2any.
+
+2026-01-26  Gavin Smith <gavinsmith0123@gmail.com>
+
 	Remove gnulib glob module and dependencies.
 	
 	Reverts change on 2026-01-12.

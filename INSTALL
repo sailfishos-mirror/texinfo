@@ -54,6 +54,11 @@ Installation notes specific to Texinfo:
   For that, run configure --disable-install-warnings, or set
   enable_install_warnings=no in the environment.
 
+* `texi2any' depends on having a locale installed that is not "C", "C.UTF-8"
+   or "POSIX" in order to translate strings in its output, if @documentlanguage
+   appears in a document.  This is due to a limitation in the libc
+   "gettext" interface.
+
 * The `texi2any' (makeinfo) program is a Perl program in the default case.
   If you prefer a C implementation of the texi2any program, you can give
   the --enable-using-c-texi2any flag to `configure'.  The C implementation will
