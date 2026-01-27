@@ -1782,9 +1782,13 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
 
       if (self->current_types_conversion_function[type].type_conversion)
         {
-          /* FIXME what about c_only types?  Should be checked especially? */
+          /* TODO Normally there should not be c_only types here, since
+             they should be associated with commands and we are in code
+             called only if there is no command.  However, if such a type
+             appears here, probably if there is a bug somewhere, should
+             it be checked especially? */
           if (!self->current_types_conversion_function[type].type_conversion)
-            fatal ("conversion for a type NULL");
+            fatal ("conversion for a type is NULL");
           (*self->current_types_conversion_function[type].type_conversion)
                (self, type, element, content_formatted.text, &type_result);
         }
