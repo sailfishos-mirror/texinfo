@@ -87,8 +87,10 @@ Installation notes specific to Texinfo:
   environment variable, which may be useful for troubleshooting.  Set
   TEXINFO_XS=warn to print some information if loading XS modules fail,
   TEXINFO_XS=debug to print some information as the modules are looked
-  for and loaded, TEXINFO_XS=omit to disable their use, and
-  TEXINFO_XS=required to force their use.
+  for and loaded, TEXINFO_XS=omit to disable their use,
+  TEXINFO_XS=required to force their use or TEXINFO_XS=requiredifenabled
+  to force their use if enabled at building and run time based on the
+  environment variables values described next.
 
   Specific focused XS modules are only controlled by TEXINFO_XS.
   XS modules replacing perl code for the main processing steps can be

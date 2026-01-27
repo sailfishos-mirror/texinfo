@@ -247,6 +247,8 @@ sub init {
   # TEXINFO_XS=default      # try xs, silent fallback
   # TEXINFO_XS=warn         # try xs, warn on failure
   # TEXINFO_XS=required     # try xs, abort if not loadable, no fallback
+  # TEXINFO_XS=requiredifenabled  # try xs, abort if enabled (enabled in
+  #                         # configure, by TEXINFO_XS_*) and not loadable
   # TEXINFO_XS=debug        # try xs, voluminuous debugging, fallback
   #
   # Other values are treated at the moment as 'default'.
@@ -391,6 +393,13 @@ sub init {
     if (defined($fallback_module)) {
       warn "falling back to pure Perl module $fallback_module\n";
     }
+  } elsif ($TEXINFO_XS eq 'requiredifenabled') {
+    # An undefined module name should only happen based on the TEXINFO_XS_*
+    # environment variables values.
+    if (($disable_XS or !defined($module_name))
+        and !defined($fallback_module)) {
+      die "extension disabled, no required fallback module for $module\n";
+    }
   }
 
   # undef is returned only if there is no fallback and loading the module
@@ -439,7 +448,11 @@ sub override {
     *{"${target}"} = \&{"${source}"};
     _debug("  ...succeeded");
   } else {
-    _debug("  ...failed");
+    if ($TEXINFO_XS eq 'requiredifenabled') {
+      die "extension loaded but overriding $target with $source failed\n";
+    } else {
+      _debug("  ...failed");
+    }
   }
 }
 
