@@ -20,8 +20,7 @@
 # This calls Texinfo::Convert::Texinfo::convert_to_texinfo while
 # inheriting standard functions from Texinfo::Convert::Converter.
 
-# ALTIMP perl/XSTexinfo/convert/ConvertXS.xs
-# ALTIMP C/main/convert_to_texinfo.c
+# ALTIMP C/convert/plaintexinfo_converter_api.c
 
 package Texinfo::Convert::PlainTexinfo;
 
@@ -30,34 +29,12 @@ use strict;
 
 use Texinfo::Options;
 
-use Texinfo::Convert::ConvertXS;
-use Texinfo::XSLoader;
-
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Converter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
 our $VERSION = '7.2.90';
-
-my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
-
-our $module_loaded = 0;
-sub import {
-  if (!$module_loaded) {
-    if ($XS_convert) {
-      # We do not simply override, we must check at runtime
-      # that the document tree was stored by the XS parser.
-      Texinfo::XSLoader::override(
-        "Texinfo::Convert::PlainTexinfo::_convert_tree_with_XS",
-        "Texinfo::Convert::ConvertXS::plain_texinfo_convert_tree"
-      );
-    }
-    $module_loaded = 1;
-  }
-  # The usual import method
-  goto &Exporter::import;
-}
 
 my $regular_defaults
   = Texinfo::Options::get_regular_options('plaintexinfo_converter');
@@ -68,19 +45,10 @@ sub converter_defaults($;$)
   return \%defaults;
 }
 
-sub _convert_tree_with_XS($)
-{
-}
-
 sub convert_tree($$)
 {
   my $self = shift;
   my $root = shift;
-
-  if ($XS_convert and defined($root->{'tree_document_descriptor'})
-      and $Texinfo::Convert::ConvertXS::XS_package) {
-    return _convert_tree_with_XS($root);
-  }
 
   return Texinfo::Convert::Texinfo::convert_to_texinfo($root);
 }

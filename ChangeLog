@@ -1,3 +1,26 @@
+2026-01-28 Patrice Dumas  <pertusus@free.fr>
+
+	Separate XS module for Texinfo::Convert::Texinfo
+
+	* tta/perl/Texinfo/Convert/TexinfoNonXS.pm (convert_to_texinfo),
+	tta/perl/Texinfo/Convert/TexinfoXS.pm (convert_to_texinfo),
+	tta/perl/Texinfo/Convert/Texinfo.pm (BEGIN, convert_to_texinfoNonXS),
+	tta/perl/XSTexinfo/convert/ConvertToTexinfoXS.xs
+	(plain_texinfo_convert_tree), tta/perl/XSTexinfo/convert/ConvertXS.xs,
+	tta/perl/XSTexinfo/Makefile.am (xs_LTLIBRARIES, CLEANFILES)
+	(EXTRA_DIST, ConvertToTexinfoXS_la_*): add TexinfoNonXS.pm and
+	TexinfoXS.pm with the convert_to_texinfo implementation without and
+	with XS.  Move the plain_texinfo_convert_tree XS interface function to
+	a new XS file used only for the Texinfo::Convert::Texinfo module,
+	ConvertToTexinfoXS.xs.  Add a BEGIN block in Texinfo.pm to load the
+	Perl modules and XS module and remove the function override.  Rename
+	_convert_to_texinfo as convert_to_texinfoNonXS and leave it in the
+	main Texinfo.pm module as it may be called by both TexinfoNonXS.pm and
+	TexinfoXS.pm.
+
+	* tta/perl/Texinfo/Convert/PlainTexinfo.pm (convert_tree): adapt for
+	change in Texinfo::Convert::Texinfo.
+
 2026-01-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/configure.ac:

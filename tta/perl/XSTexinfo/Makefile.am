@@ -217,6 +217,22 @@ IndicesXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/convert $
 IndicesXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 #IndicesXS_la_LDFLAGS = -Wl,--no-undefined $(XSLIBS_LDFLAGS) $(perl_conf_LIBS)
 
+########################## ConvertToTexinfoXS
+
+if HAVE_ICONV
+xs_LTLIBRARIES += ConvertToTexinfoXS.la
+endif
+
+nodist_ConvertToTexinfoXS_la_SOURCES = convert/ConvertToTexinfoXS.c
+CLEANFILES += convert/ConvertToTexinfoXS.c
+
+EXTRA_DIST += convert/ConvertToTexinfoXS.xs
+
+# To locate include files under out-of-source builds.
+ConvertToTexinfoXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
+ConvertToTexinfoXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+ConvertToTexinfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
+
 ########################## ConvertXS
 
 if HAVE_ICONV

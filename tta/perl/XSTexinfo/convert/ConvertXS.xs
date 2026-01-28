@@ -753,24 +753,6 @@ destroy_text_converter (SV *converter_in)
           }
 
 SV *
-plain_texinfo_convert_tree (SV *tree_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        /* caller checks that there is a descriptor */
-        document = get_sv_tree_document (tree_in, "plain_texinfo_convert_tree");
-        if (document)
-          {
-            char *result = convert_to_texinfo (document->tree);
-            RETVAL = newSVpv_utf8 (result, 0);
-            non_perl_free (result);
-          }
-        else
-          RETVAL = newSV(0);
-    OUTPUT:
-        RETVAL
-
-SV *
 text_convert_tree (SV *options_in, SV *tree_in)
     PREINIT:
         DOCUMENT *document = 0;
