@@ -247,8 +247,8 @@ sub init {
   # TEXINFO_XS=default      # try xs, silent fallback
   # TEXINFO_XS=warn         # try xs, warn on failure
   # TEXINFO_XS=required     # try xs, abort if not loadable, no fallback
-  # TEXINFO_XS=requiredifenabled  # try xs, abort if enabled (enabled in
-  #                         # configure, by TEXINFO_XS_*) and not loadable
+  # TEXINFO_XS=requiredifenabled  # try xs, abort if enabled by TEXINFO_XS_*
+  #                         # and not loadable
   # TEXINFO_XS=debug        # try xs, voluminuous debugging, fallback
   #
   # Other values are treated at the moment as 'default'.
