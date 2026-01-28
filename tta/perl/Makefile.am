@@ -363,6 +363,7 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	    -e 's|[@]ICONV_CONVERTS_EUC_CN[@]|$(ICONV_CONVERTS_EUC_CN)|' \
 	    -e 's|[@]DEFAULT_TEST_LEVEL[@]|$(DEFAULT_TEST_LEVEL)|' \
 	    -e 's|[@]enable_xs[@]|$(enable_xs)|' \
+	    -e 's|[@]enable_txi_libraries[@]|$(enable_txi_libraries)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@
 
 # target that can be built upon cd'ing to the build directory, as needed

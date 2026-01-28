@@ -1,3 +1,9 @@
+2026-01-28 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/configure.ac (enable_txi_libraries), tta/perl/Makefile.am
+	(ModulePath.pm), tta/perl/Texinfo/ModulePath.pm.in: pass the
+	information on Texinfo libraries being built.
+
 2026-01-27 Patrice Dumas  <pertusus@free.fr>
 
 	* INSTALL, tta/perl/Texinfo/XSLoader.pm (init, override): add

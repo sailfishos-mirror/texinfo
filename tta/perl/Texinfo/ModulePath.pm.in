@@ -40,8 +40,10 @@ our $libraries_dir;
 our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
 our $default_test_level = '@DEFAULT_TEST_LEVEL@';
 
-# Passed to texi2any.pl, which is not configured, and to t/test_utils.pl.
+# Passed to texi2any.pl, which is not configured, to t/test_utils.pl
+# and to modules.
 our $enable_xs = '@enable_xs@';
+our $enable_txi_libraries = '@enable_txi_libraries@';
 
 # If $PERL_MODULES_DIR and $CONVERTER_LIBDIR are given,
 # (likely the installation directories)
