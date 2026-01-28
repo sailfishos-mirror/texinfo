@@ -105,6 +105,8 @@ my %XS_overrides = (
     => "Texinfo::StructTransfXS::print_headings_list",
   "Texinfo::Structuring::print_sectioning_root"
     => "Texinfo::StructTransfXS::print_sectioning_root",
+  "Texinfo::Structuring::print_document_listoffloats"
+    => "Texinfo::StructTransfXS::print_document_listoffloats",
 );
 
 our $module_loaded = 0;
@@ -1687,6 +1689,24 @@ sub number_floats($) {
       $float->{'extra'}->{'float_number'} = $number;
     }
   }
+}
+
+# wrapper on print_listoffloats_types that can be used for XS overriding.
+# Used in tests only.
+sub print_document_listoffloats($) {
+  my $document = shift;
+
+  my $float_text;
+
+  if ($document) {
+    my $floats = $document->floats_information();
+    if (defined($floats)) {
+      $float_text
+          = Texinfo::ManipulateTree::print_listoffloats_types($floats);
+    }
+  }
+
+  return $float_text;
 }
 
 sub section_level_adjusted_command_name($) {

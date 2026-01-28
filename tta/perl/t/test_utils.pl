@@ -1283,7 +1283,7 @@ sub test($$)
                                          $input_file_names_encoding, 1);
   }
 
-  $float_text = Texinfo::Document::print_document_listoffloats($document);
+  $float_text = Texinfo::Structuring::print_document_listoffloats($document);
 
   $nodes_list_text = Texinfo::Structuring::print_nodes_list($document);
 

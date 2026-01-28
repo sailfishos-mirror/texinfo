@@ -107,13 +107,6 @@ my %XS_overrides = (
     => "Texinfo::DocumentXS::print_document_indices_sort_strings",
 );
 
-my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
-
-my %XS_structure_overrides = (
-  "Texinfo::Document::print_document_listoffloats"
-    => "Texinfo::DocumentXS::print_document_listoffloats",
-);
-
 
 our $module_loaded = 0;
 sub import {
@@ -121,11 +114,6 @@ sub import {
     if ($XS_parser) {
       foreach my $sub (keys(%XS_overrides)) {
         Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
-      }
-    }
-    if ($XS_structuring) {
-      foreach my $sub (keys(%XS_structure_overrides)) {
-        Texinfo::XSLoader::override($sub, $XS_structure_overrides{$sub});
       }
     }
     $module_loaded = 1;
@@ -616,24 +604,6 @@ sub sorted_indices_by_index($$$$) {
 }
 
 
-
-# wrapper on print_listoffloats_types that can be used for XS overriding.
-# Used in tests only.
-sub print_document_listoffloats($) {
-  my $document = shift;
-
-  my $float_text;
-
-  if ($document) {
-    my $floats = $document->floats_information();
-    if (defined($floats)) {
-      $float_text
-          = Texinfo::ManipulateTree::print_listoffloats_types($floats);
-    }
-  }
-
-  return $float_text;
-}
 
 # wrapper on print_indices_information that can be used for XS overriding.
 # Used in tests only.

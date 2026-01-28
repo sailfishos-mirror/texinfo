@@ -751,6 +751,7 @@ wipe_document_parser_errors (DOCUMENT *document)
 
 /* textual representations mainly used for tests */
 
+/* ALTIMP Texinfo::Structuring */
 char *
 print_document_listoffloats (DOCUMENT *document)
 {

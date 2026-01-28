@@ -1,5 +1,16 @@
 2026-01-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Document.pm (import),
+	tta/perl/Texinfo/Structuring.pm (%XS_overrides)
+	(print_document_listoffloats),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs,
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
+	(print_document_listoffloats): move print_document_listoffloats to
+	Structuring.pm, where it belongs more logically, depending on
+	structuring code.
+
+2026-01-28 Patrice Dumas  <pertusus@free.fr>
+
 	requiredifenabled takes only into account runtime information
 
 2026-01-28 Patrice Dumas  <pertusus@free.fr>

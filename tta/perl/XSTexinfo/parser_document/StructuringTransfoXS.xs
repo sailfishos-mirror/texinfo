@@ -633,6 +633,29 @@ print_sectioning_root (SV *document_in)
     OUTPUT:
         RETVAL
 
+SV *
+print_document_listoffloats (SV *document_in)
+    PREINIT:
+        DOCUMENT *document = 0;
+     CODE:
+        document = get_sv_document_document (document_in,
+                                             "print_document_listoffloats");
+        if (document)
+          {
+            char *listoffloats_str = print_document_listoffloats (document);
+            if (listoffloats_str)
+              {
+                RETVAL = newSVpv_utf8 (listoffloats_str, 0);
+                free (listoffloats_str);
+              }
+            else
+              RETVAL = newSV (0);
+          }
+        else
+          RETVAL = newSV (0);
+
+    OUTPUT:
+        RETVAL
 
 
 
