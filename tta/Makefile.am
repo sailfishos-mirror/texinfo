@@ -45,7 +45,9 @@ endif
 SUBDIRS += . perl tests
 
 if SWIG_INTERFACES
+if BUILD_C_CODE
 SUBDIRS += swig
+endif
 endif
 
 DIST_SUBDIRS = gnulib/lib C perl tests swig
