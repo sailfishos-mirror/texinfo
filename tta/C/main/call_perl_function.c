@@ -114,6 +114,7 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text,
 
 char *
 call_translations_translate_string (const char *string, const char *in_lang,
+                                    const char *in_encoded_lang,
                                     const char *translation_context)
 {
   int count;
@@ -139,6 +140,7 @@ call_translations_translate_string (const char *string, const char *in_lang,
 
   PUSHs(sv_2mortal (newSVpv_utf8 (string, 0)));
   PUSHs(sv_2mortal (newSVpv_utf8 (in_lang, 0)));
+  PUSHs(sv_2mortal (newSVpv_byte (in_encoded_lang, 0)));
   PUSHs(sv_2mortal (newSVpv_utf8 (translation_context, 0)));
   PUTBACK;
 

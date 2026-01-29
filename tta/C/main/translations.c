@@ -214,9 +214,11 @@ switch_messages_locale (void)
 /* STRING in input must never be NULL */
 char *
 translate_string (const char *string, const char *in_lang,
+                  const char *in_encoded_lang,
                   const char *translation_context)
 {
-  const char *lang = in_lang;
+  /* const char *lang = in_lang; */
+  const char *encoded_lang = in_encoded_lang;
   char *saved_LANGUAGE;
   char *saved_LANG;
   char *saved_LC_ALL;
@@ -240,6 +242,7 @@ translate_string (const char *string, const char *in_lang,
   else
     {
       translated_string = call_translations_translate_string (string, in_lang,
+                                               in_encoded_lang,
                                                translation_context);
       if (!translated_string)
         return strdup (string);
@@ -250,6 +253,7 @@ translate_string (const char *string, const char *in_lang,
   if (use_external_translate_string > 0)
     {
       translated_string = call_translations_translate_string (string, in_lang,
+                                               in_encoded_lang,
                                                translation_context);
       if (translated_string)
         return translated_string;
@@ -306,9 +310,13 @@ translate_string (const char *string, const char *in_lang,
   textdomain (strings_textdomain);
   bind_textdomain_codeset (strings_textdomain, "utf-8");
 
-  langs[0] = strdup (lang);
-  p = strchr (lang, '_');
-  if (p && p - lang > 0)
+  /* using encoded_lang is not very important here, as we only accept
+     ASCII characters.  Using UTF-8 could even have been more robust,
+     if the encoding lang is encoded to is not ASCII compatible.  We
+     still use it to be more like Perl code */
+  langs[0] = strdup (encoded_lang);
+  p = strchr (encoded_lang, '_');
+  if (p && p - encoded_lang > 0)
     {
       char *q = p;
       while (isascii_lower (*q))
@@ -320,7 +328,7 @@ translate_string (const char *string, const char *in_lang,
             q++;
           if (q - (p + 1) > 0)
             {
-              main_lang = strndup (lang, p - lang);
+              main_lang = strndup (encoded_lang, p - encoded_lang);
             }
         }
     }
@@ -587,6 +595,7 @@ cache_translate_string (const char *string,
                         const char *translation_context)
 {
   const char *lang;
+  const char *encoded_lang;
   const char *translation_context_str;
   LANG_TRANSLATION_TREE_LIST *translations;
   char *translated_context_string;
@@ -595,9 +604,15 @@ cache_translate_string (const char *string,
   int found;
 
   if (lang_translation && lang_translation->lang)
-    lang = lang_translation->lang;
+    {
+      lang = lang_translation->lang;
+      encoded_lang = lang_translation->encoded_lang;
+    }
   else
-    lang = "";
+    {
+      lang = "";
+      encoded_lang = "";
+    }
 
   if (translation_context)
     translation_context_str = translation_context;
@@ -635,7 +650,8 @@ cache_translate_string (const char *string,
   if (strlen (lang))
     {
       char *translated_string
-        = translate_string (string, lang, translation_context);
+        = translate_string (string, lang, encoded_lang,
+                            translation_context);
       result->translation = translated_string;
     }
 

@@ -84,6 +84,7 @@ call_nodenamenormalization_unicode_to_transliterate (const char *text,
 
 char *
 call_translations_translate_string (const char *string, const char *in_lang,
+                                    const char *in_encoded_lang,
                                     const char *translation_context)
 {
   return 0;

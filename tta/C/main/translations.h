@@ -52,6 +52,7 @@ LANG_TRANSLATION *switch_lang_translations (
                           const char *command_line_encoding,
                           size_t cache_size);
 char *translate_string (const char * string, const char *lang,
+                        const char *encoded_lang,
                         const char *translation_context);
 TRANSLATION_TREE *cache_translate_string (const char *string,
                         LANG_TRANSLATION *lang_translation,

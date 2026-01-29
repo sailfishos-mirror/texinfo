@@ -1,5 +1,13 @@
 2026-01-29 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/call_perl_function.c
+	(call_translations_translate_string),
+	tta/C/main/translations.c (translate_string, cache_translate_string):
+	pass and use encoded lang in translate_string.  Also pass encoded lang
+	to call_translations_translate_string.
+
+2026-01-29 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/build_html_perl_state.c
 	(switch_perl_lang_translations): set encoded lang to an empty string
 	if undef, to match with what is done for lang.
