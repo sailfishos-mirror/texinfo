@@ -1,5 +1,10 @@
 2026-01-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/C/Makefile.am: Remove all uses of HAVE_ICONV conditional.
+	From Patrice.
+
+2026-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/configure.ac (BUILD_C_CODE): Specify with AM_CONDITIONAL.
 	* tta/Makefile.am: Use it to include tta/gnulib and tta/C in
 	subdirectories to be built.

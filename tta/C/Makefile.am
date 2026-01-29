@@ -75,9 +75,7 @@ libperlcall_utils_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 
 ########################## shared common, parser and structure library
 
-if HAVE_ICONV
 library_LTLIBRARIES += libtexinfo.la
-endif
 
 # The files in the main directory correspond to code used both
 # by the parser, by converters and by C code used for interfacing with
@@ -222,9 +220,7 @@ libtexinfo_la_SOURCES = \
 # in compilation.
 # does not actually require iconv, but it is only used as a convenience
 # library for libtexinfo.la, which requires iconv
-if HAVE_ICONV
 noinst_LTLIBRARIES += libcallperl_libtexinfo.la
-endif
 
 # api_to_perl.c and call_perl_function.c functions are called in other
 # parts of the libtexinfo code and need to be compiled with Perl headers
@@ -420,10 +416,8 @@ MAINTAINERCLEANFILES += $(products_css_data) stamp.css_data
 # to call libtexinfo from Perl XS .xs interfaces and other Perl C codes
 
 if ! DISABLE_XS
-if HAVE_ICONV
 library_LTLIBRARIES += libtexinfoxs.la
 libtexinfoxs_la_as_dependency = libtexinfoxs.la
-endif
 endif
 
 libtexinfoxs_la_SOURCES= \
@@ -445,9 +439,7 @@ libtexinfoxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # Note that having a library and not reusing source files is important to
 # share converter data among the XS objects used for conversion.
 
-if HAVE_ICONV
 library_LTLIBRARIES += libtexinfo-convert.la
-endif
 
 C_libtexinfo_convert_sources = \
                        convert/converter.c \
@@ -482,9 +474,7 @@ C_libtexinfo_convert_sources = \
 # call_conversion_perl.c is also included although it is not directly used,
 # to have it in a library different from libtexinfo-main where different flags
 # (for embedding Perl) are used for the Perl part.
-if HAVE_ICONV
 noinst_LTLIBRARIES += libcallperl_libtexinfo_convert.la
-endif
 
 libcallperl_libtexinfo_convert_la_SOURCES = \
                        convert/call_html_perl_function.h \
@@ -521,9 +511,7 @@ libtexinfo_convert_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS) $(E
 # to call libtexinfo-convert from Perl XS *.xs interfaces
 
 if ! DISABLE_XS
-if HAVE_ICONV
 library_LTLIBRARIES += libtexinfo-convertxs.la
-endif
 endif
 
 libtexinfo_convertxs_la_SOURCES = \
@@ -556,17 +544,13 @@ libtexinfo_convertxs_la_LDFLAGS = -version-info 1:0:0 $(perl_conf_LIB_LDFLAGS)
 # crash?).  Testing this configuration is not easy as
 # ctexi2any cannot be built in that situation.
 
-if HAVE_ICONV
 library_LTLIBRARIES += libtexinfo-main.la
-endif
 
 # convenience library for embedded Perl called from libtexinfo-main C code,
 # to be able to use specific flags for compilation and linking different from
 # other libraries with code including Perl headers, and without Gnulib.
 # Internal for libtexinfo-main.
-if HAVE_ICONV
 noinst_LTLIBRARIES += libperlembed_libtexinfo_main.la
-endif
 
 libperlembed_libtexinfo_main_la_SOURCES = \
                        convert/call_embed_perl.h
@@ -644,9 +628,7 @@ noinst_PROGRAMS =
 # the symbols were undefined at link time.
 
 if PERL_EMBEDDED
-if HAVE_ICONV
 noinst_PROGRAMS += ctexi2any
-endif
 endif
 
 ctexi2any_SOURCES = \
@@ -688,9 +670,7 @@ endif
 # required for linking are provided.
 
 if ! DISABLE_ADDITIONAL_CHECKS
-if HAVE_ICONV
 noinst_PROGRAMS += teximakehtml
-endif
 endif
 
 teximakehtml_SOURCES = \
