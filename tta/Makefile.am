@@ -18,7 +18,11 @@ EXTRA_DIST =
 
 ######################## Gnulib ################################
 
-SUBDIRS = gnulib/lib
+SUBDIRS =
+
+if BUILD_C_CODE
+SUBDIRS += gnulib/lib
+endif
 
 EXTRA_DIST += gnulib/m4/gnulib-cache.m4
 
@@ -34,12 +38,8 @@ $(srcdir)/Makefile.docstr: maintain/regenerate_docstr.sh \
 	&& $(SHELL) ./maintain/regenerate_docstr.sh Makefile.docstr
 
 
-if ! DISABLE_XS
+if BUILD_C_CODE
 SUBDIRS += C
-else
-if HAVE_ICONV
-SUBDIRS += C
-endif
 endif
 
 SUBDIRS += . perl tests
