@@ -60,7 +60,7 @@ sub is_diff($$$) {
   } else {
     ok($result eq $reference, $test_name)
        or note((diff(\$reference, \$result)));
-    #is($result, $reference, $test_name) or note(diff(\$result, \$reference));
+    #is($result, $reference, $test_name) or note(diff(\$reference, \$result));
   }
 }
 
