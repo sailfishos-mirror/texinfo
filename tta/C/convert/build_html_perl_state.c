@@ -57,6 +57,7 @@ switch_perl_lang_translations (HV *converter_hv, const char *lang,
 {
   AV *current_lang_translations_av;
   const char *translation_lang;
+  const char *translation_encoded_lang;
   SV *translations;
   SV *lang_sv;
   SV *encoded_lang_sv;
@@ -73,8 +74,13 @@ switch_perl_lang_translations (HV *converter_hv, const char *lang,
   else
     translation_lang = "";
 
+  if (encoded_lang)
+    translation_encoded_lang = encoded_lang;
+  else
+    translation_encoded_lang = "";
+
   lang_sv = newSVpv_utf8 (translation_lang, 0);
-  encoded_lang_sv = newSVpv_byte (encoded_lang, 0);
+  encoded_lang_sv = newSVpv_byte (translation_encoded_lang, 0);
 
   FETCH(current_lang_translations);
   if (current_lang_translations_sv
