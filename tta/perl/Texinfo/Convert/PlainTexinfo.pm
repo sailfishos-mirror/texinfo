@@ -40,31 +40,24 @@ my $regular_defaults
   = Texinfo::Options::get_regular_options('plaintexinfo_converter');
 my %defaults = %{$regular_defaults};
 
-sub converter_defaults($;$)
-{
+sub converter_defaults($;$) {
   return \%defaults;
 }
 
-sub convert_tree($$)
-{
-  my $self = shift;
-  my $root = shift;
+sub convert_tree($$) {
+  my ($self, $root) = @_;
 
   return Texinfo::Convert::Texinfo::convert_to_texinfo($root);
 }
 
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub output($$) {
+  my ($self, $document) = @_;
 
   return $self->output_tree($document);
 }
 
-sub convert($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub convert($$) {
+  my ($self, $document) = @_;
 
   my $root = $document->tree();
 

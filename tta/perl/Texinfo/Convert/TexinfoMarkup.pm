@@ -272,13 +272,11 @@ my %default_context_block_commands = (
 );
 
 # converter_defaults() should be implemented by subclasses.
-sub converter_defaults($;$)
-{
+sub converter_defaults($;$) {
   return undef;
 }
 
-sub converter_initialize($)
-{
+sub converter_initialize($) {
   my $self = shift;
 
   $self->{'context_block_commands'} = {%default_context_block_commands};
@@ -289,10 +287,8 @@ sub converter_initialize($)
   }
 }
 
-sub conversion_initialization($;$)
-{
-  my $self = shift;
-  my $document = shift;
+sub conversion_initialization($;$) {
+  my ($self, $document) = @_;
 
   if ($document) {
     $self->set_document($document);
@@ -301,12 +297,8 @@ sub conversion_initialization($;$)
   $self->{'document_context'} = [{'monospace' => [0]}];
 }
 
-sub conversion_output_begin($;$$)
-{
-  my $self = shift;
-  my $output_file = shift;
-  my $output_filename = shift;
-
+sub conversion_output_begin($;$$) {
+  my ($self, $output_file, $output_filename) = @_;
 
   my $result = $self->txi_markup_header();
   $result .= $self->txi_markup_open_element('texinfo')."\n";
@@ -319,34 +311,29 @@ sub conversion_output_begin($;$$)
   return $result;
 }
 
-sub conversion_output_end($)
-{
+sub conversion_output_end($) {
   my $self = shift;
 
   return $self->txi_markup_close_element('texinfo')."\n";
 }
 
 # Main output function for the Texinfo language markup output files.
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub output($$) {
+  my ($self, $document) = @_;
 
   return $self->output_tree($document);
 }
 
 # API for markup formatting subclasses
-sub in_monospace($)
-{
+sub in_monospace($) {
   my $self = shift;
+
   return $self->{'document_context'}->[-1]->{'monospace'}->[-1];
 }
 # end of API
 
-sub _format_command($$)
-{
-  my $self = shift;
-  my $command = shift;
+sub _format_command($$) {
+  my ($self, $command) = @_;
 
   if (ref($no_arg_commands_formatting{$command}) eq '') {
     return $self->txi_markup_atom($command);
@@ -357,10 +344,9 @@ sub _format_command($$)
   }
 }
 
-sub _index_entry($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _index_entry($$) {
+  my ($self, $element) = @_;
+
   if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
     my $indices_information;
     if ($self->{'document'}) {
@@ -397,8 +383,8 @@ sub _index_entry($$)
 }
 
 sub _infoenclose_attribute($$) {
-  my $self = shift;
-  my $element = shift;
+  my ($self, $element) = @_;
+
   my @attribute = ();
   return @attribute if (!$element->{'extra'});
   push @attribute, ['begin', $element->{'extra'}->{'begin'}]
@@ -421,10 +407,8 @@ sub _accent($$$;$$$$) {
   return $result;
 }
 
-sub convert($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub convert($$) {
+  my ($self, $document) = @_;
 
   $self->conversion_initialization($document);
 
@@ -433,17 +417,15 @@ sub convert($$)
   return $self->convert_tree($root);
 }
 
-sub convert_tree($$)
-{
-  my $self = shift;
-  my $root = shift;
+sub convert_tree($$) {
+  my ($self, $root) = @_;
 
   return $self->_convert($root);
 }
 
-sub _leading_spaces_arg($)
-{
+sub _leading_spaces_arg($) {
   my $element = shift;
+
   if ($element->{'info'} and $element->{'info'}->{'spaces_before_argument'}
       and $element->{'info'}->{'spaces_before_argument'}->{'text'} ne '') {
     return ['spaces', $element->{'info'}->{'spaces_before_argument'}->{'text'}];
@@ -454,10 +436,8 @@ sub _leading_spaces_arg($)
 
 # return spaces only, end of line is gathered by calling
 # _format_comment_or_end_line
-sub _end_line_spaces($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _end_line_spaces($$) {
+  my ($self, $element) = @_;
 
   my $last_arg = $element->{'contents'}->[-1];
 
@@ -473,10 +453,8 @@ sub _end_line_spaces($$)
   return '';
 }
 
-sub _format_comment($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _format_comment($$) {
+  my ($self, $element) = @_;
 
   my $command_text = '';
   if (defined($element->{'info'})
@@ -497,10 +475,8 @@ sub _format_comment($$)
   return $self->txi_markup_comment(" $element->{'cmdname'}" .$command_text);
 }
 
-sub _format_comment_or_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _format_comment_or_end_line($$) {
+  my ($self, $element) = @_;
 
   my ($comment, $end_line)
    = $self->comment_or_end_line($element);
@@ -515,8 +491,7 @@ sub _format_comment_or_end_line($$)
 
 # without the end of line.  The end of line is usually returned by
 # _format_comment_or_end_line
-sub _trailing_spaces_arg($)
-{
+sub _trailing_spaces_arg($) {
   my $element = shift;
 
   if ($element->{'info'} and
@@ -530,8 +505,7 @@ sub _trailing_spaces_arg($)
   return ();
 }
 
-sub _leading_trailing_spaces_arg($)
-{
+sub _leading_trailing_spaces_arg($) {
   my $element = shift;
 
   my @result;
@@ -540,10 +514,8 @@ sub _leading_trailing_spaces_arg($)
   return @result;
 }
 
-sub _texinfo_line($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _texinfo_line($$) {
+  my ($self, $element) = @_;
 
   my $line
    = Texinfo::Convert::Texinfo::convert_to_texinfo(
@@ -555,10 +527,8 @@ sub _texinfo_line($$)
   return ();
 }
 
-sub _format_columnfractions($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _format_columnfractions($$) {
+  my ($self, $element) = @_;
 
   my $attribute = [_leading_spaces_arg($element),
                    $self->_texinfo_line($element)];
@@ -581,10 +551,8 @@ sub _format_columnfractions($$)
 # used in brace commands
 # NOTE not really needed now that comment_at_end are not generated
 # for brace commands.
-sub _convert_comment_at_end
-{
-  my $self = shift;
-  my $element = shift;
+sub _convert_comment_at_end {
+  my ($self, $element) = @_;
 
   my $comment = $element->{'info'}->{'comment_at_end'}
     if $element->{'info'};
@@ -595,10 +563,8 @@ sub _convert_comment_at_end
   return '';
 }
 
-sub _convert_def_line($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _convert_def_line($$) {
+  my ($self, $element) = @_;
 
   my $result = '';
 
@@ -687,10 +653,8 @@ foreach my $direction (@node_directions) {
 
 sub _convert($$;$);
 
-sub _convert($$;$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _convert($$;$) {
+  my ($self, $element, $unused) = @_;
 
   if (0) {
   #if (1) { #}
