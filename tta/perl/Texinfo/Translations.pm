@@ -305,6 +305,10 @@ sub cache_translate_string($$;$) {
     $encoded_lang = '';
   }
 
+  if (!defined($encoded_lang)) {
+    cluck("cache_translate_string '$lang' encoded_lang undef");
+  }
+
   my $translation_context_str;
   if (defined($translation_context)) {
     $translation_context_str = $translation_context;
