@@ -63,7 +63,80 @@ AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = 
 
 AC_PATH_PROG([PERL], [perl])
 
+AM_MISSING_PROG([GAWK], [gawk])
+
 AC_CANONICAL_HOST
+
+txi_DIFF_OPTIONS
+
+# Perl tests requirements
+t2a_tests='no'
+AC_ARG_ENABLE([t2a-tests],
+    AS_HELP_STRING([--enable-t2a-tests],[run the parser and converters testsuite (default: detected)]),
+    [if test $enableval = 'no'; then
+       t2a_tests='no'
+     else
+       t2a_tests='yes'
+     fi],
+    [
+     if $PERL -e "use 5.008_001; use Encode; use Test::More; use File::Compare qw(compare); use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone);" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     then
+       t2a_tests='yes'
+     else
+       t2a_tests='no'
+     fi
+    ])
+
+AC_MSG_CHECKING([parser tests requirements])
+AC_MSG_RESULT([$t2a_tests])
+AM_CONDITIONAL([T2A_TESTS], [test "z$t2a_tests" = 'zyes'])
+
+refcount_checks='no'
+AC_ARG_ENABLE([refcounts-checks],
+    AS_HELP_STRING([--enable-refcounts-checks],[checks on reference counts (default: detected)]),
+    [if test $enableval = 'no'; then
+       refcount_checks='no'
+     else
+       refcount_checks='yes'
+     fi],
+    [
+     if $PERL -e "use Devel::Refcount;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
+     then
+       refcount_checks='yes'
+     else
+       refcount_checks='no'
+     fi
+    ])
+
+AC_MSG_CHECKING([requirements for refcount checks])
+AC_MSG_RESULT([$refcount_checks])
+DEFAULT_TEST_LEVEL=1
+if test "z$refcount_checks" = 'zyes' ; then
+  DEFAULT_TEST_LEVEL=2
+fi
+AC_SUBST([DEFAULT_TEST_LEVEL])
+
+AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
+if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
+  perl_unicode_collation_requirement='yes'
+else
+  perl_unicode_collation_requirement='no'
+fi
+AC_MSG_RESULT($perl_unicode_collation_requirement)
+PERL_UNICODE_COLLATE_OK=$perl_unicode_collation_requirement
+AC_SUBST([PERL_UNICODE_COLLATE_OK])
+
+host_is_windows=no
+case "$host" in
+   *-mingw32 | *-mingw64 )  host_is_windows=yes ;;
+esac
+AM_CONDITIONAL([HOST_IS_WINDOWS], [test "x$host_is_windows" = "xyes"])
+HOST_IS_WINDOWS_VARIABLE=
+if test "x$host_is_windows" = "xyes" ; then
+  HOST_IS_WINDOWS_VARIABLE=yes
+fi
+AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
+
 
 # Look up perl configuration values and set variables:
 # perl_conf_LIB_CFLAGS, perl_conf_CPPFLAGS, perl_conf_LDFLAGS,
@@ -280,8 +353,6 @@ gl_INIT
 AM_GNU_GETTEXT_VERSION([0.26])
 AM_GNU_GETTEXT([external])
 
-AM_MISSING_PROG([GAWK], [gawk])
-
 LT_INIT([disable-static dlopen])
 
 AM_CONDITIONAL([HAVE_ICONV],
@@ -398,75 +469,6 @@ AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
 AC_DEFINE_UNQUOTED([CONVERTER_CONFIG], ["$CONVERTER"],
                    [configure CONVERTER value])
 
-txi_DIFF_OPTIONS
-
-# Perl tests requirements
-t2a_tests='no'
-AC_ARG_ENABLE([t2a-tests],
-    AS_HELP_STRING([--enable-t2a-tests],[run the parser and converters testsuite (default: detected)]),
-    [if test $enableval = 'no'; then
-       t2a_tests='no'
-     else
-       t2a_tests='yes'
-     fi],
-    [
-     if $PERL -e "use 5.008_001; use Encode; use Test::More; use File::Compare qw(compare); use Data::Dumper; use Data::Compare; use Test::Deep; use Storable qw(dclone);" > /dev/null 2>&AS_MESSAGE_LOG_FD;
-     then
-       t2a_tests='yes'
-     else
-       t2a_tests='no'
-     fi
-    ])
-
-AC_MSG_CHECKING([parser tests requirements])
-AC_MSG_RESULT([$t2a_tests])
-AM_CONDITIONAL([T2A_TESTS], [test "z$t2a_tests" = 'zyes'])
-
-refcount_checks='no'
-AC_ARG_ENABLE([refcounts-checks],
-    AS_HELP_STRING([--enable-refcounts-checks],[checks on reference counts (default: detected)]),
-    [if test $enableval = 'no'; then
-       refcount_checks='no'
-     else
-       refcount_checks='yes'
-     fi],
-    [
-     if $PERL -e "use Devel::Refcount;" > /dev/null 2>&AS_MESSAGE_LOG_FD;
-     then
-       refcount_checks='yes'
-     else
-       refcount_checks='no'
-     fi
-    ])
-
-AC_MSG_CHECKING([requirements for refcount checks])
-AC_MSG_RESULT([$refcount_checks])
-DEFAULT_TEST_LEVEL=1
-if test "z$refcount_checks" = 'zyes' ; then
-  DEFAULT_TEST_LEVEL=2
-fi
-AC_SUBST([DEFAULT_TEST_LEVEL])
-
-AC_MSG_CHECKING([Perl version for tests requiring unicode collation])
-if $PERL -e "use 5.018_001; use Unicode::Collate" >/dev/null 2>&1; then
-  perl_unicode_collation_requirement='yes'
-else
-  perl_unicode_collation_requirement='no'
-fi
-AC_MSG_RESULT($perl_unicode_collation_requirement)
-PERL_UNICODE_COLLATE_OK=$perl_unicode_collation_requirement
-AC_SUBST([PERL_UNICODE_COLLATE_OK])
-
-host_is_windows=no
-case "$host" in
-   *-mingw32 | *-mingw64 )  host_is_windows=yes ;;
-esac
-AM_CONDITIONAL([HOST_IS_WINDOWS], [test "x$host_is_windows" = "xyes"])
-HOST_IS_WINDOWS_VARIABLE=
-if test "x$host_is_windows" = "xyes" ; then
-  HOST_IS_WINDOWS_VARIABLE=yes
-fi
-AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 
 
 # SWIG interfaces

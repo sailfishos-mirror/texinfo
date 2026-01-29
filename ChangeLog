@@ -1,5 +1,10 @@
 2026-01-29  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* tta/configure.ac: reorder file to put checks that aren't
+	specific to C code earlier in the file.
+
+2026-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/configure.ac: place message inside conditional
 
 2026-01-29  Gavin Smith <gavinsmith0123@gmail.com>
