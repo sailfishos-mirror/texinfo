@@ -1,3 +1,9 @@
+2026-01-29  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Tests.pm (is_diff): Reverse arguments
+	to Text::Diff::diff so that output diff shows change made
+	from reference result to obtained result.
+
 2026-01-29 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/configure.ac: build C code only if iconv is present, since all
