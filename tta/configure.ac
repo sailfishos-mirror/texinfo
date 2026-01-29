@@ -149,6 +149,7 @@ if test $enable_xs = check ; then
   ( _AC_OUTPUT_SUBDIRS ) || enable_xs=no
   subdirs=$save_subdirs
 fi
+AC_MSG_NOTICE([finished configuring perl/CheckXS])
 
 if test $enable_xs = no; then
   AC_MSG_NOTICE([building Perl extension (XS) modules will be disabled])
