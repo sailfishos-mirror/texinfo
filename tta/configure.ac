@@ -608,9 +608,8 @@ fi
 AM_CONDITIONAL([SWIG_PERL_TESTS], [test "z$swig_perl_tests" = 'zyes'])
 
 build_C_code=no
-test "z$enable_xs" = zyes && build_C_code=yes
-
 if test "x$am_func_iconv" = "xyes"; then
+  test "z$enable_xs" = zyes && build_C_code=yes
   test "z$enable_additional_tests" = zyes && build_C_code=yes
   test "z$with_swig" = zyes && build_C_code=yes
 fi
