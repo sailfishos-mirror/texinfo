@@ -2618,6 +2618,7 @@ in the previous chapter (@pxref{Custom Key Bindings}).
 
 Currently, Info has the following hook:
 
+@cindex @file{manual-not-found} script
 @table @code
 @item manual-not-found [--interactive] @var{manual}
 This hook runs if a manual is not found.  The program is
@@ -2691,8 +2692,9 @@ exit 0
 @noindent (The hook would be need to be more sophisticated than
 this to be useful in practice.)
 
-Texinfo installs a default sample @code{manual-not-found} hook program
-and data file in its compile-time data directory.
+Texinfo installs a default sample @code{manual-not-found} shell
+script and data file in its compile-time data directory.  (On
+MS-Windows, the name of the file is @file{manual-not-found.cmd}.)
 @end table
 
 Hooks are run with the full file name used to run them in the
