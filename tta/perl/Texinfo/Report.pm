@@ -95,9 +95,6 @@ sub format_line_message($$$$;$) {
   }
   warn $message_line if ($warn);
   my %location_info = %{$error_location_info};
-  # TODO check if it can happen
-  delete $location_info{'file_name'} if (exists($location_info{'file_name'})
-                                  and not defined($location_info{'file_name'}));
   my $result
     = { 'type' => $type, 'text' => $text, 'error_line' => $message_line,
          %location_info };
