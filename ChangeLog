@@ -1,3 +1,9 @@
+2026-01-31  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* configure.ac: move AC_ARG_WITH and AC_ARG_ENABLE declarations
+	for SWIG nearer the end of the file so they appear later in the
+	output of "./configure --help".
+
 2026-01-31 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Specific Functions for Specific Elements),

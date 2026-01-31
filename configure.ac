@@ -318,24 +318,6 @@ AC_ARG_ENABLE([perl-xs],
 AC_ARG_ENABLE([using-c-texi2any],
     AS_HELP_STRING([--enable-using-c-texi2any],[Install texi2any program implemented in C if built]))
 
-AC_ARG_WITH([swig],
-   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: no)]))
-
-AC_ARG_ENABLE([perl-install-mode],
-    AS_HELP_STRING([--enable-perl-install-mode],[Perl SWIG interface install mode site/vendor/custom (default: site)]))
-
-AC_ARG_ENABLE([installsitearch],
-    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl default)]))
-
-AC_ARG_ENABLE([installsitelib],
-    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl default)]))
-
-AC_ARG_ENABLE([installvendorarch],
-    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl default)]))
-
-AC_ARG_ENABLE([installvendorlib],
-    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl default)]))
-
 # This is useful on platforms where gettext functions are present, but
 # setting the locale through LANGUAGE is not implemented.
 # It is possible to manually set --enable-xs-perl-libintl to use libintl-perl
@@ -439,6 +421,24 @@ if test "x$host_is_windows" = "xyes" ; then
 fi
 AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 
+# For SWIG
+AC_ARG_WITH([swig],
+   AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: no)]))
+
+AC_ARG_ENABLE([perl-install-mode],
+    AS_HELP_STRING([--enable-perl-install-mode],[Perl SWIG interface install mode site/vendor/custom (default: site)]))
+
+AC_ARG_ENABLE([installsitearch],
+    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl default)]))
+
+AC_ARG_ENABLE([installsitelib],
+    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl default)]))
+
+AC_ARG_ENABLE([installvendorarch],
+    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl default)]))
+
+AC_ARG_ENABLE([installvendorlib],
+    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl default)]))
 
 # The config files to generate.
 AC_CONFIG_FILES([\
