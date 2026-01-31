@@ -296,6 +296,46 @@ sub get_titlepage_publication_info($) {
   return $result;
 }
 
+sub _comma_index_subentries_tree($$$);
+sub _comma_index_subentries_tree($$$) {
+  my ($current, $separator, $results) = @_;
+
+  my $line_arg = $current->{'contents'}->[0];
+  foreach my $content (@{$line_arg->{'contents'}}) {
+    if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'subentry') {
+      push @$results, Texinfo::TreeElement::new({'text' => $separator,
+                                               'type' => 'other_text'});
+      _comma_index_subentries_tree($content, $separator, $results);
+    } else {
+      push @$results, $content;
+    }
+  }
+}
+
+# index sub-entries specified with @subentry, separated by commas, or by
+# $SEPARATOR, if set
+sub comma_index_subentries_tree($;$) {
+  my ($current, $separator) = @_;
+
+  $separator = ', ' if (!defined($separator));
+
+  my @contents;
+  # start with the first subentry in the index entry
+  my $line_arg = $current->{'contents'}->[0];
+  foreach my $content (@{$line_arg->{'contents'}}) {
+    if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'subentry') {
+      push @contents, Texinfo::TreeElement::new({'text' => $separator,
+                                                 'type' => 'other_text'});
+      _comma_index_subentries_tree($content, $separator, \@contents);
+    }
+  }
+
+  if (scalar(@contents)) {
+    return Texinfo::TreeElement::new({'contents' => \@contents});
+  }
+  return undef;
+}
+
 sub definition_arguments_content($) {
   my $element = shift;
 
@@ -792,6 +832,15 @@ argument is passed to the translation function.
 
 This function returns the heading with a number and the appendix part if
 needed.
+
+=item $contents_element = comma_index_subentries_tree($entry, $separator)
+X<C<comma_index_subentries_tree>>
+
+I<$entry> is a Texinfo tree index entry element. The function sets up
+an array with the C<@subentry> contents.  The result is returned as
+C<contents> in the I<$contents_element> element, or C<undef> if there is no
+such content.  I<$separator> is an optional separator argument used, if given,
+instead of the default: a comma followed by a space.
 
 =item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 X<C<definition_arguments_content>>

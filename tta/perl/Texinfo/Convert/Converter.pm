@@ -1850,48 +1850,6 @@ sub convert_accents($$$;$$) {
   return $result;
 }
 
-sub _comma_index_subentries_tree($$$$);
-sub _comma_index_subentries_tree($$$$)
-{
-  my ($self, $current, $separator, $results) = @_;
-
-  my $line_arg = $current->{'contents'}->[0];
-  foreach my $content (@{$line_arg->{'contents'}}) {
-    if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'subentry') {
-      push @$results, Texinfo::TreeElement::new({'text' => $separator,
-                                               'type' => 'other_text'});
-      _comma_index_subentries_tree($self, $content, $separator, $results);
-    } else {
-      push @$results, $content;
-    }
-  }
-}
-
-# index sub-entries specified with @subentry, separated by commas, or by
-# $SEPARATOR, if set
-# TODO remove self.  Put in Convert::Utils?
-sub comma_index_subentries_tree($$;$) {
-  my ($self, $current, $separator) = @_;
-
-  $separator = ', ' if (!defined($separator));
-
-  my @contents;
-  # start with the first subentry in the index entry
-  my $line_arg = $current->{'contents'}->[0];
-  foreach my $content (@{$line_arg->{'contents'}}) {
-    if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'subentry') {
-      push @contents, Texinfo::TreeElement::new({'text' => $separator,
-                                                 'type' => 'other_text'});
-      _comma_index_subentries_tree($self, $content, $separator, \@contents);
-    }
-  }
-
-  if (scalar(@contents)) {
-    return Texinfo::TreeElement::new({'contents' => \@contents});
-  }
-  return undef;
-}
-
 sub get_converter_indices_sorted_by_letter($) {
   my $self = shift;
 
@@ -2905,15 +2863,6 @@ used in converters that do not inherit from C<Texinfo::Convert::Converter>, see
 L<Texinfo::Convert::Utils>.
 
 =over
-
-=item $contents_element = $converter->comma_index_subentries_tree($entry, $separator)
-X<C<comma_index_subentries_tree>>
-
-I<$entry> is a Texinfo tree index entry element. The function sets up
-an array with the C<@subentry> contents.  The result is returned as
-C<contents> in the I<$contents_element> element, or C<undef> if there is no
-such content.  I<$separator> is an optional separator argument used, if given,
-instead of the default: a comma followed by a space.
 
 =item $succeeded = $converter->create_destination_directory($destination_directory_path, $destination_directory_name)
 X<C<create_destination_directory>>

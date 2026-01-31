@@ -200,10 +200,6 @@ char *convert_accents (CONVERTER *self, const ELEMENT *accent,
   int output_encoded_characters,
   int set_case);
 
-ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current,
-                                           char *separator);
-void free_comma_index_subentries_tree (ELEMENT_LIST *element);
-
 INDEX_SORTED_BY_INDEX *get_converter_indices_sorted_by_index (CONVERTER *self,
                                                              char **language);
 INDEX_SORTED_BY_LETTER *get_converter_indices_sorted_by_letter

@@ -55,6 +55,7 @@
 #include "unicode.h"
 /* convert_to_text */
 #include "convert_to_text.h"
+/* comma_index_subentries_tree ... */
 #include "convert_utils.h"
 #include "call_html_perl_function.h"
 /* for unregister_document_merge_with_document

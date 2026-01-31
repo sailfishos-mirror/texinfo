@@ -6236,7 +6236,7 @@ sub _convert_printindex_command($$$$) {
           if ($subentry_level >= $subentries_max_level) {
             # at the max, concatenate the remaining subentries
             my $other_subentries_tree
-              = $self->comma_index_subentries_tree($subentry);
+              = Texinfo::Convert::Utils::comma_index_subentries_tree($subentry);
             if (defined($other_subentries_tree)) {
               if (defined($subentry_tree)) {
                 push @{$subentry_tree->{'contents'}},
@@ -10882,7 +10882,8 @@ sub _prepare_index_entries_targets($) {
            {'contents' => [$entry_reference_content_element]});
 
         my $subentries_tree
-         = $self->comma_index_subentries_tree($main_entry_element, ' ');
+         = Texinfo::Convert::Utils::comma_index_subentries_tree(
+                                               $main_entry_element, ' ');
 
         if (defined($subentries_tree)) {
           push @{$normalize_index_element->{'contents'}},
@@ -12857,7 +12858,8 @@ sub output_internal_links($) {
             = Texinfo::Common::index_content_element($main_entry_element);
           my @contents = ($entry_reference_content_element);
           my $subentries_tree
-            = $self->comma_index_subentries_tree($main_entry_element);
+            = Texinfo::Convert::Utils::comma_index_subentries_tree(
+                                                     $main_entry_element);
           if (defined($subentries_tree)) {
             push @contents, @{$subentries_tree->{'contents'}};
           }

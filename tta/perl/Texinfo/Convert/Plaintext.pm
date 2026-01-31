@@ -50,7 +50,6 @@ use Texinfo::Structuring;
 use Texinfo::OutputUnits;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
-use Texinfo::Convert::Utils;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::Paragraph qw(add_end_sentence add_next add_pending_word
        add_text allow_end_sentence end_line remove_end_sentence
@@ -1945,7 +1944,8 @@ sub process_printindex($$;$) {
     my $entry_tree
      = Texinfo::TreeElement::new({'contents' => [$entry_content_element]});
     my $subentries_tree
-       = $self->comma_index_subentries_tree($main_entry_element);
+       = Texinfo::Convert::Utils::comma_index_subentries_tree(
+                                                   $main_entry_element);
     if ($indices_information->{$entry_index_name}->{'in_code'}) {
       $entry_tree->{'type'} = '_code';
       $subentries_tree->{'type'} = '_code'

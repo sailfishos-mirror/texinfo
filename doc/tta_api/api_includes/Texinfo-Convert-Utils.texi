@@ -55,6 +55,16 @@ argument is passed to the translation function.
 This function returns the heading with a number and the appendix part if
 needed.
 
+@item $contents_element = comma_index_subentries_tree($entry, $separator)
+@anchor{Texinfo@asis{::}Convert@asis{::}Utils $contents_element = comma_index_subentries_tree($entry@comma{} $separator)}
+@cindex @code{comma_index_subentries_tree}
+
+@emph{$entry} is a Texinfo tree index entry element. The function sets up
+an array with the @code{@@subentry} contents.  The result is returned as
+@code{contents} in the @emph{$contents_element} element, or @code{undef} if there is no
+such content.  @emph{$separator} is an optional separator argument used, if given,
+instead of the default: a comma followed by a space.
+
 @item ($category, $class, $type, $name, $arguments) = definition_arguments_content($element)
 @anchor{Texinfo@asis{::}Convert@asis{::}Utils ($category@comma{} $class@comma{} $type@comma{} $name@comma{} $arguments) = definition_arguments_content($element)}
 @cindex @code{definition_arguments_content}

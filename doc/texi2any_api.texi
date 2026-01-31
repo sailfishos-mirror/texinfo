@@ -5828,9 +5828,8 @@ Texinfo::Convert::Converter::table_item_content_tree, texi2any_internals}.
 Can be called as @code{$converter->table_item_content_tree}.
 
 @item @code{@@*index} @code{@@subentry}
-@xref{Texinfo::Convert::Converter $contents_array $converter->comma_index_subentries_tree($entry),,
-Texinfo::Convert::Converter::comma_index_subentries_tree, texi2any_internals}.
-Can be called as @code{$converter->comma_index_subentries_tree}.
+@xref{Texinfo@asis{::}Convert@asis{::}Utils $contents_element = comma_index_subentries_tree($entry@comma{} $separator),,
+@code{Texinfo::Convert::Utils::comma_index_subentries_tree}, texi2any_internals}.
 
 @item global informative commands (@code{@@contents}, @code{@@footnotestyle} @enddots{})
 @xref{Texinfo::Common set_informative_command_value($configuration_information@comma{} $element),,

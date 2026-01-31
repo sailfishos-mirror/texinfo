@@ -731,16 +731,6 @@ used in converters that do not inherit from @code{Texinfo::Convert::Converter}, 
 @ref{Texinfo@asis{::}Convert@asis{::}Utils NAME,, Texinfo::Convert::Utils}.
 
 @table @asis
-@item $contents_element = $converter->comma_index_subentries_tree($entry, $separator)
-@anchor{Texinfo@asis{::}Convert@asis{::}Converter $contents_element = $converter->comma_index_subentries_tree($entry@comma{} $separator)}
-@cindex @code{comma_index_subentries_tree}
-
-@emph{$entry} is a Texinfo tree index entry element. The function sets up
-an array with the @code{@@subentry} contents.  The result is returned as
-@code{contents} in the @emph{$contents_element} element, or @code{undef} if there is no
-such content.  @emph{$separator} is an optional separator argument used, if given,
-instead of the default: a comma followed by a space.
-
 @item $succeeded = $converter->create_destination_directory($destination_directory_path, $destination_directory_name)
 @anchor{Texinfo@asis{::}Convert@asis{::}Converter $succeeded = $converter->create_destination_directory($destination_directory_path@comma{} $destination_directory_name)}
 @cindex @code{create_destination_directory}

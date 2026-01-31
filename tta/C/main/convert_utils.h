@@ -41,6 +41,10 @@ DOCUMENT_INFO *get_document_documentinfo (DOCUMENT *document);
 DOCUMENT_INFO *get_titlepage_publication_info (DOCUMENT *document);
 void destroy_document_info (DOCUMENT_INFO *document_info);
 
+ELEMENT_LIST *comma_index_subentries_tree (const ELEMENT *current,
+                                           char *separator);
+void free_comma_index_subentries_tree (ELEMENT_LIST *element);
+
 ELEMENT *expand_today (int test, LANG_TRANSLATION *lang_translation,
               int debug, CONVERTER *converter,
    ELEMENT * (*cdt_tree_fn) (const char *string, CONVERTER *self,
