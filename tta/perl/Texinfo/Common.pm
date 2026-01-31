@@ -277,11 +277,11 @@ foreach my $valid_transformation (
   $valid_tree_transformations{$valid_transformation} = 1;
 }
 
-sub valid_tree_transformation ($) {
+sub valid_tree_transformation($) {
   my $transformation = shift;
 
   return 1 if (defined($transformation)
-               and $valid_tree_transformations{$transformation});
+               and exists($valid_tree_transformations{$transformation}));
   return 0;
 }
 
@@ -504,7 +504,7 @@ sub ultimate_index($$) {
 sub relocate_source_marks($$$$) {
   my $source_marks = shift;
 
-  return undef if (!$source_marks);
+  return undef if (!defined($source_marks));
 
   my ($e, $begin_position, $added_len) = @_;
 

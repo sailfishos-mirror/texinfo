@@ -101,10 +101,9 @@ sub import {
   goto &Exporter::import;
 }
 
-sub _sort_key($$)
-{
-  my $a = shift;
-  my $b = shift;
+sub _sort_key($$) {
+  my ($a, $b) = @_;
+
   my ($a_value, $a_alpha) = @$a;
   my ($b_value, $b_alpha) = @$b;
   if ($a_alpha == $b_alpha) {
@@ -113,10 +112,8 @@ sub _sort_key($$)
   return $a_alpha <=> $b_alpha;
 }
 
-sub _sort_index_entries($$)
-{
-  my $key1 = shift;
-  my $key2 = shift;
+sub _sort_index_entries($$) {
+  my ($key1, $key2) = @_;
 
   my $key_index = 0;
   # the keys array corresponds to the main entry and subentries
@@ -144,8 +141,7 @@ sub _sort_index_entries($$)
 }
 
 # Only called from converters
-sub setup_index_entry_keys_formatting($)
-{
+sub setup_index_entry_keys_formatting($) {
   my $customization_information = shift;
 
   my $text_options;
@@ -167,17 +163,13 @@ sub setup_index_entry_keys_formatting($)
 
 # can be used for subentries.
 # $DOCUMENT_INFO is used in XS to retrieve the document.
-sub index_entry_element_sort_string($$$$;$)
-{
-  my $document_info = shift;
-  my $main_entry = shift;
-  my $index_entry_element = shift;
-  my $options = shift;
-  my $prefer_reference_element = shift;
+sub index_entry_element_sort_string($$$$;$) {
+  my ($document_info, $main_entry, $index_entry_element, $options,
+      $prefer_reference_element) = @_;
 
   my $sort_string;
-  if ($index_entry_element->{'extra'}
-      and defined($index_entry_element->{'extra'}->{'sortas'})) {
+  if (exists($index_entry_element->{'extra'})
+      and exists($index_entry_element->{'extra'}->{'sortas'})) {
     $sort_string = $index_entry_element->{'extra'}->{'sortas'};
   } else {
     my $entry_tree_element
@@ -221,18 +213,15 @@ sub new($%) {
 }
 
 sub getSortKey($$) {
-  my $self = shift;
-  my $string = shift;
+  my ($self, $string) = @_;
 
   return $string;
 }
 
 package Texinfo::Indices;
 
-sub _setup_collator($$)
-{
-  my $use_unicode_collation = shift;
-  my $locale_lang = shift;
+sub _setup_collator($$) {
+  my ($use_unicode_collation, $locale_lang) = @_;
 
   my $collator;
 
@@ -294,15 +283,11 @@ sub _setup_collator($$)
 # Not documented, no XS, as, in general, it should not be called directly, but
 # through Texinfo::Document::indices_sort_strings that caches the
 # result in the document, itself, in general, called through sorting functions.
-sub setup_index_entries_sort_strings($$$$;$)
-{
-  my $document = shift;
-  my $converter = shift;
-  my $index_entries = shift;
-  my $indices_information = shift;
-  my $prefer_reference_element = shift;
+sub setup_index_entries_sort_strings($$$$;$) {
+  my ($document, $converter, $index_entries, $indices_information,
+      $prefer_reference_element) = @_;
 
-  return undef unless ($index_entries);
+  return undef unless (defined($index_entries));
 
   my $document_info;
 
@@ -407,12 +392,12 @@ sub setup_index_entries_sort_strings($$$$;$)
 # that were used to sort them.
 # Used in tests, but not documented, as it is unlikely for this function
 # to be of any direct use for users.
-sub format_index_entries_sort_strings($)
-{
+sub format_index_entries_sort_strings($) {
   my $indices_sort_strings = shift;
+
   my $index_entries_sort_strings = {};
 
-  return $index_entries_sort_strings unless ($indices_sort_strings);
+  return $index_entries_sort_strings unless (defined($indices_sort_strings));
 
   foreach my $index_name (keys(%$indices_sort_strings)) {
     foreach my $index_entry (@{$indices_sort_strings->{$index_name}}) {
@@ -424,12 +409,10 @@ sub format_index_entries_sort_strings($)
   return $index_entries_sort_strings;
 }
 
-sub _setup_sortable_index_entries($$)
-{
-  my $collator = shift;
-  my $indices_sort_strings = shift;
+sub _setup_sortable_index_entries($$) {
+  my ($collator, $indices_sort_strings) = @_;
 
-  return undef unless ($indices_sort_strings);
+  return undef unless (defined($indices_sort_strings));
 
   my $index_sortable_index_entries = {};
   foreach my $index_name (keys(%$indices_sort_strings)) {
@@ -463,12 +446,8 @@ sub _setup_sortable_index_entries($$)
   return $index_sortable_index_entries;
 }
 
-sub _setup_sort_sortable_strings_collator($$$$)
-{
-  my $document = shift;
-  my $converter = shift;
-  my $use_unicode_collation = shift;
-  my $locale_lang = shift;
+sub _setup_sort_sortable_strings_collator($$$$) {
+  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
 
   # simple wrapper around setup_index_entries_sort_strings that caches the
   # result
@@ -484,19 +463,15 @@ sub _setup_sort_sortable_strings_collator($$$$)
 }
 
 # Normally called through Texinfo::Document::sorted_indices_by_index only
-sub sort_indices_by_index($$;$$)
-{
-  my $document = shift;
-  my $converter = shift;
-  my $use_unicode_collation = shift;
-  my $locale_lang = shift;
+sub sort_indices_by_index($$;$$) {
+  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
 
   my ($index_sortable_index_entries, $collator)
      = _setup_sort_sortable_strings_collator($document,
                        $converter, $use_unicode_collation,
                        $locale_lang);
 
-  if (!$index_sortable_index_entries) {
+  if (!defined($index_sortable_index_entries)) {
     return undef;
   }
 
@@ -515,14 +490,12 @@ sub sort_indices_by_index($$;$$)
 # NOTE quotes and dash are not handled especially and it is not known
 # if the text was in code or not.
 sub _idx_leading_text_or_command($$);
-sub _idx_leading_text_or_command($$)
-{
-  my $tree = shift;
-  my $ignore_chars = shift;
+sub _idx_leading_text_or_command($$) {
+  my ($tree, $ignore_chars) = @_;
 
-  return (undef, undef) if (!$tree->{'contents'});
+  return (undef, undef) if (!exists($tree->{'contents'}));
   foreach my $content (@{$tree->{'contents'}}) {
-    if (defined($content->{'text'})) {
+    if (exists($content->{'text'})) {
       if ($content->{'text'} =~ /\S/) {
         my $result_text = $content->{'text'};
         $result_text =~ s/^\s*//;
@@ -537,45 +510,44 @@ sub _idx_leading_text_or_command($$)
       }
     }
 
-    if ($content->{'cmdname'}) {
+    if (exists($content->{'cmdname'})) {
       my $cmdname = $content->{'cmdname'};
-      if ($Texinfo::Commands::formatted_nobrace_commands{$cmdname}) {
+      if (exists($Texinfo::Commands::formatted_nobrace_commands{$cmdname})) {
         next if (defined($ignore_chars) and $cmdname eq '@'
                  and $ignore_chars =~ /\@/);
         return (undef, $content);
       } else {
         my $brace_command_type = $Texinfo::Commands::brace_commands{$cmdname};
         if (defined($brace_command_type)) {
-          if ($Texinfo::Commands::non_formatted_brace_commands{$cmdname}
+          if (exists($Texinfo::Commands::non_formatted_brace_commands{$cmdname})
               or $cmdname eq 'footnote' or $cmdname eq 'dmn'
               or $cmdname eq 'value'
-              or $Texinfo::Commands::in_index_commands{$cmdname}) {
+              or exists($Texinfo::Commands::in_index_commands{$cmdname})) {
             next;
           } elsif ($brace_command_type eq 'accent'
               or $brace_command_type eq 'noarg'
               or $cmdname eq 'U') {
             return (undef, $content);
           } elsif ($brace_command_type ne 'inline') {
-            if ($content->{'contents'}
-                and scalar(@{$content->{'contents'}})) {
+            if (exists($content->{'contents'})) {
               return _idx_leading_text_or_command($content->{'contents'}->[0],
                                                   $ignore_chars);
             }
           } else {
-            if (defined($content->{'extra'})
+            if (exists($content->{'extra'})
                 and defined($content->{'extra'}->{'expand_index'})) {
               return _idx_leading_text_or_command($content->{'contents'}
                              ->[$content->{'extra'}->{'expand_index'}],
                                                   $ignore_chars);
             }
           }
-        } elsif ($Texinfo::Commands::formatted_line_commands{$cmdname}
+        } elsif (exists($Texinfo::Commands::formatted_line_commands{$cmdname})
                  and $cmdname ne 'page') {
           return _idx_leading_text_or_command($content->{'contents'}->[0],
                                               $ignore_chars);
         }
       }
-    } elsif ($content->{'contents'}) {
+    } elsif (exists($content->{'contents'})) {
       return _idx_leading_text_or_command($content, $ignore_chars);
     }
   }
@@ -584,8 +556,7 @@ sub _idx_leading_text_or_command($$)
 
 # Return the leading text or textual command that could be used
 # for sorting.
-sub index_entry_first_letter_text_or_command($;$)
-{
+sub index_entry_first_letter_text_or_command($;$) {
   my $index_entry = shift;
   # only used for debugging
   #my $entry_key = shift;
@@ -595,21 +566,21 @@ sub index_entry_first_letter_text_or_command($;$)
   }
 
   my $index_entry_element = $index_entry->{'entry_element'};
-  if ($index_entry_element->{'extra'}
+  if (exists($index_entry_element->{'extra'})
       and defined($index_entry_element->{'extra'}->{'sortas'})) {
     return ($index_entry_element->{'extra'}->{'sortas'}, undef);
   } else {
     my $entry_tree_element = Texinfo::Common::index_content_element(
                                                  $index_entry_element, 0);
     my $ignore_chars;
-    if ($index_entry_element->{'extra'}
+    if (exists($index_entry_element->{'extra'})
         and defined($index_entry_element->{'extra'}
                                             ->{'index_ignore_chars'})) {
       $ignore_chars = quotemeta($index_entry_element->{'extra'}
                                             ->{'index_ignore_chars'});
     }
     my $parsed_element;
-    if (!$entry_tree_element->{'contents'}) {
+    if (!exists($entry_tree_element->{'contents'})) {
       $parsed_element
         = Texinfo::TreeElement::new({'contents' => [$entry_tree_element]});
     } else {
@@ -633,19 +604,15 @@ sub index_entry_first_letter_text_or_command($;$)
 }
 
 # Normally called through Texinfo::Document::sorted_indices_by_letter only
-sub sort_indices_by_letter($$;$$)
-{
-  my $document = shift;
-  my $converter = shift;
-  my $use_unicode_collation = shift;
-  my $locale_lang = shift;
+sub sort_indices_by_letter($$;$$) {
+  my ($document, $converter, $use_unicode_collation, $locale_lang) = @_;
 
   my ($index_sortable_index_entries, $collator)
      = _setup_sort_sortable_strings_collator($document,
                        $converter, $use_unicode_collation,
                        $locale_lang);
 
-  if (!$index_sortable_index_entries) {
+  if (!defined($index_sortable_index_entries)) {
     return undef;
   }
 
@@ -693,8 +660,7 @@ sub sort_indices_by_letter($$;$$)
 }
 
 # Normally called through Texinfo::Document::merged_indices only
-sub merge_indices($)
-{
+sub merge_indices($) {
   my $indices_information = shift;
 
   my $merged_index_entries;
@@ -717,11 +683,10 @@ sub merge_indices($)
 
 # textual representation on indices themselves (not on the index entries)
 # used in tests
-sub print_indices_information($)
-{
+sub print_indices_information($) {
   my $indices_information = shift;
 
-  return undef if (!$indices_information);
+  return undef if (!defined($indices_information));
 
   my @sorted_indices = sort(keys(%$indices_information));
 

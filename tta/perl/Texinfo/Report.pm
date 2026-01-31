@@ -41,17 +41,17 @@ my $messages_textdomain = 'texinfo';
 # obtain those functions, they are defined here
 sub __($) {
   my $msgid = shift;
+
   return Locale::Messages::dgettext($messages_textdomain, $msgid);
 }
 
 sub __p($$) {
-  my $context = shift;
-  my $msgid = shift;
+  my ($context, $msgid) = @_;
+
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
 }
 
-sub count_errors($)
-{
+sub count_errors($) {
   my $error_messages_list = shift;
 
   my $error_nr = 0;
@@ -64,13 +64,8 @@ sub count_errors($)
 }
 
 # Used in generic converter API.
-sub format_line_message($$$$;$)
-{
-  my $type = shift;
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
-  my $warn = shift;
+sub format_line_message($$$$;$) {
+  my ($type, $text, $error_location_info, $continuation, $warn) = @_;
 
   if (!defined($error_location_info)) {
     cluck("BUG: format_line_message: error_location_info undef");
@@ -79,7 +74,7 @@ sub format_line_message($$$$;$)
 
   my $message_line;
 
-  if (defined($error_location_info->{'macro'})) {
+  if (exists($error_location_info->{'macro'})) {
     if ($type eq 'warning') {
       $message_line = sprintf(__p("Texinfo source file warning in macro",
                                "warning: %s (possibly involving \@%s)")."\n",
@@ -100,24 +95,20 @@ sub format_line_message($$$$;$)
   }
   warn $message_line if ($warn);
   my %location_info = %{$error_location_info};
-  delete $location_info{'file_name'} if (exists ($location_info{'file_name'})
+  # TODO check if it can happen
+  delete $location_info{'file_name'} if (exists($location_info{'file_name'})
                                   and not defined($location_info{'file_name'}));
   my $result
     = { 'type' => $type, 'text' => $text, 'error_line' => $message_line,
          %location_info };
-  $result->{'continuation'} = $continuation if ($continuation);
+  $result->{'continuation'} = $continuation if (defined($continuation));
   return $result;
 }
 
 
 # format a line warning
-sub line_warn($$;$$$)
-{
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
-  my $debug = shift;
-  my $silent = shift;
+sub line_warn($$;$$$) {
+  my ($text, $error_location_info, $continuation, $debug, $silent) = @_;
 
   if (!defined($error_location_info)) {
     cluck("BUG: line_warn: error_location_info undef");
@@ -132,13 +123,8 @@ sub line_warn($$;$$$)
   return $warning;
 }
 
-sub line_error($$;$$$)
-{
-  my $text = shift;
-  my $error_location_info = shift;
-  my $continuation = shift;
-  my $debug = shift;
-  my $silent = shift;
+sub line_error($$;$$$) {
+  my ($text, $error_location_info, $continuation, $debug, $silent) = @_;
 
   if (!defined($error_location_info)) {
     cluck("BUG: line_error: error_location_info undef");
@@ -152,12 +138,8 @@ sub line_error($$;$$$)
   return $error;
 }
 
-sub format_document_message($$;$$)
-{
-  my $type = shift;
-  my $text = shift;
-  my $program_name = shift;
-  my $continuation = shift;
+sub format_document_message($$;$$) {
+  my ($type, $text, $program_name, $continuation) = @_;
 
   my $message_line;
   if (defined($program_name)) {
@@ -176,27 +158,22 @@ sub format_document_message($$;$$)
       $message_line = "$text\n";
     }
   }
-  my $result = { 'type' => $type, 'text' => $text, 'error_line' => $message_line };
+  my $result = { 'type' => $type, 'text' => $text,
+                  'error_line' => $message_line };
   $result->{'continuation'} = $continuation if ($continuation);
   return $result;
 }
 
-sub document_warn($;$$)
-{
-  my $text = shift;
-  my $program_name = shift;
-  my $continuation = shift;
+sub document_warn($;$$) {
+  my ($text, $program_name, $continuation) = @_;
 
   my $warning = format_document_message('warning', $text, $program_name,
                                         $continuation);
   return $warning;
 }
 
-sub document_error($;$$)
-{
-  my $text = shift;
-  my $program_name = shift;
-  my $continuation = shift;
+sub document_error($;$$) {
+  my ($text, $program_name, $continuation) = @_;
 
   my $error = format_document_message('error', $text, $program_name,
                                       $continuation);
@@ -214,7 +191,7 @@ sub print_source_info_details($;$$) {
 
   my $line_nr = $source_info->{'line_nr'};
   my $macro = $source_info->{'macro'};
-  if (defined($source_info->{'file_name'})) {
+  if (exists($source_info->{'file_name'})) {
     my $file_name = $source_info->{'file_name'};
     if ($use_filename) {
       my ($directories, $suffix);

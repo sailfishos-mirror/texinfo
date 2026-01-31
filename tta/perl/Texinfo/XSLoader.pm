@@ -102,6 +102,7 @@ sub set_XS_parser_loaded($) {
 # For verbose information about what's being done
 sub _debug($) {
   my $msg = shift;
+
   if ($TEXINFO_XS eq 'debug') {
     warn $msg . "\n";
   }
@@ -110,6 +111,7 @@ sub _debug($) {
 # For messages to say that XS module couldn't be loaded
 sub _message($) {
   my $msg = shift;
+
   if ($TEXINFO_XS eq 'debug'
       or $TEXINFO_XS eq 'required'
       or $TEXINFO_XS eq 'warn'
@@ -122,7 +124,8 @@ sub _message($) {
 # which modules are used using -I flags to "perl".
 sub _find_file_in_inc($) {
   my $file = shift;
-  for my $dir (@INC) {
+
+  foreach my $dir (@INC) {
     next if (ref($dir) ne '');
     _debug("checking $dir/$file");
     if (-f "$dir/$file") {
@@ -428,7 +431,7 @@ sub init {
 my $XS_disable_for_override_error_output;
 
 # Override subroutine $TARGET with $SOURCE.
-sub override {
+sub override($$) {
   my ($target, $source) = @_;
 
   if ($disable_XS) {

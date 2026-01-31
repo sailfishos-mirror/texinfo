@@ -149,8 +149,7 @@ sub _GNUT_encode_message($) {
 }
 
 # duplicated from texi2any.pl
-sub _GNUT_decode_input($)
-{
+sub _GNUT_decode_input($) {
   my $text = shift;
 
   my $encoding = texinfo_get_conf('COMMAND_LINE_ENCODING');
@@ -383,8 +382,7 @@ sub texinfo_remove_from_option_list($$) {
 # Texinfo::MainConfig package below, but it should not be accessed/used
 # in user defined code (and the Texinfo::MainConfig interface
 # is therefore undocumented).
-sub texinfo_get_conf($)
-{
+sub texinfo_get_conf($) {
   my $var = shift;
 
   confess("BUG: texinfo_get_conf: undef \$cmdline_options."
@@ -448,7 +446,7 @@ sub texinfo_register_handler($$;$) {
   my ($stage, $handler, $priority) = @_;
 
   if (!$GNUT_stage_handlers->{$stage}) {
-    carp ("Unknown stage $stage\n");
+    carp("Unknown stage $stage\n");
     return 0;
   }
   $priority = $default_priority if (!defined($priority));

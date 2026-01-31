@@ -40,40 +40,33 @@ my %defaults = (
   'OUTFILE' => '-',
 );
 
-sub converter_defaults($$)
-{
+sub converter_defaults($$) {
   return \%defaults;
 }
 
-sub output($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub output($$) {
+  my ($self, $document) = @_;
 
   return $self->output_tree($document);
 }
 
-sub convert($$)
-{
-  my $self = shift;
-  my $document = shift;
+sub convert($$) {
+  my ($self, $document) = @_;
 
   my $root = $document->tree();
 
   return _print_tree($root);
 }
 
-sub convert_tree($$)
-{
-  my $self = shift;
-  my $root = shift;
+sub convert_tree($$) {
+  my ($self, $root) = @_;
 
   return _print_tree($root);
 }
 
-sub _protect_text($)
-{
+sub _protect_text($) {
   my $text = shift;
+
   $text =~ s/\n/\\n/g;
   $text =~ s/\f/\\f/g;
   $text =~ s/\r/\\r/g;
@@ -82,11 +75,8 @@ sub _protect_text($)
 
 sub _print_tree($;$$);
 
-sub _print_tree($;$$)
-{
-  my $element = shift;
-  my $level = shift;
-  my $argument = shift;
+sub _print_tree($;$$) {
+  my ($element, $level, $argument) = @_;
 
   $level = 0 if (!defined($level));
 
@@ -95,39 +85,41 @@ sub _print_tree($;$$)
     $result .= '%';
     $level++;
   }
-  if ($element->{'cmdname'}) {
+  if (exists($element->{'cmdname'})) {
     $result .= "\@$element->{'cmdname'} ";
   }
-  if (defined($element->{'type'})) {
+  if (exists($element->{'type'})) {
     $result .= "$element->{'type'} ";
   }
-  if (defined($element->{'text'})) {
+  if (exists($element->{'text'})) {
     my $text = _protect_text($element->{'text'});
     $result .= "|$text|";
   }
-  if ($element->{'info'}
-      and defined($element->{'info'}->{'spaces_before_argument'})) {
+  if (exists($element->{'info'})
+      and exists($element->{'info'}->{'spaces_before_argument'})) {
     $result .= ' '
  .'b/'._protect_text($element->{'info'}->{'spaces_before_argument'}->{'text'})
     .'/';
   }
-  if ($element->{'info'}
-      and defined($element->{'info'}->{'spaces_after_argument'})) {
+  if (exists($element->{'info'})
+      and exists($element->{'info'}->{'spaces_after_argument'})) {
     $result .= ' '
   .'a/'._protect_text($element->{'info'}->{'spaces_after_argument'}->{'text'})
      .'/';
   }
   $result .= "\n";
-  if ($element->{'info'}
-      and defined($element->{'info'}->{'comment_at_end'})) {
+  if (exists($element->{'info'})
+      and exists($element->{'info'}->{'comment_at_end'})) {
     $result .= ' ' x ($level + 1).'/comment_at_end/'."\n";
     $result .= _print_tree($element->{'info'}->{'comment_at_end'},
                            $level +2);
   }
-  if ($element->{'contents'}) {
+  if (exists($element->{'contents'})) {
     foreach my $content (@{$element->{'contents'}}) {
       $result .= _print_tree($content, $level+1);
     }
   }
   return $result;
 }
+
+1;
