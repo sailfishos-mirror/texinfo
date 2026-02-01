@@ -59,14 +59,7 @@ Installation notes specific to Texinfo:
    appears in a document.  This is due to a limitation in the libc
    "gettext" interface.
 
-* The `texi2any' (makeinfo) program is a Perl program in the default case.
-  If you prefer a C implementation of the texi2any program, you can give
-  the --enable-using-c-texi2any flag to `configure'.  The C implementation will
-  only be actually used if all the prerequisites are found, which includes
-  a working iconv library, the possibility to embed a Perl interpreter
-  and enabled Perl extension modules, known as XS modules.
-
-* The Perl texi2any program can use extension (XS) modules.  The configure
+* The texi2any program can use extension (XS) modules.  The configure
   script will attempt to detect whether such modules can be built and
   loaded on your installation.  If you want to disable the use of XS modules,
   you can give the --disable-perl-xs flag to `configure'; likewise, to use
@@ -107,20 +100,13 @@ Installation notes specific to Texinfo:
   conversion step, you can set the `TEXINFO_XS_CONVERT' environment
   variable to 0.
 
-  The C texi2any implementation uses native code for the parsing and the
-  structure step.  For the conversion step, however, Perl code is often
-  needed, therefore the C texi2any implementation embeds a Perl interpreter
-  to call Perl code.  In that case, XS modules are always used.  It may
-  still be relevant to set TEXINFO_XS=debug to print additional information.
-
-* Native code (in the C implementation or in XS modules) get translations
-  for strings to be put in output files using libc gettext, using the
-  LANGUAGE variable.  If the gettext implementation (such as that on musl)
-  does not support this variable, this will not work and strings will not
-  be translated.  However, if you pass the --enable-xs-perl-libintl flag
-  to `configure', an alternative translation method is activated where C
-  code calls back into the Perl interpreter to get translations, which does
-  work.
+* Native code (in XS modules) get translations for strings to be put in
+  output files using libc gettext, using the LANGUAGE variable.  If the
+  gettext implementation (such as that on musl) does not support this
+  variable, this will not work and strings will not be translated.
+  However, if you pass the --enable-xs-perl-libintl flag to `configure',
+  an alternative translation method is activated where C code calls back
+  into the Perl interpreter to get translations, which does work.
 
 * The Info tree uses a file `dir' as its root node; the `dir-example'
   file in this distribution is included as a possible starting point.
