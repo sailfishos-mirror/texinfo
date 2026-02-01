@@ -893,10 +893,10 @@ my %formats_table = (
   'ixinsxml' => { # note that the Texinfo tree is converted to
                   # 'texinfosxml', but the conversion as a whole
                   # is 'ixinsxml', as Texinfo tree conversion is done
-                  # from within Texinfo::Convert::IXINSXML
+                  # from within Texinfo::Example::IXINSXML
              'nodes_tree' => 1,
              'setup_index_entries_sort_strings' => 1,
-             'module' => 'Texinfo::Convert::IXINSXML',
+             'module' => 'Texinfo::Example::IXINSXML',
              'floats' => 1,
            },
   'docbook' => {

@@ -119,8 +119,6 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/ConvertXS.pm \
  Texinfo/Convert/DocBook.pm \
  Texinfo/Convert/HTML.pm \
- Texinfo/Convert/IXIN.pm \
- Texinfo/Convert/IXINSXML.pm \
  Texinfo/Convert/Info.pm \
  Texinfo/Convert/LaTeX.pm \
  Texinfo/Convert/NodeNameNormalization.pm \
@@ -139,6 +137,8 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/Unicode.pm \
  Texinfo/Convert/Utils.pm \
  \
+ Texinfo/Example/IXIN.pm \
+ Texinfo/Example/IXINSXML.pm \
  Texinfo/Example/TestReader.pm \
  Texinfo/Example/TreeElementConverter.pm \
  Texinfo/Example/TreeElementConverterXS.pm \

@@ -31,7 +31,7 @@
 # that does so.  A module inheriting both from a converter module, for
 # convert_tree() and convert_output_unit(), and this module
 # should be used.  A functional implementation of IXIN is available as the
-# Texinfo::Convert::IXINSXML module which uses Texinfo::Convert::TexinfoSXML
+# Texinfo::Example::IXINSXML module which uses Texinfo::Convert::TexinfoSXML
 # for the Texinfo tree conversion.  Using a Texinfo tree converter that does
 # not lose information for Texinfo tree conversion in IXIN is in line with the
 # IXIN philosophy, so conversion modules like Texinfo::Convert::TexinfoXML or
@@ -61,7 +61,7 @@
 # and
 #  https://lists.gnu.org/archive/html/help-texinfo/2015-02/msg00004.html
 
-package Texinfo::Convert::IXIN;
+package Texinfo::Example::IXIN;
 
 use 5.006;
 use strict;
@@ -287,7 +287,7 @@ sub _associated_node_id($$$;$)
     if ($root_command) {
       if (!$root_command->{'cmdname'} or $root_command->{'cmdname'} ne 'node') {
         if ($output_unit
-            and $output_unit->{'unit_node'})
+            and $output_unit->{'unit_node'}) {
           $node_command = $output_unit->{'unit_node'}->{'element'};
         }
       } else {
@@ -443,7 +443,8 @@ sub output_ixin($$)
             = $Texinfo::Options::multiple_at_command_options{$global_command};
         }
         foreach my $command (@{$global_commands->{$global_command}}) {
-          my ($element, $root_command) = _get_element($self, $command);
+          my ($output_unit, $root_command)
+            = $self->_get_root_command_output_unit($command);
           # before first node
           if (not $root_command
               or not defined($root_command->{'extra'})
@@ -464,7 +465,7 @@ sub output_ixin($$)
   my %settings;
   foreach my $setting_command_name (keys(%setting_commands)) {
     my $setting_command = $setting_commands{$setting_command_name};
-    my $setting_command_name, $value
+    my ($setting_command_name, $value)
       = Texinfo::Common::informative_command_value($setting_command);
     #print STDERR "$setting_command_name $value\n";
     # do not register settings if set at the default value.
@@ -878,7 +879,7 @@ sub output_ixin($$)
         my $float_and_section = $floats->{$type}->[0];
         my ($float_element, $float_section) = @$float_and_section;
         if ($float_element->{'extra'}->{'float_type'} ne '') {
-          my $argument = $float_element->{'contents'}->[0]:
+          my $argument = $float_element->{'contents'}->[0];
           $floats_information{$type}->{'type'}
             = $self->convert_tree($argument->{'contents'}->[0]);
         }

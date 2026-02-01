@@ -18,24 +18,24 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
 #
-# This modules combines the Texinfo::Convert::IXIN module which
+# This modules combines the Texinfo::Example::IXIN module which
 # outputs the IXIN format and the Texinfo::Convert::TexinfoSXML
 # Texinfo tree converter, which converts Texinfo, and is called
-# from Texinfo::Convert::IXIN, to obtain a functional IXIN format
+# from Texinfo::Example::IXIN, to obtain a functional IXIN format
 # conversion implementation that can be called as a Texinfo converter.
 # See comments at the beginning of IXIN.pm for more information.
 
-package Texinfo::Convert::IXINSXML;
+package Texinfo::Example::IXINSXML;
 
 use 5.006;
 use strict;
 
 use Texinfo::Convert::TexinfoSXML;
-use Texinfo::Convert::IXIN;
+use Texinfo::Example::IXIN;
 
 use Carp qw(cluck);
 
-our @ISA = qw(Texinfo::Convert::TexinfoSXML Texinfo::Convert::IXIN);
+our @ISA = qw(Texinfo::Convert::TexinfoSXML Texinfo::Example::IXIN);
 
 our $VERSION = '7.2.90';
 
