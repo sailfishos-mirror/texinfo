@@ -1,5 +1,19 @@
 2026-02-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac, tta/perl/Makefile.am (ModulePath.pm),
+	tta/perl/Texinfo/ModulePath.pm.in ($build_C_code): pass build_C_code
+	instead of enable_txi_libraries.  Remove enable_txi_libraries.
+
+	* tta/perl/Texinfo/XSLoader.pm (BEGIN, $disable_C_libraries): set
+	$disable_C_libraries based on build_C_code.
+
+	* tta/perl/Texinfo/XSLoader.pm (init): handle especially the case of
+	defined($additional_libraries) and $disable_C_libraries.
+	Add FIXME as the TEXINFO_XS=requiredifenabled case is incorrect for
+	modules without fallback.
+
+2026-02-01 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/Makefile.am: use BUILD_C_CODE instead of
 	HAVE_ICONV, it should be clearer and more robust.
 

@@ -27,6 +27,9 @@ use DynaLoader;
 # Texinfo::ModulePath::enable_xs based on the previous configure+make
 our $disable_XS;
 
+# Currently not set elsewhere, but could be needed to be.
+our $disable_C_libraries;
+
 BEGIN {
   eval 'require Texinfo::ModulePath';
   if ($@ ne '') {
@@ -37,6 +40,9 @@ BEGIN {
   } else {
     if ($Texinfo::ModulePath::enable_xs eq 'no') {
       $disable_XS = 1;
+    }
+    if ($Texinfo::ModulePath::build_C_code eq 'no') {
+      $disable_C_libraries = 1;
     }
   }
 }
@@ -293,6 +299,8 @@ sub init {
                      or $Texinfo::ModulePath::texinfo_uninstalled);
 
   if (defined($additional_libraries)) {
+    # TODO if $disable_C_libraries is true, this is unlikely to succeed,
+    # we could shortcut this code.
     foreach my $additional_library_name (@{$additional_libraries}) {
       my $additional_library = 'lib' . $additional_library_name;
       # Note that we do not try to load again a library that didn't load
@@ -401,9 +409,16 @@ sub init {
       warn "falling back to pure Perl module $fallback_module\n";
     }
   } elsif ($TEXINFO_XS eq 'requiredifenabled') {
-    # An undefined module name should only happen based on the TEXINFO_XS_*
-    # environment variables values.
-    if (!defined($module_name) and !defined($fallback_module)) {
+    if (defined($additional_libraries) and $disable_C_libraries) {
+      # in that case, the loading of the module is expected to fail.
+      # FIXME expected failure when overriding a specific function
+      # if (!defined($fallback_module)) for modules without fallback.
+      # Cannot use _debug here...
+      #warn("No C libraries expected failure of loading $module_name\n");
+    } elsif (!defined($module_name) and !defined($fallback_module)) {
+      # An undefined module name should only happen based on the TEXINFO_XS_*
+      # environment variables values.
+      # FIXME expected failure for modules without fallback.
       die "extension disabled, no required fallback module for $module\n";
     }
   }

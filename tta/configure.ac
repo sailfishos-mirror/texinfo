@@ -358,16 +358,6 @@ LT_INIT([disable-static dlopen])
 AM_CONDITIONAL([HAVE_ICONV],
                [test "x$am_func_iconv" = "xyes"])
 
-
-# dependencies of the C parser and converters libraries
-enable_txi_libraries=no
-if test "x$am_func_iconv" = "xyes" ; then
-  enable_txi_libraries=yes
-fi
-
-AC_SUBST([enable_txi_libraries])
-
-
 # for tests
 txi_ICONV_CONVERTS_EUC_CN
 
@@ -615,6 +605,7 @@ if test "x$am_func_iconv" = "xyes"; then
 fi
 
 AM_CONDITIONAL([BUILD_C_CODE], [test "z$build_C_code" = zyes])
+AC_SUBST([build_C_code])
 
 AC_SUBST([perlarchdir])
 AC_SUBST([perllibdir])
