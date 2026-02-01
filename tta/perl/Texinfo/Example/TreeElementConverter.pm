@@ -60,7 +60,7 @@ use Texinfo::Convert::Utils;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.2.90';
+our $VERSION = '7.2.91';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

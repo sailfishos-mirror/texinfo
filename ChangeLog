@@ -1,3 +1,7 @@
+2026-02-01  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* configure.ac: bump version to 7.2.91.
+
 2026-02-01 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/XSLoader.pm (init): do not check $disable_XS in

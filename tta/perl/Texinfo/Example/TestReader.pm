@@ -26,7 +26,7 @@ use Texinfo::Convert::Converter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.2.90';
+our $VERSION = '7.2.91';
 
 sub _convert($$;$$) {
   my ($self, $tree, $fname_encoding, $use_filename) = @_;

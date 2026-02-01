@@ -9,7 +9,7 @@
 # WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
 # implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-AC_INIT([GNU Texinfo], [7.2.90])
+AC_INIT([GNU Texinfo], [7.2.91])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIRS([build-aux/m4 ../../m4])

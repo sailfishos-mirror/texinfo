@@ -66,7 +66,7 @@ our @EXPORT_OK = qw(
   string_width
 );
 
-our $VERSION = '7.2.90';
+our $VERSION = '7.2.91';
 
 my %unicode_accented_letters = %Texinfo::UnicodeData::unicode_accented_letters;
 my %unicode_to_eight_bit = %Texinfo::UnicodeData::unicode_to_eight_bit;

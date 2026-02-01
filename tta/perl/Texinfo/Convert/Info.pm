@@ -45,7 +45,7 @@ use Texinfo::Convert::Paragraph qw(add_next add_text get_pending
 
 our @ISA = qw(Texinfo::Convert::Plaintext);
 
-our $VERSION = '7.2.90';
+our $VERSION = '7.2.91';
 
 
 my $STDIN_DOCU_NAME = 'stdin';
