@@ -24,6 +24,10 @@ AC_SUBST([TEXINFO_DTD_VERSION])
 CONVERTER=texi2any
 AC_SUBST([CONVERTER])
 
+AC_PATH_PROG([PERL], [perl])
+
+AM_MISSING_PROG([GAWK], [gawk])
+
 USE_EXTERNAL_EASTASIANWIDTH=no
 AC_ARG_WITH([external-Unicode-EastAsianWidth],
    AS_HELP_STRING([--with-external-Unicode-EastAsianWidth],[use external Unicode-EastAsianWidth (default: no)]),
@@ -60,10 +64,6 @@ AC_ARG_ENABLE([additional-checks],
     [ enable_additional_tests=no])
 
 AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = zno])
-
-AC_PATH_PROG([PERL], [perl])
-
-AM_MISSING_PROG([GAWK], [gawk])
 
 AC_CANONICAL_HOST
 
@@ -525,7 +525,7 @@ AC_ARG_ENABLE([perl-install-mode],
 
 perl_installsitearch=
 AC_ARG_ENABLE([installsitearch],
-    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl config)]),
+    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl default)]),
     [
      if test "z$enableval" != z ; then
        perl_installsitearch=$enableval
@@ -534,7 +534,7 @@ AC_ARG_ENABLE([installsitearch],
 
 perl_installsitelib=
 AC_ARG_ENABLE([installsitelib],
-    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl config)]),
+    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl default)]),
     [
      if test "z$enableval" != z ; then
        perl_installsitelib=$enableval
@@ -543,7 +543,7 @@ AC_ARG_ENABLE([installsitelib],
 
 perl_installvendorarch=
 AC_ARG_ENABLE([installvendorarch],
-    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl config)]),
+    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl default)]),
     [
      if test "z$enableval" != z ; then
        perl_installvendorarch=$enableval
@@ -552,7 +552,7 @@ AC_ARG_ENABLE([installvendorarch],
 
 perl_installvendorlib=
 AC_ARG_ENABLE([installvendorlib],
-    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl config)]),
+    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl default)]),
     [
      if test "z$enableval" != z ; then
        perl_installvendorlib=$enableval

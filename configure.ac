@@ -315,9 +315,6 @@ AC_ARG_ENABLE([additional-checks],
 AC_ARG_ENABLE([perl-xs],
     AS_HELP_STRING([--enable-perl-xs],[build Perl XS modules for speed (default: check)]))
 
-AC_ARG_ENABLE([using-c-texi2any],
-    AS_HELP_STRING([--enable-using-c-texi2any],[Install texi2any program implemented in C if built]))
-
 # This is useful on platforms where gettext functions are present, but
 # setting the locale through LANGUAGE is not implemented.
 # It is possible to manually set --enable-xs-perl-libintl to use libintl-perl
@@ -325,6 +322,9 @@ AC_ARG_ENABLE([using-c-texi2any],
 AC_ARG_ENABLE([xs-perl-libintl],
     AS_HELP_STRING([--enable-xs-perl-libintl],
             [prefer Perl libintl-perl gettext in XS modules]))
+
+AC_ARG_ENABLE([using-c-texi2any],
+    AS_HELP_STRING([--enable-using-c-texi2any],[Install texi2any program implemented in C if built]))
 
 # Texinfo JS Interface
 npm_path="${srcdir}/js/node_modules/.bin"
