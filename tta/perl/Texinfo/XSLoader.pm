@@ -268,6 +268,10 @@ sub init {
     $TEXINFO_XS = '';
   }
 
+  if ($TEXINFO_XS eq 'requiredifenabled' and $disable_XS) {
+    $TEXINFO_XS = 'omit';
+  }
+
   if ($TEXINFO_XS eq 'omit') {
     # Don't try to use the XS module
     goto FALLBACK;

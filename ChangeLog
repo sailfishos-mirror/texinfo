@@ -1,5 +1,12 @@
 2026-02-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm (init): with
+	TEXINFO_XS=requiredifenabled, if XS is disabled, reset
+	TEXINFO_XS=omit.  Based on Gavin patch, used for requiredifenabled
+	and without ever setting $TEXINFO_XS to required.
+
+2026-02-01 Patrice Dumas  <pertusus@free.fr>
+
 	* configure.ac, tta/configure.ac: move code around to be more
 	similar.  Use the same descriptions in AS_HELP_STRING.
 
