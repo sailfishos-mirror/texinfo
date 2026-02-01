@@ -1,3 +1,8 @@
+2026-02-01 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/XSTexinfo/Makefile.am: use BUILD_C_CODE instead of
+	HAVE_ICONV, it should be clearer and more robust.
+
 2026-02-01  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* configure.ac: bump version to 7.2.91.

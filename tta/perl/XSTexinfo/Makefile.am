@@ -104,7 +104,7 @@ converterdatadir = $(datadir)/$(CONVERTER)
 modulesdir = $(converterdatadir)/XSTexinfo
 dist_modules_DATA = Parsetexi.pm
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += Parsetexi.la
 endif
 
@@ -123,7 +123,7 @@ Parsetexi_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNIST
 
 ########################## Document XS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += DocumentXS.la
 endif
 
@@ -138,7 +138,7 @@ DocumentXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libte
 
 ########################## StructuringTransfo XS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += StructuringTransfoXS.la
 endif
 
@@ -155,7 +155,7 @@ StructuringTransfoXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddi
 
 ########################## TreeElement XS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += TreeElementXS.la
 endif
 
@@ -170,7 +170,7 @@ TreeElementXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_buildd
 
 ########################## TreeElementConverter XS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += TreeElementConverterXS.la
 endif
 
@@ -185,7 +185,7 @@ TreeElementConverterXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(t
 
 ########################## Reader XS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += ReaderXS.la
 endif
 
@@ -200,7 +200,7 @@ ReaderXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C
 
 ########################## IndicesXS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += IndicesXS.la
 endif
 
@@ -219,7 +219,7 @@ IndicesXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/
 
 ########################## ConvertToTexinfoXS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += ConvertToTexinfoXS.la
 endif
 
@@ -235,7 +235,7 @@ ConvertToTexinfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## ConvertXS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += ConvertXS.la
 endif
 
@@ -255,7 +255,7 @@ ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(EUIDACCESS_LIBGEN)
 
 ########################## ConfigXS
 
-if HAVE_ICONV
+if BUILD_C_CODE
 xs_LTLIBRARIES += ConfigXS.la
 endif
 
