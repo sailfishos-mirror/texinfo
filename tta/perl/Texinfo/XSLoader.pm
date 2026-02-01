@@ -403,8 +403,7 @@ sub init {
   } elsif ($TEXINFO_XS eq 'requiredifenabled') {
     # An undefined module name should only happen based on the TEXINFO_XS_*
     # environment variables values.
-    if (($disable_XS or !defined($module_name))
-        and !defined($fallback_module)) {
+    if (!defined($module_name) and !defined($fallback_module)) {
       die "extension disabled, no required fallback module for $module\n";
     }
   }
