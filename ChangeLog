@@ -1,5 +1,11 @@
 2026-02-01 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm (init): die if
+	TEXINFO_XS=requiredifenabled, the module name is defined and the
+	extension was not loaded.  Report from Gavin.
+
+2026-02-01 Patrice Dumas  <pertusus@free.fr>
+
 	* INSTALL, tta/README: move information related to the texi2any
 	implementation in C to tta/README.
 

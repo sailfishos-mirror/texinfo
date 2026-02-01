@@ -415,11 +415,15 @@ sub init {
       # if (!defined($fallback_module)) for modules without fallback.
       # Cannot use _debug here...
       #warn("No C libraries expected failure of loading $module_name\n");
-    } elsif (!defined($module_name) and !defined($fallback_module)) {
+    } elsif (!defined($module_name)) {
       # An undefined module name should only happen based on the TEXINFO_XS_*
       # environment variables values.
-      # FIXME expected failure for modules without fallback.
-      die "extension disabled, no required fallback module for $module\n";
+      if (!defined($fallback_module)) {
+        # FIXME expected failure for modules without fallback.
+        die "extension disabled, no required fallback module for $module\n";
+      }
+    } else {
+      die "extension $module_name enabled required for $module\n";
     }
   }
 
