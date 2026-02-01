@@ -27,7 +27,13 @@
 #include <stdint.h>
 #include <string.h>
 
-static void * _GL_ATTRIBUTE_PURE
+/* Pacify GCC up to at least 15.2, which otherwise would incorrectly
+   complain about check_nonnull.  */
+#if _GL_GNUC_PREREQ (4, 6)
+# pragma GCC diagnostic ignored "-Wsuggest-attribute=pure"
+#endif
+
+static void *
 check_nonnull (void *p)
 {
   if (!p)
@@ -61,10 +67,7 @@ xcharalloc (size_t n)
 void *
 xrealloc (void *p, size_t s)
 {
-  void *r = realloc (p, s);
-  if (!r)
-    xalloc_die ();
-  return r;
+  return check_nonnull (realloc (p, s));
 }
 
 void *
@@ -79,10 +82,7 @@ xirealloc (void *p, idx_t s)
 void *
 xreallocarray (void *p, size_t n, size_t s)
 {
-  void *r = reallocarray (p, n, s);
-  if (!r)
-    xalloc_die ();
-  return r;
+  return check_nonnull (reallocarray (p, n, s));
 }
 
 void *
