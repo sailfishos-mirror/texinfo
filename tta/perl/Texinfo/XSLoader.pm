@@ -41,7 +41,7 @@ BEGIN {
     if ($Texinfo::ModulePath::enable_xs eq 'no') {
       $disable_XS = 1;
     }
-    if ($Texinfo::ModulePath::build_C_code eq 'no') {
+    if ($Texinfo::ModulePath::used_shared_txi_libraries eq 'no') {
       $disable_C_libraries = 1;
     }
   }

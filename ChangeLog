@@ -1,3 +1,11 @@
+2026-02-03 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/configure.ac, tta/perl/Makefile.am (ModulePath.pm),
+	tta/perl/Texinfo/ModulePath.pm.in ($used_shared_txi_libraries),
+	tta/perl/Texinfo/XSLoader.pm  (BEGIN): pass used_shared_txi_libraries
+	instead of build_C_code to ModulePath.pm, and use it in XSLoader.pm
+	to set $disable_C_libraries.
+
 2026-02-03  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Re-jig BUILD_C_CODE condition
