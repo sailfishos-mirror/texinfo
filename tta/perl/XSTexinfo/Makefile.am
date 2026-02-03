@@ -69,7 +69,9 @@ xs_LTLIBRARIES =
 
 ########################## Specific XS used in targeted override
 
+if BUILD_C_CODE
 xs_LTLIBRARIES += MiscXS.la
+endif
 nodist_MiscXS_la_SOURCES = MiscXS.c
 CLEANFILES += MiscXS.c
 MiscXS_la_SOURCES = xsmisc.c xsmisc.h ../../C/main/base_utils.c \
@@ -90,7 +92,9 @@ libparagraph_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(GNULIB_CPPFLA
 libparagraph_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libparagraph_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
+if BUILD_C_CODE
 xs_LTLIBRARIES += XSParagraph.la
+endif
 nodist_XSParagraph_la_SOURCES = XSParagraph.c
 CLEANFILES += XSParagraph.c
 XSParagraph_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS)
@@ -104,7 +108,7 @@ converterdatadir = $(datadir)/$(CONVERTER)
 modulesdir = $(converterdatadir)/XSTexinfo
 dist_modules_DATA = Parsetexi.pm
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += Parsetexi.la
 endif
 
@@ -123,7 +127,7 @@ Parsetexi_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNIST
 
 ########################## Document XS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += DocumentXS.la
 endif
 
@@ -138,7 +142,7 @@ DocumentXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libte
 
 ########################## StructuringTransfo XS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += StructuringTransfoXS.la
 endif
 
@@ -155,7 +159,7 @@ StructuringTransfoXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddi
 
 ########################## TreeElement XS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += TreeElementXS.la
 endif
 
@@ -170,7 +174,7 @@ TreeElementXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_buildd
 
 ########################## TreeElementConverter XS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += TreeElementConverterXS.la
 endif
 
@@ -185,7 +189,7 @@ TreeElementConverterXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(t
 
 ########################## Reader XS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += ReaderXS.la
 endif
 
@@ -200,7 +204,7 @@ ReaderXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C
 
 ########################## IndicesXS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += IndicesXS.la
 endif
 
@@ -219,7 +223,7 @@ IndicesXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/
 
 ########################## ConvertToTexinfoXS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += ConvertToTexinfoXS.la
 endif
 
@@ -235,7 +239,7 @@ ConvertToTexinfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
 ########################## ConvertXS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += ConvertXS.la
 endif
 
@@ -255,7 +259,7 @@ ConvertXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(EUIDACCESS_LIBGEN)
 
 ########################## ConfigXS
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += ConfigXS.la
 endif
 

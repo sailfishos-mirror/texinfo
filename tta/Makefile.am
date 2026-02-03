@@ -38,14 +38,14 @@ $(srcdir)/Makefile.docstr: maintain/regenerate_docstr.sh \
 	&& $(SHELL) ./maintain/regenerate_docstr.sh Makefile.docstr
 
 
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 SUBDIRS += C
 endif
 
 SUBDIRS += . perl tests
 
 if SWIG_INTERFACES
-if BUILD_C_CODE
+if USE_SHARED_TXI_LIBRARIES
 SUBDIRS += swig
 endif
 endif

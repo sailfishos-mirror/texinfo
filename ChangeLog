@@ -1,3 +1,27 @@
+2026-02-03  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Re-jig BUILD_C_CODE condition
+
+	* tta/configure.ac: Add conditional USE_SHARED_TXI_LIBRARIES to
+	be used when build targets depend on the C auxiliary libraries.
+	Require iconv to be found to set this.
+	(Suggestion from Patrice to make reason clearer for use of condition.)
+
+	Always set BUILD_C_CODE if any C code is being built.
+	
+	* tta/Makefile.am: Don't build in C or SWIG directories if
+	USE_SHARED_TXI_LIBRARIES is false.
+	
+	* tta/perl/XSTexinfo/Makefile.am: use BUILD_C_CODE condition around
+	building XSParagraph.la and MiscXS.la so that they are built under the
+	same condition as that of gnulib upon which they depend.
+	
+	This mismatch led to a build failure on macOS 26, where iconv was not
+	found and the other XS modules were not built.  Report from Bruno.
+	
+	Use USE_SHARED_TXI_LIBRARIES instead of BUILD_C_CODE for other
+	*.la targets.
+
 2026-02-01 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/XSLoader.pm (init): die if

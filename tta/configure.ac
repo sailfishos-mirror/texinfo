@@ -597,12 +597,19 @@ fi
 
 AM_CONDITIONAL([SWIG_PERL_TESTS], [test "z$swig_perl_tests" = 'zyes'])
 
-build_C_code=no
+use_shared_txi_libraries=no
 if test "x$am_func_iconv" = "xyes"; then
-  test "z$enable_xs" = zyes && build_C_code=yes
-  test "z$enable_additional_tests" = zyes && build_C_code=yes
-  test "z$with_swig" = zyes && build_C_code=yes
+  test "z$enable_xs" = zyes && use_shared_txi_libraries=yes
+  test "z$enable_additional_tests" = zyes && use_shared_txi_libraries=yes
+  test "z$with_swig" = zyes && use_shared_txi_libraries=yes
 fi
+
+AM_CONDITIONAL([USE_SHARED_TXI_LIBRARIES],
+               [test "z$use_shared_txi_libraries" = zyes])
+
+build_C_code=no
+test "z$enable_xs" = zyes && build_C_code=yes
+test "z$used_shared_txi_libraries" = zyes && build_C_code=yes
 
 AM_CONDITIONAL([BUILD_C_CODE], [test "z$build_C_code" = zyes])
 AC_SUBST([build_C_code])
