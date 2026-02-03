@@ -36,12 +36,12 @@ tta/perl/Texinfo/Document.pm
 tta/perl/Texinfo/Convert/Converter.pm
 tta/perl/Texinfo/Convert/DocBook.pm
 tta/perl/Texinfo/Convert/HTML.pm
-tta/perl/Texinfo/Convert/IXIN.pm
 tta/perl/Texinfo/Convert/Info.pm
 tta/perl/Texinfo/Convert/LaTeX.pm
 tta/perl/Texinfo/Convert/Plaintext.pm
 tta/perl/Texinfo/Convert/Text.pm
 tta/perl/Texinfo/Convert/Utils.pm
+tta/perl/Texinfo/Example/IXIN.pm
 tta/perl/Texinfo/Example/ReadDocBook.pm
 tta/perl/Texinfo/Example/TreeElementConverter.pm
 tta/perl/Texinfo/Example/TreeElementReadDocBook.pm
