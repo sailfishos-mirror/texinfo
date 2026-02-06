@@ -1,3 +1,15 @@
+2026-02-06  Gavin Smith <gavinsmith0123@gmail.com>
+
+	No --enable-* flags for Perl SWIG
+
+	* tta/configure.ac: Access SWIG Perl installation setting and
+	directories as shell variables, rather than --enable-* flags.
+
+	* configure.ac: remove AC_ARG_ENABLE for SWIG Perl flags.
+
+	* tta/swig/README: document the variables here as they do not
+	appear in the output of configure --help.
+
 2026-02-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/configure.ac, tta/perl/Makefile.am (ModulePath.pm),

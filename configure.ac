@@ -425,21 +425,6 @@ AC_SUBST([HOST_IS_WINDOWS_VARIABLE])
 AC_ARG_WITH([swig],
    AS_HELP_STRING([--with-swig], [build SWIG interfaces (default: no)]))
 
-AC_ARG_ENABLE([perl-install-mode],
-    AS_HELP_STRING([--enable-perl-install-mode],[Perl SWIG interface install mode site/vendor/custom (default: site)]))
-
-AC_ARG_ENABLE([installsitearch],
-    AS_HELP_STRING([--enable-installsitearch],[Perl installsitearch directory (default: Perl default)]))
-
-AC_ARG_ENABLE([installsitelib],
-    AS_HELP_STRING([--enable-installsitelib],[Perl installsitelib directory (default: Perl default)]))
-
-AC_ARG_ENABLE([installvendorarch],
-    AS_HELP_STRING([--enable-installvendorarch],[Perl installvendorarch directory (default: Perl default)]))
-
-AC_ARG_ENABLE([installvendorlib],
-    AS_HELP_STRING([--enable-installvendorlib],[Perl installvendorlib directory (default: Perl default)]))
-
 # The config files to generate.
 AC_CONFIG_FILES([\
   Makefile
