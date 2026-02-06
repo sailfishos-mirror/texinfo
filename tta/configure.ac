@@ -515,6 +515,8 @@ AM_CONDITIONAL([SWIG_PYTHON_INTERFACE], [test "x$with_swig_python" = "xyes"])
 #                         default)
 # perl_installvendorlib   Perl installvendorlib directory (default: Perl
 #                         default)
+dnl TODO consider using AC_ARG_VAR for the above variables if with_swig default
+dnl becomes detected.
 
 if test "z$perl_install_mode" != zsite \
     -a "z$perl_install_mode" != zvendor \

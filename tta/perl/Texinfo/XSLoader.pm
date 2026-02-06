@@ -27,7 +27,7 @@ use DynaLoader;
 # Texinfo::ModulePath::enable_xs based on the previous configure+make
 our $disable_XS;
 
-# Currently not set elsewhere, but could be needed to be.
+# Currently not set elsewhere, but could be if needed.
 our $disable_C_libraries;
 
 BEGIN {
