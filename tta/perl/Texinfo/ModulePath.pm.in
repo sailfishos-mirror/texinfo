@@ -43,7 +43,7 @@ our $default_test_level = '@DEFAULT_TEST_LEVEL@';
 # Passed to texi2any.pl, which is not configured, to t/test_utils.pl
 # and to modules.
 our $enable_xs = '@enable_xs@';
-our $used_shared_txi_libraries = '@used_shared_txi_libraries@';
+our $use_shared_txi_libraries = '@use_shared_txi_libraries@';
 
 # If $PERL_MODULES_DIR and $CONVERTER_LIBDIR are given,
 # (likely the installation directories)

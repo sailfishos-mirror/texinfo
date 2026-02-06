@@ -585,7 +585,7 @@ AC_SUBST([use_shared_txi_libraries])
 
 build_C_code=no
 test "z$enable_xs" = zyes && build_C_code=yes
-test "z$used_shared_txi_libraries" = zyes && build_C_code=yes
+test "z$use_shared_txi_libraries" = zyes && build_C_code=yes
 
 AM_CONDITIONAL([BUILD_C_CODE], [test "z$build_C_code" = zyes])
 dnl AC_SUBST([build_C_code])
