@@ -355,9 +355,6 @@ AM_GNU_GETTEXT([external])
 
 LT_INIT([disable-static dlopen])
 
-AM_CONDITIONAL([HAVE_ICONV],
-               [test "x$am_func_iconv" = "xyes"])
-
 # for tests
 txi_ICONV_CONVERTS_EUC_CN
 
