@@ -80,13 +80,11 @@ all-local: .libs/auto/Texinfo
 # installsitearch or installvendorarch.
 # configure sets archlibdir to installsitearch or installvendorarch depending
 # on configure flags, also taking prefix into account as should be.
-if HAVE_ICONV
 nodist_perlarch_DATA = Texinfo.pm
 
 module = Texinfo
 archlibdir = $(perlarchdir)/auto/$(module)
 archlib_LTLIBRARIES = Texinfo.la
-endif
 
 nodist_Texinfo_la_SOURCES = perl_texinfo_wrap.c
 
@@ -120,12 +118,10 @@ scripts_test_files = \
  test_scripts/test_texinfo_manual.sh \
  test_scripts/test_expansion_lines_block.sh
 
-if HAVE_ICONV
 TESTS = $(scripts_test_files)
 
 if SWIG_PERL_TESTS
 TESTS += $(t_test_files)
-endif
 endif
 
 EXTRA_DIST = \

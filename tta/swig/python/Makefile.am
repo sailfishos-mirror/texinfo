@@ -45,12 +45,10 @@ python_texinfo_wrap.c Texinfo.py: $(srcdir)/../texinfo.i $(SWIG_header_dependenc
 
 endif
 
-if HAVE_ICONV
 # Ask autotools to install the generated Python file
 nodist_python_PYTHON = Texinfo.py
 # This is the Python module
 pyexec_LTLIBRARIES = _Texinfo.la
-endif
 
 nodist__Texinfo_la_SOURCES = python_texinfo_wrap.c
 
