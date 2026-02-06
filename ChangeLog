@@ -1,5 +1,9 @@
 2026-02-06  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* NEWS: elaborate on raw-utf8-output
+
+2026-02-06  Gavin Smith <gavinsmith0123@gmail.com>
+
 	No --enable-* flags for Perl SWIG
 
 	* tta/configure.ac: Access SWIG Perl installation setting and
