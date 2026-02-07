@@ -214,9 +214,12 @@ sub new($%) {
 
 # Simply return a copy of the string, in UTF-8.
 # Note: this should return an encoded string, because if this is called
-# from XS code it may not handle any "wide characters" in the sort key.
+# from C code it may not handle any "wide characters" in the sort key.
 # This happens if USE_UNICODE_COLLATION=1 but Unicode::Collate cannot
-# be loaded.
+# be loaded.  That is because the C code expects a byte string as return
+# string because Unicode::Collate getSortKey returns a byte string.
+# The ordering will be the Unicode code point order because the UTF-8
+# sequences sort in code point order.
 sub getSortKey($$) {
   my ($self, $string) = @_;
 
