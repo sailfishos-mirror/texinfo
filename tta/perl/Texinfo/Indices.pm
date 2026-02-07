@@ -212,9 +212,15 @@ sub new($%) {
   return $self;
 }
 
+# Simply return a copy of the string, in UTF-8.
+# Note: this should return an encoded string, because if this is called
+# from XS code it may not handle any "wide characters" in the sort key.
+# This happens if USE_UNICODE_COLLATION=1 but Unicode::Collate cannot
+# be loaded.
 sub getSortKey($$) {
   my ($self, $string) = @_;
 
+  utf8::encode($string);
   return $string;
 }
 

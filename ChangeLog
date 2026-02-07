@@ -1,3 +1,12 @@
+2026-02-07  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/Texinfo/Indices.pm (Texinfo::CollateStub::getSortKey):
+	Call utf8::encode on output in order to avoid "Wide character"
+	error on Red Hat Linux, Rocky Linux and CentOS, when Unicode::Collate
+	is not installed.
+	
+	Report from Nelson Beebe.
+
 2026-02-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/swig/perl/Makefile.am, tta/swig/python/Makefile.am: remove if
