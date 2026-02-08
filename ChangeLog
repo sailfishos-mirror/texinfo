@@ -1,3 +1,12 @@
+2026-02-08  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Fix "Free to wrong pool" error
+
+	* tta/C/convert/build_html_perl_state.c (build_html_translated_names):
+	Use non_perl_strdup and non_perl_free.
+
+	Report from Eli.
+
 2026-02-06 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/configure.ac: remove HAVE_ICONV AM_CONDITIONAL, it is not used

@@ -43,6 +43,7 @@
 /* for html_conversion_context_type_names */
 #include "html_converter_types.h"
 #include "build_html_perl_state.h"
+#include "xs_utils.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -184,17 +185,17 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                                         &status, 0, &iconv_status);
           if (!iconv_status)
             {
-              free (encoded_lang);
-              encoded_lang = strdup (documentlanguage);
+              non_perl_free (encoded_lang);
+              encoded_lang = non_perl_strdup (documentlanguage);
             }
         }
       else
-        encoded_lang = strdup (documentlanguage);
+        encoded_lang = non_perl_strdup (documentlanguage);
     }
   switch_perl_lang_translations (converter_hv, documentlanguage,
                                  encoded_lang);
 
-  free (encoded_lang);
+  non_perl_free (encoded_lang);
 
   /* pass all the information for each context for translated commands */
   if (converter->no_arg_formatted_cmd_translated.number)
