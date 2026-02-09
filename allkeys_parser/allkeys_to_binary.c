@@ -194,7 +194,10 @@ int parse_line(const char *line, CollationEntry *entry, ParseStats *stats) {
             }
             
             if (entry->num_elements >= MAX_COLLATION_ELEMENTS) {
-                fprintf(stderr, "Warning: too many collation elements\n");
+              /* only for U+FDFA
+                 ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM */
+                fprintf(stderr,
+                  "Warning: too many collation elements at |%s|\n", p);
                 stats->parse_errors++;
                 return -1;
             }
