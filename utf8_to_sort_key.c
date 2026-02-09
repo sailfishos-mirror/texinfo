@@ -200,9 +200,9 @@ print_collation_key (UTF8Result result)
     size_t sort_key_alloc;
 
     /* Three levels (primary/secondary/tertiary).  Two bytes per
-       collation element at each level.  "\x00\x00" between levels
-       and one final null. */
-    sort_key_alloc = num_elements * 6 + 4 + 1;
+       collation element at first two levels, one byte at tertiary.
+       "\x00\x00" between levels and one final null. */
+    sort_key_alloc = num_elements * 5 + 4 + 1;
 
     psort_key = sort_key;
 
@@ -251,11 +251,10 @@ print_collation_key (UTF8Result result)
         continue;
       for (size_t j = 0; j < entry_array[i]->num_elements; j++)
         {
-          uint16_t weight = entry_array[i]->elements[j].tertiary;
+          uint8_t weight = entry_array[i]->elements[j].tertiary;
           if (weight)
             {
-              *psort_key++ = weight >> 8;   /* More significant byte.*/
-              *psort_key++ = weight & 0xFF; /* Less significant byte.*/
+              *psort_key++ = weight;
             }
         }
     }
@@ -266,6 +265,8 @@ print_collation_key (UTF8Result result)
         printf ("%02x%02x ", p[0], p[1]);
       }
     printf ("\n");
+    /* This might print trailing 00 as we only use one byte for
+       tertiary weight. */
     
     free(entries);
     return 1;

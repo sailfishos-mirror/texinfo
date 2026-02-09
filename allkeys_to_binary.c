@@ -76,7 +76,12 @@ int parse_collation_element(const char **str, CollationElement *elem) {
     for (int i = 0; i < 4 && isxdigit(*s); i++, s++) {
         hex[i] = *s;
     }
-    elem->tertiary = (uint16_t)strtoul(hex, NULL, 16);
+    uint16_t tertiary = (uint16_t)strtoul(hex, NULL, 16);
+
+    if (tertiary < 0x100)
+      elem->tertiary = (uint8_t)tertiary;
+    else
+      elem->tertiary = 0; /* shouldn't happen */
     
     if (*s != ']') return 0;
     s++;

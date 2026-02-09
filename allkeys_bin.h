@@ -16,10 +16,10 @@
 
 /* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
 typedef struct {
-    bool variable_weight_p;
     uint16_t primary;
     uint16_t secondary;
-    uint16_t tertiary;
+    uint8_t tertiary;
+    bool variable_weight_p;
 } CollationElement;
 
 /* Entry in the collation table */

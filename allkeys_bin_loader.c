@@ -93,8 +93,8 @@ void print_entry(CollationEntry *entry) {
 
     for (int i = 0; i < entry->num_elements; i++) {
         printf(entry->elements[i].variable_weight_p
-                 ? "[*%04X.%04X.%04X]"
-                 : "[.%04X.%04X.%04X]",
+                 ? "[*%04X.%04X.%02X]"
+                 : "[.%04X.%04X.%02X]",
                entry->elements[i].primary,
                entry->elements[i].secondary,
                entry->elements[i].tertiary);
