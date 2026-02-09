@@ -80,16 +80,21 @@ CollationEntry* lookup_sequence(CollationEntry *entries, uint32_t num_entries,
 
 /* Print collation entry */
 void print_entry(CollationEntry *entry) {
-    printf("Codepoints: ");
-    for (int i = 0; i < entry->num_codepoints; i++) {
-        printf("%04X", entry->codepoints[i]);
-        if (i < entry->num_codepoints - 1) printf(" ");
+    if (0) {
+      printf("Codepoints: ");
+      for (int i = 0; i < entry->num_codepoints; i++) {
+          printf("%04X", entry->codepoints[i]);
+          if (i < entry->num_codepoints - 1) printf(" ");
+      }
+      printf("\n");
     }
-    printf("\n");
     
-    printf("Collation:  ");
+    /* printf("Collation:  "); */
+
     for (int i = 0; i < entry->num_elements; i++) {
-        printf("[.%04X.%04X.%04X]",
+        printf(entry->elements[i].variable_weight_p
+                 ? "[*%04X.%04X.%04X]"
+                 : "[.%04X.%04X.%04X]",
                entry->elements[i].primary,
                entry->elements[i].secondary,
                entry->elements[i].tertiary);

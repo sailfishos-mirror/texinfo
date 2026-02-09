@@ -44,9 +44,9 @@ int parse_collation_element(const char **str, CollationElement *elem) {
     s++;
     
     if (*s == '.')
-      elem->variable_weight_p = true;
-    else if (*s == '*')
       elem->variable_weight_p = false;
+    else if (*s == '*')
+      elem->variable_weight_p = true;
     else
       return 0;
     s++;
