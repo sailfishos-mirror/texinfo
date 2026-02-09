@@ -4,6 +4,9 @@
 #include <string.h>
 #include <getopt.h>
 
+#include "allkeys_bin_loader.h"
+
+
 /* UTF-8 validation and conversion result */
 typedef struct {
     uint32_t *codepoints;

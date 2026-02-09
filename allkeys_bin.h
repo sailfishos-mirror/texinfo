@@ -1,6 +1,9 @@
 #ifndef ALLKEYS_BIN_H
 #define ALLKEYS_BIN_H
 
+#include <stdint.h>
+#include <stdbool.h>
+
 /* Define data format for binary file. */
 
 /* Maximum codepoints in a sequence (observed max is 18, using 32 for safety) */

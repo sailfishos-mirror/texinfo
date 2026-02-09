@@ -4,6 +4,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+#include "allkeys_bin.h"
+
 /* Load binary database */
 CollationEntry* load_database(const char *filename, BinaryHeader *header) {
     FILE *fp = fopen(filename, "rb");
