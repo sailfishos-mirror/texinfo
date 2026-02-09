@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define MAX_SEQUENCE_LENGTH 32
 #define MAX_COLLATION_ELEMENTS 16
@@ -9,6 +10,7 @@
 /* Must match the structures in allkeys_to_binary.c */
 
 typedef struct {
+    bool variable_weight_p;
     uint16_t primary;
     uint16_t secondary;
     uint16_t tertiary;

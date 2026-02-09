@@ -16,7 +16,7 @@ clean:
 
 test: allkeys_to_binary allkeys_query
 	@echo "=== Testing binary conversion ==="
-	./allkeys_to_binary /mnt/user-data/uploads/allkeys.txt allkeys.bin
+	./allkeys_to_binary ./allkeys.txt allkeys.bin
 	@echo ""
 	@echo "=== Testing database info ==="
 	./allkeys_query info allkeys.bin

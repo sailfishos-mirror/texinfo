@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 /* Maximum codepoints in a sequence (observed max is 18, using 32 for safety) */
 #define MAX_SEQUENCE_LENGTH 32
@@ -10,8 +11,9 @@
 /* Maximum collation elements per entry (observed max is ~10, using 16 for safety) */
 #define MAX_COLLATION_ELEMENTS 16
 
-/* Collation element - represents [.XXXX.XXXX.XXXX] */
+/* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
 typedef struct {
+    bool variable_weight_p;
     uint16_t primary;
     uint16_t secondary;
     uint16_t tertiary;
@@ -70,7 +72,12 @@ int parse_collation_element(const char **str, CollationElement *elem) {
     if (*s != '[') return 0;
     s++;
     
-    if (*s != '.') return 0;
+    if (*s == '.')
+      elem->variable_weight_p = true;
+    else if (*s == '*')
+      elem->variable_weight_p = false;
+    else
+      return 0;
     s++;
     
     /* Parse primary weight */
@@ -139,6 +146,7 @@ int parse_line(const char *line, CollationEntry *entry, ParseStats *stats) {
         
         if (!parse_hex(hex, &codepoint)) {
             stats->parse_errors++;
+            fprintf(stderr, "parse error at hex codepoint\n");
             return -1;
         }
         
@@ -166,6 +174,7 @@ int parse_line(const char *line, CollationEntry *entry, ParseStats *stats) {
     /* Skip to semicolon */
     while (*p && *p != ';') p++;
     if (*p != ';') {
+        fprintf(stderr, "junk at end of line\n");
         stats->parse_errors++;
         return -1;
     }
@@ -177,6 +186,9 @@ int parse_line(const char *line, CollationEntry *entry, ParseStats *stats) {
         if (*p == '[') {
             CollationElement elem;
             if (!parse_collation_element(&p, &elem)) {
+                fprintf(stderr,
+                "could not parse collation element |%s|\n",
+                p);
                 stats->parse_errors++;
                 return -1;
             }
