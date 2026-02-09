@@ -233,12 +233,42 @@ int main(int argc, char *argv[]) {
             printf(" '%c'", (result.codepoints[i] < 128) ? (char)result.codepoints[i] : '?');
         }
         printf("\n");
-        do_lookup (DATAFILE, &result.codepoints[i], 1);
 
     }
+  
+    /* Load collation data and print collation key. */
+
+    BinaryHeader header;
+    CollationEntry *entries = load_database(DATAFILE, &header);
     
+    if (!entries) {
+        return 0;
+    }
+
+    /* only look for single codepoint collation entries */
+
+    CollationEntry *entry;
+
+    for (size_t i = 0; i < result.length; i++) {
+        printf("Looking up: ");
+        printf("U+%04X ", result.codepoints[i]);
+        printf("\n\n");
+        
+        entry = lookup_codepoint(entries, header.num_entries,
+                                  result.codepoints[i]);
+        
+        if (entry) {
+            printf("Found:\n");
+            print_entry(entry);
+        } else {
+            printf("Not found in database.\n");
+        }
+    }
+    
+    free(entries);
+
     /* Clean up */
     free_result(&result);
-    
+
     return 0;
 }
