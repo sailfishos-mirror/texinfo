@@ -4,32 +4,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define MAX_SEQUENCE_LENGTH 32
-#define MAX_COLLATION_ELEMENTS 16
-
-/* Must match the structures in allkeys_to_binary.c */
-
-typedef struct {
-    bool variable_weight_p;
-    uint16_t primary;
-    uint16_t secondary;
-    uint16_t tertiary;
-} CollationElement;
-
-typedef struct {
-    uint8_t num_codepoints;
-    uint8_t num_elements;
-    uint32_t codepoints[MAX_SEQUENCE_LENGTH];
-    CollationElement elements[MAX_COLLATION_ELEMENTS];
-} CollationEntry;
-
-typedef struct {
-    char magic[8];
-    uint32_t version;
-    uint32_t num_entries;
-    uint32_t num_singles;
-    uint32_t num_sequences;
-} BinaryHeader;
+#include "allkeys_bin.h"
 
 /* Load binary database */
 CollationEntry* load_database(const char *filename, BinaryHeader *header) {
