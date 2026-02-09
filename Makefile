@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -std=c99 -O2
 
 .PHONY: all clean test
 
-all: allkeys_to_binary allkeys_query utf8_to_codepoints
+all: allkeys_to_binary allkeys_query utf8_to_sort_key
 
 allkeys_to_binary: allkeys_to_binary.c
 	$(CC) $(CFLAGS) -o allkeys_to_binary allkeys_to_binary.c
@@ -11,8 +11,8 @@ allkeys_to_binary: allkeys_to_binary.c
 allkeys_query: allkeys_query.c allkeys_bin_loader.c allkeys_bin_loader.h
 	$(CC) $(CFLAGS) -o allkeys_query allkeys_query.c allkeys_bin_loader.c
 
-utf8_to_sort_key: utf8_to_sort_key.c
-	$(CC) $(CFLAGS) -o utf8_to_sort_key utf8_to_sort_key.c
+utf8_to_sort_key: utf8_to_sort_key.c allkeys_bin_loader.c allkeys_bin_loader.h
+	$(CC) $(CFLAGS) -o utf8_to_sort_key utf8_to_sort_key.c allkeys_bin_loader.c
 
 clean:
 	rm -f allkeys_to_binary allkeys_query allkeys.bin utf8_to_codepoints

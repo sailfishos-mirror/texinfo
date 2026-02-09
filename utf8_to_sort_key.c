@@ -159,6 +159,8 @@ void print_usage(const char *program_name) {
     printf("  %s \"Hello, 世界! 🌍\"\n", program_name);
 }
 
+#define DATAFILE "./allkeys.bin"
+
 int main(int argc, char *argv[]) {
     int opt;
     int hex_output = 0;
@@ -231,6 +233,8 @@ int main(int argc, char *argv[]) {
             printf(" '%c'", (result.codepoints[i] < 128) ? (char)result.codepoints[i] : '?');
         }
         printf("\n");
+        do_lookup (DATAFILE, &result.codepoints[i], 1);
+
     }
     
     /* Clean up */
