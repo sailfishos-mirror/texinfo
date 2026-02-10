@@ -1,5 +1,10 @@
 AUTOMAKE_OPTIONS=foreign
-ACLOCAL_AMFLAGS = -I gnulib/lib
+ACLOCAL_AMFLAGS = -I gnulib/m4
+SUBDIRS = gnulib/lib
+
+LDADD = gnulib/lib/libgnu.a
+
+AM_CPPFLAGS = -I gnulib/lib
 
 bin_PROGRAMS = allkeys_to_binary allkeys_query utf8_to_sort_key
 

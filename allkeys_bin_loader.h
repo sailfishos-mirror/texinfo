@@ -1,3 +1,4 @@
+#include <config.h>
 #include "allkeys_bin.h"
 
 CollationEntry* load_database(const char *filename, BinaryHeader *header);

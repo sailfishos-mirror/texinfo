@@ -1,12 +1,19 @@
+#include <config.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
+#include "uninorm.h"
 
 #include "allkeys_bin_loader.h"
 #include "collation_key.h"
 
-CollationKey get_collation_key(CollationEntry *entries, uint32_t num_entries, uint32_t *codepoints, size_t length) {
+CollationKey get_collation_key(CollationEntry *entries, uint32_t num_entries, uint32_t *codepoints_in, size_t length_in) {
+    uint32_t *codepoints;
+    size_t length;
+
+    codepoints = u32_normalize (UNINORM_NFKD, codepoints_in, length_in, NULL, &length);
+
     /* get array of collation entries */
     CollationEntry **entry_array = malloc (sizeof (*entry_array)
                                           * length);
@@ -94,6 +101,8 @@ CollationKey get_collation_key(CollationEntry *entries, uint32_t num_entries, ui
             }
         }
     }
+
+  free (codepoints);
 
   CollationKey ret;
   ret.key = sort_key;
