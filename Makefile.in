@@ -131,7 +131,7 @@ am_allkeys_to_binary_OBJECTS = allkeys_to_binary.$(OBJEXT)
 allkeys_to_binary_OBJECTS = $(am_allkeys_to_binary_OBJECTS)
 allkeys_to_binary_LDADD = $(LDADD)
 am_utf8_to_sort_key_OBJECTS = utf8_to_sort_key.$(OBJEXT) \
-	allkeys_bin_loader.$(OBJEXT)
+	allkeys_bin_loader.$(OBJEXT) collation_key.$(OBJEXT)
 utf8_to_sort_key_OBJECTS = $(am_utf8_to_sort_key_OBJECTS)
 utf8_to_sort_key_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -151,7 +151,7 @@ depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__maybe_remake_depfiles = depfiles
 am__depfiles_remade = ./$(DEPDIR)/allkeys_bin_loader.Po \
 	./$(DEPDIR)/allkeys_query.Po ./$(DEPDIR)/allkeys_to_binary.Po \
-	./$(DEPDIR)/utf8_to_sort_key.Po
+	./$(DEPDIR)/collation_key.Po ./$(DEPDIR)/utf8_to_sort_key.Po
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -392,7 +392,7 @@ AUTOMAKE_OPTIONS = foreign
 ACLOCAL_AMFLAGS = -I gnulib/lib
 allkeys_to_binary_SOURCES = allkeys_to_binary.c
 allkeys_query_SOURCES = allkeys_query.c allkeys_bin_loader.c
-utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c
+utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key.c
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -510,6 +510,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/allkeys_bin_loader.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/allkeys_query.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/allkeys_to_binary.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/collation_key.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/utf8_to_sort_key.Po@am__quote@ # am--include-marker
 
 $(am__depfiles_remade):
@@ -815,6 +816,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/allkeys_bin_loader.Po
 	-rm -f ./$(DEPDIR)/allkeys_query.Po
 	-rm -f ./$(DEPDIR)/allkeys_to_binary.Po
+	-rm -f ./$(DEPDIR)/collation_key.Po
 	-rm -f ./$(DEPDIR)/utf8_to_sort_key.Po
 	-rm -f Makefile
 distclean-am: clean-am distclean-compile distclean-generic \
@@ -866,6 +868,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/allkeys_bin_loader.Po
 	-rm -f ./$(DEPDIR)/allkeys_query.Po
 	-rm -f ./$(DEPDIR)/allkeys_to_binary.Po
+	-rm -f ./$(DEPDIR)/collation_key.Po
 	-rm -f ./$(DEPDIR)/utf8_to_sort_key.Po
 	-rm -f Makefile
 maintainer-clean-am: distclean-am maintainer-clean-generic
