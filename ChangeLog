@@ -1,5 +1,9 @@
 2026-02-12  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (@documentlanguage): grammar fix.
+
+2026-02-12  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/refcard/txirefcard.tex (@documentlanguage): remove statement
 	that en_US is the default for @documentlanguage, as this is not
 	strictly correct.  report from Vincent Lefevre.

@@ -12013,7 +12013,8 @@ such as ``see'' in cross-references (@pxref{Cross References}),
 Optionally, this command may also affect how @command{texi2any}
 sorts indices (@pxref{Global Customization Variables}, under
 @code{DOCUMENTLANGUAGE_COLLATION}).  If the document language is not
-specified, the default english document strings are output as is.
+specified, the default English document strings are output as they
+are.
 
 Note that in Info output, some strings, such as ``Node:'', ``Next:'',
 ``Menu:'', etc., are keywords and so are not translated.
