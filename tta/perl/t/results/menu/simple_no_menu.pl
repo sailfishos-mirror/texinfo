@@ -176,7 +176,7 @@ $result_converted{'html'}->{'simple_no_menu'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 
 <p>Before menu.
 </p>

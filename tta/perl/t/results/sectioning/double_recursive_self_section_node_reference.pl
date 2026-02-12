@@ -192,7 +192,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#node1" accesskey="n" rel="next"><a class="ref" href="#to-node1">to <a class="ref" href="#node1">node1</a></a></a></span></span><span class="nav-button"> &nbsp; </span></p>

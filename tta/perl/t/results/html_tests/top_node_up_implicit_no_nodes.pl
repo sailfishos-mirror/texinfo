@@ -195,7 +195,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label"> Up : </span><span class="nav-link"><a href="http://itop.example.org" accesskey="u" rel="up">(dir)</a></span></span><span class="nav-button"> &nbsp; </span></p>

@@ -349,7 +349,7 @@ th.index-letter-header-printindex {text-align: left}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chap" accesskey="n" rel="next">Chap</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#Idx" title="Index" rel="index">Index</a>]</span></p>

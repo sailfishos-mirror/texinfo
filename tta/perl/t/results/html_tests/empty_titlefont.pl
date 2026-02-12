@@ -53,7 +53,7 @@ $result_converted{'html'}->{'empty_titlefont'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 
 
 

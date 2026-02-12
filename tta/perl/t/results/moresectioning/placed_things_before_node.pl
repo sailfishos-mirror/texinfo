@@ -445,7 +445,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <a class="anchor" id="An-anchor"></a>
 <p>Ref to the anchor:
 <a class="ref" href="#An-anchor">An anchor</a>

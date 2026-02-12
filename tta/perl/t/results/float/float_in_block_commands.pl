@@ -256,7 +256,7 @@ table.cartouche {border-style: solid; border-radius: 0.5em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example">
 <div class="float" id="in-example">
 <pre class="example-preformatted">

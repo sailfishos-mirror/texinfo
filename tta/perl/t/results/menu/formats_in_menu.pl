@@ -314,7 +314,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="">
+<body>
 <h4 class="node" id="first"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>
 
 <table class="menu">

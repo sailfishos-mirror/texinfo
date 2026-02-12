@@ -195,7 +195,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <a class="node-id" id="first"></a><p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</samp>&rsquo;</a></span></span><span class="nav-button"> &nbsp; </span></p>
 <h4 class="node"><span>first<a class="copiable-link" href="#first"> &para;</a></span></h4>

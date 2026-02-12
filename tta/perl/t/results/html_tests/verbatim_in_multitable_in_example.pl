@@ -167,7 +167,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example">
 <table class="multitable">
 <tbody><tr><td width="50%"><pre class="example-preformatted">in item</pre></td><td width="50%"><pre class="example-preformatted">in tab</pre></td></tr>

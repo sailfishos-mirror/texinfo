@@ -233,7 +233,7 @@ td.menu-entry-destination {vertical-align: top}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#heading-or-chapter" accesskey="n" rel="next">Chapter</a></span></span><span class="nav-button"> &nbsp; </span></p>

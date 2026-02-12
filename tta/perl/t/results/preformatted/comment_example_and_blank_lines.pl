@@ -210,7 +210,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <p>Para.
 </p>
 <div class="example">

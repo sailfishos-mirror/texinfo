@@ -450,7 +450,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <h1 class="settitle">the manual <br> new version</h1>
 <hr>
 

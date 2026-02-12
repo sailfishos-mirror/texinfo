@@ -55,7 +55,7 @@ $result_converted{'html'}->{'redefined_need'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 <!-- need: 0.1 (|) -->
 
 

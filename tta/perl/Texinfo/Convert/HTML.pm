@@ -11585,7 +11585,11 @@ sub _file_header_information($$;$) {
   my $root_html_element_attributes
            = _root_html_element_attributes_string($self);
   my $body_attributes = $self->get_conf('BODY_ELEMENT_ATTRIBUTES');
-  $body_attributes = '' if (!defined($body_attributes));
+  if (!defined($body_attributes)) {
+    $body_attributes = '';
+  } elsif ($body_attributes =~ /^[^ ]/) {
+    $body_attributes = ' '.$body_attributes;
+  }
   if ($self->get_conf('HTML_MATH') and $self->get_conf('HTML_MATH') eq 'mathjax'
       and $self->get_file_information('mathjax', $filename)) {
     $body_attributes .= ' class="tex2jax_ignore"';
@@ -11772,7 +11776,7 @@ ${links}$css_lines
 $extra_head
 </head>
 
-<body $body_attributes>
+<body$body_attributes>
 $after_body_open";
 
   return $result;
@@ -11826,7 +11830,7 @@ $description\n".
 "$extra_head
 </head>
 
-<body $body_attributes>
+<body$body_attributes>
 $after_body_open
 <p>$string</p>
 </body>
@@ -13609,10 +13613,16 @@ sub _setup_output($) {
   # set BODY_ELEMENT_ATTRIBUTES
   $self->set_global_document_commands('preamble', ['documentlanguage']);
   my $body_lang = $self->get_conf('documentlanguage');
-  if (!defined($body_lang)) {
-    $body_lang = '';
+  if (defined($body_lang)) {
+    $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'.$body_lang.'"');
+  } else {
+    #$self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang=""');
+
+    # Note: HTML 5 documentation specifies that the lang attribute can
+    # take an empty string as its value to specify that the language
+    # is unknown.  However, outputting lang="" is unnecessary.
   }
-  $self->set_conf('BODY_ELEMENT_ATTRIBUTES', 'lang="'.$body_lang.'"');
+
   $self->set_global_document_commands('before', ['documentlanguage']);
 
   _init_conversion_after_setup_handler($self);

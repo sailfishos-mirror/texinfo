@@ -104,7 +104,7 @@ $result_converted{'html'}->{'modified_translation'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 <p>Special Form.
 </p>
 

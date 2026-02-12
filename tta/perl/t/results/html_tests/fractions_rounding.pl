@@ -150,7 +150,7 @@ $result_converted{'html'}->{'fractions_rounding'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 <table class="multitable">
 <tbody><tr><td width="19%">In contents</td><td width="30%">In contents</td><td width="29%">In contents</td><td width="22%">Not in contents</td></tr>
 <tr><td width="19%"><code class="code">@chapter</code></td><td width="30%"><code class="code">@unnumbered</code></td><td width="29%"><code class="code">@appendix</code></td><td width="22%"><code class="code">@chapheading</code></td></tr>

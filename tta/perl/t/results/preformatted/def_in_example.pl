@@ -130,7 +130,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example">
 <dl class="first-deffn first-defun-alias-first-deffn def-block">
 <dt class="deffn defun-alias-deffn def-line" id="index-name"><span class="category-def">Function: </span><span><strong class="def-name">name</strong> <var class="def-var-arguments">arg</var><a class="copiable-link" href="#index-name"> &para;</a></span></dt>

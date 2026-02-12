@@ -68,7 +68,7 @@ $result_converted{'html'}->{'spaces_in_line_break_in_verb_w'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 <p>aaa&nbsp;bb&nbsp;ccc<!-- /@w -->
 </p>
 <p><code class="verb">aaa&nbsp;&nbsp;bb<br >ccc</code>

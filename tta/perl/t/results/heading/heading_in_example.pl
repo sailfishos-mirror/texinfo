@@ -92,7 +92,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example">
 <strong class="heading" id="in-example-_0040-heading">in example @ <em class="emph">heading</em></strong>
 </div>

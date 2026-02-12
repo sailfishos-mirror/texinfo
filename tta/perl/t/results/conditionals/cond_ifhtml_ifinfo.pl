@@ -352,7 +352,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 
 This is html text.
 

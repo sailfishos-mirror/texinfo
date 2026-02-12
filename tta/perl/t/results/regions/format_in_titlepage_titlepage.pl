@@ -162,7 +162,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 
 <div class="format">
 <pre class="format-preformatted">Published

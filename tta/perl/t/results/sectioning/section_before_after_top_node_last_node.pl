@@ -216,7 +216,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <div class="unnumbered-level-extent" id="before">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#node-after" accesskey="n" rel="next">node after</a></span></span><span class="nav-button"> &nbsp; </span></p>

@@ -419,7 +419,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="top">
 <h1 class="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 

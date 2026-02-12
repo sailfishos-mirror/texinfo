@@ -161,7 +161,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="first">
 <h1 class="top" id="top"><span>top<a class="copiable-link" href="#top"> &para;</a></span></h1>
 

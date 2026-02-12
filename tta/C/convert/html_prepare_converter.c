@@ -4136,13 +4136,19 @@ html_setup_output (CONVERTER *self, char **paths)
 
   body_lang = self->conf->documentlanguage.o.string;
 
-  if (!body_lang)
-    body_lang = "";
-
-  xasprintf (&body_element_attributes, "lang=\"%s\"", body_lang);
-  option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
-                   0, body_element_attributes);
-  free (body_element_attributes);
+  if (body_lang)
+    {
+      xasprintf (&body_element_attributes, "lang=\"%s\"", body_lang);
+      option_set_conf (&self->conf->BODY_ELEMENT_ATTRIBUTES,
+                       0, body_element_attributes);
+      free (body_element_attributes);
+    }
+  else
+    {
+      /* Note: HTML 5 documentation specifies that the lang attribute can
+         take an empty string as its value to specify that the language
+         is unknown.  However, outputting lang="" is unnecessary. */
+    }
 
   set_global_document_commands (self, CL_before, conf_for_documentlanguage);
 

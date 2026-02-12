@@ -107,7 +107,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="">
+<body>
 
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; <a href="manual.html#n_002d_002d_002dode" accesskey="1">entry&mdash;in</a>:</td><td class="menu-entry-description">description &mdash; in.

@@ -56,7 +56,7 @@ $result_converted{'html'}->{'empty_listoffloats'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 
 
 

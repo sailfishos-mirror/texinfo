@@ -150,7 +150,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="">
+<body>
 <div class="region-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 

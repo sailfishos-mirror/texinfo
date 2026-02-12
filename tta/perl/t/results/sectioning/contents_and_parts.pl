@@ -423,7 +423,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapter-1-node" accesskey="n" rel="next">chapter 1</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span></p>

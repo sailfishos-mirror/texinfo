@@ -162,7 +162,7 @@ $result_converted{'html'}->{'float_with_at_commands'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 <div class="float" id="premi_00e8re-entr_00e9e">
 
 <p>Ceci est notre premi&egrave;re entr&eacute;e.

@@ -161,7 +161,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example user-C++ user-gothic user-purple user-embed">
 <pre class="example-preformatted">void StateManager::deallocate() {
     if(buffer) {

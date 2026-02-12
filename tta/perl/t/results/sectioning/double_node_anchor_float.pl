@@ -326,7 +326,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <h4 class="node" id="node1"><span>node1<a class="copiable-link" href="#node1"> &para;</a></span></h4>
 
 <hr>

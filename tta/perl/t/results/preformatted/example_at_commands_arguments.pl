@@ -103,7 +103,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example user-some-thing-ê-TeX-¡-----...-!_--_---_-&lt;-&quot;-&amp;--, user-@ user-0">
 <pre class="example-preformatted">example with @-commands and other special characters
 </pre></div>

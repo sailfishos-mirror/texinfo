@@ -99,7 +99,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <img class="image" src="f--ile.png" alt="alt &ndash; in b">
 
 <div class="example">

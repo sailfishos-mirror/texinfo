@@ -186,7 +186,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <div class="unnumbered-level-extent" id="before">
 <h2 class="unnumbered"><span>before<a class="copiable-link" href="#before"> &para;</a></span></h2>
 

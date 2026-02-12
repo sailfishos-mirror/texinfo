@@ -98,7 +98,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <p><abbr class="abbr" title="abbr &ndash; b">A</abbr> (<b class="b">abbr</b> &ndash; b).
 </p>
 <div class="example">

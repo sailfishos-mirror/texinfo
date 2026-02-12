@@ -1,3 +1,23 @@
+2026-02-12  Gavin Smith <gavinsmith0123@gmail.com>
+
+	Do not output empty body lang attribute
+	
+	* tta/perl/Texinfo/Convert/HTML.pm (_setup_output):
+	Do not set BODY_ELEMENT_ATTRIBUTES to lang="" if the documentlanguage
+	is undefined.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_file_header_information):
+	Return body attribute string with leading space, or as an empty
+	string.  Callers updated.
+	
+	* tta/C/convert/html_prepare_converter.c (html_setup_output),
+	* tta/C/convert/format_html.c (file_header_information):
+	Make the same change.
+	
+	The lang="" attribute is unnecessary, and potentially causes
+	the wrong fonts to be used on Firefox, according to a report
+	from Vincent Lefevre <vincent@vinc17.net>.
+
 2026-02-08  Gavin Smith <gavinsmith0123@gmail.com>
 
 	Fix "Free to wrong pool" error

@@ -132,7 +132,7 @@ $result_converted{'html'}->{'one_node_explicit_directions_anchor_no_use_node'} =
 
 </head>
 
-<body lang="">
+<body>
 <a class="node" id="one-node"></a><p>Top node
 </p>
 <p>anchor ref <a class="anchor" id="ref"></a>.

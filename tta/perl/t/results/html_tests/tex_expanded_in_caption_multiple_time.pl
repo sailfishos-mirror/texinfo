@@ -134,7 +134,7 @@ $result_converted{'html'}->{'tex_expanded_in_caption_multiple_time'} = '<!DOCTYP
 
 </head>
 
-<body lang="">
+<body>
 <div class="float" id="B">
 <p>My float.
 </p><div class="caption">aa

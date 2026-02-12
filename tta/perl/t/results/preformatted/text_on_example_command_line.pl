@@ -179,7 +179,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 
 <div class="example user-text-on-line-followed-by-text">
 <pre class="example-preformatted">normal text

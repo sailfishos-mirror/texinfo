@@ -98,7 +98,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <div class="unnumbered-level-extent" id="U">
 <h2 class="unnumbered"><span>U<a class="copiable-link" href="#U"> &para;</a></span></h2>
 <ul class="mini-toc">

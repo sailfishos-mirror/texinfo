@@ -143,7 +143,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </head>
 
-<body lang="">
+<body>
 <dl class="defblock def-block">
 <dt class="defline def-line"><span class="category-def">Funoid: </span><strong class="def-name">foo</strong> <var class="def-var-arguments">(bar)</var></dt>
 <dt class="defline def-line"><span class="category-def">Funnyoid: </span><strong class="def-name">foo2</strong> <var class="def-var-arguments">(bar2, baz2)</var></dt>

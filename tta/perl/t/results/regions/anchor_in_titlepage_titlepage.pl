@@ -219,7 +219,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 
 <a class="anchor" id="in-titlepage"></a><hr>
 

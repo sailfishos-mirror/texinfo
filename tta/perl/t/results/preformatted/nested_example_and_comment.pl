@@ -246,7 +246,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example">
 <pre class="example-preformatted">First line 0 </pre><div class="example">
 <pre class="example-preformatted">Nested example

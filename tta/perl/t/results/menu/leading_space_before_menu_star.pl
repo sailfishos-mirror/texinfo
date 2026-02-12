@@ -100,7 +100,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="">
+<body>
 <h4 class="node" id="a-node"><span>a node<a class="copiable-link" href="#a-node"> &para;</a></span></h4>
 
 <table class="menu">

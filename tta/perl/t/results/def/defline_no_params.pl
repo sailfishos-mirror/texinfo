@@ -101,7 +101,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </head>
 
-<body lang="">
+<body>
 <dl class="defblock def-block">
 <dt class="defline def-line"><span class="category-def">Builtin: </span><strong class="def-name">truc</strong></dt>
 <dd><p>Description of truc

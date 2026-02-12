@@ -146,7 +146,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </head>
 
-<body lang="">
+<body>
 <dl class="defblock def-block">
 <dd><a class="index-entry-id" id="index-entry"></a>
 

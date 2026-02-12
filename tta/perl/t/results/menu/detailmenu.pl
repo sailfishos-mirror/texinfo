@@ -131,7 +131,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="">
+<body>
 
 <table class="menu">
 <tr><td class="menu-entry-destination">&bull; Copying Conditions:</td><td class="menu-entry-description">Your rights.

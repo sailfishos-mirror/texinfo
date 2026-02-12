@@ -1975,7 +1975,7 @@ th.index-letter-header-printindex {text-align: left}
 
 </head>
 
-<body lang="">
+<body>
 <a class="node-id" id="Top"></a><p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chap" accesskey="n" rel="next">chap</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>
 <h1 class="node"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>

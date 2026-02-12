@@ -325,7 +325,7 @@ h1.settitle {text-align:center}
 
 </head>
 
-<body lang="">
+<body>
 <h1 class="settitle">no_element test</h1>
 <hr>
 

@@ -83,7 +83,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example">
 <h1 class="titlefont">Title</h1><pre class="example-preformatted">
 

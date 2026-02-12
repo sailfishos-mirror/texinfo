@@ -180,7 +180,7 @@ th.index-letter-header-printindex {text-align: left}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="top">
 <p class="nav-panel">
 <span class="nav-button">[<a href="#chap" title="Index" rel="index">Index</a>]</span></p>

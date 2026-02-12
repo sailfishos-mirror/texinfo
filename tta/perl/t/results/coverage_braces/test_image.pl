@@ -975,7 +975,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 
 
 <a class="node-id" id="Top"></a><p class="nav-panel">

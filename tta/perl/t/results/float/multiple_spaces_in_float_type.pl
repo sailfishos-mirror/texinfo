@@ -113,7 +113,7 @@ $result_converted{'html'}->{'multiple_spaces_in_float_type'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 <div class="float" id="myfloat">
 <p>inside
 </p><div class="type-number-float"><p><strong class="strong">Type  of  &#12;  Float 1</strong></p></div></div>

@@ -118,7 +118,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="example user-perl">
 <pre class="example-preformatted">foreach my $unclosed_file (keys(%unclosed_files)) {
   if (!close($unclosed_files{$unclosed_file})) {

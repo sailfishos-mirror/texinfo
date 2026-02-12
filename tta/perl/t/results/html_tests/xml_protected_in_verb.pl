@@ -93,7 +93,7 @@ $result_converted{'html'}->{'xml_protected_in_verb'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 <pre class="verbatim">&lt;a&gt;
 </pre>
 <p><code class="verb">&nbsp;&lt;i&gt;&nbsp;</code>.

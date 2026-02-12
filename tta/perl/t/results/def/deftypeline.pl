@@ -130,7 +130,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </head>
 
-<body lang="">
+<body>
 <dl class="defblock def-block">
 <dt class="deftypeline def-line"><span class="category-def">Function: </span><code class="def-type">long int</code> <strong class="def-name">foo</strong> <code class="def-code-arguments">(int <var class="var">bar</var>, int <var class="var">baz</var>)</code></dt>
 <dd><p>&hellip;

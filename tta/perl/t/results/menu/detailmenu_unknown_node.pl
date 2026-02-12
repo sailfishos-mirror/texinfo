@@ -132,7 +132,7 @@ td.menu-entry-destination {vertical-align: top}
 
 </head>
 
-<body lang="">
+<body>
 <h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <table class="menu">

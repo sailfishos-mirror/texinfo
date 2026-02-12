@@ -186,7 +186,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <p>Example with comments 2 lines
 </p><div class="example">
 <pre class="example-preformatted">line second line </pre></div>

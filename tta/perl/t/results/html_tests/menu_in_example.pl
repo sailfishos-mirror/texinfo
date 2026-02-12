@@ -249,7 +249,7 @@ table.cartouche {border-style: solid; border-radius: 0.5em}
 
 </head>
 
-<body lang="">
+<body>
 <h1 class="node" id="Top"><span>Top<a class="copiable-link" href="#Top"> &para;</a></span></h1>
 
 <div class="example">

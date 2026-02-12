@@ -81,7 +81,7 @@ div.center {text-align:center}
 
 </head>
 
-<body lang="">
+<body>
 <div class="center">centered
 </div>
 <p>Some text.

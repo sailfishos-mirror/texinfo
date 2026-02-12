@@ -187,7 +187,7 @@ th.menu-comment {text-align:left}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#chapN" accesskey="n" rel="next">Intro</a></span></span><span class="nav-button"> &nbsp; </span></p>

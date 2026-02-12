@@ -48,7 +48,7 @@ $result_converted{'html'}->{'image_link_prefix'} = '<!DOCTYPE html>
 
 </head>
 
-<body lang="">
+<body>
 <img class="image" src="../imgimage.jpg" alt="image">
 
 

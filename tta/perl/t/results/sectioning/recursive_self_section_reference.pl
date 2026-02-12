@@ -102,7 +102,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <div class="chapter-level-extent" id="sharp">
 <h2 class="chapter" id="sharp-tuple"><span>1 <a class="ref" href="#sharp">sharp</a> tuple<a class="copiable-link" href="#sharp-tuple"> &para;</a></span></h2>
 </div>

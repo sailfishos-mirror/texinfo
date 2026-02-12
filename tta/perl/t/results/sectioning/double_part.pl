@@ -294,7 +294,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">
 <span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#node-chapter" accesskey="n" rel="next">chapter after 2 parts</a></span></span><span class="nav-button"> &nbsp; </span></p>

@@ -138,7 +138,7 @@ strong.def-name {font-family: monospace; font-weight: bold}
 
 </head>
 
-<body lang="">
+<body>
 <dl class="first-deffn def-block">
 <dt class="deffn def-line" id="index-e-gh"><span class="category-def">a bc d: </span><span><strong class="def-name">e gh</strong> <var class="def-var-arguments">mll restand more</var><a class="copiable-link" href="#index-e-gh"> &para;</a></span></dt>
 </dl>

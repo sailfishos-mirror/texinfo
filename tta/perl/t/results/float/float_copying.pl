@@ -639,7 +639,7 @@ th.index-letter-header-printindex {text-align: left}
 
 </head>
 
-<body lang="">
+<body>
 
 <div class="top-level-extent" id="Top">
 <p class="nav-panel">

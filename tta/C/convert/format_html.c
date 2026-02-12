@@ -4017,7 +4017,12 @@ file_header_information (CONVERTER *self, const ELEMENT *command,
 
   text_reset (&text);
   if (self->conf->BODY_ELEMENT_ATTRIBUTES.o.string)
-    text_append (&text, self->conf->BODY_ELEMENT_ATTRIBUTES.o.string);
+    {
+      char *attributes = self->conf->BODY_ELEMENT_ATTRIBUTES.o.string;
+      if (attributes[0] != '\0' && attributes[0] != ' ')
+        text_append_n (&text, " ", 1);
+      text_append (&text, attributes);
+    }
   if (self->conf->HTML_MATH.o.string
       && !strcmp (self->conf->HTML_MATH.o.string, "mathjax")
       && html_get_file_information (self, "mathjax", filename, &status) > 0)
@@ -4275,7 +4280,9 @@ html_default_format_begin_file (CONVERTER *self, const char *filename,
   if (begin_info->extra_head)
     text_append (&result, begin_info->extra_head);
   text_append_n (&result, "\n</head>\n\n", 10);
-  text_printf (&result, "<body %s>\n", begin_info->body_attributes);
+
+  text_printf (&result, "<body%s>\n", begin_info->body_attributes);
+
   if (self->conf->AFTER_BODY_OPEN.o.string)
     text_append (&result, self->conf->AFTER_BODY_OPEN.o.string);
 
@@ -5498,7 +5505,7 @@ html_default_format_node_redirection_page (CONVERTER *self,
   if (begin_info->extra_head)
     text_append (&result, begin_info->extra_head);
   text_append_n (&result, "\n</head>\n\n", 10);
-  text_printf (&result, "<body %s>\n", begin_info->body_attributes);
+  text_printf (&result, "<body%s>\n", begin_info->body_attributes);
   if (self->conf->AFTER_BODY_OPEN.o.string)
     text_append (&result, self->conf->AFTER_BODY_OPEN.o.string);
 

@@ -134,7 +134,7 @@ div.example {margin-left: 3.2em}
 
 </head>
 
-<body lang="">
+<body>
 <div class="float">
 
 <div class="example">

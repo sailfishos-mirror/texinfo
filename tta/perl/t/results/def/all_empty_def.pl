@@ -314,7 +314,7 @@ dt.def-line {font-size: 1rem}
 
 </head>
 
-<body lang="">
+<body>
 <dl class="first-deffn def-block">
 <dt class="deffn def-line"></dt>
 </dl>

@@ -127,7 +127,7 @@ ul.toc-numbered-mark {list-style: none}
 
 </head>
 
-<body lang="">
+<body>
 
 <div class="top-level-extent" id="for-example">
 <h1 class="top"><span>for example<a class="copiable-link" href="#for-example"> &para;</a></span></h1>

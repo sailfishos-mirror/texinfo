@@ -134,7 +134,7 @@ MathJax = {
 </script>
 </head>
 
-<body lang="" class="tex2jax_ignore">
+<body class="tex2jax_ignore">
 <pre class="displaymath tex2jax_process">\\[a^{b - \\frac{\\xi}{phi \\copyright{}}} ı
 \\]</pre>
 <p>Some <em class="math tex2jax_process">\\(a - b \\geq{} Å ê\\)</em>.

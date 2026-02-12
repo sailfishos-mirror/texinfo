@@ -146,7 +146,7 @@ span:hover a.copiable-link {visibility: visible}
 
 </head>
 
-<body lang="">
+<body>
 
 
 <div class="top-level-extent" id="Top">
