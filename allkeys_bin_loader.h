@@ -1,5 +1,5 @@
 #include <config.h>
-#include "allkeys_bin2.h"
+#include "allkeys_bin.h"
 
 int load_data_file(const char *filename);
 int lookup_codepoint(uint32_t codepoint, 

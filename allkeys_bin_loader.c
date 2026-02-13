@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "allkeys_bin2.h"
+#include "allkeys_bin.h"
 
 /*
  * Lookup program for binary collation data

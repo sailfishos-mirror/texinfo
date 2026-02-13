@@ -5,8 +5,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "allkeys_bin2.h"
-#include "allkeys_bin_loader2.h"
+#include "allkeys_bin.h"
+#include "allkeys_bin_loader.h"
 
 void print_usage(const char *prog) {
     printf("Usage: %s <command> <binary_file> [options]\n\n", prog);

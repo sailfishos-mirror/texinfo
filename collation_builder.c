@@ -7,7 +7,7 @@
 #include <ctype.h>
 #include <time.h>
 
-#include "allkeys_bin2.h"
+#include "allkeys_bin.h"
 
 /*
  * Binary Format Specification:

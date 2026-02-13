@@ -5,7 +5,7 @@
 #include <string.h>
 #include "uninorm.h"
 
-#include "allkeys_bin_loader2.h"
+#include "allkeys_bin_loader.h"
 #include "collation_key.h"
 
 CollationKey get_collation_key(uint32_t *codepoints_in, size_t length_in) {
