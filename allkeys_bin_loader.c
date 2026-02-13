@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "allkeys_bin.h"
+#include "allkeys_bin_loader.h"
 
 /*
  * Lookup program for binary collation data
@@ -109,7 +109,7 @@ static int read_collation_data(const uint8_t *data, uint32_t offset,
 }
 
 /* Lookup single codepoint and return data offset */
-uint32_t lookup_codepoint_data(uint32_t codepoint) {
+CODEPOINT_DATA lookup_codepoint_data(uint32_t codepoint) {
     if (codepoint >= 0x110000) return 0;
     
     uint32_t page_num = codepoint >> 8;
@@ -155,12 +155,12 @@ int lookup_codepoint(uint32_t codepoint,
     return 0; // Not found
 }
 
-uint8_t element_count_of_data_offset(uint32_t offset) {
+uint8_t element_count_of_data_offset(CODEPOINT_DATA offset) {
     return read_u8(collation_data, offset);
 }
 
 /* Like lookup_codepoint, but takes a data_offset handle. */
-int read_collation_data_offset(uint32_t data_offset,
+int read_collation_data_offset(CODEPOINT_DATA data_offset,
                      CollationElement *elements, uint8_t *num_elements) {
       return read_collation_data(collation_data, data_offset, elements, num_elements);
 }

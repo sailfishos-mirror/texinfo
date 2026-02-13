@@ -1,18 +1,20 @@
 #include <config.h>
 #include "allkeys_bin.h"
 
+typedef uint32_t CODEPOINT_DATA;
+
 int load_data_file(const char *filename);
 int lookup_codepoint(uint32_t codepoint, 
                      CollationElement *elements, uint8_t *num_elements);
 
-uint32_t lookup_codepoint_data(uint32_t codepoint);
+CODEPOINT_DATA lookup_codepoint_data(uint32_t codepoint);
 
 int lookup_sequence(const uint32_t *codepoints, size_t len,
                     CollationElement *elements, uint8_t *num_elements);
 
-uint8_t element_count_of_data_offset(uint32_t offset);
+uint8_t element_count_of_data_offset(CODEPOINT_DATA offset);
 
-int read_collation_data_offset(uint32_t data_offset,
+int read_collation_data_offset(CODEPOINT_DATA data_offset,
                      CollationElement *elements, uint8_t *num_elements);
 
 void print_collation(const CollationElement *elements, uint8_t num_elements);

@@ -13,7 +13,7 @@ allkeys_to_binary_SOURCES = allkeys_to_binary.c
 allkeys_query_SOURCES = allkeys_query.c allkeys_bin_loader.c
 utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key.c
 
-test: collation_builder allkeys_query
+test: allkeys_to_binary allkeys_query
 	@echo "=== Testing binary conversion ==="
 	./allkeys_to_binary ./allkeys.txt allkeys.bin
 	@echo ""
