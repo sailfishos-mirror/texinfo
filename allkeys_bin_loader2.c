@@ -46,30 +46,18 @@ int load_data_file(const char *filename) {
     
     fclose(fp);
 
-    /* validate */
-    fprintf(stderr, "DEBUG: Loaded successfully\n");
-    printf("Loaded %u bytes\n", collation_data_size);
-    
-    fprintf(stderr, "DEBUG: About to validate\n");
-    
     // Validate data
     if (collation_data_size < 28) {
         fprintf(stderr, "Error: Invalid collation data\n");
         return 1;
     }
     
-    fprintf(stderr, "DEBUG: Size OK, checking magic\n");
-    
     if (memcmp(collation_data, "UCADATA1", 8) != 0) {
         fprintf(stderr, "Error: Invalid magic number\n");
         return 1;
     }
-    
-    fprintf(stderr, "DEBUG: Magic OK\n");
 
     read_header(collation_data, &header);
-
-
     return 1;
 }
 
@@ -287,57 +275,4 @@ static void run_tests(const uint8_t *data) {
         printf("NOT FOUND\n");
     }
 }
-#endif
-
-#if 0
-int main(int argc, char *argv[]) {
-    fprintf(stderr, "DEBUG: main() started, argc=%d\n", argc);
-    
-    if (argc < 2) {
-        fprintf(stderr, "Usage: %s <collation_data.bin> [-i]\n", argv[0]);
-        return 1;
-    }
-    
-    const char *data_file = argv[1];
-    fprintf(stderr, "DEBUG: Loading from %s\n", data_file);
-    
-    printf("Loading collation data from %s...\n", data_file);
-    if (!load_data_file(data_file)) {
-        fprintf(stderr, "Failed to load data file\n");
-        return 1;
-    }
-    
-    fprintf(stderr, "DEBUG: Loaded successfully\n");
-    printf("Loaded %u bytes\n", collation_data_size);
-    
-    fprintf(stderr, "DEBUG: About to validate\n");
-    
-    // Validate data
-    if (collation_data_size < 28) {
-        fprintf(stderr, "Error: Invalid collation data\n");
-        return 1;
-    }
-    
-    fprintf(stderr, "DEBUG: Size OK, checking magic\n");
-    
-    if (memcmp(collation_data, "UCADATA1", 8) != 0) {
-        fprintf(stderr, "Error: Invalid magic number\n");
-        return 1;
-    }
-    
-    fprintf(stderr, "DEBUG: Magic OK\n");
-    
-    if (argc > 2 && strcmp(argv[2], "-i") == 0) {
-        fprintf(stderr, "DEBUG: Starting interactive mode\n");
-        interactive_mode(collation_data);
-    } else {
-        fprintf(stderr, "DEBUG: Starting run_tests\n");
-        run_tests(collation_data);
-    }
-    
-    free(collation_data);
-    
-    return 0;
-}
-
 #endif
