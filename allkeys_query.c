@@ -78,9 +78,9 @@ int main(int argc, char *argv[]) {
    
         int found = 0;
         if (len == 1) {
-            found = lookup_codepoint(collation_data, &header, codepoints[0], elements, &num_elements);
+            found = lookup_codepoint(&header, codepoints[0], elements, &num_elements);
         } else {
-            found = lookup_sequence(collation_data, &header, codepoints, len, elements, &num_elements);
+            found = lookup_sequence(&header, codepoints, len, elements, &num_elements);
         }
         
         if (found) {

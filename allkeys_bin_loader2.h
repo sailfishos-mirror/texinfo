@@ -3,11 +3,11 @@
 
 int load_data_file(const char *filename);
 void read_header(const uint8_t *data, Header *header);
-int lookup_codepoint(const uint8_t *data, const Header *header,
+int lookup_codepoint(const Header *header,
                      uint32_t codepoint, 
                      CollationElement *elements, uint8_t *num_elements);
 
-int lookup_sequence(const uint8_t *data, const Header *header,
+int lookup_sequence(const Header *header,
                     const uint32_t *codepoints, size_t len,
                     CollationElement *elements, uint8_t *num_elements);
 

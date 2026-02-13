@@ -117,7 +117,7 @@ static int read_collation_data(const uint8_t *data, uint32_t offset,
 }
 
 /* Lookup single codepoint */
-int lookup_codepoint(const uint8_t *data, const Header *header,
+int lookup_codepoint(const Header *header,
                      uint32_t codepoint, 
                      CollationElement *elements, uint8_t *num_elements) {
     if (codepoint >= 0x110000) return 0;
@@ -126,11 +126,11 @@ int lookup_codepoint(const uint8_t *data, const Header *header,
     uint8_t page_offset = codepoint & 0xFF;
     
     // Read page table entry
-    uint32_t page_data_offset = read_u32(data, header->page_table_offset + page_num * 4);
+    uint32_t page_data_offset = read_u32(collation_data, header->page_table_offset + page_num * 4);
     if (page_data_offset == 0) return 0; // Page not allocated
     
     // Read page count
-    uint16_t count = read_u16(data, page_data_offset);
+    uint16_t count = read_u16(collation_data, page_data_offset);
     uint32_t entries_offset = page_data_offset + 2;
     
     // Binary search within page
@@ -140,12 +140,12 @@ int lookup_codepoint(const uint8_t *data, const Header *header,
     while (left <= right) {
         int mid = left + (right - left) / 2;
         uint32_t entry_offset = entries_offset + mid * 5; // 1 byte offset + 4 byte data_offset
-        uint8_t entry_page_offset = read_u8(data, entry_offset);
+        uint8_t entry_page_offset = read_u8(collation_data, entry_offset);
         
         if (entry_page_offset == page_offset) {
             // Found it!
-            uint32_t data_offset = read_u32(data, entry_offset + 1);
-            return read_collation_data(data, data_offset, elements, num_elements);
+            uint32_t data_offset = read_u32(collation_data, entry_offset + 1);
+            return read_collation_data(collation_data, data_offset, elements, num_elements);
         } else if (entry_page_offset < page_offset) {
             left = mid + 1;
         } else {
@@ -157,7 +157,7 @@ int lookup_codepoint(const uint8_t *data, const Header *header,
 }
 
 /* Lookup sequence */
-int lookup_sequence(const uint8_t *data, const Header *header,
+int lookup_sequence(const Header *header,
                     const uint32_t *codepoints, size_t len,
                     CollationElement *elements, uint8_t *num_elements) {
     if (len == 0) return 0;
@@ -166,26 +166,26 @@ int lookup_sequence(const uint8_t *data, const Header *header,
     
     for (size_t i = 0; i < len; i++) {
         // Read node
-        uint32_t node_codepoint = read_u32(data, node_offset);
-        uint32_t node_data_offset = read_u32(data, node_offset + 4);
-        uint16_t num_children = read_u16(data, node_offset + 8);
+        uint32_t node_codepoint = read_u32(collation_data, node_offset);
+        uint32_t node_data_offset = read_u32(collation_data, node_offset + 4);
+        uint16_t num_children = read_u16(collation_data, node_offset + 8);
         uint32_t children_offset = node_offset + 10;
         
         // Search for matching child
         int found = 0;
         for (uint16_t j = 0; j < num_children; j++) {
-            uint32_t child_offset = read_u32(data, children_offset + j * 4);
-            uint32_t child_codepoint = read_u32(data, child_offset);
+            uint32_t child_offset = read_u32(collation_data, children_offset + j * 4);
+            uint32_t child_codepoint = read_u32(collation_data, child_offset);
             
             if (child_codepoint == codepoints[i]) {
                 node_offset = child_offset;
                 found = 1;
                 
-                // If this is the last codepoint, check for data
+                // If this is the last codepoint, check for collation_data
                 if (i == len - 1) {
-                    uint32_t data_offset = read_u32(data, node_offset + 4);
+                    uint32_t data_offset = read_u32(collation_data, node_offset + 4);
                     if (data_offset != 0) {
-                        return read_collation_data(data, data_offset, elements, num_elements);
+                        return read_collation_data(collation_data, data_offset, elements, num_elements);
                     }
                 }
                 break;
