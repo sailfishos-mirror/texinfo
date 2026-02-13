@@ -42,6 +42,30 @@ int load_data_file(const char *filename) {
     }
     
     fclose(fp);
+
+    /* validate */
+    fprintf(stderr, "DEBUG: Loaded successfully\n");
+    printf("Loaded %u bytes\n", collation_data_size);
+    
+    fprintf(stderr, "DEBUG: About to validate\n");
+    
+    // Validate data
+    if (collation_data_size < 28) {
+        fprintf(stderr, "Error: Invalid collation data\n");
+        return 1;
+    }
+    
+    fprintf(stderr, "DEBUG: Size OK, checking magic\n");
+    
+    if (memcmp(collation_data, "UCADATA1", 8) != 0) {
+        fprintf(stderr, "Error: Invalid magic number\n");
+        return 1;
+    }
+    
+    fprintf(stderr, "DEBUG: Magic OK\n");
+    
+
+
     return 1;
 }
 
@@ -259,80 +283,6 @@ static void run_tests(const uint8_t *data) {
         print_collation(elements, num_elements);
     } else {
         printf("NOT FOUND\n");
-    }
-}
-#endif
-
-#if 0
-/* Interactive mode */
-static void interactive_mode(const uint8_t *data) {
-    Header header;
-    read_header(data, &header);
-    
-    CollationElement elements[MAX_COLLATION_ELEMENTS];
-    uint8_t num_elements;
-    
-    printf("\nInteractive mode (enter 'quit' to exit)\n");
-    printf("Commands:\n");
-    printf("  <hex>           Lookup single codepoint (e.g., 0041)\n");
-    printf("  <hex> <hex> ... Lookup sequence (e.g., 006C 00B7)\n");
-    printf("  quit            Exit\n\n");
-    
-    char line[256];
-    while (1) {
-        printf("> ");
-        fflush(stdout);
-        
-        if (!fgets(line, sizeof(line), stdin)) break;
-        
-        // Trim newline
-        line[strcspn(line, "\n")] = 0;
-        
-        if (strcmp(line, "quit") == 0) break;
-        
-        // Parse codepoints
-        uint32_t codepoints[32];
-        size_t num_codepoints = 0;
-        
-        char *p = line;
-        while (*p && num_codepoints < 32) {
-            while (*p && (*p == ' ' || *p == '\t')) p++;
-            if (!*p) break;
-            
-            char *end;
-            unsigned long cp = strtoul(p, &end, 16);
-            if (end == p || cp > 0x10FFFF) {
-                printf("Invalid codepoint\n");
-                num_codepoints = 0;
-                break;
-            }
-            
-            codepoints[num_codepoints++] = (uint32_t)cp;
-            p = end;
-        }
-        
-        if (num_codepoints == 0) continue;
-        
-        // Display what we're looking up
-        for (size_t i = 0; i < num_codepoints; i++) {
-            if (i > 0) printf(" ");
-            printf("U+%04X", codepoints[i]);
-        }
-        printf(": ");
-        
-        // Lookup
-        int found = 0;
-        if (num_codepoints == 1) {
-            found = lookup_codepoint(data, &header, codepoints[0], elements, &num_elements);
-        } else {
-            found = lookup_sequence(data, &header, codepoints, num_codepoints, elements, &num_elements);
-        }
-        
-        if (found) {
-            print_collation(elements, num_elements);
-        } else {
-            printf("NOT FOUND\n");
-        }
     }
 }
 #endif

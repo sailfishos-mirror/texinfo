@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "Failed to load data file\n");
         return 1;
     }
-    /* FIXME: validation and data file summary */
+    /* FIXME: data file summary */
 
 #if 0
     if (strcmp(command, "info") == 0) {
