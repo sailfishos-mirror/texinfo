@@ -1,3 +1,5 @@
+#include <config.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -326,6 +328,7 @@ static uint32_t write_trie_node(ByteBuffer *buf, TrieNode *node) {
     // Reserve space for codepoint data
     uint32_t data_offset_pos = buf->size;
     buffer_write_u32(buf, 0);
+
     buffer_write_u16(buf, node->num_children);
     
     // Reserve space for child offsets
@@ -342,7 +345,7 @@ static uint32_t write_trie_node(ByteBuffer *buf, TrieNode *node) {
 
     // Write collation data and update offset.
     if (node->data) {
-        data_offset = write_collation_data(buf, node->data);
+        uint32_t data_offset = write_collation_data(buf, node->data);
         buffer_write_u32_at(buf, data_offset_pos, data_offset);
     }
 

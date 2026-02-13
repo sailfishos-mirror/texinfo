@@ -6,8 +6,11 @@ LDADD = gnulib/lib/libgnu.a
 
 AM_CPPFLAGS = -I gnulib/lib
 
-bin_PROGRAMS = allkeys_to_binary allkeys_query utf8_to_sort_key
+bin_PROGRAMS = allkeys_to_binary allkeys_query utf8_to_sort_key collation_builder
 
+collation_builder_SOURCES = collation_builder.c
+
+# old - to be removed
 allkeys_to_binary_SOURCES = allkeys_to_binary.c
 
 allkeys_query_SOURCES = allkeys_query.c allkeys_bin_loader.c
