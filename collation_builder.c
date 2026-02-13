@@ -478,7 +478,7 @@ int main(int argc, char *argv[]) {
     }
     
     const char *input_file = argv[1];
-    const char *binary_file = argc >= 3 ? argv[2] : "collation_data.bin";
+    const char *binary_file = argc >= 3 ? argv[2] : "allkeys.bin";
     const char *c_file = argc >= 4 ? argv[3] : NULL;
     
     clock_t start = clock();
@@ -500,9 +500,6 @@ int main(int argc, char *argv[]) {
     double elapsed = (double)(end - start) / CLOCKS_PER_SEC;
     
     printf("\nTotal time: %.2f seconds\n", elapsed);
-    printf("\nTo use this data:\n");
-    printf("  gcc -o collation_lookup collation_lookup.c\n");
-    printf("  ./collation_lookup %s\n", binary_file);
     
     return 0;
 }
