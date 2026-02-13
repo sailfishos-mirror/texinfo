@@ -7,6 +7,8 @@
 #include <ctype.h>
 #include <time.h>
 
+#include "allkeys_bin2.h"
+
 /*
  * Binary Format Specification:
  * 
@@ -48,35 +50,6 @@
 #define NUM_PAGES 4352
 #define MAX_COLLATION_ELEMENTS 16
 #define MAX_SEQUENCE_LENGTH 32
-
-typedef struct {
-    uint16_t primary;
-    uint16_t secondary;
-    uint16_t tertiary;
-    uint8_t variable;
-} CollationElement;
-
-typedef struct {
-    uint8_t num_elements;
-    CollationElement elements[MAX_COLLATION_ELEMENTS];
-} CollationData;
-
-typedef struct {
-    uint8_t offset;
-    CollationData *data;
-} PageEntry;
-
-typedef struct {
-    uint16_t count;
-    PageEntry *entries;
-} Page;
-
-typedef struct TrieNode {
-    uint32_t codepoint;
-    CollationData *data;
-    struct TrieNode **children;
-    uint16_t num_children;
-} TrieNode;
 
 typedef struct {
     Page *pages[NUM_PAGES];
