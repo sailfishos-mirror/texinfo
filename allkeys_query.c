@@ -70,17 +70,14 @@ int main(int argc, char *argv[]) {
         }
 
         /* Lookup in binary data format */
-        Header header;
-        read_header(collation_data, &header);
-
         CollationElement elements[MAX_COLLATION_ELEMENTS];
         uint8_t num_elements;
    
         int found = 0;
         if (len == 1) {
-            found = lookup_codepoint(&header, codepoints[0], elements, &num_elements);
+            found = lookup_codepoint(codepoints[0], elements, &num_elements);
         } else {
-            found = lookup_sequence(&header, codepoints, len, elements, &num_elements);
+            found = lookup_sequence(codepoints, len, elements, &num_elements);
         }
         
         if (found) {

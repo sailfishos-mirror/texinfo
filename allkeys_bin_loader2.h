@@ -2,20 +2,13 @@
 #include "allkeys_bin2.h"
 
 int load_data_file(const char *filename);
-void read_header(const uint8_t *data, Header *header);
-int lookup_codepoint(const Header *header,
-                     uint32_t codepoint, 
+int lookup_codepoint(uint32_t codepoint, 
                      CollationElement *elements, uint8_t *num_elements);
 
-int lookup_sequence(const Header *header,
-                    const uint32_t *codepoints, size_t len,
+int lookup_sequence(const uint32_t *codepoints, size_t len,
                     CollationElement *elements, uint8_t *num_elements);
 
 void print_collation(const CollationElement *elements, uint8_t num_elements);
-
-/* FIXME: do not use global variable */
-extern uint8_t *collation_data;
-extern uint32_t collation_data_size;
 
 /*
 CollationEntry* load_database(const char *filename, BinaryHeader *header);

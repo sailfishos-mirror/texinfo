@@ -15,6 +15,9 @@
 uint8_t *collation_data = NULL;
 uint32_t collation_data_size = 0;
 
+static Header header;
+void read_header(const uint8_t *data, Header *header);
+
 /* Load binary data from file */
 int load_data_file(const char *filename) {
     FILE *fp = fopen(filename, "rb");
@@ -63,7 +66,8 @@ int load_data_file(const char *filename) {
     }
     
     fprintf(stderr, "DEBUG: Magic OK\n");
-    
+
+    read_header(collation_data, &header);
 
 
     return 1;
@@ -117,8 +121,7 @@ static int read_collation_data(const uint8_t *data, uint32_t offset,
 }
 
 /* Lookup single codepoint */
-int lookup_codepoint(const Header *header,
-                     uint32_t codepoint, 
+int lookup_codepoint(uint32_t codepoint, 
                      CollationElement *elements, uint8_t *num_elements) {
     if (codepoint >= 0x110000) return 0;
     
@@ -126,7 +129,7 @@ int lookup_codepoint(const Header *header,
     uint8_t page_offset = codepoint & 0xFF;
     
     // Read page table entry
-    uint32_t page_data_offset = read_u32(collation_data, header->page_table_offset + page_num * 4);
+    uint32_t page_data_offset = read_u32(collation_data, header.page_table_offset + page_num * 4);
     if (page_data_offset == 0) return 0; // Page not allocated
     
     // Read page count
@@ -157,12 +160,11 @@ int lookup_codepoint(const Header *header,
 }
 
 /* Lookup sequence */
-int lookup_sequence(const Header *header,
-                    const uint32_t *codepoints, size_t len,
+int lookup_sequence(const uint32_t *codepoints, size_t len,
                     CollationElement *elements, uint8_t *num_elements) {
     if (len == 0) return 0;
     
-    uint32_t node_offset = header->trie_offset;
+    uint32_t node_offset = header.trie_offset;
     
     for (size_t i = 0; i < len; i++) {
         // Read node
