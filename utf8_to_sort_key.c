@@ -5,7 +5,7 @@
 #include <string.h>
 #include <getopt.h>
 
-#include "allkeys_bin_loader.h"
+#include "allkeys_bin_loader2.h"
 #include "collation_key.h"
 
 
@@ -166,13 +166,10 @@ void print_usage(const char *program_name) {
 int
 print_collation_key (UTF8Result result)
 {
-    BinaryHeader header;
-    CollationEntry *entries = load_database(DATAFILE, &header);
+    if (!load_data_file(DATAFILE))
+      return 0;
     
-    if (!entries) {
-        return 0;
-    }
-    CollationKey sort_key = get_collation_key(entries, header.num_entries, result.codepoints, result.length);
+    CollationKey sort_key = get_collation_key(result.codepoints, result.length);
     printf ("Sort key: ");
     for (unsigned char *p = sort_key.key; p < sort_key.key + sort_key.length; p += 2)
       {
@@ -182,7 +179,6 @@ print_collation_key (UTF8Result result)
     /* This might print trailing 00 as we only use one byte for
        tertiary weight. */
     
-    free(entries);
     return 1;
 }
 
@@ -262,6 +258,7 @@ int main(int argc, char *argv[]) {
 
     }
 
+#if 0
     /* Show collation data for each codepoint */
     if (1) {
         BinaryHeader header;
@@ -291,6 +288,7 @@ int main(int argc, char *argv[]) {
         }
         free(entries);
     }
+#endif
 
     /* Load collation data and print collation key. */
     print_collation_key (result);

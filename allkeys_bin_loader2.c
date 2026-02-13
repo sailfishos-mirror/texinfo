@@ -108,9 +108,8 @@ static int read_collation_data(const uint8_t *data, uint32_t offset,
     return 1;
 }
 
-/* Lookup single codepoint */
-int lookup_codepoint(uint32_t codepoint, 
-                     CollationElement *elements, uint8_t *num_elements) {
+/* Lookup single codepoint and return data offset */
+uint32_t lookup_codepoint_data(uint32_t codepoint) {
     if (codepoint >= 0x110000) return 0;
     
     uint32_t page_num = codepoint >> 8;
@@ -136,7 +135,7 @@ int lookup_codepoint(uint32_t codepoint,
         if (entry_page_offset == page_offset) {
             // Found it!
             uint32_t data_offset = read_u32(collation_data, entry_offset + 1);
-            return read_collation_data(collation_data, data_offset, elements, num_elements);
+            return data_offset;
         } else if (entry_page_offset < page_offset) {
             left = mid + 1;
         } else {
@@ -145,6 +144,25 @@ int lookup_codepoint(uint32_t codepoint,
     }
     
     return 0; // Not found
+}
+
+int lookup_codepoint(uint32_t codepoint, 
+                     CollationElement *elements, uint8_t *num_elements) {
+    uint32_t data_offset = lookup_codepoint_data(codepoint);
+    if (data_offset) {
+        return read_collation_data(collation_data, data_offset, elements, num_elements);
+    }
+    return 0; // Not found
+}
+
+uint8_t element_count_of_data_offset(uint32_t offset) {
+    return read_u8(collation_data, offset);
+}
+
+/* Like lookup_codepoint, but takes a data_offset handle. */
+int read_collation_data_offset(uint32_t data_offset,
+                     CollationElement *elements, uint8_t *num_elements) {
+      return read_collation_data(collation_data, data_offset, elements, num_elements);
 }
 
 /* Lookup sequence */
