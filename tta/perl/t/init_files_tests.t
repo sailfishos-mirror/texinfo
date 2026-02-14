@@ -383,6 +383,26 @@ $directions_buttons_text,
 @printindex fn
 ', {'init_files' => ['index_direction_from_index_name.pm']},
 ],
+['add_lower_case_redirection_file_names',
+'@node Top
+@top top
+
+@node Chap
+@chapter The chapt
+
+@anchor{Up and Down}
+
+@node section
+@section Sect
+
+@anchor{lowerc}
+
+@xref{Up and Down}.
+@xref{Chap}.
+@xref{section}.
+@xref{lowerc}.
+', {'init_files' => ['lowercase_file_names_and_redirections.pm']}
+],
 # TODO different result in XS (abort) and in Perl (sets the relative
 # direction to the global direction) to be "fixed" before enabling the
 # test.
