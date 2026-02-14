@@ -17,7 +17,7 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
     /* get array of collation entries */
     struct collation_info {
         size_t string_index;
-        CODEPOINT_DATA data_offset;
+        COLLATION_DATA data_offset;
     };
 
     /* Maximum one collation_info per character.  Less if there are
@@ -29,7 +29,7 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
 
     for (size_t i = 0; i < length; ) {
         size_t n_consumed;
-        CODEPOINT_DATA data_offset
+        COLLATION_DATA data_offset
         = lookup_collation_data_at_char(&codepoints[i], &n_consumed);
         if (n_consumed > 0) {
             entry_array[n_entries].data_offset = data_offset;
