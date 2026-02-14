@@ -17,6 +17,9 @@ uint8_t element_count_of_data_offset(CODEPOINT_DATA offset);
 int read_collation_data_offset(CODEPOINT_DATA data_offset,
                      CollationElement *elements, uint8_t *num_elements);
 
+void get_implicit_weight (uint32_t codepoint, CollationElement *elements,
+                          uint8_t *n_elements);
+
 void print_collation(const CollationElement *elements, uint8_t num_elements);
 
 /*

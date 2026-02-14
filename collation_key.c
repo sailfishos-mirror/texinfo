@@ -9,31 +9,6 @@
 #include "allkeys_bin_loader.h"
 #include "collation_key.h"
 
-void get_implicit_weight (uint32_t codepoint,
-                          CollationElement *elements,
-                          uint8_t *n_elements) {
-    uint32_t AAAA = 0, BBBB = 0;
-
-    if (uc_is_property_unified_ideograph (codepoint)) {
-        const uc_block_t *b = uc_block (codepoint);
-        if (   b->start == 0x4E00 /* CJK Unified Ideographs */
-            || b->start == 0xF900 /* CJK Compatibility Ideographs */)
-        {
-            AAAA = 0xFB40 + (codepoint >> 15);
-        } else {
-            AAAA = 0xFB80 + (codepoint >> 15);
-        }
-        BBBB = (codepoint & 0x7FFF) | 0x8000;
-    }
-    if (AAAA && BBBB) {
-      CollationElement e1 = {AAAA, 0x0020, 0x0002};
-      CollationElement e2 = {BBBB, 0x0000, 0x0000};
-      elements[0] = e1;
-      elements[1] = e2;
-      (*n_elements) = 2;
-    }
-}
-
 CollationKey get_collation_key(uint32_t *codepoints_in, size_t length_in) {
     uint32_t *codepoints;
     size_t length;
