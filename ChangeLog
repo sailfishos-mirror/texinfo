@@ -1,3 +1,18 @@
+2026-02-14 Patrice Dumas  <pertusus@free.fr>
+
+	Add a customization function for node redirection files
+
+	* doc/texi2any_api.texi (Customizing Node Redirection Files),
+	tta/C/convert/call_html_perl_function.c
+	(call_file_id_setting_redirection_file_names),
+	tta/C/convert/convert_html.c (html_node_redirections),
+	tta/C/main/converter_types.h (HTML_FILE_ID_SETTING_NAMES_LIST),
+	tta/perl/Texinfo/Convert/HTML.pm
+	(%customizable_file_id_setting_references)
+	(_node_redirections): add the file_id_setting redirection_file_names
+	customization function to have a possibility to set the list of node
+	redirection files.  Based on a report from Jonas Hahnfeld.
+
 2026-02-14  Tony Battersby <tonyb@cybernetics.com> (tiny change)
 
 	* info/terminal.c: use modern prototypes for curses

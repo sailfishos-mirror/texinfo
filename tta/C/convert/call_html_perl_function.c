@@ -541,6 +541,99 @@ call_file_id_setting_external_target_non_split_name (CONVERTER *self,
   return 0;
 }
 
+int
+call_file_id_setting_redirection_file_names (CONVERTER *self,
+                const ELEMENT *element, const char *filename,
+                const char *node_redirection_filename,
+                STRING_LIST *reference_redirection_files)
+{
+  SV *redirection_file_names_sv;
+
+  dTHX;
+
+  redirection_file_names_sv
+    = (SV *) self->file_id_setting_refs[FIS_redirection_file_names];
+
+  if (redirection_file_names_sv)
+    {
+      int count, i;
+      int defined_count = 0;
+      char **result_redirection_files = 0;
+      AV *reference_redirection_files_av;
+
+      reference_redirection_files_av
+       = build_string_list (reference_redirection_files, svt_char);
+
+      dSP;
+
+      ENTER;
+      SAVETMPS;
+
+      PUSHMARK(SP);
+      EXTEND(SP, 5);
+
+      PUSHs(sv_2mortal (SvREFCNT_inc ((SV *) self->sv)));
+      PUSHs(sv_2mortal (newSVsv ((SV *) element->sv)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (filename, 0)));
+      PUSHs(sv_2mortal (newSVpv_utf8 (node_redirection_filename, 0)));
+      PUSHs(sv_2mortal (newRV_noinc ((SV *) reference_redirection_files_av)));
+      PUTBACK;
+
+      count = call_sv (redirection_file_names_sv, G_LIST);
+
+      SPAGAIN;
+
+      /* no returned items is valid */
+      /* if (count == 0)
+        croak ("redirection_file_names should return items\n");
+       */
+
+      if (count > 0)
+        {
+          /* Store and count non-undef strings returned by Perl.
+             The last string returned is first in result_redirection_files */
+          result_redirection_files = (char **)
+             malloc (count * sizeof (char *));
+
+          for (i = 0; i < count; i++)
+            {
+              SV *file_sv = POPs;
+              if (SvOK (file_sv))
+                {
+                  STRLEN len;
+                  const char *file_ret = SvPVutf8 (file_sv, len);
+                  result_redirection_files[defined_count]
+                        = strndup (file_ret, len);
+                  defined_count++;
+                }
+            }
+        }
+
+      PUTBACK;
+
+      FREETMPS;
+      LEAVE;
+
+      clear_strings_list (reference_redirection_files);
+
+      /* fill reference_redirection_files with returned values,
+         in reverse order to end up with first being first */
+      if (defined_count)
+        {
+          for (i = defined_count -1; i >= 0; i--)
+            {
+              add_string (result_redirection_files[i],
+                          reference_redirection_files);
+              free (result_redirection_files[i]);
+            }
+        }
+      free (result_redirection_files);
+
+      return 1;
+    }
+  return 0;
+}
+
 
 
 

@@ -8332,8 +8332,9 @@ my %customizable_file_id_setting_references;
 foreach my $customized_reference ('external_target_split_name',
                 'external_target_non_split_name',
                 'label_target_name', 'node_file_name',
-                'sectioning_command_target_name', 'unit_file_name',
-                'special_unit_target_file_name') {
+                'redirection_file_names',
+                'sectioning_command_target_name',
+                'special_unit_target_file_name', 'unit_file_name') {
   $customizable_file_id_setting_references{$customized_reference} = 1;
 }
 
@@ -13484,6 +13485,18 @@ sub _node_redirections($$$$) {
             push @redirection_files, $translit_redirection_filename;
           }
         }
+      }
+
+      if (defined($self->{'file_id_setting'}->{'redirection_file_names'})) {
+        my $reference_redirection_files = [@redirection_files];
+        # NOTE there are no checks on returned redirection files not
+        # replacing other files, it is up to the user to do what they
+        # should.
+        @redirection_files
+       = &{$self->{'file_id_setting'}->{'redirection_file_names'}}($self,
+                             $target_element, $filename,
+                             $node_redirection_filename,
+                             $reference_redirection_files);
       }
 
       foreach my $redirection_filename (@redirection_files) {

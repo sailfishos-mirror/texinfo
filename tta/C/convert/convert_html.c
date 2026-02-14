@@ -2998,7 +2998,9 @@ html_node_redirections (CONVERTER *self,
           char *node_filename;
           LABEL *label = &label_targets->list[i];
           const char *normalized;
-          char *node_redirection_filename = 0;
+          char *node_redirection_filename;
+          size_t file_idx;
+          const FILE_NAME_PATH_COUNTER *output_unit_file;
           size_t j;
 
           if (!label->identifier || label->reference)
@@ -3010,9 +3012,8 @@ html_node_redirections (CONVERTER *self,
           /* filename may not be defined in case of an @anchor or similar in
              @titlepage, and @titlepage is not used. */
           target_filename = html_command_filename (self, target_element);
-          if (!target_filename || !target_filename->filename) {
+          if (!target_filename || !target_filename->filename)
             continue;
-          }
 
      /* NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
         is.  The other manual must use the same convention to get it
@@ -3037,13 +3038,12 @@ html_node_redirections (CONVERTER *self,
               free (target_filename);
             }
 
+          file_idx = register_normalize_case_filename (self, node_filename);
+          output_unit_file = &self->output_unit_files.list[file_idx];
+          node_redirection_filename = output_unit_file->filename;
+
           if (strcmp (target_filename->filename, node_filename))
             {
-              size_t file_idx
-                = register_normalize_case_filename (self, node_filename);
-              const FILE_NAME_PATH_COUNTER *output_unit_file
-                 = &self->output_unit_files.list[file_idx];
-              node_redirection_filename = output_unit_file->filename;
               int redirection_filename_total_count
                 = output_unit_file->elements_in_file_count;
 
@@ -3181,14 +3181,6 @@ html_node_redirections (CONVERTER *self,
                 translit_filename = strdup (translit_basename);
               free (translit_basename);
 
-              if (!node_redirection_filename)
-                {
-                  size_t file_idx
-                   = register_normalize_case_filename (self, node_filename);
-                  const FILE_NAME_PATH_COUNTER *output_unit_file
-                    = &self->output_unit_files.list[file_idx];
-                  node_redirection_filename = output_unit_file->filename;
-                }
               if (strcmp (translit_filename, node_redirection_filename)
                   && strcmp (translit_filename, target_filename->filename))
                 {
@@ -3216,6 +3208,10 @@ html_node_redirections (CONVERTER *self,
                 }
               free (translit_filename);
             }
+
+          call_file_id_setting_redirection_file_names (self, target_element,
+                       target_filename->filename, node_redirection_filename,
+                               &redirection_files);
 
           free (node_filename);
 
@@ -3248,7 +3244,8 @@ html_node_redirections (CONVERTER *self,
                  = converter_encoded_output_file_name (self->conf,
                                &self->document->global_info, out_filepath,
                                                        &path_encoding, 0);
-              /* overwritten_file being set cannot happen */
+              /* overwritten_file being set cannot happen in the default
+                 case, but could with redirection files set by the user */
               FILE *file_fh
                 = output_files_open_out (&self->output_files_information,
                            encoded_out_filepath, &open_error_message,

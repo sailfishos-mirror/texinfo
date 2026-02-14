@@ -2007,6 +2007,31 @@ output unit @code{special_unit_variety} hash key can be used.
 @xref{Special Units Varieties}.
 
 
+@node Customizing Node Redirection Files
+@section Customizing Node Redirection Files
+
+In the default case, node redirection files are done for label commands (node,
+anchor and floats) if they are not output in a file that corresponds to the
+HTML Xref specification (@pxref{HTML Splitting,,, texinfo, Texinfo}).
+
+You can customize the list of redirection files output by registering the
+function reference:
+
+@deftypefn {Function Reference} {@@redirection_files} redirection_file_names @
+           (@var{$converter}, @var{\%element}, @var{$element_filename}, @
+            @var{$node_filename}, @var{\@@default_redirection_files})
+@var{$converter} is a converter object. @var{\%element} is the node tree
+element. @var{$element_filename} is the filename the element is output in.
+@var{$node_filename} is the file name following the HTML Xref specification
+for the element. @var{\@@default_redirection_files} is the list of
+redirection files generated in the default case.
+
+The function should return the list of the redirection files.  It can be
+empty, in which case there will not be any redirection file generated for
+this element.
+@end deftypefn
+
+
 @node Init File Calling at Different Stages
 @chapter Init File Calling at Different Stages
 

@@ -71,6 +71,15 @@ call_file_id_setting_external_target_non_split_name
   return 0;
 }
 
+int
+call_file_id_setting_redirection_file_names (CONVERTER *self,
+                const ELEMENT *element, const char *filename,
+                const char *node_redirection_filename,
+                STRING_LIST *reference_redirection_files)
+{
+  return 0;
+}
+
 char *
 call_formatting_function_format_comment (CONVERTER *self,
                          const FORMATTING_REFERENCE *formatting_reference,

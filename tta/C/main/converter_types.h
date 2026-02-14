@@ -109,6 +109,7 @@ enum direction_string_context {
   html_file_id_setting_name(special_unit_target_file_name) \
   html_file_id_setting_name(label_target_name) \
   html_file_id_setting_name(node_file_name)\
+  html_file_id_setting_name(redirection_file_names)\
   html_file_id_setting_name(sectioning_command_target_name)\
   html_file_id_setting_name(unit_file_name)\
   html_file_id_setting_name(external_target_split_name)\
