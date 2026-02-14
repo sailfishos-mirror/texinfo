@@ -1,3 +1,10 @@
+2026-02-14  Tony Battersby <tonyb@cybernetics.com> (tiny change)
+
+	* info/terminal.c: use modern prototypes for curses
+	
+	This fixes compile errors with -std=gnu23 (which is the default
+	with gcc 15) on systems that do not have termcap.h.
+
 2026-02-12  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@documentlanguage): grammar fix.

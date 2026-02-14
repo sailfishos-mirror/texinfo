@@ -44,9 +44,12 @@
 char *BC, *UP;
 char PC;      /* Pad character */
 short ospeed; /* Terminal output baud rate */
-extern int tgetnum (), tgetflag (), tgetent ();
-extern char *tgetstr (), *tgoto ();
-extern int tputs ();
+extern int tgetnum (char *id);
+extern int tgetflag (char *id);
+extern int tgetent (char *bp, const char *name);
+extern char *tgetstr (char *id, char **area);
+extern char *tgoto (const char *cap, int col, int row);
+extern int tputs (const char *str, int affcnt, int (*putc)(int));
 #endif /* not HAVE_NCURSES_TERMCAP_H */
 
 /* Function "hooks".  If you make one of these point to a function, that
