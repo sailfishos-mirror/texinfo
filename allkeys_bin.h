@@ -4,6 +4,7 @@
 #include <config.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <uchar.h>
 
 /* Define data format for binary file. */
 
@@ -49,7 +50,7 @@ typedef struct {
 } Page;
 
 typedef struct TrieNode {
-    uint32_t codepoint;
+    char32_t codepoint;
     CollationData *data;
     struct TrieNode **children;
     uint16_t num_children;

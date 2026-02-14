@@ -1,6 +1,7 @@
 #include <config.h>
 #include <stdint.h>
 #include <stddef.h>
+#include <uchar.h>
 
 typedef struct {
   unsigned char *key;

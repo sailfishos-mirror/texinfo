@@ -11,7 +11,7 @@
 
 /* UTF-8 validation and conversion result */
 typedef struct {
-    uint32_t *codepoints;
+    char32_t *codepoints;
     size_t length;
     int valid;
     const char *error_msg;
@@ -28,7 +28,7 @@ void free_result(UTF8Result *result) {
 /* Validate and decode a single UTF-8 sequence
  * Returns the number of bytes consumed (1-4), or -1 on error
  */
-int decode_utf8_char(const unsigned char *str, size_t len, uint32_t *codepoint) {
+int decode_utf8_char(const unsigned char *str, size_t len, char32_t *codepoint) {
     if (len == 0) {
         return -1;
     }
@@ -115,7 +115,7 @@ UTF8Result utf8_to_codepoints(const char *utf8_str) {
     size_t pos = 0;
     
     while (pos < byte_len) {
-        uint32_t codepoint;
+        char32_t codepoint;
         int bytes = decode_utf8_char(str + pos, byte_len - pos, &codepoint);
         
         if (bytes < 0) {
@@ -128,7 +128,7 @@ UTF8Result utf8_to_codepoints(const char *utf8_str) {
     }
     
     /* Allocate array for codepoints */
-    result.codepoints = (uint32_t *)malloc(num_codepoints * sizeof(uint32_t));
+    result.codepoints = (char32_t *)malloc(num_codepoints * sizeof(char32_t));
     if (!result.codepoints) {
         result.error_msg = "Memory allocation failed";
         return result;
@@ -139,7 +139,7 @@ UTF8Result utf8_to_codepoints(const char *utf8_str) {
     size_t idx = 0;
     
     while (pos < byte_len) {
-        uint32_t codepoint;
+        char32_t codepoint;
         int bytes = decode_utf8_char(str + pos, byte_len - pos, &codepoint);
         result.codepoints[idx++] = codepoint;
         pos += bytes;

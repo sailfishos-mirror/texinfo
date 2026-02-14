@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
             return 1;
         }
         
-        uint32_t codepoints[MAX_SEQUENCE_LENGTH];
+        char32_t codepoints[MAX_SEQUENCE_LENGTH];
         size_t len = 0;
         
         for (int i = 3; i < argc && len < MAX_SEQUENCE_LENGTH; i++) {
@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
                 fprintf(stderr, "Error: invalid codepoint %s\n", argv[i]);
                 return 1;
             }
-            codepoints[len++] = (uint32_t)val;
+            codepoints[len++] = (char32_t)val;
         }
 
         /* Lookup in binary data format */

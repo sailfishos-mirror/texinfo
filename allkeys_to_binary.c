@@ -190,7 +190,7 @@ static Database* build_database(const char *filename) {
         }
         
         // Parse codepoints
-        uint32_t codepoints[MAX_SEQUENCE_LENGTH];
+        char32_t codepoints[MAX_SEQUENCE_LENGTH];
         size_t num_codepoints = 0;
         
         while (*p && isxdigit(*p)) {
