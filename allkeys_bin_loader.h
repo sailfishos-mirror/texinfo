@@ -10,6 +10,9 @@ int lookup_codepoint(char32_t codepoint,
 
 CODEPOINT_DATA lookup_codepoint_data(char32_t codepoint);
 
+CODEPOINT_DATA lookup_collation_data_at_char(char32_t * const string,
+                                  size_t *n_codepoints_out);
+
 int lookup_sequence(const char32_t *codepoints, size_t len,
                     CollationElement *elements, size_t *num_elements);
 

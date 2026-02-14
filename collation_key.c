@@ -15,46 +15,66 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
     codepoints = u32_normalize (UNINORM_NFKD, codepoints_in, length_in, NULL, &length);
 
     /* get array of collation entries */
-    CODEPOINT_DATA *entry_array = malloc (sizeof (*entry_array)
-                                          * length);
+    struct collation_info {
+        size_t string_index;
+        CODEPOINT_DATA data_offset;
+    };
 
+    /* Maximum one collation_info per character.  Less if there are
+       multi-character sequences.  */
+    struct collation_info *entry_array
+    = malloc (sizeof (*entry_array) * length);
 
-    for (size_t i = 0; i < length; i++) {
-        /* currently we only look for single codepoint collation entries */
-        CODEPOINT_DATA data_offset = lookup_codepoint_data(codepoints[i]);
-        if (data_offset) {
-            entry_array[i] = data_offset;
+    size_t n_entries = 0;
+
+    for (size_t i = 0; i < length; ) {
+        size_t n_consumed;
+        CODEPOINT_DATA data_offset
+        = lookup_collation_data_at_char(&codepoints[i], &n_consumed);
+        if (n_consumed > 0) {
+            entry_array[n_entries].data_offset = data_offset;
+            entry_array[n_entries++].string_index = i;
+            i += n_consumed;
         } else {
-            entry_array[i] = 0;
+            entry_array[n_entries].data_offset = 0;
+            entry_array[n_entries++].string_index = i;
+            i++;
             printf("Not found in database.\n");
         }
     }
 
     int num_elements = 0;
-    for (size_t i = 0; i < length; i++) {
-      if (entry_array[i])
-        num_elements += element_count_of_data_offset(entry_array[i]);
+    for (size_t i = 0; i < n_entries; i++) {
+      if (entry_array[i].data_offset)
+        {
+          size_t n = element_count_of_data_offset
+                     (entry_array[i].data_offset);
+          printf ("%zu elements\n", n);
+        num_elements += n;
+        }
       else
         num_elements += 2; /* implicitly determined weights? */
     }
 
     CollationElement *elements = calloc (num_elements, sizeof (*elements));
     size_t elements_count = 0;
-    for (size_t i = 0; i < length; i++) {
-        if (entry_array[i]) {
+    for (size_t i = 0; i < n_entries; i++) {
+        if (entry_array[i].data_offset) {
             size_t num_entry_elements;
-            read_collation_data_offset(entry_array[i],
+            read_collation_data_offset(entry_array[i].data_offset,
                                        &elements[elements_count],
                                        &num_entry_elements);
             elements_count += num_entry_elements;
         } else {
             size_t num_entry_elements;
-            get_implicit_weight(codepoints[i],
-                                &elements[elements_count],
-                                &num_entry_elements);
+            get_implicit_weight
+                (codepoints[entry_array[i].string_index],
+                &elements[elements_count],
+                &num_entry_elements);
             elements_count += num_entry_elements;
         }
     }
+    free (entry_array);
 
     unsigned char *sort_key;
     unsigned char *psort_key;

@@ -148,6 +148,65 @@ CODEPOINT_DATA lookup_codepoint_data(char32_t codepoint) {
     return 0; // Not found
 }
 
+/* STRING points into a char32_t array.  First check for sequence entry
+   at STRING, then for individual codepoint entry. */
+CODEPOINT_DATA lookup_collation_data_at_char(char32_t * const string,
+                                  size_t *n_codepoints_out) {
+    uint32_t node_offset = header.trie_offset;
+
+    char32_t *pchar;
+
+    /* similar to lookup_sequence but number of codepoints consumed
+       is not known in advance */
+    size_t n_codepoints;
+
+    for (pchar = string, n_codepoints = 0;
+         (*pchar) != 0;
+         pchar++, n_codepoints++)
+    {
+        // Read node
+        uint32_t node_codepoint = read_u32(collation_data, node_offset);
+        uint32_t node_data_offset = read_u32(collation_data, node_offset + 4);
+        uint16_t num_children = read_u16(collation_data, node_offset + 8);
+        uint32_t children_offset = node_offset + 10;
+
+        
+        // Search for matching child
+        int found = 0;
+        for (uint16_t j = 0; j < num_children; j++) {
+            uint32_t child_offset = read_u32(collation_data, children_offset + j * 4);
+            uint32_t child_codepoint = read_u32(collation_data, child_offset);
+            
+            if (child_codepoint == *pchar) {
+                node_offset = child_offset;
+                found = 1;
+                
+                break;
+            }
+        }
+        if (!found)
+          break;
+    }
+
+    if (n_codepoints >= 2) {
+        printf ("using codepoint entry of length %zd\n", n_codepoints);
+        CODEPOINT_DATA data_offset = read_u32(collation_data, node_offset + 4);
+        if (data_offset != 0) {
+            (*n_codepoints_out) = n_codepoints;
+            return data_offset;
+        }
+    }
+
+    CODEPOINT_DATA data_offset = lookup_codepoint_data (string[0]);
+    if (data_offset) {
+      (*n_codepoints_out) = 1;
+    }
+    else {
+      (*n_codepoints_out) = 0;
+    }
+    return data_offset;
+}
+
 int lookup_codepoint(char32_t codepoint, 
                      CollationElement *elements, size_t *num_elements) {
     CODEPOINT_DATA data_offset = lookup_codepoint_data(codepoint);
@@ -242,7 +301,7 @@ int lookup_sequence(const uint32_t *codepoints, size_t len,
         int found = 0;
         for (uint16_t j = 0; j < num_children; j++) {
             uint32_t child_offset = read_u32(collation_data, children_offset + j * 4);
-            uint32_t child_codepoint = read_u32(collation_data, child_offset);
+            char32_t child_codepoint = read_u32(collation_data, child_offset);
             
             if (child_codepoint == codepoints[i]) {
                 node_offset = child_offset;
