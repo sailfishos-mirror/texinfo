@@ -106,14 +106,14 @@ enum direction_string_context {
 };
 
 #define HTML_FILE_ID_SETTING_NAMES_LIST \
-  html_file_id_setting_name(special_unit_target_file_name) \
+  html_file_id_setting_name(external_target_non_split_name) \
+  html_file_id_setting_name(external_target_split_name)\
   html_file_id_setting_name(label_target_name) \
   html_file_id_setting_name(node_file_name)\
   html_file_id_setting_name(redirection_file_names)\
   html_file_id_setting_name(sectioning_command_target_name)\
-  html_file_id_setting_name(unit_file_name)\
-  html_file_id_setting_name(external_target_split_name)\
-  html_file_id_setting_name(external_target_non_split_name)
+  html_file_id_setting_name(special_unit_target_file_name) \
+  html_file_id_setting_name(unit_file_name)
 
 enum html_file_id_setting {
   #define html_file_id_setting_name(name) FIS_## name,
@@ -857,7 +857,7 @@ typedef struct CONVERTER {
     STRING_LIST files_css_import_lines;
   /* perl function references. This should be SV *sv,
      but we don't want to include the Perl headers everywhere; */
-    const void *file_id_setting_refs[FIS_external_target_non_split_name+1];
+    const void *file_id_setting_refs[FIS_unit_file_name+1];
     int file_id_setting_ref_number; /* number of references actually set */
     FORMATTING_REFERENCE
        formatting_references[FR_format_translate_message+1];
