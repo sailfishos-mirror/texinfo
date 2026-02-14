@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
-#include "unictype.h"
 #include "uninorm.h"
 
 #include "allkeys_bin_loader.h"

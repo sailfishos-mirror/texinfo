@@ -168,13 +168,37 @@ int read_collation_data_offset(CODEPOINT_DATA data_offset,
 }
 
 /* Return implicitly determined weights. */
+/* TODO: we should get these from allkeys.txt using the @implicitweights
+   lines (except for CJK characters which aren't in that file at all). */
 void get_implicit_weight (uint32_t codepoint,
                           CollationElement *elements,
                           uint8_t *n_elements) {
+    const uc_block_t *b = uc_block (codepoint);
     uint32_t AAAA = 0, BBBB = 0;
 
-    if (uc_is_property_unified_ideograph (codepoint)) {
-        const uc_block_t *b = uc_block (codepoint);
+    if (     b->start == 0x17000 /* Tangut */
+          || b->start == 0x18D00 /* Tangut Supplement */)
+    {
+        AAAA = 0xFB00;
+        BBBB = (codepoint - 0x17000) | 0x8000;
+    }
+    else if (b->start == 0x18800 /* Tangut Components */
+          || b->start == 0x18D80 /* Tangut Components Supplement */)
+    {
+        AAAA = 0xFB01;
+        BBBB = (codepoint - 0x18800) | 0x8000;
+    }
+    else if (b->start == 0x1B170 /* Nushu */)
+    {
+        AAAA = 0xFB02;
+        BBBB = (codepoint - 0x1B170) | 0x8000;
+    }
+    else if (b->start == 0x18B00 /* Khitan Small Script*/)
+    {
+        AAAA = 0xFB03;
+        BBBB = (codepoint - 0x18B00) | 0x8000;
+    }
+    else if (uc_is_property_unified_ideograph (codepoint)) {
         if (   b->start == 0x4E00 /* CJK Unified Ideographs */
             || b->start == 0xF900 /* CJK Compatibility Ideographs */)
         {
@@ -184,15 +208,21 @@ void get_implicit_weight (uint32_t codepoint,
         }
         BBBB = (codepoint & 0x7FFF) | 0x8000;
     }
+    else {
+        AAAA = 0xFBC0 + (codepoint >> 15);
+        BBBB = (codepoint & 0x7FFF) | 0x8000;
+    }
+
     if (AAAA && BBBB) {
       CollationElement e1 = {AAAA, 0x0020, 0x0002};
       CollationElement e2 = {BBBB, 0x0000, 0x0000};
       elements[0] = e1;
       elements[1] = e2;
       (*n_elements) = 2;
+    } else {
+      (*n_elements) = 0;
     }
 }
-
 
 /* Lookup sequence */
 int lookup_sequence(const uint32_t *codepoints, size_t len,
