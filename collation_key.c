@@ -42,13 +42,13 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
     size_t elements_count = 0;
     for (size_t i = 0; i < length; i++) {
         if (entry_array[i]) {
-            uint8_t num_entry_elements;
+            size_t num_entry_elements;
             read_collation_data_offset(entry_array[i],
                                        &elements[elements_count],
                                        &num_entry_elements);
             elements_count += num_entry_elements;
         } else {
-            uint8_t num_entry_elements;
+            size_t num_entry_elements;
             get_implicit_weight(codepoints[i],
                                 &elements[elements_count],
                                 &num_entry_elements);

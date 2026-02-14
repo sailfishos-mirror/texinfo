@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 
         /* Lookup in binary data format */
         CollationElement elements[MAX_COLLATION_ELEMENTS];
-        uint8_t num_elements;
+        size_t num_elements;
    
         int found = 0;
         if (len == 1) {

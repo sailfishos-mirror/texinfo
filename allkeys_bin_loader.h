@@ -6,22 +6,22 @@ typedef uint32_t CODEPOINT_DATA;
 
 int load_data_file(const char *filename);
 int lookup_codepoint(char32_t codepoint, 
-                     CollationElement *elements, uint8_t *num_elements);
+                     CollationElement *elements, size_t *num_elements);
 
 CODEPOINT_DATA lookup_codepoint_data(char32_t codepoint);
 
 int lookup_sequence(const char32_t *codepoints, size_t len,
-                    CollationElement *elements, uint8_t *num_elements);
+                    CollationElement *elements, size_t *num_elements);
 
 uint8_t element_count_of_data_offset(CODEPOINT_DATA offset);
 
 int read_collation_data_offset(CODEPOINT_DATA data_offset,
-                     CollationElement *elements, uint8_t *num_elements);
+                     CollationElement *elements, size_t *num_elements);
 
 void get_implicit_weight (uint32_t codepoint, CollationElement *elements,
-                          uint8_t *n_elements);
+                          size_t *n_elements);
 
-void print_collation(const CollationElement *elements, uint8_t num_elements);
+void print_collation(const CollationElement *elements, size_t num_elements);
 
 /*
 CollationEntry* load_database(const char *filename, BinaryHeader *header);

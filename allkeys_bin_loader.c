@@ -14,8 +14,8 @@
  */
 
 /* Global data pointer */
-uint8_t *collation_data = NULL;
-uint32_t collation_data_size = 0;
+static uint8_t *collation_data = NULL;
+static size_t collation_data_size = 0;
 
 static Header header;
 void read_header(const uint8_t *data, Header *header);
@@ -64,17 +64,17 @@ int load_data_file(const char *filename) {
 }
 
 /* Helper functions to read from byte array */
-static uint8_t read_u8(const uint8_t *data, uint32_t offset) {
+static uint8_t read_u8(const uint8_t *data, size_t offset) {
     return data[offset];
 }
 
-static uint16_t read_u16(const uint8_t *data, uint32_t offset) {
+static uint16_t read_u16(const uint8_t *data, size_t offset) {
     uint16_t val;
     memcpy(&val, data + offset, 2);
     return val;
 }
 
-static uint32_t read_u32(const uint8_t *data, uint32_t offset) {
+static uint32_t read_u32(const uint8_t *data, size_t offset) {
     uint32_t val;
     memcpy(&val, data + offset, 4);
     return val;
@@ -91,8 +91,8 @@ void read_header(const uint8_t *data, Header *header) {
 }
 
 /* Read collation data at offset */
-static int read_collation_data(const uint8_t *data, uint32_t offset, 
-                                CollationElement *elements, uint8_t *num_elements) {
+static int read_collation_data(const uint8_t *data, size_t offset, 
+                                CollationElement *elements, size_t *num_elements) {
     *num_elements = read_u8(data, offset);
     offset++;
     
@@ -111,7 +111,7 @@ static int read_collation_data(const uint8_t *data, uint32_t offset,
 }
 
 /* Lookup single codepoint and return data offset */
-CODEPOINT_DATA lookup_codepoint_data(uint32_t codepoint) {
+CODEPOINT_DATA lookup_codepoint_data(char32_t codepoint) {
     if (codepoint >= 0x110000) return 0;
     
     uint32_t page_num = codepoint >> 8;
@@ -137,7 +137,7 @@ CODEPOINT_DATA lookup_codepoint_data(uint32_t codepoint) {
         if (entry_page_offset == page_offset) {
             // Found it!
             uint32_t data_offset = read_u32(collation_data, entry_offset + 1);
-            return data_offset;
+            return (CODEPOINT_DATA) data_offset;
         } else if (entry_page_offset < page_offset) {
             left = mid + 1;
         } else {
@@ -148,9 +148,9 @@ CODEPOINT_DATA lookup_codepoint_data(uint32_t codepoint) {
     return 0; // Not found
 }
 
-int lookup_codepoint(uint32_t codepoint, 
-                     CollationElement *elements, uint8_t *num_elements) {
-    uint32_t data_offset = lookup_codepoint_data(codepoint);
+int lookup_codepoint(char32_t codepoint, 
+                     CollationElement *elements, size_t *num_elements) {
+    CODEPOINT_DATA data_offset = lookup_codepoint_data(codepoint);
     if (data_offset) {
         return read_collation_data(collation_data, data_offset, elements, num_elements);
     }
@@ -163,18 +163,18 @@ uint8_t element_count_of_data_offset(CODEPOINT_DATA offset) {
 
 /* Like lookup_codepoint, but takes a data_offset handle. */
 int read_collation_data_offset(CODEPOINT_DATA data_offset,
-                     CollationElement *elements, uint8_t *num_elements) {
+                     CollationElement *elements, size_t *num_elements) {
       return read_collation_data(collation_data, data_offset, elements, num_elements);
 }
 
 /* Return implicitly determined weights. */
 /* TODO: we should get these from allkeys.txt using the @implicitweights
    lines (except for CJK characters which aren't in that file at all). */
-void get_implicit_weight (uint32_t codepoint,
+void get_implicit_weight (char32_t codepoint,
                           CollationElement *elements,
-                          uint8_t *n_elements) {
+                          size_t *n_elements) {
     const uc_block_t *b = uc_block (codepoint);
-    uint32_t AAAA = 0, BBBB = 0;
+    uint16_t AAAA = 0, BBBB = 0;
 
     if (     b->start == 0x17000 /* Tangut */
           || b->start == 0x18D00 /* Tangut Supplement */)
@@ -226,7 +226,7 @@ void get_implicit_weight (uint32_t codepoint,
 
 /* Lookup sequence */
 int lookup_sequence(const uint32_t *codepoints, size_t len,
-                    CollationElement *elements, uint8_t *num_elements) {
+                    CollationElement *elements, size_t *num_elements) {
     if (len == 0) return 0;
     
     uint32_t node_offset = header.trie_offset;
@@ -266,8 +266,8 @@ int lookup_sequence(const uint32_t *codepoints, size_t len,
 }
 
 /* Print collation elements */
-void print_collation(const CollationElement *elements, uint8_t num_elements) {
-    for (int i = 0; i < num_elements; i++) {
+void print_collation(const CollationElement *elements, size_t num_elements) {
+    for (size_t i = 0; i < num_elements; i++) {
         if (elements[i].variable) {
             printf("[*%04X.%04X.%04X]",
                    elements[i].primary,
