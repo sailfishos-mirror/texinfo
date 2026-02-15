@@ -13,12 +13,16 @@ AM_CPPFLAGS = -I gnulib/lib
 
 bin_PROGRAMS = allkeys_to_binary allkeys_query utf8_to_sort_key
 
-allkeys_to_binary_SOURCES = allkeys_to_binary.c
+allkeys_to_binary_SOURCES = allkeys_to_binary.c allkeys_bin.h
 
-allkeys_query_SOURCES = allkeys_query.c allkeys_bin_loader.c
-utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key.c
+allkeys_query_SOURCES = allkeys_query.c allkeys_bin_loader.c \
+  allkeys_bin.h allkeys_bin_loader.h
 
-BUILT_SOURCES = allkeys_bin.c
+utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key.c \
+  allkeys_bin_loader.h collation_key.h allkeys_bin.h
+
+# This depends on gnulib being built first
+#BUILT_SOURCES = allkeys_bin.c
 
 allkeys.bin allkeys_bin.c: allkeys_to_binary allkeys.txt
 	./allkeys_to_binary ./allkeys.txt allkeys.bin allkeys_bin.c
