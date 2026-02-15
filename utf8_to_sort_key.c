@@ -176,8 +176,8 @@ print_collation_key (UTF8Result result)
         printf ("%02x%02x ", p[0], p[1]);
       }
     printf ("\n");
-    /* This might print trailing 00 as we only use one byte for
-       tertiary weight. */
+
+    free (sort_key.key);
     
     return 1;
 }
