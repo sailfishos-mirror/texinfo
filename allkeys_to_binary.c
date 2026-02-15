@@ -6,6 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <time.h>
+#include "uninorm.h"
 
 #include "allkeys_bin.h"
 
@@ -188,6 +189,23 @@ parse_version (const char *line)
   return 0;
 }
 
+/* Used to skip decomposable sequences. */
+int
+check_codepoint_nondecomposable (char32_t codepoint)
+{
+  size_t length;
+  char32_t *normalized;
+
+  normalized =
+    u32_normalize (UNINORM_NFD, &codepoint, 1, NULL, &length);
+
+  free (normalized);
+
+  if (length > 1)
+    return 0;
+  return 1;
+}
+
 /* Build database from allkeys.txt */
 static Database *
 build_database (const char *filename)
@@ -247,6 +265,12 @@ build_database (const char *filename)
 
       if (num_codepoints == 0)
 	continue;
+
+      if (num_codepoints == 1
+          && !check_codepoint_nondecomposable (codepoints[0]))
+        {
+          continue;
+        }
 
       while (*p && *p != ';')
 	p++;

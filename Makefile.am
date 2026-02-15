@@ -1,6 +1,6 @@
 AUTOMAKE_OPTIONS=foreign
 ACLOCAL_AMFLAGS = -I gnulib/m4
-SUBDIRS = gnulib/lib
+SUBDIRS = gnulib/lib .
 
 LDADD = gnulib/lib/libgnu.a
 
