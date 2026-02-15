@@ -25,8 +25,12 @@ test: allkeys_to_binary allkeys_query allkeys.bin utf8_to_sort_key
 	@echo "=== Testing sort key creation ==="
 	@echo "+ASCII"
 	./utf8_to_sort_key hello
+	@echo "+Accented Latin"
+	./utf8_to_sort_key é
 	@echo "+Sequence (Catalan)"
-	./utf8_to_sort_key L·
+	./utf8_to_sort_key L
+	@echo "+Modern Standard Chinese"
+	./utf8_to_sort_key 世
 	@echo "+Japanese"
 	./utf8_to_sort_key ハワイの歴史
 	@echo "+Tangut"
