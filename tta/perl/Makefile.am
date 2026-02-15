@@ -240,6 +240,7 @@ test_files = \
  t/init/t2h_buttons.pm \
  t/init/t2h_singular.init \
  t/init/test_css_info_functions.pm \
+ t/init/test_customize_redirection_file_names.pm \
  t/init/test_directions.init \
  t/init/test_renamed_nodes.init \
  t/init/translate_txiinternalvalue_macro.init \

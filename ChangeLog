@@ -1,3 +1,11 @@
+2026-02-15 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Makefile.tres, tta/perl/t/init_files_tests.t
+	(prepend_number_redirection_file_names), tta/perl/Makefile.am
+	(test_files),
+	tta/perl/t/init/test_customize_redirection_file_names.pm: add a test
+	of redirection_file_names with numbers prepended to file names.
+
 2026-02-14 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.tres, tta/perl/t/init_files_tests.t

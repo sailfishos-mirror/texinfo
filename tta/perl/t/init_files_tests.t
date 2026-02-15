@@ -383,6 +383,26 @@ $directions_buttons_text,
 @printindex fn
 ', {'init_files' => ['index_direction_from_index_name.pm']},
 ],
+['prepend_number_redirection_file_names',
+'@node Top
+@top top
+
+@node Chap
+@chapter The chapt
+
+@anchor{Up and Down}
+
+@node 4 section
+@section Sect
+
+@anchor{12 lowerc}
+
+@xref{Up and Down}.
+@xref{Chap}.
+@xref{4 section}.
+@xref{12 lowerc}.
+', {'init_files' => ['test_customize_redirection_file_names.pm']}
+],
 ['add_lower_case_redirection_file_names',
 '@node Top
 @top top
