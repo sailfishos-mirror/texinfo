@@ -403,6 +403,9 @@ $directions_buttons_text,
 @xref{12 lowerc}.
 ', {'init_files' => ['test_customize_redirection_file_names.pm']}
 ],
+
+# The next test fails on case insensitive platforms, that is why
+# it is skipped
 ['add_lower_case_redirection_file_names',
 '@node Top
 @top top
@@ -421,7 +424,8 @@ $directions_buttons_text,
 @xref{Chap}.
 @xref{section}.
 @xref{lowerc}.
-', {'init_files' => ['lowercase_file_names_and_redirections.pm']}
+', {'init_files' => ['lowercase_file_names_and_redirections.pm'],
+    'skip' => 'different output with case insensitive file names'}
 ],
 # TODO different result in XS (abort) and in Perl (sets the relative
 # direction to the global direction) to be "fixed" before enabling the

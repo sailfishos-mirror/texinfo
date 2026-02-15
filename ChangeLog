@@ -1,5 +1,11 @@
 2026-02-15 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/init_files_tests.t
+	(add_lower_case_redirection_file_names): skip test as it fails on
+	case-insensitive systems.
+
+2026-02-15 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.tres, tta/perl/t/init_files_tests.t
 	(prepend_number_redirection_file_names), tta/perl/Makefile.am
 	(test_files),
