@@ -12,7 +12,7 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
     char32_t *codepoints;
     size_t length;
 
-    codepoints = u32_normalize (UNINORM_NFKD, codepoints_in, length_in, NULL, &length);
+    codepoints = u32_normalize (UNINORM_NFD, codepoints_in, length_in, NULL, &length);
 
     /* get array of collation entries */
     struct collation_info {
@@ -39,7 +39,6 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
             entry_array[n_entries].data_offset = 0;
             entry_array[n_entries++].string_index = i;
             i++;
-            //printf("Not found in database.\n");
         }
     }
 
@@ -58,19 +57,27 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
     CollationElement *elements = calloc (num_elements, sizeof (*elements));
     size_t elements_count = 0;
     for (size_t i = 0; i < n_entries; i++) {
+        printf("Collation info for U+%04X: ",
+               codepoints[entry_array[i].string_index]);
+
         if (entry_array[i].data_offset) {
             size_t num_entry_elements;
             read_collation_data_offset(entry_array[i].data_offset,
                                        &elements[elements_count],
                                        &num_entry_elements);
+            print_collation(&elements[elements_count], num_entry_elements);
             elements_count += num_entry_elements;
+
         } else {
             size_t num_entry_elements;
+            printf("unknown/implicit: ");
             get_implicit_weight
                 (codepoints[entry_array[i].string_index],
                 &elements[elements_count],
                 &num_entry_elements);
+            print_collation(&elements[elements_count], num_entry_elements);
             elements_count += num_entry_elements;
+
         }
     }
     free (entry_array);
@@ -80,9 +87,9 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
     size_t sort_key_alloc;
 
     /* Three levels (primary/secondary/tertiary).  Two bytes per
-       collation element at each of three levels,
+       collation element at primary/secondary, one byte at tertiary.
        "\x00\x00" between levels and one final null. */
-    sort_key_alloc = num_elements * 6 + 4 + 1;
+    sort_key_alloc = num_elements * 5 + 4 + 1;
 
     psort_key = sort_key;
 
@@ -117,11 +124,10 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
 
     /* Tertiary */
     for (size_t i = 0; i < elements_count; i++) {
-        uint16_t weight = elements[i].tertiary;
+        uint8_t weight = elements[i].tertiary;
         if (weight)
           {
-            *psort_key++ = weight >> 8;   /* More significant byte.*/
-            *psort_key++ = weight & 0xFF; /* Less significant byte.*/
+            *psort_key++ = weight;
           }
     }
 

@@ -37,8 +37,10 @@ test: allkeys_to_binary allkeys_query allkeys.bin utf8_to_sort_key
 	./utf8_to_sort_key hello
 	@echo "+Accented Latin"
 	./utf8_to_sort_key é
+	@echo "+Canonically decomposable"
+	./utf8_to_sort_key Å
 	@echo "+Sequence (Catalan)"
-	./utf8_to_sort_key L
+	./utf8_to_sort_key L·
 	@echo "+Modern Standard Chinese"
 	./utf8_to_sort_key 世
 	@echo "+Japanese"

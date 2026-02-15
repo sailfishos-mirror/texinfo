@@ -122,7 +122,7 @@ static int read_collation_data(size_t offset,
         elements[i].secondary = read_u16(offset);
         offset += 2;
         elements[i].tertiary = read_u16(offset);
-        offset += 2;
+        offset += 1;
     }
     
     return 1;

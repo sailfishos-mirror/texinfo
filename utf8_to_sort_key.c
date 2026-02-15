@@ -258,7 +258,7 @@ int main(int argc, char *argv[]) {
 
     }
 
-    if (1) {
+    if (0) {
       if (!load_data_file(DATAFILE))
         return 0;
 

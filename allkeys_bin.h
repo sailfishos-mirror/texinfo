@@ -35,7 +35,7 @@
  *   For each element:
  *     uint16_t primary
  *     uint16_t secondary
- *     uint16_t tertiary
+ *     uint8_t tertiary
  * 
  * Sequence Trie (variable size):
  *   uint32_t codepoint
@@ -68,7 +68,7 @@ typedef struct {
 typedef struct {
     uint16_t primary;
     uint16_t secondary;
-    uint16_t tertiary;
+    uint8_t tertiary;
 } CollationElement;
 
 

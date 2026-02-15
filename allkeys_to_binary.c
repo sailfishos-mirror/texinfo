@@ -130,7 +130,7 @@ static int parse_collation_element(const char **str,
     
     memset(hex, 0, sizeof(hex));
     for (int i = 0; i < 4 && isxdigit(*s); i++, s++) hex[i] = *s;
-    elem->element.tertiary = (uint16_t)strtoul(hex, NULL, 16);
+    elem->element.tertiary = (uint8_t)strtoul(hex, NULL, 16);
     if (*s != ']') return 0;
     s++;
     
@@ -279,7 +279,7 @@ static uint32_t write_collation_data(ByteBuffer *buf, CollationData *data) {
     for (int i = 0; i < data->num_elements; i++) {
         buffer_write_u16(buf, data->elements[i].primary);
         buffer_write_u16(buf, data->elements[i].secondary);
-        buffer_write_u16(buf, data->elements[i].tertiary);
+        buffer_write_u8(buf, data->elements[i].tertiary);
     }
     return offset;
 }
