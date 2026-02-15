@@ -362,7 +362,18 @@ write_collation_data (ByteBuffer *buf, CollationData *data)
   for (int i = 0; i < data->num_elements; i++)
     {
       buffer_write_u16 (buf, data->elements[i].primary);
-      buffer_write_u16 (buf, data->elements[i].secondary);
+      uint16_t secondary = data->elements[i].secondary;
+      uint8_t secondary_write;
+      /* Pack secondary weight into a single byte.
+         Note that this depends on the values that occur
+         There are fewer than 256 possible values (109 in Unicode 11.0),
+         and hexadecimal digits A-F are not used. */
+      if (secondary < 0x100)
+        secondary_write = secondary;
+      else
+        secondary_write = (secondary & 0xFF) + 0xA0;
+
+      buffer_write_u8 (buf, secondary_write);
       buffer_write_u8 (buf, data->elements[i].tertiary);
     }
   return offset;

@@ -34,7 +34,7 @@
  *   uint8_t num_elements
  *   For each element:
  *     uint16_t primary
- *     uint16_t secondary
+ *     uint8_t secondary (coded)
  *     uint8_t tertiary
  * 
  * Sequence Trie (variable size):

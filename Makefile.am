@@ -39,6 +39,8 @@ test: allkeys_to_binary allkeys_query allkeys.bin utf8_to_sort_key
 	./utf8_to_sort_key é
 	@echo "+Canonically decomposable"
 	./utf8_to_sort_key Å
+	@echo "+High secondary weight"
+	./utf8_to_sort_key x⃑
 	@echo "+Sequence (Catalan)"
 	./utf8_to_sort_key L·
 	@echo "+Modern Standard Chinese"
@@ -47,3 +49,4 @@ test: allkeys_to_binary allkeys_query allkeys.bin utf8_to_sort_key
 	./utf8_to_sort_key ハワイの歴史
 	@echo "+Tangut"
 	./utf8_to_sort_key 𘊐𗉘𘈞𘉞
+
