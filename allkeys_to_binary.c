@@ -64,7 +64,7 @@ static ByteBuffer *
 buffer_create (void)
 {
   ByteBuffer *buf = calloc (1, sizeof (ByteBuffer));
-  buf->capacity = 1024 * 1024;	// Start with 1MB
+  buf->capacity = 1024 * 1024;
   buf->data = malloc (buf->capacity);
   return buf;
 }
@@ -244,7 +244,7 @@ build_database (const char *filename)
 	  continue;
 	}
 
-      // Parse codepoints
+      /* Parse codepoints */
       char32_t codepoints[MAX_SEQUENCE_LENGTH];
       size_t num_codepoints = 0;
 
@@ -278,7 +278,7 @@ build_database (const char *filename)
 	continue;
       p++;
 
-      // Parse collation elements
+      /* Parse collation elements */
       CollationData *data = calloc (1, sizeof (CollationData));
       while (*p && *p != '#')
 	{
@@ -315,7 +315,7 @@ build_database (const char *filename)
 	  continue;
 	}
 
-      // Insert into database
+      /* Insert into database. */
       if (num_codepoints == 1)
 	{
 	  uint32_t page_num = codepoints[0] >> 8;
@@ -336,7 +336,7 @@ build_database (const char *filename)
 	}
       else
 	{
-	  // Insert into trie
+	  /* Insert into trie. */
 	  TrieNode *node = db->trie_root;
 	  for (size_t i = 0; i < num_codepoints; i++)
 	    {
@@ -392,6 +392,10 @@ write_collation_data (ByteBuffer *buf, CollationData *data)
          Note that this depends on the values that occur
          There are fewer than 256 possible values (109 in Unicode 11.0),
          and hexadecimal digits A-F are not used. */
+      /* Note: we could also use the method describe in UTS #10 s. 9.2
+         and output one extra collation element with only the secondary weight
+         set, for secondary weights above a certain value ("continuation
+         technique"). */
       if (secondary < 0x100)
         secondary_write = secondary;
       else
