@@ -4,6 +4,11 @@ SUBDIRS = gnulib/lib
 
 LDADD = gnulib/lib/libgnu.a
 
+LDADD += \
+  $(HARD_LOCALE_LIB) $(LIBPTHREAD) $(LIBTHREAD) \
+  $(LIBC32CONV) $(LIBICONV) $(LIBUNISTRING) $(MBRTOWC_LIB) \
+  $(PTHREAD_ONCE_LIB) $(SETLOCALE_NULL_LIB)
+
 AM_CPPFLAGS = -I gnulib/lib
 
 bin_PROGRAMS = allkeys_to_binary allkeys_query utf8_to_sort_key
@@ -15,6 +20,11 @@ utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key
 
 allkeys.bin: allkeys_to_binary allkeys.txt
 	./allkeys_to_binary ./allkeys.txt allkeys.bin
+
+BUILT_SOURCES = allkeys_bin.c
+
+allkeys_bin.c: allkeys_to_binary allkeys.txt
+	./allkeys_to_binary ./allkeys.txt allkeys.bin allkeys_bin.c
 
 test: allkeys_to_binary allkeys_query allkeys.bin utf8_to_sort_key
 	@echo "=== Testing single codepoint lookup ==="
