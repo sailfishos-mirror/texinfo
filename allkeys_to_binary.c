@@ -572,9 +572,9 @@ write_c_source (ByteBuffer *buf, const char *output_file)
 
   fprintf (fp, "#include <stdint.h>\n\n");
 
-  fprintf (fp, "const uint32_t collation_data_size = %zuU;\n\n", buf->size);
+  fprintf (fp, "static const size_t collation_data_size = %zuU;\n\n", buf->size);
 
-  fprintf (fp, "const uint8_t collation_data[] = {\n");
+  fprintf (fp, "static const uint8_t collation_data[] = {\n");
 
   for (size_t i = 0; i < buf->size; i++)
     {

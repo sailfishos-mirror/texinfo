@@ -12,10 +12,17 @@
  * Lookup program for binary collation data
  * Reads from binary file
  */
+ 
 
+#define EMBED_DATA 1
+
+#if EMBED_DATA
+#include "allkeys_bin.c"
+#else
 /* Global data pointer */
 static uint8_t *collation_data = NULL;
 static size_t collation_data_size = 0;
+#endif
 
 static Header header;
 static void read_header (void);
@@ -24,6 +31,10 @@ static void read_header (void);
 int
 load_data_file (const char *filename)
 {
+#if EMBED_DATA
+  read_header ();
+  return 1;
+#else
 
   if (header.version != 0)
     return 1;			/* already loaded */
@@ -73,6 +84,7 @@ load_data_file (const char *filename)
 
   read_header ();
   return 1;
+#endif
 }
 
 /* Helper functions to read from byte array */
