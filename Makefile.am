@@ -13,12 +13,21 @@ allkeys_to_binary_SOURCES = allkeys_to_binary.c
 allkeys_query_SOURCES = allkeys_query.c allkeys_bin_loader.c
 utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key.c
 
-test: allkeys_to_binary allkeys_query
-	@echo "=== Testing binary conversion ==="
+allkeys.bin: allkeys_to_binary allkeys.txt
 	./allkeys_to_binary ./allkeys.txt allkeys.bin
-	@echo ""
+
+test: allkeys_to_binary allkeys_query allkeys.bin
 	@echo "=== Testing single codepoint lookup ==="
 	./allkeys_query lookup allkeys.bin 0041
 	@echo ""
 	@echo "=== Testing sequence lookup ==="
 	./allkeys_query lookup allkeys.bin 006C 00B7
+	@echo "=== Testing sort key creation ==="
+	@echo "+ASCII"
+	./utf8_to_sort_key hello
+	@echo "+Sequence (Catalan)"
+	./utf8_to_sort_key L·
+	@echo "+Japanese"
+	./utf8_to_sort_key ハワイの歴史
+	@echo "+Tangut"
+	./utf8_to_sort_key 𘊐𗉘𘈞𘉞
