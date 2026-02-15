@@ -44,7 +44,7 @@ main (int argc, char *argv[])
       fprintf (stderr, "Failed to load data file\n");
       return 1;
     }
-  /* FIXME: data file summary */
+  print_header_info ();
 
 #if 0
   if (strcmp (command, "info") == 0)

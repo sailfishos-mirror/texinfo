@@ -121,7 +121,11 @@ read_header (void)
   header.num_sequences = read_u32 (18);
   header.page_table_offset = read_u32 (22);
   header.trie_offset = read_u32 (26);
+}
 
+void
+print_header_info (void)
+{
   printf ("\nUnicode Collation Lookup\n");
   printf ("========================\n");
 

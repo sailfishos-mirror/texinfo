@@ -188,7 +188,6 @@ print_usage (const char *program_name)
   printf ("\nOptions:\n");
   printf ("  -h, --help     Show this help message\n");
   printf ("  -x, --hex      Display codepoints in hexadecimal format\n");
-  printf ("  -v, --verbose  Show detailed output\n");
   printf ("\nExample:\n");
   printf ("  %s \"Hello, 世界! 🌍\"\n", program_name);
 }
@@ -222,17 +221,15 @@ main (int argc, char *argv[])
 {
   int opt;
   int hex_output = 0;
-  int verbose = 0;
 
   struct option long_options[] = {
     {"help", no_argument, 0, 'h'},
     {"hex", no_argument, 0, 'x'},
-    {"verbose", no_argument, 0, 'v'},
     {0, 0, 0, 0}
   };
 
   /* Parse command-line options */
-  while ((opt = getopt_long (argc, argv, "hxv", long_options, NULL)) != -1)
+  while ((opt = getopt_long (argc, argv, "hx", long_options, NULL)) != -1)
     {
       switch (opt)
 	{
@@ -241,9 +238,6 @@ main (int argc, char *argv[])
 	  return 0;
 	case 'x':
 	  hex_output = 1;
-	  break;
-	case 'v':
-	  verbose = 1;
 	  break;
 	default:
 	  print_usage (argv[0]);
@@ -261,12 +255,6 @@ main (int argc, char *argv[])
 
   const char *utf8_string = argv[optind];
 
-  if (verbose)
-    {
-      printf ("Input string: \"%s\"\n", utf8_string);
-      printf ("Byte length: %zu\n\n", strlen (utf8_string));
-    }
-
   /* Validate and convert UTF-8 to codepoints */
   UTF8Result result = utf8_to_codepoints (utf8_string);
 
@@ -275,13 +263,6 @@ main (int argc, char *argv[])
       fprintf (stderr, "Error: %s\n", result.error_msg);
       free_result (&result);
       return 1;
-    }
-
-  /* Print results */
-  if (verbose)
-    {
-      printf ("✓ Valid UTF-8 string\n");
-      printf ("Number of codepoints: %zu\n\n", result.length);
     }
 
   printf ("Codepoints:\n");
@@ -297,44 +278,14 @@ main (int argc, char *argv[])
 		  result.codepoints[i]);
 	}
 
-      /* Print character representation if printable */
-      if (result.codepoints[i] >= 32 && result.codepoints[i] != 127)
+      if (result.codepoints[i] >= 32)
 	{
-	  printf (" '%c'",
-		  (result.codepoints[i] <
-		   128) ? (char) result.codepoints[i] : '?');
+	  if (result.codepoints[i] < 128)
+      	    printf (" '%c'",  (char) result.codepoints[i]);
 	}
       printf ("\n");
 
     }
-
-  if (0)
-    {
-      if (!load_data_file (DATAFILE))
-	return 0;
-
-      for (size_t i = 0; i < result.length; i++)
-	{
-	  printf ("Looking up U+%04X: ", result.codepoints[i]);
-
-	  CollationElement elements[MAX_COLLATION_ELEMENTS];
-	  size_t num_elements;
-
-	  int found = 0;
-	  found =
-	    lookup_codepoint (result.codepoints[i], elements, &num_elements);
-
-	  if (found)
-	    {
-	      print_collation (elements, num_elements);
-	    }
-	  else
-	    {
-	      printf ("NOT FOUND\n");
-	    }
-	}
-    }
-
   /* Load collation data and print collation key. */
   print_collation_key (result);
 

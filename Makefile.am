@@ -34,22 +34,22 @@ test: allkeys_to_binary allkeys_query allkeys.bin utf8_to_sort_key
 	@echo "=== Testing sequence lookup ==="
 	./allkeys_query lookup allkeys.bin 006C 00B7
 	@echo "=== Testing sort key creation ==="
-	@echo "+ASCII"
+	@echo "--- ASCII ---"
 	./utf8_to_sort_key hello
-	@echo "+Accented Latin"
+	@echo "--- Accented Latin ---"
 	./utf8_to_sort_key é
-	@echo "+Canonically decomposable"
+	@echo "--- Canonically decomposable ---"
 	./utf8_to_sort_key Å
-	@echo "+Variable Weights"
+	@echo "--- Variable Weights ---"
 	./utf8_to_sort_key "a b-c"
-	@echo "+High secondary weight"
+	@echo "--- High secondary weight ---"
 	./utf8_to_sort_key x⃑
-	@echo "+Sequence (Catalan)"
+	@echo "--- Sequence (Catalan) ---"
 	./utf8_to_sort_key L·
-	@echo "+Modern Standard Chinese"
+	@echo "--- Modern Standard Chinese ---"
 	./utf8_to_sort_key 世
-	@echo "+Japanese"
+	@echo "--- Japanese ---"
 	./utf8_to_sort_key ハワイの歴史
-	@echo "+Tangut"
+	@echo "--- Tangut ---"
 	./utf8_to_sort_key 𘊐𗉘𘈞𘉞
 
