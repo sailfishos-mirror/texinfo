@@ -220,25 +220,20 @@ int
 main (int argc, char *argv[])
 {
   int opt;
-  int hex_output = 0;
 
   struct option long_options[] = {
     {"help", no_argument, 0, 'h'},
-    {"hex", no_argument, 0, 'x'},
     {0, 0, 0, 0}
   };
 
   /* Parse command-line options */
-  while ((opt = getopt_long (argc, argv, "hx", long_options, NULL)) != -1)
+  while ((opt = getopt_long (argc, argv, "h", long_options, NULL)) != -1)
     {
       switch (opt)
         {
         case 'h':
           print_usage (argv[0]);
           return 0;
-        case 'x':
-          hex_output = 1;
-          break;
         default:
           print_usage (argv[0]);
           return 1;
@@ -268,15 +263,8 @@ main (int argc, char *argv[])
   printf ("Codepoints:\n");
   for (size_t i = 0; i < result.length; i++)
     {
-      if (hex_output)
-        {
-          printf ("  [%zu] U+%04X", i, result.codepoints[i]);
-        }
-      else
-        {
-          printf ("  [%zu] %u (U+%04X)", i, result.codepoints[i],
-                  result.codepoints[i]);
-        }
+      printf ("  [%zu] %u (U+%04X)", i, result.codepoints[i],
+              result.codepoints[i]);
 
       if (result.codepoints[i] >= 32)
         {
@@ -288,7 +276,6 @@ main (int argc, char *argv[])
     }
   /* Load collation data and print collation key. */
   print_collation_key (result);
-
 
   /* Clean up */
   free_result (&result);
