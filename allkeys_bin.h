@@ -54,21 +54,23 @@
 #define MAX_COLLATION_ELEMENTS 18
 
 /* Binary file header */
-typedef struct {
-    char magic[8];
-    uint32_t version;
-    uint16_t max_variable_weight;
-    uint32_t num_singles;
-    uint32_t num_sequences;
-    uint32_t page_table_offset;
-    uint32_t trie_offset;
+typedef struct
+{
+  char magic[8];
+  uint32_t version;
+  uint16_t max_variable_weight;
+  uint32_t num_singles;
+  uint32_t num_sequences;
+  uint32_t page_table_offset;
+  uint32_t trie_offset;
 } Header;
 
 /* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
-typedef struct {
-    uint16_t primary;
-    uint16_t secondary;
-    uint8_t tertiary;
+typedef struct
+{
+  uint16_t primary;
+  uint16_t secondary;
+  uint8_t tertiary;
 } CollationElement;
 
 
