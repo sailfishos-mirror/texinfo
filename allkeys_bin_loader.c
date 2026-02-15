@@ -137,13 +137,13 @@ read_collation_data (size_t offset,
       elements[i].primary = read_u16 (offset);
       offset += 2;
       elements[i].secondary = read_u8 (offset);
+      offset += 1;
       if (elements[i].secondary > 0xA0)
         {
           /* matches allkeys_to_binary.c:write_collation_data. */
           elements[i].secondary -= 0xA0;
           elements[i].secondary |= 0x100;
         }
-      offset += 2;
       elements[i].tertiary = read_u8 (offset);
       offset += 1;
     }
