@@ -326,10 +326,8 @@ int lookup_sequence(const uint32_t *codepoints, size_t len,
 /* Print collation elements */
 void print_collation(const CollationElement *elements, size_t num_elements) {
     for (size_t i = 0; i < num_elements; i++) {
-        /* FIXME: we need to compare the primary weight against the
-           maximum variable weight to know if the element is variable or
-           not. */
-        if (0) { // elements[i].variable) {
+        if (elements[i].primary != 0x0000
+            && elements[i].primary <= header.max_variable_weight) {
             printf("[*%04X.%04X.%04X]",
                    elements[i].primary,
                    elements[i].secondary,

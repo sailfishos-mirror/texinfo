@@ -51,8 +51,7 @@
 
 #define NUM_PAGES 4352
 
-/* Maximum collation elements per entry (observed max is ~10, using 16 for safety) */
-#define MAX_COLLATION_ELEMENTS 16
+#define MAX_COLLATION_ELEMENTS 18
 
 /* Binary file header */
 typedef struct {
