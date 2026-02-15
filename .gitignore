@@ -1,0 +1,17 @@
+.deps
+Makefile
+Makefile.in
+*.m4
+autom4te.cache
+build-aux
+*~
+config.status
+configure
+.deps
+stamp-h1
+.gitignore
+.dirstamp
+tags
+config.*
+allkeys.bin
+allkeys_bin.c
