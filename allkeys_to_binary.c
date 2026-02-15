@@ -231,40 +231,40 @@ build_database (const char *filename)
       const char *p = line;
 
       while (*p && isspace (*p))
-	p++;
+        p++;
       if (*p == '#' || *p == '\0')
-	continue;
+        continue;
 
       if (*p == '@')
-	{
-	  if (strncmp (line, "@version", 8) == 0)
-	    {
-	      db->version = parse_version (line);
-	    }
-	  continue;
-	}
+        {
+          if (strncmp (line, "@version", 8) == 0)
+            {
+              db->version = parse_version (line);
+            }
+          continue;
+        }
 
       /* Parse codepoints */
       char32_t codepoints[MAX_SEQUENCE_LENGTH];
       size_t num_codepoints = 0;
 
       while (*p && isxdigit (*p))
-	{
-	  char hex[7] = { 0 };
-	  int i = 0;
-	  while (isxdigit (*p) && i < 6)
-	    hex[i++] = *p++;
-	  if (!parse_hex (hex, &codepoints[num_codepoints]))
-	    break;
-	  num_codepoints++;
-	  if (num_codepoints >= MAX_SEQUENCE_LENGTH)
-	    break;
-	  while (*p && isspace (*p) && *p != ';')
-	    p++;
-	}
+        {
+          char hex[7] = { 0 };
+          int i = 0;
+          while (isxdigit (*p) && i < 6)
+            hex[i++] = *p++;
+          if (!parse_hex (hex, &codepoints[num_codepoints]))
+            break;
+          num_codepoints++;
+          if (num_codepoints >= MAX_SEQUENCE_LENGTH)
+            break;
+          while (*p && isspace (*p) && *p != ';')
+            p++;
+        }
 
       if (num_codepoints == 0)
-	continue;
+        continue;
 
       if (num_codepoints == 1
           && !check_codepoint_nondecomposable (codepoints[0]))
@@ -273,107 +273,107 @@ build_database (const char *filename)
         }
 
       while (*p && *p != ';')
-	p++;
+        p++;
       if (*p != ';')
-	continue;
+        continue;
       p++;
 
       /* Parse collation elements */
       CollationData *data = calloc (1, sizeof (CollationData));
       while (*p && *p != '#')
-	{
-	  if (*p == '[')
-	    {
-	      CollationElementParsed elem;
-	      if (parse_collation_element (&p, &elem))
-		{
-		  if (data->num_elements < MAX_COLLATION_ELEMENTS)
-		    {
-		      data->elements[data->num_elements++] = elem.element;
-		    }
-		  else
-		    {
-		      printf
-			("parse error: maximum collation element sequence length exceeded\n");
-		    }
-		  if (elem.variable_weight)
-		    {
-		      if (elem.element.primary > db->max_variable_weight)
-			db->max_variable_weight = elem.element.primary;
-		    }
-		}
-	    }
-	  else
-	    {
-	      p++;
-	    }
-	}
+        {
+          if (*p == '[')
+            {
+              CollationElementParsed elem;
+              if (parse_collation_element (&p, &elem))
+                {
+                  if (data->num_elements < MAX_COLLATION_ELEMENTS)
+                    {
+                      data->elements[data->num_elements++] = elem.element;
+                    }
+                  else
+                    {
+                      printf
+                        ("parse error: maximum collation element sequence length exceeded\n");
+                    }
+                  if (elem.variable_weight)
+                    {
+                      if (elem.element.primary > db->max_variable_weight)
+                        db->max_variable_weight = elem.element.primary;
+                    }
+                }
+            }
+          else
+            {
+              p++;
+            }
+        }
 
       if (data->num_elements == 0)
-	{
-	  free (data);
-	  continue;
-	}
+        {
+          free (data);
+          continue;
+        }
 
       /* Insert into database. */
       if (num_codepoints == 1)
-	{
-	  uint32_t page_num = codepoints[0] >> 8;
-	  uint8_t offset = codepoints[0] & 0xFF;
+        {
+          uint32_t page_num = codepoints[0] >> 8;
+          uint8_t offset = codepoints[0] & 0xFF;
 
-	  if (!db->pages[page_num])
-	    {
-	      db->pages[page_num] = calloc (1, sizeof (Page));
-	    }
+          if (!db->pages[page_num])
+            {
+              db->pages[page_num] = calloc (1, sizeof (Page));
+            }
 
-	  Page *page = db->pages[page_num];
-	  page->entries =
-	    realloc (page->entries, (page->count + 1) * sizeof (PageEntry));
-	  page->entries[page->count].offset = offset;
-	  page->entries[page->count].data = data;
-	  page->count++;
-	  db->num_singles++;
-	}
+          Page *page = db->pages[page_num];
+          page->entries =
+            realloc (page->entries, (page->count + 1) * sizeof (PageEntry));
+          page->entries[page->count].offset = offset;
+          page->entries[page->count].data = data;
+          page->count++;
+          db->num_singles++;
+        }
       else
-	{
-	  /* Insert into trie. */
-	  TrieNode *node = db->trie_root;
-	  for (size_t i = 0; i < num_codepoints; i++)
-	    {
-	      TrieNode *child = NULL;
-	      for (uint16_t j = 0; j < node->num_children; j++)
-		{
-		  if (node->children[j]->codepoint == codepoints[i])
-		    {
-		      child = node->children[j];
-		      break;
-		    }
-		}
-	      if (!child)
-		{
-		  child = calloc (1, sizeof (TrieNode));
-		  child->codepoint = codepoints[i];
-		  node->children =
-		    realloc (node->children,
-			     (node->num_children + 1) * sizeof (TrieNode *));
-		  node->children[node->num_children++] = child;
-		}
-	      node = child;
-	    }
-	  node->data = data;
-	  db->num_sequences++;
-	}
+        {
+          /* Insert into trie. */
+          TrieNode *node = db->trie_root;
+          for (size_t i = 0; i < num_codepoints; i++)
+            {
+              TrieNode *child = NULL;
+              for (uint16_t j = 0; j < node->num_children; j++)
+                {
+                  if (node->children[j]->codepoint == codepoints[i])
+                    {
+                      child = node->children[j];
+                      break;
+                    }
+                }
+              if (!child)
+                {
+                  child = calloc (1, sizeof (TrieNode));
+                  child->codepoint = codepoints[i];
+                  node->children =
+                    realloc (node->children,
+                             (node->num_children + 1) * sizeof (TrieNode *));
+                  node->children[node->num_children++] = child;
+                }
+              node = child;
+            }
+          node->data = data;
+          db->num_sequences++;
+        }
 
       if (line_num % 5000 == 0)
-	{
-	  printf ("  Processed %zu lines...\r", line_num);
-	  fflush (stdout);
-	}
+        {
+          printf ("  Processed %zu lines...\r", line_num);
+          fflush (stdout);
+        }
     }
 
   fclose (fp);
   printf ("\nParsing complete: %u singles, %u sequences\n",
-	  db->num_singles, db->num_sequences);
+          db->num_singles, db->num_sequences);
 
   return db;
 }
@@ -415,7 +415,7 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
 
   buffer_write_u32 (buf, node->codepoint);
 
-  // Reserve space for codepoint data
+  /* Reserve space for codepoint data. */
   uint32_t data_offset_pos = buf->size;
   buffer_write_u32 (buf, 0);
 
@@ -425,7 +425,7 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
   uint32_t children_offset_pos = buf->size;
   for (uint16_t i = 0; i < node->num_children; i++)
     {
-      buffer_write_u32 (buf, 0);	// Placeholder
+      buffer_write_u32 (buf, 0); // Placeholder
     }
 
   // Write children and update offsets
@@ -468,10 +468,10 @@ serialize_database (Database *db)
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
       if (db->pages[i] && db->pages[i]->count > 0)
-	{
-	  qsort (db->pages[i]->entries, db->pages[i]->count,
-		 sizeof (PageEntry), compare_page_entries);
-	}
+        {
+          qsort (db->pages[i]->entries, db->pages[i]->count,
+                 sizeof (PageEntry), compare_page_entries);
+        }
     }
 
   // Write header (we'll fill in offsets later)
@@ -481,9 +481,9 @@ serialize_database (Database *db)
   buffer_write_u32 (buf, db->num_singles);
   buffer_write_u32 (buf, db->num_sequences);
   uint32_t page_table_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);	// Placeholder for page_table_offset
+  buffer_write_u32 (buf, 0);    // Placeholder for page_table_offset
   uint32_t trie_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);	// Placeholder for trie_offset
+  buffer_write_u32 (buf, 0);    // Placeholder for trie_offset
 
   // Write page table
   uint32_t page_table_offset = buf->size;
@@ -493,15 +493,15 @@ serialize_database (Database *db)
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
       page_offset_positions[i] = buf->size;
-      buffer_write_u32 (buf, 0);	// Placeholder
+      buffer_write_u32 (buf, 0);        // Placeholder
     }
 
   // Write page data (entries only, no collation data yet)
   // We'll track where to write collation data offsets
   typedef struct
   {
-    uint32_t offset_position;	// Where to write the data_offset
-    CollationData *data;	// The data to write later
+    uint32_t offset_position;   // Where to write the data_offset
+    CollationData *data;        // The data to write later
   } PendingData;
 
   PendingData *pending = malloc (db->num_singles * sizeof (PendingData));
@@ -510,7 +510,7 @@ serialize_database (Database *db)
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
       if (!db->pages[i])
-	continue;
+        continue;
 
       Page *page = db->pages[i];
       uint32_t page_offset = buf->size;
@@ -520,16 +520,16 @@ serialize_database (Database *db)
 
       // Write entries with placeholder data offsets
       for (uint16_t j = 0; j < page->count; j++)
-	{
-	  buffer_write_u8 (buf, page->entries[j].offset);
+        {
+          buffer_write_u8 (buf, page->entries[j].offset);
 
-	  // Remember where we need to write the data offset
-	  pending[pending_count].offset_position = buf->size;
-	  pending[pending_count].data = page->entries[j].data;
-	  pending_count++;
+          // Remember where we need to write the data offset
+          pending[pending_count].offset_position = buf->size;
+          pending[pending_count].data = page->entries[j].data;
+          pending_count++;
 
-	  buffer_write_u32 (buf, 0);	// Placeholder for data_offset
-	}
+          buffer_write_u32 (buf, 0);    // Placeholder for data_offset
+        }
     }
 
   // Now write all collation data and backfill offsets
@@ -546,7 +546,7 @@ serialize_database (Database *db)
   buffer_write_u32_at (buf, trie_offset_pos, trie_offset);
 
   printf ("Binary size: %zu bytes (%.2f MB)\n", buf->size,
-	  buf->size / (1024.0 * 1024.0));
+          buf->size / (1024.0 * 1024.0));
 
   return buf;
 }
@@ -579,16 +579,16 @@ write_c_source (ByteBuffer *buf, const char *output_file)
   for (size_t i = 0; i < buf->size; i++)
     {
       if (i % 16 == 0)
-	{
-	  if (i > 0)
-	    fprintf (fp, "\n");
-	  fprintf (fp, "    ");
-	}
+        {
+          if (i > 0)
+            fprintf (fp, "\n");
+          fprintf (fp, "    ");
+        }
       fprintf (fp, "0x%02X", buf->data[i]);
       if (i < buf->size - 1)
-	fprintf (fp, ",");
+        fprintf (fp, ",");
       if (i % 16 != 15 && i < buf->size - 1)
-	fprintf (fp, " ");
+        fprintf (fp, " ");
     }
 
   fprintf (fp, "\n};\n");
@@ -622,7 +622,7 @@ main (int argc, char *argv[])
   if (argc < 2 || argc > 4)
     {
       fprintf (stderr, "Usage: %s <allkeys.txt> [output.bin] [output.c]\n",
-	       argv[0]);
+               argv[0]);
       return 1;
     }
 

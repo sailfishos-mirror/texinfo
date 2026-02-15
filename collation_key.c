@@ -35,32 +35,32 @@ get_collation_key (char32_t *codepoints_in, size_t length_in)
     {
       size_t n_consumed;
       COLLATION_DATA data_offset
-	= lookup_collation_data_at_char (&codepoints[i], &n_consumed);
+        = lookup_collation_data_at_char (&codepoints[i], &n_consumed);
       if (n_consumed > 0)
-	{
-	  entry_array[n_entries].data_offset = data_offset;
-	  entry_array[n_entries++].string_index = i;
-	  i += n_consumed;
-	}
+        {
+          entry_array[n_entries].data_offset = data_offset;
+          entry_array[n_entries++].string_index = i;
+          i += n_consumed;
+        }
       else
-	{
-	  entry_array[n_entries].data_offset = 0;
-	  entry_array[n_entries++].string_index = i;
-	  i++;
-	}
+        {
+          entry_array[n_entries].data_offset = 0;
+          entry_array[n_entries++].string_index = i;
+          i++;
+        }
     }
 
   int num_elements = 0;
   for (size_t i = 0; i < n_entries; i++)
     {
       if (entry_array[i].data_offset)
-	{
-	  size_t n = element_count_of_data_offset
-	    (entry_array[i].data_offset);
-	  num_elements += n;
-	}
+        {
+          size_t n = element_count_of_data_offset
+            (entry_array[i].data_offset);
+          num_elements += n;
+        }
       else
-	num_elements += 2;	/* implicitly determined weights? */
+        num_elements += 2;      /* implicitly determined weights? */
     }
 
   CollationElement *elements = calloc (num_elements, sizeof (*elements));
@@ -68,29 +68,29 @@ get_collation_key (char32_t *codepoints_in, size_t length_in)
   for (size_t i = 0; i < n_entries; i++)
     {
       printf ("Collation info for U+%04X: ",
-	      codepoints[entry_array[i].string_index]);
+              codepoints[entry_array[i].string_index]);
 
       if (entry_array[i].data_offset)
-	{
-	  size_t num_entry_elements;
-	  read_collation_data_offset (entry_array[i].data_offset,
-				      &elements[elements_count],
-				      &num_entry_elements);
-	  print_collation (&elements[elements_count], num_entry_elements);
-	  elements_count += num_entry_elements;
+        {
+          size_t num_entry_elements;
+          read_collation_data_offset (entry_array[i].data_offset,
+                                      &elements[elements_count],
+                                      &num_entry_elements);
+          print_collation (&elements[elements_count], num_entry_elements);
+          elements_count += num_entry_elements;
 
-	}
+        }
       else
-	{
-	  size_t num_entry_elements;
-	  printf ("unknown/implicit: ");
-	  get_implicit_weight
-	    (codepoints[entry_array[i].string_index],
-	     &elements[elements_count], &num_entry_elements);
-	  print_collation (&elements[elements_count], num_entry_elements);
-	  elements_count += num_entry_elements;
+        {
+          size_t num_entry_elements;
+          printf ("unknown/implicit: ");
+          get_implicit_weight
+            (codepoints[entry_array[i].string_index],
+             &elements[elements_count], &num_entry_elements);
+          print_collation (&elements[elements_count], num_entry_elements);
+          elements_count += num_entry_elements;
 
-	}
+        }
     }
   free (entry_array);
 
@@ -113,10 +113,10 @@ get_collation_key (char32_t *codepoints_in, size_t length_in)
     {
       uint16_t weight = elements[i].primary;
       if (weight)
-	{
-	  *psort_key++ = weight >> 8;	/* More significant byte. */
-	  *psort_key++ = weight & 0xFF;	/* Less significant byte. */
-	}
+        {
+          *psort_key++ = weight >> 8;   /* More significant byte. */
+          *psort_key++ = weight & 0xFF; /* Less significant byte. */
+        }
     }
 
   *psort_key++ = '\x00';
@@ -127,10 +127,10 @@ get_collation_key (char32_t *codepoints_in, size_t length_in)
     {
       uint16_t weight = elements[i].secondary;
       if (weight)
-	{
-	  *psort_key++ = weight >> 8;	/* More significant byte. */
-	  *psort_key++ = weight & 0xFF;	/* Less significant byte. */
-	}
+        {
+          *psort_key++ = weight >> 8;   /* More significant byte. */
+          *psort_key++ = weight & 0xFF; /* Less significant byte. */
+        }
     }
 
   *psort_key++ = '\x00';
@@ -141,9 +141,9 @@ get_collation_key (char32_t *codepoints_in, size_t length_in)
     {
       uint8_t weight = elements[i].tertiary;
       if (weight)
-	{
-	  *psort_key++ = weight;
-	}
+        {
+          *psort_key++ = weight;
+        }
     }
 
   free (elements);

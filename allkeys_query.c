@@ -65,24 +65,24 @@ main (int argc, char *argv[])
   if (strcmp (command, "lookup") == 0)
     {
       if (argc < 4)
-	{
-	  fprintf (stderr, "Error: lookup requires at least one codepoint\n");
-	  return 1;
-	}
+        {
+          fprintf (stderr, "Error: lookup requires at least one codepoint\n");
+          return 1;
+        }
 
       char32_t codepoints[MAX_SEQUENCE_LENGTH];
       size_t len = 0;
 
       for (int i = 3; i < argc && len < MAX_SEQUENCE_LENGTH; i++)
-	{
-	  unsigned long val = strtoul (argv[i], NULL, 16);
-	  if (val > 0x10FFFF)
-	    {
-	      fprintf (stderr, "Error: invalid codepoint %s\n", argv[i]);
-	      return 1;
-	    }
-	  codepoints[len++] = (char32_t) val;
-	}
+        {
+          unsigned long val = strtoul (argv[i], NULL, 16);
+          if (val > 0x10FFFF)
+            {
+              fprintf (stderr, "Error: invalid codepoint %s\n", argv[i]);
+              return 1;
+            }
+          codepoints[len++] = (char32_t) val;
+        }
 
       /* Lookup in binary data format */
       CollationElement elements[MAX_COLLATION_ELEMENTS];
@@ -90,22 +90,22 @@ main (int argc, char *argv[])
 
       int found = 0;
       if (len == 1)
-	{
-	  found = lookup_codepoint (codepoints[0], elements, &num_elements);
-	}
+        {
+          found = lookup_codepoint (codepoints[0], elements, &num_elements);
+        }
       else
-	{
-	  found = lookup_sequence (codepoints, len, elements, &num_elements);
-	}
+        {
+          found = lookup_sequence (codepoints, len, elements, &num_elements);
+        }
 
       if (found)
-	{
-	  print_collation (elements, num_elements);
-	}
+        {
+          print_collation (elements, num_elements);
+        }
       else
-	{
-	  printf ("NOT FOUND\n");
-	}
+        {
+          printf ("NOT FOUND\n");
+        }
     }
   else
     {

@@ -53,15 +53,15 @@ decode_utf8_char (const unsigned char *str, size_t len, char32_t *codepoint)
   if ((byte1 & 0xE0) == 0xC0)
     {
       if (len < 2)
-	return -1;
+        return -1;
       if ((str[1] & 0xC0) != 0x80)
-	return -1;
+        return -1;
 
       *codepoint = ((byte1 & 0x1F) << 6) | (str[1] & 0x3F);
 
       /* Check for overlong encoding */
       if (*codepoint < 0x80)
-	return -1;
+        return -1;
 
       return 2;
     }
@@ -70,22 +70,22 @@ decode_utf8_char (const unsigned char *str, size_t len, char32_t *codepoint)
   if ((byte1 & 0xF0) == 0xE0)
     {
       if (len < 3)
-	return -1;
+        return -1;
       if ((str[1] & 0xC0) != 0x80)
-	return -1;
+        return -1;
       if ((str[2] & 0xC0) != 0x80)
-	return -1;
+        return -1;
 
       *codepoint = ((byte1 & 0x0F) << 12) |
-	((str[1] & 0x3F) << 6) | (str[2] & 0x3F);
+        ((str[1] & 0x3F) << 6) | (str[2] & 0x3F);
 
       /* Check for overlong encoding */
       if (*codepoint < 0x800)
-	return -1;
+        return -1;
 
       /* Check for UTF-16 surrogates (U+D800 to U+DFFF) */
       if (*codepoint >= 0xD800 && *codepoint <= 0xDFFF)
-	return -1;
+        return -1;
 
       return 3;
     }
@@ -94,24 +94,24 @@ decode_utf8_char (const unsigned char *str, size_t len, char32_t *codepoint)
   if ((byte1 & 0xF8) == 0xF0)
     {
       if (len < 4)
-	return -1;
+        return -1;
       if ((str[1] & 0xC0) != 0x80)
-	return -1;
+        return -1;
       if ((str[2] & 0xC0) != 0x80)
-	return -1;
+        return -1;
       if ((str[3] & 0xC0) != 0x80)
-	return -1;
+        return -1;
 
       *codepoint = ((byte1 & 0x07) << 18) |
-	((str[1] & 0x3F) << 12) | ((str[2] & 0x3F) << 6) | (str[3] & 0x3F);
+        ((str[1] & 0x3F) << 12) | ((str[2] & 0x3F) << 6) | (str[3] & 0x3F);
 
       /* Check for overlong encoding */
       if (*codepoint < 0x10000)
-	return -1;
+        return -1;
 
       /* Check for valid Unicode range (U+0000 to U+10FFFF) */
       if (*codepoint > 0x10FFFF)
-	return -1;
+        return -1;
 
       return 4;
     }
@@ -145,10 +145,10 @@ utf8_to_codepoints (const char *utf8_str)
       int bytes = decode_utf8_char (str + pos, byte_len - pos, &codepoint);
 
       if (bytes < 0)
-	{
-	  result.error_msg = "Invalid UTF-8 sequence";
-	  return result;
-	}
+        {
+          result.error_msg = "Invalid UTF-8 sequence";
+          return result;
+        }
 
       num_codepoints++;
       pos += bytes;
@@ -232,17 +232,17 @@ main (int argc, char *argv[])
   while ((opt = getopt_long (argc, argv, "hx", long_options, NULL)) != -1)
     {
       switch (opt)
-	{
-	case 'h':
-	  print_usage (argv[0]);
-	  return 0;
-	case 'x':
-	  hex_output = 1;
-	  break;
-	default:
-	  print_usage (argv[0]);
-	  return 1;
-	}
+        {
+        case 'h':
+          print_usage (argv[0]);
+          return 0;
+        case 'x':
+          hex_output = 1;
+          break;
+        default:
+          print_usage (argv[0]);
+          return 1;
+        }
     }
 
   /* Check for UTF-8 string argument */
@@ -269,20 +269,20 @@ main (int argc, char *argv[])
   for (size_t i = 0; i < result.length; i++)
     {
       if (hex_output)
-	{
-	  printf ("  [%zu] U+%04X", i, result.codepoints[i]);
-	}
+        {
+          printf ("  [%zu] U+%04X", i, result.codepoints[i]);
+        }
       else
-	{
-	  printf ("  [%zu] %u (U+%04X)", i, result.codepoints[i],
-		  result.codepoints[i]);
-	}
+        {
+          printf ("  [%zu] %u (U+%04X)", i, result.codepoints[i],
+                  result.codepoints[i]);
+        }
 
       if (result.codepoints[i] >= 32)
-	{
-	  if (result.codepoints[i] < 128)
-      	    printf (" '%c'",  (char) result.codepoints[i]);
-	}
+        {
+          if (result.codepoints[i] < 128)
+            printf (" '%c'",  (char) result.codepoints[i]);
+        }
       printf ("\n");
 
     }
