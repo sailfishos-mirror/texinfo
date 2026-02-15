@@ -80,9 +80,9 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
     size_t sort_key_alloc;
 
     /* Three levels (primary/secondary/tertiary).  Two bytes per
-       collation element at first two levels, one byte at tertiary.
+       collation element at each of three levels,
        "\x00\x00" between levels and one final null. */
-    sort_key_alloc = num_elements * 5 + 4 + 1;
+    sort_key_alloc = num_elements * 6 + 4 + 1;
 
     psort_key = sort_key;
 
