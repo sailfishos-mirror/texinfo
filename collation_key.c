@@ -39,7 +39,7 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
             entry_array[n_entries].data_offset = 0;
             entry_array[n_entries++].string_index = i;
             i++;
-            printf("Not found in database.\n");
+            //printf("Not found in database.\n");
         }
     }
 
@@ -49,8 +49,7 @@ CollationKey get_collation_key(char32_t *codepoints_in, size_t length_in) {
         {
           size_t n = element_count_of_data_offset
                      (entry_array[i].data_offset);
-          printf ("%zu elements\n", n);
-        num_elements += n;
+          num_elements += n;
         }
       else
         num_elements += 2; /* implicitly determined weights? */

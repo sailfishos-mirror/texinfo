@@ -22,6 +22,10 @@ void read_header(const uint8_t *data, Header *header);
 
 /* Load binary data from file */
 int load_data_file(const char *filename) {
+
+    if (header.version != 0)
+      return 1; /* already loaded */
+
     FILE *fp = fopen(filename, "rb");
     if (!fp) {
         perror("Failed to open data file");

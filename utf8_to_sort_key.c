@@ -258,37 +258,26 @@ int main(int argc, char *argv[]) {
 
     }
 
-#if 0
-    /* Show collation data for each codepoint */
     if (1) {
-        BinaryHeader header;
-        CollationEntry *entries = load_database(DATAFILE, &header);
-        
-        if (!entries) {
-            return 0;
-        }
-
-        /* only look for single codepoint collation entries */
-
-        CollationEntry *entry;
+      if (!load_data_file(DATAFILE))
+        return 0;
 
         for (size_t i = 0; i < result.length; i++) {
-            printf("Looking up: ");
-            printf("U+%04X ", result.codepoints[i]);
-            printf("\n");
-            
-            entry = lookup_codepoint(entries, header.num_entries,
-                                      result.codepoints[i]);
-            
-            if (entry) {
-                print_entry(entry);
+            printf("Looking up U+%04X: ", result.codepoints[i]);
+
+            CollationElement elements[MAX_COLLATION_ELEMENTS];
+            size_t num_elements;
+
+            int found = 0;
+            found = lookup_codepoint(result.codepoints[i], elements, &num_elements);
+
+            if (found) {
+                print_collation(elements, num_elements);
             } else {
-                printf("Not found in database.\n");
+                printf("NOT FOUND\n");
             }
         }
-        free(entries);
     }
-#endif
 
     /* Load collation data and print collation key. */
     print_collation_key (result);

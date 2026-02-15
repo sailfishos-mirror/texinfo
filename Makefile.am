@@ -16,7 +16,7 @@ utf8_to_sort_key_SOURCES = utf8_to_sort_key.c allkeys_bin_loader.c collation_key
 allkeys.bin: allkeys_to_binary allkeys.txt
 	./allkeys_to_binary ./allkeys.txt allkeys.bin
 
-test: allkeys_to_binary allkeys_query allkeys.bin
+test: allkeys_to_binary allkeys_query allkeys.bin utf8_to_sort_key
 	@echo "=== Testing single codepoint lookup ==="
 	./allkeys_query lookup allkeys.bin 0041
 	@echo ""
