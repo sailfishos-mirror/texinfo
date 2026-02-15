@@ -93,6 +93,21 @@ void read_header (void) {
     header.num_sequences = read_u32(18);
     header.page_table_offset = read_u32(22);
     header.trie_offset = read_u32(26);
+
+    printf("\nUnicode Collation Lookup\n");
+    printf("========================\n");
+    
+    printf("  Version: %u.%u.%u\n",
+           header.version / 10000,
+           (header.version / 100) % 100,
+           header.version % 100);
+    printf("  Singles: %u\n", header.num_singles);
+    printf("  Sequences: %u\n", header.num_sequences);
+    printf("  Variable element limit: 0x%04x\n", header.max_variable_weight);
+    printf("  Binary size: %zu bytes (%.3f MB)\n\n",
+           collation_data_size,
+           collation_data_size / 1e6);
+    
 }
 
 /* Read collation data at offset */
@@ -353,33 +368,6 @@ static void run_tests(const uint8_t *data) {
     Header header;
     fprintf(stderr, "DEBUG: About to read_header\n");
     read_header(data, &header);
-    fprintf(stderr, "DEBUG: Header read OK\n");
-    fprintf(stderr, "DEBUG: version=%u\n", header.version);
-    fprintf(stderr, "DEBUG: num_singles=%u\n", header.num_singles);
-    fprintf(stderr, "DEBUG: About to print title\n");
-    
-    printf("\nUnicode Collation Lookup\n");
-    fprintf(stderr, "DEBUG: Printed title 1\n");
-    printf("========================\n\n");
-    fprintf(stderr, "DEBUG: Printed title 2\n");
-    
-    fprintf(stderr, "DEBUG: About to print data info\n");
-    printf("Data info:\n");
-    fprintf(stderr, "DEBUG: After 'Data info'\n");
-    fprintf(stderr, "DEBUG: collation_data_size = %u\n", collation_data_size);
-    fprintf(stderr, "DEBUG: header.version = %u\n", header.version);
-    fprintf(stderr, "DEBUG: About to print version\n");
-    printf("  Version: %u.%u.%u\n",
-           header.version / 10000,
-           (header.version / 100) % 100,
-           header.version % 100);
-    fprintf(stderr, "DEBUG: Printed version\n");
-    printf("  Singles: %u\n", header.num_singles);
-    printf("  Sequences: %u\n", header.num_sequences);
-    printf("  Binary size: %u bytes (%.2f MB)\n\n",
-           collation_data_size,
-           collation_data_size / (1024.0 * 1024.0));
-    
     printf("Testing single codepoint lookups:\n");
     
     struct {
