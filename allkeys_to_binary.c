@@ -9,55 +9,41 @@
 
 #include "allkeys_bin.h"
 
-/*
- * Binary Format Specification:
- * 
- * Header (28 bytes):
- *   char magic[8]        "UCADATA1"
- *   uint32_t version     UCA version (e.g., 170000)
- *   uint32_t num_singles Number of single codepoint entries
- *   uint32_t num_sequences Number of multi-codepoint sequences
- *   uint32_t page_table_offset Offset to page table
- *   uint32_t trie_offset Offset to sequence trie
- * 
- * Page Table (NUM_PAGES * 4 bytes):
- *   For each page (4352 pages):
- *     uint32_t page_offset  Offset to page data (0 if not allocated)
- * 
- * Page Data (variable size per page):
- *   uint16_t count        Number of entries in page
- *   For each entry:
- *     uint8_t offset      Offset within page (0-255)
- *     uint32_t data_offset Offset to collation data
- * 
- * Collation Data (variable size):
- *   uint8_t num_elements
- *   For each element:
- *     uint16_t primary
- *     uint16_t secondary
- *     uint16_t tertiary
- *     uint8_t variable
- * 
- * Sequence Trie (variable size):
- *   uint32_t codepoint
- *   uint32_t data_offset  (0 if intermediate node)
- *   uint16_t num_children
- *   For each child:
- *     uint32_t child_offset
- */
+typedef struct {
+    uint8_t num_elements;
+    CollationElement elements[MAX_COLLATION_ELEMENTS];
+} CollationData;
 
-#define PAGE_SIZE 256
-#define NUM_PAGES 4352
-#define MAX_COLLATION_ELEMENTS 16
-#define MAX_SEQUENCE_LENGTH 32
+typedef struct {
+    uint8_t offset;
+    CollationData *data;
+} PageEntry;
+
+typedef struct {
+    uint16_t count;
+    PageEntry *entries;
+} Page;
+
+typedef struct TrieNode {
+    char32_t codepoint;
+    CollationData *data;
+    struct TrieNode **children;
+    uint16_t num_children;
+} TrieNode;
 
 typedef struct {
     Page *pages[NUM_PAGES];
     TrieNode *trie_root;
+    uint16_t max_variable_weight;
     uint32_t num_singles;
     uint32_t num_sequences;
     uint32_t version;
 } Database;
+
+typedef struct {
+    CollationElement element;
+    bool variable_weight;
+} CollationElementParsed;
 
 /* Dynamic byte buffer for building binary data */
 typedef struct {
@@ -113,17 +99,18 @@ static int parse_hex(const char *str, uint32_t *value) {
     return 1;
 }
 
-static int parse_collation_element(const char **str, CollationElement *elem) {
+static int parse_collation_element(const char **str,
+                                   CollationElementParsed *elem) {
     const char *s = *str;
     while (*s && isspace(*s)) s++;
     if (*s != '[') return 0;
     s++;
     
     if (*s == '*') {
-        elem->variable = 1;
+        elem->variable_weight = 1;
         s++;
     } else if (*s == '.') {
-        elem->variable = 0;
+        elem->variable_weight = 0;
         s++;
     } else {
         return 0;
@@ -131,19 +118,19 @@ static int parse_collation_element(const char **str, CollationElement *elem) {
     
     char hex[5] = {0};
     for (int i = 0; i < 4 && isxdigit(*s); i++, s++) hex[i] = *s;
-    elem->primary = (uint16_t)strtoul(hex, NULL, 16);
+    elem->element.primary = (uint16_t)strtoul(hex, NULL, 16);
     if (*s != '.') return 0;
     s++;
     
     memset(hex, 0, sizeof(hex));
     for (int i = 0; i < 4 && isxdigit(*s); i++, s++) hex[i] = *s;
-    elem->secondary = (uint16_t)strtoul(hex, NULL, 16);
+    elem->element.secondary = (uint16_t)strtoul(hex, NULL, 16);
     if (*s != '.') return 0;
     s++;
     
     memset(hex, 0, sizeof(hex));
     for (int i = 0; i < 4 && isxdigit(*s); i++, s++) hex[i] = *s;
-    elem->tertiary = (uint16_t)strtoul(hex, NULL, 16);
+    elem->element.tertiary = (uint16_t)strtoul(hex, NULL, 16);
     if (*s != ']') return 0;
     s++;
     
@@ -213,10 +200,16 @@ static Database* build_database(const char *filename) {
         CollationData *data = calloc(1, sizeof(CollationData));
         while (*p && *p != '#') {
             if (*p == '[') {
-                CollationElement elem;
+                CollationElementParsed elem;
                 if (parse_collation_element(&p, &elem)) {
                     if (data->num_elements < MAX_COLLATION_ELEMENTS) {
-                        data->elements[data->num_elements++] = elem;
+                        data->elements[data->num_elements++] = elem.element;
+                    } else {
+                      printf ("parse error: maximum collation element sequence length exceeded\n");
+                    }
+                    if (elem.variable_weight) {
+                      if (elem.element.primary > db->max_variable_weight)
+                        db->max_variable_weight = elem.element.primary;
                     }
                 }
             } else {
@@ -287,7 +280,6 @@ static uint32_t write_collation_data(ByteBuffer *buf, CollationData *data) {
         buffer_write_u16(buf, data->elements[i].primary);
         buffer_write_u16(buf, data->elements[i].secondary);
         buffer_write_u16(buf, data->elements[i].tertiary);
-        buffer_write_u8(buf, data->elements[i].variable);
     }
     return offset;
 }
@@ -347,10 +339,11 @@ static ByteBuffer* serialize_database(Database *db) {
                   sizeof(PageEntry), compare_page_entries);
         }
     }
-    
+
     // Write header (we'll fill in offsets later)
     buffer_write_bytes(buf, "UCADATA1", 8);
     buffer_write_u32(buf, db->version);
+    buffer_write_u16(buf, db->max_variable_weight);
     buffer_write_u32(buf, db->num_singles);
     buffer_write_u32(buf, db->num_sequences);
     uint32_t page_table_offset_pos = buf->size;

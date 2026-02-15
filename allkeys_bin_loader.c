@@ -84,10 +84,11 @@ static uint32_t read_u32(const uint8_t *data, size_t offset) {
 void read_header(const uint8_t *data, Header *header) {
     memcpy(header->magic, data, 8);
     header->version = read_u32(data, 8);
-    header->num_singles = read_u32(data, 12);
-    header->num_sequences = read_u32(data, 16);
-    header->page_table_offset = read_u32(data, 20);
-    header->trie_offset = read_u32(data, 24);
+    header->max_variable_weight = read_u16(data, 12);
+    header->num_singles = read_u32(data, 14);
+    header->num_sequences = read_u32(data, 18);
+    header->page_table_offset = read_u32(data, 22);
+    header->trie_offset = read_u32(data, 26);
 }
 
 /* Read collation data at offset */
@@ -103,8 +104,6 @@ static int read_collation_data(const uint8_t *data, size_t offset,
         offset += 2;
         elements[i].tertiary = read_u16(data, offset);
         offset += 2;
-        elements[i].variable = read_u8(data, offset);
-        offset++;
     }
     
     return 1;
@@ -327,7 +326,10 @@ int lookup_sequence(const uint32_t *codepoints, size_t len,
 /* Print collation elements */
 void print_collation(const CollationElement *elements, size_t num_elements) {
     for (size_t i = 0; i < num_elements; i++) {
-        if (elements[i].variable) {
+        /* FIXME: we need to compare the primary weight against the
+           maximum variable weight to know if the element is variable or
+           not. */
+        if (0) { // elements[i].variable) {
             printf("[*%04X.%04X.%04X]",
                    elements[i].primary,
                    elements[i].secondary,
