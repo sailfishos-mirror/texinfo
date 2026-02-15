@@ -18,7 +18,7 @@ static uint8_t *collation_data = NULL;
 static size_t collation_data_size = 0;
 
 static Header header;
-void read_header(const uint8_t *data, Header *header);
+static void read_header (void);
 
 /* Load binary data from file */
 int load_data_file(const char *filename) {
@@ -63,7 +63,7 @@ int load_data_file(const char *filename) {
         return 1;
     }
 
-    read_header(collation_data, &header);
+    read_header ();
     return 1;
 }
 
@@ -85,14 +85,14 @@ static uint32_t read_u32(size_t offset) {
 }
 
 /* Read header */
-void read_header(const uint8_t *data, Header *header) {
-    memcpy(header->magic, data, 8);
-    header->version = read_u32(8);
-    header->max_variable_weight = read_u16(12);
-    header->num_singles = read_u32(14);
-    header->num_sequences = read_u32(18);
-    header->page_table_offset = read_u32(22);
-    header->trie_offset = read_u32(26);
+void read_header (void) {
+    memcpy(header.magic, collation_data, 8);
+    header.version = read_u32(8);
+    header.max_variable_weight = read_u16(12);
+    header.num_singles = read_u32(14);
+    header.num_sequences = read_u32(18);
+    header.page_table_offset = read_u32(22);
+    header.trie_offset = read_u32(26);
 }
 
 /* Read collation data at offset */
