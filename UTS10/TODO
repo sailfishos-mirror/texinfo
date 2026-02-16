@@ -1,0 +1,34 @@
+# list secondary weights
+ perl -wnle '/\[[\.\*]\d\d\d\d\.(\d\d\d\d)/ && print $1 ; ' <allkeys.txt  | sort | uniq
+
+# list tertiary weights
+ perl -wnle '/\[[\.\*]\d\d\d\d\.\d\d\d\d.(\d\d\d\d)/ && print $1 ; ' <allkeys.txt  | sort | uniq
+
+only 109 secondary weights although values go up to 0x127 so not possible
+to simply take LSB.
+
+
+* remove useless debugging/progress statements
+
+* discontiguous matching - check if this is really necessary
+
+* check integer alignment and endianness in dump
+
+* put allkeys.txt version (and other metadata?) in output
+
+* test more sequences other than l· (what are they??)
+
+* Add gnulib vars in Makefile.am
+
+* To avoid zero bytes, change 00 to 01 when creating binary dump.
+(See TR#10 s.9.5.  This advice doesn't really make any sense as
+it doesn't work for 16 bit values greater than FEOO, i.e. what
+can be represented in base 255 with two digits.)
+
+* Read Implicit weights from allkeys.txt
+ 
+* Unicode normalisation issues.  We should extend the data table
+to include "canonically decomposable characters".  (See TR#10 s.9.5.)
+(It's possible the table ("DUCET") already contains these.)
+Or we should do the opposite and take these out of the table to
+save space!
