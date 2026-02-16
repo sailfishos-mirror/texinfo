@@ -322,7 +322,10 @@ Manual testing:
 . process some manuals with INFO_JS_DIR and check the JS interface is
   not broken.
 . if necessary, check if the HTML customization API can be updated for
-  - lilypond Documentation/lilypond.init
+  - lilypond Documentation/lilypond.init.  To redo the manuals:
+     cd Documentation
+     rm -rf out
+     make -j8 TEXI2ANY=../../texinfo/tta/perl/texi2any.pl html
   - ffmpeg doc/t2h.pm
 . if necessary, on a platform where libtool generated .la files can be
   removed such as GNU/Linux, install, remove the .la files in the installation
