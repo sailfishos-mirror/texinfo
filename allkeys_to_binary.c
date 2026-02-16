@@ -5,7 +5,6 @@
 #include <stdint.h>
 #include <string.h>
 #include <ctype.h>
-#include <time.h>
 #include "uninorm.h"
 
 #include "allkeys_bin.h"
@@ -421,27 +420,26 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
 
   buffer_write_u16 (buf, node->num_children);
 
-  // Reserve space for child offsets
+  /* Reserve space for child offsets */
   uint32_t children_offset_pos = buf->size;
   for (uint16_t i = 0; i < node->num_children; i++)
     {
-      buffer_write_u32 (buf, 0); // Placeholder
+      buffer_write_u32 (buf, 0); /* Placeholder */
     }
 
-  // Write children and update offsets
+  /* Write children and update offsets */
   for (uint16_t i = 0; i < node->num_children; i++)
     {
       uint32_t child_offset = write_trie_node (buf, node->children[i]);
       buffer_write_u32_at (buf, children_offset_pos + i * 4, child_offset);
     }
 
-  // Write collation data and update offset.
+  /* Write collation data and update offset. */
   if (node->data)
     {
       uint32_t data_offset = write_collation_data (buf, node->data);
       buffer_write_u32_at (buf, data_offset_pos, data_offset);
     }
-
 
   return offset;
 }
@@ -474,18 +472,18 @@ serialize_database (Database *db)
         }
     }
 
-  // Write header (we'll fill in offsets later)
+  /* Write header, leaving some placeholders to be filled in later. */
   buffer_write_bytes (buf, "UCADATA1", 8);
   buffer_write_u32 (buf, db->version);
   buffer_write_u16 (buf, db->max_variable_weight);
   buffer_write_u32 (buf, db->num_singles);
   buffer_write_u32 (buf, db->num_sequences);
   uint32_t page_table_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);    // Placeholder for page_table_offset
+  buffer_write_u32 (buf, 0);    /* Placeholder for page_table_offset */
   uint32_t trie_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);    // Placeholder for trie_offset
+  buffer_write_u32 (buf, 0);    /* Placeholder for trie_offset */
 
-  // Write page table
+  /* Write page table. */
   uint32_t page_table_offset = buf->size;
   buffer_write_u32_at (buf, page_table_offset_pos, page_table_offset);
 
@@ -496,12 +494,12 @@ serialize_database (Database *db)
       buffer_write_u32 (buf, 0);        // Placeholder
     }
 
-  // Write page data (entries only, no collation data yet)
-  // We'll track where to write collation data offsets
+  /* Write page data (entries only, no collation data yet).
+     We'll track where to write collation data offsets. */
   typedef struct
   {
-    uint32_t offset_position;   // Where to write the data_offset
-    CollationData *data;        // The data to write later
+    uint32_t offset_position;   /* Where to write the data_offset. */
+    CollationData *data;        /* The data to write later. */
   } PendingData;
 
   PendingData *pending = malloc (db->num_singles * sizeof (PendingData));
@@ -518,21 +516,21 @@ serialize_database (Database *db)
 
       buffer_write_u16 (buf, page->count);
 
-      // Write entries with placeholder data offsets
+      /* Write entries with placeholder data offsets. */
       for (uint16_t j = 0; j < page->count; j++)
         {
           buffer_write_u8 (buf, page->entries[j].offset);
 
-          // Remember where we need to write the data offset
+          /* Remember where we need to write the data offset. */
           pending[pending_count].offset_position = buf->size;
           pending[pending_count].data = page->entries[j].data;
           pending_count++;
 
-          buffer_write_u32 (buf, 0);    // Placeholder for data_offset
+          buffer_write_u32 (buf, 0); /* Placeholder for data_offset. */
         }
     }
 
-  // Now write all collation data and backfill offsets
+  /* Now write all collation data and backfill offsets. */
   for (uint32_t i = 0; i < pending_count; i++)
     {
       uint32_t data_offset = write_collation_data (buf, pending[i].data);
@@ -541,12 +539,12 @@ serialize_database (Database *db)
 
   free (pending);
 
-  // Write trie
+  /* Write trie. */
   uint32_t trie_offset = write_trie_node (buf, db->trie_root);
   buffer_write_u32_at (buf, trie_offset_pos, trie_offset);
 
   printf ("Binary size: %zu bytes (%.2f MB)\n", buf->size,
-          buf->size / (1024.0 * 1024.0));
+          buf->size / 1e6);
 
   return buf;
 }
@@ -564,10 +562,8 @@ write_c_source (ByteBuffer *buf, const char *output_file)
 
   printf ("Writing C source file: %s\n", output_file);
 
-  fprintf (fp, "/*\n");
-  fprintf (fp, " * Auto-generated Unicode Collation Data\n");
-  fprintf (fp, " * Generated from allkeys.txt\n");
-  fprintf (fp, " * Size: %zu bytes\n", buf->size);
+  fprintf (fp, "/* DO NOT EDIT:\n");
+  fprintf (fp, " * Automatically generated from allkeys.txt\n");
   fprintf (fp, " */\n\n");
 
   fprintf (fp, "#include <stdint.h>\n\n");
@@ -594,7 +590,6 @@ write_c_source (ByteBuffer *buf, const char *output_file)
   fprintf (fp, "\n};\n");
 
   fclose (fp);
-  printf ("Done!\n");
 }
 
 /* Write as binary file */
@@ -612,8 +607,6 @@ write_binary_file (ByteBuffer *buf, const char *output_file)
 
   fwrite (buf->data, 1, buf->size, fp);
   fclose (fp);
-
-  printf ("Done!\n");
 }
 
 int
@@ -630,27 +623,20 @@ main (int argc, char *argv[])
   const char *binary_file = argc >= 3 ? argv[2] : "allkeys.bin";
   const char *c_file = argc >= 4 ? argv[3] : NULL;
 
-  clock_t start = clock ();
-
   Database *db = build_database (input_file);
   if (!db)
     return 1;
 
   ByteBuffer *buf = serialize_database (db);
 
-  // Always write binary file
+  /* Always write binary file. */
   write_binary_file (buf, binary_file);
 
-  // Optionally write C source
+  /* Optionally write C source. */
   if (c_file)
     {
       write_c_source (buf, c_file);
     }
-
-  clock_t end = clock ();
-  double elapsed = (double) (end - start) / CLOCKS_PER_SEC;
-
-  printf ("\nTotal time: %.2f seconds\n", elapsed);
 
   return 0;
 }

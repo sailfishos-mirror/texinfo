@@ -15,3 +15,10 @@ tags
 config.*
 allkeys.bin
 allkeys_bin.c
+
+allkeys_query
+allkeys_to_binary
+utf8_to_sort_key
+
+gnulib/lib/libgnu.a
+
