@@ -1,14 +1,14 @@
 # Portuguese (Portugal) translations for the texinfo package.
 # Copyright (C) 2018 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
-# Pedro Albuquerque <pmra@protonmail.com>, 2018, 2019, 2021, 2025, 2026.
+# Pedro Albuquerque <pmra@protonmail.com>, 2018 - 2025, 2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo 7.2.90\n"
+"Project-Id-Version: GNU texinfo 7.2.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-02-03 20:44+0000\n"
-"PO-Revision-Date: 2026-01-13 07:37+0000\n"
+"POT-Creation-Date: 2026-02-17 19:11+0000\n"
+"PO-Revision-Date: 2026-02-08 05:19+0000\n"
 "Last-Translator: Pedro Albuquerque <pmra@protonmail.com>\n"
 "Language-Team: Portuguese <translation-team-pt@googlegroups.com>\n"
 "Language: pt\n"
@@ -1624,6 +1624,8 @@ msgstr "Como imprimir a linha de informação no início de um nó"
 #: info/variables.c:168
 msgid "Always pass through non-ASCII UTF-8 bytes in files to terminal"
 msgstr ""
+"Passar sempre através de  bytes não-ASCII UTF-8 bytes em ficheiros para o "
+"terminal"
 
 #: info/variables.c:282
 msgid "Explain the use of a variable"
@@ -2223,9 +2225,9 @@ msgid "here is the previous definition as @%s"
 msgstr "eis a definição anterior como @%s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:425
-#: tta/perl/Texinfo/Convert/HTML.pm:12195
-#: tta/perl/Texinfo/Convert/HTML.pm:13257
-#: tta/perl/Texinfo/Convert/HTML.pm:13515 tta/perl/Texinfo/Convert/Info.pm:429
+#: tta/perl/Texinfo/Convert/HTML.pm:12200
+#: tta/perl/Texinfo/Convert/HTML.pm:13262
+#: tta/perl/Texinfo/Convert/HTML.pm:13532 tta/perl/Texinfo/Convert/Info.pm:429
 #: tta/perl/Texinfo/Convert/LaTeX.pm:1181
 #: tta/perl/Texinfo/Convert/Plaintext.pm:784
 #: tta/perl/Texinfo/Convert/Plaintext.pm:839
@@ -2239,8 +2241,8 @@ msgid "could not open %s for writing: %s"
 msgstr "impossível abrir %s para escrita: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:451
-#: tta/perl/Texinfo/Convert/HTML.pm:12190
-#: tta/perl/Texinfo/Convert/HTML.pm:13280 tta/perl/Texinfo/Convert/Info.pm:235
+#: tta/perl/Texinfo/Convert/HTML.pm:12195
+#: tta/perl/Texinfo/Convert/HTML.pm:13285 tta/perl/Texinfo/Convert/Info.pm:235
 #: tta/perl/Texinfo/Convert/Info.pm:267 tta/perl/Texinfo/Convert/Info.pm:322
 #: tta/perl/Texinfo/Convert/Info.pm:400 tta/perl/Texinfo/Convert/LaTeX.pm:1267
 #: tta/perl/Texinfo/Convert/Plaintext.pm:812
@@ -2293,157 +2295,157 @@ msgid "not setting an unknown direction: %s"
 msgstr "não definir uma direcção desconhecida: %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:3673 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6734
+#: tta/C/convert/format_html.c:6741
 #, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "ficheiro @image \"%s\" (para HTML) não encontrado, a usar \"%s\""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8293
+#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8300
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "formato raw %s não está convertido"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10696
+#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10703
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "entrada para índice \"%s\" para @printindex %s fora de qualquer nó"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10736
+#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10743
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr ""
 "entrada para o índice \"%s\" para @printindex %s fora de qualquer secção"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8490
+#: tta/perl/Texinfo/Convert/HTML.pm:8491
 #: tta/C/convert/html_prepare_converter.c:1009
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr "impossível abrir o ficheiro html refs config %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8519
+#: tta/perl/Texinfo/Convert/HTML.pm:8520
 #: tta/C/convert/html_prepare_converter.c:1119
 #, c-format, perl-format
 msgid "missing type"
 msgstr "tipo em falta"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8523
+#: tta/perl/Texinfo/Convert/HTML.pm:8524
 #: tta/C/convert/html_prepare_converter.c:1130
 #, c-format, perl-format
 msgid "unrecognized type: %s"
 msgstr "tipo não reconhecido: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8561
+#: tta/perl/Texinfo/Convert/HTML.pm:8562
 #: tta/C/convert/html_prepare_converter.c:1229
 #, c-format, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr "erro ao fechar o ficheiro html refs config %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8587
+#: tta/perl/Texinfo/Convert/HTML.pm:8588
 #: tta/C/convert/html_prepare_converter.c:1270
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr "impossível encontrar o ficheiro de configuração de referências html %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8706 tta/perl/texi2any.pl:662
+#: tta/perl/Texinfo/Convert/HTML.pm:8707 tta/perl/texi2any.pl:662
 #: tta/C/convert/html_prepare_converter.c:1507
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "pasta %s é obsoleta. Use antes %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9134
+#: tta/perl/Texinfo/Convert/HTML.pm:9135
 #, perl-format
 msgid "Unknown file and id setting function: %s"
 msgstr "Função de configuração de ficheiro e id desconhecida: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9152
+#: tta/perl/Texinfo/Convert/HTML.pm:9153
 #, perl-format
 msgid "Unknown formatting function: %s"
 msgstr "Função de formatação desconhecida: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9611
+#: tta/perl/Texinfo/Convert/HTML.pm:9612
 #: tta/C/convert/html_prepare_converter.c:1794
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "cadeia não fechada no ficheiro css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9613
+#: tta/perl/Texinfo/Convert/HTML.pm:9614
 #: tta/C/convert/html_prepare_converter.c:1802
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "--css-include terminou em comentário"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9615
+#: tta/perl/Texinfo/Convert/HTML.pm:9616
 #: tta/C/convert/html_prepare_converter.c:1810
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "@import não terminada em ficheiro css"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9651
+#: tta/perl/Texinfo/Convert/HTML.pm:9652
 #: tta/C/convert/html_prepare_converter.c:1862
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "Ficheiro css %s não encontrado"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9663
+#: tta/perl/Texinfo/Convert/HTML.pm:9664
 #: tta/C/convert/html_prepare_converter.c:1884
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "impossível abrir --include-file %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9681
+#: tta/perl/Texinfo/Convert/HTML.pm:9682
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "erro ao fechar o ficheiro css %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9883
-#: tta/C/convert/html_prepare_converter.c:4893
+#: tta/perl/Texinfo/Convert/HTML.pm:9884
+#: tta/C/convert/html_prepare_converter.c:4899
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 "nome de ficheiro de nó definido pelo utilizador não definido para \"%s\""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10208
-#: tta/C/convert/html_prepare_converter.c:6129
+#: tta/perl/Texinfo/Convert/HTML.pm:10209
+#: tta/C/convert/html_prepare_converter.c:6135
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "a repor caminho de ficheiro %s %s para %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10212
-#: tta/C/convert/html_prepare_converter.c:6139
+#: tta/perl/Texinfo/Convert/HTML.pm:10213
+#: tta/C/convert/html_prepare_converter.c:6145
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr "a repor caminho de ficheiro %s de um caminho relativo para %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10216
-#: tta/C/convert/html_prepare_converter.c:6148
+#: tta/perl/Texinfo/Convert/HTML.pm:10217
+#: tta/C/convert/html_prepare_converter.c:6154
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr "a repor caminho de ficheiro %s de %s para caminho relativo"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10806
-#: tta/C/convert/html_prepare_converter.c:5519
+#: tta/perl/Texinfo/Convert/HTML.pm:10807
+#: tta/C/convert/html_prepare_converter.c:5525
 #, c-format, perl-format
 msgid "could not find %s node `%s'"
 msgstr "impossível encontrar o nó %s \"%s\""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11076 tta/C/convert/format_html.c:838
+#: tta/perl/Texinfo/Convert/HTML.pm:11077 tta/C/convert/format_html.c:838
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr "não definir sufixo %s em referência para o manual \"%s\""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11113
-#: tta/perl/Texinfo/Convert/HTML.pm:11119 tta/C/convert/format_html.c:887
+#: tta/perl/Texinfo/Convert/HTML.pm:11114
+#: tta/perl/Texinfo/Convert/HTML.pm:11120 tta/C/convert/format_html.c:887
 #: tta/C/convert/format_html.c:898
 #, c-format, perl-format
 msgid "no HTML cross-references entry found for `%s'"
 msgstr "sem entrada de referências cruzadas HTML para \"%s\""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11617 tta/C/convert/format_html.c:4048
+#: tta/perl/Texinfo/Convert/HTML.pm:11622 tta/C/convert/format_html.c:4053
 #, c-format, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s sem significado para saída não dividida"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12134 tta/C/convert/convert_html.c:2607
+#: tta/perl/Texinfo/Convert/HTML.pm:12139 tta/C/convert/convert_html.c:2607
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2452,96 +2454,96 @@ msgstr ""
 "impossível usar caminho absoluto ou URL \"%s\" para JS_WEBLABELS_FILE ao "
 "gerar ficheiro de etiquetas web"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12181 tta/C/convert/convert_html.c:2631
+#: tta/perl/Texinfo/Convert/HTML.pm:12186 tta/C/convert/convert_html.c:2631
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
 msgstr "a sobrescrever o ficheiro de saída com licenças js: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12904 tta/C/convert/convert_html.c:818
+#: tta/perl/Texinfo/Convert/HTML.pm:12909 tta/C/convert/convert_html.c:818
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "gestor %d de estágio %s, prioridade %s: estado não-numérico"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12911 tta/C/convert/convert_html.c:830
+#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:830
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "gestor %d de estágio %s, prioridade %s falhou"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12959
+#: tta/perl/Texinfo/Convert/HTML.pm:12964
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "erro ao copiar %s para %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12968 tta/C/convert/convert_html.c:2852
+#: tta/perl/Texinfo/Convert/HTML.pm:12973 tta/C/convert/convert_html.c:2852
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "erro ao criar %s vazio: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12973 tta/C/convert/convert_html.c:2864
+#: tta/perl/Texinfo/Convert/HTML.pm:12978 tta/C/convert/convert_html.c:2864
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "erro ao fechar %s vazio: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13084
-#: tta/perl/Texinfo/Convert/HTML.pm:13088 tta/C/convert/convert_html.c:1105
+#: tta/perl/Texinfo/Convert/HTML.pm:13089
+#: tta/perl/Texinfo/Convert/HTML.pm:13093 tta/C/convert/convert_html.c:1105
 #: tta/C/convert/convert_html.c:1110
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "tem de especificar um título com um comando de título ou @top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13368 tta/C/convert/convert_html.c:3064
+#: tta/perl/Texinfo/Convert/HTML.pm:13373 tta/C/convert/convert_html.c:3064
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s \"%s\" ficheiro %s para redireccionamento existe"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13386 tta/C/convert/convert_html.c:3079
+#: tta/perl/Texinfo/Convert/HTML.pm:13391 tta/C/convert/convert_html.c:3079
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "conflito com todo o ficheiro de documento"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13389 tta/C/convert/convert_html.c:3082
+#: tta/perl/Texinfo/Convert/HTML.pm:13394 tta/C/convert/convert_html.c:3082
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "conflito com o ficheiro Top"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13392 tta/C/convert/convert_html.c:3085
+#: tta/perl/Texinfo/Convert/HTML.pm:13397 tta/C/convert/convert_html.c:3085
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "conflito com o ficheiro definido pelo utilizador"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13395 tta/C/convert/convert_html.c:3088
+#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3088
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "conflito com o ficheiro de nó desconhecido"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13398 tta/C/convert/convert_html.c:3092
+#: tta/perl/Texinfo/Convert/HTML.pm:13403 tta/C/convert/convert_html.c:3092
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "conflito com o ficheiro sem fonte conhecida"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13406 tta/C/convert/convert_html.c:3106
+#: tta/perl/Texinfo/Convert/HTML.pm:13411 tta/C/convert/convert_html.c:3106
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "conflito com o ficheiro @%s \"%s\""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13418 tta/C/convert/convert_html.c:3122
+#: tta/perl/Texinfo/Convert/HTML.pm:13423 tta/C/convert/convert_html.c:3122
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "conflito com o ficheiro de redireccionamento @%s \"%s\""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13432 tta/C/convert/convert_html.c:3142
+#: tta/perl/Texinfo/Convert/HTML.pm:13437 tta/C/convert/convert_html.c:3142
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "conflito com o ficheiro @%s \"%s\""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13445 tta/C/convert/convert_html.c:3155
+#: tta/perl/Texinfo/Convert/HTML.pm:13450 tta/C/convert/convert_html.c:3155
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "conflito com o elemento especial %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13523
+#: tta/perl/Texinfo/Convert/HTML.pm:13540
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "erro ao fechar ficheiro de redireccionamento do nó %s: %s"
@@ -2719,12 +2721,12 @@ msgstr "erro ao fechar o ficheiro @verbatiminclude %s: %s"
 msgid "@%s: could not find %s"
 msgstr "@%s: impossível localizar %s"
 
-#: tta/perl/Texinfo/Indices.pm:333 tta/C/main/manipulate_indices.c:484
+#: tta/perl/Texinfo/Indices.pm:342 tta/C/main/manipulate_indices.c:484
 #, c-format, perl-format
 msgid "empty index key in @%s"
 msgstr "chave de índice vazia em @%s"
 
-#: tta/perl/Texinfo/Indices.pm:357
+#: tta/perl/Texinfo/Indices.pm:366
 #, perl-format
 msgid "empty index sub entry %d key in @%s"
 msgstr "chave de sub-entrada de índice %d vazia em @%s"
@@ -3646,12 +3648,9 @@ msgstr ""
 "documento"
 
 #: tta/perl/Texinfo/Translations.pm:185 tta/C/main/translations.c:208
-#, fuzzy
-#| msgid ""
-#| "Cannot switch to a locale compatible with document strings translations"
 msgid "Cannot find a locale compatible with document strings translations"
 msgstr ""
-"Impossível mudar para um idioma compatível com cadeias de tradução do "
+"Impossível localizar um idioma compatível com cadeias de tradução do "
 "documento"
 
 #: tta/perl/init/chm.pm:227 tta/perl/init/chm.pm:316 tta/perl/init/chm.pm:401

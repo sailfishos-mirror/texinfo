@@ -21,7 +21,7 @@ package Texinfo::IndicesXS;
 use strict;
 use warnings;
 
-our $VERSION = '7.2.91';
+our $VERSION = '7.2.92';
 
 use Texinfo::XSLoader;
 

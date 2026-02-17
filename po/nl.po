@@ -8,15 +8,15 @@
 #   node -> pagina
 #
 # Benno Schulenberg <vertaling@coevern.nl>, 2007, 2008, 2012, 2013, 2015, 2016.
-# Benno Schulenberg <vertaling@coevern.nl>, 2017, 2019, 2021, 2023, 2025.
+# Benno Schulenberg <vertaling@coevern.nl>, 2017, 2019, 2021, 2023, 2025, 2026.
 # Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2004, 2005, 2007.
 # Ivo Timmermans <zarq@iname.com>, 1998.
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo-7.1.92\n"
+"Project-Id-Version: texinfo-7.2.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-02-03 20:44+0000\n"
-"PO-Revision-Date: 2025-06-07 15:57+0200\n"
+"POT-Creation-Date: 2026-02-17 19:11+0000\n"
+"PO-Revision-Date: 2026-02-09 12:14+0100\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -27,12 +27,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: info/dir.c:63
-#, fuzzy
-#| msgid "No '%s' pointer for this node"
 msgid ""
 "Dir files used for this node\n"
 "\n"
-msgstr "Er is geen '%s'-koppeling op deze pagina."
+msgstr ""
+"Inhoudsbestanden die gebruikt zijn voor deze pagina\n"
+"\n"
 
 #: info/echo-area.c:290 info/session-cmd.c:424
 msgid "Move forward a character"
@@ -324,13 +324,7 @@ msgid "Try --help for more information.\n"
 msgstr "Gebruik '--help' voor meer informatie.\n"
 
 #: info/info.c:949 install-info/install-info.c:2281
-#, fuzzy, c-format
-#| msgid ""
-#| "Copyright (C) %s Free Software Foundation, Inc.\n"
-#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-#| "gpl.html>\n"
-#| "This is free software: you are free to change and redistribute it.\n"
-#| "There is NO WARRANTY, to the extent permitted by law.\n"
+#, c-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/"
@@ -341,7 +335,7 @@ msgstr ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "Dit is vrije software: u mag het vrijelijk wijzigen en verder verspreiden.\n"
 "De precieze licentie is GPLv3+: GNU GPL versie 3 of later;\n"
-"zie http://gnu.org/licenses/gpl.html voor de volledige tekst.\n"
+"zie <https://gnu.org/licenses/gpl.html> voor de volledige tekst.\n"
 "Er is GEEN GARANTIE, voor zover de wet dit toestaat.\n"
 
 #: info/info.c:1126
@@ -361,47 +355,49 @@ msgstr ""
 "Documentatie in Info-opmaak lezen.\n"
 
 #: info/info.c:1176
-#, fuzzy
-#| msgid "Input file options:"
 msgid "Frequently-used options:"
-msgstr "Invoerbestand-opties:"
+msgstr "Veelgebruikte opties:"
 
 #: info/info.c:1177
-#, fuzzy
-#| msgid "    --top                   top for the main manual"
 msgid "  -a, --all                    use all matching manuals"
-msgstr "    --top                   de top voor de hoofdhandleiding"
+msgstr ""
+"  -a, --all                    alle overeenkomende handleidingen gebruiken"
 
 #: info/info.c:1178
 msgid ""
 "  -k, --apropos=STRING         look up STRING in all indices of all manuals"
 msgstr ""
+"  -k, --apropos=TEKENREEKS     in alle Info-indexen naar deze tekenreeks "
+"zoeken"
 
 #: info/info.c:1179
 msgid "  -d, --directory=DIR          add DIR to INFOPATH"
 msgstr ""
+"  -d, --directory=MAP          deze map toevoegen aan het zoekpad 'INFOPATH'"
 
 #: info/info.c:1180
 msgid "  -f, --file=MANUAL            specify Info manual to visit"
-msgstr ""
+msgstr "  -f, --file=HANDLEIDING       het te bekijken Info-bestand"
 
 #: info/info.c:1181
-#, fuzzy
-#| msgid "    --help                  display this help and exit"
 msgid "  -h, --help                   display this help and exit"
-msgstr "    --help                  deze hulptekst tonen en stoppen"
+msgstr "  -h, --help                   deze hulptekst tonen en stoppen"
 
 #: info/info.c:1182
 msgid "      --index-search=STRING    go to node pointed by index entry STRING"
 msgstr ""
+"      --index-search=NAAM      de pagina tonen waarnaar dit index-item "
+"verwijst"
 
 #: info/info.c:1183
 msgid "  -n, --node=NODENAME          specify nodes in first visited Info file"
 msgstr ""
+"  -n, --node=PAGINANAAM        een te bezoeken pagina in eerste Info-bestand"
 
 #: info/info.c:1184
 msgid "  -o, --output=FILE            output selected nodes to FILE"
 msgstr ""
+"  -o, --output=BESTAND         de gekozen pagina's naar dit bestand schrijven"
 
 #: info/info.c:1187
 msgid "  -b, --speech-friendly        be friendly to speech synthesizers"
@@ -409,35 +405,24 @@ msgstr ""
 "  -b, --speech-friendly        uitvoer toesnijden op spraaksynthesizers"
 
 #: info/info.c:1190
-#, fuzzy
-#| msgid "      --force                 preserve output even if errors."
 msgid "      --subnodes               recursively output menu items"
-msgstr "      --force                 uitvoerbestand behouden ook bij fouten"
+msgstr "      --subnodes               recursief alle menu-items uitvoeren"
 
 #: info/info.c:1191
 msgid "  -v, --variable VAR=VALUE     assign VALUE to Info variable VAR"
 msgstr ""
+"  -v, --variable VAR=WAARDE    deze WAARDE aan Info-variabele VAR toekennen"
 
 #: info/info.c:1192
-#, fuzzy
-#| msgid "      --version               display version information and exit."
 msgid "      --version                display version information and exit"
-msgstr "      --version               versie-informatie tonen en stoppen"
+msgstr "      --version                versie-informatie tonen en stoppen"
 
 #: info/info.c:1193
 msgid "  -w, --where, --location      print physical location of Info file"
 msgstr ""
+"  -w, --where, --location      het volledige pad van het Info-bestand tonen"
 
 #: info/info.c:1197
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "The first non-option argument, if present, is the menu entry to start "
-#| "from;\n"
-#| "it is searched for in all 'dir' files along INFOPATH.\n"
-#| "If it is not present, info merges all 'dir' files and shows the result.\n"
-#| "Any remaining arguments are treated as the names of menu\n"
-#| "items relative to the initial node visited."
 msgid ""
 "The first non-option argument, if present, is the menu entry to start from;\n"
 "it is searched for in all 'dir' files along INFOPATH.\n"
@@ -445,7 +430,6 @@ msgid ""
 "Any remaining arguments are treated as the names of menu\n"
 "items relative to the initial node visited."
 msgstr ""
-"\n"
 "Als 'info' zonder argumenten gestart wordt, dan toont het een overzicht van\n"
 "alle beschikbare documenten.  Als er argumenten gegeven worden, dan wordt "
 "het\n"
@@ -454,20 +438,13 @@ msgstr ""
 "menu-item in de op dat moment bereikte pagina."
 
 #: info/info.c:1204
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "For a summary of key bindings, type H within Info."
 msgid "For a summary of key bindings, type H within Info."
 msgstr ""
-"\n"
 "Voor een overzicht van de commandotoetsen in 'info', typ hoofdletter 'H'."
 
 #: info/info.c:1207
-#, fuzzy
-#| msgid "Examples:"
 msgid " Examples:"
-msgstr "Voorbeelden:"
+msgstr " Voorbeelden:"
 
 #: info/info.c:1208
 msgid "  info                         show top-level dir menu"
@@ -726,12 +703,12 @@ msgstr ""
 "\n"
 
 #: info/infodoc.c:249
-#, fuzzy
-#| msgid "Set variable: "
 msgid ""
 "Variables:\n"
 "\n"
-msgstr "In te stellen variabele: "
+msgstr ""
+"Variabelen:\n"
+"\n"
 
 #: info/infodoc.c:305
 msgid "Not enough room for a help window, please delete a window"
@@ -908,20 +885,10 @@ msgid "Couldn't manipulate the file %s.\n"
 msgstr "Kan het bestand %s niet manipuleren.\n"
 
 #: info/nodemenu.c:33
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "* Menu:\n"
-#| "\n"
-#| "  (File)Node                        Lines   Size   Containing File\n"
-#| "  ----------                        -----   ----   ---------------"
 msgid ""
 "  (File)Node                        Lines   Size   Containing File\n"
 "  ----------                        -----   ----   ---------------"
 msgstr ""
-"\n"
-"* Menu:\n"
-"\n"
 "  (Bestand)Pagina                   Regels  Bytes  Volledig pad\n"
 "  ---------------                   ------  -----  ------------"
 
@@ -1667,7 +1634,7 @@ msgstr "Weergave van de informatieregel aan het begin van de pagina"
 
 #: info/variables.c:168
 msgid "Always pass through non-ASCII UTF-8 bytes in files to terminal"
-msgstr ""
+msgstr "UTF-8 bytes die geen ASCII zijn altijd doorgeven naar de terminal"
 
 #: info/variables.c:282
 msgid "Explain the use of a variable"
@@ -2031,10 +1998,6 @@ msgid "    --debug=NUM             set debugging level"
 msgstr "    --debug=GETAL           te gebruiken debugging-niveau"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:173
-#, fuzzy
-#| msgid ""
-#| "    --generate-setfilename  generate @setfilename for standalone\n"
-#| "                            manuals"
 msgid ""
 "    --generate-setfilename  generate @setfilename for standalone\n"
 "                              manuals"
@@ -2064,10 +2027,6 @@ msgid "    --menus                 generate node menus"
 msgstr "    --menus                 paginamenu's genereren"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:180
-#, fuzzy
-#| msgid ""
-#| "    --outdir=NAME           output included files in NAME.\n"
-#| "                                                    Defaults to --subdir"
 msgid ""
 "    --outdir=NAME           output included files in NAME;\n"
 "                              defaults to --subdir"
@@ -2076,10 +2035,6 @@ msgstr ""
 "                              (standaard dezelfde waarde als voor --subdir)"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:182
-#, fuzzy
-#| msgid ""
-#| "    --output=NAME           output to NAME for the first or main manual\n"
-#| "                            instead of standard output"
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                              instead of standard output"
@@ -2088,11 +2043,6 @@ msgstr ""
 "                              hoofdhandleiding i.p.v. naar standaarduitvoer"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:184
-#, fuzzy
-#| msgid ""
-#| "    --preamble=STR          insert STR as beginning boilerplate.\n"
-#| "                            Defaults to a minimal Texinfo document "
-#| "beginning"
 msgid ""
 "    --preamble=STR          insert STR as beginning boilerplate;\n"
 "                              defaults to a minimal Texinfo document "
@@ -2125,13 +2075,7 @@ msgstr "    --version               programmaversie tonen en stoppen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1199
 #: tta/C/texi2any.c:1636
-#, fuzzy, c-format, perl-format
-#| msgid ""
-#| "Copyright (C) %s Free Software Foundation, Inc.\n"
-#| "License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/"
-#| "gpl.html>\n"
-#| "This is free software: you are free to change and redistribute it.\n"
-#| "There is NO WARRANTY, to the extent permitted by law.\n"
+#, c-format, perl-format
 msgid ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/"
@@ -2142,14 +2086,13 @@ msgstr ""
 "Copyright (C) %s Free Software Foundation, Inc.\n"
 "Dit is vrije software: u mag het vrijelijk wijzigen en verder verspreiden.\n"
 "De precieze licentie is GPLv3+: GNU GPL versie 3 of later;\n"
-"zie http://gnu.org/licenses/gpl.html voor de volledige tekst.\n"
-"Er is GEEN GARANTIE, voor zover de wet dit toestaat.\n"
+"zie <https://gnu.org/licenses/gpl.html> voor de volledige tekst.\n"
+"Er is GEEN GARANTIE, voor zover de wet dit toestaat."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:230
-#, fuzzy, perl-format
-#| msgid "%s: wrong argument for --base-level\n"
+#, perl-format
 msgid "%s: wrong argument for --base-level"
-msgstr "%s: onjuist argument van --base-level\n"
+msgstr "%s: onjuist argument van --base-level"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:259
 #, perl-format
@@ -2157,23 +2100,20 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s: kan map '%s' niet aanmaken: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:273
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument\n"
+#, perl-format
 msgid "%s: missing file argument"
-msgstr "%s: ontbrekend bestandsargument\n"
+msgstr "%s: ontbrekend bestandsargument"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1731
 #: tta/C/texi2any.c:2501
-#, fuzzy, c-format, perl-format
-#| msgid "Try `%s --help' for more information.\n"
+#, c-format, perl-format
 msgid "Try `%s --help' for more information."
-msgstr "Typ '%s --help' voor meer informatie.\n"
+msgstr "Typ '%s --help' voor meer informatie."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:300
-#, fuzzy, perl-format
-#| msgid "%s: warning: %s without content\n"
+#, perl-format
 msgid "%s: warning: %s without content"
-msgstr "%s: waarschuwing: '%s' heeft geen inhoud\n"
+msgstr "%s: waarschuwing: '%s' heeft geen inhoud"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:315
 #, perl-format
@@ -2183,42 +2123,36 @@ msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:536 Pod-Simple-Texinfo/pod2texi.pl:644
 #: tta/perl/texi2any.pl:2234 tta/perl/texi2any.pl:2353
-#, fuzzy, perl-format
-#| msgid "%s: could not open %s for writing: %s\n"
+#, perl-format
 msgid "%s: could not open %s for writing: %s"
-msgstr "%s: kan %s niet openen om te schrijven: %s\n"
+msgstr "%s: kan %s niet openen om te schrijven: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:582
-#, fuzzy, perl-format
-#| msgid "%s: could not open %s: %s\n"
+#, perl-format
 msgid "%s: could not open %s: %s"
-msgstr "@%s: kan %s niet openen: %s\n"
+msgstr "@%s: kan %s niet openen: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:595 Pod-Simple-Texinfo/pod2texi.pl:693
 #: tta/perl/texi2any.pl:2187 tta/perl/texi2any.pl:2407
 #: tta/C/convert/texinfo.c:767
-#, fuzzy, c-format, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, c-format, perl-format
 msgid "%s: error on closing %s: %s"
-msgstr "%s: fout bij sluiten van %s: %s\n"
+msgstr "%s: fout bij sluiten van %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:601
-#, fuzzy, perl-format
-#| msgid "%s: removing %s as input file %s has no content\n"
+#, perl-format
 msgid "%s: removing %s as input file %s has no content"
-msgstr "%s: %s wordt verwijderd omdat invoerbestand %s geen inhoud heeft\n"
+msgstr "%s: %s wordt verwijderd omdat invoerbestand %s geen inhoud heeft"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:630
-#, fuzzy, perl-format
-#| msgid "%s: rename %s failed: %s\n"
+#, perl-format
 msgid "%s: rename %s failed: %s"
-msgstr "%s: hernoemen van %s is mislukt: %s\n"
+msgstr "%s: hernoemen van %s is mislukt: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:699
-#, fuzzy, perl-format
-#| msgid "%s: error on closing stdout: %s\n"
+#, perl-format
 msgid "%s: error on closing stdout: %s"
-msgstr "%s: fout bij sluiten van standaarduitvoer: %s\n"
+msgstr "%s: fout bij sluiten van standaarduitvoer: %s"
 
 #: tta/perl/Texinfo/Common.pm:475 tta/C/parsetexi/end_line.c:1489
 #, c-format, perl-format
@@ -2275,24 +2209,21 @@ msgid "%s: unknown variable %s"
 msgstr "%s: onbekende variabele %s"
 
 #: tta/perl/Texinfo/Config.pm:317
-#, fuzzy, perl-format
-#| msgid "unknown variable from command line: %s\n"
+#, perl-format
 msgid "unknown variable from command line: %s"
-msgstr "onbekende variabele op opdrachtregel: %s\n"
+msgstr "onbekende variabele op opdrachtregel: %s"
 
 #: tta/perl/Texinfo/Config.pm:640 tta/perl/Texinfo/Config.pm:681
 #: tta/perl/Texinfo/Config.pm:699 tta/perl/Texinfo/Config.pm:725
 #: tta/perl/Texinfo/Config.pm:750
-#, fuzzy, perl-format
-#| msgid "%s: unknown formatting context %s\n"
+#, perl-format
 msgid "%s: unknown formatting context %s"
-msgstr "%s: onbekende opmaakcontext %s\n"
+msgstr "%s: onbekende opmaakcontext %s"
 
 #: tta/perl/Texinfo/Config.pm:870
-#, fuzzy, perl-format
-#| msgid "%s: unknown special element information type %s\n"
+#, perl-format
 msgid "%s: unknown special element information type %s"
-msgstr "%s: onbekend informatietype %s voor speciaal element\n"
+msgstr "%s: onbekend informatietype %s voor speciaal element"
 
 #: tta/perl/Texinfo/Document.pm:689 tta/C/main/targets.c:158
 #: tta/C/parsetexi/labels.c:122
@@ -2307,9 +2238,9 @@ msgid "here is the previous definition as @%s"
 msgstr "hier was de eerdere definitie van @%s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:425
-#: tta/perl/Texinfo/Convert/HTML.pm:12195
-#: tta/perl/Texinfo/Convert/HTML.pm:13257
-#: tta/perl/Texinfo/Convert/HTML.pm:13515 tta/perl/Texinfo/Convert/Info.pm:429
+#: tta/perl/Texinfo/Convert/HTML.pm:12200
+#: tta/perl/Texinfo/Convert/HTML.pm:13262
+#: tta/perl/Texinfo/Convert/HTML.pm:13532 tta/perl/Texinfo/Convert/Info.pm:429
 #: tta/perl/Texinfo/Convert/LaTeX.pm:1181
 #: tta/perl/Texinfo/Convert/Plaintext.pm:784
 #: tta/perl/Texinfo/Convert/Plaintext.pm:839
@@ -2323,8 +2254,8 @@ msgid "could not open %s for writing: %s"
 msgstr "kan %s niet openen om te schrijven: %s"
 
 #: tta/perl/Texinfo/Convert/Converter.pm:451
-#: tta/perl/Texinfo/Convert/HTML.pm:12190
-#: tta/perl/Texinfo/Convert/HTML.pm:13280 tta/perl/Texinfo/Convert/Info.pm:235
+#: tta/perl/Texinfo/Convert/HTML.pm:12195
+#: tta/perl/Texinfo/Convert/HTML.pm:13285 tta/perl/Texinfo/Convert/Info.pm:235
 #: tta/perl/Texinfo/Convert/Info.pm:267 tta/perl/Texinfo/Convert/Info.pm:322
 #: tta/perl/Texinfo/Convert/Info.pm:400 tta/perl/Texinfo/Convert/LaTeX.pm:1267
 #: tta/perl/Texinfo/Convert/Plaintext.pm:812
@@ -2374,161 +2305,159 @@ msgstr "@image-bestand '%s' is niet gevonden; '%s' wordt gebruikt"
 #: tta/C/convert/html_prepare_converter.c:739
 #, c-format, perl-format
 msgid "not setting an unknown direction: %s"
-msgstr ""
+msgstr "onbekende richting wordt niet ingesteld: %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:3673 tta/perl/ext/epub3.pm:287
-#: tta/C/convert/format_html.c:6734
+#: tta/C/convert/format_html.c:6741
 #, c-format, perl-format
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "@image-bestand '%s' (voor HTML) is niet gevonden; '%s' wordt gebruikt"
 
 # XXX Zet ook elders "ruw" om naar "rauw".
-#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8293
+#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8300
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "rauwe opmaak %s is niet omgezet"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10696
+#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10703
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "item voor index '%s' voor @printindex %s valt buiten alle pagina's"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10736
+#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10743
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr "item voor index '%s' voor @printindex %s valt buiten alle secties"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8490
+#: tta/perl/Texinfo/Convert/HTML.pm:8491
 #: tta/C/convert/html_prepare_converter.c:1009
 #, c-format, perl-format
 msgid "could not open html refs config file %s: %s"
 msgstr "kan instellingenbestand %s voor HTML-referenties niet openen: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8519
+#: tta/perl/Texinfo/Convert/HTML.pm:8520
 #: tta/C/convert/html_prepare_converter.c:1119
 #, c-format, perl-format
 msgid "missing type"
 msgstr "ontbrekend type"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8523
+#: tta/perl/Texinfo/Convert/HTML.pm:8524
 #: tta/C/convert/html_prepare_converter.c:1130
 #, c-format, perl-format
 msgid "unrecognized type: %s"
 msgstr "onbekend type: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8561
+#: tta/perl/Texinfo/Convert/HTML.pm:8562
 #: tta/C/convert/html_prepare_converter.c:1229
 #, c-format, perl-format
 msgid "error on closing html refs config file %s: %s"
 msgstr "fout bij sluiten van instellingenbestand %s voor HTML-referenties: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8587
+#: tta/perl/Texinfo/Convert/HTML.pm:8588
 #: tta/C/convert/html_prepare_converter.c:1270
 #, c-format, perl-format
 msgid "could not find html refs config file %s"
 msgstr "kan instellingenbestand %s voor HTML-referenties niet vinden"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8706 tta/perl/texi2any.pl:662
+#: tta/perl/Texinfo/Convert/HTML.pm:8707 tta/perl/texi2any.pl:662
 #: tta/C/convert/html_prepare_converter.c:1507
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
 msgstr "%s-map is verouderd; gebruik %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9134
+#: tta/perl/Texinfo/Convert/HTML.pm:9135
 #, perl-format
 msgid "Unknown file and id setting function: %s"
-msgstr ""
+msgstr "Onbekende bestand-en-ID-instellingsfunctie: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9152
+#: tta/perl/Texinfo/Convert/HTML.pm:9153
 #, perl-format
 msgid "Unknown formatting function: %s"
 msgstr "Onbekende opmaakfunctie: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9611
+#: tta/perl/Texinfo/Convert/HTML.pm:9612
 #: tta/C/convert/html_prepare_converter.c:1794
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "tekenreeks niet afgesloten in CSS-bestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9613
+#: tta/perl/Texinfo/Convert/HTML.pm:9614
 #: tta/C/convert/html_prepare_converter.c:1802
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "'--css-include' eindigt in commentaar"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9615
+#: tta/perl/Texinfo/Convert/HTML.pm:9616
 #: tta/C/convert/html_prepare_converter.c:1810
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "'@import' is niet afgesloten in CSS-bestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9651
+#: tta/perl/Texinfo/Convert/HTML.pm:9652
 #: tta/C/convert/html_prepare_converter.c:1862
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "CSS-bestand %s is niet gevonden"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9663
+#: tta/perl/Texinfo/Convert/HTML.pm:9664
 #: tta/C/convert/html_prepare_converter.c:1884
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "kan '--include-file'-bestand %s niet openen: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9681
+#: tta/perl/Texinfo/Convert/HTML.pm:9682
 #, perl-format
 msgid "error on closing CSS file %s: %s"
 msgstr "fout bij sluiten van CSS-bestand %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:9883
-#: tta/C/convert/html_prepare_converter.c:4893
+#: tta/perl/Texinfo/Convert/HTML.pm:9884
+#: tta/C/convert/html_prepare_converter.c:4899
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr "geen gebruikersgedefinieerde paginabestandsnaam ingesteld voor '%s'"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10208
-#: tta/C/convert/html_prepare_converter.c:6129
+#: tta/perl/Texinfo/Convert/HTML.pm:10209
+#: tta/C/convert/html_prepare_converter.c:6135
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "herzetten van %s-bestandspad '%s' tot '%s'"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10212
-#: tta/C/convert/html_prepare_converter.c:6139
+#: tta/perl/Texinfo/Convert/HTML.pm:10213
+#: tta/C/convert/html_prepare_converter.c:6145
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr "herzetten van %s-bestandspad van een relatief pad naar '%s'"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10216
-#: tta/C/convert/html_prepare_converter.c:6148
+#: tta/perl/Texinfo/Convert/HTML.pm:10217
+#: tta/C/convert/html_prepare_converter.c:6154
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr "herzetten van %s-bestandspad van '%s' naar een relatief pad"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:10806
-#: tta/C/convert/html_prepare_converter.c:5519
-#, fuzzy, c-format, perl-format
-#| msgid "Cannot find node '%s'"
+#: tta/perl/Texinfo/Convert/HTML.pm:10807
+#: tta/C/convert/html_prepare_converter.c:5525
+#, c-format, perl-format
 msgid "could not find %s node `%s'"
-msgstr "Kan pagina '%s' niet vinden."
+msgstr "kan %s-pagina '%s' niet vinden"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11076 tta/C/convert/format_html.c:838
+#: tta/perl/Texinfo/Convert/HTML.pm:11077 tta/C/convert/format_html.c:838
 #, c-format, perl-format
 msgid "do not set %s suffix in reference for manual `%s'"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11113
-#: tta/perl/Texinfo/Convert/HTML.pm:11119 tta/C/convert/format_html.c:887
+#: tta/perl/Texinfo/Convert/HTML.pm:11114
+#: tta/perl/Texinfo/Convert/HTML.pm:11120 tta/C/convert/format_html.c:887
 #: tta/C/convert/format_html.c:898
-#, fuzzy, c-format, perl-format
-#| msgid "no htmlxref.cnf entry found for `%s'"
+#, c-format, perl-format
 msgid "no HTML cross-references entry found for `%s'"
-msgstr "geen 'htmlxref.cnf'-item gevonden voor '%s'"
+msgstr "geen HTML-kruisverwijzingsitem gevonden voor '%s'"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11617 tta/C/convert/format_html.c:4048
+#: tta/perl/Texinfo/Convert/HTML.pm:11622 tta/C/convert/format_html.c:4053
 #, c-format, perl-format
 msgid "%s not meaningful for non-split output"
 msgstr "%s is zinloos voor ongesplitste uitvoer"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12134 tta/C/convert/convert_html.c:2607
+#: tta/perl/Texinfo/Convert/HTML.pm:12139 tta/C/convert/convert_html.c:2607
 #, c-format, perl-format
 msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
@@ -2537,96 +2466,96 @@ msgstr ""
 "kan absoluut pad of URL '%s' niet gebruiken voor JS_WEBLABELS_FILE bij het "
 "genereren van een web-labels-bestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12181 tta/C/convert/convert_html.c:2631
+#: tta/perl/Texinfo/Convert/HTML.pm:12186 tta/C/convert/convert_html.c:2631
 #, c-format, perl-format
 msgid "overwriting output file with js licences: %s"
-msgstr ""
+msgstr "uitvoerbestand wordt overschreven met JS-licenties: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12904 tta/C/convert/convert_html.c:818
+#: tta/perl/Texinfo/Convert/HTML.pm:12909 tta/C/convert/convert_html.c:818
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "verwerker %d van fase %s, prioriteit %s: niet-numerieke afsluitwaarde"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12911 tta/C/convert/convert_html.c:830
+#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:830
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "verwerker %d van fase %s, prioriteit %s, is gestruikeld"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12959
+#: tta/perl/Texinfo/Convert/HTML.pm:12964
 #, perl-format
 msgid "error on copying %s into %s"
 msgstr "fout bij kopiëren van %s naar %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12968 tta/C/convert/convert_html.c:2852
+#: tta/perl/Texinfo/Convert/HTML.pm:12973 tta/C/convert/convert_html.c:2852
 #, c-format, perl-format
 msgid "error on creating empty %s: %s"
 msgstr "fout bij aanmaken van lege %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12973 tta/C/convert/convert_html.c:2864
+#: tta/perl/Texinfo/Convert/HTML.pm:12978 tta/C/convert/convert_html.c:2864
 #, c-format, perl-format
 msgid "error on closing empty %s: %s"
 msgstr "fout bij sluiten van lege %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13084
-#: tta/perl/Texinfo/Convert/HTML.pm:13088 tta/C/convert/convert_html.c:1105
+#: tta/perl/Texinfo/Convert/HTML.pm:13089
+#: tta/perl/Texinfo/Convert/HTML.pm:13093 tta/C/convert/convert_html.c:1105
 #: tta/C/convert/convert_html.c:1110
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "een 'title'-commando en '@top' vereisen een titel"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13368 tta/C/convert/convert_html.c:3064
+#: tta/perl/Texinfo/Convert/HTML.pm:13373 tta/C/convert/convert_html.c:3064
 #, c-format, perl-format
 msgid "@%s `%s' file %s for redirection exists"
 msgstr "@%s '%s'-bestand %s voor doorverwijzing bestaat al"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13386 tta/C/convert/convert_html.c:3079
+#: tta/perl/Texinfo/Convert/HTML.pm:13391 tta/C/convert/convert_html.c:3079
 #, c-format, perl-format
 msgid "conflict with whole document file"
 msgstr "conflict met volledigdocumentsbestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13389 tta/C/convert/convert_html.c:3082
+#: tta/perl/Texinfo/Convert/HTML.pm:13394 tta/C/convert/convert_html.c:3082
 #, c-format, perl-format
 msgid "conflict with Top file"
 msgstr "conflict met 'Top'-bestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13392 tta/C/convert/convert_html.c:3085
+#: tta/perl/Texinfo/Convert/HTML.pm:13397 tta/C/convert/convert_html.c:3085
 #, c-format, perl-format
 msgid "conflict with user-defined file"
 msgstr "conflict met gebruikersgedefinieerd bestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13395 tta/C/convert/convert_html.c:3088
+#: tta/perl/Texinfo/Convert/HTML.pm:13400 tta/C/convert/convert_html.c:3088
 #, c-format, perl-format
 msgid "conflict with unknown node file"
 msgstr "conflict met onbekend paginabestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13398 tta/C/convert/convert_html.c:3092
+#: tta/perl/Texinfo/Convert/HTML.pm:13403 tta/C/convert/convert_html.c:3092
 #, c-format, perl-format
 msgid "conflict with file without known source"
 msgstr "conflict met bestand zonder bekende bron"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13406 tta/C/convert/convert_html.c:3106
+#: tta/perl/Texinfo/Convert/HTML.pm:13411 tta/C/convert/convert_html.c:3106
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on node name"
 msgid "conflict with @%s `%s' file"
 msgstr "conflict met @%s '%s'-bestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13418 tta/C/convert/convert_html.c:3122
+#: tta/perl/Texinfo/Convert/HTML.pm:13423 tta/C/convert/convert_html.c:3122
 #, c-format, perl-format
 msgid "conflict with @%s `%s' redirection file"
 msgstr "conflict met @%s '%s'-doorverwijzingsbestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13432 tta/C/convert/convert_html.c:3142
+#: tta/perl/Texinfo/Convert/HTML.pm:13437 tta/C/convert/convert_html.c:3142
 #, c-format, perl-format
 msgctxt "conflict of redirection file with file based on section name"
 msgid "conflict with @%s `%s' file"
 msgstr "conflict met @%s '%s'-bestand"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13445 tta/C/convert/convert_html.c:3155
+#: tta/perl/Texinfo/Convert/HTML.pm:13450 tta/C/convert/convert_html.c:3155
 #, c-format, perl-format
 msgid "conflict with %s special element"
 msgstr "conflict met '%s' speciaal element"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13523
+#: tta/perl/Texinfo/Convert/HTML.pm:13540
 #, perl-format
 msgid "error on closing redirection node file %s: %s"
 msgstr "fout bij sluiten van %s, bestand met doorverwijzende pagina's: %s"
@@ -2696,51 +2625,45 @@ msgid "@image file `%s' (for LaTeX) not found"
 msgstr "@image-bestand '%s' (voor LaTeX) is niet gevonden"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:4997
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: could not open %s: %s"
+#, perl-format
 msgid "math to images: could not open %s: %s"
-msgstr "tex4ht.pm: kan %s niet openen: %s"
+msgstr "math-to-images: kan %s niet openen: %s"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:5086
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: chdir %s failed: %s"
+#, perl-format
 msgid "math to images: chdir %s failed: %s"
-msgstr "tex4ht.pm: wijzigen van map naar %s is mislukt: %s"
+msgstr "math-to-images: werkmap wijzigen naar %s is mislukt: %s"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:5094
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output file missing: %s"
+#, perl-format
 msgid "math to images: output file missing: %s"
-msgstr "tex4ht.pm: uitvoerbestand ontbreekt: %s"
+msgstr "math-to-images: uitvoerbestand ontbreekt: %s"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:5120
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "math to images: command failed: %s"
-msgstr "tex4ht.pm: opdracht is mislukt: %s"
+msgstr "math-to-images: opdracht is mislukt: %s"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:5125
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: closing communication failed: %s: %s"
+#, perl-format
 msgid "math to images: closing communication failed: %s: %s"
-msgstr "tex4ht.pm: afsluiten van communicatie is mislukt: %s: %s"
+msgstr "math-to-images: afsluiten van communicatie is mislukt: %s: %s"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:5141
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output file missing: %s"
+#, perl-format
 msgid "math to images: dvi file missing: %s"
-msgstr "tex4ht.pm: uitvoerbestand ontbreekt: %s"
+msgstr "math-to-images: DVI-bestand ontbreekt: %s"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:5156
 #, perl-format
 msgid "math to images: system `%s' failed: %d\n"
-msgstr ""
+msgstr "math-to-images: systeem '%s' faalde: %d\n"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:5163
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: unable to return to initial directory: %s"
+#, perl-format
 msgid "math to images: unable to return to initial directory: %s"
-msgstr "tex4ht.pm: kan niet terugkeren naar de oorspronkelijke werkmap: %s"
+msgstr ""
+"math-to-images: kan niet terugkeren naar de oorspronkelijke werkmap: %s"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:707
 #, perl-format
@@ -2810,12 +2733,12 @@ msgstr "fout bij sluiten van '@verbatiminclude'-bestand %s: %s"
 msgid "@%s: could not find %s"
 msgstr "@%s: kan %s niet vinden"
 
-#: tta/perl/Texinfo/Indices.pm:333 tta/C/main/manipulate_indices.c:484
+#: tta/perl/Texinfo/Indices.pm:342 tta/C/main/manipulate_indices.c:484
 #, c-format, perl-format
 msgid "empty index key in @%s"
 msgstr "lege indexsleutel in @%s"
 
-#: tta/perl/Texinfo/Indices.pm:357
+#: tta/perl/Texinfo/Indices.pm:366
 #, perl-format
 msgid "empty index sub entry %d key in @%s"
 msgstr "lege indexsubitem-%d-sleutel in @%s"
@@ -2826,10 +2749,9 @@ msgid "could not open %s: %s"
 msgstr "kan %s niet openen: %s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:1266 tta/C/parsetexi/parser.c:421
-#, fuzzy, c-format, perl-format
-#| msgid "multiple @%s"
+#, c-format, perl-format
 msgid "multiple %s (@%s)"
-msgstr "meerdere @%s"
+msgstr "meerdere %s (@%s)"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:1269 tta/perl/Texinfo/Structuring.pm:631
 #: tta/C/parsetexi/parser.c:424 tta/C/structuring_transfo/structuring.c:955
@@ -3236,13 +3158,13 @@ msgid "must be after `@%s' to use `@%s'"
 msgstr "moet na '@%s' zijn om '@%s' te kunnen gebruiken"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:6297 tta/C/parsetexi/handle_commands.c:1195
-#, fuzzy, c-format
-#| msgid ""
-#| "@author not meaningful outside `@titlepage' and `@quotation' environments"
+#, c-format
 msgid ""
 "@author not meaningful outside `@titlepage', `@documentinfo' and "
 "`@quotation' environments"
-msgstr "@author is niet zinvol buiten '@titlepage'- en '@quotation'-omgevingen"
+msgstr ""
+"@author is niet zinvol buiten '@titlepage'-, '@documentinfo', en "
+"'@quotation'-omgevingen"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:6301 tta/C/parsetexi/handle_commands.c:1199
 #, c-format
@@ -3663,47 +3585,40 @@ msgstr "naar pagina '%s' wordt niet verwezen"
 
 #: tta/perl/Texinfo/Structuring.pm:592
 #: tta/C/structuring_transfo/structuring.c:885
-#, fuzzy, c-format, perl-format
-#| msgid "node `%s' appears in its own menus"
+#, c-format, perl-format
 msgid "node `%s' not in menu"
-msgstr "pagina '%s' komt voor in zijn eigen menu's"
+msgstr "pagina '%s' komt niet voor in menu"
 
 #: tta/perl/Texinfo/Structuring.pm:803
 #: tta/C/structuring_transfo/structuring.c:1236
-#, fuzzy, c-format, perl-format
-#| msgid "node `%s' is %s for `%s' in menu but not in sectioning"
+#, c-format, perl-format
 msgid "node `%s' in menu in `%s' but not under it in sectioning"
-msgstr "pagina '%s' is %s voor '%s' in het menu maar niet in de sectionering"
+msgstr "pagina '%s' is in '%s' in het menu maar niet in de sectionering"
 
 #: tta/perl/Texinfo/Structuring.pm:810
 #: tta/C/structuring_transfo/structuring.c:1258
-#, fuzzy, c-format, perl-format
-#| msgid "node %s `%s' in menu `%s' and in sectioning `%s' differ"
+#, c-format, perl-format
 msgid "node `%s' in menu in `%s' but under `%s' in sectioning"
-msgstr "pagina %s '%s' in menu '%s' en in sectionering '%s' verschillen"
+msgstr "pagina '%s' is in '%s' in het menu maar onder '%s' in de sectionering"
 
 #: tta/perl/Texinfo/Structuring.pm:891
 #: tta/C/structuring_transfo/structuring.c:1378
-#, fuzzy, c-format, perl-format
-#| msgid "node `%s' unreferenced"
+#, c-format, perl-format
 msgid "node `%s' in menu where `%s' expected"
-msgstr "naar pagina '%s' wordt niet verwezen"
+msgstr "pagina '%s' is in menu waar '%s' werd verwacht"
 
 #: tta/perl/Texinfo/Structuring.pm:898
 #: tta/C/structuring_transfo/structuring.c:1391
-#, fuzzy, c-format, perl-format
-#| msgid "unreferenced node `%s'"
+#, c-format, perl-format
 msgid "unexpected node `%s' in menu"
-msgstr "naar pagina '%s' wordt niet verwezen"
+msgstr "onverwachte pagina '%s' in menu"
 
 #: tta/perl/Texinfo/Structuring.pm:1000
 #: tta/C/structuring_transfo/structuring.c:1534
-#, fuzzy, c-format, perl-format
-#| msgid "node `%s' lacks menu item for `%s' despite being its Up target"
+#, c-format, perl-format
 msgid "node `%s' lacks menu item for `%s' but is above it in sectioning"
 msgstr ""
-"pagina '%s' bevat geen menu-item voor '%s'\n"
-"ondanks dat de eerste het 'Up'-doel van de laatste is"
+"pagina '%s' bevat geen menu-item voor '%s' maar is erboven is de sectionering"
 
 #: tta/perl/Texinfo/Structuring.pm:1043 tta/perl/Texinfo/Structuring.pm:1063
 #: tta/perl/Texinfo/Structuring.pm:1079
@@ -3747,10 +3662,12 @@ msgstr "kan hekje in @%s niet beschermen"
 #: tta/perl/Texinfo/Translations.pm:179 tta/C/main/translations.c:198
 msgid "Cannot switch to a locale compatible with document strings translations"
 msgstr ""
+"Kan niet overschakelen naar taalregio die compatibel is met de "
+"documentvertalingen"
 
 #: tta/perl/Texinfo/Translations.pm:185 tta/C/main/translations.c:208
 msgid "Cannot find a locale compatible with document strings translations"
-msgstr ""
+msgstr "Kan geen taalregio vinden die compatibel is met de documentvertalingen"
 
 #: tta/perl/init/chm.pm:227 tta/perl/init/chm.pm:316 tta/perl/init/chm.pm:401
 #, perl-format
@@ -3881,10 +3798,9 @@ msgid "  %s"
 msgstr "  %s"
 
 #: tta/perl/ext/highlight_syntax.pm:501
-#, fuzzy, perl-format
-#| msgid "highlight_syntax.pm: could not open %s: %s"
+#, perl-format
 msgid "highlight_syntax.pm: could not make directory %s: %s"
-msgstr "highlight_syntax.pm: kan %s niet openen: %s"
+msgstr "highlight_syntax.pm: kan map %s niet aanmaken: %s"
 
 #: tta/perl/ext/highlight_syntax.pm:526 tta/perl/ext/highlight_syntax.pm:598
 #, perl-format
@@ -3937,10 +3853,9 @@ msgid "l2h: could not open latex file %s for writing: %s"
 msgstr "l2h: kan '%s' niet openen om te schrijven: %s"
 
 #: tta/perl/ext/latex2html.pm:151
-#, fuzzy, perl-format
-#| msgid "error on closing frame file %s: %s"
+#, perl-format
 msgid "l2h: error on closing latex file %s: %s"
-msgstr "fout bij sluiten van frames-bestand %s: %s"
+msgstr "l2h: fout bij sluiten van LaTeX-bestand %s: %s"
 
 #: tta/perl/ext/latex2html.pm:381
 #, perl-format
@@ -3978,10 +3893,9 @@ msgid "latex2html.pm: end of @%s text %d not found"
 msgstr "latex2html.pm: einde van @%s-tekst %d is niet gevonden"
 
 #: tta/perl/ext/latex2html.pm:565
-#, fuzzy, perl-format
-#| msgid "error on closing frame file %s: %s"
+#, perl-format
 msgid "l2h: error on closing html file %s: %s"
-msgstr "fout bij sluiten van frames-bestand %s: %s"
+msgstr "l2h: fout bij sluiten van HTML-bestand %s: %s"
 
 #: tta/perl/ext/latex2html.pm:640
 #, perl-format
@@ -3989,10 +3903,9 @@ msgid "l2h: could not extract the fragment %d for @%s, text %d, from HTML"
 msgstr "l2h: kan fragment %d voor @%s, tekst %d, niet extraheren uit HTML"
 
 #: tta/perl/ext/latex2html.pm:707
-#, fuzzy, perl-format
-#| msgid "l2h: could not compile %s: %s"
+#, perl-format
 msgid "l2h: could not unlink file %s: %s"
-msgstr "l2h: kan %s niet compileren: %s"
+msgstr "l2h: kan bestand %s niet verwijderen: %s"
 
 #: tta/perl/ext/latex2html.pm:745
 #, perl-format
@@ -4015,10 +3928,9 @@ msgid "l2h: could not open %s for writing: %s"
 msgstr "l2h: kan %s niet openen om te schrijven: %s"
 
 #: tta/perl/ext/latex2html.pm:805
-#, fuzzy, perl-format
-#| msgid "error on closing frame file %s: %s"
+#, perl-format
 msgid "l2h: error on closing cache file %s: %s"
-msgstr "fout bij sluiten van frames-bestand %s: %s"
+msgstr "l2h: fout bij sluiten van cache-bestand %s: %s"
 
 #: tta/perl/ext/tex4ht.pm:95
 #, perl-format
@@ -4041,15 +3953,14 @@ msgid "tex4ht.pm: could not open %s: %s"
 msgstr "tex4ht.pm: kan %s niet openen: %s"
 
 #: tta/perl/ext/tex4ht.pm:304
-#, fuzzy, perl-format
-#| msgid "chm.pm: error on closing %s: %s"
+#, perl-format
 msgid "tex4ht.pm: error on closing %s: %s"
-msgstr "chm.pm: fout bij sluiten van %s: %s"
+msgstr "tex4ht.pm: fout bij sluiten van %s: %s"
 
 #: tta/perl/ext/tex4ht.pm:331
 #, perl-format
 msgid "tex4ht.pm: chdir %s failed: %s"
-msgstr "tex4ht.pm: wijzigen van map naar %s is mislukt: %s"
+msgstr "tex4ht.pm: werkmap wijzigen naar %s is mislukt: %s"
 
 #: tta/perl/ext/tex4ht.pm:345
 #, perl-format
@@ -4092,17 +4003,18 @@ msgstr "tex4ht.pm: uitvoer bevat geen HTML-item voor @%s %s"
 #: tta/perl/ext/tex4ht.pm:502
 #, perl-format
 msgid "tex4ht.pm: output counter UNDEF; expected %d for @%s"
-msgstr ""
+msgstr "tex4ht.pm: uitvoerteller is UNDEF; verwachtte %d voor @%s"
 
 #: tta/perl/ext/tex4ht.pm:506
 #, perl-format
 msgid "tex4ht.pm: no expected items in the document for @%s"
-msgstr ""
+msgstr "tex4ht.pm: geen verwachte items in het document voor @%s"
 
 #: tta/perl/ext/tex4ht.pm:513
 #, perl-format
 msgid "tex4ht.pm: processing retrieved %d items in HTML; collected %d for @%s"
 msgstr ""
+"tex4ht.pm: bewerking haalde %d items op in HTML; verzamelde %d voor @%s"
 
 #: tta/perl/texi2any.pl:679
 #, perl-format
@@ -4115,27 +4027,16 @@ msgid "could not read extension file %s"
 msgstr "kan extensiebestand %s niet lezen"
 
 #: tta/perl/texi2any.pl:988
-#, fuzzy, perl-format
-#| msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
+#, perl-format
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
-msgstr "onbekende waarde '%s' van TEXINFO_OUTPUT_FORMAT wordt genegeerd\n"
+msgstr "onbekende waarde '%s' van TEXINFO_OUTPUT_FORMAT wordt genegeerd"
 
 #: tta/perl/texi2any.pl:1046 tta/C/texi2any.c:1814
-#, fuzzy, c-format, perl-format
-#| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
+#, c-format, perl-format
 msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
-msgstr "Gebruik:  %s [OPTIE...] TEXINFO-BESTAND...\n"
+msgstr "Gebruik:  %s [OPTIE...] TEXINFO-BESTAND..."
 
 #: tta/perl/texi2any.pl:1049 tta/C/texi2any.c:1823
-#, fuzzy
-#| msgid ""
-#| "Translate Texinfo source documentation to various other formats, by "
-#| "default\n"
-#| "Info files suitable for reading online with Emacs or standalone GNU "
-#| "Info.\n"
-#| "\n"
-#| "This program is commonly installed as both `makeinfo' and `texi2any';\n"
-#| "the behavior is identical, and does not depend on the installed name.\n"
 msgid ""
 "Translate Texinfo source documentation to various other formats, by default\n"
 "Info files suitable for reading online with Emacs or standalone GNU Info.\n"
@@ -4147,19 +4048,15 @@ msgstr ""
 "Standaard worden 'Info'-bestanden aangemaakt die gelezen kunnen\n"
 "worden met 'emacs' of met het zelfstandige 'info'.\n"
 "\n"
-"Dit programma wordt gewoonlijk geïnstalleerd zowel als 'makeinfo'\n"
-"als als 'texi2any'; hun gedrag is identiek.\n"
+"Dit programma wordt gewoonlijk geïnstalleerd als 'makeinfo' en als "
+"'texi2any';\n"
+"hun gedrag is identiek en is niet afhankelijk van hun naam."
 
 #: tta/perl/texi2any.pl:1055 tta/C/texi2any.c:1829
 msgid "General options:"
 msgstr "Algemene opties:"
 
 #: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1832
-#, fuzzy
-#| msgid ""
-#| "      --document-language=STR locale to use in translating Texinfo "
-#| "keywords\n"
-#| "                                for the output document (default C)."
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)"
@@ -4170,43 +4067,30 @@ msgstr ""
 "'C')"
 
 #: tta/perl/texi2any.pl:1058 tta/C/texi2any.c:1836
-#, fuzzy, c-format, perl-format
-#| msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
+#, c-format, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)"
 msgstr ""
 "      --error-limit=AANTAL    na dit aantal fouten stoppen (standaard %d)"
 
 #: tta/perl/texi2any.pl:1060 tta/C/texi2any.c:1840
-#, fuzzy
-#| msgid "      --force                 preserve output even if errors."
 msgid "      --force                 preserve output even if errors"
 msgstr "      --force                 uitvoerbestand behouden ook bij fouten"
 
 #: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1843
-#, fuzzy
-#| msgid "      --help                  display this help and exit."
 msgid "      --help                  display this help and exit"
 msgstr "      --help                  deze hulptekst tonen en stoppen"
 
 #: tta/perl/texi2any.pl:1062 tta/C/texi2any.c:1846
-#, fuzzy
-#| msgid ""
-#| "      --no-validate           suppress node cross-reference validation."
 msgid "      --no-validate           suppress node cross-reference validation"
 msgstr ""
 "      --no-validate           controle van kruisverwijzingen onderdrukken"
 
 #: tta/perl/texi2any.pl:1063 tta/C/texi2any.c:1849
-#, fuzzy
-#| msgid "      --no-warn               suppress warnings (but not errors)."
 msgid "      --no-warn               suppress warnings (but not errors)"
 msgstr ""
 "      --no-warn               waarschuwingen onderdrukken (maar fouten niet)"
 
 #: tta/perl/texi2any.pl:1064 tta/C/texi2any.c:1852
-#, fuzzy
-#| msgid ""
-#| "      --conf-dir=DIR          search also for initialization files in DIR."
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR"
 msgstr ""
@@ -4214,20 +4098,12 @@ msgstr ""
 "zoeken"
 
 #: tta/perl/texi2any.pl:1065 tta/C/texi2any.c:1855
-#, fuzzy
-#| msgid ""
-#| "      --init-file=FILE        load FILE to modify the default behavior."
 msgid "      --init-file=FILE        load FILE to modify the default behavior"
 msgstr ""
 "      --init-file=BESTAND     dit bestand laden om standaardgedrag te "
 "veranderen"
 
 #: tta/perl/texi2any.pl:1066 tta/C/texi2any.c:1858
-#, fuzzy
-#| msgid ""
-#| "  -c, --set-customization-variable VAR=VAL  set customization variable "
-#| "VAR\n"
-#| "                                to value VAL."
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL"
@@ -4235,20 +4111,14 @@ msgstr ""
 "  -c, --set-customization-variable VARIABELE=WAARDE  een variabele instellen"
 
 #: tta/perl/texi2any.pl:1068 tta/C/texi2any.c:1862
-#, fuzzy
-#| msgid "      --trace-includes        print names of included files."
 msgid "      --trace-includes        print names of included files"
 msgstr "      --trace-includes        namen van ingebonden bestanden weergeven"
 
 #: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1865
-#, fuzzy
-#| msgid "  -v, --verbose               explain what is being done."
 msgid "  -v, --verbose               explain what is being done"
 msgstr "  -v, --verbose               tonen wat er gedaan wordt"
 
 #: tta/perl/texi2any.pl:1070 tta/C/texi2any.c:1868
-#, fuzzy
-#| msgid "      --version               display version information and exit."
 msgid "      --version               display version information and exit"
 msgstr "      --version               versie-informatie tonen en stoppen"
 
@@ -4257,47 +4127,30 @@ msgid "Output format selection (default is to produce Info):"
 msgstr "Selectie van soort uitvoer (standaard wordt Info geproduceerd):"
 
 #: tta/perl/texi2any.pl:1073 tta/C/texi2any.c:1877
-#, fuzzy
-#| msgid "      --docbook               output Docbook XML."
 msgid "      --docbook               output Docbook XML"
 msgstr "      --docbook               Docbook-XML produceren"
 
 #: tta/perl/texi2any.pl:1074 tta/C/texi2any.c:1880
-#, fuzzy
-#| msgid "      --html                  output HTML."
 msgid "      --html                  output HTML"
 msgstr "      --html                  HTML produceren"
 
 #: tta/perl/texi2any.pl:1075 tta/C/texi2any.c:1883
-#, fuzzy
-#| msgid "      --epub3                 output EPUB 3."
 msgid "      --epub3                 output EPUB 3"
 msgstr "      --epub3                 EPUB-3 produceren"
 
 #: tta/perl/texi2any.pl:1076 tta/C/texi2any.c:1886
-#, fuzzy
-#| msgid "      --latex                 output LaTeX."
 msgid "      --latex                 output LaTeX"
 msgstr "      --latex                 LaTeX produceren"
 
 #: tta/perl/texi2any.pl:1077 tta/C/texi2any.c:1889
-#, fuzzy
-#| msgid "      --plaintext             output plain text rather than Info."
 msgid "      --plaintext             output plain text rather than Info"
 msgstr "      --plaintext             platte tekst produceren"
 
 #: tta/perl/texi2any.pl:1078 tta/C/texi2any.c:1892
-#, fuzzy
-#| msgid "      --xml                   output Texinfo XML."
 msgid "      --xml                   output Texinfo XML"
 msgstr "      --xml                   Texinfo-XML produceren"
 
 #: tta/perl/texi2any.pl:1079 tta/C/texi2any.c:1895
-#, fuzzy
-#| msgid ""
-#| "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given "
-#| "output,\n"
-#| "                                after checking validity of TEXINFO-FILE."
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE"
@@ -4313,10 +4166,6 @@ msgid "General output options:"
 msgstr "Algemene uitvoeropties:"
 
 #: tta/perl/texi2any.pl:1085 tta/C/texi2any.c:1902
-#, fuzzy
-#| msgid ""
-#| "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
-#| "                                ignoring any @setfilename."
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename"
@@ -4343,10 +4192,6 @@ msgstr ""
 "schrijven"
 
 #: tta/perl/texi2any.pl:1094 tta/C/texi2any.c:1913
-#, fuzzy
-#| msgid ""
-#| "      --no-split              suppress any splitting of the output;\n"
-#| "                                generate only one output file."
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file"
@@ -4356,10 +4201,6 @@ msgstr ""
 "                                slechts één uitvoerbestand aanmaken"
 
 #: tta/perl/texi2any.pl:1097 tta/C/texi2any.c:1917
-#, fuzzy
-#| msgid ""
-#| "      --[no-]number-sections  output chapter and sectioning numbers;\n"
-#| "                                default is on."
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on"
@@ -4369,7 +4210,7 @@ msgstr ""
 #: tta/perl/texi2any.pl:1100 tta/C/texi2any.c:1921
 msgid ""
 "      --[no-]number-footnotes  number footnotes sequentially; default is on"
-msgstr ""
+msgstr "      --[no-]number-footnotes   (geen) voetnootnummers produceren"
 
 #: tta/perl/texi2any.pl:1102 tta/C/texi2any.c:1924
 msgid ""
@@ -4384,13 +4225,6 @@ msgid ""
 msgstr "  -o, --output=DOEL           uitvoerbestand of uitvoermap"
 
 #: tta/perl/texi2any.pl:1110 tta/C/texi2any.c:1933
-#, fuzzy
-#| msgid ""
-#| "      --disable-encoding      do not output accented and special "
-#| "characters\n"
-#| "                                in Info and plain text output based on "
-#| "document\n"
-#| "                                encoding."
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4402,8 +4236,6 @@ msgstr ""
 "                                Info- of plattetekstuitvoer produceren"
 
 #: tta/perl/texi2any.pl:1114 tta/C/texi2any.c:1938
-#, fuzzy
-#| msgid "      --enable-encoding       override --disable-encoding (default)."
 msgid "      --enable-encoding       override --disable-encoding (default)"
 msgstr "      --enable-encoding       tekens met accenten toestaan (standaard)"
 
@@ -4413,26 +4245,14 @@ msgid "Options for Info and plain text:"
 msgstr "Opties voor Info en platte tekst:"
 
 #: tta/perl/texi2any.pl:1118 tta/C/texi2any.c:1944
-#, fuzzy, c-format, perl-format
-#| msgid ""
-#| "      --fill-column=NUM       break Info lines at NUM columns (default "
-#| "%d)."
+#, c-format, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)"
 msgstr ""
 "      --fill-column=AANTAL    regels afbreken op deze lengte (standaard %d)"
 
 #: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:1948
-#, fuzzy, perl-format
-#| msgid ""
-#| "      --footnote-style=STYLE  output footnotes in Info according to "
-#| "STYLE:\n"
-#| "                                `separate' to put them in their own "
-#| "node;\n"
-#| "                                `end' to put them at the end of the node, "
-#| "in\n"
-#| "                                which they are defined (this is the "
-#| "default)."
+#, perl-format
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
 "                                `separate' to put them in their own node;\n"
@@ -4440,12 +4260,12 @@ msgid ""
 "in\n"
 "                                which they are defined (this is the default)"
 msgstr ""
-"      --footnote-style=STIJL  voetnoten produceren volgens deze stijl; "
-"indien\n"
-"                                'end', dan aan het einde van de pagina "
-"waarin\n"
-"                                ze zijn gedefinieerd (standaard); indien\n"
-"                                'separate', dan in een aparte pagina"
+"      --footnote-style=STIJL  voetnoten produceren volgens deze stijl;\n"
+"                                indien 'separate', dan in een aparte "
+"pagina;\n"
+"                                indien 'end', dan aan het einde van de "
+"pagina\n"
+"                                waarin ze zijn gedefinieerd (standaard)"
 
 #: tta/perl/texi2any.pl:1125 tta/C/texi2any.c:1958
 #, c-format, perl-format
@@ -4461,120 +4281,96 @@ msgstr ""
 "                                'asis', dan bestaande inspringing behouden"
 
 #: tta/perl/texi2any.pl:1129 tta/C/texi2any.c:1964
-#, fuzzy, c-format, perl-format
-#| msgid ""
-#| "      --split-size=NUM        split Info files at size NUM (default %d)."
+#, c-format, perl-format
 msgid "      --split-size=NUM        split Info files at size NUM (default %d)"
 msgstr ""
 "      --split-size=GETAL      bestanden opsplitsen vanaf deze grootte\n"
 "                                (standaard %d bytes)"
 
 #: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:1968
-#, fuzzy
-#| msgid "Options:"
 msgid "Options for HTML:"
-msgstr "Opties:"
+msgstr "Opties voor HTML:"
 
 #: tta/perl/texi2any.pl:1136 tta/C/texi2any.c:1971
 msgid ""
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
 "                                read stdin if FILE is -"
 msgstr ""
+"      --css-include=BESTAND   dit bestand in de uitvoer opnemen;\n"
+"                                als BESTAND '-' is, dan standaardinvoer lezen"
 
 #: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:1975
 msgid "      --css-ref=URL           generate CSS reference to URL"
 msgstr ""
+"      --css-ref=URL           een referentie naar een CSS-bestand genereren"
 
 #: tta/perl/texi2any.pl:1139 tta/C/texi2any.c:1978
 msgid "      --internal-links=FILE   produce list of internal links in FILE"
 msgstr ""
+"      --internal-links=BSTND  tabel met interne verwijzingen hierin opslaan"
 
 #: tta/perl/texi2any.pl:1140 tta/C/texi2any.c:1981
-#, fuzzy
-#| msgid ""
-#| "      --no-split              suppress any splitting of the output;\n"
-#| "                                generate only one output file."
 msgid ""
 "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n"
 "                                `section' or `node'"
 msgstr ""
-"      --no-split              splitsing van Info- of HTML-uitvoer "
-"onderdrukken,\n"
-"                                slechts één uitvoerbestand aanmaken"
+"      --split=NIVEAU          in bestanden opsplitsen op aangegeven niveau;\n"
+"                                NIVEAU kan zijn: 'chapter' (hoofdstuk),\n"
+"                                'section' (sectie), of 'node' (pagina)"
 
 #: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:1985
 msgid ""
 "      --transliterate-file-names  use file names in ASCII transliteration"
 msgstr ""
+"      --transliterate-file-names\n"
+"                              bestandsnamen met alleen ASCII-tekens "
+"produceren"
 
 #: tta/perl/texi2any.pl:1143 tta/C/texi2any.c:1988
-#, fuzzy
-#| msgid ""
-#| "      --no-split              suppress any splitting of the output;\n"
-#| "                                generate only one output file."
 msgid ""
 "      --node-files            produce redirection files for nodes and\n"
 "                                anchors; default is set only if split"
 msgstr ""
-"      --no-split              splitsing van Info- of HTML-uitvoer "
-"onderdrukken,\n"
-"                                slechts één uitvoerbestand aanmaken"
+"      --node-files            doorverwijzingsbestanden produceren voor "
+"pagina's\n"
+"                                en ankers; is standaard alleen bij opsplitsen"
 
 #: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:1992
 msgid "Options for DVI/PS/PDF:"
-msgstr ""
+msgstr "Opties voor DVI/PS/PDF:"
 
 #: tta/perl/texi2any.pl:1147 tta/C/texi2any.c:1995
-#, fuzzy
-#| msgid ""
-#| "Options for DVI/PS/PDF:\n"
-#| "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n"
 msgid "      --Xopt=OPT              pass OPT to texi2dvi; can be repeated"
 msgstr ""
-"Opties voor DVI/PS/PDF:\n"
 "      --Xopt=OPTIE            te gebruiken optie voor 'texi2dvi'; mag "
-"herhaald\n"
+"herhaald"
 
 #: tta/perl/texi2any.pl:1149 tta/C/texi2any.c:1998
 msgid "Input file options:"
 msgstr "Invoerbestand-opties:"
 
 #: tta/perl/texi2any.pl:1150 tta/C/texi2any.c:2001
-#, fuzzy
-#| msgid " -D VAR                       define the variable VAR, as with @set."
 msgid " -D VAR                       define the variable VAR, as with @set"
 msgstr ""
 "  -D VAR                      de variabele VAR definiëren (als met '@set')"
 
 #: tta/perl/texi2any.pl:1151 tta/C/texi2any.c:2004
-#, fuzzy
-#| msgid ""
-#| " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)"
 msgstr ""
 "  -D 'VAR WAARDE'             variabele VAR op WAARDE instellen (één "
 "argument)"
 
 #: tta/perl/texi2any.pl:1152 tta/C/texi2any.c:2007
-#, fuzzy
-#| msgid ""
-#| " -I DIR                       append DIR to the @include search path."
 msgid " -I DIR                       append DIR to the @include search path"
 msgstr ""
 "  -I MAP                      MAP achteraantoevoegen aan @include-zoekpad"
 
 #: tta/perl/texi2any.pl:1153 tta/C/texi2any.c:2010
-#, fuzzy
-#| msgid ""
-#| " -P DIR                       prepend DIR to the @include search path."
 msgid " -P DIR                       prepend DIR to the @include search path"
 msgstr ""
 "  -P MAP                      MAP vooraantoevoegen aan @include-zoekpad"
 
 #: tta/perl/texi2any.pl:1154 tta/C/texi2any.c:2013
-#, fuzzy
-#| msgid ""
-#| " -U VAR                       undefine the variable VAR, as with @clear."
 msgid " -U VAR                       undefine the variable VAR, as with @clear"
 msgstr "  -U VAR                      variabele VAR wissen (als met '@clear')"
 
@@ -4583,46 +4379,32 @@ msgid "Conditional processing in input:"
 msgstr "Conditionele verwerking van invoer:"
 
 #: tta/perl/texi2any.pl:1157 tta/C/texi2any.c:2020
-#, fuzzy
-#| msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgid "      --ifdocbook       process @ifdocbook and @docbook"
-msgstr "  --no-ifdocbook    '@ifdocbook' en '@docbook' niet verwerken"
+msgstr "      --ifdocbook       '@ifdocbook' en '@docbook' verwerken"
 
 #: tta/perl/texi2any.pl:1158 tta/C/texi2any.c:2023
-#, fuzzy
-#| msgid "  --ifxml           process @ifxml and @xml."
 msgid "      --ifhtml          process @ifhtml and @html"
-msgstr "  --ifxml           '@ifxml' en '@xml' verwerken"
+msgstr "      --ifhtml          '@ifhtml' en '@html' verwerken"
 
 #: tta/perl/texi2any.pl:1159 tta/C/texi2any.c:2026
-#, fuzzy
-#| msgid "  --no-ifinfo       do not process @ifinfo text."
 msgid "      --ifinfo          process @ifinfo"
-msgstr "  --no-ifinfo       '@ifinfo' niet verwerken"
+msgstr "      --ifinfo          '@ifinfo' verwerken"
 
 #: tta/perl/texi2any.pl:1160 tta/C/texi2any.c:2029
-#, fuzzy
-#| msgid "  --iflatex         process @iflatex and @latex."
 msgid "      --iflatex         process @iflatex and @latex"
-msgstr "  --iflatex         '@iflatex' en '@latex' verwerken"
+msgstr "      --iflatex         '@iflatex' en '@latex' verwerken"
 
 #: tta/perl/texi2any.pl:1161 tta/C/texi2any.c:2032
-#, fuzzy
-#| msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgid "      --ifplaintext     process @ifplaintext"
-msgstr "  --no-ifplaintext  '@ifplaintext' niet verwerken"
+msgstr "      --ifplaintext     '@ifplaintext' verwerken"
 
 #: tta/perl/texi2any.pl:1162 tta/C/texi2any.c:2035
-#, fuzzy
-#| msgid "  --iftex           process @iftex and @tex."
 msgid "      --iftex           process @iftex and @tex"
-msgstr "  --iftex           '@iftex' en '@tex' verwerken"
+msgstr "      --iftex           '@iftex' en '@tex' verwerken"
 
 #: tta/perl/texi2any.pl:1163 tta/C/texi2any.c:2038
-#, fuzzy
-#| msgid "  --ifxml           process @ifxml and @xml."
 msgid "      --ifxml           process @ifxml and @xml"
-msgstr "  --ifxml           '@ifxml' en '@xml' verwerken"
+msgstr "      --ifxml           '@ifxml' en '@xml' verwerken"
 
 #: tta/perl/texi2any.pl:1165 tta/C/texi2any.c:2044
 msgid ""
@@ -4643,62 +4425,59 @@ msgid "Examples:"
 msgstr "Voorbeelden:"
 
 #: tta/perl/texi2any.pl:1174 tta/C/texi2any.c:2059
-#, fuzzy, c-format, perl-format
-#| msgid "      --xml                   output Texinfo XML."
+#, c-format, perl-format
 msgid "  %s foo.texi                      write Info"
-msgstr "      --xml                   Texinfo-XML produceren"
+msgstr "  %s foo.texi                 Info schrijven"
 
 #: tta/perl/texi2any.pl:1175 tta/C/texi2any.c:2062
-#, fuzzy, c-format, perl-format
-#| msgid "      --html                  output HTML."
+#, c-format, perl-format
 msgid "  %s --html foo.texi               write HTML"
-msgstr "      --html                  HTML produceren"
+msgstr "  %s --html foo.texi          HTML schrijven"
 
 #: tta/perl/texi2any.pl:1176 tta/C/texi2any.c:2065
-#, fuzzy, c-format, perl-format
-#| msgid "      --xml                   output Texinfo XML."
+#, c-format, perl-format
 msgid "  %s --xml foo.texi                write Texinfo XML"
-msgstr "      --xml                   Texinfo-XML produceren"
+msgstr "  %s --xml foo.texi           Texinfo-XML schrijven"
 
 #: tta/perl/texi2any.pl:1177 tta/C/texi2any.c:2068
-#, fuzzy, c-format, perl-format
-#| msgid "      --docbook               output Docbook XML."
+#, c-format, perl-format
 msgid "  %s --docbook foo.texi            write Docbook XML"
-msgstr "      --docbook               Docbook-XML produceren"
+msgstr "  %s --docbook foo.texi       DocBook-XML schrijven"
 
 #: tta/perl/texi2any.pl:1178 tta/C/texi2any.c:2071
-#, fuzzy, c-format, perl-format
-#| msgid "      --plaintext             output plain text rather than Info."
+#, c-format, perl-format
 msgid "  %s --plaintext foo.texi          write plain text to standard output"
-msgstr "      --plaintext             platte tekst produceren"
+msgstr ""
+"  %s --plaintext foo.texi     platte tekst naar standaarduitvoer schrijven"
 
 #: tta/perl/texi2any.pl:1179 tta/C/texi2any.c:2074
 #, c-format, perl-format
 msgid "  %s --pdf foo.texi                write PDF using texi2dvi"
-msgstr ""
+msgstr "  %s --pdf foo.texi           een PDF-bestand schrijven via 'texi2dvi'"
 
 #: tta/perl/texi2any.pl:1181 tta/C/texi2any.c:2078
 #, c-format, perl-format
 msgid "  %s --html --no-headers foo.texi  write html without node lines, menus"
 msgstr ""
+"  %s --html --no-headers foo.texi  HTML schrijven zonder kopregels en menu's"
 
 #: tta/perl/texi2any.pl:1182 tta/C/texi2any.c:2081
-#, fuzzy, c-format, perl-format
-#| msgid "    --unnumbered-sections   do not number sections"
+#, c-format, perl-format
 msgid "  %s --number-sections foo.texi    write Info with numbered sections"
-msgstr "    --unnumbered-sections   de secties niet nummeren"
+msgstr ""
+"  %s --number-sections foo.texi    Info schrijven met genummerde secties"
 
 #: tta/perl/texi2any.pl:1183 tta/C/texi2any.c:2084
 #, c-format, perl-format
 msgid "  %s --no-split foo.texi           write one Info file however big"
 msgstr ""
+"  %s --no-split foo.texi           één Info-bestand ongeacht de grootte"
 
 #: tta/perl/texi2any.pl:1226 tta/C/texi2any.c:1665
-#, fuzzy, c-format, perl-format
-#| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
+#, c-format, perl-format
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
 msgstr ""
-"%s: Argument van --footnote-style moet 'separate' of 'end' zijn, niet '%s'.\n"
+"%s: argument van --footnote-style moet 'separate' of 'end' zijn, niet '%s'."
 
 #: tta/perl/texi2any.pl:1233
 #, perl-format
@@ -4706,13 +4485,11 @@ msgid "%s is not a valid split possibility"
 msgstr "%s is geen geldige splitsmogelijkheid"
 
 #: tta/perl/texi2any.pl:1348
-#, fuzzy, perl-format
-#| msgid ""
-#| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
+#, perl-format
 msgid "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
-"%s: Argument van --paragraph-indent moet numeriek, 'none' of 'asis' zijn, "
-"niet '%s'.\n"
+"%s: argument van --paragraph-indent moet numeriek, 'none' of 'asis' zijn, "
+"niet '%s'."
 
 #: tta/perl/texi2any.pl:1536
 #, perl-format
@@ -4735,13 +4512,11 @@ msgid "ignoring splitting for format %s"
 msgstr "het splitsen voor opmaak %s wordt genegeerd"
 
 #: tta/perl/texi2any.pl:1632 tta/C/texi2any.c:2294
-#, fuzzy, c-format, perl-format
-#| msgid ""
-#| "%s: when generating %s, only one input FILE may be specified with -o\n"
+#, c-format, perl-format
 msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr ""
 "%s: bij het genereren van %s kan met optie '-o' slechts één invoerbestand "
-"gegeven worden\n"
+"gegeven worden"
 
 #: tta/perl/texi2any.pl:1636
 msgid "--Xopt option without printed output"
@@ -4753,10 +4528,9 @@ msgid "error loading %s: %s"
 msgstr "fout bij laden van %s: %s"
 
 #: tta/perl/texi2any.pl:1730 tta/C/texi2any.c:2493
-#, fuzzy, c-format, perl-format
-#| msgid "%s: missing file argument.\n"
+#, c-format, perl-format
 msgid "%s: missing file argument."
-msgstr "%s: Ontbrekend bestandsargument.\n"
+msgstr "%s: ontbrekend bestandsargument."
 
 #: tta/perl/texi2any.pl:1765
 #, perl-format
@@ -4764,53 +4538,46 @@ msgid "input file %s; did you mean %s?"
 msgstr "invoerbestand %s -- bedoelde u %s?"
 
 #: tta/perl/texi2any.pl:1885
-#, fuzzy, perl-format
-#| msgid "error on closing frame file %s: %s"
+#, perl-format
 msgid "error on closing tree dump file %s: %s"
-msgstr "fout bij sluiten van frames-bestand %s: %s"
+msgstr "fout bij sluiten van boom-dump-bestand %s: %s"
 
 #: tta/perl/texi2any.pl:1952
-#, fuzzy, perl-format
-#| msgid "error on closing macro expand file %s: %s\n"
+#, perl-format
 msgid "error on closing macro expand file %s: %s"
-msgstr "fout bij sluiten van %s, bestand met macro-expansies: %s\n"
+msgstr "fout bij sluiten van %s, bestand met macro-expansies: %s"
 
 #: tta/perl/texi2any.pl:2106
-#, fuzzy, perl-format
-#| msgid "error on closing frame file %s: %s"
+#, perl-format
 msgid "error on closing structure dump file %s: %s"
-msgstr "fout bij sluiten van frames-bestand %s: %s"
+msgstr "fout bij sluiten van structuur-dump-bestand %s: %s"
 
 #: tta/perl/texi2any.pl:2223
-#, fuzzy, perl-format
-#| msgid "%s: error on closing internal links file %s: %s\n"
+#, perl-format
 msgid "%s: error on closing internal links file %s: %s"
-msgstr "%s: fout bij sluiten van %s, bestand met interne koppelingen: %s\n"
+msgstr "%s: fout bij sluiten van %s, bestand met interne koppelingen: %s"
 
 #: tta/perl/texi2any.pl:2341
-#, fuzzy, perl-format
-#| msgid "%s: error on closing elements size file %s: %s\n"
+#, perl-format
 msgid "%s: error on closing elements size file %s: %s"
-msgstr "%s: fout bij sluiten van bestand %s: %s\n"
+msgstr "%s: fout bij sluiten van %s, bestand met elementgroottes: %s"
 
 #: tta/C/texi2any.c:913
 #, c-format
 msgid "%s: value \"%s\" invalid for option %s (number expected)"
-msgstr ""
+msgstr "%s: waarde \"%s\" is ongeldig voor optie %s (een getal werd verwacht)"
 
 #: tta/C/texi2any.c:917
 #, c-format
 msgid "%s: value \"%s\" invalid for option %c (number expected)"
-msgstr ""
+msgstr "%s: waarde \"%s\" is ongeldig voor optie %c (een getal werd verwacht)"
 
 #: tta/C/texi2any.c:1693
-#, fuzzy, c-format
-#| msgid ""
-#| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
+#, c-format
 msgid "%s:  --paragraph-indent arg must be numeric/`none'/`asis', not `%s'."
 msgstr ""
-"%s: Argument van --paragraph-indent moet numeriek, 'none' of 'asis' zijn, "
-"niet '%s'.\n"
+"%s: argument van --paragraph-indent moet numeriek, 'none' of 'asis' zijn, "
+"niet '%s'."
 
 #: tta/C/convert/convert_html.c:2414
 #, c-format
@@ -4840,7 +4607,7 @@ msgstr ""
 #: tta/C/convert/convert_html.c:2462
 #, c-format
 msgid "%zu pending footnotes"
-msgstr ""
+msgstr "nog %zu te behandelen voetnoten"
 
 #: tta/C/convert/convert_html.c:2688
 #, c-format
@@ -4868,10 +4635,9 @@ msgid "error on closing CSS file  %s: %s"
 msgstr "fout bij sluiten van CSS-bestand %s: %s"
 
 #: tta/C/convert/texinfo.c:779
-#, fuzzy, c-format
-#| msgid "%s: error on closing %s: %s\n"
+#, c-format
 msgid "%s: error on closing io %s: %s"
-msgstr "%s: fout bij sluiten van %s: %s\n"
+msgstr "%s: fout bij sluiten van invoer/uitvoer %s: %s"
 
 #: tta/C/main/manipulate_indices.c:535
 #, c-format
@@ -4881,7 +4647,7 @@ msgstr "lege indexsubitem-%zu-sleutel in @%s"
 #: tta/C/main/manipulate_indices.c:631
 #, c-format
 msgid "collation locale not found: %s"
-msgstr ""
+msgstr "taalregio voor sortering is niet gevonden: %s"
 
 #: tta/C/parsetexi/close.c:544
 #, c-format
@@ -4963,7 +4729,7 @@ msgstr "@\\ hoort alleen voor te komen in mathematische context"
 #: tta/C/parsetexi/handle_commands.c:448
 #, c-format
 msgid "@ should not occur at end of argument to line command"
-msgstr ""
+msgstr "@ hoort niet voor te komen aan einde van argument van regelopdracht"
 
 #: tta/C/parsetexi/handle_commands.c:1042
 #, c-format

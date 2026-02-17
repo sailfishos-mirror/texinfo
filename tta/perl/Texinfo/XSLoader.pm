@@ -49,7 +49,7 @@ BEGIN {
 
 our $TEXINFO_XS;
 
-our $VERSION = '7.2.91';
+our $VERSION = '7.2.92';
 
 # used for comparison with XS_VERSION passed through configure and make.
 # The github CI adds the date after a hyphen, turn the hyphen to a dot.

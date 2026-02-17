@@ -1196,7 +1196,7 @@ init_index_page ()
     store.dispatch ({ type: "iframe-ready", id: config.TOP_ID });
     store.dispatch ({
       type: "echo",
-      msg: "Welcome to Texinfo documentation viewer 7.2.91, type '?' for help."
+      msg: "Welcome to Texinfo documentation viewer 7.2.92, type '?' for help."
     });
 
     /* Call user hook.  */

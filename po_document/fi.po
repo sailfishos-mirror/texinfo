@@ -1,23 +1,23 @@
 # Finnish translations for texinfo_document package.
 # Copyright (C) 2021 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
-# Tommi Nieminen <translator@legisign.org>, 2018, 2020-2021.
+# Tommi Nieminen <translator@legisign.org>, 2018, 2020-2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo_document 6.7.91\n"
+"Project-Id-Version: GNU texinfo_document 7.2.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-02-01 14:44+0000\n"
-"PO-Revision-Date: 2021-07-07 18:24+0300\n"
+"POT-Creation-Date: 2026-02-17 19:11+0000\n"
+"PO-Revision-Date: 2026-02-06 19:34+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Bugs: Report translation errors to the Language-Team address.\n"
+"X-Generator: Poedit 3.6\n"
 
 #: tta/perl/ext/epub3.pm:716
 msgid "Table of contents"
@@ -25,7 +25,7 @@ msgstr "Sisällysluettelo"
 
 #. TRANSLATORS: abbreviation or acronym explanation
 #: tta/perl/init/html32.pm:184 tta/perl/Texinfo/Convert/HTML.pm:3459
-#: tta/C/convert/format_html.c:6296
+#: tta/C/convert/format_html.c:6303
 #, perl-brace-format
 msgid "{explained_string} ({explanation})"
 msgstr "{explained_string} ({explanation})"
@@ -69,14 +69,14 @@ msgstr "Muuttuja"
 msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
 msgid "Instance Variable"
-msgstr "Instanssimuuttuja"
+msgstr "Ilmentymämuuttuja"
 
 #: tta/perl/Texinfo/Common.pm:371 tta/C/main/utils.c:114
 msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
 msgid "Instance Variable"
-msgstr "Instanssimuuttuja"
+msgstr "Ilmentymämuuttuja"
 
 #: tta/perl/Texinfo/Common.pm:374 tta/C/main/utils.c:117
 msgctxt "category of methods in object-oriented programming for @defmethod"
@@ -113,7 +113,7 @@ msgstr "Tietoa tästä tiedostosta"
 #: tta/perl/Texinfo/HTMLData.pm:161 tta/C/main/html_conversion_data.c:141
 msgctxt "Top direction string"
 msgid "Top"
-msgstr "Ylös"
+msgstr "Alkuun"
 
 #: tta/perl/Texinfo/HTMLData.pm:162 tta/C/main/html_conversion_data.c:142
 msgctxt "Index direction string"
@@ -303,7 +303,7 @@ msgstr "Ensimmäinen"
 #: tta/perl/Texinfo/HTMLData.pm:212 tta/C/main/html_conversion_data.c:193
 msgctxt "Top direction button label"
 msgid "Top"
-msgstr "Ylös"
+msgstr "Alkuun"
 
 #: tta/perl/Texinfo/HTMLData.pm:213 tta/C/main/html_conversion_data.c:194
 msgctxt "Index direction button label"
@@ -333,12 +333,12 @@ msgstr "Takaisin"
 #: tta/perl/Texinfo/HTMLData.pm:219 tta/C/main/html_conversion_data.c:200
 msgctxt "FastForward direction button label"
 msgid "FastForward"
-msgstr "Eteenpäin"
+msgstr "KelaaEteenpäin"
 
 #: tta/perl/Texinfo/HTMLData.pm:220 tta/C/main/html_conversion_data.c:201
 msgctxt "FastBack direction button label"
 msgid "FastBack"
-msgstr "Takaisin"
+msgstr "KelaaTaaksepäin"
 
 #: tta/perl/Texinfo/HTMLData.pm:221 tta/C/main/html_conversion_data.c:202
 msgctxt "Next direction button label"
@@ -358,27 +358,27 @@ msgstr "Ylös"
 #: tta/perl/Texinfo/HTMLData.pm:224 tta/C/main/html_conversion_data.c:205
 msgctxt "NodeNext direction button label"
 msgid "NodeNext"
-msgstr "Seuraava"
+msgstr "SeurSolmu"
 
 #: tta/perl/Texinfo/HTMLData.pm:225 tta/C/main/html_conversion_data.c:206
 msgctxt "NodePrev direction button label"
 msgid "NodePrev"
-msgstr "Edell"
+msgstr "EdellSolmu"
 
 #: tta/perl/Texinfo/HTMLData.pm:226 tta/C/main/html_conversion_data.c:207
 msgctxt "NodeUp direction button label"
 msgid "NodeUp"
-msgstr ""
+msgstr "SolmuYlös"
 
 #: tta/perl/Texinfo/HTMLData.pm:227 tta/C/main/html_conversion_data.c:208
 msgctxt "NodeForward direction button label"
 msgid "NodeForward"
-msgstr "Eteenpäin"
+msgstr "SolmuEteen"
 
 #: tta/perl/Texinfo/HTMLData.pm:228 tta/C/main/html_conversion_data.c:209
 msgctxt "NodeBack direction button label"
 msgid "NodeBack"
-msgstr "Takaisin"
+msgstr "SolmuTaakse"
 
 #: tta/perl/Texinfo/HTMLData.pm:229 tta/C/main/html_conversion_data.c:210
 msgctxt "PrevFile direction button label"
@@ -409,32 +409,32 @@ msgstr "Tietoa"
 #: tta/C/structuring_transfo/structuring.c:2362
 #, perl-brace-format
 msgid "Part: {part_title}"
-msgstr ""
+msgstr "Osa: {part_title}"
 
 #: tta/perl/Texinfo/Structuring.pm:1976
 #: tta/C/structuring_transfo/structuring.c:2378
 msgid "Appendices"
-msgstr ""
+msgstr "Liitteet"
 
 #: tta/perl/Texinfo/Structuring.pm:2033
 #: tta/C/structuring_transfo/structuring.c:2681
 msgid " --- The Detailed Node Listing ---"
-msgstr ""
+msgstr " --- Yksityiskohtainen solmuluettelo ---"
 
 #. TRANSLATORS: association of a method or operation name with a class
 #. in descriptions of object-oriented programming methods or operations.
 #: tta/perl/Texinfo/Translations.pm:640 tta/C/parsetexi/indices.c:498
-#, fuzzy, perl-brace-format
+#, perl-brace-format
 msgid "{name} on {class}"
-msgstr "Virheellinen merkkiluokan nimi"
+msgstr "{name} luokassa {class}"
 
 #. TRANSLATORS: association of a variable or instance variable with
 #. a class in descriptions of object-oriented programming variables or
 #. instance variable.
 #: tta/perl/Texinfo/Translations.pm:651 tta/C/parsetexi/indices.c:509
-#, fuzzy, perl-brace-format
+#, perl-brace-format
 msgid "{name} of {class}"
-msgstr "Virheellinen merkkiluokan nimi"
+msgstr "luokan {class} {name}"
 
 #. TRANSLATORS: expansion of @error{} as Texinfo code
 #: tta/perl/Texinfo/Convert/Converter.pm:202 tta/C/convert/converter.c:155
@@ -496,95 +496,85 @@ msgid "see section ``{section_name}'' in @cite{{book}}"
 msgstr "ks. osiota ”{section_name}” (@cite{{book}})"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1364
-#, fuzzy, perl-brace-format
-#| msgid "section ``{section_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "``{node_name}'' in @cite{{book}}"
-msgstr "osio ”{section_name}” (@cite{{book}})"
+msgstr "”{node_name}” kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1368
-#, fuzzy, perl-brace-format
-#| msgid "See section ``{section_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "See ``{node_name}'' in @cite{{book}}"
-msgstr "Ks. osiota ”{section_name}” (@cite{{book}})"
+msgstr "Ks. ”{node_name}” kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1372
-#, fuzzy, perl-brace-format
-#| msgid "section ``{section_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "see ``{node_name}'' in @cite{{book}}"
-msgstr "osio ”{section_name}” (@cite{{book}})"
+msgstr "ks. ”{node_name}” kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1378
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2339
-#: tta/perl/Texinfo/Convert/HTML.pm:6025 tta/C/convert/format_html.c:8205
+#: tta/perl/Texinfo/Convert/HTML.pm:6025 tta/C/convert/format_html.c:8212
 #, perl-brace-format
 msgid "@cite{{book}}"
 msgstr "@cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1381
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2335
-#: tta/perl/Texinfo/Convert/HTML.pm:6023 tta/C/convert/format_html.c:8200
+#: tta/perl/Texinfo/Convert/HTML.pm:6023 tta/C/convert/format_html.c:8207
 #, perl-brace-format
 msgid "See @cite{{book}}"
 msgstr "Ks. @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1383
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2337
-#: tta/perl/Texinfo/Convert/HTML.pm:6021 tta/C/convert/format_html.c:8195
+#: tta/perl/Texinfo/Convert/HTML.pm:6021 tta/C/convert/format_html.c:8202
 #, perl-brace-format
 msgid "see @cite{{book}}"
 msgstr "ks. @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1397
-#, fuzzy, perl-brace-format
-#| msgid "section ``{section_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "section ``{section_name}'' in @file{{manual}}"
-msgstr "osio ”{section_name}” (@cite{{book}})"
+msgstr "osio ”{section_name}” tiedostossa @file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1401
-#, fuzzy, perl-brace-format
-#| msgid "See section ``{section_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "See section ``{section_name}'' in @file{{manual}}"
-msgstr "Ks. osiota ”{section_name}” (@cite{{book}})"
+msgstr "Ks. osiota ”{section_name}” tiedostossa @file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1405
-#, fuzzy, perl-brace-format
-#| msgid "see section ``{section_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "see section ``{section_name}'' in @file{{manual}}"
-msgstr "ks. osiota ”{section_name}” (@cite{{book}})"
+msgstr "ks. osiota ”{section_name}” tiedostossa @file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1417
 #, perl-brace-format
 msgid "``{node_name}'' in @file{{manual}}"
-msgstr ""
+msgstr "”{node_name}” tiedostossa @file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1421
-#, fuzzy, perl-brace-format
-#| msgid "See section ``{section_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "See ``{node_name}'' in @file{{manual}}"
-msgstr "Ks. osiota ”{section_name}” (@cite{{book}})"
+msgstr "Ks. ”{node_name}” tiedostossa @file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1425
-#, fuzzy, perl-brace-format
-#| msgid "section ``{section_name}'' in @cite{{book}}"
+#, perl-brace-format
 msgid "see ``{node_name}'' in @file{{manual}}"
-msgstr "osio ”{section_name}” (@cite{{book}})"
+msgstr "ks. ”{node_name}” tiedostossa @file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1431
 #, perl-brace-format
 msgid "@file{{manual}}"
-msgstr ""
+msgstr "@file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1435
-#, fuzzy, perl-brace-format
-#| msgid "See Info file @file{{myfile}}"
+#, perl-brace-format
 msgid "See @file{{manual}}"
-msgstr "Ks. Info-tiedostoa @file{{myfile}}"
+msgstr "Ks. @file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1439
-#, fuzzy, perl-brace-format
-#| msgid "see @cite{{book}}"
+#, perl-brace-format
 msgid "see @file{{manual}}"
-msgstr "ks. @cite{{book}}"
+msgstr "ks. @file{{manual}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1458
 #, perl-brace-format
@@ -611,7 +601,7 @@ msgstr "{abbr_or_acronym} ({explanation})"
 #: tta/perl/Texinfo/Convert/DocBook.pm:1828
 #: tta/perl/Texinfo/Convert/LaTeX.pm:4173
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3604
-#: tta/perl/Texinfo/Convert/HTML.pm:6860 tta/C/convert/format_html.c:11274
+#: tta/perl/Texinfo/Convert/HTML.pm:6860 tta/C/convert/format_html.c:11281
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
@@ -624,7 +614,7 @@ msgstr "{text} ({url})"
 
 #: tta/perl/Texinfo/Convert/LaTeX.pm:4113
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3508
-#: tta/perl/Texinfo/Convert/HTML.pm:3372 tta/C/convert/format_html.c:6112
+#: tta/perl/Texinfo/Convert/HTML.pm:3372 tta/C/convert/format_html.c:6119
 #, perl-brace-format
 msgid "@{No value for `{value}'@}"
 msgstr "@{Ei arvoa: ”{value}”@}"
@@ -633,10 +623,9 @@ msgstr "@{Ei arvoa: ”{value}”@}"
 #: tta/perl/Texinfo/Convert/LaTeX.pm:4862
 #: tta/perl/Texinfo/Convert/Plaintext.pm:4573
 #: tta/perl/Texinfo/Convert/HTML.pm:5444
-#, fuzzy, perl-brace-format
-#| msgid "@center --- @emph{{author}}\n"
+#, perl-brace-format
 msgid "@center --- @emph{{author}}"
-msgstr "@center --- @emph{{author}}\n"
+msgstr "@center --- @emph{{author}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:1660
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2527
@@ -658,17 +647,17 @@ msgstr "{number} {section_title}"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2003
 #, perl-brace-format
 msgid "{main_index_entry}{subentries}, See@: {seeentry}"
-msgstr ""
+msgstr "{main_index_entry}{subentries}, Ks.@: {seeentry}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2009
 #, perl-brace-format
 msgid "{main_index_entry}, See@: {seeentry}"
-msgstr ""
+msgstr "{main_index_entry}, Ks.@: {seeentry}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2022
 #, perl-brace-format
 msgid "See also {see_also_entry}"
-msgstr ""
+msgstr "Ks. myös {see_also_entry}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2072
 msgid "(outside of any node)"
@@ -677,179 +666,160 @@ msgstr "(solmujen ulkopuolella)"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2242
 #, perl-brace-format
 msgid "See {name}: ({file}){node}"
-msgstr ""
+msgstr "Ks. {name}: ({file}){node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2244
 #, perl-brace-format
 msgid "see {name}: ({file}){node}"
-msgstr ""
+msgstr "ks. {name}: ({file}){node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2246
 #, perl-brace-format
 msgid "{name}: ({file}){node}"
-msgstr ""
+msgstr "{name}: ({file}){node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2251
-#, fuzzy, perl-brace-format
-#| msgid "See {title_ref}"
+#, perl-brace-format
 msgid "See ({file}){node}"
-msgstr "Ks. {title_ref}"
+msgstr "Ks. ({file}){node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2253
-#, fuzzy, perl-brace-format
-#| msgid "see {title_ref}"
+#, perl-brace-format
 msgid "see ({file}){node}"
-msgstr "ks. {title_ref}"
+msgstr "ks. ({file}){node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2255
 #, perl-brace-format
 msgid "({file}){node}"
-msgstr ""
+msgstr "({file}){node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2263
-#, fuzzy, perl-brace-format
-#| msgid "See {reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "See {name}: {node} in @cite{{book}}"
-msgstr "Ks. {reference} (@cite{{book}})"
+msgstr "Ks. {name}: {node} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2265
-#, fuzzy, perl-brace-format
-#| msgid "see {reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "see {name}: {node} in @cite{{book}}"
-msgstr "ks. {reference} asiakirjassa @cite{{book}}"
+msgstr "ks. {name}: {node} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2267
-#, fuzzy, perl-brace-format
-#| msgid "{reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "{name}: {node} in @cite{{book}}"
-msgstr "{reference} (@cite{{book}})"
+msgstr "{name}: {node} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2272
-#, fuzzy, perl-brace-format
-#| msgid "See {reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "See {node} in @cite{{book}}"
-msgstr "Ks. {reference} (@cite{{book}})"
+msgstr "Ks. {node} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2274
-#, fuzzy, perl-brace-format
-#| msgid "see {reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "see {node} in @cite{{book}}"
-msgstr "ks. {reference} asiakirjassa @cite{{book}}"
+msgstr "ks. {node} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2276
-#, fuzzy, perl-brace-format
-#| msgid "{reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "{node} in @cite{{book}}"
-msgstr "{reference} (@cite{{book}})"
+msgstr "{node} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2284
-#, fuzzy, perl-brace-format
-#| msgid "See node @samp{{mynode}}"
+#, perl-brace-format
 msgid "See {name}: {node}"
-msgstr "Ks. solmua @samp{{mynode}}"
+msgstr "Ks. {name}: {node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2286
 #, perl-brace-format
 msgid "see {name}: {node}"
-msgstr ""
+msgstr "ks. {name}: {node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2288
 #, perl-brace-format
 msgid "{name}: {node}"
-msgstr ""
+msgstr "{name}: {node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2293
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2357
-#, fuzzy, perl-brace-format
-#| msgid "See {reference}"
+#, perl-brace-format
 msgid "See {node}"
-msgstr "Ks. {reference}"
+msgstr "Ks. {node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2295
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2359
-#, fuzzy, perl-brace-format
-#| msgid "see {reference}"
+#, perl-brace-format
 msgid "see {node}"
-msgstr "ks. {reference}"
+msgstr "ks. {node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2297
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2361
-#, fuzzy, perl-brace-format
-#| msgid "Up node"
+#, perl-brace-format
 msgid "{node}"
-msgstr "Ylempi solmu"
+msgstr "{node}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2306
 #, perl-brace-format
 msgid "See {name}({file})"
-msgstr ""
+msgstr "Ks. {name}({file})"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2308
 #, perl-brace-format
 msgid "see {name}({file})"
-msgstr ""
+msgstr "ks. {name}({file})"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2310
 #, perl-brace-format
 msgid "{name}({file})"
-msgstr ""
+msgstr "{name}({file})"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2315
-#, fuzzy, perl-brace-format
-#| msgid "See {title_ref}"
+#, perl-brace-format
 msgid "See ({file})"
-msgstr "Ks. {title_ref}"
+msgstr "Ks. ({file})"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2317
-#, fuzzy, perl-brace-format
-#| msgid "see {title_ref}"
+#, perl-brace-format
 msgid "see ({file})"
-msgstr "ks. {title_ref}"
+msgstr "ks. ({file})"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2319
 #, perl-brace-format
 msgid "({file})"
-msgstr ""
+msgstr "({file})"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2326
-#, fuzzy, perl-brace-format
-#| msgid "See {reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "See {name} in @cite{{book}}"
-msgstr "Ks. {reference} (@cite{{book}})"
+msgstr "Ks. {name} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2328
-#, fuzzy, perl-brace-format
-#| msgid "see {reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "see {name} in @cite{{book}}"
-msgstr "ks. {reference} asiakirjassa @cite{{book}}"
+msgstr "ks. {name} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2330
-#, fuzzy, perl-brace-format
-#| msgid "{reference} in @cite{{book}}"
+#, perl-brace-format
 msgid "{name} in @cite{{book}}"
-msgstr "{reference} (@cite{{book}})"
+msgstr "{name} kirjassa @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2346
-#, fuzzy, perl-brace-format
-#| msgid "See {reference_name}"
+#, perl-brace-format
 msgid "See {name}"
-msgstr "Ks. {reference_name}"
+msgstr "Ks. {name}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2348
-#, fuzzy, perl-brace-format
-#| msgid "see {reference_name}"
+#, perl-brace-format
 msgid "see {name}"
-msgstr "ks. {reference_name}"
+msgstr "ks. {name}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2350
 #, perl-brace-format
 msgid "{name}"
-msgstr ""
+msgstr "{name}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2615
 #, perl-brace-format
 msgid "@tie{}--- {category}: {name}{arguments}"
-msgstr "@tie{}--- {category}: {name} {arguments}"
+msgstr "@tie{}--- {category}: {name}{arguments}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2618
 #, perl-brace-format
@@ -857,14 +827,14 @@ msgid "@tie{}--- {category}: {name} {arguments}"
 msgstr "@tie{}--- {category}: {name} {arguments}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2622
-#, fuzzy, perl-brace-format
+#, perl-brace-format
 msgid "@tie{}--- {category}: {name}"
-msgstr "luokka puuttuu: @%s"
+msgstr "@tie{}--- {category}: {name}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2641
 #, perl-brace-format
 msgid "@tie{}--- {category}:@*{type}@*{name}{arguments}"
-msgstr "@tie{}--- {category}:@*{type}@*{name} {arguments}"
+msgstr "@tie{}--- {category}:@*{type}@*{name}{arguments}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2645
 #, perl-brace-format
@@ -874,7 +844,7 @@ msgstr "@tie{}--- {category}:@*{type}@*{name} {arguments}"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2651
 #, perl-brace-format
 msgid "@tie{}--- {category}: {type} {name}{arguments}"
-msgstr "@tie{}--- {category}: {type} {name} {arguments}"
+msgstr "@tie{}--- {category}: {type} {name}{arguments}"
 
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2655
 #, perl-brace-format
@@ -995,153 +965,153 @@ msgstr "@t{<{url}>}"
 msgid "@center @b{{cartouche_arg}}"
 msgstr "@center --- @emph{{author}}\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5890 tta/C/convert/format_html.c:7965
+#: tta/perl/Texinfo/Convert/HTML.pm:5890 tta/C/convert/format_html.c:7972
 #, perl-brace-format
 msgid "see {reference_name}"
 msgstr "ks. {reference_name}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5892 tta/C/convert/format_html.c:7970
+#: tta/perl/Texinfo/Convert/HTML.pm:5892 tta/C/convert/format_html.c:7977
 #, perl-brace-format
 msgid "See {reference_name}"
 msgstr "Ks. {reference_name}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5894 tta/C/convert/format_html.c:7975
+#: tta/perl/Texinfo/Convert/HTML.pm:5894 tta/C/convert/format_html.c:7982
 #, perl-brace-format
 msgid "{reference_name}"
 msgstr "{reference_name}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5987 tta/C/convert/format_html.c:8122
+#: tta/perl/Texinfo/Convert/HTML.pm:5987 tta/C/convert/format_html.c:8129
 #, perl-brace-format
 msgid "see {reference} in @cite{{book}}"
 msgstr "ks. {reference} asiakirjassa @cite{{book}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5989 tta/C/convert/format_html.c:8127
+#: tta/perl/Texinfo/Convert/HTML.pm:5989 tta/C/convert/format_html.c:8134
 #, perl-brace-format
 msgid "See {reference} in @cite{{book}}"
 msgstr "Ks. {reference} (@cite{{book}})"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5991 tta/C/convert/format_html.c:8132
+#: tta/perl/Texinfo/Convert/HTML.pm:5991 tta/C/convert/format_html.c:8139
 #, perl-brace-format
 msgid "{reference} in @cite{{book}}"
 msgstr "{reference} (@cite{{book}})"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5998 tta/C/convert/format_html.c:8145
+#: tta/perl/Texinfo/Convert/HTML.pm:5998 tta/C/convert/format_html.c:8152
 #, perl-brace-format
 msgid "see @cite{{book_reference}}"
 msgstr "ks. @cite{{book_reference}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6000 tta/C/convert/format_html.c:8150
+#: tta/perl/Texinfo/Convert/HTML.pm:6000 tta/C/convert/format_html.c:8157
 #, perl-brace-format
 msgid "See @cite{{book_reference}}"
 msgstr "Ks. @cite{{book_reference}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6002 tta/C/convert/format_html.c:8155
+#: tta/perl/Texinfo/Convert/HTML.pm:6002 tta/C/convert/format_html.c:8162
 #, perl-brace-format
 msgid "@cite{{book_reference}}"
 msgstr "@cite{{book_reference}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6011 tta/C/convert/format_html.c:8172
+#: tta/perl/Texinfo/Convert/HTML.pm:6011 tta/C/convert/format_html.c:8179
 #, perl-brace-format
 msgid "see `{section}' in @cite{{book}}"
 msgstr "ks. ”{section}” (@cite{{book}})"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6013 tta/C/convert/format_html.c:8177
+#: tta/perl/Texinfo/Convert/HTML.pm:6013 tta/C/convert/format_html.c:8184
 #, perl-brace-format
 msgid "See `{section}' in @cite{{book}}"
 msgstr "Ks. ”{section}” (@cite{{book}})"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6015 tta/C/convert/format_html.c:8182
+#: tta/perl/Texinfo/Convert/HTML.pm:6015 tta/C/convert/format_html.c:8189
 #, perl-brace-format
 msgid "`{section}' in @cite{{book}}"
 msgstr "”{section}” (@cite{{book}})"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6032 tta/C/convert/format_html.c:8218
+#: tta/perl/Texinfo/Convert/HTML.pm:6032 tta/C/convert/format_html.c:8225
 #, perl-brace-format
 msgid "see {reference}"
 msgstr "ks. {reference}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6034 tta/C/convert/format_html.c:8223
+#: tta/perl/Texinfo/Convert/HTML.pm:6034 tta/C/convert/format_html.c:8230
 #, perl-brace-format
 msgid "See {reference}"
 msgstr "Ks. {reference}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6036 tta/C/convert/format_html.c:8228
+#: tta/perl/Texinfo/Convert/HTML.pm:6036 tta/C/convert/format_html.c:8235
 #, perl-brace-format
 msgid "{reference}"
 msgstr "{reference}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6042 tta/C/convert/format_html.c:8241
+#: tta/perl/Texinfo/Convert/HTML.pm:6042 tta/C/convert/format_html.c:8248
 #, perl-brace-format
 msgid "see `{section}'"
 msgstr "ks. ”{section}”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6044 tta/C/convert/format_html.c:8246
+#: tta/perl/Texinfo/Convert/HTML.pm:6044 tta/C/convert/format_html.c:8253
 #, perl-brace-format
 msgid "See `{section}'"
 msgstr "Ks. ”{section}”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6046 tta/C/convert/format_html.c:8251
+#: tta/perl/Texinfo/Convert/HTML.pm:6046 tta/C/convert/format_html.c:8258
 #, perl-brace-format
 msgid "`{section}'"
 msgstr "”{section}”"
 
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
-#: tta/perl/Texinfo/Convert/HTML.pm:6343 tta/C/convert/format_html.c:10423
+#: tta/perl/Texinfo/Convert/HTML.pm:6343 tta/C/convert/format_html.c:10430
 #, perl-brace-format
 msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}"
-msgstr ""
+msgstr "@code{{main_index_entry}}, @emph{Ks.@:} @code{{seeentry}}"
 
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and used to avoid a msgfmt error
-#: tta/perl/Texinfo/Convert/HTML.pm:6350 tta/C/convert/format_html.c:10431
+#: tta/perl/Texinfo/Convert/HTML.pm:6350 tta/C/convert/format_html.c:10438
 #, perl-brace-format
 msgid "{main_index_entry}, @emph{See@:} {seeentry}"
-msgstr ""
+msgstr "{main_index_entry}, @emph{Ks.@:} {seeentry}"
 
 #. TRANSLATORS: refer to another index entry
-#: tta/perl/Texinfo/Convert/HTML.pm:6370 tta/C/convert/format_html.c:10474
+#: tta/perl/Texinfo/Convert/HTML.pm:6370 tta/C/convert/format_html.c:10481
 #, perl-brace-format
 msgid "@emph{See also} @code{{see_also_entry}}"
-msgstr ""
+msgstr "@emph{Ks. myös} @code{{see_also_entry}}"
 
 #. TRANSLATORS: refer to another index entry
-#: tta/perl/Texinfo/Convert/HTML.pm:6375 tta/C/convert/format_html.c:10481
+#: tta/perl/Texinfo/Convert/HTML.pm:6375 tta/C/convert/format_html.c:10488
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
-msgstr ""
+msgstr "@emph{Ks. myös} {see_also_entry}"
 
 #. TRANSLATORS: before list of letters and symbols grouping index entries
 #: tta/perl/Texinfo/Convert/HTML.pm:6647 tta/perl/Texinfo/Convert/HTML.pm:6669
 msgid "Jump to"
 msgstr "Hyppää"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7738 tta/C/convert/format_html.c:12625
+#: tta/perl/Texinfo/Convert/HTML.pm:7738 tta/C/convert/format_html.c:12632
 #, fuzzy, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
 msgstr "luokka puuttuu: @%s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7742 tta/C/convert/format_html.c:12631
+#: tta/perl/Texinfo/Convert/HTML.pm:7742 tta/C/convert/format_html.c:12638
 #, fuzzy, perl-brace-format
 msgid "{category} on @code{{class}}: "
 msgstr "luokka puuttuu: @%s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7746 tta/C/convert/format_html.c:12637
+#: tta/perl/Texinfo/Convert/HTML.pm:7746 tta/C/convert/format_html.c:12644
 #, fuzzy, perl-brace-format
 msgid "{category} of @code{{class}}: "
 msgstr "luokka puuttuu: @%s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7763 tta/C/convert/format_html.c:12649
+#: tta/perl/Texinfo/Convert/HTML.pm:7763 tta/C/convert/format_html.c:12656
 #, perl-brace-format
 msgid "{category}:@* "
 msgstr "{category}:@* "
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7765 tta/C/convert/format_html.c:12655
+#: tta/perl/Texinfo/Convert/HTML.pm:7765 tta/C/convert/format_html.c:12662
 #, perl-brace-format
 msgid "{category}: "
 msgstr "{category}: "
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11418 tta/C/convert/format_html.c:3572
+#: tta/perl/Texinfo/Convert/HTML.pm:11419 tta/C/convert/format_html.c:3572
 #, perl-brace-format
 msgid ""
 "This document was generated on @emph{@today{}} using "
@@ -1150,53 +1120,53 @@ msgstr ""
 "Tämä tiedosto on luotu @emph{@today{}} ohjelmalla @uref{{program_homepage}, "
 "@emph{{program}}}."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11426 tta/C/convert/format_html.c:3581
+#: tta/perl/Texinfo/Convert/HTML.pm:11427 tta/C/convert/format_html.c:3581
 msgid "This document was generated on @emph{@today{}}."
 msgstr "Tämä tiedosto on luotu @emph{@today{}}."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11466 tta/C/convert/format_html.c:3685
+#: tta/perl/Texinfo/Convert/HTML.pm:11467 tta/C/convert/format_html.c:3685
 msgid "JavaScript license information"
 msgstr "JavaScript-lisenssitiedot"
 
 #. TRANSLATORS: sectioning element title for the page header
-#: tta/perl/Texinfo/Convert/HTML.pm:11527 tta/C/convert/format_html.c:3938
+#: tta/perl/Texinfo/Convert/HTML.pm:11528 tta/C/convert/format_html.c:3938
 #, fuzzy, perl-brace-format
 msgid "{element_text} ({title})"
 msgstr "@setfilename ensimmäisen alkion jälkeen"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11789
+#: tta/perl/Texinfo/Convert/HTML.pm:11794
 #, perl-brace-format
 msgid "The node you are looking for is at {href}."
 msgstr "Nyt näkemäsi solmu on kohdassa {href}."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11924
+#: tta/perl/Texinfo/Convert/HTML.pm:11929
 msgid "There are no buttons for this document."
-msgstr ""
+msgstr "Tässä asiakirjassa ei ole painikkeita."
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11930
+#: tta/perl/Texinfo/Convert/HTML.pm:11935
 msgid "  The buttons in the navigation panels have the following meaning:"
 msgstr " Navigointipaneelien painikkeilla on seuraavat merkitykset:"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11949
+#: tta/perl/Texinfo/Convert/HTML.pm:11954
 msgid "Button"
 msgstr "Painike"
 
 #. TRANSLATORS: button label column header in the navigation help
-#: tta/perl/Texinfo/Convert/HTML.pm:11952
+#: tta/perl/Texinfo/Convert/HTML.pm:11957
 msgid "Name"
 msgstr "Nimi"
 
 #. TRANSLATORS: direction description column header in the navigation help
-#: tta/perl/Texinfo/Convert/HTML.pm:11955
+#: tta/perl/Texinfo/Convert/HTML.pm:11960
 msgid "Go to"
 msgstr "Siirry"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:11959
+#: tta/perl/Texinfo/Convert/HTML.pm:11964
 #, fuzzy
 msgid "From 1.2.3 go to"
 msgstr "Hakua jatkettiin asiakirjan lopusta"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12023
+#: tta/perl/Texinfo/Convert/HTML.pm:12028
 msgid ""
 "  where the @strong{ Example } assumes that the current position is at "
 "@strong{ Subsubsection One-Two-Three } of a document of the following "
@@ -1206,55 +1176,55 @@ msgstr ""
 "{ alialiosiossa yksi-kaksi-kolme } tiedostossa, jolla on seuraava rakenne:"
 
 #. TRANSLATORS: example name of section for section 1
-#: tta/perl/Texinfo/Convert/HTML.pm:12036
+#: tta/perl/Texinfo/Convert/HTML.pm:12041
 msgid "Section One"
 msgstr "Osio yksi"
 
 #. TRANSLATORS: example name of section for section 1.1
-#: tta/perl/Texinfo/Convert/HTML.pm:12040
+#: tta/perl/Texinfo/Convert/HTML.pm:12045
 msgid "Subsection One-One"
 msgstr "Aliosio yksi-yksi"
 
 #. TRANSLATORS: example name of section for section 1.2
-#: tta/perl/Texinfo/Convert/HTML.pm:12050
+#: tta/perl/Texinfo/Convert/HTML.pm:12055
 msgid "Subsection One-Two"
 msgstr "Aliosio yksi-kaksi"
 
 #. TRANSLATORS: example name of section for section 1.2.1
-#: tta/perl/Texinfo/Convert/HTML.pm:12055
+#: tta/perl/Texinfo/Convert/HTML.pm:12060
 msgid "Subsubsection One-Two-One"
 msgstr "Alialiosio yksi-kaksi-yksi"
 
 #. TRANSLATORS: example name of section for section 1.2.2
-#: tta/perl/Texinfo/Convert/HTML.pm:12059
+#: tta/perl/Texinfo/Convert/HTML.pm:12064
 msgid "Subsubsection One-Two-Two"
 msgstr "Alialiosio yksi-kaksi-kaksi"
 
 #. TRANSLATORS: example name of section for section 1.2.3
-#: tta/perl/Texinfo/Convert/HTML.pm:12063
+#: tta/perl/Texinfo/Convert/HTML.pm:12068
 msgid "Subsubsection One-Two-Three"
 msgstr "Alialiosio yksi-kaksi-kolme"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12068
+#: tta/perl/Texinfo/Convert/HTML.pm:12073
 msgid "Current Position"
 msgstr "Nykyinen sijainti"
 
 #. TRANSLATORS: example name of section for section 1.2.4
-#: tta/perl/Texinfo/Convert/HTML.pm:12072
+#: tta/perl/Texinfo/Convert/HTML.pm:12077
 msgid "Subsubsection One-Two-Four"
 msgstr "Alialiosio yksi-kaksi-neljä"
 
 #. TRANSLATORS: example name of section for section 1.3
-#: tta/perl/Texinfo/Convert/HTML.pm:12078
+#: tta/perl/Texinfo/Convert/HTML.pm:12083
 msgid "Subsection One-Three"
 msgstr "Aliosio yksi-kolme"
 
 #. TRANSLATORS: example name of section for section 1.4
-#: tta/perl/Texinfo/Convert/HTML.pm:12088
+#: tta/perl/Texinfo/Convert/HTML.pm:12093
 msgid "Subsection One-Four"
 msgstr "Aliosio yksi-neljä"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13067 tta/C/convert/convert_html.c:1080
+#: tta/perl/Texinfo/Convert/HTML.pm:13072 tta/C/convert/convert_html.c:1080
 msgid "Untitled Document"
 msgstr "Nimetön tiedosto"
 
