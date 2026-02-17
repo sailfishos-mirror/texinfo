@@ -9,7 +9,6 @@ config.status
 configure
 .deps
 stamp-h1
-.gitignore
 .dirstamp
 tags
 config.*
@@ -19,6 +18,25 @@ allkeys_bin.c
 allkeys_query
 allkeys_to_binary
 utf8_to_sort_key
+
+gnulib/lib/fcntl.h
+gnulib/lib/inttypes.h
+gnulib/lib/limits.h
+gnulib/lib/locale.h
+gnulib/lib/pthread.h
+gnulib/lib/sched.h
+gnulib/lib/stddef.h
+gnulib/lib/stdlib.h
+gnulib/lib/string.h
+gnulib/lib/time.h
+gnulib/lib/uchar.h
+gnulib/lib/unictype.h
+gnulib/lib/uninorm.h
+gnulib/lib/unistd.h
+gnulib/lib/unistr.h
+gnulib/lib/unitypes.h
+gnulib/lib/wchar.h
+gnulib/lib/wctype.h
 
 gnulib/lib/libgnu.a
 
