@@ -1,5 +1,10 @@
 2026-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: tweak sample git hook not to operate
+	on experimental/* branches.
+
+2026-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* update-version.sh, README-hacking: do more in "make update-version"
 	automatically.
 
