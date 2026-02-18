@@ -134,6 +134,7 @@ my $working_locale;
 
 my $no_local_found_error_output;
 
+# Now unused
 sub _switch_messages_locale() {
   my $locale;
 
@@ -195,17 +196,9 @@ sub translate_string($$$;$) {
 
   my ($saved_LC_MESSAGES, $saved_LANGUAGE);
 
-  # We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
-  # for translation via LANGUAGE to work.  (The locale is "C" if the
-  # tests are being run.)
-  #   LC_MESSAGES was reported not to exist for Perl on MS-Windows.  We
-  # could use LC_ALL instead, but (a) it's not clear if this would help,
-  # and (b) this could interfere with the LC_CTYPE setting in XSParagraph.
-
-  if ($^O ne 'MSWin32') {
-    $saved_LC_MESSAGES = POSIX::setlocale(LC_MESSAGES);
-    _switch_messages_locale();
-  }
+  # we switch to gettext_dumb to use a gettext implementation that
+  # does not use the current locale information at all.
+  Locale::Messages->select_package('gettext_dumb');
   $saved_LANGUAGE = $ENV{'LANGUAGE'};
 
   Locale::Messages::textdomain($strings_textdomain);
@@ -243,20 +236,15 @@ sub translate_string($$$;$) {
     $translated_string = Locale::Messages::gettext($string);
   }
 
+  # switch back for error messages translation
+  Locale::Messages->select_package('gettext_pp');
+
   Locale::Messages::textdomain($messages_textdomain);
 
   if (!defined($saved_LANGUAGE)) {
     delete ($ENV{'LANGUAGE'});
   } else {
     $ENV{'LANGUAGE'} = $saved_LANGUAGE;
-  }
-
-  if ($^O ne 'MSWin32') {
-    if (defined($saved_LC_MESSAGES)) {
-      POSIX::setlocale(LC_MESSAGES, $saved_LC_MESSAGES);
-    } else {
-      POSIX::setlocale(LC_MESSAGES, '');
-    }
   }
 
   return $translated_string;
