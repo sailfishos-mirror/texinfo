@@ -1,3 +1,8 @@
+2026-02-18  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texi2any_api.texi (Customizing Output-Related Names):
+	Add missing menu entry.
+
 2026-02-17  Gavin Smith <gavinsmith0123@gmail.com>
 
 	pretest 7.2.92

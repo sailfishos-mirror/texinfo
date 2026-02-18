@@ -1820,6 +1820,7 @@ texinfo_register_file_id_setting_function('node_file_name',
 * Target: Customizing Output Target Names.
 * External Node: Customizing External Node Output Names.
 * Special Elements: Customizing Special Elements Output Names.
+* Redirection: Customizing Node Redirection Files.
 @end menu
 
 
