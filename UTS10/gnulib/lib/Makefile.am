@@ -35,7 +35,6 @@
 #  uchar-h-c23 \
 #  unictype/block-of \
 #  unictype/property-unified-ideograph \
-#  unictype/property-unified-ideographic \
 #  uninorm/nfd \
 #  uninorm/nfkd \
 #  uninorm/u32-normalize
