@@ -518,7 +518,6 @@ for speed when testing).
 
 Update version number:
   new version in configure.ac then "make update-version"
-  (cd texindex ; rm texindex.awk ; make)
 
 check up to date copyright years in files relevant to --version calls
 (tta/perl/texi2any.pl, info/info.c, install-info/install-info.c,

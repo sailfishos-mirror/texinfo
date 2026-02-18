@@ -39,4 +39,10 @@ perl -wpli -e \
 
 (cd tta && ./maintain/change_perl_modules_version.sh auto)
 
+(cd texindex ; rm texindex.awk ; make)
+
+# XS modules version in binaries is out of date and not updated automatically
+make -C tta/perl/XSTexinfo clean
+
+
 
