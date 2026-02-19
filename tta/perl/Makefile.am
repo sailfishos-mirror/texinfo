@@ -44,8 +44,6 @@ do_subst = sed \
   -e 's,[@]PACKAGE_NAME[@],$(PACKAGE_NAME),g' \
   -e 's,[@]PACKAGE_URL[@],$(PACKAGE_URL),g' \
   -e 's,[@]sysconfdir[@],$(sysconfdir),g' \
-  -e 's,[@]prefix[@],$(prefix),g' \
-  -e 's,[@]datarootdir[@],$(datarootdir),g' \
   -e 's,[@]datadir[@],$(datadir),g' \
   -e 's,[@]libdir[@],$(libdir),g' \
   -e 's,[@]PACKAGE[@],$(PACKAGE),g' \

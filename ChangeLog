@@ -1,5 +1,17 @@
 2026-02-19 Patrice Dumas  <pertusus@free.fr>
 
+	Make clear that substituted strings in texi2any.pl are expanded
+
+	* tta/perl/Makefile.am (do_subst), tta/perl/load_txi_modules.pl,
+	tta/perl/texi2any.pl: strings are not substituted by configure, but by
+	Makefile, and therefore the variables are fully expanded.  Modify code
+	to be in line, instead of having constructs that would only make sense
+	if configure was used to substitute strings.  Do not substitute
+	datarootdir and prefix as they are not used anywhere.  Remove eval for
+	datadir and sysconfdir setting.
+
+2026-02-19 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/call_html_perl_function.c
 	(call_file_id_setting_redirection_file_names): fix incorrect code
 	leftover.

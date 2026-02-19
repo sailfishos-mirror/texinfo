@@ -126,34 +126,22 @@ use Texinfo::Document;
 #my $curdir = File::Spec->curdir();
 #my $updir = File::Spec->updir();
 
-# set by configure, prefix for the sysconfdir and so on
-# This could be used in the eval
-my $prefix = '@prefix@';
 my $datadir;
-my $datarootdir;
 my $sysconfdir;
 my $converter;
 
 my $fallback_prefix = File::Spec->rootdir() . join('/', ('usr', 'local'));
 
-# We need to eval as $prefix has to be expanded. However when we haven't
-# run configure @sysconfdir will be expanded as an array, thus we verify
-# whether configure was run or not
+# The @ delimited strings are substituted by the Makefile to create
+# "load_txi_modules".
 if ('@sysconfdir@' ne '@' . 'sysconfdir@') {
-  $sysconfdir = eval '"@sysconfdir@"';
+  $sysconfdir = '@sysconfdir@';
 } else {
   $sysconfdir = "$fallback_prefix/etc";
 }
 
-if ('@datarootdir@' ne '@' . 'datarootdir@') {
-  $datarootdir = eval '"@datarootdir@"';
-} else {
-  $datarootdir = "$fallback_prefix/share";
-}
-
-if ('@datadir@' ne '@' . 'datadir@' and '@PACKAGE@' ne '@' . 'PACKAGE@') {
-  $datadir = eval '"@datadir@"';
-  my $package = '@PACKAGE@';
+if ('@datadir@' ne '@' . 'datadir@' and '@CONVERTER@' ne '@' . 'CONVERTER@') {
+  $datadir = '@datadir@';
   $converter = '@CONVERTER@';
 } else {
   $datadir = "$fallback_prefix/share";
@@ -192,10 +180,10 @@ Locale::Messages::bindtextdomain($messages_textdomain,
 # We do not fallback on a Texinfo module version to be able to
 # verify that there is no mismatch.
 
-# Version set in configure.ac
+# Version set in configure.ac and substituted in Makefile
 my $configured_version = '@PACKAGE_VERSION@';
 if ($configured_version eq '@' . 'PACKAGE_VERSION@') {
-  # if not configured, search for the version in configure.ac
+  # if not configured/substituted, search for the version in configure.ac
   if (open(CONFIGURE,
            "< " . join('/', ($Texinfo::ModulePath::t2a_srcdir,
                              'configure.ac')))) {
