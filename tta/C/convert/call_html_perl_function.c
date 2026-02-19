@@ -607,8 +607,8 @@ call_file_id_setting_redirection_file_names (CONVERTER *self,
                 {
                   STRLEN len;
                   const char *file_ret = SvPVutf8 (file_sv, len);
-                  result_redirection_files[defined_count][len]
-                    = perl_only_strndup (file_sv, len);
+                  result_redirection_files[defined_count]
+                    = perl_only_strndup (file_ret, len);
                   defined_count++;
                 }
             }
