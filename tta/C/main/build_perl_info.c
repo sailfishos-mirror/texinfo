@@ -160,7 +160,6 @@ perl_only_strdup (const char *s)
 
 /* Implement as we are not sure that Perl will define a version of this
    function. */
-/* NB this function does not appear to be used currently. */
 char *
 perl_only_strndup (const char *s, size_t n)
 {
