@@ -1,5 +1,18 @@
 2026-02-20 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/texinfo.c (txi_setup_main_load_interpreter): minor
+	move of code, add/improve comments.
+
+	* tta/C/main/call_perl_function.c (call_eval_load_texinfo_modules):
+	change converter_datadir variable name to modules_dir.
+
+	* tta/perl/load_txi_modules.pl: sync with texi2any.pl.
+
+	* tta/perl/texi2any.pl (set_subdir_directories): add an explicit
+	$datadir argument.
+
+2026-02-20 Patrice Dumas  <pertusus@free.fr>
+
 	Make ctexi2any relocatable. Pass datadir from/to Perl and C
 
 	* tta/C/main/utils.c (messages_and_encodings_setup): add datadir

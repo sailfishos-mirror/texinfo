@@ -327,7 +327,7 @@ call_modulepath_init (int updirs, const char *perl_modules_dir,
  */
 int
 call_eval_load_texinfo_modules (int texinfo_uninstalled,
-          const char *t2a_builddir, int updirs, const char *converter_datadir,
+          const char *t2a_builddir, int updirs, const char *modules_dir,
           const char *converter_libdir, const char *datadir)
 {
   SV *sv_inc_str;
@@ -347,7 +347,7 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
   if (texinfo_uninstalled)
     sv_inc_str = newSVpvf("%s/perl", t2a_builddir);
   else
-    sv_inc_str = newSVpv_byte(converter_datadir, 0);
+    sv_inc_str = newSVpv_byte(modules_dir, 0);
   av_store (INC, 0, sv_inc_str);
 
   str = "require Texinfo::ModulePath;\n";
@@ -357,7 +357,7 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
   if (texinfo_uninstalled)
     call_modulepath_init (updirs, 0, 0, 0);
   else
-    call_modulepath_init (-1, converter_datadir, converter_libdir,
+    call_modulepath_init (-1, modules_dir, converter_libdir,
                           datadir);
 
   str = "use Texinfo::Document;\n"

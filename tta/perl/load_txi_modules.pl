@@ -58,7 +58,6 @@ BEGIN
   my $updir = File::Spec->updir();
 
   # These are substituted by the Makefile to create "load_txi_modules".
-  my $converter = '@CONVERTER@';
   my $libdir = '@libdir@';
   my $converter_libdir;
 
@@ -90,9 +89,9 @@ BEGIN
   } else {
     # Look for modules in their installed locations.
     $datadir = '@datadir@';
+    my $converter = '@CONVERTER@';
     my $modules_dir = join('/', ($datadir, $converter));
     # look for package data in the installed location.
-    my $converter_datadir = $modules_dir;
     $converter_libdir = join('/', ($libdir, $converter));
 
     # try to make package relocatable, will only work if
@@ -101,8 +100,7 @@ BEGIN
         and -f join('/', ($command_directory, $updir, 'share',
                           $converter, 'Texinfo', 'Parser.pm'))) {
       $datadir = join('/', ($command_directory, $updir, 'share'));
-      $converter_datadir = join('/', ($datadir, $converter));
-      $modules_dir = $converter_datadir;
+      $modules_dir = join('/', ($datadir, $converter));
       $converter_libdir = join('/', ($command_directory, $updir,
                                           'lib', $converter));
     }
