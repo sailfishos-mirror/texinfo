@@ -364,6 +364,7 @@ Texinfo/ModulePath.pm: Texinfo/ModulePath.pm.in Makefile
 	    -e 's|[@]USE_EXTERNAL_UNIDECODE[@]|$(USE_EXTERNAL_UNIDECODE)|' \
 	    -e 's|[@]ICONV_CONVERTS_EUC_CN[@]|$(ICONV_CONVERTS_EUC_CN)|' \
 	    -e 's|[@]DEFAULT_TEST_LEVEL[@]|$(DEFAULT_TEST_LEVEL)|' \
+	    -e 's|[@]CONVERTER[@]|$(CONVERTER)|' \
 	    -e 's|[@]enable_xs[@]|$(enable_xs)|' \
 	    -e 's|[@]use_shared_txi_libraries[@]|$(use_shared_txi_libraries)|' \
 	  $(srcdir)/Texinfo/ModulePath.pm.in >$@

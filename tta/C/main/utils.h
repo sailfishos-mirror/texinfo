@@ -141,7 +141,7 @@ char *to_upper_or_lower_multibyte (const char *text, int lower_or_upper);
 int width_multibyte (const char *text);
 int word_bytes_len_multibyte (const char *text);
 
-void messages_and_encodings_setup (void);
+void messages_and_encodings_setup (const char *datadir);
 
 void setup_structuring_data (void);
 

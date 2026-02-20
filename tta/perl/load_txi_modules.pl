@@ -111,8 +111,7 @@ BEGIN
 
     require Texinfo::ModulePath;
     Texinfo::ModulePath::init($modules_dir, $converter_libdir,
-                              $converter_datadir,
-                              'installed' => 1);
+                              $datadir, 'installed' => 1);
   }
 } # end BEGIN
 

@@ -1,3 +1,30 @@
+2026-02-20 Patrice Dumas  <pertusus@free.fr>
+
+	Make ctexi2any relocatable. Pass datadir from/to Perl and C
+
+	* tta/C/main/utils.c (messages_and_encodings_setup): add datadir
+	argument to make relocatable.
+
+	* tta/C/convert/texinfo.c (txi_setup_main_load_interpreter),
+	tta/C/main/document.c (setup_txi_paths_information)
+	(setup_texinfo_main): pass datadir to messages_and_encodings_setup.
+
+	* tta/perl/Makefile.am (ModulePath.pm),
+	tta/perl/Texinfo/ModulePath.pm.in ($datadir, $converter, init),
+	tta/perl/load_txi_modules.pl (BEGIN), tta/perl/texi2any.pl (BEGIN),
+	tta/C/main/call_perl_function.c (call_modulepath_init)
+	(call_eval_load_texinfo_modules), tta/perl/Texinfo/XSLoader.pm (init),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (init): pass datadir
+	through ModulePath.pm and XSLoader.pm init to C, or pass datadir from
+	C to Perl through call_modulepath_init.
+
+	* tta/C/texi2any.c (set_subdir_directories, main): make relocatable.
+
+	* tta/swig/texinfo.i (txi_ext_inline_setup): add and use datadir
+	optional argument.
+
+	* tta/C/main/document.c (setup_txi_paths_information): make static.
+
 2026-02-19 Patrice Dumas  <pertusus@free.fr>
 
 	Make perl scripts relocatable for datadir

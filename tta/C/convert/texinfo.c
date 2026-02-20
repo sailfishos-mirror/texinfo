@@ -94,6 +94,7 @@ txi_find_tree_transformation (const char *transformation_name)
 void
 txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
                       int texinfo_uninstalled,
+                      const char *datadir,
                       const char *converter_datadir,
                       const char *converter_libdir,
                       const char *t2a_builddir,
@@ -130,8 +131,8 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
           /* no need to call set_use_perl_interpreter
              txi_interpreter_use_no_interpreter, it is the default in
              that case */
-          messages_and_encodings_setup ();
-          setup_texinfo_main (texinfo_uninstalled, converter_datadir,
+          messages_and_encodings_setup (datadir);
+          setup_texinfo_main (texinfo_uninstalled, datadir,
                               t2a_builddir, t2a_srcdir);
         }
       free (load_modules_path);
@@ -143,13 +144,13 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
       int loaded
          = call_eval_load_texinfo_modules (texinfo_uninstalled, t2a_builddir,
                                       updirs, converter_datadir,
-                                      converter_libdir);
+                                      converter_libdir, datadir);
       if (loaded <= 0)
         {
           /* XS code that calls C library initialization was not loaded,
              initialize the C library now */
-          messages_and_encodings_setup ();
-          setup_texinfo_main (texinfo_uninstalled, converter_datadir,
+          messages_and_encodings_setup (datadir);
+          setup_texinfo_main (texinfo_uninstalled, datadir,
                               t2a_builddir, t2a_srcdir);
         }
 
@@ -167,8 +168,8 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
      Loading Texinfo::Document causes XSLoader init to calls DocumentXS init,
      which calls the functions */
       /* sets up gettext and iconv */
-      messages_and_encodings_setup ();
-      setup_texinfo_main (texinfo_uninstalled, converter_datadir,
+      messages_and_encodings_setup (datadir);
+      setup_texinfo_main (texinfo_uninstalled, datadir,
                           t2a_builddir, t2a_srcdir);
 
       set_use_perl_interpreter (txi_interpreter_use_no_interpreter);

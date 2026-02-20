@@ -381,7 +381,7 @@ sub init {
 
   if (defined &{"${module}::init"}
       and !&{"${module}::init"} ($Texinfo::ModulePath::texinfo_uninstalled,
-                                 $Texinfo::ModulePath::converter_datadir,
+                                 $Texinfo::ModulePath::datadir,
                                  $Texinfo::ModulePath::t2a_builddir,
                                  $Texinfo::ModulePath::t2a_srcdir)) {
     _message("$module_name: error initializing");

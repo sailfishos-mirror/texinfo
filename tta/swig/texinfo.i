@@ -80,7 +80,8 @@ reset_parser (0);
 void
 txi_ext_inline_setup (int texinfo_uninstalled=0,
        enum interpreter_use use_interpreter=txi_interpreter_use_none,
-       int updirs=3, const char *converterdatadir_in=0,
+       int updirs=3, const char *datadir_in=0,
+       const char *converterdatadir_in=0,
        const char *converterlibdir_in=0,
        const char *t2a_builddir_in=0,
        const char *t2a_srcdir_in=0);
@@ -89,7 +90,8 @@ txi_ext_inline_setup (int texinfo_uninstalled=0,
 void
 txi_ext_inline_setup (int texinfo_uninstalled,
        enum interpreter_use use_interpreter,
-       int updirs, const char *converterdatadir_in,
+       int updirs, const char *datadir_in,
+       const char *converterdatadir_in,
        const char *converterlibdir_in,
        const char *t2a_builddir_in,
        const char *t2a_srcdir_in)
@@ -97,8 +99,9 @@ txi_ext_inline_setup (int texinfo_uninstalled,
   const char *version_for_embedded_interpreter_check;
   char *t2a_srcdir = 0;
   char *t2a_builddir = 0;
-  const char *converterdatadir = 0;
+  char *converterdatadir = 0;
   const char *converterlibdir = 0;
+  const char *datadir;
   enum interpreter_use do_use_interpreter = txi_interpreter_use_no_interpreter;
 #ifdef EMBED_PERL
   do_use_interpreter = txi_interpreter_use_embedded;
@@ -109,6 +112,11 @@ txi_ext_inline_setup (int texinfo_uninstalled,
 
   if (use_interpreter != txi_interpreter_use_none)
     do_use_interpreter = use_interpreter;
+
+  if (datadir_in)
+    datadir = datadir_in;
+  else
+    datadir = DATADIR;
 
   if (texinfo_uninstalled)
     {
@@ -138,9 +146,9 @@ txi_ext_inline_setup (int texinfo_uninstalled,
   else
     {
       if (converterdatadir_in)
-        converterdatadir = converterdatadir_in;
+        converterdatadir = strdup (converterdatadir_in);
       else
-        converterdatadir = DATADIR "/" CONVERTER_CONFIG;
+        xasprintf (&converterdatadir, "%s/" CONVERTER_CONFIG, datadir);
       if (converterlibdir_in)
         converterlibdir = converterlibdir_in;
       else
@@ -153,12 +161,13 @@ txi_ext_inline_setup (int texinfo_uninstalled,
     version_for_embedded_interpreter_check = PACKAGE_VERSION_CONFIG;
 
   txi_setup_main_load_interpreter (do_use_interpreter, texinfo_uninstalled,
-                                   converterdatadir, converterlibdir,
+                                   datadir, converterdatadir, converterlibdir,
                                    t2a_builddir, t2a_srcdir, updirs,
                                    0, 0, 0,
                                    version_for_embedded_interpreter_check);
   free (t2a_builddir);
   free (t2a_srcdir);
+  free (converterdatadir);
 }
 %}
 

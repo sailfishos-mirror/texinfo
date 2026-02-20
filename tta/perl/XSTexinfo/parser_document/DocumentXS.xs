@@ -54,11 +54,11 @@ PROTOTYPES: ENABLE
 # Called from Texinfo::XSLoader.pm.
 # File paths are byte strings and can be in any encoding.
 int
-init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *t2a_builddir_sv, SV *t2a_srcdir_sv)
+init (SV *texinfo_uninstalled_sv, SV *datadir_sv, SV *t2a_builddir_sv, SV *t2a_srcdir_sv)
       PREINIT:
         const char *t2a_builddir = 0;
         const char *t2a_srcdir = 0;
-        const char *converterdatadir = 0;
+        const char *datadir = 0;
         int texinfo_uninstalled = 0;
       CODE:
         if (SvOK (texinfo_uninstalled_sv))
@@ -70,13 +70,13 @@ init (SV *texinfo_uninstalled_sv, SV *converterdatadir_sv, SV *t2a_builddir_sv, 
             if (SvOK (t2a_srcdir_sv))
               t2a_srcdir = SvPVbyte_nolen (t2a_srcdir_sv);
           }
-        else
-          converterdatadir = SvPVbyte_nolen (converterdatadir_sv);
+        if (SvOK (datadir_sv))
+          datadir = SvPVbyte_nolen (datadir_sv);
 
         /* needed by the parser */
-        messages_and_encodings_setup ();
+        messages_and_encodings_setup (datadir);
 
-        setup_texinfo_main (texinfo_uninstalled, converterdatadir,
+        setup_texinfo_main (texinfo_uninstalled, datadir,
                             t2a_builddir, t2a_srcdir);
         RETVAL = 1;
     OUTPUT:

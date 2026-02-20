@@ -79,8 +79,6 @@
 #include "html_converter_api.h"
 #include "texinfo.h"
 
-#define LOCALEDIR DATADIR "/locale"
-
 #define _(String) gettext (String)
 
 static const char *conf_file_name = "texi2any-config.pm";
@@ -251,7 +249,7 @@ static const DEPRECATED_DIRS_LIST overriding_sysconfdir_list = {
   1, 1, overriding_sysconfdir_info };
 
 static STRING_LIST *
-set_subdir_directories (const char *subdir,
+set_subdir_directories (const char *datadir, const char *subdir,
                         DEPRECATED_DIRS_LIST *deprecated_dirs)
 {
   STRING_LIST *result = new_string_list ();
@@ -295,7 +293,7 @@ set_subdir_directories (const char *subdir,
   free (config_dirs->list);
   free (config_dirs);
 
-  xasprintf (&dir_string, DATADIR "/%s", subdir);
+  xasprintf (&dir_string, "%s/%s", datadir, subdir);
   add_string (dir_string, result);
   free (dir_string);
 
@@ -964,6 +962,7 @@ main (int argc, char *argv[], char *env[])
   DEPRECATED_DIRS_LIST deprecated_directories;
   char *t2a_srcdir = 0;
   char *t2a_builddir = 0;
+  char *datadir = 0;
   OPTION *html_math_option;
   OPTION *highlight_syntax_option;
   OPTION *test_option;
@@ -1000,7 +999,7 @@ main (int argc, char *argv[], char *env[])
   size_t format_menu_option_nr;
   char *conversion_format_menu_default = 0;
   int texinfo_uninstalled = 0;
-  const char *converter_datadir = DATADIR "/" CONVERTER_CONFIG;
+  char *converter_datadir = 0;
   const char *curdir = ".";
   CONVERTER_INITIALIZATION_INFO *converter_init_info;
   const char *external_module = 0;
@@ -1048,7 +1047,6 @@ main (int argc, char *argv[], char *env[])
          for guidance on checking whether a program is uninstalled. */
       if (command_directory)
         {
-
           char *check_file;
           const char *updir_file = "libtexinfo.la";
           int status;
@@ -1071,6 +1069,8 @@ main (int argc, char *argv[], char *env[])
   if (perl_embed_env && !strcmp (perl_embed_env, "0"))
     embedded_interpreter = txi_interpreter_use_no_interpreter;
 
+  /* this corresponds to the texi2any.pl BEGIN block and
+     Texinfo::ModulePath::init call */
   if (texinfo_uninstalled)
     {
       t2a_srcdir = getenv ("t2a_srcdir");
@@ -1094,13 +1094,45 @@ main (int argc, char *argv[], char *env[])
         t2a_builddir = strdup (t2a_srcdir);
       else
         t2a_builddir = strdup (t2a_builddir);
-
-      xasprintf (&extensions_dir, "%s/perl/ext", t2a_srcdir);
     }
   else
-    xasprintf (&extensions_dir, "%s/ext", converter_datadir);
+    {
+      const char *reference_perl_module_file = DATADIR "/" CONVERTER_CONFIG
+                                                "Texinfo" "/" "Parser.pm";
+      int status;
+      struct stat finfo;
+
+      status = stat (reference_perl_module_file, &finfo);
+      if ((status != 0 || !S_ISREG (finfo.st_mode))
+          && command_directory)
+        {
+          /* try to make package relocatable, will only work if
+             standard relative paths are used */
+          int status;
+          struct stat finfo;
+          char *relocatable_perl_module_file;
+
+          xasprintf (&relocatable_perl_module_file,
+                     "%s/../share/%s/Texinfo/Parser.pm", command_directory,
+                     CONVERTER_CONFIG);
+
+          status = stat (reference_perl_module_file, &finfo);
+          if (status == 0 && S_ISREG (finfo.st_mode))
+            xasprintf (&datadir, "%s/../share", command_directory);
+        }
+    }
+
+  if (!datadir)
+    datadir = strdup (DATADIR);
+
+  xasprintf (&converter_datadir, "%s/" CONVERTER_CONFIG, datadir);
 
   free (command_directory);
+
+  if (texinfo_uninstalled)
+    xasprintf (&extensions_dir, "%s/perl/ext", t2a_srcdir);
+  else
+    xasprintf (&extensions_dir, "%s/ext", converter_datadir);
 
   memset (&internal_extension_dirs, 0, sizeof (STRING_LIST));
 
@@ -1120,13 +1152,14 @@ main (int argc, char *argv[], char *env[])
   /* no converter_libdir argument because it is only needed when
      (re)using a Perl interpreter, which is never the case here */
   txi_setup_main_load_interpreter (embedded_interpreter,
-                        texinfo_uninstalled,
+                        texinfo_uninstalled, datadir,
                         converter_datadir, 0, t2a_builddir, t2a_srcdir, 0,
                         &argc, &argv, &env,
                         version_for_embedded_interpreter_check);
 
   free (t2a_builddir);
   free (t2a_srcdir);
+  free (converter_datadir);
 
   /* the encoding used to decode command line arguments, and also for
      file names encoding */
@@ -1205,10 +1238,13 @@ main (int argc, char *argv[], char *env[])
   memset (&deprecated_directories, 0, sizeof (DEPRECATED_DIRS_LIST));
 
   texinfo_language_config_dirs
-   = set_subdir_directories ("texinfo", &deprecated_directories);
+   = set_subdir_directories (datadir, "texinfo", &deprecated_directories);
 
   converter_config_dirs_array_ref
-   = set_subdir_directories (CONVERTER_CONFIG, &deprecated_directories);
+   = set_subdir_directories (datadir, CONVERTER_CONFIG,
+                             &deprecated_directories);
+
+  free (datadir);
 
   memset (&converter_config_dirs, 0, sizeof (STRING_LIST));
   add_string (curdir, &converter_config_dirs);

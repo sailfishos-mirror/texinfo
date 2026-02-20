@@ -36,6 +36,9 @@ our $converter_libdir;
 # C libraries directory
 our $libraries_dir;
 
+# installed locations paths
+our $datadir;
+
 # Other information passed to modules from configure
 our $conversion_from_euc_cn = '@ICONV_CONVERTS_EUC_CN@';
 our $default_test_level = '@DEFAULT_TEST_LEVEL@';
@@ -44,6 +47,8 @@ our $default_test_level = '@DEFAULT_TEST_LEVEL@';
 # and to modules.
 our $enable_xs = '@enable_xs@';
 our $use_shared_txi_libraries = '@use_shared_txi_libraries@';
+
+my $converter = '@CONVERTER@';
 
 # If $PERL_MODULES_DIR and $CONVERTER_LIBDIR are given,
 # (likely the installation directories)
@@ -59,7 +64,14 @@ our $use_shared_txi_libraries = '@use_shared_txi_libraries@';
 sub init {
   my $perl_modules_dir = shift;
   $converter_libdir = shift;
-  $converter_datadir = shift;
+  $datadir = shift;
+
+  if (defined($datadir)) {
+    $converter_datadir = join('/', ($datadir, $converter));
+  } else {
+    $converter_datadir = undef;
+  }
+
   my %named_args = @_;
 
   if (!$named_args{'installed'}) {

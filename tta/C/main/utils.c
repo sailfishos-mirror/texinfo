@@ -85,8 +85,6 @@ const char *null_device_names[] = {
 #endif
  0};
 
-#define LOCALEDIR DATADIR "/locale"
-
 const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
@@ -210,7 +208,7 @@ xasprintf (char **ptr, const char *template, ...)
 /* Setup global information that is not specific of Texinfo.
    Should be called once and early */
 void
-messages_and_encodings_setup (void)
+messages_and_encodings_setup (const char *datadir)
 {
 #ifdef ENABLE_NLS
 
@@ -218,7 +216,15 @@ messages_and_encodings_setup (void)
 
   /* Note: this uses the installed translations even when running an
      uninstalled program. */
-  bindtextdomain (PACKAGE_CONFIG, LOCALEDIR);
+  if (datadir)
+    {
+      char *localedir;
+      xasprintf (&localedir, "%s/locale", datadir);
+      bindtextdomain (PACKAGE_CONFIG, localedir);
+      free (localedir);
+    }
+  else
+    bindtextdomain (PACKAGE_CONFIG, DATADIR "/locale");
 
   textdomain (PACKAGE_CONFIG);
 #else
