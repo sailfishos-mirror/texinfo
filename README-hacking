@@ -334,9 +334,16 @@ Manual testing:
      make -j8 TEXI2ANY=../../texinfo/tta/perl/texi2any.pl html
   - ffmpeg doc/t2h.pm
 . if necessary, on a platform where libtool generated .la files can be
-  removed such as GNU/Linux, install, remove the .la files in the installation
+  removed such as GNU/Linux.  Install, remove the .la files in the installation
   directory and verify that XS modules are still loaded when converting with
   texi2any.
+. check that texi2any is relocatable:
+  - configure with a --prefix value that does not correspond to system
+    directories and install with "make install"
+  - check that the installed texi2any finds htmlxref by converting
+    a Texinfo with external references to HTML, and that translated output
+    strings are found by converting a manual with @documentlanguage.
+  - do the same with ctexi2any.
 
 check for C compiler warnings by configuring with
 

@@ -93,6 +93,13 @@ bootstrap is to have XS modules in auto/$package.  All in all, it would be
 better to look directly for files in directories obtained from
 Texinfo::ModulePath.
 
+On Windows, the DLL are not found by texi2any.exe.  Accoring to Eli, the
+easiest way to fix could be be to copy the DLLs into the directory where
+texi2any.exe is installed (in addition to the directory where they are already
+copied by "make install".  That is, on Windows there will be two copies of each
+DLL installed, not one.
+https://lists.gnu.org/archive/html/bug-texinfo/2026-02/msg00090.html
+
 Do not add parent in tree in the first place instead of removing afterwards,
 in gdt?  Or, possibly even better mark parent as weak reference with
 Scalar::Util weaken as explained in man perlref (Gavin).

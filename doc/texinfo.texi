@@ -14820,6 +14820,7 @@ specified within a initialization file.
 
 Two functionally equivalent implementations of @command{texi2any} can be built
 in GNU Texinfo, one in Perl and another in compiled native code (in C).
+The native code implementation is still experimental.
 The Perl program can use Perl extension modules in compiled native code,
 while the native code program embeds a Perl interpreter for the parts that
 require Perl.
@@ -14829,7 +14830,7 @@ require Perl.
 @c equivalent.
 
 In the default case, the Perl implementation is installed.  You can select
-the C implementation instead at build time by passing
+the experimental C implementation instead at build time by passing
 the @option{--enable-using-c-texi2any} option to @command{configure}.
 
 

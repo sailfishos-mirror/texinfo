@@ -8,23 +8,24 @@ tta/README
 
 See also README-hacking file at top level.
 
-texi2any is a Perl or C program for converting Texinfo input to diverse
-output formats.  All the code is available in pure Perl, the C code
-coverage is partial.  The Perl code can call native code extensions for
-speed, while the C code can call Perl modules and embed a Perl
-interpreter.  The Perl code, Perl extension interfaces (XS) code and
-embedded Perl initialization code are in the perl/ subdirectory.  The C
-code, including code calling Perl modules, code called by the extension
-interfaces and code loading embedded Perl is in the C/ subdirectory.
+texi2any is a Perl or C program (experimental) for converting Texinfo
+input to diverse output formats.  All the code is available in pure Perl,
+the C code coverage is partial.  The Perl code can call native code
+extensions for speed, while the C code can call Perl modules and embed
+a Perl interpreter.  The Perl code, Perl extension interfaces (XS) code
+and embedded Perl initialization code are in the perl/ subdirectory.
+The C code, including code calling Perl modules, code called by the
+extension interfaces and code loading embedded Perl is in the C/
+subdirectory.
 
 Specific installation instructions
 
 * The `texi2any' (makeinfo) program is a Perl program in the default case.
-  If you prefer a C implementation of the texi2any program, you can give
-  the --enable-using-c-texi2any flag to `configure'.  The C implementation will
-  only be actually used if all the prerequisites are found, which includes
-  a working iconv library, the possibility to embed a Perl interpreter
-  and enabled Perl extension modules, known as XS modules.
+  If you prefer an experimental C implementation of the texi2any program,
+  you can give the --enable-using-c-texi2any flag to `configure'.  The C
+  implementation will only be actually used if all the prerequisites are
+  found, which includes a working iconv library, the possibility to embed
+  a Perl interpreter and enabled Perl extension modules, known as XS modules.
 
 * The C texi2any implementation uses native code for the parsing and the
   structure step.  For the conversion step, however, Perl code is often
