@@ -918,11 +918,13 @@ destroy_indices_sortable_entries (
 static void
 destroy_collator (INDEX_COLLATOR *collator)
 {
-  #ifdef HAVE_NEWLOCALE
   if (collator->type == ctn_locale_collation)
-    freelocale (collator->coll.locale);
+    {
+  #ifdef HAVE_NEWLOCALE
+      freelocale (collator->coll.locale);
   #endif
-  if (collator->coll.sv)
+    }
+  else if (collator->coll.sv)
     unregister_perl_data (collator->coll.sv);
   free (collator);
 }

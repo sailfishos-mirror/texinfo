@@ -7258,7 +7258,10 @@ mini_toc_internal (CONVERTER *self, const SECTION_RELATIONS *section_relations,
 
           /* could happen with empty sectioning command */
           if (!text || !strlen(text))
-            continue;
+            {
+              free (text);
+              continue;
+            }
 
           href = html_command_href (self, section, 0, 0, 0);
 

@@ -466,6 +466,7 @@ void
 free_lang_translation (LANG_TRANSLATION *lang_translation)
 {
   free (lang_translation->lang);
+  free (lang_translation->encoded_lang);
   if (lang_translation->translations)
     {
       free_lang_translation_tree_list (lang_translation->translations);

@@ -1,5 +1,27 @@
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
 
+	Fix memory leak and other memory issues found by valgrind
+
+	* tta/C/convert/format_html.c (mini_toc_internal): free text.
+
+	* tta/C/main/translations.c (free_lang_translation): free
+	lang_translation->encoded_lang.
+
+	* tta/C/convert/html_converter_finish.c (html_free_converter):
+	free self->translated_special_unit_info_texinfo,
+	self->files_css_import_lines and self->files_css_rule_lines.
+
+	* tta/C/convert/html_converter_finish.c (html_free_converter):
+	free main_units_direction_names after calling
+	html_free_direction_icons_array, as html_free_direction_icons_array
+	uses main_units_direction_names.
+
+	* tta/C/main/manipulate_indices.c (destroy_collator): free coll.sv
+	only if the collation type is not ctn_locale_collation as the
+	collator is a union.
+
+2026-02-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac (AC_PROG_INSTALL, AC_PROG_MAKE_SET)
 	(AC_PROG_LN_S, AC_PROG_MKDIR_P): call those autoconf macros in
 	tta/configure.ac too.

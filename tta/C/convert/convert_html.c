@@ -2390,7 +2390,6 @@ html_conversion_finalization (CONVERTER *self)
   self->html_files_information.list = 0;
   self->html_files_information.number = 0;
 
-  /* needed to remove trees to build */
   html_reset_translated_special_unit_info_tree (self);
 
   html_reset_shared_conversion_state (self);

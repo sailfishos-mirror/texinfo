@@ -321,6 +321,16 @@ html_free_converter (CONVERTER *self)
     }
   free (self->htmlxref.list);
 
+  for (i = 0; i < SPECIAL_UNIT_INFO_TREE_NR; i++)
+    {
+      size_t k;
+      for (k = 0; k < self->special_unit_varieties.number; k++)
+        {
+          free (self->translated_special_unit_info_texinfo[i][k]);
+        }
+      free (self->translated_special_unit_info_texinfo[i]);
+    }
+
   for (i = 0; i < SPECIAL_UNIT_INFO_TYPE_NR; i++)
     {
       size_t k;
@@ -338,8 +348,6 @@ html_free_converter (CONVERTER *self)
 
   free_strings_list (&self->customized_global_text_directions);
 
-  free (self->main_units_direction_names);
-
   free_strings_list (&self->global_texts_direction_names);
 
   free (self->special_units_direction_names);
@@ -352,6 +360,10 @@ html_free_converter (CONVERTER *self)
 
   html_free_direction_icons_array (self, &self->html_active_icons);
   html_free_direction_icons_array (self, &self->html_passive_icons);
+
+  /* NOTE main_units_direction_names are used in
+     html_free_direction_icons_array */
+  free (self->main_units_direction_names);
 
   free_translation_cache (self->translation_cache);
 
@@ -446,6 +458,9 @@ html_free_converter (CONVERTER *self)
   free_strings_list (&self->special_unit_varieties);
 
   free (self->tree_to_build.list);
+
+  free_strings_list (&self->files_css_import_lines);
+  free_strings_list (&self->files_css_rule_lines);
 
   free_special_unit_info_list (&self->customized_special_unit_info);
 }

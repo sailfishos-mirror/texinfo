@@ -35,10 +35,9 @@
 #include "builtin_commands.h"
 #include "structure_list.h"
 /* for whitespace_chars read_flag_len
-   indices_info_index_by_name ultimate_index */
+   indices_info_index_by_name ultimate_index analyze_documentlanguage_argument */
 #include "utils.h"
-/* for parse_float_type add_to_float_record_list
-   analyze_documentlanguage_argument */
+/* for parse_float_type add_to_float_record_list */
 #include "floats.h"
 /* for parse_node_manual */
 #include "manipulate_tree.h"
