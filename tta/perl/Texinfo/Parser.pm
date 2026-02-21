@@ -36,7 +36,7 @@ BEGIN {
       "Texinfo::Parser",
       $nonXS_package,
       $shared_library_name,
-      "XSTexinfo::Parsetexi",
+      "Texinfo::ParserXS",
       ['texinfo', 'texinfoxs'],
   );
   if (!defined($shared_library_name)

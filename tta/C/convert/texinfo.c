@@ -364,13 +364,12 @@ txi_converter_format_defaults (const char *converted_format,
   return format_defaults;
 }
 
-/* ALTIMP parsetexi/Parsetexi.pm and Parsetexi.xs */
+/* ALTIMP Texinfo/ParserXS.pm and Parsetexi.xs */
 /* parser initialization, similar to calling Texinfo::Parser::parser in Perl.
    The implementation is different from Texinfo::ParserNonXS because here
    we need to convert options list to parser configuration function calls,
-   as is done in parsetexi/Parsetexi.pm with XS.  This is not needed in
-   ParserNonXS.pm.
-   The implementation is similar to parsetexi/Parsetexi.pm on purpose.
+   as is done in ParserXS.pm with XS.  This is not needed in ParserNonXS.pm.
+   The implementation is similar to ParserXS.pm on purpose.
    Also sets INCLUDE_DIRECTORIES minimally if not specified in options,
    FILE_PATH is only used in that case.
  */

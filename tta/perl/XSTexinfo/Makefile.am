@@ -104,10 +104,6 @@ EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
 ########################## Parsetexi XS parser
 
-converterdatadir = $(datadir)/$(CONVERTER)
-modulesdir = $(converterdatadir)/XSTexinfo
-dist_modules_DATA = Parsetexi.pm
-
 if USE_SHARED_TXI_LIBRARIES
 xs_LTLIBRARIES += Parsetexi.la
 endif

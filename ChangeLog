@@ -1,3 +1,11 @@
+2026-02-21 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/XSTexinfo/Makefile.am, tta/perl/Texinfo/Parser.pm (BEGIN),
+	tta/perl/Texinfo/ParserXS.pm: rename tta/perl/XSTexinfo/Parsetexi.pm
+	as ParserXS.pm and move to tta/perl/Texinfo/ to be consistent with
+	the other modules.
+
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Translations.pm (translate_string): switch to

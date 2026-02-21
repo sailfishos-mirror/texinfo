@@ -92,6 +92,7 @@ dist_modules_DATA = \
  Texinfo/OutputUnits.pm \
  Texinfo/Parser.pm \
  Texinfo/ParserNonXS.pm \
+ Texinfo/ParserXS.pm \
  Texinfo/Reader.pm \
  Texinfo/ReaderNonXS.pm \
  Texinfo/Report.pm \
