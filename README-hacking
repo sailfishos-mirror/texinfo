@@ -298,19 +298,28 @@ run all tests with valgrind:
 * XS modules memory leak check checking with valgrind
   Add line "use Perl::Destruct::Level level => 1;" to texi2any.pl
   when running 'valgrind --leak-check=full' to make perl clean it
-  its allocations.  Run e.g.
+  its allocations or set PERL_DESTRUCT_LEVEL=2 in the environment.
+  Run e.g.
       valgrind --suppressions=texi2any.supp --log-file=val.log \
                --leak-check=full \
         perl ../tta/perl/texi2any.pl ../doc/info-stnd.texi
   and other input files.
 
   Add line "use Perl::Destruct::Level level => 1;" to t/test_utils.pl
+  or set PERL_DESTRUCT_LEVEL=2 in the environment.
   Check tests with e.g.
     for f in t/*.t ; do valgrind --suppressions=../texi2any.supp \
                                  --log-file=val.log-${f#t/} \
                                  --leak-check=full \
           perl -w $f ; done
  (could take 1-2 hours to finish).  check log files one by one afterwards.
+
+  Set PERL_DESTRUCT_LEVEL=2 in the environment and check t/z_misc/*.t
+  tests with:
+    for f in t/z_misc/*.t ; do valgrind --suppressions=../texi2any.supp \
+                                 --log-file=val_misc.log-${f#t/z_misc/} \
+                                 --leak-check=full \
+          perl -w $f ; done
 
 Consider doing make check with autovivification turned off to find bugs
 and make sure that it is possible to turn off autovivification during
