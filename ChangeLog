@@ -1,5 +1,11 @@
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/configure.ac (AC_PROG_INSTALL, AC_PROG_MAKE_SET)
+	(AC_PROG_LN_S, AC_PROG_MKDIR_P): call those autoconf macros in
+	tta/configure.ac too.
+
+2026-02-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (install-exec-hook), tta/perl/Makefile.am
 	(install-exec-hook): cd to the directory where the link is done,
 	otherwise if LN_S is cp, the file copied is the file from the source

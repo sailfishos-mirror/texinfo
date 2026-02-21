@@ -65,6 +65,13 @@ AC_ARG_ENABLE([additional-checks],
 
 AM_CONDITIONAL([DISABLE_ADDITIONAL_CHECKS], [test "z$enable_additional_tests" = zno])
 
+dnl does not seems to be used directly, but it used by libtool
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+AC_PROG_LN_S
+AC_PROG_MKDIR_P
+
 AC_CANONICAL_HOST
 
 txi_DIFF_OPTIONS

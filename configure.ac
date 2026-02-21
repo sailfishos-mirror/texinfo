@@ -121,6 +121,7 @@ gl_INIT
 AM_MISSING_PROG(HELP2MAN, help2man)
 AM_MISSING_PROG(POD2MAN, pod2man)
 
+dnl does not seems to be used directly, but it used by libtool
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
