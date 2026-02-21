@@ -182,7 +182,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
           /* cast to drop const */
           encoded_lang = encode_string ((char *)documentlanguage,
                                         command_line_encoding,
-                                        &status, 0, &iconv_status);
+                                        &status, 0, ieh_skip, &iconv_status);
           if (!iconv_status)
             {
               non_perl_free (encoded_lang);

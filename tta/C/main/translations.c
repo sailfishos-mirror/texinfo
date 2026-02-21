@@ -423,7 +423,7 @@ new_lang_translation (const char *lang, const char *locale_encoding)
       /* encode_string allows a NULL encoding */
       /* cast to remove const */
       encoded_lang = encode_string ((char *)lang, locale_encoding,
-                                    &status, 0, &iconv_status);
+                                    &status, 0, ieh_skip, &iconv_status);
       if (iconv_status)
         {/* happens if the conversion to the locale encoding is not
             possible */

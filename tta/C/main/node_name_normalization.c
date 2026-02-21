@@ -381,7 +381,6 @@ unicode_to_transliterate (char *text, int external,
 {
   char *result;
   int status;
-  int iconv_status = 0;
 
   if (external)
     {
@@ -396,7 +395,7 @@ unicode_to_transliterate (char *text, int external,
      transliteration result, transliteration should only be used for
      internal identifiers. */
   result = encode_string (text, "us-ascii//TRANSLIT", &status, 0,
-                          &iconv_status);
+                          ieh_skip, 0);
 
   return result;
 }

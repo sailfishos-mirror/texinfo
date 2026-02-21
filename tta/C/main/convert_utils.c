@@ -483,7 +483,7 @@ convert_to_utf8_verbatiminclude (char *s,
   char *result;
   if (!conversion)
     return strdup (s);
-  result = encode_with_iconv (conversion->iconv, s, source_info, 0);
+  result = encode_with_iconv (conversion->iconv, s, source_info, ieh_error, 0);
   return result;
 }
 
@@ -507,7 +507,8 @@ encoded_input_file_name (const char *in_input_file_name_encoding,
                               global_information, input_file_encoding);
   int status;
 
-  result = encode_string (file_name, encoding, &status, source_info, 0);
+  result = encode_string (file_name, encoding, &status,
+                          source_info, ieh_error, 0);
 
   if (status)
     *file_name_encoding = strdup (encoding);
@@ -567,7 +568,8 @@ encoded_output_file_name (const char *output_file_name_encoding,
   else if (locale_encoding)
     encoding = locale_encoding;
 
-  result = encode_string (file_name, encoding, &status, source_info, 0);
+  result = encode_string (file_name, encoding, &status, source_info,
+                          ieh_error, 0);
 
   if (status)
     *file_name_encoding = strdup (encoding);

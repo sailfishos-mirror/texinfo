@@ -57,7 +57,7 @@
 #include "base_utils.h"
 /* for xvasprintf */
 #include "text.h"
-/* parse_file_path whitespace_chars encode_string xasprintf digit_chars
+/* parse_file_path whitespace_chars xasprintf digit_chars encode_with_iconv
    wipe_values locate_file_in_dirs */
 #include "utils.h"
 #include "errors.h"
@@ -718,7 +718,7 @@ write_to_file (char *output_text, FILE *file_fh,
                                    &output_conversions);
       if (conversion)
         result_text = encode_with_iconv (conversion->iconv,
-                                         output_text, 0, 0);
+                                         output_text, 0, ieh_error, 0);
     }
 
   if (!result_text)

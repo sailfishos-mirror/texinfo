@@ -1563,7 +1563,8 @@ html_process_css_file (CONVERTER *self, FILE *fh, char *filename,
       if (!conversion)
         line = strdup (input_line);
       else
-        line = encode_with_iconv (conversion->iconv, input_line, 0, 0);
+        line = encode_with_iconv (conversion->iconv, input_line, 0,
+                                  ieh_error, 0);
 
       free (input_line);
       line_nr ++;

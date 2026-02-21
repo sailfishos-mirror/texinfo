@@ -1,5 +1,22 @@
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
 
+	Avoid encoding error messages for error and warning messages
+
+	* tta/C/main/utils.h (enum iconv_error_handling), tta/C/main/utils.c
+	(encode_with_iconv): add error_handling for cases of bytes that cannot
+	be converted, to get either an error with a message (previous
+	default), no error and bytes skipped, or no error and a ? mark added
+	for each error.  Rename silent_status argument as iconv_status.
+
+	* tta/C/main/utils.c (encode_string): add error_handling argument.
+	Update callers.
+
+	* tta/C/main/errors.c (error_message_text), tta/C/main/txi_config.c
+	(GNUT_encode_message): use ieh_mark to get marks in the error messages
+	for bytes that cannot be converted and no encoding error messages.
+
+2026-02-21 Patrice Dumas  <pertusus@free.fr>
+
 	Fix memory leak and other memory issues found by valgrind
 
 	* tta/C/convert/format_html.c (mini_toc_internal): free text.

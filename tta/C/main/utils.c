@@ -536,14 +536,14 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
    to pass a status as reference, set to 0 if there was no error */
 char *
 encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
-                   int *silent_status)
+                   enum iconv_error_handling error_handling, int *iconv_status)
 {
   static TEXT t;
   ICONV_CONST char *inptr; size_t bytes_left;
   size_t iconv_ret;
 
-  if (silent_status)
-    *silent_status = 0;
+  if (iconv_status)
+    *iconv_status = 0;
 
   t.end = 0; /* reset internal TEXT buffer */
   inptr = s;
@@ -574,7 +574,7 @@ encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
           break;
         case EILSEQ:
         default:
-          if (! silent_status)
+          if (error_handling == ieh_error)
             {
               if (source_info)
                 fprintf (stderr, "%s:%d: C:encoding error at byte 0x%02x\n",
@@ -584,8 +584,13 @@ encode_with_iconv (iconv_t our_iconv, char *s, const SOURCE_INFO *source_info,
                 fprintf (stderr, "C:encoding error at byte 0x%02x\n",
                                  *(unsigned char *)inptr);
             }
-          else
-            *silent_status = 1;
+          else if (error_handling == ieh_mark)
+      /* NOTE this adds a ? for each erroneous byte and not each character */
+            text_append_n (&t, "?", 1);
+
+          if (iconv_status)
+            *iconv_status = 1;
+
           inptr++; bytes_left--;
           break;
         }
@@ -616,13 +621,15 @@ decode_string (char *input_string, const char *encoding, int *status,
 
   *status = 1;
 
-  result = encode_with_iconv (conversion->iconv, input_string, source_info, 0);
+  result = encode_with_iconv (conversion->iconv, input_string,
+                              source_info, ieh_error, 0);
   return result;
 }
 
 char *
 encode_string (char *input_string, const char *encoding, int *status,
-               const SOURCE_INFO *source_info, int *silent_status)
+               const SOURCE_INFO *source_info,
+               enum iconv_error_handling error_handling, int *iconv_status)
 {
   char *result;
   *status = 0;
@@ -641,7 +648,7 @@ encode_string (char *input_string, const char *encoding, int *status,
   *status = 1;
 
   result = encode_with_iconv (conversion->iconv, input_string, source_info,
-                              silent_status);
+                              error_handling, iconv_status);
   return result;
 }
 
