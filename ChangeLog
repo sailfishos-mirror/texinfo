@@ -1,5 +1,11 @@
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/tests/other/list-of-tests
+	(accented_lang_index_collation_documentlanguage_collation): set
+	MESSAGE_ENCODING=UTF-8 to have the same error messages for Perl and C.
+
+2026-02-21 Patrice Dumas  <pertusus@free.fr>
+
 	Avoid encoding error messages for error and warning messages
 
 	* tta/C/main/utils.h (enum iconv_error_handling), tta/C/main/utils.c

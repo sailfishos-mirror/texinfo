@@ -23,4 +23,4 @@ index_collation_test_collation_locale_sv index_collation_test.texi --plaintext -
 
 index_collation_test_documentlanguage_collation index_collation_test.texi --plaintext -c DOCUMENTLANGUAGE_COLLATION=1
 
-accented_lang_index_collation_documentlanguage_collation accented_lang_index_collation.texi --plaintext -c DOCUMENTLANGUAGE_COLLATION=1
+accented_lang_index_collation_documentlanguage_collation accented_lang_index_collation.texi --plaintext -c DOCUMENTLANGUAGE_COLLATION=1 -c MESSAGE_ENCODING=UTF-8
