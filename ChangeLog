@@ -1,5 +1,11 @@
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
 
+	Download country codes and regenerate related codes
+
+	* tta/maintain/regenerate_documentlanguages-loc.pl: update url. 
+
+2026-02-21 Patrice Dumas  <pertusus@free.fr>
+
 	* README-hacking: describe the possibility to set
 	PERL_DESTRUCT_LEVEL=2 in the environment.  Add an example of valgrind
 	call on t/z_misc/*.t tests.

@@ -40,7 +40,6 @@ our %language_codes = (
 'bej' => 1,
 'bem' => 1,
 'bg' => 1,
-'bh' => 1,
 'bho' => 1,
 'bi' => 1,
 'bik' => 1,

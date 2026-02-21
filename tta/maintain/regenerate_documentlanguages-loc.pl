@@ -13,8 +13,8 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# Calling that script for the tta directory for each release could be
-# a good idea.
+# Call that script from the tta directory for each release to keep
+# the lists updated.
 
 use strict;
 
@@ -27,11 +27,11 @@ use List::Util qw(first);
 use Text::CSV;
 
 my $dir = 'maintain/documentlanguage';
-system ("cd $dir && wget -N https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt");
+system("cd $dir && wget -N https://www.loc.gov/standards/iso639-2/ISO-639-2_utf-8.txt");
 # the ISO 3166-1 alpha-2 codes are not easily accessible from the ISO website, there is
 # an interface not a raw download (seems incredible, but true...).
-# Use the country code project list instead
-system ("cd $dir && wget -N https://raw.githubusercontent.com/datasets/country-codes/master/data/country-codes.csv");
+# Use the country code project data from https://github.com/datasets/country-codes
+system("cd $dir && wget -N https://raw.githubusercontent.com/datasets/country-codes/refs/heads/main/data/country-codes.csv");
 
 open(TXT, "$dir/ISO-639-2_utf-8.txt") or die "Open $dir/ISO-639-2_utf-8.txt: $!\n";
 binmode(TXT, ":utf8");

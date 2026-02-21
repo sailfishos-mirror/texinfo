@@ -1,4 +1,4 @@
-/* ANSI-C code produced by gperf version 3.1 */
+/* ANSI-C code produced by gperf version 3.3 */
 /* Command-line: gperf --output-file=C/main/txi_documentlanguage_regions.c -N txi_in_language_regions maintain/documentlanguage/regions.gperf  */
 /* Computed positions: -k'1-2' */
 
@@ -84,6 +84,7 @@ hash (register const char *str, register size_t len)
       474, 474, 474, 474, 474, 474, 474, 474, 474, 474,
       474
     };
+  (void) len;
   return asso_values[(unsigned char)str[1]] + asso_values[(unsigned char)str[0]+25];
 }
 
@@ -451,5 +452,5 @@ txi_in_language_regions (register const char *str, register size_t len)
             return s;
         }
     }
-  return 0;
+  return (const char *) 0;
 }
