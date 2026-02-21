@@ -406,7 +406,7 @@ $(srcdir)/Texinfo/HTMLDataCSS.pm: ../data/default_css_element_class_styles.csv $
 
 install-exec-hook:
 	makeinfo_f=`echo makeinfo | sed -e '$(transform)'`; rm -f $(DESTDIR)$(bindir)/$$makeinfo_f
-	-makeinfo_f=`echo makeinfo | sed -e '$(transform)'`; texi2any_f=`echo texi2any| sed -e '$(transform)'`; $(LN_S) $$texi2any_f $(DESTDIR)$(bindir)/$$makeinfo_f
+	-makeinfo_f=`echo makeinfo | sed -e '$(transform)'`; texi2any_f=`echo texi2any| sed -e '$(transform)'`; (cd $(DESTDIR)$(bindir)/ && $(LN_S) $$texi2any_f $$makeinfo_f)
 
 if T2A_TESTS
 TESTS = $(test_tap_files_generated_list)

@@ -660,7 +660,7 @@ texi2any_CFLAGS = $(ctexi2any_CFLAGS)
 if PREFER_C_TEXI2ANY
 install-exec-hook:
 	makeinfo_f=`echo makeinfo$(EXEEXT) | sed -e '$(transform)'`; rm -f $(DESTDIR)$(bindir)/$$makeinfo_f
-	-makeinfo_f=`echo makeinfo$(EXEEXT) | sed -e '$(transform)'`; texi2any_f=`echo texi2any$(EXEEXT)| sed -e '$(transform)'`; $(LN_S) $$texi2any_f $(DESTDIR)$(bindir)/$$makeinfo_f
+	-makeinfo_f=`echo makeinfo$(EXEEXT) | sed -e '$(transform)'`; texi2any_f=`echo texi2any$(EXEEXT)| sed -e '$(transform)'`; (cd $(DESTDIR)$(bindir)/ && $(LN_S) $$texi2any_f $$makeinfo_f)
 endif
 
 ################################# C only static main program demonstrator
