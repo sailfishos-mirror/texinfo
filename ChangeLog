@@ -1,5 +1,9 @@
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
 
+	Update tta/C/ppport.h
+
+2026-02-21 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/tests/other/list-of-tests
 	(accented_lang_index_collation_documentlanguage_collation): set
 	MESSAGE_ENCODING=UTF-8 to have the same error messages for Perl and C.
