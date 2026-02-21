@@ -115,6 +115,8 @@ diff -u -r $mdir/backforth_plaintexi/ $mdir/backforth_checktexi/ > $mdir/plain_t
 
 # To find XML parsing errors
 # grep --color 'parser error' check_back_xml_forth_texi/backforth_logs/*
+# To find encoding errors
+# grep --color 'Invalid bytes in character encoding' check_back_xml_forth_texi/backforth_logs/*
 #
 # If document encoding is US-ASCII, it is interpreted in Texinfo as being
 # possibly ISO-8859-1 for backward compatibility as it was the default

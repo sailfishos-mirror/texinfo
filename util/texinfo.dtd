@@ -18,7 +18,7 @@
 <!-- * ENTITIES * -->
 
 <!-- Meta-information -->
-<!-- copying | titlepage could be there too -->
+<!-- copying, titlepage and other title page elements could be there too -->
 <!ENTITY % metainformation "setfilename | settitle | dircategory | direntry
                             | hyphenation
                             | documentdescription
@@ -123,11 +123,12 @@
 <!ENTITY % section.all "%section.level1; | %section.level2; | %section.level3;
                         | %section.level4;">
 
-<!ENTITY % toplevelonly.content "%toc; | copying | titlepage
-                             | printindex | listoffloats">
+<!ENTITY % toplevelonly.content "%toc; | copying | publication
+                            | titlepage | documentinfo
+                            | maketitle | printindex | listoffloats">
 
 <!-- toplevel content, not in copying nor footnote -->
-<!-- FIXME can also contain @* &linebreak; which is CDATA-->
+<!-- FIXME can also contain @* &linebreak; which is CDATA -->
 <!ENTITY % main.content "%block; | %toplevelonly.content; | node">
 
 <!ENTITY % section.level0.content "(%main.content;
@@ -267,19 +268,19 @@
 <!ATTLIST dircategory
           %spacesattr;>
 
-<!ELEMENT set    (#PCDATA | %Spaces.elements;)>
+<!ELEMENT set    (#PCDATA | %Spaces.elements;)*>
 <!ATTLIST set
           %spacesattr;
           name CDATA #REQUIRED>
-<!ELEMENT clear  (#PCDATA | %Spaces.elements;)>
+<!ELEMENT clear  (#PCDATA | %Spaces.elements;)*>
 <!ATTLIST clear
           %spacesattr;
           name CDATA #REQUIRED>
-<!ELEMENT unmacro  (#PCDATA | %Spaces.elements;)>
+<!ELEMENT unmacro  (#PCDATA | %Spaces.elements;)*>
 <!ATTLIST unmacro
           %spacesattr;
           name CDATA #REQUIRED>
-<!ELEMENT clickstyle  (#PCDATA | %Spaces.elements;)>
+<!ELEMENT clickstyle  (#PCDATA | %Spaces.elements;)*>
 <!ATTLIST clickstyle
           %spacesattr;
           command  NMTOKEN #REQUIRED>
@@ -475,10 +476,16 @@
 <!ATTLIST copying
           %spacesblockattr;>
 <!ELEMENT insertcopying EMPTY>
+<!ELEMENT publication   (%block;)*>
+<!ATTLIST publication
+          %spacesblockattr;>
 
 <!ELEMENT titlepage  (%intitlepage.cmds; | %block;)*>
 <!ATTLIST titlepage
           %spacesblockattr;>
+<!ELEMENT maketitle EMPTY>
+<!ATTLIST maketitle
+          %spacesattr;>
 <!ELEMENT author     (#PCDATA | %Inline.line;)*>
 <!ATTLIST author
           %spacesattr;>
@@ -488,6 +495,9 @@
 <!ELEMENT subtitle   (#PCDATA | %Inline.line;)*>
 <!ATTLIST subtitle
           %spacesattr;>
+<!ELEMENT documentinfo  (%intitlepage.cmds; | %block;)*>
+<!ATTLIST documentinfo
+          %spacesblockattr;>
 
 <!-- Formatting -->
 <!ELEMENT sp EMPTY>

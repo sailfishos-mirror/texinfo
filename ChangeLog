@@ -1,5 +1,12 @@
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
 
+	* util/texinfo.dtd (set, clear, unmacro, clickstyle): fix mixed
+	content specification.
+
+	* util/texinfo.dtd (publication, maketitle, documentinfo): add.
+
+2026-02-21 Patrice Dumas  <pertusus@free.fr>
+
 	Update tta/C/ppport.h
 
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
