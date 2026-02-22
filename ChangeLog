@@ -1,6 +1,25 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/ManipulateTree.pm,
+	tta/perl/Texinfo/ManipulateTreeNonXS.pm,
+	tta/perl/Texinfo/OutputUnits.pm, tta/perl/Texinfo/OutputUnitsNonXS.pm,
+	tta/perl/XSTexinfo/Makefile.am (xs_LTLIBRARIES, *_OutputUnitsXS_*)
+	(*_ManipulateTreeXS_la_),
+	tta/perl/XSTexinfo/parser_document/ManipulateTreeXS.xs,
+	tta/perl/XSTexinfo/parser_document/OutputUnitsXS.xs: add
+	OutputUnitsNonXS.pm based on OutputUnits.pm with the code also present
+	in the XS interface.  Similarly, add ManipulateTreeNonXS.pm based on
+	ManipulateTree.pm with the code also present in the XS interface.
+	Split StructuringTransfoXS.xs in ManipulateTreeXS.xs and
+	OutputUnitsXS.xs.
+	Add loading of XS module in OutputUnits.pm and ManipulateTree.pm,
+	and keep there the functions not in the XS interfaces.
+	Remove StructuringTransfoXS.xs and perl/Texinfo/StructTransfXS.pm.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Makefile.am (dist_modules_DATA),
 	tta/perl/Texinfo/Transformations.pm,
 	tta/perl/Texinfo/TransformationsNonXS.pm
 	tta/perl/XSTexinfo/parser_document/TransformationsXS.xs,

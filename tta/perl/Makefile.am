@@ -87,16 +87,17 @@ dist_modules_DATA = \
  Texinfo/Indices.pm \
  Texinfo/IndicesXS.pm \
  Texinfo/ManipulateTree.pm \
+ Texinfo/ManipulateTreeNonXS.pm \
  Texinfo/MiscXS.pm \
  Texinfo/Options.pm \
  Texinfo/OutputUnits.pm \
+ Texinfo/OutputUnitsNonXS.pm \
  Texinfo/Parser.pm \
  Texinfo/ParserNonXS.pm \
  Texinfo/ParserXS.pm \
  Texinfo/Reader.pm \
  Texinfo/ReaderNonXS.pm \
  Texinfo/Report.pm \
- Texinfo/StructTransfXS.pm \
  Texinfo/Structuring.pm \
  Texinfo/StructuringNonXS.pm \
  Texinfo/Tests.pm \

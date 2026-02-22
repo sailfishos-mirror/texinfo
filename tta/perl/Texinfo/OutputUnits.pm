@@ -1,4 +1,5 @@
-# OutputUnits.pm: setup and manage Texinfo document output units
+# OutputUnits.pm: load Texinfo document output units modules and functions not
+#                 in XS interface
 #
 # Copyright 2010-2026 Free Software Foundation, Inc.
 #
@@ -16,8 +17,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
-#
-# ALTIMP perl/XSTexinfo/parser_document/StructuringTransfoXS.xs
 
 package Texinfo::OutputUnits;
 
@@ -43,8 +42,6 @@ use File::Basename;
 eval { require Devel::Refcount; Devel::Refcount->import(); };
 eval { require Devel::FindRef; Devel::FindRef->import(); };
 
-use Texinfo::StructTransfXS;
-
 use Texinfo::XSLoader;
 
 use Texinfo::Commands;
@@ -69,49 +66,18 @@ our @EXPORT_OK = qw(
 
 our $VERSION = '7.3dev';
 
-my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
-
-my %XS_overrides = (
-  "Texinfo::OutputUnits::unsplit"
-    => "Texinfo::StructTransfXS::unsplit",
-  "Texinfo::OutputUnits::do_units_directions_pages"
-    => "Texinfo::StructTransfXS::do_units_directions_pages",
-  "Texinfo::OutputUnits::print_output_units_tree_details"
-    => "Texinfo::StructTransfXS::print_output_units_tree_details",
-);
-
-# used in conversion only, and should only be loaded with XS converters
-my %XS_convert_overrides = (
-  # Not useful for HTML as functions, as the calling functions are
-  # already overriden.
-  # Could be readded for other converters than HTML with C implementation.
-  # It should be avoided, though, it is preferrable to avoid mixing Perl and C
-  # and to override the functions calling those functions instead.
-  #  "Texinfo::OutputUnits::split_by_node"
-  #    => "Texinfo::StructTransfXS::split_by_node");
-  #  "Texinfo::OutputUnits::split_by_section"
-  #    => "Texinfo::StructTransfXS::split_by_section");
-  #  "Texinfo::OutputUnits::split_pages"
-  #    => "Texinfo::StructTransfXS::split_pages"
-);
-
-our $module_loaded = 0;
-sub import {
-  if (!$module_loaded) {
-    if ($XS_structuring) {
-      for my $sub (keys %XS_overrides) {
-        Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
-      }
-    }
-    #if ($XS_convert) {
-    #  for my $sub (keys %XS_convert_overrides) {
-    #    Texinfo::XSLoader::override ($sub, $XS_convert_overrides{$sub});
-    #  }
-    #}
-    $module_loaded = 1;
+BEGIN {
+  my $shared_library_name = "OutputUnitsXS";
+  if (!Texinfo::XSLoader::XS_structuring_enabled()) {
+    undef $shared_library_name;
   }
-  # The usual import method
-  goto &Exporter::import;
+  my $loaded_package = Texinfo::XSLoader::init (
+    "Texinfo::OutputUnits",
+    "Texinfo::OutputUnitsNonXS",
+    $shared_library_name,
+    undef,
+    ['texinfo', 'texinfoxs'],
+  );
 }
 
 # Return a list of output units.  Each output unit starts with a @node as its
@@ -256,27 +222,6 @@ sub split_by_section($) {
     $content->{'associated_unit'} = $current;
   }
   return $output_units;
-}
-
-# remove the association with document units
-# NOTE not documented, but is internally used for tests only.
-sub unsplit($) {
-  my $document = shift;
-
-  my $root = $document->tree();
-  if (!exists($root->{'type'}) or $root->{'type'} ne 'document_root'
-      or !exists($root->{'contents'})) {
-    return 0;
-  }
-
-  my $unsplit_needed = 0;
-  foreach my $content (@{$root->{'contents'}}) {
-    if (exists($content->{'associated_unit'})) {
-      delete $content->{'associated_unit'};
-      $unsplit_needed = 1;
-    }
-  }
-  return $unsplit_needed;
 }
 
 # Remove cycles, such that Perl can remove the remaining data,
@@ -704,36 +649,6 @@ sub units_file_directions($) {
 
 
 
-# used in tests, not documented on purpose, mainly to allow for overriding
-# with XS.
-# $UNITS_SPLIT_TYPE: 1 if units are split at node, 0 if units are split
-#                    at sectioning commands.  No output units if undef.
-sub do_units_directions_pages($$;$$) {
-  my ($document, $units_split_type, $split_pages, $debug) = @_;
-
-  return undef if (!defined($document) or !defined($units_split_type));
-
-  my $output_units;
-  if ($units_split_type == 1) {
-    $output_units = split_by_node($document);
-  } elsif ($units_split_type == 0) {
-    $output_units = split_by_section($document);
-  }
-  my $nodes_list = $document->nodes_list();
-  if (defined($output_units)) {
-    my $identifier_target = $document->labels_information();
-    units_directions($identifier_target, $nodes_list,
-                     $output_units, $debug);
-  }
-  if (defined($split_pages)) {
-    split_pages($output_units, $nodes_list, $split_pages);
-  }
-
-  return $output_units;
-}
-
-
-
 # used in debug messages
 sub output_unit_texi($) {
   my $output_unit = shift;
@@ -918,23 +833,6 @@ sub print_output_units_details($$;$$) {
   }
 
   return ($current_nr, $result);
-}
-
-sub print_output_units_tree_details($$;$$) {
-  my ($output_units, $tree, $fname_encoding, $use_filename) = @_;
-
-  my $current_nr = 0;
-  #$current_nr
-  #  = Texinfo::ManipulateTree::set_element_tree_numbers($tree, $current_nr);
-
-  my $output_unit_result;
-  ($current_nr, $output_unit_result)
-    = print_output_units_details($output_units, $current_nr,
-                                 $fname_encoding, $use_filename);
-
-  #Texinfo::ManipulateTree::remove_element_tree_numbers($tree);
-
-  return $output_unit_result;
 }
 
 # Used for debugging and in test suite, but not generally useful. Not

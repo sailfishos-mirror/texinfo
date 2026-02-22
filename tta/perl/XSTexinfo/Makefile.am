@@ -170,22 +170,39 @@ EXTRA_DIST += parser_document/TransformationsXS.xs
 TransformationsXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo $(XSLIBS_CPPFLAGS)
 TransformationsXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 
-########################## StructuringTransfo XS
+########################## OutputUnits XS
 
 if USE_SHARED_TXI_LIBRARIES
-xs_LTLIBRARIES += StructuringTransfoXS.la
+xs_LTLIBRARIES += OutputUnitsXS.la
 endif
 
-nodist_StructuringTransfoXS_la_SOURCES = \
-                    parser_document/StructuringTransfoXS.c
+nodist_OutputUnitsXS_la_SOURCES = \
+                    parser_document/OutputUnitsXS.c
 CLEANFILES += \
-                    parser_document/StructuringTransfoXS.c
+                    parser_document/OutputUnitsXS.c
 
-EXTRA_DIST += parser_document/StructuringTransfoXS.xs
+EXTRA_DIST += parser_document/OutputUnitsXS.xs
 
 # locate include files under out-of-source builds.
-StructuringTransfoXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo $(XSLIBS_CPPFLAGS)
-StructuringTransfoXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+OutputUnitsXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo $(XSLIBS_CPPFLAGS)
+OutputUnitsXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+
+########################## ManipulateTree XS
+
+if USE_SHARED_TXI_LIBRARIES
+xs_LTLIBRARIES += ManipulateTreeXS.la
+endif
+
+nodist_ManipulateTreeXS_la_SOURCES = \
+                    parser_document/ManipulateTreeXS.c
+CLEANFILES += \
+                    parser_document/ManipulateTreeXS.c
+
+EXTRA_DIST += parser_document/ManipulateTreeXS.xs
+
+# locate include files under out-of-source builds.
+ManipulateTreeXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo $(XSLIBS_CPPFLAGS)
+ManipulateTreeXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 
 ########################## TreeElement XS
 
