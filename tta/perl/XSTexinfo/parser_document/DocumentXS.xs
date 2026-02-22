@@ -42,6 +42,7 @@
 #include "translations.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
+#include "call_document_perl_functions.h"
 
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
@@ -136,19 +137,32 @@ build_tree (SV *tree_in, ...)
     OUTPUT:
         RETVAL
 
-# remove_references_sv
 void
-destroy_texinfo_document (SV *document_in, ...)
+destroy_document (SV *document_in, SV *remove_references_sv=0)
       PROTOTYPE: $;$
       PREINIT:
         DOCUMENT *document = 0;
       CODE:
-        /* it is ok not to found a document if there is no
-           document descriptor */
-        document = get_sv_document_document (document_in, 0);
+        document = get_sv_document_document (document_in, "destroy_document");
         if (document)
           {
-            int check_counts = (document->options->TEST.o.integer > 1);
+            /* document->options NULL may happen if document is destroyed
+               before registering document options.
+               This does not happen in current codes, but could make sense,
+               so we account for this possibility.
+             */
+            int check_counts = (document->options
+                                && document->options->TEST.o.integer > 1);
+            int remove_references = 0;
+
+            if (remove_references_sv && SvOK (remove_references_sv))
+              remove_references = SvIV (remove_references_sv);
+
+            /* call Perl function to remove Perl data in Texinfo::Document.
+             */
+            call_document_remove_document_references (document,
+                                                      remove_references);
+
             ERROR_MESSAGE_LIST *error_messages = 0;
             /* Not useful, as it is done by converters already
             release_output_units_lists_built (&document->output_units_lists);

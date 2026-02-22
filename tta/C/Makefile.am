@@ -227,13 +227,15 @@ noinst_LTLIBRARIES += libcallperl_libtexinfo.la
 # parts of the libtexinfo code and need to be compiled with Perl headers
 libcallperl_libtexinfo_la_SOURCES = \
 		      main/api_to_perl.h \
-		      main/call_perl_function.h
+		      main/call_perl_function.h \
+		      main/call_document_perl_functions.h
 
 if ! DISABLE_XS
 libcallperl_libtexinfo_la_SOURCES += \
 		      ppport.h \
 		      main/api_to_perl.c \
-		      main/call_perl_function.c
+		      main/call_perl_function.c \
+		      main/call_document_perl_functions.c
 else
 libcallperl_libtexinfo_la_SOURCES += \
 		      main/replace_perl_api_call.c
@@ -482,8 +484,6 @@ libcallperl_libtexinfo_convert_la_SOURCES = \
                        convert/call_conversion_perl.h
 if ! DISABLE_XS
 libcallperl_libtexinfo_convert_la_SOURCES += \
-                       main/call_document_perl_functions.h \
-                       main/call_document_perl_functions.c \
                        convert/build_html_perl_state.h \
                        convert/build_html_perl_state.c \
                        convert/call_html_perl_function.c \

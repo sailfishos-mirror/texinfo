@@ -1,5 +1,16 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (libcallperl_libtexinfo_la_SOURCES)
+	(libcallperl_libtexinfo_convert_la_SOURCES): move
+	call_document_perl_functions.c to libtexinfo.
+
+	* tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs (destroy_document):
+	call call_document_remove_document_references in destroy_document in
+	DocumentXS.xs.  Remove DocumentXS.pm.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (dist_modules_DATA),
 	tta/perl/Texinfo/Document.pm (BEGIN),
 	tta/perl/Texinfo/DocumentNonXS.pm, tta/perl/Texinfo/DocumentXS.pm

@@ -72,7 +72,7 @@ BEGIN {
     "Texinfo::Document",
     $nonXS_package,
     $shared_library_name,
-    "Texinfo::DocumentXS",
+    undef,
     ['texinfo', 'texinfoxs'],
   );
   if (defined($shared_library_name)

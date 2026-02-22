@@ -83,7 +83,6 @@ dist_modules_DATA = \
  Texinfo/DebugTree.pm \
  Texinfo/Document.pm \
  Texinfo/DocumentNonXS.pm \
- Texinfo/DocumentXS.pm \
  Texinfo/Documentlanguages.pm \
  Texinfo/Indices.pm \
  Texinfo/IndicesXS.pm \

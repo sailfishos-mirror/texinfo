@@ -37,12 +37,6 @@ call_object_converter_perl_release (const CONVERTER *self)
 {
 }
 
-void
-call_document_remove_document_references (DOCUMENT *document,
-                                          int remove_references)
-{
-}
-
 OUTPUT_TEXT_FILES_INFO *
 call_converter_output (CONVERTER *self, DOCUMENT *document)
 {

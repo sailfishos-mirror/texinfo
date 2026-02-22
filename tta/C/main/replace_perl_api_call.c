@@ -116,3 +116,11 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
 {
   return 0;
 }
+
+/* call_document_perl_functions.h */
+void
+call_document_remove_document_references (DOCUMENT *document,
+                                          int remove_references)
+{
+}
+
