@@ -1,5 +1,18 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (dist_convertmodules_DATA),
+	tta/perl/Texinfo/Convert/Converter.pm,
+	tta/perl/Texinfo/Convert/ConverterNonXS.pm,
+	tta/perl/XSTexinfo/Makefile.am (xs_LTLIBRARIES)
+	(*ConvertConverterXS_la_*), tta/perl/XSTexinfo/convert/ConvertXS.xs,
+	tta/perl/XSTexinfo/convert/ConvertConverterXS.xs: add
+	ConverterNonXS.pm based on Converter.pm with the code also present in
+	the XS interface.  Split ConvertConverterXS.xs out of ConvertXS.xs with
+	the Texinfo::Convert::Converter XS interface code.  Add loading of XS
+	module in Converter.pm.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (dist_modules_DATA),
 	tta/perl/Texinfo/ManipulateTree.pm,
 	tta/perl/Texinfo/ManipulateTreeNonXS.pm,

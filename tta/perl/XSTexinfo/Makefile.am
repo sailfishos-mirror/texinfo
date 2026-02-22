@@ -284,6 +284,24 @@ ConvertToTexinfoXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main $(XSLIBS_CPPFLAGS)
 ConvertToTexinfoXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 ConvertToTexinfoXS_la_LDFLAGS = $(XSLIBS_LDFLAGS)
 
+########################## ConvertConverterXS
+
+if USE_SHARED_TXI_LIBRARIES
+xs_LTLIBRARIES += ConvertConverterXS.la
+endif
+
+nodist_ConvertConverterXS_la_SOURCES = convert/ConvertConverterXS.c
+CLEANFILES += convert/ConvertConverterXS.c
+
+ConvertConverterXS_la_SOURCES =
+
+EXTRA_DIST += convert/ConvertConverterXS.xs
+
+# To locate include files under out-of-source builds.
+ConvertConverterXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/structuring_transfo -I$(txi_libs_srcdir)/convert -I$(srcdir)/convert $(XSLIBS_CPPFLAGS)
+ConvertConverterXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+ConvertConverterXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(EUIDACCESS_LIBGEN)
+
 ########################## ConvertXS
 
 if USE_SHARED_TXI_LIBRARIES

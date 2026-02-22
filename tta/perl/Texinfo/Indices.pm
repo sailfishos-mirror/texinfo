@@ -140,7 +140,7 @@ sub _sort_index_entries($$) {
   return $res;
 }
 
-# Only called from converters
+# Only called from converters.  Has an XS override
 sub setup_index_entry_keys_formatting($) {
   my $customization_information = shift;
 
