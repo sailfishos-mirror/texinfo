@@ -1,5 +1,18 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/StructuringNonXS.pm, tta/perl/Texinfo/Structuring.pm,
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs,
+	tta/perl/XSTexinfo/parser_document/StructuringXS.xs,
+	tta/perl/XSTexinfo/Makefile.am (xs_LTLIBRARIES, *_StructuringXS_la_*):
+	add StructuringNonXS.pm based on Structuring.pm code, keeping only
+	code also in the XS interface.  Separate StructuringXS.xs from
+	StructuringTransfoXS.xs with the structuring interface only.  Add
+	loading of XS in Structuring.pm and keep code not in the XS interface
+	too.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (libcallperl_libtexinfo_la_SOURCES)
 	(libcallperl_libtexinfo_convert_la_SOURCES): move
 	call_document_perl_functions.c to libtexinfo.

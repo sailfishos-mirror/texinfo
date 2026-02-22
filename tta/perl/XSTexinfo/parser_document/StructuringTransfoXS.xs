@@ -14,7 +14,6 @@
    along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 /* ALTIMP perl/Texinfo/Transformations.pm */
-/* ALTIMP perl/Texinfo/Structuring.pm */
 /* ALTIMP perl/Texinfo/ManipulateTree.pm */
 /* ALTIMP perl/Texinfo/OutputUnits.pm */
 
@@ -37,7 +36,6 @@
 #include "manipulate_tree.h"
 #include "document.h"
 #include "transformations.h"
-#include "structuring.h"
 #include "output_unit.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
@@ -155,78 +153,6 @@ reference_to_arg_in_document (SV *document_in)
           reference_to_arg_in_document (document);
 
 void
-associate_internal_references (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in,
-                                     "associate_internal_references");
-        if (document)
-          associate_internal_references (document);
-
-
-void
-sectioning_structure (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "sectioning_structure");
-        if (document)
-          {
-            sectioning_structure (document);
-          }
-
-void
-warn_non_empty_parts (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in,
-                                             "warn_non_empty_parts");
-        if (document)
-          warn_non_empty_parts (document);
-
-void
-complete_node_tree_with_menus (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in,
-                                      "complete_node_tree_with_menus");
-        if (document)
-          complete_node_tree_with_menus (document);
-
-void
-check_node_tree_menu_structure (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in,
-                                      "check_node_tree_menu_structure");
-        if (document)
-          check_node_tree_menu_structure (document);
-
-void
-check_nodes_are_referenced (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in,
-                                         "check_nodes_are_referenced");
-        if (document)
-          check_nodes_are_referenced (document);
-
-void
-number_floats (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in, "number_floats");
-        if (document)
-          number_floats (document);
-
-void
 complete_tree_nodes_menus_in_document (SV *document_in, SV *use_sections_in=0)
     PREINIT:
         DOCUMENT *document = 0;
@@ -284,17 +210,6 @@ insert_nodes_for_sectioning_commands (SV *document_in)
             ELEMENT_LIST *added_nodes
               = insert_nodes_for_sectioning_commands (document);
             destroy_list (added_nodes);
-          }
-
-void
-construct_nodes_tree (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-    CODE:
-        document = get_sv_document_document (document_in, "nodes_tree");
-        if (document)
-          {
-            construct_nodes_tree (document);
           }
 
 # Next functions are provided to be able to test the C code.  The functions
@@ -548,114 +463,4 @@ print_output_units_tree_details (SV *output_units_in, SV *tree_in, SV *fname_enc
           RETVAL = newSV (0);
     OUTPUT:
         RETVAL
-
-SV *
-print_sections_list (SV *document_in)
-   PREINIT:
-        const DOCUMENT *document = 0;
-        SV *result_sv = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "print_sections_list");
-        if (document)
-          {
-            char *result = print_sections_list (document);
-            result_sv = newSVpv_utf8 (result, 0);
-            free (result);
-          }
-        if (result_sv)
-          RETVAL = result_sv;
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
-SV *
-print_nodes_list (SV *document_in)
-   PREINIT:
-        const DOCUMENT *document = 0;
-        SV *result_sv = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "print_nodes_list");
-        if (document)
-          {
-            char *result = print_nodes_list (document);
-            result_sv = newSVpv_utf8 (result, 0);
-            free (result);
-          }
-        if (result_sv)
-          RETVAL = result_sv;
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
-SV *
-print_headings_list (SV *document_in)
-   PREINIT:
-        const DOCUMENT *document = 0;
-        SV *result_sv = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "print_headings_list");
-        if (document)
-          {
-            char *result = print_headings_list (document);
-            result_sv = newSVpv_utf8 (result, 0);
-            free (result);
-          }
-        if (result_sv)
-          RETVAL = result_sv;
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
-SV *
-print_sectioning_root (SV *document_in)
-   PREINIT:
-        const DOCUMENT *document = 0;
-        SV *result_sv = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "print_sectioning_root");
-        if (document)
-          {
-            char *result = print_sectioning_root (document);
-            result_sv = newSVpv_utf8 (result, 0);
-            free (result);
-          }
-        if (result_sv)
-          RETVAL = result_sv;
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
-SV *
-print_document_listoffloats (SV *document_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-     CODE:
-        document = get_sv_document_document (document_in,
-                                             "print_document_listoffloats");
-        if (document)
-          {
-            char *listoffloats_str = print_document_listoffloats (document);
-            if (listoffloats_str)
-              {
-                RETVAL = newSVpv_utf8 (listoffloats_str, 0);
-                free (listoffloats_str);
-              }
-            else
-              RETVAL = newSV (0);
-          }
-        else
-          RETVAL = newSV (0);
-
-    OUTPUT:
-        RETVAL
-
-
 
