@@ -101,6 +101,7 @@ dist_modules_DATA = \
  Texinfo/StructuringNonXS.pm \
  Texinfo/Tests.pm \
  Texinfo/Transformations.pm \
+ Texinfo/TransformationsNonXS.pm \
  Texinfo/Translations.pm \
  Texinfo/TreeElement.pm \
  Texinfo/TreeElementNonXS.pm \

@@ -364,6 +364,7 @@ tta/perl/XSTexinfo/parser_document/DocumentXS.c
 tta/perl/XSTexinfo/parser_document/IndicesXS.c
 tta/perl/XSTexinfo/parser_document/Parsetexi.c
 tta/perl/XSTexinfo/parser_document/StructuringXS.c
+tta/perl/XSTexinfo/parser_document/TransformationsXS.c
 tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.c
 tta/perl/XSTexinfo/parser_document/.libs
 tta/perl/XSTexinfo/parser_document/*.lo

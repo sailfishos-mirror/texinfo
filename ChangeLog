@@ -1,6 +1,21 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/Transformations.pm,
+	tta/perl/Texinfo/TransformationsNonXS.pm
+	tta/perl/XSTexinfo/parser_document/TransformationsXS.xs,
+	tta/perl/XSTexinfo/Makefile.am (xs_LTLIBRARIES)
+	(*_TransformationsXS_la_*),
+	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs: add
+	TransformationsNonXS.pm based on Transformations.pm with the code also
+	present in the XS interface.  Separate TransformationsXS.xs from
+	StructuringTransfoXS.xs with the transformations interface only.  Add
+	loading of XS modules in Transformations.pm and keep the code not in
+	the XS interface in that file too.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Makefile.am (dist_modules_DATA),
 	tta/perl/Texinfo/StructuringNonXS.pm, tta/perl/Texinfo/Structuring.pm,
 	tta/perl/XSTexinfo/parser_document/StructuringTransfoXS.xs,
 	tta/perl/XSTexinfo/parser_document/StructuringXS.xs,

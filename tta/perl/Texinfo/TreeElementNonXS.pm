@@ -16,7 +16,6 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # This module has an implementation as XS extension:
-# ALTIMP TreeElement.pm
 # ALTIMP XSTexinfo/reader_element/TreeElement.xs
 # In C, the tree element structure fields are accessed directly, there are
 # no equivalent functions.
