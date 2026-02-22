@@ -64,7 +64,7 @@ use Texinfo::Common;
 # modules do not setup data such that their order of loading is not
 # important, as long as they load after their dependencies.
 
-use Texinfo::DocumentXS;
+use Texinfo::Document;
 
 use Texinfo::Convert::Unicode;
 
@@ -75,35 +75,19 @@ use Texinfo::ManipulateTree;
 
 our $VERSION = '7.3dev';
 
-my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
-
 # we want a reliable way to switch locale for the document
 # strings translations so we don't use the system gettext.
 Locale::Messages->select_package ('gettext_pp');
-
-our $module_loaded = 0;
-sub import {
-  if (!$module_loaded) {
-    if ($XS_parser) {
-      Texinfo::XSLoader::override(
-        "Texinfo::Translations::_XS_configure",
-        "Texinfo::DocumentXS::configure_output_strings_translations");
-    }
-    $module_loaded = 1;
-  }
-  # The usual import method
-  goto &Exporter::import;
-}
 
 # i18n
 
 my $messages_textdomain = 'texinfo';
 my $strings_textdomain = 'texinfo_document';
 
-sub _XS_configure($;$$) {
-  # do nothing if there is no XS code loaded
-}
-
+# TODO document when both XS and NonXS need to be setup?
+# Do that in Document module(s)?
+# TODO remove second argument?  In that case remove the equivalent in
+# C code too.  Check if it could be useful for SWIG interface, maybe?
 sub configure($;$) {
   my ($localesdir, $in_strings_textdomain) = @_;
 
@@ -113,7 +97,8 @@ sub configure($;$) {
   if (defined($localesdir)) {
     Locale::Messages::bindtextdomain($strings_textdomain, $localesdir);
     # set the directory for the XS code too
-    _XS_configure($localesdir, $strings_textdomain);
+    Texinfo::Document::configure_output_strings_translations($localesdir,
+                                                      $strings_textdomain);
   } else {
     warn 'WARNING: string textdomain directory undefined'."\n";
   }

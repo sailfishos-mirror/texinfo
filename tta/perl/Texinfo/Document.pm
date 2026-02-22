@@ -13,14 +13,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# This package provides a view of a parsed Texinfo document.  The
-# instantiated objects are also used to carry information for the
-# XS modules, mainly to be able to find the document information
+# Package loader, functions common to XS and NonXS implementations
+# and functions only called from NonXS implementations and not defined
+# as XS interface.
+#
+# If XS is used the instantiated objects are used to carry information
+# for the XS modules, mainly to be able to find the document information
 # in memory.
 # Also note that the initialization of the C library is done by
 # this module XS code when XS extensions are used.
 #
-# ALTIMP perl/XSTexinfo/parser_document/DocumentXS.xs
 # ALTIMP C/main/document.c
 
 package Texinfo::Document;
@@ -35,8 +37,6 @@ use Carp qw(cluck confess);
 
 eval { require Devel::Cycle; Devel::Cycle->import(); };
 
-use Texinfo::DocumentXS;
-
 use Texinfo::XSLoader;
 
 use Texinfo::TreeElement;
@@ -49,77 +49,36 @@ use Texinfo::ManipulateTree;
 
 our $VERSION = '7.3dev';
 
-# There is a full coverage by the C implementation.
-# Relevant XS interfaces are all implemented.
-# See comments before methods definitions for an explanation of why some
-# methods have no XS override.
+# Used to detect that the C library needs to be initialized when the
+# Texinfo::Document Perl module is loaded but the Document XS extension is not
+# loaded.  Only used when loading Perl modules from C through the SWIG
+# Perl interface.
+our $XS_package;
 
-my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
-
-my %XS_overrides = (
-  "Texinfo::Document::_XS_destroy_document"
-    => "Texinfo::DocumentXS::destroy_document",
-  "Texinfo::Document::set_document_global_info",
-    => "Texinfo::DocumentXS::set_document_global_info",
-  "Texinfo::Document::errors"
-    => "Texinfo::DocumentXS::document_errors",
-  "Texinfo::Document::parser_errors"
-    => "Texinfo::DocumentXS::document_parser_errors",
-  "Texinfo::Document::build_tree"
-    => "Texinfo::DocumentXS::build_tree",
-  "Texinfo::Document::tree"
-    => "Texinfo::DocumentXS::document_tree",
-  "Texinfo::Document::register_document_options"
-    => "Texinfo::DocumentXS::register_document_options",
-  "Texinfo::Document::get_conf",
-    => "Texinfo::DocumentXS::document_get_conf",
-  "Texinfo::Document::global_information"
-    => "Texinfo::DocumentXS::document_global_information",
-  "Texinfo::Document::indices_information"
-    => "Texinfo::DocumentXS::document_indices_information",
-  "Texinfo::Document::global_commands_information"
-    => "Texinfo::DocumentXS::document_global_commands_information",
-  "Texinfo::Document::labels_information"
-    => "Texinfo::DocumentXS::document_labels_information",
-  "Texinfo::Document::labels_list"
-    => "Texinfo::DocumentXS::document_labels_list",
-  "Texinfo::Document::nodes_list"
-    => "Texinfo::DocumentXS::document_nodes_list",
-  "Texinfo::Document::sections_list"
-    => "Texinfo::DocumentXS::document_sections_list",
-  "Texinfo::Document::sectioning_root"
-    => "Texinfo::DocumentXS::document_sectioning_root",
-  "Texinfo::Document::headings_list"
-    => "Texinfo::DocumentXS::document_headings_list",
-  "Texinfo::Document::floats_information"
-    => "Texinfo::DocumentXS::document_floats_information",
-  "Texinfo::Document::internal_references_information"
-    => "Texinfo::DocumentXS::document_internal_references_information",
-
-  "Texinfo::Document::setup_indices_sort_strings"
-    => "Texinfo::DocumentXS::setup_indices_sort_strings",
-  "Texinfo::Document::indices_sort_strings"
-    => "Texinfo::DocumentXS::indices_sort_strings",
-
-  "Texinfo::Document::print_document_indices_information"
-    => "Texinfo::DocumentXS::print_document_indices_information",
-  "Texinfo::Document::print_document_indices_sort_strings"
-    => "Texinfo::DocumentXS::print_document_indices_sort_strings",
-);
-
-
-our $module_loaded = 0;
-sub import {
-  if (!$module_loaded) {
-    if ($XS_parser) {
-      foreach my $sub (keys(%XS_overrides)) {
-        Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
-      }
-    }
-    $module_loaded = 1;
+# NOTE We do not verify that the XS/NonXS for Parser and XS/NonXS for
+# Document are consistent.  They should be, because the conditions to
+# get XS to load are the same in both modules.  Some segfault/undefined
+# value in Perl happens if one is XS, the other is NonXS, which can happen
+# during development when refactoring the interfaces.
+# TODO Maybe some formal check could be added?
+BEGIN {
+  my $shared_library_name = "DocumentXS";
+  if (!Texinfo::XSLoader::XS_parser_enabled()) {
+    undef $shared_library_name;
   }
-  # The usual import method
-  goto &Exporter::import;
+  my $nonXS_package = "Texinfo::DocumentNonXS";
+
+  my $loaded_package = Texinfo::XSLoader::init (
+    "Texinfo::Document",
+    $nonXS_package,
+    $shared_library_name,
+    "Texinfo::DocumentXS",
+    ['texinfo', 'texinfoxs'],
+  );
+  if (defined($shared_library_name)
+      and $loaded_package ne $nonXS_package) {
+    $XS_package = $loaded_package;
+  }
 }
 
 # No XS override, only called from Texinfo::ParserNonXS.
@@ -155,104 +114,33 @@ sub register_tree($$) {
   $document->{'tree'} = $tree;
 }
 
-sub set_document_global_info($$$) {
-  my ($document, $key, $value) = @_;
+
 
-  $document->{'global_info'}->{$key} = $value;
+# Errors and warnings handling
+
+sub document_line_warn($$$;$) {
+  my ($document, $text, $error_location_info, $continuation) = @_;
+
+  $continuation = 0 if (!defined($continuation));
+
+  my $error_messages = $document->{'error_messages'};
+  my $debug = $document->get_conf('DEBUG');
+
+  push @$error_messages, Texinfo::Report::line_warn($text,
+                           $error_location_info, $continuation, $debug);
 }
 
-# $HANDLER_ONLY is only relevant in XS.
-sub tree($;$) {
-  my ($self, $handler_only) = @_;
+sub document_line_error($$$;$) {
+  my ($document, $text, $error_location_info, $continuation) = @_;
 
-  return $self->{'tree'};
-}
+  $continuation = 0 if !defined($continuation);
 
-# return indices information
-sub indices_information($) {
-  my $self = shift;
+  my $error_messages = $document->{'error_messages'};
+  my $debug = $document->get_conf('DEBUG');
 
-  return $self->{'indices'};
-}
-
-sub floats_information($) {
-  my $self = shift;
-
-  return $self->{'listoffloats_list'};
-}
-
-sub internal_references_information($) {
-  my $self = shift;
-
-  return $self->{'internal_references'};
-}
-
-sub global_commands_information($) {
-  my $self = shift;
-
-  return $self->{'commands_info'};
-}
-
-sub global_information($) {
-  my $self = shift;
-
-  return $self->{'global_info'};
-}
-
-sub labels_information($) {
-  my $self = shift;
-
-  return $self->{'identifiers_target'};
-}
-
-sub labels_list($) {
-  my $self = shift;
-
-  return $self->{'labels_list'};
-}
-
-sub nodes_list($) {
-  my $self = shift;
-
-  return $self->{'nodes_list'};
-}
-
-sub sections_list($) {
-  my $self = shift;
-
-  return $self->{'sections_list'};
-}
-
-sub sectioning_root($) {
-  my $self = shift;
-
-  return $self->{'sectioning_root'};
-}
-
-sub headings_list($) {
-  my $self = shift;
-
-  return $self->{'headings_list'};
-}
-
-# Useful for options used in structuring/tree transformations.
-sub register_document_options($$) {
-  my ($self, $options) = @_;
-
-  $self->{'options'} = $options;
-}
-
-sub get_conf($$) {
-  my ($self, $var) = @_;
-
-  if (exists($self->{'options'})) {
-    return $self->{'options'}->{$var};
-  }
-
-  # This may happen if a tree/document is manipulated without having
-  # any configuration set.  This is or was the case for pod2texi.
-  # This is allowed.
-  return undef;
+  push @$error_messages,
+          Texinfo::Report::line_error($text, $error_location_info,
+                                      $continuation, $debug);
 }
 
 
@@ -415,76 +303,6 @@ sub remove_document_references($;$) {
   }
 }
 
-# For XS only
-sub _XS_destroy_document($;$) {
-  my ($document, $remove_references) = @_;
-}
-
-sub destroy_document($;$) {
-  my ($document, $remove_references) = @_;
-
-  remove_document_references($document, $remove_references);
-
-  _XS_destroy_document($document, $remove_references);
-}
-
-# this method does nothing, but the XS override rebuilds the Perl
-# tree based on XS data.
-sub build_tree($;$) {
-  my ($tree, $no_store) = @_;
-
-  return $tree;
-}
-
-
-
-# Errors and warnings handling
-
-sub document_line_warn($$$;$) {
-  my ($document, $text, $error_location_info, $continuation) = @_;
-
-  $continuation = 0 if (!defined($continuation));
-
-  my $error_messages = $document->{'error_messages'};
-  my $debug = $document->get_conf('DEBUG');
-
-  push @$error_messages, Texinfo::Report::line_warn($text,
-                           $error_location_info, $continuation, $debug);
-}
-
-sub document_line_error($$$;$) {
-  my ($document, $text, $error_location_info, $continuation) = @_;
-
-  $continuation = 0 if !defined($continuation);
-
-  my $error_messages = $document->{'error_messages'};
-  my $debug = $document->get_conf('DEBUG');
-
-  push @$error_messages,
-          Texinfo::Report::line_error($text, $error_location_info,
-                                      $continuation, $debug);
-}
-
-sub parser_errors($) {
-  my $document = shift;
-
-  my $errors_output = [@{$document->{'parser_error_messages'}}];
-
-  $document->{'parser_error_messages'} = [];
-
-  return $errors_output;
-}
-
-# The XS override pass C error messages to the document
-# error_messages and remove error messages in C.
-sub errors($) {
-  my $document = shift;
-
-  my $errors_output = [splice(@{$document->{'error_messages'}})];
-
-  return $errors_output;
-}
-
 
 
 # Indices
@@ -507,34 +325,6 @@ sub merged_indices($) {
     }
   }
   return $self->{'merged_indices'};
-}
-
-# calls Texinfo::Indices::setup_index_entries_sort_strings and caches the
-# result.
-# In general, it is not needed to call that function directly,
-# as it is called by Texinfo::Indices::sort_indices_by_*.  It could
-# be called in advance if errors need to be collected early.
-sub setup_indices_sort_strings($$) {
-  my ($document, $converter) = @_;
-
-  if (!exists($document->{'index_entries_sort_strings'})) {
-    my $indices_sort_strings
-      = Texinfo::Indices::setup_index_entries_sort_strings($document,
-              $converter, $document->merged_indices(),
-              $document->indices_information(), 0);
-    $document->{'index_entries_sort_strings'} = $indices_sort_strings;
-  }
-}
-
-# index_entries_sort_strings accessor.  A different function from
-# setup_indices_sort_strings such that there is no necessity to build C data
-# to Perl when setup_indices_sort_strings is called.  It is thus possible
-# to delay building Perl data until indices_sort_strings function is called.
-sub indices_sort_strings($$) {
-  my ($document, $converter) = @_;
-
-  setup_indices_sort_strings($document, $converter);
-  return $document->{'index_entries_sort_strings'};
 }
 
 # calls Texinfo::Indices::sort_indices_by_letter and caches the result.
@@ -601,72 +391,6 @@ sub sorted_indices_by_index($$$$) {
                        $use_unicode_collation, $locale_lang);
   }
   return $document->{'sorted_indices_by_index'}->{$lang_key};
-}
-
-
-
-# wrapper on print_indices_information that can be used for XS overriding.
-# Used in tests only.
-sub print_document_indices_information($) {
-  my $document = shift;
-
-  my $indices_info_text;
-
-  if (defined($document)) {
-    my $indices_information = $document->indices_information();
-    if (defined($indices_information)) {
-      $indices_info_text
-        = Texinfo::Indices::print_indices_information($indices_information);
-    }
-  }
-
-  return $indices_info_text;
-}
-
-# for tests, to be used for overriding
-sub print_document_indices_sort_strings($) {
-  my $document = shift;
-
-  # read from C data if needed
-  $document->indices_information();
-
-  my $merged_index_entries = $document->merged_indices();
-
-  # use merged indices here as there are only indices with
-  # entries in that data
-  return undef unless (defined($merged_index_entries));
-
-  my $use_unicode_collation
-    = $document->get_conf('USE_UNICODE_COLLATION');
-  my $locale_lang;
-  if (!(defined($use_unicode_collation) and !$use_unicode_collation)) {
-    $locale_lang
-     = $document->get_conf('COLLATION_LANGUAGE');
-  }
-
-  my $indices_sort_strings = indices_sort_strings($document, undef);
-
-  my $index_entries_sort_strings
-   = Texinfo::Indices::format_index_entries_sort_strings(
-                                                     $indices_sort_strings);
-
-  my $sorted_index_entries
-       = sorted_indices_by_index($document, undef,
-                               $use_unicode_collation, $locale_lang);
-
-  my $idx_sort_strings_str = '';
-  foreach my $index_name (sort(keys(%$sorted_index_entries))) {
-    # index entries sort strings sorted in the order of the index entries
-    my $index_entries = $sorted_index_entries->{$index_name};
-    if (scalar(@{$index_entries})) {
-      $idx_sort_strings_str .= "${index_name}:\n";
-      foreach my $index_entry (@{$index_entries}) {
-        my $sort_string = $index_entries_sort_strings->{$index_entry};
-        $idx_sort_strings_str .= " ${sort_string}\n";
-      }
-    }
-  }
-  return $idx_sort_strings_str;
 }
 
 

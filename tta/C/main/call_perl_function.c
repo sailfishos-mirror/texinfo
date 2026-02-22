@@ -322,8 +322,8 @@ call_modulepath_init (int updirs, const char *perl_modules_dir,
    but simplified, as we want to initialize only the modules called from
    libtexinfo. */
 /* return -1 (or croak) if the modules could not be loaded.
-   return 0 if DocumentXS XS extension was not loaded.
-   return 1 if DocumentXS XS extension was loaded.
+   return 0 if Document XS extension was not loaded.
+   return 1 if Document XS extension was loaded.
  */
 int
 call_eval_load_texinfo_modules (int texinfo_uninstalled,
@@ -366,8 +366,8 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
         "use Texinfo::Indices;\n";
   eval_pv (str, TRUE);
 
-  /* should be false if DocumentXS was not loaded */
-  document_loader_sv = get_sv ("Texinfo::DocumentXS::XS_package", 0);
+  /* should be false if Document XS was not loaded */
+  document_loader_sv = get_sv ("Texinfo::Document::XS_package", 0);
 
   /* TODO add more from load_txi_modules.pl when there is code to test?
      For example loading messages for error messages translation and

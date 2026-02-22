@@ -1,3 +1,21 @@
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/Document.pm (BEGIN),
+	tta/perl/Texinfo/DocumentNonXS.pm, tta/perl/Texinfo/DocumentXS.pm
+	(destroy_document), tta/perl/XSTexinfo/parser_document/DocumentXS.xs
+	(MODULE, PACKAGE): move code loading XS to Document.pm, move non XS
+	interface code to the new DocumentNonXS.pm code file.  Use
+	DocumentXS.pm for the only Perl function needed by the XS interface.
+	Update XS interface function names.
+
+	* tta/perl/Texinfo/Translations.pm (configure): simply call
+	Texinfo::Document::configure_output_strings_translations, remove XS
+	override.
+
+	* tta/C/main/call_perl_function.c (call_eval_load_texinfo_modules):
+	update for change in Perl modules.
+
 2026-02-21 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Makefile.am (dist_modules_DATA),

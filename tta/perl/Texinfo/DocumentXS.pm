@@ -15,32 +15,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-# ALTIMP Document.pm
+# Perl functions associated to the Document XS interface.
+#
+# ALTIMP DocumentNonXS.pm
 
-package Texinfo::DocumentXS;
+package Texinfo::Document;
 
 use strict;
 use warnings;
 
 our $VERSION = '7.3dev';
 
-use Texinfo::XSLoader;
+# Not directly overriden as we want to destroy Perl data too and thus
+# call remove_document_references.
+# TODO destroy_texinfo_document can be called from XS, so maybe an
+# override is possible?
+sub destroy_document($;$) {
+  my ($document, $remove_references) = @_;
 
-# Used from C/XS to detect that the C library needs to be initialized when the
-# Texinfo::Document Perl module is loaded but the Document XS extension is not
-# loaded.  Used when loading Perl modules from C, not used from Perl.
-our $XS_package;
+  remove_document_references($document, $remove_references);
 
-BEGIN {
-  if (Texinfo::XSLoader::XS_parser_enabled()) {
-    $XS_package = Texinfo::XSLoader::init (
-      "Texinfo::DocumentXS",
-      undef,
-      "DocumentXS",
-      undef,
-      ['texinfo', 'texinfoxs'],
-    );
-  }
+  destroy_texinfo_document($document, $remove_references);
 }
 
 1;
