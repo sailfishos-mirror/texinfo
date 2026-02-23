@@ -84,6 +84,16 @@ PROTOTYPES: ENABLE
 
 # HTML
 
+# HTML C data initialization independent of customization and of Perl
+# default variables.
+int
+init (SV *, SV *, SV *, SV *)
+      CODE:
+        html_format_setup ();
+        RETVAL = 1;
+    OUTPUT:
+        RETVAL
+
 # this function is called with a class name or a converter as first
 # argument.  In Perl code, the first argument is not used in the functions,
 # it is only used to locate the method to call through inheritance.
@@ -159,9 +169,6 @@ converter_defaults (SV *converter_in, SV *conf_sv=0)
         RETVAL
 
 void
-html_format_setup ()
-
-void
 html_converter_initialize_beginning (SV *converter_in)
       PREINIT:
         CONVERTER *self;
@@ -175,7 +182,7 @@ html_converter_initialize_beginning (SV *converter_in)
           }
 
 void
-html_converter_get_customization_sv (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_code_types, SV *customized_pre_class_types, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
+XS_html_converter_get_customization (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_code_types, SV *customized_pre_class_types, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
       PREINIT:
         CONVERTER *self;
       CODE:

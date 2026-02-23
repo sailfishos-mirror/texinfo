@@ -329,6 +329,9 @@ html_format_setup (void)
     CM_example, CM_display, CM_lisp, 0
   };
 
+  /* depends on xml formatting data setup in this function */
+  setup_converter_generic ();
+
   html_default_options_setup ();
 
   set_css_selector_style_list_size (&default_css_element_class_styles,

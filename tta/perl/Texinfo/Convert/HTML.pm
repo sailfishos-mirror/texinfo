@@ -93,6 +93,7 @@ use Texinfo::Structuring;
 use Texinfo::OutputUnits;
 # for index_entry_first_letter_text_or_command
 use Texinfo::Indices;
+
 use Texinfo::Convert::Converter;
 
 # used to convert Texinfo to LaTeX math in @math and @displaymath
@@ -118,15 +119,12 @@ my %XS_overrides = (
 );
 
 my %XS_conversion_overrides = (
-  "Texinfo::Convert::HTML::_XS_format_setup"
-   => "Texinfo::Convert::ConvertXS::html_format_setup",
-
   "Texinfo::Convert::HTML::converter_defaults"
    => "Texinfo::Convert::ConvertXS::converter_defaults",
-  "Texinfo::Convert::HTML::_XS_html_converter_initialize_beginning"
+  "Texinfo::Convert::HTML::html_converter_initialize_beginning"
    => "Texinfo::Convert::ConvertXS::html_converter_initialize_beginning",
-  "Texinfo::Convert::HTML::_XS_html_converter_get_customization"
-   => "Texinfo::Convert::ConvertXS::html_converter_get_customization_sv",
+  "Texinfo::Convert::HTML::XS_html_converter_get_customization"
+   => "Texinfo::Convert::ConvertXS::XS_html_converter_get_customization",
 
   "Texinfo::Convert::HTML::output"
    => "Texinfo::Convert::ConvertXS::html_output",
@@ -312,11 +310,6 @@ my %XS_conversion_overrides = (
   # => "Texinfo::Convert::ConvertXS::html_convert_tree",
 );
 
-# HTML C data initialization independent of customization and of Perl
-# default variables.
-sub _XS_format_setup() {
-}
-
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
@@ -328,8 +321,6 @@ sub import {
       foreach my $sub (keys %XS_conversion_overrides) {
         Texinfo::XSLoader::override ($sub, $XS_conversion_overrides{$sub});
       }
-      # initialize HTML C data
-      _XS_format_setup();
     }
 
     $module_loaded = 1;
@@ -8852,10 +8843,48 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-sub _XS_html_converter_initialize_beginning($) {
+sub html_converter_initialize_beginning($) {
+  my $self = shift;
+
+  # used in initialization.  Set if undef
+  if (!defined($self->get_conf('FORMAT_MENU'))) {
+    $self->force_conf('FORMAT_MENU', '');
+  }
+
+  # NOTE we reset silently if the split specification is not one known.
+  # The main program warns if the specific command line option value is
+  # not known.  We could add a warning here to catch mistakes in init
+  # files.  Wait for user reports.
+  my $split = $self->get_conf('SPLIT');
+  if ($split and $split ne 'chapter'
+      and $split ne 'section'
+      and $split ne 'node') {
+    $self->force_conf('SPLIT', 'node');
+  }
+
+  my $max_header_level = $self->get_conf('MAX_HEADER_LEVEL');
+  if (!defined($max_header_level)) {
+    $self->force_conf('MAX_HEADER_LEVEL', $defaults{'MAX_HEADER_LEVEL'});
+  } elsif ($max_header_level < 1) {
+    $self->force_conf('MAX_HEADER_LEVEL', 1);
+  }
+
+  # For CONTENTS_OUTPUT_LOCATION
+  # should lead to contents not output, but if not, it is not an issue,
+  # the way to set contents to be output or not should be through the
+  # contents and shortcontents @-commands and customization options.
+  foreach my $conf ('CONTENTS_OUTPUT_LOCATION', 'INDEX_ENTRY_COLON',
+                    'MENU_ENTRY_COLON') {
+    if (!defined($self->get_conf($conf))) {
+      $self->force_conf($conf, '');
+    }
+  }
+
+  _load_htmlxref_files($self);
+  _prepare_css($self);
 }
 
-sub _XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$) {
+sub XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$) {
 }
 
 # this allows to get some debugging output for the file without setting
@@ -8866,46 +8895,7 @@ sub converter_initialize($) {
   my $self = shift;
 
   # beginning of initialization done either in Perl or XS
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-    _XS_html_converter_initialize_beginning($self);
-  } else {
-    # used in initialization.  Set if undef
-    if (!defined($self->get_conf('FORMAT_MENU'))) {
-      $self->force_conf('FORMAT_MENU', '');
-    }
-
-    # NOTE we reset silently if the split specification is not one known.
-    # The main program warns if the specific command line option value is
-    # not known.  We could add a warning here to catch mistakes in init
-    # files.  Wait for user reports.
-    my $split = $self->get_conf('SPLIT');
-    if ($split and $split ne 'chapter'
-        and $split ne 'section'
-        and $split ne 'node') {
-      $self->force_conf('SPLIT', 'node');
-    }
-
-    my $max_header_level = $self->get_conf('MAX_HEADER_LEVEL');
-    if (!defined($max_header_level)) {
-      $self->force_conf('MAX_HEADER_LEVEL', $defaults{'MAX_HEADER_LEVEL'});
-    } elsif ($max_header_level < 1) {
-      $self->force_conf('MAX_HEADER_LEVEL', 1);
-    }
-
-    # For CONTENTS_OUTPUT_LOCATION
-    # should lead to contents not output, but if not, it is not an issue,
-    # the way to set contents to be output or not should be through the
-    # contents and shortcontents @-commands and customization options.
-    foreach my $conf ('CONTENTS_OUTPUT_LOCATION', 'INDEX_ENTRY_COLON',
-                      'MENU_ENTRY_COLON') {
-      if (!defined($self->get_conf($conf))) {
-        $self->force_conf($conf, '');
-      }
-    }
-
-    _load_htmlxref_files($self);
-    _prepare_css($self);
-  }
+  html_converter_initialize_beginning($self);
 
   $self->{'output_units_conversion'} = {};
   my $customized_output_units_conversion
@@ -9315,10 +9305,7 @@ sub converter_initialize($) {
   $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
 
 
-  # XS parser initialization
-  if ($self->{'converter_descriptor'} and $XS_convert) {
-
-    _XS_html_converter_get_customization($self,
+  XS_html_converter_get_customization($self,
                              \%default_formatting_references,
                              \%default_css_string_formatting_references,
                              \%default_commands_open,
@@ -9338,7 +9325,6 @@ sub converter_initialize($) {
                              $customized_special_unit_info,
                              $customized_direction_strings
                             );
-  }
 
   return $self;
 }

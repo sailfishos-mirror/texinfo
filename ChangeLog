@@ -1,5 +1,37 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/converter.c (setup_converter_generic_done)
+	(setup_converter_generic), tta/C/convert/html_prepare_converter.c
+	(html_format_setup): have html_format_setup call
+	setup_converter_generic_done as it depends on some xml conversion data
+	having been set.  Add setup_converter_generic_done to avoid running
+	setup_converter_generic code twice.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (%XS_conversion_overrides, import),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs (init): call html_format_setup
+	in init in ConvertXS.xs.  Remove html_format_setup.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (%XS_conversion_overrides)
+	(html_converter_initialize_beginning)
+	(XS_html_converter_get_customization),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs
+	(XS_html_converter_get_customization): rename
+	_XS_html_converter_initialize_beginning as
+	html_converter_initialize_beginning and
+	_XS_html_converter_get_customization and
+	html_converter_get_customization_sv as
+	XS_html_converter_get_customization.
+
+	* tta/perl/Texinfo/Convert/HTML.pm
+	(html_converter_initialize_beginning, converter_initialize): do not
+	use a dynamic check of converter_descriptor presence before
+	html_converter_initialize_beginning and converter_initialize calls, it
+	should always set and we do not do it for any other function.  Move
+	Perl code called where html_converter_initialize_beginning was to the
+	function.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (dist_convertmodules_DATA),
 	tta/perl/Texinfo/Convert/Text.pm (BEGIN),
 	tta/perl/Texinfo/Convert/TextNonXS.pm,
