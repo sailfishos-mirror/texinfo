@@ -127,183 +127,183 @@ my %XS_conversion_overrides = (
    => "Texinfo::Convert::ConvertXS::XS_html_converter_get_customization",
 
   "Texinfo::Convert::HTML::output"
-   => "Texinfo::Convert::ConvertXS::html_output",
+   => "Texinfo::Convert::ConvertXS::output",
   "Texinfo::Convert::HTML::convert"
-   => "Texinfo::Convert::ConvertXS::html_convert",
+   => "Texinfo::Convert::ConvertXS::convert",
 
   # Not used by output or convert.  May be called on a converter when
   # output nor convert are used.  Happens in tests.
   "Texinfo::Convert::HTML::conversion_initialization"
-   => "Texinfo::Convert::ConvertXS::html_conversion_initialization",
+   => "Texinfo::Convert::ConvertXS::conversion_initialization",
 
   "Texinfo::Convert::HTML::output_internal_links"
-    => "Texinfo::Convert::ConvertXS::html_output_internal_links",
+    => "Texinfo::Convert::ConvertXS::output_internal_links",
 
   "Texinfo::Convert::HTML::command_id"
-   => "Texinfo::Convert::ConvertXS::html_command_id",
+   => "Texinfo::Convert::ConvertXS::command_id",
   "Texinfo::Convert::HTML::command_contents_target"
-   => "Texinfo::Convert::ConvertXS::html_command_contents_target",
+   => "Texinfo::Convert::ConvertXS::command_contents_target",
   "Texinfo::Convert::HTML::footnote_location_target"
-   => "Texinfo::Convert::ConvertXS::html_footnote_location_target",
+   => "Texinfo::Convert::ConvertXS::footnote_location_target",
   "Texinfo::Convert::HTML::footnote_location_href"
-   => "Texinfo::Convert::ConvertXS::html_footnote_location_href",
+   => "Texinfo::Convert::ConvertXS::footnote_location_href",
   "Texinfo::Convert::HTML::command_filename"
-   => "Texinfo::Convert::ConvertXS::html_command_filename",
+   => "Texinfo::Convert::ConvertXS::command_filename",
   "Texinfo::Convert::HTML::command_root_element_command"
-   => "Texinfo::Convert::ConvertXS::html_command_root_element_command",
+   => "Texinfo::Convert::ConvertXS::command_root_element_command",
   "Texinfo::Convert::HTML::command_node"
-   => "Texinfo::Convert::ConvertXS::html_command_node",
+   => "Texinfo::Convert::ConvertXS::command_node",
   "Texinfo::Convert::HTML::_internal_command_href"
-   => "Texinfo::Convert::ConvertXS::html_internal_command_href",
+   => "Texinfo::Convert::ConvertXS::_internal_command_href",
   "Texinfo::Convert::HTML::command_contents_href"
-   => "Texinfo::Convert::ConvertXS::html_command_contents_href",
+   => "Texinfo::Convert::ConvertXS::command_contents_href",
   "Texinfo::Convert::HTML::_internal_command_text"
-   => "Texinfo::Convert::ConvertXS::html_internal_command_text",
+   => "Texinfo::Convert::ConvertXS::_internal_command_text",
   "Texinfo::Convert::HTML::_internal_command_name"
-   => "Texinfo::Convert::ConvertXS::html_internal_command_name",
+   => "Texinfo::Convert::ConvertXS::_internal_command_name",
   "Texinfo::Convert::HTML::command_description"
-   => "Texinfo::Convert::ConvertXS::html_command_description",
+   => "Texinfo::Convert::ConvertXS::command_description",
   "Texinfo::Convert::HTML::special_unit_info_text",
-   => "Texinfo::Convert::ConvertXS::html_special_unit_info_text",
+   => "Texinfo::Convert::ConvertXS::special_unit_info_text",
   "Texinfo::Convert::HTML::global_direction_unit"
-   => "Texinfo::Convert::ConvertXS::html_global_direction_unit",
+   => "Texinfo::Convert::ConvertXS::global_direction_unit",
   "Texinfo::Convert::HTML::global_direction_text"
-   => "Texinfo::Convert::ConvertXS::html_global_direction_text",
+   => "Texinfo::Convert::ConvertXS::global_direction_text",
 
   "Texinfo::Convert::HTML::_XS_set_shared_conversion_state"
-   => "Texinfo::Convert::ConvertXS::html_set_shared_conversion_state",
+   => "Texinfo::Convert::ConvertXS::_XS_set_shared_conversion_state",
   "Texinfo::Convert::HTML::_XS_get_shared_conversion_state"
-   => "Texinfo::Convert::ConvertXS::html_get_shared_conversion_state",
+   => "Texinfo::Convert::ConvertXS::_XS_get_shared_conversion_state",
 
   "Texinfo::Convert::HTML::get_info"
-   => "Texinfo::Convert::ConvertXS::html_get_info",
+   => "Texinfo::Convert::ConvertXS::get_info",
 
   # Following functions are sometimes called from converting functions,
   # but mainly from within calls of convert_tree called from
   # converting functions.  The make sure that the formatting contexts
   # accessed and modified are only the formatting contexts in C data.
   "Texinfo::Convert::HTML::_open_command_update_context"
-   => "Texinfo::Convert::ConvertXS::html_open_command_update_context",
+   => "Texinfo::Convert::ConvertXS::open_command_update_context",
   "Texinfo::Convert::HTML::_convert_command_update_context",
-   => "Texinfo::Convert::ConvertXS::html_convert_command_update_context",
+   => "Texinfo::Convert::ConvertXS::convert_command_update_context",
   "Texinfo::Convert::HTML::_open_type_update_context",
-   => "Texinfo::Convert::ConvertXS::html_open_type_update_context",
+   => "Texinfo::Convert::ConvertXS::open_type_update_context",
   "Texinfo::Convert::HTML::_convert_type_update_context"
-   => "Texinfo::Convert::ConvertXS::html_convert_type_update_context",
+   => "Texinfo::Convert::ConvertXS::convert_type_update_context",
   "Texinfo::Convert::HTML::_new_document_context"
    => "Texinfo::Convert::ConvertXS::html_new_document_context",
   "Texinfo::Convert::HTML::_pop_document_context"
    => "Texinfo::Convert::ConvertXS::html_pop_document_context",
   "Texinfo::Convert::HTML::_set_code_context"
-   => "Texinfo::Convert::ConvertXS::html_set_code_context",
+   => "Texinfo::Convert::ConvertXS::_set_code_context",
   "Texinfo::Convert::HTML::_pop_code_context"
-   => "Texinfo::Convert::ConvertXS::html_pop_code_context",
+   => "Texinfo::Convert::ConvertXS::_pop_code_context",
   "Texinfo::Convert::HTML::_set_string_context"
-   => "Texinfo::Convert::ConvertXS::html_set_string_context",
+   => "Texinfo::Convert::ConvertXS::_set_string_context",
   "Texinfo::Convert::HTML::_unset_string_context"
-   => "Texinfo::Convert::ConvertXS::html_unset_string_context",
+   => "Texinfo::Convert::ConvertXS::_unset_string_context",
   "Texinfo::Convert::HTML::_set_raw_context"
-   => "Texinfo::Convert::ConvertXS::html_set_raw_context",
+   => "Texinfo::Convert::ConvertXS::_set_raw_context",
   "Texinfo::Convert::HTML::_unset_raw_context"
-   => "Texinfo::Convert::ConvertXS::html_unset_raw_context",
+   => "Texinfo::Convert::ConvertXS::_unset_raw_context",
   "Texinfo::Convert::HTML::_set_multiple_conversions"
-   => "Texinfo::Convert::ConvertXS::html_set_multiple_conversions",
+   => "Texinfo::Convert::ConvertXS::_set_multiple_conversions",
   "Texinfo::Convert::HTML::_unset_multiple_conversions"
-   => "Texinfo::Convert::ConvertXS::html_unset_multiple_conversions",
+   => "Texinfo::Convert::ConvertXS::_unset_multiple_conversions",
 
   "Texinfo::Convert::HTML::_debug_print_html_contexts"
-   => "Texinfo::Convert::ConvertXS::html_debug_print_html_contexts",
+   => "Texinfo::Convert::ConvertXS::_debug_print_html_contexts",
 
   "Texinfo::Convert::HTML::in_math"
-   => "Texinfo::Convert::ConvertXS::html_in_math",
+   => "Texinfo::Convert::ConvertXS::in_math",
   "Texinfo::Convert::HTML::in_preformatted_context"
-   => "Texinfo::Convert::ConvertXS::html_in_preformatted_context",
+   => "Texinfo::Convert::ConvertXS::in_preformatted_context",
   "Texinfo::Convert::HTML::inside_preformatted"
-   => "Texinfo::Convert::ConvertXS::html_inside_preformatted",
+   => "Texinfo::Convert::ConvertXS::inside_preformatted",
   "Texinfo::Convert::HTML::in_upper_case"
-   => "Texinfo::Convert::ConvertXS::html_in_upper_case",
+   => "Texinfo::Convert::ConvertXS::in_upper_case",
   "Texinfo::Convert::HTML::in_non_breakable_space"
-   => "Texinfo::Convert::ConvertXS::html_in_non_breakable_space",
+   => "Texinfo::Convert::ConvertXS::in_non_breakable_space",
   "Texinfo::Convert::HTML::in_space_protected"
-   => "Texinfo::Convert::ConvertXS::html_in_space_protected",
+   => "Texinfo::Convert::ConvertXS::in_space_protected",
   "Texinfo::Convert::HTML::in_code"
-   => "Texinfo::Convert::ConvertXS::html_in_code",
+   => "Texinfo::Convert::ConvertXS::in_code",
   "Texinfo::Convert::HTML::in_string"
-   => "Texinfo::Convert::ConvertXS::html_in_string",
+   => "Texinfo::Convert::ConvertXS::in_string",
   "Texinfo::Convert::HTML::in_verbatim"
-   => "Texinfo::Convert::ConvertXS::html_in_verbatim",
+   => "Texinfo::Convert::ConvertXS::in_verbatim",
   "Texinfo::Convert::HTML::in_raw"
-   => "Texinfo::Convert::ConvertXS::html_in_raw",
+   => "Texinfo::Convert::ConvertXS::in_raw",
   "Texinfo::Convert::HTML::in_multiple_conversions"
-   => "Texinfo::Convert::ConvertXS::html_in_multiple_conversions",
+   => "Texinfo::Convert::ConvertXS::in_multiple_conversions",
   "Texinfo::Convert::HTML::paragraph_number"
-   => "Texinfo::Convert::ConvertXS::html_paragraph_number",
+   => "Texinfo::Convert::ConvertXS::paragraph_number",
   "Texinfo::Convert::HTML::preformatted_number"
-   => "Texinfo::Convert::ConvertXS::html_preformatted_number",
+   => "Texinfo::Convert::ConvertXS::preformatted_number",
   "Texinfo::Convert::HTML::top_block_command"
-   => "Texinfo::Convert::ConvertXS::html_top_block_command",
+   => "Texinfo::Convert::ConvertXS::top_block_command",
   "Texinfo::Convert::HTML::preformatted_classes_stack"
-   => "Texinfo::Convert::ConvertXS::html_preformatted_classes_stack",
+   => "Texinfo::Convert::ConvertXS::preformatted_classes_stack",
   "Texinfo::Convert::HTML::in_align"
-   => "Texinfo::Convert::ConvertXS::html_in_align",
+   => "Texinfo::Convert::ConvertXS::in_align",
   "Texinfo::Convert::HTML::multi_expanded_region"
-   => "Texinfo::Convert::ConvertXS::html_multi_expanded_region",
+   => "Texinfo::Convert::ConvertXS::multi_expanded_region",
   "Texinfo::Convert::HTML::current_filename"
-   => "Texinfo::Convert::ConvertXS::html_current_filename",
+   => "Texinfo::Convert::ConvertXS::current_filename",
   "Texinfo::Convert::HTML::current_output_unit"
-   => "Texinfo::Convert::ConvertXS::html_current_output_unit",
+   => "Texinfo::Convert::ConvertXS::current_output_unit",
 
   "Texinfo::Convert::HTML::count_elements_in_filename"
-   => "Texinfo::Convert::ConvertXS::html_count_elements_in_filename",
+   => "Texinfo::Convert::ConvertXS::count_elements_in_filename",
   "Texinfo::Convert::HTML::is_format_expanded",
-   => "Texinfo::Convert::ConvertXS::html_is_format_expanded",
+   => "Texinfo::Convert::ConvertXS::is_format_expanded",
   "Texinfo::Convert::HTML::register_file_information"
-   => "Texinfo::Convert::ConvertXS::html_register_file_information",
+   => "Texinfo::Convert::ConvertXS::register_file_information",
   "Texinfo::Convert::HTML::get_file_information",
-   => "Texinfo::Convert::ConvertXS::html_get_file_information",
+   => "Texinfo::Convert::ConvertXS::get_file_information",
   "Texinfo::Convert::HTML::register_opened_section_level"
-   => "Texinfo::Convert::ConvertXS::html_register_opened_section_level",
+   => "Texinfo::Convert::ConvertXS::register_opened_section_level",
   "Texinfo::Convert::HTML::close_registered_sections_level"
-   => "Texinfo::Convert::ConvertXS::html_close_registered_sections_level",
+   => "Texinfo::Convert::ConvertXS::close_registered_sections_level",
   "Texinfo::Convert::HTML::set_global_direction"
-   => "Texinfo::Convert::ConvertXS::html_set_global_direction",
+   => "Texinfo::Convert::ConvertXS::set_global_direction",
   "Texinfo::Convert::HTML::html_attribute_class"
    => "Texinfo::Convert::ConvertXS::html_attribute_class",
   "Texinfo::Convert::HTML::html_get_css_elements_classes"
    => "Texinfo::Convert::ConvertXS::html_get_css_elements_classes",
   "Texinfo::Convert::HTML::css_add_info"
-   => "Texinfo::Convert::ConvertXS::html_css_add_info",
+   => "Texinfo::Convert::ConvertXS::css_add_info",
   "Texinfo::Convert::HTML::css_set_selector_style"
-   => "Texinfo::Convert::ConvertXS::html_css_set_selector_style",
+   => "Texinfo::Convert::ConvertXS::css_set_selector_style",
   "Texinfo::Convert::HTML::css_get_info"
-   => "Texinfo::Convert::ConvertXS::html_css_get_info",
+   => "Texinfo::Convert::ConvertXS::css_get_info",
   "Texinfo::Convert::HTML::css_get_selector_style",
-   => "Texinfo::Convert::ConvertXS::html_css_get_selector_style",
+   => "Texinfo::Convert::ConvertXS::css_get_selector_style",
   "Texinfo::Convert::HTML::register_footnote",
-   => "Texinfo::Convert::ConvertXS::html_register_footnote",
+   => "Texinfo::Convert::ConvertXS::register_footnote",
   "Texinfo::Convert::HTML::get_pending_footnotes",
-   => "Texinfo::Convert::ConvertXS::html_get_pending_footnotes",
+   => "Texinfo::Convert::ConvertXS::get_pending_footnotes",
   "Texinfo::Convert::HTML::register_pending_formatted_inline_content"
-   => "Texinfo::Convert::ConvertXS::html_register_pending_formatted_inline_content",
+   => "Texinfo::Convert::ConvertXS::register_pending_formatted_inline_content",
   "Texinfo::Convert::HTML::cancel_pending_formatted_inline_content",
-   => "Texinfo::Convert::ConvertXS::html_cancel_pending_formatted_inline_content",
+   => "Texinfo::Convert::ConvertXS::cancel_pending_formatted_inline_content",
   "Texinfo::Convert::HTML::get_pending_formatted_inline_content",
-   => "Texinfo::Convert::ConvertXS::html_get_pending_formatted_inline_content",
+   => "Texinfo::Convert::ConvertXS::get_pending_formatted_inline_content",
   "Texinfo::Convert::HTML::associate_pending_formatted_inline_content"
-   => "Texinfo::Convert::ConvertXS::html_associate_pending_formatted_inline_content",
+   => "Texinfo::Convert::ConvertXS::associate_pending_formatted_inline_content",
   "Texinfo::Convert::HTML::get_associated_formatted_inline_content",
-   => "Texinfo::Convert::ConvertXS::html_get_associated_formatted_inline_content",
+   => "Texinfo::Convert::ConvertXS::get_associated_formatted_inline_content",
   "Texinfo::Convert::HTML::_push_referred_command_stack_command"
-   => "Texinfo::Convert::ConvertXS::html_push_referred_command_stack_command",
+   => "Texinfo::Convert::ConvertXS::_push_referred_command_stack_command",
   "Texinfo::Convert::HTML::_pop_referred_command_stack"
-   => "Texinfo::Convert::ConvertXS::html_pop_referred_command_stack",
+   => "Texinfo::Convert::ConvertXS::_pop_referred_command_stack",
   "Texinfo::Convert::HTML::_command_is_in_referred_command_stack"
-   => "Texinfo::Convert::ConvertXS::html_command_is_in_referred_command_stack",
+   => "Texinfo::Convert::ConvertXS::_command_is_in_referred_command_stack",
   "Texinfo::Convert::HTML::_check_htmlxref_already_warned"
-   => "Texinfo::Convert::ConvertXS::html_check_htmlxref_already_warned",
+   => "Texinfo::Convert::ConvertXS::_check_htmlxref_already_warned",
 
   "Texinfo::Convert::HTML::_translate_names"
-   => "Texinfo::Convert::ConvertXS::html_translate_names",
+   => "Texinfo::Convert::ConvertXS::_translate_names",
 
   # Cannot be overriden, in general the trees are not registered in Perl
   #"Texinfo::Convert::HTML::_XS_html_convert_tree"

@@ -1,5 +1,11 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
+	tta/perl/XSTexinfo/convert/ConvertXS.xs: use the same name in Perl
+	code and in XS interface.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/converter.c (setup_converter_generic_done)
 	(setup_converter_generic), tta/C/convert/html_prepare_converter.c
 	(html_format_setup): have html_format_setup call
