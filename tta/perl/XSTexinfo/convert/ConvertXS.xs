@@ -82,63 +82,6 @@ MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
 # they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
-# This is almost the same as destroy_converter for Converter::Convert, but
-# there is no converter_perl_release method in the Text converter.
-# Using get_sv to check if the method exists could be possible, but there
-# is no clear way to determine the possible names to check taking into account
-# inheritance.  Alternatively, sv_isa could be used or
-#                HV *stash = SvSTASH (SvRV (converter_in));
-#                class_name = HvNAME (stash);
-# to check if the converter is a Text converter.
-# As long as the code is short, duplicating is ok.
-void
-destroy_text_converter (SV *converter_in)
-      PREINIT:
-        CONVERTER *self;
-      CODE:
-        self = get_sv_converter (converter_in, 0);
-        if (self)
-          {
-            /* transfer messages set by converter reset after conversion */
-            if (self->error_messages.number)
-              {
-                pass_errors_to_hv (&self->error_messages,
-                                   converter_in,
-                                   "error_warning_messages");
-                clear_error_message_list (&self->error_messages);
-              }
-            destroy_converter (self);
-          }
-
-# return undef if the element counterpart was not found in C data
-SV *
-XS_convert_tree (SV *options_in, SV *tree_in)
-    PREINIT:
-        DOCUMENT *document = 0;
-        const ELEMENT *element = 0;
-    CODE:
-        /* NOTE an element descriptor is only present with the tree elements
-           API, which is not used in converters actually used in texi2any
-           currently.  Therefore the element descriptor case code should
-           never be called from texi2any right now.
-         */
-        document = get_sv_element_document (tree_in, 0);
-        if (document)
-          element = get_sv_element_element (tree_in, document);
-        else
-          {
-            document = get_sv_tree_document (tree_in, 0);
-            if (document)
-              element = document->tree;
-          }
-        if (element)
-          RETVAL = convert_element_options_sv_to_text (document, element,
-                                                       options_in);
-        else
-          RETVAL = newSV (0);
-    OUTPUT:
-        RETVAL
-
 # HTML
 
 # this function is called with a class name or a converter as first

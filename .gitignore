@@ -377,6 +377,7 @@ tta/perl/XSTexinfo/reader_element/.libs
 tta/perl/XSTexinfo/reader_element/*.lo
 
 tta/perl/XSTexinfo/convert/ConvertConverterXS.c
+tta/perl/XSTexinfo/convert/ConvertTextXS.c
 tta/perl/XSTexinfo/convert/ConvertToTexinfoXS.c
 tta/perl/XSTexinfo/convert/ConvertXS.c
 tta/perl/XSTexinfo/convert/.libs
