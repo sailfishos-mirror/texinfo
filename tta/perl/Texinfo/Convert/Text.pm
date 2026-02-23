@@ -65,13 +65,11 @@ our @EXPORT_OK = qw(
 
 our $VERSION = '7.3dev';
 
-my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
-
 my %XS_overrides = (
   # We do not override directly convert_to_text, we must check at runtime
-  # that the document tree was stored by the XS parser.
-  "Texinfo::Convert::Text::_convert_tree_with_XS"
-   => "Texinfo::Convert::ConvertXS::text_convert_tree",
+  # that the document tree was found and converted by the XS converter.
+  "Texinfo::Convert::Text::XS_convert_tree"
+   => "Texinfo::Convert::ConvertXS::XS_convert_tree",
   "Texinfo::Convert::Text::destroy_converter"
    => "Texinfo::Convert::ConvertXS::destroy_text_converter",
 
@@ -92,7 +90,7 @@ my %XS_overrides = (
 our $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    if ($XS_convert) {
+    if (Texinfo::XSLoader::XS_convert_enabled()) {
       foreach my $sub (keys(%XS_overrides)) {
         Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
       }
@@ -491,8 +489,8 @@ sub _convert_def_line($$) {
   return $result;
 }
 
-# Will never be called, used for the override.
-sub _convert_tree_with_XS($$) {
+sub XS_convert_tree($$) {
+  return undef;
 }
 
 sub _convert($$) {
@@ -892,17 +890,13 @@ sub convert_to_text($;$) {
   }
 
   # Interface with XS converter.
-  if ($XS_convert
-      and (defined($root->{'tree_document_descriptor'})
-           or defined($root->{'element_document_descriptor'}))
-      and $Texinfo::Convert::ConvertXS::XS_package) {
-    return _convert_tree_with_XS($options, $root);
-  }
+  my $result = XS_convert_tree($options, $root);
+  return $result if (defined($result));
 
   # needed for converter_document_warn call for verbatiminclude for t/*.t TESTS.
   bless $options, "Texinfo::Convert::Text";
 
-  my $result = _convert($options, $root);
+  $result = _convert($options, $root);
 
   if ($options->{'converter'}) {
     $options->{'converter'}->merge_converter_error_messages_lists_noxs($options);
@@ -977,17 +971,11 @@ sub convert($$) {
 
   my $root = $document->tree();
 
-  my $result;
   # Interface with XS converter.
-  if ($XS_convert
-      and (defined($root->{'tree_document_descriptor'})
-           or defined($root->{'element_document_descriptor'}))
-      and $Texinfo::Convert::ConvertXS::XS_package) {
-    $result = _convert_tree_with_XS($self, $root);
-  } else {
-    $result = _convert($self, $root);
-  }
+  my $result = XS_convert_tree($self, $root);
+  return $result if (defined($result));
 
+  $result = _convert($self, $root);
   return $result;
 }
 
@@ -1121,14 +1109,10 @@ sub output($$) {
 
   # We use $self as text options, see the comment above.
 
-  my $result;
   # Interface with XS converter.
-  if ($XS_convert
-      and (defined($root->{'tree_document_descriptor'})
-           or defined($root->{'element_document_descriptor'}))
-      and $Texinfo::Convert::ConvertXS::XS_package) {
-    $result = _convert_tree_with_XS($self, $root);
-  } else {
+  my $result = XS_convert_tree($self, $root);
+
+  if (!defined($result)) {
     $result = _convert($self, $root);
   }
 
