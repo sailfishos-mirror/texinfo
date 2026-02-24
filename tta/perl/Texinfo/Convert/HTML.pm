@@ -173,6 +173,49 @@ foreach my $block_command (keys(%block_commands)) {
 }
 
 
+# values for integer and string options in code generated from
+# Texinfo/Convert/converters_defaults.txt
+my $regular_defaults = Texinfo::Options::get_regular_options('html_converter');
+
+our %defaults = (
+  # Customization option variables
+  %{$regular_defaults},
+
+  # Non-string customization variables
+  # _default_panel_button_dynamic_direction use nodes direction based on USE_NODE_DIRECTIONS
+  # or USE_NODES if USE_NODE_DIRECTIONS is undefined
+  'SECTION_BUTTONS'      => [[ 'Next', \&_default_panel_button_dynamic_direction ],
+                             [ 'Prev', \&_default_panel_button_dynamic_direction ],
+                             [ 'Up', \&_default_panel_button_dynamic_direction ], 'Space',
+                             'Contents', 'Index', 'About'],
+  'SECTION_FOOTER_BUTTONS' => [[ 'Next', \&_default_panel_button_dynamic_direction_section_footer ],
+                              [ 'Prev', \&_default_panel_button_dynamic_direction_section_footer ],
+                              [ 'Up', \&_default_panel_button_dynamic_direction_section_footer ], 'Space',
+                              'Contents', 'Index'],
+  'NODE_FOOTER_BUTTONS'  => [[ 'Next', \&_default_panel_button_dynamic_direction_node_footer ],
+                             [ 'Prev', \&_default_panel_button_dynamic_direction_node_footer ],
+                             [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
+                             'Space', 'Contents', 'Index'],
+
+  'LINKS_DIRECTIONS'     => ['Top', 'Index', 'Contents', 'About',
+                              'NodeUp', 'NodeNext', 'NodePrev'],
+
+  'ACTIVE_ICONS'         => undef,
+  'PASSIVE_ICONS'        => undef,
+);
+
+foreach my $buttons ('CHAPTER_BUTTONS', 'TOP_BUTTONS') {
+  $defaults{$buttons} = [@{$defaults{'SECTION_BUTTONS'}}];
+}
+
+$defaults{'MISC_BUTTONS'} = ['Top', 'Contents', 'Index', 'About'];
+
+foreach my $buttons ('CHAPTER_FOOTER_BUTTONS', 'TOP_FOOTER_BUTTONS') {
+  $defaults{$buttons} = [@{$defaults{'SECTION_FOOTER_BUTTONS'}}];
+}
+
+
+
 # API for html formatting
 
 sub close_html_lone_element($$) {
@@ -332,10 +375,279 @@ sub html_convert_css_string_for_list_mark($$;$) {
   return $result;
 }
 
+# Protect an url, in which characters with specific meaning in url are
+# considered to have their specific meaning.
+sub url_protect_url_text($$) {
+  my ($self, $input_string) = @_;
+
+  # turn end of lines to spaces, as it is most likely what is expected
+  # rather than a percent encoded end of line.
+  $input_string =~ s/[\n\r]+/ /g;
+  # percent encode character string.  It is better use UTF-8 irrespective
+  # of the actual charset of the HTML output file, according to the tests done.
+  my $href = encode("UTF-8", $input_string);
+  # protect 'ligntly', do not protect unreserved and reserved characters + the % itself
+  $href =~ s/([^^A-Za-z0-9\-_.!~*'()\$&+,\/:;=\?@\[\]\#%])/ sprintf "%%%02x", ord $1 /eg;
+  return &{$self->formatting_function('format_protect_text')}($self, $href);
+}
+
+# Protect a file path used in an url.  Characters appearing in file paths
+# are not protected.   All the other characters that can be percent
+# protected are protected, including characters with specific meaning in url.
+sub url_protect_file_text($$) {
+  my ($self, $input_string) = @_;
+
+  # turn end of lines to spaces, as it is most likely what is expected.
+  $input_string =~ s/[\n\r]+/ /g;
+  # percent encode character string.  It is better use UTF-8 irrespective
+  # of the actual charset of the HTML output file, according to the tests done.
+  my $href = encode("UTF-8", $input_string);
+  # protect everything that can be special in url except ~, / and : that could
+  # appear in file names and does not have much risk in being incorrectly
+  # interpreted (for :, the interpretation as a scheme delimiter may be possible).
+  $href =~ s/([^^A-Za-z0-9\-_.~\/:])/ sprintf "%%%02x", ord $1 /eg;
+  return &{$self->formatting_function('format_protect_text')}($self, $href);
+}
+
+
+
 # API for links and elements directions formatting.
+
 # Functions that do not have an XS override.  The reason why there is no
 # XS override is that the tree elements with {'extra'}->{'manual_content'}
 # cannot easily be found in the C tree based on the Perl tree element.
+
+sub _normalized_to_id($) {
+  my $id = shift;
+
+  if (!defined($id)) {
+    cluck "_normalized_to_id id not defined";
+    return '';
+  }
+  $id =~ s/^([0-9_])/g_t$1/;
+  return $id;
+}
+
+# returns file base name, extension and anchor associated to node
+# (anchor, float...) command adhering strictly to the HTML Xref specification.
+# The $CROSSREF_EXTENSION argument should be the external crossreference
+# filename extension, if undef, the $EXTENSION argument is used.
+sub standard_label_id_file($$$$$) {
+  my ($self, $normalized, $label_element, $crossref_extension,
+      $extension) = @_;
+
+  my $target;
+  my $filename;
+  if (!defined($normalized) and defined($label_element)) {
+    $normalized
+      = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
+        $label_element);
+  }
+  my $options = \%Texinfo::Options::converter_customization_options;
+
+  if (defined($normalized)) {
+    $target = _normalized_to_id($normalized);
+
+    # use default, not user-defined value
+    my $basefilename_length = $options->{'BASEFILENAME_LENGTH'};
+    $filename = substr($normalized, 0, $basefilename_length);
+  } else {
+    $target = '';
+    $filename = '';
+  }
+  # to find out the Top node, one could check $normalized
+  if (defined($self->{'file_id_setting'}->{'label_target_name'})) {
+    $target = &{$self->{'file_id_setting'}->{'label_target_name'}}($self,
+                             $normalized, $label_element, $target);
+  }
+
+  my $file_extension = '';
+  my $external_extension = $crossref_extension;
+  $external_extension = $extension
+    if (not defined($external_extension));
+  $file_extension = '.' . $external_extension
+    if (defined($external_extension) and $external_extension ne '');
+
+  return ($filename, $file_extension, $target);
+}
+
+our %htmlxref_entries = (
+ 'node' => [ 'node', 'section', 'chapter', 'mono' ],
+ 'section' => [ 'section', 'chapter','node', 'mono' ],
+ 'chapter' => [ 'chapter', 'section', 'node', 'mono' ],
+ 'mono' => [ 'mono', 'chapter', 'section', 'node' ],
+);
+
+sub _external_node_href($$$) {
+  my ($self, $external_node,
+  # for messages only
+     $source_command) = @_;
+
+  my $normalized = $external_node->{'extra'}->{'normalized'};
+  my $node_contents = $external_node->{'extra'}->{'node_content'};
+  #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
+  my ($target_filebase, $external_file_extension, $target)
+     = $self->standard_label_id_file($normalized, $node_contents,
+                               $self->get_conf('EXTERNAL_CROSSREF_EXTENSION'),
+                                     $defaults{'EXTENSION'});
+
+  # always undef if conversion is called through convert()
+  my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
+
+  # initialize to $default_target_split
+  my $is_target_split;
+  if ($default_target_split) {
+    $is_target_split = 1;
+  } else {
+    $is_target_split = 0;
+  }
+  # used if !$is_target_split
+  my $file = '';
+  # used if $is_target_split
+  my $directory = '';
+  if (exists($external_node->{'extra'}->{'manual_content'})) {
+    Texinfo::Convert::Text::set_options_code($self->{'convert_text_options'});
+    my $manual_name = Texinfo::Convert::Text::convert_to_text(
+                            $external_node->{'extra'}->{'manual_content'},
+                            $self->{'convert_text_options'});
+    Texinfo::Convert::Text::reset_options_code($self->{'convert_text_options'});
+    if ($self->get_conf('IGNORE_REF_TO_TOP_NODE_UP') and $target eq '') {
+      my $top_node_up = $self->get_conf('TOP_NODE_UP');
+      if (defined($top_node_up) and "($manual_name)" eq $top_node_up) {
+        return '';
+      }
+    }
+    my $manual_base = $manual_name;
+    # in 2023 there were manuals with .info.  Warning added in 2024.
+    if ($manual_base =~ s/(\.info?)$//) {
+      $self->converter_line_warn(sprintf(__(
+                    "do not set %s suffix in reference for manual `%s'"),
+                                         $1, $manual_name),
+                             $source_command->{'source_info'});
+    }
+    $manual_base =~ s/^.*\///;
+    my $split_found;
+    my $htmlxref_href;
+    my $htmlxref_mode = $self->get_conf('HTMLXREF_MODE');
+
+    if (!defined($htmlxref_mode) or $htmlxref_mode ne 'none') {
+      if (exists($self->{'htmlxref'}->{$manual_base})) {
+        my $htmlxref_info = $self->{'htmlxref'}->{$manual_base};
+        my $document_split = $self->get_conf('SPLIT');
+        $document_split = 'mono' if (!$document_split);
+        foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
+          if (exists($htmlxref_info->{$split_ordered})) {
+            $split_found = $split_ordered;
+            if ($htmlxref_info->{$split_ordered} ne '') {
+              $htmlxref_href
+               = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
+            }
+            last;
+          }
+        }
+      }
+      if (defined($split_found)) {
+        if ($split_found eq 'mono') {
+          $is_target_split = 0;
+        } else {
+          $is_target_split = 1;
+        }
+      } else { # nothing specified for that manual, use default
+        if ($self->get_conf('CHECK_HTMLXREF')) {
+          if (defined($source_command) and $source_command->{'source_info'}) {
+            if (!_check_htmlxref_already_warned($self, $manual_name,
+                                         $source_command->{'source_info'})) {
+              $self->converter_line_warn(sprintf(__(
+              "no HTML cross-references entry found for `%s'"), $manual_name),
+                               $source_command->{'source_info'});
+            }
+          } else {
+            if (!_check_htmlxref_already_warned($self, $manual_name, undef)) {
+              $self->converter_document_warn(sprintf(__(
+                "no HTML cross-references entry found for `%s'"), $manual_name),
+                );
+              cluck;
+            }
+          }
+        }
+      }
+    }
+
+    if ($is_target_split) {
+      if (defined($htmlxref_href)) {
+        $directory = $htmlxref_href;
+      } else {
+        if (defined($self->get_conf('EXTERNAL_DIR'))) {
+          $directory = $self->get_conf('EXTERNAL_DIR')."/$manual_base";
+        } elsif ($self->get_conf('SPLIT')) {
+          $directory = "../$manual_base";
+        }
+        my $output_format = $self->get_conf('TEXINFO_OUTPUT_FORMAT');
+        if (defined($output_format) and $output_format ne '') {
+          $directory .= '_'.$output_format;
+        }
+        $directory = $self->url_protect_file_text($directory);
+      }
+      $directory .= "/";
+    } else {# target not split
+      if (defined($htmlxref_href)) {
+        $file = $htmlxref_href;
+      } else {
+        if (defined($self->get_conf('EXTERNAL_DIR'))) {
+          $file = $self->get_conf('EXTERNAL_DIR')."/$manual_base";
+        } elsif ($self->get_conf('SPLIT')) {
+          $file = "../$manual_base";
+        } else {
+          $file = $manual_base;
+        }
+        $file .= $external_file_extension;
+
+        $file = $self->url_protect_file_text($file);
+      }
+    }
+  }
+
+  if ($is_target_split) {
+    my $file_name;
+    if (($target eq 'Top' or $target eq '')
+        and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
+      $file_name = $self->get_conf('TOP_NODE_FILE_TARGET');
+    } else {
+      $file_name = $target_filebase . $external_file_extension;
+    }
+    if (defined($self->{'file_id_setting'}->{'external_target_split_name'})) {
+      ($target, $directory, $file_name)
+        = &{$self->{'file_id_setting'}->{'external_target_split_name'}}($self,
+                             $normalized, $external_node, $target,
+                             $directory, $file_name);
+      $directory = '' if (!defined($directory));
+      $file_name = '' if (!defined($file_name));
+      $target = '' if (!defined($target));
+    }
+    my $result = $directory . $file_name;
+    if ($target ne '') {
+      $result .= '#' . $target;
+    }
+    return $result;
+  } else {
+    if ($target eq '') {
+      $target = 'Top';
+    }
+    if (defined($self->{'file_id_setting'}->{
+                          'external_target_non_split_name'})) {
+      ($target, $file)
+       = &{$self->{'file_id_setting'}->{'external_target_non_split_name'}}($self,
+                             $normalized, $external_node, $target, $file);
+      $file = '' if (!defined($file));
+      $target = '' if (!defined($target));
+    }
+    my $result = $file;
+    if ($target ne '') {
+      $result .= '#' . $target;
+    }
+    return $result;
+  }
+}
 
 sub command_href($$;$$$) {
   my ($self, $command, $source_filename, $source_command,
@@ -482,6 +794,85 @@ sub command_name_special_unit_information($$) {
           $special_unit_direction);
 }
 
+sub _html_get_tree_root_element($$;$);
+
+# If $FIND_CONTAINER is set, the element that holds the command output
+# is found, otherwise the element that holds the command is found.  This is
+# mostly relevant for footnote only.
+# If no known root element type is found, the returned root element is undef,
+# and not set to the element at the tree root
+sub _html_get_tree_root_element($$;$) {
+  my ($self, $command, $find_container) = @_;
+
+  # can be used to debug/understand what is going on
+  #my $debug = 1;
+
+  my $current = $command;
+  #print STDERR "START ".Texinfo::Common::debug_print_element($current)."\n" if ($debug);
+
+  my ($output_unit, $root_command);
+  while (1) {
+    if (exists($current->{'type'})
+       and $current->{'type'} eq 'special_unit_element') {
+      return ($current->{'associated_unit'}, $current);
+    }
+    if (exists($current->{'cmdname'})) {
+      if (exists($root_commands{$current->{'cmdname'}})) {
+        $root_command = $current;
+        #print STDERR "CMD ROOT $current->{'cmdname'}\n" if ($debug);
+      } elsif (exists($block_commands{$current->{'cmdname'}})
+               and $block_commands{$current->{'cmdname'}} eq 'region') {
+        if ($current->{'cmdname'} eq 'copying'
+            and exists($self->{'document'})) {
+          my $global_commands
+              = $self->{'document'}->global_commands_information();
+          if (defined($global_commands)
+              and exists($global_commands->{'insertcopying'})) {
+            foreach my $insertcopying (@{$global_commands
+                                                        ->{'insertcopying'}}) {
+              #print STDERR "INSERTCOPYING\n" if ($debug);
+              my ($output_unit, $root_command)
+                = _html_get_tree_root_element($self, $insertcopying,
+                                                     $find_container);
+              return ($output_unit, $root_command)
+                if (defined($output_unit) or defined($root_command));
+            }
+          }
+        } elsif ($current->{'cmdname'} eq 'titlepage'
+                 and $self->get_conf('USE_TITLEPAGE_FOR_TITLE')
+                 and $self->get_conf('SHOW_TITLE')) {
+          #print STDERR "FOR titlepage document_units [0]\n" if ($debug);
+          return ($self->{'document_units'}->[0],
+                  $self->{'document_units'}->[0]->{'unit_command'});
+        }
+        die "Problem $output_unit, $root_command" if (defined($output_unit)
+                                                  or defined($root_command));
+        return (undef, undef);
+      } elsif ($find_container) {
+        # @footnote and possibly @*contents when a separate element is set
+        my ($special_unit_variety, $special_unit, $class_base,
+            $special_unit_direction)
+         = $self->command_name_special_unit_information($current->{'cmdname'});
+        if (defined($special_unit)) {
+          #print STDERR "SPECIAL $current->{'cmdname'}: $special_unit_variety ($special_unit_direction)\n" if ($debug);
+          return ($special_unit, undef);
+        }
+      }
+    }
+    if (exists($current->{'associated_unit'})) {
+      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_output_unit($current->{'associated_unit'})."\n" if ($debug);
+      return ($current->{'associated_unit'}, $root_command);
+    } elsif (exists($current->{'parent'})) {
+      #print STDERR "PARENT ".Texinfo::Common::debug_print_element($current->{'parent'})."\n" if ($debug);
+      $current = $current->{'parent'};
+    } else {
+      #print STDERR "UNKNOWN ROOT ".Texinfo::Common::debug_print_element($current)."\n" if ($debug);
+      return (undef, $root_command);
+    }
+  }
+}
+
+# No XS, the C data element cannot in general be retrieved.
 sub get_element_root_command_element($$) {
   my ($self, $element) = @_;
 
@@ -817,6 +1208,8 @@ sub special_unit_info($$$) {
   return $self->{'special_unit_info'}->{$type}->{$special_unit_variety};
 }
 
+
+
 # API for misc conversion and formatting functions
 
 # if $OUTPUT_UNITS is defined, the first output unit is used if a proper
@@ -1096,87 +1489,6 @@ sub set_shared_conversion_state($$$;@) {
                                     $state_name, @args);
 }
 
-sub convert_tree_in_code_context($$;$) {
-  my ($self, $tree, $explanation) = @_;
-
-  _set_code_context($self, 1);
-  my $result = $self->convert_tree($tree, $explanation);
-  _pop_code_context($self);
-
-  return $result;
-}
-
-# Call convert_tree out of the main conversion flow.
-sub convert_tree_new_formatting_context($$$;$$$$) {
-  my ($self, $tree, $context_string, $context_type, $multiple_pass,
-      $document_global_context, $block_command) = @_;
-
-  _new_document_context($self, $context_string, $context_type,
-                        $document_global_context, $block_command);
-
-  my $context_string_str = "C($context_string)";
-  my $multiple_pass_str = '';
-
-  if (defined($multiple_pass)) {
-    _set_multiple_conversions($self, $multiple_pass);
-    $multiple_pass_str = '|M';
-  }
-
-  print STDERR "new_fmt_ctx ${context_string_str}${multiple_pass_str}\n"
-        if ($self->get_conf('DEBUG'));
-  my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
-
-  if (defined($multiple_pass)) {
-    _unset_multiple_conversions($self);
-  }
-
-  _pop_document_context($self);
-
-  return $result;
-}
-
-# values for integer and string options in code generated from
-# Texinfo/Convert/converters_defaults.txt
-my $regular_defaults = Texinfo::Options::get_regular_options('html_converter');
-
-our %defaults = (
-  # Customization option variables
-  %{$regular_defaults},
-
-  # Non-string customization variables
-  # _default_panel_button_dynamic_direction use nodes direction based on USE_NODE_DIRECTIONS
-  # or USE_NODES if USE_NODE_DIRECTIONS is undefined
-  'SECTION_BUTTONS'      => [[ 'Next', \&_default_panel_button_dynamic_direction ],
-                             [ 'Prev', \&_default_panel_button_dynamic_direction ],
-                             [ 'Up', \&_default_panel_button_dynamic_direction ], 'Space',
-                             'Contents', 'Index', 'About'],
-  'SECTION_FOOTER_BUTTONS' => [[ 'Next', \&_default_panel_button_dynamic_direction_section_footer ],
-                              [ 'Prev', \&_default_panel_button_dynamic_direction_section_footer ],
-                              [ 'Up', \&_default_panel_button_dynamic_direction_section_footer ], 'Space',
-                              'Contents', 'Index'],
-  'NODE_FOOTER_BUTTONS'  => [[ 'Next', \&_default_panel_button_dynamic_direction_node_footer ],
-                             [ 'Prev', \&_default_panel_button_dynamic_direction_node_footer ],
-                             [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
-                             'Space', 'Contents', 'Index'],
-
-  'LINKS_DIRECTIONS'     => ['Top', 'Index', 'Contents', 'About',
-                              'NodeUp', 'NodeNext', 'NodePrev'],
-
-  'ACTIVE_ICONS'         => undef,
-  'PASSIVE_ICONS'        => undef,
-
-);
-
-foreach my $buttons ('CHAPTER_BUTTONS', 'TOP_BUTTONS') {
-  $defaults{$buttons} = [@{$defaults{'SECTION_BUTTONS'}}];
-}
-
-$defaults{'MISC_BUTTONS'} = ['Top', 'Contents', 'Index', 'About'];
-
-foreach my $buttons ('CHAPTER_FOOTER_BUTTONS', 'TOP_FOOTER_BUTTONS') {
-  $defaults{$buttons} = [@{$defaults{'SECTION_FOOTER_BUTTONS'}}];
-}
-
 # class, direction, order, file_string, target
 my %default_special_unit_info
   = %{ Texinfo::HTMLData::get_default_special_unit_info() };
@@ -1284,6 +1596,10 @@ sub cdt_string($$;$$) {
                                     $translation_context, $self,
                                     \&html_cache_translate_string);
 }
+
+
+
+# setup conversion information and conversion and formatting functions.
 
 our %default_css_element_class_styles
   = %{ Texinfo::HTMLDataCSS::get_base_default_css_info() };
@@ -6590,766 +6906,6 @@ sub _default_format_element_footer($$$$;$) {
   return $result;
 }
 
-# can be set through Texinfo::Config::texinfo_register_file_id_setting_function
-my %customizable_file_id_setting_references;
-foreach my $customized_reference ('external_target_split_name',
-                'external_target_non_split_name',
-                'label_target_name', 'node_file_name',
-                'redirection_file_names',
-                'sectioning_command_target_name',
-                'special_unit_target_file_name', 'unit_file_name') {
-  $customizable_file_id_setting_references{$customized_reference} = 1;
-}
-
-# Functions accessed with e.g. 'format_heading_text'.
-# used in Texinfo::Config
-%default_formatting_references = (
-     'format_begin_file' => \&_default_format_begin_file,
-     'format_button' => \&_default_format_button,
-     'format_button_icon_img' => \&_default_format_button_icon_img,
-     'format_css_lines' => \&_default_format_css_lines,
-     'format_comment' => \&_default_format_comment,
-     'format_contents' => \&_default_format_contents,
-     'format_element_header' => \&_default_format_element_header,
-     'format_element_footer' => \&_default_format_element_footer,
-     'format_end_file' => \&_default_format_end_file,
-     'format_footnotes_segment' => \&_default_format_footnotes_segment,
-     'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
-     'format_single_footnote' => \&_default_format_single_footnote,
-     'format_heading_text' => \&_default_format_heading_text,
-     'format_navigation_header' => \&_default_format_navigation_header,
-     'format_navigation_panel' => \&_default_format_navigation_panel,
-     'format_node_redirection_page' => \&_default_format_node_redirection_page,
-     'format_program_string' => \&_default_format_program_string,
-     'format_protect_text' => \&_default_format_protect_text,
-     'format_separate_anchor' => \&_default_format_separate_anchor,
-     'format_titlepage' => \&_default_format_titlepage,
-     'format_title_titlepage' => \&_default_format_title_titlepage,
-     'format_translate_message' => undef,
-);
-
-# not up for customization
-%default_css_string_formatting_references = (
-  'format_protect_text' => \&_default_css_string_format_protect_text,
-);
-
-%defaults_format_special_unit_body_contents = (
-  'contents' => \&_default_format_special_body_contents,
-  'about' => \&_default_format_special_body_about,
-  'footnotes' => \&_default_format_special_body_footnotes,
-  'shortcontents' => \&_default_format_special_body_shortcontents,
-);
-
-our %htmlxref_entries = (
- 'node' => [ 'node', 'section', 'chapter', 'mono' ],
- 'section' => [ 'section', 'chapter','node', 'mono' ],
- 'chapter' => [ 'chapter', 'section', 'node', 'mono' ],
- 'mono' => [ 'mono', 'chapter', 'section', 'node' ],
-);
-
-# TODO split part of this in HTMLNonXS for states that are accessed through
-# XS functions only, when there is XS.
-# converter state
-#
-#   No API
-#  all_directions          # determined parallelly in C
-#  deprecated_config_directories
-#
-#     API exists
-#
-#   Get through converter set_global_document_commands with 'before'.  No
-#   specific API to set, but can use get_conf or force_conf in setup handler
-#  commands_init_conf
-#
-#  shared_conversion_state
-#   Set through the shared_conversion_state API (among others):
-#  explained_commands         # used only in an @-command conversion function
-#
-#     API converter_info get_info
-#  document_name
-#  destination_directory
-#  paragraph_symbol
-#  line_break_element
-#  non_breaking_space
-#  simpletitle_tree
-#  simpletitle_command_name
-#  title_string
-#  title_tree
-#  documentdescription_string
-#  copying_comment
-#  jslicenses
-#
-#     API exists
-#  current_filename
-#  current_output_unit
-#  index_entries
-#  index_entries_by_letter
-#
-#    API exists in Texinfo::Config for setting, not for getting
-#  stage_handlers
-#
-#   No API, but set by command-line and can be overriden by CSS
-#   change API functions
-#  files_css_import_lines
-#  files_css_rule_lines
-#
-#    API exists
-#  css_element_class_styles
-#  css_import_lines
-#  css_rule_lines
-#
-#    API exists
-#  file_id_setting
-#  commands_conversion
-#  commands_open
-#  types_conversion
-#  types_open
-#
-#    API exists for setting, no need to access directly, accessed through
-#    no_arg_commands_formatting
-#  customized_no_arg_commands_formatting
-#
-#    API exists for setting (through customized_no_arg_commands_formatting
-#    for no_arg_commands_formatting), not for getting and used in
-#    commands_conversion
-#  no_arg_commands_formatting
-#  style_commands_formatting
-#
-#    API exists
-#  code_types
-#  pre_class_types
-#
-#    API exists
-#  document_context
-#
-#    API exists
-#  pending_closes
-#
-#    API exists
-#  pending_footnotes
-#
-#    API exists
-#  pending_inline_content
-#  associated_inline_content
-#
-#    API exists
-#  multiple_pass
-#
-#    API exists
-#  targets         for directions.  Keys are elements references, values are
-#                  target information hash references described above before
-#                  the API functions used to access this information.
-#  special_targets
-#  global_units_directions
-#
-#    API exists for setting, not getting
-#  customized_direction_strings
-#  directions_strings
-#  translated_direction_strings
-#
-#    API exists
-#  special_unit_info
-#  translated_special_unit_info
-#
-#    API exists
-#  elements_in_file_count    # the number of output units in file
-#  file_counters             # begin at elements_in_file_count decrease
-#                            # each time the unit is closed
-#
-#     API exists
-#  document_global_context_css
-#  page_css
-#
-#     API exists
-#  files_information
-#
-#     No API, converter internals
-#  document_units
-#  out_filepaths          (partially common with Texinfo::Converter)
-#  seen_ids
-#  options_latex_math
-#  htmlxref
-#  check_htmlxref_already_warned
-#  referred_command_stack
-#
-#    from Converter
-#  labels
-
-# this allows to get some debugging output for the file without setting
-# the customization variable.
-my $debug;  # whether to print debugging output
-
-sub converter_initialize($) {
-  my $self = shift;
-
-  # beginning of initialization done either in Perl or XS
-  html_converter_initialize_beginning($self);
-
-  $self->{'output_units_conversion'} = {};
-  my $customized_output_units_conversion
-    = Texinfo::Config::GNUT_get_output_units_conversion();
-  $customized_output_units_conversion = {}
-    if (!defined($customized_output_units_conversion));
-  foreach my $type (keys(%default_output_units_conversion)) {
-    if (exists($customized_output_units_conversion->{$type})) {
-      $self->{'output_units_conversion'}->{$type}
-          = $customized_output_units_conversion->{$type};
-    } else {
-      $self->{'output_units_conversion'}->{$type}
-          = $default_output_units_conversion{$type};
-    }
-  }
-
-  $self->{'types_conversion'} = {};
-  my $customized_types_conversion
-    = Texinfo::Config::GNUT_get_types_conversion();
-  $customized_types_conversion = {}
-    if (!defined($customized_types_conversion));
-  foreach my $type (keys(%default_types_conversion)) {
-    if (exists($customized_types_conversion->{$type})) {
-      $self->{'types_conversion'}->{$type}
-          = $customized_types_conversion->{$type};
-    } else {
-      $self->{'types_conversion'}->{$type}
-          = $default_types_conversion{$type};
-    }
-  }
-
-  $self->{'types_open'} = {};
-  my $customized_types_open = Texinfo::Config::GNUT_get_types_open();
-  $customized_types_open = {} if (!defined($customized_types_open));
-  foreach my $type (keys(%default_types_conversion)) {
-    if (exists($customized_types_open->{$type})) {
-      $self->{'types_open'}->{$type}
-          = $customized_types_open->{$type};
-    } elsif (exists($default_types_open{$type})) {
-      $self->{'types_open'}->{$type}
-           = $default_types_open{$type};
-    }
-  }
-
-  $self->{'code_types'} = {};
-  foreach my $type (keys(%default_code_types)) {
-    $self->{'code_types'}->{$type} = $default_code_types{$type};
-  }
-  $self->{'pre_class_types'} = {};
-  foreach my $type (keys(%default_pre_class_types)) {
-    $self->{'pre_class_types'}->{$type} = $default_pre_class_types{$type};
-  }
-
-  my $customized_code_types = Texinfo::Config::GNUT_get_types_code_info();
-  if (defined($customized_code_types)) {
-    foreach my $type (keys(%$customized_code_types)) {
-      $self->{'code_types'}->{$type} = $customized_code_types->{$type};
-    }
-  }
-
-  my $customized_pre_class_types = Texinfo::Config::GNUT_get_types_pre_class();
-  if (defined($customized_pre_class_types)) {
-    foreach my $type (keys(%$customized_pre_class_types)) {
-      $self->{'pre_class_types'}->{$type}
-         = $customized_pre_class_types->{$type};
-    }
-  }
-
-  $self->{'upper_case_commands'} = {};
-  foreach my $cmdname (keys(%default_upper_case_commands)) {
-    $self->{'upper_case_commands'}->{$cmdname}
-     = $default_upper_case_commands{$cmdname};
-  }
-  my $customized_upper_case_commands
-    = Texinfo::Config::GNUT_get_upper_case_commands_info();
-  if (defined($customized_upper_case_commands)) {
-    foreach my $cmdname (keys(%$customized_upper_case_commands)) {
-      $self->{'upper_case_commands'}->{$cmdname}
-        = $customized_upper_case_commands->{$cmdname};
-    }
-  }
-
-  $self->{'commands_conversion'} = {};
-  my $customized_commands_conversion
-     = Texinfo::Config::GNUT_get_commands_conversion();
-  $customized_commands_conversion = {}
-    if (!defined($customized_commands_conversion));
-  foreach my $cmdname (keys(%line_commands), keys(%brace_commands),
-     keys (%block_commands), keys(%nobrace_commands)) {
-    if (exists($customized_commands_conversion->{$cmdname})) {
-      $self->{'commands_conversion'}->{$cmdname}
-          = $customized_commands_conversion->{$cmdname};
-    } else {
-      my $format_menu = $self->get_conf('FORMAT_MENU');
-      if ($format_menu ne 'menu' and $format_menu ne 'menu_no_detailmenu'
-          and ($cmdname eq 'menu' or $cmdname eq 'detailmenu')) {
-        $self->{'commands_conversion'}->{$cmdname} = undef;
-      } elsif (exists($format_raw_commands{$cmdname})
-               and !$self->{'expanded_formats'}->{$cmdname}) {
-        $self->{'commands_conversion'}->{$cmdname} = undef;
-      } elsif (exists($default_commands_conversion{$cmdname})) {
-        $self->{'commands_conversion'}->{$cmdname}
-           = $default_commands_conversion{$cmdname};
-      }
-    }
-  }
-
-  $self->{'commands_open'} = {};
-  my $customized_commands_open
-     = Texinfo::Config::GNUT_get_commands_open();
-  $customized_commands_open = {} if (!defined($customized_commands_open));
-  foreach my $cmdname (keys(%line_commands), keys(%brace_commands),
-     keys (%block_commands), keys(%nobrace_commands)) {
-    if (exists($customized_commands_open->{$cmdname})) {
-      $self->{'commands_open'}->{$cmdname}
-          = $customized_commands_open->{$cmdname};
-    } elsif (exists($default_commands_open{$cmdname})) {
-      $self->{'commands_open'}->{$cmdname}
-           = $default_commands_open{$cmdname};
-    }
-  }
-
-  # get all the customization
-  my %style_commands_customized_formatting_info;
-  foreach my $cmdname (keys(%default_style_commands_formatting)) {
-    foreach my $context (@style_commands_contexts) {
-      my $style_commands_formatting_info
-        = Texinfo::Config::GNUT_get_style_command_formatting($cmdname, $context);
-      if (defined($style_commands_formatting_info)) {
-        if (!exists($style_commands_customized_formatting_info{$cmdname})) {
-          $style_commands_customized_formatting_info{$cmdname} = {};
-        }
-        $style_commands_customized_formatting_info{$cmdname}->{$context}
-          = $style_commands_formatting_info;
-      }
-    }
-  }
-
-  $self->{'style_commands_formatting'} = {};
-  foreach my $cmdname (keys(%default_style_commands_formatting)) {
-    $self->{'style_commands_formatting'}->{$cmdname} = {};
-    foreach my $context (@style_commands_contexts) {
-      if (exists($style_commands_customized_formatting_info{$cmdname})
-          and $style_commands_customized_formatting_info{$cmdname}->{$context}) {
-        $self->{'style_commands_formatting'}->{$cmdname}->{$context}
-          = $style_commands_customized_formatting_info{$cmdname}->{$context};
-      } elsif (exists($default_style_commands_formatting{$cmdname}->{$context})) {
-        $self->{'style_commands_formatting'}->{$cmdname}->{$context}
-          = $default_style_commands_formatting{$cmdname}->{$context};
-      }
-    }
-  }
-
-  my %customized_accent_entities;
-
-  foreach my $accent_command
-     (keys(%Texinfo::Convert::Converter::xml_accent_entities)) {
-    my ($accent_command_entity, $accent_command_text_with_entities)
-      = Texinfo::Config::GNUT_get_accent_command_formatting($accent_command);
-    if (defined($accent_command_entity)
-        or defined($accent_command_text_with_entities)) {
-      $customized_accent_entities{$accent_command} = [$accent_command_entity,
-                                           $accent_command_text_with_entities];
-    }
-  }
-
-  $self->{'accent_entities'} = {};
-  foreach my $accent_command
-     (keys(%Texinfo::Convert::Converter::xml_accent_entities)) {
-    $self->{'accent_entities'}->{$accent_command} = [];
-
-    my ($accent_command_entity, $accent_command_text_with_entities);
-    if (exists($customized_accent_entities{$accent_command})) {
-      ($accent_command_entity, $accent_command_text_with_entities)
-        = @{$customized_accent_entities{$accent_command}};
-    }
-
-    if (not defined($accent_command_entity)
-        and defined($Texinfo::Convert::Converter::xml_accent_text_with_entities{
-                                                              $accent_command})) {
-      $accent_command_entity
-       = $Texinfo::Convert::Converter::xml_accent_entities{$accent_command};
-    }
-    if (not defined($accent_command_text_with_entities)
-        and defined($Texinfo::Convert::Converter::xml_accent_text_with_entities{
-                                                             $accent_command})) {
-      $accent_command_text_with_entities
-  = $Texinfo::Convert::Converter::xml_accent_text_with_entities{$accent_command};
-    }
-    # an empty string means no formatting
-    if (defined($accent_command_entity)) {
-      $self->{'accent_entities'}->{$accent_command} = [$accent_command_entity,
-                                           $accent_command_text_with_entities];
-    }
-  }
-  #print STDERR Data::Dumper->Dump([$self->{'accent_entities'}]);
-
-  # get customization only at that point, as the defaults may be changed
-  # with the encoding
-  my $customized_no_arg_commands_formatting = {};
-  foreach my $cmdname (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
-    $customized_no_arg_commands_formatting->{$cmdname} = {};
-    foreach my $context (@no_args_commands_contexts, 'translated_to_convert') {
-      my $no_arg_command_customized_formatting
-        = Texinfo::Config::GNUT_get_no_arg_command_formatting($cmdname,
-                                                              $context);
-      if (defined($no_arg_command_customized_formatting)) {
-        $customized_no_arg_commands_formatting->{$cmdname}->{$context}
-           = $no_arg_command_customized_formatting;
-      }
-    }
-  }
-
-  $self->{'customized_no_arg_commands_formatting'}
-    = $customized_no_arg_commands_formatting;
-
-  $self->{'file_id_setting'} = {};
-  my $customized_file_id_setting_references
-    = Texinfo::Config::GNUT_get_file_id_setting_references();
-  if (defined($customized_file_id_setting_references)) {
-    # first check the validity of the names
-    foreach my $custom_file_id_setting
-       (sort(keys(%{$customized_file_id_setting_references}))) {
-      if (!exists($customizable_file_id_setting_references{
-                                           $custom_file_id_setting})) {
-        $self->converter_document_warn(
-                       sprintf(__("Unknown file and id setting function: %s"),
-                               $custom_file_id_setting));
-      } else {
-        $self->{'file_id_setting'}->{$custom_file_id_setting}
-          = $customized_file_id_setting_references->{$custom_file_id_setting};
-      }
-    }
-  }
-
-  my $customized_formatting_references
-       = Texinfo::Config::GNUT_get_formatting_references();
-  # first check that all the customized_formatting_references
-  # are in default_formatting_references
-  if (defined($customized_formatting_references)) {
-    foreach my $custom_formatting_ref
-       (sort(keys(%{$customized_formatting_references}))) {
-      if (!exists($default_formatting_references{$custom_formatting_ref})) {
-        $self->converter_document_warn(
-              sprintf(__("Unknown formatting function: %s"),
-                                          $custom_formatting_ref));
-      }
-    }
-  } else {
-    $customized_formatting_references = {};
-  }
-
-  $self->{'formatting_function'} = {};
-  foreach my $formatting_reference (keys(%default_formatting_references)) {
-    if (defined($customized_formatting_references->{$formatting_reference})) {
-      $self->{'formatting_function'}->{$formatting_reference}
-       = $customized_formatting_references->{$formatting_reference};
-    } else {
-      $self->{'formatting_function'}->{$formatting_reference}
-       = $default_formatting_references{$formatting_reference};
-    }
-  }
-
-  my $customized_special_unit_info
-    = Texinfo::Config::GNUT_get_special_unit_info();
-  $customized_special_unit_info = {}
-     if (!defined($customized_special_unit_info));
-
-  $self->{'special_unit_info'} = {};
-  foreach my $type (keys(%default_special_unit_info)) {
-    $self->{'special_unit_info'}->{$type} = {};
-    foreach my $special_unit_variety
-                      (keys(%{$default_special_unit_info{$type}})) {
-      if (exists($customized_special_unit_info->{$type})
-          and exists($customized_special_unit_info
-                          ->{$type}->{$special_unit_variety})) {
-        $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
-         = $customized_special_unit_info->{$type}->{$special_unit_variety};
-      } else {
-        $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
-          = $default_special_unit_info{$type}->{$special_unit_variety};
-      }
-    }
-  }
-
-  # Note that with XS this information is not actually used, as
-  # it is only accessed through functions that are overriden
-  $self->{'translated_special_unit_info_texinfo'} = {};
-  $self->{'translated_special_unit_info_tree'} = {};
-  foreach my $type (keys(%default_translated_special_unit_info)) {
-    $self->{'translated_special_unit_info_texinfo'}->{$type} = {};
-    $self->{'translated_special_unit_info_tree'}->{$type} = {};
-    foreach my $special_unit_variety
-                 (keys(%{$default_translated_special_unit_info{$type}})) {
-      if (exists($customized_special_unit_info->{$type})
-          and exists($customized_special_unit_info
-                          ->{$type}->{$special_unit_variety})) {
-        $self->{'translated_special_unit_info_texinfo'}->{$type}
-                                                 ->{$special_unit_variety}
-         = $customized_special_unit_info->{$type}->{$special_unit_variety};
-      } else {
-        $self->{'translated_special_unit_info_texinfo'}->{$type}
-                                               ->{$special_unit_variety}
-          = $default_translated_special_unit_info{$type}
-                                                   ->{$special_unit_variety};
-      }
-    }
-  }
-
-  my $customized_special_unit_body
-     = Texinfo::Config::GNUT_get_formatting_special_unit_body_references();
-
-  $self->{'special_unit_body'} = {};
-  foreach my $special_unit_variety (keys(%defaults_format_special_unit_body_contents)) {
-    $self->{'special_unit_body'}->{$special_unit_variety}
-      = $defaults_format_special_unit_body_contents{$special_unit_variety};
-  }
-  foreach my $special_unit_variety (keys(%$customized_special_unit_body)) {
-    $self->{'special_unit_body'}->{$special_unit_variety}
-      = $customized_special_unit_body->{$special_unit_variety};
-  }
-
-  # "directions" not associated to output units, but associated to text.
-  $self->{'global_texts_directions'} = {};
-  $self->{'global_texts_directions'}->{'Space'} = 1;
-
-  $self->{'all_directions'} = {};
-  foreach my $direction (@all_directions_except_special_units) {
-    $self->{'all_directions'}->{$direction} = 1;
-  }
-
-  $self->{'customized_text_directions'}
-    = Texinfo::Config::GNUT_get_text_directions();
-
-  if (defined($self->{'customized_text_directions'})) {
-    foreach my $direction (keys(%{$self->{'customized_text_directions'}})) {
-      if (!exists($self->{'all_directions'}->{$direction})) {
-        $self->{'global_texts_directions'}->{$direction} = 1;
-        $self->{'all_directions'}->{$direction} = 1;
-      }
-    }
-  }
-
-  $self->{'customized_global_directions'}
-    = Texinfo::Config::GNUT_get_global_directions();
-
-  if (defined($self->{'customized_global_directions'})) {
-    foreach my $direction (keys(%{$self->{'customized_global_directions'}})) {
-      $self->{'all_directions'}->{$direction} = 1;
-    }
-  }
-
-  # customized_global_directions are not used further here, as the output
-  # unit need to be found with the document
-
-  foreach my $variety (keys(%{$self->{'special_unit_info'}->{'direction'}})) {
-    my $direction = $self->{'special_unit_info'}->{'direction'}->{$variety};
-    if (defined($direction)) {
-      $self->{'all_directions'}->{$direction} = 1;
-    }
-  }
-  #print STDERR join('|', sort(keys(%all_directions)))."\n";
-
-  my $customized_direction_strings
-      = Texinfo::Config::GNUT_get_direction_string_info();
-  $customized_direction_strings = {}
-    if (!defined($customized_direction_strings));
-
-  # Fill the translated direction strings information, corresponding to:
-  #   - strings already converted
-  #   - strings not already converted
-  # Each of those types of translated strings are translated later on
-  # and the translated values are put in $self->{'direction_strings'}.
-  $self->{'translated_direction_strings'} = {};
-  foreach my $string_type (keys(%default_translated_directions_strings)) {
-    $self->{'translated_direction_strings'}->{$string_type} = {};
-    foreach my $direction (keys(%{$self->{'all_directions'}})) {
-      if (exists($customized_direction_strings->{$string_type})
-          and exists($customized_direction_strings->{$string_type}->{$direction})) {
-        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
-          = $customized_direction_strings->{$string_type}->{$direction};
-      } else {
-        if (exists($default_translated_directions_strings{$string_type}
-                                                     ->{$direction})
-            and exists($default_translated_directions_strings{$string_type}
-                                           ->{$direction}->{'converted'})) {
-          $self->{'translated_direction_strings'}->{$string_type}
-                  ->{$direction} = {'converted' => {}};
-          foreach my $context ('normal', 'string') {
-            $self->{'translated_direction_strings'}->{$string_type}
-                     ->{$direction}->{'converted'}->{$context}
-               = $default_translated_directions_strings{$string_type}
-                                                 ->{$direction}->{'converted'};
-          }
-        } else {
-          $self->{'translated_direction_strings'}->{$string_type}->{$direction}
-            = $default_translated_directions_strings{$string_type}->{$direction};
-        }
-      }
-    }
-  }
-
-  # the customization information are not used further here, as
-  # substitute_html_non_breaking_space is used and it depends on the document
-  $self->{'customized_direction_strings'} = $customized_direction_strings;
-
-  $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
-
-
-  XS_html_converter_get_customization($self,
-                             \%default_formatting_references,
-                             \%default_css_string_formatting_references,
-                             \%default_commands_open,
-                             \%default_commands_conversion,
-                             \%default_css_string_commands_conversion,
-                             \%default_types_open,
-                             \%default_types_conversion,
-                             \%default_css_string_types_conversion,
-                             \%default_output_units_conversion,
-                             \%defaults_format_special_unit_body_contents,
-                             $customized_upper_case_commands,
-                             $customized_code_types,
-                             $customized_pre_class_types,
-                             \%customized_accent_entities,
-                             \%style_commands_customized_formatting_info,
-                             $customized_no_arg_commands_formatting,
-                             $customized_special_unit_info,
-                             $customized_direction_strings
-                            );
-
-  return $self;
-}
-
-# remove data that leads to cycles related to output units and references
-# to output units.
-sub converter_release_output_units($) {
-  my $self = shift;
-
-  # remove references to output units
-  if (exists($self->{'global_units_directions'})) {
-    %{$self->{'global_units_directions'}} = ();
-  }
-
-  # Cannot do that, the content is still needed by the Converter
-  #@{$self->{'document_units'}} = ();
-  $self->{'document_units'} = [];
-}
-
-# remove data that leads to cycles and references to elements.
-sub converter_destroy($) {
-  my $self = shift;
-
-  if (exists($self->{'converter_info'})) {
-    foreach my $key ('document', 'simpletitle_tree', 'title_tree') {
-      delete $self->{'converter_info'}->{$key};
-    }
-  }
-
-  delete $self->{'current_node'};
-  delete $self->{'current_root_command'};
-
-  # a separate cache used if the user defines the translate_message function.
-  delete $self->{'translation_cache'};
-
-  # remove shared conversion states pointing to elements
-  if (exists($self->{'shared_conversion_state'})) {
-    if (exists($self->{'shared_conversion_state'}->{'nodedescription'})
-        and exists($self->{'shared_conversion_state'}->{'nodedescription'}
-                               ->{'formatted_nodedescriptions'})) {
-      delete $self->{'shared_conversion_state'}->{'nodedescription'}
-                               ->{'formatted_nodedescriptions'};
-    }
-    if (exists($self->{'shared_conversion_state'}->{'quotation'})
-        and exists($self->{'shared_conversion_state'}->{'quotation'}
-                                       ->{'elements_authors'})) {
-      delete $self->{'shared_conversion_state'}->{'quotation'}
-                                       ->{'elements_authors'};
-    }
-  }
-
-  if (exists($self->{'no_arg_commands_formatting'})) {
-    foreach my $cmdname (keys(%{$self->{'no_arg_commands_formatting'}})) {
-      my $no_arg_command_ctx = $self->{'no_arg_commands_formatting'}->{$cmdname};
-      if (defined($no_arg_command_ctx->{'translated_tree'})) {
-        my $tree = $no_arg_command_ctx->{'translated_tree'};
-        # always a copy
-        Texinfo::ManipulateTree::tree_remove_parents($tree);
-      }
-    }
-  }
-
-  delete $self->{'translated_special_unit_info_tree'};
-
-  if (exists($self->{'targets'})) {
-    foreach my $command (keys(%{$self->{'targets'}})) {
-      my $target = $self->{'targets'}->{$command};
-      # can be tree elements or results of translations through cdt
-      delete $target->{'tree'};
-      delete $target->{'tree_nonumber'};
-      # tree elements
-      delete $target->{'name_tree'};
-      delete $target->{'name_tree_nonumber'};
-      delete $target->{'root_element_command'};
-      delete $target->{'node_command'};
-    }
-  }
-}
-
-# the entry point for _convert
-sub convert_tree($$;$) {
-  my ($self, $tree, $explanation) = @_;
-
-  # when formatting accents, goes through xml_accent without
-  # explanation, as explanation is not in the standard API, but
-  # otherwise the coverage of explanations should be pretty good
-  #cluck if (! defined($explanation));
-  #print STDERR "CONVERT_TREE".(defined($explanation) ? " ".$explanation : '')."\n"
-  #    if ($self->get_conf('DEBUG'));
-  return _convert($self, $tree, $explanation);
-}
-
-# Protect an url, in which characters with specific meaning in url are
-# considered to have their specific meaning.
-sub url_protect_url_text($$) {
-  my ($self, $input_string) = @_;
-
-  # turn end of lines to spaces, as it is most likely what is expected
-  # rather than a percent encoded end of line.
-  $input_string =~ s/[\n\r]+/ /g;
-  # percent encode character string.  It is better use UTF-8 irrespective
-  # of the actual charset of the HTML output file, according to the tests done.
-  my $href = encode("UTF-8", $input_string);
-  # protect 'ligntly', do not protect unreserved and reserved characters + the % itself
-  $href =~ s/([^^A-Za-z0-9\-_.!~*'()\$&+,\/:;=\?@\[\]\#%])/ sprintf "%%%02x", ord $1 /eg;
-  return &{$self->formatting_function('format_protect_text')}($self, $href);
-}
-
-# Protect a file path used in an url.  Characters appearing in file paths
-# are not protected.   All the other characters that can be percent
-# protected are protected, including characters with specific meaning in url.
-sub url_protect_file_text($$) {
-  my ($self, $input_string) = @_;
-
-  # turn end of lines to spaces, as it is most likely what is expected.
-  $input_string =~ s/[\n\r]+/ /g;
-  # percent encode character string.  It is better use UTF-8 irrespective
-  # of the actual charset of the HTML output file, according to the tests done.
-  my $href = encode("UTF-8", $input_string);
-  # protect everything that can be special in url except ~, / and : that could
-  # appear in file names and does not have much risk in being incorrectly
-  # interpreted (for :, the interpretation as a scheme delimiter may be possible).
-  $href =~ s/([^^A-Za-z0-9\-_.~\/:])/ sprintf "%%%02x", ord $1 /eg;
-  return &{$self->formatting_function('format_protect_text')}($self, $href);
-}
-
-sub _normalized_to_id($) {
-  my $id = shift;
-
-  if (!defined($id)) {
-    cluck "_normalized_to_id id not defined";
-    return '';
-  }
-  $id =~ s/^([0-9_])/g_t$1/;
-  return $id;
-}
-
 sub _default_format_css_lines($;$) {
   my ($self, $filename) = @_;
 
@@ -7381,298 +6937,6 @@ sub _default_format_css_lines($;$) {
                 $self->url_protect_url_text($ref).'"')."\n";
   }
   return $css_text;
-}
-
-sub _html_get_tree_root_element($$;$);
-
-# If $FIND_CONTAINER is set, the element that holds the command output
-# is found, otherwise the element that holds the command is found.  This is
-# mostly relevant for footnote only.
-# If no known root element type is found, the returned root element is undef,
-# and not set to the element at the tree root
-sub _html_get_tree_root_element($$;$) {
-  my ($self, $command, $find_container) = @_;
-
-  # can be used to debug/understand what is going on
-  #my $debug = 1;
-
-  my $current = $command;
-  #print STDERR "START ".Texinfo::Common::debug_print_element($current)."\n" if ($debug);
-
-  my ($output_unit, $root_command);
-  while (1) {
-    if (exists($current->{'type'})
-       and $current->{'type'} eq 'special_unit_element') {
-      return ($current->{'associated_unit'}, $current);
-    }
-    if (exists($current->{'cmdname'})) {
-      if (exists($root_commands{$current->{'cmdname'}})) {
-        $root_command = $current;
-        #print STDERR "CMD ROOT $current->{'cmdname'}\n" if ($debug);
-      } elsif (exists($block_commands{$current->{'cmdname'}})
-               and $block_commands{$current->{'cmdname'}} eq 'region') {
-        if ($current->{'cmdname'} eq 'copying'
-            and exists($self->{'document'})) {
-          my $global_commands
-              = $self->{'document'}->global_commands_information();
-          if (defined($global_commands)
-              and exists($global_commands->{'insertcopying'})) {
-            foreach my $insertcopying (@{$global_commands
-                                                        ->{'insertcopying'}}) {
-              #print STDERR "INSERTCOPYING\n" if ($debug);
-              my ($output_unit, $root_command)
-                = _html_get_tree_root_element($self, $insertcopying,
-                                                     $find_container);
-              return ($output_unit, $root_command)
-                if (defined($output_unit) or defined($root_command));
-            }
-          }
-        } elsif ($current->{'cmdname'} eq 'titlepage'
-                 and $self->get_conf('USE_TITLEPAGE_FOR_TITLE')
-                 and $self->get_conf('SHOW_TITLE')) {
-          #print STDERR "FOR titlepage document_units [0]\n" if ($debug);
-          return ($self->{'document_units'}->[0],
-                  $self->{'document_units'}->[0]->{'unit_command'});
-        }
-        die "Problem $output_unit, $root_command" if (defined($output_unit)
-                                                  or defined($root_command));
-        return (undef, undef);
-      } elsif ($find_container) {
-        # @footnote and possibly @*contents when a separate element is set
-        my ($special_unit_variety, $special_unit, $class_base,
-            $special_unit_direction)
-         = $self->command_name_special_unit_information($current->{'cmdname'});
-        if (defined($special_unit)) {
-          #print STDERR "SPECIAL $current->{'cmdname'}: $special_unit_variety ($special_unit_direction)\n" if ($debug);
-          return ($special_unit, undef);
-        }
-      }
-    }
-    if (exists($current->{'associated_unit'})) {
-      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_output_unit($current->{'associated_unit'})."\n" if ($debug);
-      return ($current->{'associated_unit'}, $root_command);
-    } elsif (exists($current->{'parent'})) {
-      #print STDERR "PARENT ".Texinfo::Common::debug_print_element($current->{'parent'})."\n" if ($debug);
-      $current = $current->{'parent'};
-    } else {
-      #print STDERR "UNKNOWN ROOT ".Texinfo::Common::debug_print_element($current)."\n" if ($debug);
-      return (undef, $root_command);
-    }
-  }
-}
-
-# returns file base name, extension and anchor associated to node
-# (anchor, float...) command adhering strictly to the HTML Xref specification.
-# The $CROSSREF_EXTENSION argument should be the external crossreference
-# filename extension, if undef, the $EXTENSION argument is used.
-sub standard_label_id_file($$$$$) {
-  my ($self, $normalized, $label_element, $crossref_extension,
-      $extension) = @_;
-
-  my $target;
-  my $filename;
-  if (!defined($normalized) and defined($label_element)) {
-    $normalized
-      = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
-        $label_element);
-  }
-  my $options = \%Texinfo::Options::converter_customization_options;
-
-  if (defined($normalized)) {
-    $target = _normalized_to_id($normalized);
-
-    # use default, not user-defined value
-    my $basefilename_length = $options->{'BASEFILENAME_LENGTH'};
-    $filename = substr($normalized, 0, $basefilename_length);
-  } else {
-    $target = '';
-    $filename = '';
-  }
-  # to find out the Top node, one could check $normalized
-  if (defined($self->{'file_id_setting'}->{'label_target_name'})) {
-    $target = &{$self->{'file_id_setting'}->{'label_target_name'}}($self,
-                             $normalized, $label_element, $target);
-  }
-
-  my $file_extension = '';
-  my $external_extension = $crossref_extension;
-  $external_extension = $extension
-    if (not defined($external_extension));
-  $file_extension = '.' . $external_extension
-    if (defined($external_extension) and $external_extension ne '');
-
-  return ($filename, $file_extension, $target);
-}
-
-sub _external_node_href($$$) {
-  my ($self, $external_node,
-  # for messages only
-     $source_command) = @_;
-
-  my $normalized = $external_node->{'extra'}->{'normalized'};
-  my $node_contents = $external_node->{'extra'}->{'node_content'};
-  #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
-  my ($target_filebase, $external_file_extension, $target)
-     = $self->standard_label_id_file($normalized, $node_contents,
-                               $self->get_conf('EXTERNAL_CROSSREF_EXTENSION'),
-                                     $defaults{'EXTENSION'});
-
-  # always undef if conversion is called through convert()
-  my $default_target_split = $self->get_conf('EXTERNAL_CROSSREF_SPLIT');
-
-  # initialize to $default_target_split
-  my $is_target_split;
-  if ($default_target_split) {
-    $is_target_split = 1;
-  } else {
-    $is_target_split = 0;
-  }
-  # used if !$is_target_split
-  my $file = '';
-  # used if $is_target_split
-  my $directory = '';
-  if (exists($external_node->{'extra'}->{'manual_content'})) {
-    Texinfo::Convert::Text::set_options_code($self->{'convert_text_options'});
-    my $manual_name = Texinfo::Convert::Text::convert_to_text(
-                            $external_node->{'extra'}->{'manual_content'},
-                            $self->{'convert_text_options'});
-    Texinfo::Convert::Text::reset_options_code($self->{'convert_text_options'});
-    if ($self->get_conf('IGNORE_REF_TO_TOP_NODE_UP') and $target eq '') {
-      my $top_node_up = $self->get_conf('TOP_NODE_UP');
-      if (defined($top_node_up) and "($manual_name)" eq $top_node_up) {
-        return '';
-      }
-    }
-    my $manual_base = $manual_name;
-    # in 2023 there were manuals with .info.  Warning added in 2024.
-    if ($manual_base =~ s/(\.info?)$//) {
-      $self->converter_line_warn(sprintf(__(
-                    "do not set %s suffix in reference for manual `%s'"),
-                                         $1, $manual_name),
-                             $source_command->{'source_info'});
-    }
-    $manual_base =~ s/^.*\///;
-    my $split_found;
-    my $htmlxref_href;
-    my $htmlxref_mode = $self->get_conf('HTMLXREF_MODE');
-
-    if (!defined($htmlxref_mode) or $htmlxref_mode ne 'none') {
-      if (exists($self->{'htmlxref'}->{$manual_base})) {
-        my $htmlxref_info = $self->{'htmlxref'}->{$manual_base};
-        my $document_split = $self->get_conf('SPLIT');
-        $document_split = 'mono' if (!$document_split);
-        foreach my $split_ordered (@{$htmlxref_entries{$document_split}}) {
-          if (exists($htmlxref_info->{$split_ordered})) {
-            $split_found = $split_ordered;
-            if ($htmlxref_info->{$split_ordered} ne '') {
-              $htmlxref_href
-               = $self->url_protect_url_text($htmlxref_info->{$split_ordered});
-            }
-            last;
-          }
-        }
-      }
-      if (defined($split_found)) {
-        if ($split_found eq 'mono') {
-          $is_target_split = 0;
-        } else {
-          $is_target_split = 1;
-        }
-      } else { # nothing specified for that manual, use default
-        if ($self->get_conf('CHECK_HTMLXREF')) {
-          if (defined($source_command) and $source_command->{'source_info'}) {
-            if (!_check_htmlxref_already_warned($self, $manual_name,
-                                         $source_command->{'source_info'})) {
-              $self->converter_line_warn(sprintf(__(
-              "no HTML cross-references entry found for `%s'"), $manual_name),
-                               $source_command->{'source_info'});
-            }
-          } else {
-            if (!_check_htmlxref_already_warned($self, $manual_name, undef)) {
-              $self->converter_document_warn(sprintf(__(
-                "no HTML cross-references entry found for `%s'"), $manual_name),
-                );
-              cluck;
-            }
-          }
-        }
-      }
-    }
-
-    if ($is_target_split) {
-      if (defined($htmlxref_href)) {
-        $directory = $htmlxref_href;
-      } else {
-        if (defined($self->get_conf('EXTERNAL_DIR'))) {
-          $directory = $self->get_conf('EXTERNAL_DIR')."/$manual_base";
-        } elsif ($self->get_conf('SPLIT')) {
-          $directory = "../$manual_base";
-        }
-        my $output_format = $self->get_conf('TEXINFO_OUTPUT_FORMAT');
-        if (defined($output_format) and $output_format ne '') {
-          $directory .= '_'.$output_format;
-        }
-        $directory = $self->url_protect_file_text($directory);
-      }
-      $directory .= "/";
-    } else {# target not split
-      if (defined($htmlxref_href)) {
-        $file = $htmlxref_href;
-      } else {
-        if (defined($self->get_conf('EXTERNAL_DIR'))) {
-          $file = $self->get_conf('EXTERNAL_DIR')."/$manual_base";
-        } elsif ($self->get_conf('SPLIT')) {
-          $file = "../$manual_base";
-        } else {
-          $file = $manual_base;
-        }
-        $file .= $external_file_extension;
-
-        $file = $self->url_protect_file_text($file);
-      }
-    }
-  }
-
-  if ($is_target_split) {
-    my $file_name;
-    if (($target eq 'Top' or $target eq '')
-        and defined($self->get_conf('TOP_NODE_FILE_TARGET'))) {
-      $file_name = $self->get_conf('TOP_NODE_FILE_TARGET');
-    } else {
-      $file_name = $target_filebase . $external_file_extension;
-    }
-    if (defined($self->{'file_id_setting'}->{'external_target_split_name'})) {
-      ($target, $directory, $file_name)
-        = &{$self->{'file_id_setting'}->{'external_target_split_name'}}($self,
-                             $normalized, $external_node, $target,
-                             $directory, $file_name);
-      $directory = '' if (!defined($directory));
-      $file_name = '' if (!defined($file_name));
-      $target = '' if (!defined($target));
-    }
-    my $result = $directory . $file_name;
-    if ($target ne '') {
-      $result .= '#' . $target;
-    }
-    return $result;
-  } else {
-    if ($target eq '') {
-      $target = 'Top';
-    }
-    if (defined($self->{'file_id_setting'}->{
-                          'external_target_non_split_name'})) {
-      ($target, $file)
-       = &{$self->{'file_id_setting'}->{'external_target_non_split_name'}}($self,
-                             $normalized, $external_node, $target, $file);
-      $file = '' if (!defined($file));
-      $target = '' if (!defined($target));
-    }
-    my $result = $file;
-    if ($target ne '') {
-      $result .= '#' . $target;
-    }
-    return $result;
-  }
 }
 
 # Output a list of the nodes immediately below this one
@@ -7711,6 +6975,25 @@ sub _mini_toc($$) {
     $result .= "</ul>\n";
   }
   return $result;
+}
+
+# No equivalent function in C, corresponding code is inlined
+sub _has_contents_or_shortcontents($) {
+  my $self = shift;
+
+  my $global_commands;
+
+  my $document = $self->get_info('document');
+  if (defined($document)) {
+    $global_commands = $document->global_commands_information();
+  }
+
+  foreach my $cmdname ('contents', 'shortcontents') {
+    if (defined($global_commands) and exists($global_commands->{$cmdname})) {
+      return 1;
+    }
+  }
+  return 0;
 }
 
 sub _default_format_contents($$;$$) {
@@ -8593,23 +7876,759 @@ sub _default_format_special_body_footnotes($$$) {
   return &{$self->formatting_function('format_footnotes_sequence')}($self);
 }
 
-sub _has_contents_or_shortcontents($) {
+# can be set through Texinfo::Config::texinfo_register_file_id_setting_function
+my %customizable_file_id_setting_references;
+foreach my $customized_reference ('external_target_split_name',
+                'external_target_non_split_name',
+                'label_target_name', 'node_file_name',
+                'redirection_file_names',
+                'sectioning_command_target_name',
+                'special_unit_target_file_name', 'unit_file_name') {
+  $customizable_file_id_setting_references{$customized_reference} = 1;
+}
+
+# Functions accessed with e.g. 'format_heading_text'.
+# used in Texinfo::Config
+%default_formatting_references = (
+     'format_begin_file' => \&_default_format_begin_file,
+     'format_button' => \&_default_format_button,
+     'format_button_icon_img' => \&_default_format_button_icon_img,
+     'format_css_lines' => \&_default_format_css_lines,
+     'format_comment' => \&_default_format_comment,
+     'format_contents' => \&_default_format_contents,
+     'format_element_header' => \&_default_format_element_header,
+     'format_element_footer' => \&_default_format_element_footer,
+     'format_end_file' => \&_default_format_end_file,
+     'format_footnotes_segment' => \&_default_format_footnotes_segment,
+     'format_footnotes_sequence' => \&_default_format_footnotes_sequence,
+     'format_single_footnote' => \&_default_format_single_footnote,
+     'format_heading_text' => \&_default_format_heading_text,
+     'format_navigation_header' => \&_default_format_navigation_header,
+     'format_navigation_panel' => \&_default_format_navigation_panel,
+     'format_node_redirection_page' => \&_default_format_node_redirection_page,
+     'format_program_string' => \&_default_format_program_string,
+     'format_protect_text' => \&_default_format_protect_text,
+     'format_separate_anchor' => \&_default_format_separate_anchor,
+     'format_titlepage' => \&_default_format_titlepage,
+     'format_title_titlepage' => \&_default_format_title_titlepage,
+     'format_translate_message' => undef,
+);
+
+# not up for customization
+%default_css_string_formatting_references = (
+  'format_protect_text' => \&_default_css_string_format_protect_text,
+);
+
+%defaults_format_special_unit_body_contents = (
+  'contents' => \&_default_format_special_body_contents,
+  'about' => \&_default_format_special_body_about,
+  'footnotes' => \&_default_format_special_body_footnotes,
+  'shortcontents' => \&_default_format_special_body_shortcontents,
+);
+
+
+
+# converter API implementation for function without XS overrides.
+
+# TODO split part of this in HTMLNonXS for states that are accessed through
+# XS functions only, when there is XS.
+# converter state
+#
+#   No API
+#  all_directions          # determined parallelly in C
+#  deprecated_config_directories
+#
+#     API exists
+#
+#   Get through converter set_global_document_commands with 'before'.  No
+#   specific API to set, but can use get_conf or force_conf in setup handler
+#  commands_init_conf
+#
+#  shared_conversion_state
+#   Set through the shared_conversion_state API (among others):
+#  explained_commands         # used only in an @-command conversion function
+#
+#     API converter_info get_info
+#  document_name
+#  destination_directory
+#  paragraph_symbol
+#  line_break_element
+#  non_breaking_space
+#  simpletitle_tree
+#  simpletitle_command_name
+#  title_string
+#  title_tree
+#  documentdescription_string
+#  copying_comment
+#  jslicenses
+#
+#     API exists
+#  current_filename
+#  current_output_unit
+#  index_entries
+#  index_entries_by_letter
+#
+#    API exists in Texinfo::Config for setting, not for getting
+#  stage_handlers
+#
+#   No API, but set by command-line and can be overriden by CSS
+#   change API functions
+#  files_css_import_lines
+#  files_css_rule_lines
+#
+#    API exists
+#  css_element_class_styles
+#  css_import_lines
+#  css_rule_lines
+#
+#    API exists
+#  file_id_setting
+#  commands_conversion
+#  commands_open
+#  types_conversion
+#  types_open
+#
+#    API exists for setting, no need to access directly, accessed through
+#    no_arg_commands_formatting
+#  customized_no_arg_commands_formatting
+#
+#    API exists for setting (through customized_no_arg_commands_formatting
+#    for no_arg_commands_formatting), not for getting and used in
+#    commands_conversion
+#  no_arg_commands_formatting
+#  style_commands_formatting
+#
+#    API exists
+#  code_types
+#  pre_class_types
+#
+#    API exists
+#  document_context
+#
+#    API exists
+#  pending_closes
+#
+#    API exists
+#  pending_footnotes
+#
+#    API exists
+#  pending_inline_content
+#  associated_inline_content
+#
+#    API exists
+#  multiple_pass
+#
+#    API exists
+#  targets         for directions.  Keys are elements references, values are
+#                  target information hash references described above before
+#                  the API functions used to access this information.
+#  special_targets
+#  global_units_directions
+#
+#    API exists for setting, not getting
+#  customized_direction_strings
+#  directions_strings
+#  translated_direction_strings
+#
+#    API exists
+#  special_unit_info
+#  translated_special_unit_info
+#
+#    API exists
+#  elements_in_file_count    # the number of output units in file
+#  file_counters             # begin at elements_in_file_count decrease
+#                            # each time the unit is closed
+#
+#     API exists
+#  document_global_context_css
+#  page_css
+#
+#     API exists
+#  files_information
+#
+#     No API, converter internals
+#  document_units
+#  out_filepaths          (partially common with Texinfo::Converter)
+#  seen_ids
+#  options_latex_math
+#  htmlxref
+#  check_htmlxref_already_warned
+#  referred_command_stack
+#
+#    from Converter
+#  labels
+
+# this allows to get some debugging output for the file without setting
+# the customization variable.
+my $debug;  # whether to print debugging output
+
+sub converter_initialize($) {
   my $self = shift;
 
-  my $global_commands;
+  # beginning of initialization done either in Perl or XS
+  html_converter_initialize_beginning($self);
 
-  my $document = $self->get_info('document');
-  if (defined($document)) {
-    $global_commands = $document->global_commands_information();
-  }
-
-  foreach my $cmdname ('contents', 'shortcontents') {
-    if (defined($global_commands) and exists($global_commands->{$cmdname})) {
-      return 1;
+  $self->{'output_units_conversion'} = {};
+  my $customized_output_units_conversion
+    = Texinfo::Config::GNUT_get_output_units_conversion();
+  $customized_output_units_conversion = {}
+    if (!defined($customized_output_units_conversion));
+  foreach my $type (keys(%default_output_units_conversion)) {
+    if (exists($customized_output_units_conversion->{$type})) {
+      $self->{'output_units_conversion'}->{$type}
+          = $customized_output_units_conversion->{$type};
+    } else {
+      $self->{'output_units_conversion'}->{$type}
+          = $default_output_units_conversion{$type};
     }
   }
-  return 0;
+
+  $self->{'types_conversion'} = {};
+  my $customized_types_conversion
+    = Texinfo::Config::GNUT_get_types_conversion();
+  $customized_types_conversion = {}
+    if (!defined($customized_types_conversion));
+  foreach my $type (keys(%default_types_conversion)) {
+    if (exists($customized_types_conversion->{$type})) {
+      $self->{'types_conversion'}->{$type}
+          = $customized_types_conversion->{$type};
+    } else {
+      $self->{'types_conversion'}->{$type}
+          = $default_types_conversion{$type};
+    }
+  }
+
+  $self->{'types_open'} = {};
+  my $customized_types_open = Texinfo::Config::GNUT_get_types_open();
+  $customized_types_open = {} if (!defined($customized_types_open));
+  foreach my $type (keys(%default_types_conversion)) {
+    if (exists($customized_types_open->{$type})) {
+      $self->{'types_open'}->{$type}
+          = $customized_types_open->{$type};
+    } elsif (exists($default_types_open{$type})) {
+      $self->{'types_open'}->{$type}
+           = $default_types_open{$type};
+    }
+  }
+
+  $self->{'code_types'} = {};
+  foreach my $type (keys(%default_code_types)) {
+    $self->{'code_types'}->{$type} = $default_code_types{$type};
+  }
+  $self->{'pre_class_types'} = {};
+  foreach my $type (keys(%default_pre_class_types)) {
+    $self->{'pre_class_types'}->{$type} = $default_pre_class_types{$type};
+  }
+
+  my $customized_code_types = Texinfo::Config::GNUT_get_types_code_info();
+  if (defined($customized_code_types)) {
+    foreach my $type (keys(%$customized_code_types)) {
+      $self->{'code_types'}->{$type} = $customized_code_types->{$type};
+    }
+  }
+
+  my $customized_pre_class_types = Texinfo::Config::GNUT_get_types_pre_class();
+  if (defined($customized_pre_class_types)) {
+    foreach my $type (keys(%$customized_pre_class_types)) {
+      $self->{'pre_class_types'}->{$type}
+         = $customized_pre_class_types->{$type};
+    }
+  }
+
+  $self->{'upper_case_commands'} = {};
+  foreach my $cmdname (keys(%default_upper_case_commands)) {
+    $self->{'upper_case_commands'}->{$cmdname}
+     = $default_upper_case_commands{$cmdname};
+  }
+  my $customized_upper_case_commands
+    = Texinfo::Config::GNUT_get_upper_case_commands_info();
+  if (defined($customized_upper_case_commands)) {
+    foreach my $cmdname (keys(%$customized_upper_case_commands)) {
+      $self->{'upper_case_commands'}->{$cmdname}
+        = $customized_upper_case_commands->{$cmdname};
+    }
+  }
+
+  $self->{'commands_conversion'} = {};
+  my $customized_commands_conversion
+     = Texinfo::Config::GNUT_get_commands_conversion();
+  $customized_commands_conversion = {}
+    if (!defined($customized_commands_conversion));
+  foreach my $cmdname (keys(%line_commands), keys(%brace_commands),
+     keys (%block_commands), keys(%nobrace_commands)) {
+    if (exists($customized_commands_conversion->{$cmdname})) {
+      $self->{'commands_conversion'}->{$cmdname}
+          = $customized_commands_conversion->{$cmdname};
+    } else {
+      my $format_menu = $self->get_conf('FORMAT_MENU');
+      if ($format_menu ne 'menu' and $format_menu ne 'menu_no_detailmenu'
+          and ($cmdname eq 'menu' or $cmdname eq 'detailmenu')) {
+        $self->{'commands_conversion'}->{$cmdname} = undef;
+      } elsif (exists($format_raw_commands{$cmdname})
+               and !$self->{'expanded_formats'}->{$cmdname}) {
+        $self->{'commands_conversion'}->{$cmdname} = undef;
+      } elsif (exists($default_commands_conversion{$cmdname})) {
+        $self->{'commands_conversion'}->{$cmdname}
+           = $default_commands_conversion{$cmdname};
+      }
+    }
+  }
+
+  $self->{'commands_open'} = {};
+  my $customized_commands_open
+     = Texinfo::Config::GNUT_get_commands_open();
+  $customized_commands_open = {} if (!defined($customized_commands_open));
+  foreach my $cmdname (keys(%line_commands), keys(%brace_commands),
+     keys (%block_commands), keys(%nobrace_commands)) {
+    if (exists($customized_commands_open->{$cmdname})) {
+      $self->{'commands_open'}->{$cmdname}
+          = $customized_commands_open->{$cmdname};
+    } elsif (exists($default_commands_open{$cmdname})) {
+      $self->{'commands_open'}->{$cmdname}
+           = $default_commands_open{$cmdname};
+    }
+  }
+
+  # get all the customization
+  my %style_commands_customized_formatting_info;
+  foreach my $cmdname (keys(%default_style_commands_formatting)) {
+    foreach my $context (@style_commands_contexts) {
+      my $style_commands_formatting_info
+        = Texinfo::Config::GNUT_get_style_command_formatting($cmdname, $context);
+      if (defined($style_commands_formatting_info)) {
+        if (!exists($style_commands_customized_formatting_info{$cmdname})) {
+          $style_commands_customized_formatting_info{$cmdname} = {};
+        }
+        $style_commands_customized_formatting_info{$cmdname}->{$context}
+          = $style_commands_formatting_info;
+      }
+    }
+  }
+
+  $self->{'style_commands_formatting'} = {};
+  foreach my $cmdname (keys(%default_style_commands_formatting)) {
+    $self->{'style_commands_formatting'}->{$cmdname} = {};
+    foreach my $context (@style_commands_contexts) {
+      if (exists($style_commands_customized_formatting_info{$cmdname})
+          and $style_commands_customized_formatting_info{$cmdname}->{$context}) {
+        $self->{'style_commands_formatting'}->{$cmdname}->{$context}
+          = $style_commands_customized_formatting_info{$cmdname}->{$context};
+      } elsif (exists($default_style_commands_formatting{$cmdname}->{$context})) {
+        $self->{'style_commands_formatting'}->{$cmdname}->{$context}
+          = $default_style_commands_formatting{$cmdname}->{$context};
+      }
+    }
+  }
+
+  my %customized_accent_entities;
+
+  foreach my $accent_command
+     (keys(%Texinfo::Convert::Converter::xml_accent_entities)) {
+    my ($accent_command_entity, $accent_command_text_with_entities)
+      = Texinfo::Config::GNUT_get_accent_command_formatting($accent_command);
+    if (defined($accent_command_entity)
+        or defined($accent_command_text_with_entities)) {
+      $customized_accent_entities{$accent_command} = [$accent_command_entity,
+                                           $accent_command_text_with_entities];
+    }
+  }
+
+  $self->{'accent_entities'} = {};
+  foreach my $accent_command
+     (keys(%Texinfo::Convert::Converter::xml_accent_entities)) {
+    $self->{'accent_entities'}->{$accent_command} = [];
+
+    my ($accent_command_entity, $accent_command_text_with_entities);
+    if (exists($customized_accent_entities{$accent_command})) {
+      ($accent_command_entity, $accent_command_text_with_entities)
+        = @{$customized_accent_entities{$accent_command}};
+    }
+
+    if (not defined($accent_command_entity)
+        and defined($Texinfo::Convert::Converter::xml_accent_text_with_entities{
+                                                              $accent_command})) {
+      $accent_command_entity
+       = $Texinfo::Convert::Converter::xml_accent_entities{$accent_command};
+    }
+    if (not defined($accent_command_text_with_entities)
+        and defined($Texinfo::Convert::Converter::xml_accent_text_with_entities{
+                                                             $accent_command})) {
+      $accent_command_text_with_entities
+  = $Texinfo::Convert::Converter::xml_accent_text_with_entities{$accent_command};
+    }
+    # an empty string means no formatting
+    if (defined($accent_command_entity)) {
+      $self->{'accent_entities'}->{$accent_command} = [$accent_command_entity,
+                                           $accent_command_text_with_entities];
+    }
+  }
+  #print STDERR Data::Dumper->Dump([$self->{'accent_entities'}]);
+
+  # get customization only at that point, as the defaults may be changed
+  # with the encoding
+  my $customized_no_arg_commands_formatting = {};
+  foreach my $cmdname (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+    $customized_no_arg_commands_formatting->{$cmdname} = {};
+    foreach my $context (@no_args_commands_contexts, 'translated_to_convert') {
+      my $no_arg_command_customized_formatting
+        = Texinfo::Config::GNUT_get_no_arg_command_formatting($cmdname,
+                                                              $context);
+      if (defined($no_arg_command_customized_formatting)) {
+        $customized_no_arg_commands_formatting->{$cmdname}->{$context}
+           = $no_arg_command_customized_formatting;
+      }
+    }
+  }
+
+  $self->{'customized_no_arg_commands_formatting'}
+    = $customized_no_arg_commands_formatting;
+
+  $self->{'file_id_setting'} = {};
+  my $customized_file_id_setting_references
+    = Texinfo::Config::GNUT_get_file_id_setting_references();
+  if (defined($customized_file_id_setting_references)) {
+    # first check the validity of the names
+    foreach my $custom_file_id_setting
+       (sort(keys(%{$customized_file_id_setting_references}))) {
+      if (!exists($customizable_file_id_setting_references{
+                                           $custom_file_id_setting})) {
+        $self->converter_document_warn(
+                       sprintf(__("Unknown file and id setting function: %s"),
+                               $custom_file_id_setting));
+      } else {
+        $self->{'file_id_setting'}->{$custom_file_id_setting}
+          = $customized_file_id_setting_references->{$custom_file_id_setting};
+      }
+    }
+  }
+
+  my $customized_formatting_references
+       = Texinfo::Config::GNUT_get_formatting_references();
+  # first check that all the customized_formatting_references
+  # are in default_formatting_references
+  if (defined($customized_formatting_references)) {
+    foreach my $custom_formatting_ref
+       (sort(keys(%{$customized_formatting_references}))) {
+      if (!exists($default_formatting_references{$custom_formatting_ref})) {
+        $self->converter_document_warn(
+              sprintf(__("Unknown formatting function: %s"),
+                                          $custom_formatting_ref));
+      }
+    }
+  } else {
+    $customized_formatting_references = {};
+  }
+
+  $self->{'formatting_function'} = {};
+  foreach my $formatting_reference (keys(%default_formatting_references)) {
+    if (defined($customized_formatting_references->{$formatting_reference})) {
+      $self->{'formatting_function'}->{$formatting_reference}
+       = $customized_formatting_references->{$formatting_reference};
+    } else {
+      $self->{'formatting_function'}->{$formatting_reference}
+       = $default_formatting_references{$formatting_reference};
+    }
+  }
+
+  my $customized_special_unit_info
+    = Texinfo::Config::GNUT_get_special_unit_info();
+  $customized_special_unit_info = {}
+     if (!defined($customized_special_unit_info));
+
+  $self->{'special_unit_info'} = {};
+  foreach my $type (keys(%default_special_unit_info)) {
+    $self->{'special_unit_info'}->{$type} = {};
+    foreach my $special_unit_variety
+                      (keys(%{$default_special_unit_info{$type}})) {
+      if (exists($customized_special_unit_info->{$type})
+          and exists($customized_special_unit_info
+                          ->{$type}->{$special_unit_variety})) {
+        $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
+         = $customized_special_unit_info->{$type}->{$special_unit_variety};
+      } else {
+        $self->{'special_unit_info'}->{$type}->{$special_unit_variety}
+          = $default_special_unit_info{$type}->{$special_unit_variety};
+      }
+    }
+  }
+
+  # Note that with XS this information is not actually used, as
+  # it is only accessed through functions that are overriden
+  $self->{'translated_special_unit_info_texinfo'} = {};
+  $self->{'translated_special_unit_info_tree'} = {};
+  foreach my $type (keys(%default_translated_special_unit_info)) {
+    $self->{'translated_special_unit_info_texinfo'}->{$type} = {};
+    $self->{'translated_special_unit_info_tree'}->{$type} = {};
+    foreach my $special_unit_variety
+                 (keys(%{$default_translated_special_unit_info{$type}})) {
+      if (exists($customized_special_unit_info->{$type})
+          and exists($customized_special_unit_info
+                          ->{$type}->{$special_unit_variety})) {
+        $self->{'translated_special_unit_info_texinfo'}->{$type}
+                                                 ->{$special_unit_variety}
+         = $customized_special_unit_info->{$type}->{$special_unit_variety};
+      } else {
+        $self->{'translated_special_unit_info_texinfo'}->{$type}
+                                               ->{$special_unit_variety}
+          = $default_translated_special_unit_info{$type}
+                                                   ->{$special_unit_variety};
+      }
+    }
+  }
+
+  my $customized_special_unit_body
+     = Texinfo::Config::GNUT_get_formatting_special_unit_body_references();
+
+  $self->{'special_unit_body'} = {};
+  foreach my $special_unit_variety (keys(%defaults_format_special_unit_body_contents)) {
+    $self->{'special_unit_body'}->{$special_unit_variety}
+      = $defaults_format_special_unit_body_contents{$special_unit_variety};
+  }
+  foreach my $special_unit_variety (keys(%$customized_special_unit_body)) {
+    $self->{'special_unit_body'}->{$special_unit_variety}
+      = $customized_special_unit_body->{$special_unit_variety};
+  }
+
+  # "directions" not associated to output units, but associated to text.
+  $self->{'global_texts_directions'} = {};
+  $self->{'global_texts_directions'}->{'Space'} = 1;
+
+  $self->{'all_directions'} = {};
+  foreach my $direction (@all_directions_except_special_units) {
+    $self->{'all_directions'}->{$direction} = 1;
+  }
+
+  $self->{'customized_text_directions'}
+    = Texinfo::Config::GNUT_get_text_directions();
+
+  if (defined($self->{'customized_text_directions'})) {
+    foreach my $direction (keys(%{$self->{'customized_text_directions'}})) {
+      if (!exists($self->{'all_directions'}->{$direction})) {
+        $self->{'global_texts_directions'}->{$direction} = 1;
+        $self->{'all_directions'}->{$direction} = 1;
+      }
+    }
+  }
+
+  $self->{'customized_global_directions'}
+    = Texinfo::Config::GNUT_get_global_directions();
+
+  if (defined($self->{'customized_global_directions'})) {
+    foreach my $direction (keys(%{$self->{'customized_global_directions'}})) {
+      $self->{'all_directions'}->{$direction} = 1;
+    }
+  }
+
+  # customized_global_directions are not used further here, as the output
+  # unit need to be found with the document
+
+  foreach my $variety (keys(%{$self->{'special_unit_info'}->{'direction'}})) {
+    my $direction = $self->{'special_unit_info'}->{'direction'}->{$variety};
+    if (defined($direction)) {
+      $self->{'all_directions'}->{$direction} = 1;
+    }
+  }
+  #print STDERR join('|', sort(keys(%all_directions)))."\n";
+
+  my $customized_direction_strings
+      = Texinfo::Config::GNUT_get_direction_string_info();
+  $customized_direction_strings = {}
+    if (!defined($customized_direction_strings));
+
+  # Fill the translated direction strings information, corresponding to:
+  #   - strings already converted
+  #   - strings not already converted
+  # Each of those types of translated strings are translated later on
+  # and the translated values are put in $self->{'direction_strings'}.
+  $self->{'translated_direction_strings'} = {};
+  foreach my $string_type (keys(%default_translated_directions_strings)) {
+    $self->{'translated_direction_strings'}->{$string_type} = {};
+    foreach my $direction (keys(%{$self->{'all_directions'}})) {
+      if (exists($customized_direction_strings->{$string_type})
+          and exists($customized_direction_strings->{$string_type}->{$direction})) {
+        $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+          = $customized_direction_strings->{$string_type}->{$direction};
+      } else {
+        if (exists($default_translated_directions_strings{$string_type}
+                                                     ->{$direction})
+            and exists($default_translated_directions_strings{$string_type}
+                                           ->{$direction}->{'converted'})) {
+          $self->{'translated_direction_strings'}->{$string_type}
+                  ->{$direction} = {'converted' => {}};
+          foreach my $context ('normal', 'string') {
+            $self->{'translated_direction_strings'}->{$string_type}
+                     ->{$direction}->{'converted'}->{$context}
+               = $default_translated_directions_strings{$string_type}
+                                                 ->{$direction}->{'converted'};
+          }
+        } else {
+          $self->{'translated_direction_strings'}->{$string_type}->{$direction}
+            = $default_translated_directions_strings{$string_type}->{$direction};
+        }
+      }
+    }
+  }
+
+  # the customization information are not used further here, as
+  # substitute_html_non_breaking_space is used and it depends on the document
+  $self->{'customized_direction_strings'} = $customized_direction_strings;
+
+  $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
+
+
+  XS_html_converter_get_customization($self,
+                             \%default_formatting_references,
+                             \%default_css_string_formatting_references,
+                             \%default_commands_open,
+                             \%default_commands_conversion,
+                             \%default_css_string_commands_conversion,
+                             \%default_types_open,
+                             \%default_types_conversion,
+                             \%default_css_string_types_conversion,
+                             \%default_output_units_conversion,
+                             \%defaults_format_special_unit_body_contents,
+                             $customized_upper_case_commands,
+                             $customized_code_types,
+                             $customized_pre_class_types,
+                             \%customized_accent_entities,
+                             \%style_commands_customized_formatting_info,
+                             $customized_no_arg_commands_formatting,
+                             $customized_special_unit_info,
+                             $customized_direction_strings
+                            );
+
+  return $self;
 }
+
+# remove data that leads to cycles related to output units and references
+# to output units.
+sub converter_release_output_units($) {
+  my $self = shift;
+
+  # remove references to output units
+  if (exists($self->{'global_units_directions'})) {
+    %{$self->{'global_units_directions'}} = ();
+  }
+
+  # Cannot do that, the content is still needed by the Converter
+  #@{$self->{'document_units'}} = ();
+  $self->{'document_units'} = [];
+}
+
+# remove data that leads to cycles and references to elements.
+sub converter_destroy($) {
+  my $self = shift;
+
+  if (exists($self->{'converter_info'})) {
+    foreach my $key ('document', 'simpletitle_tree', 'title_tree') {
+      delete $self->{'converter_info'}->{$key};
+    }
+  }
+
+  delete $self->{'current_node'};
+  delete $self->{'current_root_command'};
+
+  # a separate cache used if the user defines the translate_message function.
+  delete $self->{'translation_cache'};
+
+  # remove shared conversion states pointing to elements
+  if (exists($self->{'shared_conversion_state'})) {
+    if (exists($self->{'shared_conversion_state'}->{'nodedescription'})
+        and exists($self->{'shared_conversion_state'}->{'nodedescription'}
+                               ->{'formatted_nodedescriptions'})) {
+      delete $self->{'shared_conversion_state'}->{'nodedescription'}
+                               ->{'formatted_nodedescriptions'};
+    }
+    if (exists($self->{'shared_conversion_state'}->{'quotation'})
+        and exists($self->{'shared_conversion_state'}->{'quotation'}
+                                       ->{'elements_authors'})) {
+      delete $self->{'shared_conversion_state'}->{'quotation'}
+                                       ->{'elements_authors'};
+    }
+  }
+
+  if (exists($self->{'no_arg_commands_formatting'})) {
+    foreach my $cmdname (keys(%{$self->{'no_arg_commands_formatting'}})) {
+      my $no_arg_command_ctx = $self->{'no_arg_commands_formatting'}->{$cmdname};
+      if (defined($no_arg_command_ctx->{'translated_tree'})) {
+        my $tree = $no_arg_command_ctx->{'translated_tree'};
+        # always a copy
+        Texinfo::ManipulateTree::tree_remove_parents($tree);
+      }
+    }
+  }
+
+  delete $self->{'translated_special_unit_info_tree'};
+
+  if (exists($self->{'targets'})) {
+    foreach my $command (keys(%{$self->{'targets'}})) {
+      my $target = $self->{'targets'}->{$command};
+      # can be tree elements or results of translations through cdt
+      delete $target->{'tree'};
+      delete $target->{'tree_nonumber'};
+      # tree elements
+      delete $target->{'name_tree'};
+      delete $target->{'name_tree_nonumber'};
+      delete $target->{'root_element_command'};
+      delete $target->{'node_command'};
+    }
+  }
+}
+
+# wrappers around convert_tree setting some context
+sub convert_tree_in_code_context($$;$) {
+  my ($self, $tree, $explanation) = @_;
+
+  _set_code_context($self, 1);
+  my $result = $self->convert_tree($tree, $explanation);
+  _pop_code_context($self);
+
+  return $result;
+}
+
+# Call convert_tree out of the main conversion flow.
+sub convert_tree_new_formatting_context($$$;$$$$) {
+  my ($self, $tree, $context_string, $context_type, $multiple_pass,
+      $document_global_context, $block_command) = @_;
+
+  _new_document_context($self, $context_string, $context_type,
+                        $document_global_context, $block_command);
+
+  my $context_string_str = "C($context_string)";
+  my $multiple_pass_str = '';
+
+  if (defined($multiple_pass)) {
+    _set_multiple_conversions($self, $multiple_pass);
+    $multiple_pass_str = '|M';
+  }
+
+  print STDERR "new_fmt_ctx ${context_string_str}${multiple_pass_str}\n"
+        if ($self->get_conf('DEBUG'));
+  my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
+
+  if (defined($multiple_pass)) {
+    _unset_multiple_conversions($self);
+  }
+
+  _pop_document_context($self);
+
+  return $result;
+}
+
+# the entry point for _convert
+sub convert_tree($$;$) {
+  my ($self, $tree, $explanation) = @_;
+
+  # when formatting accents, goes through xml_accent without
+  # explanation, as explanation is not in the standard API, but
+  # otherwise the coverage of explanations should be pretty good
+  #cluck if (! defined($explanation));
+  #print STDERR "CONVERT_TREE".(defined($explanation) ? " ".$explanation : '')."\n"
+  #    if ($self->get_conf('DEBUG'));
+  return _convert($self, $tree, $explanation);
+}
+
+# implementation of convert_tree.
 
 # Convert tree element $ELEMENT, and return HTML text for the output files.
 # $EXPLANATION is only used for debug.

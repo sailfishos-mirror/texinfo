@@ -119,6 +119,7 @@ foreach my $misc_context_command('tab', 'item', 'itemx', 'headitem') {
   $format_context_commands{$misc_context_command} = 1;
 }
 
+
 
 # API for html formatting
 
@@ -156,6 +157,21 @@ sub _collect_css_element_class($$) {
       $self->{'page_css'}->{$self->{'current_filename'}}->{$element_class} = 1;
     }
   }
+}
+
+#my $characters_replaced_from_class_names = quotemeta('[](),~#:/\\@+=!;.,?* ');
+# Not clear what character should be allowed and which ones replaced
+# besides space.  Not really important as the caller should themselves
+# sanitize the class names already.
+my $characters_replaced_from_class_names = quotemeta(' ');
+sub _protect_class_name($$) {
+  my ($self, $class_name) = @_;
+
+  $class_name =~ s/[$characters_replaced_from_class_names]/-/g;
+
+  # API info: using the API to allow for customization would be:
+  # return &{$self->formatting_function('format_protect_text')}($self, $class_name);
+  return _default_format_protect_text($self, $class_name);
 }
 
 # $classes should be an array reference or undef
@@ -202,6 +218,8 @@ sub html_attribute_class($$;$) {
   my $class_str = join(' ', map {_protect_class_name($self, $_)} @$classes);
   return "<$element class=\"$class_str\"$style";
 }
+
+# CSS
 
 # returns an array of CSS element.class seen in the $FILENAME
 sub html_get_css_elements_classes($;$) {
@@ -284,6 +302,8 @@ our $CTXF_string;
 our $CTXF_code;
 
 our %special_list_mark_css_string_no_arg_command;
+
+
 
 # API to access converter state for conversion
 
@@ -445,6 +465,10 @@ sub _pop_code_context($) {
 
   pop @{$self->{'document_context'}->[-1]->{'monospace'}};
 }
+
+
+
+# API for links and elements directions formatting.
 
 # the main data structure of the element target API is a hash reference, called
 # the target information.
@@ -1249,6 +1273,8 @@ sub global_direction_text($$) {
   return $self->{'global_texts_directions'}->{$direction};
 }
 
+
+
 # API for misc conversion and formatting functions
 
 our %default_shared_conversion_states;
@@ -1435,6 +1461,45 @@ sub get_info($$) {
   return undef;
 }
 
+sub _source_info_id($) {
+  my $source_info = shift;
+
+  my $result;
+  if (exists($source_info->{'file_name'})) {
+    $result = $source_info->{'file_name'};
+  } else {
+    $result = '';
+  }
+  $result .= '-';
+  if (exists($source_info->{'macro'})) {
+    $result .= $source_info->{'macro'};
+  }
+  $result .= '-';
+  if (exists($source_info->{'line_nr'})) {
+    $result .= $source_info->{'line_nr'};
+  } else {
+    $result .= '0';
+  }
+  return $result;
+}
+
+sub _check_htmlxref_already_warned($$$) {
+  my ($self, $manual_name, $source_info) = @_;
+
+  my $node_manual_key;
+  if (defined($source_info)) {
+    $node_manual_key = _source_info_id($source_info).'-'.$manual_name;
+  } else {
+    $node_manual_key = 'UNDEF-'.$manual_name;
+  }
+  if (exists($self->{'check_htmlxref_already_warned'}->{$node_manual_key})) {
+    return 1;
+  } else {
+    $self->{'check_htmlxref_already_warned'}->{$node_manual_key} = 1;
+    return 0;
+  }
+}
+
 our %defaults;
 
 # heading
@@ -1458,6 +1523,78 @@ my %default_translated_directions_strings
    = %{ Texinfo::HTMLData::get_default_translated_directions_strings() };
 
 our @no_args_commands_contexts;
+
+# to be called before starting conversion and when language changes.
+# $RESET_CONTEXT is the context being set or reset.
+# $REF_CONTEXT is the context that should be used for defaults, if
+#              defined and there is no information for $CMDNAME $RESET_CONTEXT.
+#              In that case, 'unset' should exist for $RESET_CONTEXT.
+sub _reset_unset_no_arg_commands_formatting_context($$$$;$) {
+  my ($self, $cmdname, $reset_context, $ref_context, $translate) = @_;
+
+  my $conversion_contexts = $self->{'no_arg_commands_formatting'}->{$cmdname};
+
+  # should never happen as unset is set at initialization in that case
+  #if (!exists($conversion_contexts->{$reset_context})) {
+  #  die "Non-existing no_arg_commands_formatting $cmdname $reset_context";
+  #}
+  my $no_arg_command_context = $conversion_contexts->{$reset_context};
+
+  if (defined($ref_context) and exists($no_arg_command_context->{'unset'})) {
+    foreach my $key (keys(%{$conversion_contexts->{$ref_context}})) {
+      # If present, both 'translated_converted' and (possibly translated)
+      # 'text' are referred to.
+      # In case of 'text', if 'translated_tree' is referred to and
+      # $translate is set, the 'text' will be replaced just below.
+      $no_arg_command_context->{$key}
+        = $conversion_contexts->{$ref_context}->{$key};
+    }
+  }
+  if ($translate
+      and exists($conversion_contexts->{'translated_tree'})
+      and not exists($no_arg_command_context->{'translated_converted'})) {
+    my $translated_tree
+      = $conversion_contexts->{'translated_tree'};
+    my $translation_result;
+    my $explanation = "Translated NO ARG \@$cmdname ctx $reset_context";
+    my $context_str = "Tr $cmdname ctx $reset_context";
+    if ($reset_context eq 'normal') {
+      $translation_result
+        = $self->convert_tree($translated_tree, $explanation);
+    } elsif ($reset_context eq 'preformatted') {
+      # there does not seems to be anything simpler...
+      my $preformatted_cmdname = 'example';
+      _new_document_context($self, $context_str);
+      _open_command_update_context($self, $preformatted_cmdname);
+      $translation_result
+        = $self->convert_tree($translated_tree, $explanation);
+      _convert_command_update_context($self, $preformatted_cmdname);
+      _pop_document_context($self);
+    } elsif ($reset_context eq 'string') {
+      _new_document_context($self, $context_str, $CTXF_string);
+      $translation_result = $self->convert_tree($translated_tree,
+                                                $explanation);
+      _pop_document_context($self);
+    } elsif ($reset_context eq 'css_string') {
+      $translation_result = $self->html_convert_css_string($translated_tree,
+                                                           $context_str);
+    }
+    $no_arg_command_context->{'text'} = $translation_result;
+  }
+}
+
+sub _complete_no_arg_commands_formatting($$;$) {
+  my ($self, $cmdname, $translate) = @_;
+
+  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
+                                            'normal', undef, $translate);
+  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
+                                   'preformatted', 'normal', $translate);
+  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
+                                    'string', 'preformatted', $translate);
+  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
+                                   'css_string', 'string', $translate);
+}
 
 sub _translate_names($) {
   my $self = shift;
@@ -1541,19 +1678,6 @@ sub _translate_names($) {
   print STDERR "END TRANSLATE_NAMES\n\n" if ($self->get_conf('DEBUG'));
 }
 
-# redefined functions
-sub converter_defaults($;$) {
-  my ($self, $conf) = @_;
-
-  if (defined($conf) and $conf->{'TEXI2HTML'}) {
-    my $default_ref = { %defaults };
-    my $texi2html_defaults = { %$default_ref };
-    _set_variables_texi2html($texi2html_defaults);
-    return $texi2html_defaults;
-  }
-  return \%defaults;
-}
-
 my %preformatted_commands_context = %preformatted_commands;
 $preformatted_commands_context{'verbatim'} = 1;
 
@@ -1607,6 +1731,10 @@ sub close_registered_sections_level($$$) {
   }
   return \@closed_elements;
 }
+
+
+
+# setting formatting context API
 
 # Following functions are sometimes called from converting functions,
 # but mainly from within calls of convert_tree called from
@@ -1698,90 +1826,223 @@ sub _unset_multiple_conversions($) {
   pop @{$self->{'multiple_pass'}};
 }
 
-# conversion with convert and output and the functions they call
+sub _open_command_update_context($$) {
+  my ($self, $command_name) = @_;
 
-# $RESET_CONTEXT is the context being set or reset.
-# $REF_CONTEXT is the context that should be used for defaults, if
-#              defined and there is no information for $CMDNAME $RESET_CONTEXT.
-#              In that case, 'unset' should exist for $RESET_CONTEXT.
-sub _reset_unset_no_arg_commands_formatting_context($$$$;$) {
-  my ($self, $cmdname, $reset_context, $ref_context, $translate) = @_;
+  my $convert_to_latex;
 
-  my $conversion_contexts = $self->{'no_arg_commands_formatting'}->{$cmdname};
-
-  # should never happen as unset is set at initialization in that case
-  #if (!exists($conversion_contexts->{$reset_context})) {
-  #  die "Non-existing no_arg_commands_formatting $cmdname $reset_context";
-  #}
-  my $no_arg_command_context = $conversion_contexts->{$reset_context};
-
-  if (defined($ref_context) and exists($no_arg_command_context->{'unset'})) {
-    foreach my $key (keys(%{$conversion_contexts->{$ref_context}})) {
-      # If present, both 'translated_converted' and (possibly translated)
-      # 'text' are referred to.
-      # In case of 'text', if 'translated_tree' is referred to and
-      # $translate is set, the 'text' will be replaced just below.
-      $no_arg_command_context->{$key}
-        = $conversion_contexts->{$ref_context}->{$key};
+  if (exists($brace_commands{$command_name})
+      and $brace_commands{$command_name} eq 'context') {
+    _new_document_context($self, $command_name);
+  }
+  if (exists($format_context_commands{$command_name})) {
+    push @{$self->{'document_context'}->[-1]->{'formatting_context'}},
+                                  {'context_name' => '@'.$command_name};
+  }
+  if (exists($block_commands{$command_name})) {
+    push @{$self->{'document_context'}->[-1]->{'block_commands'}},
+                                                      $command_name;
+  }
+  my $preformatted = 0;
+  if (exists($pre_class_commands{$command_name})) {
+    push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
+      $pre_class_commands{$command_name};
+    if (exists($preformatted_commands{$command_name})) {
+      $self->{'document_context'}->[-1]->{'inside_preformatted'}++;
+      $preformatted = 1;
+    } elsif ($block_commands{$command_name} eq 'menu'
+             and $self->{'document_context'}->[-1]->{'inside_preformatted'}) {
+      $preformatted = 1;
     }
   }
-  if ($translate
-      and exists($conversion_contexts->{'translated_tree'})
-      and not exists($no_arg_command_context->{'translated_converted'})) {
-    my $translated_tree
-      = $conversion_contexts->{'translated_tree'};
-    my $translation_result;
-    my $explanation = "Translated NO ARG \@$cmdname ctx $reset_context";
-    my $context_str = "Tr $cmdname ctx $reset_context";
-    if ($reset_context eq 'normal') {
-      $translation_result
-        = $self->convert_tree($translated_tree, $explanation);
-    } elsif ($reset_context eq 'preformatted') {
-      # there does not seems to be anything simpler...
-      my $preformatted_cmdname = 'example';
-      _new_document_context($self, $context_str);
-      _open_command_update_context($self, $preformatted_cmdname);
-      $translation_result
-        = $self->convert_tree($translated_tree, $explanation);
-      _convert_command_update_context($self, $preformatted_cmdname);
-      _pop_document_context($self);
-    } elsif ($reset_context eq 'string') {
-      _new_document_context($self, $context_str, $CTXF_string);
-      $translation_result = $self->convert_tree($translated_tree,
-                                                $explanation);
-      _pop_document_context($self);
-    } elsif ($reset_context eq 'css_string') {
-      $translation_result = $self->html_convert_css_string($translated_tree,
-                                                           $context_str);
+  if (exists($composition_context_commands{$command_name})) {
+    push @{$self->{'document_context'}->[-1]->{'composition_context'}},
+                                                           $command_name;
+    push @{$self->{'document_context'}->[-1]->{'preformatted_context'}},
+         $preformatted;
+  }
+  if (exists($format_raw_commands{$command_name})) {
+    $self->{'document_context'}->[-1]->{'raw'}++;
+  } elsif ($command_name eq 'verbatim') {
+    $self->{'document_context'}->[-1]->{'verbatim'}++;
+  }
+  if (exists($brace_code_commands{$command_name}) or
+      exists($preformatted_code_commands{$command_name})) {
+    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+  } elsif (exists($brace_commands{$command_name})
+           and $brace_commands{$command_name} eq 'style_no_code') {
+    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
+  } elsif ($self->{'upper_case_commands'}->{$command_name}) {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                         ->{'upper_case'}++;
+  } elsif (exists($math_commands{$command_name})) {
+    $self->{'document_context'}->[-1]->{'math'}++;
+    $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
+  }
+  if ($command_name eq 'verb') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                    ->{'space_protected'}++;
+  } elsif ($command_name eq 'w') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                               ->{'no_break'}++;
+  }
+  return $convert_to_latex;
+}
+
+sub _convert_command_update_context($$) {
+  my ($self, $command_name) = @_;
+
+  if (exists($composition_context_commands{$command_name})) {
+    pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
+    pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
+  }
+  if (exists($pre_class_commands{$command_name})) {
+    pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
+    if (exists($preformatted_commands{$command_name})) {
+      $self->{'document_context'}->[-1]->{'inside_preformatted'}--;
     }
-    $no_arg_command_context->{'text'} = $translation_result;
+  }
+  if (exists($preformatted_code_commands{$command_name})
+      or (exists($brace_commands{$command_name})
+          and $brace_commands{$command_name} eq 'style_no_code')
+      or exists($brace_code_commands{$command_name})) {
+    pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+  } elsif ($self->{'upper_case_commands'}->{$command_name}) {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                    ->{'upper_case'}--;
+  } elsif (exists($math_commands{$command_name})) {
+    $self->{'document_context'}->[-1]->{'math'}--;
+  }
+  if ($command_name eq 'verb') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                               ->{'space_protected'}--;
+  } elsif ($command_name eq 'w') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                               ->{'no_break'}--;
+  }
+  if (exists($format_raw_commands{$command_name})) {
+    $self->{'document_context'}->[-1]->{'raw'}--;
+  } elsif ($command_name eq 'verbatim') {
+    $self->{'document_context'}->[-1]->{'verbatim'}--;
+  }
+  if (exists($block_commands{$command_name})) {
+    pop @{$self->{'document_context'}->[-1]->{'block_commands'}};
+  }
+  if (exists($format_context_commands{$command_name})) {
+    pop @{$self->{'document_context'}->[-1]->{'formatting_context'}};
+  }
+  if (exists($brace_commands{$command_name})
+      and $brace_commands{$command_name} eq 'context') {
+    _pop_document_context($self);
   }
 }
 
-sub _complete_no_arg_commands_formatting($$;$) {
-  my ($self, $cmdname, $translate) = @_;
+sub _open_type_update_context($$) {
+  my ($self, $type_name) = @_;
 
-  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
-                                            'normal', undef, $translate);
-  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
-                                   'preformatted', 'normal', $translate);
-  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
-                                    'string', 'preformatted', $translate);
-  _reset_unset_no_arg_commands_formatting_context($self, $cmdname,
-                                   'css_string', 'string', $translate);
-}
-
-# transform <hr> to <hr/>
-sub _xhtml_re_close_lone_element($) {
-  my $element = shift;
-
-  if ($element =~ /\/\s*>$/) {
-    # already a closed lone element
-    return $element;
+  if ($type_name eq 'paragraph') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                    ->{'paragraph_number'}++;
+  } elsif ($type_name eq 'preformatted'
+           or $type_name eq 'rawpreformatted') {
+    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
+                                                 ->{'preformatted_number'}++;
+  } elsif ($self->{'pre_class_types'}->{$type_name}) {
+    push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
+      $self->{'pre_class_types'}->{$type_name};
+    push @{$self->{'document_context'}->[-1]->{'preformatted_context'}}, 1;
+    push @{$self->{'document_context'}->[-1]->{'composition_context'}},
+      $type_name;
   }
-  $element =~ s/^(<[a-zA-Z][^<>]*)>$/$1\/>/;
-  return $element;
+
+  if ($self->{'code_types'}->{$type_name}) {
+    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+  }
 }
+
+sub _convert_type_update_context($$) {
+  my ($self, $type_name) = @_;
+
+  if ($self->{'code_types'}->{$type_name}) {
+    pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+  }
+  if ($self->{'pre_class_types'}->{$type_name}) {
+    pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
+    pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
+    pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
+  }
+}
+
+sub _debug_print_html_contexts($) {
+  my $self = shift;
+
+  my @document_contexts = map {defined($_->{'context'})
+                                       ? $_->{'context'}: 'UNDEF'}
+                                  @{$self->{'document_context'}};
+  my @contexts_names = map {defined($_->{'context_name'})
+                                 ? $_->{'context_name'}: 'UNDEF'}
+        @{$self->{'document_context'}->[-1]->{'formatting_context'}};
+  return "[".join('|',@document_contexts)."](".join('|',@contexts_names).")";
+}
+
+
+
+# this allows to get some debugging output for the file without setting
+# the customization variable.
+my $debug;  # whether to print debugging output
+
+# converter API: converter_defaults, code called from converter_initialize,
+# convert and output
+
+sub _set_variables_texi2html($) {
+  my $options = shift;
+
+  my @texi2html_options = (
+  ['SECTION_BUTTONS', ['FastBack', 'Back', 'Up', 'Forward', 'FastForward',
+                             'Space', 'Space', 'Space', 'Space',
+                             'Top', 'Contents', 'Index', 'About' ]],
+  ['TOP_BUTTONS', ['Back', 'Forward', 'Space',
+                             'Contents', 'Index', 'About']],
+  ['TOP_FOOTER_BUTTONS', ['Back', 'Forward', 'Space',
+                             'Contents', 'Index', 'About']],
+
+  ['MISC_BUTTONS', [ 'Top', 'Contents', 'Index', 'About' ]],
+  ['CHAPTER_BUTTONS', [ 'FastBack', 'FastForward', 'Space',
+                              'Space', 'Space', 'Space', 'Space',
+                              'Top', 'Contents', 'Index', 'About', ]],
+  ['SECTION_FOOTER_BUTTONS', [ 'FastBack', 'FirstInFileBack', 'FirstInFileUp',
+                                               'Forward', 'FastForward' ]],
+  ['CHAPTER_FOOTER_BUTTONS', [ 'FastBack', 'FastForward', 'Space',
+                              'Space', 'Space', 'Space', 'Space',
+                              'Top', 'Contents', 'Index', 'About', ]],
+  ['NODE_FOOTER_BUTTONS', [ 'FastBack', 'Back',
+                                            'Up', 'Forward', 'FastForward',
+                             'Space', 'Space', 'Space', 'Space',
+                             'Top', 'Contents', 'Index', 'About' ]],
+  );
+  my $regular_texi2html_options
+    = Texinfo::Options::get_regular_options('texi2html');
+  foreach my $option (keys(%$regular_texi2html_options)) {
+    $options->{$option} = $regular_texi2html_options->{$option};
+  }
+  foreach my $option (@texi2html_options) {
+    $options->{$option->[0]} = $option->[1];
+  }
+}
+
+sub converter_defaults($;$) {
+  my ($self, $conf) = @_;
+
+  if (defined($conf) and $conf->{'TEXI2HTML'}) {
+    my $default_ref = { %defaults };
+    my $texi2html_defaults = { %$default_ref };
+    _set_variables_texi2html($texi2html_defaults);
+    return $texi2html_defaults;
+  }
+  return \%defaults;
+}
+
+# called from converter_initialize
 
 our %htmlxref_entries;
 
@@ -2036,190 +2297,6 @@ sub _load_htmlxref_files($) {
   }
 }
 
-# converter state
-#
-#   No API
-#  all_directions          # determined parallelly in C
-#  deprecated_config_directories
-#
-#     API exists
-#
-#   Get through converter set_global_document_commands with 'before'.  No
-#   specific API to set, but can use get_conf or force_conf in setup handler
-#  commands_init_conf
-#
-#  shared_conversion_state
-#   Set through the shared_conversion_state API (among others):
-#  explained_commands         # used only in an @-command conversion function
-#
-#     API converter_info get_info
-#  document_name
-#  destination_directory
-#  paragraph_symbol
-#  line_break_element
-#  non_breaking_space
-#  simpletitle_tree
-#  simpletitle_command_name
-#  title_string
-#  title_tree
-#  documentdescription_string
-#  copying_comment
-#  jslicenses
-#
-#     API exists
-#  current_filename
-#  current_output_unit
-#  index_entries
-#  index_entries_by_letter
-#
-#    API exists in Texinfo::Config for setting, not for getting
-#  stage_handlers
-#
-#   No API, but set by command-line and can be overriden by CSS
-#   change API functions
-#  files_css_import_lines
-#  files_css_rule_lines
-#
-#    API exists
-#  css_element_class_styles
-#  css_import_lines
-#  css_rule_lines
-#
-#    API exists
-#  file_id_setting
-#  commands_conversion
-#  commands_open
-#  types_conversion
-#  types_open
-#
-#    API exists for setting, no need to access directly, accessed through
-#    no_arg_commands_formatting
-#  customized_no_arg_commands_formatting
-#
-#    API exists for setting (through customized_no_arg_commands_formatting
-#    for no_arg_commands_formatting), not for getting and used in
-#    commands_conversion
-#  no_arg_commands_formatting
-#  style_commands_formatting
-#
-#    API exists
-#  code_types
-#  pre_class_types
-#
-#    API exists
-#  document_context
-#
-#    API exists
-#  pending_closes
-#
-#    API exists
-#  pending_footnotes
-#
-#    API exists
-#  pending_inline_content
-#  associated_inline_content
-#
-#    API exists
-#  multiple_pass
-#
-#    API exists
-#  targets         for directions.  Keys are elements references, values are
-#                  target information hash references described above before
-#                  the API functions used to access this information.
-#  special_targets
-#  global_units_directions
-#
-#    API exists for setting, not getting
-#  customized_direction_strings
-#  directions_strings
-#  translated_direction_strings
-#
-#    API exists
-#  special_unit_info
-#  translated_special_unit_info
-#
-#    API exists
-#  elements_in_file_count    # the number of output units in file
-#  file_counters             # begin at elements_in_file_count decrease
-#                            # each time the unit is closed
-#
-#     API exists
-#  document_global_context_css
-#  page_css
-#
-#     API exists
-#  files_information
-#
-#     No API, converter internals
-#  document_units
-#  out_filepaths          (partially common with Texinfo::Converter)
-#  seen_ids
-#  options_latex_math
-#  htmlxref
-#  check_htmlxref_already_warned
-#  referred_command_stack
-#
-#    from Converter
-#  labels
-
-my $xml_named_entity_nbsp = '&nbsp;';
-
-my %special_characters = (
-  'paragraph_symbol' => ['&para;', '00B6'],
-  'left_quote' => ['&lsquo;', '2018'],
-  'right_quote' => ['&rsquo;', '2019'],
-  'bullet' => ['&bull;', '2022'],
-  'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
-);
-
-sub html_converter_initialize_beginning($) {
-  my $self = shift;
-
-  # used in initialization.  Set if undef
-  if (!defined($self->get_conf('FORMAT_MENU'))) {
-    $self->force_conf('FORMAT_MENU', '');
-  }
-
-  # NOTE we reset silently if the split specification is not one known.
-  # The main program warns if the specific command line option value is
-  # not known.  We could add a warning here to catch mistakes in init
-  # files.  Wait for user reports.
-  my $split = $self->get_conf('SPLIT');
-  if ($split and $split ne 'chapter'
-      and $split ne 'section'
-      and $split ne 'node') {
-    $self->force_conf('SPLIT', 'node');
-  }
-
-  my $max_header_level = $self->get_conf('MAX_HEADER_LEVEL');
-  if (!defined($max_header_level)) {
-    $self->force_conf('MAX_HEADER_LEVEL', $defaults{'MAX_HEADER_LEVEL'});
-  } elsif ($max_header_level < 1) {
-    $self->force_conf('MAX_HEADER_LEVEL', 1);
-  }
-
-  # For CONTENTS_OUTPUT_LOCATION
-  # should lead to contents not output, but if not, it is not an issue,
-  # the way to set contents to be output or not should be through the
-  # contents and shortcontents @-commands and customization options.
-  foreach my $conf ('CONTENTS_OUTPUT_LOCATION', 'INDEX_ENTRY_COLON',
-                    'MENU_ENTRY_COLON') {
-    if (!defined($self->get_conf($conf))) {
-      $self->force_conf($conf, '');
-    }
-  }
-
-  _load_htmlxref_files($self);
-  _prepare_css($self);
-}
-
-sub XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$) {
-}
-
-# this allows to get some debugging output for the file without setting
-# the customization variable.
-my $debug;  # whether to print debugging output
-
 sub _process_css_file($$$) {
   my ($self, $fh, $file) = @_;
 
@@ -2408,1301 +2485,80 @@ sub _prepare_css($) {
   push @{$self->{'files_css_rule_lines'}}, @css_rule_lines;
 }
 
-# Get the name of a file containing a label, as well as the identifier within
-# that file to link to that label.  $normalized is the normalized label name
-# and $label_element is the label contents element.  Labels are typically
-# associated to @node, @*anchor or @float and to external nodes.
-sub _normalized_label_id_file($$$) {
-  my ($self, $normalized, $label_element) = @_;
-
-  my $target;
-  if (!defined($normalized) and defined($label_element)) {
-    $normalized
-      = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
-        $label_element);
-  }
-
-  if (defined($normalized)) {
-    $target = _normalized_to_id($normalized);
-  } else {
-    $target = '';
-  }
-  # to find out the Top node, one could check $normalized
-  if (defined($self->{'file_id_setting'}->{'label_target_name'})) {
-    $target = &{$self->{'file_id_setting'}->{'label_target_name'}}($self,
-                             $normalized, $label_element, $target);
-  }
-
-  my $filename = $self->node_information_filename($normalized,
-                                                  $label_element);
-
-  return ($filename, $target);
-}
-
-sub _register_id($$) {
-  my ($self, $id) = @_;
-
-  $self->{'seen_ids'}->{$id} = 1;
-}
-
-sub _id_is_registered($$) {
-  my ($self, $id) = @_;
-
-  if (exists($self->{'seen_ids'}->{$id})) {
-    return 1;
-  } else {
-    return 0;
-  }
-}
-
-sub _unique_target($$) {
-  my ($self, $target_base) = @_;
-
-  my $nr=1;
-  my $target = $target_base;
-  while (_id_is_registered($self, $target)) {
-    $target = $target_base.'-'.$nr;
-    $nr++;
-    # Avoid integer overflow
-    die if ($nr == 0);
-  }
-  return $target;
-}
-
-
-sub _new_sectioning_command_target($$) {
-  my ($self, $command) = @_;
-
-  my ($normalized_name, $filename)
-    = $self->normalized_sectioning_command_filename($command);
-
-  my $target_base = _normalized_to_id($normalized_name);
-  if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top') {
-    # @top is allowed to be empty.  In that case it gets this target name
-    $target_base = 'SEC_Top';
-    $normalized_name = $target_base;
-  }
-  my $nr=1;
-  my $target = $target_base;
-  if ($target_base ne '') {
-    $target = _unique_target($self, $target_base);
-  } else {
-    $target = '';
-  }
-
-  # These are undefined if the $target is set to ''.
-  my $target_contents;
-  my $target_shortcontents;
-  if (exists($sectioning_heading_commands{$command->{'cmdname'}})) {
-    if ($target ne '') {
-      my $target_base_contents = 'toc-'.$normalized_name;
-      $target_contents = _unique_target($self, $target_base_contents);
-
-      my $target_base_shortcontents = 'stoc-'.$normalized_name;
-      $target_shortcontents
-        = _unique_target($self, $target_base_shortcontents);
-    }
-  }
-
-  if (defined($self->{'file_id_setting'}->{'sectioning_command_target_name'})) {
-    ($target, $target_contents,
-     $target_shortcontents, $filename)
-      = &{$self->{'file_id_setting'}->{'sectioning_command_target_name'}}($self,
-                                     $command, $target,
-                                     $target_contents,
-                                     $target_shortcontents,
-                                     $filename);
-  }
-  if ($self->get_conf('DEBUG')) {
-    print STDERR "Register $command->{'cmdname'} $target\n";
-  }
-  $self->{'targets'}->{$command} = {
-                           'target' => $target,
-                           'section_filename' => $filename,
-                          };
-  _register_id($self, $target);
-  if (defined($target_contents)) {
-    $self->{'targets'}->{$command}->{'contents_target'} = $target_contents;
-    _register_id($self, $target_contents);
-  } else {
-    $self->{'targets'}->{$command}->{'contents_target'} = '';
-  }
-  if (defined($target_shortcontents)) {
-    $self->{'targets'}->{$command}->{'shortcontents_target'}
-       = $target_shortcontents;
-    _register_id($self, $target_shortcontents);
-  } else {
-    $self->{'targets'}->{$command}->{'shortcontents_target'} = '';
-  }
-}
-
-# This set with two different codes
-#  * the target information, id and normalized filename of 'identifiers_target',
-#    ie everything that may be the target of a ref: @node, @float label,
-#    @anchor, @namedanchor.
-#  * The target information of sectioning elements
-# @node and section commands targets are therefore both set.
-#
-# conversion to HTML is done on-demand, upon call to command_text
-# and similar functions.
-# Note that 'node_filename', which is set here for Top target information
-# too, is not used later for Top anchors or links, see the NOTE below
-# associated with setting TOP_NODE_FILE_TARGET.
-sub _set_root_commands_targets_node_files($) {
+sub html_converter_initialize_beginning($) {
   my $self = shift;
 
-  my $sections_list;
-  my $labels_list;
-  if (exists($self->{'document'})) {
-    $sections_list = $self->{'document'}->sections_list();
-    $labels_list = $self->{'document'}->labels_list();
+  # used in initialization.  Set if undef
+  if (!defined($self->get_conf('FORMAT_MENU'))) {
+    $self->force_conf('FORMAT_MENU', '');
   }
 
-  if (defined($labels_list)) {
-    my $extension = '';
-    $extension = '.'.$self->get_conf('EXTENSION')
-                if (defined($self->get_conf('EXTENSION'))
-                    and $self->get_conf('EXTENSION') ne '');
+  # NOTE we reset silently if the split specification is not one known.
+  # The main program warns if the specific command line option value is
+  # not known.  We could add a warning here to catch mistakes in init
+  # files.  Wait for user reports.
+  my $split = $self->get_conf('SPLIT');
+  if ($split and $split ne 'chapter'
+      and $split ne 'section'
+      and $split ne 'node') {
+    $self->force_conf('SPLIT', 'node');
+  }
 
-    foreach my $target_element (@$labels_list) {
-      next if (not exists($target_element->{'extra'})
-               or not $target_element->{'extra'}->{'is_target'});
-      my $label_element = Texinfo::Common::get_label_element($target_element);
-      my ($node_filename, $target)
-        = _normalized_label_id_file($self, $target_element->{'extra'}
-                                                              ->{'normalized'},
-                                           $label_element);
-      $node_filename .= $extension;
-      if (defined($self->{'file_id_setting'}->{'node_file_name'})) {
-        # a non defined filename is ok if called with convert, but not
-        # if output in files.  We reset if undef, silently unless verbose
-        # in case called by convert.
-        my $user_node_filename
-              = &{$self->{'file_id_setting'}->{'node_file_name'}}(
-                                       $self, $target_element, $node_filename);
-        if (defined($user_node_filename)) {
-          $node_filename = $user_node_filename;
-        } elsif ($self->get_conf('VERBOSE')) {
-          $self->converter_document_warn(sprintf(__(
-              "user-defined node file name not set for `%s'"),
-              $node_filename));
-        } elsif ($self->get_conf('DEBUG')) {
-          warn "user-defined node file name undef for `$node_filename'\n";
-        }
-      }
-      if ($self->get_conf('DEBUG')) {
-        print STDERR 'Label'
-         # uncomment to get the perl object names
-         #."($target_element)"
-          ." \@$target_element->{'cmdname'} $target, $node_filename\n";
-      }
-      $self->{'targets'}->{$target_element} = {'target' => $target,
-                                           'node_filename' => $node_filename};
-      _register_id($self, $target);
+  my $max_header_level = $self->get_conf('MAX_HEADER_LEVEL');
+  if (!defined($max_header_level)) {
+    $self->force_conf('MAX_HEADER_LEVEL', $defaults{'MAX_HEADER_LEVEL'});
+  } elsif ($max_header_level < 1) {
+    $self->force_conf('MAX_HEADER_LEVEL', 1);
+  }
+
+  # For CONTENTS_OUTPUT_LOCATION
+  # should lead to contents not output, but if not, it is not an issue,
+  # the way to set contents to be output or not should be through the
+  # contents and shortcontents @-commands and customization options.
+  foreach my $conf ('CONTENTS_OUTPUT_LOCATION', 'INDEX_ENTRY_COLON',
+                    'MENU_ENTRY_COLON') {
+    if (!defined($self->get_conf($conf))) {
+      $self->force_conf($conf, '');
     }
   }
 
-  if (defined($sections_list)) {
-    foreach my $section_relations (@{$sections_list}) {
-      my $section_element = $section_relations->{'element'};
-      _new_sectioning_command_target($self, $section_element);
-    }
-  }
+  _load_htmlxref_files($self);
+  _prepare_css($self);
 }
 
-sub _set_heading_commands_targets($) {
-  my $self = shift;
-
-  my $global_commands;
-  if (exists($self->{'document'})) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
-  if (defined($global_commands)) {
-    foreach my $cmdname (sort(keys(%sectioning_heading_commands)),
-                         'xrefname') {
-      if (!exists($root_commands{$cmdname})
-          and exists($global_commands->{$cmdname})) {
-        foreach my $command (@{$global_commands->{$cmdname}}) {
-          _new_sectioning_command_target($self, $command);
-        }
-      }
-    }
-  }
+sub XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$) {
 }
 
-sub _html_set_pages_files($$$$$$$$) {
-  my ($self, $output_units, $special_units, $associated_output_units,
-      $output_file, $destination_directory, $output_filename,
-      $document_name) = @_;
+# conversion with convert and output and the functions they call
 
-  my @filenames_order;
-  my %unit_file_name_paths;
-  # associate a file to the source information leading to set the file
-  # name.  Use the first element source information associated to a file.
-  # The source information can be either a tree element associated to
-  # the 'file_info_element' key, with a 'file_info_type' 'node' or
-  # 'section'... or a specific source associated to the 'file_info_name'
-  # key with 'file_info_type' 'special_file', or a source set if
-  # nothing was found, with 'file_info_type' 'stand_in_file' and a
-  # 'file_info_name'.  Redirection files are added in the output()
-  # function.
-  my %files_source_info = ();
-  if (!$self->get_conf('SPLIT')) {
-    push @filenames_order, $output_filename;
-    foreach my $output_unit (@$output_units) {
-      $unit_file_name_paths{$output_unit} = $output_filename;
-    }
-    $files_source_info{$output_filename}
-      = {'file_info_type' => 'special_file',
-         'file_info_name' => 'non_split',
-         'file_info_path' => $output_file};
-  } else {
-    my $identifiers_target;
-    if (exists($self->{'document'})) {
-      $identifiers_target = $self->{'document'}->labels_information();
-    }
+# transform <hr> to <hr/>
+sub _xhtml_re_close_lone_element($) {
+  my $element = shift;
 
-    # first determine the top node file name.
-    my $node_top;
-    $node_top = $identifiers_target->{'Top'}
-                               if (defined($identifiers_target));
-
-    my $top_node_filename = $self->top_node_filename($document_name);
-    my $node_top_output_unit;
-    if (defined($node_top) and defined($top_node_filename)) {
-      $node_top_output_unit = $node_top->{'associated_unit'};
-      die "BUG: No output unit for top node" if (!defined($node_top_output_unit));
-      push @filenames_order, $top_node_filename;
-      $unit_file_name_paths{$node_top_output_unit} = $top_node_filename;
-      $files_source_info{$top_node_filename}
-         = {'file_info_type' => 'special_file',
-            'file_info_name' => 'Top',
-            'file_info_path' => undef};
-    }
-    my $file_nr = 0;
-    my $extension = '';
-    $extension = '.'.$self->get_conf('EXTENSION')
-            if (defined($self->get_conf('EXTENSION'))
-                and $self->get_conf('EXTENSION') ne '');
-
-    foreach my $output_unit (@$output_units) {
-      # For Top node.
-      next if ($node_top_output_unit and $output_unit eq $node_top_output_unit);
-
-      my $file_output_unit = $output_unit->{'first_in_page'};
-      if (!defined($file_output_unit)) {
-        cluck ("No first_in_page for $output_unit\n");
-      }
-      if (not exists($unit_file_name_paths{$file_output_unit})) {
-        my $node_filename;
-        foreach my $root_command (@{$file_output_unit->{'unit_contents'}}) {
-          if (exists($root_command->{'cmdname'})
-              and $root_command->{'cmdname'} eq 'node') {
-            # double node are not normalized, they are handled here
-            if (!exists($root_command->{'extra'})
-                or !exists($root_command->{'extra'}->{'normalized'})
-                or !exists($identifiers_target->{
-                           $root_command->{'extra'}->{'normalized'}})) {
-              $node_filename = 'unknown_node';
-              $node_filename .= $extension;
-
-              if (!exists($files_source_info{$node_filename})) {
-                push @filenames_order, $node_filename;
-                $files_source_info{$node_filename}
-                               = {'file_info_type' => 'stand_in_file',
-                                  'file_info_name' => 'unknown_node',
-                                  'file_info_path' => undef};
-              }
-            } else {
-              # Nodes with {'extra'}->{'is_target'} should always be in
-              # 'identifiers_target', and thus in targets.  It is a bug otherwise.
-              $node_filename
-                = $self->{'targets'}->{$root_command}->{'node_filename'};
-              if (not exists($files_source_info{$node_filename})
-                  or $files_source_info{$node_filename}
-                            ->{'file_info_type'} ne 'stand_in_file') {
-
-                push @filenames_order, $node_filename
-                  unless ($files_source_info{$node_filename});
-
-                $files_source_info{$node_filename}
-                                     = {'file_info_type' => 'node',
-                                        'file_info_element' => $root_command,
-                                        'file_info_path' => undef};
-              }
-            }
-            $unit_file_name_paths{$file_output_unit} = $node_filename;
-            last;
-          }
-        }
-        if (not defined($node_filename)) {
-          # use section to do the file name if there is no node
-          my $command = $file_output_unit->{'unit_section'};
-          if (defined($command)) {
-            if ($command->{'element'}->{'cmdname'} eq 'top'
-                and !defined($node_top) and defined($top_node_filename)) {
-              $unit_file_name_paths{$file_output_unit} = $top_node_filename;
-
-              # existing top_node_filename can happen, see
-              # html_tests.t top_file_name_and_node_name_collision
-              push @filenames_order, $top_node_filename
-                unless exists($files_source_info{$top_node_filename});
-
-              $files_source_info{$top_node_filename}
-                  = {'file_info_type' => 'special_file',
-                     'file_info_name' => 'Top',
-                     'file_info_path' => undef};
-            } else {
-              my $section_filename
-                = $self->{'targets'}->{$command->{'element'}}
-                     ->{'section_filename'};
-              $unit_file_name_paths{$file_output_unit} = $section_filename;
-
-              if (not exists($files_source_info{$section_filename})
-                  or $files_source_info{$section_filename}
-                                ->{'file_info_type'} ne 'stand_in_file') {
-
-                push @filenames_order, $section_filename
-                  unless (exists($files_source_info{$section_filename}));
-
-                $files_source_info{$section_filename}
-                  = {'file_info_type' => 'section',
-                     'file_info_element' => $command->{'element'},
-                     'file_info_path' => undef};
-              }
-            }
-          } else {
-            # when everything else has failed
-            if ($file_nr == 0 and !defined($node_top)
-                and defined($top_node_filename)) {
-              $unit_file_name_paths{$file_output_unit} = $top_node_filename;
-              unless (exists($files_source_info{$top_node_filename})) {
-                push @filenames_order, $top_node_filename;
-                $files_source_info{$top_node_filename}
-                  = {'file_info_type' => 'stand_in_file',
-                     'file_info_name' => 'Top',
-                     'file_info_path' => undef};
-              }
-            } else {
-              my $filename = $document_name . "_$file_nr";
-              $filename .= $extension;
-              $unit_file_name_paths{$file_output_unit} = $filename;
-
-              unless (exists($files_source_info{$filename})) {
-                push @filenames_order, $filename;
-                $files_source_info{$filename}
-                   = {'file_info_type' => 'stand_in_file',
-                      'file_info_name' => 'unknown',
-                      'file_info_path' => undef};
-              }
-            }
-            $file_nr++;
-          }
-        }
-      }
-      if ($output_unit ne $file_output_unit) {
-        $unit_file_name_paths{$output_unit}
-           = $unit_file_name_paths{$file_output_unit}
-      }
-    }
+  if ($element =~ /\/\s*>$/) {
+    # already a closed lone element
+    return $element;
   }
-
-  foreach my $output_unit (@$output_units) {
-    my $filename = $unit_file_name_paths{$output_unit};
-    my $file_source_info = $files_source_info{$filename};
-    # check
-    if (!defined($file_source_info)) {
-      print STDERR "BUG: no files_source_info: $filename\n";
-    }
-    my $filepath = $file_source_info->{'file_info_path'};
-    if (defined($self->{'file_id_setting'}->{'unit_file_name'})) {
-      # NOTE the information that it is associated with @top or @node Top
-      # may be determined with $self->unit_is_top_output_unit($output_unit);
-      my ($user_filename, $user_filepath)
-         = &{$self->{'file_id_setting'}->{'unit_file_name'}}(
-               $self, $output_unit, $filename, $filepath);
-      if (defined($user_filename)) {
-        my $user_file_source_info;
-        if (exists($files_source_info{$user_filename})) {
-          $user_file_source_info = $files_source_info{$user_filename};
-          my $previous_filepath = $user_file_source_info->{'file_info_path'};
-          # It is likely that setting different paths for the same file is
-          # not intended, so we warn.
-          if (defined($user_filepath) and defined($previous_filepath)
-              and $user_filepath ne $previous_filepath) {
-            $self->converter_document_warn(
-             sprintf(__("resetting %s file path %s to %s"),
-              $user_filename, $previous_filepath, $user_filepath));
-          } elsif (defined($user_filepath) and !defined($previous_filepath)) {
-            $self->converter_document_warn(
-              sprintf(__("resetting %s file path from a relative path to %s"),
-                           $user_filename, $user_filepath));
-          } elsif (!defined($user_filepath) and defined($previous_filepath)) {
-            $self->converter_document_warn(
-              sprintf(__("resetting %s file path from %s to a relative path"),
-                           $user_filename, $previous_filepath));
-          }
-        }
-        $filename = $user_filename;
-        push @filenames_order, $filename
-          unless (defined($user_file_source_info));
-        $files_source_info{$filename} = {'file_info_type' => 'special_file',
-                                         'file_info_name' => 'user_defined',
-                                         'file_info_path' => $user_filepath};
-      }
-    }
-    $self->set_output_unit_file($output_unit, $filename);
-    my $output_unit_filename = $output_unit->{'unit_filename'};
-    $self->{'file_counters'}->{$output_unit_filename} = 0
-       if (!exists($self->{'file_counters'}->{$output_unit_filename}));
-    $self->{'file_counters'}->{$output_unit_filename}++;
-    print STDERR 'Page '
-      # uncomment for perl object name
-      #."$output_unit "
-      .Texinfo::OutputUnits::output_unit_texi($output_unit)
-      .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
-             if ($self->get_conf('DEBUG'));
-  }
-
-  if (defined($special_units)) {
-    foreach my $special_unit (@$special_units) {
-      my $unit_command = $special_unit->{'unit_command'};
-      my $filename
-       = $self->{'targets'}->{$unit_command}->{'special_unit_filename'};
-      # Associate the special elements that have no page with the main page.
-      # This may only happen if not split.
-      if (!defined($filename)
-          and defined($output_units->[0]->{'unit_filename'})) {
-        $filename = $output_units->[0]->{'unit_filename'};
-      }
-      if (defined($filename)) {
-        push @filenames_order, $filename
-          unless exists($files_source_info{$filename});
-        $self->set_output_unit_file($special_unit, $filename);
-        $self->{'file_counters'}->{$filename} = 0
-           if (!exists($self->{'file_counters'}->{$filename}));
-        $self->{'file_counters'}->{$filename}++;
-        print STDERR 'Special page'
-           # uncomment for perl object name
-           #." $special_unit"
-           .": $filename($self->{'file_counters'}->{$filename})\n"
-                 if ($self->get_conf('DEBUG'));
-        my $file_source_info = {'file_info_element' => $unit_command,
-                                'file_info_type' => 'special_unit',
-                                'file_info_path' => undef};
-        $files_source_info{$filename} = $file_source_info
-          unless(exists($files_source_info{$filename})
-                 and $files_source_info{$filename}->{'file_info_type'}
-                       ne 'stand_in_file');
-      }
-    }
-  }
-
-  foreach my $filename (@filenames_order) {
-    $self->set_file_path($filename, $destination_directory,
-                         $files_source_info{$filename}->{'file_info_path'});
-  }
-
-  # to be able to associate to the output unit file the associated
-  # output units will be output into, this is done after document output
-  # units got files.
-  # In practice only used for contents and shortcontents.
-  if (defined($associated_output_units)
-      and scalar(@$associated_output_units)) {
-    foreach my $special_unit (@$associated_output_units) {
-      my $associated_output_unit = $special_unit->{'associated_document_unit'};
-      my $unit_command = $special_unit->{'unit_command'};
-      my $filename;
-
-      my $command_target = $self->{'targets'}->{$unit_command};
-      # set by the user
-      if (defined($command_target->{'special_unit_filename'})) {
-        $filename = $command_target->{'special_unit_filename'};
-      } else {
-        $filename = $associated_output_unit->{'unit_filename'}
-          if ($associated_output_unit);
-        $command_target->{'special_unit_filename'} = $filename;
-      }
-
-      # set here the file name, but do not associate a counter as it is already
-      # set for the output unit the special output unit is in.
-      $self->set_output_unit_file($special_unit, $filename)
-        if (defined($filename));
-    }
-  }
-
-  return \%files_source_info;
+  $element =~ s/^(<[a-zA-Z][^<>]*)>$/$1\/>/;
+  return $element;
 }
 
-# $DOCUMENT is a Texinfo document with a parsed tree.  Return a list of the
-# "elements" we need to output in the HTML file(s).  Each "element" is what
-# can go in one HTML file, such as the content between @node lines in the
-# Texinfo source.
-# Also setup targets associated to tree elements and to elements associated
-# to special units.
-sub _prepare_conversion_units($$$) {
-  my ($self, $document, $document_name) = @_;
+my $xml_named_entity_nbsp = '&nbsp;';
+
+my %special_characters = (
+  'paragraph_symbol' => ['&para;', '00B6'],
+  'left_quote' => ['&lsquo;', '2018'],
+  'right_quote' => ['&rsquo;', '2019'],
+  'bullet' => ['&bull;', '2022'],
+  'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
+);
 
-  my ($output_units, $special_units, $associated_special_units);
-
-  if ($self->get_conf('USE_NODES')) {
-    $output_units = Texinfo::OutputUnits::split_by_node($document);
-  } else {
-    $output_units = Texinfo::OutputUnits::split_by_section($document);
-  }
-
-  # Needs to be set early in case it would be needed to find some region
-  # command associated root command.
-  $self->{'document_units'} = $output_units;
-
-  # configuration used to determine if a special element is to be done
-  # (in addition to contents)
-  my @conf_for_special_units = ('footnotestyle');
-  $self->set_global_document_commands('last', \@conf_for_special_units);
-  # NOTE if the last value of footnotestyle is separate, all the footnotes
-  # formatted text are set to the special element set in _prepare_special_units
-  # as _html_get_tree_root_element uses the Footnote direction for every
-  # footnote.  Therefore if @footnotestyle separate is set late in the
-  # document the current value may not be consistent with the link obtained
-  # for the footnote formatted text.  This is not an issue, as the manual
-  # says that @footnotestyle should only appear in the preamble, and it
-  # makes sense to have something consistent in the whole document for
-  # footnotes position.
-  ($special_units, $associated_special_units)
-     = _prepare_special_units($self, $output_units);
-  # reset to the default
-  $self->set_global_document_commands('before', \@conf_for_special_units);
-
-  # Do that before the other elements, to be sure that special page ids
-  # are registered before elements id are.
-  _set_special_units_targets_files($self, $special_units, $document_name);
-
-  _prepare_associated_special_units_targets($self, $associated_special_units);
-
-  _set_root_commands_targets_node_files($self);
-
-  _prepare_index_entries_targets($self);
-  _prepare_footnotes_targets($self);
-
-  _set_heading_commands_targets($self);
-
-  $self->register_output_units_lists([$output_units,
-                                 $special_units, $associated_special_units]);
-
-  return ($output_units, $special_units, $associated_special_units);
-}
-
-sub _prepare_units_directions_files($$$$$$$$) {
-  my ($self, $output_units, $special_units, $associated_special_units,
-      $output_file, $destination_directory, $output_filename,
-      $document_name) = @_;
-
-  my $identifiers_target;
-  my $nodes_list;
-  if (exists($self->{'document'})) {
-    $identifiers_target = $self->{'document'}->labels_information();
-    $nodes_list = $self->{'document'}->nodes_list();
-  }
-
-  _prepare_output_units_global_targets($self, $output_units, $special_units,
-                                              $associated_special_units);
-
-  Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
-                                    $self->get_conf('SPLIT'));
-
-  # reset even if $output_file eq '', as 'file_counters' is accessed
-  # below, so it needs to be empty in the case of $output_file eq ''.
-  $self->initialize_output_units_files();
-
-  # determine file names associated with the different pages, and setup
-  # the counters for special element pages.
-  my $files_source_info;
-  if ($output_file ne '') {
-    $files_source_info =
-      _html_set_pages_files($self, $output_units, $special_units,
-                    $associated_special_units, $output_file,
-                    $destination_directory, $output_filename, $document_name);
-  }
-
-  # do output units directions.
-  Texinfo::OutputUnits::units_directions($identifiers_target, $nodes_list,
-                                         $output_units,
-                                         $self->get_conf('DEBUG'));
-
-  _prepare_special_units_directions($self, $special_units);
-
-  # do output units directions related to files.
-  # Here such that PrevFile and NextFile can be set.
-  Texinfo::OutputUnits::units_file_directions($output_units);
-
-  # elements_in_file_count is only set in HTML, not in
-  # Texinfo::Convert::Converter
-  $self->{'elements_in_file_count'} = {};
-  # condition could also be based on $output_file ne ''
-  if (exists($self->{'file_counters'})) {
-    # 'file_counters' is dynamic, decreased when the element is encountered
-    # 'elements_in_file_count' is not modified afterwards
-    foreach my $filename (keys(%{$self->{'file_counters'}})) {
-      $self->{'elements_in_file_count'}->{$filename}
-                            = $self->{'file_counters'}->{$filename};
-    }
-  }
-
-  #if (1 or $self->get_conf('DEBUG') >= 30) {
-  #  if ($self->{'document'}) {
-  #    my $tree = $self->{'document'}->tree();
-  #    my $use_filename = 0;
-  #    if ($self->get_conf('TEST')) {
-  #      $use_filename = 1;
-  #    }
-  #    my $output_units_output
-  #      = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
-  #              $tree, $use_filename);
-  #  }
-  #}
-
-  return $files_source_info;
-}
-
-sub _register_special_unit($$) {
-  my ($self, $special_unit_variety) = @_;
-
-  my $special_unit = {'unit_type' => 'special_unit',
-                      'special_unit_variety' => $special_unit_variety,
-                      'directions' => {}};
-
-  # a "virtual" out of tree element used for targets
-  my $unit_command
-    = Texinfo::TreeElement::new({'type' => 'special_unit_element',
-                                 'associated_unit' => $special_unit});
-  $special_unit->{'unit_command'} = $unit_command;
-
-  return $special_unit;
-}
-
-# prepare both special output units in separate output units, and
-# special output units associated to a regular document output unit,
-# output as part of regular output but also possible target of
-# special output unit direction.  In practice, only contents and
-# shortcontents are associated with special output unit directions
-# and can be output as part of document output units.
-sub _prepare_special_units($$) {
-  my ($self, $output_units) = @_;
-
-  my $global_commands;
-  my $sections_list;
-  if (exists($self->{'document'})) {
-    $global_commands = $self->{'document'}->global_commands_information();
-    $sections_list = $self->{'document'}->sections_list();
-  }
-
-  # for separate special output units
-  my %do_special;
-  # for associated special output units
-  my $associated_special_units = [];
-  if (defined($sections_list) and scalar(@{$sections_list}) > 1) {
-    foreach my $cmdname ('shortcontents', 'contents') {
-      my $special_unit_variety
-          = $contents_command_special_unit_variety{$cmdname};
-      if ($self->get_conf($cmdname)) {
-        my $contents_location = $self->get_conf('CONTENTS_OUTPUT_LOCATION');
-        if ($contents_location eq 'separate_element') {
-          $do_special{$special_unit_variety} = 1;
-        } else {
-          my $associated_output_unit;
-          if ($contents_location eq 'after_title') {
-            $associated_output_unit = $output_units->[0];
-          } elsif ($contents_location eq 'after_top') {
-            if (defined($global_commands)
-                and exists($global_commands->{'top'})) {
-              my $section_top = $global_commands->{'top'};
-              if (exists($section_top->{'associated_unit'})) {
-                $associated_output_unit = $section_top->{'associated_unit'};
-              }
-            }
-            next unless ($associated_output_unit);
-          } elsif ($contents_location eq 'inline') {
-            if (defined($global_commands)
-                and exists($global_commands->{$cmdname})) {
-              foreach my $command(@{$global_commands->{$cmdname}}) {
-                my $root_command;
-                ($associated_output_unit, $root_command)
-                  = _html_get_tree_root_element($self, $command);
-                if (defined($associated_output_unit)) {
-                  last;
-                }
-              }
-            } else {
-              next;
-            }
-          } else {
-            # only happens with an unknown CONTENTS_OUTPUT_LOCATION
-            next;
-          }
-          my $special_unit = _register_special_unit($self, $special_unit_variety);
-          $special_unit->{'associated_document_unit'} = $associated_output_unit;
-          push @$associated_special_units, $special_unit;
-        }
-      }
-    }
-  }
-
-  if (defined($global_commands) and exists($global_commands->{'footnote'})
-      and scalar(@$output_units) > 1) {
-    my $footnotestyle = $self->get_conf('footnotestyle');
-    if (defined($footnotestyle) and $footnotestyle eq 'separate') {
-      $do_special{'footnotes'} = 1;
-    }
-  }
-
-  if ((!defined($self->get_conf('DO_ABOUT'))
-       and scalar(@$output_units) > 1
-       and ($self->get_conf('SPLIT') or $self->get_conf('HEADERS')))
-      or ($self->get_conf('DO_ABOUT'))) {
-    $do_special{'about'} = 1;
-  }
-
-  my $special_units = [];
-  # sort special elements according to their index order from
-  # special_unit_info 'order'.
-  # First reverse the hash, using arrays in case some elements are at the
-  # same index, and sort to get alphabetically sorted special element
-  # varieties that are at the same index.
-  my %special_units_indices;
-  foreach my $special_unit_variety
-      (sort($self->get_special_unit_info_varieties('order'))) {
-    next unless ($do_special{$special_unit_variety});
-    my $index = $self->special_unit_info('order', $special_unit_variety);
-    $special_units_indices{$index} = []
-      if (not exists($special_units_indices{$index}));
-    push @{$special_units_indices{$index}}, $special_unit_variety;
-  }
-  # now sort according to indices
-  my @sorted_elements_varieties;
-  foreach my $index (sort { $a <=> $b } (keys(%special_units_indices))) {
-    push @sorted_elements_varieties, @{$special_units_indices{$index}};
-  }
-
-
-  # Setup separate special output units
-  my $previous_output_unit;
-  $previous_output_unit = $output_units->[-1];
-
-  foreach my $special_unit_variety (@sorted_elements_varieties) {
-
-    my $special_unit = _register_special_unit($self, $special_unit_variety);
-
-    push @$special_units, $special_unit;
-
-    if (defined($previous_output_unit)) {
-      $special_unit->{'tree_unit_directions'} = {};
-      $previous_output_unit->{'tree_unit_directions'} = {}
-        if (not exists($previous_output_unit->{'tree_unit_directions'}));
-      $special_unit->{'tree_unit_directions'}->{'prev'} = $previous_output_unit;
-      $previous_output_unit->{'tree_unit_directions'}->{'next'} = $special_unit;
-    }
-    $previous_output_unit = $special_unit;
-  }
-
-  return $special_units, $associated_special_units;
-}
-
-sub _set_special_units_targets_files($$$) {
-  my ($self, $special_units, $document_name) = @_;
-
-  my $extension = '';
-  $extension = $self->get_conf('EXTENSION')
-    if (defined($self->get_conf('EXTENSION')));
-
-  foreach my $special_unit (@$special_units) {
-
-    my $special_unit_variety = $special_unit->{'special_unit_variety'};
-
-    # it may be undef'ined in user customization code
-    my $target
-        = $self->special_unit_info('target', $special_unit_variety);
-    next if (!defined($target));
-    my $default_filename;
-    if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
-        # in general $document_name not defined means called through convert
-        and defined($document_name)) {
-      my $special_unit_file_string =
-         $self->special_unit_info('file_string', $special_unit_variety);
-      $special_unit_file_string = '' if (!defined($special_unit_file_string));
-      $default_filename = $document_name . $special_unit_file_string;
-      $default_filename .= '.'.$extension if (defined($extension));
-    } else {
-      $default_filename = undef;
-    }
-
-    my $filename;
-    if (defined($self->{'file_id_setting'}->{'special_unit_target_file_name'})) {
-      ($target, $filename)
-         = &{$self->{'file_id_setting'}->{'special_unit_target_file_name'}}(
-                                                            $self,
-                                                            $special_unit,
-                                                            $target,
-                                                            $default_filename);
-    }
-    $filename = $default_filename if (!defined($filename));
-
-    if ($self->get_conf('DEBUG')) {
-      my $fileout = $filename;
-      $fileout = 'UNDEF' if (!defined($fileout));
-      print STDERR 'Add special'
-        # uncomment for the perl object name
-        #." $special_unit"
-        ." $special_unit_variety: target $target,\n".
-        "    filename $fileout\n";
-    }
-
-    my $unit_command = $special_unit->{'unit_command'};
-    $self->{'targets'}->{$unit_command} = {'target' => $target,
-                                      'special_unit_filename' => $filename,
-                                     };
-    _register_id($self, $target);
-  }
-}
-
-sub _prepare_associated_special_units_targets($$) {
-  my ($self, $associated_output_units) = @_;
-
-  return unless (defined($associated_output_units));
-
-  foreach my $special_unit (@$associated_output_units) {
-    my $special_unit_variety = $special_unit->{'special_unit_variety'};
-
-    # it may be undef'ined in user customization code
-    my $target
-      = $self->special_unit_info('target', $special_unit_variety);
-
-    my $default_filename;
-
-    my $filename;
-    if (defined($self->{'file_id_setting'}->{'special_unit_target_file_name'})) {
-      ($target, $filename)
-        = &{$self->{'file_id_setting'}->{'special_unit_target_file_name'}}(
-                                                      $self,
-                                                      $special_unit,
-                                                      $target,
-                                                      $default_filename);
-    }
-    $filename = $default_filename if (!defined($filename));
-    if ($self->get_conf('DEBUG')) {
-      my $str_filename = $filename;
-      $str_filename = 'UNDEF (default)' if (not defined($str_filename));
-      my $str_target = $target;
-      $str_target = 'UNDEF' if (not defined($str_target));
-      print STDERR 'Add content'
-        # uncomment to get the perl object name
-        #." $special_unit"
-            ." $special_unit_variety: target $str_target,\n".
-             "    filename $str_filename\n";
-    }
-
-    my $unit_command = $special_unit->{'unit_command'};
-    my $command_target = {'target' => $target};
-    $self->{'targets'}->{$unit_command} = $command_target;
-    if (defined($target)) {
-      _register_id($self, $target);
-    }
-    if (defined ($filename)) {
-      $command_target->{'special_unit_filename'}
-        = $filename;
-    }
-  }
-}
-
-sub _prepare_special_units_directions($$) {
-  my ($self, $special_units) = @_;
-
-  return unless(defined($special_units));
-
-  foreach my $special_unit (@$special_units) {
-    $special_unit->{'directions'}->{'This'} = $special_unit;
-  }
-}
-
-# Associate output units to the global targets, First, Last, Top, Index.
-sub _prepare_output_units_global_targets($$$$) {
-  my ($self, $output_units, $special_units, $associated_special_units) = @_;
-
-  $self->{'global_units_directions'}->{'First'} = $output_units->[0];
-  $self->{'global_units_directions'}->{'Last'} = $output_units->[-1];
-
-  $self->{'global_units_directions'}->{'Top'}
-    = _get_top_unit($self, $output_units);
-
-  my $global_commands;
-  my $nodes_list;
-  my $sections_list;
-  if (exists($self->{'document'})) {
-    $global_commands = $self->{'document'}->global_commands_information();
-    $nodes_list = $self->{'document'}->nodes_list();
-    $sections_list = $self->{'document'}->sections_list();
-  }
-
-  # Associate Index with the last @printindex.  According to Werner Lemberg,
-  # "the most general index is normally the last one, not the first"
-  # https://lists.gnu.org/archive/html/bug-texinfo/2025-01/msg00019.html
-  #
-  # It is always the last printindex, even if it is not output (for example
-  # it is in @copying and @titlepage, which are certainly wrong constructs).
-  if (defined($global_commands) and exists($global_commands->{'printindex'})) {
-    # Here document_unit can only be a document unit, or maybe undef if there
-    # are no document unit at all
-    my ($document_unit, $root_command)
-     = _html_get_tree_root_element($self,
-                               $global_commands->{'printindex'}->[-1]);
-    if (defined($document_unit)) {
-      if (defined($root_command)) {
-        my $section_relations;
-        if ($root_command->{'cmdname'} eq 'node') {
-          if (defined($nodes_list)) {
-            my $node_relations
-              = $nodes_list->[$root_command->{'extra'}->{'node_number'} -1];
-            if (exists($node_relations->{'associated_section'})) {
-              $section_relations = $node_relations->{'associated_section'};
-            }
-          }
-        } else {
-          $section_relations
-            = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
-        }
-
-        # find the first level 1 sectioning element to associate the printindex
-        # with.  May not work correctly if structuring was not done
-        if ($section_relations) {
-          my $current_command = $section_relations->{'element'};
-          while (exists($current_command->{'extra'})
-                 and defined($current_command->{'extra'}->{'section_level'})
-                 and $current_command->{'extra'}->{'section_level'} > 1
-                 and exists($section_relations->{'section_directions'})
-                 and exists($section_relations->{'section_directions'}->{'up'})
-                 and exists($section_relations->{'section_directions'}->{'up'}
-                                    ->{'element'}->{'associated_unit'})) {
-            $section_relations
-              = $section_relations->{'section_directions'}->{'up'};
-            $current_command = $section_relations->{'element'};
-            $document_unit = $current_command->{'associated_unit'};
-          }
-        }
-      }
-      $self->{'global_units_directions'}->{'Index'} = $document_unit;
-    }
-  }
-
-  if ($self->{'customized_global_directions'}) {
-    foreach my $direction (sort(keys(%{$self->{'customized_global_directions'}}))) {
-      my $node_texi_name
-        = $self->{'customized_global_directions'}->{$direction};
-      if (defined($node_texi_name)
-          and not defined($self->global_direction_text($direction))) {
-          # FIXME check that relative directions are not replaced by
-          # global_units_directions (as done in C)?  It may not be an issue.
-
-        # Determine the document unit corresponding to the direction
-        # node name Texinfo code
-
-        # Parse the customized direction node name Texinfo code
-        my $node_element;
-        my $parser = Texinfo::Parser::parser({'NO_INDEX' => 1,
-                                              'NO_USER_COMMANDS' => 1,});
-        my $tree = $parser->parse_texi_line($node_texi_name, undef, 1);
-        my $errors = $parser->errors();
-        my $errors_count = Texinfo::Report::count_errors($errors);
-        if ($errors_count) {
-          warn "Global $direction node name parsing $errors_count error(s)\n";
-          warn "node name: $node_texi_name\n";
-          warn "Error messages: \n";
-          foreach my $error_message (@$errors) {
-            warn $error_message->{'error_line'};
-          }
-        }
-
-        # convert to identifier and determine the node element target
-        if ($tree) {
-          my $normalized_node
-   = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier($tree);
-          if ($normalized_node ne '' and $normalized_node =~ /[^-]/) {
-            $node_element = $self->label_command($normalized_node);
-          }
-        }
-        if (!defined($node_element)) {
-          $self->converter_document_warn(
-               sprintf(__("could not find %s node `%s'"),
-                       $direction, $node_texi_name));
-        } else {
-          $self->{'global_units_directions'}->{$direction}
-            = $node_element->{'associated_unit'};
-        }
-      }
-    }
-  }
-
-  if ($self->get_conf('DEBUG')) {
-    # TODO also show the global directions added by the user
-    print STDERR "GLOBAL DIRECTIONS:\n";
-    foreach my $global_direction (@global_directions_order) {
-      if (defined($self->global_direction_unit($global_direction))) {
-        my $global_unit = $self->global_direction_unit($global_direction);
-        print STDERR " $global_direction"
-            # uncomment to get the perl object name
-            # ."($global_unit)"
-     .': '. Texinfo::OutputUnits::output_unit_texi($global_unit)."\n";
-      }
-    }
-    print STDERR "\n";
-  }
-
-  # TODO show the special units directions if DEBUG is set?
-  foreach my $units_list ($special_units, $associated_special_units) {
-    if (defined($units_list) and scalar(@$units_list)) {
-      foreach my $special_unit (@$units_list) {
-        my $special_unit_variety = $special_unit->{'special_unit_variety'};
-        my $special_unit_direction
-         = $self->special_unit_info('direction', $special_unit_variety);
-        $self->{'global_units_directions'}->{$special_unit_direction}
-         = $special_unit;
-      }
-    }
-  }
-}
-
-sub _prepare_index_entries_targets($) {
-  my $self = shift;
-
-  my $indices_information;
-  if (exists($self->{'document'})) {
-    $indices_information = $self->{'document'}->indices_information();
-  }
-
-  if (defined($indices_information)) {
-    my $no_unidecode;
-    $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
-                          and !$self->get_conf('USE_UNIDECODE'));
-    my $in_test;
-    $in_test = 1 if ($self->get_conf('TEST'));
-
-    foreach my $index_name (sort(keys(%$indices_information))) {
-      foreach my $index_entry (@{$indices_information->{$index_name}
-                                                    ->{'index_entries'}}) {
-        my $main_entry_element = $index_entry->{'entry_element'};
-        # does not refer to the document
-        my $seeentry
-         = Texinfo::Common::index_entry_referred_entry($main_entry_element,
-                                                       'seeentry');
-        next if (defined($seeentry));
-        my $seealso
-         = Texinfo::Common::index_entry_referred_entry($main_entry_element,
-                                                       'seealso');
-        next if (defined($seealso));
-
-        my $region = '';
-        $region = "$main_entry_element->{'extra'}->{'element_region'}-"
-          if (defined($main_entry_element->{'extra'}->{'element_region'}));
-        my $entry_reference_content_element
-          = Texinfo::Common::index_content_element($main_entry_element, 1);
-        # construct element to convert to a normalized identifier to use as
-        # hrefs target
-        my $normalize_index_element = Texinfo::TreeElement::new(
-           {'contents' => [$entry_reference_content_element]});
-
-        my $subentries_tree
-         = Texinfo::Convert::Utils::comma_index_subentries_tree(
-                                               $main_entry_element, ' ');
-
-        if (defined($subentries_tree)) {
-          push @{$normalize_index_element->{'contents'}},
-                    @{$subentries_tree->{'contents'}};
-        }
-
-        my $normalized_index =
-          Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
-             $normalize_index_element, $in_test, $no_unidecode);
-        my $target_base = "index-" . $region .$normalized_index;
-        my $target = _unique_target($self, $target_base);
-        _register_id($self, $target);
-        my $target_element = $main_entry_element;
-        $target_element = $index_entry->{'entry_associated_element'}
-          if ($index_entry->{'entry_associated_element'});
-        $self->{'targets'}->{$target_element} = {'target' => $target, };
-      }
-    }
-  }
-}
-
-sub _prepare_footnotes_targets($) {
-  my $self = shift;
-
-  my $footid_base = 'FOOT';
-  my $docid_base = 'DOCF';
-
-  my $global_commands;
-  if (exists($self->{'document'})) {
-    $global_commands = $self->{'document'}->global_commands_information();
-  }
-
-  if (defined($global_commands) and exists($global_commands->{'footnote'})) {
-    my $footnote_nr = 0;
-    foreach my $footnote (@{$global_commands->{'footnote'}}) {
-      $footnote_nr++;
-      my $nr = $footnote_nr;
-      # anchor for the footnote text
-      my $footid = $footid_base.$nr;
-      # anchor for the location of the @footnote in the document
-      my $docid = $docid_base.$nr;
-      while (_id_is_registered($self, $docid)
-             or _id_is_registered($self, $footid)) {
-        $nr++;
-        $footid = $footid_base.$nr;
-        $docid = $docid_base.$nr;
-        # Avoid integer overflow
-        die if ($nr == 0);
-      }
-      _register_id($self, $footid);
-      _register_id($self, $docid);
-      $self->{'targets'}->{$footnote} = { 'target' => $footid };
-      $self->{'special_targets'}->{'footnote_location'}->{$footnote}
-         = { 'target' => $docid };
-      print STDERR 'Enter footnote'
-        # uncomment for the perl object name
-        #." $footnote"
-        .": target $footid, nr $footnote_nr\n"
-       .Texinfo::Convert::Texinfo::convert_to_texinfo($footnote)."\n"
-        if ($self->get_conf('DEBUG'));
-    }
-  }
-}
-
-sub _source_info_id($) {
-  my $source_info = shift;
-
-  my $result;
-  if (exists($source_info->{'file_name'})) {
-    $result = $source_info->{'file_name'};
-  } else {
-    $result = '';
-  }
-  $result .= '-';
-  if (exists($source_info->{'macro'})) {
-    $result .= $source_info->{'macro'};
-  }
-  $result .= '-';
-  if (exists($source_info->{'line_nr'})) {
-    $result .= $source_info->{'line_nr'};
-  } else {
-    $result .= '0';
-  }
-  return $result;
-}
-
-sub _check_htmlxref_already_warned($$$) {
-  my ($self, $manual_name, $source_info) = @_;
-
-  my $node_manual_key;
-  if (defined($source_info)) {
-    $node_manual_key = _source_info_id($source_info).'-'.$manual_name;
-  } else {
-    $node_manual_key = 'UNDEF-'.$manual_name;
-  }
-  if (exists($self->{'check_htmlxref_already_warned'}->{$node_manual_key})) {
-    return 1;
-  } else {
-    $self->{'check_htmlxref_already_warned'}->{$node_manual_key} = 1;
-    return 0;
-  }
-}
-
-sub _do_jslicenses_file($$) {
-  my ($self, $destination_directory) = @_;
-
-  my $setting = $self->get_conf('JS_WEBLABELS');
-  my $path = $self->get_conf('JS_WEBLABELS_FILE');
-
-  # Possible settings:
-  #   'generate' - create file at JS_WEBLABELS_FILE
-  #   'reference' - reference file at JS_WEBLABELS_FILE but do not create it
-  #   'omit' - do nothing
-  return if (!defined($setting) or $setting ne 'generate' or !defined($path)
-             or $path eq '');
-
-  if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/
-      or $path eq '-') {
-    $self->converter_document_warn(sprintf(
- __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
-    return;
-  }
-
-  my $doctype = $self->get_conf('DOCTYPE');
-  $doctype = '' if (!defined($doctype));
-  my $root_html_element_attributes
-      = _root_html_element_attributes_string($self);
-  my $a = $doctype . "\n" ."<html${root_html_element_attributes}>"
-   .'<head><title>jslicense labels</title></head>
-<body>
-<table id="jslicense-labels1">
-';
-
-  my $jslicenses = $self->get_info('jslicenses');
-  foreach my $category (sort(keys(%$jslicenses))) {
-    foreach my $file (sort(keys(%{$jslicenses->{$category}}))) {
-      my $file_info = $jslicenses->{$category}->{$file};
-      $a .= "<tr>\n";
-      $a .= '<td><a href="'.
-                 $self->url_protect_url_text($file)."\">$file</a></td>\n";
-      $a .= '<td><a href="'.$self->url_protect_url_text($file_info->[1])
-                                         ."\">$file_info->[0]</a></td>\n";
-      $a .= '<td><a href="'.$self->url_protect_url_text($file_info->[2])
-                                         ."\">$file_info->[2]</a></td>\n";
-      $a .= "</tr>\n";
-    }
-  }
-
-  $a .= "</table>\n</body></html>\n";
-
-  my $license_file;
-  if ($destination_directory ne '') {
-    $license_file = join('/', ($destination_directory, $path));
-  } else {
-    $license_file = $path;
-  }
-  # sequence of bytes
-  my ($licence_file_path, $path_encoding)
-     = $self->encoded_output_file_name($license_file);
-  my ($fh, $error_message_licence_file, $overwritten_file)
-         = Texinfo::Convert::Utils::output_files_open_out(
-                         $self->output_files_information(),
-                         $licence_file_path, undef,
-                         $self->get_conf('OUTPUT_ENCODING_NAME'));
-  if ($overwritten_file) {
-    $self->converter_document_warn(
-     sprintf(__("overwriting output file with js licences: %s"),
-             $license_file));
-  }
-  if (defined($fh)) {
-    print $fh $a;
-    Texinfo::Convert::Utils::output_files_register_closed(
-                  $self->output_files_information(), $licence_file_path);
-    if (!close ($fh)) {
-      $self->converter_document_error(
-               sprintf(__("error on closing %s: %s"),
-                                    $license_file, $!));
-    }
-  } else {
-    $self->converter_document_error(
-           sprintf(__("could not open %s for writing: %s"),
-                   $license_file, $error_message_licence_file));
-  }
-}
-
-# Not used by output or convert.  May be called on a converter when
-# output nor convert are used.  Happens in tests.
-
-# to be called before starting conversion.
 # NOTE not called directly by convert_tree, which means that convert_tree
 # needs to be called from a converter which would have had this function
 # called already.
+#
+# In general called by output or convert.  May be called on a converter
+# when output and convert are not used.  Happens in tests.
 
 our %default_commands_conversion;
 our %default_css_element_class_styles;
@@ -4043,7 +2899,6 @@ sub conversion_finalization($) {
   _pop_document_context($self);
 }
 
-
 sub _prepare_title_titlepage($$$$) {
   my ($self, $output_file, $output_filename, $output_units) = @_;
 
@@ -4175,6 +3030,1172 @@ sub convert($$) {
   return $result;
 }
 
+# Get the name of a file containing a label, as well as the identifier within
+# that file to link to that label.  $normalized is the normalized label name
+# and $label_element is the label contents element.  Labels are typically
+# associated to @node, @*anchor or @float and to external nodes.
+sub _normalized_label_id_file($$$) {
+  my ($self, $normalized, $label_element) = @_;
+
+  my $target;
+  if (!defined($normalized) and defined($label_element)) {
+    $normalized
+      = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier(
+        $label_element);
+  }
+
+  if (defined($normalized)) {
+    $target = _normalized_to_id($normalized);
+  } else {
+    $target = '';
+  }
+  # to find out the Top node, one could check $normalized
+  if (defined($self->{'file_id_setting'}->{'label_target_name'})) {
+    $target = &{$self->{'file_id_setting'}->{'label_target_name'}}($self,
+                             $normalized, $label_element, $target);
+  }
+
+  my $filename = $self->node_information_filename($normalized,
+                                                  $label_element);
+
+  return ($filename, $target);
+}
+
+sub _register_id($$) {
+  my ($self, $id) = @_;
+
+  $self->{'seen_ids'}->{$id} = 1;
+}
+
+sub _id_is_registered($$) {
+  my ($self, $id) = @_;
+
+  if (exists($self->{'seen_ids'}->{$id})) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+sub _unique_target($$) {
+  my ($self, $target_base) = @_;
+
+  my $nr=1;
+  my $target = $target_base;
+  while (_id_is_registered($self, $target)) {
+    $target = $target_base.'-'.$nr;
+    $nr++;
+    # Avoid integer overflow
+    die if ($nr == 0);
+  }
+  return $target;
+}
+
+sub _register_special_unit($$) {
+  my ($self, $special_unit_variety) = @_;
+
+  my $special_unit = {'unit_type' => 'special_unit',
+                      'special_unit_variety' => $special_unit_variety,
+                      'directions' => {}};
+
+  # a "virtual" out of tree element used for targets
+  my $unit_command
+    = Texinfo::TreeElement::new({'type' => 'special_unit_element',
+                                 'associated_unit' => $special_unit});
+  $special_unit->{'unit_command'} = $unit_command;
+
+  return $special_unit;
+}
+
+# prepare both special output units in separate output units, and
+# special output units associated to a regular document output unit,
+# output as part of regular output but also possible target of
+# special output unit direction.  In practice, only contents and
+# shortcontents are associated with special output unit directions
+# and can be output as part of document output units.
+sub _prepare_special_units($$) {
+  my ($self, $output_units) = @_;
+
+  my $global_commands;
+  my $sections_list;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+    $sections_list = $self->{'document'}->sections_list();
+  }
+
+  # for separate special output units
+  my %do_special;
+  # for associated special output units
+  my $associated_special_units = [];
+  if (defined($sections_list) and scalar(@{$sections_list}) > 1) {
+    foreach my $cmdname ('shortcontents', 'contents') {
+      my $special_unit_variety
+          = $contents_command_special_unit_variety{$cmdname};
+      if ($self->get_conf($cmdname)) {
+        my $contents_location = $self->get_conf('CONTENTS_OUTPUT_LOCATION');
+        if ($contents_location eq 'separate_element') {
+          $do_special{$special_unit_variety} = 1;
+        } else {
+          my $associated_output_unit;
+          if ($contents_location eq 'after_title') {
+            $associated_output_unit = $output_units->[0];
+          } elsif ($contents_location eq 'after_top') {
+            if (defined($global_commands)
+                and exists($global_commands->{'top'})) {
+              my $section_top = $global_commands->{'top'};
+              if (exists($section_top->{'associated_unit'})) {
+                $associated_output_unit = $section_top->{'associated_unit'};
+              }
+            }
+            next unless ($associated_output_unit);
+          } elsif ($contents_location eq 'inline') {
+            if (defined($global_commands)
+                and exists($global_commands->{$cmdname})) {
+              foreach my $command(@{$global_commands->{$cmdname}}) {
+                my $root_command;
+                ($associated_output_unit, $root_command)
+                  = _html_get_tree_root_element($self, $command);
+                if (defined($associated_output_unit)) {
+                  last;
+                }
+              }
+            } else {
+              next;
+            }
+          } else {
+            # only happens with an unknown CONTENTS_OUTPUT_LOCATION
+            next;
+          }
+          my $special_unit = _register_special_unit($self, $special_unit_variety);
+          $special_unit->{'associated_document_unit'} = $associated_output_unit;
+          push @$associated_special_units, $special_unit;
+        }
+      }
+    }
+  }
+
+  if (defined($global_commands) and exists($global_commands->{'footnote'})
+      and scalar(@$output_units) > 1) {
+    my $footnotestyle = $self->get_conf('footnotestyle');
+    if (defined($footnotestyle) and $footnotestyle eq 'separate') {
+      $do_special{'footnotes'} = 1;
+    }
+  }
+
+  if ((!defined($self->get_conf('DO_ABOUT'))
+       and scalar(@$output_units) > 1
+       and ($self->get_conf('SPLIT') or $self->get_conf('HEADERS')))
+      or ($self->get_conf('DO_ABOUT'))) {
+    $do_special{'about'} = 1;
+  }
+
+  my $special_units = [];
+  # sort special elements according to their index order from
+  # special_unit_info 'order'.
+  # First reverse the hash, using arrays in case some elements are at the
+  # same index, and sort to get alphabetically sorted special element
+  # varieties that are at the same index.
+  my %special_units_indices;
+  foreach my $special_unit_variety
+      (sort($self->get_special_unit_info_varieties('order'))) {
+    next unless ($do_special{$special_unit_variety});
+    my $index = $self->special_unit_info('order', $special_unit_variety);
+    $special_units_indices{$index} = []
+      if (not exists($special_units_indices{$index}));
+    push @{$special_units_indices{$index}}, $special_unit_variety;
+  }
+  # now sort according to indices
+  my @sorted_elements_varieties;
+  foreach my $index (sort { $a <=> $b } (keys(%special_units_indices))) {
+    push @sorted_elements_varieties, @{$special_units_indices{$index}};
+  }
+
+
+  # Setup separate special output units
+  my $previous_output_unit;
+  $previous_output_unit = $output_units->[-1];
+
+  foreach my $special_unit_variety (@sorted_elements_varieties) {
+
+    my $special_unit = _register_special_unit($self, $special_unit_variety);
+
+    push @$special_units, $special_unit;
+
+    if (defined($previous_output_unit)) {
+      $special_unit->{'tree_unit_directions'} = {};
+      $previous_output_unit->{'tree_unit_directions'} = {}
+        if (not exists($previous_output_unit->{'tree_unit_directions'}));
+      $special_unit->{'tree_unit_directions'}->{'prev'} = $previous_output_unit;
+      $previous_output_unit->{'tree_unit_directions'}->{'next'} = $special_unit;
+    }
+    $previous_output_unit = $special_unit;
+  }
+
+  return $special_units, $associated_special_units;
+}
+
+sub _new_sectioning_command_target($$) {
+  my ($self, $command) = @_;
+
+  my ($normalized_name, $filename)
+    = $self->normalized_sectioning_command_filename($command);
+
+  my $target_base = _normalized_to_id($normalized_name);
+  if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top') {
+    # @top is allowed to be empty.  In that case it gets this target name
+    $target_base = 'SEC_Top';
+    $normalized_name = $target_base;
+  }
+  my $nr=1;
+  my $target = $target_base;
+  if ($target_base ne '') {
+    $target = _unique_target($self, $target_base);
+  } else {
+    $target = '';
+  }
+
+  # These are undefined if the $target is set to ''.
+  my $target_contents;
+  my $target_shortcontents;
+  if (exists($sectioning_heading_commands{$command->{'cmdname'}})) {
+    if ($target ne '') {
+      my $target_base_contents = 'toc-'.$normalized_name;
+      $target_contents = _unique_target($self, $target_base_contents);
+
+      my $target_base_shortcontents = 'stoc-'.$normalized_name;
+      $target_shortcontents
+        = _unique_target($self, $target_base_shortcontents);
+    }
+  }
+
+  if (defined($self->{'file_id_setting'}->{'sectioning_command_target_name'})) {
+    ($target, $target_contents,
+     $target_shortcontents, $filename)
+      = &{$self->{'file_id_setting'}->{'sectioning_command_target_name'}}($self,
+                                     $command, $target,
+                                     $target_contents,
+                                     $target_shortcontents,
+                                     $filename);
+  }
+  if ($self->get_conf('DEBUG')) {
+    print STDERR "Register $command->{'cmdname'} $target\n";
+  }
+  $self->{'targets'}->{$command} = {
+                           'target' => $target,
+                           'section_filename' => $filename,
+                          };
+  _register_id($self, $target);
+  if (defined($target_contents)) {
+    $self->{'targets'}->{$command}->{'contents_target'} = $target_contents;
+    _register_id($self, $target_contents);
+  } else {
+    $self->{'targets'}->{$command}->{'contents_target'} = '';
+  }
+  if (defined($target_shortcontents)) {
+    $self->{'targets'}->{$command}->{'shortcontents_target'}
+       = $target_shortcontents;
+    _register_id($self, $target_shortcontents);
+  } else {
+    $self->{'targets'}->{$command}->{'shortcontents_target'} = '';
+  }
+}
+
+sub _set_special_units_targets_files($$$) {
+  my ($self, $special_units, $document_name) = @_;
+
+  my $extension = '';
+  $extension = $self->get_conf('EXTENSION')
+    if (defined($self->get_conf('EXTENSION')));
+
+  foreach my $special_unit (@$special_units) {
+
+    my $special_unit_variety = $special_unit->{'special_unit_variety'};
+
+    # it may be undef'ined in user customization code
+    my $target
+        = $self->special_unit_info('target', $special_unit_variety);
+    next if (!defined($target));
+    my $default_filename;
+    if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
+        # in general $document_name not defined means called through convert
+        and defined($document_name)) {
+      my $special_unit_file_string =
+         $self->special_unit_info('file_string', $special_unit_variety);
+      $special_unit_file_string = '' if (!defined($special_unit_file_string));
+      $default_filename = $document_name . $special_unit_file_string;
+      $default_filename .= '.'.$extension if (defined($extension));
+    } else {
+      $default_filename = undef;
+    }
+
+    my $filename;
+    if (defined($self->{'file_id_setting'}->{'special_unit_target_file_name'})) {
+      ($target, $filename)
+         = &{$self->{'file_id_setting'}->{'special_unit_target_file_name'}}(
+                                                            $self,
+                                                            $special_unit,
+                                                            $target,
+                                                            $default_filename);
+    }
+    $filename = $default_filename if (!defined($filename));
+
+    if ($self->get_conf('DEBUG')) {
+      my $fileout = $filename;
+      $fileout = 'UNDEF' if (!defined($fileout));
+      print STDERR 'Add special'
+        # uncomment for the perl object name
+        #." $special_unit"
+        ." $special_unit_variety: target $target,\n".
+        "    filename $fileout\n";
+    }
+
+    my $unit_command = $special_unit->{'unit_command'};
+    $self->{'targets'}->{$unit_command} = {'target' => $target,
+                                      'special_unit_filename' => $filename,
+                                     };
+    _register_id($self, $target);
+  }
+}
+
+sub _prepare_associated_special_units_targets($$) {
+  my ($self, $associated_output_units) = @_;
+
+  return unless (defined($associated_output_units));
+
+  foreach my $special_unit (@$associated_output_units) {
+    my $special_unit_variety = $special_unit->{'special_unit_variety'};
+
+    # it may be undef'ined in user customization code
+    my $target
+      = $self->special_unit_info('target', $special_unit_variety);
+
+    my $default_filename;
+
+    my $filename;
+    if (defined($self->{'file_id_setting'}->{'special_unit_target_file_name'})) {
+      ($target, $filename)
+        = &{$self->{'file_id_setting'}->{'special_unit_target_file_name'}}(
+                                                      $self,
+                                                      $special_unit,
+                                                      $target,
+                                                      $default_filename);
+    }
+    $filename = $default_filename if (!defined($filename));
+    if ($self->get_conf('DEBUG')) {
+      my $str_filename = $filename;
+      $str_filename = 'UNDEF (default)' if (not defined($str_filename));
+      my $str_target = $target;
+      $str_target = 'UNDEF' if (not defined($str_target));
+      print STDERR 'Add content'
+        # uncomment to get the perl object name
+        #." $special_unit"
+            ." $special_unit_variety: target $str_target,\n".
+             "    filename $str_filename\n";
+    }
+
+    my $unit_command = $special_unit->{'unit_command'};
+    my $command_target = {'target' => $target};
+    $self->{'targets'}->{$unit_command} = $command_target;
+    if (defined($target)) {
+      _register_id($self, $target);
+    }
+    if (defined ($filename)) {
+      $command_target->{'special_unit_filename'}
+        = $filename;
+    }
+  }
+}
+
+# This set with two different codes
+#  * the target information, id and normalized filename of 'identifiers_target',
+#    ie everything that may be the target of a ref: @node, @float label,
+#    @anchor, @namedanchor.
+#  * The target information of sectioning elements
+# @node and section commands targets are therefore both set.
+#
+# conversion to HTML is done on-demand, upon call to command_text
+# and similar functions.
+# Note that 'node_filename', which is set here for Top target information
+# too, is not used later for Top anchors or links, see the NOTE below
+# associated with setting TOP_NODE_FILE_TARGET.
+sub _set_root_commands_targets_node_files($) {
+  my $self = shift;
+
+  my $sections_list;
+  my $labels_list;
+  if (exists($self->{'document'})) {
+    $sections_list = $self->{'document'}->sections_list();
+    $labels_list = $self->{'document'}->labels_list();
+  }
+
+  if (defined($labels_list)) {
+    my $extension = '';
+    $extension = '.'.$self->get_conf('EXTENSION')
+                if (defined($self->get_conf('EXTENSION'))
+                    and $self->get_conf('EXTENSION') ne '');
+
+    foreach my $target_element (@$labels_list) {
+      next if (not exists($target_element->{'extra'})
+               or not $target_element->{'extra'}->{'is_target'});
+      my $label_element = Texinfo::Common::get_label_element($target_element);
+      my ($node_filename, $target)
+        = _normalized_label_id_file($self, $target_element->{'extra'}
+                                                              ->{'normalized'},
+                                           $label_element);
+      $node_filename .= $extension;
+      if (defined($self->{'file_id_setting'}->{'node_file_name'})) {
+        # a non defined filename is ok if called with convert, but not
+        # if output in files.  We reset if undef, silently unless verbose
+        # in case called by convert.
+        my $user_node_filename
+              = &{$self->{'file_id_setting'}->{'node_file_name'}}(
+                                       $self, $target_element, $node_filename);
+        if (defined($user_node_filename)) {
+          $node_filename = $user_node_filename;
+        } elsif ($self->get_conf('VERBOSE')) {
+          $self->converter_document_warn(sprintf(__(
+              "user-defined node file name not set for `%s'"),
+              $node_filename));
+        } elsif ($self->get_conf('DEBUG')) {
+          warn "user-defined node file name undef for `$node_filename'\n";
+        }
+      }
+      if ($self->get_conf('DEBUG')) {
+        print STDERR 'Label'
+         # uncomment to get the perl object names
+         #."($target_element)"
+          ." \@$target_element->{'cmdname'} $target, $node_filename\n";
+      }
+      $self->{'targets'}->{$target_element} = {'target' => $target,
+                                           'node_filename' => $node_filename};
+      _register_id($self, $target);
+    }
+  }
+
+  if (defined($sections_list)) {
+    foreach my $section_relations (@{$sections_list}) {
+      my $section_element = $section_relations->{'element'};
+      _new_sectioning_command_target($self, $section_element);
+    }
+  }
+}
+
+sub _set_heading_commands_targets($) {
+  my $self = shift;
+
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+  if (defined($global_commands)) {
+    foreach my $cmdname (sort(keys(%sectioning_heading_commands)),
+                         'xrefname') {
+      if (!exists($root_commands{$cmdname})
+          and exists($global_commands->{$cmdname})) {
+        foreach my $command (@{$global_commands->{$cmdname}}) {
+          _new_sectioning_command_target($self, $command);
+        }
+      }
+    }
+  }
+}
+
+sub _prepare_index_entries_targets($) {
+  my $self = shift;
+
+  my $indices_information;
+  if (exists($self->{'document'})) {
+    $indices_information = $self->{'document'}->indices_information();
+  }
+
+  if (defined($indices_information)) {
+    my $no_unidecode;
+    $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE'))
+                          and !$self->get_conf('USE_UNIDECODE'));
+    my $in_test;
+    $in_test = 1 if ($self->get_conf('TEST'));
+
+    foreach my $index_name (sort(keys(%$indices_information))) {
+      foreach my $index_entry (@{$indices_information->{$index_name}
+                                                    ->{'index_entries'}}) {
+        my $main_entry_element = $index_entry->{'entry_element'};
+        # does not refer to the document
+        my $seeentry
+         = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                       'seeentry');
+        next if (defined($seeentry));
+        my $seealso
+         = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                       'seealso');
+        next if (defined($seealso));
+
+        my $region = '';
+        $region = "$main_entry_element->{'extra'}->{'element_region'}-"
+          if (defined($main_entry_element->{'extra'}->{'element_region'}));
+        my $entry_reference_content_element
+          = Texinfo::Common::index_content_element($main_entry_element, 1);
+        # construct element to convert to a normalized identifier to use as
+        # hrefs target
+        my $normalize_index_element = Texinfo::TreeElement::new(
+           {'contents' => [$entry_reference_content_element]});
+
+        my $subentries_tree
+         = Texinfo::Convert::Utils::comma_index_subentries_tree(
+                                               $main_entry_element, ' ');
+
+        if (defined($subentries_tree)) {
+          push @{$normalize_index_element->{'contents'}},
+                    @{$subentries_tree->{'contents'}};
+        }
+
+        my $normalized_index =
+          Texinfo::Convert::NodeNameNormalization::normalize_transliterate_texinfo(
+             $normalize_index_element, $in_test, $no_unidecode);
+        my $target_base = "index-" . $region .$normalized_index;
+        my $target = _unique_target($self, $target_base);
+        _register_id($self, $target);
+        my $target_element = $main_entry_element;
+        $target_element = $index_entry->{'entry_associated_element'}
+          if ($index_entry->{'entry_associated_element'});
+        $self->{'targets'}->{$target_element} = {'target' => $target, };
+      }
+    }
+  }
+}
+
+sub _prepare_footnotes_targets($) {
+  my $self = shift;
+
+  my $footid_base = 'FOOT';
+  my $docid_base = 'DOCF';
+
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+
+  if (defined($global_commands) and exists($global_commands->{'footnote'})) {
+    my $footnote_nr = 0;
+    foreach my $footnote (@{$global_commands->{'footnote'}}) {
+      $footnote_nr++;
+      my $nr = $footnote_nr;
+      # anchor for the footnote text
+      my $footid = $footid_base.$nr;
+      # anchor for the location of the @footnote in the document
+      my $docid = $docid_base.$nr;
+      while (_id_is_registered($self, $docid)
+             or _id_is_registered($self, $footid)) {
+        $nr++;
+        $footid = $footid_base.$nr;
+        $docid = $docid_base.$nr;
+        # Avoid integer overflow
+        die if ($nr == 0);
+      }
+      _register_id($self, $footid);
+      _register_id($self, $docid);
+      $self->{'targets'}->{$footnote} = { 'target' => $footid };
+      $self->{'special_targets'}->{'footnote_location'}->{$footnote}
+         = { 'target' => $docid };
+      print STDERR 'Enter footnote'
+        # uncomment for the perl object name
+        #." $footnote"
+        .": target $footid, nr $footnote_nr\n"
+       .Texinfo::Convert::Texinfo::convert_to_texinfo($footnote)."\n"
+        if ($self->get_conf('DEBUG'));
+    }
+  }
+}
+
+# $DOCUMENT is a Texinfo document with a parsed tree.  Return a list of the
+# "elements" we need to output in the HTML file(s).  Each "element" is what
+# can go in one HTML file, such as the content between @node lines in the
+# Texinfo source.
+# Also setup targets associated to tree elements and to elements associated
+# to special units.
+sub _prepare_conversion_units($$$) {
+  my ($self, $document, $document_name) = @_;
+
+  my ($output_units, $special_units, $associated_special_units);
+
+  if ($self->get_conf('USE_NODES')) {
+    $output_units = Texinfo::OutputUnits::split_by_node($document);
+  } else {
+    $output_units = Texinfo::OutputUnits::split_by_section($document);
+  }
+
+  # Needs to be set early in case it would be needed to find some region
+  # command associated root command.
+  $self->{'document_units'} = $output_units;
+
+  # configuration used to determine if a special element is to be done
+  # (in addition to contents)
+  my @conf_for_special_units = ('footnotestyle');
+  $self->set_global_document_commands('last', \@conf_for_special_units);
+  # NOTE if the last value of footnotestyle is separate, all the footnotes
+  # formatted text are set to the special element set in _prepare_special_units
+  # as _html_get_tree_root_element uses the Footnote direction for every
+  # footnote.  Therefore if @footnotestyle separate is set late in the
+  # document the current value may not be consistent with the link obtained
+  # for the footnote formatted text.  This is not an issue, as the manual
+  # says that @footnotestyle should only appear in the preamble, and it
+  # makes sense to have something consistent in the whole document for
+  # footnotes position.
+  ($special_units, $associated_special_units)
+     = _prepare_special_units($self, $output_units);
+  # reset to the default
+  $self->set_global_document_commands('before', \@conf_for_special_units);
+
+  # Do that before the other elements, to be sure that special page ids
+  # are registered before elements id are.
+  _set_special_units_targets_files($self, $special_units, $document_name);
+
+  _prepare_associated_special_units_targets($self, $associated_special_units);
+
+  _set_root_commands_targets_node_files($self);
+
+  _prepare_index_entries_targets($self);
+  _prepare_footnotes_targets($self);
+
+  _set_heading_commands_targets($self);
+
+  $self->register_output_units_lists([$output_units,
+                                 $special_units, $associated_special_units]);
+
+  return ($output_units, $special_units, $associated_special_units);
+}
+
+# Associate output units to the global targets, First, Last, Top, Index.
+sub _prepare_output_units_global_targets($$$$) {
+  my ($self, $output_units, $special_units, $associated_special_units) = @_;
+
+  $self->{'global_units_directions'}->{'First'} = $output_units->[0];
+  $self->{'global_units_directions'}->{'Last'} = $output_units->[-1];
+
+  $self->{'global_units_directions'}->{'Top'}
+    = _get_top_unit($self, $output_units);
+
+  my $global_commands;
+  my $nodes_list;
+  my $sections_list;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+    $nodes_list = $self->{'document'}->nodes_list();
+    $sections_list = $self->{'document'}->sections_list();
+  }
+
+  # Associate Index with the last @printindex.  According to Werner Lemberg,
+  # "the most general index is normally the last one, not the first"
+  # https://lists.gnu.org/archive/html/bug-texinfo/2025-01/msg00019.html
+  #
+  # It is always the last printindex, even if it is not output (for example
+  # it is in @copying and @titlepage, which are certainly wrong constructs).
+  if (defined($global_commands) and exists($global_commands->{'printindex'})) {
+    # Here document_unit can only be a document unit, or maybe undef if there
+    # are no document unit at all
+    my ($document_unit, $root_command)
+     = _html_get_tree_root_element($self,
+                               $global_commands->{'printindex'}->[-1]);
+    if (defined($document_unit)) {
+      if (defined($root_command)) {
+        my $section_relations;
+        if ($root_command->{'cmdname'} eq 'node') {
+          if (defined($nodes_list)) {
+            my $node_relations
+              = $nodes_list->[$root_command->{'extra'}->{'node_number'} -1];
+            if (exists($node_relations->{'associated_section'})) {
+              $section_relations = $node_relations->{'associated_section'};
+            }
+          }
+        } else {
+          $section_relations
+            = $sections_list->[$root_command->{'extra'}->{'section_number'} -1];
+        }
+
+        # find the first level 1 sectioning element to associate the printindex
+        # with.  May not work correctly if structuring was not done
+        if ($section_relations) {
+          my $current_command = $section_relations->{'element'};
+          while (exists($current_command->{'extra'})
+                 and defined($current_command->{'extra'}->{'section_level'})
+                 and $current_command->{'extra'}->{'section_level'} > 1
+                 and exists($section_relations->{'section_directions'})
+                 and exists($section_relations->{'section_directions'}->{'up'})
+                 and exists($section_relations->{'section_directions'}->{'up'}
+                                    ->{'element'}->{'associated_unit'})) {
+            $section_relations
+              = $section_relations->{'section_directions'}->{'up'};
+            $current_command = $section_relations->{'element'};
+            $document_unit = $current_command->{'associated_unit'};
+          }
+        }
+      }
+      $self->{'global_units_directions'}->{'Index'} = $document_unit;
+    }
+  }
+
+  if ($self->{'customized_global_directions'}) {
+    foreach my $direction (sort(keys(%{$self->{'customized_global_directions'}}))) {
+      my $node_texi_name
+        = $self->{'customized_global_directions'}->{$direction};
+      if (defined($node_texi_name)
+          and not defined($self->global_direction_text($direction))) {
+          # FIXME check that relative directions are not replaced by
+          # global_units_directions (as done in C)?  It may not be an issue.
+
+        # Determine the document unit corresponding to the direction
+        # node name Texinfo code
+
+        # Parse the customized direction node name Texinfo code
+        my $node_element;
+        my $parser = Texinfo::Parser::parser({'NO_INDEX' => 1,
+                                              'NO_USER_COMMANDS' => 1,});
+        my $tree = $parser->parse_texi_line($node_texi_name, undef, 1);
+        my $errors = $parser->errors();
+        my $errors_count = Texinfo::Report::count_errors($errors);
+        if ($errors_count) {
+          warn "Global $direction node name parsing $errors_count error(s)\n";
+          warn "node name: $node_texi_name\n";
+          warn "Error messages: \n";
+          foreach my $error_message (@$errors) {
+            warn $error_message->{'error_line'};
+          }
+        }
+
+        # convert to identifier and determine the node element target
+        if ($tree) {
+          my $normalized_node
+   = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier($tree);
+          if ($normalized_node ne '' and $normalized_node =~ /[^-]/) {
+            $node_element = $self->label_command($normalized_node);
+          }
+        }
+        if (!defined($node_element)) {
+          $self->converter_document_warn(
+               sprintf(__("could not find %s node `%s'"),
+                       $direction, $node_texi_name));
+        } else {
+          $self->{'global_units_directions'}->{$direction}
+            = $node_element->{'associated_unit'};
+        }
+      }
+    }
+  }
+
+  if ($self->get_conf('DEBUG')) {
+    # TODO also show the global directions added by the user
+    print STDERR "GLOBAL DIRECTIONS:\n";
+    foreach my $global_direction (@global_directions_order) {
+      if (defined($self->global_direction_unit($global_direction))) {
+        my $global_unit = $self->global_direction_unit($global_direction);
+        print STDERR " $global_direction"
+            # uncomment to get the perl object name
+            # ."($global_unit)"
+     .': '. Texinfo::OutputUnits::output_unit_texi($global_unit)."\n";
+      }
+    }
+    print STDERR "\n";
+  }
+
+  # TODO show the special units directions if DEBUG is set?
+  foreach my $units_list ($special_units, $associated_special_units) {
+    if (defined($units_list) and scalar(@$units_list)) {
+      foreach my $special_unit (@$units_list) {
+        my $special_unit_variety = $special_unit->{'special_unit_variety'};
+        my $special_unit_direction
+         = $self->special_unit_info('direction', $special_unit_variety);
+        $self->{'global_units_directions'}->{$special_unit_direction}
+         = $special_unit;
+      }
+    }
+  }
+}
+
+sub _html_set_pages_files($$$$$$$$) {
+  my ($self, $output_units, $special_units, $associated_output_units,
+      $output_file, $destination_directory, $output_filename,
+      $document_name) = @_;
+
+  my @filenames_order;
+  my %unit_file_name_paths;
+  # associate a file to the source information leading to set the file
+  # name.  Use the first element source information associated to a file.
+  # The source information can be either a tree element associated to
+  # the 'file_info_element' key, with a 'file_info_type' 'node' or
+  # 'section'... or a specific source associated to the 'file_info_name'
+  # key with 'file_info_type' 'special_file', or a source set if
+  # nothing was found, with 'file_info_type' 'stand_in_file' and a
+  # 'file_info_name'.  Redirection files are added in the output()
+  # function.
+  my %files_source_info = ();
+  if (!$self->get_conf('SPLIT')) {
+    push @filenames_order, $output_filename;
+    foreach my $output_unit (@$output_units) {
+      $unit_file_name_paths{$output_unit} = $output_filename;
+    }
+    $files_source_info{$output_filename}
+      = {'file_info_type' => 'special_file',
+         'file_info_name' => 'non_split',
+         'file_info_path' => $output_file};
+  } else {
+    my $identifiers_target;
+    if (exists($self->{'document'})) {
+      $identifiers_target = $self->{'document'}->labels_information();
+    }
+
+    # first determine the top node file name.
+    my $node_top;
+    $node_top = $identifiers_target->{'Top'}
+                               if (defined($identifiers_target));
+
+    my $top_node_filename = $self->top_node_filename($document_name);
+    my $node_top_output_unit;
+    if (defined($node_top) and defined($top_node_filename)) {
+      $node_top_output_unit = $node_top->{'associated_unit'};
+      die "BUG: No output unit for top node" if (!defined($node_top_output_unit));
+      push @filenames_order, $top_node_filename;
+      $unit_file_name_paths{$node_top_output_unit} = $top_node_filename;
+      $files_source_info{$top_node_filename}
+         = {'file_info_type' => 'special_file',
+            'file_info_name' => 'Top',
+            'file_info_path' => undef};
+    }
+    my $file_nr = 0;
+    my $extension = '';
+    $extension = '.'.$self->get_conf('EXTENSION')
+            if (defined($self->get_conf('EXTENSION'))
+                and $self->get_conf('EXTENSION') ne '');
+
+    foreach my $output_unit (@$output_units) {
+      # For Top node.
+      next if ($node_top_output_unit and $output_unit eq $node_top_output_unit);
+
+      my $file_output_unit = $output_unit->{'first_in_page'};
+      if (!defined($file_output_unit)) {
+        cluck ("No first_in_page for $output_unit\n");
+      }
+      if (not exists($unit_file_name_paths{$file_output_unit})) {
+        my $node_filename;
+        foreach my $root_command (@{$file_output_unit->{'unit_contents'}}) {
+          if (exists($root_command->{'cmdname'})
+              and $root_command->{'cmdname'} eq 'node') {
+            # double node are not normalized, they are handled here
+            if (!exists($root_command->{'extra'})
+                or !exists($root_command->{'extra'}->{'normalized'})
+                or !exists($identifiers_target->{
+                           $root_command->{'extra'}->{'normalized'}})) {
+              $node_filename = 'unknown_node';
+              $node_filename .= $extension;
+
+              if (!exists($files_source_info{$node_filename})) {
+                push @filenames_order, $node_filename;
+                $files_source_info{$node_filename}
+                               = {'file_info_type' => 'stand_in_file',
+                                  'file_info_name' => 'unknown_node',
+                                  'file_info_path' => undef};
+              }
+            } else {
+              # Nodes with {'extra'}->{'is_target'} should always be in
+              # 'identifiers_target', and thus in targets.  It is a bug otherwise.
+              $node_filename
+                = $self->{'targets'}->{$root_command}->{'node_filename'};
+              if (not exists($files_source_info{$node_filename})
+                  or $files_source_info{$node_filename}
+                            ->{'file_info_type'} ne 'stand_in_file') {
+
+                push @filenames_order, $node_filename
+                  unless ($files_source_info{$node_filename});
+
+                $files_source_info{$node_filename}
+                                     = {'file_info_type' => 'node',
+                                        'file_info_element' => $root_command,
+                                        'file_info_path' => undef};
+              }
+            }
+            $unit_file_name_paths{$file_output_unit} = $node_filename;
+            last;
+          }
+        }
+        if (not defined($node_filename)) {
+          # use section to do the file name if there is no node
+          my $command = $file_output_unit->{'unit_section'};
+          if (defined($command)) {
+            if ($command->{'element'}->{'cmdname'} eq 'top'
+                and !defined($node_top) and defined($top_node_filename)) {
+              $unit_file_name_paths{$file_output_unit} = $top_node_filename;
+
+              # existing top_node_filename can happen, see
+              # html_tests.t top_file_name_and_node_name_collision
+              push @filenames_order, $top_node_filename
+                unless exists($files_source_info{$top_node_filename});
+
+              $files_source_info{$top_node_filename}
+                  = {'file_info_type' => 'special_file',
+                     'file_info_name' => 'Top',
+                     'file_info_path' => undef};
+            } else {
+              my $section_filename
+                = $self->{'targets'}->{$command->{'element'}}
+                     ->{'section_filename'};
+              $unit_file_name_paths{$file_output_unit} = $section_filename;
+
+              if (not exists($files_source_info{$section_filename})
+                  or $files_source_info{$section_filename}
+                                ->{'file_info_type'} ne 'stand_in_file') {
+
+                push @filenames_order, $section_filename
+                  unless (exists($files_source_info{$section_filename}));
+
+                $files_source_info{$section_filename}
+                  = {'file_info_type' => 'section',
+                     'file_info_element' => $command->{'element'},
+                     'file_info_path' => undef};
+              }
+            }
+          } else {
+            # when everything else has failed
+            if ($file_nr == 0 and !defined($node_top)
+                and defined($top_node_filename)) {
+              $unit_file_name_paths{$file_output_unit} = $top_node_filename;
+              unless (exists($files_source_info{$top_node_filename})) {
+                push @filenames_order, $top_node_filename;
+                $files_source_info{$top_node_filename}
+                  = {'file_info_type' => 'stand_in_file',
+                     'file_info_name' => 'Top',
+                     'file_info_path' => undef};
+              }
+            } else {
+              my $filename = $document_name . "_$file_nr";
+              $filename .= $extension;
+              $unit_file_name_paths{$file_output_unit} = $filename;
+
+              unless (exists($files_source_info{$filename})) {
+                push @filenames_order, $filename;
+                $files_source_info{$filename}
+                   = {'file_info_type' => 'stand_in_file',
+                      'file_info_name' => 'unknown',
+                      'file_info_path' => undef};
+              }
+            }
+            $file_nr++;
+          }
+        }
+      }
+      if ($output_unit ne $file_output_unit) {
+        $unit_file_name_paths{$output_unit}
+           = $unit_file_name_paths{$file_output_unit}
+      }
+    }
+  }
+
+  foreach my $output_unit (@$output_units) {
+    my $filename = $unit_file_name_paths{$output_unit};
+    my $file_source_info = $files_source_info{$filename};
+    # check
+    if (!defined($file_source_info)) {
+      print STDERR "BUG: no files_source_info: $filename\n";
+    }
+    my $filepath = $file_source_info->{'file_info_path'};
+    if (defined($self->{'file_id_setting'}->{'unit_file_name'})) {
+      # NOTE the information that it is associated with @top or @node Top
+      # may be determined with $self->unit_is_top_output_unit($output_unit);
+      my ($user_filename, $user_filepath)
+         = &{$self->{'file_id_setting'}->{'unit_file_name'}}(
+               $self, $output_unit, $filename, $filepath);
+      if (defined($user_filename)) {
+        my $user_file_source_info;
+        if (exists($files_source_info{$user_filename})) {
+          $user_file_source_info = $files_source_info{$user_filename};
+          my $previous_filepath = $user_file_source_info->{'file_info_path'};
+          # It is likely that setting different paths for the same file is
+          # not intended, so we warn.
+          if (defined($user_filepath) and defined($previous_filepath)
+              and $user_filepath ne $previous_filepath) {
+            $self->converter_document_warn(
+             sprintf(__("resetting %s file path %s to %s"),
+              $user_filename, $previous_filepath, $user_filepath));
+          } elsif (defined($user_filepath) and !defined($previous_filepath)) {
+            $self->converter_document_warn(
+              sprintf(__("resetting %s file path from a relative path to %s"),
+                           $user_filename, $user_filepath));
+          } elsif (!defined($user_filepath) and defined($previous_filepath)) {
+            $self->converter_document_warn(
+              sprintf(__("resetting %s file path from %s to a relative path"),
+                           $user_filename, $previous_filepath));
+          }
+        }
+        $filename = $user_filename;
+        push @filenames_order, $filename
+          unless (defined($user_file_source_info));
+        $files_source_info{$filename} = {'file_info_type' => 'special_file',
+                                         'file_info_name' => 'user_defined',
+                                         'file_info_path' => $user_filepath};
+      }
+    }
+    $self->set_output_unit_file($output_unit, $filename);
+    my $output_unit_filename = $output_unit->{'unit_filename'};
+    $self->{'file_counters'}->{$output_unit_filename} = 0
+       if (!exists($self->{'file_counters'}->{$output_unit_filename}));
+    $self->{'file_counters'}->{$output_unit_filename}++;
+    print STDERR 'Page '
+      # uncomment for perl object name
+      #."$output_unit "
+      .Texinfo::OutputUnits::output_unit_texi($output_unit)
+      .": $output_unit_filename($self->{'file_counters'}->{$output_unit_filename})\n"
+             if ($self->get_conf('DEBUG'));
+  }
+
+  if (defined($special_units)) {
+    foreach my $special_unit (@$special_units) {
+      my $unit_command = $special_unit->{'unit_command'};
+      my $filename
+       = $self->{'targets'}->{$unit_command}->{'special_unit_filename'};
+      # Associate the special elements that have no page with the main page.
+      # This may only happen if not split.
+      if (!defined($filename)
+          and defined($output_units->[0]->{'unit_filename'})) {
+        $filename = $output_units->[0]->{'unit_filename'};
+      }
+      if (defined($filename)) {
+        push @filenames_order, $filename
+          unless exists($files_source_info{$filename});
+        $self->set_output_unit_file($special_unit, $filename);
+        $self->{'file_counters'}->{$filename} = 0
+           if (!exists($self->{'file_counters'}->{$filename}));
+        $self->{'file_counters'}->{$filename}++;
+        print STDERR 'Special page'
+           # uncomment for perl object name
+           #." $special_unit"
+           .": $filename($self->{'file_counters'}->{$filename})\n"
+                 if ($self->get_conf('DEBUG'));
+        my $file_source_info = {'file_info_element' => $unit_command,
+                                'file_info_type' => 'special_unit',
+                                'file_info_path' => undef};
+        $files_source_info{$filename} = $file_source_info
+          unless(exists($files_source_info{$filename})
+                 and $files_source_info{$filename}->{'file_info_type'}
+                       ne 'stand_in_file');
+      }
+    }
+  }
+
+  foreach my $filename (@filenames_order) {
+    $self->set_file_path($filename, $destination_directory,
+                         $files_source_info{$filename}->{'file_info_path'});
+  }
+
+  # to be able to associate to the output unit file the associated
+  # output units will be output into, this is done after document output
+  # units got files.
+  # In practice only used for contents and shortcontents.
+  if (defined($associated_output_units)
+      and scalar(@$associated_output_units)) {
+    foreach my $special_unit (@$associated_output_units) {
+      my $associated_output_unit = $special_unit->{'associated_document_unit'};
+      my $unit_command = $special_unit->{'unit_command'};
+      my $filename;
+
+      my $command_target = $self->{'targets'}->{$unit_command};
+      # set by the user
+      if (defined($command_target->{'special_unit_filename'})) {
+        $filename = $command_target->{'special_unit_filename'};
+      } else {
+        $filename = $associated_output_unit->{'unit_filename'}
+          if ($associated_output_unit);
+        $command_target->{'special_unit_filename'} = $filename;
+      }
+
+      # set here the file name, but do not associate a counter as it is already
+      # set for the output unit the special output unit is in.
+      $self->set_output_unit_file($special_unit, $filename)
+        if (defined($filename));
+    }
+  }
+
+  return \%files_source_info;
+}
+
+sub _prepare_special_units_directions($$) {
+  my ($self, $special_units) = @_;
+
+  return unless(defined($special_units));
+
+  foreach my $special_unit (@$special_units) {
+    $special_unit->{'directions'}->{'This'} = $special_unit;
+  }
+}
+
+sub _prepare_units_directions_files($$$$$$$$) {
+  my ($self, $output_units, $special_units, $associated_special_units,
+      $output_file, $destination_directory, $output_filename,
+      $document_name) = @_;
+
+  my $identifiers_target;
+  my $nodes_list;
+  if (exists($self->{'document'})) {
+    $identifiers_target = $self->{'document'}->labels_information();
+    $nodes_list = $self->{'document'}->nodes_list();
+  }
+
+  _prepare_output_units_global_targets($self, $output_units, $special_units,
+                                              $associated_special_units);
+
+  Texinfo::OutputUnits::split_pages($output_units, $nodes_list,
+                                    $self->get_conf('SPLIT'));
+
+  # reset even if $output_file eq '', as 'file_counters' is accessed
+  # below, so it needs to be empty in the case of $output_file eq ''.
+  $self->initialize_output_units_files();
+
+  # determine file names associated with the different pages, and setup
+  # the counters for special element pages.
+  my $files_source_info;
+  if ($output_file ne '') {
+    $files_source_info =
+      _html_set_pages_files($self, $output_units, $special_units,
+                    $associated_special_units, $output_file,
+                    $destination_directory, $output_filename, $document_name);
+  }
+
+  # do output units directions.
+  Texinfo::OutputUnits::units_directions($identifiers_target, $nodes_list,
+                                         $output_units,
+                                         $self->get_conf('DEBUG'));
+
+  _prepare_special_units_directions($self, $special_units);
+
+  # do output units directions related to files.
+  # Here such that PrevFile and NextFile can be set.
+  Texinfo::OutputUnits::units_file_directions($output_units);
+
+  # elements_in_file_count is only set in HTML, not in
+  # Texinfo::Convert::Converter
+  $self->{'elements_in_file_count'} = {};
+  # condition could also be based on $output_file ne ''
+  if (exists($self->{'file_counters'})) {
+    # 'file_counters' is dynamic, decreased when the element is encountered
+    # 'elements_in_file_count' is not modified afterwards
+    foreach my $filename (keys(%{$self->{'file_counters'}})) {
+      $self->{'elements_in_file_count'}->{$filename}
+                            = $self->{'file_counters'}->{$filename};
+    }
+  }
+
+  #if (1 or $self->get_conf('DEBUG') >= 30) {
+  #  if ($self->{'document'}) {
+  #    my $tree = $self->{'document'}->tree();
+  #    my $use_filename = 0;
+  #    if ($self->get_conf('TEST')) {
+  #      $use_filename = 1;
+  #    }
+  #    my $output_units_output
+  #      = Texinfo::OutputUnits::print_output_units_tree_details($output_units,
+  #              $tree, $use_filename);
+  #  }
+  #}
+
+  return $files_source_info;
+}
+
 sub convert_output_unit($$;$) {
   my ($self, $output_unit,
   # only used for debug
@@ -4226,154 +4247,6 @@ sub convert_output_unit($$;$) {
   return $result;
 }
 
-# This is called from the main program on the converter.
-sub output_internal_links($) {
-  my $self = shift;
-
-  my $out_string = '';
-
-  foreach my $output_unit (@{$self->{'document_units'}}) {
-    my $text;
-    my $href;
-    my $command = $output_unit->{'unit_command'};
-    if (defined($command)) {
-      # Use '' for filename, to force a filename in href.
-      $href = $self->command_href($command, '');
-      my ($tree, $in_code) = _internal_command_tree($self, $command, 0);
-      if (defined($tree)) {
-        $text = Texinfo::Convert::Text::convert_to_text($tree,
-                                  $self->{'convert_text_options'});
-      }
-      if (defined($href) or defined($text)) {
-        $out_string .= $href if (defined($href));
-        $out_string .= "\tunit\t";
-        $out_string .= $text if (defined($text));
-        $out_string .= "\n";
-      }
-    }
-  }
-
-  if (exists($self->{'document'})) {
-    my $sections_list = $self->{'document'}->sections_list();
-    foreach my $section_relations (@{$sections_list}) {
-      my $command = $section_relations->{'element'};
-      my $href = $self->command_href($command, '');
-      my ($tree, $in_code) = _internal_command_tree($self, $command, 0);
-      my $text;
-      if (defined($tree)) {
-        $text = Texinfo::Convert::Text::convert_to_text($tree,
-                                  $self->{'convert_text_options'});
-      }
-      if (defined($href) or defined($text)) {
-        $out_string .= $href if (defined($href));
-        $out_string .= "\tsection\t";
-        my $command_name
-          = Texinfo::Structuring::section_level_adjusted_command_name($command);
-        $out_string .= $command_name.' ';
-        $out_string .= $text if (defined($text));
-        $out_string .= "\n";
-      }
-    }
-
-    my $labels_list = $self->{'document'}->labels_list();
-    if (defined($labels_list)) {
-      my %commands_lists;
-      foreach my $target_element (@$labels_list) {
-        next if (not exists($target_element->{'extra'})
-                 or not $target_element->{'extra'}->{'is_target'});
-
-        my $cmdname = $target_element->{'cmdname'};
-        if (!exists($commands_lists{$cmdname})) {
-          $commands_lists{$cmdname} = [];
-        }
-        push @{$commands_lists{$cmdname}}, $target_element;
-      }
-      foreach my $cmdtype ('node', 'anchor', 'namedanchor', 'float') {
-        next unless (exists($commands_lists{$cmdtype}));
-        foreach my $target_element (@{$commands_lists{$cmdtype}}) {
-          my $label_element
-            = Texinfo::Common::get_label_element($target_element);
-          my $href = $self->command_href($target_element, '');
-          my $text;
-          if (defined($label_element)) {
-            $text = Texinfo::Convert::Text::convert_to_text($label_element,
-                                    $self->{'convert_text_options'});
-          }
-          if (defined($href) or defined($text)) {
-            $out_string .= $href if (defined($href));
-            $out_string .= "\t${cmdtype}\t";
-            $out_string .= $text if (defined($text));
-            $out_string .= "\n";
-          }
-        }
-      }
-    }
-  }
-
-  my $index_entries_by_letter
-    = $self->get_converter_indices_sorted_by_letter();
-  if (defined($index_entries_by_letter)) {
-    my $indices_information;
-    if (exists($self->{'document'})) {
-      $indices_information = $self->{'document'}->indices_information();
-    }
-
-    foreach my $index_name (sort(keys(%{$index_entries_by_letter}))) {
-      foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
-        foreach my $index_entry (@{$letter_entry->{'entries'}}) {
-          my $main_entry_element = $index_entry->{'entry_element'};
-          # does not refer to the document
-          my $seeentry
-            = Texinfo::Common::index_entry_referred_entry($main_entry_element,
-                                                          'seeentry');
-          next if (defined($seeentry));
-          my $seealso
-            = Texinfo::Common::index_entry_referred_entry($main_entry_element,
-                                                          'seealso');
-          next if (defined($seealso));
-
-          my $href;
-          $href = $self->command_href($main_entry_element, '');
-          # Obtain term by converting to text
-          my $in_code
-            = $indices_information->{$index_entry->{'index_name'}}->{'in_code'};
-          if ($in_code) {
-            Texinfo::Convert::Text::set_options_code(
-                                          $self->{'convert_text_options'});
-          }
-          my $entry_reference_content_element
-            = Texinfo::Common::index_content_element($main_entry_element);
-          my @contents = ($entry_reference_content_element);
-          my $subentries_tree
-            = Texinfo::Convert::Utils::comma_index_subentries_tree(
-                                                     $main_entry_element);
-          if (defined($subentries_tree)) {
-            push @contents, @{$subentries_tree->{'contents'}};
-          }
-          my $index_term = Texinfo::Convert::Text::convert_to_text(
-                Texinfo::TreeElement::new({'contents' => \@contents}),
-                                            $self->{'convert_text_options'});
-          if ($in_code) {
-            Texinfo::Convert::Text::reset_options_code(
-                                          $self->{'convert_text_options'});
-          }
-          if (defined($index_term) and $index_term =~ /\S/) {
-            $out_string .= $href if (defined($href));
-            $out_string .= "\t$index_name\t";
-            $out_string .= $index_term;
-            $out_string .= "\n";
-          }
-        }
-      }
-    }
-  }
-  if ($out_string ne '') {
-    return $out_string;
-  } else {
-    return undef;
-  }
-}
-
 sub _run_stage_handlers($$$$) {
   my ($converter, $stage_handlers, $document, $stage) = @_;
 
@@ -4410,66 +4283,6 @@ sub _run_stage_handlers($$$$) {
     $handler_idx++;
   }
   return 0;
-}
-
-sub _do_js_files($$) {
-  my ($self, $destination_directory) = @_;
-
-  if ($self->get_conf('INFO_JS_DIR')) {
-    my $info_js_dir = $self->get_conf('INFO_JS_DIR');
-    my $jsdir;
-    if ($destination_directory ne '') {
-      $jsdir = join('/', ($destination_directory, $info_js_dir));
-    } else {
-      $jsdir = $info_js_dir;
-    }
-    my ($encoded_jsdir, $dir_encoding)
-      = $self->encoded_output_file_name($jsdir);
-    my $succeeded
-      = $self->create_destination_directory($encoded_jsdir, $jsdir);
-    # Copy JS files.
-    if ($succeeded) {
-      if (!$self->get_conf('TEST')) {
-        my $jssrcdir;
-        if (!$Texinfo::ModulePath::texinfo_uninstalled) {
-          $jssrcdir = join('/', (
-            $Texinfo::ModulePath::converter_datadir, 'js'));
-        } else {
-          $jssrcdir = join('/', (
-            $Texinfo::ModulePath::t2a_srcdir, $updir, 'js'));
-        }
-        for my $f ('info.js', 'modernizr.js', 'info.css') {
-          my $from = join('/', ($jssrcdir, $f));
-
-          if (!copy($from, $jsdir)) {
-            $self->converter_document_error(
-              sprintf(__("error on copying %s into %s"), $from, $jsdir));
-          }
-        }
-      } else {
-      # create empty files for tests to keep results stable.
-        foreach my $f ('info.js', 'modernizr.js', 'info.css') {
-          my $filename = join('/', ($jsdir, $f));
-          if (!open(FH, '>', $filename)) {
-            $self->converter_document_error(
-              sprintf(__("error on creating empty %s: %s"),
-                      $filename, $!));
-          } else {
-            if (!close(FH)) {
-              $self->converter_document_error(
-                sprintf(__("error on closing empty %s: %s"),
-                        $filename, $!));
-            }
-          }
-        }
-      }
-    }
-  }
-
-  my $jslicenses = $self->get_info('jslicenses');
-  if (defined($jslicenses) and scalar(%$jslicenses)) {
-    _do_jslicenses_file($self, $destination_directory);
-  }
 }
 
 sub _prepare_converted_output_info($$$$) {
@@ -5165,6 +4978,148 @@ sub _setup_output($) {
           $document_name];
 }
 
+sub _do_jslicenses_file($$) {
+  my ($self, $destination_directory) = @_;
+
+  my $setting = $self->get_conf('JS_WEBLABELS');
+  my $path = $self->get_conf('JS_WEBLABELS_FILE');
+
+  # Possible settings:
+  #   'generate' - create file at JS_WEBLABELS_FILE
+  #   'reference' - reference file at JS_WEBLABELS_FILE but do not create it
+  #   'omit' - do nothing
+  return if (!defined($setting) or $setting ne 'generate' or !defined($path)
+             or $path eq '');
+
+  if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/
+      or $path eq '-') {
+    $self->converter_document_warn(sprintf(
+ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
+    return;
+  }
+
+  my $doctype = $self->get_conf('DOCTYPE');
+  $doctype = '' if (!defined($doctype));
+  my $root_html_element_attributes
+      = _root_html_element_attributes_string($self);
+  my $a = $doctype . "\n" ."<html${root_html_element_attributes}>"
+   .'<head><title>jslicense labels</title></head>
+<body>
+<table id="jslicense-labels1">
+';
+
+  my $jslicenses = $self->get_info('jslicenses');
+  foreach my $category (sort(keys(%$jslicenses))) {
+    foreach my $file (sort(keys(%{$jslicenses->{$category}}))) {
+      my $file_info = $jslicenses->{$category}->{$file};
+      $a .= "<tr>\n";
+      $a .= '<td><a href="'.
+                 $self->url_protect_url_text($file)."\">$file</a></td>\n";
+      $a .= '<td><a href="'.$self->url_protect_url_text($file_info->[1])
+                                         ."\">$file_info->[0]</a></td>\n";
+      $a .= '<td><a href="'.$self->url_protect_url_text($file_info->[2])
+                                         ."\">$file_info->[2]</a></td>\n";
+      $a .= "</tr>\n";
+    }
+  }
+
+  $a .= "</table>\n</body></html>\n";
+
+  my $license_file;
+  if ($destination_directory ne '') {
+    $license_file = join('/', ($destination_directory, $path));
+  } else {
+    $license_file = $path;
+  }
+  # sequence of bytes
+  my ($licence_file_path, $path_encoding)
+     = $self->encoded_output_file_name($license_file);
+  my ($fh, $error_message_licence_file, $overwritten_file)
+         = Texinfo::Convert::Utils::output_files_open_out(
+                         $self->output_files_information(),
+                         $licence_file_path, undef,
+                         $self->get_conf('OUTPUT_ENCODING_NAME'));
+  if ($overwritten_file) {
+    $self->converter_document_warn(
+     sprintf(__("overwriting output file with js licences: %s"),
+             $license_file));
+  }
+  if (defined($fh)) {
+    print $fh $a;
+    Texinfo::Convert::Utils::output_files_register_closed(
+                  $self->output_files_information(), $licence_file_path);
+    if (!close ($fh)) {
+      $self->converter_document_error(
+               sprintf(__("error on closing %s: %s"),
+                                    $license_file, $!));
+    }
+  } else {
+    $self->converter_document_error(
+           sprintf(__("could not open %s for writing: %s"),
+                   $license_file, $error_message_licence_file));
+  }
+}
+
+sub _do_js_files($$) {
+  my ($self, $destination_directory) = @_;
+
+  if ($self->get_conf('INFO_JS_DIR')) {
+    my $info_js_dir = $self->get_conf('INFO_JS_DIR');
+    my $jsdir;
+    if ($destination_directory ne '') {
+      $jsdir = join('/', ($destination_directory, $info_js_dir));
+    } else {
+      $jsdir = $info_js_dir;
+    }
+    my ($encoded_jsdir, $dir_encoding)
+      = $self->encoded_output_file_name($jsdir);
+    my $succeeded
+      = $self->create_destination_directory($encoded_jsdir, $jsdir);
+    # Copy JS files.
+    if ($succeeded) {
+      if (!$self->get_conf('TEST')) {
+        my $jssrcdir;
+        if (!$Texinfo::ModulePath::texinfo_uninstalled) {
+          $jssrcdir = join('/', (
+            $Texinfo::ModulePath::converter_datadir, 'js'));
+        } else {
+          $jssrcdir = join('/', (
+            $Texinfo::ModulePath::t2a_srcdir, $updir, 'js'));
+        }
+        for my $f ('info.js', 'modernizr.js', 'info.css') {
+          my $from = join('/', ($jssrcdir, $f));
+
+          if (!copy($from, $jsdir)) {
+            $self->converter_document_error(
+              sprintf(__("error on copying %s into %s"), $from, $jsdir));
+          }
+        }
+      } else {
+      # create empty files for tests to keep results stable.
+        foreach my $f ('info.js', 'modernizr.js', 'info.css') {
+          my $filename = join('/', ($jsdir, $f));
+          if (!open(FH, '>', $filename)) {
+            $self->converter_document_error(
+              sprintf(__("error on creating empty %s: %s"),
+                      $filename, $!));
+          } else {
+            if (!close(FH)) {
+              $self->converter_document_error(
+                sprintf(__("error on closing empty %s: %s"),
+                        $filename, $!));
+            }
+          }
+        }
+      }
+    }
+  }
+
+  my $jslicenses = $self->get_info('jslicenses');
+  if (defined($jslicenses) and scalar(%$jslicenses)) {
+    _do_jslicenses_file($self, $destination_directory);
+  }
+}
+
 # return 0 on failure, 1 on success.
 sub _finish_output($$$$) {
   my ($self, $output_file, $destination_directory, $files_source_info) = @_;
@@ -5261,215 +5216,152 @@ sub output($$) {
   return undef;
 }
 
-#my $characters_replaced_from_class_names = quotemeta('[](),~#:/\\@+=!;.,?* ');
-# Not clear what character should be allowed and which ones replaced
-# besides space.  Not really important as the caller should themselves
-# sanitize the class names already.
-my $characters_replaced_from_class_names = quotemeta(' ');
-sub _protect_class_name($$) {
-  my ($self, $class_name) = @_;
-
-  $class_name =~ s/[$characters_replaced_from_class_names]/-/g;
-
-  # API info: using the API to allow for customization would be:
-  # return &{$self->formatting_function('format_protect_text')}($self, $class_name);
-  return _default_format_protect_text($self, $class_name);
-}
-
-sub _open_command_update_context($$) {
-  my ($self, $command_name) = @_;
-
-  my $convert_to_latex;
-
-  if (exists($brace_commands{$command_name})
-      and $brace_commands{$command_name} eq 'context') {
-    _new_document_context($self, $command_name);
-  }
-  if (exists($format_context_commands{$command_name})) {
-    push @{$self->{'document_context'}->[-1]->{'formatting_context'}},
-                                  {'context_name' => '@'.$command_name};
-  }
-  if (exists($block_commands{$command_name})) {
-    push @{$self->{'document_context'}->[-1]->{'block_commands'}},
-                                                      $command_name;
-  }
-  my $preformatted = 0;
-  if (exists($pre_class_commands{$command_name})) {
-    push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-      $pre_class_commands{$command_name};
-    if (exists($preformatted_commands{$command_name})) {
-      $self->{'document_context'}->[-1]->{'inside_preformatted'}++;
-      $preformatted = 1;
-    } elsif ($block_commands{$command_name} eq 'menu'
-             and $self->{'document_context'}->[-1]->{'inside_preformatted'}) {
-      $preformatted = 1;
-    }
-  }
-  if (exists($composition_context_commands{$command_name})) {
-    push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-                                                           $command_name;
-    push @{$self->{'document_context'}->[-1]->{'preformatted_context'}},
-         $preformatted;
-  }
-  if (exists($format_raw_commands{$command_name})) {
-    $self->{'document_context'}->[-1]->{'raw'}++;
-  } elsif ($command_name eq 'verbatim') {
-    $self->{'document_context'}->[-1]->{'verbatim'}++;
-  }
-  if (exists($brace_code_commands{$command_name}) or
-      exists($preformatted_code_commands{$command_name})) {
-    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-  } elsif (exists($brace_commands{$command_name})
-           and $brace_commands{$command_name} eq 'style_no_code') {
-    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 0;
-  } elsif ($self->{'upper_case_commands'}->{$command_name}) {
-    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                         ->{'upper_case'}++;
-  } elsif (exists($math_commands{$command_name})) {
-    $self->{'document_context'}->[-1]->{'math'}++;
-    $convert_to_latex = 1 if ($self->get_conf('CONVERT_TO_LATEX_IN_MATH'));
-  }
-  if ($command_name eq 'verb') {
-    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                    ->{'space_protected'}++;
-  } elsif ($command_name eq 'w') {
-    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                               ->{'no_break'}++;
-  }
-  return $convert_to_latex;
-}
-
-sub _convert_command_update_context($$) {
-  my ($self, $command_name) = @_;
-
-  if (exists($composition_context_commands{$command_name})) {
-    pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
-    pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
-  }
-  if (exists($pre_class_commands{$command_name})) {
-    pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
-    if (exists($preformatted_commands{$command_name})) {
-      $self->{'document_context'}->[-1]->{'inside_preformatted'}--;
-    }
-  }
-  if (exists($preformatted_code_commands{$command_name})
-      or (exists($brace_commands{$command_name})
-          and $brace_commands{$command_name} eq 'style_no_code')
-      or exists($brace_code_commands{$command_name})) {
-    pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-  } elsif ($self->{'upper_case_commands'}->{$command_name}) {
-    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                    ->{'upper_case'}--;
-  } elsif (exists($math_commands{$command_name})) {
-    $self->{'document_context'}->[-1]->{'math'}--;
-  }
-  if ($command_name eq 'verb') {
-    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                               ->{'space_protected'}--;
-  } elsif ($command_name eq 'w') {
-    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                               ->{'no_break'}--;
-  }
-  if (exists($format_raw_commands{$command_name})) {
-    $self->{'document_context'}->[-1]->{'raw'}--;
-  } elsif ($command_name eq 'verbatim') {
-    $self->{'document_context'}->[-1]->{'verbatim'}--;
-  }
-  if (exists($block_commands{$command_name})) {
-    pop @{$self->{'document_context'}->[-1]->{'block_commands'}};
-  }
-  if (exists($format_context_commands{$command_name})) {
-    pop @{$self->{'document_context'}->[-1]->{'formatting_context'}};
-  }
-  if (exists($brace_commands{$command_name})
-      and $brace_commands{$command_name} eq 'context') {
-    _pop_document_context($self);
-  }
-}
-
-sub _open_type_update_context($$) {
-  my ($self, $type_name) = @_;
-
-  if ($type_name eq 'paragraph') {
-    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                    ->{'paragraph_number'}++;
-  } elsif ($type_name eq 'preformatted'
-           or $type_name eq 'rawpreformatted') {
-    $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]
-                                                 ->{'preformatted_number'}++;
-  } elsif ($self->{'pre_class_types'}->{$type_name}) {
-    push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-      $self->{'pre_class_types'}->{$type_name};
-    push @{$self->{'document_context'}->[-1]->{'preformatted_context'}}, 1;
-    push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-      $type_name;
-  }
-
-  if ($self->{'code_types'}->{$type_name}) {
-    push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-  }
-}
-
-sub _convert_type_update_context($$) {
-  my ($self, $type_name) = @_;
-
-  if ($self->{'code_types'}->{$type_name}) {
-    pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-  }
-  if ($self->{'pre_class_types'}->{$type_name}) {
-    pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
-    pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
-    pop @{$self->{'document_context'}->[-1]->{'preformatted_context'}};
-  }
-}
-
-sub _debug_print_html_contexts($) {
+# This is called from the main program on the converter.
+sub output_internal_links($) {
   my $self = shift;
 
-  my @document_contexts = map {defined($_->{'context'})
-                                       ? $_->{'context'}: 'UNDEF'}
-                                  @{$self->{'document_context'}};
-  my @contexts_names = map {defined($_->{'context_name'})
-                                 ? $_->{'context_name'}: 'UNDEF'}
-        @{$self->{'document_context'}->[-1]->{'formatting_context'}};
-  return "[".join('|',@document_contexts)."](".join('|',@contexts_names).")";
-}
+  my $out_string = '';
 
-sub _set_variables_texi2html($) {
-  my $options = shift;
-
-  my @texi2html_options = (
-  ['SECTION_BUTTONS', ['FastBack', 'Back', 'Up', 'Forward', 'FastForward',
-                             'Space', 'Space', 'Space', 'Space',
-                             'Top', 'Contents', 'Index', 'About' ]],
-  ['TOP_BUTTONS', ['Back', 'Forward', 'Space',
-                             'Contents', 'Index', 'About']],
-  ['TOP_FOOTER_BUTTONS', ['Back', 'Forward', 'Space',
-                             'Contents', 'Index', 'About']],
-
-  ['MISC_BUTTONS', [ 'Top', 'Contents', 'Index', 'About' ]],
-  ['CHAPTER_BUTTONS', [ 'FastBack', 'FastForward', 'Space',
-                              'Space', 'Space', 'Space', 'Space',
-                              'Top', 'Contents', 'Index', 'About', ]],
-  ['SECTION_FOOTER_BUTTONS', [ 'FastBack', 'FirstInFileBack', 'FirstInFileUp',
-                                               'Forward', 'FastForward' ]],
-  ['CHAPTER_FOOTER_BUTTONS', [ 'FastBack', 'FastForward', 'Space',
-                              'Space', 'Space', 'Space', 'Space',
-                              'Top', 'Contents', 'Index', 'About', ]],
-  ['NODE_FOOTER_BUTTONS', [ 'FastBack', 'Back',
-                                            'Up', 'Forward', 'FastForward',
-                             'Space', 'Space', 'Space', 'Space',
-                             'Top', 'Contents', 'Index', 'About' ]],
-  );
-  my $regular_texi2html_options
-    = Texinfo::Options::get_regular_options('texi2html');
-  foreach my $option (keys(%$regular_texi2html_options)) {
-    $options->{$option} = $regular_texi2html_options->{$option};
+  foreach my $output_unit (@{$self->{'document_units'}}) {
+    my $text;
+    my $href;
+    my $command = $output_unit->{'unit_command'};
+    if (defined($command)) {
+      # Use '' for filename, to force a filename in href.
+      $href = $self->command_href($command, '');
+      my ($tree, $in_code) = _internal_command_tree($self, $command, 0);
+      if (defined($tree)) {
+        $text = Texinfo::Convert::Text::convert_to_text($tree,
+                                  $self->{'convert_text_options'});
+      }
+      if (defined($href) or defined($text)) {
+        $out_string .= $href if (defined($href));
+        $out_string .= "\tunit\t";
+        $out_string .= $text if (defined($text));
+        $out_string .= "\n";
+      }
+    }
   }
-  foreach my $option (@texi2html_options) {
-    $options->{$option->[0]} = $option->[1];
+
+  if (exists($self->{'document'})) {
+    my $sections_list = $self->{'document'}->sections_list();
+    foreach my $section_relations (@{$sections_list}) {
+      my $command = $section_relations->{'element'};
+      my $href = $self->command_href($command, '');
+      my ($tree, $in_code) = _internal_command_tree($self, $command, 0);
+      my $text;
+      if (defined($tree)) {
+        $text = Texinfo::Convert::Text::convert_to_text($tree,
+                                  $self->{'convert_text_options'});
+      }
+      if (defined($href) or defined($text)) {
+        $out_string .= $href if (defined($href));
+        $out_string .= "\tsection\t";
+        my $command_name
+          = Texinfo::Structuring::section_level_adjusted_command_name($command);
+        $out_string .= $command_name.' ';
+        $out_string .= $text if (defined($text));
+        $out_string .= "\n";
+      }
+    }
+
+    my $labels_list = $self->{'document'}->labels_list();
+    if (defined($labels_list)) {
+      my %commands_lists;
+      foreach my $target_element (@$labels_list) {
+        next if (not exists($target_element->{'extra'})
+                 or not $target_element->{'extra'}->{'is_target'});
+
+        my $cmdname = $target_element->{'cmdname'};
+        if (!exists($commands_lists{$cmdname})) {
+          $commands_lists{$cmdname} = [];
+        }
+        push @{$commands_lists{$cmdname}}, $target_element;
+      }
+      foreach my $cmdtype ('node', 'anchor', 'namedanchor', 'float') {
+        next unless (exists($commands_lists{$cmdtype}));
+        foreach my $target_element (@{$commands_lists{$cmdtype}}) {
+          my $label_element
+            = Texinfo::Common::get_label_element($target_element);
+          my $href = $self->command_href($target_element, '');
+          my $text;
+          if (defined($label_element)) {
+            $text = Texinfo::Convert::Text::convert_to_text($label_element,
+                                    $self->{'convert_text_options'});
+          }
+          if (defined($href) or defined($text)) {
+            $out_string .= $href if (defined($href));
+            $out_string .= "\t${cmdtype}\t";
+            $out_string .= $text if (defined($text));
+            $out_string .= "\n";
+          }
+        }
+      }
+    }
+  }
+
+  my $index_entries_by_letter
+    = $self->get_converter_indices_sorted_by_letter();
+  if (defined($index_entries_by_letter)) {
+    my $indices_information;
+    if (exists($self->{'document'})) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
+    foreach my $index_name (sort(keys(%{$index_entries_by_letter}))) {
+      foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
+        foreach my $index_entry (@{$letter_entry->{'entries'}}) {
+          my $main_entry_element = $index_entry->{'entry_element'};
+          # does not refer to the document
+          my $seeentry
+            = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                          'seeentry');
+          next if (defined($seeentry));
+          my $seealso
+            = Texinfo::Common::index_entry_referred_entry($main_entry_element,
+                                                          'seealso');
+          next if (defined($seealso));
+
+          my $href;
+          $href = $self->command_href($main_entry_element, '');
+          # Obtain term by converting to text
+          my $in_code
+            = $indices_information->{$index_entry->{'index_name'}}->{'in_code'};
+          if ($in_code) {
+            Texinfo::Convert::Text::set_options_code(
+                                          $self->{'convert_text_options'});
+          }
+          my $entry_reference_content_element
+            = Texinfo::Common::index_content_element($main_entry_element);
+          my @contents = ($entry_reference_content_element);
+          my $subentries_tree
+            = Texinfo::Convert::Utils::comma_index_subentries_tree(
+                                                     $main_entry_element);
+          if (defined($subentries_tree)) {
+            push @contents, @{$subentries_tree->{'contents'}};
+          }
+          my $index_term = Texinfo::Convert::Text::convert_to_text(
+                Texinfo::TreeElement::new({'contents' => \@contents}),
+                                            $self->{'convert_text_options'});
+          if ($in_code) {
+            Texinfo::Convert::Text::reset_options_code(
+                                          $self->{'convert_text_options'});
+          }
+          if (defined($index_term) and $index_term =~ /\S/) {
+            $out_string .= $href if (defined($href));
+            $out_string .= "\t$index_name\t";
+            $out_string .= $index_term;
+            $out_string .= "\n";
+          }
+        }
+      }
+    }
+  }
+  if ($out_string ne '') {
+    return $out_string;
+  } else {
+    return undef;
   }
 }
 
 1;
-
