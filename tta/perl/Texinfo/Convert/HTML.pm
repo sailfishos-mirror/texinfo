@@ -1315,22 +1315,6 @@ sub default_command_open($$) {
   return $default_commands_open{$cmdname};
 }
 
-# used for customization only (in t2h_singular.init)
-# TODO there are no 'values' in document since a long time.  set and
-# clear are not global_commands either.  Maybe call
-# Texinfo::Common::collect_commands_list_in_tree?
-# Also not HTML specific.
-sub get_value($$) {
-  my ($self, $value) = @_;
-
-  if (exists($self->{'document'}) and exists($self->{'document'}->{'values'})
-      and exists($self->{'document'}->{'values'}->{$value})) {
-    return $self->{'document'}->{'values'}->{$value};
-  } else {
-    return undef;
-  }
-}
-
 # The default shared conversion states are accessed and set through
 # XS, if enabled, but user added shared conversion states are only
 # in Perl.

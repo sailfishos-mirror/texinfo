@@ -6,6 +6,8 @@
 
 use strict;
 
+use Texinfo::Common;
+
 my $T2H_BLUE_BUTTONS = 0;
 
 # we only redefine things which ar of relevance to singular
@@ -55,6 +57,59 @@ texinfo_set_from_init_file('T4H_MATH_CONVERSION', 'latex');
 # title is already in the manual
 #$print_title = \&T2H_DEFAULT_print_title;
 texinfo_set_from_init_file('SHOW_TITLE', 0);
+
+# The VERSION and VERSION_DATE values are used in formatting.  First they are
+# collected, in singular_collect_values.  Then they are accessed through
+# singular_get_value.
+
+my $version_values;
+
+my @singular_gathered_values = ('VERSION', 'VERSION_DATE');
+
+# we only gather @set, so we ignore @clear.
+my @gathered_commands = ('set');
+
+sub singular_collect_values($$$)
+{
+  my ($self, $document, $stage) = @_;
+
+  $version_values = {};
+
+  foreach my $flag (@singular_gathered_values) {
+    $version_values->{$flag} = undef;
+  }
+
+  my $tree = $document->tree();
+
+  my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
+                                                $tree, \@gathered_commands);
+  foreach my $element (@{$collected_commands}) {
+    if (exists($element->{'extra'})
+        and exists($element->{'extra'}->{'misc_args'})) {
+      my $flag = $element->{'extra'}->{'misc_args'}->[0];
+      if (exists($version_values->{$flag})) {
+        my $value = '';
+        if (scalar(@{$element->{'extra'}->{'misc_args'}}) > 1) {
+          $value = $element->{'extra'}->{'misc_args'}->[1];
+        }
+        $version_values->{$flag} = $value;
+      }
+    }
+  }
+
+  return 0;
+}
+
+texinfo_register_handler('setup', \&singular_collect_values);
+
+sub singular_get_value($)
+{
+  my $flag = shift;
+  if (exists($version_values->{$flag})) {
+    return $version_values->{$flag};
+  }
+  return undef;
+}
 
 # footer
 
@@ -118,8 +173,8 @@ sub singular_format_end_file($$$)
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
   my $program_homepage = $self->get_conf('PACKAGE_URL');
   my $program_and_version = $self->get_conf('PACKAGE_AND_VERSION');
-  my $version = $self->get_value('VERSION');
-  my $version_date = $self->get_value('VERSION_DATE');
+  my $version = singular_get_value('VERSION');
+  my $version_date = singular_get_value('VERSION_DATE');
   $version = 'NO VERSION' if (!defined($version));
   $version_date = 'NO VERSION DATE' if (!defined($version_date));
   my $result = '
@@ -260,8 +315,8 @@ sub singular_format_special_body_about($$$)
   my $special_type = shift;
   my $element = shift;
 
-  my $version = $self->get_value('VERSION');
-  my $version_date = $self->get_value('VERSION_DATE');
+  my $version = singular_get_value('VERSION');
+  my $version_date = singular_get_value('VERSION_DATE');
   $version = 'NO VERSION' if (!defined($version));
   $version_date = 'NO VERSION DATE' if (!defined($version_date));
   my $program_homepage = $self->get_conf('PACKAGE_URL');

@@ -1,5 +1,16 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/init/t2h_singular.init (singular_collect_values)
+	(singular_get_value): collect version set values in the tree.  Use
+	them in formatting.
+
+	* tta/perl/Texinfo/Convert/HTML.pm: remove get_value.
+
+	* tta/tests/coverage/formatting.texi: add setting of VERSION value,
+	for t2h_singular.init testing.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm,
 	tta/perl/Texinfo/Convert/HTMLNonXS.pm: move functions around and
 	modify comments for a better organized code.

@@ -15,6 +15,8 @@
 @defindex truc
 @defcodeindex codeidx
 
+@set VERSION G vers
+
 @include coverage_macro.texi
 
 @copying
@@ -25,7 +27,7 @@ In copying
 @titlepage
 @title title --a
 @subtitle formatting subtitle --a
-@subtitle subtitle 2 --a
+@subtitle subtitle 2 --a version @value{VERSION}
 @author author1 --a with accents in name T@'e@,ca
 @author author2 --a
 In titlepage

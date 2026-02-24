@@ -19,6 +19,8 @@
 <defindex spaces=" " value="truc" line="truc"></defindex>
 <defcodeindex spaces=" " value="codeidx" line="codeidx"></defcodeindex>
 
+<set name="VERSION" spaces=" ">VERSION G vers</set>
+
 <macro name="mymacro" line=" mymacro" endspaces=" ">
 
 &lt;
@@ -2389,7 +2391,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <titlepage endspaces=" ">
 <title spaces=" ">title &textndash;a</title>
 <subtitle spaces=" ">formatting subtitle &textndash;a</subtitle>
-<subtitle spaces=" ">subtitle 2 &textndash;a</subtitle>
+<subtitle spaces=" ">subtitle 2 &textndash;a version G vers</subtitle>
 <author spaces=" ">author1 &textndash;a with accents in name T<accent type="acute" bracketed="off">e</accent><accent type="cedil" bracketed="off">c</accent>a</author>
 <author spaces=" ">author2 &textndash;a</author>
 <para>In titlepage

@@ -6,10 +6,10 @@
 <book id="formatting.xml">
 <title>title &#8211;a</title>
 <subtitle>formatting subtitle &#8211;a
-subtitle 2 &#8211;a</subtitle>
+subtitle 2 &#8211;a version G vers</subtitle>
 <bookinfo><title>title &#8211;a</title>
 <subtitle>formatting subtitle &#8211;a
-subtitle 2 &#8211;a</subtitle>
+subtitle 2 &#8211;a version G vers</subtitle>
 <authorgroup>
 <collab><collabname>author1 &#8211;a with accents in name T&#233;&#231;a</collabname></collab>
 <collab><collabname>author2 &#8211;a</collabname></collab>
