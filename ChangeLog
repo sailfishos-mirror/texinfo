@@ -1,5 +1,16 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.am (dist_convertmodules_DATA),
+	tta/perl/Texinfo/Convert/HTML.pm (BEGIN),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm, tta/perl/XSTexinfo/Makefile.am
+	(xs_LTLIBRARIES, *_ConvertHTMLXS_la_*),
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs: add HTMLNonXS.pm based on
+	HTML.pm for the code also in the XS interface.  Rename ConvertXS.xs as
+	ConvertHTMLXS.xs.  Add loading of XS module in HTML.pm.  Use the same
+	name in Perl code and in XS interface.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm (%XS_conversion_overrides),
 	tta/perl/XSTexinfo/convert/ConvertXS.xs: use the same name in Perl
 	code and in XS interface.

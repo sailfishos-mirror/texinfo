@@ -3780,7 +3780,8 @@ build_output_files_unclosed_files (HV *hv,
          However, it is possible to pass a stream through the XS
          interface.  Therefore here, the unclosed file name is registered,
          the stream can then be passed to Perl through a call of
-         the XS interface Texinfo::Convert::ConvertXS::get_unclosed_stream.
+         the XS interface
+         Texinfo::Convert::ConvertConverterXS::get_unclosed_stream.
 
          Register that there is an unclosed file from XS by associating
          with undef; if from Perl, it would be associated with a file handle */

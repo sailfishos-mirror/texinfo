@@ -32,7 +32,7 @@ our $VERSION = '7.3dev';
 # if the output or convert functions are overriden the following
 # should probably be overriden using that kind of function
 #"Texinfo::Convert::Text::get_converter_errors"
-# => "Texinfo::Convert::ConvertXS::get_converter_errors",
+# => "Texinfo::Convert::ConvertConverterXS::get_converter_errors",
 
 sub XS_convert_tree($$) {
   return undef;

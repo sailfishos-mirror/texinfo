@@ -43,7 +43,6 @@ my $devel_findref_loading_error = $@;
 
 eval { require Devel::Cycle; Devel::Cycle->import(); };
 
-use Texinfo::Convert::ConvertXS;
 use Texinfo::XSLoader;
 
 use Texinfo::Options;

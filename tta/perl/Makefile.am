@@ -119,9 +119,9 @@ convertmodulesdir = $(converterdatadir)/Texinfo/Convert
 dist_convertmodules_DATA = \
  Texinfo/Convert/Converter.pm \
  Texinfo/Convert/ConverterNonXS.pm \
- Texinfo/Convert/ConvertXS.pm \
  Texinfo/Convert/DocBook.pm \
  Texinfo/Convert/HTML.pm \
+ Texinfo/Convert/HTMLNonXS.pm \
  Texinfo/Convert/Info.pm \
  Texinfo/Convert/LaTeX.pm \
  Texinfo/Convert/NodeNameNormalization.pm \

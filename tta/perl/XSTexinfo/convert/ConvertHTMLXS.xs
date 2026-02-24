@@ -76,7 +76,7 @@
 static const char *count_elements_in_filename_type_names[] = {
  "total", "remaining", "current"};
 
-MODULE = Texinfo::Convert::ConvertXS	PACKAGE = Texinfo::Convert::ConvertXS
+MODULE = Texinfo::Convert::HTML	PACKAGE = Texinfo::Convert::HTML
 
 # there is always a check on prototypes in XSLoader.  So it is simpler if
 # they are enabled, and they can/may need to be overriden in a declaration
@@ -460,7 +460,7 @@ output_internal_links (SV *converter_in)
 # setting the state.
 
 void
-html_new_document_context (SV *converter_in, char *context_name, ...)
+_new_document_context (SV *converter_in, char *context_name, ...)
       PROTOTYPE: $$;$$$
       PREINIT:
         CONVERTER *self;
@@ -486,7 +486,7 @@ html_new_document_context (SV *converter_in, char *context_name, ...)
           }
 
 void
-html_pop_document_context (SV *converter_in)
+_pop_document_context (SV *converter_in)
       PREINIT:
         CONVERTER *self;
       CODE:
@@ -497,7 +497,7 @@ html_pop_document_context (SV *converter_in)
           }
 
 int
-open_command_update_context (SV *converter_in, char *command_name)
+_open_command_update_context (SV *converter_in, char *command_name)
      PREINIT:
         CONVERTER *self;
      CODE:
@@ -513,7 +513,7 @@ open_command_update_context (SV *converter_in, char *command_name)
         RETVAL
 
 void
-convert_command_update_context (SV *converter_in, char *command_name)
+_convert_command_update_context (SV *converter_in, char *command_name)
      PREINIT:
         CONVERTER *self;
      CODE:
@@ -526,7 +526,7 @@ convert_command_update_context (SV *converter_in, char *command_name)
           }
 
 void
-open_type_update_context (SV *converter_in, char *type_name)
+_open_type_update_context (SV *converter_in, char *type_name)
      PREINIT:
         CONVERTER *self;
      CODE:
@@ -539,7 +539,7 @@ open_type_update_context (SV *converter_in, char *type_name)
           }
 
 void
-convert_type_update_context (SV *converter_in, char *type_name)
+_convert_type_update_context (SV *converter_in, char *type_name)
      PREINIT:
         CONVERTER *self;
      CODE:

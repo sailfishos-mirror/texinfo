@@ -2168,7 +2168,7 @@ while (@input_files) {
       # with a file handle yet, as a file handle can't be directly associated
       # with a stream in C code, but the stream can be returned through
       # an XS interface, here
-      # Texinfo::Convert::ConvertXS::get_unclosed_stream.
+      # Texinfo::Convert::ConvertConverterXS::get_unclosed_stream.
       if (!defined($fh)) {
         $fh = $converter->XS_get_unclosed_stream($unclosed_file);
         if (!defined($fh)) {
