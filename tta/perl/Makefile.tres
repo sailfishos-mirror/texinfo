@@ -1695,6 +1695,7 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/misc_commands/contents_arg_and_comment.pl \
   t/results/misc_commands/defindex_too_much_args.pl \
   t/results/misc_commands/definfoenclose.pl \
+  t/results/misc_commands/definfoenclose_command_on_section_line.pl \
   t/results/misc_commands/definfoenclose_nestings.pl \
   t/results/misc_commands/definfoenclose_with_empty_arg.pl \
   t/results/misc_commands/documentencoding_utf8.pl \

@@ -72,6 +72,8 @@ setup_node_name_normalization (void)
 void
 convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
 {
+  enum command_id cmd;
+
   if (type_data[e->type].flags & TF_text)
     {
       if (e->type != ET_ignorable_spaces_after_command
@@ -89,19 +91,21 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
       return;
     }
 
+  cmd = element_builtin_data_cmd (e);
+
   if ((e->type == ET_postamble_after_end
        || e->type == ET_preamble_before_beginning
        || e->type == ET_preamble_before_setfilename)
-      || (e->e.c->cmd
-          && ((e->e.c->cmd == CM_anchor
-               || e->e.c->cmd == CM_footnote
-               || e->e.c->cmd == CM_shortcaption
-               || e->e.c->cmd == CM_caption
-               || e->e.c->cmd == CM_hyphenation
-               || e->e.c->cmd == CM_namedanchor
-               || e->e.c->cmd == CM_sortas
-               || e->e.c->cmd == CM_seealso
-               || e->e.c->cmd == CM_seeentry)
+      || (cmd
+          && ((cmd == CM_anchor
+               || cmd == CM_footnote
+               || cmd == CM_shortcaption
+               || cmd == CM_caption
+               || cmd == CM_hyphenation
+               || cmd == CM_namedanchor
+               || cmd == CM_sortas
+               || cmd == CM_seealso
+               || cmd == CM_seeentry)
              /* here ignore the 'regular' line commands */
               || (e->e.c->contents.number > 0
                   && e->e.c->contents.list[0]->type == ET_line_arg)
@@ -114,11 +118,11 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
                                                    == ET_line_arg))))
     return;
 
-  if (e->e.c->cmd)
+  if (cmd)
     {
-      if (command_normalization_text[e->e.c->cmd])
-        ADD(command_normalization_text[e->e.c->cmd]);
-      else if (builtin_command_data[e->e.c->cmd].flags & CF_accent)
+      if (command_normalization_text[cmd])
+        ADD(command_normalization_text[cmd]);
+      else if (builtin_command_data[cmd].flags & CF_accent)
         {
           if (e->e.c->contents.number > 0)
             {
@@ -149,11 +153,11 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
             }
           return;
         }
-      else if (builtin_command_data[e->e.c->cmd].flags & CF_ref)
+      else if (builtin_command_data[cmd].flags & CF_ref)
         {
           int order_index = 0;
           int *arguments_order = ref_5_args_order;
-          if (e->e.c->cmd == CM_inforef || e->e.c->cmd == CM_link)
+          if (cmd == CM_inforef || cmd == CM_link)
             arguments_order = ref_3_args_order;
           while (arguments_order[order_index] >= 0)
             {
@@ -185,7 +189,7 @@ convert_to_normalized_internal (const ELEMENT *e, TEXT *result)
       else if (e->e.c->contents.number > 0
                && (e->e.c->contents.list[0]->type == ET_brace_container
                    || e->e.c->contents.list[0]->type == ET_brace_arg
-                   || e->e.c->cmd == CM_math))
+                   || cmd == CM_math))
         {
           convert_to_normalized_internal (e->e.c->contents.list[0], result);
           return;

@@ -278,6 +278,15 @@ My @headword{something}.
 @center in center in phoo
 }
 '],
+# This tests definfoenclose'd defined command in node normalization code
+# in the HTML conversion code.
+# See https://mail.gnu.org/archive/html/bug-texinfo/2026-02/msg00110.html
+['definfoenclose_command_on_section_line',
+'@definfoenclose somed,!,:
+
+@node top
+@top A @somed{next}
+'],
 ['no_empty_line_between_headings',
 '@top Top
 @subheading Subheading
