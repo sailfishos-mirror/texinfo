@@ -2307,15 +2307,19 @@ html_command_name (CONVERTER *self, const ELEMENT *command,
 OUTPUT_UNIT *
 html_get_top_unit (DOCUMENT *document, const OUTPUT_UNIT_LIST *output_units)
 {
-  const ELEMENT *node_top = find_identifier_target
-                          (&document->identifiers_target, "Top");
   const ELEMENT *section_top = document->global_commands.top;
 
   if (section_top)
     return section_top->e.c->associated_unit;
-  else if (node_top)
-    return node_top->e.c->associated_unit;
-  else if (output_units)
+  else
+    {
+      const ELEMENT *node_top = find_identifier_target
+                          (&document->identifiers_target, "Top");
+      if (node_top)
+        return node_top->e.c->associated_unit;
+    }
+
+  if (output_units)
     return output_units->list[0];
 
   return 0;
