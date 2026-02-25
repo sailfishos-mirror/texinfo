@@ -1144,13 +1144,7 @@ filename_for_xref (char *filename_in, NODE *defaults)
                                        defaults->fullpath, 0);
                   *p = saved_char;
                   if (file_in_same_dir)
-                    {
-                      /* Ensure file can be loaded and at least looks
-                         like an Info file. */
-                      FILE_BUFFER *fb2 = info_find_file (file_in_same_dir);
-                      if (fb2)
-                        filename = file_in_same_dir;
-                    }
+                    filename = file_in_same_dir;
                 }
             }
         }
