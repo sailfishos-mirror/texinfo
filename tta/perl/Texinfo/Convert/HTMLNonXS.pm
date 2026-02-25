@@ -1,4 +1,5 @@
-# HTMLNonXS.pm: output tree as HTML.
+# HTMLNonXS.pm: output tree as HTML.  Implementation of functions with
+#               an XS interface
 #
 # Copyright 2011-2026 Free Software Foundation, Inc.
 #
@@ -15,16 +16,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-#
-# The documentation of the HTML customization API which is both
-# used and implemented in the current file is in the customization_api
-# Texinfo manual.
-#
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 # ALTIMP XSTexinfo/convert/ConvertHTMLXS.xs
 # ALTIMP C/convert/*.[ch]
 
+# General information on the HTML converter is in HTML.pm comments
 
 package Texinfo::Convert::HTML;
 
@@ -47,8 +44,6 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck confess);
-# for abort
-#use POSIX;
 
 use File::Copy qw(copy);
 
@@ -78,11 +73,7 @@ use Texinfo::ManipulateTree;
 use Texinfo::Structuring;
 use Texinfo::OutputUnits;
 
-# used to convert Texinfo to LaTeX math in @math and @displaymath
-# for further conversion by softwares that only convert LaTeX.
-# NOTE mathjax does not implement some constructs output by the
-# Texinfo::Convert::LaTeX converter.  Examples in 2022:
-# \mathord{\text{}} \textsl{} \copyright{} \mathsterling{}
+# copy_options_for_convert_to_latex_math
 use Texinfo::Convert::LaTeX;
 
 our $VERSION = '7.3dev';

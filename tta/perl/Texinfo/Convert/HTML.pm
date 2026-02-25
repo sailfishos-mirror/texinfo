@@ -1,4 +1,5 @@
-# HTML.pm: output tree as HTML.
+# HTML.pm: output tree as HTML.  XS loading and functions only implemented
+#                                in Perl, without XS override
 #
 # Copyright 2011-2026 Free Software Foundation, Inc.
 #
@@ -17,8 +18,8 @@
 #
 #
 # The documentation of the HTML customization API which is both
-# used and implemented in the current file is in the customization_api
-# Texinfo manual.
+# used and implemented in the current file and in HTMLNonXS.pm is in the
+# texi2any_api manual.
 #
 # Formatting and conversion functions that can be replaced by user-defined
 # functions should only use documented functions to pass information
@@ -26,6 +27,9 @@
 # without risking unwanted results.  Also in formatting functions, the state of
 # the converter should only be accessed through functions, such as in_math,
 # in_preformatted_context, preformatted_classes_stack and similar functions.
+# A few cases of direct access to converter hash keys are possible as
+# described in the customization API manual (for example
+# for no_arg_commands_formatting).
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
@@ -52,8 +56,6 @@ use strict;
 #no autovivification qw(fetch delete exists store strict);
 
 use Carp qw(cluck confess);
-# for abort
-#use POSIX;
 
 use Encode qw(encode);
 
@@ -100,11 +102,13 @@ our $VERSION = '7.3dev';
 our %HTML_align_commands;
 
 BEGIN {
-  # need to be defined before loading Texinfo::Convert::HTMLNonXS
-  foreach my $align_command('raggedright', 'flushleft', 'flushright', 'center') {
+  # needs to be defined before loading Texinfo::Convert::HTMLNonXS
+  foreach my $align_command
+                ('raggedright', 'flushleft', 'flushright', 'center') {
     $HTML_align_commands{$align_command} = 1;
   }
 
+  # Main conversion XS and NonXS interfaces loading
   my $shared_library_name = "ConvertHTMLXS";
   if (!Texinfo::XSLoader::XS_convert_enabled()) {
     undef $shared_library_name;
@@ -118,6 +122,8 @@ BEGIN {
   );
 }
 
+# Small functions override that do not depend on the Texinfo tree
+# being parsed with native code C implementation.
 my %XS_overrides = (
   "Texinfo::Convert::HTML::_default_format_protect_text"
     => "Texinfo::MiscXS::default_format_protect_text",
@@ -136,6 +142,118 @@ sub import {
   # The usual import method
   goto &Exporter::import;
 }
+
+# How converter state is accessed.  Information on function API to set and/or
+# get, and whether interface is available as XS (which means nonXS
+# implementation in HTMLNonXS.pm).  Details in customization API manual.
+#
+#  commands_init_conf
+#   API XS Converter set_global_document_commands
+#    Get through converter set_global_document_commands with 'before'.  Set
+#    based on commands associated customization values set at the beginning
+#    of conversion.
+#
+#  shared_conversion_state
+#   API partial XS shared_conversion_state functions
+#
+#  converter_info
+#   API XS get get_info
+#    list of available_converter_info in HTMLNonXS
+#
+#  sorted index_entries
+#  sorted index_entries_by_letter
+#   API XS Converter get get_converter_indices_sorted_by_index
+#                        get_converter_indices_sorted_by_letter
+#
+#  stage_handlers
+#   API set Texinfo::Config
+#
+#  files_css_import_lines
+#  files_css_rule_lines
+#   command-line
+#
+#  css_element_class_styles
+#  css_import_lines
+#  css_rule_lines
+#   API XS css_add_info, css_set_selector_style...
+#
+#  file_id_setting
+#  commands_conversion
+#  commands_open
+#  types_conversion
+#  types_open
+#   API set Texinfo::Config get HTML functions default_command_conversion
+#                               command_conversion...
+#
+#  customized_no_arg_commands_formatting   # used for no_arg_commands_formatting
+#   API set Texinfo::Config
+#  no_arg_commands_formatting
+#   direct user access
+#  style_commands_formatting
+#   API set Texinfo::Config direct user access
+#
+#  code_types
+#  pre_class_types
+#   API set Texinfo::Config direct internal access
+#
+#  current_filename
+#  current_output_unit
+#  document_context
+#  pending_closes
+#  pending_footnotes
+#  pending_inline_content
+#  associated_inline_content
+#  multiple_pass
+#  document_global_context_css
+#  page_css
+#  files_information
+#  referred_command_stack
+#  check_htmlxref_already_warned
+#   API XS _open_command_update_context _pop_document_context
+#          associate_pending_formatted_inline_content,
+#          html_attribute_class...
+#
+#  targets
+#  special_targets
+#   API set Texinfo::Config get partial XS footnote_location_target
+#                                          command_filename...
+#
+#  global_units_directions             # defaults set before conversion
+#  global_texts_directions             # defaults set before conversion
+#   API Texinfo::Config set XS get global_direction_text global_direction_unit
+#
+#  customized_direction_strings
+#   API set Texinfo::Config
+#  translated_direction_strings    # based on customized_direction_strings
+#  directions_strings              # based on *_direction_strings
+#   API get direction_string
+#
+#  special_unit_info                   # set in parallel in C
+#   API set Texinfo::Config
+#
+#  translated_special_unit_info_texinfo
+#   API set Texinfo::Config
+#  translated_special_unit_info_tree     # based on translated_special_unit_info_texinfo
+#   API get XS _internal_command_text special_unit_info_text output_internal_links
+#
+#  elements_in_file_count    # the number of output units in file
+#  file_counters             # begin at elements_in_file_count decrease
+#                            # each time the unit is closed
+#   API XS get count_elements_in_filename set before conversion and in output
+#
+#
+#  all_directions                    # determined parallelly in C
+#   direct user access 
+#  deprecated_config_directories     # passed from main program
+#   direct user access
+#
+#  document_units
+#  out_filepaths          (partially common with Texinfo::Converter)
+#  seen_ids
+#  options_latex_math
+#  htmlxref
+#   direct access internal
+
 
 my %nobrace_commands = %Texinfo::Commands::nobrace_commands;
 my %line_commands = %Texinfo::Commands::line_commands;
@@ -6340,7 +6458,7 @@ sub _convert_def_line_type($$$$) {
     } else {
       # only metasyntactic variable arguments (deffn, defvr, deftp, defop, defcv)
       # TODO not in API
-      # Has an effect only for those @def* in @example and similar block
+      # Has an effect only for @def* in @example and similar block
       # commands that sets code expansion.
       _set_code_context($self, 0);
       my $arguments_formatted = $self->convert_tree($arguments, $explanation);
@@ -7913,134 +8031,6 @@ foreach my $customized_reference ('external_target_split_name',
 
 
 # converter API implementation for function without XS overrides.
-
-# TODO split part of this in HTMLNonXS for states that are accessed through
-# XS functions only, when there is XS.
-# converter state
-#
-#   No API
-#  all_directions          # determined parallelly in C
-#  deprecated_config_directories
-#
-#     API exists
-#
-#   Get through converter set_global_document_commands with 'before'.  No
-#   specific API to set, but can use get_conf or force_conf in setup handler
-#  commands_init_conf
-#
-#  shared_conversion_state
-#   Set through the shared_conversion_state API (among others):
-#  explained_commands         # used only in an @-command conversion function
-#
-#     API converter_info get_info
-#  document_name
-#  destination_directory
-#  paragraph_symbol
-#  line_break_element
-#  non_breaking_space
-#  simpletitle_tree
-#  simpletitle_command_name
-#  title_string
-#  title_tree
-#  documentdescription_string
-#  copying_comment
-#  jslicenses
-#
-#     API exists
-#  current_filename
-#  current_output_unit
-#  index_entries
-#  index_entries_by_letter
-#
-#    API exists in Texinfo::Config for setting, not for getting
-#  stage_handlers
-#
-#   No API, but set by command-line and can be overriden by CSS
-#   change API functions
-#  files_css_import_lines
-#  files_css_rule_lines
-#
-#    API exists
-#  css_element_class_styles
-#  css_import_lines
-#  css_rule_lines
-#
-#    API exists
-#  file_id_setting
-#  commands_conversion
-#  commands_open
-#  types_conversion
-#  types_open
-#
-#    API exists for setting, no need to access directly, accessed through
-#    no_arg_commands_formatting
-#  customized_no_arg_commands_formatting
-#
-#    API exists for setting (through customized_no_arg_commands_formatting
-#    for no_arg_commands_formatting), not for getting and used in
-#    commands_conversion
-#  no_arg_commands_formatting
-#  style_commands_formatting
-#
-#    API exists
-#  code_types
-#  pre_class_types
-#
-#    API exists
-#  document_context
-#
-#    API exists
-#  pending_closes
-#
-#    API exists
-#  pending_footnotes
-#
-#    API exists
-#  pending_inline_content
-#  associated_inline_content
-#
-#    API exists
-#  multiple_pass
-#
-#    API exists
-#  targets         for directions.  Keys are elements references, values are
-#                  target information hash references described above before
-#                  the API functions used to access this information.
-#  special_targets
-#  global_units_directions
-#
-#    API exists for setting, not getting
-#  customized_direction_strings
-#  directions_strings
-#  translated_direction_strings
-#
-#    API exists
-#  special_unit_info
-#  translated_special_unit_info
-#
-#    API exists
-#  elements_in_file_count    # the number of output units in file
-#  file_counters             # begin at elements_in_file_count decrease
-#                            # each time the unit is closed
-#
-#     API exists
-#  document_global_context_css
-#  page_css
-#
-#     API exists
-#  files_information
-#
-#     No API, converter internals
-#  document_units
-#  out_filepaths          (partially common with Texinfo::Converter)
-#  seen_ids
-#  options_latex_math
-#  htmlxref
-#  check_htmlxref_already_warned
-#  referred_command_stack
-#
-#    from Converter
-#  labels
 
 # this allows to get some debugging output for the file without setting
 # the customization variable.

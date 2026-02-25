@@ -241,6 +241,7 @@ set_commands_options_value (COMMAND_OPTION_VALUE *commands_init_conf,
 
       if (if_set_in_list && !(option->flags & OF_set_in_list))
         continue;
+
       if (option->type == GOT_integer)
         {
           commands_init_conf[option_nr_cmd->cmd].type = option->type;
