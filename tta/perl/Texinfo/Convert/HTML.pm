@@ -229,7 +229,7 @@ sub import {
 #   API get direction_string
 #
 #  special_unit_info                   # set in parallel in C
-#   API set Texinfo::Config
+#   API get XS set Texinfo::Config
 #
 #  translated_special_unit_info_texinfo
 #   API set Texinfo::Config
@@ -1293,18 +1293,6 @@ sub direction_string($$$;$) {
   }
   return $self->{'directions_strings'}->{$string_type}
                                        ->{$direction}->{$context};
-}
-
-sub get_special_unit_info_varieties($$) {
-  my ($self, $type) = @_;
-
-  return sort(keys(%{$self->{'special_unit_info'}->{$type}}));
-}
-
-sub special_unit_info($$$) {
-  my ($self, $type, $special_unit_variety) = @_;
-
-  return $self->{'special_unit_info'}->{$type}->{$special_unit_variety};
 }
 
 
@@ -8290,6 +8278,8 @@ sub converter_initialize($) {
   $customized_special_unit_info = {}
      if (!defined($customized_special_unit_info));
 
+  # Note that with XS this information is not actually used, as
+  # it is only accessed through functions that are overriden
   $self->{'special_unit_info'} = {};
   foreach my $type (keys(%default_special_unit_info)) {
     $self->{'special_unit_info'}->{$type} = {};

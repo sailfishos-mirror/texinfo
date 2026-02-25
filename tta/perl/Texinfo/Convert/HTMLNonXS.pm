@@ -1232,6 +1232,20 @@ sub command_description($$;$) {
   return undef;
 }
 
+sub get_special_unit_info_varieties($$) {
+  my ($self, $type) = @_;
+
+  return keys(%{$self->{'special_unit_info'}->{$type}});
+}
+
+# Valid $SPECIAL_UNIT_VARIETY are the keys of
+# %Texinfo::HTMLData::default_special_unit_info
+sub special_unit_info($$$) {
+  my ($self, $type, $special_unit_variety) = @_;
+
+  return $self->{'special_unit_info'}->{$type}->{$special_unit_variety};
+}
+
 # Currently the only possibility for $TYPE is heading
 sub special_unit_info_text($$$;$) {
   my ($self, $type, $special_unit_variety, $context) = @_;

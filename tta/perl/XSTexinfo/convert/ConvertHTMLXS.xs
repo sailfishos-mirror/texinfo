@@ -1354,6 +1354,74 @@ command_description (SV *converter_in, SV *element_sv, const char *type=0)
     OUTPUT:
          RETVAL
 
+# second argument is type_name
+SV *
+get_special_unit_info_varieties (SV *converter_in, SV *)
+     PREINIT:
+        CONVERTER *self;
+     CODE:
+        self = get_sv_converter (converter_in,
+                                 "get_special_unit_info_varieties");
+        if (self)
+          {
+            /* we ignore the type_name as the varieties are the same for
+               all the types */
+            AV *varieties_av
+              = build_string_list (&self->special_unit_varieties, svt_char);
+            RETVAL = newRV_noinc ((SV *) varieties_av);
+          }
+        else
+          /* Note that it is not expected by callers to get something else
+             than a list */
+          RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
+SV *
+special_unit_info (SV *converter_in, type_name, special_unit_variety)
+        const char *type_name = (char *)SvPVutf8_nolen($arg);
+        const char *special_unit_variety = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+        CONVERTER *self;
+        const char *text = 0;
+     CODE:
+        self = get_sv_converter (converter_in,
+                                 "special_unit_info");
+        if (self)
+          {
+            int j;
+            enum special_unit_info_type type = SUI_type_none;
+
+            for (j = 0; j < SPECIAL_UNIT_INFO_TYPE_NR; j++)
+              {
+                if (!strcmp (special_unit_info_type_names[j], type_name))
+                  {
+                    type = j;
+                    break;
+                  }
+              }
+
+            if (type == SUI_type_none)
+              {
+                message_list_document_error (&self->error_messages,
+                                             self->conf, 0,
+                                  "unknown special unit info: %s",
+                                   type_name);
+              }
+            else
+              {
+                text = html_special_unit_info (self, type,
+                                               special_unit_variety);
+              }
+          }
+
+         if (text)
+           RETVAL = newSVpv_utf8 (text, 0);
+         else
+           RETVAL = newSV (0);
+    OUTPUT:
+         RETVAL
+
 SV *
 special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *context_type_sv=0)
         const char *type_name = (char *)SvPVutf8_nolen($arg);
@@ -1363,7 +1431,7 @@ special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *c
         char *text = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_special_unit_info_text");
+                                 "special_unit_info_text");
         if (self)
           {
             int j;
@@ -1386,7 +1454,6 @@ special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *c
                                   "unknown special unit info tree: %s",
                                    type_name);
               }
-
             else
               {
                 if (context_type_sv && SvOK (context_type_sv))

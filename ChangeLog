@@ -1,5 +1,18 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_special_unit_info): handle an
+	unknown special_unit_variety being given in argument.
+
+	* tta/perl/Texinfo/Convert/HTML.pm,
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(get_special_unit_info_varieties, special_unit_info),
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs
+	(get_special_unit_info_varieties, special_unit_info): do not sort
+	get_special_unit_info_varieties output.  Add an XS interface for
+	get_special_unit_info_varieties and special_unit_info.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_get_top_unit): reorganize code to
 	be more efficient, and more similar to Perl code.
 

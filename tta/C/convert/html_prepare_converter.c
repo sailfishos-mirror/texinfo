@@ -2023,7 +2023,7 @@ new_special_unit_info_type (int special_units_varieties_nr)
   return special_unit_info;
 }
 
-/* in main/conversion_data.c */
+/* in main/html_conversion_data.c */
 extern const STRING_LIST default_special_unit_varieties;
 
 /* Setup special units varieties names.  Separate from

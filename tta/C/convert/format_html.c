@@ -2487,9 +2487,15 @@ html_special_unit_info (const CONVERTER *self,
   /* number is index +1 */
   size_t number = find_string (&self->special_unit_varieties,
                                special_unit_variety);
-  int i = number -1;
 
-  return self->special_unit_info[type][i];
+  if (number > 0)
+    {
+      int i = number -1;
+
+      return self->special_unit_info[type][i];
+    }
+
+  return 0;
 }
 
 
