@@ -1904,11 +1904,11 @@ should return the target (@var{$target}).
 @end deftypefn
 
 The element corresponding to the label can be found with
-@code{find_identifier_target} if the label corresponds to an internal reference
-(@pxref{Target Tree Element Link}):
+@code{converter_find_identifier_target} if the label corresponds to
+an internal reference (@pxref{Target Tree Element Link}):
 @example
 my $element;
-$element = $converter->find_identifier_target($normalized)
+$element = $converter->converter_find_identifier_target($normalized)
   if (defined($normalized));
 @end example
 
@@ -3474,16 +3474,17 @@ associated with targets leading to each special unit
 (@pxref{Output Units in User Defined Functions}).
 
 To get the unique Texinfo tree element corresponding to an identifier, use
-@code{find_identifier_target}:
+@code{converter_find_identifier_target}:
 
-@deftypefun {@var{\%element} =} @var{$converter}->find_identifier_target @
-                                                             (@var{$label})
+@deftypefun {@var{\%element} =} @
+     @var{$converter}->converter_find_identifier_target (@var{$label})
 Return the element in the tree that the @var{$label} string refers to.
 @end deftypefun
 
 For example:
 @example
-my $node_element = $converter->find_identifier_target('Some-node_003f');
+my $node_element
+  = $converter->converter_find_identifier_target('Some-node_003f');
 @end example
 
 Identifiers are available for target @@-commands and for @@-command referring
@@ -3498,7 +3499,7 @@ my $arg_node = $xref_tree_element->@{'contents'@}->[0];
 if (defined($arg_node) and exists($arg_node->@{'extra'@})
     and defined($arg_node->@{'extra'@}->@{'normalized'@})) @{
   my $target_node
-    = $converter->find_identifier_target(
+    = $converter->converter_find_identifier_target(
                       $arg_node->@{'extra'@}->@{'normalized'@});
 @}
 @end group

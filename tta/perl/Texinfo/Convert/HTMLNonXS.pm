@@ -3757,7 +3757,8 @@ sub _prepare_output_units_global_targets($$$$) {
           my $normalized_node
    = Texinfo::Convert::NodeNameNormalization::convert_to_node_identifier($tree);
           if ($normalized_node ne '' and $normalized_node =~ /[^-]/) {
-            $node_element = $self->find_identifier_target($normalized_node);
+            $node_element
+              = $self->converter_find_identifier_target($normalized_node);
           }
         }
         if (!defined($node_element)) {

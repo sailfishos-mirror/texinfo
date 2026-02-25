@@ -243,7 +243,7 @@ sub import {
 #
 #
 #  all_directions                    # determined parallelly in C
-#   direct user access 
+#   direct user access
 #  deprecated_config_directories     # passed from main program
 #   direct user access
 #
@@ -870,25 +870,6 @@ sub command_name($$;$) {
   return _internal_command_name($self, $command, $type);
 }
 
-# Return the element in the tree that $LABEL refers to.
-# TODO could have an XS override
-sub find_identifier_target($$) {
-  my ($self, $label) = @_;
-
-  if (!defined($label)) {
-    cluck;
-  }
-  my $identifiers_target;
-  if (exists($self->{'document'})) {
-    $identifiers_target = $self->{'document'}->labels_information();
-
-    if (defined($identifiers_target)) {
-      return $identifiers_target->{$label};
-    }
-  }
-  return undef;
-}
-
 # TODO could have an XS override
 sub command_name_special_unit_information($$) {
   my ($self, $cmdname) = @_;
@@ -1335,31 +1316,29 @@ sub special_unit_info($$$) {
 sub _get_top_unit($;$) {
   my ($self, $output_units) = @_;
 
-  my $identifiers_target;
-  if (exists($self->{'document'})) {
-    $identifiers_target = $self->{'document'}->labels_information();
-  }
-
-  my $node_top;
-  $node_top = $identifiers_target->{'Top'}
-                      if (defined($identifiers_target));
-  my $section_top;
-
   my $global_commands;
   if (exists($self->{'document'})) {
     $global_commands = $self->{'document'}->global_commands_information();
+
+    if (defined($global_commands)) {
+      my $section_top = $global_commands->{'top'};
+      if (defined($section_top)) {
+        return $section_top->{'associated_unit'};
+      }
+    }
   }
-  $section_top = $global_commands->{'top'}
-                                       if (defined($global_commands));
-  if (defined($section_top)) {
-    return $section_top->{'associated_unit'};
-  } elsif (defined($node_top)) {
+
+  my $node_top = $self->converter_find_identifier_target('Top');
+
+  if (defined($node_top)) {
     if (!exists($node_top->{'associated_unit'})) {
       die "No associated unit for node_top: "
          .Texinfo::Common::debug_print_element($node_top, 1);
     }
     return $node_top->{'associated_unit'};
-  } elsif (defined($output_units)) {
+  }
+
+  if (defined($output_units)) {
     return $output_units->[0];
   }
   return undef;
@@ -4553,10 +4532,11 @@ sub _convert_xref_command($$$$) {
       and defined($arg_node) and exists($arg_node->{'extra'})
       and exists($arg_node->{'extra'}->{'normalized'})
       and !exists($arg_node->{'extra'}->{'manual_content'})
-      and $self->find_identifier_target(
+      and $self->converter_find_identifier_target(
                              $arg_node->{'extra'}->{'normalized'})) {
     my $target_node
-     = $self->find_identifier_target($arg_node->{'extra'}->{'normalized'});
+     = $self->converter_find_identifier_target(
+                                    $arg_node->{'extra'}->{'normalized'});
     # This is the node if USE_NODES, otherwise this may be the sectioning
     # command (if the sectioning command is really associated to the node)
     my $target_root = $self->command_root_element_command($target_node);
@@ -4849,10 +4829,8 @@ sub _convert_printindex_command($$$$) {
 
   my $document = $self->get_info('document');
   my $indices_information;
-  my $identifiers_target;
   if (defined($document)) {
     $indices_information = $document->indices_information();
-    $identifiers_target = $document->labels_information();
   }
 
   #foreach my $letter_entry (@{$index_entries_by_letter->{$index_name}}) {
@@ -5245,9 +5223,10 @@ sub _convert_printindex_command($$$$) {
         if ($self->get_conf('NODE_NAME_IN_INDEX')) {
           my $associated_command_id
             = $main_entry_element->{'extra'}->{'element_node'};
-          if (defined($associated_command_id)
-              and defined($identifiers_target)) {
-            $associated_command = $identifiers_target->{$associated_command_id};
+          if (defined($associated_command_id)) {
+            $associated_command
+              = $self->converter_find_identifier_target(
+                                                $associated_command_id);
           }
           if (!defined($associated_command)) {
             $associated_command
@@ -6110,7 +6089,7 @@ sub _convert_menu_entry_type($$$) {
   # may not exist in case of menu entry node consisting only of spaces
   } elsif (exists($menu_entry_node->{'extra'})
            and exists($menu_entry_node->{'extra'}->{'normalized'})) {
-    my $node = $self->find_identifier_target(
+    my $node = $self->converter_find_identifier_target(
                            $menu_entry_node->{'extra'}->{'normalized'});
     if ($node) {
       my $node_relations;
@@ -7343,7 +7322,7 @@ sub _root_html_element_attributes_string($) {
       and $self->get_conf('HTML_ROOT_ELEMENT_ATTRIBUTES') ne '') {
     return ' '.$self->get_conf('HTML_ROOT_ELEMENT_ATTRIBUTES');
   }
-  return ''; 
+  return '';
 }
 
 # This is used for normal output files and other files, like

@@ -1,6 +1,20 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texi2any_api.texi (Customizing Output Target Names)
+	(Target Tree Element Link), tta/perl/Texinfo/Convert/ConverterNonXS.pm
+	(converter_find_identifier_target), tta/perl/Texinfo/Convert/HTML.pm,
+	tta/perl/XSTexinfo/convert/ConvertConverterXS.xs
+	(converter_find_identifier_target): rename find_identifier_target as
+	converter_find_identifier_target.  Move to ConverterNonXS.pm and add
+	an XS implementation.  Update callers.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_get_top_unit)
+	(_convert_xref_command, _convert_printindex_command): use
+	converter_find_identifier_target.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Customizing Output Target Names)
 	(Target Tree Element Link), tta/perl/Texinfo/Convert/HTML.pm
 	(find_identifier_target), tta/perl/init/documentation_examples.pm,
 	tta/perl/t/init/access_output_unit_in_handler.pm: rename label_command

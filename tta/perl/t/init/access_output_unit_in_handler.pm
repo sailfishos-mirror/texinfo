@@ -6,7 +6,7 @@ sub _texi2any_tests_access_output_unit_in_handler
 
   # this triggers building the tree to Perl through a call to
   # document_labels_information
-  my $top_element = $self->find_identifier_target('Top');
+  my $top_element = $self->converter_find_identifier_target('Top');
   if ($top_element and $top_element->{'associated_unit'}) {
     my $output_unit = $top_element->{'associated_unit'};
     return 0;

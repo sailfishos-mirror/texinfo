@@ -397,7 +397,27 @@ sub set_global_document_commands($$$) {
 
 
 
-# Specific elements formatting helper functions
+# Specific elements formatting and other helper functions
+
+# ALTIMP partial in main/targets.c
+# For user-defined HTML customization, documented in the specific manual.
+# Return the element in the tree that $IDENTIFIER refers to.
+sub converter_find_identifier_target($$) {
+  my ($self, $identifier) = @_;
+
+  if (!defined($identifier)) {
+    cluck;
+  }
+  my $identifiers_target;
+  if (exists($self->{'document'})) {
+    $identifiers_target = $self->{'document'}->labels_information();
+
+    if (defined($identifiers_target)) {
+      return $identifiers_target->{$identifier};
+    }
+  }
+  return undef;
+}
 
 sub get_converter_indices_sorted_by_letter($) {
   my $self = shift;

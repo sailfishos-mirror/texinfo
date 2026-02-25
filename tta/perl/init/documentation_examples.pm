@@ -508,7 +508,7 @@ sub my_test_documentation_convert_xref_commands($$$$)
   if ($arg_node and $arg_node->{'extra'}
       and defined($arg_node->{'extra'}->{'normalized'})) {
     my $target_node
-     = $converter->find_identifier_target(
+     = $converter->converter_find_identifier_target(
                              $arg_node->{'extra'}->{'normalized'});
     my $identifier = $converter->command_id($target_node);
     $prepended = "<samp>$identifier</samp>";
@@ -561,7 +561,7 @@ texinfo_register_file_id_setting_function('node_file_name',
 sub my_label_target_name($$$$) {
   my ($converter, $normalized, $label_element, $default_target) = @_;
   if (defined($normalized)) {
-    my $element = $converter->find_identifier_target($normalized);
+    my $element = $converter->converter_find_identifier_target($normalized);
     return 'prepended_to_labels-'.$element->{'extra'}->{'normalized'};
   }
   return $default_target;

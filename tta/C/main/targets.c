@@ -37,7 +37,8 @@
 #include "document.h"
 #include "targets.h"
 
-size_t identifiers_target_number (const struct C_HASHMAP *identifiers_target)
+size_t
+identifiers_target_number (const struct C_HASHMAP *identifiers_target)
 {
   if (identifiers_target)
     return (c_hashmap_count (identifiers_target));

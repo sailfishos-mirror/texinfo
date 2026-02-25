@@ -45,6 +45,8 @@
 #include "utils.h"
 /* find_option_string */
 #include "customization_options.h"
+/* find_identifier_target */
+#include "targets.h"
 #include "converter.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"
@@ -386,6 +388,28 @@ set_global_document_commands (SV *converter_in, char *commands_location_string, 
             set_global_document_commands (self, command_location, cmd_list);
             free (cmd_list);
           }
+
+SV *
+converter_find_identifier_target (SV *converter_in, identifier)
+        const char *identifier = (char *)SvPVutf8_nolen($arg);
+     PREINIT:
+        CONVERTER *self;
+        ELEMENT *target_element = 0;
+     CODE:
+        self = get_sv_converter (converter_in,
+                                 "converter_find_identifier_target");
+        if (self && self->document)
+          {
+            target_element = find_identifier_target (
+                                  &self->document->identifiers_target,
+                                  identifier);
+          }
+        if (target_element)
+          RETVAL = newSVsv ((SV *) target_element->sv);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
 
 SV *
 get_converter_indices_sorted_by_index (SV *converter_sv)
