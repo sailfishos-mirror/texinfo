@@ -1,5 +1,16 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texi2any_api.texi (Customizing Output Target Names)
+	(Target Tree Element Link), tta/perl/Texinfo/Convert/HTML.pm
+	(find_identifier_target), tta/perl/init/documentation_examples.pm,
+	tta/perl/t/init/access_output_unit_in_handler.pm: rename label_command
+	as find_identifier_target.  Update callers.
+
+	* tta/perl/Texinfo/Convert/HTML.pm (_convert_xref_command): rename
+	_convert_xref_commands as _convert_xref_command.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/init/t2h_singular.init (singular_collect_values)
 	(singular_get_value): collect version set values in the tree.  Use
 	them in formatting.

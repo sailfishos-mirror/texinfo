@@ -1903,12 +1903,12 @@ to the node name.
 should return the target (@var{$target}).
 @end deftypefn
 
-The element corresponding to the label can be found with @code{label_command}
-if the label corresponds to an internal reference
+The element corresponding to the label can be found with
+@code{find_identifier_target} if the label corresponds to an internal reference
 (@pxref{Target Tree Element Link}):
 @example
 my $element;
-$element = $converter->label_command($normalized)
+$element = $converter->find_identifier_target($normalized)
   if (defined($normalized));
 @end example
 
@@ -3473,34 +3473,38 @@ commands, index entries, footnotes are also associated with targets.  The
 associated with targets leading to each special unit
 (@pxref{Output Units in User Defined Functions}).
 
-To get the unique Texinfo tree element corresponding to a label, use
-@code{label_command}:
+To get the unique Texinfo tree element corresponding to an identifier, use
+@code{find_identifier_target}:
 
-@deftypefun {@var{\%element} =} @var{$converter}->label_command (@var{$label})
+@deftypefun {@var{\%element} =} @var{$converter}->find_identifier_target @
+                                                             (@var{$label})
 Return the element in the tree that the @var{$label} string refers to.
 @end deftypefun
 
 For example:
 @example
-my $node_element = $converter->label_command('Some-node_003f');
+my $node_element = $converter->find_identifier_target('Some-node_003f');
 @end example
 
-Labels are available for target @@-commands and for @@-command referring
+Identifiers are available for target @@-commands and for @@-command referring
 to target elements such as @code{@@xref} or @code{@@menu} entry node argument
-as the extra @samp{normalized} element key.
+as the @code{extra} @samp{normalized} element key.
 
 For example, the first @code{@@xref} argument @samp{normalized} element key
 may be used to get the node or anchor element it points to:
 @example
+@group
 my $arg_node = $xref_tree_element->@{'contents'@}->[0];
-if ($arg_node and $arg_node->@{'extra'@}
+if (defined($arg_node) and exists($arg_node->@{'extra'@})
     and defined($arg_node->@{'extra'@}->@{'normalized'@})) @{
   my $target_node
-    = $converter->label_command($arg_node->@{'extra'@}->@{'normalized'@});
+    = $converter->find_identifier_target(
+                      $arg_node->@{'extra'@}->@{'normalized'@});
 @}
+@end group
 @end example
 
-Tree elements not associated with a label are obtained each differently.
+Tree elements not associated with an ideentifier are obtained each differently.
 For example, elements associated with index entries can be obtained using the
 Texinfo parsed document index entries with
 @code{$converter->get_info('document')->indices_information()}
@@ -3587,7 +3591,7 @@ location.  For example:
 my $entry_root_link = '';
 my $associated_command
  =  $converter->command_root_element_command($target_element);
-if ($associated_command) @{
+if (defined($associated_command)) @{
 @group
   my $associated_command_href
     = $converter->command_href($associated_command);
@@ -3598,9 +3602,10 @@ if ($associated_command) @{
     $entry_root_link
       = "<a href=\"$associated_command_href\">"
           ."$associated_command_text</a>";
+  @} elsif (defined($associated_command_text)) @{
+    $entry_root_link = $associated_command_text;
+  @}
 @end group
-@} elsif (defined($associated_command_text)) @{
-  $entry_root_link = $associated_command_text;
 @}
 
 my $formatted_entry = "<td><tr>$hyperlink</tr>"

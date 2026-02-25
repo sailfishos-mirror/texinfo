@@ -872,7 +872,7 @@ sub command_name($$;$) {
 
 # Return the element in the tree that $LABEL refers to.
 # TODO could have an XS override
-sub label_command($$) {
+sub find_identifier_target($$) {
   my ($self, $label) = @_;
 
   if (!defined($label)) {
@@ -4504,7 +4504,7 @@ sub _convert_tab_command($$$$$) {
 
 $default_commands_conversion{'tab'} = \&_convert_tab_command;
 
-sub _convert_xref_commands($$$$) {
+sub _convert_xref_command($$$$) {
   my ($self, $cmdname, $command, $args) = @_;
 
   # may happen with bogus @-commands without argument, maybe only
@@ -4553,9 +4553,10 @@ sub _convert_xref_commands($$$$) {
       and defined($arg_node) and exists($arg_node->{'extra'})
       and exists($arg_node->{'extra'}->{'normalized'})
       and !exists($arg_node->{'extra'}->{'manual_content'})
-      and $self->label_command($arg_node->{'extra'}->{'normalized'})) {
+      and $self->find_identifier_target(
+                             $arg_node->{'extra'}->{'normalized'})) {
     my $target_node
-     = $self->label_command($arg_node->{'extra'}->{'normalized'});
+     = $self->find_identifier_target($arg_node->{'extra'}->{'normalized'});
     # This is the node if USE_NODES, otherwise this may be the sectioning
     # command (if the sectioning command is really associated to the node)
     my $target_root = $self->command_root_element_command($target_node);
@@ -4822,7 +4823,7 @@ sub _convert_xref_commands($$$$) {
 }
 
 foreach my $cmdname(keys(%ref_commands)) {
-  $default_commands_conversion{$cmdname} = \&_convert_xref_commands;
+  $default_commands_conversion{$cmdname} = \&_convert_xref_command;
 }
 
 sub _convert_printindex_command($$$$) {
@@ -6109,7 +6110,8 @@ sub _convert_menu_entry_type($$$) {
   # may not exist in case of menu entry node consisting only of spaces
   } elsif (exists($menu_entry_node->{'extra'})
            and exists($menu_entry_node->{'extra'}->{'normalized'})) {
-    my $node = $self->label_command($menu_entry_node->{'extra'}->{'normalized'});
+    my $node = $self->find_identifier_target(
+                           $menu_entry_node->{'extra'}->{'normalized'});
     if ($node) {
       my $node_relations;
       if ($node->{'cmdname'} eq 'node') {
