@@ -1482,6 +1482,85 @@ special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *c
          RETVAL
 
 SV *
+direction_string (SV *converter_in, direction_name, string_type_name, SV* context_name_sv=0)
+        const char *direction_name = (char *)SvPVutf8_nolen($arg);
+        const char *string_type_name = (char *)SvPVutf8_nolen($arg);
+
+     PREINIT:
+        CONVERTER *self;
+        const char *result = 0;
+     CODE:
+        self = get_sv_converter (converter_in,
+                                 "html_global_direction_unit");
+        if (self)
+          {
+            enum direction_string_context context = TDS_context_normal;
+            enum direction_string_type DS_type;
+            int DS_type_found = -1;
+
+            if (context_name_sv && SvOK (context_name_sv))
+              {
+                const char *context_name
+                    = (char *)SvPVutf8_nolen(context_name_sv);
+                if (!strcmp (context_name, "string"))
+                  context = TDS_context_string;
+              }
+
+            for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
+              {
+                const char *type_name = direction_string_type_names[DS_type];
+                if (!strcmp (string_type_name, type_name))
+                  {
+                    DS_type_found = DS_type;
+                    break;
+                  }
+              }
+            if (DS_type_found == -1)
+              {
+                message_list_document_error (&self->error_messages,
+                                             self->conf, 0,
+                                  "unknown direction string type: %s",
+                                   string_type_name);
+              }
+            else
+              {
+                static const char *first_in_file_str = "FirstInFile";
+                static const size_t first_in_file_len
+                                             = strlen ("FirstInFile");
+                int direction;
+
+                /* remove leading FirstInFile */
+                if (strlen (direction_name) > first_in_file_len
+                    && !memcmp (first_in_file_str, direction_name,
+                                first_in_file_len))
+                  direction_name += first_in_file_len; 
+
+                direction
+                  = html_get_direction_index (self, direction_name);
+                if (direction < 0)
+                  {/* be silent as in Perl
+                    message_list_document_error (&self->error_messages,
+                                             self->conf, 0,
+                                  "unknown direction: %s",
+                                   direction_name);
+                    */
+                  }
+                else
+                  {
+                    result = html_direction_string (self, direction,
+                                                    DS_type_found, context);
+                  }
+              }
+          }
+
+        if (result)
+          RETVAL = newSVpv_utf8 (result, 0);
+        else
+          RETVAL = newSV (0);
+    OUTPUT:
+        RETVAL
+
+SV *
 global_direction_unit (SV *converter_in, direction_name)
         const char *direction_name = (char *)SvPVutf8_nolen($arg);
      PREINIT:

@@ -2781,9 +2781,9 @@ format_separate_anchor (CONVERTER *self, const char *id,
 }
 
 const char *
-direction_string (CONVERTER *self, int direction,
-                  enum direction_string_type string_type,
-                  enum direction_string_context context)
+html_direction_string (CONVERTER *self, int direction,
+                       enum direction_string_type string_type,
+                       enum direction_string_context context)
 {
   int direction_unit_direction_idx = direction;
 
@@ -2884,14 +2884,14 @@ direction_href_attributes (CONVERTER *self, int direction, TEXT *result)
   if (self->conf->USE_ACCESSKEY.o.integer > 0)
     {
       const char *accesskey
-        = direction_string (self, direction, TDS_type_accesskey,
+        = html_direction_string (self, direction, TDS_type_accesskey,
                                     TDS_context_string);
       if (accesskey && strlen (accesskey))
         text_printf (result, " accesskey=\"%s\"", accesskey);
     }
 
   const char *button_rel
-    = direction_string (self, direction, TDS_type_rel,
+    = html_direction_string (self, direction, TDS_type_rel,
                                 TDS_context_string);
   if (button_rel && strlen (button_rel))
     text_printf (result, " rel=\"%s\"", button_rel);
@@ -4186,8 +4186,8 @@ get_links (CONVERTER* self, const char *filename,
                 = from_element_direction (self, link->b.direction, HTT_string,
                                           output_unit, 0, 0);
               const char *button_rel
-                = direction_string (self, link->b.direction, TDS_type_rel,
-                                    TDS_context_string);
+                = html_direction_string (self, link->b.direction,
+                                         TDS_type_rel, TDS_context_string);
               text_printf (result, "<link href=\"%s\"", link_href);
               if (button_rel)
                 {
@@ -4439,7 +4439,8 @@ default_panel_button_dynamic_direction_internal (CONVERTER *self,
       const char *close_link = "";
       size_t open_len;
 
-      const char *text = direction_string (self, direction, TDS_type_text, 0);
+      const char *text = html_direction_string (self, direction,
+                                                TDS_type_text, 0);
       if (!text)
         text = "";
 
@@ -4577,7 +4578,7 @@ html_default_format_button (CONVERTER *self,
           if (self->html_active_icons
               && self->html_active_icons[button->b.direction])
             {
-              const char *button_name_string = direction_string (self,
+              const char *button_name_string = html_direction_string (self,
                                      button->b.direction, TDS_type_button,
                                                       TDS_context_string);
               formatted_button->active
@@ -4586,7 +4587,7 @@ html_default_format_button (CONVERTER *self,
             }
           else
             {
-              const char *button_text = direction_string (self,
+              const char *button_text = html_direction_string (self,
                                     button->b.direction, TDS_type_text, 0);
               if (button_text)
                 formatted_button->active = strdup (button_text);
@@ -4603,7 +4604,7 @@ html_default_format_button (CONVERTER *self,
               TEXT active_text;
               const char *active_icon = 0;
               const char *description
-               = direction_string (self, button->b.direction,
+               = html_direction_string (self, button->b.direction,
                                    TDS_type_description, TDS_context_string);
 
               if (self->html_active_icons
@@ -4621,20 +4622,20 @@ html_default_format_button (CONVERTER *self,
               if (self->conf->USE_ACCESSKEY.o.integer > 0)
                 {
                   const char *accesskey
-                    = direction_string (self, button->b.direction,
+                    = html_direction_string (self, button->b.direction,
                                         TDS_type_accesskey, TDS_context_string);
                   if (accesskey && strlen (accesskey))
                     text_printf (&active_text, " accesskey=\"%s\"", accesskey);
                 }
               const char *button_rel
-                = direction_string (self, button->b.direction,
+                = html_direction_string (self, button->b.direction,
                                     TDS_type_rel, TDS_context_string);
               if (button_rel && strlen (button_rel))
                 text_printf (&active_text, " rel=\"%s\"", button_rel);
               text_append_n (&active_text, ">", 1);
               if (active_icon)
                 {
-                  const char *button_name_string = direction_string (self,
+                  const char *button_name_string = html_direction_string (self,
                                        button->b.direction, TDS_type_button,
                                                       TDS_context_string);
                   char *icon_name = from_element_direction (self,
@@ -4651,7 +4652,7 @@ html_default_format_button (CONVERTER *self,
                 }
               else
                 {
-                  const char *button_text_string = direction_string (self,
+                  const char *button_text_string = html_direction_string (self,
                                      button->b.direction, TDS_type_text, 0);
                   if (button_text_string)
                     text_append (&active_text, button_text_string);
@@ -4681,7 +4682,7 @@ html_default_format_button (CONVERTER *self,
               if (passive_icon)
                 {
                   const char *button_name_string
-                    = direction_string (self, button->b.direction,
+                    = html_direction_string (self, button->b.direction,
                                         TDS_type_button, TDS_context_string);
                   char *icon_name = from_element_direction (self,
                                                         button->b.direction,
@@ -4698,7 +4699,7 @@ html_default_format_button (CONVERTER *self,
               else
                 {
                   const char *button_text_string
-                    = direction_string (self, button->b.direction,
+                    = html_direction_string (self, button->b.direction,
                                         TDS_type_text, 0);
                   text_append_n (&passive_text, "[", 1);
                   if (button_text_string)
@@ -13143,7 +13144,7 @@ html_default_format_special_body_about (CONVERTER *self,
               && self->html_active_icons[direction])
             {
               const char *button_name_string
-                   = direction_string (self, direction,
+                   = html_direction_string (self, direction,
                                        TDS_type_button, TDS_context_string);
               char *button = format_button_icon_img (self, button_name_string,
                                         self->html_active_icons[direction], 0);
@@ -13152,7 +13153,7 @@ html_default_format_special_body_about (CONVERTER *self,
             }
           else
             {
-              const char *button_text = direction_string (self, direction,
+              const char *button_text = html_direction_string (self, direction,
                                                           TDS_type_text, 0);
               text_append_n (result, " [", 2);
               if (button_text)
@@ -13164,21 +13165,23 @@ html_default_format_special_body_about (CONVERTER *self,
       open_element_with_class (self, "td", &name_direction_about_classes,
                                result);
 
-      button_name = direction_string (self, direction, TDS_type_button, 0);
+      button_name = html_direction_string (self, direction,
+                                           TDS_type_button, 0);
       if (button_name)
         text_append (result, button_name);
       text_append_n (result, "</td>\n    ", 10);
       open_element_with_class (self, "td",
                                &description_direction_about_classes,
                                result);
-      button_description = direction_string (self, direction,
-                                             TDS_type_description, 0);
+      button_description = html_direction_string (self, direction,
+                                                  TDS_type_description, 0);
       if (button_description)
         text_append (result, button_description);
       text_append_n (result, "</td>\n    ", 10);
       open_element_with_class (self, "td", &example_direction_about_classes,
                                result);
-      button_example = direction_string (self, direction, TDS_type_example, 0);
+      button_example = html_direction_string (self, direction,
+                                              TDS_type_example, 0);
       if (button_example)
         text_append (result, button_example);
       text_append_n (result, "</td>\n  </tr>\n", 14);

@@ -174,6 +174,7 @@ build_no_arg_commands_formatting (const CONVERTER *converter)
   return newRV_noinc ((SV *) no_arg_commands_formatting_hv);
 }
 
+/* Unused */
 SV *
 build_directions_strings (const CONVERTER *converter)
 {
@@ -253,8 +254,10 @@ html_pass_converter_initialization_state (const CONVERTER *converter,
   no_arg_commands_formatting_sv = build_no_arg_commands_formatting (converter);
   STORE("no_arg_commands_formatting", no_arg_commands_formatting_sv);
 
+  /* Not needed since it is only accessed through XS overrides
   directions_strings_sv = build_directions_strings (converter);
   STORE("directions_strings", directions_strings_sv);
+   */
 
   shared_conversion_state_hv = newHV ();
   STORE("shared_conversion_state",

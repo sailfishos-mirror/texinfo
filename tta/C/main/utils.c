@@ -2853,6 +2853,7 @@ enumerate_item_representation (const ELEMENT *element)
 
 /* here because it is used in main/get_perl_info.c */
 
+/* TODO add an hash to speed up?  Or is the list small enough */
 /* return -2 if there are info and not found. */
 int
 html_get_direction_index (const CONVERTER *converter, const char *direction)

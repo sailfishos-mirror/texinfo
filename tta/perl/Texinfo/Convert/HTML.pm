@@ -870,7 +870,10 @@ sub command_name($$;$) {
   return _internal_command_name($self, $command, $type);
 }
 
-# TODO could have an XS override
+# This function could have had an XS override.  However
+# there is no equivalent function is C, the corresponding
+# code being inlined, and the functions called are overriden.
+# Therefore, an XS override would not be very interesting.
 sub command_name_special_unit_information($$) {
   my ($self, $cmdname) = @_;
 
@@ -1158,142 +1161,6 @@ sub from_element_direction($$$;$$$) {
   return undef;
 }
 
-
-my %valid_direction_string_type = (
-  # accesskey associated to the direction
-  'accesskey' => 1,
-  # direction button name
-  'button' => 1,
-  # description of the direction
-  'description' => 1,
-  # section number corresponding to the example in About text
-  'example' => 1,
-  # rel/ref string associated to the direction
-  'rel' => 1,
-  # few words text associated to the direction
-  'text' => 1,
-);
-
-my %valid_direction_string_context = (
-  'normal' => 1,
-  'string' => 1,
-);
-
-my %direction_type_translation_context = (
-  'button' => 'button label',
-  'description' => 'description',
-  'text' => 'string',
-);
-
-# TODO could probably have an XS override
-sub direction_string($$$;$) {
-  my ($self, $direction, $string_type, $context) = @_;
-
-  if (!exists($valid_direction_string_type{$string_type})) {
-    print STDERR "Incorrect type $string_type in direction_string call\n";
-    return undef;
-  }
-
-  $context = 'normal' if (!defined($context));
-
-  if (!exists($valid_direction_string_context{$context})) {
-    print STDERR "Incorrect context $context in direction_string call\n";
-    return undef;
-  }
-
-  $direction =~ s/^FirstInFile//;
-
-  my $translated_directions_strings = $self->{'translated_direction_strings'};
-  if (!defined($translated_directions_strings)) {
-    cluck();
-  }
-
-  if (not exists($self->{'directions_strings'}->{$string_type}->{$direction})
-       or not exists($self->{'directions_strings'}->{$string_type}
-                                                ->{$direction}->{$context})) {
-    $self->{'directions_strings'}->{$string_type}->{$direction} = {}
-      if (not exists($self->{'directions_strings'}
-                                     ->{$string_type}->{$direction}));
-    if (exists($translated_directions_strings->{$string_type})
-        # can exist and be undef if user-defined and also maybe for
-        # some default directions, but maybe only for unlikely type.
-        and defined($translated_directions_strings->{$string_type}
-                                              ->{$direction})
-        and defined($translated_directions_strings->{$string_type}
-                                              ->{$direction}->{'converted'})) {
-
-      # translate already converted direction strings
-      my $converted_directions
-       = $translated_directions_strings->{$string_type}
-                                          ->{$direction}->{'converted'};
-      my $context_converted_string;
-      if (exists($converted_directions->{$context})) {
-        $context_converted_string = $converted_directions->{$context};
-      } elsif ($context eq 'string'
-               and defined($converted_directions->{'normal'})) {
-        $context_converted_string = $converted_directions->{'normal'};
-      }
-      if (defined($context_converted_string)) {
-        my $result_string
-          = $self->cdt_string($context_converted_string);
-        $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
-          = $self->substitute_html_non_breaking_space($result_string);
-      } else {
-        $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
-          = undef;
-      }
-    } elsif (exists($translated_directions_strings->{$string_type})
-        # can exist and be undef if user-defined and also maybe for
-        # some default directions, but maybe only for unlikely type.
-             and defined($translated_directions_strings->{$string_type}
-                                            ->{$direction})
-             and defined($translated_directions_strings->{$string_type}
-                                            ->{$direction}->{'to_convert'})) {
-      # translate direction strings that need to be translated and converted
-      my $translation_context = $direction;
-      $translation_context .= ' (current section)' if ($direction eq 'This');
-      $translation_context .= ' direction '
-                       .$direction_type_translation_context{$string_type};
-      my $translated_tree
-        = $self->pcdt($translation_context,
-                      $translated_directions_strings->{$string_type}
-                                            ->{$direction}->{'to_convert'});
-
-      my $context_str = "DIRECTION $direction ($string_type/$context)";
-
-      my $context_type;
-      if ($context eq 'string') {
-        $context_type = $CTXF_string;
-      }
-
-      my $result_string
-         = $self->convert_tree_new_formatting_context($translated_tree,
-                                              $context_str, $context_type,
-                                                      undef, $context_str);
-
-      # NOTE direction strings should be simple Texinfo code, but it is
-      # possible to set to anything through customization.  Since
-      # anything except simple code is incorrect, there is no guarantee
-      # on the output, but it is good if there is no crash.
-      # If there is a @documentlanguage in $converted_tree, translate_names
-      # would be called and
-      # $self->{'directions_strings'}->{$string_type}->{$direction} would be
-      # reset.  So, for this very special case (tested in the test suite),
-      # there may be a need to set again even though it was already done
-      # just above.
-      $self->{'directions_strings'}->{$string_type}->{$direction} = {}
-          if (not $self->{'directions_strings'}->{$string_type}->{$direction});
-
-      $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
-        = $result_string;
-    } else {
-      $self->{'directions_strings'}->{$string_type}->{$direction}->{$context}
-         = undef;
-    }
-  }
-  return $self->{'directions_strings'}->{$string_type}
-                                       ->{$direction}->{$context};
-}
 
 
 

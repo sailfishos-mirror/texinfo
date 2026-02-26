@@ -108,6 +108,9 @@ char *html_attribute_class (CONVERTER *self, const char *element,
 
 
 char *html_format_comment (CONVERTER *self, const char *text);
+const char * html_direction_string (CONVERTER *self, int direction,
+                       enum direction_string_type string_type,
+                       enum direction_string_context context);
 char *html_format_end_file (CONVERTER *self, const char *filename,
                             const OUTPUT_UNIT *output_unit);
 char *html_format_begin_file (CONVERTER *self, const char *filename,

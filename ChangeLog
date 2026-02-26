@@ -1,5 +1,21 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_direction_string): rename
+	direction_string as html_direction_string.
+
+	* tta/perl/Texinfo/Convert/HTML.pm,
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (direction_string),
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs (direction_string): add XS
+	interface for direction_string.
+
+	* tta/C/convert/build_html_perl_info.c
+	(html_pass_converter_initialization_state),
+	tta/C/convert/build_html_perl_state.c (build_html_translated_names):
+	do not pass nor reset direction_string converter hash, as nothing
+	access the Perl data when going through the XS interface.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_special_unit_info): handle an
 	unknown special_unit_variety being given in argument.
 

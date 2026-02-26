@@ -149,6 +149,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
   dTHX;
 
   /* reset with empty hash */
+  /* Not needed since it is only accessed through XS overrides
   FETCH(directions_strings);
   directions_strings_hv = (HV *) SvRV (*directions_strings_sv);
 #define tds_type(name) \
@@ -157,6 +158,7 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
                newRV_noinc ((SV *) direction_string_hv), 0);
    TDS_TRANSLATED_TYPES_LIST
 #undef tds_type
+   */
 
   FETCH(convert_text_options);
   if (convert_text_options_sv)
