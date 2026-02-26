@@ -2780,6 +2780,11 @@ format_separate_anchor (CONVERTER *self, const char *id,
     }
 }
 
+/* The direction DIRECTION index in input should be the index in the
+   array with all the directions, including FirstInFile* directions,
+   the function code makes sure to modify the index before looking at
+   directions_strings where there are no FirstInFile* directions.
+ */
 const char *
 html_direction_string (CONVERTER *self, int direction,
                        enum direction_string_type string_type,

@@ -1,5 +1,14 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/html_prepare_converter.c
+	(html_set_main_units_direction_names), tta/C/main/converter_types.h
+	(CONVERTER), tta/C/main/utils.c (html_get_direction_index): setup an
+	hash associating direction names to their index in
+	main_units_direction_names while filling the array.  Use it in
+	html_get_direction_index.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/format_html.c (html_direction_string): rename
 	direction_string as html_direction_string.
 

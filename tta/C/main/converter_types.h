@@ -35,6 +35,8 @@
 /* for interdependency with convert_to_text.h */
 struct TEXT_OPTIONS;
 
+struct C_HASHMAP;
+
 /* formatting context flags */
 #define CTXF_string     0x0001
 #define CTXF_code       0x0002
@@ -900,6 +902,7 @@ typedef struct CONVERTER {
      */
     STRING_LIST global_texts_direction_names;
     const char **main_units_direction_names;
+    C_HASHMAP units_direction_names_index;
     DIRECTION_NODE_NAME_LIST customized_global_units_directions;
     STRING_LIST added_global_units_directions;
     STRING_LIST customized_global_text_directions;

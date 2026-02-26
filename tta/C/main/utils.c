@@ -54,6 +54,7 @@
 #include "converter_types.h"
 /* isascii_alnum isascii_alpha isascii_upper */
 #include "base_utils.h"
+#include "hashmap.h"
 #include "tree.h"
 #include "extra.h"
 #include "builtin_commands.h"
@@ -2853,7 +2854,6 @@ enumerate_item_representation (const ELEMENT *element)
 
 /* here because it is used in main/get_perl_info.c */
 
-/* TODO add an hash to speed up?  Or is the list small enough */
 /* return -2 if there are info and not found. */
 int
 html_get_direction_index (const CONVERTER *converter, const char *direction)
@@ -2861,11 +2861,12 @@ html_get_direction_index (const CONVERTER *converter, const char *direction)
   int i;
   if (converter && converter->main_units_direction_names)
     {
-      for (i = 0; converter->main_units_direction_names[i]; i++)
-        {
-          if (!strcmp (direction, converter->main_units_direction_names[i]))
-            return i;
-        }
+      int found;
+      uintptr_t idx = (uintptr_t)
+        c_hashmap_value (&converter->units_direction_names_index,
+                         direction, &found);
+      if (found)
+        return idx;
       return -2;
     }
   return -1;
