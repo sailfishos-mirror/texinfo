@@ -1018,6 +1018,42 @@ find_element_extra_index_entry_sv (const DOCUMENT *document,
   return index_entry;
 }
 
+OUTPUT_UNIT *
+get_output_unit_from_sv (const DOCUMENT *document,
+                         size_t output_units_descriptor, SV *output_unit_sv)
+{
+  HV *output_unit_hv;
+  SV **unit_index_sv;
+
+  dTHX;
+
+  output_unit_hv = (HV *) SvRV (output_unit_sv);
+  unit_index_sv = hv_fetch (output_unit_hv, "unit_index",
+                            strlen ("unit_index"), 0);
+
+  if (unit_index_sv)
+    {
+      size_t unit_index = (size_t) SvIV (*unit_index_sv);
+      const OUTPUT_UNIT_LIST *output_units
+       = retrieve_output_units (document, output_units_descriptor);
+
+      if (output_units && unit_index < output_units->number)
+        {
+          OUTPUT_UNIT *output_unit = output_units->list[unit_index];
+          /* It is important to make that check, as the unit_index
+             may not be for the output_units_descriptor, and may thus find
+             another output unit.  For example, if the output unit is
+             a special output unit and output_units_descriptor is for the
+             normal output units, the output unit found at unit_index
+             is a different than the special output unit.
+           */
+          if (output_unit->hv == output_unit_hv)
+            return output_unit;
+        }
+    }
+  return 0;
+}
+
 #define FETCH(key) key##_sv = hv_fetch (element_hv, #key, strlen (#key), 0);
 /* find C tree root element corresponding to perl tree element element_hv */
 static const ELEMENT *
@@ -1038,26 +1074,17 @@ find_root_command (const DOCUMENT *document, HV *element_hv,
         {
           /* find the associated output unit and then find the element
              in unit contents */
-          HV *associated_unit_hv = (HV *) SvRV (*associated_unit_sv);
-          SV **unit_index_sv = hv_fetch (associated_unit_hv, "unit_index",
-                                         strlen ("unit_index"), 0);
-
-          if (unit_index_sv)
+          const OUTPUT_UNIT *output_unit
+            = get_output_unit_from_sv (document, output_units_descriptor,
+                                       *associated_unit_sv);
+          if (output_unit)
             {
-              size_t unit_index = (size_t) SvIV (*unit_index_sv);
-              const OUTPUT_UNIT_LIST *output_units
-               = retrieve_output_units (document, output_units_descriptor);
-
-              if (output_units && unit_index < output_units->number)
+              size_t i;
+              for (i = 0; i < output_unit->unit_contents.number; i++)
                 {
-                  OUTPUT_UNIT *output_unit = output_units->list[unit_index];
-                  size_t i;
-                  for (i = 0; i < output_unit->unit_contents.number; i++)
-                    {
-                      ELEMENT *content = output_unit->unit_contents.list[i];
-                      if ((HV *) SvRV ((SV *) content->sv) == element_hv)
-                        return content;
-                    }
+                  const ELEMENT *content = output_unit->unit_contents.list[i];
+                  if ((HV *) SvRV ((SV *) content->sv) == element_hv)
+                    return content;
                 }
             }
         }

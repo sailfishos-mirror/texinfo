@@ -2325,8 +2325,8 @@ html_get_top_unit (DOCUMENT *document, const OUTPUT_UNIT_LIST *output_units)
   return 0;
 }
 
-static int
-unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
+int
+html_unit_is_top_output_unit (CONVERTER *self, const OUTPUT_UNIT *output_unit)
 {
   OUTPUT_UNIT *top_output_unit = html_get_top_unit (self->document, 0);
   return (top_output_unit && top_output_unit == output_unit);
@@ -2386,7 +2386,7 @@ from_element_direction (CONVERTER *self, int direction,
        = self->global_units_directions
            [D_direction_Last + direction - NON_SPECIAL_DIRECTIONS_NR +1];
     }
-  else if ((!source_unit || unit_is_top_output_unit (self, source_unit))
+  else if ((!source_unit || html_unit_is_top_output_unit (self, source_unit))
            && self->conf->TOP_NODE_UP_URL.o.string
            && (direction == D_direction_Up || direction == D_direction_NodeUp))
     {
@@ -5012,7 +5012,7 @@ html_default_format_element_header (CONVERTER *self,
       && (output_unit->tree_unit_directions[D_next]
           || output_unit->tree_unit_directions[D_prev]))
     {
-      int is_top = unit_is_top_output_unit (self, output_unit);
+      int is_top = html_unit_is_top_output_unit (self, output_unit);
       size_t file_index;
       size_t count_in_file;
       int first_in_page = 0;
@@ -5028,7 +5028,7 @@ html_default_format_element_header (CONVERTER *self,
         }
 
       if (output_unit->tree_unit_directions[D_prev]
-          && unit_is_top_output_unit (self,
+          && html_unit_is_top_output_unit (self,
                                output_unit->tree_unit_directions[D_prev]))
         previous_is_top = 1;
 
@@ -5161,14 +5161,14 @@ html_default_format_element_footer (CONVERTER *self,
                               const char *content, const ELEMENT *element,
                               TEXT *result)
 {
-  int is_top = unit_is_top_output_unit (self, output_unit);
+  int is_top = html_unit_is_top_output_unit (self, output_unit);
   int next_is_top = 0;
   int next_is_special = 0;
   int end_page = 0;
   BUTTON_SPECIFICATION_LIST *buttons = 0;
 
   if (output_unit->tree_unit_directions[D_next]
-          && unit_is_top_output_unit (self,
+          && html_unit_is_top_output_unit (self,
                                output_unit->tree_unit_directions[D_next]))
     next_is_top = 1;
 

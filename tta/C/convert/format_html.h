@@ -91,6 +91,8 @@ char *html_special_unit_info_text (CONVERTER *self,
 
 OUTPUT_UNIT *html_get_top_unit (DOCUMENT *document,
                                 const OUTPUT_UNIT_LIST *output_units);
+int html_unit_is_top_output_unit (CONVERTER *self,
+                                  const OUTPUT_UNIT *output_unit);
 
 FOOTNOTE_ID_NUMBER *find_footnote_id_number (const CONVERTER *self,
                                            const char *footnote_id);

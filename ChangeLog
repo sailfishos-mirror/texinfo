@@ -1,5 +1,19 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/format_html.c (html_unit_is_top_output_unit): rename
+	unit_is_top_output_unit as html_unit_is_top_output_unit.
+
+	* tta/C/main/get_perl_info.c (get_output_unit_from_sv): add, based on
+	find_root_command code.
+
+	* tta/perl/Texinfo/Convert/HTML.pm,
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_get_top_unit)
+	(unit_is_top_output_unit), tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs
+	(unit_is_top_output_unit): add an XS interface for
+	unit_is_top_output_unit.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/html_prepare_converter.c
 	(html_set_main_units_direction_names), tta/C/main/converter_types.h
 	(CONVERTER), tta/C/main/utils.c (html_get_direction_index): setup an

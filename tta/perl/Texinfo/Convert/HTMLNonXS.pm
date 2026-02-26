@@ -1417,6 +1417,52 @@ sub global_direction_text($$) {
 
 # API for misc conversion and formatting functions
 
+# if $OUTPUT_UNITS is defined, the first output unit is used if a proper
+# top output unit is not found.
+sub _get_top_unit($;$) {
+  my ($self, $output_units) = @_;
+
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+
+    if (defined($global_commands)) {
+      my $section_top = $global_commands->{'top'};
+      if (defined($section_top)) {
+        return $section_top->{'associated_unit'};
+      }
+    }
+  }
+
+  my $node_top = $self->converter_find_identifier_target('Top');
+
+  if (defined($node_top)) {
+    if (!exists($node_top->{'associated_unit'})) {
+      die "No associated unit for node_top: "
+         .Texinfo::Common::debug_print_element($node_top, 1);
+    }
+    return $node_top->{'associated_unit'};
+  }
+
+  if (defined($output_units)) {
+    return $output_units->[0];
+  }
+  return undef;
+}
+
+# it is considered 'top' only if element corresponds to @top or
+# element is a node
+sub unit_is_top_output_unit($$) {
+  my ($self, $output_unit) = @_;
+
+  my $top_output_unit = _get_top_unit($self);
+  if (defined($top_output_unit) and $top_output_unit eq $output_unit) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
 our %default_shared_conversion_states;
 
 sub _XS_get_shared_conversion_state($$$;@) {

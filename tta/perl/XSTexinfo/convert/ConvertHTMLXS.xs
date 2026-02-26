@@ -1354,6 +1354,28 @@ command_description (SV *converter_in, SV *element_sv, const char *type=0)
     OUTPUT:
          RETVAL
 
+SV *
+unit_is_top_output_unit (SV *converter_in, SV *output_unit_sv)
+     PREINIT:
+        CONVERTER *self;
+        int result = 0;
+     CODE:
+        self = get_sv_converter (converter_in,
+                                 "unit_is_top_output_unit");
+        if (self && self->document
+            && self->output_units_descriptors[OUDT_units])
+          {
+            OUTPUT_UNIT *output_unit
+              = get_output_unit_from_sv (self->document,
+                               self->output_units_descriptors[OUDT_units],
+                                         output_unit_sv);
+            if (output_unit)
+              result = html_unit_is_top_output_unit (self, output_unit);
+          }
+        RETVAL = newSViv ((IV) result);
+    OUTPUT:
+         RETVAL
+
 # second argument is type_name
 SV *
 get_special_unit_info_varieties (SV *converter_in, SV *)

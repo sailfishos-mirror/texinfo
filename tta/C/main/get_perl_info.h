@@ -58,6 +58,10 @@ void html_fill_button_sv_specification_list (const CONVERTER *converter,
 void html_get_direction_icons_sv (DIRECTION_ICON_LIST *direction_icons,
                              SV *icons_sv);
 
+OUTPUT_UNIT *get_output_unit_from_sv (const DOCUMENT *document,
+                                      size_t output_units_descriptor,
+                                      SV *output_unit_sv);
+
 const ELEMENT *find_element_from_sv (const CONVERTER *converter,
                                      const DOCUMENT *document_in,
                           const SV *element_sv, size_t output_units_descriptor);
