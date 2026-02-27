@@ -2973,6 +2973,20 @@
 	* doc/texi2any_api.texi (Target Tree Element Link): add command_name
 	and command_description documentation.
 
+2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* js/info.css: Set "margin: 0px" on all <body> elements, not
+	just those with a special class set ("in-iframe").  This prevents
+	the text moving to the left shortly after a node is loaded, when
+	the margin was changed when the class was added in info.js.  Remove
+	all use of .in-iframe class.
+
+2025-12-13  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* js/info.css (div[node]): set "overflow: hidden", as was the
+	setting before change on 2021-02-14.  This should not be necessary
+	but is an extra way to stop a double scroll bar from appearing.
+
 2025-12-13 Patrice Dumas  <pertusus@free.fr>
 
 	Update libintl-perl to 1.35
