@@ -10,6 +10,8 @@ This is the todo list for texi2any
 Before next release
 ===================
 
+Document command_is_in_referred_command_stack in texi2any_api
+
 Bugs
 ====
 

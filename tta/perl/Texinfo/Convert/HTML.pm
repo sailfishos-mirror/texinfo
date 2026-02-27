@@ -421,7 +421,7 @@ my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
 my %default_css_string_formatting_references;
 
-sub html_convert_css_string($$$) {
+sub _html_convert_css_string($$$) {
   my ($self, $element, $context_str) = @_;
 
   my $saved_commands = {};
@@ -485,7 +485,7 @@ sub html_convert_css_string_for_list_mark($$;$) {
     $self->{'no_arg_commands_formatting'}->{$cmdname}->{'css_string'}
       = $special_list_mark_css_string_no_arg_command{$cmdname};
   }
-  my $result = $self->html_convert_css_string($element, $explanation);
+  my $result = _html_convert_css_string($self, $element, $explanation);
   foreach my $cmdname (keys(%special_list_mark_css_string_no_arg_command)) {
     $self->{'no_arg_commands_formatting'}->{$cmdname}->{'css_string'}
       = $saved_css_string_no_arg_command->{$cmdname};
@@ -550,7 +550,7 @@ sub _normalized_to_id($) {
 # (anchor, float...) command adhering strictly to the HTML Xref specification.
 # The $CROSSREF_EXTENSION argument should be the external crossreference
 # filename extension, if undef, the $EXTENSION argument is used.
-sub standard_label_id_file($$$$$) {
+sub _standard_label_id_file($$$$$) {
   my ($self, $normalized, $label_element, $crossref_extension,
       $extension) = @_;
 
@@ -605,7 +605,7 @@ sub _external_node_href($$$) {
   my $node_contents = $external_node->{'extra'}->{'node_content'};
   #print STDERR "external_node: ".join('|', keys(%$external_node))."\n";
   my ($target_filebase, $external_file_extension, $target)
-     = $self->standard_label_id_file($normalized, $node_contents,
+     = _standard_label_id_file($self, $normalized, $node_contents,
                                $self->get_conf('EXTERNAL_CROSSREF_EXTENSION'),
                                      $defaults{'EXTENSION'});
 
@@ -1409,8 +1409,9 @@ our @no_args_commands_contexts
 
 # redefined functions
 #
-# Texinfo::Translations::cache_translate_string redefined to call user defined function.
-sub html_cache_translate_string($$$;$) {
+# based on Texinfo::Translations::cache_translate_string, additionally
+# calls user defined function.
+sub _html_cache_translate_string($$$;$) {
   my ($self, $string, $lang_translations, $translation_context) = @_;
 
   if (defined($self->{'formatting_function'}->{'format_translate_message'})) {
@@ -1473,7 +1474,7 @@ sub cdt($$;$$) {
                                     $replaced_substrings,
                                     $self->get_conf('DEBUG'),
                                     $translation_context, $self,
-                                    \&html_cache_translate_string);
+                                    \&_html_cache_translate_string);
 }
 
 sub cdt_string($$;$$) {
@@ -1483,7 +1484,7 @@ sub cdt_string($$;$$) {
                                     $self->{'current_lang_translations'},
                                     $replaced_substrings,
                                     $translation_context, $self,
-                                    \&html_cache_translate_string);
+                                    \&_html_cache_translate_string);
 }
 
 
@@ -1720,7 +1721,7 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
   }
 }
 
-# used to show the built-in CSS rules
+# used to show the built-in CSS rules.  Called form main prorgam.
 sub builtin_default_css_text() {
   my $css_text = '';
   foreach my $css_rule (sort(keys(%default_css_element_class_styles))) {
@@ -4380,7 +4381,7 @@ sub _convert_xref_command($$$$) {
          # possible to construct an infinite recursion with nodes only
          # as the node must both be a reference target and refer to a specific
          # target at the same time, which is not possible.
-         and not _command_is_in_referred_command_stack($self,
+         and not command_is_in_referred_command_stack($self,
                                                $associated_title_command)) {
         if (in_string($self)) {
           $name = $self->command_text($associated_title_command, 'string');
@@ -4410,8 +4411,8 @@ sub _convert_xref_command($$$$) {
          # this condition avoids infinite recursions, example with
          # USE_NODES=0 and node referring to the section and section referring
          # to the node
-              and not _command_is_in_referred_command_stack($self,
-                                                            $target_root)) {
+              and not command_is_in_referred_command_stack($self,
+                                                           $target_root)) {
         if ($self->get_conf('xrefautomaticsectiontitle') eq 'on') {
           if (in_string($self)) {
             $name = $self->command_name($target_root, 'string');
@@ -7829,7 +7830,7 @@ sub converter_initialize($) {
   my $self = shift;
 
   # beginning of initialization done either in Perl or XS
-  html_converter_initialize_beginning($self);
+  _html_converter_initialize_beginning($self);
 
   $self->{'output_units_conversion'} = {};
   my $customized_output_units_conversion
@@ -8241,7 +8242,7 @@ sub converter_initialize($) {
   $self->{'stage_handlers'} = Texinfo::Config::GNUT_get_stage_handlers();
 
 
-  XS_html_converter_get_customization($self,
+  _XS_html_converter_get_customization($self,
                              \%default_formatting_references,
                              \%default_css_string_formatting_references,
                              \%default_commands_open,

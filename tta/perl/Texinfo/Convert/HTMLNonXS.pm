@@ -979,7 +979,7 @@ sub _pop_referred_command_stack($) {
   pop @{$self->{'referred_command_stack'}};
 }
 
-sub _command_is_in_referred_command_stack($$) {
+sub command_is_in_referred_command_stack($$) {
   my ($self, $command) = @_;
 
   return grep {$_ eq $command} @{$self->{'referred_command_stack'}};
@@ -1762,8 +1762,8 @@ sub _reset_unset_no_arg_commands_formatting_context($$$$;$) {
                                                 $explanation);
       _pop_document_context($self);
     } elsif ($reset_context eq 'css_string') {
-      $translation_result = $self->html_convert_css_string($translated_tree,
-                                                           $context_str);
+      $translation_result = _html_convert_css_string($self, $translated_tree,
+                                                     $context_str);
     }
     $no_arg_command_context->{'text'} = $translation_result;
   }
@@ -2671,7 +2671,7 @@ sub _prepare_css($) {
   push @{$self->{'files_css_rule_lines'}}, @css_rule_lines;
 }
 
-sub html_converter_initialize_beginning($) {
+sub _html_converter_initialize_beginning($) {
   my $self = shift;
 
   # used in initialization.  Set if undef
@@ -2712,7 +2712,7 @@ sub html_converter_initialize_beginning($) {
   _prepare_css($self);
 }
 
-sub XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$) {
+sub _XS_html_converter_get_customization($$$$$$$$$$$$$$$$$$$) {
 }
 
 # conversion with convert and output and the functions they call
@@ -4836,7 +4836,7 @@ sub _node_redirections($$$$) {
         $node_filename = $self->get_conf('TOP_NODE_FILE_TARGET');
       } else {
         my ($target_filebase, $external_file_extension, $id)
-          = $self->standard_label_id_file($normalized, $label_element,
+          = _standard_label_id_file($self, $normalized, $label_element,
                                $self->get_conf('EXTERNAL_CROSSREF_EXTENSION'),
                                      $defaults{'EXTENSION'});
         $node_filename = $target_filebase.$external_file_extension;

@@ -1,5 +1,25 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/HTML.pm,
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm,
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs: prepend _ to function
+	names for functions that are not supposed to be called outside of
+	HTML converter.
+
+	* tta/perl/Texinfo/Convert/HTMLNonXS.pm
+	(command_is_in_referred_command_stack),
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs
+	(command_is_in_referred_command_stack): rename
+	_command_is_in_referred_command_stack as
+	command_is_in_referred_command_stack.  Update callers.
+
+	* tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs: remove
+	_push_referred_command_stack_command and _pop_referred_command_stack
+	XS interfaces, the functions are only called from already overriden
+	functions.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs: fix names in strings
 	used in warn message.  Modify 2 XS interface names.
 

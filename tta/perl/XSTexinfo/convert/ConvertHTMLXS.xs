@@ -82,8 +82,6 @@ MODULE = Texinfo::Convert::HTML	PACKAGE = Texinfo::Convert::HTML
 # they are enabled, and they can/may need to be overriden in a declaration
 PROTOTYPES: ENABLE
 
-# HTML
-
 # HTML C data initialization independent of customization and of Perl
 # default variables.
 int
@@ -169,12 +167,12 @@ converter_defaults (SV *converter_in, SV *conf_sv=0)
         RETVAL
 
 void
-html_converter_initialize_beginning (SV *converter_in)
+_html_converter_initialize_beginning (SV *converter_in)
       PREINIT:
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in,
-                                 "html_converter_initialize_beginning");
+                                 "_html_converter_initialize_beginning");
         if (self)
           {
             html_converter_initialize_beginning (self);
@@ -182,12 +180,12 @@ html_converter_initialize_beginning (SV *converter_in)
           }
 
 void
-XS_html_converter_get_customization (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_code_types, SV *customized_pre_class_types, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
+_XS_html_converter_get_customization (SV *converter_in, SV *default_formatting_references, SV *default_css_string_formatting_references, SV *default_commands_open, SV *default_commands_conversion, SV *default_css_string_commands_conversion, SV *default_types_open, SV *default_types_conversion, SV *default_css_string_types_conversion, SV *default_output_units_conversion, SV *default_special_unit_body, SV *customized_upper_case_commands, SV *customized_code_types, SV *customized_pre_class_types, SV *customized_accent_entities, SV *customized_style_commands, SV *customized_no_arg_commands_formatting, SV *customized_special_unit_info, SV *customized_direction_strings)
       PREINIT:
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in,
-                                 "XS_html_converter_get_customization");
+                                 "_XS_html_converter_get_customization");
 
         /* initialize first the special unit info, as the special unit
            directions are needed for the remainder of initialization.
@@ -2084,43 +2082,14 @@ get_associated_formatted_inline_content (SV *converter_in, SV *element_sv)
     OUTPUT:
         RETVAL
 
-# we do not increase here and decrease in pop the element_hv refcount, under
-# the assumption that there is already a reference held by the C tree on
-# the element.
-void
-_push_referred_command_stack_command (SV *converter_in, SV *element_sv)
-      PREINIT:
-        CONVERTER *self;
-     CODE:
-        self = get_sv_converter (converter_in,
-                                 "_push_referred_command_stack_command");
-        if (self)
-          {
-            const HV *element_hv = (HV *) SvRV (element_sv);
-            push_element_reference_stack_element (
-             &self->referred_command_stack, 0, (const void *)element_hv);
-          }
-
-void
-_pop_referred_command_stack (SV *converter_in)
-      PREINIT:
-        CONVERTER *self;
-     CODE:
-        self = get_sv_converter (converter_in,
-                                 "_pop_referred_command_stack");
-        if (self)
-          {
-            pop_element_reference_stack (&self->referred_command_stack);
-          }
-
 int
-_command_is_in_referred_command_stack (SV *converter_in, SV *element_sv)
+command_is_in_referred_command_stack (SV *converter_in, SV *element_sv)
       PREINIT:
         CONVERTER *self;
         int found = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                              "_command_is_in_referred_command_stack");
+                              "command_is_in_referred_command_stack");
         if (self)
           {
             const HV *element_hv = (HV *) SvRV (element_sv);
@@ -2155,7 +2124,6 @@ _check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_info_s
     OUTPUT:
         RETVAL
 
-# end of HTML customization API overrides
 
 
 # currently not used, convert_tree is not called on trees registered in XS
