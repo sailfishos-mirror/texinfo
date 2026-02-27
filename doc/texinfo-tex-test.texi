@@ -1018,15 +1018,6 @@ right right right right right right right right
 @end multitable
 @end quotation
 
-@noindent With more columns:
-
-@quotation
-@multitable {@w{@code{português} or}} {@code{do} @code{re}/@code{re} @code{mi} @code{fa} @code{sol} @code{la} @code{sib} @code{si}}
-@item @code{català} or@*@ @code{catalan}
-  @tab @code{do} @code{re} @code{mi} @code{fa} @code{sol} @code{la} @code{sib} @code{si}
-@end multitable
-@end quotation
-
 after after after after after after after after
 after after after after after after after after
 after after after after after after after after

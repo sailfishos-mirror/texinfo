@@ -1,5 +1,11 @@
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (@multitable):
+	Remove a second test case of @multitable inside @quotation.
+	It's not clear this added anything beyond the first test case.
+
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (Line macros):
 	Add a heading line to separate a test case.  This makes it more
 	clear when the "macro use/macro output" pairs end.
