@@ -247,9 +247,6 @@ div.header { text-align: right }
 #slider {
     background: #f0f0f0c0;
 }
-div.toc-sidebar nav, div.toc-sidebar header, .sidebar-hider {
-    background: #f0f0f0d0;
-}
 body[show-sidebar="yes"] .sidebar-hider {
     border-width: thin;
 }
