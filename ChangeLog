@@ -1,5 +1,10 @@
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.css (div[node]): Change "overflow" setting back to "auto",
+	as a scrollbar was missing on the Top node.
+
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* README-hacking: minor changes to section on checking with valgrind
 
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
