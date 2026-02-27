@@ -286,7 +286,7 @@ My @headword{something}.
 
 @node top
 @top A @somed{next}
-'],
+', {'skip' => 'enable after 7.3 release'}],
 ['no_empty_line_between_headings',
 '@top Top
 @subheading Subheading

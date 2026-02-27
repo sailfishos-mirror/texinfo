@@ -1,3 +1,8 @@
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/t/08misc_commands.t (definfoenclose_command_on_section_line):
+	Skip test.
+
 2026-02-25 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/main/node_name_normalization.c
