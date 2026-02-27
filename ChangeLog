@@ -1,5 +1,9 @@
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* README-hacking: minor changes to section on checking with valgrind
+
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/Makefile.am (EXTRA_DIST): distribute doc/image.pdf to
 	allow texinfo-tex-test.texi to be built.
 

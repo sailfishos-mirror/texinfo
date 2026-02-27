@@ -292,13 +292,16 @@ run all tests with valgrind:
   report leaks unless info is compiled with CFLAGS='-O0'.
 * edit install-info/tests/defs.in, uncomment valgrind line and run
   "./config.status install-info/tests/defs" to regenerate defs.
+  Under install-info, run "make clean ; make CFLAGS='-O0' ; make check"
+  and check tests/*.val.log.
   Note that many tests may report leaks unless install-info is compiled
   with CFLAGS='-O0'.
 
 * XS modules memory leak check checking with valgrind
   Add line "use Perl::Destruct::Level level => 1;" to texi2any.pl
   when running 'valgrind --leak-check=full' to make perl clean it
-  its allocations or set PERL_DESTRUCT_LEVEL=2 in the environment.
+  its allocations or set PERL_DESTRUCT_LEVEL=2 in the environment (if
+  Perl was built with debugging support; see "man Perl::Destruct::Level")
   Run e.g.
       valgrind --suppressions=texi2any.supp --log-file=val.log \
                --leak-check=full \
