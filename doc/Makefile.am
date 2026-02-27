@@ -72,7 +72,7 @@ TXI_XLATE = txi-ca.tex txi-cs.tex txi-de.tex txi-en.tex txi-es.tex \
 EXTRA_DIST = epsf.tex fdl.texi generate_html_doc_texi.pl \
              texinfo.tex \
              $(man_MANS) $(TXI_XLATE) \
-             texinfo-tex-test.texi texinfo-tex-test.WIDOWs \
+             texinfo-tex-test.texi image.pdf texinfo-tex-test.WIDOWs \
              texinfo-ja.tex short-sample-ja.texi \
              texinfo-zh.tex short-sample-zh.texi
 

@@ -1,5 +1,10 @@
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (EXTRA_DIST): distribute doc/image.pdf to
+	allow texinfo-tex-test.texi to be built.
+
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (@multitable):
 	Remove a second test case of @multitable inside @quotation.
 	It's not clear this added anything beyond the first test case.
