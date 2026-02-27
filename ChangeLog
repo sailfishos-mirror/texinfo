@@ -201,11 +201,6 @@
 	Call build_perl_info.c:perl_only_strndup as strndup is not
 	defined on MinGW.  Report from Eli and fix from Patrice.
 
-2026-02-19 Patrice Dumas  <pertusus@free.fr>
-
-	* tta/C/convert/call_html_perl_function.c: add includes for libc files
-	used in the code.  Report from Eli Zaretskii.
-
 2026-02-18  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* README-hacking: tweak sample git hook not to operate
