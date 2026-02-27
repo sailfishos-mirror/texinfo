@@ -1,5 +1,14 @@
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	js: Fix scrolling to top of scroll bar for Top node
+
+	* js/info.js (init_sidebar) <scan_toc, add_header>:
+	Use "toc-index" for ID of link at top of sidebar, as "index"
+	is not unique and so scrolling to the top of the sidebar can
+	fail when the user navigates to the Top node.
+
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.js (Sidebar): Remove short contents as well as contents
 	from Top node.
 

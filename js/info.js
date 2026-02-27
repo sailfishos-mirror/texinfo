@@ -1329,7 +1329,7 @@ init_sidebar ()
     if (linkid === config.TOP_ID || linkid === config.CONTENTS_ID)
       {
         hide_grand_child_nodes (ul);
-        res = document.getElementById(linkid);
+        res = document.getElementById("toc-" + config.TOP_ID);
       }
     else
       {
@@ -1390,7 +1390,7 @@ init_sidebar ()
       {
         var a = document.createElement ("a");
         a.setAttribute ("href", config.TOP_NAME);
-        a.setAttribute ("id", config.TOP_ID);
+        a.setAttribute ("id", "toc-" + config.TOP_ID);
 
         let header = elem.previousSibling;
         header.appendChild (a);
