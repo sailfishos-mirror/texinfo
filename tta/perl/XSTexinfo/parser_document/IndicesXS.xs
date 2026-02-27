@@ -42,7 +42,7 @@
  /* See the NOTE in build_perl_info.c on use of functions related to
     memory allocation */
 
-MODULE = Texinfo::IndicesXS	PACKAGE = Texinfo::IndicesXS
+MODULE = Texinfo::Indices	PACKAGE = Texinfo::Indices
 
 PROTOTYPES: ENABLE
 

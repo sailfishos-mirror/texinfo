@@ -1,4 +1,4 @@
-# Indices.pm: merge and sort indices
+# Indices.pm: merge and sort indices.  Functions without XS override.
 #
 # Copyright 2010-2026 Free Software Foundation, Inc.
 #
@@ -22,7 +22,7 @@
 # interface is, in the general case, with the document or converter
 # when possible.
 #
-# ALTIMP XSTexinfo/parser_document/IndicesXS.xs
+# ALTIMP C/main/manipulate_indices.c
 
 package Texinfo::Indices;
 
@@ -44,8 +44,6 @@ use strict;
 use Carp qw(cluck confess);
 
 use Unicode::Normalize;
-
-use Texinfo::IndicesXS;
 
 use Texinfo::XSLoader;
 
@@ -71,34 +69,20 @@ our $VERSION = '7.3dev';
 # setup_index_entry_keys_formatting
 # index_entry_first_letter_text_or_command
 
-# There is a full coverage by the C implementation.
-# Relevant XS interfaces are all implemented.
-# index_entry_first_letter_text_or_command has a C implementation, but no
-# XS override, because it is only a helper function, if needed the calling
-# functions should have XS interfaces.
-
 my $XS_convert = Texinfo::XSLoader::XS_convert_enabled();
 
-# used in conversion only, and should only be loaded with XS converters
-my %XS_convert_overrides = (
-  "Texinfo::Indices::index_entry_element_sort_string"
-    => "Texinfo::IndicesXS::index_entry_element_sort_string",
-  "Texinfo::Indices::setup_index_entry_keys_formatting",
-    => "Texinfo::IndicesXS::setup_index_entry_keys_formatting",
-);
-
-our $module_loaded = 0;
-sub import {
-  if (!$module_loaded) {
-    if ($XS_convert) {
-      for my $sub (keys %XS_convert_overrides) {
-        Texinfo::XSLoader::override ($sub, $XS_convert_overrides{$sub});
-      }
-    }
-    $module_loaded = 1;
+BEGIN {
+  my $shared_library_name = "IndicesXS";
+  if (!Texinfo::XSLoader::XS_convert_enabled()) {
+    undef $shared_library_name;
   }
-  # The usual import method
-  goto &Exporter::import;
+  my $loaded_package = Texinfo::XSLoader::init (
+    "Texinfo::Indices",
+    "Texinfo::IndicesNonXS",
+    $shared_library_name,
+    undef,
+    ['texinfo', 'texinfoxs'],
+  );
 }
 
 sub _sort_key($$) {
@@ -138,57 +122,6 @@ sub _sort_index_entries($$) {
     $res = ($key1->{'index_name'} cmp $key2->{'index_name'});
   }
   return $res;
-}
-
-# Only called from converters.  Has an XS override
-sub setup_index_entry_keys_formatting($) {
-  my $customization_information = shift;
-
-  my $text_options;
-
-  my $additional_options = {};
-
-  if (not $customization_information->get_conf('ENABLE_ENCODING')
-      or ($customization_information->get_conf('OUTPUT_ENCODING_NAME')
-          and lc($customization_information->get_conf('OUTPUT_ENCODING_NAME'))
-                  ne 'utf-8')) {
-    $additional_options->{'sort_string'} = 1;
-  }
-
-  $text_options
-    = Texinfo::Convert::Text::copy_options_for_convert_text(
-                             $customization_information, $additional_options);
-  return $text_options;
-}
-
-# can be used for subentries.
-# $DOCUMENT_INFO is used in XS to retrieve the document.
-sub index_entry_element_sort_string($$$$;$) {
-  my ($document_info, $main_entry, $index_entry_element, $options,
-      $prefer_reference_element) = @_;
-
-  my $sort_string;
-  if (exists($index_entry_element->{'extra'})
-      and exists($index_entry_element->{'extra'}->{'sortas'})) {
-    $sort_string = $index_entry_element->{'extra'}->{'sortas'};
-  } else {
-    my $entry_tree_element
-      = Texinfo::Common::index_content_element($index_entry_element,
-                                               $prefer_reference_element);
-    $sort_string = Texinfo::Convert::Text::convert_to_text(
-                              $entry_tree_element, $options);
-    # Not done for @sortas, in particular to be able to still sort using
-    # the ignored characters for index sorting for some entries.
-    if (defined($main_entry->{'entry_element'}
-                       ->{'extra'}->{'index_ignore_chars'})) {
-      my $ignore_chars = quotemeta($main_entry->{'entry_element'}
-                                  ->{'extra'}->{'index_ignore_chars'});
-      if ($ignore_chars ne '') {
-        $sort_string =~ s/[$ignore_chars]//g;
-      }
-    }
-  }
-  return $sort_string;
 }
 
 # This is a stub for the Unicode::Collate module.  Although this module is

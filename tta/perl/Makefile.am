@@ -85,7 +85,7 @@ dist_modules_DATA = \
  Texinfo/DocumentNonXS.pm \
  Texinfo/Documentlanguages.pm \
  Texinfo/Indices.pm \
- Texinfo/IndicesXS.pm \
+ Texinfo/IndicesNonXS.pm \
  Texinfo/ManipulateTree.pm \
  Texinfo/ManipulateTreeNonXS.pm \
  Texinfo/MiscXS.pm \
