@@ -187,7 +187,7 @@ XS_html_converter_get_customization (SV *converter_in, SV *default_formatting_re
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in,
-                                 "html_converter_customization_sv");
+                                 "XS_html_converter_get_customization");
 
         /* initialize first the special unit info, as the special unit
            directions are needed for the remainder of initialization.
@@ -289,7 +289,7 @@ output (SV *converter_in, SV *document_in)
            output units references in Perl */
         html_prepare_conversion_units_targets (self, document_name);
 
-        /* html_translate_names */
+        /* _translate_names */
         html_translate_names (self);
         build_html_formatting_state (self);
 
@@ -410,7 +410,7 @@ convert (SV *converter_in, SV *document_in)
         if (self->external_references_number > 0)
           store_output_units_texinfo_tree (self, converter_in);
 
-        /* html_translate_names */
+        /* _translate_names */
         /* setup untranslated strings */
         html_translate_names (self);
         build_html_formatting_state (self);
@@ -442,7 +442,7 @@ output_internal_links (SV *converter_in)
      PREINIT:
         CONVERTER *self;
      CODE:
-        self = get_sv_converter (converter_in, "html_output_internal_links");
+        self = get_sv_converter (converter_in, "output_internal_links");
         if (self)
           {
             char *result = html_output_internal_links (self);
@@ -469,7 +469,7 @@ _new_document_context (SV *converter_in, char *context_name, ...)
         unsigned long context_type = 0;
         enum command_id block_command = 0;
       CODE:
-        self = get_sv_converter (converter_in, "html_new_document_context");
+        self = get_sv_converter (converter_in, "_new_document_context");
         if (items > 2 && SvOK(ST(2)))
           context_type = SvIV (ST(2));
         if (items > 3 && SvOK(ST(3)))
@@ -490,7 +490,7 @@ _pop_document_context (SV *converter_in)
       PREINIT:
         CONVERTER *self;
       CODE:
-        self = get_sv_converter (converter_in, "html_pop_document_context");
+        self = get_sv_converter (converter_in, "_pop_document_context");
         if (self)
           {
             html_pop_document_context (self);
@@ -502,7 +502,7 @@ _open_command_update_context (SV *converter_in, char *command_name)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_open_command_update_context");
+                                 "_open_command_update_context");
         RETVAL = 0;
         if (self)
           {
@@ -518,7 +518,7 @@ _convert_command_update_context (SV *converter_in, char *command_name)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_convert_command_update_context");
+                                 "_convert_command_update_context");
         if (self)
           {
             enum command_id cmd = lookup_builtin_command (command_name);
@@ -531,7 +531,7 @@ _open_type_update_context (SV *converter_in, char *type_name)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_open_type_update_context");
+                                 "_open_type_update_context");
         if (self)
           {
             enum element_type type = find_element_type (type_name);
@@ -544,7 +544,7 @@ _convert_type_update_context (SV *converter_in, char *type_name)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_convert_type_update_context");
+                                 "_convert_type_update_context");
         if (self)
           {
             enum element_type type = find_element_type (type_name);
@@ -557,7 +557,7 @@ _set_code_context (SV *converter_in, int code)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_set_code_context");
+                                 "_set_code_context");
         if (self)
           html_set_code_context (self, code);
 
@@ -567,7 +567,7 @@ _pop_code_context (SV *converter_in)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_pop_code_context");
+                                 "_pop_code_context");
         if (self)
           html_pop_code_context (self);
 
@@ -577,7 +577,7 @@ _set_string_context (SV *converter_in)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_set_string_context");
+                                 "_set_string_context");
         if (self)
           html_set_string_context (self);
 
@@ -587,7 +587,7 @@ _unset_string_context (SV *converter_in)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_unset_string_context");
+                                 "_unset_string_context");
         if (self)
           html_unset_string_context (self);
 
@@ -597,7 +597,7 @@ _set_raw_context (SV *converter_in)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_set_raw_context");
+                                 "_set_raw_context");
         if (self)
           html_set_raw_context (self);
 
@@ -607,7 +607,7 @@ _unset_raw_context (SV *converter_in)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_unset_raw_context");
+                                 "_unset_raw_context");
         if (self)
           html_unset_raw_context (self);
 
@@ -617,7 +617,7 @@ _set_multiple_conversions (SV *converter_in, SV *multiple_pass_sv)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_set_multiple_conversions");
+                                 "_set_multiple_conversions");
         if (self)
           {
             char *multiple_pass;
@@ -634,7 +634,7 @@ _unset_multiple_conversions (SV *converter_in)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_unset_multiple_conversions");
+                                 "_unset_multiple_conversions");
         if (self)
           html_unset_multiple_conversions (self);
 
@@ -645,7 +645,7 @@ multi_expanded_region (SV *converter_in)
         const char *multi_expanded = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_multi_expanded_region");
+                                 "multi_expanded_region");
         if (self)
           multi_expanded = html_multi_expanded_region (self);
 
@@ -663,7 +663,7 @@ _debug_print_html_contexts (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_debug_print_html_contexts");
+                                 "_debug_print_html_contexts");
         if (self)
           {
             char *result = debug_print_html_contexts (self);
@@ -681,7 +681,7 @@ get_info (SV *converter_in, const char *converter_info)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_get_info");
+                                 "get_info");
         RETVAL = pass_sv_converter_info (self, converter_info, converter_in);
     OUTPUT:
         RETVAL
@@ -692,7 +692,7 @@ in_math (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_math");
+                                 "in_math");
         RETVAL = html_in_math (self);
     OUTPUT:
         RETVAL
@@ -703,7 +703,7 @@ in_preformatted_context (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_preformatted_context");
+                                 "in_preformatted_context");
         RETVAL = html_in_preformatted_context (self);
     OUTPUT:
         RETVAL
@@ -714,7 +714,7 @@ inside_preformatted (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_inside_preformatted");
+                                 "inside_preformatted");
         RETVAL = html_inside_preformatted (self);
     OUTPUT:
         RETVAL
@@ -725,7 +725,7 @@ in_upper_case (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_upper_case");
+                                 "in_upper_case");
         RETVAL = html_in_upper_case (self);
     OUTPUT:
         RETVAL
@@ -736,7 +736,7 @@ in_non_breakable_space (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_non_breakable_space");
+                                 "in_non_breakable_space");
         RETVAL = html_in_non_breakable_space (self);
     OUTPUT:
         RETVAL
@@ -747,7 +747,7 @@ in_space_protected (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_space_protected");
+                                 "in_space_protected");
         RETVAL = html_in_space_protected (self);
     OUTPUT:
         RETVAL
@@ -758,7 +758,7 @@ in_code (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_code");
+                                 "in_code");
         RETVAL = html_in_code (self);
     OUTPUT:
         RETVAL
@@ -769,7 +769,7 @@ in_string (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_string");
+                                 "in_string");
         RETVAL = html_in_string (self);
     OUTPUT:
         RETVAL
@@ -780,7 +780,7 @@ in_verbatim (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_verbatim");
+                                 "in_verbatim");
         RETVAL = html_in_verbatim (self);
     OUTPUT:
         RETVAL
@@ -791,7 +791,7 @@ in_raw (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_raw");
+                                 "in_raw");
         RETVAL = html_in_raw (self);
     OUTPUT:
         RETVAL
@@ -802,7 +802,7 @@ in_multiple_conversions (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_in_multiple_conversions");
+                                 "in_multiple_conversions");
         RETVAL = html_in_multiple_conversions (self);
     OUTPUT:
         RETVAL
@@ -813,7 +813,7 @@ paragraph_number (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_paragraph_number");
+                                 "paragraph_number");
         RETVAL = html_paragraph_number (self);
     OUTPUT:
         RETVAL
@@ -824,7 +824,7 @@ preformatted_number (SV *converter_in)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_preformatted_number");
+                                 "preformatted_number");
         RETVAL = html_preformatted_number (self);
     OUTPUT:
         RETVAL
@@ -836,7 +836,7 @@ top_block_command (SV *converter_in)
         enum command_id cmd;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_top_block_command");
+                                 "top_block_command");
         cmd = html_top_block_command (self);
         RETVAL = builtin_command_name (cmd);
     OUTPUT:
@@ -851,7 +851,7 @@ preformatted_classes_stack (SV *converter_in)
         size_t i;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_preformatted_classes_stack");
+                                 "preformatted_classes_stack");
         preformatted_classes_stack = html_preformatted_classes_stack (self);
         preformatted_classes_av = newAV();
         for (i = 0; i < preformatted_classes_stack->top; i++)
@@ -877,7 +877,7 @@ in_align (SV *converter_in)
         const CONVERTER *self;
         enum command_id cmd;
      CODE:
-        self = get_sv_converter (converter_in, "html_in_align");
+        self = get_sv_converter (converter_in, "in_align");
         cmd = html_in_align (self);
         RETVAL = builtin_command_name (cmd);
     OUTPUT:
@@ -888,7 +888,7 @@ current_filename (SV *converter_in)
      PREINIT:
         const CONVERTER *self;
      CODE:
-        self = get_sv_converter (converter_in, "html_current_filename");
+        self = get_sv_converter (converter_in, "current_filename");
         RETVAL = newSVpv_utf8 (self->current_filename.filename, 0);
     OUTPUT:
         RETVAL
@@ -898,7 +898,7 @@ current_output_unit (SV *converter_in)
      PREINIT:
         CONVERTER *self;
      CODE:
-        self = get_sv_converter (converter_in, "html_current_output_unit");
+        self = get_sv_converter (converter_in, "current_output_unit");
         if (!self->current_output_unit)
           RETVAL = newSV (0);
         else
@@ -908,7 +908,7 @@ current_output_unit (SV *converter_in)
             if (!self->current_output_unit->hv)
               {
                 fprintf (stderr,
-                         "BUG: html_current_output_unit No hv: %zu %s\n",
+                         "BUG: XS current_output_unit No hv: %zu %s\n",
                          self->current_output_unit->index,
                          self->current_output_unit->unit_filename);
                 RETVAL = newSV (0);
@@ -927,7 +927,7 @@ count_elements_in_filename (SV *converter_in, const char *spec, filename)
         const CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_count_elements_in_filename");
+                                 "count_elements_in_filename");
         if (self)
           {
             int i;
@@ -958,7 +958,7 @@ is_format_expanded (SV *converter_in, format)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_is_format_expanded");
+                                 "is_format_expanded");
         if (self)
           {
             int expanded = format_expanded_p (self->expanded_formats, format);
@@ -976,7 +976,7 @@ register_file_information (SV *converter_in, key, int value)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_register_file_information");
+                                 "register_file_information");
         if (self)
           {
             char *stored_key = add_string (key, &self->small_strings);
@@ -996,7 +996,7 @@ get_file_information (SV *converter_in, key, ...)
         SV *result_sv;
      PPCODE:
         self = get_sv_converter (converter_in,
-                                 "html_get_file_information");
+                                 "get_file_information");
         if (items > 2 && SvOK(ST(2)))
           filename_sv = ST(2);
         if (self)
@@ -1027,7 +1027,7 @@ command_id (SV *converter_in, SV *element_sv)
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                             "html_command_id", &self);
+                                             "command_id", &self);
         if (element)
           id = html_command_id (self, element);
 
@@ -1047,7 +1047,7 @@ command_contents_target (SV *converter_in, SV *element_sv, cmdname)
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                             "html_command_contents_target",
+                                             "command_contents_target",
                                              &self);
         if (element)
           {
@@ -1070,7 +1070,7 @@ footnote_location_target (SV *converter_in, SV *element_sv)
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                             "html_footnote_location_target",
+                                             "footnote_location_target",
                                              &self);
         if (element)
           id = html_footnote_location_target (self, element);
@@ -1090,7 +1090,7 @@ command_filename (SV *converter_in, SV *element_sv)
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                             "html_command_filename",
+                                             "command_filename",
                                              &self);
         if (element)
           {
@@ -1117,7 +1117,7 @@ command_root_element_command (SV *converter_in, SV *element_sv)
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                    "html_command_root_element_command",
+                                          "command_root_element_command",
                                              &self);
         if (element)
           {
@@ -1140,7 +1140,7 @@ command_node (SV *converter_in, SV *element_sv)
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                             "html_command_node", &self);
+                                             "command_node", &self);
         if (element)
           node_element = html_command_node (self, element);
 
@@ -1159,7 +1159,7 @@ _internal_command_href (SV *converter_in, SV *element_sv, SV *source_filename_sv
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                        "html_internal_command_href", &self);
+                                        "_internal_command_href", &self);
 
         if (element)
           {
@@ -1192,7 +1192,7 @@ command_contents_href (SV *converter_in, SV *element_sv, cmdname, SV *source_fil
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                        "html_command_contents_href", &self);
+                                        "command_contents_href", &self);
 
         if (element)
           {
@@ -1222,7 +1222,7 @@ footnote_location_href (SV *converter_in, SV *element_sv, SV *source_filename_sv
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                        "html_footnote_location_href", &self);
+                                        "footnote_location_href", &self);
         if (element)
           {
             const char *source_filename = 0;
@@ -1257,7 +1257,7 @@ _internal_command_text (SV *converter_in, SV *element_sv, const char *type)
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                        "html_internal_command_text", &self);
+                                        "_internal_command_text", &self);
         if (element)
           {
             int j;
@@ -1292,7 +1292,7 @@ _internal_command_name (SV *converter_in, SV *element_sv, const char *type)
         const ELEMENT *element;
      CODE:
         element = element_converter_from_sv (converter_in, element_sv,
-                                     "html_internal_command_name", &self);
+                                     "_internal_command_name", &self);
         if (element)
           {
             int j;
@@ -1327,7 +1327,7 @@ command_description (SV *converter_in, SV *element_sv, const char *type=0)
          const ELEMENT *element;
      CODE:
          element = element_converter_from_sv (converter_in, element_sv,
-                                         "html_command_description", &self);
+                                         "command_description", &self);
          if (element)
            {
              int j;
@@ -1513,7 +1513,7 @@ direction_string (SV *converter_in, direction_name, string_type_name, SV* contex
         const char *result = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_global_direction_unit");
+                                 "direction_string");
         if (self)
           {
             enum direction_string_context context = TDS_context_normal;
@@ -1590,7 +1590,7 @@ global_direction_unit (SV *converter_in, direction_name)
         const OUTPUT_UNIT *output_unit = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_global_direction_unit");
+                                 "global_direction_unit");
         if (self)
           {
             if (self->global_units_direction_names.number == 0)
@@ -1616,7 +1616,7 @@ global_direction_text (SV *converter_in, direction_name)
         int found = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_global_direction_text");
+                                 "global_direction_text");
         if (self)
           {
             if (self->global_texts_direction_names.number == 0)
@@ -1637,7 +1637,7 @@ _translate_names (SV *converter_in)
   PREINIT:
         CONVERTER *self = 0;
      CODE:
-        self = get_sv_converter (converter_in, "html_translate_names");
+        self = get_sv_converter (converter_in, "_translate_names");
 
         html_translate_names (self);
         build_html_formatting_state (self);
@@ -1652,7 +1652,7 @@ _XS_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
         int args_nr = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_set_shared_conversion_state");
+                                 "_XS_set_shared_conversion_state");
         args_nr = items - 3;
         if (args_nr > 0)
           {
@@ -1677,7 +1677,7 @@ _XS_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
         int args_nr = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_get_shared_conversion_state");
+                                 "_XS_get_shared_conversion_state");
         args_nr = items - 3;
         if (args_nr > 0)
           {
@@ -1702,7 +1702,7 @@ register_opened_section_level (SV *converter_in, filename, int level, close_stri
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_register_opened_section_level");
+                                 "register_opened_section_level");
         if (self)
           {
             html_register_opened_filename_section_level (self, filename,
@@ -1717,7 +1717,7 @@ close_registered_sections_level (SV *converter_in, filename, int level)
         AV *closed_elements_av;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_close_registered_sections_level");
+                                 "close_registered_sections_level");
         closed_elements_av = newAV ();
         if (self)
           {
@@ -1750,7 +1750,7 @@ set_global_direction (SV *converter_in, direction, ...)
         const char *node_name = 0;
     CODE:
         self = get_sv_converter (converter_in,
-                                 "html_set_global_direction");
+                                 "set_global_direction");
         if (items > 2 && SvOK(ST(2)))
           node_name = SvPVutf8_nolen(ST(2));
 
@@ -1803,7 +1803,7 @@ html_get_css_elements_classes (SV *converter_in, ...)
         AV *css_selector_av;
     CODE:
         self = get_sv_converter (converter_in,
-                                 "html_attribute_class");
+                                 "html_get_css_elements_classes");
         if (items > 1 && SvOK(ST(1)))
           filename_sv = ST(1);
 
@@ -1842,7 +1842,7 @@ css_add_info (SV *converter_in, char *spec, css_info)
         CONVERTER *self;
     CODE:
         self = get_sv_converter (converter_in,
-                                 "html_css_add_info");
+                                 "css_add_info");
         if (self)
           {
             enum css_info_type type = html_get_css_info_spec (spec);
@@ -1856,7 +1856,7 @@ css_set_selector_style (SV *converter_in, css_info, SV *css_style_sv)
         CONVERTER *self;
     CODE:
         self = get_sv_converter (converter_in,
-                                 "html_css_set_selector_style");
+                                 "css_set_selector_style");
         if (self)
           {
             const char *css_style = 0;
@@ -1874,7 +1874,7 @@ css_get_info (SV *converter_in, char *spec)
         AV *result_av = 0;
     CODE:
         self = get_sv_converter (converter_in,
-                                 "html_css_add_info");
+                                 "css_add_info");
         if (self)
           {
             const STRING_LIST *result;
@@ -1897,7 +1897,7 @@ css_get_selector_style (SV *converter_in, css_info)
         const char *css_style = 0;
     CODE:
         self = get_sv_converter (converter_in,
-                                 "html_css_get_selector_style");
+                                 "css_get_selector_style");
         if (self)
           {
             css_style = html_css_get_selector_style (self, css_info);
@@ -1920,7 +1920,7 @@ register_footnote (SV *converter_in, SV *command, footid, docid, int number_in_d
         ELEMENT *footnote = 0;
       CODE:
         self = get_sv_converter (converter_in,
-                                 "html_register_footnote");
+                                 "register_footnote");
         if (self && self->document)
           {
             /* This code is about the same as get_perl_info.c
@@ -1969,7 +1969,7 @@ get_pending_footnotes (SV *converter_in)
         AV *pending_footnotes_av;
       CODE:
         self = get_sv_converter (converter_in,
-                                 "html_register_footnote");
+                                 "get_pending_footnotes");
         pending_footnotes_av = newAV ();
         if (self && self->pending_footnotes.top)
           {
@@ -1994,7 +1994,7 @@ register_pending_formatted_inline_content (SV *converter_in, category, ...)
         const char *inline_content = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                      "html_register_pending_formatted_inline_content");
+                      "register_pending_formatted_inline_content");
         if (self)
           {
             if (items > 2 && SvOK(ST(2)))
@@ -2012,7 +2012,7 @@ cancel_pending_formatted_inline_content (SV *converter_in, category)
         char *inline_content = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                         "html_cancel_pending_formatted_inline_content");
+                         "cancel_pending_formatted_inline_content");
         if (self)
           {
             inline_content
@@ -2035,7 +2035,7 @@ get_pending_formatted_inline_content (SV *converter_in)
         char *inline_content = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                               "html_get_pending_formatted_inline_content");
+                                 "get_pending_formatted_inline_content");
         if (self)
           {
             inline_content = html_get_pending_formatted_inline_content (self);
@@ -2057,7 +2057,7 @@ associate_pending_formatted_inline_content (SV *converter_in, SV *element_sv, in
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in,
-                      "html_associate_pending_formatted_inline_content");
+                      "associate_pending_formatted_inline_content");
         if (self)
           {
             html_associate_pending_formatted_inline_content (self,
@@ -2070,7 +2070,7 @@ get_associated_formatted_inline_content (SV *converter_in, SV *element_sv)
         CONVERTER *self;
       CODE:
         self = get_sv_converter (converter_in,
-                      "html_get_associated_formatted_inline_content");
+                      "get_associated_formatted_inline_content");
         if (self)
           {
             char *inline_content
@@ -2088,12 +2088,12 @@ get_associated_formatted_inline_content (SV *converter_in, SV *element_sv)
 # the assumption that there is already a reference held by the C tree on
 # the element.
 void
-_html_push_referred_command_stack_command (SV *converter_in, SV *element_sv)
+_push_referred_command_stack_command (SV *converter_in, SV *element_sv)
       PREINIT:
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_push_referred_command_stack_command");
+                                 "_push_referred_command_stack_command");
         if (self)
           {
             const HV *element_hv = (HV *) SvRV (element_sv);
@@ -2107,7 +2107,7 @@ _pop_referred_command_stack (SV *converter_in)
         CONVERTER *self;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_pop_referred_command_stack");
+                                 "_pop_referred_command_stack");
         if (self)
           {
             pop_element_reference_stack (&self->referred_command_stack);
@@ -2120,7 +2120,7 @@ _command_is_in_referred_command_stack (SV *converter_in, SV *element_sv)
         int found = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                              "html_command_is_in_referred_command_stack");
+                              "_command_is_in_referred_command_stack");
         if (self)
           {
             const HV *element_hv = (HV *) SvRV (element_sv);
@@ -2140,7 +2140,7 @@ _check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_info_s
         SOURCE_INFO *source_info = 0;
      CODE:
         self = get_sv_converter (converter_in,
-                                 "html_check_htmlxref_already_warned");
+                                 "_check_htmlxref_already_warned");
         if (SvOK (source_info_sv))
           source_info = get_source_info (source_info_sv);
 
@@ -2160,7 +2160,7 @@ _check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_info_s
 
 # currently not used, convert_tree is not called on trees registered in XS
 SV *
-html_convert_tree (SV *converter_in, SV *tree_in, explanation)
+unused_convert_tree (SV *converter_in, SV *tree_in, explanation)
         const char *explanation = (char *)SvPVbyte_nolen($arg);
   PROTOTYPE: $$;$
   PREINIT:
