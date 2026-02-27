@@ -29,40 +29,9 @@ div[node] {
     height: 100%;
     overflow: auto;
 }
-body[show-sidebar="no"] div#sub-pages {
-    left: 0px;
-    width: 100%;
-}
 
 div[node][hidden] {
     display: none;
-}
-
-div.toc-sidebar {
-    bottom: 2.8ex;
-}
-
-.toc-sidebar header {
-    display: flex;
-    align-items: flex-start;
-}
-
-.sidebar-hider span.hide-icon {
-    display: block;
-}
-.sidebar-hider span.hide-text {
-    display: block;
-    writing-mode: vertical-rl
-}
-
-.sidebar-hider {
-    display: inline;
-    padding: 2px;
-    vertical-align: top;
-    text-align: start;
-}
-.sidebar-hider span.hide-icon {
-    font-size: x-large;
 }
 
 /* Iframed sub pages */
@@ -95,6 +64,7 @@ iframe.node {
     width: 25%;
     margin: 0px;
     padding: 0px;
+    background: #f0f0f0d0;
 }
 
 #slider, body[show-sidebar="yes"] .sidebar-hider {
@@ -102,8 +72,10 @@ iframe.node {
     left: 0em;
 }
 body[show-sidebar="yes"] .sidebar-hider {
+    border-width: thin;
 }
 body[show-sidebar="no"] #slider {
+    border-width: thin;
     width: 0px; /* so mouse events don't get captured */
 }
 body[show-sidebar="no"] .sidebar-hider {
@@ -114,20 +86,45 @@ body[show-sidebar="no"] .sidebar-hider {
 body[show-sidebar="no"] div.toc, body[show-sidebar="no"] header > a {
     display: none }
 
+body[show-sidebar="no"] div#sub-pages {
+    left: 0px;
+    width: 100%;
+}
+
 div.toc-sidebar {
     position: absolute;
     top: 0px;
     overflow: auto;
     width: 100%;
+    bottom: 2.8ex;
 }
 
 div.toc-sidebar header {
+    display: flex;
+    align-items: flex-start;
     font-size: xx-large;
 }
 
 div.toc-sidebar div {
     padding: 0.25em;
     overflow: auto;
+}
+
+.sidebar-hider {
+    display: inline;
+    padding: 2px;
+    vertical-align: top;
+    text-align: start;
+}
+
+.sidebar-hider span.hide-text {
+    display: block;
+    writing-mode: vertical-rl
+}
+
+.sidebar-hider span.hide-icon {
+    display: block;
+    font-size: x-large;
 }
 
 div.toc ul[toc-detail] {
@@ -149,6 +146,15 @@ div.toc-sidebar a {
 
 div.toc a[toc-current] {
     font-weight: bold
+}
+
+div.header { text-align: right }
+
+@media (max-width: 60em) {
+    div#sub-pages { left: 0px; width: 100% }
+    body[show-sidebar="yes"] div#sub-pages { opacity: 0.4 }
+    body[show-sidebar="yes"] div#slider {width: 20em }
+    div.logo img { max-width: 80%; width: 2em; }
 }
 
 /*-------------.
@@ -244,19 +250,4 @@ table#keyboard-shortcuts th {
 .echo-area {
     bottom: 0;
 }
-div.header { text-align: right }
-#slider {
-    background: #f0f0f0d0;
-}
-body[show-sidebar="yes"] .sidebar-hider {
-    border-width: thin;
-}
-body[show-sidebar="no"] .sidebar-hider {
-    border-width: thin;
-}
-@media (max-width: 60em) {
-    div#sub-pages { left: 0px; width: 100% }
-    body[show-sidebar="yes"] div#sub-pages { opacity: 0.4 }
-    body[show-sidebar="yes"] div#slider {width: 20em }
-    div.logo img { max-width: 80%; width: 2em; }
-}
+

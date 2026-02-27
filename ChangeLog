@@ -1,5 +1,11 @@
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.css: move declarations for sidebar into section
+	for sidebar.  many of these appear to have been added to the
+	file without regard for the pre-existing structure of the file.
+
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.css (#slider): increase opacity.
 
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
