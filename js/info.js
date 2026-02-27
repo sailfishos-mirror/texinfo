@@ -802,6 +802,11 @@ init_index_page ()
     var toc = document.querySelector ("#SEC_Contents");
     toc.remove ();
 
+    // delete short contents as the links from it go to the table of
+    // contents, which is no longer in the page.
+    var shorttoc = document.querySelector ("#SEC_Shortcontents");
+    shorttoc.remove ();
+
     // Like n.cloneNode, but also copy _href
     function cloneNode(n)
     {
