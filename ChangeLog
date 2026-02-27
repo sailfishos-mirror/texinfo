@@ -1,5 +1,13 @@
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* js/info.css (div.toc-sidebar): Specify "width: 100%" to
+	prevent the scroll bar potentially occurring only half-way
+	across the width of the sidebar TOC, which would happen if
+	there were only short section titles which didn't need to
+	wrap across lines.
+
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* js/info.css: remove setting of background colour for some
 	elements within the sidebar, as all this appears to accomplish
 	is some small rectangles within the sidebar being coloured in a

@@ -118,6 +118,7 @@ div.toc-sidebar {
     position: absolute;
     top: 0px;
     overflow: auto;
+    width: 100%;
 }
 
 div.toc-sidebar header {
