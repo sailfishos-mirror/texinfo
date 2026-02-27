@@ -1,5 +1,16 @@
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Special gnulib patch for wctype.in.h for MinGW
+
+	* gnulib/lib/wctype.in.h, tta/gnulib/lib/wctype.in.h:
+	Apply update from Bruno Haible to fix build issue on old MinGW.
+	This file will be updated automatically when we do gnulib updates
+	in the future, but we want to limit gnulib updates before the release
+	as there has already been a lot of testing with the current version
+	of the code.
+
+2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* tta/perl/t/08misc_commands.t (definfoenclose_command_on_section_line):
 	Skip test.
 
