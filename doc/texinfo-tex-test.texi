@@ -845,7 +845,8 @@ one
 two
 @end defblock
 
-@printindex BI
+@c @printindex BI
+
 
 
 @linemacro defmacro {name, params}
@@ -863,6 +864,8 @@ description
 line continuation
 description
 @end defblock
+
+@heading Nested defblock test
 
 @linemacro param {param, type}
 @defline Parameter @var{\param\} @code{ : \type\}
