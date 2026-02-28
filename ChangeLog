@@ -1,5 +1,10 @@
 2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi: use @r in index entries where appropriate
+	and eliminate duplicate or incorrect index entries.
+
+2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	TEXINFO_OUTPUT_FORMAT documentation
 
 	* doc/texinfo.texi

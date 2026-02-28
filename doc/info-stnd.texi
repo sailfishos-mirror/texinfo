@@ -358,54 +358,54 @@ cursor to move @emph{up} 4 lines.
 @item @kbd{C-n} (@code{next-line})
 @itemx @key{DOWN} (an arrow key)
 @kindex C-n
-@kindex DOWN (an arrow key)
+@kindex DOWN @r{(an arrow key)}
 @findex next-line
 Move the cursor down to the next line.
 
 @item @kbd{C-p} (@code{prev-line})
 @itemx @key{UP} (an arrow key)
 @kindex C-p
-@kindex UP (an arrow key)
+@kindex UP @r{(an arrow key)}
 @findex prev-line
 Move the cursor up to the previous line.
 
 @item @kbd{C-a} (@code{beginning-of-line})
-@kindex C-a, in Info windows
+@kindex C-a@r{, in Info windows}
 @findex beginning-of-line
 Move the cursor to the start of the current line.
 
 @item @kbd{C-e} (@code{end-of-line})
-@kindex C-e, in Info windows
+@kindex C-e@r{, in Info windows}
 @findex end-of-line
 Move the cursor to the end of the current line.
 
 @item @kbd{C-f} (@code{forward-char})
 @itemx @key{RIGHT} (an arrow key)
-@kindex C-f, in Info windows
-@kindex RIGHT (an arrow key)
+@kindex C-f@r{, in Info windows}
+@kindex RIGHT @r{(an arrow key)}
 @findex forward-char
 Move the cursor forward a character.
 
 @item @kbd{C-b} (@code{backward-char})
 @itemx @key{LEFT} (an arrow key)
-@kindex C-b, in Info windows
-@kindex LEFT (an arrow key)
+@kindex C-b@r{, in Info windows}
+@kindex LEFT @r{(an arrow key)}
 @findex backward-char
 Move the cursor backward a character.
 
 @item @kbd{M-f} (@code{forward-word})
-@kindex M-f, in Info windows
+@kindex M-f@r{, in Info windows}
 @findex forward-word
 Move the cursor forward a word.
 
 @item @kbd{M-b} (@code{backward-word})
-@kindex M-b, in Info windows
+@kindex M-b@r{, in Info windows}
 @findex backward-word
 Move the cursor backward a word.
 
 @item @kbd{M-<} (@code{beginning-of-node})
 @itemx @kbd{b}
-@kindex b, in Info windows
+@kindex b@r{, in Info windows}
 @kindex M-<
 @findex beginning-of-node
 Move the cursor to the start of the current node.
@@ -413,7 +413,7 @@ Move the cursor to the start of the current node.
 @item @kbd{M->} (@code{end-of-node})
 @itemx @kbd{e}
 @kindex M->
-@kindex e, in Info windows
+@kindex e@r{, in Info windows}
 @findex end-of-node
 Move the cursor to the end of the current node.
 
@@ -439,7 +439,7 @@ current node is visible on the screen.
 
 @table @asis
 @item @key{SPC} (@code{scroll-forward})
-@kindex SPC, in Info windows
+@kindex SPC@r{, in Info windows}
 @itemx @key{NEXT}
 @kindex NEXT
 @findex scroll-forward
@@ -473,7 +473,7 @@ specified, it becomes the default scroll size for subsequent
 ilk.
 
 @item @key{DEL} (@code{scroll-backward})
-@kindex DEL, in Info windows
+@kindex DEL@r{, in Info windows}
 @item @key{PREVIOUS}
 @kindex PREVIOUS
 @findex scroll-backward
@@ -670,7 +670,6 @@ all Info files installed on the system.  It can also be used to search
 through a particular chapter of a manual when you are not interested in
 matches in other chapters.
 
-@vindex highlight-searches
 @findex clear-search
 If the @code{highlight-searches} variable is set, matches from search
 commands will be highlighted.  @xref{Variables,, @code{highlight-searches}}.
@@ -821,10 +820,8 @@ The following table lists the Info commands which operate on menu items.
 @itemx @kbd{2} @dots{} @kbd{9}
 @itemx @kbd{M-1}, vi-like operation
 @itemx @kbd{M-2} @dots{} @kbd{M-9}, vi-like operation
-@cindex 1 @dots{} 9, in Info windows
-@cindex M-1 @dots{} M-9, vi-like operation
-@kindex 1 @dots{} 9, in Info windows
-@kindex M-1 @dots{} M-9, vi-like operation
+@kindex 1 @dots{} 9@r{, in Info windows}
+@kindex M-1 @dots{} M-9@r{, vi-like operation}
 @findex menu-digit
 Within an Info window, pressing a single digit, (such as @samp{1}),
 selects that menu item, and places its node in the current window.
@@ -836,8 +833,8 @@ item, press @kbd{M-0}.
 
 @item @kbd{0} (@code{last-menu-item})
 @itemx @kbd{M-0}, vi-like operation
-@kindex 0, in Info windows
-@kindex M-0, vi-like operation
+@kindex 0@r{, in Info windows}
+@kindex M-0@r{, vi-like operation}
 @findex last-menu-item
 Select the last item in the current node's menu.
 
@@ -870,7 +867,7 @@ Finally, the next few commands operate on menu or note references alike:
 
 @table @asis
 @item @key{TAB} (@code{move-to-next-xref})
-@kindex TAB, in Info windows
+@kindex TAB@r{, in Info windows}
 @findex move-to-next-xref
 Move the cursor to the start of the next nearest menu item or note
 reference in this node.  You can then use @key{RET}
@@ -878,18 +875,18 @@ reference in this node.  You can then use @key{RET}
 
 @item @kbd{M-@key{TAB}} (@code{move-to-prev-xref})
 @itemx @kbd{BackTab}
-@kindex M-TAB, in Info windows
+@kindex M-TAB@r{, in Info windows}
 @findex move-to-prev-xref
 Move the cursor the start of the nearest previous menu item or note
 reference in this node.
 
-@kindex Shift-TAB, in Info windows
-@kindex BackTab, in Info windows
+@kindex Shift-TAB@r{, in Info windows}
+@kindex BackTab@r{, in Info windows}
 The @kbd{BackTab} key can be produced on some terminals with
 @kbd{Shift-@key{TAB}}. 
 
 @item @key{RET} (@code{select-reference-this-line})
-@kindex RET, in Info windows
+@kindex RET@r{, in Info windows}
 @findex select-reference-this-line
 Select the menu item or note reference appearing on this line.
 @end table
@@ -1002,7 +999,7 @@ some of them.
 Delete all of the windows excepting the current one.
 
 @item @kbd{@key{ESC} @kbd{C-v}} (@code{scroll-other-window})
-@kindex ESC C-v, in Info windows
+@kindex ESC C-v@r{, in Info windows}
 @findex scroll-other-window
 Scroll the other window, in the same fashion that @samp{C-v} might
 scroll the current window.  Given a negative argument, scroll the
@@ -1043,45 +1040,45 @@ read in the echo area:
 @table @asis
 @item @kbd{C-f} (@code{echo-area-forward})
 @itemx @key{RIGHT} (an arrow key)
-@kindex C-f, in the echo area
-@kindex RIGHT, in the echo area
+@kindex C-f@r{, in the echo area}
+@kindex RIGHT@r{, in the echo area}
 @findex echo-area-forward
 Move forward a character.
 
 @item @kbd{C-b} (@code{echo-area-backward})
 @itemx @key{LEFT} (an arrow key)
-@kindex LEFT, in the echo area
-@kindex C-b, in the echo area
+@kindex LEFT@r{, in the echo area}
+@kindex C-b@r{, in the echo area}
 @findex echo-area-backward
 Move backward a character.
 
 @item @kbd{C-a} (@code{echo-area-beg-of-line})
-@kindex C-a, in the echo area
+@kindex C-a@r{, in the echo area}
 @findex echo-area-beg-of-line
 Move to the start of the input line.
 
 @item @kbd{C-e} (@code{echo-area-end-of-line})
-@kindex C-e, in the echo area
+@kindex C-e@r{, in the echo area}
 @findex echo-area-end-of-line
 Move to the end of the input line.
 
 @item @kbd{M-f} (@code{echo-area-forward-word})
-@kindex M-f, in the echo area
+@kindex M-f@r{, in the echo area}
 @findex echo-area-forward-word
 Move forward a word.
 
 @item @kbd{M-b} (@code{echo-area-backward-word})
-@kindex M-b, in the echo area
+@kindex M-b@r{, in the echo area}
 @findex echo-area-backward-word
 Move backward a word.
 
 @item @kbd{C-d} (@code{echo-area-delete})
-@kindex C-d, in the echo area
+@kindex C-d@r{, in the echo area}
 @findex echo-area-delete
 Delete the character under the cursor.
 
 @item @key{DEL} (@code{echo-area-rubout})
-@kindex DEL, in the echo area
+@kindex DEL@r{, in the echo area}
 @findex echo-area-rubout
 Delete the character behind the cursor.
 
@@ -1090,35 +1087,35 @@ On some keyboards, this key is designated @key{BS}, for
 echo area to @code{echo-area-delete}.
 
 @item @kbd{C-g} (@code{echo-area-abort})
-@kindex C-g, in the echo area
+@kindex C-g@r{, in the echo area}
 @findex echo-area-abort
 Cancel or quit the current operation.  If completion is being read, this
 command discards the text of the input line which does not match any
 completion.  If the input line is empty, it aborts the calling function.
 
 @item @key{RET} (@code{echo-area-newline})
-@kindex RET, in the echo area
+@kindex RET@r{, in the echo area}
 @findex echo-area-newline
 Accept (or forces completion of) the current input line.
 
 @item @kbd{C-q} (@code{echo-area-quoted-insert})
-@kindex C-q, in the echo area
+@kindex C-q@r{, in the echo area}
 @findex echo-area-quoted-insert
 Insert the next character verbatim.  This is how you can insert control
 characters into a search string.
 
 @item @kbd{M-@key{TAB}} (@code{echo-area-tab-insert})
-@kindex M-TAB, in the echo area
+@kindex M-TAB@r{, in the echo area}
 @findex echo-area-tab-insert
 Insert a @key{TAB} character.
 
 @item @kbd{C-t} (@code{echo-area-transpose-chars})
-@kindex C-t, in the echo area
+@kindex C-t@r{, in the echo area}
 @findex echo-area-transpose-chars
 Transpose the characters at the cursor.
 
 @item @var{printing character}
-@kindex printing characters, in the echo area
+@kindex @r{printing characters, in the echo area}
 Insert the character.
 
 @end table
@@ -1130,38 +1127,38 @@ text.  (Sometimes these operations are called @dfn{cut} and
 
 @table @asis
 @item @kbd{M-d} (@code{echo-area-kill-word})
-@kindex M-d, in the echo area
+@kindex M-d@r{, in the echo area}
 @findex echo-area-kill-word
 Kill the word following the cursor.
 
 @item @kbd{M-@key{DEL}} (@code{echo-area-backward-kill-word})
 @itemx @kbd{M-@key{BS}}
-@kindex M-DEL, in the echo area
+@kindex M-DEL@r{, in the echo area}
 @findex echo-area-backward-kill-word
 Kill the word preceding the cursor.
 
-@kindex M-BS, in the echo area
+@kindex M-BS@r{, in the echo area}
 On some keyboards, the @samp{Backspace} key is used instead of
 @code{DEL}, so @code{M-@key{Backspace}} has the same effect as
 @code{M-@key{DEL}}.
 
 @item @kbd{C-k} (@code{echo-area-kill-line})
-@kindex C-k, in the echo area
+@kindex C-k@r{, in the echo area}
 @findex echo-area-kill-line
 Kill the text from the cursor to the end of the line.
 
 @item @kbd{C-x @key{DEL}} (@code{echo-area-backward-kill-line})
-@kindex C-x DEL, in the echo area
+@kindex C-x DEL@r{, in the echo area}
 @findex echo-area-backward-kill-line
 Kill the text from the cursor to the beginning of the line.
 
 @item @kbd{C-y} (@code{echo-area-yank})
-@kindex C-y, in the echo area
+@kindex C-y@r{, in the echo area}
 @findex echo-area-yank
 Yank back the contents of the last kill.
 
 @item @kbd{M-y} (@code{echo-area-yank-pop})
-@kindex M-y, in the echo area
+@kindex M-y@r{, in the echo area}
 @findex echo-area-yank-pop
 Yank back a previous kill, removing the last yanked text first.
 @end table
@@ -1180,7 +1177,7 @@ The following commands are available when completing in the echo area:
 
 @table @asis
 @item @key{TAB} (@code{echo-area-complete})
-@kindex TAB, in the echo area
+@kindex TAB@r{, in the echo area}
 @findex echo-area-complete
 Insert as much of a completion as is possible.  Otherwise,
 display a window containing a list of the possible completions of what
@@ -1220,7 +1217,7 @@ appearing in the echo area, since that is the only choice which begins
 with @samp{fol}.
 
 @item @kbd{@key{ESC} C-v} (@code{echo-area-scroll-completions-window})
-@kindex ESC C-v, in the echo area
+@kindex ESC C-v@r{, in the echo area}
 @findex echo-area-scroll-completions-window
 Scroll the completions window, if that is visible, or the ``other''
 window if not.
@@ -1289,7 +1286,6 @@ a key sequence which can be typed in order to invoke that command.
 
 @item @kbd{H} (@code{get-help-window})
 @kindex C-h
-@kindex ?, in Info windows
 @kindex F1
 @findex get-help-window
 Create (or Move into) the window displaying @code{*Help*}, and place
@@ -1307,7 +1303,7 @@ this node.  Of course, the file must first be processed with
 @item @kbd{=} (@code{display-file-info})
 @cindex current file, information about
 @findex display-file-info
-@kindex =, in Info windows
+@kindex =@r{, in Info windows}
 Show information about what's currently being viewed in the echo area:
 the Info file name, and current line number and percentage within the
 current node.
@@ -1339,7 +1335,7 @@ by digit keys sets the numeric argument to the number thus typed:
 @itemx @kbd{M-0}
 @itemx @kbd{0}, vi-like operation
 @kindex M-0 @dots{} M-9
-@kindex 0 @dots{} 9, vi-like operation
+@kindex 0 @dots{} 9@r{, vi-like operation}
 @findex add-digit-to-numeric-arg
 Add the digit value of the invoking key to the current numeric
 argument.  Once Info is reading a numeric argument, you may just type
@@ -1382,7 +1378,7 @@ to cancel reading input in the echo area.
 @item @kbd{C-g} (@code{abort-key})
 @cindex cancelling typeahead
 @cindex cancelling the current operation
-@kindex C-g, in Info windows
+@kindex C-g@r{, in Info windows}
 @findex abort-key
 Cancel current operation.
 @end table
@@ -2402,7 +2398,6 @@ file.
 @node @t{infokey} format
 @section @command{infokey} format
 
-@cindex @command{infokey} format
 @cindex @file{infokey} format
 @cindex format of @file{infokey}
 
@@ -2762,10 +2757,10 @@ keyboards.
 
 @heading Echo area commands
 
-@kindex C-RIGHT, in the echo area
-@kindex C-LEFT, in the echo area
-@kindex Shift-TAB, in the echo area
-@kindex BackTab, in the echo area
+@kindex C-RIGHT@r{, in the echo area}
+@kindex C-LEFT@r{, in the echo area}
+@kindex Shift-TAB@r{, in the echo area}
+@kindex BackTab@r{, in the echo area}
 @table @kbd
 @item C-@key{RIGHT}
 @code{echo-area-forward-word}
