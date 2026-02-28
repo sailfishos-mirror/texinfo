@@ -21,8 +21,6 @@
 #include <stdarg.h>
 /* for iconv_t */
 #include <iconv.h>
-/* for _O_BINARY */
-#include <fcntl.h>
 /* for S_ISDIR, S_IFDIR and S_IFMT */
 #include <sys/stat.h>
 
@@ -43,27 +41,6 @@
 #if !defined (S_ISDIR) && defined (S_IFDIR)
 #  define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
 #endif /* !S_ISDIR && S_IFDIR */
-
-/* similar definitions in system.h */
-#ifndef O_BINARY
-# ifdef _O_BINARY
-#  define O_BINARY _O_BINARY
-# else
-#  define O_BINARY 0
-# endif
-#endif /* O_BINARY */
-
-#if O_BINARY
-# define HAVE_DRIVE(n)   ((n)[0] && (n)[1] == ':')
-# define IS_SLASH(c)     ((c) == '/' || (c) == '\\')
-# define IS_ABSOLUTE(n)  (IS_SLASH((n)[0]) || HAVE_DRIVE(n))
-# define FILE_SLASH      "/\\"
-#else  /* not O_BINARY, i.e., Unix */
-# define IS_SLASH(c)     ((c) == '/')
-# define HAVE_DRIVE(n)   (0)
-# define IS_ABSOLUTE(n)  ((n)[0] == '/')
-# define FILE_SLASH      "/"
-#endif /* not O_BINARY */
 
 #define SECTION_LEVEL_NR 5
 

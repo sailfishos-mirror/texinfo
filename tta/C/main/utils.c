@@ -15,7 +15,8 @@
 
 /* code that does not fit anywhere else */
 
-#include <config.h>
+/* includes config.h */
+#include <system.h>
 
 #include <stdlib.h>
 #include <string.h>
@@ -65,6 +66,18 @@
 
 #define min_level command_structuring_level[CM_chapter]
 #define max_level command_structuring_level[CM_subsubsection]
+
+#if O_BINARY
+# define HAVE_DRIVE(n)   ((n)[0] && (n)[1] == ':')
+# define IS_SLASH(c)     ((c) == '/' || (c) == '\\')
+# define IS_ABSOLUTE(n)  (IS_SLASH((n)[0]) || HAVE_DRIVE(n))
+# define FILE_SLASH      "/\\"
+#else  /* not O_BINARY, i.e., Unix */
+# define IS_SLASH(c)     ((c) == '/')
+# define HAVE_DRIVE(n)   (0)
+# define IS_ABSOLUTE(n)  ((n)[0] == '/')
+# define FILE_SLASH      "/"
+#endif /* not O_BINARY */
 
 /*
   From the Cygwin FAQ https://www.cygwin.com/faq.html:

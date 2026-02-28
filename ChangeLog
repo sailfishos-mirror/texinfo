@@ -1,3 +1,25 @@
+2026-02-28 Patrice Dumas  <pertusus@free.fr>
+
+	Correct path separator for XDG directories and ctexi2any
+
+	* tta/perl/texi2any.pl (add_config_paths), tta/C/texi2any.c
+	(add_config_paths): use PATH paths separator for XDG base directory
+	specification directories lists.
+
+	* tta/C/Makefile.am (C_libtexinfo_sources), tta/C/main/system.h
+	(O_BINARY): add system.h for the O_BINARY definition, which can be
+	shared among diverse code files.
+
+	* tta/C/main/utils.c, tta/C/main/utils.h: define paths related macros
+	in utils.c and use system.h.
+
+	* tta/C/texi2any.c, tta/C/Makefile.am (ctexi2any_CPPFLAGS)
+	(teximakehtml_CPPFLAGS): set PATH_SEP based on O_BINARY and __CYGWIN__
+	and not based on configure generated PATH_SEPARATOR, as PATH_SEPARATOR
+	is for the shell used for the compilation, while we need some value
+	that can also be valid for a native command as described in the
+	Texinfo manual.  Report from Eli Zaretskii.
+
 2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/info-stnd.texi: use @r in index entries where appropriate

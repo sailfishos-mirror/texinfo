@@ -17,7 +17,8 @@
 
 /* ALTIMP ../perl/texi2any.pl */
 
-#include <config.h>
+/* includes config.h */
+#include <system.h>
 
 #include <stdlib.h>
 #include <stddef.h>
@@ -80,6 +81,17 @@
 #include "texinfo.h"
 
 #define _(String) gettext (String)
+
+/* similar definitions in info system.h */
+#if O_BINARY
+# ifdef __CYGWIN__
+#  define PATH_SEP>     ":"
+# else  /* O_BINARY && !__CYGWIN__ */
+#  define PATH_SEP>     ";"
+# endif /* O_BINARY && !__CYGWIN__ */
+#else  /* not O_BINARY, i.e., Unix */
+# define PATH_SEP	":"
+#endif /* not O_BINARY */
 
 static const char *conf_file_name = "texi2any-config.pm";
 
@@ -183,7 +195,7 @@ add_config_paths (const char *env_string, const char *subdir,
   if (env_value && strlen (env_value))
     {
       char *text = strdup (env_value);
-      char *dir = strtok (text, ":");
+      char *dir = strtok (text, PATH_SEP);
 
       while (dir)
         {
@@ -191,7 +203,7 @@ add_config_paths (const char *env_string, const char *subdir,
             {
               add_include_directory (dir, &xdg_result_dirs);
             }
-          dir = strtok (NULL, ":");
+          dir = strtok (NULL, PATH_SEP);
         }
       free (text);
     }

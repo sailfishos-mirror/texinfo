@@ -476,7 +476,7 @@ sub add_config_paths($$$$;$$) {
   my @xdg_result_dirs;
   my %used_xdg_base_dirs;
   if (defined($ENV{$env_string}) and $ENV{$env_string} ne '') {
-    foreach my $dir (split(':', $ENV{$env_string})) {
+    foreach my $dir (split(/$quoted_path_separator/, $ENV{$env_string})) {
       if ($dir ne '') {
         push @xdg_result_dirs, $dir;
         $used_xdg_base_dirs{$dir} = 1;

@@ -148,6 +148,7 @@ C_libtexinfo_sources = \
 		      main/global_commands_types.h \
 		      main/utils.c \
 		      main/utils.h \
+		      main/system.h \
 		      main/converter_types.h \
 		      main/unicode.c \
 		      main/unicode.h \
@@ -645,7 +646,7 @@ ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libte
 # the compiling and linking flags must match there will be a failure to
 # build (for example AlmaLinux).
 ctexi2any_CFLAGS = $(perl_conf_CFLAGS)
-ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\" -DEMBED_PERL
+ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DEMBED_PERL
 
 # in configure.ac, it is checked that Perl is embedded and iconv is available
 if PREFER_C_TEXI2ANY
@@ -690,6 +691,6 @@ teximakehtml_SOURCES = \
 teximakehtml_CFLAGS = $(perl_conf_CFLAGS)
 teximakehtml_LDADD = $(top_builddir)/gnulib/lib/libgnu.la $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
-teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DPATH_SEP=\"${PATH_SEPARATOR}\"
+teximakehtml_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS)
 
 
