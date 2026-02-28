@@ -1,5 +1,11 @@
 2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	* doc/info-stnd.texi (Custom Key Bindings): Place URL in footnote,
+	to prevent issue with line breaking in the PDF (as font is smaller
+	in the footnote).
+
+2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* INSTALL: edit
 
 2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>

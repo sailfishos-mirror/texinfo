@@ -2378,8 +2378,8 @@ rules do not copy a file there.)
 @end itemize
 
 @noindent
-This search order is compatible with the
-@uref{https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html, XDG Base Directory Specification}
+This search order is designed to be compatible with the XDG Base Directory Specification
+@footnote{See @uref{https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html}.}
 although doesn't follow it in every detail.
 
 To use an alternative configuration file, use the @option{--init-file}
