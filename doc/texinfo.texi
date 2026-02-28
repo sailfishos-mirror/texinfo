@@ -1604,6 +1604,7 @@ The @code{@@documentinfo}, @code{@@copying}, @code{@@publication}, and
 @end nodedescriptionblock
 @subsection Document Metadata and the @code{@@maketitle} Command
 
+@findex documentinfo
 The simplest way to define document metadata used for the title page is
 using the @code{@@documentinfo} command.  Here is a template:
 
@@ -1846,7 +1847,7 @@ The @code{@@titlefont}, @code{@@center}, and @code{@@sp} commands.
 @findex center
 @findex sp @r{(titlepage line spacing)}
 
-Texinfo also provides a second method for creating a title page.
+Texinfo also provides a second method for creating a title page,
 using typesetting commands that are not to be used in the main text.
 This method uses the @code{@@titlefont}, @code{@@sp}, and @code{@@center} 
 commands to generate a title page in which the words on the page are

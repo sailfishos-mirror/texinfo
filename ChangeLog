@@ -1,3 +1,9 @@
+2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi
+	(Document Metadata) Add missing index entry for @documentinfo.
+	(@titlefont @center @sp): Fix typo.
+
 2026-02-28 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/texinfo.c (txi_tree_transformation_table): make static
