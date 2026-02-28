@@ -838,14 +838,13 @@ sub _tree_element_block_item_line_command($$)
 }
 
 # for XS overriding.
-# table_item_content_tree_noxs in Texinfo::Convert::Converter.
 sub table_item_content_tree($$;$)
 {
   my $self = shift;
   my $element = shift;
   my $build_tree = shift;
 
-  return $self->table_item_content_tree_noxs($element);
+  return Texinfo::Convert::Converter::table_item_content_tree($self, $element);
 }
 
 # same as table_item_content_tree, but using the TreeElement interface

@@ -263,7 +263,12 @@ sub get_converter_errors($) {
 sub merge_converter_error_messages_lists($$) {
   my ($dst, $src) = @_;
 
-  merge_converter_error_messages_lists_noxs($dst, $src);
+  if (!defined($src) or !exists($src->{'error_warning_messages'})) {
+    return;
+  }
+
+  push @{$dst->{'error_warning_messages'}},
+       splice(@{$src->{'error_warning_messages'}});
 }
 
 

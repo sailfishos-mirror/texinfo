@@ -463,6 +463,72 @@ get_line_message (CONVERTER *self, enum error_type type, int continuation,
   non_perl_free (source_info);
 }
 
+/* merges SV_IN errors and warnings in SELF.  Clear SV_IN messages. */
+void
+get_messages_from_sv (CONVERTER *self, SV *sv_in)
+{
+  SV **error_warning_messages_sv;
+  HV *converter_hv;
+  static const char *key = "error_warning_messages";
+
+  dTHX;
+
+  converter_hv = (HV *) SvRV (sv_in);
+
+  error_warning_messages_sv = hv_fetch (converter_hv, key,  strlen (key), 0);
+
+  if (error_warning_messages_sv && SvOK (*error_warning_messages_sv))
+    {
+      AV *error_warning_messages_av
+        = (AV *) SvRV (*error_warning_messages_sv);
+      SSize_t messages_nr = AvFILL (error_warning_messages_av) +1;
+      SSize_t i;
+
+      for (i = 0; i < messages_nr; i++)
+        {
+          SV **msg_sv = av_fetch (error_warning_messages_av, i, 0);
+          if (msg_sv && SvOK (*msg_sv))
+            {
+              const char *message = 0;
+              SV **text_sv;
+              HV *msg_hv = (HV *) SvRV (*msg_sv);
+
+#define FETCH(key) key##_sv = hv_fetch (msg_hv, #key, strlen (#key), 0);
+
+              FETCH(text);
+              if (text_sv && SvOK (*text_sv))
+                message = SvPVutf8_nolen (*text_sv);
+
+              if (message)
+                {
+                  SV **continuation_sv;
+                  SV **type_sv;
+                  int continuation = 0;
+                  enum error_type type = MSG_error;
+
+                  FETCH(continuation);
+                  if (continuation_sv && SvOK (*continuation_sv))
+                    continuation = SvIV (*continuation_sv);
+
+                  FETCH(type)
+                  if (type_sv && SvOK (*type_sv))
+                    {
+                      const char *type_str = SvPVutf8_nolen (*type_sv);
+                      if (!strcmp (type_str, "warning"))
+                        type = MSG_warning;
+                    }
+
+                  get_line_message (self, type, continuation,
+                                    *msg_sv, message);
+                }
+#undef FETCH
+            }
+        }
+
+      av_clear (error_warning_messages_av);
+    }
+}
+
 /* return values:
   0: success
   -1: already set (only if !force)

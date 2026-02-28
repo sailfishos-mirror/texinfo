@@ -867,7 +867,7 @@ sub convert_to_text($;$) {
   $result = _convert($options, $root);
 
   if ($options->{'converter'}) {
-    $options->{'converter'}->merge_converter_error_messages_lists_noxs($options);
+    $options->{'converter'}->merge_converter_error_messages_lists($options);
   }
 
   return $result;

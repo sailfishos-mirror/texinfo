@@ -455,21 +455,6 @@ sub pcdt($$;$$) {
 
 
 
-# errors and warnings
-
-sub merge_converter_error_messages_lists_noxs($$) {
-  my ($dst, $src) = @_;
-
-  if (!defined($src) or !exists($src->{'error_warning_messages'})) {
-    return;
-  }
-
-  push @{$dst->{'error_warning_messages'}},
-       splice(@{$src->{'error_warning_messages'}});
-}
-
-
-
 #####################################################################
 # Elements and output units file names
 #
@@ -1349,7 +1334,7 @@ sub float_name_caption($$) {
 # $ELEMENT should be an item, itemx or headitem command element
 # No parent is set in this parallel tree, such that there is no
 # cycle and Perl can release the elements as soon as they are out of scope.
-sub table_item_content_tree_noxs($$) {
+sub table_item_content_tree($$) {
   my ($self, $element) = @_;
 
   # not in a @*table item/itemx.  Exemple in test with @itemx in @itemize

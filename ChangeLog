@@ -1,5 +1,23 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (table_item_content_tree):
+	rename table_item_content_tree_noxs as table_item_content_tree.
+	Update callers.
+
+	* tta/C/main/get_perl_info.c (get_messages_from_sv),
+	tta/perl/Texinfo/Convert/Converter.pm,
+	tta/perl/Texinfo/Convert/ConverterNonXS.pm
+	(merge_converter_error_messages_lists),
+	tta/perl/XSTexinfo/convert/ConvertConverterXS.xs
+	(merge_converter_error_messages_lists): add get_messages_from_sv, and
+	use it in merge_converter_error_messages_lists to get messages from
+	the Perl object if a C converter could not be found.  Move
+	merge_converter_error_messages_lists_noxs code to
+	merge_converter_error_messages_lists in ConverterNonXS.pm.  Remove
+	merge_converter_error_messages_lists_noxs. 
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	Change in comments
 
 2026-03-02 Patrice Dumas  <pertusus@free.fr>

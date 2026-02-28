@@ -628,10 +628,14 @@ merge_converter_error_messages_lists (SV *dst_in, SV *src_in)
       CODE:
         self = get_sv_converter (dst_in,
                    "merge_converter_error_messages_lists dst");
-        src = get_sv_converter (src_in,
-                   "merge_converter_error_messages_lists src");
-        merge_error_messages_lists (&self->error_messages,
-                                    &src->error_messages);
+        src = get_sv_converter (src_in, 0);
+        if (!src)
+          /* this should only happen with Text Converter when merging
+             messages with the calling converter */
+          get_messages_from_sv (self, src_in);
+        else
+          merge_error_messages_lists (&self->error_messages,
+                                      &src->error_messages);
 
 void
 converter_remove_output_units (SV *converter_in)

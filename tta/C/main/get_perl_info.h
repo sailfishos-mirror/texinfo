@@ -42,6 +42,7 @@ void add_svav_to_string_list (const SV *sv, STRING_LIST *string_list,
 SOURCE_INFO *get_source_info (SV *source_info_sv);
 void get_line_message (CONVERTER *self, enum error_type type, int continuation,
                        SV *error_location_info, const char *message);
+void get_messages_from_sv (CONVERTER *self, SV *sv_in);
 
 void get_sv_options (SV *sv, OPTIONS *options, OPTION **sorted_options,
                      CONVERTER *converter, int force);
