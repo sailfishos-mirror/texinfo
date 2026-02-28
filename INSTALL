@@ -65,7 +65,7 @@ Installation notes specific to Texinfo:
   you can give the --disable-perl-xs flag to `configure'; likewise, to use
   them without checking, give the --enable-perl-xs flag.
 
-* When `configure' is running in the texi2any subdirectory and XS modules
+* When `configure' is running in the tta/ subdirectory and XS modules
   are used, instead of the standard CC, CFLAGS, LDFLAGS etc., it uses special
   variables with a PERL_EXT_ prefix.  These are all listed in the output of
   `configure --help'.  This is necessary because it is possible that the C
@@ -73,24 +73,23 @@ Installation notes specific to Texinfo:
   codes is a different compiler to that used for the rest of the package.
   (However, if you need to override these variables when running `make', use
   the unprefixed variants, e.g. CFLAGS instead of PERL_EXT_CFLAGS.  Exception:
-  you cannot override CPPFLAGS this way as gnulib uses this variable.)
+  you cannot override CPPFLAGS this way, as gnulib uses this variable.)
 
-* After building the program, the use of XS modules in the Perl
-  texi2any implementation can be controlled with the `TEXINFO_XS'
-  environment variable, which may be useful for troubleshooting.  Set
-  TEXINFO_XS=warn to print some information if loading XS modules fail,
-  TEXINFO_XS=debug to print some information as the modules are looked
-  for and loaded, TEXINFO_XS=omit to disable their use,
-  TEXINFO_XS=required to force their use or TEXINFO_XS=requiredifenabled
+* After building the program, you can control the use of XS modules by
+  the Perl texi2any implementation with the `TEXINFO_XS' environment
+  variable, which may be useful for troubleshooting.
+  Set TEXINFO_XS=warn to print some information if loading XS modules
+  fails, TEXINFO_XS=debug to print some information as the modules are
+  looked for and loaded, TEXINFO_XS=omit to disable their use,
+  TEXINFO_XS=required to force their use, or TEXINFO_XS=requiredifenabled
   to force their use if enabled at run time based on the environment
   variables values described next.
 
-  Specific focused XS modules are only controlled by TEXINFO_XS.
   XS modules replacing perl code for the main processing steps can be
   controlled more finely.  Three steps are distinguished: the parsing
   step, the structure step for the determination of sectioning and node
   structures, and the conversion step.  If the XS modules are not used
-  for a step, they cannot be used for the following steps.
+  for one step, they cannot be used for any following steps.
 
   If you want to use the XS modules but not the XS parser, you can
   set the `TEXINFO_XS_PARSER' environment variable to 0.  If you use
