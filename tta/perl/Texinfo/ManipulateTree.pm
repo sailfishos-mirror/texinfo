@@ -340,23 +340,6 @@ sub copy_contents($;$) {
   } else {
     # Done for consistency, but not sure that it is needed
     my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
-    $copy = copy_tree($tmp);
-  }
-  if (defined($type)) {
-    $copy->{'type'} = $type;
-  }
-  return $copy;
-}
-
-sub copy_contentsNonXS($;$) {
-  my ($element, $type) = @_;
-
-  my $copy;
-  if (!exists($element->{'contents'})) {
-    $copy = Texinfo::TreeElement::new({});
-  } else {
-    # Done for consistency, but not sure that it is needed
-    my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
     $copy = copy_treeNonXS($tmp);
   }
   if (defined($type)) {

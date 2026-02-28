@@ -1,5 +1,11 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm (copy_contents): remove
+	copy_contentsNonXS, copy_contents does not have an XS implementation.
+	Update callers.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/structuring_transfo/transformations.c
 	(move_selected_element_index_entries_after_items): rename
 	move_index_entries_after_items as

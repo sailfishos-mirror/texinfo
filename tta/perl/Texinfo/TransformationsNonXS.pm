@@ -158,7 +158,7 @@ sub fill_gaps_in_sectioning_in_document($;$) {
         my $line_content;
         if (defined($commands_heading_content)) {
           $line_content
-            = Texinfo::ManipulateTree::copy_contentsNonXS(
+            = Texinfo::ManipulateTree::copy_contents(
                                                $commands_heading_content);
           $line_content->{'parent'} = $line_arg;
         } else {
@@ -315,7 +315,7 @@ sub insert_nodes_for_sectioning_commands($) {
         my $arguments_line = $content->{'contents'}->[0];
         my $line_arg = $arguments_line->{'contents'}->[0];
         $new_node_tree
-         = Texinfo::ManipulateTree::copy_contentsNonXS($line_arg);
+         = Texinfo::ManipulateTree::copy_contents($line_arg);
       }
       my $new_node = _new_node($new_node_tree, $document);
       if (defined($new_node)) {

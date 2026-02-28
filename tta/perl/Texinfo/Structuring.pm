@@ -237,8 +237,8 @@ sub new_node_menu_entry($;$) {
     }
 
     $menu_entry_name
-     = Texinfo::ManipulateTree::copy_contentsNonXS($name_element,
-                                                   'menu_entry_name');
+     = Texinfo::ManipulateTree::copy_contents($name_element,
+                                              'menu_entry_name');
     foreach my $content (@{$menu_entry_name->{'contents'}}) {
       $content->{'parent'}
            = $menu_entry_name unless(exists($content->{'text'}));
@@ -255,8 +255,8 @@ sub new_node_menu_entry($;$) {
   }
 
   my $menu_entry_node
-   = Texinfo::ManipulateTree::copy_contentsNonXS($node_name_element,
-                                                 'menu_entry_node');
+   = Texinfo::ManipulateTree::copy_contents($node_name_element,
+                                            'menu_entry_node');
   foreach my $content (@{$menu_entry_node->{'contents'}}) {
     $content->{'parent'} = $menu_entry_node unless(exists($content->{'text'}));
   }
@@ -434,7 +434,7 @@ sub new_complete_node_menu($;$$$)
             = $associated_part->{'element'}->{'contents'}->[0];
           my $part_line_arg = $part_arguments_line->{'contents'}->[0];
           my $part_title_copy
-            = Texinfo::ManipulateTree::copy_contentsNonXS($part_line_arg);
+            = Texinfo::ManipulateTree::copy_contents($part_line_arg);
           my $part_title
            = Texinfo::Translations::gdt('Part: {part_title}',
                                         $lang_translations,
@@ -658,7 +658,7 @@ sub _print_down_menus($$$$$$;$) {
     }
 
     my $node_title_copy
-      = Texinfo::ManipulateTree::copy_contentsNonXS($node_name_element);
+      = Texinfo::ManipulateTree::copy_contents($node_name_element);
 
     _insert_menu_comment_content(\@master_menu_contents, 0,
                                  $node_title_copy, 0);
