@@ -49,8 +49,8 @@
 /*
 #include "document.h"
  */
-/* setup_converter_generic find_perl_converter_class_converter_format
-  converter_defaults... and other functions */
+/* find_perl_converter_class_converter_format
+  converter_defaults destroy_converter_initialization_info */
 #include "converter.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"

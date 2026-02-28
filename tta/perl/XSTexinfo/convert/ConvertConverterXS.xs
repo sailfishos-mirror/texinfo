@@ -47,6 +47,10 @@
 #include "customization_options.h"
 /* find_identifier_target */
 #include "targets.h"
+/* setup_converter_generic set_converter_init_information
+ destroy_converter_initialization_info set_global_document_commands
+ get_converter_indices_sorted_by_index get_converter_indices_sorted_by_letter
+ converter_remove_output_units destroy_converter */
 #include "converter.h"
 #include "get_perl_info.h"
 #include "build_perl_info.h"

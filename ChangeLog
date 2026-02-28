@@ -1,5 +1,9 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	Change in comments
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Config.pm, tta/perl/Texinfo/Convert/HTML.pm,
 	tta/perl/Texinfo/Convert/Plaintext.pm,
 	tta/perl/Texinfo/Convert/Unicode.pm,

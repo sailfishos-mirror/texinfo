@@ -282,7 +282,6 @@ register_document_relations_lists_elements (SV *converter, SV *document_in)
 
   if (document)
     {
-       /* TODO separate function?  Change this function name? */
        register_element_handle_in_sv (document->tree, document);
 
        register_document_sections_list_elements (document);

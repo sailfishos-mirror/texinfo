@@ -627,10 +627,20 @@ cache_translate_string (const char *string,
     translations = lang_translation->translations;
   else
     {
-      /* TODO When does this happen?  We do not know the command line
-         encoding here, we could get it as arguments.  It is only in
-         rare cases and one should consider the documentlanguage
-         name with non-ASCII characters is invalid */
+      /* This happens in convert_to_text for conversion to raw text (not
+         when called from another converter) and with regenerate_master_menu
+         TREE_TRANSFORMATIONS for the detailed node listing header translation.
+
+         We do not know the command line encoding, so we pass a 0 to
+         get_lang_translation.  The only issue is that a documentlanguage
+         with non-ASCII characters will not be properly encoded.  However
+         a documentlanguage with non-ASCII characters is invalid.
+         We could probably get the command line encoding as the current
+         function argument, however it is not worth it since the lang
+         for which is would be relevant is invalid, and also it is not
+         clear that we could have a use for the encoded invalid lang from
+         within get_lang_translation.
+       */
       LANG_TRANSLATION *general_lang_translation
         = get_lang_translation (&translation_cache, lang, 0,
                                 TXI_CONVERT_STRINGS_NR);
