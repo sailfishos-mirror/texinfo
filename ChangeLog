@@ -1,5 +1,14 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Config.pm, tta/perl/Texinfo/Convert/HTML.pm,
+	tta/perl/Texinfo/Convert/Plaintext.pm,
+	tta/perl/Texinfo/Convert/Unicode.pm,
+	tta/perl/Texinfo/Example/TreeElementConverter.pm,
+	tta/perl/Texinfo/ParserNonXS.pm: make $module_loaded a file scoped my
+	variable.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/HTML.pm,
 	tta/perl/Texinfo/Convert/HTMLNonXS.pm,
 	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs: prepend _ to function

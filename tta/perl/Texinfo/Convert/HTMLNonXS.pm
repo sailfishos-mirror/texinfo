@@ -19,7 +19,7 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 
 # ALTIMP XSTexinfo/convert/ConvertHTMLXS.xs
-# ALTIMP C/convert/*.[ch]
+# ALTIMP C/convert/*html*.[ch]
 
 # General information on the HTML converter is in HTML.pm comments
 
@@ -2739,18 +2739,17 @@ my %special_characters = (
   'non_breaking_space' => [$xml_named_entity_nbsp, '00A0'],
 );
 
-# NOTE not called directly by convert_tree, which means that convert_tree
-# needs to be called from a converter which would have had this function
-# called already.
-#
-# In general called by output or convert.  May be called on a converter
-# when output and convert are not used.  Happens in tests.
-
 our %default_commands_conversion;
 our %default_css_element_class_styles;
 
 # This function initializes states that are initialized either in XS
-# or in Perl.  Called as early as possible in the conversion functions.
+# or in Perl.  In general called by output or convert, as early as possible.
+# May also be called on a converter when output and convert are not used,
+# which happens only in tests.
+# NOTE not called directly by convert_tree, which means that convert_tree
+# needs to be called from a converter which would have had this function
+# called already.
+#
 # $CONTEXT is the first conversion context name.
 # $DOCUMENT is the converted Texinfo parsed document.
 sub conversion_initialization($$;$) {

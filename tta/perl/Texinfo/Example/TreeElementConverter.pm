@@ -64,8 +64,11 @@ our $VERSION = '7.3dev';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
-our $module_loaded = 0;
+my $module_loaded = 0;
 
+# TODO this is obsolete.  Instead, the Perl implementation of the
+# interface should be in a NonXS file and either the XS or the Perl
+# implementation should be loaded in a BEGIN block
 my %XS_overrides = (
   "Texinfo::Example::TreeElementConverter::new_tree_element"
     => "Texinfo::Example::TreeElementConverterXS::new_tree_element",
@@ -125,7 +128,7 @@ sub import {
   if (!$module_loaded) {
     if ($XS_structuring) {
       foreach my $sub (keys %XS_overrides) {
-        Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
+        Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
       }
     }
 

@@ -45,9 +45,7 @@ use Texinfo::UnicodeData;
 require Exporter;
 
 # Some extra initialization for the first time this module is loaded.
-# This could be done in a UNITCHECK block, but they were introduced in
-# Perl 5.10.
-our $module_loaded = 0;
+my $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     Texinfo::XSLoader::override("Texinfo::Convert::Unicode::unicode_text",

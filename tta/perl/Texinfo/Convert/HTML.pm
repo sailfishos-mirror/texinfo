@@ -33,7 +33,7 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
-# ALTIMP C/convert/*.[ch]
+# ALTIMP C/convert/*html*.[ch]
 
 
 package Texinfo::Convert::HTML;
@@ -101,6 +101,7 @@ our $VERSION = '7.3dev';
 
 our %HTML_align_commands;
 
+# Load XS interface or interface Perl implementation
 BEGIN {
   # needs to be defined before loading Texinfo::Convert::HTMLNonXS
   foreach my $align_command
@@ -131,11 +132,13 @@ my %XS_overrides = (
     => "Texinfo::MiscXS::entity_text",
 );
 
-our $module_loaded = 0;
+# Extra initialization for functions override for the first time this
+# module is loaded.
+my $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     foreach my $sub (keys %XS_overrides) {
-      Texinfo::XSLoader::override ($sub, $XS_overrides{$sub});
+      Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
     }
     $module_loaded = 1;
   }

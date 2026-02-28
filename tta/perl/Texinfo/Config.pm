@@ -48,6 +48,17 @@ use Texinfo::Common;
 
 use Texinfo::ConfigXS;
 
+# Use functions overriding for the XS interface instead of loading a whole
+# interface because it would be complicated to separate the overriden
+# Perl functions as they use file scoped variables and it is better to
+# keep it that way.
+
+# When the main program is the C implementation, the way init files options
+# are shared with the main program cannot work.  Instead, the functions
+# are overriden such that the init files options stored in C data are
+# set and accessed.
+# TODO change Loader code or this code to make sure that the overrides
+# succeed?
 my %XS_overrides = (
   "Texinfo::Config::texinfo_get_conf"
     => "Texinfo::ConfigXS::texinfo_get_conf",
@@ -61,10 +72,10 @@ my %XS_overrides = (
     => "Texinfo::ConfigXS::texinfo_set_format_from_init_file",
 );
 
-our $module_loaded = 0;
+my $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    # override only if Perl is embedded
+    # override only if the main program is in C with Perl embedded
     if ($Texinfo::XSLoader::embedded_xs) {
       foreach my $sub (keys(%XS_overrides)) {
         Texinfo::XSLoader::override($sub, $XS_overrides{$sub});

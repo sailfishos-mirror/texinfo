@@ -59,8 +59,7 @@ require Exporter;
 our @ISA = qw(Texinfo::Convert::Converter);
 
 # Some extra initialization for the first time this module is loaded.
-# This could be done in a UNITCHECK block, introduced in Perl 5.10.
-our $module_loaded = 0;
+my $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
     Texinfo::XSLoader::override(

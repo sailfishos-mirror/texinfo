@@ -109,12 +109,14 @@ use Texinfo::Translations;
 
 require Exporter;
 
-our $module_loaded = 0;
+# Some extra initialization for functions override for the first time
+# this module is loaded.
+my $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    Texinfo::XSLoader::override ("Texinfo::Parser::_parse_texi_regex",
+    Texinfo::XSLoader::override("Texinfo::Parser::_parse_texi_regex",
       "Texinfo::MiscXS::parse_texi_regex");
-    Texinfo::XSLoader::override ("Texinfo::Parser::_parse_command_name",
+    Texinfo::XSLoader::override("Texinfo::Parser::_parse_command_name",
       "Texinfo::MiscXS::parse_command_name");
     $module_loaded = 1;
   }
