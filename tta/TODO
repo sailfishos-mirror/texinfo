@@ -76,6 +76,28 @@ converter_customization_options, unique_at_command_options.
 Delayed bugs/features
 =====================
 
+According to libtool documentation and Bruno experience, on Windows,
+variable objects exported/imported from dll need to be declared, at
+least when they are accessed from one library, which needs not happen
+when they are const:
+https://mail.gnu.org/archive/html/bug-texinfo/2026-02/msg00139.html
+https://mail.gnu.org/archive/html/bug-texinfo/2026-02/msg00150.html
+Some variables that could be in that situaton, although they did not
+make cygwin in github CI nor mingw Eli tests fail.  They are all set in
+libtexinfo.
+The list:
+C/main/customization_options.h: txi_base_options, txi_base_sorted_options,
+txi_options_command_map => libtexinfo-convert (converter.c, format_html.c...)
+C/main/document.h: txi_paths_info => libtexinfo-convert (convert_html.c...),
+                                     libtexinfo-main (texinfo.c)
+C/main/translations.h: translation_cache
+  => libtexinfo-convert (converter.c, convert_to_text.c)
+C/main/unicode.h: unicode_character_brace_no_arg_commands
+  => libtexinfo-convert (html_prepare_converter.c)
+C/main/utils.h: output_conversions, input_conversions
+  => libtexinfo-convert (html_prepare_converter.c...),
+     libtexinfo-main (swig_interface.c) 
+
 Improve requiredifenabled such that if disable XS or enable_txi_libraries=no
 the Perl code is used instead of failures.  This is not easy and may
 require splitting Common and XS/NonXS part of modules and having fallback

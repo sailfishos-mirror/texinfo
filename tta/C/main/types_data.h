@@ -24,7 +24,7 @@ typedef struct types_struct {
   int elt_info_number; /* Number of needed elt_info elements */
 } TYPE_DATA;
 
-extern TYPE_DATA type_data[];
+extern const TYPE_DATA type_data[];
 
 /* also change swig_element_data.h when changing the flags here if needed */
 #define TF_text               0x0001

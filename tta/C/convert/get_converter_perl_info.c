@@ -40,7 +40,7 @@
 #include "convert_to_text.h"
 #include "get_perl_info.h"
 /* retrieve_converter find_perl_converter_class_converter_format
-   new_converter converter_set_document new_converter_initialization_info */
+   new_converter converter_set_document */
 #include "converter.h"
 /* pass_errors newSVpv_utf8 */
 #include "build_perl_info.h"

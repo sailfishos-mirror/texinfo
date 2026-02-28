@@ -2,7 +2,7 @@
 
 #include "builtin_commands.h"
 
-COMMAND builtin_command_data[] = {
+const COMMAND builtin_command_data[] = {
 {0, 0, 0, 0, 0},
 {"\t", CF_nobrace, CF_formatted_nobrace, NOBRACE_symbol, 0},
 {"\n", CF_nobrace, CF_formatted_nobrace, NOBRACE_symbol, 0},

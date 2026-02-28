@@ -70,7 +70,7 @@ extern const char *output_unit_type_names[];
 extern const char *command_location_names[];
 
 extern const char *html_button_direction_names[];
-extern char *html_command_text_type_name[];
+extern const char *html_command_text_type_name[];
 
 extern const EXPANDED_FORMAT default_expanded_formats[];
 
@@ -91,7 +91,7 @@ typedef struct DEF_ALIAS {
     char *translation_context;
 } DEF_ALIAS;
 
-extern DEF_ALIAS def_aliases[];
+extern const DEF_ALIAS def_aliases[];
 
 #define SMALL_BLOCK_COMMANDS_LIST \
     smbc_command_name(example)\

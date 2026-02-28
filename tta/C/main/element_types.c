@@ -2,7 +2,7 @@
 
 #include "types_data.h"
 
-TYPE_DATA type_data[] = {
+const TYPE_DATA type_data[] = {
 {0, 0, 0},
 {"index_entry_command", TF_with_command, 1},
 {"definfoenclose_command", TF_with_command, 2},

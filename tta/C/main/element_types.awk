@@ -31,7 +31,7 @@ BEGIN {
     print ""                                                             > ETC
     print "#include \"types_data.h\""                                    > ETC
     print ""                                                             > ETC
-    print "TYPE_DATA type_data[] = {"                                    > ETC
+    print "const TYPE_DATA type_data[] = {"                                    > ETC
     print "{0, 0, 0},"                                                   > ETC
 }
 

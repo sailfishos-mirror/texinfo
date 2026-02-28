@@ -52,6 +52,10 @@
 #include "structuring.h"
 #include "transformations.h"
 #include "convert_utils.h"
+/* find_format_name_converter_format setup_converter_generic
+ converter_defaults destroy_converter_initialization_info converter_converter
+ converter_output converter_convert converter_remove_output_units
+ destroy_converter */
 #include "converter.h"
 #include "html_converter_api.h"
 #include "call_perl_function.h"
@@ -66,7 +70,7 @@
 #define _(String) gettext (String)
 
 /* associate transformation name to the corresponding flag */
-const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[] = {
+static const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[] = {
 #define tt_type(name) {#name, STTF_ ## name},
    TT_TYPES_LIST
 #undef tt_type

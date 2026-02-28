@@ -27,7 +27,7 @@ typedef struct command_struct {
     int args_number; /* Number of arguments for brace or line commands. */
 } COMMAND;
 
-extern COMMAND builtin_command_data[];
+extern const COMMAND builtin_command_data[];
 
 #define builtin_command_flags(e) \
    (!(e) ? 0 : (builtin_command_data[(e)->cmd].flags))

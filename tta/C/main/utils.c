@@ -101,7 +101,7 @@ const char *null_device_names[] = {
 const char *whitespace_chars = " \t\v\f\r\n";
 const char *digit_chars = "0123456789";
 
-DEF_ALIAS def_aliases[] = {
+const DEF_ALIAS def_aliases[] = {
   {CM_defun, CM_deffn, pgdt_context_noop("category of functions for @defun",
                                         "Function")},
   /* TRANSLATORS: category of macros for @defmac */
@@ -199,7 +199,7 @@ const char *html_button_direction_names[] = {
 };
 
 /* keep in sync with enum html_text_type */
-char *html_command_text_type_name[] = {
+const char *html_command_text_type_name[] = {
   "text", "text_nonumber", "string", "string_nonumber",
   "href", "node", "section", "section_nonumber"
 };

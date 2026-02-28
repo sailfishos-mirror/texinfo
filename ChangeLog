@@ -1,5 +1,14 @@
 2026-02-28 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/convert/texinfo.c (txi_tree_transformation_table): make static
+	const, it is only used in this file.
+
+	* tta/C/main/command_data.awk, tta/C/main/command_data.c,
+	tta/C/main/element_types.awk, tta/C/main/element_types.c,
+	tta/C/main/utils.c: add explicit const for constant structures.
+
+2026-02-28 Patrice Dumas  <pertusus@free.fr>
+
 	Correct path separator for XDG directories and ctexi2any
 
 	* tta/perl/texi2any.pl (add_config_paths), tta/C/texi2any.c

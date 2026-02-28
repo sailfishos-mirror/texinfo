@@ -14,8 +14,6 @@ typedef struct TRANSFORMATION_NAME_FLAG {
     unsigned long flag;
 } TRANSFORMATION_NAME_FLAG;
 
-extern const TRANSFORMATION_NAME_FLAG txi_tree_transformation_table[];
-
 /* tree transformations, keep in sync with
    Texinfo::Common::valid_tree_transformations and STTF flags just below */
 #define TT_TYPES_LIST \
