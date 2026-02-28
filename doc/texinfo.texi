@@ -606,8 +606,6 @@ much more feasible to implement.
 @cindex @command{texi2any}, as reference implementation
 @cindex Reference implementation
 @cindex Implementation, @command{texi2any} as reference
-@cindex Texinfo language tests
-@cindex Tests, of Texinfo language
 @anchor{Reference Implementation}@c
 @item @command{texi2any} was intended to be a reference implementation
 that defines parts of the language not fully specified by the manual,
@@ -14956,7 +14954,7 @@ Info (@pxref{@command{texi2any} Printed Output}).
 @itemx --disable-encoding
 @opindex --enable-encoding
 @opindex --disable-encoding
-@vindex ENABLE_ENCODING
+@c @vindex ENABLE_ENCODING
 By default, or with @option{--enable-encoding}, output accented and
 special characters in Info and plain text output based on
 the document encoding.  With @option{--disable-encoding}, 7-bit
@@ -14971,7 +14969,7 @@ Generate EPUB 3 output.
 @itemx -e @var{limit}
 @opindex --error-limit=@var{limit}
 @opindex -e @var{limit}
-@vindex ERROR_LIMIT
+@c @vindex ERROR_LIMIT
 Report @var{limit} errors before aborting (on the assumption that
 continuing would be useless); default 100.
 
@@ -14979,7 +14977,7 @@ continuing would be useless); default 100.
 @itemx -f @var{width}
 @opindex --fill-column=@var{width}
 @opindex -f @var{width}
-@vindex FILLCOLUMN
+@c @vindex FILLCOLUM
 Specify the maximum number of columns in a line; this is the
 right-hand edge of a line.  Paragraphs that are filled will be filled
 to this width.  (Filling is the process of breaking up and connecting
@@ -15012,7 +15010,7 @@ separate file.
 @itemx -F
 @opindex --force
 @opindex -F
-@vindex FORCE
+@c @vindex FORCE
 Ordinarily, if the input file has errors, the output files are not
 created.  With this option, they are preserved.
 
@@ -15104,7 +15102,7 @@ of directories in which these customization files are searched for.
 @item --internal-links=@var{file}
 @opindex --internal-links=@var{file}
 @cindex Internal links, of HTML
-@vindex INTERNAL_LINKS
+@c @vindex INTERNAL_LINKS
 In HTML mode, output a tab-separated file containing three columns:
 the internal link to an item, the type of the item and the name of the item
 or the term corresponding to the item which was indexed or entered.
@@ -15136,7 +15134,7 @@ Generate @LaTeX{} output.
 @itemx -E @var{file}
 @opindex --macro-expand=@var{file}
 @opindex -E @var{file}
-@vindex MACRO_EXPAND
+@c @vindex MACRO_EXPAND
 Output the Texinfo source, with all Texinfo macros expanded, to
 @var{file}.  Normally, the result of macro expansion is used
 internally by @command{texi2any} and then discarded.
@@ -15146,7 +15144,7 @@ internally by @command{texi2any} and then discarded.
 @cindex Node separators, omitting with @option{--no-headers}
 @cindex Generating plain text files with @option{--no-headers}
 @cindex Menus, omitting with @option{--no-headers}
-@vindex HEADERS
+@c @vindex HEADERS
 Do not include menus or node separator lines in the output.
 
 When generating Info, this is the same as using @option{--plaintext},
@@ -15164,7 +15162,7 @@ not include navigation links at the top of each node at all.
 @itemx --no-node-files
 @opindex --node-files
 @opindex --no-node-files
-@vindex NODE_FILES
+@c @vindex NODE_FILES
 @anchor{@option{--node-files}}
 With @option{--node-files}, when generating HTML, create redirection
 files for anchors and any nodes not already output with the file name
@@ -15222,13 +15220,13 @@ has the form @samp{(@var{file})}.
 
 @item --no-warn
 @opindex --no-warn
-@vindex NO_WARN
+@c @vindex NO_WARN
 Suppress warning messages (but not error messages).
 
 @item --number-footnotes
 @itemx --no-number-footnotes
 @opindex --no-number-footnotes
-@vindex NUMBER_FOOTNOTES
+@c @vindex NUMBER_FOOTNOTES
 With @option{--no-number-footnotes}, suppress automatic footnote
 numbering.  By default, footnotes are numbered sequentially within a node,
 i.e., the current footnote number is reset to 1 at the start of each node.
@@ -15237,7 +15235,7 @@ i.e., the current footnote number is reset to 1 at the start of each node.
 @itemx --no-number-sections
 @opindex --number-sections
 @opindex --no-number-sections
-@vindex NUMBER_SECTIONS
+@c @vindex NUMBER_SECTIONS
 With @option{--number-sections} (the default), output chapter,
 section, and appendix numbers as in printed manuals.  This works only
 with hierarchically structured manuals.  You should specify
@@ -15248,8 +15246,8 @@ with hierarchically structured manuals.  You should specify
 @itemx -o @var{file}
 @opindex --output=@var{file}
 @opindex -o @var{file}
-@vindex OUTFILE
-@vindex SUBDIR
+@c @vindex OUTFILE
+@c @vindex SUBDIR
 Specify that the output should be directed to @var{file}.  This
 overrides any file name specified in a @code{@@setfilename} command
 found in the Texinfo source.  If neither @code{@@setfilename} nor this
@@ -15364,7 +15362,7 @@ smaller subfiles, of approximately 300k bytes.  When generating HTML,
 by default each output file contains one node (@pxref{Generating
 HTML}).  @option{--no-split} suppresses this splitting of the output.
 
-@vindex SPLIT
+@c @vindex SPLIT
 Alternatively, @option{--split=@var{how}} may be used to specify at
 which level the HTML output should be split.  The possible values for
 @var{how} are:
@@ -15387,14 +15385,14 @@ available as separate files.
 
 @item --split-size=@var{num}
 @opindex --split-size=@var{num}
-@vindex SPLIT_SIZE
+@c @vindex SPLIT_SIZE
 Keep Info files to at most @var{num} characters if possible; default
 is 300,000.  (However, a single node will never be split across Info
 files.)
 
 @item --trace-includes
 @opindex --trace-includes
-@vindex TRACE_INCLUDES
+@c @vindex TRACE_INCLUDES
 Print the name of each included file to standard output, including any
 indirectly included files.  An include file is printed only if it was
 actually found.  When this option is given, @command{texi2any} does not
@@ -15403,7 +15401,7 @@ easier to collect the sources of a Texinfo manual.)
 
 @item --transliterate-file-names
 @opindex --transliterate-file-names
-@vindex TRANSLITERATE_FILE_NAMES
+@c @vindex TRANSLITERATE_FILE_NAMES
 Enable transliteration of non-ASCII characters in node and sectioning commands
 names for the purpose of file name and sectioning commands identifiers
 creation.  The file names and identifiers obtained that way are platform and
@@ -15421,7 +15419,7 @@ Cause @var{var} to be undefined.  This is equivalent to @code{@@clear
 
 @item --verbose
 @opindex --verbose
-@vindex VERBOSE
+@c @vindex VERBOSE
 Cause @command{texi2any} to display messages saying what it is doing.
 Normally, @command{texi2any} only outputs messages if there are errors or
 warnings.

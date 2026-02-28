@@ -1,3 +1,9 @@
+2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi: eliminate many duplicate index entries,
+	so that e.g. "info texinfo ENABLE_ENCODING" goes to a part
+	of the file where "ENABLE_ENCODING" is directly mentioned.
+
 2026-02-27  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* js/info.css: move declarations for sidebar into section
