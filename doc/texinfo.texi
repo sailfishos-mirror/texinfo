@@ -15459,11 +15459,11 @@ If not set or otherwise specified, Info output is the default.
 
 @code{TEXINFO_OUTPUT_FORMAT} may take some other special values, which do
 not correspond to any command-line settable output format
-(@pxref{Customization Variables and Options}).
+(@pxref{Output Format Selection}).
 
 The customization variable of the same name is also read; if set, that
 overrides an environment variable setting, but not a command-line
-option.  @xref{Customization Variables and Options}.
+option.  @xref{Output Format Selection}.
 
 @vindex TEXINFO_XS
 @cindex Perl extension modules (XS)
@@ -15654,6 +15654,7 @@ The sections below give the details for each of these.
 @menu
 * Commands: Customization Variables for @@-Commands.
 * Options:  Customization Variables and Options.
+* Format:   Output Format Selection.
 * Global:   Global Customization Variables.
 * Info:     Info and Plaintext Customization Variables.
 * LaTeX:    @LaTeX{} Customization Variables.
@@ -15781,11 +15782,15 @@ Setting such a customization variable to a value @samp{foo} is
 essentially the same as specifying the @code{--@var{opt}=foo} if the
 option takes an argument, or @code{--@var{opt}} if not.
 
-@vindex TEXINFO_OUTPUT_FORMAT
-In addition, the customization variable @code{TEXINFO_OUTPUT_FORMAT}
-allows specifying what @command{texi2any} outputs, either one of the usual
-output formats that can be specified with options, or various other
-forms:
+
+@node Output Format Selection
+@subsection Output Format Selection
+
+@c @vindex TEXINFO_OUTPUT_FORMAT
+The customization variable @code{TEXINFO_OUTPUT_FORMAT} takes the
+value of the format output by @command{texi2any}.  This can be one of
+the usual output formats that can be specified with options, or various
+other special output formats:
 
 @table @samp
 @item docbook
@@ -15847,7 +15852,7 @@ spell checking or word counting, for example.  The trivial
 of the Texinfo source as an example.  It's one line:
 
 @example
-exec texi2any -c TEXINPUT_OUTPUT_FORMAT=textcontent "$@@"
+exec texi2any -c TEXINFO_OUTPUT_FORMAT=textcontent "$@@"
 @end example
 @end table
 
@@ -16085,7 +16090,7 @@ require additional Perl modules installation.  The default is undef.
 The generated output format.  Set from command line with options such as
 @option{--html}, as the @env{TEXINFO_OUTPUT_FORMAT} environment variable
 value (@pxref{@command{texi2any} Environment Variables}) or as a customization
-option.  @xref{Customization Variables and Options}
+option.  @xref{Output Format Selection}
 
 The value set in the @code{TEXINFO_OUTPUT_FORMAT} variable is in general the
 same as the name used to set the format, but not always.  If the format is set

@@ -1,5 +1,15 @@
 2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
 
+	TEXINFO_OUTPUT_FORMAT documentation
+
+	* doc/texinfo.texi
+	(Customization Variables and Options, Output Format Selection):
+	Split discussion of the possible values of TEXINFO_OUTPUT_FORMAT
+	into its own node.  Comment out second index entry for
+	"TEXINFO_OUTPUT_FORMAT".  Fix example.
+
+2026-02-28  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi: eliminate many duplicate index entries,
 	so that e.g. "info texinfo ENABLE_ENCODING" goes to a part
 	of the file where "ENABLE_ENCODING" is directly mentioned.
