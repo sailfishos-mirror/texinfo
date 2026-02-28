@@ -435,13 +435,17 @@ document description.}
 
 \subsection{Title pages}
 
+\txicmd{@documentinfo}{}{Paired with \code{@end documentinfo}.  Start block containing \code{@title}, \code{@subtitle} or \code{@author} lines.}
+\txicmd{@title}{title}{Define the title for the title page.}
+\txicmd{@subtitle}{subtitle}{Define the subtitle for the title page.}
+\txicmd{@author}{author}{Define an author for the title page.}
+\txicmd{@publication}{}{Contains information such as publisher address and ISBN.  Pair with \code{@end publication}.}
+\txicmd{@maketitle}{}{Output a title page and possibly the following copyright page using information from \code{@documentinfo}, \code{@copying}, and \code{@publication}.}
+
 \txicmd{@shorttitlepage}{title}{Generate a minimal title page, generally for the first page of output in a long printed manual.}
+\txicmd{@titlepage}{}{Begin a title page with explicit formatting. Write the command on a line of its own, paired with \code{@end titlepage}. For printed manuals only in the default case.}
 \txicmd{@center}{line-of-text}{Center \var{line-of-text}, usually for titles.}
 \txicmd{@titlefont}{\ttbraced{\var{text}}}{Print \var{text} in a larger than normal font.}
-\txicmd{@titlepage}{}{Begin the title page. Write the command on a line of its own, paired with \code{@end titlepage}. For printed manuals only in the default case.}
-\txicmd{@title}{title}{Within \code{@titlepage}, display \var{title} appropriately.}
-\txicmd{@subtitle}{subtitle}{Within \code{@titlepage}, display \var{subtitle}.}
-\txicmd{@author}{author}{Within \code{@titlepage}, display \var{author}.}
 
 \subsection{Tables of contents}
 
@@ -502,6 +506,7 @@ to this node.}
 \txicmd{@heading}{title}{Print an unnumbered section-like heading.}
 \txicmd{@subheading}{title}{Print an unnumbered subsection-like heading.}
 \txicmd{@subsubheading}{title}{Print an unnumbered subsubsection-like heading.}
+\txicmd{@xrefname}{text}{Provide text for referencing a node, without printing a heading.}
 
 
 \section{Menus}
@@ -919,7 +924,7 @@ The default paper size is \acro{US} letter-size, 8x11in.
 \footingheading{even}{even-numbered (left-hand) pages}
 \footingheading{every}{every page}
 
-\txicmd{@thischapter, @thischaptername, @thischapternum, @thissection, @thissectionname, @thissectionnum, @thisfile, @thispage, @thistitle}{}{These commands are only allowed in a heading or footing. They stand for, respectively, the number and name of the current chapter (in the format `Chapter~1: Title'), the current chapter name only, the current chapter number only, the number and name of the current section, the current section name only, the current section number only, the filename, the current page number, and the title of the document.}
+\txicmd{@thischapter, @thischaptername, @thischapternum, @thissection, @thissectionname, @thissectionnum, @thispart, @thisfile, @thispage, @thistitle}{}{These commands are only allowed in a heading or footing. They stand for, respectively, the number and name of the current chapter (in the format `Chapter~1: Title'), the current chapter name only, the current chapter number only, the number and name of the current section, the current section name only, the current section number only, the name of the current part, the filename, the current page number, and the title of the document.}
 
 
 \section{Document preferences}
