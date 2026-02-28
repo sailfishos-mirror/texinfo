@@ -1,5 +1,21 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/structuring_transfo/transformations.c
+	(move_selected_element_index_entries_after_items): rename
+	move_index_entries_after_items as
+	move_selected_element_index_entries_after_items.
+
+	* tta/perl/Texinfo/ManipulateTreeNonXS.pm
+	(_move_selected_element_index_entries_after_items): rename
+	move_index_entries_after_items as
+	_move_selected_element_index_entries_after_items.
+
+	* tta/perl/Texinfo/ManipulateTreeNonXS.pm
+	(move_index_entries_after_items_in_document): remove
+	move_index_entries_after_items_in_tree.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/ConvertToTexinfoXS.xs
 	(_XS_texinfo_convert_tree): rename plain_texinfo_convert_tree as
 	_XS_texinfo_convert_tree.

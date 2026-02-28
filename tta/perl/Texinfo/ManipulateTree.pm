@@ -313,7 +313,6 @@ sub _remove_element_copy_info($;$$) {
   }
 }
 
-# Never overriden by XS version
 sub copy_treeNonXS($;$) {
   my ($current, $added_root_elements) = @_;
 

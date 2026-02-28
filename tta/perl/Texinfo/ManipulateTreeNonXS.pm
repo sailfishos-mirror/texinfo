@@ -102,7 +102,7 @@ sub SvREFCNT($;$) {
 
 
 
-# no reference to other elements in extra information currently
+# No reference to other elements in extra information currently
 # (no extra element, content, direction), therefore no need for
 # element numbers to refer to.
 # The calls to set_element_tree_numbers and remove_element_tree_numbers
@@ -154,7 +154,7 @@ sub protect_node_after_label_in_document($) {
   return;
 }
 
-sub move_index_entries_after_items($) {
+sub _move_selected_element_index_entries_after_items($) {
   # enumerate or itemize
   my $current = shift;
 
@@ -251,24 +251,17 @@ sub _move_index_entries_after_items($$) {
   if (exists($current->{'cmdname'})
       and ($current->{'cmdname'} eq 'enumerate'
            or $current->{'cmdname'} eq 'itemize')) {
-    move_index_entries_after_items($current);
+    _move_selected_element_index_entries_after_items($current);
   }
   return undef;
-}
-
-# Not documented, should not be generally useful, this is a transformation
-# that makes more sense for a whole document.
-sub move_index_entries_after_items_in_tree($) {
-  my $tree = shift;
-
-  modify_tree($tree, \&_move_index_entries_after_items);
 }
 
 # For @itemize/@enumerate
 sub move_index_entries_after_items_in_document($) {
   my $document = shift;
 
-  move_index_entries_after_items_in_tree($document->tree());
+  my $tree = $document->tree();
+  modify_tree($tree, \&_move_index_entries_after_items);
 }
 
 sub _relate_index_entries_to_table_items_in($$) {

@@ -472,7 +472,8 @@ relate_index_entries_to_table_items_in_document (DOCUMENT *document)
 
 /* in itemize or enumerate */
 static void
-move_index_entries_after_items (ELEMENT *current, DOCUMENT *document)
+move_selected_element_index_entries_after_items (ELEMENT *current,
+                                                 DOCUMENT *document)
 {
   ELEMENT *previous = 0;
   size_t i;
@@ -567,7 +568,7 @@ move_index_entries_after_items_internal (const char *type,
           || current->e.c->cmd == CM_itemize))
     {
       DOCUMENT *document = (DOCUMENT *)argument;
-      move_index_entries_after_items (current, document);
+      move_selected_element_index_entries_after_items (current, document);
     }
   return 0;
 }
