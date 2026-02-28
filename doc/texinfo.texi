@@ -7762,9 +7762,8 @@ extension, because the different processors support different formats:
 @pindex png image format
 @pindex jpeg image format
 @pindex pdf image inclusions
-@TeX{} (PDF output) reads @file{@var{filename}.pdf}, @file{@var{filename}.png},
-@file{@var{filename}.jpg}, or @file{@var{filename}.jpeg} (in that
-order).  It also tries uppercase versions of the extensions.  The PDF
+@TeX{} (PDF output) tries (in order) @file{@var{filename}.pdf}, @file{@var{filename}.png},
+@file{@var{filename}.jpg}, and @file{@var{filename}.jpeg}.  It also tries uppercase versions of the extensions.  The PDF
 format does not support EPS images, so such must be converted first.
 
 @item
@@ -7782,11 +7781,11 @@ reference to @file{@var{filename}.jpg} anyway.
 
 @item
 @cindex SVG images, used in DocBook
-In DocBook, references to
+In DocBook, all of the following are checked:
 @file{@var{filename}.eps}, @file{@var{filename}.gif},
 @file{@var{filename}.jpeg}, @file{@var{filename}.jpg},
 @file{@var{filename}.pdf}, @file{@var{filename}.png} and
-@file{@var{filename}.svg} are output, for every file found.  Also,
+@file{@var{filename}.svg}.  References are output to every file found.  Also,
 @file{@var{filename}.txt} is included verbatim, if present.  (The
 subsequent DocBook processor is supposed to choose the appropriate one.)
 
@@ -20665,8 +20664,8 @@ Provide a short elaboration of the purpose of a node.
 @xref{Node Descriptions}.
 
 @item @@nodedescriptionblock
-Used to start a longer node description.  Pair with
-@samp{@@end nodedescriptionblock}.  @xref{Node Descriptions}.
+Pair with @samp{@@end nodedescriptionblock}.  Used to start a longer
+node description.  @xref{Node Descriptions}.
 
 @item @@noindent
 Prevent text from being indented as if it were a new paragraph.
