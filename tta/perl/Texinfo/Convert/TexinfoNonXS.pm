@@ -1,4 +1,4 @@
-# TexinfoNonXS.pm: output a Texinfo tree as Texinfo.  Non XS entry point.
+# TexinfoNonXS.pm: no-op non XS implementation of XS conversion to Texinfo.
 #
 # Copyright 2010-2026 Free Software Foundation, Inc.
 #
@@ -15,22 +15,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# ALTIMP Texinfo/Convert/TexinfoXS.pm
+# ALTIMP perl/XSTexinfo/convert/ConvertToTexinfoXS.xs
 
 package Texinfo::Convert::Texinfo;
 
 use 5.006;
 use strict;
+use warnings;
 
 use Carp qw(confess);
 
-# entry point for convert_to_texinfo when no XS is used
-sub convert_to_texinfo($) {
+# Simply return undef to signal that there was no conversion done in XS.
+sub _XS_texinfo_convert_tree($) {
   my $element = shift;
 
-  confess "convert_to_texinfo: element undef" if (!defined($element));
-
-  return convert_to_texinfoNonXS($element);
+  return undef;
 }
 
 1;

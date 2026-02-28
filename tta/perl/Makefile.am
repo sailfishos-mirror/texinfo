@@ -131,7 +131,6 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/Plaintext.pm \
  Texinfo/Convert/Texinfo.pm \
  Texinfo/Convert/TexinfoNonXS.pm \
- Texinfo/Convert/TexinfoXS.pm \
  Texinfo/Convert/TexinfoMarkup.pm \
  Texinfo/Convert/TexinfoSXML.pm \
  Texinfo/Convert/TexinfoXML.pm \

@@ -17,17 +17,15 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 
-# ALTIMP perl/XSTexinfo/convert/ConvertToTexinfoXS.xs
 # ALTIMP C/main/convert_to_texinfo.c
 
 package Texinfo::Convert::Texinfo;
 
-# Contains code loading the XS module, Perl code common to XS and NonXS
-# and the Perl implementation of the conversion to Texinfo, as it may be
-# used both with and without XS.
+# Contains code loading the XS module and Perl functions implementations.
 
 use 5.006;
 use strict;
+use warnings;
 
 # stop \s from matching non-ASCII spaces, etc.  \p{...} can still be
 # used to match Unicode character classes.
@@ -70,13 +68,25 @@ BEGIN {
       "Texinfo::Convert::Texinfo",
       "Texinfo::Convert::TexinfoNonXS",
       $shared_library_name,
-      "Texinfo::Convert::TexinfoXS",
+      undef,
       ['texinfo', 'texinfoxs'],
   );
 }
 
-# used in root_heading_command_to_texinfo
-my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
+sub _convert_to_texinfo($);
+
+sub convert_to_texinfo($) {
+  my $element = shift;
+
+  confess "convert_to_texinfo: element undef" if (!defined($element));
+
+  # Try the XS implementation.
+  my $result = _XS_texinfo_convert_tree($element);
+  return $result if (defined($result));
+
+  # use the NonXS implementation
+  return _convert_to_texinfo($element);
+}
 
 # TODO document?
 sub link_element_to_texi($) {
@@ -143,6 +153,9 @@ sub check_node_same_texinfo_code($$) {
   return ($reference_node_texi eq $node_texi);
 }
 
+# used in root_heading_command_to_texinfo
+my %sectioning_heading_commands = %Texinfo::Commands::sectioning_heading_commands;
+
 # for debugging.
 sub root_heading_command_to_texinfo($) {
   my $element = shift;
@@ -173,9 +186,7 @@ sub root_heading_command_to_texinfo($) {
   }
 }
 
-# The NonXS implementation is here, as it may be called by the Perl
-# code associated with the XS module when there is no C data
-# associated to the element.
+# Perl implementation of Texinfo tree conversion to Texinfo.
 
 my %brace_commands           = %Texinfo::Commands::brace_commands;
 my %root_commands            = %Texinfo::Commands::root_commands;
@@ -183,8 +194,6 @@ my %block_commands           = %Texinfo::Commands::block_commands;
 my %def_commands             = %Texinfo::Commands::def_commands;
 my %nobrace_commands         = %Texinfo::Commands::nobrace_commands;
 my %line_commands            = %Texinfo::Commands::line_commands;
-
-sub convert_to_texinfoNonXS($);
 
 # convert ELEMENT contents as comma separated arguments
 sub _convert_args($) {
@@ -196,17 +205,17 @@ sub _convert_args($) {
     next if ($arg->{'info'} and $arg->{'info'}->{'inserted'});
     $result .= ',' if ($arg_nr);
     $arg_nr++;
-    $result .= convert_to_texinfoNonXS($arg);
+    $result .= _convert_to_texinfo($arg);
   }
   return $result;
 }
 
 # Following subroutines deal with transforming a texinfo tree into texinfo
 # text.  Should give the text that was used parsed, except for a few cases.
-sub convert_to_texinfoNonXS($) {
+sub _convert_to_texinfo($) {
   my $element = shift;
 
-  confess "convert_to_texinfoNonXS: element undef" if (!defined($element));
+  confess "_convert_to_texinfo: element undef" if (!defined($element));
 
   my $result = '';
   if (ref($element) ne 'Texinfo::TreeElement') {
@@ -324,7 +333,7 @@ sub convert_to_texinfoNonXS($) {
 
     if (exists($element->{'contents'})) {
       foreach my $child (@{$element->{'contents'}}) {
-        $result .= convert_to_texinfoNonXS($child);
+        $result .= _convert_to_texinfo($child);
       }
     }
 
@@ -334,7 +343,7 @@ sub convert_to_texinfoNonXS($) {
     }
     if (exists($element->{'info'})
         and exists($element->{'info'}->{'comment_at_end'})) {
-      $result .= convert_to_texinfoNonXS($element->{'info'}->{'comment_at_end'})
+      $result .= _convert_to_texinfo($element->{'info'}->{'comment_at_end'})
     }
     $result .= '}' if (exists($element->{'type'})
                        and $element->{'type'} eq 'bracketed_arg');
