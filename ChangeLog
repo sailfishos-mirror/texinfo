@@ -1,5 +1,10 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/api_to_perl.c: remove useless includes and preprocessor
+	code.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/Makefile.am: remove BUILD_C_CODE conditional use,
 	as it should always be true.  BUILD_C_CODE true is implied by XS being
 	enabled, and code is built in the directory only if XS is enabled.

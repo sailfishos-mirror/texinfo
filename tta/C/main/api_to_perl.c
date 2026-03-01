@@ -19,23 +19,14 @@
 #define PERL_NO_GET_CONTEXT
 #include "EXTERN.h"
 #include "perl.h"
-#if defined _WIN32 && !defined __CYGWIN__
-/* See comment in Parsetexi.xs for why we #undef free. */
-  #undef free
-#endif
 #include "XSUB.h"
 #include "ppport.h"
 
 #undef context
 
 #include <stdio.h>
-#include <string.h>
 #include <errno.h>
 
-#include "tree_types.h"
-#include "option_types.h"
-#include "converter_types.h"
-#include "document_types.h"
 /* non_perl_* has_perl_interpreter */
 #include "xs_utils.h"
 

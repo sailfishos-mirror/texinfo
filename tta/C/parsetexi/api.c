@@ -28,16 +28,19 @@
 #include "tree.h"
 /* for wipe_values ... */
 #include "utils.h"
+/* reset_command_stack */
 #include "command_stack.h"
 #include "errors.h"
+/* new_document */
 #include "document.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
 /* for wipe_user_commands */
 #include "commands.h"
 #include "context_stack.h"
-/* for set_input_file_name_encoding ... */
+/* source_marks_reset_counters */
 #include "source_marks.h"
+/* set_input_encoding input_push_file... */
 #include "input.h"
 /* for wipe_macros store_value init_values */
 #include "macro.h"
