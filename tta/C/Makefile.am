@@ -648,7 +648,8 @@ ctexi2any_LDADD = libtexinfo-main.la libtexinfoxs.la libtexinfo-convert.la libte
 ctexi2any_CFLAGS = $(perl_conf_CFLAGS)
 ctexi2any_CPPFLAGS = -I$(srcdir)/parsetexi -I$(srcdir)/convert -I$(srcdir)/main -I$(srcdir)/structuring_transfo $(AM_CPPFLAGS) $(GNULIB_CPPFLAGS) -DEMBED_PERL
 
-# in configure.ac, it is checked that Perl is embedded and iconv is available
+# in configure.ac, it is checked that Perl is embedded (and that shared
+# libraries are built)
 if PREFER_C_TEXI2ANY
 bin_PROGRAMS = texi2any
 endif
