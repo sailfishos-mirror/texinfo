@@ -1,5 +1,11 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/Makefile.am: remove BUILD_C_CODE conditional use,
+	as it should always be true.  BUILD_C_CODE true is implied by XS being
+	enabled, and code is built in the directory only if XS is enabled.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Paragraph.pm (BEGIN),
 	tta/perl/XSTexinfo/Makefile.am, tta/perl/XSTexinfo/ParagraphXS.xs:
 	rename XSParagraph.xs as ParagraphXS.xs.

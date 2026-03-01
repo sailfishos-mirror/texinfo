@@ -69,9 +69,7 @@ xs_LTLIBRARIES =
 
 ########################## Specific XS used in targeted override
 
-if BUILD_C_CODE
 xs_LTLIBRARIES += MiscXS.la
-endif
 nodist_MiscXS_la_SOURCES = MiscXS.c
 CLEANFILES += MiscXS.c
 MiscXS_la_SOURCES = xsmisc.c xsmisc.h ../../C/main/base_utils.c \
@@ -92,9 +90,7 @@ libparagraph_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(GNULIB_CPPFLA
 libparagraph_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libparagraph_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
-if BUILD_C_CODE
 xs_LTLIBRARIES += ParagraphXS.la
-endif
 nodist_ParagraphXS_la_SOURCES = ParagraphXS.c
 CLEANFILES += ParagraphXS.c
 ParagraphXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS)
