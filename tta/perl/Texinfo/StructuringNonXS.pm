@@ -1455,10 +1455,12 @@ sub print_nodes_list($) {
   return $result;
 }
 
+# The implementation is in StructuringTransfo.pm to be able to call it
+# for a test.
 sub associate_internal_references($) {
   my $document = shift;
 
-  associate_internal_referencesNonXS($document);
+  _associate_internal_references($document);
 }
 
 sub number_floats($) {

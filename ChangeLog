@@ -1,5 +1,11 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Structuring.pm (_associate_internal_references):
+	rename associate_internal_referencesNonXS as
+	_associate_internal_references.  Update callers.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/manipulate_tree.c (copy_tree_root),
 	tta/perl/Texinfo/ManipulateTreeNonXS.pm (copy_tree_root),
 	tta/perl/XSTexinfo/parser_document/ManipulateTreeXS.xs

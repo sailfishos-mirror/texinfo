@@ -123,8 +123,9 @@ sub get_node_node_childs_from_sectioning($) {
 
 # For each internal reference command, set the 'normalized' key, in the
 # @*ref first argument or in 'menu_entry_node' extra.
-# NonXS version, used in a test of internal pure Perl function.
-sub associate_internal_referencesNonXS($) {
+# The implementation is here and not in StructuringNonXS.pm because it
+# is used in a test of the Perl implementation.
+sub _associate_internal_references($) {
   my $document = shift;
 
   my $customization_information = $document;

@@ -61,7 +61,7 @@ sub test_new_node($$$$;$)
     ok((scalar(@identifiers) == 1 and $identifiers[0] eq $normalized),
        "$name label");
 
-    Texinfo::Structuring::associate_internal_referencesNonXS($document);
+    Texinfo::Structuring::_associate_internal_references($document);
 
     $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($node);
 
