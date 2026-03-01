@@ -1,0 +1,3 @@
+[submodule "UTS10-old-git-history"]
+	path = UTS10-old-git-history
+	url = file:///home/g/src/texinfo/UTS10/
