@@ -59,7 +59,7 @@ our $VERSION = '7.3dev';
 
 
 BEGIN {
-  my $shared_library_name = "ConvertToTexinfoXS";
+  my $shared_library_name = "ConvertTexinfoXS";
   if (!Texinfo::XSLoader::XS_convert_enabled()) {
     undef $shared_library_name;
   }
