@@ -1,5 +1,16 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	Finish TEXINFO_XS requiredifenabled implementation
+
+	* tta/perl/Texinfo/XSLoader.pm (init): now that all the modules that
+	need one have fallback, die if fallback is missing when it should be
+	present.  Update comments.
+
+	* tta/perl/Texinfo/XSLoader.pm (override): die if overriding a
+	function failed and embedded_xs is set.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/configure.ac (prefer_c_t2a): move ctexi2any related code later
 	to depend on use_shared_txi_libraries rather than am_func_iconv.
 

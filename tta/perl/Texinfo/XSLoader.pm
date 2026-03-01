@@ -411,14 +411,16 @@ sub init {
   } elsif ($TEXINFO_XS eq 'requiredifenabled') {
     if (defined($additional_libraries) and $disable_C_libraries) {
       # This happens if iconv is not found or not usable.
-      # in that case, the loading of the module is expected to fail.
-      # FIXME expected failure when overriding a specific function
-      # if (!defined($fallback_module)) for modules without fallback.
-      # Cannot use _debug here...
-      #warn("No C libraries expected failure of loading $module_name\n");
+      # In that case, the loading of every module depending on the parser
+      # is expected to fail, but all those modules should have fallback.
+      if (!defined($fallback_module)) {
+        die "no libraries for extension, no required fallback for $module\n";
+      }
     } elsif (!defined($module_name)) {
       # An undefined module name should only happen based on the TEXINFO_XS_*
       # environment variables values.
+      # All the modules in that situation should have fallbacks and which
+      # modules are loaded should be consistent.
       if (!defined($fallback_module)) {
         die "extension disabled, no required fallback module for $module\n";
       }
@@ -473,7 +475,7 @@ sub override($$) {
     *{"${target}"} = \&{"${source}"};
     _debug("  ...succeeded");
   } else {
-    if ($TEXINFO_XS eq 'requiredifenabled') {
+    if ($TEXINFO_XS eq 'requiredifenabled' or $embedded_xs) {
       die "extension loaded but overriding $target with $source failed\n";
     } else {
       _debug("  ...failed");

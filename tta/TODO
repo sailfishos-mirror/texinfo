@@ -100,12 +100,12 @@ C/main/utils.h: output_conversions, input_conversions
   => libtexinfo-convert (html_prepare_converter.c...),
      libtexinfo-main (swig_interface.c) 
 
-Improve requiredifenabled such that if disable XS or enable_txi_libraries=no
-the Perl code is used instead of failures.  This is not easy and may
-require splitting Common and XS/NonXS part of modules and having fallback
-for all the Perl modules that require the Texinfo libraries.  When this is
-done, it could be possible, in tests, to set TEXINFO_XS to omit if disabled
-XS or to requiredifenabled otherwise if TEXINFO_XS is not already set.
+It could be possible, in tests, to set TEXINFO_XS to requiredifenabled
+if TEXINFO_XS is not already set.
+Another options would be to have the default TEXINFO_XS be the same as
+requiredifenabled, since requiredifenabled only dies in situation that
+are abnormal (except maybe for MiscXS and XSParagraph functions that
+could be flagged/detected somehow).
 
 Revisit the use of @INC to register XS modules paths and use of @INC in
 XSLoader _find_file.  It makes more sense to find XS modules in-build or where
