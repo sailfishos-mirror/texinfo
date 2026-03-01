@@ -364,7 +364,7 @@ txi_converter_format_defaults (const char *converted_format,
   return format_defaults;
 }
 
-/* ALTIMP Texinfo/ParserXS.pm and Parsetexi.xs */
+/* ALTIMP Texinfo/ParserXS.pm */
 /* parser initialization, similar to calling Texinfo::Parser::parser in Perl.
    The implementation is different from Texinfo::ParserNonXS because here
    we need to convert options list to parser configuration function calls,

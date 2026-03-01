@@ -19,7 +19,7 @@
 # functions useful in other codes are better defined in other Texinfo
 # modules.
 
-# File to be loaded in conjunction with Parsetexi.xs module
+# File to be loaded in conjunction with ParserXS.xs module
 #
 # In general, the Parser works with character strings decoded from the
 # command line, from input files or from the parsed document and returns

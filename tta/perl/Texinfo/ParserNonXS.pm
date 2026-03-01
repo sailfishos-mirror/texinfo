@@ -18,8 +18,7 @@
 # Original author: Patrice Dumas <pertusus@free.fr>
 # Parts (also from Patrice Dumas) come from texi2html.pl or texi2html.init.
 
-# ALTIMP Parser.pm
-# ALTIMP XSTexinfo/parser_document/Parsetexi.xs
+# ALTIMP XSTexinfo/parser_document/ParserXS.xs
 # ALTIMP C/parsetexi/*.[ch]
 
 # Since there are different parser implementation, XS and NonXS, it is

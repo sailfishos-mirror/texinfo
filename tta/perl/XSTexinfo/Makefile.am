@@ -102,24 +102,24 @@ XSParagraph_la_LIBADD = libparagraph.la $(platform_PERL_LIBADD)
 
 EXTRA_DIST += XSParagraph.xs MiscXS.xs
 
-########################## Parsetexi XS parser
+########################## Parser XS
 
 if USE_SHARED_TXI_LIBRARIES
-xs_LTLIBRARIES += Parsetexi.la
+xs_LTLIBRARIES += ParserXS.la
 endif
 
-nodist_Parsetexi_la_SOURCES = parser_document/Parsetexi.c
-CLEANFILES += parser_document/Parsetexi.c
+nodist_ParserXS_la_SOURCES = parser_document/ParserXS.c
+CLEANFILES += parser_document/ParserXS.c
 
-EXTRA_DIST += parser_document/Parsetexi.xs
+EXTRA_DIST += parser_document/ParserXS.xs
 
 # To locate include files under out-of-source builds.
-Parsetexi_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi $(XSLIBS_CPPFLAGS)
-Parsetexi_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
+ParserXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/parsetexi $(XSLIBS_CPPFLAGS)
+ParserXS_la_LIBADD = $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 # the Gnulib link flags are needed at least on Solaris.  They only need to
 # be present for one dlopened object, once loaded in Perl, it can be used
 # by other modules.
-Parsetexi_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+ParserXS_la_LDFLAGS = $(XSLIBS_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
 
 ########################## Document XS
 

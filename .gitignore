@@ -363,7 +363,7 @@ tta/perl/XSTexinfo/parser_document/ConfigXS.c
 tta/perl/XSTexinfo/parser_document/DocumentXS.c
 tta/perl/XSTexinfo/parser_document/IndicesXS.c
 tta/perl/XSTexinfo/parser_document/ManipulateTreeXS.c
-tta/perl/XSTexinfo/parser_document/Parsetexi.c
+tta/perl/XSTexinfo/parser_document/ParserXS.c
 tta/perl/XSTexinfo/parser_document/StructuringXS.c
 tta/perl/XSTexinfo/parser_document/TransformationsXS.c
 tta/perl/XSTexinfo/parser_document/OutputUnitsXS.c
@@ -379,7 +379,7 @@ tta/perl/XSTexinfo/reader_element/*.lo
 tta/perl/XSTexinfo/convert/ConvertConverterXS.c
 tta/perl/XSTexinfo/convert/ConvertHTMLXS.c
 tta/perl/XSTexinfo/convert/ConvertTextXS.c
-tta/perl/XSTexinfo/convert/ConvertToTexinfoXS.c
+tta/perl/XSTexinfo/convert/ConvertTexinfoXS.c
 tta/perl/XSTexinfo/convert/ConvertXS.c
 tta/perl/XSTexinfo/convert/.libs
 tta/perl/XSTexinfo/convert/*.lo

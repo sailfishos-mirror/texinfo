@@ -12,8 +12,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
-# ALTIMP ParserNonXS.pm
 
 package Texinfo::Parser;
 
@@ -26,7 +24,7 @@ our $VERSION = '7.3dev';
 use Texinfo::XSLoader;
 
 BEGIN {
-  my $shared_library_name = "Parsetexi";
+  my $shared_library_name = "ParserXS";
   if (!Texinfo::XSLoader::XS_parser_enabled()) {
     undef $shared_library_name;
   }
