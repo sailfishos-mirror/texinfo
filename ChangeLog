@@ -1,5 +1,11 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Paragraph.pm (BEGIN),
+	tta/perl/XSTexinfo/Makefile.am, tta/perl/XSTexinfo/ParagraphXS.xs:
+	rename XSParagraph.xs as ParagraphXS.xs.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Parser.pm (BEGIN), tta/perl/XSTexinfo/Makefile.am,
 	tta/perl/XSTexinfo/parser_document/ParserXS.xs: rename Parsetexi.xs to
 	ParserXS.xs.

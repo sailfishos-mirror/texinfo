@@ -354,7 +354,7 @@ tta/perl/t/z_misc/*.trs
 tta/perl/t/z_misc/*.log
 
 tta/perl/XSTexinfo/MiscXS.c
-tta/perl/XSTexinfo/XSParagraph.c
+tta/perl/XSTexinfo/ParagraphXS.c
 tta/perl/XSTexinfo/*.lo
 tta/perl/XSTexinfo/*.la
 tta/perl/XSTexinfo/.libs

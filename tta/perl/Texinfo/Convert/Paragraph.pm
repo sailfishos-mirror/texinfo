@@ -39,10 +39,10 @@ our $VERSION = '7.3dev';
 use Texinfo::XSLoader;
 
 BEGIN {
-  my $package = Texinfo::XSLoader::init (
+  Texinfo::XSLoader::init (
     "Texinfo::Convert::Paragraph",
     "Texinfo::Convert::ParagraphNonXS",
-    "XSParagraph",
+    "ParagraphXS",
     undef,
   );
 }

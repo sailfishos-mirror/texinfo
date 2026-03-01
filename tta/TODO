@@ -104,7 +104,7 @@ It could be possible, in tests, to set TEXINFO_XS to requiredifenabled
 if TEXINFO_XS is not already set.
 Another options would be to have the default TEXINFO_XS be the same as
 requiredifenabled, since requiredifenabled only dies in situation that
-are abnormal (except maybe for MiscXS and XSParagraph functions that
+are abnormal (except maybe for MiscXS and ParagraphXS functions that
 could be flagged/detected somehow).
 
 Revisit the use of @INC to register XS modules paths and use of @INC in

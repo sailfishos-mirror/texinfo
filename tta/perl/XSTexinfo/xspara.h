@@ -19,7 +19,7 @@
 
 #include "text.h"
 
-/* list of XSParagraph configuration variables, to be reused in code
+/* list of ParagraphXS configuration variables, to be reused in code
    generation */
 #define XSPARA_CONF_VARIABLES_LIST \
   xspara_SET_CONF(end_sentence) \

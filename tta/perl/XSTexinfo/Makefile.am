@@ -81,7 +81,7 @@ MiscXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS) -U
 MiscXS_la_LIBADD = $(platform_PERL_LIBADD)
 
 
-# C only convenience library internal for XSParagraph solely used to set
+# C only convenience library internal for ParagraphXS solely used to set
 # different values than code including Perl headers to include
 # configure/Gnulib headers but no Perl header.
 noinst_LTLIBRARIES += libparagraph.la
@@ -93,14 +93,14 @@ libparagraph_la_LIBADD = $(top_builddir)/gnulib/lib/libgnu.la
 libparagraph_la_LDFLAGS = $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING) $(LTLIBC32CONV)
 
 if BUILD_C_CODE
-xs_LTLIBRARIES += XSParagraph.la
+xs_LTLIBRARIES += ParagraphXS.la
 endif
-nodist_XSParagraph_la_SOURCES = XSParagraph.c
-CLEANFILES += XSParagraph.c
-XSParagraph_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS)
-XSParagraph_la_LIBADD = libparagraph.la $(platform_PERL_LIBADD)
+nodist_ParagraphXS_la_SOURCES = ParagraphXS.c
+CLEANFILES += ParagraphXS.c
+ParagraphXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(srcdir) $(XSLIBS_CPPFLAGS)
+ParagraphXS_la_LIBADD = libparagraph.la $(platform_PERL_LIBADD)
 
-EXTRA_DIST += XSParagraph.xs MiscXS.xs
+EXTRA_DIST += ParagraphXS.xs MiscXS.xs
 
 ########################## Parser XS
 
