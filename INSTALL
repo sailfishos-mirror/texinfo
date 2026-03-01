@@ -80,10 +80,8 @@ Installation notes specific to Texinfo:
   variable, which may be useful for troubleshooting.
   Set TEXINFO_XS=warn to print some information if loading XS modules
   fails, TEXINFO_XS=debug to print some information as the modules are
-  looked for and loaded, TEXINFO_XS=omit to disable their use,
-  TEXINFO_XS=required to force their use, or TEXINFO_XS=requiredifenabled
-  to force their use if enabled at run time based on the environment
-  variables values described next.
+  looked for and loaded, TEXINFO_XS=omit to disable their use, or
+  TEXINFO_XS=required to force their use.
 
   XS modules replacing perl code for the main processing steps can be
   controlled more finely.  Three steps are distinguished: the parsing
