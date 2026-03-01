@@ -632,7 +632,7 @@ sub _print_down_menus($$$$$$;$) {
     foreach my $entry (@{$menu->{'contents'}}) {
       if (exists($entry->{'type'}) and $entry->{'type'} eq 'menu_entry') {
         push @master_menu_contents,
-               Texinfo::ManipulateTree::copy_treeNonXS($entry);
+               Texinfo::ManipulateTree::copy_element_tree($entry);
         # gather node children to recursively print their menus
         my $node
           = Texinfo::ManipulateTree::normalized_entry_associated_internal_node(

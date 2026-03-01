@@ -313,7 +313,15 @@ sub _remove_element_copy_info($;$$) {
   }
 }
 
-sub copy_treeNonXS($;$) {
+# TODO document?
+# If $ADDED_ROOT_ELEMENTS is set, links in extra to other subtrees are
+# followed and subtree roots should be put in there.
+# NOTE right now there are no extra types that points to other parts
+# of the tree used in any code.  See comment in C code for more information.
+# No XS override, as the C elements cannot be found in general.  There
+# is an XS interface for copy_tree_root, as the tree root C element can
+# always be found.
+sub copy_element_tree($;$) {
   my ($current, $added_root_elements) = @_;
 
   my $other_trees;
@@ -340,7 +348,7 @@ sub copy_contents($;$) {
   } else {
     # Done for consistency, but not sure that it is needed
     my $tmp = Texinfo::TreeElement::new({'contents' => $element->{'contents'}});
-    $copy = copy_treeNonXS($tmp);
+    $copy = copy_element_tree($tmp);
   }
   if (defined($type)) {
     $copy->{'type'} = $type;

@@ -45,26 +45,20 @@ MODULE = Texinfo::ManipulateTree	PACKAGE = Texinfo::ManipulateTree
 
 PROTOTYPES: ENABLE
 
-# This is only used in tests, and not for all the tests, copy_treeNonXS is
+# This is only used in tests, and not for all the tests, copy_element_tree is
 # more generally used because the C tree element cannot be found in general.
 SV *
-copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
+copy_tree_root (SV *tree_in)
     PREINIT:
         DOCUMENT *document;
      CODE:
-        document = get_sv_tree_document (tree_in, "copy_tree");
+        document = get_sv_tree_document (tree_in, "copy_tree_root");
         if (document)
           {
-            ELEMENT_LIST *added_root_elements = new_list ();
-            /* we set added_root_elements such that extra elements references
-               are gathered, but it should not return any added subtree with a
-               different root because of extra elements pointing to other
-               subtrees, since we copy a whole tree.
-             */
-            ELEMENT *result = copy_tree (document->tree, added_root_elements);
+            ELEMENT *result = copy_tree_root (document->tree);
             DOCUMENT *copy_document = new_document ();
           /* document additional information, global info, labels, indices...
-             is not setup with copy_tree, so we only have the tree to store.
+             is not setup with the copy, we only have the tree to store.
              This is not different from the Perl code and, in general,
              it is best that way.
            */
@@ -75,18 +69,6 @@ copy_tree (SV *tree_in, SV *added_root_elements_sv=0)
                       strlen ("tree_document_descriptor"),
                       newSViv ((IV) copy_document->descriptor), 0);
             RETVAL = newSVsv (sv);
-            if (added_root_elements_sv && SvOK (added_root_elements_sv))
-              {
-                size_t i;
-                AV *av = (AV *)SvRV (added_root_elements_sv);
-                for (i = 0; i < added_root_elements->number; i++)
-                  {
-                    ELEMENT *element = added_root_elements->list[i];
-                    SV *sv = newSVsv ((SV *)element->sv);
-                    av_push (av, sv);
-                  }
-              }
-            destroy_list (added_root_elements);
           }
         else
           RETVAL = newSV(0);

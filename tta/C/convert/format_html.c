@@ -1990,7 +1990,8 @@ html_internal_command_tree (CONVERTER *self, const ELEMENT *command,
                       NAMED_STRING_ELEMENT_LIST *replaced_substrings
                         = new_named_string_element_list ();
                       ELEMENT *e_number = new_text_element (ET_normal_text);
-                      ELEMENT *section_title_copy = copy_tree (line_arg, 0);
+                      ELEMENT *section_title_copy
+                        = copy_element_tree (line_arg, 0);
 
                       add_element_to_named_string_element_list (
                                   replaced_substrings, "section_title",
@@ -8884,7 +8885,7 @@ html_convert_quotation_command (CONVERTER *self, const enum command_id cmd,
                   NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
                   ELEMENT *author_arg_copy
-                    = copy_tree (author->e.c->contents.list[0], 0);
+                    = copy_element_tree (author->e.c->contents.list[0], 0);
                   add_element_to_named_string_element_list (substrings,
                                           "author", author_arg_copy);
 
@@ -10430,13 +10431,13 @@ html_convert_printindex_command (CONVERTER *self, const enum command_id cmd,
               char *reference = 0;
 
               ELEMENT *referred_copy
-                = copy_tree (referred_entry->e.c->contents.list[0], 0);
+                = copy_element_tree (referred_entry->e.c->contents.list[0], 0);
 
               if (seeentry)
                 {
                   char *convert_info;
                   ELEMENT *result_tree;
-                  ELEMENT *entry_tree_copy = copy_tree (entry_tree, 0);
+                  ELEMENT *entry_tree_copy = copy_element_tree (entry_tree, 0);
                   add_element_to_named_string_element_list (substrings,
                                     "main_index_entry", entry_tree_copy);
                   add_element_to_named_string_element_list (substrings,
@@ -11294,7 +11295,7 @@ html_open_quotation_command (CONVERTER *self, const enum command_id cmd,
       char *explanation;
       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
-      ELEMENT *quotation_arg_copy = copy_tree (block_line_args, 0);
+      ELEMENT *quotation_arg_copy = copy_element_tree (block_line_args, 0);
       add_element_to_named_string_element_list (substrings,
                           "quotation_arg", quotation_arg_copy);
       tree = html_cdt_tree ("@b{{quotation_arg}:} ",
@@ -12633,13 +12634,13 @@ html_convert_def_line_type (CONVERTER *self, const enum element_type type,
       ELEMENT *e_category_tree = 0;
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
-      ELEMENT *category_copy = copy_tree (parsed_def->category, 0);
+      ELEMENT *category_copy = copy_element_tree (parsed_def->category, 0);
 
       add_element_to_named_string_element_list (substrings,
                                             "category", category_copy);
       if (parsed_def->class)
         {
-          ELEMENT *class_copy = copy_tree (parsed_def->class, 0);
+          ELEMENT *class_copy = copy_element_tree (parsed_def->class, 0);
           add_element_to_named_string_element_list (substrings,
                                             "class", class_copy);
 

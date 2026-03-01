@@ -4310,7 +4310,7 @@ sub _end_line_def_line($$$) {
       }
       if ($index_entry) {
         my $element_copy
-          = Texinfo::ManipulateTree::copy_treeNonXS($index_entry);
+          = Texinfo::ManipulateTree::copy_element_tree($index_entry);
         delete $element_copy->{'type'};
         if (exists($element_copy->{'contents'})
             and exists($element_copy->{'contents'}->[0]->{'type'})

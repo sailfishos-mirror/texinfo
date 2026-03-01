@@ -251,7 +251,7 @@ html_gdt_tree (const char *string, CONVERTER *self,
                                                    document);
     }
 
-  result_tree = copy_tree (translated_string_tree->tree, 0);
+  result_tree = copy_element_tree (translated_string_tree->tree, 0);
 
   if (replaced_substrings)
     {

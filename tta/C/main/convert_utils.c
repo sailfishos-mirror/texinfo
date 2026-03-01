@@ -848,14 +848,14 @@ definition_category_tree (const ELEMENT *current,
     {
       if (arg_category)
         {
-          ELEMENT *category_copy = copy_tree (arg_category, 0);
+          ELEMENT *category_copy = copy_element_tree (arg_category, 0);
           return category_copy;
         }
       else
        return 0;
     }
 
-  class_copy = copy_tree (arg_class, 0);
+  class_copy = copy_element_tree (arg_class, 0);
 
   def_command = lookup_extra_string (current, AI_key_def_command);
 
@@ -865,7 +865,7 @@ definition_category_tree (const ELEMENT *current,
       || !strcmp (def_command, "defmethod")
       || !strcmp (def_command, "deftypemethod"))
     {
-      ELEMENT *category_copy = copy_tree (arg_category, 0);
+      ELEMENT *category_copy = copy_element_tree (arg_category, 0);
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
       add_element_to_named_string_element_list (substrings,
@@ -904,7 +904,7 @@ definition_category_tree (const ELEMENT *current,
       || !strcmp (def_command, "defcv")
       || !strcmp (def_command, "deftypecv"))
     {
-      ELEMENT *category_copy = copy_tree (arg_category, 0);
+      ELEMENT *category_copy = copy_element_tree (arg_category, 0);
       NAMED_STRING_ELEMENT_LIST *substrings
                                    = new_named_string_element_list ();
       add_element_to_named_string_element_list (substrings,

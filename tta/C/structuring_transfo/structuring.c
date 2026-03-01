@@ -39,7 +39,7 @@
 /* for get_label_element section_level enumerate_number_representation
    xasprintf */
 #include "utils.h"
-/* for copy_tree copy_contents parse_node_manual
+/* for copy_element_tree copy_contents parse_node_manual
    protect_colon_in_tree */
 #include "manipulate_tree.h"
 #include "command_stack.h"
@@ -2499,7 +2499,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
           ELEMENT *entry = menu->e.c->contents.list[j];
           if (entry->type == ET_menu_entry)
             {
-              ELEMENT *entry_copy = copy_tree (entry, 0);
+              ELEMENT *entry_copy = copy_element_tree (entry, 0);
               ELEMENT *node;
               add_to_element_list (master_menu_contents, entry_copy);
               /* gather node children to recursively print their menus */

@@ -55,32 +55,10 @@ use Texinfo::Common;
 
 our $VERSION = '7.3dev';
 
-# The functions called in Perl code outside of tests are the copy_*NonXS
-# functions.
-# TODO document?
-# If $ADDED_ROOT_ELEMENTS is set, links in extra to other subtrees are
-# followed and subtree roots should be put in there.
-# NOTE right now there are no extra types that points to other parts
-# of the tree used in any code.  See comment in C code for more information.
-# NOTE the implementation of _copy_tree and _remove_element_copy_info is in
-# the main Texinfo::ManipulateTree module.
-sub copy_tree($;$)
-{
-  my ($current, $added_root_elements) = @_;
+sub copy_tree_root($) {
+  my $root = shift;
 
-  my $other_trees;
-  if (defined($added_root_elements)) {
-    $other_trees = {};
-  }
-
-  my $copy = _copy_tree($current, $other_trees);
-  _remove_element_copy_info($current, $copy, $added_root_elements);
-
-  if (defined($added_root_elements)) {
-    $added_root_elements = [ grep {$_ ne $current} @$added_root_elements ];
-  }
-
-  return $copy;
+  return copy_element_tree($root);
 }
 
 

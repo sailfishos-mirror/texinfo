@@ -897,7 +897,7 @@ gdt_tree (const char *string, DOCUMENT *document,
       tree_remove_parents (translated_string_tree->tree);
     }
 
-  result_tree = copy_tree (translated_string_tree->tree, 0);
+  result_tree = copy_element_tree (translated_string_tree->tree, 0);
 
   if (replaced_substrings)
     {

@@ -766,7 +766,7 @@ end_line_def_line (ELEMENT *current)
             }
           else
             {
-              ELEMENT *element_copy = copy_tree (index_entry, 0);
+              ELEMENT *element_copy = copy_element_tree (index_entry, 0);
 
               element_copy->type = ET_NONE;
               if (element_copy->e.c->contents.number

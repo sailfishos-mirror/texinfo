@@ -1,5 +1,18 @@
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/manipulate_tree.c (copy_tree_root),
+	tta/perl/Texinfo/ManipulateTreeNonXS.pm (copy_tree_root),
+	tta/perl/XSTexinfo/parser_document/ManipulateTreeXS.xs
+	(copy_tree_root), tta/perl/t/z_misc/test_tree_copy.t: add
+	copy_tree_root that copies a whole tree root element.
+
+	* tta/perl/Texinfo/ManipulateTree.pm (copy_element_tree),
+	tta/C/main/manipulate_tree.c (copy_element_tree): rename
+	copy_treeNonXS as copy_element_tree in Perl.  Rename copy_tree as
+	copy_element_tree in C.  Update callers.
+
+2026-03-02 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (copy_contents): remove
 	copy_contentsNonXS, copy_contents does not have an XS implementation.
 	Update callers.

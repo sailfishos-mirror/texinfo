@@ -572,10 +572,12 @@ sub complete_indices($;$$) {
 
           my $def_command = $main_entry_element->{'extra'}->{'def_command'};
 
-          my $class_copy = Texinfo::ManipulateTree::copy_treeNonXS($class);
-          my $name_copy = Texinfo::ManipulateTree::copy_treeNonXS($name);
-          my $ref_class_copy = Texinfo::ManipulateTree::copy_treeNonXS($class);
-          my $ref_name_copy = Texinfo::ManipulateTree::copy_treeNonXS($name);
+          my $class_copy = Texinfo::ManipulateTree::copy_element_tree($class);
+          my $name_copy = Texinfo::ManipulateTree::copy_element_tree($name);
+          my $ref_class_copy
+                = Texinfo::ManipulateTree::copy_element_tree($class);
+          my $ref_name_copy
+                = Texinfo::ManipulateTree::copy_element_tree($name);
           foreach my $element_copy ($class_copy, $name_copy, $ref_class_copy,
                                     $ref_name_copy) {
             delete $element_copy->{'type'};

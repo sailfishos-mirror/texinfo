@@ -33,7 +33,7 @@
 /* for ultimate_index xasprintf */
 #include "utils.h"
 #include "command_stack.h"
-/* for copy_tree */
+/* for copy_element_tree */
 #include "manipulate_tree.h"
 /* for global_parser_conf */
 #include "parser_conf.h"
@@ -461,13 +461,13 @@ complete_indices (DOCUMENT *document, int debug_level)
                         = lookup_command (def_cmdname);
                       NAMED_STRING_ELEMENT_LIST *substrings
                                        = new_named_string_element_list ();
-                      ELEMENT *name_copy = copy_tree (name, 0);
+                      ELEMENT *name_copy = copy_element_tree (name, 0);
                       remove_def_types (name_copy);
-                      ELEMENT *class_copy = copy_tree (class, 0);
+                      ELEMENT *class_copy = copy_element_tree (class, 0);
                       remove_def_types (class_copy);
-                      ELEMENT *ref_name_copy = copy_tree (name, 0);
+                      ELEMENT *ref_name_copy = copy_element_tree (name, 0);
                       remove_def_types (ref_name_copy);
-                      ELEMENT *ref_class_copy = copy_tree (class, 0);
+                      ELEMENT *ref_class_copy = copy_element_tree (class, 0);
                       remove_def_types (ref_class_copy);
 
                       if (!lang)

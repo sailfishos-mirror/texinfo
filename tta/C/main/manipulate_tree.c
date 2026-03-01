@@ -59,7 +59,7 @@ copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees);
    the extra_types that point to other parts of the tree are not
    copied.
 
-   See more on that subject in the comment before copy_tree.
+   See more on that subject in the comment before copy_element_tree.
  */
 static void
 copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
@@ -199,7 +199,7 @@ copy_associated_info (ASSOCIATED_INFO *info, ASSOCIATED_INFO *new_info,
    the extra_types that point to other parts of the tree are not
    copied.
 
-   See more on that subject in the comment before copy_tree.
+   See more on that subject in the comment before copy_element_tree.
  */
 static ELEMENT *
 copy_tree_internal (ELEMENT* current, ELEMENT_LIST *other_trees)
@@ -362,7 +362,7 @@ remove_associated_copy_info (ASSOCIATED_INFO *info,
    tree.
 
    This does not work, but it is not needed right now either, as explained
-   in the comment above copy_tree.
+   in the comment above copy_element_tree.
  */
 static void
 remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
@@ -467,7 +467,7 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
    This setup works with any kind of extra information as long as the
    function is only called on complete trees when ADDED_ROOT_ELEMENTS is
    set and thus other_trees is set.  It is the caller responsibility to call
-   copy_tree with ADDED_ROOT_ELEMENTS set only for complete
+   copy_element_tree with ADDED_ROOT_ELEMENTS set only for complete
    self-contained trees.
  */
 
@@ -478,14 +478,12 @@ remove_element_copy_info (ELEMENT *current, ELEMENT_LIST *added_root_elements)
    not needed for now.
   */
 ELEMENT *
-copy_tree (ELEMENT *element, ELEMENT_LIST *added_root_elements)
+copy_element_tree (ELEMENT *element, ELEMENT_LIST *added_root_elements)
 {
   size_t i;
   ELEMENT_LIST *other_trees = 0;
   if (added_root_elements)
-    {
-      other_trees = new_list ();
-    }
+    other_trees = new_list ();
 
   ELEMENT *tree_copy = copy_tree_internal (element, other_trees);
   remove_element_copy_info (element, added_root_elements);
@@ -508,6 +506,12 @@ copy_tree (ELEMENT *element, ELEMENT_LIST *added_root_elements)
 }
 
 ELEMENT *
+copy_tree_root (ELEMENT *root)
+{
+  return copy_element_tree (root, 0);
+}
+
+ELEMENT *
 copy_contents (const ELEMENT *element, ELEMENT_LIST *added_root_elements,
                enum element_type type)
 {
@@ -515,7 +519,7 @@ copy_contents (const ELEMENT *element, ELEMENT_LIST *added_root_elements,
   ELEMENT *result;
   tmp->e.c->contents = element->e.c->contents;
 
-  result = copy_tree (tmp, added_root_elements);
+  result = copy_element_tree (tmp, added_root_elements);
 
   tmp->e.c->contents.list = 0;
   destroy_element (tmp);

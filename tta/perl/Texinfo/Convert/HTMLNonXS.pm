@@ -936,7 +936,7 @@ sub _internal_command_tree($$$) {
               = {'number' =>
                   Texinfo::TreeElement::new({'text' => $section_number}),
                  'section_title'
-                => Texinfo::ManipulateTree::copy_treeNonXS($line_arg)};
+                => Texinfo::ManipulateTree::copy_element_tree($line_arg)};
 
             if ($command->{'cmdname'} eq 'appendix'
                 and $command->{'extra'}->{'section_level'} == 1) {

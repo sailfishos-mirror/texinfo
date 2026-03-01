@@ -25,7 +25,9 @@
 #include "tree_types.h"
 #include "document_types.h"
 
-ELEMENT *copy_tree (ELEMENT *current, ELEMENT_LIST *added_root_elements);
+ELEMENT *copy_element_tree (ELEMENT *current,
+                            ELEMENT_LIST *added_root_elements);
+ELEMENT *copy_tree_root (ELEMENT *root);
 ELEMENT *copy_contents (const ELEMENT *element,
                ELEMENT_LIST *added_root_elements, enum element_type type);
 
