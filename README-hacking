@@ -359,7 +359,7 @@ Manual testing:
 
 check for C compiler warnings by configuring with
 
-our_CFLAGS='-Wall -Wformat-security -Wstrict-prototypes -Wno-parentheses'
+our_CFLAGS='-Wall -Wformat-security -Wstrict-prototypes -Wno-parentheses -Wno-missing-braces'
 ./configure "CFLAGS=$our_CFLAGS" "PERL_EXT_CFLAGS=$our_CFLAGS"
 unset our_CFLAGS
 
@@ -443,7 +443,8 @@ make po_document-check    # update po_document/POTFILES.in as needed
 
 check indices of Texinfo manuals and check for duplicates (with <1> in Info)
 
-Check "make ccheck" and "make vcheck" work in "doc/refcard".
+Check "make ccheck" and "make vcheck" work in "doc/refcard".  Check correct
+year on refcard.
 
 Check mentions of configure flags, environment variables etc. in INSTALL are
 up to date
@@ -506,12 +507,7 @@ find . -type f
 
 
 
-- Final steps for making a release
-
-(Keep a copy of README-hacking open in a text editor to update these
-release instructions.)
-
-check "git stash list" for any work in progress
+- Very soon before making a release
 
 Check if "make tex-html-checks" results have been updated under tta/tests.
 
@@ -523,6 +519,24 @@ Check that TEXINFO_DTD_VERSION has been updated to the next version in
   configure.ac if the DTD has been modified since the last release.
   See comments in configure.ac, and run (at the top level) make dtd-check.
 
+check up to date copyright years in files relevant to --version calls
+(tta/perl/texi2any.pl, info/info.c, install-info/install-info.c,
+texindex/ti.twjr, Pod-Simple-Texinfo/pod2texi)
+
+Ensure TXI_XLATE in doc/Makefile.am matches actual file list.
+
+check "git stash list" for any work in progress
+
+Have a look at the output of "git status -u" to check for files that
+  should be tracked in git or ignored.  Check for leftover result
+  files under tta/tests which should be removed.
+
+
+
+- Final steps for making a release
+
+(Keep a copy of README-hacking open in a text editor to update these
+release instructions.)
 
 Check on correct branch (master or release/*):
 
@@ -544,18 +558,12 @@ for speed when testing).
 Update version number:
   new version in configure.ac then "make update-version"
 
-check up to date copyright years in files relevant to --version calls
-(tta/perl/texi2any.pl, info/info.c, install-info/install-info.c,
-texindex/ti.twjr, Pod-Simple-Texinfo/pod2texi)
-
 Ensure texinfo.tex, htmlxref.d/Texinfo_*.cnf are updated on ftp.gnu.org.
 Upload texi2dvi, texi2pdf (official releases only)
 
 * For release/* branch only: propagate htmlxref.d/Texinfo_*.cnf from master
 
 (cd tta/perl ; ../maintain/regenerate_file_lists.pl) # list all test results
-
-Ensure TXI_XLATE in doc/Makefile.am matches actual file list.
 
 Update translations:
   rsync  -Lrtzv  translationproject.org::tp/latest/texinfo/ po
@@ -658,8 +666,8 @@ see "Post-release:" section in TODO file.  delete this note once done.
 Other files are uploaded to ftp.gnu.org as and when they are updated
 and ready for general use:
 
-gnupload --to ftp.gnu.org:texinfo --replace texinfo.tex
+gnupload --to ftp.gnu.org:texinfo --replace --user USER texinfo.tex
 
 # under util/htmlxref.d
-gnupload --to ftp.gnu.org:texinfo/htmlxref.d --replace Texinfo_GNU.cnf
-gnupload --to ftp.gnu.org:texinfo/htmlxref.d --replace Texinfo_nonGNU.cnf
+gnupload --to ftp.gnu.org:texinfo/htmlxref.d --replace --user USER Texinfo_GNU.cnf
+gnupload --to ftp.gnu.org:texinfo/htmlxref.d --replace --user USER Texinfo_nonGNU.cnf
