@@ -151,7 +151,7 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     representing the Texinfo input could be output if useful.
 
 ***********************************************************************
-Post-release:
+After 7.3 release:
 
 * texi2any:
   Change DUMP_TREE behaviour.
