@@ -1,3 +1,9 @@
+2026-03-02  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* tta/perl/t/08misc_commands.t
+	(definfoenclose_command_on_section_line):
+	Re-enable test.
+
 2026-03-02 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/call_html_perl_function.c: add includes for libc files
