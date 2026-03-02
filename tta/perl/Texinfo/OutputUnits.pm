@@ -67,7 +67,7 @@ our @EXPORT_OK = qw(
   split_pages
 );
 
-our $VERSION = '7.2.92';
+our $VERSION = '7.3';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

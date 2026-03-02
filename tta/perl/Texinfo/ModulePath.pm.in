@@ -15,7 +15,7 @@ use strict;
 
 use vars qw($VERSION);
 
-$VERSION = '7.2.92';
+$VERSION = '7.3';
 
 use File::Basename;
 use File::Spec;

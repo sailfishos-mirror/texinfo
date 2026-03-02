@@ -57,7 +57,7 @@ our @EXPORT_OK = qw(
   target_element_to_texi_label
 );
 
-our $VERSION = '7.2.92';
+our $VERSION = '7.3';
 
 
 BEGIN {

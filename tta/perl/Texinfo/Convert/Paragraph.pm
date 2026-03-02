@@ -34,7 +34,7 @@ our @EXPORT_OK = qw(
     get_pending
   );
 
-our $VERSION = '7.2.92';
+our $VERSION = '7.3';
 
 use Texinfo::XSLoader;
 

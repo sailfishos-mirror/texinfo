@@ -20,7 +20,7 @@ package Texinfo::ConfigXS;
 use strict;
 use warnings;
 
-our $VERSION = '7.2.92';
+our $VERSION = '7.3';
 
 use Texinfo::XSLoader;
 
