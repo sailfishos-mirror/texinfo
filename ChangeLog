@@ -1,5 +1,9 @@
 2026-03-02  Gavin Smith <gavinsmith0123@gmail.com>
 
+	Texinfo 7.3
+
+2026-03-02  Gavin Smith <gavinsmith0123@gmail.com>
+
 	* configure.ac: update version to 7.3.
 	* doc/refcard/txirefcard.tex: 2026
 
