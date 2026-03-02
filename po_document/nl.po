@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo_document-7.0.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-02-17 19:11+0000\n"
+"POT-Creation-Date: 2026-03-02 17:08+0000\n"
 "PO-Revision-Date: 2023-10-01 13:10+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
@@ -33,60 +33,60 @@ msgstr "Inhoudsopgave"
 msgid "{explained_string} ({explanation})"
 msgstr "{explained_string} ({explanation})"
 
-#: tta/perl/Texinfo/Common.pm:350 tta/C/main/utils.c:95
+#: tta/perl/Texinfo/Common.pm:350 tta/C/main/utils.c:106
 msgctxt "category of functions for @defun"
 msgid "Function"
 msgstr "Functie"
 
 #. TRANSLATORS: category of macros for @defmac
-#: tta/perl/Texinfo/Common.pm:352 tta/C/main/utils.c:97
+#: tta/perl/Texinfo/Common.pm:352 tta/C/main/utils.c:108
 msgid "Macro"
 msgstr "Macro"
 
 #. TRANSLATORS: category of special forms for @defspec
-#: tta/perl/Texinfo/Common.pm:354 tta/C/main/utils.c:99
+#: tta/perl/Texinfo/Common.pm:354 tta/C/main/utils.c:110
 msgid "Special Form"
 msgstr "Speciale vorm"
 
-#: tta/perl/Texinfo/Common.pm:357 tta/C/main/utils.c:101
+#: tta/perl/Texinfo/Common.pm:357 tta/C/main/utils.c:112
 msgctxt "category of variables for @defvar"
 msgid "Variable"
 msgstr "Variabele"
 
 #. TRANSLATORS: category of user-modifiable options for @defopt
-#: tta/perl/Texinfo/Common.pm:359 tta/C/main/utils.c:103
+#: tta/perl/Texinfo/Common.pm:359 tta/C/main/utils.c:114
 msgid "User Option"
 msgstr "Gebruikeroptie"
 
-#: tta/perl/Texinfo/Common.pm:362 tta/C/main/utils.c:105
+#: tta/perl/Texinfo/Common.pm:362 tta/C/main/utils.c:116
 msgctxt "category of functions for @deftypefun"
 msgid "Function"
 msgstr "Functie"
 
-#: tta/perl/Texinfo/Common.pm:365 tta/C/main/utils.c:108
+#: tta/perl/Texinfo/Common.pm:365 tta/C/main/utils.c:119
 msgctxt "category of variables in typed languages for @deftypevar"
 msgid "Variable"
 msgstr "Variabele"
 
-#: tta/perl/Texinfo/Common.pm:368 tta/C/main/utils.c:111
+#: tta/perl/Texinfo/Common.pm:368 tta/C/main/utils.c:122
 msgctxt ""
 "category of instance variables in object-oriented programming for @defivar"
 msgid "Instance Variable"
 msgstr "Instantiatievariabele"
 
-#: tta/perl/Texinfo/Common.pm:371 tta/C/main/utils.c:114
+#: tta/perl/Texinfo/Common.pm:371 tta/C/main/utils.c:125
 msgctxt ""
 "category of instance variables with data type in object-oriented programming "
 "for @deftypeivar"
 msgid "Instance Variable"
 msgstr "Instantiatievariabele"
 
-#: tta/perl/Texinfo/Common.pm:374 tta/C/main/utils.c:117
+#: tta/perl/Texinfo/Common.pm:374 tta/C/main/utils.c:128
 msgctxt "category of methods in object-oriented programming for @defmethod"
 msgid "Method"
 msgstr "Methode"
 
-#: tta/perl/Texinfo/Common.pm:377 tta/C/main/utils.c:120
+#: tta/perl/Texinfo/Common.pm:377 tta/C/main/utils.c:131
 msgctxt ""
 "category of methods with data type in object-oriented programming for "
 "@deftypemethod"
@@ -516,21 +516,21 @@ msgstr "sectie “{section_name}” in @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1378
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2339
-#: tta/perl/Texinfo/Convert/HTML.pm:6025 tta/C/convert/format_html.c:8212
+#: tta/perl/Texinfo/Convert/HTML.pm:6025 tta/C/convert/format_html.c:8215
 #, perl-brace-format
 msgid "@cite{{book}}"
 msgstr "@cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1381
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2335
-#: tta/perl/Texinfo/Convert/HTML.pm:6023 tta/C/convert/format_html.c:8207
+#: tta/perl/Texinfo/Convert/HTML.pm:6023 tta/C/convert/format_html.c:8210
 #, perl-brace-format
 msgid "See @cite{{book}}"
 msgstr "Zie @cite{{book}}"
 
 #: tta/perl/Texinfo/Convert/DocBook.pm:1383
 #: tta/perl/Texinfo/Convert/Plaintext.pm:2337
-#: tta/perl/Texinfo/Convert/HTML.pm:6021 tta/C/convert/format_html.c:8202
+#: tta/perl/Texinfo/Convert/HTML.pm:6021 tta/C/convert/format_html.c:8205
 #, perl-brace-format
 msgid "see @cite{{book}}"
 msgstr "zie @cite{{book}}"
@@ -605,7 +605,7 @@ msgstr "{abbr_or_acronym} ({explanation})"
 #: tta/perl/Texinfo/Convert/DocBook.pm:1828
 #: tta/perl/Texinfo/Convert/LaTeX.pm:4173
 #: tta/perl/Texinfo/Convert/Plaintext.pm:3604
-#: tta/perl/Texinfo/Convert/HTML.pm:6860 tta/C/convert/format_html.c:11281
+#: tta/perl/Texinfo/Convert/HTML.pm:6860 tta/C/convert/format_html.c:11284
 #, perl-brace-format
 msgid "@b{{quotation_arg}:} "
 msgstr "@b{{quotation_arg}:} "
@@ -971,118 +971,118 @@ msgstr "@t{<{url}>}"
 msgid "@center @b{{cartouche_arg}}"
 msgstr "@center --- @emph{{author}}\n"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5890 tta/C/convert/format_html.c:7972
+#: tta/perl/Texinfo/Convert/HTML.pm:5890 tta/C/convert/format_html.c:7975
 #, perl-brace-format
 msgid "see {reference_name}"
 msgstr "zie {reference_name}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5892 tta/C/convert/format_html.c:7977
+#: tta/perl/Texinfo/Convert/HTML.pm:5892 tta/C/convert/format_html.c:7980
 #, perl-brace-format
 msgid "See {reference_name}"
 msgstr "Zie {reference_name}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5894 tta/C/convert/format_html.c:7982
+#: tta/perl/Texinfo/Convert/HTML.pm:5894 tta/C/convert/format_html.c:7985
 #, perl-brace-format
 msgid "{reference_name}"
 msgstr "{reference_name}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5987 tta/C/convert/format_html.c:8129
+#: tta/perl/Texinfo/Convert/HTML.pm:5987 tta/C/convert/format_html.c:8132
 #, perl-brace-format
 msgid "see {reference} in @cite{{book}}"
 msgstr "zie {reference} in @cite{{book}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5989 tta/C/convert/format_html.c:8134
+#: tta/perl/Texinfo/Convert/HTML.pm:5989 tta/C/convert/format_html.c:8137
 #, perl-brace-format
 msgid "See {reference} in @cite{{book}}"
 msgstr "Zie {reference} in @cite{{book}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5991 tta/C/convert/format_html.c:8139
+#: tta/perl/Texinfo/Convert/HTML.pm:5991 tta/C/convert/format_html.c:8142
 #, perl-brace-format
 msgid "{reference} in @cite{{book}}"
 msgstr "{reference} in @cite{{book}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:5998 tta/C/convert/format_html.c:8152
+#: tta/perl/Texinfo/Convert/HTML.pm:5998 tta/C/convert/format_html.c:8155
 #, perl-brace-format
 msgid "see @cite{{book_reference}}"
 msgstr "zie @cite{{book_reference}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6000 tta/C/convert/format_html.c:8157
+#: tta/perl/Texinfo/Convert/HTML.pm:6000 tta/C/convert/format_html.c:8160
 #, perl-brace-format
 msgid "See @cite{{book_reference}}"
 msgstr "Zie @cite{{book_reference}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6002 tta/C/convert/format_html.c:8162
+#: tta/perl/Texinfo/Convert/HTML.pm:6002 tta/C/convert/format_html.c:8165
 #, perl-brace-format
 msgid "@cite{{book_reference}}"
 msgstr "@cite{{book_reference}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6011 tta/C/convert/format_html.c:8179
+#: tta/perl/Texinfo/Convert/HTML.pm:6011 tta/C/convert/format_html.c:8182
 #, perl-brace-format
 msgid "see `{section}' in @cite{{book}}"
 msgstr "zie ‘{section}’ in @cite{{book}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6013 tta/C/convert/format_html.c:8184
+#: tta/perl/Texinfo/Convert/HTML.pm:6013 tta/C/convert/format_html.c:8187
 #, perl-brace-format
 msgid "See `{section}' in @cite{{book}}"
 msgstr "Zie ‘{section}’ in @cite{{book}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6015 tta/C/convert/format_html.c:8189
+#: tta/perl/Texinfo/Convert/HTML.pm:6015 tta/C/convert/format_html.c:8192
 #, perl-brace-format
 msgid "`{section}' in @cite{{book}}"
 msgstr "‘{section}’ in @cite{{book}}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6032 tta/C/convert/format_html.c:8225
+#: tta/perl/Texinfo/Convert/HTML.pm:6032 tta/C/convert/format_html.c:8228
 #, perl-brace-format
 msgid "see {reference}"
 msgstr "zie {reference}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6034 tta/C/convert/format_html.c:8230
+#: tta/perl/Texinfo/Convert/HTML.pm:6034 tta/C/convert/format_html.c:8233
 #, perl-brace-format
 msgid "See {reference}"
 msgstr "Zie {reference}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6036 tta/C/convert/format_html.c:8235
+#: tta/perl/Texinfo/Convert/HTML.pm:6036 tta/C/convert/format_html.c:8238
 #, perl-brace-format
 msgid "{reference}"
 msgstr "{reference}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6042 tta/C/convert/format_html.c:8248
+#: tta/perl/Texinfo/Convert/HTML.pm:6042 tta/C/convert/format_html.c:8251
 #, perl-brace-format
 msgid "see `{section}'"
 msgstr "zie ‘{section}’"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6044 tta/C/convert/format_html.c:8253
+#: tta/perl/Texinfo/Convert/HTML.pm:6044 tta/C/convert/format_html.c:8256
 #, perl-brace-format
 msgid "See `{section}'"
 msgstr "Zie ‘{section}’"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6046 tta/C/convert/format_html.c:8258
+#: tta/perl/Texinfo/Convert/HTML.pm:6046 tta/C/convert/format_html.c:8261
 #, perl-brace-format
 msgid "`{section}'"
 msgstr "‘{section}’"
 
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and is used to avoid a msgfmt error
-#: tta/perl/Texinfo/Convert/HTML.pm:6343 tta/C/convert/format_html.c:10430
+#: tta/perl/Texinfo/Convert/HTML.pm:6343 tta/C/convert/format_html.c:10433
 #, perl-brace-format
 msgid "@code{{main_index_entry}}, @emph{See@:} @code{{seeentry}}"
 msgstr ""
 
 #. TRANSLATORS: redirect to another index entry
 #. TRANSLATORS: @: is discardable and used to avoid a msgfmt error
-#: tta/perl/Texinfo/Convert/HTML.pm:6350 tta/C/convert/format_html.c:10438
+#: tta/perl/Texinfo/Convert/HTML.pm:6350 tta/C/convert/format_html.c:10441
 #, perl-brace-format
 msgid "{main_index_entry}, @emph{See@:} {seeentry}"
 msgstr ""
 
 #. TRANSLATORS: refer to another index entry
-#: tta/perl/Texinfo/Convert/HTML.pm:6370 tta/C/convert/format_html.c:10481
+#: tta/perl/Texinfo/Convert/HTML.pm:6370 tta/C/convert/format_html.c:10484
 #, perl-brace-format
 msgid "@emph{See also} @code{{see_also_entry}}"
 msgstr ""
 
 #. TRANSLATORS: refer to another index entry
-#: tta/perl/Texinfo/Convert/HTML.pm:6375 tta/C/convert/format_html.c:10488
+#: tta/perl/Texinfo/Convert/HTML.pm:6375 tta/C/convert/format_html.c:10491
 #, perl-brace-format
 msgid "@emph{See also} {see_also_entry}"
 msgstr ""
@@ -1092,27 +1092,27 @@ msgstr ""
 msgid "Jump to"
 msgstr "Spring naar"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7738 tta/C/convert/format_html.c:12632
+#: tta/perl/Texinfo/Convert/HTML.pm:7738 tta/C/convert/format_html.c:12635
 #, fuzzy, perl-brace-format
 msgid "{category} on @code{{class}}:@* "
 msgstr "{category} over {class}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7742 tta/C/convert/format_html.c:12638
+#: tta/perl/Texinfo/Convert/HTML.pm:7742 tta/C/convert/format_html.c:12641
 #, fuzzy, perl-brace-format
 msgid "{category} on @code{{class}}: "
 msgstr "{category} over {class}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7746 tta/C/convert/format_html.c:12644
+#: tta/perl/Texinfo/Convert/HTML.pm:7746 tta/C/convert/format_html.c:12647
 #, fuzzy, perl-brace-format
 msgid "{category} of @code{{class}}: "
 msgstr "{category} van {class}"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7763 tta/C/convert/format_html.c:12656
+#: tta/perl/Texinfo/Convert/HTML.pm:7763 tta/C/convert/format_html.c:12659
 #, perl-brace-format
 msgid "{category}:@* "
 msgstr "{category}:@* "
 
-#: tta/perl/Texinfo/Convert/HTML.pm:7765 tta/C/convert/format_html.c:12662
+#: tta/perl/Texinfo/Convert/HTML.pm:7765 tta/C/convert/format_html.c:12665
 #, perl-brace-format
 msgid "{category}: "
 msgstr "{category}: "
@@ -1230,7 +1230,7 @@ msgstr "Subsectie één-drie"
 msgid "Subsection One-Four"
 msgstr "Subsectie één-vier"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:13072 tta/C/convert/convert_html.c:1080
+#: tta/perl/Texinfo/Convert/HTML.pm:13072 tta/C/convert/convert_html.c:1081
 msgid "Untitled Document"
 msgstr "Naamloos document"
 
@@ -1285,8 +1285,8 @@ msgstr "December"
 #. TRANSLATORS: association of a method or operation category with a class
 #. in descriptions of object-oriented programming methods or operations.
 #: tta/perl/Texinfo/Convert/Utils.pm:408 tta/perl/Texinfo/Convert/Utils.pm:412
-#: tta/perl/Texinfo/Convert/Utils.pm:419 tta/C/main/convert_utils.c:883
-#: tta/C/main/convert_utils.c:893
+#: tta/perl/Texinfo/Convert/Utils.pm:419 tta/C/main/convert_utils.c:885
+#: tta/C/main/convert_utils.c:895
 #, fuzzy, perl-brace-format
 msgid "{category} on @code{{class}}"
 msgstr "{category} over {class}"
@@ -1295,8 +1295,8 @@ msgstr "{category} over {class}"
 #. a class in descriptions of object-oriented programming variables
 #. or instance variable.
 #: tta/perl/Texinfo/Convert/Utils.pm:429 tta/perl/Texinfo/Convert/Utils.pm:434
-#: tta/perl/Texinfo/Convert/Utils.pm:441 tta/C/main/convert_utils.c:923
-#: tta/C/main/convert_utils.c:933
+#: tta/perl/Texinfo/Convert/Utils.pm:441 tta/C/main/convert_utils.c:925
+#: tta/C/main/convert_utils.c:935
 #, fuzzy, perl-brace-format
 msgid "{category} of @code{{class}}"
 msgstr "{category} van {class}"

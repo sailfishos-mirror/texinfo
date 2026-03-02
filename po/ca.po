@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 7.1.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-02-17 19:11+0000\n"
+"POT-Creation-Date: 2026-03-02 17:08+0000\n"
 "PO-Revision-Date: 2025-04-28 12:41+0200\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -1903,7 +1903,7 @@ msgstr ""
 " --version           mostra la informació de versió i surt."
 
 #: install-info/install-info.c:589 Pod-Simple-Texinfo/pod2texi.pl:193
-#: tta/perl/texi2any.pl:1185 tta/C/texi2any.c:2087
+#: tta/perl/texi2any.pl:1180 tta/C/texi2any.c:2135
 msgid ""
 "Email bug reports to bug-texinfo@gnu.org,\n"
 "general questions and discussion to help-texinfo@gnu.org.\n"
@@ -2145,8 +2145,8 @@ msgstr "    --unnumbered-sections   no numera les seccions"
 msgid "    --version               display version information and exit"
 msgstr "    --version               mostra la versió d'informació i surt"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1199
-#: tta/C/texi2any.c:1636
+#: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1194
+#: tta/C/texi2any.c:1684
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -2185,8 +2185,8 @@ msgstr "%s: no s'ha pogut crear el directory %s: %s"
 msgid "%s: missing file argument"
 msgstr "%s: falta l'argument de fitxer\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1731
-#: tta/C/texi2any.c:2501
+#: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1726
+#: tta/C/texi2any.c:2549
 #, fuzzy, c-format, perl-format
 #| msgid "Try `%s --help' for more information.\n"
 msgid "Try `%s --help' for more information."
@@ -2204,7 +2204,7 @@ msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr "%s: mateix nom de manual «%s» per a fitxers diferents: %s i %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:536 Pod-Simple-Texinfo/pod2texi.pl:644
-#: tta/perl/texi2any.pl:2234 tta/perl/texi2any.pl:2353
+#: tta/perl/texi2any.pl:2229 tta/perl/texi2any.pl:2348
 #, fuzzy, perl-format
 #| msgid "%s: could not open %s for writing: %s\n"
 msgid "%s: could not open %s for writing: %s"
@@ -2217,8 +2217,8 @@ msgid "%s: could not open %s: %s"
 msgstr "%s: no s'ha pogut obrir %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:595 Pod-Simple-Texinfo/pod2texi.pl:693
-#: tta/perl/texi2any.pl:2187 tta/perl/texi2any.pl:2407
-#: tta/C/convert/texinfo.c:767
+#: tta/perl/texi2any.pl:2182 tta/perl/texi2any.pl:2402
+#: tta/C/convert/texinfo.c:786
 #, fuzzy, c-format, perl-format
 #| msgid "%s: error on closing %s: %s\n"
 msgid "%s: error on closing %s: %s"
@@ -2242,17 +2242,17 @@ msgstr "%s; reanomenament de %s ha fallat: %s\n"
 msgid "%s: error on closing stdout: %s"
 msgstr "%s: error en tancar stdout: %s\n"
 
-#: tta/perl/Texinfo/Common.pm:475 tta/C/parsetexi/end_line.c:1489
+#: tta/perl/Texinfo/Common.pm:475 tta/C/parsetexi/end_line.c:1488
 #, c-format, perl-format
 msgid "%s is not a valid language code"
 msgstr "%s no és un codi vàlid"
 
-#: tta/perl/Texinfo/Common.pm:480 tta/C/parsetexi/end_line.c:1495
+#: tta/perl/Texinfo/Common.pm:480 tta/C/parsetexi/end_line.c:1494
 #, c-format, perl-format
 msgid "%s is not a valid region code"
 msgstr "%s no es un codi vàlid de regió"
 
-#: tta/perl/Texinfo/Config.pm:171 tta/perl/texi2any.pl:640
+#: tta/perl/Texinfo/Config.pm:171 tta/perl/texi2any.pl:635
 #, perl-format
 msgctxt "program name: warning: warning_message"
 msgid "%s: warning: %s"
@@ -2336,9 +2336,9 @@ msgstr "aquí està la definició prèvia de @%s"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:784
 #: tta/perl/Texinfo/Convert/Plaintext.pm:839
 #: tta/perl/Texinfo/Convert/Text.pm:1116 tta/perl/Texinfo/Example/IXIN.pm:358
-#: tta/perl/texi2any.pl:1880 tta/perl/texi2any.pl:1963
-#: tta/perl/texi2any.pl:2100 tta/C/convert/converter.c:726
-#: tta/C/convert/convert_html.c:2081 tta/C/convert/convert_html.c:2523
+#: tta/perl/texi2any.pl:1875 tta/perl/texi2any.pl:1958
+#: tta/perl/texi2any.pl:2095 tta/C/convert/converter.c:726
+#: tta/C/convert/convert_html.c:2082 tta/C/convert/convert_html.c:2523
 #: tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
@@ -2353,7 +2353,7 @@ msgstr "no s'ha pogut obrir %s per escriure: %s"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:860
 #: tta/perl/Texinfo/Convert/Text.pm:1145 tta/perl/Texinfo/Example/IXIN.pm:1040
 #: tta/perl/Texinfo/ParserNonXS.pm:2687 tta/C/convert/converter.c:796
-#: tta/C/convert/convert_html.c:2146 tta/C/convert/convert_html.c:2562
+#: tta/C/convert/convert_html.c:2147 tta/C/convert/convert_html.c:2562
 #: tta/C/convert/rawtext_converter_api.c:269 tta/C/parsetexi/input.c:353
 #, c-format, perl-format
 msgid "error on closing %s: %s"
@@ -2404,18 +2404,18 @@ msgstr ""
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "no s'ha trobat el fitxer @image «%s» (for HTML), s'usarà «%s»"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8300
+#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8303
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "el format en cru %s no es convertirà"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10703
+#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10706
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr ""
 "entrada per a l'índex «%s» per a @printindex %s fora de totes les seccions"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10743
+#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10746
 #, c-format, perl-format
 msgid "entry for index `%s' for @printindex %s outside of any section"
 msgstr ""
@@ -2452,7 +2452,7 @@ msgstr "error en tancar el fitxer de configuració de referències html %s: %s"
 msgid "could not find html refs config file %s"
 msgstr "no s'ha pogut trobar el fitxer %s de configuració de hmtl refs"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8707 tta/perl/texi2any.pl:662
+#: tta/perl/Texinfo/Convert/HTML.pm:8707 tta/perl/texi2any.pl:657
 #: tta/C/convert/html_prepare_converter.c:1507
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
@@ -2469,31 +2469,31 @@ msgid "Unknown formatting function: %s"
 msgstr "Funció desconeguda de formatació: %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9612
-#: tta/C/convert/html_prepare_converter.c:1794
+#: tta/C/convert/html_prepare_converter.c:1795
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "la cadena de caràcters no està tancada al fitxer css"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9614
-#: tta/C/convert/html_prepare_converter.c:1802
+#: tta/C/convert/html_prepare_converter.c:1803
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "--css-include ha finalitzat en un comentari"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9616
-#: tta/C/convert/html_prepare_converter.c:1810
+#: tta/C/convert/html_prepare_converter.c:1811
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "@import no ha acabat a un fitxer css"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9652
-#: tta/C/convert/html_prepare_converter.c:1862
+#: tta/C/convert/html_prepare_converter.c:1863
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "No s'ha trobat el fitxer CSS %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9664
-#: tta/C/convert/html_prepare_converter.c:1884
+#: tta/C/convert/html_prepare_converter.c:1885
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "no s'ha pogut obrir --include-file %s: %s"
@@ -2504,32 +2504,32 @@ msgid "error on closing CSS file %s: %s"
 msgstr "error en tancar el fitxer CSS %s: %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9884
-#: tta/C/convert/html_prepare_converter.c:4899
+#: tta/C/convert/html_prepare_converter.c:4900
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 "no s'ha establert el nom de fitxer de node definit per l'usuari per a «%s»"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10209
-#: tta/C/convert/html_prepare_converter.c:6135
+#: tta/C/convert/html_prepare_converter.c:6136
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr "s'està reiniciant per al fitxer %s el camí %s a %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10213
-#: tta/C/convert/html_prepare_converter.c:6145
+#: tta/C/convert/html_prepare_converter.c:6146
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr "s'està reiniciant el camí del fitxer %s des d'un camí relatiu a %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10217
-#: tta/C/convert/html_prepare_converter.c:6154
+#: tta/C/convert/html_prepare_converter.c:6155
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr "s'està reiniciant el camí del fitxer %s des de %s a un camí relatiu"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10807
-#: tta/C/convert/html_prepare_converter.c:5525
+#: tta/C/convert/html_prepare_converter.c:5526
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node '%s'"
 msgid "could not find %s node `%s'"
@@ -2567,12 +2567,12 @@ msgstr ""
 msgid "overwriting output file with js licences: %s"
 msgstr "sobreescrivint el fitxer de sortida amb llicències js: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12909 tta/C/convert/convert_html.c:818
+#: tta/perl/Texinfo/Convert/HTML.pm:12909 tta/C/convert/convert_html.c:819
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "el gestor %d de l'etapa %s prioritat %s: estat no numèric"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:830
+#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:831
 #, c-format, perl-format
 msgid "handler %d of stage %s priority %s failed"
 msgstr "ha fallat el gestor %d de l'etapa %s prioritat %s"
@@ -2593,8 +2593,8 @@ msgid "error on closing empty %s: %s"
 msgstr "error quan es tancava %s buit: %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:13089
-#: tta/perl/Texinfo/Convert/HTML.pm:13093 tta/C/convert/convert_html.c:1105
-#: tta/C/convert/convert_html.c:1110
+#: tta/perl/Texinfo/Convert/HTML.pm:13093 tta/C/convert/convert_html.c:1106
+#: tta/C/convert/convert_html.c:1111
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "heu d'especificar un títol amb una ordre de títol o @top"
@@ -2817,21 +2817,21 @@ msgstr "el nom d'entrada de menú no hauria de contenir `:'"
 
 #: tta/perl/Texinfo/Convert/Utils.pm:537
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
-#: tta/C/main/convert_utils.c:656
+#: tta/C/main/convert_utils.c:658
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "no s'ha pogut llegir %s: %s"
 
 #: tta/perl/Texinfo/Convert/Utils.pm:559
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
-#: tta/C/main/convert_utils.c:701
+#: tta/C/main/convert_utils.c:703
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "error en tancar fitxer @verbatiminclude %s: %s"
 
 #: tta/perl/Texinfo/Convert/Utils.pm:566
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
-#: tta/perl/Texinfo/ParserNonXS.pm:3892 tta/C/main/convert_utils.c:713
+#: tta/perl/Texinfo/ParserNonXS.pm:3892 tta/C/main/convert_utils.c:715
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: no s'ha pogut trobar %s"
@@ -2864,15 +2864,15 @@ msgid "multiple @%s"
 msgstr "@%s múltiple"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:1409 tta/perl/Texinfo/ParserNonXS.pm:4550
-#: tta/perl/Texinfo/ParserNonXS.pm:4590 tta/C/parsetexi/end_line.c:1065
-#: tta/C/parsetexi/end_line.c:1101 tta/C/parsetexi/macro.c:159
+#: tta/perl/Texinfo/ParserNonXS.pm:4590 tta/C/parsetexi/end_line.c:1064
+#: tta/C/parsetexi/end_line.c:1100 tta/C/parsetexi/macro.c:159
 #, c-format, perl-format
 msgid "@%s requires a name"
 msgstr "@%s requereix un nom"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:1416 tta/perl/Texinfo/ParserNonXS.pm:4594
 #: tta/perl/Texinfo/ParserNonXS.pm:8150 tta/perl/Texinfo/ParserNonXS.pm:8163
-#: tta/perl/Texinfo/ParserNonXS.pm:8177 tta/C/parsetexi/end_line.c:1105
+#: tta/perl/Texinfo/ParserNonXS.pm:8177 tta/C/parsetexi/end_line.c:1104
 #: tta/C/parsetexi/macro.c:167
 #, c-format, perl-format
 msgid "bad name for @%s"
@@ -2950,8 +2950,8 @@ msgstr "{ mal col·locat"
 #: tta/perl/Texinfo/ParserNonXS.pm:2294 tta/perl/Texinfo/ParserNonXS.pm:4491
 #: tta/perl/Texinfo/ParserNonXS.pm:4885 tta/perl/Texinfo/ParserNonXS.pm:7504
 #: tta/perl/Texinfo/ParserNonXS.pm:7593 tta/perl/Texinfo/ParserNonXS.pm:7630
-#: tta/C/parsetexi/close.c:512 tta/C/parsetexi/end_line.c:986
-#: tta/C/parsetexi/end_line.c:1979 tta/C/parsetexi/parser.c:2105
+#: tta/C/parsetexi/close.c:512 tta/C/parsetexi/end_line.c:985
+#: tta/C/parsetexi/end_line.c:1978 tta/C/parsetexi/parser.c:2105
 #: tta/C/parsetexi/parser.c:2222 tta/C/parsetexi/parser.c:2272
 #, c-format, perl-format
 msgid "@%s expected braces"
@@ -2984,13 +2984,13 @@ msgstr ""
 "\\ a expansió  @%s seguida de «%s» en comptes del nom de paràmetre o \\"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:3827 tta/perl/Texinfo/ParserNonXS.pm:4052
-#: tta/perl/Texinfo/ParserNonXS.pm:8230 tta/C/parsetexi/end_line.c:135
-#: tta/C/parsetexi/end_line.c:1258 tta/C/parsetexi/end_line.c:1612
+#: tta/perl/Texinfo/ParserNonXS.pm:8230 tta/C/parsetexi/end_line.c:134
+#: tta/C/parsetexi/end_line.c:1257 tta/C/parsetexi/end_line.c:1611
 #, c-format, perl-format
 msgid "@%s missing argument"
 msgstr "@%s argument que falta"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3841 tta/C/parsetexi/end_line.c:1276
+#: tta/perl/Texinfo/ParserNonXS.pm:3841 tta/C/parsetexi/end_line.c:1275
 #, c-format, perl-format
 msgid "unknown @end %s"
 msgstr "@end desconegut %s"
@@ -2998,9 +2998,9 @@ msgstr "@end desconegut %s"
 #: tta/perl/Texinfo/ParserNonXS.pm:3859 tta/perl/Texinfo/ParserNonXS.pm:3988
 #: tta/perl/Texinfo/ParserNonXS.pm:4505 tta/perl/Texinfo/ParserNonXS.pm:8376
 #: tta/perl/Texinfo/ParserNonXS.pm:8414 tta/perl/Texinfo/ParserNonXS.pm:8448
-#: tta/perl/Texinfo/ParserNonXS.pm:8557 tta/C/parsetexi/end_line.c:392
-#: tta/C/parsetexi/end_line.c:470 tta/C/parsetexi/end_line.c:1004
-#: tta/C/parsetexi/end_line.c:1526
+#: tta/perl/Texinfo/ParserNonXS.pm:8557 tta/C/parsetexi/end_line.c:391
+#: tta/C/parsetexi/end_line.c:469 tta/C/parsetexi/end_line.c:1003
+#: tta/C/parsetexi/end_line.c:1525
 #, c-format, perl-format
 msgid "bad argument to @%s: %s"
 msgstr "argument incorrecte a @%s: %s"
@@ -3010,29 +3010,29 @@ msgstr "argument incorrecte a @%s: %s"
 msgid "@%s: could not open %s: %s"
 msgstr "@%s: no s'ha pogut obrir %s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3918 tta/C/parsetexi/end_line.c:1371
+#: tta/perl/Texinfo/ParserNonXS.pm:3918 tta/C/parsetexi/end_line.c:1370
 #, c-format, perl-format
 msgid "bad encoding name `%s'"
 msgstr "nom «%s» de codificació incorrecte"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3924 tta/C/parsetexi/end_line.c:1406
+#: tta/perl/Texinfo/ParserNonXS.pm:3924 tta/C/parsetexi/end_line.c:1405
 #, c-format, perl-format
 msgid "encoding `%s' is not a canonical texinfo encoding"
 msgstr "la codificació «%s» no és una codificació de texinfo canònica"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3955 tta/C/parsetexi/end_line.c:1473
+#: tta/perl/Texinfo/ParserNonXS.pm:3955 tta/C/parsetexi/end_line.c:1472
 #, c-format, perl-format
 msgid "unhandled encoding name `%s'"
 msgstr "nom «%s» de codificació no gestionat"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4016 tta/perl/Texinfo/ParserNonXS.pm:6738
-#: tta/C/parsetexi/end_line.c:1570 tta/C/parsetexi/separator.c:305
+#: tta/C/parsetexi/end_line.c:1569 tta/C/parsetexi/separator.c:305
 #, c-format, perl-format
 msgid "empty argument in @%s"
 msgstr "argument buit a @%s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4119 tta/perl/Texinfo/ParserNonXS.pm:4126
-#: tta/C/parsetexi/end_line.c:1703 tta/C/parsetexi/end_line.c:1712
+#: tta/C/parsetexi/end_line.c:1702 tta/C/parsetexi/end_line.c:1711
 #, c-format, perl-format
 msgid "ignoring multiple @%s"
 msgstr "s'ignoraran @%s múltiples"
@@ -3053,50 +3053,50 @@ msgid "@node precedes @%s, but parts may not be associated with nodes"
 msgstr ""
 "@node precedeix @%s, però les parts no haurien d'estar associades amb nodes"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4269 tta/C/parsetexi/end_line.c:795
+#: tta/perl/Texinfo/ParserNonXS.pm:4269 tta/C/parsetexi/end_line.c:794
 #, c-format, perl-format
 msgid "missing category for @%s"
 msgstr "categoria que falta per a @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4328 tta/C/parsetexi/end_line.c:789
+#: tta/perl/Texinfo/ParserNonXS.pm:4328 tta/C/parsetexi/end_line.c:788
 #, c-format, perl-format
 msgid "missing name for @%s"
 msgstr "nom que falta per a @%s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4410 tta/perl/Texinfo/ParserNonXS.pm:4535
-#: tta/C/parsetexi/end_line.c:889 tta/C/parsetexi/end_line.c:1043
+#: tta/C/parsetexi/end_line.c:888 tta/C/parsetexi/end_line.c:1042
 #, c-format, perl-format
 msgid "unexpected argument on @%s line: %s"
 msgstr "argument inesperat sobre @%s a la línia: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4421 tta/C/parsetexi/end_line.c:899
+#: tta/perl/Texinfo/ParserNonXS.pm:4421 tta/C/parsetexi/end_line.c:898
 #, c-format
 msgid "empty multitable"
 msgstr "multitaula buida"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4456 tta/perl/Texinfo/ParserNonXS.pm:8236
-#: tta/C/parsetexi/end_line.c:142 tta/C/parsetexi/end_line.c:939
+#: tta/C/parsetexi/end_line.c:141 tta/C/parsetexi/end_line.c:938
 #, c-format, perl-format
 msgid "superfluous argument to @%s"
 msgstr "argument superflu a @%s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4462 tta/perl/Texinfo/ParserNonXS.pm:8272
-#: tta/C/parsetexi/end_line.c:952
+#: tta/C/parsetexi/end_line.c:951
 #, c-format, perl-format
 msgid "bad argument to @%s"
 msgstr "argument incorrecte a @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4477 tta/C/parsetexi/end_line.c:973
+#: tta/perl/Texinfo/ParserNonXS.pm:4477 tta/C/parsetexi/end_line.c:972
 #, c-format, perl-format
 msgid "accent command `@%s' not allowed as @%s argument"
 msgstr "l'ordre d'accent `@%s' no està permesa com argument @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4509 tta/C/parsetexi/end_line.c:1010
+#: tta/perl/Texinfo/ParserNonXS.pm:4509 tta/C/parsetexi/end_line.c:1009
 #, c-format, perl-format
 msgid "missing @%s argument"
 msgstr "@%s argument que falta"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4517 tta/C/parsetexi/end_line.c:1019
+#: tta/perl/Texinfo/ParserNonXS.pm:4517 tta/C/parsetexi/end_line.c:1018
 #, c-format, perl-format
 msgid "command @%s not accepting argument in brace should not be on @%s line"
 msgstr ""
@@ -3462,135 +3462,135 @@ msgid "@clickstyle should only accept an @-command as argument, not `%s'"
 msgstr ""
 "@clickstyle hauria d'acceptar únicament una ordre amb @ com argument, no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8253 tta/C/parsetexi/end_line.c:198
+#: tta/perl/Texinfo/ParserNonXS.pm:8253 tta/C/parsetexi/end_line.c:197
 #, c-format, perl-format
 msgid "environment command %s as argument to @alias"
 msgstr "ordre d'entorn %s com argument per a @alias"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8262 tta/C/parsetexi/end_line.c:206
+#: tta/perl/Texinfo/ParserNonXS.pm:8262 tta/C/parsetexi/end_line.c:205
 #, c-format, perl-format
 msgid "recursive alias definition of %s through %s ignored"
 msgstr "s'ha ignorat la definició d'àlies recursiu de %s a %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8289 tta/C/parsetexi/end_line.c:277
+#: tta/perl/Texinfo/ParserNonXS.pm:8289 tta/C/parsetexi/end_line.c:276
 #, c-format, perl-format
 msgid "cannot redefine with @definfoenclose: %s"
 msgstr "no es pot redefinir amb @definfoenclose: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8313 tta/C/parsetexi/end_line.c:300
+#: tta/perl/Texinfo/ParserNonXS.pm:8313 tta/C/parsetexi/end_line.c:299
 #, c-format, perl-format
 msgid "bad argument to @definfoenclose"
 msgstr "argument incorrecte a @definfoenclose"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8319 tta/C/parsetexi/end_line.c:311
+#: tta/perl/Texinfo/ParserNonXS.pm:8319 tta/C/parsetexi/end_line.c:310
 #, c-format
 msgid "empty @columnfractions"
 msgstr "@columnfractions buit"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8327 tta/C/parsetexi/end_line.c:331
+#: tta/perl/Texinfo/ParserNonXS.pm:8327 tta/C/parsetexi/end_line.c:330
 #, c-format, perl-format
 msgid "column fraction not a number: %s"
 msgstr "la fracció de columna no és un número: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8336 tta/C/parsetexi/end_line.c:351
+#: tta/perl/Texinfo/ParserNonXS.pm:8336 tta/C/parsetexi/end_line.c:350
 #, c-format, perl-format
 msgid "@sp arg must be numeric, not `%s'"
 msgstr "argument @sp ha de ser numèric, no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8348 tta/C/parsetexi/end_line.c:397
+#: tta/perl/Texinfo/ParserNonXS.pm:8348 tta/C/parsetexi/end_line.c:396
 #, c-format, perl-format
 msgid "reserved index name %s"
 msgstr "nom d'índex reservat %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8389 tta/C/parsetexi/end_line.c:438
+#: tta/perl/Texinfo/ParserNonXS.pm:8389 tta/C/parsetexi/end_line.c:437
 #, c-format, perl-format
 msgid "unknown source index in @%s: %s"
 msgstr "índex desconegut de font a @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8392 tta/C/parsetexi/end_line.c:441
+#: tta/perl/Texinfo/ParserNonXS.pm:8392 tta/C/parsetexi/end_line.c:440
 #, c-format, perl-format
 msgid "unknown destination index in @%s: %s"
 msgstr "índex desconegut de destinació a @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8408 tta/C/parsetexi/end_line.c:461
+#: tta/perl/Texinfo/ParserNonXS.pm:8408 tta/C/parsetexi/end_line.c:460
 #, c-format, perl-format
 msgid "@%s leads to a merging of %s in itself, ignoring"
 msgstr "@%s porta a una fusió de %s en sí mateix, s'ignorarà"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8425 tta/C/parsetexi/end_line.c:489
+#: tta/perl/Texinfo/ParserNonXS.pm:8425 tta/C/parsetexi/end_line.c:488
 #, c-format, perl-format
 msgid "unknown index `%s' in @printindex"
 msgstr "índex desconegut «%s» a @printindex"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8433 tta/C/parsetexi/end_line.c:496
+#: tta/perl/Texinfo/ParserNonXS.pm:8433 tta/C/parsetexi/end_line.c:495
 #, c-format, perl-format
 msgid "printing an index `%s' merged in another one, `%s'"
 msgstr "s'està imprimint un índex «%s» fusionat en un altre, «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8441 tta/C/parsetexi/end_line.c:502
+#: tta/perl/Texinfo/ParserNonXS.pm:8441 tta/C/parsetexi/end_line.c:501
 #, c-format, perl-format
 msgid "printindex before document beginning: @printindex %s"
 msgstr "printindex abans del principi del document: @printindex %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8455 tta/C/parsetexi/end_line.c:535
+#: tta/perl/Texinfo/ParserNonXS.pm:8455 tta/C/parsetexi/end_line.c:534
 #, c-format, perl-format
 msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
 msgstr "Sols se suporta @fonttextsize 10 o 11, no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8463 tta/C/parsetexi/end_line.c:546
+#: tta/perl/Texinfo/ParserNonXS.pm:8463 tta/C/parsetexi/end_line.c:545
 #, c-format, perl-format
 msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
 msgstr "l'argument @footnotestyle ha de ser «separate» o «end», no «%s»."
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8471 tta/C/parsetexi/end_line.c:558
+#: tta/perl/Texinfo/ParserNonXS.pm:8471 tta/C/parsetexi/end_line.c:557
 #, c-format, perl-format
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
 msgstr "l'argument @setchapternewpage ha de ser «on», «off» o «odd», no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8479 tta/C/parsetexi/end_line.c:569
+#: tta/perl/Texinfo/ParserNonXS.pm:8479 tta/C/parsetexi/end_line.c:568
 #, c-format, perl-format
 msgid "bad argument to @need: %s"
 msgstr "argument incorrecte a @need: %s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:8489 tta/perl/Texinfo/ParserNonXS.pm:8494
-#: tta/C/parsetexi/end_line.c:579
+#: tta/C/parsetexi/end_line.c:578
 #, c-format, perl-format
 msgid "@paragraphindent arg must be numeric/`none'/`asis', not `%s'"
 msgstr "l'argument @paragraphindent ha de ser numèric/`none'/`asis', no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8502 tta/C/parsetexi/end_line.c:590
+#: tta/perl/Texinfo/ParserNonXS.pm:8502 tta/C/parsetexi/end_line.c:589
 #, c-format, perl-format
 msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
 msgstr "l'argument @firstparagraphindent ha de ser `none' o `insert', no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8512 tta/C/parsetexi/end_line.c:600
+#: tta/perl/Texinfo/ParserNonXS.pm:8512 tta/C/parsetexi/end_line.c:599
 #, c-format, perl-format
 msgid "@exampleindent arg must be numeric/`asis', not `%s'"
 msgstr "l'argument @exampleindent ha de ser numèric/`asis', no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8524 tta/C/parsetexi/end_line.c:616
+#: tta/perl/Texinfo/ParserNonXS.pm:8524 tta/C/parsetexi/end_line.c:615
 #, c-format, perl-format
 msgid "expected @%s on or off, not `%s'"
 msgstr "s'esperava @%s activat o desactivat, no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8533 tta/C/parsetexi/end_line.c:636
+#: tta/perl/Texinfo/ParserNonXS.pm:8533 tta/C/parsetexi/end_line.c:635
 #, c-format, perl-format
 msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
 msgstr ""
 "l'argument de @kbdinputstyle ha de ser `code'/`example'/`distinct', no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8541 tta/C/parsetexi/end_line.c:648
+#: tta/perl/Texinfo/ParserNonXS.pm:8541 tta/C/parsetexi/end_line.c:647
 #, c-format, perl-format
 msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
 msgstr "l'argument de @allowcodebreaks ha de ser `true' o `false', no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8549 tta/C/parsetexi/end_line.c:660
+#: tta/perl/Texinfo/ParserNonXS.pm:8549 tta/C/parsetexi/end_line.c:659
 #, c-format, perl-format
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
 msgstr ""
 "l'argument de @urefbreakstyle ha de ser `after'/`before'/`none', no «%s»"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8567 tta/C/parsetexi/end_line.c:523
+#: tta/perl/Texinfo/ParserNonXS.pm:8567 tta/C/parsetexi/end_line.c:522
 #, c-format, perl-format
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr "l'argument de @%s ha de ser `top' o `bottom', no «%s»"
@@ -4125,29 +4125,29 @@ msgstr ""
 "tex4ht.pm: el processament va recuperar %d elements en HTML; s'han "
 "recol·lectat %d per a @%s"
 
-#: tta/perl/texi2any.pl:679
+#: tta/perl/texi2any.pl:674
 #, perl-format
 msgid "could not read init file %s"
 msgstr "no s'ha pogut llegir el fitxer d'inicialització %s"
 
-#: tta/perl/texi2any.pl:702
+#: tta/perl/texi2any.pl:697
 #, perl-format
 msgid "could not read extension file %s"
 msgstr "no s'ha pogut llegir el fitxer d'extensió %s"
 
-#: tta/perl/texi2any.pl:988
+#: tta/perl/texi2any.pl:983
 #, fuzzy, perl-format
 #| msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
 msgstr "s'ignorarà l'ordre no reconeguda TEXINFO_OUTPUT_FORMAT valor «%s»\n"
 
-#: tta/perl/texi2any.pl:1046 tta/C/texi2any.c:1814
+#: tta/perl/texi2any.pl:1041 tta/C/texi2any.c:1862
 #, fuzzy, c-format, perl-format
 #| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
 msgstr "Ús: %s [OPCIÓ]... FITXER-TEXINFO...\n"
 
-#: tta/perl/texi2any.pl:1049 tta/C/texi2any.c:1823
+#: tta/perl/texi2any.pl:1044 tta/C/texi2any.c:1871
 #, fuzzy
 #| msgid ""
 #| "Translate Texinfo source documentation to various other formats, by "
@@ -4172,11 +4172,11 @@ msgstr ""
 "el comportament és idèntic, i no depèn del nom instal·lat.\n"
 "\n"
 
-#: tta/perl/texi2any.pl:1055 tta/C/texi2any.c:1829
+#: tta/perl/texi2any.pl:1050 tta/C/texi2any.c:1877
 msgid "General options:"
 msgstr "Opcions generals:"
 
-#: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1832
+#: tta/perl/texi2any.pl:1051 tta/C/texi2any.c:1880
 #, fuzzy
 #| msgid ""
 #| "      --document-language=STR locale to use in translating Texinfo "
@@ -4190,7 +4190,7 @@ msgstr ""
 "                                clau Texinfo per al document de sortida "
 "(predeterminat C)."
 
-#: tta/perl/texi2any.pl:1058 tta/C/texi2any.c:1836
+#: tta/perl/texi2any.pl:1053 tta/C/texi2any.c:1884
 #, fuzzy, c-format, perl-format
 #| msgid "      --error-limit=NUM       quit after NUM errors (default %d)."
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)"
@@ -4198,7 +4198,7 @@ msgstr ""
 "        --error-limit)=NUM      surt després de NUM errors (predeterminat "
 "%d)."
 
-#: tta/perl/texi2any.pl:1060 tta/C/texi2any.c:1840
+#: tta/perl/texi2any.pl:1055 tta/C/texi2any.c:1888
 #, fuzzy
 #| msgid "      --force                 preserve output even if errors."
 msgid "      --force                 preserve output even if errors"
@@ -4206,13 +4206,13 @@ msgstr ""
 "       --force                   conserva la sortida fins i tot si hi ha "
 "errors."
 
-#: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1843
+#: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1891
 #, fuzzy
 #| msgid "      --help                  display this help and exit."
 msgid "      --help                  display this help and exit"
 msgstr "      --help                   mostra aquesta ajuda i surt"
 
-#: tta/perl/texi2any.pl:1062 tta/C/texi2any.c:1846
+#: tta/perl/texi2any.pl:1057 tta/C/texi2any.c:1894
 #, fuzzy
 #| msgid ""
 #| "      --no-validate           suppress node cross-reference validation."
@@ -4221,13 +4221,13 @@ msgstr ""
 "      --no-validate           suprimeix la validació de referència creuada "
 "de nodes."
 
-#: tta/perl/texi2any.pl:1063 tta/C/texi2any.c:1849
+#: tta/perl/texi2any.pl:1058 tta/C/texi2any.c:1897
 #, fuzzy
 #| msgid "      --no-warn               suppress warnings (but not errors)."
 msgid "      --no-warn               suppress warnings (but not errors)"
 msgstr "       --no-warn              suprimeix avisos (però no errors)."
 
-#: tta/perl/texi2any.pl:1064 tta/C/texi2any.c:1852
+#: tta/perl/texi2any.pl:1059 tta/C/texi2any.c:1900
 #, fuzzy
 #| msgid ""
 #| "      --conf-dir=DIR          search also for initialization files in DIR."
@@ -4237,7 +4237,7 @@ msgstr ""
 "      --conf-dir=DIR          cerca també per als fitxers d'inicialització "
 "en DIR."
 
-#: tta/perl/texi2any.pl:1065 tta/C/texi2any.c:1855
+#: tta/perl/texi2any.pl:1060 tta/C/texi2any.c:1903
 #, fuzzy
 #| msgid ""
 #| "      --init-file=FILE        load FILE to modify the default behavior."
@@ -4246,7 +4246,7 @@ msgstr ""
 "        --init-file=FITXER    carrega FITXER per modificar el comportament "
 "predeterminat."
 
-#: tta/perl/texi2any.pl:1066 tta/C/texi2any.c:1858
+#: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1906
 #, fuzzy
 #| msgid ""
 #| "  -c, --set-customization-variable VAR=VAL  set customization variable "
@@ -4259,67 +4259,67 @@ msgstr ""
 "   -c, --set-customization-variable VAR=VAL set customization variable VAR\n"
 "                                per a valorar VAL."
 
-#: tta/perl/texi2any.pl:1068 tta/C/texi2any.c:1862
+#: tta/perl/texi2any.pl:1063 tta/C/texi2any.c:1910
 #, fuzzy
 #| msgid "      --trace-includes        print names of included files."
 msgid "      --trace-includes        print names of included files"
 msgstr ""
 "            --trace-includes        noms d'impressió de fitxers inclosos."
 
-#: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1865
+#: tta/perl/texi2any.pl:1064 tta/C/texi2any.c:1913
 #, fuzzy
 #| msgid "  -v, --verbose               explain what is being done."
 msgid "  -v, --verbose               explain what is being done"
 msgstr "   -v, --verbose                 explica què s'està fent."
 
-#: tta/perl/texi2any.pl:1070 tta/C/texi2any.c:1868
+#: tta/perl/texi2any.pl:1065 tta/C/texi2any.c:1916
 #, fuzzy
 #| msgid "      --version               display version information and exit."
 msgid "      --version               display version information and exit"
 msgstr ""
 "        --version                 mostra la versió d'informació i surt."
 
-#: tta/perl/texi2any.pl:1072 tta/C/texi2any.c:1874
+#: tta/perl/texi2any.pl:1067 tta/C/texi2any.c:1922
 msgid "Output format selection (default is to produce Info):"
 msgstr "Selecció de format de sortida (per defecte és info):"
 
-#: tta/perl/texi2any.pl:1073 tta/C/texi2any.c:1877
+#: tta/perl/texi2any.pl:1068 tta/C/texi2any.c:1925
 #, fuzzy
 #| msgid "      --docbook               output Docbook XML."
 msgid "      --docbook               output Docbook XML"
 msgstr "        --docbook              sortida Docbook XML."
 
-#: tta/perl/texi2any.pl:1074 tta/C/texi2any.c:1880
+#: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1928
 #, fuzzy
 #| msgid "      --html                  output HTML."
 msgid "      --html                  output HTML"
 msgstr "       --html                    sortida HTML."
 
-#: tta/perl/texi2any.pl:1075 tta/C/texi2any.c:1883
+#: tta/perl/texi2any.pl:1070 tta/C/texi2any.c:1931
 #, fuzzy
 #| msgid "      --epub3                 output EPUB 3."
 msgid "      --epub3                 output EPUB 3"
 msgstr "        --epub3                   sortida EPUB 3."
 
-#: tta/perl/texi2any.pl:1076 tta/C/texi2any.c:1886
+#: tta/perl/texi2any.pl:1071 tta/C/texi2any.c:1934
 #, fuzzy
 #| msgid "      --latex                 output LaTeX."
 msgid "      --latex                 output LaTeX"
 msgstr "       --latex                 sortida LaTeX."
 
-#: tta/perl/texi2any.pl:1077 tta/C/texi2any.c:1889
+#: tta/perl/texi2any.pl:1072 tta/C/texi2any.c:1937
 #, fuzzy
 #| msgid "      --plaintext             output plain text rather than Info."
 msgid "      --plaintext             output plain text rather than Info"
 msgstr "        --plaintext               surt text net en lloc d'Informació."
 
-#: tta/perl/texi2any.pl:1078 tta/C/texi2any.c:1892
+#: tta/perl/texi2any.pl:1073 tta/C/texi2any.c:1940
 #, fuzzy
 #| msgid "      --xml                   output Texinfo XML."
 msgid "      --xml                   output Texinfo XML"
 msgstr "        --xml                    sortida Texinfo XML."
 
-#: tta/perl/texi2any.pl:1079 tta/C/texi2any.c:1895
+#: tta/perl/texi2any.pl:1074 tta/C/texi2any.c:1943
 #, fuzzy
 #| msgid ""
 #| "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given "
@@ -4334,11 +4334,11 @@ msgstr ""
 "                                després de comprovar la validesa de TEXINFO-"
 "FILE."
 
-#: tta/perl/texi2any.pl:1083 tta/C/texi2any.c:1899
+#: tta/perl/texi2any.pl:1078 tta/C/texi2any.c:1947
 msgid "General output options:"
 msgstr "Opcions generals de sortida:"
 
-#: tta/perl/texi2any.pl:1085 tta/C/texi2any.c:1902
+#: tta/perl/texi2any.pl:1080 tta/C/texi2any.c:1950
 #, fuzzy
 #| msgid ""
 #| "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
@@ -4350,7 +4350,7 @@ msgstr ""
 "   -E, --macro-expand=FITXER  de sortida macro-expandida font a FITXER,\n"
 "                                s'ignorarà qualsevol @setfilename."
 
-#: tta/perl/texi2any.pl:1088 tta/C/texi2any.c:1906
+#: tta/perl/texi2any.pl:1083 tta/C/texi2any.c:1954
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4370,7 +4370,7 @@ msgstr ""
 "                                A més, si produeix informació, escriu a\n"
 "                                sortida estàndard per defecte."
 
-#: tta/perl/texi2any.pl:1094 tta/C/texi2any.c:1913
+#: tta/perl/texi2any.pl:1089 tta/C/texi2any.c:1961
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4382,7 +4382,7 @@ msgstr ""
 "      --no-split              suprimeix qualsevol divisió de la sortida;\n"
 "                                genera només un fitxer de sortida."
 
-#: tta/perl/texi2any.pl:1097 tta/C/texi2any.c:1917
+#: tta/perl/texi2any.pl:1092 tta/C/texi2any.c:1965
 #, fuzzy
 #| msgid ""
 #| "      --[no-]number-sections  output chapter and sectioning numbers;\n"
@@ -4394,12 +4394,12 @@ msgstr ""
 "      --[no-]number-sections  capítol de sortida i números de secció;\n"
 "                                per defecte està activat."
 
-#: tta/perl/texi2any.pl:1100 tta/C/texi2any.c:1921
+#: tta/perl/texi2any.pl:1095 tta/C/texi2any.c:1969
 msgid ""
 "      --[no-]number-footnotes  number footnotes sequentially; default is on"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1102 tta/C/texi2any.c:1924
+#: tta/perl/texi2any.pl:1097 tta/C/texi2any.c:1972
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4420,7 +4420,7 @@ msgstr ""
 "                                En cas contrari, DEST anomena el fitxer de "
 "sortida."
 
-#: tta/perl/texi2any.pl:1110 tta/C/texi2any.c:1933
+#: tta/perl/texi2any.pl:1105 tta/C/texi2any.c:1981
 #, fuzzy
 #| msgid ""
 #| "      --disable-encoding      do not output accented and special "
@@ -4439,7 +4439,7 @@ msgstr ""
 "el document\n"
 "                                codificació."
 
-#: tta/perl/texi2any.pl:1114 tta/C/texi2any.c:1938
+#: tta/perl/texi2any.pl:1109 tta/C/texi2any.c:1986
 #, fuzzy
 #| msgid "      --enable-encoding       override --disable-encoding (default)."
 msgid "      --enable-encoding       override --disable-encoding (default)"
@@ -4447,12 +4447,12 @@ msgstr ""
 "       --enable-encoding           substitueix --disable-encoding (per "
 "defecte)."
 
-#: tta/perl/texi2any.pl:1116 tta/C/texi2any.c:1941
+#: tta/perl/texi2any.pl:1111 tta/C/texi2any.c:1989
 #, perl-format
 msgid "Options for Info and plain text:"
 msgstr "Opcions per a Informació i text pla:"
 
-#: tta/perl/texi2any.pl:1118 tta/C/texi2any.c:1944
+#: tta/perl/texi2any.pl:1113 tta/C/texi2any.c:1992
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "      --fill-column=NUM       break Info lines at NUM columns (default "
@@ -4463,7 +4463,7 @@ msgstr ""
 "      --fill-column)=NUM.     salt línies d'informació a les columnes NUM "
 "(per defecte %d)."
 
-#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:1948
+#: tta/perl/texi2any.pl:1115 tta/C/texi2any.c:1996
 #, fuzzy, perl-format
 #| msgid ""
 #| "      --footnote-style=STYLE  output footnotes in Info according to "
@@ -4490,7 +4490,7 @@ msgstr ""
 "                                el qual estan definits (aquest és el valor "
 "per defecte)."
 
-#: tta/perl/texi2any.pl:1125 tta/C/texi2any.c:1958
+#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:2006
 #, c-format, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4503,7 +4503,7 @@ msgstr ""
 "                                Si VAL és «none», no sagnat; si VAL és\n"
 "                                «asis», preserva el sagnat existent."
 
-#: tta/perl/texi2any.pl:1129 tta/C/texi2any.c:1964
+#: tta/perl/texi2any.pl:1124 tta/C/texi2any.c:2012
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "      --split-size=NUM        split Info files at size NUM (default %d)."
@@ -4512,27 +4512,27 @@ msgstr ""
 "       --split-size)=NUM.     desglossament dels fitxers d'informació a la "
 "mida NUM (per defecte %d)."
 
-#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:1968
+#: tta/perl/texi2any.pl:1130 tta/C/texi2any.c:2016
 #, fuzzy
 #| msgid "Options:"
 msgid "Options for HTML:"
 msgstr "Opcions:"
 
-#: tta/perl/texi2any.pl:1136 tta/C/texi2any.c:1971
+#: tta/perl/texi2any.pl:1131 tta/C/texi2any.c:2019
 msgid ""
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
 "                                read stdin if FILE is -"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:1975
+#: tta/perl/texi2any.pl:1133 tta/C/texi2any.c:2023
 msgid "      --css-ref=URL           generate CSS reference to URL"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1139 tta/C/texi2any.c:1978
+#: tta/perl/texi2any.pl:1134 tta/C/texi2any.c:2026
 msgid "      --internal-links=FILE   produce list of internal links in FILE"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1140 tta/C/texi2any.c:1981
+#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:2029
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4544,12 +4544,12 @@ msgstr ""
 "      --no-split              suprimeix qualsevol divisió de la sortida;\n"
 "                                genera només un fitxer de sortida."
 
-#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:1985
+#: tta/perl/texi2any.pl:1137 tta/C/texi2any.c:2033
 msgid ""
 "      --transliterate-file-names  use file names in ASCII transliteration"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1143 tta/C/texi2any.c:1988
+#: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:2036
 #, fuzzy
 #| msgid ""
 #| "      --no-split              suppress any splitting of the output;\n"
@@ -4561,11 +4561,11 @@ msgstr ""
 "      --no-split              suprimeix qualsevol divisió de la sortida;\n"
 "                                genera només un fitxer de sortida."
 
-#: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:1992
+#: tta/perl/texi2any.pl:1141 tta/C/texi2any.c:2040
 msgid "Options for DVI/PS/PDF:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1147 tta/C/texi2any.c:1995
+#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:2043
 #, fuzzy
 #| msgid ""
 #| "Options for DVI/PS/PDF:\n"
@@ -4575,17 +4575,17 @@ msgstr ""
 "Opcions per a DVI/PS/PDF:\n"
 "      --Xopt=OPT              passa OPT a texi2dvi: es pot repetir.\n"
 
-#: tta/perl/texi2any.pl:1149 tta/C/texi2any.c:1998
+#: tta/perl/texi2any.pl:1144 tta/C/texi2any.c:2046
 msgid "Input file options:"
 msgstr "Opcions del fitxer d'entrada:"
 
-#: tta/perl/texi2any.pl:1150 tta/C/texi2any.c:2001
+#: tta/perl/texi2any.pl:1145 tta/C/texi2any.c:2049
 #, fuzzy
 #| msgid " -D VAR                       define the variable VAR, as with @set."
 msgid " -D VAR                       define the variable VAR, as with @set"
 msgstr " -D VAR                       defineix la variable VAR, com amb @set."
 
-#: tta/perl/texi2any.pl:1151 tta/C/texi2any.c:2004
+#: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:2052
 #, fuzzy
 #| msgid ""
 #| " -D 'VAR VAL'                 define VAR to VAL (one shell argument)."
@@ -4593,21 +4593,21 @@ msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)"
 msgstr ""
 " -D «VAR VAL»                 defineix VAR a VAL (un argument de shell)."
 
-#: tta/perl/texi2any.pl:1152 tta/C/texi2any.c:2007
+#: tta/perl/texi2any.pl:1147 tta/C/texi2any.c:2055
 #, fuzzy
 #| msgid ""
 #| " -I DIR                       append DIR to the @include search path."
 msgid " -I DIR                       append DIR to the @include search path"
 msgstr " -I DIR                       afegeix DIR al camí de cerca @include."
 
-#: tta/perl/texi2any.pl:1153 tta/C/texi2any.c:2010
+#: tta/perl/texi2any.pl:1148 tta/C/texi2any.c:2058
 #, fuzzy
 #| msgid ""
 #| " -P DIR                       prepend DIR to the @include search path."
 msgid " -P DIR                       prepend DIR to the @include search path"
 msgstr " -P DIR              preposa DIR al camí de cerca @include."
 
-#: tta/perl/texi2any.pl:1154 tta/C/texi2any.c:2013
+#: tta/perl/texi2any.pl:1149 tta/C/texi2any.c:2061
 #, fuzzy
 #| msgid ""
 #| " -U VAR                       undefine the variable VAR, as with @clear."
@@ -4616,134 +4616,134 @@ msgstr ""
 " -U VAR                 cancel·la la definició de la variable VAR, com amb "
 "@clear."
 
-#: tta/perl/texi2any.pl:1156 tta/C/texi2any.c:2017
+#: tta/perl/texi2any.pl:1151 tta/C/texi2any.c:2065
 msgid "Conditional processing in input:"
 msgstr "Processament condicional a l'entrada:"
 
-#: tta/perl/texi2any.pl:1157 tta/C/texi2any.c:2020
+#: tta/perl/texi2any.pl:1152 tta/C/texi2any.c:2068
 #, fuzzy
 #| msgid "  --no-ifdocbook    do not process @ifdocbook and @docbook text."
 msgid "      --ifdocbook       process @ifdocbook and @docbook"
 msgstr "  --no-ifdocbook    no processis text @fdocbook i @docbook."
 
-#: tta/perl/texi2any.pl:1158 tta/C/texi2any.c:2023
+#: tta/perl/texi2any.pl:1153 tta/C/texi2any.c:2071
 #, fuzzy
 #| msgid "  --ifxml           process @ifxml and @xml."
 msgid "      --ifhtml          process @ifhtml and @html"
 msgstr "  --ifxml           processa @ifxml i @xml."
 
-#: tta/perl/texi2any.pl:1159 tta/C/texi2any.c:2026
+#: tta/perl/texi2any.pl:1154 tta/C/texi2any.c:2074
 #, fuzzy
 #| msgid "  --no-ifinfo       do not process @ifinfo text."
 msgid "      --ifinfo          process @ifinfo"
 msgstr "  --no-ifinfo       no processis el text @ifinfo."
 
-#: tta/perl/texi2any.pl:1160 tta/C/texi2any.c:2029
+#: tta/perl/texi2any.pl:1155 tta/C/texi2any.c:2077
 #, fuzzy
 #| msgid "  --iflatex         process @iflatex and @latex."
 msgid "      --iflatex         process @iflatex and @latex"
 msgstr "  --iflatex         processa @iflatex i @latex."
 
-#: tta/perl/texi2any.pl:1161 tta/C/texi2any.c:2032
+#: tta/perl/texi2any.pl:1156 tta/C/texi2any.c:2080
 #, fuzzy
 #| msgid "  --no-ifplaintext  do not process @ifplaintext text."
 msgid "      --ifplaintext     process @ifplaintext"
 msgstr "  --no-ifplaintext  no processis el text @ifplaintext."
 
-#: tta/perl/texi2any.pl:1162 tta/C/texi2any.c:2035
+#: tta/perl/texi2any.pl:1157 tta/C/texi2any.c:2083
 #, fuzzy
 #| msgid "  --iftex           process @iftex and @tex."
 msgid "      --iftex           process @iftex and @tex"
 msgstr "  --iftex         processa @iftex i @tex."
 
-#: tta/perl/texi2any.pl:1163 tta/C/texi2any.c:2038
+#: tta/perl/texi2any.pl:1158 tta/C/texi2any.c:2086
 #, fuzzy
 #| msgid "  --ifxml           process @ifxml and @xml."
 msgid "      --ifxml           process @ifxml and @xml"
 msgstr "  --ifxml           processa @ifxml i @xml."
 
-#: tta/perl/texi2any.pl:1165 tta/C/texi2any.c:2044
+#: tta/perl/texi2any.pl:1160 tta/C/texi2any.c:2092
 msgid ""
 "  By default, an --ifFORMAT setting is on only when the output format\n"
 "  is FORMAT; for example, --ifhtml is on when outputting HTML.\n"
 "  Also, when --ifFORMAT is on, @ifnotFORMAT text is not processed."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1169 tta/C/texi2any.c:2051
+#: tta/perl/texi2any.pl:1164 tta/C/texi2any.c:2099
 msgid ""
 "  Each --ifFORMAT option may be prefixed with `--no-' to negate it;\n"
 "  for example, --no-ifhtml means not to process @ifhtml or @html text,\n"
 "  and to process @ifnothtml text."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1173 tta/C/texi2any.c:2056
+#: tta/perl/texi2any.pl:1168 tta/C/texi2any.c:2104
 msgid "Examples:"
 msgstr "Exemples:"
 
-#: tta/perl/texi2any.pl:1174 tta/C/texi2any.c:2059
+#: tta/perl/texi2any.pl:1169 tta/C/texi2any.c:2107
 #, fuzzy, c-format, perl-format
 #| msgid "      --xml                   output Texinfo XML."
 msgid "  %s foo.texi                      write Info"
 msgstr "        --xml                    sortida Texinfo XML."
 
-#: tta/perl/texi2any.pl:1175 tta/C/texi2any.c:2062
+#: tta/perl/texi2any.pl:1170 tta/C/texi2any.c:2110
 #, fuzzy, c-format, perl-format
 #| msgid "      --html                  output HTML."
 msgid "  %s --html foo.texi               write HTML"
 msgstr "       --html                    sortida HTML."
 
-#: tta/perl/texi2any.pl:1176 tta/C/texi2any.c:2065
+#: tta/perl/texi2any.pl:1171 tta/C/texi2any.c:2113
 #, fuzzy, c-format, perl-format
 #| msgid "      --xml                   output Texinfo XML."
 msgid "  %s --xml foo.texi                write Texinfo XML"
 msgstr "        --xml                    sortida Texinfo XML."
 
-#: tta/perl/texi2any.pl:1177 tta/C/texi2any.c:2068
+#: tta/perl/texi2any.pl:1172 tta/C/texi2any.c:2116
 #, fuzzy, c-format, perl-format
 #| msgid "      --docbook               output Docbook XML."
 msgid "  %s --docbook foo.texi            write Docbook XML"
 msgstr "        --docbook              sortida Docbook XML."
 
-#: tta/perl/texi2any.pl:1178 tta/C/texi2any.c:2071
+#: tta/perl/texi2any.pl:1173 tta/C/texi2any.c:2119
 #, fuzzy, c-format, perl-format
 #| msgid "      --plaintext             output plain text rather than Info."
 msgid "  %s --plaintext foo.texi          write plain text to standard output"
 msgstr "        --plaintext               surt text net en lloc d'Informació."
 
-#: tta/perl/texi2any.pl:1179 tta/C/texi2any.c:2074
+#: tta/perl/texi2any.pl:1174 tta/C/texi2any.c:2122
 #, c-format, perl-format
 msgid "  %s --pdf foo.texi                write PDF using texi2dvi"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1181 tta/C/texi2any.c:2078
+#: tta/perl/texi2any.pl:1176 tta/C/texi2any.c:2126
 #, c-format, perl-format
 msgid "  %s --html --no-headers foo.texi  write html without node lines, menus"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1182 tta/C/texi2any.c:2081
+#: tta/perl/texi2any.pl:1177 tta/C/texi2any.c:2129
 #, fuzzy, c-format, perl-format
 #| msgid "    --unnumbered-sections   do not number sections"
 msgid "  %s --number-sections foo.texi    write Info with numbered sections"
 msgstr "    --unnumbered-sections   no numera les seccions"
 
-#: tta/perl/texi2any.pl:1183 tta/C/texi2any.c:2084
+#: tta/perl/texi2any.pl:1178 tta/C/texi2any.c:2132
 #, c-format, perl-format
 msgid "  %s --no-split foo.texi           write one Info file however big"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1226 tta/C/texi2any.c:1665
+#: tta/perl/texi2any.pl:1221 tta/C/texi2any.c:1713
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
 msgstr ""
 "%s: l'argument --footnote-style ha de ser  `separate' o `end', no «%s».\n"
 
-#: tta/perl/texi2any.pl:1233
+#: tta/perl/texi2any.pl:1228
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr "%s no és una possibilitat vàlida de divisió"
 
-#: tta/perl/texi2any.pl:1348
+#: tta/perl/texi2any.pl:1343
 #, fuzzy, perl-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -4752,27 +4752,27 @@ msgstr ""
 "%s: l'argument --paragraph-indent arg ha de ser numeric/`none'/`asis', no "
 "«%s».\n"
 
-#: tta/perl/texi2any.pl:1536
+#: tta/perl/texi2any.pl:1531
 #, perl-format
 msgid "overwriting file: %s"
 msgstr "s'està sobreescrivint el fitxer %s"
 
-#: tta/perl/texi2any.pl:1586
+#: tta/perl/texi2any.pl:1581
 #, perl-format
 msgid "unknown tree transformation %s"
 msgstr "transformació d'arbre desconeguda %s"
 
-#: tta/perl/texi2any.pl:1612
+#: tta/perl/texi2any.pl:1607
 #, perl-format
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr "s'ignorarà la divisió per al format convertit %s (per a %s)"
 
-#: tta/perl/texi2any.pl:1616
+#: tta/perl/texi2any.pl:1611
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr "s'ignorarà la divisió per al format %s"
 
-#: tta/perl/texi2any.pl:1632 tta/C/texi2any.c:2294
+#: tta/perl/texi2any.pl:1627 tta/C/texi2any.c:2342
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "%s: when generating %s, only one input FILE may be specified with -o\n"
@@ -4780,67 +4780,67 @@ msgid "%s: when generating %s, only one input FILE may be specified with -o"
 msgstr ""
 "%s: quan s'estigui generant %s, sols es pot especificar un FITXER amb -o\n"
 
-#: tta/perl/texi2any.pl:1636
+#: tta/perl/texi2any.pl:1631
 msgid "--Xopt option without printed output"
 msgstr "opció --Xopt sense sortida impresa"
 
-#: tta/perl/texi2any.pl:1653
+#: tta/perl/texi2any.pl:1648
 #, perl-format
 msgid "error loading %s: %s"
 msgstr "error en carregar %s: %s"
 
-#: tta/perl/texi2any.pl:1730 tta/C/texi2any.c:2493
+#: tta/perl/texi2any.pl:1725 tta/C/texi2any.c:2541
 #, fuzzy, c-format, perl-format
 #| msgid "%s: missing file argument.\n"
 msgid "%s: missing file argument."
 msgstr "%s: falta l'argument de fitxer.\n"
 
-#: tta/perl/texi2any.pl:1765
+#: tta/perl/texi2any.pl:1760
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr "fitxer d'entrada %s; volíeu dir %s?"
 
-#: tta/perl/texi2any.pl:1885
+#: tta/perl/texi2any.pl:1880
 #, fuzzy, perl-format
 #| msgid "error on closing frame file %s: %s"
 msgid "error on closing tree dump file %s: %s"
 msgstr "error en tancar el fitxer marc %s: %s"
 
-#: tta/perl/texi2any.pl:1952
+#: tta/perl/texi2any.pl:1947
 #, fuzzy, perl-format
 #| msgid "error on closing macro expand file %s: %s\n"
 msgid "error on closing macro expand file %s: %s"
 msgstr "error en tancar el fitxer d'expansió de macros %s: %s\n"
 
-#: tta/perl/texi2any.pl:2106
+#: tta/perl/texi2any.pl:2101
 #, fuzzy, perl-format
 #| msgid "error on closing frame file %s: %s"
 msgid "error on closing structure dump file %s: %s"
 msgstr "error en tancar el fitxer marc %s: %s"
 
-#: tta/perl/texi2any.pl:2223
+#: tta/perl/texi2any.pl:2218
 #, fuzzy, perl-format
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing internal links file %s: %s"
 msgstr "%s: error en tancar els fitxers d'enllaços interns %s: %s\n"
 
-#: tta/perl/texi2any.pl:2341
+#: tta/perl/texi2any.pl:2336
 #, fuzzy, perl-format
 #| msgid "%s: error on closing elements size file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: error en tancar el fitxe %s de mida d'elements: %s\n"
 
-#: tta/C/texi2any.c:913
+#: tta/C/texi2any.c:923
 #, c-format
 msgid "%s: value \"%s\" invalid for option %s (number expected)"
 msgstr ""
 
-#: tta/C/texi2any.c:917
+#: tta/C/texi2any.c:927
 #, c-format
 msgid "%s: value \"%s\" invalid for option %c (number expected)"
 msgstr ""
 
-#: tta/C/texi2any.c:1693
+#: tta/C/texi2any.c:1741
 #, fuzzy, c-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -4899,12 +4899,12 @@ msgstr "error escrivint %s: %s"
 msgid "error closing %s: %s"
 msgstr "error en tancar %s: %s"
 
-#: tta/C/convert/html_prepare_converter.c:1911
+#: tta/C/convert/html_prepare_converter.c:1912
 #, c-format
 msgid "error on closing CSS file  %s: %s"
 msgstr "error en tancar el fitxer CSS %s: %s"
 
-#: tta/C/convert/texinfo.c:779
+#: tta/C/convert/texinfo.c:798
 #, fuzzy, c-format
 #| msgid "%s: error on closing %s: %s\n"
 msgid "%s: error on closing io %s: %s"
@@ -4925,52 +4925,52 @@ msgstr "no s'ha trobat la configuració regional de la col·lació: %s"
 msgid "unmatched `@end %s'"
 msgstr "«@end %s» no concordat"
 
-#: tta/C/parsetexi/end_line.c:231
+#: tta/C/parsetexi/end_line.c:230
 #, c-format
 msgid "bad argument to @alias"
 msgstr "argument incorrecte a @alias"
 
-#: tta/C/parsetexi/end_line.c:481
+#: tta/C/parsetexi/end_line.c:480
 #, c-format
 msgid "bad argument to @printindex: %s"
 msgstr "argument incorrecte a @printindex: %s"
 
-#: tta/C/parsetexi/end_line.c:673
+#: tta/C/parsetexi/end_line.c:672
 #, c-format
 msgid "bad argument to @headings: %s"
 msgstr "argument incorrecte a @heading: %s"
 
-#: tta/C/parsetexi/end_line.c:1296
+#: tta/C/parsetexi/end_line.c:1295
 #, c-format
 msgid "bad argument to @end: %s"
 msgstr "argument incorrecte a @end: %s"
 
-#: tta/C/parsetexi/end_line.c:1315
+#: tta/C/parsetexi/end_line.c:1314
 #, c-format
 msgid "@include: could not find %s"
 msgstr "@include: no s'ha pogut trobar %s"
 
-#: tta/C/parsetexi/end_line.c:1325
+#: tta/C/parsetexi/end_line.c:1324
 #, c-format
 msgid "@include: could not open %s: %s"
 msgstr "@include: no s'ha pogut obrir %s: %s"
 
-#: tta/C/parsetexi/end_line.c:1778
+#: tta/C/parsetexi/end_line.c:1777
 #, c-format
 msgid "@setfilename after the first element"
 msgstr "@setfilename després del primer element"
 
-#: tta/C/parsetexi/end_line.c:1785
+#: tta/C/parsetexi/end_line.c:1784
 #, c-format
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@columnfractions sols té sentit a una línia @multitable"
 
-#: tta/C/parsetexi/end_line.c:1825
+#: tta/C/parsetexi/end_line.c:1824
 #, c-format
 msgid "@part should not be associated with @top"
 msgstr "@part no hauria d'estar associat amb @top"
 
-#: tta/C/parsetexi/end_line.c:1838
+#: tta/C/parsetexi/end_line.c:1837
 #, c-format
 msgid "@node precedes @part, but parts may not be associated with nodes"
 msgstr ""

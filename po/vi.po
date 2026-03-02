@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2026-02-17 19:11+0000\n"
+"POT-Creation-Date: 2026-03-02 17:08+0000\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -1839,7 +1839,7 @@ msgstr ""
 " --version           hiển thị thông tin phiên bản rồi thoát."
 
 #: install-info/install-info.c:589 Pod-Simple-Texinfo/pod2texi.pl:193
-#: tta/perl/texi2any.pl:1185 tta/C/texi2any.c:2087
+#: tta/perl/texi2any.pl:1180 tta/C/texi2any.c:2135
 #, fuzzy
 #| msgid ""
 #| "Email bug reports to bug-texinfo@gnu.org,\n"
@@ -2066,8 +2066,8 @@ msgstr ""
 msgid "    --version               display version information and exit"
 msgstr " --version    hiển thị thông tin phiên bản rồi thoát"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1199
-#: tta/C/texi2any.c:1636
+#: Pod-Simple-Texinfo/pod2texi.pl:219 tta/perl/texi2any.pl:1194
+#: tta/C/texi2any.c:1684
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "Copyright (C) %s Free Software Foundation, Inc.\n"
@@ -2105,8 +2105,8 @@ msgstr "không thể tạo thư mục “%s”: %s"
 msgid "%s: missing file argument"
 msgstr "%s: thiếu đối số tập tin.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1731
-#: tta/C/texi2any.c:2501
+#: Pod-Simple-Texinfo/pod2texi.pl:274 tta/perl/texi2any.pl:1726
+#: tta/C/texi2any.c:2549
 #, fuzzy, c-format, perl-format
 #| msgid "Try `%s --help' for more information.\n"
 msgid "Try `%s --help' for more information."
@@ -2125,7 +2125,7 @@ msgid "%s: same manual name `%s' for different files: %s and %s"
 msgstr "@%s tên nút mục trình đơn “%s” khác biệt với %s tên “%s”"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:536 Pod-Simple-Texinfo/pod2texi.pl:644
-#: tta/perl/texi2any.pl:2234 tta/perl/texi2any.pl:2353
+#: tta/perl/texi2any.pl:2229 tta/perl/texi2any.pl:2348
 #, fuzzy, perl-format
 #| msgid "%s: could not open %s for writing: %s\n"
 msgid "%s: could not open %s for writing: %s"
@@ -2138,8 +2138,8 @@ msgid "%s: could not open %s: %s"
 msgstr "@%s: không thể mở %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:595 Pod-Simple-Texinfo/pod2texi.pl:693
-#: tta/perl/texi2any.pl:2187 tta/perl/texi2any.pl:2407
-#: tta/C/convert/texinfo.c:767
+#: tta/perl/texi2any.pl:2182 tta/perl/texi2any.pl:2402
+#: tta/C/convert/texinfo.c:786
 #, fuzzy, c-format, perl-format
 #| msgid "%s: error on closing %s: %s\n"
 msgid "%s: error on closing %s: %s"
@@ -2162,17 +2162,17 @@ msgstr "đổi tên %s gặp lỗi: %s"
 msgid "%s: error on closing stdout: %s"
 msgstr "%s: lỗi đóng tập tin %s: %s\n"
 
-#: tta/perl/Texinfo/Common.pm:475 tta/C/parsetexi/end_line.c:1489
+#: tta/perl/Texinfo/Common.pm:475 tta/C/parsetexi/end_line.c:1488
 #, c-format, perl-format
 msgid "%s is not a valid language code"
 msgstr "%s không phải mã ngôn ngữ hợp lệ"
 
-#: tta/perl/Texinfo/Common.pm:480 tta/C/parsetexi/end_line.c:1495
+#: tta/perl/Texinfo/Common.pm:480 tta/C/parsetexi/end_line.c:1494
 #, c-format, perl-format
 msgid "%s is not a valid region code"
 msgstr "%s không phải mã vùng hợp lệ"
 
-#: tta/perl/Texinfo/Config.pm:171 tta/perl/texi2any.pl:640
+#: tta/perl/Texinfo/Config.pm:171 tta/perl/texi2any.pl:635
 #, fuzzy, perl-format
 #| msgid "%s:%d: warning: %s\n"
 msgctxt "program name: warning: warning_message"
@@ -2261,9 +2261,9 @@ msgstr "ở đây có định nghĩa trước như là @%s"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:784
 #: tta/perl/Texinfo/Convert/Plaintext.pm:839
 #: tta/perl/Texinfo/Convert/Text.pm:1116 tta/perl/Texinfo/Example/IXIN.pm:358
-#: tta/perl/texi2any.pl:1880 tta/perl/texi2any.pl:1963
-#: tta/perl/texi2any.pl:2100 tta/C/convert/converter.c:726
-#: tta/C/convert/convert_html.c:2081 tta/C/convert/convert_html.c:2523
+#: tta/perl/texi2any.pl:1875 tta/perl/texi2any.pl:1958
+#: tta/perl/texi2any.pl:2095 tta/C/convert/converter.c:726
+#: tta/C/convert/convert_html.c:2082 tta/C/convert/convert_html.c:2523
 #: tta/C/convert/rawtext_converter_api.c:232
 #, c-format, perl-format
 msgid "could not open %s for writing: %s"
@@ -2278,7 +2278,7 @@ msgstr "không thể mở “%s” để ghi: %s"
 #: tta/perl/Texinfo/Convert/Plaintext.pm:860
 #: tta/perl/Texinfo/Convert/Text.pm:1145 tta/perl/Texinfo/Example/IXIN.pm:1040
 #: tta/perl/Texinfo/ParserNonXS.pm:2687 tta/C/convert/converter.c:796
-#: tta/C/convert/convert_html.c:2146 tta/C/convert/convert_html.c:2562
+#: tta/C/convert/convert_html.c:2147 tta/C/convert/convert_html.c:2562
 #: tta/C/convert/rawtext_converter_api.c:269 tta/C/parsetexi/input.c:353
 #, c-format, perl-format
 msgid "error on closing %s: %s"
@@ -2330,18 +2330,18 @@ msgstr ""
 msgid "@image file `%s' (for HTML) not found, using `%s'"
 msgstr "Tập tin @image “%s” (cho HTML) không đọc được, dùng “%s”"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8300
+#: tta/perl/Texinfo/Convert/HTML.pm:4814 tta/C/convert/format_html.c:8303
 #, c-format, perl-format
 msgid "raw format %s is not converted"
 msgstr "định dạng thô %s không được chuyển đổi"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10703
+#: tta/perl/Texinfo/Convert/HTML.pm:6499 tta/C/convert/format_html.c:10706
 #, fuzzy, c-format, perl-format
 #| msgid "entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any node"
 msgstr "mục nhập cho chỉ mục “%s” nằm ở ngoài mọi nút"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10743
+#: tta/perl/Texinfo/Convert/HTML.pm:6530 tta/C/convert/format_html.c:10746
 #, fuzzy, c-format, perl-format
 #| msgid "entry for index `%s' outside of any node"
 msgid "entry for index `%s' for @printindex %s outside of any section"
@@ -2378,7 +2378,7 @@ msgstr "gặp lỗi khi đóng tập tin cấu hình tham chiếu cho html %s: %
 msgid "could not find html refs config file %s"
 msgstr "không thể mở tập tin cấu hình dùng để tham chiếu html %s: %s"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:8707 tta/perl/texi2any.pl:662
+#: tta/perl/Texinfo/Convert/HTML.pm:8707 tta/perl/texi2any.pl:657
 #: tta/C/convert/html_prepare_converter.c:1507
 #, c-format, perl-format
 msgid "%s directory is deprecated. Use %s instead"
@@ -2396,31 +2396,31 @@ msgid "Unknown formatting function: %s"
 msgstr "hành động lạ “%s”"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9612
-#: tta/C/convert/html_prepare_converter.c:1794
+#: tta/C/convert/html_prepare_converter.c:1795
 #, c-format, perl-format
 msgid "string not closed in css file"
 msgstr "chuỗi chưa được đóng trong tập tin css"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9614
-#: tta/C/convert/html_prepare_converter.c:1802
+#: tta/C/convert/html_prepare_converter.c:1803
 #, c-format, perl-format
 msgid "--css-include ended in comment"
 msgstr "“--css-include” kết thúc tại phần ghi chú"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9616
-#: tta/C/convert/html_prepare_converter.c:1810
+#: tta/C/convert/html_prepare_converter.c:1811
 #, c-format, perl-format
 msgid "@import not finished in css file"
 msgstr "@import chưa hoàn thiện trong tập tin css"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9652
-#: tta/C/convert/html_prepare_converter.c:1862
+#: tta/C/convert/html_prepare_converter.c:1863
 #, c-format, perl-format
 msgid "CSS file %s not found"
 msgstr "không tìm thấy tập tin CSS %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9664
-#: tta/C/convert/html_prepare_converter.c:1884
+#: tta/C/convert/html_prepare_converter.c:1885
 #, c-format, perl-format
 msgid "could not open --include-file %s: %s"
 msgstr "không thể mở --include-file %s: %s"
@@ -2431,31 +2431,31 @@ msgid "error on closing CSS file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin CSS %s: %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:9884
-#: tta/C/convert/html_prepare_converter.c:4899
+#: tta/C/convert/html_prepare_converter.c:4900
 #, c-format, perl-format
 msgid "user-defined node file name not set for `%s'"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10209
-#: tta/C/convert/html_prepare_converter.c:6135
+#: tta/C/convert/html_prepare_converter.c:6136
 #, c-format, perl-format
 msgid "resetting %s file path %s to %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10213
-#: tta/C/convert/html_prepare_converter.c:6145
+#: tta/C/convert/html_prepare_converter.c:6146
 #, c-format, perl-format
 msgid "resetting %s file path from a relative path to %s"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10217
-#: tta/C/convert/html_prepare_converter.c:6154
+#: tta/C/convert/html_prepare_converter.c:6155
 #, c-format, perl-format
 msgid "resetting %s file path from %s to a relative path"
 msgstr ""
 
 #: tta/perl/Texinfo/Convert/HTML.pm:10807
-#: tta/C/convert/html_prepare_converter.c:5525
+#: tta/C/convert/html_prepare_converter.c:5526
 #, fuzzy, c-format, perl-format
 #| msgid "Cannot find node '%s'"
 msgid "could not find %s node `%s'"
@@ -2492,13 +2492,13 @@ msgstr ""
 msgid "overwriting output file with js licences: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12909 tta/C/convert/convert_html.c:818
+#: tta/perl/Texinfo/Convert/HTML.pm:12909 tta/C/convert/convert_html.c:819
 #, fuzzy, c-format, perl-format
 #| msgid "handler %s of stage %s priority %s failed"
 msgid "handler %d of stage %s priority %s: non-numeric status"
 msgstr "bộ tiếp hợp %s của trạng thái %s mức ưu tiên %s gặp lỗi"
 
-#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:830
+#: tta/perl/Texinfo/Convert/HTML.pm:12916 tta/C/convert/convert_html.c:831
 #, fuzzy, c-format, perl-format
 #| msgid "handler %s of stage %s priority %s failed"
 msgid "handler %d of stage %s priority %s failed"
@@ -2523,8 +2523,8 @@ msgid "error on closing empty %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
 #: tta/perl/Texinfo/Convert/HTML.pm:13089
-#: tta/perl/Texinfo/Convert/HTML.pm:13093 tta/C/convert/convert_html.c:1105
-#: tta/C/convert/convert_html.c:1110
+#: tta/perl/Texinfo/Convert/HTML.pm:13093 tta/C/convert/convert_html.c:1106
+#: tta/C/convert/convert_html.c:1111
 #, c-format, perl-format
 msgid "must specify a title with a title command or @top"
 msgstr "phải chỉ định một tiêu đề cùng với lệnh title hay @top"
@@ -2749,21 +2749,21 @@ msgstr "tên mục trình đơn không được chứa dấu hai chấm “:”"
 
 #: tta/perl/Texinfo/Convert/Utils.pm:537
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1097
-#: tta/C/main/convert_utils.c:656
+#: tta/C/main/convert_utils.c:658
 #, c-format, perl-format
 msgid "could not read %s: %s"
 msgstr "không thể đọc %s: %s"
 
 #: tta/perl/Texinfo/Convert/Utils.pm:559
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1120
-#: tta/C/main/convert_utils.c:701
+#: tta/C/main/convert_utils.c:703
 #, c-format, perl-format
 msgid "error on closing @verbatiminclude file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin @verbatiminclude %s: %s"
 
 #: tta/perl/Texinfo/Convert/Utils.pm:566
 #: tta/perl/Texinfo/Example/TreeElementConverter.pm:1127
-#: tta/perl/Texinfo/ParserNonXS.pm:3892 tta/C/main/convert_utils.c:713
+#: tta/perl/Texinfo/ParserNonXS.pm:3892 tta/C/main/convert_utils.c:715
 #, c-format, perl-format
 msgid "@%s: could not find %s"
 msgstr "@%s: không tìm thấy %s"
@@ -2797,8 +2797,8 @@ msgid "multiple @%s"
 msgstr "nhiều @%s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:1409 tta/perl/Texinfo/ParserNonXS.pm:4550
-#: tta/perl/Texinfo/ParserNonXS.pm:4590 tta/C/parsetexi/end_line.c:1065
-#: tta/C/parsetexi/end_line.c:1101 tta/C/parsetexi/macro.c:159
+#: tta/perl/Texinfo/ParserNonXS.pm:4590 tta/C/parsetexi/end_line.c:1064
+#: tta/C/parsetexi/end_line.c:1100 tta/C/parsetexi/macro.c:159
 #, fuzzy, c-format, perl-format
 #| msgid "%c%s requires a name"
 msgid "@%s requires a name"
@@ -2806,7 +2806,7 @@ msgstr "%c%s cần đến tên"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:1416 tta/perl/Texinfo/ParserNonXS.pm:4594
 #: tta/perl/Texinfo/ParserNonXS.pm:8150 tta/perl/Texinfo/ParserNonXS.pm:8163
-#: tta/perl/Texinfo/ParserNonXS.pm:8177 tta/C/parsetexi/end_line.c:1105
+#: tta/perl/Texinfo/ParserNonXS.pm:8177 tta/C/parsetexi/end_line.c:1104
 #: tta/C/parsetexi/macro.c:167
 #, c-format, perl-format
 msgid "bad name for @%s"
@@ -2886,8 +2886,8 @@ msgstr "%c không đúng chỗ"
 #: tta/perl/Texinfo/ParserNonXS.pm:2294 tta/perl/Texinfo/ParserNonXS.pm:4491
 #: tta/perl/Texinfo/ParserNonXS.pm:4885 tta/perl/Texinfo/ParserNonXS.pm:7504
 #: tta/perl/Texinfo/ParserNonXS.pm:7593 tta/perl/Texinfo/ParserNonXS.pm:7630
-#: tta/C/parsetexi/close.c:512 tta/C/parsetexi/end_line.c:986
-#: tta/C/parsetexi/end_line.c:1979 tta/C/parsetexi/parser.c:2105
+#: tta/C/parsetexi/close.c:512 tta/C/parsetexi/end_line.c:985
+#: tta/C/parsetexi/end_line.c:1978 tta/C/parsetexi/parser.c:2105
 #: tta/C/parsetexi/parser.c:2222 tta/C/parsetexi/parser.c:2272
 #, c-format, perl-format
 msgid "@%s expected braces"
@@ -2920,13 +2920,13 @@ msgid "\\ in @%s expansion followed `%s' instead of parameter name or \\"
 msgstr "“\\” trong phần mở rộng @%s theo sau “%s” thay vì tên tham số hay “\\”"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:3827 tta/perl/Texinfo/ParserNonXS.pm:4052
-#: tta/perl/Texinfo/ParserNonXS.pm:8230 tta/C/parsetexi/end_line.c:135
-#: tta/C/parsetexi/end_line.c:1258 tta/C/parsetexi/end_line.c:1612
+#: tta/perl/Texinfo/ParserNonXS.pm:8230 tta/C/parsetexi/end_line.c:134
+#: tta/C/parsetexi/end_line.c:1257 tta/C/parsetexi/end_line.c:1611
 #, c-format, perl-format
 msgid "@%s missing argument"
 msgstr "@%s thiếu đối số"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3841 tta/C/parsetexi/end_line.c:1276
+#: tta/perl/Texinfo/ParserNonXS.pm:3841 tta/C/parsetexi/end_line.c:1275
 #, c-format, perl-format
 msgid "unknown @end %s"
 msgstr "không hiểu @end %s"
@@ -2934,9 +2934,9 @@ msgstr "không hiểu @end %s"
 #: tta/perl/Texinfo/ParserNonXS.pm:3859 tta/perl/Texinfo/ParserNonXS.pm:3988
 #: tta/perl/Texinfo/ParserNonXS.pm:4505 tta/perl/Texinfo/ParserNonXS.pm:8376
 #: tta/perl/Texinfo/ParserNonXS.pm:8414 tta/perl/Texinfo/ParserNonXS.pm:8448
-#: tta/perl/Texinfo/ParserNonXS.pm:8557 tta/C/parsetexi/end_line.c:392
-#: tta/C/parsetexi/end_line.c:470 tta/C/parsetexi/end_line.c:1004
-#: tta/C/parsetexi/end_line.c:1526
+#: tta/perl/Texinfo/ParserNonXS.pm:8557 tta/C/parsetexi/end_line.c:391
+#: tta/C/parsetexi/end_line.c:469 tta/C/parsetexi/end_line.c:1003
+#: tta/C/parsetexi/end_line.c:1525
 #, c-format, perl-format
 msgid "bad argument to @%s: %s"
 msgstr "đối số sai cho @%s: %s"
@@ -2946,31 +2946,31 @@ msgstr "đối số sai cho @%s: %s"
 msgid "@%s: could not open %s: %s"
 msgstr "@%s: không thể mở %s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3918 tta/C/parsetexi/end_line.c:1371
+#: tta/perl/Texinfo/ParserNonXS.pm:3918 tta/C/parsetexi/end_line.c:1370
 #, fuzzy, c-format, perl-format
 #| msgid "unrecognized encoding name `%s'"
 msgid "bad encoding name `%s'"
 msgstr "không nhận ra tên bảng mã “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3924 tta/C/parsetexi/end_line.c:1406
+#: tta/perl/Texinfo/ParserNonXS.pm:3924 tta/C/parsetexi/end_line.c:1405
 #, c-format, perl-format
 msgid "encoding `%s' is not a canonical texinfo encoding"
 msgstr "bảng mã “%s” không phải là bảng mã “canonical texinfo”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:3955 tta/C/parsetexi/end_line.c:1473
+#: tta/perl/Texinfo/ParserNonXS.pm:3955 tta/C/parsetexi/end_line.c:1472
 #, fuzzy, c-format, perl-format
 #| msgid "unrecognized encoding name `%s'"
 msgid "unhandled encoding name `%s'"
 msgstr "không nhận ra tên bảng mã “%s”"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4016 tta/perl/Texinfo/ParserNonXS.pm:6738
-#: tta/C/parsetexi/end_line.c:1570 tta/C/parsetexi/separator.c:305
+#: tta/C/parsetexi/end_line.c:1569 tta/C/parsetexi/separator.c:305
 #, c-format, perl-format
 msgid "empty argument in @%s"
 msgstr "đối số trống rỗng trong @%s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4119 tta/perl/Texinfo/ParserNonXS.pm:4126
-#: tta/C/parsetexi/end_line.c:1703 tta/C/parsetexi/end_line.c:1712
+#: tta/C/parsetexi/end_line.c:1702 tta/C/parsetexi/end_line.c:1711
 #, c-format, perl-format
 msgid "ignoring multiple @%s"
 msgstr "bỏ qua nhiều @%s"
@@ -2991,51 +2991,51 @@ msgid "@node precedes @%s, but parts may not be associated with nodes"
 msgstr ""
 "@node đứng trước @%s, nhưng bộ phận của nó không được tổ hợp cùng với các nút"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4269 tta/C/parsetexi/end_line.c:795
+#: tta/perl/Texinfo/ParserNonXS.pm:4269 tta/C/parsetexi/end_line.c:794
 #, c-format, perl-format
 msgid "missing category for @%s"
 msgstr "thiếu category cho @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4328 tta/C/parsetexi/end_line.c:789
+#: tta/perl/Texinfo/ParserNonXS.pm:4328 tta/C/parsetexi/end_line.c:788
 #, c-format, perl-format
 msgid "missing name for @%s"
 msgstr "thiếu tên cho @%s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4410 tta/perl/Texinfo/ParserNonXS.pm:4535
-#: tta/C/parsetexi/end_line.c:889 tta/C/parsetexi/end_line.c:1043
+#: tta/C/parsetexi/end_line.c:888 tta/C/parsetexi/end_line.c:1042
 #, c-format, perl-format
 msgid "unexpected argument on @%s line: %s"
 msgstr "gặp đối số bất thường trên dòng @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4421 tta/C/parsetexi/end_line.c:899
+#: tta/perl/Texinfo/ParserNonXS.pm:4421 tta/C/parsetexi/end_line.c:898
 #, c-format
 msgid "empty multitable"
 msgstr "đa-bảng rỗng"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4456 tta/perl/Texinfo/ParserNonXS.pm:8236
-#: tta/C/parsetexi/end_line.c:142 tta/C/parsetexi/end_line.c:939
+#: tta/C/parsetexi/end_line.c:141 tta/C/parsetexi/end_line.c:938
 #, c-format, perl-format
 msgid "superfluous argument to @%s"
 msgstr "đối số không cần thiết cho @%s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:4462 tta/perl/Texinfo/ParserNonXS.pm:8272
-#: tta/C/parsetexi/end_line.c:952
+#: tta/C/parsetexi/end_line.c:951
 #, c-format, perl-format
 msgid "bad argument to @%s"
 msgstr "đối số sai cho @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4477 tta/C/parsetexi/end_line.c:973
+#: tta/perl/Texinfo/ParserNonXS.pm:4477 tta/C/parsetexi/end_line.c:972
 #, c-format, perl-format
 msgid "accent command `@%s' not allowed as @%s argument"
 msgstr "lệnh nhấn mạnh accen “@%s” không cho phép đối số @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4509 tta/C/parsetexi/end_line.c:1010
+#: tta/perl/Texinfo/ParserNonXS.pm:4509 tta/C/parsetexi/end_line.c:1009
 #, fuzzy, c-format, perl-format
 #| msgid "@%s missing argument"
 msgid "missing @%s argument"
 msgstr "@%s thiếu đối số"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:4517 tta/C/parsetexi/end_line.c:1019
+#: tta/perl/Texinfo/ParserNonXS.pm:4517 tta/C/parsetexi/end_line.c:1018
 #, c-format, perl-format
 msgid "command @%s not accepting argument in brace should not be on @%s line"
 msgstr ""
@@ -3423,87 +3423,87 @@ msgstr "%c%s cần đến tên"
 msgid "@clickstyle should only accept an @-command as argument, not `%s'"
 msgstr "@%s chỉ có thể cấp nhận @-command là đối số, không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8253 tta/C/parsetexi/end_line.c:198
+#: tta/perl/Texinfo/ParserNonXS.pm:8253 tta/C/parsetexi/end_line.c:197
 #, fuzzy, c-format, perl-format
 #| msgid "environment command %s as argument to @%s"
 msgid "environment command %s as argument to @alias"
 msgstr "lệnh môi trường %s như là tham số cho @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8262 tta/C/parsetexi/end_line.c:206
+#: tta/perl/Texinfo/ParserNonXS.pm:8262 tta/C/parsetexi/end_line.c:205
 #, c-format, perl-format
 msgid "recursive alias definition of %s through %s ignored"
 msgstr ""
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8289 tta/C/parsetexi/end_line.c:277
+#: tta/perl/Texinfo/ParserNonXS.pm:8289 tta/C/parsetexi/end_line.c:276
 #, c-format, perl-format
 msgid "cannot redefine with @definfoenclose: %s"
 msgstr ""
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8313 tta/C/parsetexi/end_line.c:300
+#: tta/perl/Texinfo/ParserNonXS.pm:8313 tta/C/parsetexi/end_line.c:299
 #, fuzzy, c-format, perl-format
 #| msgid "bad argument to @%s"
 msgid "bad argument to @definfoenclose"
 msgstr "đối số sai cho @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8319 tta/C/parsetexi/end_line.c:311
+#: tta/perl/Texinfo/ParserNonXS.pm:8319 tta/C/parsetexi/end_line.c:310
 #, fuzzy, c-format
 #| msgid "empty argument in @%s"
 msgid "empty @columnfractions"
 msgstr "đối số trống rỗng trong @%s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8327 tta/C/parsetexi/end_line.c:331
+#: tta/perl/Texinfo/ParserNonXS.pm:8327 tta/C/parsetexi/end_line.c:330
 #, c-format, perl-format
 msgid "column fraction not a number: %s"
 msgstr "số lượng cột không phải là một con số: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8336 tta/C/parsetexi/end_line.c:351
+#: tta/perl/Texinfo/ParserNonXS.pm:8336 tta/C/parsetexi/end_line.c:350
 #, c-format, perl-format
 msgid "@sp arg must be numeric, not `%s'"
 msgstr "đối số @sp phải là một con số, không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8348 tta/C/parsetexi/end_line.c:397
+#: tta/perl/Texinfo/ParserNonXS.pm:8348 tta/C/parsetexi/end_line.c:396
 #, c-format, perl-format
 msgid "reserved index name %s"
 msgstr "đã đảo ngược tên chỉ mục %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8389 tta/C/parsetexi/end_line.c:438
+#: tta/perl/Texinfo/ParserNonXS.pm:8389 tta/C/parsetexi/end_line.c:437
 #, c-format, perl-format
 msgid "unknown source index in @%s: %s"
 msgstr "không hiểu chỉ mục nguồn trong @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8392 tta/C/parsetexi/end_line.c:441
+#: tta/perl/Texinfo/ParserNonXS.pm:8392 tta/C/parsetexi/end_line.c:440
 #, c-format, perl-format
 msgid "unknown destination index in @%s: %s"
 msgstr "không hiểu chỉ mục đích trong @%s: %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8408 tta/C/parsetexi/end_line.c:461
+#: tta/perl/Texinfo/ParserNonXS.pm:8408 tta/C/parsetexi/end_line.c:460
 #, c-format, perl-format
 msgid "@%s leads to a merging of %s in itself, ignoring"
 msgstr ""
 "@%s dẫn đường đến một hòa trộn của %s trong chính bản thân nó, đang bỏ qua"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8425 tta/C/parsetexi/end_line.c:489
+#: tta/perl/Texinfo/ParserNonXS.pm:8425 tta/C/parsetexi/end_line.c:488
 #, c-format, perl-format
 msgid "unknown index `%s' in @printindex"
 msgstr "không hiểu chỉ mục “%s” trong @printindex"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8433 tta/C/parsetexi/end_line.c:496
+#: tta/perl/Texinfo/ParserNonXS.pm:8433 tta/C/parsetexi/end_line.c:495
 #, c-format, perl-format
 msgid "printing an index `%s' merged in another one, `%s'"
 msgstr "đang in bảng mục lục “%s” đã hòa trộn với một cái khác, “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8441 tta/C/parsetexi/end_line.c:502
+#: tta/perl/Texinfo/ParserNonXS.pm:8441 tta/C/parsetexi/end_line.c:501
 #, c-format, perl-format
 msgid "printindex before document beginning: @printindex %s"
 msgstr "in mục lục trước khi tài liệu bắt đầu: @printindex %s"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8455 tta/C/parsetexi/end_line.c:535
+#: tta/perl/Texinfo/ParserNonXS.pm:8455 tta/C/parsetexi/end_line.c:534
 #, fuzzy, c-format, perl-format
 #| msgid "Only @%s 10 or 11 is supported, not `%s'"
 msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
 msgstr "Chỉ hỗ trợ @%s 10 hay 11, không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8463 tta/C/parsetexi/end_line.c:546
+#: tta/perl/Texinfo/ParserNonXS.pm:8463 tta/C/parsetexi/end_line.c:545
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
@@ -3513,20 +3513,20 @@ msgstr ""
 " * end        cuối\n"
 "không phải “%s”.\n"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8471 tta/C/parsetexi/end_line.c:558
+#: tta/perl/Texinfo/ParserNonXS.pm:8471 tta/C/parsetexi/end_line.c:557
 #, fuzzy, c-format, perl-format
 #| msgid "@%s arg must be `on', `off' or `odd', not `%s'"
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
 msgstr "@%s đ.số phải là “on”, “off” hoặc “odd”, không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8479 tta/C/parsetexi/end_line.c:569
+#: tta/perl/Texinfo/ParserNonXS.pm:8479 tta/C/parsetexi/end_line.c:568
 #, fuzzy, c-format, perl-format
 #| msgid "bad argument to @%s: %s"
 msgid "bad argument to @need: %s"
 msgstr "đối số sai cho @%s: %s"
 
 #: tta/perl/Texinfo/ParserNonXS.pm:8489 tta/perl/Texinfo/ParserNonXS.pm:8494
-#: tta/C/parsetexi/end_line.c:579
+#: tta/C/parsetexi/end_line.c:578
 #, c-format, perl-format
 msgid "@paragraphindent arg must be numeric/`none'/`asis', not `%s'"
 msgstr ""
@@ -3536,7 +3536,7 @@ msgstr ""
 " * asis     như thế\n"
 "chứ không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8502 tta/C/parsetexi/end_line.c:590
+#: tta/perl/Texinfo/ParserNonXS.pm:8502 tta/C/parsetexi/end_line.c:589
 #, c-format, perl-format
 msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
 msgstr ""
@@ -3545,7 +3545,7 @@ msgstr ""
 " * insert    chèn\n"
 "chứ không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8512 tta/C/parsetexi/end_line.c:600
+#: tta/perl/Texinfo/ParserNonXS.pm:8512 tta/C/parsetexi/end_line.c:599
 #, c-format, perl-format
 msgid "@exampleindent arg must be numeric/`asis', not `%s'"
 msgstr ""
@@ -3555,18 +3555,18 @@ msgstr ""
 " * asis       như thế\n"
 "chứ không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8524 tta/C/parsetexi/end_line.c:616
+#: tta/perl/Texinfo/ParserNonXS.pm:8524 tta/C/parsetexi/end_line.c:615
 #, c-format, perl-format
 msgid "expected @%s on or off, not `%s'"
 msgstr "cần @%s bật hay tắt, không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8533 tta/C/parsetexi/end_line.c:636
+#: tta/perl/Texinfo/ParserNonXS.pm:8533 tta/C/parsetexi/end_line.c:635
 #, c-format, perl-format
 msgid "@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"
 msgstr ""
 "đ.số @kbdinputstyle phải là “code”/“example”/“distinct”, không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8541 tta/C/parsetexi/end_line.c:648
+#: tta/perl/Texinfo/ParserNonXS.pm:8541 tta/C/parsetexi/end_line.c:647
 #, c-format, perl-format
 msgid "@allowcodebreaks arg must be `true' or `false', not `%s'"
 msgstr ""
@@ -3575,7 +3575,7 @@ msgstr ""
 " * false   sai\n"
 "chứ không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8549 tta/C/parsetexi/end_line.c:660
+#: tta/perl/Texinfo/ParserNonXS.pm:8549 tta/C/parsetexi/end_line.c:659
 #, c-format, perl-format
 msgid "@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"
 msgstr ""
@@ -3585,7 +3585,7 @@ msgstr ""
 " * none:    không\n"
 "chứ không phải “%s”"
 
-#: tta/perl/Texinfo/ParserNonXS.pm:8567 tta/C/parsetexi/end_line.c:523
+#: tta/perl/Texinfo/ParserNonXS.pm:8567 tta/C/parsetexi/end_line.c:522
 #, c-format, perl-format
 msgid "@%s arg must be `top' or `bottom', not `%s'"
 msgstr ""
@@ -4170,18 +4170,18 @@ msgstr ""
 "tex4ht.pm: xử lý tìm lại %d mục trong HTML; cần %d, con số được tìm thấy "
 "trong tài liệu dành cho @%s"
 
-#: tta/perl/texi2any.pl:679
+#: tta/perl/texi2any.pl:674
 #, perl-format
 msgid "could not read init file %s"
 msgstr "không thể đọc tập tin khởi tạo %s"
 
-#: tta/perl/texi2any.pl:702
+#: tta/perl/texi2any.pl:697
 #, fuzzy, perl-format
 #| msgid "could not read init file %s"
 msgid "could not read extension file %s"
 msgstr "không thể đọc tập tin khởi tạo %s"
 
-#: tta/perl/texi2any.pl:988
+#: tta/perl/texi2any.pl:983
 #, fuzzy, perl-format
 #| msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'\n"
 msgid "ignoring unrecognized TEXINFO_OUTPUT_FORMAT value `%s'"
@@ -4189,13 +4189,13 @@ msgstr ""
 "bỏ qua giá trị không chấp nhận được “TEXINFO_OUTPUT_FORMAT” (định dạng xuất "
 "Texinfo) “%s”\n"
 
-#: tta/perl/texi2any.pl:1046 tta/C/texi2any.c:1814
+#: tta/perl/texi2any.pl:1041 tta/C/texi2any.c:1862
 #, fuzzy, c-format, perl-format
 #| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgid "Usage: %s [OPTION]... TEXINFO-FILE..."
 msgstr "Cách dùng: %s [TÙY-CHỌN]… TẬP-TIN-TEXTINFO…\n"
 
-#: tta/perl/texi2any.pl:1049 tta/C/texi2any.c:1823
+#: tta/perl/texi2any.pl:1044 tta/C/texi2any.c:1871
 #, fuzzy
 #| msgid ""
 #| "Translate Texinfo source documentation to various other formats, by "
@@ -4219,115 +4219,115 @@ msgstr ""
 "Chương trình này thường được cài cùng cả “makeinfo” và “texi2any”;\n"
 "chúng làm cùng nhiệm vụ, không phụ thuộc vào tên được cài đặt.\n"
 
-#: tta/perl/texi2any.pl:1055 tta/C/texi2any.c:1829
+#: tta/perl/texi2any.pl:1050 tta/C/texi2any.c:1877
 #, fuzzy
 #| msgid "One completion:\n"
 msgid "General options:"
 msgstr "Một từ gợi ý:\n"
 
-#: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1832
+#: tta/perl/texi2any.pl:1051 tta/C/texi2any.c:1880
 msgid ""
 "      --document-language=STR locale to use in translating Texinfo keywords\n"
 "                                for the output document (default C)"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1058 tta/C/texi2any.c:1836
+#: tta/perl/texi2any.pl:1053 tta/C/texi2any.c:1884
 #, c-format, perl-format
 msgid "      --error-limit=NUM       quit after NUM errors (default %d)"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1060 tta/C/texi2any.c:1840
+#: tta/perl/texi2any.pl:1055 tta/C/texi2any.c:1888
 msgid "      --force                 preserve output even if errors"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1843
+#: tta/perl/texi2any.pl:1056 tta/C/texi2any.c:1891
 #, fuzzy
 #| msgid " -h, --help   display this help and exit"
 msgid "      --help                  display this help and exit"
 msgstr " -h, --help   hiển thị trợ giúp này rồi thoát"
 
-#: tta/perl/texi2any.pl:1062 tta/C/texi2any.c:1846
+#: tta/perl/texi2any.pl:1057 tta/C/texi2any.c:1894
 msgid "      --no-validate           suppress node cross-reference validation"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1063 tta/C/texi2any.c:1849
+#: tta/perl/texi2any.pl:1058 tta/C/texi2any.c:1897
 msgid "      --no-warn               suppress warnings (but not errors)"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1064 tta/C/texi2any.c:1852
+#: tta/perl/texi2any.pl:1059 tta/C/texi2any.c:1900
 msgid ""
 "      --conf-dir=DIR          search also for initialization files in DIR"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1065 tta/C/texi2any.c:1855
+#: tta/perl/texi2any.pl:1060 tta/C/texi2any.c:1903
 msgid "      --init-file=FILE        load FILE to modify the default behavior"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1066 tta/C/texi2any.c:1858
+#: tta/perl/texi2any.pl:1061 tta/C/texi2any.c:1906
 msgid ""
 "  -c, --set-customization-variable VAR=VAL  set customization variable VAR\n"
 "                                to value VAL"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1068 tta/C/texi2any.c:1862
+#: tta/perl/texi2any.pl:1063 tta/C/texi2any.c:1910
 msgid "      --trace-includes        print names of included files"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1865
+#: tta/perl/texi2any.pl:1064 tta/C/texi2any.c:1913
 msgid "  -v, --verbose               explain what is being done"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1070 tta/C/texi2any.c:1868
+#: tta/perl/texi2any.pl:1065 tta/C/texi2any.c:1916
 #, fuzzy
 #| msgid " --version    display version information and exit"
 msgid "      --version               display version information and exit"
 msgstr " --version    hiển thị thông tin phiên bản rồi thoát"
 
-#: tta/perl/texi2any.pl:1072 tta/C/texi2any.c:1874
+#: tta/perl/texi2any.pl:1067 tta/C/texi2any.c:1922
 msgid "Output format selection (default is to produce Info):"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1073 tta/C/texi2any.c:1877
+#: tta/perl/texi2any.pl:1068 tta/C/texi2any.c:1925
 msgid "      --docbook               output Docbook XML"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1074 tta/C/texi2any.c:1880
+#: tta/perl/texi2any.pl:1069 tta/C/texi2any.c:1928
 msgid "      --html                  output HTML"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1075 tta/C/texi2any.c:1883
+#: tta/perl/texi2any.pl:1070 tta/C/texi2any.c:1931
 msgid "      --epub3                 output EPUB 3"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1076 tta/C/texi2any.c:1886
+#: tta/perl/texi2any.pl:1071 tta/C/texi2any.c:1934
 msgid "      --latex                 output LaTeX"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1077 tta/C/texi2any.c:1889
+#: tta/perl/texi2any.pl:1072 tta/C/texi2any.c:1937
 msgid "      --plaintext             output plain text rather than Info"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1078 tta/C/texi2any.c:1892
+#: tta/perl/texi2any.pl:1073 tta/C/texi2any.c:1940
 msgid "      --xml                   output Texinfo XML"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1079 tta/C/texi2any.c:1895
+#: tta/perl/texi2any.pl:1074 tta/C/texi2any.c:1943
 msgid ""
 "      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
 "                                after checking validity of TEXINFO-FILE"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1083 tta/C/texi2any.c:1899
+#: tta/perl/texi2any.pl:1078 tta/C/texi2any.c:1947
 msgid "General output options:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1085 tta/C/texi2any.c:1902
+#: tta/perl/texi2any.pl:1080 tta/C/texi2any.c:1950
 msgid ""
 "  -E, --macro-expand=FILE     output macro-expanded source to FILE,\n"
 "                                ignoring any @setfilename"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1088 tta/C/texi2any.c:1906
+#: tta/perl/texi2any.pl:1083 tta/C/texi2any.c:1954
 msgid ""
 "      --no-headers            suppress node separators, Node: lines, and "
 "menus\n"
@@ -4339,24 +4339,24 @@ msgid ""
 "                                standard output by default."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1094 tta/C/texi2any.c:1913
+#: tta/perl/texi2any.pl:1089 tta/C/texi2any.c:1961
 msgid ""
 "      --no-split              suppress any splitting of the output;\n"
 "                                generate only one output file"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1097 tta/C/texi2any.c:1917
+#: tta/perl/texi2any.pl:1092 tta/C/texi2any.c:1965
 msgid ""
 "      --[no-]number-sections  output chapter and sectioning numbers;\n"
 "                                default is on"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1100 tta/C/texi2any.c:1921
+#: tta/perl/texi2any.pl:1095 tta/C/texi2any.c:1969
 msgid ""
 "      --[no-]number-footnotes  number footnotes sequentially; default is on"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1102 tta/C/texi2any.c:1924
+#: tta/perl/texi2any.pl:1097 tta/C/texi2any.c:1972
 msgid ""
 "  -o, --output=DEST           output to DEST.\n"
 "                                With split output, create DEST as a "
@@ -4368,7 +4368,7 @@ msgid ""
 "                                Otherwise, DEST names the output file."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1110 tta/C/texi2any.c:1933
+#: tta/perl/texi2any.pl:1105 tta/C/texi2any.c:1981
 msgid ""
 "      --disable-encoding      do not output accented and special characters\n"
 "                                in Info and plain text output based on "
@@ -4376,22 +4376,22 @@ msgid ""
 "                                encoding"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1114 tta/C/texi2any.c:1938
+#: tta/perl/texi2any.pl:1109 tta/C/texi2any.c:1986
 msgid "      --enable-encoding       override --disable-encoding (default)"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1116 tta/C/texi2any.c:1941
+#: tta/perl/texi2any.pl:1111 tta/C/texi2any.c:1989
 #, perl-format
 msgid "Options for Info and plain text:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1118 tta/C/texi2any.c:1944
+#: tta/perl/texi2any.pl:1113 tta/C/texi2any.c:1992
 #, c-format, perl-format
 msgid ""
 "      --fill-column=NUM       break Info lines at NUM columns (default %d)"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:1948
+#: tta/perl/texi2any.pl:1115 tta/C/texi2any.c:1996
 #, perl-format
 msgid ""
 "      --footnote-style=STYLE  output footnotes in Info according to STYLE:\n"
@@ -4401,7 +4401,7 @@ msgid ""
 "                                which they are defined (this is the default)"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1125 tta/C/texi2any.c:1958
+#: tta/perl/texi2any.pl:1120 tta/C/texi2any.c:2006
 #, c-format, perl-format
 msgid ""
 "      --paragraph-indent=VAL  indent Info paragraphs by VAL spaces (default "
@@ -4410,53 +4410,53 @@ msgid ""
 "                                `asis', preserve existing indentation."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1129 tta/C/texi2any.c:1964
+#: tta/perl/texi2any.pl:1124 tta/C/texi2any.c:2012
 #, c-format, perl-format
 msgid "      --split-size=NUM        split Info files at size NUM (default %d)"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:1968
+#: tta/perl/texi2any.pl:1130 tta/C/texi2any.c:2016
 #, fuzzy
 #| msgid "Options:"
 msgid "Options for HTML:"
 msgstr "Tùy chọn:"
 
-#: tta/perl/texi2any.pl:1136 tta/C/texi2any.c:1971
+#: tta/perl/texi2any.pl:1131 tta/C/texi2any.c:2019
 msgid ""
 "      --css-include=FILE      include FILE in HTML <style> output;\n"
 "                                read stdin if FILE is -"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:1975
+#: tta/perl/texi2any.pl:1133 tta/C/texi2any.c:2023
 msgid "      --css-ref=URL           generate CSS reference to URL"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1139 tta/C/texi2any.c:1978
+#: tta/perl/texi2any.pl:1134 tta/C/texi2any.c:2026
 msgid "      --internal-links=FILE   produce list of internal links in FILE"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1140 tta/C/texi2any.c:1981
+#: tta/perl/texi2any.pl:1135 tta/C/texi2any.c:2029
 msgid ""
 "      --split=SPLIT           split at SPLIT, where SPLIT may be `chapter',\n"
 "                                `section' or `node'"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:1985
+#: tta/perl/texi2any.pl:1137 tta/C/texi2any.c:2033
 msgid ""
 "      --transliterate-file-names  use file names in ASCII transliteration"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1143 tta/C/texi2any.c:1988
+#: tta/perl/texi2any.pl:1138 tta/C/texi2any.c:2036
 msgid ""
 "      --node-files            produce redirection files for nodes and\n"
 "                                anchors; default is set only if split"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:1992
+#: tta/perl/texi2any.pl:1141 tta/C/texi2any.c:2040
 msgid "Options for DVI/PS/PDF:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1147 tta/C/texi2any.c:1995
+#: tta/perl/texi2any.pl:1142 tta/C/texi2any.c:2043
 #, fuzzy
 #| msgid ""
 #| "Options for DVI/PS/PDF:\n"
@@ -4466,128 +4466,128 @@ msgstr ""
 "Tùy chọn cho DVI/PS/PDF:\n"
 "      --Xopt=OPT              chuyển TÙY-CHỌN cho texi2dvi; có thể lặp lại.\n"
 
-#: tta/perl/texi2any.pl:1149 tta/C/texi2any.c:1998
+#: tta/perl/texi2any.pl:1144 tta/C/texi2any.c:2046
 msgid "Input file options:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1150 tta/C/texi2any.c:2001
+#: tta/perl/texi2any.pl:1145 tta/C/texi2any.c:2049
 msgid " -D VAR                       define the variable VAR, as with @set"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1151 tta/C/texi2any.c:2004
+#: tta/perl/texi2any.pl:1146 tta/C/texi2any.c:2052
 msgid " -D 'VAR VAL'                 define VAR to VAL (one shell argument)"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1152 tta/C/texi2any.c:2007
+#: tta/perl/texi2any.pl:1147 tta/C/texi2any.c:2055
 msgid " -I DIR                       append DIR to the @include search path"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1153 tta/C/texi2any.c:2010
+#: tta/perl/texi2any.pl:1148 tta/C/texi2any.c:2058
 msgid " -P DIR                       prepend DIR to the @include search path"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1154 tta/C/texi2any.c:2013
+#: tta/perl/texi2any.pl:1149 tta/C/texi2any.c:2061
 msgid " -U VAR                       undefine the variable VAR, as with @clear"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1156 tta/C/texi2any.c:2017
+#: tta/perl/texi2any.pl:1151 tta/C/texi2any.c:2065
 msgid "Conditional processing in input:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1157 tta/C/texi2any.c:2020
+#: tta/perl/texi2any.pl:1152 tta/C/texi2any.c:2068
 msgid "      --ifdocbook       process @ifdocbook and @docbook"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1158 tta/C/texi2any.c:2023
+#: tta/perl/texi2any.pl:1153 tta/C/texi2any.c:2071
 msgid "      --ifhtml          process @ifhtml and @html"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1159 tta/C/texi2any.c:2026
+#: tta/perl/texi2any.pl:1154 tta/C/texi2any.c:2074
 #, fuzzy
 #| msgid " --           end option processing"
 msgid "      --ifinfo          process @ifinfo"
 msgstr " --           kết thúc xử lý tùy chọn"
 
-#: tta/perl/texi2any.pl:1160 tta/C/texi2any.c:2029
+#: tta/perl/texi2any.pl:1155 tta/C/texi2any.c:2077
 msgid "      --iflatex         process @iflatex and @latex"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1161 tta/C/texi2any.c:2032
+#: tta/perl/texi2any.pl:1156 tta/C/texi2any.c:2080
 msgid "      --ifplaintext     process @ifplaintext"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1162 tta/C/texi2any.c:2035
+#: tta/perl/texi2any.pl:1157 tta/C/texi2any.c:2083
 msgid "      --iftex           process @iftex and @tex"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1163 tta/C/texi2any.c:2038
+#: tta/perl/texi2any.pl:1158 tta/C/texi2any.c:2086
 msgid "      --ifxml           process @ifxml and @xml"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1165 tta/C/texi2any.c:2044
+#: tta/perl/texi2any.pl:1160 tta/C/texi2any.c:2092
 msgid ""
 "  By default, an --ifFORMAT setting is on only when the output format\n"
 "  is FORMAT; for example, --ifhtml is on when outputting HTML.\n"
 "  Also, when --ifFORMAT is on, @ifnotFORMAT text is not processed."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1169 tta/C/texi2any.c:2051
+#: tta/perl/texi2any.pl:1164 tta/C/texi2any.c:2099
 msgid ""
 "  Each --ifFORMAT option may be prefixed with `--no-' to negate it;\n"
 "  for example, --no-ifhtml means not to process @ifhtml or @html text,\n"
 "  and to process @ifnothtml text."
 msgstr ""
 
-#: tta/perl/texi2any.pl:1173 tta/C/texi2any.c:2056
+#: tta/perl/texi2any.pl:1168 tta/C/texi2any.c:2104
 msgid "Examples:"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1174 tta/C/texi2any.c:2059
+#: tta/perl/texi2any.pl:1169 tta/C/texi2any.c:2107
 #, c-format, perl-format
 msgid "  %s foo.texi                      write Info"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1175 tta/C/texi2any.c:2062
+#: tta/perl/texi2any.pl:1170 tta/C/texi2any.c:2110
 #, c-format, perl-format
 msgid "  %s --html foo.texi               write HTML"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1176 tta/C/texi2any.c:2065
+#: tta/perl/texi2any.pl:1171 tta/C/texi2any.c:2113
 #, c-format, perl-format
 msgid "  %s --xml foo.texi                write Texinfo XML"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1177 tta/C/texi2any.c:2068
+#: tta/perl/texi2any.pl:1172 tta/C/texi2any.c:2116
 #, c-format, perl-format
 msgid "  %s --docbook foo.texi            write Docbook XML"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1178 tta/C/texi2any.c:2071
+#: tta/perl/texi2any.pl:1173 tta/C/texi2any.c:2119
 #, c-format, perl-format
 msgid "  %s --plaintext foo.texi          write plain text to standard output"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1179 tta/C/texi2any.c:2074
+#: tta/perl/texi2any.pl:1174 tta/C/texi2any.c:2122
 #, c-format, perl-format
 msgid "  %s --pdf foo.texi                write PDF using texi2dvi"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1181 tta/C/texi2any.c:2078
+#: tta/perl/texi2any.pl:1176 tta/C/texi2any.c:2126
 #, c-format, perl-format
 msgid "  %s --html --no-headers foo.texi  write html without node lines, menus"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1182 tta/C/texi2any.c:2081
+#: tta/perl/texi2any.pl:1177 tta/C/texi2any.c:2129
 #, c-format, perl-format
 msgid "  %s --number-sections foo.texi    write Info with numbered sections"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1183 tta/C/texi2any.c:2084
+#: tta/perl/texi2any.pl:1178 tta/C/texi2any.c:2132
 #, c-format, perl-format
 msgid "  %s --no-split foo.texi           write one Info file however big"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1226 tta/C/texi2any.c:1665
+#: tta/perl/texi2any.pl:1221 tta/C/texi2any.c:1713
 #, fuzzy, c-format, perl-format
 #| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
 msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'."
@@ -4597,12 +4597,12 @@ msgstr ""
 " * end        cuối\n"
 "không phải “%s”.\n"
 
-#: tta/perl/texi2any.pl:1233
+#: tta/perl/texi2any.pl:1228
 #, perl-format
 msgid "%s is not a valid split possibility"
 msgstr "“%s” không phải là khả năng chia tách (split) hợp lệ"
 
-#: tta/perl/texi2any.pl:1348
+#: tta/perl/texi2any.pl:1343
 #, fuzzy, perl-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -4614,29 +4614,29 @@ msgstr ""
 " * asis       như thế\n"
 "không phải “%s”.\n"
 
-#: tta/perl/texi2any.pl:1536
+#: tta/perl/texi2any.pl:1531
 #, fuzzy, perl-format
 #| msgid "writing file %s"
 msgid "overwriting file: %s"
 msgstr "đang ghi tập tin %s"
 
-#: tta/perl/texi2any.pl:1586
+#: tta/perl/texi2any.pl:1581
 #, perl-format
 msgid "unknown tree transformation %s"
 msgstr "không hiểu sự biến đổi cây %s"
 
-#: tta/perl/texi2any.pl:1612
+#: tta/perl/texi2any.pl:1607
 #, fuzzy, perl-format
 #| msgid "ignoring splitting for format %s"
 msgid "ignoring splitting for converted format %s (for %s)"
 msgstr "bỏ qua việc chia cắt cho định dạng %s"
 
-#: tta/perl/texi2any.pl:1616
+#: tta/perl/texi2any.pl:1611
 #, perl-format
 msgid "ignoring splitting for format %s"
 msgstr "bỏ qua việc chia cắt cho định dạng %s"
 
-#: tta/perl/texi2any.pl:1632 tta/C/texi2any.c:2294
+#: tta/perl/texi2any.pl:1627 tta/C/texi2any.c:2342
 #, fuzzy, c-format, perl-format
 #| msgid ""
 #| "%s: when generating %s, only one input FILE may be specified with -o\n"
@@ -4645,68 +4645,68 @@ msgstr ""
 "%s: khi đang tạo %s, chỉ một TẬP-TIN đầu vào có thể được chỉ ra cùng với tùy "
 "chọn -o\n"
 
-#: tta/perl/texi2any.pl:1636
+#: tta/perl/texi2any.pl:1631
 msgid "--Xopt option without printed output"
 msgstr "tùy chọn --Xopt không in ra kết xuất"
 
-#: tta/perl/texi2any.pl:1653
+#: tta/perl/texi2any.pl:1648
 #, fuzzy, perl-format
 #| msgid "error loading %s: %s\n"
 msgid "error loading %s: %s"
 msgstr "lỗi tải %s: %s\n"
 
-#: tta/perl/texi2any.pl:1730 tta/C/texi2any.c:2493
+#: tta/perl/texi2any.pl:1725 tta/C/texi2any.c:2541
 #, fuzzy, c-format, perl-format
 #| msgid "%s: missing file argument.\n"
 msgid "%s: missing file argument."
 msgstr "%s: thiếu đối số tập tin.\n"
 
-#: tta/perl/texi2any.pl:1765
+#: tta/perl/texi2any.pl:1760
 #, perl-format
 msgid "input file %s; did you mean %s?"
 msgstr ""
 
-#: tta/perl/texi2any.pl:1885
+#: tta/perl/texi2any.pl:1880
 #, fuzzy, perl-format
 #| msgid "error on closing frame file %s: %s"
 msgid "error on closing tree dump file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin khung (frame) %s: %s"
 
-#: tta/perl/texi2any.pl:1952
+#: tta/perl/texi2any.pl:1947
 #, fuzzy, perl-format
 #| msgid "error on closing macro expand file %s: %s\n"
 msgid "error on closing macro expand file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin vĩ lệnh mở rộng %s: %s\n"
 
-#: tta/perl/texi2any.pl:2106
+#: tta/perl/texi2any.pl:2101
 #, fuzzy, perl-format
 #| msgid "error on closing frame file %s: %s"
 msgid "error on closing structure dump file %s: %s"
 msgstr "gặp lỗi khi đóng tập tin khung (frame) %s: %s"
 
-#: tta/perl/texi2any.pl:2223
+#: tta/perl/texi2any.pl:2218
 #, fuzzy, perl-format
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing internal links file %s: %s"
 msgstr "%s: gặp lỗi khi đóng tập tin liên kết nội tại %s: %s\n"
 
-#: tta/perl/texi2any.pl:2341
+#: tta/perl/texi2any.pl:2336
 #, fuzzy, perl-format
 #| msgid "%s: error on closing internal links file %s: %s\n"
 msgid "%s: error on closing elements size file %s: %s"
 msgstr "%s: gặp lỗi khi đóng tập tin liên kết nội tại %s: %s\n"
 
-#: tta/C/texi2any.c:913
+#: tta/C/texi2any.c:923
 #, c-format
 msgid "%s: value \"%s\" invalid for option %s (number expected)"
 msgstr ""
 
-#: tta/C/texi2any.c:917
+#: tta/C/texi2any.c:927
 #, c-format
 msgid "%s: value \"%s\" invalid for option %c (number expected)"
 msgstr ""
 
-#: tta/C/texi2any.c:1693
+#: tta/C/texi2any.c:1741
 #, fuzzy, c-format
 #| msgid ""
 #| "%s: --paragraph-indent arg must be numeric/`none'/`asis', not `%s'.\n"
@@ -4775,13 +4775,13 @@ msgstr "gặp lỗi khi ghi vào “%s”: %s"
 msgid "error closing %s: %s"
 msgstr "gặp lỗi khi đóng %s: %s"
 
-#: tta/C/convert/html_prepare_converter.c:1911
+#: tta/C/convert/html_prepare_converter.c:1912
 #, fuzzy, c-format
 #| msgid "error on closing CSS file %s: %s"
 msgid "error on closing CSS file  %s: %s"
 msgstr "gặp lỗi khi đóng tập tin CSS %s: %s"
 
-#: tta/C/convert/texinfo.c:779
+#: tta/C/convert/texinfo.c:798
 #, fuzzy, c-format
 #| msgid "%s: error on closing %s: %s\n"
 msgid "%s: error on closing io %s: %s"
@@ -4804,61 +4804,61 @@ msgstr ""
 msgid "unmatched `@end %s'"
 msgstr "“%c%s” chưa khớp cặp"
 
-#: tta/C/parsetexi/end_line.c:231
+#: tta/C/parsetexi/end_line.c:230
 #, fuzzy, c-format
 #| msgid "bad argument to @%s"
 msgid "bad argument to @alias"
 msgstr "đối số sai cho @%s"
 
-#: tta/C/parsetexi/end_line.c:481
+#: tta/C/parsetexi/end_line.c:480
 #, fuzzy, c-format
 #| msgid "bad argument to @%s: %s"
 msgid "bad argument to @printindex: %s"
 msgstr "đối số sai cho @%s: %s"
 
-#: tta/C/parsetexi/end_line.c:673
+#: tta/C/parsetexi/end_line.c:672
 #, fuzzy, c-format
 #| msgid "bad argument to @%s: %s"
 msgid "bad argument to @headings: %s"
 msgstr "đối số sai cho @%s: %s"
 
-#: tta/C/parsetexi/end_line.c:1296
+#: tta/C/parsetexi/end_line.c:1295
 #, fuzzy, c-format
 #| msgid "bad argument to @%s: %s"
 msgid "bad argument to @end: %s"
 msgstr "đối số sai cho @%s: %s"
 
-#: tta/C/parsetexi/end_line.c:1315
+#: tta/C/parsetexi/end_line.c:1314
 #, fuzzy, c-format
 #| msgid "@%s: could not find %s"
 msgid "@include: could not find %s"
 msgstr "@%s: không tìm thấy %s"
 
-#: tta/C/parsetexi/end_line.c:1325
+#: tta/C/parsetexi/end_line.c:1324
 #, fuzzy, c-format
 #| msgid "@%s: could not open %s: %s"
 msgid "@include: could not open %s: %s"
 msgstr "@%s: không thể mở %s: %s"
 
-#: tta/C/parsetexi/end_line.c:1778
+#: tta/C/parsetexi/end_line.c:1777
 #, fuzzy, c-format
 #| msgid "@%s after the first element"
 msgid "@setfilename after the first element"
 msgstr "@%s sau phần tử thứ nhất"
 
-#: tta/C/parsetexi/end_line.c:1785
+#: tta/C/parsetexi/end_line.c:1784
 #, fuzzy, c-format
 #| msgid "@%s only meaningful on a @multitable line"
 msgid "@columnfractions only meaningful on a @multitable line"
 msgstr "@%s chỉ có nghĩa khi ở dòng @multitable"
 
-#: tta/C/parsetexi/end_line.c:1825
+#: tta/C/parsetexi/end_line.c:1824
 #, fuzzy, c-format
 #| msgid "@%s should not be associated with @top"
 msgid "@part should not be associated with @top"
 msgstr "@%s không được tổ hợp cùng với @top"
 
-#: tta/C/parsetexi/end_line.c:1838
+#: tta/C/parsetexi/end_line.c:1837
 #, fuzzy, c-format
 #| msgid "@node precedes @%s, but parts may not be associated with nodes"
 msgid "@node precedes @part, but parts may not be associated with nodes"
