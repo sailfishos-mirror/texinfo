@@ -624,6 +624,11 @@ When done, run cvs commit.
 update date and version number on home page (texinfo.html) and commit
 as needed.
 
+# copy refcard (US Letter and A4)
+cd CVS_WEB/refcard
+cp ../../GIT/doc/refcard/*.pdf .
+cvs commit -m$ver .
+
 #  ... set up dtd directory on web pages:
 cd CVS_WEB/dtd # or wherever webpages checkout is
 mkdir $ver && cvs add $ver
