@@ -34,7 +34,7 @@ use Texinfo::Convert::Converter;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
-our $VERSION = '7.3';
+our $VERSION = '7.3dev';
 
 my $regular_defaults
   = Texinfo::Options::get_regular_options('plaintexinfo_converter');

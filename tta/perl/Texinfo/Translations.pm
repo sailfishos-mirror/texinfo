@@ -73,7 +73,7 @@ use Texinfo::Parser;
 
 use Texinfo::ManipulateTree;
 
-our $VERSION = '7.3';
+our $VERSION = '7.3dev';
 
 my $XS_parser = Texinfo::XSLoader::XS_parser_enabled();
 

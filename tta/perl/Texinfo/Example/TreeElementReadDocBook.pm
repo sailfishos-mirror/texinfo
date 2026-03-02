@@ -57,7 +57,7 @@ use Texinfo::Example::TreeElementConverter;
 # Texinfo::Example::TreeElementConverter
 our @ISA = qw(Texinfo::Example::TreeElementConverter);
 
-our $VERSION = '7.3';
+our $VERSION = '7.3dev';
 
 my %brace_commands = %Texinfo::Commands::brace_commands;
 

@@ -82,7 +82,7 @@ protect_node_after_label_in_tree
 normalized_entry_associated_internal_node
 );
 
-our $VERSION = '7.3';
+our $VERSION = '7.3dev';
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 

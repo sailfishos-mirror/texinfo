@@ -56,7 +56,7 @@ expand_verbatiminclude
 add_heading_number
 );
 
-our $VERSION = '7.3';
+our $VERSION = '7.3dev';
 
 # API to open, set encoding and register files.  Used in main program
 # and converters.
