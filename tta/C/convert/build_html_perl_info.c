@@ -174,90 +174,18 @@ build_no_arg_commands_formatting (const CONVERTER *converter)
   return newRV_noinc ((SV *) no_arg_commands_formatting_hv);
 }
 
-/* Unused */
-SV *
-build_directions_strings (const CONVERTER *converter)
-{
-  HV *directions_strings_hv;
-  enum direction_string_type DS_type;
-  int nr_string_directions;
-  int nr_dir_str_contexts = TDS_context_string +1;
-
-  dTHX;
-
-  nr_string_directions = html_nr_string_directions (converter);
-
-  directions_strings_hv = newHV ();
-
-  for (DS_type = 0; DS_type < TDS_TYPE_MAX_NR; DS_type++)
-    {
-      int i;
-      const char *type_name = direction_string_type_names[DS_type];
-
-      HV *direction_hv = newHV ();
-
-      hv_store (directions_strings_hv, type_name,
-                strlen (type_name), newRV_noinc ((SV *) direction_hv), 0);
-
-      /* those will be determined from translatable strings */
-      if (DS_type < TDS_TRANSLATED_MAX_NR)
-        continue;
-
-      for (i = 0; i < nr_string_directions; i++)
-        {
-          int j;
-          const char *direction_name;
-          HV *context_hv = newHV ();
-
-          if (i < FIRSTINFILE_MIN_IDX)
-            direction_name = html_button_direction_names[i];
-          else
-            direction_name
-  /* The corresponding direction without FirstInFile are used instead
-     of FirstInFile*, so the directions_strings are not set,
-     hence the - FIRSTINFILE_MIN_IDX */
-              = converter->main_units_direction_names[
-                        i - FIRSTINFILE_MIN_IDX + NON_SPECIAL_DIRECTIONS_NR];
-
-          hv_store (direction_hv, direction_name, strlen (direction_name),
-                    newRV_noinc ((SV *) context_hv), 0);
-
-          for (j = 0; j < nr_dir_str_contexts; j++)
-            {
-              const char *context_name
-                = direction_string_context_names[j];
-              if (converter->directions_strings[DS_type][i][j])
-                {
-                  hv_store (context_hv, context_name, strlen (context_name),
-                           newSVpv_utf8 (
-                          converter->directions_strings[DS_type][i][j], 0), 0);
-                }
-            }
-        }
-    }
-
-  return newRV_noinc ((SV *) directions_strings_hv);
-}
-
-
 #define STORE(key, sv) hv_store (converter_hv, key, strlen (key), sv, 0)
 void
 html_pass_converter_initialization_state (const CONVERTER *converter,
                                           HV *converter_hv)
 {
   SV *no_arg_commands_formatting_sv;
-  SV *directions_strings_sv;
   HV *shared_conversion_state_hv;
 
   dTHX;
 
   no_arg_commands_formatting_sv = build_no_arg_commands_formatting (converter);
   STORE("no_arg_commands_formatting", no_arg_commands_formatting_sv);
-
-  /* Not needed since it is only accessed through XS overrides
-  directions_strings_sv = build_directions_strings (converter);
-  STORE("directions_strings", directions_strings_sv);
-   */
 
   shared_conversion_state_hv = newHV ();
   STORE("shared_conversion_state",

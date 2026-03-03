@@ -135,10 +135,7 @@ switch_perl_lang_translations (HV *converter_hv, const char *lang,
 static void
 build_html_translated_names (HV *converter_hv, CONVERTER *converter)
 {
-  SV **directions_strings_sv;
-  HV *directions_strings_hv;
   SV **no_arg_commands_formatting_sv;
-  HV *direction_string_hv;
   SV **convert_text_options_sv;
   const char *documentlanguage
     = converter->conf->documentlanguage.o.string;
@@ -147,18 +144,6 @@ build_html_translated_names (HV *converter_hv, CONVERTER *converter)
   char *encoded_lang = 0;
 
   dTHX;
-
-  /* reset with empty hash */
-  /* Not needed since it is only accessed through XS overrides
-  FETCH(directions_strings);
-  directions_strings_hv = (HV *) SvRV (*directions_strings_sv);
-#define tds_type(name) \
-  direction_string_hv = newHV (); \
-  hv_store (directions_strings_hv, #name, strlen (#name), \
-               newRV_noinc ((SV *) direction_string_hv), 0);
-   TDS_TRANSLATED_TYPES_LIST
-#undef tds_type
-   */
 
   FETCH(convert_text_options);
   if (convert_text_options_sv)
