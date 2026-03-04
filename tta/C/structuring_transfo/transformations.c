@@ -717,7 +717,7 @@ new_node (ERROR_MESSAGE_LIST *error_messages, ELEMENT *node_tree,
       appended_number++;
     }
 
-  add_extra_string (node, AI_key_normalized, normalized);
+  add_extra_string (node, AI_key_identifier, normalized);
 
   register_label_element (document, node, error_messages);
 
@@ -784,10 +784,10 @@ reassociate_to_node (const char *type, ELEMENT *current, void *argument)
           if (element_node && previous_node_relations)
             {
               const char *new_normalized
-                = lookup_extra_string (added_node, AI_key_normalized);
+                = lookup_extra_string (added_node, AI_key_identifier);
               const ELEMENT *previous_node = previous_node_relations->element;
               const char *previous_normalized
-                = lookup_extra_string (previous_node, AI_key_normalized);
+                = lookup_extra_string (previous_node, AI_key_identifier);
               if (strcmp(element_node, previous_normalized))
                 {
                   char *element_debug = print_element_debug (current, 0);
@@ -1100,7 +1100,7 @@ complete_node_menu (NODE_RELATIONS *node_relations,
           const NODE_RELATIONS *node_entry_relations = node_childs->list[i];
           const ELEMENT *node_entry = node_entry_relations->element;
           const char *normalized = lookup_extra_string (node_entry,
-                                                        AI_key_normalized);
+                                                        AI_key_identifier);
           if (normalized)
             {
               size_t j;

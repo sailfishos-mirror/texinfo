@@ -12,9 +12,9 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -26,10 +26,10 @@ $result_tree_text{'complex_recursive_synindex'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO

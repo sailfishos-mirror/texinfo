@@ -15,8 +15,8 @@ $result_tree_text{'tex_expanded_in_caption_multiple_time'} = '*document_root C1
   |float_number:{1}
   |float_type:{A}
   |global_command_number:{1}
+  |identifier:{B}
   |is_target:{1}
-  |normalized:{B}
    *arguments_line C2
     *block_line_arg C1
      {A}

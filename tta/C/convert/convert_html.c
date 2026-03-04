@@ -3019,7 +3019,7 @@ html_node_redirections (CONVERTER *self,
         is.  The other manual must use the same convention to get it
         right.  We do not do 'node_filename' as a redirection file
         either. */
-          normalized = lookup_extra_string (target_element, AI_key_normalized);
+          normalized = lookup_extra_string (target_element, AI_key_identifier);
           if (normalized && !strcmp (normalized, "Top")
               && self->conf->TOP_NODE_FILE_TARGET.o.string)
             {

@@ -54,9 +54,9 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
    |>*macro_call@Top C1
     |>*brace_arg
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1490,9 +1490,9 @@ $result_tree_text{'macro_in_misc_commands'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-atext}
  |is_target:{1}
  |node_number:{2}
- |normalized:{node-atext}
   *arguments_line C1
    *line_arg C1
    |INFO

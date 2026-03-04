@@ -91,8 +91,8 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
    {anchor}
    *@anchor C1 l13
    |EXTRA
+   |identifier:{anchor}
    |is_target:{1}
-   |normalized:{anchor}
     *brace_arg C1
      {anchor}
    {anchor\\n}

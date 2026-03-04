@@ -12,9 +12,9 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -80,9 +80,9 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chap1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chap1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -138,9 +138,9 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Sec-in-chapter}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Sec-in-chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -167,9 +167,9 @@ $result_tree_text{'semi_auto'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Section-non-auto}
  |is_target:{1}
  |node_number:{4}
- |normalized:{Section-non-auto}
   *arguments_line C4
    *line_arg C1
     {Section non auto}

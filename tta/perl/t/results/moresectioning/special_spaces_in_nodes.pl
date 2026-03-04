@@ -15,9 +15,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top_2002}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top_2002}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -43,9 +43,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c}
  |is_target:{1}
  |node_number:{2}
- |normalized:{EN-QUAD_007c_2002_007c-EM-QUAD_007c_2003_007c-EN-SPACE_007c_2002_007c}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -179,9 +179,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c}
  |is_target:{1}
  |node_number:{3}
- |normalized:{CHARACTER-TABULATION_007c-_007c-FORM-FEED_007c-_007c-LINE-TABULATION_007c-_007c}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -194,9 +194,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{CARRIAGE-RETURN_007c-_007c}
  |is_target:{1}
  |node_number:{4}
- |normalized:{CARRIAGE-RETURN_007c-_007c}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -209,9 +209,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c}
  |is_target:{1}
  |node_number:{5}
- |normalized:{NEXT-LINE-_0028NEL_0029_007c_0085_007c-NO_002dBREAK-SPACE_007c_00a0_007c-OGHAM-SPACE-MARK_007c_1680_007c}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -224,9 +224,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c}
  |is_target:{1}
  |node_number:{6}
- |normalized:{MONGOLIAN-VOWEL-SEPARATOR_007c_180e_007c-EM-SPACE_007c_2003_007c}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -239,9 +239,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c}
  |is_target:{1}
  |node_number:{7}
- |normalized:{THREE_002dPER_002dEM-SPACE_007c_2004_007c-FOUR_002dPER_002dEM-SPACE_007c_2005_007c-SIX_002dPER_002dEM-SPACE_007c_2006_007c}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -254,9 +254,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c}
  |is_target:{1}
  |node_number:{8}
- |normalized:{FIGURE-SPACE_007c_2007_007c-PUNCTUATION-SPACE_007c_2008_007c-THIN-SPACE_007c_2009_007c}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -269,9 +269,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c}
  |is_target:{1}
  |node_number:{9}
- |normalized:{HAIR-SPACE_007c_200a_007c-LINE-SEPARATOR_007c_2028_007c-PARAGRAPH-SEPARATOR_007c_2029_007c}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -284,9 +284,9 @@ $result_tree_text{'special_spaces_in_nodes'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c}
  |is_target:{1}
  |node_number:{10}
- |normalized:{NARROW-NO_002dBREAK-SPACE_007c_202f_007c-MEDIUM-MATHEMATICAL-SPACE_007c_205f_007c-IDEOGRAPHIC-SPACE_007c_3000_007c}
   *arguments_line C1
    *line_arg C1
    |INFO

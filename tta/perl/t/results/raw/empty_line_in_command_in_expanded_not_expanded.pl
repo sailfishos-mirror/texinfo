@@ -43,8 +43,8 @@ $result_tree_text{'empty_line_in_command_in_expanded_not_expanded'} = '*document
    *rawpreformatted C5
     *@anchor C1 l13
     |EXTRA
+    |identifier:{ha-hb}
     |is_target:{1}
-    |normalized:{ha-hb}
      *brace_arg C3
       {ha\\n}
       {empty_line:\\n}

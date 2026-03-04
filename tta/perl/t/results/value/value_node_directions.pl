@@ -24,9 +24,9 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C4
    *line_arg C1
     {Top}
@@ -103,9 +103,9 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
     |>*brace_container C1
      |>{a--foo}
  |EXTRA
+ |identifier:{bar}
  |is_target:{1}
  |node_number:{2}
- |normalized:{bar}
   *arguments_line C4
    *line_arg C1
     {bar}
@@ -158,9 +158,9 @@ $result_tree_text{'value_node_directions'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{BarFoo}
  |is_target:{1}
  |node_number:{3}
- |normalized:{BarFoo}
   *arguments_line C4
    *line_arg C1
     {BarFoo}

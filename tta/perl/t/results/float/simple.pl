@@ -16,8 +16,8 @@ $result_tree_text{'simple'} = '*document_root C1
   |float_number:{1}
   |float_type:{Type}
   |global_command_number:{1}
+  |identifier:{Label}
   |is_target:{1}
-  |normalized:{Label}
    *arguments_line C2
     *block_line_arg C1
      {Type}

@@ -465,7 +465,7 @@ sub check_nodes_are_referenced($) {
       # if the node is referenced, warn if there is no menu up
       } elsif ($customization_information->get_conf(
                                              'CHECK_NORMAL_MENU_STRUCTURE')
-               and $node->{'extra'}->{'normalized'} ne 'Top'
+               and $node->{'extra'}->{'identifier'} ne 'Top'
                and scalar(@{$nodes_list}) > 1) {
         if (not ((exists($node_relations->{'associated_section'})
                   and _node_automatic_directions($node))
@@ -1477,7 +1477,7 @@ sub number_floats($) {
     foreach my $float_and_section (@{$listoffloats_and_sections->{$style}}) {
       my ($float, $float_section_relations) = @$float_and_section;
       next if (!exists($float->{'extra'})
-               or !defined($float->{'extra'}->{'normalized'}));
+               or !defined($float->{'extra'}->{'identifier'}));
       $float_index++;
       my $number;
       if (defined($float_section_relations)) {

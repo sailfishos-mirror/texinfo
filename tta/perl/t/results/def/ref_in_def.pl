@@ -13,9 +13,9 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first}
  |is_target:{1}
  |node_number:{1}
- |normalized:{first}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -171,8 +171,8 @@ $result_tree_text{'ref_in_def'} = '*document_root C2
   {empty_line:\\n}
   *@anchor C1 l9
   |EXTRA
+  |identifier:{myanchor}
   |is_target:{1}
-  |normalized:{myanchor}
    *brace_arg C1
     {myanchor}
   {spaces_after_close_brace:\\n}

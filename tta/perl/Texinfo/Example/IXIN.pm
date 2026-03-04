@@ -297,9 +297,9 @@ sub _associated_node_id($$$;$)
   }
   my $associated_node_id;
   if (defined($node_command)
-      and defined($node_command->{'extra'}->{'normalized'})) {
+      and defined($node_command->{'extra'}->{'identifier'})) {
     $associated_node_id
-      = $node_label_number->{$node_command->{'extra'}->{'normalized'}};
+      = $node_label_number->{$node_command->{'extra'}->{'identifier'}};
   } else {
     $associated_node_id = -1;
   }
@@ -448,11 +448,11 @@ sub output_ixin($$)
           # before first node
           if (not $root_command
               or not defined($root_command->{'extra'})
-              or not defined($root_command->{'extra'}->{'normalized'})) {
+              or not defined($root_command->{'extra'}->{'identifier'})) {
             $setting_commands{$global_command} = $command;
           } else {
             # register the setting value at the end of the node
-            $end_of_nodes_setting_commands{$root_command->{'extra'}->{'normalized'}}->{$global_command}
+            $end_of_nodes_setting_commands{$root_command->{'extra'}->{'identifier'}}->{$global_command}
               = $command;
           }
           #print STDERR "$element $root_command->{'extra'} $global_command\n";
@@ -525,7 +525,7 @@ sub output_ixin($$)
     $node_nr++;
     my $node = $output_unit->{'unit_command'};
     push @nodes, $node;
-    my $normalized_node_name = $node->{'extra'}->{'normalized'};
+    my $normalized_node_name = $node->{'extra'}->{'identifier'};
     foreach my $setting_command_name (keys(%current_settings)) {
       $node_tweaks{$normalized_node_name}->{$setting_command_name}
         = $current_settings{$setting_command_name};
@@ -561,7 +561,7 @@ sub output_ixin($$)
   my $nodes_index = $self->ixin_open_element('nodesindex');
   my $nodes_list = $self->{'document'}->nodes_list();
   foreach my $node (@nodes) {
-    my $normalized_node_name = $node->{'extra'}->{'normalized'};
+    my $normalized_node_name = $node->{'extra'}->{'identifier'};
     # FIXME name should be a renderable sequence
     my @attributes = (['name', $normalized_node_name],
                       ['length',
@@ -577,7 +577,7 @@ sub output_ixin($$)
           push @attributes, ['node'.lc($direction), -2];
         } else {
           push @attributes, ['node'.lc($direction),
-                 $node_label_number{$node_direction->{'extra'}->{'normalized'}}]
+                 $node_label_number{$node_direction->{'extra'}->{'identifier'}}]
         }
       } else {
         push @attributes, ['node'.lc($direction), -1];
@@ -701,7 +701,7 @@ sub output_ixin($$)
   my $labels_text = $self->ixin_open_element('labels', [['count', $labels_nr]]);
   foreach my $node (@nodes) {
     $labels_text .= $self->ixin_list_element('nodelabel', [['name',
-                                    $node->{'extra'}->{'normalized'}]]);
+                                    $node->{'extra'}->{'identifier'}]]);
     $labels_text .= ' ';
   }
   $labels_text .= $non_node_labels_text
@@ -833,9 +833,9 @@ sub output_ixin($$)
         }
         my @attribute = (['nodeid', $associated_node_id]);
         $float_text .= $self->ixin_open_element('floatentry', \@attribute);
-        if ($float->{'extra'}->{'normalized'}) {
+        if ($float->{'extra'}->{'identifier'}) {
           $float_text .= $self->ixin_list_element('floatlabel',
-                                  [['name', $float->{'extra'}->{'normalized'}]]);
+                                  [['name', $float->{'extra'}->{'identifier'}]]);
           $float_text .= ' ';
         } else {
           $float_text .= $self->ixin_none_element('floatlabel');

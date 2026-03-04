@@ -89,7 +89,7 @@ static const char *
 add_element_to_identifiers_target (DOCUMENT *document, ELEMENT *element,
                                    int *status)
 {
-  const char *normalized = lookup_extra_string (element, AI_key_normalized);
+  const char *normalized = lookup_extra_string (element, AI_key_identifier);
 
   if (normalized)
     {

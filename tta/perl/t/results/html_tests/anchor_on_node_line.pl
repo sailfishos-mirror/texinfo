@@ -12,9 +12,9 @@ $result_tree_text{'anchor_on_node_line'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -40,9 +40,9 @@ $result_tree_text{'anchor_on_node_line'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{lone-node-a}
  |is_target:{1}
  |node_number:{2}
- |normalized:{lone-node-a}
   *arguments_line C1
    *line_arg C4
    |INFO
@@ -51,8 +51,8 @@ $result_tree_text{'anchor_on_node_line'} = '*document_root C6
     {lone node }
     *@anchor C1 l4
     |EXTRA
+    |identifier:{iln}
     |is_target:{1}
-    |normalized:{iln}
      *brace_arg C1
       {iln}
     {spaces_after_close_brace: }
@@ -63,9 +63,9 @@ $result_tree_text{'anchor_on_node_line'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter-node-b}
  |is_target:{1}
  |node_number:{3}
- |normalized:{chapter-node-b}
   *arguments_line C1
    *line_arg C4
    |INFO
@@ -74,8 +74,8 @@ $result_tree_text{'anchor_on_node_line'} = '*document_root C6
     {chapter node }
     *@anchor C1 l6
     |EXTRA
+    |identifier:{cnl}
     |is_target:{1}
-    |normalized:{cnl}
      *brace_arg C1
       {cnl}
     {spaces_after_close_brace: }

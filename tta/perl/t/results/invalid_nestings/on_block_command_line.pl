@@ -21,8 +21,8 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
      *bracketed_arg C1 l1
       *@anchor C1 l1
       |EXTRA
+      |identifier:{in-anchor}
       |is_target:{1}
-      |normalized:{in-anchor}
        *brace_arg C1
         {in anchor}
      { }
@@ -73,8 +73,8 @@ $result_tree_text{'on_block_command_line'} = '*document_root C1
      { }
      *@anchor C1 l5
      |EXTRA
+     |identifier:{in-quotation-anchor}
      |is_target:{1}
-     |normalized:{in-quotation-anchor}
       *brace_arg C1
        {in quotation anchor}
      *@footnote C1 l5

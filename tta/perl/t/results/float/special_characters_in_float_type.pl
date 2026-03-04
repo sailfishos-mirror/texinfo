@@ -13,9 +13,9 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,9 +41,9 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -73,8 +73,8 @@ $result_tree_text{'special_characters_in_float_type'} = '*document_root C5
   |float_number:{1.1}
   |float_type:{A < " `` ` \' \' \\aaa . --- in var}
   |global_command_number:{1}
+  |identifier:{L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var}
   |is_target:{1}
-  |normalized:{L-_003c-_0022-_0060_0060-_0060-_0027-_0027-_005caaa-_002e-_002d_002d_002d-in-var}
    *arguments_line C2
     *block_line_arg C4
      {A < " `` ` \' \' \\aaa }

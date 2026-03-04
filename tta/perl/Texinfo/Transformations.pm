@@ -237,7 +237,7 @@ sub _new_node($$) {
     }
     $appended_number++;
   }
-  $node->{'extra'}->{'normalized'} = $normalized;
+  $node->{'extra'}->{'identifier'} = $normalized;
 
   Texinfo::Document::register_label_element($document, $node,
                                             $document->{'error_messages'},

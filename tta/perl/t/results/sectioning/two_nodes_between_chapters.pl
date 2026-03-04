@@ -20,9 +20,9 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -114,9 +114,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter-1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter-1}
   *arguments_line C4
    *line_arg C1
     {chapter 1}
@@ -166,9 +166,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-between-chapters}
  |is_target:{1}
  |node_number:{3}
- |normalized:{node-between-chapters}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -191,9 +191,9 @@ NodeUp: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter-2}
  |is_target:{1}
  |node_number:{4}
- |normalized:{chapter-2}
   *arguments_line C1
    *line_arg C1
    |INFO

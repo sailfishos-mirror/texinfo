@@ -16,9 +16,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C3
    *line_arg C1
     {Top}
@@ -157,9 +157,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{First-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{First-node}
   *arguments_line C4
    *line_arg C1
     {First node}
@@ -253,9 +253,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{unnumbered}
  |is_target:{1}
  |node_number:{3}
- |normalized:{unnumbered}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -343,9 +343,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{unnumbered-sub}
  |is_target:{1}
  |node_number:{4}
- |normalized:{unnumbered-sub}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -371,9 +371,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{numbered-sub}
  |is_target:{1}
  |node_number:{5}
- |normalized:{numbered-sub}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -399,9 +399,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{unnumbered-sub2}
  |is_target:{1}
  |node_number:{6}
- |normalized:{unnumbered-sub2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -427,9 +427,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{numbered-sub2}
  |is_target:{1}
  |node_number:{7}
- |normalized:{numbered-sub2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -455,9 +455,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{unnumbered2}
  |is_target:{1}
  |node_number:{8}
- |normalized:{unnumbered2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -512,9 +512,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{numbered-sub3}
  |is_target:{1}
  |node_number:{9}
- |normalized:{numbered-sub3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -541,9 +541,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{numbered}
  |is_target:{1}
  |node_number:{10}
- |normalized:{numbered}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -570,9 +570,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{between-node}
  |is_target:{1}
  |node_number:{11}
- |normalized:{between-node}
   *arguments_line C4
    *line_arg C1
     {between node}
@@ -595,9 +595,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Second-node}
  |is_target:{1}
  |node_number:{12}
- |normalized:{Second-node}
   *arguments_line C4
    *line_arg C1
     {Second node}
@@ -642,9 +642,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Third-node-unnumbered}
  |is_target:{1}
  |node_number:{13}
- |normalized:{Third-node-unnumbered}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -674,9 +674,9 @@ $result_tree_text{'sectioning_check_menu_structure'} = '*document_root C29
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Last-node-no-description}
  |is_target:{1}
  |node_number:{14}
- |normalized:{Last-node-no-description}
   *arguments_line C4
    *line_arg C1
     {Last node no description}

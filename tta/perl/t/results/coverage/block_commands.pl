@@ -60,8 +60,8 @@ $result_tree_text{'block_commands'} = '*document_root C1
   |float_number:{1}
   |float_type:{a float}
   |global_command_number:{1}
+  |identifier:{b-float}
   |is_target:{1}
-  |normalized:{b-float}
    *arguments_line C2
     *block_line_arg C1
      {a float}

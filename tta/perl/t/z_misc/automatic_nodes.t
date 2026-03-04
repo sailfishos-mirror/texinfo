@@ -53,7 +53,7 @@ sub test_new_node($$$$;$)
     # the cached Perl data, which has been sneakily modified by _new_node
     # is returned.  Not robust, but works.
     my $identifier_target = $document->labels_information();
-    $normalized = $node->{'extra'}->{'normalized'};
+    $normalized = $node->{'extra'}->{'identifier'};
     my @identifiers = sort(keys(%$identifier_target));
     if (scalar(@identifiers) != 1) {
       print STDERR " $name identifiers: !! ".join('|', @identifiers)."\n";

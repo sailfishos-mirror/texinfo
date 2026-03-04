@@ -12,9 +12,9 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -40,9 +40,9 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -98,9 +98,9 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{entiti}
  |is_target:{1}
  |node_number:{3}
- |normalized:{entiti}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -134,9 +134,9 @@ $result_tree_text{'empty_xrefname'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chip}
  |is_target:{1}
  |node_number:{4}
- |normalized:{chip}
   *arguments_line C1
    *line_arg C1
    |INFO

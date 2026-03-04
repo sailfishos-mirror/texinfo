@@ -28,9 +28,9 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -272,9 +272,9 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node_005fimage}
  |is_target:{1}
  |node_number:{2}
- |normalized:{node_005fimage}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -350,8 +350,8 @@ $result_tree_text{'image_inline_or_not'} = '*document_root C5
   |float_number:{1.1}
   |float_type:{F}
   |global_command_number:{1}
+  |identifier:{g}
   |is_target:{1}
-  |normalized:{g}
    *arguments_line C2
     *block_line_arg C1
      {F}

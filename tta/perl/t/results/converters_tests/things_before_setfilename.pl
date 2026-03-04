@@ -13,8 +13,8 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
     {text_before_beginning:\\n}
    *@anchor C1 things_before_setfilename.texi:l3
    |EXTRA
+   |identifier:{An-anchor}
    |is_target:{1}
-   |normalized:{An-anchor}
     *brace_arg C1
      {An anchor}
    {spaces_after_close_brace:\\n}
@@ -49,8 +49,8 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
       {empty_line:\\n}
       *@anchor C1 things_before_setfilename.texi:l13
       |EXTRA
+      |identifier:{Anchor-in-footnote}
       |is_target:{1}
-      |normalized:{Anchor-in-footnote}
        *brace_arg C1
         {Anchor in footnote}
       {spaces_after_close_brace:\\n}
@@ -74,8 +74,8 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |float_number:{1}
    |float_type:{}
    |global_command_number:{1}
+   |identifier:{float-anchor}
    |is_target:{1}
-   |normalized:{float-anchor}
     *arguments_line C2
      *block_line_arg
      *block_line_arg C1
@@ -117,8 +117,8 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
    |float_number:{1}
    |float_type:{Text}
    |global_command_number:{2}
+   |identifier:{ta}
    |is_target:{1}
-   |normalized:{ta}
     *arguments_line C2
      *block_line_arg C1
       {Text}
@@ -242,9 +242,9 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -270,9 +270,9 @@ $result_tree_text{'things_before_setfilename'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO

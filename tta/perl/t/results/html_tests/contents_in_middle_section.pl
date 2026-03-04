@@ -16,9 +16,9 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -76,9 +76,9 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -146,9 +146,9 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{section}
  |is_target:{1}
  |node_number:{3}
- |normalized:{section}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -185,9 +185,9 @@ $result_tree_text{'contents_in_middle_section'} = '*document_root C10
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{section1}
  |is_target:{1}
  |node_number:{4}
- |normalized:{section1}
   *arguments_line C1
    *line_arg C1
    |INFO

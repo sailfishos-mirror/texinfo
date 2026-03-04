@@ -12,9 +12,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -55,9 +55,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap_002c-a-chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap_002c-a-chap}
   *arguments_line C1
    *line_arg C4
    |INFO
@@ -93,9 +93,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-node}
  |is_target:{1}
  |node_number:{3}
- |normalized:{a-node}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -122,9 +122,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{truc}
  |is_target:{1}
  |node_number:{4}
- |normalized:{truc}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -150,9 +150,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{sub1}
  |is_target:{1}
  |node_number:{5}
- |normalized:{sub1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -182,9 +182,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{sub2}
  |is_target:{1}
  |node_number:{6}
- |normalized:{sub2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -221,9 +221,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{section}
  |is_target:{1}
  |node_number:{7}
- |normalized:{section}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -250,9 +250,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{section-1}
  |is_target:{1}
  |node_number:{8}
- |normalized:{section-1}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -280,9 +280,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{-1}
  |is_target:{1}
  |node_number:{9}
- |normalized:{-1}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -305,9 +305,9 @@ $result_tree_text{'insert_nodes_for_sectioning_commands'} = '*document_root C22
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{-2}
  |is_target:{1}
  |node_number:{10}
- |normalized:{-2}
   *arguments_line C1
    *line_arg C2
    |INFO

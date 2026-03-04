@@ -13,9 +13,9 @@ $result_tree_text{'prepend_number_redirection_file_names'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,9 +41,9 @@ $result_tree_text{'prepend_number_redirection_file_names'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -67,8 +67,8 @@ $result_tree_text{'prepend_number_redirection_file_names'} = '*document_root C7
   {empty_line:\\n}
   *@anchor C1 l7
   |EXTRA
+  |identifier:{Up-and-Down}
   |is_target:{1}
-  |normalized:{Up-and-Down}
    *brace_arg C1
     {Up and Down}
   {spaces_after_close_brace:\\n}
@@ -78,9 +78,9 @@ $result_tree_text{'prepend_number_redirection_file_names'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{4-section}
  |is_target:{1}
  |node_number:{3}
- |normalized:{4-section}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -104,8 +104,8 @@ $result_tree_text{'prepend_number_redirection_file_names'} = '*document_root C7
   {empty_line:\\n}
   *@anchor C1 l12
   |EXTRA
+  |identifier:{12-lowerc}
   |is_target:{1}
-  |normalized:{12-lowerc}
    *brace_arg C1
     {12 lowerc}
   {spaces_after_close_brace:\\n}

@@ -177,9 +177,9 @@ $result_tree_text{'test_image'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -191,9 +191,9 @@ $result_tree_text{'test_image'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -487,8 +487,8 @@ $result_tree_text{'test_image'} = '*document_root C3
   |float_number:{1}
   |float_type:{Image}
   |global_command_number:{1}
+  |identifier:{Image-with-commands}
   |is_target:{1}
-  |normalized:{Image-with-commands}
    *arguments_line C2
     *block_line_arg C1
      {Image}

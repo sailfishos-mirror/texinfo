@@ -12,9 +12,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -40,9 +40,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,9 +69,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{-1}
  |is_target:{1}
  |node_number:{3}
- |normalized:{-1}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -95,9 +95,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{-2}
  |is_target:{1}
  |node_number:{4}
- |normalized:{-2}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -132,9 +132,9 @@ $result_tree_text{'test_insert_nodes_with_empty_headings'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{-3}
  |is_target:{1}
  |node_number:{5}
- |normalized:{-3}
   *arguments_line C1
    *line_arg C2
    |INFO

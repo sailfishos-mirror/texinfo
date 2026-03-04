@@ -13,9 +13,9 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C4
    *line_arg C1
     {Top}
@@ -162,9 +162,9 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first}
  |is_target:{1}
  |node_number:{2}
- |normalized:{first}
   *arguments_line C2
    *line_arg C1
     {first}
@@ -185,9 +185,9 @@ $result_tree_text{'check_htmlxref'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{3}
- |normalized:{chapter}
   *arguments_line C3
    *line_arg C1
     {chapter}

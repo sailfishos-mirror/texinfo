@@ -19,9 +19,9 @@ $result_tree_text{'novalidate'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first}
  |is_target:{1}
  |node_number:{1}
- |normalized:{first}
   *arguments_line C2
    *line_arg C1
     {first}

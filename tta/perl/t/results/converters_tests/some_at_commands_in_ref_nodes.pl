@@ -13,9 +13,9 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -110,9 +110,9 @@ $result_tree_text{'some_at_commands_in_ref_nodes'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{A-sc-_00f1-_00e5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1}
   *arguments_line C1
    *line_arg C14
    |INFO

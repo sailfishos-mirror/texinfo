@@ -17,9 +17,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{part-node-before-top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{part-node-before-top}
   *arguments_line C4
    *line_arg C1
     {part node before top}
@@ -60,9 +60,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -18,9 +18,9 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first}
  |is_target:{1}
  |node_number:{1}
- |normalized:{first}
   *arguments_line C4
    *line_arg C1
     {first}
@@ -80,9 +80,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{second-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{second-node}
   *arguments_line C4
    *line_arg C1
     {second node}

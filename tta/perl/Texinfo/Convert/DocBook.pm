@@ -622,8 +622,8 @@ sub _docbook_section_element($$) {
     if (exists($section_relations->{'associated_node'})) {
       my $associated_node = $section_relations->{'associated_node'}->{'element'};
       if ($docbook_special_unnumbered{
-              lc($associated_node->{'extra'}->{'normalized'})}) {
-        return lc($associated_node->{'extra'}->{'normalized'});
+              lc($associated_node->{'extra'}->{'identifier'})}) {
+        return lc($associated_node->{'extra'}->{'identifier'});
       }
     }
   }
@@ -775,7 +775,7 @@ sub _output_anchor($) {
 
   if (exists($element->{'extra'}) and $element->{'extra'}->{'is_target'}) {
     # FIXME DocBook 5 id -> xml:id
-    return "<anchor id=\"$element->{'extra'}->{'normalized'}\"/>";
+    return "<anchor id=\"$element->{'extra'}->{'identifier'}\"/>";
   } else {
     return '';
   }
@@ -1016,11 +1016,11 @@ sub _convert($$;$) {
               = $section_relations->{'part_following_node'}->{'element'};
           }
           if (defined($node_element) or $cmdname eq 'part') {
-            # $node_element->{'extra'}->{'normalized'} not set happens for
+            # $node_element->{'extra'}->{'identifier'} not set happens for
             # empty nodes
             if (defined($node_element) and exists($node_element->{'extra'})
-                and exists($node_element->{'extra'}->{'normalized'})
-                and $node_element->{'extra'}->{'normalized'} eq 'Top') {
+                and exists($node_element->{'extra'}->{'identifier'})
+                and $node_element->{'extra'}->{'identifier'} eq 'Top') {
               $self->{'in_skipped_node_top'} = 1;
             } elsif (exists($self->{'in_skipped_node_top'})
                      and $self->{'in_skipped_node_top'} == 1) {
@@ -1113,7 +1113,7 @@ sub _convert($$;$) {
               if (exists($section_relations->{'associated_node'})) {
                 # FIXME DocBook 5 id -> xml:id
                 $section_attribute
-    .= " id=\"$section_relations->{'associated_node'}->{'element'}->{'extra'}->{'normalized'}\"";
+    .= " id=\"$section_relations->{'associated_node'}->{'element'}->{'extra'}->{'identifier'}\"";
               }
             }
             my $language = '';

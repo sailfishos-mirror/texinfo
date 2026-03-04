@@ -88,8 +88,8 @@ $result_tree_text{'indent_before_macro_definition_and_other'} = '*document_root 
     {on}
   *@anchor C1 l13
   |EXTRA
+  |identifier:{spot}
   |is_target:{1}
-  |normalized:{spot}
    *brace_arg C1
     {spot}
   {spaces_after_close_brace:\\n}

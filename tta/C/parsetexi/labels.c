@@ -77,7 +77,7 @@ check_register_target_element_label (ELEMENT *label_element,
         }
       else
         {
-          add_extra_string (target_element, AI_key_normalized, normalized);
+          add_extra_string (target_element, AI_key_identifier, normalized);
         }
     }
 

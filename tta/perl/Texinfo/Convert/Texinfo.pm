@@ -125,7 +125,7 @@ sub check_node_same_texinfo_code($$) {
   my ($reference_node, $node_content) = @_;
 
   my $reference_node_texi;
-  if (defined($reference_node->{'extra'}->{'normalized'})) {
+  if (defined($reference_node->{'extra'}->{'identifier'})) {
     my $label_element = Texinfo::Common::get_label_element($reference_node);
     $reference_node_texi = convert_to_texinfo(
      Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}));

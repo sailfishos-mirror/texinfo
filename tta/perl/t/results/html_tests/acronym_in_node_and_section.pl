@@ -12,9 +12,9 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -40,9 +40,9 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,9 +69,9 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{sec-define}
  |is_target:{1}
  |node_number:{3}
- |normalized:{sec-define}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -109,9 +109,9 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{sec-here-is-GHJ}
  |is_target:{1}
  |node_number:{4}
- |normalized:{sec-here-is-GHJ}
   *arguments_line C1
    *line_arg C2
    |INFO

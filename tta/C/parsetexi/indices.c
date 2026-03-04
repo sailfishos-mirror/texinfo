@@ -310,7 +310,7 @@ enter_index_entry (enum command_id index_type_cmd,
   else if (current_node)
     {
       const char *normalized = lookup_extra_string (current_node->element,
-                                                    AI_key_normalized);
+                                                    AI_key_identifier);
       add_extra_string_dup (element, AI_key_element_node, normalized);
     }
 

@@ -91,9 +91,9 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -204,9 +204,9 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter-ja}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter-ja}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -319,9 +319,9 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter-en}
  |is_target:{1}
  |node_number:{3}
- |normalized:{chapter-en}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -434,9 +434,9 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter-fr_005fFR}
  |is_target:{1}
  |node_number:{4}
- |normalized:{chapter-fr_005fFR}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -540,9 +540,9 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter-de}
  |is_target:{1}
  |node_number:{5}
- |normalized:{chapter-de}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -581,9 +581,9 @@ $result_tree_text{'multiple_lang_chapters_latex'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter-pt_005fBR}
  |is_target:{1}
  |node_number:{6}
- |normalized:{chapter-pt_005fBR}
   *arguments_line C1
    *line_arg C1
    |INFO

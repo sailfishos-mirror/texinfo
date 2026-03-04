@@ -33,8 +33,8 @@ $result_tree_text{'no_element'} = '*document_root C1
   {empty_line:\\n}
   *@anchor C1 l5
   |EXTRA
+  |identifier:{An-anchor}
   |is_target:{1}
-  |normalized:{An-anchor}
    *brace_arg C1
     {An anchor}
   {spaces_after_close_brace:\\n}
@@ -69,8 +69,8 @@ $result_tree_text{'no_element'} = '*document_root C1
      {empty_line:\\n}
      *@anchor C1 l15
      |EXTRA
+     |identifier:{Anchor-in-footnote}
      |is_target:{1}
-     |normalized:{Anchor-in-footnote}
       *brace_arg C1
        {Anchor in footnote}
      {spaces_after_close_brace:\\n}
@@ -94,8 +94,8 @@ $result_tree_text{'no_element'} = '*document_root C1
   |float_number:{1}
   |float_type:{}
   |global_command_number:{1}
+  |identifier:{float-anchor}
   |is_target:{1}
-  |normalized:{float-anchor}
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1

@@ -10,8 +10,8 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   *preamble_before_content
   *@anchor C1 l1
   |EXTRA
+  |identifier:{An-anchor}
   |is_target:{1}
-  |normalized:{An-anchor}
    *brace_arg C1
     {An anchor}
   {spaces_after_close_brace:\\n}
@@ -46,8 +46,8 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
      {empty_line:\\n}
      *@anchor C1 l11
      |EXTRA
+     |identifier:{Anchor-in-footnote}
      |is_target:{1}
-     |normalized:{Anchor-in-footnote}
       *brace_arg C1
        {Anchor in footnote}
      {spaces_after_close_brace:\\n}
@@ -71,8 +71,8 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
   |float_number:{1}
   |float_type:{}
   |global_command_number:{1}
+  |identifier:{float-anchor}
   |is_target:{1}
-  |normalized:{float-anchor}
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -152,9 +152,9 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -180,9 +180,9 @@ $result_tree_text{'placed_things_before_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO

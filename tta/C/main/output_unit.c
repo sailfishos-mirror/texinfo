@@ -174,7 +174,7 @@ split_by_node (DOCUMENT *document)
       if (data_cmd == CM_node)
         {
           const char *normalized
-            = lookup_extra_string (content, AI_key_normalized);
+            = lookup_extra_string (content, AI_key_identifier);
 
           if (normalized)
             {

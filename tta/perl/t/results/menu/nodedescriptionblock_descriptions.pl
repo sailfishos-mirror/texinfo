@@ -12,9 +12,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -119,9 +119,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{toto}
  |is_target:{1}
  |node_number:{2}
- |normalized:{toto}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -198,9 +198,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{titi}
  |is_target:{1}
  |node_number:{3}
- |normalized:{titi}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -247,9 +247,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{other}
  |is_target:{1}
  |node_number:{4}
- |normalized:{other}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -319,9 +319,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-somewhat-long-node-without-description-nor-following-space}
  |is_target:{1}
  |node_number:{5}
- |normalized:{a-somewhat-long-node-without-description-nor-following-space}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -378,9 +378,9 @@ $result_tree_text{'nodedescriptionblock_descriptions'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-double-nodedescriptionblock}
  |is_target:{1}
  |node_number:{6}
- |normalized:{node-double-nodedescriptionblock}
   *arguments_line C1
    *line_arg C1
    |INFO

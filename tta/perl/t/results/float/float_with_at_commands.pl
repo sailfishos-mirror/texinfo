@@ -16,8 +16,8 @@ $result_tree_text{'float_with_at_commands'} = '*document_root C1
   |float_number:{1}
   |float_type:{entrée}
   |global_command_number:{1}
+  |identifier:{premi_00e8re-entr_00e9e}
   |is_target:{1}
-  |normalized:{premi_00e8re-entr_00e9e}
    *arguments_line C2
     *block_line_arg C3
      {entr}

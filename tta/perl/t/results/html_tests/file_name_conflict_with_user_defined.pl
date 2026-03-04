@@ -13,9 +13,9 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,9 +41,9 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chapter-1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chapter-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -67,8 +67,8 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
   {empty_line:\\n}
   *@anchor C1 l7
   |EXTRA
+  |identifier:{myanchor}
   |is_target:{1}
-  |normalized:{myanchor}
    *brace_arg C1
     {myanchor}
   {spaces_after_close_brace:\\n}
@@ -78,9 +78,9 @@ $result_tree_text{'file_name_conflict_with_user_defined'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chapter-2}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Chapter-2}
   *arguments_line C1
    *line_arg C1
    |INFO

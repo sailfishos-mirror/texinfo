@@ -12,9 +12,9 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first}
  |is_target:{1}
  |node_number:{1}
- |normalized:{first}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -72,9 +72,9 @@ $result_tree_text{'empty_menu_entry_name'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{aaa}
  |is_target:{1}
  |node_number:{2}
- |normalized:{aaa}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -13,9 +13,9 @@ $result_tree_text{'complex_float'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -90,8 +90,8 @@ $result_tree_text{'complex_float'} = '*document_root C5
   |float_number:{1}
   |float_type:{Text}
   |global_command_number:{1}
+  |identifier:{text-with-a-lot-of-features}
   |is_target:{1}
-  |normalized:{text-with-a-lot-of-features}
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -330,8 +330,8 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *@anchor C1 l57
      |EXTRA
+     |identifier:{Anchor-in-caption}
      |is_target:{1}
-     |normalized:{Anchor-in-caption}
       *brace_arg C1
        {Anchor in caption}
      {spaces_after_close_brace:\\n}
@@ -605,9 +605,9 @@ $result_tree_text{'complex_float'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -637,8 +637,8 @@ $result_tree_text{'complex_float'} = '*document_root C5
   |float_number:{1.1}
   |float_type:{Text}
   |global_command_number:{2}
+  |identifier:{float-with-a-lot-of-features-and-no-shortcaption}
   |is_target:{1}
-  |normalized:{float-with-a-lot-of-features-and-no-shortcaption}
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -830,8 +830,8 @@ $result_tree_text{'complex_float'} = '*document_root C5
      {empty_line:\\n}
      *@anchor C1 l124
      |EXTRA
+     |identifier:{Anchor-in-caption-2}
      |is_target:{1}
-     |normalized:{Anchor-in-caption-2}
       *brace_arg C1
        {Anchor in caption 2}
      {spaces_after_close_brace:\\n}

@@ -16,8 +16,8 @@ $result_tree_text{'multiple_spaces_in_float_type'} = '*document_root C1
   |float_number:{1}
   |float_type:{Type of Float}
   |global_command_number:{1}
+  |identifier:{myfloat}
   |is_target:{1}
-  |normalized:{myfloat}
    *arguments_line C2
     *block_line_arg C1
      {Type  of  \\f  Float}

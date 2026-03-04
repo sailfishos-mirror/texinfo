@@ -1,15 +1,14 @@
 use strict;
 
-sub _undef_node_file_name($$$)
-{
+sub _undef_node_file_name($$$) {
   my $self = shift;
   my $element = shift;
   my $filename = shift;
 
-  if ($element->{'extra'}
-      and $element->{'extra'}->{'normalized'}) {
+  if (exists($element->{'extra'})
+      and defined($element->{'extra'}->{'identifier'})) {
     my $normalized_node_name
-       = $element->{'extra'}->{'normalized'};
+       = $element->{'extra'}->{'identifier'};
     if ($normalized_node_name eq 'chap-Other') {
       return undef;
     }

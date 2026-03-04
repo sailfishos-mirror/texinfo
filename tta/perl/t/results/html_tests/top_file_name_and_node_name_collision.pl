@@ -13,9 +13,9 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{my-node}
  |is_target:{1}
  |node_number:{1}
- |normalized:{my-node}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -42,9 +42,9 @@ $result_tree_text{'top_file_name_and_node_name_collision'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{other-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{other-node}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -22,8 +22,8 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |float_number:{1}
    |float_type:{Text}
    |global_command_number:{1}
+   |identifier:{in-example}
    |is_target:{1}
-   |normalized:{in-example}
     *arguments_line C2
      *block_line_arg C1
       {Text}
@@ -78,8 +78,8 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |float_number:{2}
    |float_type:{Text}
    |global_command_number:{2}
+   |identifier:{in-quotation}
    |is_target:{1}
-   |normalized:{in-quotation}
     *arguments_line C2
      *block_line_arg C1
       {Text}
@@ -132,8 +132,8 @@ $result_tree_text{'float_in_block_commands'} = '*document_root C1
    |float_number:{3}
    |float_type:{Text}
    |global_command_number:{3}
+   |identifier:{in-cartouche}
    |is_target:{1}
-   |normalized:{in-cartouche}
     *arguments_line C2
      *block_line_arg C1
       {Text}

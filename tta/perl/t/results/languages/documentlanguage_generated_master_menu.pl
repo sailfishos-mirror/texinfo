@@ -39,9 +39,9 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -82,9 +82,9 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -139,9 +139,9 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{other-chap}
  |is_target:{1}
  |node_number:{3}
- |normalized:{other-chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -181,9 +181,9 @@ $result_tree_text{'documentlanguage_generated_master_menu'} = '*document_root C1
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{appendix}
  |is_target:{1}
  |node_number:{4}
- |normalized:{appendix}
   *arguments_line C1
    *line_arg C1
    |INFO

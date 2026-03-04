@@ -418,7 +418,7 @@ sub new_complete_node_menu($;$$$)
   # the first appendix.
   if (defined($associated_relations)
       and $associated_relations->{'element'}->{'cmdname'} eq 'top'
-      and $node->{'extra'}->{'normalized'} eq 'Top') {
+      and $node->{'extra'}->{'identifier'} eq 'Top') {
     my $content_index = 0;
     my $in_appendix = 0;
     foreach my $node_child_relations (@node_childs) {
@@ -543,8 +543,8 @@ sub new_complete_menu_master_menu($$$$) {
   my $node = $node_relations->{'element'};
 
   if (defined($menu_node)
-      and exists($node->{'extra'}->{'normalized'})
-      and $node->{'extra'}->{'normalized'} eq 'Top') {
+      and exists($node->{'extra'}->{'identifier'})
+      and $node->{'extra'}->{'identifier'} eq 'Top') {
     if (exists($node_relations->{'associated_section'})
   and $node_relations->{'associated_section'}->{'element'}->{'cmdname'} eq 'top') {
       my $detailmenu = new_detailmenu($self->{'current_lang_translations'},
@@ -667,11 +667,11 @@ sub _print_down_menus($$$$$$;$) {
     if (!defined($up_nodes)) {
       $up_nodes = [];
     }
-    push @$up_nodes, [$node->{'extra'}->{'normalized'}, $node];
+    push @$up_nodes, [$node->{'extra'}->{'identifier'}, $node];
     # now recurse in the children
     foreach my $child (@node_children) {
       my $up_node_in_menu = 0;
-      my $normalized_child = $child->{'extra'}->{'normalized'};
+      my $normalized_child = $child->{'extra'}->{'identifier'};
       foreach my $up_node_normalized (@$up_nodes) {
         if ($normalized_child eq $up_node_normalized->[0]) {
           Texinfo::Common::converter_or_document_line_warn($document,

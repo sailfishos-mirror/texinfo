@@ -3625,7 +3625,7 @@ sub _set_root_commands_targets_node_files($) {
       my $label_element = Texinfo::Common::get_label_element($target_element);
       my ($node_filename, $target)
         = _normalized_label_id_file($self, $target_element->{'extra'}
-                                                              ->{'normalized'},
+                                                              ->{'identifier'},
                                            $label_element);
       $node_filename .= $extension;
       if (defined($self->{'file_id_setting'}->{'node_file_name'})) {
@@ -4066,9 +4066,9 @@ sub _html_set_pages_files($$$$$$$$) {
               and $root_command->{'cmdname'} eq 'node') {
             # double node are not normalized, they are handled here
             if (!exists($root_command->{'extra'})
-                or !exists($root_command->{'extra'}->{'normalized'})
+                or !exists($root_command->{'extra'}->{'identifier'})
                 or !exists($identifiers_target->{
-                           $root_command->{'extra'}->{'normalized'}})) {
+                           $root_command->{'extra'}->{'identifier'}})) {
               $node_filename = 'unknown_node';
               $node_filename .= $extension;
 
@@ -4825,7 +4825,7 @@ sub _node_redirections($$$$) {
       next if (!defined($filename));
 
       my $node_filename;
-      my $normalized = $target_element->{'extra'}->{'normalized'};
+      my $normalized = $target_element->{'extra'}->{'identifier'};
       # NOTE 'node_filename' is not used for Top, TOP_NODE_FILE_TARGET
       # is.  The other manual must use the same convention to get it
       # right.  We do not do 'node_filename' as a redirection file

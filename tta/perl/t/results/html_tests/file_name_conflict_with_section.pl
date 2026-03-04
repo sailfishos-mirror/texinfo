@@ -13,9 +13,9 @@ $result_tree_text{'file_name_conflict_with_section'} = '*document_root C4
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -37,8 +37,8 @@ $result_tree_text{'file_name_conflict_with_section'} = '*document_root C4
     {top}
   *@anchor C1 l3
   |EXTRA
+  |identifier:{Chap}
   |is_target:{1}
-  |normalized:{Chap}
    *brace_arg C1
     {Chap}
   {spaces_after_close_brace:\\n}

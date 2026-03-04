@@ -12,9 +12,9 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -292,9 +292,9 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{name}
  |is_target:{1}
  |node_number:{2}
- |normalized:{name}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -628,10 +628,10 @@ $result_tree_text{'test_index'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
- |normalized:{name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -813,8 +813,8 @@ $result_tree_text{'test_index'} = '*document_root C13
   {empty_line:\\n}
   *@anchor C1 l233
   |EXTRA
+  |identifier:{a-counting-anchor}
   |is_target:{1}
-  |normalized:{a-counting-anchor}
    *brace_arg C1
     {a counting anchor}
   {spaces_after_close_brace:\\n}

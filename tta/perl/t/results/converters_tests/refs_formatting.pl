@@ -12,9 +12,9 @@ $result_tree_text{'refs_formatting'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{1}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -29,8 +29,8 @@ $result_tree_text{'on_def_line'} = '*document_root C1
       *bracketed_arg C1 l1
        *@anchor C1 l1
        |EXTRA
+       |identifier:{in-anchor}
        |is_target:{1}
-       |normalized:{in-anchor}
         *brace_arg C1
          {in anchor}
      {spaces: }
@@ -83,8 +83,8 @@ $result_tree_text{'on_def_line'} = '*document_root C1
       *bracketed_arg C1 l2
        *@anchor C1 l2
        |EXTRA
+       |identifier:{in-anchorx}
        |is_target:{1}
-       |normalized:{in-anchorx}
         *brace_arg C1
          {in anchorx}
      {spaces: }

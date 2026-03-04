@@ -23,9 +23,9 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -66,9 +66,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Pr_00e9s}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Pr_00e9s}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -106,9 +106,9 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Other-node}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Other-node}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -132,8 +132,8 @@ NodeBack: [U1]
   {empty_line:\\n}
   *@anchor C1 transliterated_names_conflicts.texi:l12
   |EXTRA
+  |identifier:{Pr_00eas}
   |is_target:{1}
-  |normalized:{Pr_00eas}
    *brace_arg C1
     {Prês}
   {spaces_after_close_brace:\\n}
@@ -146,8 +146,8 @@ NodeBack: [U1]
   |float_number:{2.1}
   |float_type:{Figure}
   |global_command_number:{1}
+  |identifier:{Pr_00e8s}
   |is_target:{1}
-  |normalized:{Pr_00e8s}
    *arguments_line C2
     *block_line_arg C1
      {Figure}

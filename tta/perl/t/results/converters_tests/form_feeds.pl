@@ -12,9 +12,9 @@ $result_tree_text{'form_feeds'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -27,9 +27,9 @@ $result_tree_text{'form_feeds'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap-node}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -72,8 +72,8 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   {empty_line:\\n}
   *@anchor C1 l17
   |EXTRA
+  |identifier:{aa}
   |is_target:{1}
-  |normalized:{aa}
    *brace_arg C1
     {aa}
   {spaces_after_close_brace:\\f}
@@ -379,8 +379,8 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   |float_number:{1}
   |float_type:{type}
   |global_command_number:{2}
+  |identifier:{fl}
   |is_target:{1}
-  |normalized:{fl}
    *arguments_line C2
     *block_line_arg C1
     |INFO

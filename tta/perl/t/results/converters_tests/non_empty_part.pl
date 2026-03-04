@@ -30,9 +30,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -149,9 +149,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{part-chapter-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{part-chapter-node}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -265,9 +265,9 @@ $result_tree_text{'non_empty_part'} = '*document_root C16
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-between-part-and-chapter}
  |is_target:{1}
  |node_number:{3}
- |normalized:{node-between-part-and-chapter}
   *arguments_line C1
    *line_arg C1
    |INFO

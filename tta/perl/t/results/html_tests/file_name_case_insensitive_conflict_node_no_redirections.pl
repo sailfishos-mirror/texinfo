@@ -13,9 +13,9 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,9 +41,9 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -67,8 +67,8 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
   {empty_line:\\n}
   *@anchor C1 l7
   |EXTRA
+  |identifier:{fOO}
   |is_target:{1}
-  |normalized:{fOO}
    *brace_arg C1
     {fOO}
   {spaces_after_close_brace:\\n}
@@ -78,9 +78,9 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Foo}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Foo}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -107,9 +107,9 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Bar}
  |is_target:{1}
  |node_number:{4}
- |normalized:{Bar}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -136,9 +136,9 @@ $result_tree_text{'file_name_case_insensitive_conflict_node_no_redirections'} = 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{foo}
  |is_target:{1}
  |node_number:{5}
- |normalized:{foo}
   *arguments_line C1
    *line_arg C1
    |INFO

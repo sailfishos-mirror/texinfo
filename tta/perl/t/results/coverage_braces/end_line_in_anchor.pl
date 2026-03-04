@@ -9,8 +9,8 @@ $result_tree_text{'end_line_in_anchor'} = '*document_root C1
  *before_node_section C2
   *@anchor C1 l1
   |EXTRA
+  |identifier:{an-anchor}
   |is_target:{1}
-  |normalized:{an-anchor}
    *brace_arg C2
     {an\\n}
     {anchor}

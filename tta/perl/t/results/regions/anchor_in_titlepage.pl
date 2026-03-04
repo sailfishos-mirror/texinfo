@@ -17,8 +17,8 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
     {empty_line:\\n}
     *@anchor C1 l3
     |EXTRA
+    |identifier:{in-titlepage}
     |is_target:{1}
-    |normalized:{in-titlepage}
      *brace_arg C1
      |EXTRA
      |element_region:{titlepage}
@@ -54,9 +54,9 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -83,9 +83,9 @@ $result_tree_text{'anchor_in_titlepage'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{nchap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{nchap}
   *arguments_line C1
    *line_arg C1
    |INFO

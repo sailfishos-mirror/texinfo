@@ -23,9 +23,9 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Node-1}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Node-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -50,9 +50,9 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Node-2}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Node-2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -77,9 +77,9 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Cap-1}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Cap-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -146,9 +146,9 @@ $result_tree_text{'headings_nodes_before_chapter'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Cap-2}
  |is_target:{1}
  |node_number:{4}
- |normalized:{Cap-2}
   *arguments_line C1
    *line_arg C1
    |INFO

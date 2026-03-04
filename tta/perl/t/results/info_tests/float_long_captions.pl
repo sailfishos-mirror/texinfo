@@ -12,9 +12,9 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -30,8 +30,8 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
   |float_number:{1}
   |float_type:{Text}
   |global_command_number:{1}
+  |identifier:{text1}
   |is_target:{1}
-  |normalized:{text1}
    *arguments_line C2
     *block_line_arg C1
      {Text}
@@ -67,8 +67,8 @@ $result_tree_text{'float_long_captions'} = '*document_root C2
   |float_number:{2}
   |float_type:{Text}
   |global_command_number:{2}
+  |identifier:{text2}
   |is_target:{1}
-  |normalized:{text2}
    *arguments_line C2
     *block_line_arg C1
      {Text}

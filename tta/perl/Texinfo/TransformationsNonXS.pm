@@ -244,7 +244,7 @@ sub _reassociate_to_node($$$) {
     if (defined($previous_node_relations)) {
       my $previous_node = $previous_node_relations->{'element'};
       if ($current->{'extra'}->{'element_node'}
-          ne $previous_node->{'extra'}->{'normalized'}) {
+          ne $previous_node->{'extra'}->{'identifier'}) {
         print STDERR "Bug: element $current not in previous node $previous_node; "
           .Texinfo::Common::debug_print_element($current)."\n";
         print STDERR "  previous node: "
@@ -254,7 +254,7 @@ sub _reassociate_to_node($$$) {
       }
     }
     $current->{'extra'}->{'element_node'}
-      = $new_node_relations->{'element'}->{'extra'}->{'normalized'};
+      = $new_node_relations->{'element'}->{'extra'}->{'identifier'};
   } elsif (exists($current->{'cmdname'})
            and $current->{'cmdname'} eq 'nodedescription') {
     if (!exists($new_node_relations->{'node_description'})) {
@@ -347,8 +347,8 @@ sub insert_nodes_for_sectioning_commands($) {
       # debug
       if ($previous_node_relations->{'element'} ne $content) {
         confess("insert_nodes_for_sectioning_commands: wrong node: '"
-        .$previous_node_relations->{'element'}->{'extra'}->{'normalized'}.
-               "' '".$content->{'extra'}->{'normalized'}."'\n");
+        .$previous_node_relations->{'element'}->{'extra'}->{'identifier'}.
+               "' '".$content->{'extra'}->{'identifier'}."'\n");
       }
       $node_idx++;
       # reset node index taking into account the added nodes
@@ -401,7 +401,7 @@ sub _complete_node_menu($;$) {
     my $current_menu;
     foreach my $node_entry_relations (@node_childs) {
       my $node_entry = $node_entry_relations->{'element'};
-      my $normalized = $node_entry->{'extra'}->{'normalized'};
+      my $normalized = $node_entry->{'extra'}->{'identifier'};
       if (exists($existing_entries{$normalized})) {
         my $entry;
         ($current_menu, $entry) = @{$existing_entries{$normalized}};

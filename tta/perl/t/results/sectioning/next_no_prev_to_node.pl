@@ -12,9 +12,9 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -67,9 +67,9 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap-first-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap-first-node}
   *arguments_line C4
    *line_arg C1
     {chap first node}
@@ -98,9 +98,9 @@ $result_tree_text{'next_no_prev_to_node'} = '*document_root C4
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{no-return}
  |is_target:{1}
  |node_number:{3}
- |normalized:{no-return}
   *arguments_line C4
    *line_arg C1
     {no return}

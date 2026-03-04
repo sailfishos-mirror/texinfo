@@ -28,8 +28,8 @@ $result_tree_text{'protect_first_parenthesis_after_parenthesis_source_mark'} = '
   {empty_line:\\n}
   *@anchor C1 l5
   |EXTRA
+  |identifier:{_0028my_005ff_0029}
   |is_target:{1}
-  |normalized:{_0028my_005ff_0029}
    *brace_arg C2
     *@asis C1
      *brace_container C1

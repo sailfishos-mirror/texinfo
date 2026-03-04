@@ -1714,9 +1714,9 @@ $result_tree_text{'bib_example'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1795,9 +1795,9 @@ $result_tree_text{'bib_example'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Introduction}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Introduction}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1935,9 +1935,9 @@ $result_tree_text{'bib_example'} = '*document_root C9
     |>*brace_container C1
      |>{mybibrefnode}
  |EXTRA
+ |identifier:{References}
  |is_target:{1}
  |node_number:{3}
- |normalized:{References}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -2022,8 +2022,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
     {ignorable_spaces_after_command:\\n}
     *@anchor C1 bib-example.texi:l51:@mybibitem
     |EXTRA
+    |identifier:{LaTeX2e}
     |is_target:{1}
-    |normalized:{LaTeX2e}
      *brace_arg C1
       {LaTeX2e}
     *paragraph C5

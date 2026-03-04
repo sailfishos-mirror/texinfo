@@ -12,9 +12,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -106,9 +106,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{n-c2}
  |is_target:{1}
  |node_number:{2}
- |normalized:{n-c2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -150,9 +150,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{n-c3}
  |is_target:{1}
  |node_number:{3}
- |normalized:{n-c3}
   *arguments_line C4
    *line_arg C1
     {n c3}
@@ -246,9 +246,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{n-c3-s-2}
  |is_target:{1}
  |node_number:{4}
- |normalized:{n-c3-s-2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -335,9 +335,9 @@ $result_tree_text{'more_sections_than_nodes'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{n-c3-s1-s2}
  |is_target:{1}
  |node_number:{5}
- |normalized:{n-c3-s1-s2}
   *arguments_line C4
    *line_arg C1
     {n c3 s1 s2}

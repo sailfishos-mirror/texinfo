@@ -12,9 +12,9 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -36,8 +36,8 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
     {Element}
   *@anchor C1 l3
   |EXTRA
+  |identifier:{anchor-0}
   |is_target:{1}
-  |normalized:{anchor-0}
    *brace_arg C1
     {anchor 0}
   {spaces_after_close_brace:\\n}
@@ -46,8 +46,8 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
    {Now }
    *@anchor C1 l5
    |EXTRA
+   |identifier:{anchor1}
    |is_target:{1}
-   |normalized:{anchor1}
     *brace_arg C1
      {anchor1}
    {.\\n}
@@ -56,8 +56,8 @@ $result_tree_text{'anchor_and_spaces'} = '*document_root C3
    {No space}
    *@anchor C1 l7
    |EXTRA
+   |identifier:{anchor2}
    |is_target:{1}
-   |normalized:{anchor2}
     *brace_arg C1
      {anchor2}
    {.\\n}

@@ -61,9 +61,9 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a}
  |is_target:{1}
  |node_number:{1}
- |normalized:{a}
   *arguments_line C4
    *line_arg C1
    |INFO
@@ -221,8 +221,8 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   |float_number:{1}
   |float_type:{ff}
   |global_command_number:{1}
+  |identifier:{b}
   |is_target:{1}
-  |normalized:{b}
    *arguments_line C2
     *block_line_arg C1
     |INFO

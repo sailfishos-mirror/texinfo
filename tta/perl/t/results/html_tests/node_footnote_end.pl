@@ -26,9 +26,9 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -109,9 +109,9 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_00e1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -144,9 +144,9 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e2}
  |is_target:{1}
  |node_number:{3}
- |normalized:{_00e2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -179,9 +179,9 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{4}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -239,9 +239,9 @@ $result_tree_text{'node_footnote_end'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e0}
  |is_target:{1}
  |node_number:{5}
- |normalized:{_00e0}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -890,7 +890,8 @@ sub format_node($$;$) {
                              $node_direction->{'extra'}->{'manual_content'},
                                Texinfo::TreeElement::new({'text' => ')'})]}));
       }
-      if (exists($node_direction->{'extra'}->{'normalized'})) {
+      if (exists($node_direction->{'extra'}->{'identifier'})
+          or exists($node_direction->{'extra'}->{'normalized'})) {
         my $pre_quote = '';
         my $post_quote = '';
         my ($node_text, undef) = $self->node_name($node_direction);
@@ -914,7 +915,7 @@ sub format_node($$;$) {
         $self->_stream_output_encoded($pre_quote . $node_text . $post_quote);
       }
     } elsif ($direction eq 'Up'
-             and $node->{'extra'}->{'normalized'} eq 'Top') {
+             and $node->{'extra'}->{'identifier'} eq 'Top') {
       # add an up direction for Top node
       my $top_node_up = $self->get_conf('TOP_NODE_UP');
       if (defined($top_node_up)) {

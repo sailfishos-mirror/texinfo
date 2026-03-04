@@ -13,9 +13,9 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-before}
  |is_target:{1}
  |node_number:{1}
- |normalized:{node-before}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -44,9 +44,9 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -62,9 +62,9 @@ $result_tree_text{'node_sectop_before_lone_node_Top'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{3}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO

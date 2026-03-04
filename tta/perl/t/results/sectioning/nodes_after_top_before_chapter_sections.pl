@@ -16,9 +16,9 @@ NodeUp: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -72,9 +72,9 @@ NodeUp: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{second-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{second-node}
   *arguments_line C4
    *line_arg C1
     {second node}
@@ -108,9 +108,9 @@ NodeUp: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{third-node}
  |is_target:{1}
  |node_number:{3}
- |normalized:{third-node}
   *arguments_line C4
    *line_arg C1
     {third node}

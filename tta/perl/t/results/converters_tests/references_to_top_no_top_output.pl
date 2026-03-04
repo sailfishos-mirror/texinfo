@@ -33,8 +33,8 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
      {Copying\\n}
      *@anchor C1 l6
      |EXTRA
+     |identifier:{a-in-copying}
      |is_target:{1}
-     |normalized:{a-in-copying}
       *brace_arg C1
       |EXTRA
       |element_region:{copying}
@@ -57,9 +57,9 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -85,8 +85,8 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   {empty_line:\\n}
   *@anchor C1 l14
   |EXTRA
+  |identifier:{a-in-top}
   |is_target:{1}
-  |normalized:{a-in-top}
    *brace_arg C1
     {a in top}
   {spaces_after_close_brace:\\n}
@@ -95,8 +95,8 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
    {Paragraph }
    *@anchor C1 l16
    |EXTRA
+   |identifier:{a-in-paragraph-in-top}
    |is_target:{1}
-   |normalized:{a-in-paragraph-in-top}
     *brace_arg C1
      {a in paragraph in top}
    {.\\n}
@@ -110,8 +110,8 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
       {in footnote }
       *@anchor C1 l18
       |EXTRA
+      |identifier:{a-in-footnote}
       |is_target:{1}
-      |normalized:{a-in-footnote}
        *brace_arg C1
         {a in footnote}
    {\\n}
@@ -132,8 +132,8 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |float_number:{1}
   |float_type:{list}
   |global_command_number:{1}
+  |identifier:{My-Flist}
   |is_target:{1}
-  |normalized:{My-Flist}
    *arguments_line C2
     *block_line_arg C1
      {list}
@@ -148,8 +148,8 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
     {In Flist\\n}
     *@anchor C1 l24
     |EXTRA
+    |identifier:{a-in-float}
     |is_target:{1}
-    |normalized:{a-in-float}
      *brace_arg C1
       {a in float}
     {.\\n}
@@ -159,8 +159,8 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
       {Caption Flist. }
       *@anchor C1 l25
       |EXTRA
+      |identifier:{a-in-caption}
       |is_target:{1}
-      |normalized:{a-in-caption}
        *brace_arg C1
         {a in caption}
    {spaces_after_close_brace:\\n}
@@ -197,10 +197,10 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -300,8 +300,8 @@ $result_tree_text{'references_to_top_no_top_output'} = '*document_root C5
   |float_number:{1.1}
   |float_type:{list}
   |global_command_number:{2}
+  |identifier:{Main-Flist}
   |is_target:{1}
-  |normalized:{Main-Flist}
    *arguments_line C2
     *block_line_arg C1
      {list}

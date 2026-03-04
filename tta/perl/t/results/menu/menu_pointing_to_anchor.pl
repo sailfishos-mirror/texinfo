@@ -12,9 +12,9 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -40,8 +40,8 @@ $result_tree_text{'menu_pointing_to_anchor'} = '*document_root C3
   {empty_line:\\n}
   *@anchor C1 l6
   |EXTRA
+  |identifier:{An-anchor}
   |is_target:{1}
-  |normalized:{An-anchor}
    *brace_arg C1
     {An anchor}
   {spaces_after_close_brace:\\n}

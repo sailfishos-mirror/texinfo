@@ -562,7 +562,7 @@ sub my_label_target_name($$$$) {
   my ($converter, $normalized, $label_element, $default_target) = @_;
   if (defined($normalized)) {
     my $element = $converter->converter_find_identifier_target($normalized);
-    return 'prepended_to_labels-'.$element->{'extra'}->{'normalized'};
+    return 'prepended_to_labels-'.$element->{'extra'}->{'identifier'};
   }
   return $default_target;
 }

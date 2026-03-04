@@ -13,9 +13,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -384,9 +384,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{blah_003ablah}
  |is_target:{1}
  |node_number:{2}
- |normalized:{blah_003ablah}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -416,9 +416,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{blumpty_002efump}
  |is_target:{1}
  |node_number:{3}
- |normalized:{blumpty_002efump}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -445,9 +445,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{normal-node}
  |is_target:{1}
  |node_number:{4}
- |normalized:{normal-node}
   *arguments_line C4
    *line_arg C1
     {normal node}
@@ -515,9 +515,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{secret_002cnode}
  |is_target:{1}
  |node_number:{5}
- |normalized:{secret_002cnode}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -548,9 +548,9 @@ $result_tree_text{'quote_node_names_info'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{top-secret-node}
  |is_target:{1}
  |node_number:{6}
- |normalized:{top-secret-node}
   *arguments_line C1
    *line_arg C1
    |INFO

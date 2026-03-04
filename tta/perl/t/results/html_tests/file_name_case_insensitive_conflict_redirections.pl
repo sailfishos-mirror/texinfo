@@ -13,9 +13,9 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -77,8 +77,8 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
     *table_definition C4
      *@anchor C1 l9
      |EXTRA
+     |identifier:{foo}
      |is_target:{1}
-     |normalized:{foo}
       *brace_arg C1
        {foo}
      {spaces_after_close_brace:\\n}
@@ -103,8 +103,8 @@ $result_tree_text{'file_name_case_insensitive_conflict_redirections'} = '*docume
     *table_definition C4
      *@anchor C1 l13
      |EXTRA
+     |identifier:{Foo}
      |is_target:{1}
-     |normalized:{Foo}
       *brace_arg C1
        {Foo}
      {spaces_after_close_brace:\\n}

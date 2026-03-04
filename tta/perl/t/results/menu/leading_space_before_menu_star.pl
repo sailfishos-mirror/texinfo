@@ -12,9 +12,9 @@ $result_tree_text{'leading_space_before_menu_star'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-node}
  |is_target:{1}
  |node_number:{1}
- |normalized:{a-node}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -31,8 +31,8 @@ $result_tree_text{'example_invalid_at_commands_arguments'} = '*document_root C1
      |{spaces_before_argument: }
      *@anchor C1 l1
      |EXTRA
+     |identifier:{an-anchor}
      |is_target:{1}
-     |normalized:{an-anchor}
       *brace_arg C1
        {an anchor}
      {spaces_after_close_brace: }

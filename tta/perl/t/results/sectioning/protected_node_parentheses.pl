@@ -13,9 +13,9 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first}
  |is_target:{1}
  |node_number:{1}
- |normalized:{first}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -73,9 +73,9 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_0028manual_0029-name}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_0028manual_0029-name}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -88,8 +88,8 @@ $result_tree_text{'protected_node_parentheses'} = '*document_root C4
   {empty_line:\\n}
   *@anchor C1 l11
   |EXTRA
+  |identifier:{_0028manual2_0029-name2}
   |is_target:{1}
-  |normalized:{_0028manual2_0029-name2}
    *brace_arg C2
     *@asis C1 l11
      *brace_container C1

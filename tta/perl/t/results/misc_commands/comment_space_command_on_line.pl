@@ -31,9 +31,9 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -80,10 +80,10 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -249,8 +249,8 @@ $result_tree_text{'comment_space_command_on_line'} = '*document_root C6
   |float_number:{1.1}
   |float_type:{Text}
   |global_command_number:{1}
+  |identifier:{label}
   |is_target:{1}
-  |normalized:{label}
    *arguments_line C2
     *block_line_arg C1
      {Text}

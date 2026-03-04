@@ -5942,7 +5942,7 @@ html_set_pages_files (CONVERTER *self, const OUTPUT_UNIT_LIST *output_units,
                     {
                       const ELEMENT *node_target = 0;
                       const char *normalized = lookup_extra_string (root_command,
-                                                               AI_key_normalized);
+                                                               AI_key_identifier);
                       if (normalized)
                         node_target
                          = find_identifier_target (

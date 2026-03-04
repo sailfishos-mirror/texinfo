@@ -13,9 +13,9 @@ $result_tree_text{'in_table'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -27,10 +27,10 @@ $result_tree_text{'in_table'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -87,8 +87,8 @@ $result_tree_text{'in_table'} = '*document_root C3
        { }
        *@anchor C1 l9
        |EXTRA
+       |identifier:{in-anchor}
        |is_target:{1}
-       |normalized:{in-anchor}
         *brace_arg C1
          {in anchor}
        *@footnote C1 l9

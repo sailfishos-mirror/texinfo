@@ -3245,7 +3245,7 @@ sub _convert_heading_command($$$$$) {
     if (defined($output_unit) and exists($output_unit->{'unit_node'})
         and $output_unit->{'unit_node'} eq $node_relations
         and !exists($node_relations->{'associated_title_command'})) {
-      if ($element->{'extra'}->{'normalized'} eq 'Top') {
+      if ($element->{'extra'}->{'identifier'} eq 'Top') {
         $heading_level = 0;
       } else {
         # use node
@@ -5369,8 +5369,8 @@ sub _open_node_part_command($$$) {
     }
     if (defined($node_element) or $cmdname eq 'part') {
       if (defined($node_element) and exists($node_element->{'extra'})
-          and exists($node_element->{'extra'}->{'normalized'})
-          and $node_element->{'extra'}->{'normalized'} eq 'Top') {
+          and exists($node_element->{'extra'}->{'identifier'})
+          and $node_element->{'extra'}->{'identifier'} eq 'Top') {
         $in_skipped_node_top = 1;
         $self->set_shared_conversion_state('top', 'in_skipped_node_top',
                                            $in_skipped_node_top);

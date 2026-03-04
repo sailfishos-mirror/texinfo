@@ -27,10 +27,10 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first-before-top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
- |normalized:{first-before-top}
   *arguments_line C4
    *line_arg C1
     {first before top}
@@ -115,10 +115,10 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-in-menu-before-top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{node-in-menu-before-top}
   *arguments_line C4
    *line_arg C1
     {node in menu before top}
@@ -179,10 +179,10 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
- |normalized:{Top}
   *arguments_line C3
    *line_arg C1
     {Top}
@@ -287,10 +287,10 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap-first}
  |is_target:{1}
  |isindex:{1}
  |node_number:{4}
- |normalized:{chap-first}
   *arguments_line C4
    *line_arg C1
     {chap first}
@@ -396,10 +396,10 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{second}
  |is_target:{1}
  |isindex:{1}
  |node_number:{5}
- |normalized:{second}
   *arguments_line C4
    *line_arg C1
     {second}
@@ -471,9 +471,9 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{another}
  |is_target:{1}
  |node_number:{6}
- |normalized:{another}
   *arguments_line C4
    *line_arg C1
     {another}
@@ -542,10 +542,10 @@ $result_tree_text{'nodes_before_top_split_chapter'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-node}
  |is_target:{1}
  |isindex:{1}
  |node_number:{7}
- |normalized:{a-node}
   *arguments_line C4
    *line_arg C1
     {a node}

@@ -12,9 +12,9 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -96,9 +96,9 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{node1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -128,8 +128,8 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
      |{spaces_after_argument:\\n}
    *@anchor C1 l15
    |EXTRA
+   |identifier:{in-nodescription}
    |is_target:{1}
-   |normalized:{in-nodescription}
     *brace_arg C1
      {in nodescription}
    {spaces_after_close_brace:\\n}
@@ -175,8 +175,8 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
    |float_number:{1.1}
    |float_type:{tfloat}
    |global_command_number:{1}
+   |identifier:{f1}
    |is_target:{1}
-   |normalized:{f1}
     *arguments_line C2
      *block_line_arg C1
       {tfloat}
@@ -228,10 +228,10 @@ $result_tree_text{'commands_in_nodedescriptionblock'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node2}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
- |normalized:{node2}
   *arguments_line C1
    *line_arg C1
    |INFO

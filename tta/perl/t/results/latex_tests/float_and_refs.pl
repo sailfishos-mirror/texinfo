@@ -13,9 +13,9 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,9 +41,9 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -73,8 +73,8 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   |float_number:{1.1}
   |float_type:{}
   |global_command_number:{1}
+  |identifier:{no-type}
   |is_target:{1}
-  |normalized:{no-type}
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -116,8 +116,8 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   |float_number:{1.1}
   |float_type:{Thing}
   |global_command_number:{2}
+  |identifier:{with-type}
   |is_target:{1}
-  |normalized:{with-type}
    *arguments_line C2
     *block_line_arg C1
      {Thing}
@@ -160,8 +160,8 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
   |float_number:{1.1}
   |float_type:{Figure}
   |global_command_number:{3}
+  |identifier:{my-figure}
   |is_target:{1}
-  |normalized:{my-figure}
    *arguments_line C2
     *block_line_arg C1
      {Figure}

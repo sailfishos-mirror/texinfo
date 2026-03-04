@@ -16,10 +16,10 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -150,10 +150,10 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{first}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -391,10 +391,10 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{section-1}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
- |normalized:{section-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -502,9 +502,9 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{subsection-1}
  |is_target:{1}
  |node_number:{4}
- |normalized:{subsection-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -534,10 +534,10 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{subsection-2}
  |is_target:{1}
  |isindex:{1}
  |node_number:{5}
- |normalized:{subsection-2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -606,9 +606,9 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{section-2}
  |is_target:{1}
  |node_number:{6}
- |normalized:{section-2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -638,10 +638,10 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{section-3}
  |is_target:{1}
  |isindex:{1}
  |node_number:{7}
- |normalized:{section-3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -694,9 +694,9 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-in-section-3}
  |is_target:{1}
  |node_number:{8}
- |normalized:{node-in-section-3}
   *arguments_line C4
    *line_arg C1
     {node in section 3}
@@ -735,10 +735,10 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-2-in-section-3}
  |is_target:{1}
  |isindex:{1}
  |node_number:{9}
- |normalized:{node-2-in-section-3}
   *arguments_line C4
    *line_arg C1
     {node 2 in section 3}
@@ -825,9 +825,9 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-3-in-section-3}
  |is_target:{1}
  |node_number:{10}
- |normalized:{node-3-in-section-3}
   *arguments_line C4
    *line_arg C1
     {node 3 in section 3}
@@ -860,9 +860,9 @@ $result_tree_text{'index_split_split_chapter_no_nodes'} = '*document_root C21
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{second-chapter}
  |is_target:{1}
  |node_number:{11}
- |normalized:{second-chapter}
   *arguments_line C1
    *line_arg C1
    |INFO

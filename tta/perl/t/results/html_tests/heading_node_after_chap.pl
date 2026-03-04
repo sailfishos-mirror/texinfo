@@ -22,9 +22,9 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Cap-1}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Cap-1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,9 +69,9 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Cap-2}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Cap-2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -98,9 +98,9 @@ $result_tree_text{'heading_node_after_chap'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Node-1}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Node-1}
   *arguments_line C1
    *line_arg C1
    |INFO

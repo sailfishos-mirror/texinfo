@@ -1445,7 +1445,7 @@ sub print_listoffloats_types($) {
          next;
       }
       my $float_type = $float->{'extra'}->{'float_type'};
-      my $float_normalized = $float->{'extra'}->{'normalized'};
+      my $float_normalized = $float->{'extra'}->{'identifier'};
       my $float_number = $float->{'extra'}->{'float_number'};
       if (!defined($float_type) or $float_type ne $type) {
         $float_normalized = 'UNDEF' unless(defined($float_normalized));

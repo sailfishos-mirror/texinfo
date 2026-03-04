@@ -52,9 +52,9 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{bar}
  |is_target:{1}
  |node_number:{1}
- |normalized:{bar}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -110,9 +110,9 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{onesub1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{onesub1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -139,9 +139,9 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{onesub2}
  |is_target:{1}
  |node_number:{3}
- |normalized:{onesub2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -169,9 +169,9 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{foo}
  |is_target:{1}
  |node_number:{4}
- |normalized:{foo}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -249,9 +249,9 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{sub1}
  |is_target:{1}
  |node_number:{5}
- |normalized:{sub1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -278,9 +278,9 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{sub2}
  |is_target:{1}
  |node_number:{6}
- |normalized:{sub2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -307,9 +307,9 @@ $result_tree_text{'menutextorder'} = '*document_root C15
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{sub3}
  |is_target:{1}
  |node_number:{7}
- |normalized:{sub3}
   *arguments_line C1
    *line_arg C1
    |INFO

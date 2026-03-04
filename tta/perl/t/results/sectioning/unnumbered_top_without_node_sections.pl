@@ -20,9 +20,9 @@ NodeUp: (dir)
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-node}
  |is_target:{1}
  |node_number:{1}
- |normalized:{a-node}
   *arguments_line C4
    *line_arg C1
     {a node}
@@ -93,9 +93,9 @@ NodeUp: (dir)
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{second}
  |is_target:{1}
  |node_number:{2}
- |normalized:{second}
   *arguments_line C4
    *line_arg C1
     {second}

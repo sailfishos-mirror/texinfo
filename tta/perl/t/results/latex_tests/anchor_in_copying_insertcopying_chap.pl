@@ -18,8 +18,8 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
      {Cop. }
      *@anchor C1 l2
      |EXTRA
+     |identifier:{a-in-copying}
      |is_target:{1}
-     |normalized:{a-in-copying}
       *brace_arg C1
       |EXTRA
       |element_region:{copying}
@@ -42,9 +42,9 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -70,9 +70,9 @@ $result_tree_text{'anchor_in_copying_insertcopying_chap'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
    |INFO

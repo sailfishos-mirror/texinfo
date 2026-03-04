@@ -18,8 +18,8 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   |float_number:{1}
   |float_type:{}
   |global_command_number:{1}
+  |identifier:{label1}
   |is_target:{1}
-  |normalized:{label1}
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1
@@ -51,8 +51,8 @@ $result_tree_text{'empty_listoffloats_with_floats'} = '*document_root C1
   |float_number:{2}
   |float_type:{}
   |global_command_number:{2}
+  |identifier:{label2}
   |is_target:{1}
-  |normalized:{label2}
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1

@@ -26,9 +26,9 @@ $result_tree_text{'text_before_line_command'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{LD-Version-Scripts}
  |is_target:{1}
  |node_number:{1}
- |normalized:{LD-Version-Scripts}
   *arguments_line C1
    *line_arg C1
    |INFO

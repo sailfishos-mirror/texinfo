@@ -16,9 +16,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -88,9 +88,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{guide1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{guide1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -171,9 +171,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{topic1}
  |is_target:{1}
  |node_number:{3}
- |normalized:{topic1}
   *arguments_line C2
    *line_arg C1
     {topic1}
@@ -229,9 +229,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{topic2}
  |is_target:{1}
  |node_number:{4}
- |normalized:{topic2}
   *arguments_line C3
    *line_arg C1
     {topic2}
@@ -295,9 +295,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{topic3}
  |is_target:{1}
  |node_number:{5}
- |normalized:{topic3}
   *arguments_line C3
    *line_arg C1
     {topic3}
@@ -350,9 +350,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{topic4}
  |is_target:{1}
  |node_number:{6}
- |normalized:{topic4}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -401,9 +401,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{topic5}
  |is_target:{1}
  |node_number:{7}
- |normalized:{topic5}
   *arguments_line C3
    *line_arg C1
     {topic5}
@@ -474,9 +474,9 @@ $result_tree_text{'topic_guide'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{guide2}
  |is_target:{1}
  |node_number:{8}
- |normalized:{guide2}
   *arguments_line C1
    *line_arg C1
    |INFO

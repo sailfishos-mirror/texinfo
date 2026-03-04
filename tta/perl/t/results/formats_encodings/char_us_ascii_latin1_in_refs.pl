@@ -30,10 +30,10 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -145,9 +145,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -174,9 +174,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e9}
  |is_target:{1}
  |node_number:{3}
- |normalized:{_00e9}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -203,9 +203,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e0-_00e8-_00f9}
  |is_target:{1}
  |node_number:{4}
- |normalized:{_00e0-_00e8-_00f9}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -232,9 +232,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db}
  |is_target:{1}
  |node_number:{5}
- |normalized:{_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -261,9 +261,9 @@ $result_tree_text{'char_us_ascii_latin1_in_refs'} = '*document_root C14
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e7}
  |is_target:{1}
  |node_number:{6}
- |normalized:{_00e7}
   *arguments_line C1
    *line_arg C1
    |INFO

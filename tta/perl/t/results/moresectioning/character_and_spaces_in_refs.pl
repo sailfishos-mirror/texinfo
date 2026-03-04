@@ -13,9 +13,9 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -81,9 +81,9 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-to-avoid-DocBook-or-LaTeX-ignored}
  |is_target:{1}
  |node_number:{2}
- |normalized:{node-to-avoid-DocBook-or-LaTeX-ignored}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -243,9 +243,9 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{other-nodes}
  |is_target:{1}
  |node_number:{3}
- |normalized:{other-nodes}
   *arguments_line C4
    *line_arg C1
     {other nodes}
@@ -346,9 +346,9 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
  |is_target:{1}
  |node_number:{4}
- |normalized:{_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e}
   *arguments_line C4
    *line_arg C1
     {!_"#$%&\'()*+-.}
@@ -384,9 +384,9 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
  |is_target:{1}
  |node_number:{5}
- |normalized:{_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e}
   *arguments_line C4
    *line_arg C1
     {/;<=>?[\\]^_`|~}
@@ -416,9 +416,9 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
  |spaces_before_argument:
   |{spaces_before_argument:  }
  |EXTRA
+ |identifier:{local-node}
  |is_target:{1}
  |node_number:{6}
- |normalized:{local-node}
   *arguments_line C4
    *line_arg C1
     {local   node}

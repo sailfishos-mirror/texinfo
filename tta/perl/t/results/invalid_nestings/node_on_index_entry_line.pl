@@ -24,9 +24,9 @@ $result_tree_text{'node_on_index_entry_line'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a}
  |is_target:{1}
  |node_number:{1}
- |normalized:{a}
   *arguments_line C4
    *line_arg C1
     {a}

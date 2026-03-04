@@ -52,9 +52,9 @@ $result_tree_text{'paragraphindent_in_preamble_and_in_document'} = '*document_ro
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO

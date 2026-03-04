@@ -57,9 +57,9 @@ $result_tree_text{'line_breaks'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -87,9 +87,9 @@ $result_tree_text{'line_breaks'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-new-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{a-new-node}
   *arguments_line C1
    *line_arg C3
    |INFO

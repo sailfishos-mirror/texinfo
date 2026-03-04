@@ -19,9 +19,9 @@ NodeForward: [U1]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -100,9 +100,9 @@ NodeBack: [U0]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e3}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_00e3}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -144,9 +144,9 @@ NodeBack: [U1]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{n}
  |is_target:{1}
  |node_number:{3}
- |normalized:{n}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -168,9 +168,9 @@ NodeBack: [U2]
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e2}
  |is_target:{1}
  |node_number:{4}
- |normalized:{_00e2}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -12,9 +12,9 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -84,9 +84,9 @@ $result_tree_text{'contents_at_end_document_after_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{a-node}
   *arguments_line C4
    *line_arg C1
     {a node}

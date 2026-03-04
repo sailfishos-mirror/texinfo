@@ -739,16 +739,16 @@ sub set_output_units_files($$$$$$) {
               and $root_command->{'cmdname'} eq 'node') {
             my $node_filename;
             # double node are not normalized, they are handled here
-            if (!defined($root_command->{'extra'}->{'normalized'})
+            if (!defined($root_command->{'extra'}->{'identifier'})
                 or !defined($identifiers_target->{
-                               $root_command->{'extra'}->{'normalized'}})) {
+                               $root_command->{'extra'}->{'identifier'}})) {
               $node_filename = 'unknown_node';
             } else {
               # arguments_line type element
               my $arguments_line = $root_command->{'contents'}->[0];
               $node_filename
                = $self->node_information_filename(
-                               $root_command->{'extra'}->{'normalized'},
+                               $root_command->{'extra'}->{'identifier'},
                         # node label is the first arguments_line content,
                         # the first argument on the line
                                   $arguments_line->{'contents'}->[0]);

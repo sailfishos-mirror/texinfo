@@ -48,8 +48,8 @@ $result_tree_text{'paragraph_no_paragraph'} = '*document_root C1
      >{macro_call_arg_text:and @code{more}}
   *@anchor C1 l5:@mycommand
   |EXTRA
+  |identifier:{aa}
   |is_target:{1}
-  |normalized:{aa}
    *brace_arg C1
     {aa}
   *paragraph C3

@@ -7553,7 +7553,7 @@ html_convert_heading_command (CONVERTER *self, const enum command_id cmd,
     {
       const ELEMENT *associated_title_command
         = node_relations->associated_title_command;
-      const char *normalized = lookup_extra_string (element, AI_key_normalized);
+      const char *normalized = lookup_extra_string (element, AI_key_identifier);
       if (output_unit && output_unit->unit_node
           && output_unit->unit_node == node_relations
           && !associated_title_command)
@@ -11260,7 +11260,7 @@ html_open_node_part_command (CONVERTER *self, const enum command_id cmd,
           if (node_element)
             {
               const char *normalized = lookup_extra_string (node_element,
-                                                        AI_key_normalized);
+                                                        AI_key_identifier);
               if (normalized && !strcmp (normalized, "Top"))
                 {
                   node_is_top = 1;

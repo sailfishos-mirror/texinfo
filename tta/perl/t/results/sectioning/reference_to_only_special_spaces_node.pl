@@ -15,9 +15,9 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -43,9 +43,9 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_2002_2003_2002}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_2002_2003_2002}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -89,8 +89,8 @@ $result_tree_text{'reference_to_only_special_spaces_node'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_2002_2003_2002}
  |node_number:{3}
- |normalized:{_2002_2003_2002}
   *arguments_line C1
    *line_arg C1
    |INFO

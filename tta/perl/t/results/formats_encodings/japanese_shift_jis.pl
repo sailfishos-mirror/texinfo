@@ -63,9 +63,9 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -173,9 +173,9 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Preface}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Preface}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -206,9 +206,9 @@ $result_tree_text{'japanese_shift_jis'} = '*document_root C8
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Introduction}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Introduction}
   *arguments_line C1
    *line_arg C1
    |INFO

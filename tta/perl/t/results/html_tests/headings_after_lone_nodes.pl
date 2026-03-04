@@ -12,9 +12,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -40,9 +40,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,9 +69,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Qt}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Qt}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -99,9 +99,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Other}
  |is_target:{1}
  |node_number:{4}
- |normalized:{Other}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -111,8 +111,8 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
   {empty_line:\\n}
   *@anchor C1 l14
   |EXTRA
+  |identifier:{toto}
   |is_target:{1}
-  |normalized:{toto}
    *brace_arg C1
     {toto}
   {spaces_after_close_brace:\\n}
@@ -236,9 +236,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Not-associated}
  |is_target:{1}
  |node_number:{5}
- |normalized:{Not-associated}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -267,9 +267,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{2-not}
  |is_target:{1}
  |node_number:{6}
- |normalized:{2-not}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -315,9 +315,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{3-not}
  |is_target:{1}
  |node_number:{7}
- |normalized:{3-not}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -363,9 +363,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{4-not}
  |is_target:{1}
  |node_number:{8}
- |normalized:{4-not}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -403,9 +403,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{5-not}
  |is_target:{1}
  |node_number:{9}
- |normalized:{5-not}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -460,9 +460,9 @@ $result_tree_text{'headings_after_lone_nodes'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{subnode}
  |is_target:{1}
  |node_number:{10}
- |normalized:{subnode}
   *arguments_line C1
    *line_arg C1
    |INFO

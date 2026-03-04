@@ -13,9 +13,9 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -83,9 +83,9 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument:  }
  |EXTRA
+ |identifier:{Chap-first-here}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chap-first-here}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -98,9 +98,9 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Test-title}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Test-title}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -113,9 +113,9 @@ $result_tree_text{'space_in_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument:   }
  |EXTRA
+ |identifier:{Last-with-spaces}
  |is_target:{1}
  |node_number:{4}
- |normalized:{Last-with-spaces}
   *arguments_line C1
    *line_arg C1
    |INFO

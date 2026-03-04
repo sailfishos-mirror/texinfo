@@ -16,8 +16,8 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   |float_number:{1}
   |float_type:{a}
   |global_command_number:{1}
+  |identifier:{b}
   |is_target:{1}
-  |normalized:{b}
    *arguments_line C2
     *block_line_arg C1
      {a}
@@ -53,8 +53,8 @@ $result_tree_text{'empty_caption'} = '*document_root C1
   |float_number:{1}
   |float_type:{}
   |global_command_number:{2}
+  |identifier:{c}
   |is_target:{1}
-  |normalized:{c}
    *arguments_line C2
     *block_line_arg
     *block_line_arg C1

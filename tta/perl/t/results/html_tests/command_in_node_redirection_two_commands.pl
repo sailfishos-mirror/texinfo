@@ -13,9 +13,9 @@ $result_tree_text{'command_in_node_redirection_two_commands'} = '*document_root 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,8 +41,8 @@ $result_tree_text{'command_in_node_redirection_two_commands'} = '*document_root 
   {empty_line:\\n}
   *@anchor C1 l4
   |EXTRA
+  |identifier:{ll-jj}
   |is_target:{1}
-  |normalized:{ll-jj}
    *brace_arg C3
     *@sansserif C1 l4
      *brace_container C1

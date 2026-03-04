@@ -12,9 +12,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -40,9 +40,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,9 +69,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Section}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Section}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -98,9 +98,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{-1}
  |is_target:{1}
  |node_number:{4}
- |normalized:{-1}
   *arguments_line C1
    *line_arg C2
    |INFO
@@ -129,9 +129,9 @@ $result_tree_text{'test_fill_gaps_in_sectioning_insert_nodes'} = '*document_root
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{There}
  |is_target:{1}
  |node_number:{5}
- |normalized:{There}
   *arguments_line C1
    *line_arg C1
    |INFO

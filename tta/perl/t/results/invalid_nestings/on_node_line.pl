@@ -12,9 +12,9 @@ $result_tree_text{'on_node_line'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a}
  |is_target:{1}
  |node_number:{1}
- |normalized:{a}
   *arguments_line C2
    *line_arg C1
     *@ref C4 l1
@@ -59,8 +59,8 @@ $result_tree_text{'on_node_line'} = '*document_root C2
     { }
     *@anchor C1 l1
     |EXTRA
+    |identifier:{in-anchor}
     |is_target:{1}
-    |normalized:{in-anchor}
      *brace_arg C1
       {in anchor}
     *@footnote C1 l1

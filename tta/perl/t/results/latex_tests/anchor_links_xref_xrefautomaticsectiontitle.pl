@@ -13,9 +13,9 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-before}
  |is_target:{1}
  |node_number:{1}
- |normalized:{node-before}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -27,8 +27,8 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    {In node before\\n}
    *@anchor C1 l4
    |EXTRA
+   |identifier:{anch_003a-in-node-before}
    |is_target:{1}
-   |normalized:{anch_003a-in-node-before}
     *brace_arg C1
      {anch: in node before}
    {spaces_after_close_brace:\\n}
@@ -38,9 +38,9 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -65,8 +65,8 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    {in node Top\\n}
    *@anchor C1 l10
    |EXTRA
+   |identifier:{anch_003a-in-node-top}
    |is_target:{1}
-   |normalized:{anch_003a-in-node-top}
     *brace_arg C1
      {anch: in node top}
    {spaces_after_close_brace:\\n}
@@ -76,9 +76,9 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{after}
  |is_target:{1}
  |node_number:{3}
- |normalized:{after}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -90,8 +90,8 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    {in node after\\n}
    *@anchor C1 l15
    |EXTRA
+   |identifier:{anch_003a-in-node-after}
    |is_target:{1}
-   |normalized:{anch_003a-in-node-after}
     *brace_arg C1
      {anch: in node after}
    {spaces_after_close_brace:\\n}
@@ -101,9 +101,9 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{4}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -129,8 +129,8 @@ $result_tree_text{'anchor_links_xref_xrefautomaticsectiontitle'} = '*document_ro
    {in chap\\n}
    *@anchor C1 l21
    |EXTRA
+   |identifier:{anch_003a-in-chap}
    |is_target:{1}
-   |normalized:{anch_003a-in-chap}
     *brace_arg C1
      {anch: in chap}
    {spaces_after_close_brace:\\n}

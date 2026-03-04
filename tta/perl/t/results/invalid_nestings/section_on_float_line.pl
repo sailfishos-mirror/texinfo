@@ -15,8 +15,8 @@ $result_tree_text{'section_on_float_line'} = '*document_root C2
   |float_number:{1}
   |float_type:{t}
   |global_command_number:{1}
+  |identifier:{l}
   |is_target:{1}
-  |normalized:{l}
    *arguments_line C2
     *block_line_arg C1
      {t}

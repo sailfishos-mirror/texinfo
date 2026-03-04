@@ -13,9 +13,9 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -75,9 +75,9 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{One_003a_003anode_002c-with-entries_002e}
  |is_target:{1}
  |node_number:{2}
- |normalized:{One_003a_003anode_002c-with-entries_002e}
   *arguments_line C1
    *line_arg C5
    |INFO
@@ -194,10 +194,10 @@ $result_tree_text{'colons_in_index_entries_and_node_no_quoting'} = '*document_ro
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Concept-Index}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
- |normalized:{Concept-Index}
   *arguments_line C1
    *line_arg C1
    |INFO

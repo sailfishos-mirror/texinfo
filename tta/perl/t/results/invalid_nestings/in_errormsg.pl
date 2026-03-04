@@ -10,8 +10,8 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
   {empty_line:\\n}
   *@anchor C1 l2
   |EXTRA
+  |identifier:{in-ref}
   |is_target:{1}
-  |normalized:{in-ref}
    *brace_arg C1
     {in ref}
   {spaces_after_close_brace:\\n}
@@ -21,8 +21,8 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
     *brace_arg C3
      *@anchor C1 l3
      |EXTRA
+     |identifier:{in-anchor}
      |is_target:{1}
-     |normalized:{in-anchor}
       *brace_arg C1
        {in anchor}
      {spaces_after_close_brace: }

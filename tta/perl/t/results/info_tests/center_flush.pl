@@ -39,8 +39,8 @@ $result_tree_text{'center_flush'} = '*document_root C1
     {Now anchor\\n}
     *@anchor C1 l14
     |EXTRA
+    |identifier:{anchor-in-flushleft}
     |is_target:{1}
-    |normalized:{anchor-in-flushleft}
      *brace_arg C1
       {anchor in flushleft}
     {spaces_after_close_brace:\\n}
@@ -79,8 +79,8 @@ $result_tree_text{'center_flush'} = '*document_root C1
     {Now anchor\\n}
     *@anchor C1 l29
     |EXTRA
+    |identifier:{anchor-in-flushright}
     |is_target:{1}
-    |normalized:{anchor-in-flushright}
      *brace_arg C1
       {anchor in flushright}
     {spaces_after_close_brace:\\n}
@@ -88,8 +88,8 @@ $result_tree_text{'center_flush'} = '*document_root C1
     {Second anchor in text }
     *@anchor C1 l31
     |EXTRA
+    |identifier:{second-anchor-in-flushright}
     |is_target:{1}
-    |normalized:{second-anchor-in-flushright}
      *brace_arg C1
       {second anchor in flushright}
     {spaces_after_close_brace: }

@@ -29,8 +29,8 @@ $result_tree_text{'on_section_line'} = '*document_root C2
     { }
     *@anchor C1 l1
     |EXTRA
+    |identifier:{in-anchor}
     |is_target:{1}
-    |normalized:{in-anchor}
      *brace_arg C1
       {in anchor}
     *@footnote C1 l1

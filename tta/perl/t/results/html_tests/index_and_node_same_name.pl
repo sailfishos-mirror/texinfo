@@ -25,10 +25,10 @@ $result_tree_text{'index_and_node_same_name'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{index-node}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
- |normalized:{index-node}
   *arguments_line C1
    *line_arg C1
    |INFO

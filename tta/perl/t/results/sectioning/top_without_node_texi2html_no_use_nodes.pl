@@ -29,9 +29,9 @@ $result_tree_text{'top_without_node_texi2html_no_use_nodes'} = '*document_root C
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{second}
  |is_target:{1}
  |node_number:{1}
- |normalized:{second}
   *arguments_line C4
    *line_arg C1
     {second}

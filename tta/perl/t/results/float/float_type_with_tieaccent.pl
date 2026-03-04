@@ -16,8 +16,8 @@ $result_tree_text{'float_type_with_tieaccent'} = '*document_root C1
   |float_number:{1}
   |float_type:{A 1͡a 第͡H ê͡一 and text}
   |global_command_number:{1}
+  |identifier:{label}
   |is_target:{1}
-  |normalized:{label}
    *arguments_line C2
     *block_line_arg C6
      {A }

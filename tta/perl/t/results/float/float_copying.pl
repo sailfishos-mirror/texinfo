@@ -23,8 +23,8 @@ $result_tree_text{'float_copying'} = '*document_root C5
     |float_number:{1}
     |float_type:{Copyright notice}
     |global_command_number:{1}
+    |identifier:{public-domain}
     |is_target:{1}
-    |normalized:{public-domain}
      *arguments_line C2
       *block_line_arg C1
        {Copyright notice}
@@ -55,8 +55,8 @@ $result_tree_text{'float_copying'} = '*document_root C5
            {The caption copying footnote\\n}
            *@anchor C1 l10
            |EXTRA
+           |identifier:{caption-copying-footnote-anchor}
            |is_target:{1}
-           |normalized:{caption-copying-footnote-anchor}
             *brace_arg C1
             |EXTRA
             |element_region:{copying}
@@ -102,8 +102,8 @@ $result_tree_text{'float_copying'} = '*document_root C5
        {empty_line:\\n}
        *@anchor C1 l19
        |EXTRA
+       |identifier:{public-domain-anchor}
        |is_target:{1}
-       |normalized:{public-domain-anchor}
         *brace_arg C1
         |EXTRA
         |element_region:{copying}
@@ -162,9 +162,9 @@ $result_tree_text{'float_copying'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -227,10 +227,10 @@ $result_tree_text{'float_copying'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Copying-and-floats}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{Copying-and-floats}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -18,9 +18,9 @@ $result_tree_text{'unknown_node_direction_novalidate'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{one-arg2}
  |is_target:{1}
  |node_number:{1}
- |normalized:{one-arg2}
   *arguments_line C2
    *line_arg C1
     {one arg2}

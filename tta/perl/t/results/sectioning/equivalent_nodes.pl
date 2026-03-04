@@ -12,9 +12,9 @@ $result_tree_text{'equivalent_nodes'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{first}
  |is_target:{1}
  |node_number:{1}
- |normalized:{first}
   *arguments_line C2
    *line_arg C1
     {first}
@@ -67,9 +67,9 @@ $result_tree_text{'equivalent_nodes'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{node}
   *arguments_line C1
    *line_arg C1
    |INFO

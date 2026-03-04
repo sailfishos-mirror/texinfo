@@ -102,7 +102,7 @@ sub split_by_node($) {
     }
     if (exists($content->{'cmdname'}) and $content->{'cmdname'} eq 'node'
         and exists($content->{'extra'})
-        and exists($content->{'extra'}->{'normalized'})) {
+        and exists($content->{'extra'}->{'identifier'})) {
       my $node_relations
         = $nodes_list->[$content->{'extra'}->{'node_number'} -1];
       if (not exists($current->{'unit_command'})) {

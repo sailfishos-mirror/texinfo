@@ -12,9 +12,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -95,9 +95,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Node-_0028with-parentheses_0029}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Node-_0028with-parentheses_0029}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -127,9 +127,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Other-node}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Other-node}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -179,9 +179,9 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_0028manual_0029node}
  |is_target:{1}
  |node_number:{4}
- |normalized:{_0028manual_0029node}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -208,8 +208,8 @@ $result_tree_text{'nodename_parentheses'} = '*document_root C9
   {empty_line:\\n}
   *@anchor C1 l27
   |EXTRA
+  |identifier:{_0028manual_0029anchor}
   |is_target:{1}
-  |normalized:{_0028manual_0029anchor}
    *brace_arg C1
     {(manual)anchor}
   *paragraph C1

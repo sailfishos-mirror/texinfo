@@ -1569,7 +1569,7 @@ end_line_misc_line (ELEMENT *current)
                           "empty argument in @%s", command_name (cmd));
         }
       check_register_target_element_label (line_arg, current);
-      node_normalized = lookup_extra_string (current, AI_key_normalized);
+      node_normalized = lookup_extra_string (current, AI_key_identifier);
       if (node_normalized)
         {
           node_relations

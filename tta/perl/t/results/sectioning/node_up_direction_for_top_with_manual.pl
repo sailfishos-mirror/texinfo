@@ -12,9 +12,9 @@ $result_tree_text{'node_up_direction_for_top_with_manual'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C4
    *line_arg C1
     {Top}

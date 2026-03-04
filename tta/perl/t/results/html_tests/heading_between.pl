@@ -22,9 +22,9 @@ $result_tree_text{'heading_between'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chapter}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -64,9 +64,9 @@ $result_tree_text{'heading_between'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Section}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Section}
   *arguments_line C1
    *line_arg C1
    |INFO

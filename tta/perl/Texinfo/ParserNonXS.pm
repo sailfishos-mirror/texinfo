@@ -3643,7 +3643,7 @@ sub _enter_index_entry($$$$) {
       = $self->{'nesting_context'}->{'regions_stack'}->[-1];
   } elsif (exists($self->{'current_node'})) {
     $element->{'extra'}->{'element_node'}
-      = $self->{'current_node'}->{'element'}->{'extra'}->{'normalized'};
+      = $self->{'current_node'}->{'element'}->{'extra'}->{'identifier'};
   } elsif (!exists($self->{'current_section'})) {
     # NOTE depending on the location, format and presence of @printindex,
     # an index entry out of node and sections may be correctly formatted (or
@@ -4022,7 +4022,7 @@ sub _end_line_misc_line($$$) {
 
     my $node_relations;
     if (exists($current->{'extra'})
-        and defined($current->{'extra'}->{'normalized'})) {
+        and defined($current->{'extra'}->{'identifier'})) {
       $node_relations
         = _add_to_relations_list($document, 'node', $current);
       $self->{'current_node'} = $node_relations;
@@ -4976,7 +4976,7 @@ sub _check_register_target_element_label($$$$) {
                                  $target_element->{'source_info'});
     } else {
       $target_element->{'extra'} = {} if (!exists($target_element->{'extra'}));
-      $target_element->{'extra'}->{'normalized'} = $normalized;
+      $target_element->{'extra'}->{'identifier'} = $normalized;
     }
   }
   push @{$self->{'document'}->{'labels_list'}}, $target_element;

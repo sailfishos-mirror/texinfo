@@ -112,9 +112,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -158,9 +158,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -227,9 +227,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Preface}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Preface}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -263,9 +263,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Introduction}
  |is_target:{1}
  |node_number:{4}
- |normalized:{Introduction}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -325,10 +325,10 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{char-latin2-latin2}
  |is_target:{1}
  |isindex:{1}
  |node_number:{5}
- |normalized:{char-latin2-latin2}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -415,9 +415,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_0104-_0105-_02db-_0118-_0119}
  |is_target:{1}
  |node_number:{6}
- |normalized:{_0104-_0105-_02db-_0118-_0119}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -487,9 +487,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Mixed-english-and-chinese-EUC_002dCN}
  |is_target:{1}
  |node_number:{7}
- |normalized:{Mixed-english-and-chinese-EUC_002dCN}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -600,9 +600,9 @@ $result_tree_text{'multiple_include_encodings'} = '*document_root C19
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Mixed-chinese-and-english-utf_002d8}
  |is_target:{1}
  |node_number:{8}
- |normalized:{Mixed-chinese-and-english-utf_002d8}
   *arguments_line C1
    *line_arg C1
    |INFO

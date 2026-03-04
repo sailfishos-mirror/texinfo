@@ -1368,14 +1368,14 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
       if (document
           && identifiers_target_number (&document->identifiers_target))
         {
-          SV **normalized_sv;
-          EXTRA(normalized)
-          if (normalized_sv)
+          SV **identifier_sv;
+          EXTRA(identifier)
+          if (identifier_sv)
             {
-              char *normalized = SvPVutf8_nolen (*normalized_sv);
+              char *identifier = SvPVutf8_nolen (*identifier_sv);
               ELEMENT *element_found
                 = find_identifier_target
-                      (&document->identifiers_target, normalized);
+                      (&document->identifiers_target, identifier);
          /* check the element found in case of multiple defined identifier */
               if (element_found && element_hv
                                     == (HV *) SvRV ((SV *) element_found->sv))

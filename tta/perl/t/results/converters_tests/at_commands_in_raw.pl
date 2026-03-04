@@ -12,9 +12,9 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -59,10 +59,10 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -101,8 +101,8 @@ $result_tree_text{'at_commands_in_raw'} = '*document_root C5
     {.</b>\\n}
     *@anchor C1 l13
     |EXTRA
+    |identifier:{anchor-in-html}
     |is_target:{1}
-    |normalized:{anchor-in-html}
      *brace_arg C1
       {anchor in html}
     {spaces_after_close_brace:\\n}

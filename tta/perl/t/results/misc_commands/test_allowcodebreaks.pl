@@ -13,9 +13,9 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -27,9 +27,9 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -146,8 +146,8 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
      {anc-hor}
      *@anchor C1 l21:@testallowcodebreakspara
      |EXTRA
+     |identifier:{A-node0}
      |is_target:{1}
-     |normalized:{A-node0}
       *brace_arg C1
        {A node0}
    {\\n}
@@ -256,8 +256,8 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
      {anc-hor}
      *@anchor C1 l26:@testallowcodebreakspara
      |EXTRA
+     |identifier:{A-node1}
      |is_target:{1}
-     |normalized:{A-node1}
       *brace_arg C1
        {A node1}
    {\\n}
@@ -356,8 +356,8 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
        {anc-hor}
        *@anchor C1 l30:@testallowcodebreakspara
        |EXTRA
+       |identifier:{A-nodew}
        |is_target:{1}
-       |normalized:{A-nodew}
         *brace_arg C1
          {A nodew}
      {\\n}
@@ -463,8 +463,8 @@ $result_tree_text{'test_allowcodebreaks'} = '*document_root C3
      {anc-hor}
      *@anchor C1 l39:@testallowcodebreakspara
      |EXTRA
+     |identifier:{A-node2}
      |is_target:{1}
-     |normalized:{A-node2}
       *brace_arg C1
        {A node2}
    {\\n}

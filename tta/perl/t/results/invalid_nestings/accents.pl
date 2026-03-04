@@ -31,8 +31,8 @@ $result_tree_text{'accents'} = '*document_root C1
     *brace_container C1
      *@anchor C1 l5
      |EXTRA
+     |identifier:{truc}
      |is_target:{1}
-     |normalized:{truc}
       *brace_arg C1
        {truc}
    {.\\n}

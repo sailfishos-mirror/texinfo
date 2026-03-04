@@ -32,8 +32,8 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
       {Copying this document}
     *@anchor C1 index_special_region_no_insertcopying.texi:l6
     |EXTRA
+    |identifier:{Copying-information}
     |is_target:{1}
-    |normalized:{Copying-information}
      *brace_arg C1
      |EXTRA
      |element_region:{copying}
@@ -49,8 +49,8 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
       *brace_command_context C5
        *@anchor C1 index_special_region_no_insertcopying.texi:l9
        |EXTRA
+       |identifier:{Public-domain-reference}
        |is_target:{1}
-       |normalized:{Public-domain-reference}
         *brace_arg C1
         |EXTRA
         |element_region:{copying}
@@ -145,8 +145,8 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
       {Titlepage index}
     *@anchor C1 index_special_region_no_insertcopying.texi:l25
     |EXTRA
+    |identifier:{Titlepage-anchor}
     |is_target:{1}
-    |normalized:{Titlepage-anchor}
      *brace_arg C1
      |EXTRA
      |element_region:{titlepage}
@@ -161,8 +161,8 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
       *brace_command_context C5
        *@anchor C1 index_special_region_no_insertcopying.texi:l27
        |EXTRA
+       |identifier:{Titlepage-footnote-anchor}
        |is_target:{1}
-       |normalized:{Titlepage-footnote-anchor}
         *brace_arg C1
         |EXTRA
         |element_region:{titlepage}
@@ -209,9 +209,9 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -419,9 +419,9 @@ $result_tree_text{'index_special_region_no_insertcopying'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Copying-and-indices}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Copying-and-indices}
   *arguments_line C1
    *line_arg C1
    |INFO

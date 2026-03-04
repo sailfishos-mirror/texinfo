@@ -21,9 +21,9 @@ $result_tree_text{'root_command_in_conditional'} = '*document_root C2
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Getting-Started}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Getting-Started}
   *arguments_line C4
    *line_arg C1
     {Getting Started}

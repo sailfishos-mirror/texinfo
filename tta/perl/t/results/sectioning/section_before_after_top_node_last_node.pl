@@ -27,9 +27,9 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -73,9 +73,9 @@ $result_tree_text{'section_before_after_top_node_last_node'} = '*document_root C
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-after}
  |is_target:{1}
  |node_number:{2}
- |normalized:{node-after}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -9,8 +9,8 @@ $result_tree_text{'verb_in_xref'} = '*document_root C1
  *before_node_section C4
   *@anchor C1 l1
   |EXTRA
+  |identifier:{point}
   |is_target:{1}
-  |normalized:{point}
    *brace_arg C1
     {point}
   {spaces_after_close_brace:\\n}

@@ -13,9 +13,9 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,9 +41,9 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{node1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -75,9 +75,9 @@ $result_tree_text{'double_recursive_self_section_node_reference_no_use_node'} = 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{to-node1}
  |is_target:{1}
  |node_number:{3}
- |normalized:{to-node1}
   *arguments_line C1
    *line_arg C2
    |INFO

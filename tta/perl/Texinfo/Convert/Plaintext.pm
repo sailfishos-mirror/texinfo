@@ -1381,7 +1381,7 @@ sub process_footnotes($;$) {
     if (defined($output_unit) and exists($output_unit->{'unit_command'})) {
       $node_element = $output_unit->{'unit_command'};
       if (exists($node_element->{'extra'})
-          and exists($node_element->{'extra'}->{'normalized'})) {
+          and exists($node_element->{'extra'}->{'identifier'})) {
         # arguments_line type element
         my $arguments_line = $node_element->{'contents'}->[0];
         $label_element = $arguments_line->{'contents'}->[0];
@@ -1407,8 +1407,8 @@ sub process_footnotes($;$) {
         'contents' => [Texinfo::TreeElement::new({'type' => 'arguments_line',
                                       'contents' => [$footnotes_node_arg],})],
         'extra' => {'is_target' => 1,
-                'normalized'
-                  => $node_element->{'extra'}->{'normalized'}.'-Footnotes',
+                'identifier'
+                  => $node_element->{'extra'}->{'identifier'}.'-Footnotes',
                    }
       });
       my $footnotes_node_relations = {
@@ -1438,7 +1438,7 @@ sub process_footnotes($;$) {
                                     'contents' => [$footnote_anchor_arg],
                                     'extra' => {'is_target' => 1,
                                    '            normalized'
-       => $node_element->{'extra'}->{'normalized'}.$footnote_anchor_postfix},
+       => $node_element->{'extra'}->{'identifier'}.$footnote_anchor_postfix},
                             }));
       }
       # this pushes on 'context', 'formatters', 'format_context',

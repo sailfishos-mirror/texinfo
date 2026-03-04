@@ -24,9 +24,9 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C4
    *line_arg C1
     {Top}
@@ -119,9 +119,9 @@ $result_tree_text{'value_in_node'} = '*document_root C6
     |>*brace_container C1
      |>{node1}
  |EXTRA
+ |identifier:{Node-1}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Node-1}
   *arguments_line C4
    *line_arg C1
     {Node 1}
@@ -213,9 +213,9 @@ $result_tree_text{'value_in_node'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Section-1_002e1}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Section-1_002e1}
   *arguments_line C4
    *line_arg C1
     {Section 1.1}

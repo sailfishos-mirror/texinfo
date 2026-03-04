@@ -13,9 +13,9 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -91,9 +91,9 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{nodename_002e-a}
  |is_target:{1}
  |node_number:{2}
- |normalized:{nodename_002e-a}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -108,9 +108,9 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node_002ccomma}
  |is_target:{1}
  |node_number:{3}
- |normalized:{node_002ccomma}
   *arguments_line C1
    *line_arg C3
    |INFO
@@ -126,9 +126,9 @@ $result_tree_text{'invalid_node_name_warning'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{bidule_003a}
  |is_target:{1}
  |node_number:{4}
- |normalized:{bidule_003a}
   *arguments_line C1
    *line_arg C1
    |INFO

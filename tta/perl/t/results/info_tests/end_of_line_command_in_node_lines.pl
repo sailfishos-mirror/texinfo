@@ -13,9 +13,9 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -85,10 +85,10 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap-f-nl-Something_003f-After-punct}
  |is_target:{1}
  |isindex:{1}
  |node_number:{2}
- |normalized:{chap-f-nl-Something_003f-After-punct}
   *arguments_line C1
    *line_arg C5
    |INFO
@@ -116,8 +116,8 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
   {empty_line:\\n}
   *@anchor C1 l12
   |EXTRA
+  |identifier:{ankh-p}
   |is_target:{1}
-  |normalized:{ankh-p}
    *brace_arg C3
     {ankh }
     *@*
@@ -164,9 +164,9 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{new-n}
  |is_target:{1}
  |node_number:{3}
- |normalized:{new-n}
   *arguments_line C1
    *line_arg C1
    |INFO

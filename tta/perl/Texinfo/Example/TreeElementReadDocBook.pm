@@ -687,7 +687,7 @@ sub _docbook_section_element($$)
         = $sections_list->[$element->get_attribute('section_number') -1];
       if ($section_relations->{'associated_node'}) {
         my $associated_node = $section_relations->{'associated_node'}->{'element'};
-        my $normalized = lc($associated_node->get_attribute('normalized'));
+        my $normalized = lc($associated_node->get_attribute('identifier'));
         if ($docbook_special_unnumbered{$normalized}) {
           return $normalized;
         }
@@ -815,7 +815,7 @@ sub _output_anchor($)
 
   if ($element->get_attribute('is_target')) {
     # FIXME DocBook 5 id -> xml:id
-    return '<anchor id="'.$element->get_attribute('normalized').'"/>';
+    return '<anchor id="'.$element->get_attribute('identifier').'"/>';
   } else {
     return '';
   }
@@ -1128,8 +1128,8 @@ sub _convert($$)
               }
               if ($node_element or $cmdname eq 'part') {
                 # normalized not defined happens for empty nodes
-                if ($node_element and $node_element->get_attribute('normalized')
-                    and $node_element->get_attribute('normalized') eq 'Top') {
+                if ($node_element and $node_element->get_attribute('identifier')
+                    and $node_element->get_attribute('identifier') eq 'Top') {
                   $self->{'in_skipped_node_top'} = 1;
                   $output_ref = \$void;
                 } elsif (defined($self->{'in_skipped_node_top'})
@@ -1224,7 +1224,7 @@ sub _convert($$)
                   if ($section_relations->{'associated_node'}) {
                    # FIXME DocBook 5 id -> xml:id
                     $section_attribute
-      .= " id=\"".$section_relations->{'associated_node'}->{'element'}->get_attribute('normalized')."\"";
+      .= " id=\"".$section_relations->{'associated_node'}->{'element'}->get_attribute('identifier')."\"";
                   }
                 }
                 my $language = '';

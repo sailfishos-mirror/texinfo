@@ -1,5 +1,17 @@
 2026-03-04 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/get_perl_info.c (find_element_from_sv),
+	tta/C/main/tree_types.h (enum string_info_type),
+	tta/C/parsetexi/labels.c (check_register_target_element_label),
+	tta/C/structuring_transfo/transformations.c (new_node),
+	tta/perl/Texinfo/Transformations.pm (_new_node),
+	tta/perl/Texinfo/ParserNonXS.pm
+	(_check_register_target_element_label): set 'identifier' extra
+	information with element label instead of 'normalized' for elements
+	being targets of links.  Update code accessing the extra information.
+
+2026-03-04 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/targets.c: remove unused compare_labels.
 
 	* tta/C/main/build_perl_info.c: update comments.

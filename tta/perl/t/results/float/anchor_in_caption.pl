@@ -13,9 +13,9 @@ $result_tree_text{'anchor_in_caption'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -27,9 +27,9 @@ $result_tree_text{'anchor_in_caption'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -58,8 +58,8 @@ $result_tree_text{'anchor_in_caption'} = '*document_root C3
   |float_number:{1}
   |float_type:{fl}
   |global_command_number:{1}
+  |identifier:{label}
   |is_target:{1}
-  |normalized:{label}
    *arguments_line C2
     *block_line_arg C1
      {fl}
@@ -78,8 +78,8 @@ $result_tree_text{'anchor_in_caption'} = '*document_root C3
       {in caption}
       *@anchor C1 l8
       |EXTRA
+      |identifier:{in-anchor}
       |is_target:{1}
-      |normalized:{in-anchor}
        *brace_arg C1
         {in anchor}
    {spaces_after_close_brace:\\n}

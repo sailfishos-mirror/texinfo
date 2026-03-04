@@ -259,7 +259,7 @@ print_listoffloats_types (LISTOFFLOATS_TYPE_LIST *listoffloats_list)
           const char *float_number
             = lookup_extra_string (float_e, AI_key_float_number);
           const char *float_normalized
-            = lookup_extra_string (float_e, AI_key_normalized);
+            = lookup_extra_string (float_e, AI_key_identifier);
           const char *float_type
             = lookup_extra_string (float_e, AI_key_float_type);
 

@@ -869,7 +869,7 @@ sub _convert($$;$) {
           my $nodename;
           my $node_relations;
           if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
-            $nodename = $element->{'extra'}->{'normalized'};
+            $nodename = $element->{'extra'}->{'identifier'};
             my $nodes_list = $self->{'document'}->nodes_list();
             $node_relations
               = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
@@ -913,7 +913,7 @@ sub _convert($$;$) {
 
                 # TODO since we call get_label_element, we only use internal
                 # nodes for directions, external nodes could be used too.
-                if (defined($node_direction->{'extra'}->{'normalized'})) {
+                if (defined($node_direction->{'extra'}->{'identifier'})) {
                   my $label_element
                     = Texinfo::Common::get_label_element($node_direction);
                   if (defined($label_element)) {
@@ -1134,7 +1134,7 @@ sub _convert($$;$) {
                or $cmdname eq 'namedanchor') {
         my $anchor_name;
         if ($element->{'extra'} and $element->{'extra'}->{'is_target'}) {
-          $anchor_name = $element->{'extra'}->{'normalized'};
+          $anchor_name = $element->{'extra'}->{'identifier'};
         } else {
           $anchor_name = '';
         }
@@ -1366,7 +1366,7 @@ sub _convert($$;$) {
         push @$attribute, ['first', $specification];
       } elsif ($cmdname eq 'float' and $element->{'extra'}) {
         if ($element->{'extra'}->{'is_target'}) {
-          push @$attribute, ['identifier', $element->{'extra'}->{'normalized'}];
+          push @$attribute, ['identifier', $element->{'extra'}->{'identifier'}];
         }
         push @$attribute, ['type',
                            $element->{'extra'}->{'float_type'}];

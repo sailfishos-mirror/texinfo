@@ -13,9 +13,9 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -46,8 +46,8 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
       {in footnote\\n}
       *@anchor C1 l5
       |EXTRA
+      |identifier:{Anchor-in-footnote}
       |is_target:{1}
-      |normalized:{Anchor-in-footnote}
        *brace_arg C1
         {Anchor in footnote}
       {.\\n}
@@ -87,9 +87,9 @@ $result_tree_text{'anchor_in_footnote_split_node'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chapter}
   *arguments_line C1
    *line_arg C1
    |INFO

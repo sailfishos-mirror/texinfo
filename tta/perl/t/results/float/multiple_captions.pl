@@ -13,9 +13,9 @@ $result_tree_text{'multiple_captions'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,9 +41,9 @@ $result_tree_text{'multiple_captions'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -73,8 +73,8 @@ $result_tree_text{'multiple_captions'} = '*document_root C5
   |float_number:{1.1}
   |float_type:{a}
   |global_command_number:{1}
+  |identifier:{b}
   |is_target:{1}
-  |normalized:{b}
    *arguments_line C2
     *block_line_arg C1
      {a}
@@ -115,8 +115,8 @@ $result_tree_text{'multiple_captions'} = '*document_root C5
   |float_number:{1.1}
   |float_type:{c}
   |global_command_number:{2}
+  |identifier:{d}
   |is_target:{1}
-  |normalized:{d}
    *arguments_line C2
     *block_line_arg C1
      {c}

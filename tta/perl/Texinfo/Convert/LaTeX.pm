@@ -1100,10 +1100,10 @@ sub _associate_other_nodes_to_sections($$$) {
     if (exists($element_content->{'cmdname'})
         and $element_content->{'cmdname'} eq 'node'
         and exists($element_content->{'extra'})
-        and exists($element_content->{'extra'}->{'normalized'})) {
+        and exists($element_content->{'extra'}->{'identifier'})) {
       my $associated_section_relations;
       if (exists($element_content->{'extra'})
-          and exists($element_content->{'extra'}->{'normalized'})) {
+          and exists($element_content->{'extra'}->{'identifier'})) {
         if (defined($nodes_list)) {
           my $node_relations
             = $nodes_list->[$element_content->{'extra'}->{'node_number'} -1];
@@ -1114,10 +1114,10 @@ sub _associate_other_nodes_to_sections($$$) {
       if (!defined($associated_section_relations)) {
         if (defined($current_sectioning_command)) {
           $additional_node_section_associations
-              ->{$element_content->{'extra'}->{'normalized'}}
+              ->{$element_content->{'extra'}->{'identifier'}}
                    = $current_sectioning_command;
         } else {
-          push @$pending_nodes, $element_content->{'extra'}->{'normalized'};
+          push @$pending_nodes, $element_content->{'extra'}->{'identifier'};
         }
       }
     } elsif (exists($element_content->{'cmdname'})
@@ -1204,8 +1204,8 @@ sub output($$) {
       }
       if (defined($node_element) or $cmdname eq 'part') {
         if (defined($node_element) and exists($node_element->{'extra'})
-            and exists($node_element->{'extra'}->{'normalized'})
-            and $node_element->{'extra'}->{'normalized'} eq 'Top') {
+            and exists($node_element->{'extra'}->{'identifier'})
+            and $node_element->{'extra'}->{'identifier'} eq 'Top') {
           $in_top_node = 1;
         } else {
           if ($in_top_node) {
@@ -3109,8 +3109,8 @@ sub _convert($$) {
     }
     if ((defined($node_element)
          and not (exists($node_element->{'extra'})
-                  and exists($node_element->{'extra'}->{'normalized'})
-                  and $node_element->{'extra'}->{'normalized'} eq 'Top'))
+                  and exists($node_element->{'extra'}->{'identifier'})
+                  and $node_element->{'extra'}->{'identifier'} eq 'Top'))
          or (defined($type) and $type eq 'ignored_top_node_paragraph')
         or (defined($cmdname) and $cmdname eq 'part')) {
       $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'} = 0;
@@ -3716,12 +3716,12 @@ sub _convert($$) {
                       }
                     }
                     if (!$section_command
-                        and (exists($current->{'extra'}->{'normalized'})
+                        and (exists($current->{'extra'}->{'identifier'})
                              and $self->{'normalized_nodes_associated_section'}
-                                      ->{$current->{'extra'}->{'normalized'}})) {
+                                      ->{$current->{'extra'}->{'identifier'}})) {
                       $section_command
                         = $self->{'normalized_nodes_associated_section'}
-                                           ->{$current->{'extra'}->{'normalized'}};
+                                           ->{$current->{'extra'}->{'identifier'}};
                     }
                   }
                   last;
@@ -4256,8 +4256,8 @@ sub _convert($$) {
         }
       }
       if ($node_element and $node_element->{'extra'}
-          and $node_element->{'extra'}->{'normalized'}
-          and $node_element->{'extra'}->{'normalized'} eq 'Top') {
+          and $node_element->{'extra'}->{'identifier'}
+          and $node_element->{'extra'}->{'identifier'} eq 'Top') {
         $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'} = 1;
       }
       if ($cmdname eq 'node') {

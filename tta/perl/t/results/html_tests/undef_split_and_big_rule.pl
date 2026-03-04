@@ -29,9 +29,9 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{1}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -58,9 +58,9 @@ $result_tree_text{'undef_split_and_big_rule'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{sec}
  |is_target:{1}
  |node_number:{2}
- |normalized:{sec}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -211,8 +211,8 @@ $result_tree_text{'commands_in_flushright'} = '*document_root C1
    |float_number:{1}
    |float_type:{label}
    |global_command_number:{1}
+   |identifier:{type}
    |is_target:{1}
-   |normalized:{type}
     *arguments_line C2
      *block_line_arg C1
       {label}

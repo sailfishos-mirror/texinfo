@@ -13,10 +13,10 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node_0021-After-punc}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
- |normalized:{node_0021-After-punc}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -111,8 +111,8 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   |float_number:{1}
   |float_type:{float type! After punc}
   |global_command_number:{1}
+  |identifier:{float-label_0021-After-punc}
   |is_target:{1}
-  |normalized:{float-label_0021-After-punc}
    *arguments_line C2
     *block_line_arg C1
      {float type! After punc}
@@ -150,8 +150,8 @@ $result_tree_text{'punctuation_in_line_commands'} = '*document_root C3
   |float_number:{2}
   |float_type:{float type! After punc}
   |global_command_number:{2}
+  |identifier:{label-with-caption}
   |is_target:{1}
-  |normalized:{label-with-caption}
    *arguments_line C2
     *block_line_arg C1
      {float type! After punc}

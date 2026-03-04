@@ -167,9 +167,9 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -269,9 +269,9 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_7b2c_4e00_7ae0_ff08First-Chapter_ff09}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -386,9 +386,9 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Second-Chapter-AE-_0104_0118-ae-_0105_0119}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Second-Chapter-AE-_0104_0118-ae-_0105_0119}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -418,10 +418,10 @@ $result_tree_text{'sample_utf8'} = '*document_root C10
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Index-node}
  |is_target:{1}
  |isindex:{1}
  |node_number:{4}
- |normalized:{Index-node}
   *arguments_line C1
    *line_arg C1
    |INFO

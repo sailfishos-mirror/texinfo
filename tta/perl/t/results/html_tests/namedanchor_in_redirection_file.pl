@@ -13,9 +13,9 @@ $result_tree_text{'namedanchor_in_redirection_file'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -41,9 +41,9 @@ $result_tree_text{'namedanchor_in_redirection_file'} = '*document_root C5
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -67,16 +67,16 @@ $result_tree_text{'namedanchor_in_redirection_file'} = '*document_root C5
   {empty_line:\\n}
   *@anchor C1 l7
   |EXTRA
+  |identifier:{notitle}
   |is_target:{1}
-  |normalized:{notitle}
    *brace_arg C1
     {notitle}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
   *@namedanchor C2 l9
   |EXTRA
+  |identifier:{the-spot}
   |is_target:{1}
-  |normalized:{the-spot}
    *brace_arg C1
     {the spot}
    *brace_arg C1

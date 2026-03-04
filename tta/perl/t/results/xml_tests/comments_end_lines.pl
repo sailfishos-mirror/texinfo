@@ -267,8 +267,8 @@ $result_tree_text{'comments_end_lines'} = '*document_root C1
   |float_number:{1}
   |float_type:{f}
   |global_command_number:{1}
+  |identifier:{g}
   |is_target:{1}
-  |normalized:{g}
    *arguments_line C2
     *block_line_arg C1
      {f}

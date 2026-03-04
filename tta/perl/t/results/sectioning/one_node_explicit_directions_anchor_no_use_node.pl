@@ -12,9 +12,9 @@ $result_tree_text{'one_node_explicit_directions_anchor_no_use_node'} = '*documen
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{one-node}
  |is_target:{1}
  |node_number:{1}
- |normalized:{one-node}
   *arguments_line C4
    *line_arg C1
     {one node}
@@ -36,8 +36,8 @@ $result_tree_text{'one_node_explicit_directions_anchor_no_use_node'} = '*documen
    {anchor ref }
    *@anchor C1 l4
    |EXTRA
+   |identifier:{ref}
    |is_target:{1}
-   |normalized:{ref}
     *brace_arg C1
      {ref}
    {.\\n}

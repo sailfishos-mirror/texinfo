@@ -395,6 +395,8 @@ sub sorted_indices_by_index($$$$) {
 
 
 
+# ALTIMP C/main/targets.c
+
 # In general, we avoid passing error messages separate from the object holding
 # them.  In that case, however, when called from the Parser, we want
 # parser_error_messages error messages to be modified in the document, and not
@@ -404,8 +406,8 @@ sub _existing_label_error($$;$$) {
   my ($self, $element, $error_messages, $debug) = @_;
 
   if (exists($element->{'extra'})
-      and defined($element->{'extra'}->{'normalized'})) {
-    my $normalized = $element->{'extra'}->{'normalized'};
+      and defined($element->{'extra'}->{'identifier'})) {
+    my $normalized = $element->{'extra'}->{'identifier'};
     if (defined($error_messages)) {
       my $existing_target = $self->{'identifiers_target'}->{$normalized};
       my $label_element = Texinfo::Common::get_label_element($element);
@@ -427,8 +429,8 @@ sub _add_element_to_identifiers_target($$) {
   my ($self, $element) = @_;
 
   if (exists($element->{'extra'})
-      and defined($element->{'extra'}->{'normalized'})) {
-    my $normalized = $element->{'extra'}->{'normalized'};
+      and defined($element->{'extra'}->{'identifier'})) {
+    my $normalized = $element->{'extra'}->{'identifier'};
     if (!exists($self->{'identifiers_target'}->{$normalized})) {
       $self->{'identifiers_target'}->{$normalized} = $element;
       $element->{'extra'}->{'is_target'} = 1;
@@ -437,6 +439,8 @@ sub _add_element_to_identifiers_target($$) {
   }
   return 0;
 }
+
+# ALTIMP C/parsetexi/labels.c
 
 # No XS override, only called from Texinfo::ParserNonXS.
 # This should be considered an internal function of the parser.
@@ -453,7 +457,7 @@ sub set_labels_identifiers_target($$;$) {
     foreach my $element (@{$self->{'labels_list'}}) {
       my $retval = _add_element_to_identifiers_target($self, $element);
       if (!$retval and exists($element->{'extra'})
-          and defined($element->{'extra'}->{'normalized'})) {
+          and defined($element->{'extra'}->{'identifier'})) {
         push @elements_with_error, $element;
       }
     }
@@ -464,7 +468,7 @@ sub set_labels_identifiers_target($$;$) {
   if (scalar(@elements_with_error) > 0) {
     my @sorted
     # use document order since C code uses hashmap for identifiers.
-     = #sort {$a->{'extra'}->{'normalized'} cmp $b->{'extra'}->{'normalized'}}
+     = #sort {$a->{'extra'}->{'identifier'} cmp $b->{'extra'}->{'identifier'}}
         @elements_with_error;
     foreach my $element (@sorted) {
       _existing_label_error($self, $element, $error_messages, $debug);

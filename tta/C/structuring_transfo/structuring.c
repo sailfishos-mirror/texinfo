@@ -565,7 +565,7 @@ register_referenced_node (const ELEMENT *node, char **referenced_identifiers,
   if (node->e.c->cmd != CM_node)
     return referenced_identifiers;
 
-  normalized = lookup_extra_string (node, AI_key_normalized);
+  normalized = lookup_extra_string (node, AI_key_identifier);
   if (normalized)
     {
       if (referenced_identifier_space == referenced_identifier_number)
@@ -656,7 +656,7 @@ check_nodes_are_referenced (DOCUMENT *document)
   if (!top_node)
     {
       top_node = nodes_list->list[0]->element;
-      char *normalized = lookup_extra_string (top_node, AI_key_normalized);
+      char *normalized = lookup_extra_string (top_node, AI_key_identifier);
       if (normalized)
         referenced_identifiers[0] = normalized;
       else
@@ -853,7 +853,7 @@ check_nodes_are_referenced (DOCUMENT *document)
 
       if (is_target)
         {
-          const char *normalized = lookup_extra_string (node, AI_key_normalized);
+          const char *normalized = lookup_extra_string (node, AI_key_identifier);
           if (!all_nodes_are_referenced)
             {
               const char *found = (const char *)bsearch (&normalized,
@@ -2061,7 +2061,7 @@ number_floats (DOCUMENT *document)
             = &listoffloats->float_list.list[j];
           ELEMENT *float_elt = float_info->float_element;
           const char *normalized
-            = lookup_extra_string (float_elt, AI_key_normalized);
+            = lookup_extra_string (float_elt, AI_key_identifier);
           const SECTION_RELATIONS *up_relations;
 
           if (!normalized)
@@ -2324,7 +2324,7 @@ new_complete_node_menu (const NODE_RELATIONS *node_relations,
       && lang_translations)
     {
       const char *normalized = lookup_extra_string (node_relations->element,
-                                                    AI_key_normalized);
+                                                    AI_key_identifier);
       if (normalized && !strcmp (normalized, "Top"))
         {
           size_t content_index = 0;
@@ -2557,7 +2557,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
         {
           const ELEMENT *child = node_children->list[i];
           const char *normalized_child
-            = lookup_extra_string (child, AI_key_normalized);
+            = lookup_extra_string (child, AI_key_identifier);
           size_t j;
           int up_node_in_menu = 0;
 
@@ -2565,7 +2565,7 @@ print_down_menus (const ELEMENT *node, ELEMENT_STACK *up_nodes,
             {
               const ELEMENT *up_node = up_nodes->stack[j];
               const char *normalized_up_node
-                = lookup_extra_string (up_node, AI_key_normalized);
+                = lookup_extra_string (up_node, AI_key_identifier);
               if (!strcmp (normalized_child, normalized_up_node))
                 {
                   char *up_node_texi
@@ -2728,7 +2728,7 @@ new_complete_menu_master_menu (ERROR_MESSAGE_LIST *error_messages,
   if (menu_node)
     {
       const char *normalized
-        = lookup_extra_string (node_relations->element, AI_key_normalized);
+        = lookup_extra_string (node_relations->element, AI_key_identifier);
       if (normalized && !strcmp (normalized, "Top"))
         {
           if (node_relations->associated_section

@@ -16,9 +16,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -94,9 +94,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-with-ftable-and-vtable}
  |is_target:{1}
  |node_number:{2}
- |normalized:{node-with-ftable-and-vtable}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -274,10 +274,10 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node-with-printindex}
  |is_target:{1}
  |isindex:{1}
  |node_number:{3}
- |normalized:{node-with-printindex}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -341,10 +341,10 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{indices-refs}
  |is_target:{1}
  |isindex:{1}
  |node_number:{4}
- |normalized:{indices-refs}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -1966,9 +1966,9 @@ $result_tree_text{'index_table_chapter_no_node'} = '*document_root C12
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{node}
  |is_target:{1}
  |node_number:{5}
- |normalized:{node}
   *arguments_line C4
    *line_arg C1
     {node}

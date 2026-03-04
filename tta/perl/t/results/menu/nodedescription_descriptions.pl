@@ -12,9 +12,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -144,9 +144,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{toto}
  |is_target:{1}
  |node_number:{2}
- |normalized:{toto}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -203,9 +203,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{titi}
  |is_target:{1}
  |node_number:{3}
- |normalized:{titi}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -242,9 +242,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{other}
  |is_target:{1}
  |node_number:{4}
- |normalized:{other}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -281,9 +281,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{last}
  |is_target:{1}
  |node_number:{5}
- |normalized:{last}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -320,9 +320,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-somewhat-long-node-without-description-nor-following-space}
  |is_target:{1}
  |node_number:{6}
- |normalized:{a-somewhat-long-node-without-description-nor-following-space}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -359,9 +359,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{a-very-long-node-without-description-with-very-little-space-left-for}
  |is_target:{1}
  |node_number:{7}
- |normalized:{a-very-long-node-without-description-with-very-little-space-left-for}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -398,9 +398,9 @@ $result_tree_text{'nodedescription_descriptions'} = '*document_root C17
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{very-very-long-node-extending-past-the-max-columns-and-without-description}
  |is_target:{1}
  |node_number:{8}
- |normalized:{very-very-long-node-extending-past-the-max-columns-and-without-description}
   *arguments_line C1
    *line_arg C1
    |INFO

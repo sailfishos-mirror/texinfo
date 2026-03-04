@@ -26,9 +26,9 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -56,8 +56,8 @@ $result_tree_text{'css_in_node_redirection_page'} = '*document_root C3
    {.\\n}
    *@anchor C1 l7
    |EXTRA
+   |identifier:{spot}
    |is_target:{1}
-   |normalized:{spot}
     *brace_arg C1
      {spot}
    {spaces_after_close_brace:\\n}

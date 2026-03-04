@@ -23,9 +23,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -51,9 +51,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chapter}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chapter}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -97,9 +97,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chapter-fr}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Chapter-fr}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -131,9 +131,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{section-fr}
  |is_target:{1}
  |node_number:{4}
- |normalized:{section-fr}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -172,9 +172,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chapter-de}
  |is_target:{1}
  |node_number:{5}
- |normalized:{Chapter-de}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -206,9 +206,9 @@ $result_tree_text{'customize_translations'} = '*document_root C13
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Last-chapter}
  |is_target:{1}
  |node_number:{6}
- |normalized:{Last-chapter}
   *arguments_line C1
    *line_arg C1
    |INFO

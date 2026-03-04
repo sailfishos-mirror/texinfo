@@ -13,9 +13,9 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{n1}
  |is_target:{1}
  |node_number:{1}
- |normalized:{n1}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -47,9 +47,9 @@ $result_tree_text{'double_recursive_self_section_reference'} = '*document_root C
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{n2}
  |is_target:{1}
  |node_number:{2}
- |normalized:{n2}
   *arguments_line C1
    *line_arg C1
    |INFO

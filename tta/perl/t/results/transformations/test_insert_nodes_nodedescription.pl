@@ -12,9 +12,9 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -49,9 +49,9 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{Chap}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -78,9 +78,9 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Sec}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Sec}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -125,9 +125,9 @@ $result_tree_text{'test_insert_nodes_nodedescription'} = '*document_root C9
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Subsec}
  |is_target:{1}
  |node_number:{4}
- |normalized:{Subsec}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -12,9 +12,9 @@ $result_tree_text{'double_top_in_menu'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C2
    *line_arg C1
     {ToP}
@@ -76,8 +76,8 @@ $result_tree_text{'double_top_in_menu'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |node_number:{2}
- |normalized:{Top}
   *arguments_line C4
    *line_arg C1
     {top}

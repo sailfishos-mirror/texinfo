@@ -27,9 +27,9 @@ $result_tree_text{'empty_lines_at_beginning_no_setfilename'} = '*document_root C
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO

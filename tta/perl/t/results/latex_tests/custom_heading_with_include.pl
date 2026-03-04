@@ -42,9 +42,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -78,9 +78,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{in-main}
  |is_target:{1}
  |node_number:{2}
- |normalized:{in-main}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -173,9 +173,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Chapter-in-included-file}
  |is_target:{1}
  |node_number:{3}
- |normalized:{Chapter-in-included-file}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -231,9 +231,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Section}
  |is_target:{1}
  |node_number:{4}
- |normalized:{Section}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -289,9 +289,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Subsection}
  |is_target:{1}
  |node_number:{5}
- |normalized:{Subsection}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -726,9 +726,9 @@ $result_tree_text{'custom_heading_with_include'} = '*document_root C25
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{last-chap}
  |is_target:{1}
  |node_number:{6}
- |normalized:{last-chap}
   *arguments_line C1
    *line_arg C1
    |INFO

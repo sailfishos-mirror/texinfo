@@ -28,8 +28,8 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
         {In footnote.\\n}
         *@anchor C1 l5
         |EXTRA
+        |identifier:{Copying-footnote}
         |is_target:{1}
-        |normalized:{Copying-footnote}
          *brace_arg C1
          |EXTRA
          |element_region:{copying}
@@ -54,9 +54,9 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,9 +69,9 @@ $result_tree_text{'anchor_in_copying_in_footnote'} = '*document_root C3
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap}
   *arguments_line C1
    *line_arg C1
    |INFO

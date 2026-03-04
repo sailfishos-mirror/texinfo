@@ -125,6 +125,7 @@ enum string_info_type {
   ai_key(float_number, string, 0) \
   ai_key(float_type, string, 0) \
   ai_key(format, string, 0) \
+  ai_key(identifier, string, 0) \
   ai_key(index_ignore_chars, string, 0) \
   ai_key(input_encoding_name, string, 0) \
   ai_key(macro_name, string, 0) \

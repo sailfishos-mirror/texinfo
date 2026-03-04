@@ -15,9 +15,9 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -129,9 +129,9 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_2002_2003_2002}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_2002_2003_2002}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -200,9 +200,9 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_0085_00a0_1680}
  |is_target:{1}
  |node_number:{3}
- |normalized:{_0085_00a0_1680}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -229,9 +229,9 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_180e_2003}
  |is_target:{1}
  |node_number:{4}
- |normalized:{_180e_2003}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -258,9 +258,9 @@ $result_tree_text{'in_menu_only_special_spaces_node_menu'} = '*document_root C16
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000}
  |is_target:{1}
  |node_number:{5}
- |normalized:{_2004_2005_2006_2007_2008_2009_200a_202f_205f_3000}
   *arguments_line C1
    *line_arg C1
    |INFO

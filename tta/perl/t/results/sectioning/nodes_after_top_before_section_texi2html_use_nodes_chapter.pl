@@ -13,9 +13,9 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -69,9 +69,9 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{chap-node}
  |is_target:{1}
  |node_number:{2}
- |normalized:{chap-node}
   *arguments_line C4
    *line_arg C1
     {chap node}
@@ -105,9 +105,9 @@ $result_tree_text{'nodes_after_top_before_section_texi2html_use_nodes_chapter'} 
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{third-node}
  |is_target:{1}
  |node_number:{3}
- |normalized:{third-node}
   *arguments_line C4
    *line_arg C1
     {third node}

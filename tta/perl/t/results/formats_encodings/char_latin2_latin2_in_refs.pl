@@ -30,10 +30,10 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{Top}
  |is_target:{1}
  |isindex:{1}
  |node_number:{1}
- |normalized:{Top}
   *arguments_line C1
    *line_arg C1
    |INFO
@@ -119,9 +119,9 @@ $result_tree_text{'char_latin2_latin2_in_refs'} = '*document_root C6
  |spaces_before_argument:
   |{spaces_before_argument: }
  |EXTRA
+ |identifier:{_0104-_0105-_02db-_0118-_0119}
  |is_target:{1}
  |node_number:{2}
- |normalized:{_0104-_0105-_02db-_0118-_0119}
   *arguments_line C1
    *line_arg C1
    |INFO

@@ -13,8 +13,8 @@ $result_tree_text{'brace_opened_no_command'} = '*document_root C2
    { }
    *@anchor C1 l1
    |EXTRA
+   |identifier:{truc}
    |is_target:{1}
-   |normalized:{truc}
     *brace_arg C1
      {truc}
    {.\\n}
