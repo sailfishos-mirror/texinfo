@@ -1,3 +1,9 @@
+2026-03-04 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texi2any_api.texi (Simple Customization for Commands Without
+	Arguments): fix documentation of
+	texinfo_register_no_arg_command_texinfo.
+
 2026-03-03 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/C/convert/build_html_perl_info.c,

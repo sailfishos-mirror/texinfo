@@ -622,8 +622,11 @@ It is not required to set values for all the contexts.  If preformatted context
 output is not set, normal context output is used.  If string context output is not set,
 preformatted context output is used.
 
-@defun texinfo_register_no_arg_command_formatting ($command_name, @
-    $translated_string_to_convert)
+You can also specify a Texinfo code string that will be translated
+and converted with @code{texinfo_register_no_arg_command_texinfo}:
+
+@defun texinfo_register_no_arg_command_texinfo ($command_name, @
+     $translated_string_to_convert)
 @var{$command_name} is the @@-command name, without the leading @@.
 @var{$translated_string_to_convert} is the Texinfo code used for the
 command formatting.  This Texinfo code is translated when the document
