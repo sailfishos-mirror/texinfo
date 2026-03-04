@@ -124,8 +124,10 @@
        perl_only_free, perl_only_strdup, perl_only_strndup, perl_only_malloc.
 
       In November 2024, no file is compiled with both Perl and Gnulib
-      headers as it lead to many errors on MS-Windows, therefore the
-      perl_only_* wrappers are currently unused.
+      headers as it lead to many errors on MS-Windows, therefore most of
+      the perl_only_* wrappers are currently unused.  perl_only_strndup
+      is used for portability because strndup does not exist in mingw
+      and we can't use Gnulib strndup with Perl headers.
 
     */
 
@@ -159,7 +161,11 @@ perl_only_strdup (const char *s)
 }
 
 /* Implement as we are not sure that Perl will define a version of this
-   function. */
+   function.
+
+   Used for portability for platforms that do not have strndup in the
+   C library (mingw for instance).
+ */
 char *
 perl_only_strndup (const char *s, size_t n)
 {

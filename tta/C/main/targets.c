@@ -59,30 +59,6 @@ find_identifier_target (const struct C_HASHMAP *identifiers_target,
   return result;
 }
 
-/* unused */
-int
-compare_labels (const void *a, const void *b)
-{
-  const LABEL *label_a = (const LABEL *) a;
-  const LABEL *label_b = (const LABEL *) b;
-
-  if (label_a->identifier != 0 && label_b->identifier != 0)
-    {
-      int result = strcmp (label_a->identifier, label_b->identifier);
-      if (result != 0)
-        return result;
-    }
-  else if (label_a->identifier)
-    return -1;
-  else if (label_b->identifier)
-    return 1;
-
-  if (label_a->label_number < label_b->label_number)
-    return -1;
-  else
-    return 1;
-}
-
 void
 register_label_in_list (LABEL_LIST *labels_list, ELEMENT *element,
                         const char *normalized)
