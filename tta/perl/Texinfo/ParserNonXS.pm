@@ -9607,7 +9607,7 @@ The first argument normalized is in I<normalized>.
 
 =item C<@float>
 
-@-commands that are targets for cross-references have a I<normalized> key for
+@-commands that are targets for cross-references have an I<identifier> key for
 the normalized label, built as specified in the Texinfo documentation in the
 I<HTML Xref> node.  There is also a I<node_content> key for an element holding
 the corresponding content.
@@ -9719,10 +9719,11 @@ The key I<max_columns> holds the maximal number of columns.
 Node name and explicit directions labels information are available
 as I<line_arg> tree element arguments of the C<@node> line.
 Each I<line_arg> argument element C<extra> hash I<node_content> key value is an
-element holding the contents corresponding to the node name.  There is also a
-I<manual_content> key if there is an associated external manual name, and a
-I<normalized> key for the normalized label, built as specified in the I<HTML
-Xref> Texinfo documentation node.
+element holding the contents corresponding to the node name.  The node name
+argument has an I<identifier> key for the node identifier.
+Node directions arguments also have a I<manual_content> key if there is an
+associated external manual name, and a I<normalized> key for the normalized
+label, built as specified in the I<HTML Xref> Texinfo documentation node.
 
 =begin comment
 

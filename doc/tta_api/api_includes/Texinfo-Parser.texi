@@ -1193,7 +1193,7 @@ The first argument normalized is in @emph{normalized}.
 @item @code{@@float}
 @anchor{Texinfo@asis{::}Parser @code{@@float}}
 
-@@-commands that are targets for cross-references have a @emph{normalized} key for
+@@-commands that are targets for cross-references have an @emph{identifier} key for
 the normalized label, built as specified in the Texinfo documentation in the
 @emph{HTML Xref} node.  There is also a @emph{node_content} key for an element holding
 the corresponding content.
@@ -1327,10 +1327,11 @@ The key @emph{max_columns} holds the maximal number of columns.
 Node name and explicit directions labels information are available
 as @emph{line_arg} tree element arguments of the @code{@@node} line.
 Each @emph{line_arg} argument element @code{extra} hash @emph{node_content} key value is an
-element holding the contents corresponding to the node name.  There is also a
-@emph{manual_content} key if there is an associated external manual name, and a
-@emph{normalized} key for the normalized label, built as specified in the @emph{HTML
-Xref} Texinfo documentation node.
+element holding the contents corresponding to the node name.  The node name
+argument has an @emph{identifier} key for the node identifier.
+Node directions arguments also have a @emph{manual_content} key if there is an
+associated external manual name, and a @emph{normalized} key for the normalized
+label, built as specified in the @emph{HTML Xref} Texinfo documentation node.
 
 The first node containing a @code{@@printindex} @@-command has the @emph{isindex}
 key set.
