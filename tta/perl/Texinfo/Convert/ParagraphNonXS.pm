@@ -213,7 +213,7 @@ sub _add_next($;$$$) {
   }
 
   if (!$newlines_impossible and $word =~ /\n/) {
-    $result .= _add_pending_word ($paragraph);
+    $result .= _add_pending_word($paragraph);
     _end_line($paragraph);
   } else {
     $paragraph->{'word_counter'}
@@ -312,13 +312,13 @@ sub add_text($$) {
        ."l `$paragraph->{'last_letter'}', "
        ."w$paragraph->{'invisible_pending_word'} `$paragraph->{'word'}'\n";
     }
-    if (defined $spaces) {
+    if (defined($spaces)) {
       print STDERR "SPACES($paragraph->{'counter'}) `"
           ._print_escaped_spaces($spaces)."'\n" if $debug_flag;
       if ($paragraph->{'unfilled'}) {
         $result .= _add_pending_word($paragraph);
         if ($spaces =~ /\n/) {
-          $result .= _end_line ($paragraph);
+          $result .= _end_line($paragraph);
         } else {
           $paragraph->{'space'} .= $spaces;
         }
@@ -368,11 +368,11 @@ sub add_text($$) {
         $result .= _end_line($paragraph);
       }
       $paragraph->{'last_letter'} = ' ';
-    } elsif (defined $allow_eos) {
-      # Reset 'last_leter' to a lower-case letter to allow an end of
+    } elsif (defined($allow_eos)) {
+      # Reset 'last_letter' to a lower-case letter to allow an end of
       # sentence to occur.
       $paragraph->{'last_letter'} = 'a';
-    } elsif (defined $added_word) {
+    } elsif (defined($added_word)) {
       my $tmp = $added_word;
       # Prepend 'last_letter' to add the information on the last
       # letter even if it was read as part of a previous string
@@ -407,7 +407,7 @@ sub add_text($$) {
           if (exists($paragraph->{'end_sentence'}) and $paragraph->{'DEBUG'});
         delete $paragraph->{'end_sentence'};
       }
-    } elsif (defined $fullwidth_segment) {
+    } elsif (defined($fullwidth_segment)) {
       print STDERR "FULLWIDTH\n" if ($paragraph->{'DEBUG'});
 
       $paragraph->{'word'} .= $fullwidth_segment;

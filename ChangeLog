@@ -1,5 +1,11 @@
 2026-03-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm,
+	tta/perl/XSTexinfo/xspara.c: minor changes in spacing, parentheses
+	use.
+
+2026-03-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (dump, add_text): check
 	if $paragraph->{'end_sentence'} exists, not if defined.
 

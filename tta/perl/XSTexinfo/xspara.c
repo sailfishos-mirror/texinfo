@@ -284,8 +284,8 @@ xspara_get_pending (void)
   return t.text;
 }
 
-/* Append to RESULT pending space followed by pending word, clearing them 
-   afterwards.  Assume we don't need to wrap a line.  Only add spaces without a 
+/* Append to RESULT pending space followed by pending word, clearing them
+   afterwards.  Assume we don't need to wrap a line.  Only add spaces without a
    word if ADD_SPACES. */
 void
 xspara__add_pending_word (TEXT *result, int add_spaces)
@@ -296,8 +296,8 @@ xspara__add_pending_word (TEXT *result, int add_spaces)
   if (state.indent_length > state.counter)
     {
       int i;
-      /* If we are not up to the left margin yet, output spaces to get there, 
-         and ignore 'state.space', the pending space string.  In this case 
+      /* If we are not up to the left margin yet, output spaces to get there,
+         and ignore 'state.space', the pending space string.  In this case
          state.counter is probably 0.  */
 
       for (i = 0; i < state.indent_length - state.counter; i++)
@@ -405,7 +405,7 @@ xspara_end (void)
 /* characters triggering an end of sentence */
 #define end_sentence_characters ".?!"
 
-/* Add WORD to paragraph in RESULT, not refilling WORD.  If we go past the end 
+/* Add WORD to paragraph in RESULT, not refilling WORD.  If we go past the end
    of the line start a new one.  TRANSPARENT means that the letters in WORD
    are ignored for the purpose of deciding whether a full stop ends a sentence
    or not.  If COL_COUNT is non-negative, it is the number of screen columns
