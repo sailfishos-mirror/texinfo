@@ -1,3 +1,17 @@
+2026-03-05 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new, get_pending)
+	(_add_pending_word, _add_next, set_space_protection, add_text):
+	instead of setting paragraph->{'word'} to undef to signal that there
+	is no empty string pending that need to be kept as is, add
+	invisible_pending_word to signal it, as in C.
+
+	* tta/perl/XSTexinfo/xspara.c (xspara__add_next)
+	(xspara_set_space_protection): change conditions to be simpler.
+
+	* tta/perl/XSTexinfo/xspara.c (xspara_add_text, xspara__add_next):
+	more similar debug messages as in Perl.
+
 2026-03-04 Patrice Dumas  <pertusus@free.fr>
 
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm: reformat functions
