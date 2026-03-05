@@ -1,8 +1,13 @@
 2026-03-04 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm: reformat functions
+	beginning.
+
+2026-03-04 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texi2any_api.texi, tta/perl/init/documentation_examples.pm:
-	change th eformatting of functions beginning in documentation_examples.pm
-	and in texi2any_api.texi examples.
+	change the formatting of functions beginning in
+	documentation_examples.pm and in texi2any_api.texi examples.
 
 2026-03-04 Patrice Dumas  <pertusus@free.fr>
 

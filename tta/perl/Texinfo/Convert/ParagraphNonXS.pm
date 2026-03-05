@@ -34,9 +34,9 @@ use Texinfo::Convert::Unicode;
 use Carp qw(cluck);
 
 # initialize a paragraph hash.
-sub new(;$)
-{
+sub new(;$) {
   my $conf = shift;
+
   my $self = {'max' => 72, 'indent_length' => 0, 'counter' => 0,
               'word_counter' => 0, 'space' => '', 'frenchspacing' => 0,
               'lines_counter' => 0, 'end_line_count' => 0,
@@ -50,9 +50,9 @@ sub new(;$)
 }
 
 # for debugging
-sub dump($)
-{
+sub dump($) {
   my $self = shift;
+
   print STDERR "para ($self->{'counter'}+$self->{'word_counter'}) "
     ."word: ".(defined($self->{'word'}) ? $self->{'word'} : 'UNDEF')
     .", space `$self->{'space'}' "
@@ -60,36 +60,36 @@ sub dump($)
                                 ? $self->{'end_sentence'} : 'UNDEF')."\n";
 }
 
-sub _cut_line($)
-{
+sub _cut_line($) {
   my $paragraph = shift;
+
   return '' if ($paragraph->{'ignore_columns'});
   return _end_line($paragraph);
 }
 
-sub end_line_count($)
-{
+sub end_line_count($) {
   my $paragraph = shift;
+
   return $paragraph->{'end_line_count'};
 }
 
-sub counter($)
-{
+sub counter($) {
   my $paragraph = shift;
+
   return $paragraph->{'counter'};
 }
 
-sub end_line($)
-{
+sub end_line($) {
   my $paragraph = shift;
+
   $paragraph->{'end_line_count'} = 0;
   return _end_line($paragraph);
 }
 
 # end a line.
-sub _end_line($)
-{
+sub _end_line($) {
   my $paragraph = shift;
+
   $paragraph->{'counter'} = 0;
   $paragraph->{'space'} = '';
   if (defined($paragraph->{'indent_length_next'})) {
@@ -104,9 +104,9 @@ sub _end_line($)
   return "\n";
 }
 
-sub get_pending($)
-{
+sub get_pending($) {
   my $paragraph = shift;
+
   my $result = '';
   if ($paragraph->{'space'}) {
     $result .= $paragraph->{'space'};
@@ -117,19 +117,17 @@ sub get_pending($)
   return $result;
 }
 
-sub add_pending_word($;$)
-{
-  my $paragraph = shift;
-  my $add_spaces = shift;
+sub add_pending_word($;$) {
+  my ($paragraph, $add_spaces) = @_;
+
   $paragraph->{'end_line_count'} = 0;
   return _add_pending_word($paragraph, $add_spaces);
 }
 
 # put a pending word and spaces in the result string.
-sub _add_pending_word($;$)
-{
-  my $paragraph = shift;
-  my $add_spaces = shift;
+sub _add_pending_word($;$) {
+  my ($paragraph, $add_spaces) = @_;
+
   my $result = '';
 
   if (not defined($paragraph->{'word'}) and not $add_spaces) {
@@ -163,9 +161,9 @@ sub _add_pending_word($;$)
 }
 
 # end a paragraph
-sub end($)
-{
+sub end($) {
   my $paragraph = shift;
+
   $paragraph->{'end_line_count'} = 0;
   print STDERR "PARA END\n" if ($paragraph->{'DEBUG'});
   my $result = _add_pending_word($paragraph, $paragraph->{'add_final_space'});
@@ -183,22 +181,17 @@ my $end_sentence_characters = quotemeta('.?!');
 my $after_punctuation_characters = quotemeta('"\')]');
 
 # Add $WORD to paragraph, returning the text to be added to the paragraph.
-sub add_next($;$$)
-{
-  my $paragraph = shift;
-  my $word = shift;
-  my $transparent = shift;
+sub add_next($;$$) {
+  my ($paragraph, $word, $transparent) = @_;
+
   $paragraph->{'end_line_count'} = 0;
   return _add_next($paragraph, $word, $transparent);
 }
 
 # add a word (without wrapping).
-sub _add_next($;$$$)
-{
-  my $paragraph = shift;
-  my $word = shift;
-  my $transparent = shift;
-  my $newlines_impossible = shift;
+sub _add_next($;$$$) {
+  my ($paragraph, $word, $transparent, $newlines_impossible) = @_;
+
   my $result = '';
 
   if (!defined($word)) {
@@ -245,33 +238,29 @@ use constant {
   eos_present_frenchspacing => -1,
 };
 
-sub remove_end_sentence($)
-{
+sub remove_end_sentence($) {
   my $paragraph = shift;
+
   $paragraph->{'end_sentence'} = eos_inhibited;
 }
 
 sub add_end_sentence($;$) {
-  my $paragraph = shift;
-  my $value = shift;
+  my ($paragraph, $value) = @_;
+
   $paragraph->{'end_sentence'} = $value;
 }
 
-sub allow_end_sentence($)
-{
+sub allow_end_sentence($) {
   my $paragraph = shift;
+
   printf STDERR "ALLOW END SENTENCE\n" if $paragraph->{'DEBUG'};
   $paragraph->{'last_letter'} = 'a'; # lower-case
 }
 
-sub set_space_protection($$;$$$$)
-{
-  my $paragraph = shift;
-  my $no_break = shift;
-  my $ignore_columns = shift;
-  my $keep_end_lines = shift;
-  my $frenchspacing = shift;
-  my $double_width_no_break = shift;
+sub set_space_protection($$;$$$$) {
+  my ($paragraph, $no_break, $ignore_columns, $keep_end_lines,
+      $frenchspacing, $double_width_no_break) = @_;
+
   $paragraph->{'no_break'} = $no_break
     if defined($no_break);
   $paragraph->{'ignore_columns'} = $ignore_columns
@@ -292,10 +281,9 @@ sub set_space_protection($$;$$$$)
 # of $PARAGRAPH.  Any end of sentence punctuation in $TEXT that should be
 # allowed to end a sentence but which would otherwise be preceded by an
 # upper-case letter should instead by preceded by a backspace character.
-sub add_text($$)
-{
-  my $paragraph = shift;
-  my $text = shift;
+sub add_text($$) {
+  my ($paragraph, $text) = @_;
+
   $paragraph->{'end_line_count'} = 0;
   my $result = '';
 
@@ -447,9 +435,9 @@ sub add_text($$)
 }
 
 # for debug
-sub _print_escaped_spaces($)
-{
+sub _print_escaped_spaces($) {
   my $spaces = shift;
+
   my $result = '';
   foreach my $pos (0 .. length($spaces)-1) {
     my $char = substr($spaces, $pos, 1);
