@@ -36,9 +36,9 @@
 
 static int debug = 0;
 
-enum eos_status { eos_undef = -2, eos_inhibited = 0, eos_present = 1,
+enum eos_status { eos_unset = -2, eos_inhibited = 0, eos_present = 1,
                   eos_present_frenchspacing = -1 };
-/* eos_undef                 - not at the end of a sentence (undef in Perl),
+/* eos_unset                 - not at the end of a sentence (unset in Perl),
    eos_inhibited             - end of sentence is inhibited
    eos_present               - at end of sentence
    eos_present_frenchspacing - at end of sentence but frenchspacing is on. */
@@ -191,7 +191,7 @@ xspara_new (void)
   /* Default values. */
   state.max = 72;
   state.indent_length_next = -1; /* Special value meaning undefined. */
-  state.end_sentence = eos_undef;
+  state.end_sentence = eos_unset;
   state.last_letter = (char32_t) '\0';
 
   /* The paragraph ID. */
@@ -818,7 +818,7 @@ xspara_add_text (char *text, int len)
             {
               xspara__add_pending_word (&result, 0);
             }
-          state.end_sentence = eos_undef;
+          state.end_sentence = eos_unset;
         }
       else if (type == type_EOS)
         {
@@ -859,10 +859,10 @@ xspara_add_text (char *text, int len)
               else
                 {
                   /* Not at the end of a sentence. */
-                  if (debug && state.end_sentence != eos_undef)
+                  if (debug && state.end_sentence != eos_unset)
                     fprintf (stderr, "delete END_SENTENCE(%d)\n",
                                       state.end_sentence);
-                  state.end_sentence = eos_undef;
+                  state.end_sentence = eos_unset;
                   break;
                 }
             }

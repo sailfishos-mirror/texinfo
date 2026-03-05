@@ -1,5 +1,13 @@
 2026-03-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (dump, add_text): check
+	if $paragraph->{'end_sentence'} exists, not if defined.
+
+	* tta/perl/XSTexinfo/xspara.c (enum eos_status): rename eos_undef as
+	eos_unset.  Update users.
+
+2026-03-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (add_end_sentence),
 	tta/perl/XSTexinfo/ParagraphXS.xs (xspara_add_end_sentence),
 	tta/perl/XSTexinfo/xspara.c (xspara_add_end_sentence): remove

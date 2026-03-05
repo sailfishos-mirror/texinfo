@@ -58,8 +58,8 @@ sub dump($) {
   print STDERR "para ($self->{'counter'}+$self->{'word_counter'}) "
     ."word(invisible:$self->{'invisible_pending_word'}): $self->{'word'}"
     .", space `$self->{'space'}' "
-    ."end_sentence: ".(defined($self->{'end_sentence'})
-                                ? $self->{'end_sentence'} : 'UNDEF')."\n";
+    ."end_sentence: ".(exists($self->{'end_sentence'})
+                                ? $self->{'end_sentence'} : 'UNSET')."\n";
 }
 
 sub _cut_line($) {
@@ -234,7 +234,7 @@ sub _add_next($;$$$) {
   return $result;
 }
 
-# Values for 'end_sentence'.  'end_sentence' can also be undef.
+# Values for 'end_sentence'.  'end_sentence' can also be unset.
 use constant {
   eos_inhibited => 0,
   eos_present => 1,
@@ -325,7 +325,7 @@ sub add_text($$) {
       } else {
         my $at_two_spaces_end_sentence = 0;
         $at_two_spaces_end_sentence = 1
-                           if (defined($paragraph->{'end_sentence'})
+                           if (exists($paragraph->{'end_sentence'})
                                and  $paragraph->{'end_sentence'} == eos_present
                                and !$paragraph->{'frenchspacing'});
         if ($paragraph->{'no_break'}) {
@@ -388,7 +388,7 @@ sub add_text($$) {
       # Check if it is considered as an end of sentence.  There are two things
       # to check: one, that we have a ., ! or ?; and second, that it is not
       # preceded by an upper-case letter (ignoring some punctuation)
-      if (defined($paragraph->{'end_sentence'})
+      if (exists($paragraph->{'end_sentence'})
           and $added_word =~ /^[$after_punctuation_characters]*$/o) {
         # do nothing in the case of a continuation of after_punctuation_characters
       } elsif (!$paragraph->{'unfilled'}
@@ -404,7 +404,7 @@ sub add_text($$) {
         print STDERR "END_SENTENCE\n" if ($paragraph->{'DEBUG'});
       } else {
         print STDERR "delete END_SENTENCE($paragraph->{'end_sentence'})\n"
-          if (defined($paragraph->{'end_sentence'}) and $paragraph->{'DEBUG'});
+          if (exists($paragraph->{'end_sentence'}) and $paragraph->{'DEBUG'});
         delete $paragraph->{'end_sentence'};
       }
     } elsif (defined $fullwidth_segment) {
