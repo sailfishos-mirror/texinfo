@@ -110,9 +110,7 @@ sub get_pending($) {
   my $paragraph = shift;
 
   my $result = '';
-  if ($paragraph->{'space'}) {
-    $result .= $paragraph->{'space'};
-  }
+  $result .= $paragraph->{'space'};
   $result .= $paragraph->{'word'};
   return $result;
 }
@@ -140,15 +138,15 @@ sub _add_pending_word($;$) {
     $paragraph->{'counter'} = $paragraph->{'indent_length'};
     print STDERR "INDENT($paragraph->{'counter'}+$paragraph->{'word_counter'})\n"
                  if ($paragraph->{'DEBUG'});
-    delete $paragraph->{'space'} unless $paragraph->{'unfilled'};
+    $paragraph->{'space'} = '' unless $paragraph->{'unfilled'};
   }
-  if ($paragraph->{'space'}) {
+  if ($paragraph->{'space'} ne '') {
     $result .= $paragraph->{'space'};
     $paragraph->{'counter'} += length($paragraph->{'space'});
     print STDERR "ADD_SPACES($paragraph->{'counter'}+$paragraph->{'word_counter'})\n"
        if ($paragraph->{'DEBUG'});
+    $paragraph->{'space'} = '';
   }
-  $paragraph->{'space'} = '';
   if ($paragraph->{'word'} ne '' or $paragraph->{'invisible_pending_word'}) {
     $result .= $paragraph->{'word'};
     $paragraph->{'counter'} += $paragraph->{'word_counter'};

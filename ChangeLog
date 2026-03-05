@@ -1,5 +1,11 @@
 2026-03-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (get_pending)
+	(_add_pending_word): do not delete $paragraph->{'space'}, set it to an
+	empty string instead.
+
+2026-03-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (new, get_pending)
 	(_add_pending_word, _add_next, set_space_protection, add_text):
 	instead of setting paragraph->{'word'} to undef to signal that there
