@@ -1810,6 +1810,7 @@ For example:
 @example
 sub my_node_file_name($$$) @{
   my ($converter, $element, $filename) = @@_;
+
   # ....
   return $node_file_name
 @}
@@ -3164,11 +3165,8 @@ The default function used for separate anchors can be replaced by a user-defined
 anchor formatting function using a @code{<p>} element with:
 @example
 @group
-sub my_format_separate_anchor($$;$)
-@{
-  my $converter = shift;
-  my $id = shift;
-  my $class = shift;
+sub my_format_separate_anchor($$;$) @{
+  my ($converter, $id, $class) = @@_;
 
   return $converter->html_attribute_class('p', [$class])." id=\"$id\"></p>";
 @}
@@ -3864,12 +3862,8 @@ string context can be taken into account.
 
 @example
 @group
-sub my_tree_element_convert_paragraph_type($$$$)
-@{
-  my $converter = shift;
-  my $type = shift;
-  my $element = shift;
-  my $content = shift;
+sub my_tree_element_convert_paragraph_type($$$$) @{
+  my ($converter, $type, $element, $content) = @@_;
 
   $content = '' if (!defined($content));
 
@@ -3944,12 +3938,8 @@ The definition and registration of a conversion function for all
 the tree elements holding text should be along:
 
 @example
-sub my_convert_text($$$$)
-@{
-  my $converter = shift;
-  my $type = shift;
-  my $element = shift;
-  my $text = shift;
+sub my_convert_text($$$$) @{
+  my ($converter, $type, $element, $text) = @@_;
 
   # ...
 
@@ -4095,11 +4085,8 @@ Here is some inline container formatting code showing how those functions
 are used, with the paragraph type element formatting example completed:
 @example
 @group
-sub _open_inline_container_type($$$)
-@{
-  my $self = shift;
-  my $type = shift;
-  my $element = shift;
+sub _open_inline_container_type($$$) @{
+  my ($self, $type, $element) = @@_;
 
   my $pending_formatted = $self->get_pending_formatted_inline_content();
 
@@ -4112,12 +4099,8 @@ sub _open_inline_container_type($$$)
 @end group
 
 @group
-sub my_final_convert_paragraph_type($$$$)
-@{
-  my $converter = shift;
-  my $type = shift;
-  my $element = shift;
-  my $content = shift;
+sub my_final_convert_paragraph_type($$$$) @{
+  my ($converter, $type, $element, $content) = @@_;
 
   $content = '' if (!defined($content));
 
@@ -4497,9 +4480,9 @@ my %translations = (
  # @dots{}
 );
 
-sub my_format_translate_message($$$;$)
-@{
+sub my_format_translate_message($$$;$) @{
   my ($self, $string, $lang, $translation_context) = @@_;
+
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations@{$lang@})

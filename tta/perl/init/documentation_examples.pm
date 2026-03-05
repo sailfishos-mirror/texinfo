@@ -180,11 +180,8 @@ sub _set_appendix_direction_node_name {
 texinfo_register_handler('setup',
                        \&_set_appendix_direction_node_name);
 
-sub my_format_separate_anchor($$;$)
-{
-  my $converter = shift;
-  my $id = shift;
-  my $class = shift;
+sub my_format_separate_anchor($$;$) {
+  my ($converter, $id, $class) = @_;
 
   return $converter->html_attribute_class('p', [$class])." id=\"$id\"></p>";
 }
@@ -193,10 +190,7 @@ texinfo_register_formatting_function('format_separate_anchor',
                                      \&my_format_separate_anchor);
 
 sub my_slanted_formatting_function {
-  my $converter = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
+  my ($converter, $cmdname, $command, $args) = @_;
 
   my $text;
   if (defined($args) and defined($args->[0])) {
@@ -233,10 +227,7 @@ sub my_slanted_formatting_function {
 texinfo_register_command_formatting('slanted', \&my_slanted_formatting_function);
 
 sub my_email_formatting_function {
-  my $converter = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
+  my ($converter, $cmdname, $command, $args) = @_;
 
   my $args_nr = 0;
   if ($args) {
@@ -306,12 +297,8 @@ sub my_email_formatting_function {
 
 texinfo_register_command_formatting('email', \&my_email_formatting_function);
 
-sub _convert_math_command($$$$)
-{
-  my $converter = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
+sub _convert_math_command($$$$) {
+  my ($converter, $cmdname, $command, $args) = @_;
 
   my $arg;
   if ($args and $args->[0]) {
@@ -333,12 +320,8 @@ texinfo_register_command_formatting('math', \&_convert_math_command);
 
 # put here as it is in the documentation, but not used as the
 # final version is used, below.
-sub my_tree_element_convert_paragraph_type($$$$)
-{
-  my $converter = shift;
-  my $type = shift;
-  my $element = shift;
-  my $content = shift;
+sub my_tree_element_convert_paragraph_type($$$$) {
+  my ($converter, $type, $element, $content) = @_;
 
   $content = '' if (!defined($content));
 
@@ -354,12 +337,8 @@ sub my_tree_element_convert_paragraph_type($$$$)
 }
 
 
-sub my_final_convert_paragraph_type($$$$)
-{
-  my $converter = shift;
-  my $type = shift;
-  my $element = shift;
-  my $content = shift;
+sub my_final_convert_paragraph_type($$$$) {
+  my ($converter, $type, $element, $content) = @_;
 
   $content = '' if (!defined($content));
 
@@ -379,13 +358,8 @@ sub my_final_convert_paragraph_type($$$$)
 texinfo_register_type_formatting('paragraph',
                                  \&my_final_convert_paragraph_type);
 
-sub my_test_documentation_convert_indented_command($$$$$)
-{
-  my $converter = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
-  my $content = shift;
+sub my_test_documentation_convert_indented_command($$$$$) {
+  my ($converter, $cmdname, $command, $args, $content) = @_;
 
   if (!defined($content) or $content eq '') {
     return '';
@@ -405,12 +379,8 @@ sub my_test_documentation_convert_indented_command($$$$$)
 texinfo_register_command_formatting('indentedblock',
                 \&my_test_documentation_convert_indented_command);
 
-sub my_test_documentation_convert_index_entry_command_type($$$$)
-{
-  my $converter = shift;
-  my $type = shift;
-  my $element = shift;
-  my $content = shift;
+sub my_test_documentation_convert_index_entry_command_type($$$$) {
+  my ($converter, $type, $element, $content) = @_;
 
   if ($converter->multi_expanded_region()
       or $converter->in_string()) {
@@ -494,12 +464,8 @@ sub my_test_documentation_convert_index_entry_command_type($$$$)
 texinfo_register_type_formatting('index_entry_command',
                \&my_test_documentation_convert_index_entry_command_type);
 
-sub my_test_documentation_convert_xref_commands($$$$)
-{
-  my $converter = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
+sub my_test_documentation_convert_xref_commands($$$$) {
+  my ($converter, $cmdname, $command, $args) = @_;
 
   my $xref_tree_element = $command;
   my $prepended = '';
@@ -523,12 +489,8 @@ texinfo_register_command_formatting('xref',
              \&my_test_documentation_convert_xref_commands);
 
 
-sub my_test_documentation_convert_printindex_command($$$$)
-{
-  my $converter = shift;
-  my $cmdname = shift;
-  my $command = shift;
-  my $args = shift;
+sub my_test_documentation_convert_printindex_command($$$$) {
+  my ($converter, $cmdname, $command, $args) = @_;
 
   my $printindex_element = $command;
   my $prepended = '';
@@ -549,6 +511,7 @@ texinfo_register_command_formatting('printindex',
 
 sub my_node_file_name($$$) {
   my ($converter, $element, $filename) = @_;
+
   # ....
   my $node_file_name = 'prepended_to_filenames-'.$filename;
   return $node_file_name;
@@ -560,6 +523,7 @@ texinfo_register_file_id_setting_function('node_file_name',
 
 sub my_label_target_name($$$$) {
   my ($converter, $normalized, $label_element, $default_target) = @_;
+
   if (defined($normalized)) {
     my $element = $converter->converter_find_identifier_target($normalized);
     return 'prepended_to_labels-'.$element->{'extra'}->{'identifier'};
@@ -570,9 +534,9 @@ sub my_label_target_name($$$$) {
 texinfo_register_file_id_setting_function('label_target_name',
                                           \&my_label_target_name);
 
-sub my_format_translate_message($$$;$)
-{
+sub my_format_translate_message($$$;$) {
   my ($converter, $string, $lang, $translation_context) = @_;
+
   return $string if (!defined($lang) or $lang eq '');
   $translation_context = '' if (!defined($translation_context));
   if (exists($translations{$lang})
