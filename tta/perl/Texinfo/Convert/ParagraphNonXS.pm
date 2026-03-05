@@ -247,10 +247,10 @@ sub remove_end_sentence($) {
   $paragraph->{'end_sentence'} = eos_inhibited;
 }
 
-sub add_end_sentence($;$) {
-  my ($paragraph, $value) = @_;
+sub add_end_sentence($) {
+  my $paragraph = shift;
 
-  $paragraph->{'end_sentence'} = $value;
+  $paragraph->{'end_sentence'} = eos_present;
 }
 
 sub allow_end_sentence($) {

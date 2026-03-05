@@ -3231,7 +3231,7 @@ sub _convert($$) {
 
           if ($punctuation_no_arg_commands{$cmdname}) {
             _stream_output_add_next($self, $text);
-            add_end_sentence($formatter->{'container'}, 1);
+            add_end_sentence($formatter->{'container'});
           } elsif ($cmdname eq 'tie') {
             _stream_output_add_next($self, $text);
           } else {
@@ -3536,7 +3536,7 @@ sub _convert($$) {
         }
       } elsif ($cmdname eq '.' or $cmdname eq '?' or $cmdname eq '!') {
         _stream_output_add_next($self, $cmdname);
-        add_end_sentence($formatter->{'container'}, 1);
+        add_end_sentence($formatter->{'container'});
       } elsif ($cmdname eq ' ' or $cmdname eq "\n" or $cmdname eq "\t") {
         _stream_output_add_next($self, $nobrace_symbol_text{$cmdname});
       } else {

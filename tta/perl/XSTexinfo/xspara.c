@@ -533,9 +533,9 @@ xspara_remove_end_sentence (void)
 }
 
 void
-xspara_add_end_sentence (int value)
+xspara_add_end_sentence (void)
 {
-  state.end_sentence = value;
+  state.end_sentence = eos_present;
 }
 
 void

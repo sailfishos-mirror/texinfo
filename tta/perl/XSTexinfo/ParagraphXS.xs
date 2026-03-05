@@ -211,15 +211,10 @@ xspara_remove_end_sentence (int paragraph)
         xspara_remove_end_sentence ();
 
 void
-xspara_add_end_sentence (int paragraph, value)
-        SV * value
-    PREINIT:
-        int intvalue = 0;
+xspara_add_end_sentence (int paragraph)
     CODE:
-        if (SvOK(value))
-          intvalue = (int)SvIV(value);
         xspara_set_state (paragraph);
-        xspara_add_end_sentence (intvalue);
+        xspara_add_end_sentence ();
 
 void
 xspara_allow_end_sentence (int paragraph)

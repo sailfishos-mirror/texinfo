@@ -1,5 +1,13 @@
 2026-03-05 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (add_end_sentence),
+	tta/perl/XSTexinfo/ParagraphXS.xs (xspara_add_end_sentence),
+	tta/perl/XSTexinfo/xspara.c (xspara_add_end_sentence): remove
+	add_end_sentence value argument, always set to eos_present.  Update
+	callers.
+
+2026-03-05 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/ParagraphNonXS.pm (get_pending)
 	(_add_pending_word): do not delete $paragraph->{'space'}, set it to an
 	empty string instead.

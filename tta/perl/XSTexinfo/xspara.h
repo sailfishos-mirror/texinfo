@@ -60,7 +60,7 @@ char *xspara_end (void);
 char *xspara_add_pending_word (int add_spaces);
 void xspara_allow_end_sentence (void);
 void xspara_remove_end_sentence (void);
-void xspara_add_end_sentence (int value);
+void xspara_add_end_sentence (void);
 int xspara_end_line_count (void);
 int xspara_counter (void);
 
