@@ -1,5 +1,9 @@
 2026-03-06 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/init/documentation_examples.pm: add a license.
+
+2026-03-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (test_files): remove unused
 	test_renamed_nodes.init.
 

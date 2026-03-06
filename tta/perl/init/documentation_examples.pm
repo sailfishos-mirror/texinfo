@@ -1,3 +1,13 @@
+# Copyright 2022-2026 Free Software Foundation, Inc.
+#
+# This file is free software; as a special exception the author gives
+# unlimited permission to copy and/or distribute it, with or without
+# modifications, as long as this notice is preserved.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY, to the extent permitted by law; without even the
+# implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 # API documentation code examples implemented, to check syntax
 # and also expected effects.  Only for code that is not already elsewhere,
 # nor is too complex to set up.  Some of those customization results
