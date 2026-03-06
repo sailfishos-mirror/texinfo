@@ -919,7 +919,7 @@ current_output_unit (SV *converter_in)
 
 SV *
 count_elements_in_filename (SV *converter_in, const char *spec, filename)
-        const char *filename = (char *)SvPVutf8_nolen($arg);
+        const char *filename = SvPVutf8_nolen($arg);
      PREINIT:
         IV count = -1;
         const CONVERTER *self;
@@ -951,7 +951,7 @@ count_elements_in_filename (SV *converter_in, const char *spec, filename)
 
 SV *
 is_format_expanded (SV *converter_in, format)
-        char *format = (char *)SvPVutf8_nolen($arg);
+        const char *format = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
      CODE:
@@ -969,7 +969,7 @@ is_format_expanded (SV *converter_in, format)
 
 void
 register_file_information (SV *converter_in, key, int value)
-        char *key = (char *)SvPVutf8_nolen($arg);
+        const char *key = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
      CODE:
@@ -977,13 +977,13 @@ register_file_information (SV *converter_in, key, int value)
                                  "register_file_information");
         if (self)
           {
-            char *stored_key = add_string (key, &self->small_strings);
+            const char *stored_key = add_string (key, &self->small_strings);
             html_register_file_information (self, stored_key, value);
           }
 
 void
 get_file_information (SV *converter_in, key, ...)
-        const char *key = (char *)SvPVutf8_nolen($arg);
+        const char *key = SvPVutf8_nolen($arg);
     PROTOTYPE: $$;$
      PREINIT:
         CONVERTER *self;
@@ -1038,7 +1038,7 @@ command_id (SV *converter_in, SV *element_sv)
 
 SV *
 command_contents_target (SV *converter_in, SV *element_sv, cmdname)
-        const char *cmdname = (char *)SvPVutf8_nolen($arg);
+        const char *cmdname = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         const char *id = 0;
@@ -1183,7 +1183,7 @@ _internal_command_href (SV *converter_in, SV *element_sv, SV *source_filename_sv
 
 SV *
 command_contents_href (SV *converter_in, SV *element_sv, cmdname, SV *source_filename_sv=0)
-        char *cmdname = (char *)SvPVutf8_nolen($arg);
+        const char *cmdname = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         char *href = 0;
@@ -1399,8 +1399,8 @@ get_special_unit_info_varieties (SV *converter_in, SV *)
 
 SV *
 special_unit_info (SV *converter_in, type_name, special_unit_variety)
-        const char *type_name = (char *)SvPVutf8_nolen($arg);
-        const char *special_unit_variety = (char *)SvPVutf8_nolen($arg);
+        const char *type_name = SvPVutf8_nolen($arg);
+        const char *special_unit_variety = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         const char *text = 0;
@@ -1444,8 +1444,8 @@ special_unit_info (SV *converter_in, type_name, special_unit_variety)
 
 SV *
 special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *context_type_sv=0)
-        const char *type_name = (char *)SvPVutf8_nolen($arg);
-        const char *special_unit_variety = (char *)SvPVutf8_nolen($arg);
+        const char *type_name = SvPVutf8_nolen($arg);
+        const char *special_unit_variety = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         char *text = 0;
@@ -1479,7 +1479,7 @@ special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *c
                 if (context_type_sv && SvOK (context_type_sv))
                   {
                     const char *context_type_name
-                       = (char *)SvPVutf8_nolen(context_type_sv);
+                       = SvPVutf8_nolen(context_type_sv);
 
                     if (!strcmp (context_type_name, "string"))
                       context_type = HCC_type_string;
@@ -1503,8 +1503,8 @@ special_unit_info_text (SV *converter_in, type_name, special_unit_variety, SV *c
 
 SV *
 direction_string (SV *converter_in, direction_name, string_type_name, SV* context_name_sv=0)
-        const char *direction_name = (char *)SvPVutf8_nolen($arg);
-        const char *string_type_name = (char *)SvPVutf8_nolen($arg);
+        const char *direction_name = SvPVutf8_nolen($arg);
+        const char *string_type_name = SvPVutf8_nolen($arg);
 
      PREINIT:
         CONVERTER *self;
@@ -1521,7 +1521,7 @@ direction_string (SV *converter_in, direction_name, string_type_name, SV* contex
             if (context_name_sv && SvOK (context_name_sv))
               {
                 const char *context_name
-                    = (char *)SvPVutf8_nolen(context_name_sv);
+                    = SvPVutf8_nolen(context_name_sv);
                 if (!strcmp (context_name, "string"))
                   context = TDS_context_string;
               }
@@ -1582,7 +1582,7 @@ direction_string (SV *converter_in, direction_name, string_type_name, SV* contex
 
 SV *
 global_direction_unit (SV *converter_in, direction_name)
-        const char *direction_name = (char *)SvPVutf8_nolen($arg);
+        const char *direction_name = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         const OUTPUT_UNIT *output_unit = 0;
@@ -1608,7 +1608,7 @@ global_direction_unit (SV *converter_in, direction_name)
 
 SV *
 global_direction_text (SV *converter_in, direction_name)
-        const char *direction_name = (char *)SvPVutf8_nolen($arg);
+        const char *direction_name = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         int found = 0;
@@ -1642,8 +1642,8 @@ _translate_names (SV *converter_in)
 
 void
 _XS_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
-        const char *cmdname = (char *)SvPVutf8_nolen($arg);
-        const char *state_name = (char *)SvPVutf8_nolen($arg);
+        const char *cmdname = SvPVutf8_nolen($arg);
+        const char *state_name = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         SV **args_sv = 0;
@@ -1667,8 +1667,8 @@ _XS_set_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
 
 SV *
 _XS_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
-        const char *cmdname = (char *)SvPVutf8_nolen($arg);
-        const char *state_name = (char *)SvPVutf8_nolen($arg);
+        const char *cmdname = SvPVutf8_nolen($arg);
+        const char *state_name = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         SV **args_sv = 0;
@@ -1694,8 +1694,8 @@ _XS_get_shared_conversion_state (SV *converter_in, cmdname, state_name, ...)
 
 void
 register_opened_section_level (SV *converter_in, filename, int level, close_string)
-        const char *filename = (char *)SvPVutf8_nolen($arg);
-        const char *close_string = (char *)SvPVutf8_nolen($arg);
+        const char *filename = SvPVutf8_nolen($arg);
+        const char *close_string = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
      CODE:
@@ -1709,7 +1709,7 @@ register_opened_section_level (SV *converter_in, filename, int level, close_stri
 
 SV *
 close_registered_sections_level (SV *converter_in, filename, int level)
-        const char *filename = (char *)SvPVutf8_nolen($arg);
+        const char *filename = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         AV *closed_elements_av;
@@ -1741,7 +1741,7 @@ close_registered_sections_level (SV *converter_in, filename, int level)
 
 void
 set_global_direction (SV *converter_in, direction, ...)
-        const char *direction = (char *)SvPVutf8_nolen($arg);
+        const char *direction = SvPVutf8_nolen($arg);
     PROTOTYPE: $$;$
     PREINIT:
         CONVERTER *self;
@@ -1761,7 +1761,7 @@ set_global_direction (SV *converter_in, direction, ...)
 
 SV *
 html_attribute_class (SV *converter_in, element, ...)
-        const char *element = (char *)SvPVutf8_nolen($arg);
+        const char *element = SvPVutf8_nolen($arg);
     PROTOTYPE: $$;$
     PREINIT:
         CONVERTER *self;
@@ -1835,7 +1835,7 @@ html_get_css_elements_classes (SV *converter_in, ...)
 
 void
 css_add_info (SV *converter_in, char *spec, css_info)
-        const char *css_info = (char *)SvPVutf8_nolen($arg);
+        const char *css_info = SvPVutf8_nolen($arg);
     PREINIT:
         CONVERTER *self;
     CODE:
@@ -1849,7 +1849,7 @@ css_add_info (SV *converter_in, char *spec, css_info)
 
 void
 css_set_selector_style (SV *converter_in, css_info, SV *css_style_sv)
-        const char *css_info = (char *)SvPVutf8_nolen($arg);
+        const char *css_info = SvPVutf8_nolen($arg);
     PREINIT:
         CONVERTER *self;
     CODE:
@@ -1859,7 +1859,7 @@ css_set_selector_style (SV *converter_in, css_info, SV *css_style_sv)
           {
             const char *css_style = 0;
             if (SvOK (css_style_sv))
-              css_style = (char *)SvPVutf8_nolen (css_style_sv);
+              css_style = SvPVutf8_nolen (css_style_sv);
 
             html_css_set_selector_style (&self->css_element_class_styles,
                                          css_info, css_style);
@@ -1889,7 +1889,7 @@ css_get_info (SV *converter_in, char *spec)
 
 SV *
 css_get_selector_style (SV *converter_in, css_info)
-        const char *css_info = (char *)SvPVutf8_nolen($arg);
+        const char *css_info = SvPVutf8_nolen($arg);
     PREINIT:
         CONVERTER *self;
         const char *css_style = 0;
@@ -1909,9 +1909,9 @@ css_get_selector_style (SV *converter_in, css_info)
 
 void
 register_footnote (SV *converter_in, SV *command, footid, docid, int number_in_doc, footnote_location_filename, ...)
-        const char *footid = (char *)SvPVutf8_nolen($arg);
-        const char *docid = (char *)SvPVutf8_nolen($arg);
-        const char *footnote_location_filename = (char *)SvPVutf8_nolen($arg);
+        const char *footid = SvPVutf8_nolen($arg);
+        const char *docid = SvPVutf8_nolen($arg);
+        const char *footnote_location_filename = SvPVutf8_nolen($arg);
       PROTOTYPE: $$$$$$$
       PREINIT:
         CONVERTER *self;
@@ -1985,7 +1985,7 @@ get_pending_footnotes (SV *converter_in)
 
 void
 register_pending_formatted_inline_content (SV *converter_in, category, ...)
-        const char *category = (char *)SvPVutf8_nolen($arg);
+        const char *category = SvPVutf8_nolen($arg);
       PROTOTYPE: $$$
       PREINIT:
         CONVERTER *self;
@@ -2004,7 +2004,7 @@ register_pending_formatted_inline_content (SV *converter_in, category, ...)
 
 SV *
 cancel_pending_formatted_inline_content (SV *converter_in, category)
-        const char *category = (char *)SvPVutf8_nolen($arg);
+        const char *category = SvPVutf8_nolen($arg);
       PREINIT:
         CONVERTER *self;
         char *inline_content = 0;
@@ -2050,7 +2050,7 @@ get_pending_formatted_inline_content (SV *converter_in)
 
 void
 associate_pending_formatted_inline_content (SV *converter_in, SV *element_sv, inline_content)
-        const char *inline_content = (char *)SvPVutf8_nolen($arg);
+        const char *inline_content = SvPVutf8_nolen($arg);
       PREINIT:
         CONVERTER *self;
       CODE:
@@ -2103,7 +2103,7 @@ command_is_in_referred_command_stack (SV *converter_in, SV *element_sv)
 
 int
 _check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_info_sv)
-        const char *manual_name = (char *)SvPVutf8_nolen($arg);
+        const char *manual_name = SvPVutf8_nolen($arg);
       PREINIT:
         CONVERTER *self;
         SOURCE_INFO *source_info = 0;
