@@ -245,7 +245,6 @@ test_files = \
  t/init/test_css_info_functions.pm \
  t/init/test_customize_redirection_file_names.pm \
  t/init/test_directions.init \
- t/init/test_renamed_nodes.init \
  t/init/translate_txiinternalvalue_macro.init \
  t/init/translated_strings_customization.pm \
  t/init/translation_in_parser_in_translation.pm \
