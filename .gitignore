@@ -380,7 +380,6 @@ tta/perl/XSTexinfo/convert/ConvertConverterXS.c
 tta/perl/XSTexinfo/convert/ConvertHTMLXS.c
 tta/perl/XSTexinfo/convert/ConvertTextXS.c
 tta/perl/XSTexinfo/convert/ConvertTexinfoXS.c
-tta/perl/XSTexinfo/convert/ConvertXS.c
 tta/perl/XSTexinfo/convert/.libs
 tta/perl/XSTexinfo/convert/*.lo
 
