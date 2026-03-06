@@ -1545,8 +1545,7 @@ direction_string (SV *converter_in, direction_name, string_type_name, SV* contex
             else
               {
                 static const char *first_in_file_str = "FirstInFile";
-                static const size_t first_in_file_len
-                                             = strlen ("FirstInFile");
+                const size_t first_in_file_len = strlen ("FirstInFile");
                 int direction;
 
                 /* remove leading FirstInFile */
