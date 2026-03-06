@@ -46,7 +46,8 @@ int GNUT_set_from_init_file (const char *option_name,
 /* called from main C program and Perl */
 int txi_config_add_to_option_list (OPTION *option, const char *value,
                                    int prepend);
-int txi_config_remove_from_option_list (OPTION *option, const char *value);
+int txi_config_remove_from_option_list (const OPTION *option,
+                                        const char *value);
 
 void txi_config_document_warn (const char *format, ...);
 

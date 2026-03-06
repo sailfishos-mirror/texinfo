@@ -194,9 +194,9 @@ html_converter_init_special_unit_sv (SV *converter_sv,
                 {
                   HE *next = hv_iternext (special_unit_info_type_hv);
                   SV *variety_sv = hv_iterkeysv (next);
-                  char *variety = (char *) SvPVutf8_nolen (variety_sv);
+                  const char *variety = SvPVutf8_nolen (variety_sv);
                   SV *value_sv = HeVAL(next);
-                  char *value = 0;
+                  const char *value = 0;
                   /* the customized_special_unit_varieties are not used
                      further but is filled to retain the information on
                      the variety customized, even if they are ignored */
@@ -214,7 +214,7 @@ html_converter_init_special_unit_sv (SV *converter_sv,
                   if (variety_nr)
                     {
                       if (SvOK (value_sv))
-                        value = (char *) SvPVutf8_nolen (value_sv);
+                        value = SvPVutf8_nolen (value_sv);
 
                       html_add_special_unit_info (
                           &converter->customized_special_unit_info, j,
@@ -484,14 +484,13 @@ html_converter_get_customization_sv (SV *converter_sv,
 
                   if (entity_sv)
                     {
-                      char *entity = (char *) SvPVutf8_nolen (*entity_sv);
+                      const char *entity = SvPVutf8_nolen (*entity_sv);
                       accent_info->entity = non_perl_strdup (entity);
                     }
 
                   if (characters_sv && SvOK (*characters_sv))
                     {
-                      char *characters
-                        = (char *) SvPVutf8_nolen (*characters_sv);
+                      const char *characters = SvPVutf8_nolen (*characters_sv);
                       if (strlen (characters))
                         accent_info->characters = non_perl_strdup (characters);
                     }
@@ -592,7 +591,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                               if (!strcmp (key, "element"))
                                 {
                                   const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
+                                    = SvPVutf8_nolen (spec_sv);
                                   format_spec->element
                                     = non_perl_strdup (tmp_spec);
                                 }
@@ -664,7 +663,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                               if (SvOK (format_spec_sv))
                                 {
                                   const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (format_spec_sv);
+                                    = SvPVutf8_nolen (format_spec_sv);
                                   converter->customized_no_arg_commands_formatting[cmd]
                                    .translated_to_convert
                                     = non_perl_strdup (tmp_spec);
@@ -702,7 +701,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                               if (!strcmp (key, "element"))
                                 {
                                   const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
+                                    = SvPVutf8_nolen (spec_sv);
                                   format_spec->element
                                     = non_perl_strdup (tmp_spec);
                                 }
@@ -711,14 +710,14 @@ html_converter_get_customization_sv (SV *converter_sv,
                               else if (!strcmp (key, "text"))
                                 {
                                   const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
+                                    = SvPVutf8_nolen (spec_sv);
                                   format_spec->text
                                     = non_perl_strdup (tmp_spec);
                                 }
                               else if (!strcmp (key, "translated_converted"))
                                 {
                                   const char *tmp_spec
-                                    = (char *) SvPVutf8_nolen (spec_sv);
+                                    = SvPVutf8_nolen (spec_sv);
                                   format_spec->translated_converted
                                     = non_perl_strdup (tmp_spec);
                                 }
@@ -746,7 +745,7 @@ html_converter_get_customization_sv (SV *converter_sv,
         {
           HE *next = hv_iternext (customized_text_directions_hv);
           SV *direction_sv = hv_iterkeysv (next);
-          const char *direction = (char *) SvPVutf8_nolen (direction_sv);
+          const char *direction = SvPVutf8_nolen (direction_sv);
 
           add_string (direction,
                       &converter->customized_global_text_directions);
@@ -776,7 +775,7 @@ html_converter_get_customization_sv (SV *converter_sv,
             {
               HE *next = hv_iternext (customized_global_directions_hv);
               SV *direction_sv = hv_iterkeysv (next);
-              const char *direction = (char *) SvPVutf8_nolen (direction_sv);
+              const char *direction = SvPVutf8_nolen (direction_sv);
               SV *node_texi_sv = HeVAL(next);
               DIRECTION_NODE_NAME *direction_node_name
                = &converter->customized_global_units_directions.list[i];
@@ -785,8 +784,7 @@ html_converter_get_customization_sv (SV *converter_sv,
 
               if (SvOK (node_texi_sv))
                 {
-                  const char *node_texi
-                    = (char *) SvPVutf8_nolen (node_texi_sv);
+                  const char *node_texi = SvPVutf8_nolen (node_texi_sv);
 
                   direction_node_name->node_name = non_perl_strdup (node_texi);
                 }
@@ -888,7 +886,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                           if (to_convert_sv && SvOK (*to_convert_sv))
                             {
                               const char *to_convert
-                                = (char *) SvPVutf8_nolen (*to_convert_sv);
+                                = SvPVutf8_nolen (*to_convert_sv);
                               dir_string_translated->to_convert
                                 = non_perl_strdup (to_convert);
                               continue;
@@ -924,7 +922,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                               if (value_sv && SvOK (*value_sv))
                                 {
                                    const char *value
-                                      = (char *) SvPVutf8_nolen (*value_sv);
+                                      = SvPVutf8_nolen (*value_sv);
                                    if (translated)
                                      dir_string_translated->converted[j]
                                          = non_perl_strdup (value);
@@ -985,7 +983,7 @@ html_converter_get_customization_sv (SV *converter_sv,
               HTMLXREF_MANUAL *htmlxref_manual = &converter->htmlxref.list[i];
               HE *next = hv_iternext (htmlxref_hv);
               SV *selector_sv = hv_iterkeysv (next);
-              const char *selector = (char *) SvPVutf8_nolen (selector_sv);
+              const char *selector = SvPVutf8_nolen (selector_sv);
               SV *split_type_sv = HeVAL(next);
               HV *split_type_hv = (HV *) SvRV (split_type_sv);
 
@@ -1320,7 +1318,7 @@ html_converter_get_customization_sv (SV *converter_sv,
                       if (priority_sv && SvOK (*priority_sv))
                         {
                           const char *priority
-                            = (char *) SvPVutf8_nolen (*priority_sv);
+                            = SvPVutf8_nolen (*priority_sv);
                           handler_info->priority = non_perl_strdup (priority);
                         }
                        /*
@@ -1363,7 +1361,7 @@ html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
 
   if (type_sv)
     {
-      char *type_name = SvPVutf8_nolen (*type_sv);
+      const char *type_name = SvPVutf8_nolen (*type_sv);
       if (!strcmp (type_name, "special_unit_element"))
         {
           SV **associated_unit_sv;
@@ -1376,7 +1374,7 @@ html_find_element_from_sv (CONVERTER *converter, const SV *element_sv,
                             strlen ("special_unit_variety"), 0);
               if (special_unit_variety_hv)
                 {
-                  char *special_unit_variety
+                  const char *special_unit_variety
                     = SvPVutf8_nolen (*special_unit_variety_hv);
                   int special_unit_direction_index
                     = html_special_unit_variety_direction_index (converter,
@@ -1572,7 +1570,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     }
   else if (!strcmp (state_name, "footnote_id_numbers"))
     {
-      char *footnote_id = (char *)SvPVutf8_nolen (args_sv[0]);
+      const char *footnote_id = SvPVutf8_nolen (args_sv[0]);
       int number = SvIV (args_sv[1]);
       FOOTNOTE_ID_NUMBER *footnote_id_number
        = find_footnote_id_number (converter, footnote_id);
@@ -1592,8 +1590,8 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
        */
       if (cmd != CM_NONE)
         {
-          char *type = (char *)SvPVutf8_nolen (args_sv[0]);
-          char *explanation = (char *)SvPVutf8_nolen (args_sv[1]);
+          const char *type = SvPVutf8_nolen (args_sv[0]);
+          const char *explanation = SvPVutf8_nolen (args_sv[1]);
           register_explained_command_string (type_explanations,
                                              cmd, type, explanation);
         }
@@ -1613,7 +1611,7 @@ html_set_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     {
       if (converter->document && converter->document->listoffloats.number > 0)
         {
-          char *type = (char *)SvPVutf8_nolen (args_sv[0]);
+          const char *type = SvPVutf8_nolen (args_sv[0]);
           size_t i;
           const LISTOFFLOATS_TYPE_LIST *listoffloats
             = &converter->document->listoffloats;
@@ -1787,7 +1785,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     return newSViv (converter->shared_conversion_state.footnote_number);
   else if (!strcmp (state_name, "footnote_id_numbers"))
     {
-      const char *footnote_id = (char *)SvPVutf8_nolen (args_sv[0]);
+      const char *footnote_id = SvPVutf8_nolen (args_sv[0]);
       const FOOTNOTE_ID_NUMBER *footnote_id_number
        = find_footnote_id_number (converter, footnote_id);
       if (footnote_id_number->number > 0)
@@ -1795,7 +1793,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     }
   else if (!strcmp (state_name, "explained_commands"))
     {
-      char *type = (char *)SvPVutf8_nolen (args_sv[0]);
+      const char *type = SvPVutf8_nolen (args_sv[0]);
       enum command_id cmd = lookup_builtin_command (cmdname);
 
       if (cmd != CM_NONE)
@@ -1806,14 +1804,14 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
             = find_explained_command_string (type_explanations, cmd, type);
           if (type_explanation)
             {
-              char *explanation_string = type_explanation->explanation;
+              const char *explanation_string = type_explanation->explanation;
               return newSVpv_utf8 (explanation_string, 0);
             }
         }
     }
   else if (!strcmp (state_name, "formatted_nodedescriptions"))
     {
-      HTML_TARGET *target_info
+      const HTML_TARGET *target_info
         = find_node_target_info_nodedescription_sv (converter, args_sv[0]);
 
       if (target_info && target_info->formatted_nodedescription_nr > 0)
@@ -1821,7 +1819,7 @@ html_get_shared_conversion_state (CONVERTER *converter, SV *converter_in,
     }
   else if (!strcmp (state_name, "formatted_listoffloats"))
     {
-      char *type = (char *)SvPVutf8_nolen (args_sv[0]);
+      const char *type = SvPVutf8_nolen (args_sv[0]);
       if (converter->document && converter->document->listoffloats.number > 0)
         {
           size_t i;

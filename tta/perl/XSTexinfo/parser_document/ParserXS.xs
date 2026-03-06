@@ -92,7 +92,7 @@ register_parser_conf (SV *parser_sv)
 # The encoding was detected as COMMAND_LINE_ENCODING.
 SV *
 parse_texi_file (SV *parser_sv, input_file_path)
-        const char *input_file_path = (const char *)SvPVbyte_nolen ($arg);
+        const char *input_file_path = SvPVbyte_nolen ($arg);
       CODE:
         if (!SvOK(parser_sv))
           RETVAL = newSV (0);
@@ -118,7 +118,7 @@ parse_texi_piece (SV *parser_sv, SV *string_sv, ...)
           RETVAL = newSV (0);
         else
           {
-            const char *string = (char *)SvPVutf8_nolen (string_sv);
+            const char *string = SvPVutf8_nolen (string_sv);
             DOCUMENT *document;
 
             if (items > 2 && SvOK(ST(2)))
@@ -144,7 +144,7 @@ parse_texi_line (SV *parser_sv, SV *string_sv, ...)
           RETVAL = newSV (0);
         else
           {
-            const char *string = (char *)SvPVutf8_nolen (string_sv);
+            const char *string = SvPVutf8_nolen (string_sv);
             SV *document_sv;
             if (items > 2 && SvOK(ST(2)))
               line_nr = SvIV (ST(2));
@@ -189,7 +189,7 @@ parse_texi_text (SV *parser_sv, SV *string_sv, ...)
           RETVAL = newSV (0);
         else
           {
-            const char *string = (char *)SvPVutf8_nolen (string_sv);
+            const char *string = SvPVutf8_nolen (string_sv);
             DOCUMENT *document;
 
             if (items > 2 && SvOK(ST(2)))
@@ -293,19 +293,19 @@ parser_conf_set_DOC_ENCODING_FOR_INPUT_FILE_NAME (int i)
 
 void
 parser_conf_set_INPUT_FILE_NAME_ENCODING (value)
-        char *value = (char *)SvPVutf8_nolen ($arg);
+        const char *value = SvPVutf8_nolen ($arg);
 
 void
 parser_conf_set_LOCALE_ENCODING (value)
-        char *value = (char *)SvPVutf8_nolen ($arg);
+        const char *value = SvPVutf8_nolen ($arg);
 
 void
 parser_conf_set_COMMAND_LINE_ENCODING (value)
-        char *value = (char *)SvPVutf8_nolen ($arg);
+        const char *value = SvPVutf8_nolen ($arg);
 
 void
 parser_conf_set_documentlanguage (value)
-        char *value = (char *)SvPVutf8_nolen ($arg);
+        const char *value = SvPVutf8_nolen ($arg);
 
 int
 parser_conf_set_DEBUG (int i)

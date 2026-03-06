@@ -281,7 +281,7 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
 
             if (!strcmp (key, "input_file_name"))
               {
-                char *value = (char *)SvPVbyte_nolen(value_sv);
+                const char *value = SvPVbyte_nolen(value_sv);
                 if (document->global_info.input_file_name)
                   {
                     fprintf (stderr,
@@ -295,9 +295,10 @@ set_document_global_info (SV *document_in, char *key, SV *value_sv)
               }
             else
               {
+                const char *value = SvPVutf8_nolen(value_sv);
                 add_other_global_info_string (
                           &document->global_info.other_info,
-                          key, (char *)SvPVutf8_nolen(value_sv));
+                          key, value);
               }
           }
 

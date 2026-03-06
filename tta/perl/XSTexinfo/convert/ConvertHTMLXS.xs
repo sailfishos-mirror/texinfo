@@ -2128,7 +2128,7 @@ _check_htmlxref_already_warned (SV *converter_in, manual_name, SV *source_info_s
 # currently not used, convert_tree is not called on trees registered in XS
 SV *
 unused_convert_tree (SV *converter_in, SV *tree_in, explanation)
-        const char *explanation = (char *)SvPVbyte_nolen($arg);
+        const char *explanation = SvPVbyte_nolen($arg);
   PROTOTYPE: $$;$
   PREINIT:
         CONVERTER *self = 0;

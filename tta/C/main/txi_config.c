@@ -351,7 +351,7 @@ txi_config_add_to_option_list (OPTION *option, const char *value,
 }
 
 int
-txi_config_remove_from_option_list (OPTION *option, const char *value)
+txi_config_remove_from_option_list (const OPTION *option, const char *value)
 {
   STRING_LIST *str_list;
   size_t idx_option;

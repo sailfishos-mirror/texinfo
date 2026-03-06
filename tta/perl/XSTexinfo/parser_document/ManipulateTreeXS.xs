@@ -144,7 +144,7 @@ tree_print_details (SV *tree_in, SV *fname_encoding_in=0, SV *use_filename_in=0)
             int use_filename = 0;
 
             if (fname_encoding_in && SvOK (fname_encoding_in))
-              fname_encoding = (char *)SvPVbyte_nolen(fname_encoding_in);
+              fname_encoding = SvPVbyte_nolen(fname_encoding_in);
 
             if (use_filename_in && SvOK (use_filename_in))
               use_filename = SvIV (use_filename_in);

@@ -117,11 +117,11 @@ do_units_directions_pages (SV *document_in, SV *units_split_type_in, SV *split_p
         if (document)
           {
             enum units_split_type units_split = UST_none;
-            char *split_pages = 0;
+            const char *split_pages = 0;
             int debug = 0;
 
             if (split_pages_in && SvOK (split_pages_in))
-              split_pages = (char *)SvPVbyte_nolen(split_pages_in);
+              split_pages = SvPVbyte_nolen(split_pages_in);
 
             if (debug_in && SvOK (debug_in))
               debug = SvIV (debug_in);
@@ -162,7 +162,7 @@ print_output_units_tree_details (SV *output_units_in, SV *tree_in, SV *fname_enc
              = get_sv_output_units_descriptor (output_units_in, 0, 0);
 
             if (fname_encoding_in && SvOK (fname_encoding_in))
-              fname_encoding = (char *)SvPVbyte_nolen(fname_encoding_in);
+              fname_encoding = SvPVbyte_nolen(fname_encoding_in);
 
             if (use_filename_in && SvOK (use_filename_in))
               use_filename = SvIV (use_filename_in);

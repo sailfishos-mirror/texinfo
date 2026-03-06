@@ -85,7 +85,7 @@ debug_print_element_hv (HV *element_hv)
   FETCH(text)
   if (text_sv)
     {
-      char *text = SvPVutf8_nolen (*text_sv);
+      const char *text = SvPVutf8_nolen (*text_sv);
       char *protected_text = debug_protect_eol (text);
       text_printf (&msg, "[T: %s]", protected_text);
       non_perl_free (protected_text);
@@ -413,7 +413,7 @@ get_source_info (SV *source_info_sv)
 
   if (macro_sv)
     {
-      char *macro = (char *) SvPVutf8_nolen (*macro_sv);
+      const char *macro = SvPVutf8_nolen (*macro_sv);
       source_info->macro = non_perl_strdup (macro);
     }
 
@@ -421,7 +421,7 @@ get_source_info (SV *source_info_sv)
 
   if (file_name_sv && SvOK (*file_name_sv))
     {
-      char *file_name = (char *) SvPVbyte_nolen (*file_name_sv);
+      const char *file_name = SvPVbyte_nolen (*file_name_sv);
       source_info->file_name = non_perl_strdup (file_name);
     }
 
@@ -691,7 +691,7 @@ find_index_entry_sv (const SV *index_entry_sv, INDEX_LIST *indices_info,
       xasprintf (&msg, "%s: no entry info\n", warn_str);
       fatal (msg);
     }
-  entry_index_name = (const char *) SvPVutf8_nolen (*index_name_sv);
+  entry_index_name = SvPVutf8_nolen (*index_name_sv);
   *entry_number = (size_t) SvIV (*entry_number_sv);
   entry_idx_in_index = *entry_number - 1;
 
@@ -891,9 +891,9 @@ html_get_button_specification_list (const CONVERTER *converter,
               else
                 {
                   int j;
-                  char *text_type_string
+                  const char *text_type_string
                      = SvPVutf8_nolen (*button_spec_info_type);
-                  char *text_type_p = NULL;
+                  const char *text_type_p = NULL;
                   if (strlen (text_type_string) > 2
                       && !(memcmp (text_type_string, "->", 2)))
                     {
@@ -972,12 +972,12 @@ html_get_direction_icons_sv (DIRECTION_ICON_LIST *direction_icons,
     {
       HE *next = hv_iternext (icons_hv);
       SV *direction_sv = hv_iterkeysv (next);
-      char *direction = (char *) SvPVutf8_nolen (direction_sv);
+      const char *direction = SvPVutf8_nolen (direction_sv);
       SV *value_sv = HeVAL(next);
       if (SvOK (value_sv))
         {
           DIRECTION_ICON *icon = &direction_icons->icons_list[i];
-          char *value = (char *) SvPVutf8_nolen (value_sv);
+          const char *value = SvPVutf8_nolen (value_sv);
           icon->name = non_perl_strdup (value);
           icon->direction_name = non_perl_strdup (direction);
         }
@@ -1028,7 +1028,7 @@ find_document_index_entry_extra_index_entry_sv (const DOCUMENT *document,
 {
   AV *extra_index_entry_av;
   SV **index_name_sv;
-  char *index_name = 0;
+  const char *index_name = 0;
   const INDEX *idx = 0;
   const INDEX_LIST *indices_info = &document->indices_info;
 
@@ -1223,7 +1223,7 @@ find_subentry_index_command_sv (const DOCUMENT *document, HV *subentry_hv)
 
               if (cmdname_sv)
                 {
-                  char *cmdname = SvPVutf8_nolen (*cmdname_sv);
+                  const char *cmdname = SvPVutf8_nolen (*cmdname_sv);
                   enum command_id cmd = lookup_builtin_command (cmdname);
                   if (!cmd || cmd != CM_subentry)
                     return find_element_from_sv (0, document, *parent_sv, 0);
@@ -1306,7 +1306,7 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
 
   if (cmdname_sv && (output_units_descriptor || document))
     {
-      char *cmdname = SvPVutf8_nolen (*cmdname_sv);
+      const char *cmdname = SvPVutf8_nolen (*cmdname_sv);
       cmd = lookup_builtin_command (cmdname);
 
       if (builtin_command_data[cmd].flags & CF_root
@@ -1372,7 +1372,7 @@ find_element_from_sv (const CONVERTER *converter, const DOCUMENT *document_in,
           EXTRA(identifier)
           if (identifier_sv)
             {
-              char *identifier = SvPVutf8_nolen (*identifier_sv);
+              const char *identifier = SvPVutf8_nolen (*identifier_sv);
               ELEMENT *element_found
                 = find_identifier_target
                       (&document->identifiers_target, identifier);
@@ -1511,7 +1511,7 @@ get_output_files_information (SV *output_files_sv)
         {
           HE *next = hv_iternext (opened_files_hv);
           SV *file_name_sv = hv_iterkeysv (next);
-          const char *file_name = (char *) SvPVutf8_nolen (file_name_sv);
+          const char *file_name = SvPVutf8_nolen (file_name_sv);
           add_string (file_name, &output_files_information->opened_files);
           /* no real need for the value, still check that it is 1 */
           SV *value_sv = HeVAL(next);
@@ -1542,7 +1542,7 @@ get_output_files_information (SV *output_files_sv)
           FILE_STREAM *file_stream;
           HE *next = hv_iternext (unclosed_files_hv);
           SV *file_name_sv = hv_iterkeysv (next);
-          const char *file_name = (char *) SvPVutf8_nolen (file_name_sv);
+          const char *file_name = SvPVutf8_nolen (file_name_sv);
           SV *value_sv = HeVAL(next);
 
           file_stream = allocate_file_stream (output_files_information,
@@ -1746,7 +1746,7 @@ set_translated_commands (SV *translated_commands_sv,
                 fprintf (stderr, "ERROR: %s: no translated command\n", cmdname);
               else
                 {
-                  char *tmp_spec = (char *) SvPVutf8_nolen (translation_sv);
+                  const char *tmp_spec = SvPVutf8_nolen (translation_sv);
                   add_translated_command (translated_commands, cmd,
                                           tmp_spec);
                 }
@@ -1781,11 +1781,11 @@ get_deprecated_config_directories_sv (SV *deprecated_config_directories_sv,
         {
           HE *next = hv_iternext (deprecated_config_directories_hv);
           SV *obsolete_dir_sv = hv_iterkeysv (next);
-          const char *obsolete_dir = (char *) SvPVutf8_nolen (obsolete_dir_sv);
+          const char *obsolete_dir = SvPVutf8_nolen (obsolete_dir_sv);
           SV *value_sv = HeVAL(next);
           if (SvOK (value_sv))
             {
-              const char *reference_dir = (char *) SvPVutf8_nolen (value_sv);
+              const char *reference_dir = SvPVutf8_nolen (value_sv);
               add_new_deprecated_dir_info (deprecated_dirs, obsolete_dir,
                                            reference_dir);
             }

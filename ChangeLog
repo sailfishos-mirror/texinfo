@@ -1,5 +1,19 @@
 2026-03-06 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/get_perl_info.c, tta/C/main/txi_config.c,
+	tta/C/tree_elements/get_perl_tree_elements.c,
+	tta/perl/XSTexinfo/convert/ConvertConverterXS.xs,
+	tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs,
+	tta/perl/XSTexinfo/convert/get_html_perl_info.c,
+	tta/perl/XSTexinfo/parser_document/ConfigXS.xs,
+	tta/perl/XSTexinfo/parser_document/DocumentXS.xs,
+	tta/perl/XSTexinfo/parser_document/ManipulateTreeXS.xs,
+	tta/perl/XSTexinfo/parser_document/OutputUnitsXS.xs,
+	tta/perl/XSTexinfo/parser_document/ParserXS.xs: remove cast for
+	SvPVutf8_nolen and SvPVbyte_nolen.  Add const.
+
+2026-03-06 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/ConvertHTMLXS.xs (direction_string):
 	remove static for const size_t, as the solaris compiler does not want
 	a non-constant initializer with strlen call.

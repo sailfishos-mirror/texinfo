@@ -85,12 +85,12 @@ new_element_from_sv (DOCUMENT *document, const SV *element_hash,
   FETCH(type);
 
   if (type_sv)
-    type_name = (const char *) SvPVutf8_nolen (*type_sv);
+    type_name = SvPVutf8_nolen (*type_sv);
 
   FETCH(text);
   if (text_sv && SvOK (*text_sv))
     {
-      const char *text = (const char *) SvPVutf8_nolen (*text_sv);
+      const char *text = SvPVutf8_nolen (*text_sv);
       if (type_name)
         e_type = find_element_type ((char *)type_name);
       if (e_type == ET_NONE)
@@ -102,7 +102,7 @@ new_element_from_sv (DOCUMENT *document, const SV *element_hash,
 
   FETCH(cmdname)
   if (cmdname_sv)
-    cmdname = (const char *) SvPVutf8_nolen (*cmdname_sv);
+    cmdname = SvPVutf8_nolen (*cmdname_sv);
 
   e = new_element_from_names (type_name, cmdname, 0);
 
@@ -213,7 +213,7 @@ get_lang_translations_sv (SV *lang_translations_sv,
       if (!*lang_sv || !SvOK (*lang_sv))
         fatal ("element_gdt lang_translations no lang");
 
-      lang = (char *)SvPVutf8_nolen(*lang_sv);
+      lang = SvPVutf8_nolen(*lang_sv);
       lang_translations
        = switch_lang_translations (&translation_cache, lang,
                                    0, command_line_encoding,

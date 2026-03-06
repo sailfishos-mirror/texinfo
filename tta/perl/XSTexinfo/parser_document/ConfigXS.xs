@@ -41,9 +41,9 @@ PROTOTYPES: ENABLE
 
 SV *
 texinfo_get_conf (option_name)
-        const char *option_name = (char *)SvPVbyte_nolen($arg);
+        const char *option_name = SvPVbyte_nolen($arg);
       PREINIT:
-        OPTION *option;
+        const OPTION *option;
       CODE:
         option = texinfo_get_conf_by_name (option_name);
         if (option)
@@ -55,7 +55,7 @@ texinfo_get_conf (option_name)
 
 int
 texinfo_set_from_init_file (option_name, SV *value)
-        const char *option_name = (char *)SvPVbyte_nolen($arg);
+        const char *option_name = SvPVbyte_nolen($arg);
       PREINIT:
         OPTION *option;
         int status = 0;
@@ -75,7 +75,7 @@ texinfo_set_from_init_file (option_name, SV *value)
 
 int
 texinfo_add_to_option_list (option_name, SV *values, ...)
-        const char *option_name = (char *)SvPVbyte_nolen($arg);
+        const char *option_name = SvPVbyte_nolen($arg);
       PROTOTYPE: $$;$
       PREINIT:
         int status = 0;
@@ -104,7 +104,7 @@ texinfo_add_to_option_list (option_name, SV *values, ...)
                 SV **value_sv = av_fetch (values_av, i, 0);
                 if (value_sv && SvOK (*value_sv))
                   {
-                    char *value;
+                    const char *value;
                     if (status == 1)
                       value = SvPVbyte_nolen(*value_sv);
                     else
@@ -120,9 +120,9 @@ texinfo_add_to_option_list (option_name, SV *values, ...)
 
 int
 texinfo_remove_from_option_list (option_name, SV *values)
-        const char *option_name = (char *)SvPVbyte_nolen($arg);
+        const char *option_name = SvPVbyte_nolen($arg);
       PREINIT:
-        OPTION *option;
+        const OPTION *option;
         int status = 0;
       CODE:
         option = texinfo_find_command_line_option_name (option_name);
@@ -145,7 +145,7 @@ texinfo_remove_from_option_list (option_name, SV *values)
                 SV **value_sv = av_fetch (values_av, i, 0);
                 if (value_sv && SvOK (*value_sv))
                   {
-                    char *value;
+                    const char *value;
                     if (status == 1)
                       value = SvPVbyte_nolen (*value_sv);
                     else
@@ -161,5 +161,5 @@ texinfo_remove_from_option_list (option_name, SV *values)
 
 void
 texinfo_set_format_from_init_file (format_name)
-        const char *format_name = (char *)SvPVbyte_nolen($arg);
+        const char *format_name = SvPVbyte_nolen($arg);
 

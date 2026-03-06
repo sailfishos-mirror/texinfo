@@ -161,7 +161,7 @@ set_document (SV *converter_in, SV *document_in)
 
 int
 set_conf (SV *converter_in, option_name, SV *value)
-        const char *option_name = (char *)SvPVbyte_nolen($arg);
+        const char *option_name = SvPVbyte_nolen($arg);
       PREINIT:
         CONVERTER *self;
         int status = 0;
@@ -196,7 +196,7 @@ set_conf (SV *converter_in, option_name, SV *value)
 
 int
 force_conf (SV *converter_in, option_name, SV *value)
-        const char *option_name = (char *)SvPVbyte_nolen($arg);
+        const char *option_name = SvPVbyte_nolen($arg);
       PREINIT:
         CONVERTER *self;
         int status = 0;
@@ -232,7 +232,7 @@ force_conf (SV *converter_in, option_name, SV *value)
 
 SV *
 get_conf (SV *converter_in, option_name)
-        const char *option_name = (char *)SvPVbyte_nolen($arg);
+        const char *option_name = SvPVbyte_nolen($arg);
       PREINIT:
         CONVERTER *self;
       CODE:
@@ -265,7 +265,7 @@ get_conf (SV *converter_in, option_name)
 
 void
 converter_line_error (SV *converter_in, text, SV *error_location_info, ...)
-        const char *text = (char *)SvPVutf8_nolen($arg);
+        const char *text = SvPVutf8_nolen($arg);
       PROTOTYPE: $$$;$
       PREINIT:
         CONVERTER *self;
@@ -283,7 +283,7 @@ converter_line_error (SV *converter_in, text, SV *error_location_info, ...)
 
 void
 converter_line_warn (SV *converter_in, text, SV *error_location_info, ...)
-        const char *text = (char *)SvPVutf8_nolen($arg);
+        const char *text = SvPVutf8_nolen($arg);
       PROTOTYPE: $$$;$
       PREINIT:
         CONVERTER *self;
@@ -301,7 +301,7 @@ converter_line_warn (SV *converter_in, text, SV *error_location_info, ...)
 
 void
 converter_document_error (SV *converter_in, text, ...)
-        const char *text = (char *)SvPVutf8_nolen($arg);
+        const char *text = SvPVutf8_nolen($arg);
       PROTOTYPE: $$;$
       PREINIT:
         CONVERTER *self;
@@ -318,7 +318,7 @@ converter_document_error (SV *converter_in, text, ...)
 
 void
 converter_document_warn (SV *converter_in, text, ...)
-        const char *text = (char *)SvPVutf8_nolen($arg);
+        const char *text = SvPVutf8_nolen($arg);
       PROTOTYPE: $$;$
       PREINIT:
         CONVERTER *self;
@@ -395,7 +395,7 @@ set_global_document_commands (SV *converter_in, char *commands_location_string, 
 
 SV *
 converter_find_identifier_target (SV *converter_in, identifier)
-        const char *identifier = (char *)SvPVutf8_nolen($arg);
+        const char *identifier = SvPVutf8_nolen($arg);
      PREINIT:
         CONVERTER *self;
         ELEMENT *target_element = 0;
@@ -566,11 +566,11 @@ get_converter_indices_sorted_by_letter (SV *converter_sv)
 # was an error with a missing type.
 FILE *
 XS_get_unclosed_stream (SV *converter_in, file_path)
-        const char *file_path = (char *)SvPVbyte_nolen($arg);
+        const char *file_path = SvPVbyte_nolen($arg);
       PREINIT:
-        CONVERTER *self;
-        OUTPUT_FILES_INFORMATION *output_files_information;
-        FILE_STREAM_LIST *unclosed_files;
+        const CONVERTER *self;
+        const OUTPUT_FILES_INFORMATION *output_files_information;
+        const FILE_STREAM_LIST *unclosed_files;
         FILE *result = 0;
       CODE:
         self = get_sv_converter (converter_in,
@@ -582,7 +582,7 @@ XS_get_unclosed_stream (SV *converter_in, file_path)
             size_t i;
             for (i = 0; i < unclosed_files->number; i++)
               {
-                FILE_STREAM *file_stream = &unclosed_files->list[i];
+                const FILE_STREAM *file_stream = &unclosed_files->list[i];
                 if (!strcmp (file_path, file_stream->file_path))
                   {
                     result = file_stream->stream;
