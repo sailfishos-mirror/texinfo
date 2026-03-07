@@ -1,5 +1,15 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/swig/perl/test_refold.sh: avoid using diff exit status.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/main/call_perl_function.c (call_eval_load_texinfo_modules):
+	call set_XS_mandatory to be more like C texi2any and simplify the
+	possible cases.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/XSLoader.pm (init): handle mandatory_xs more like
 	other cases since in situations with mandatory_xs set, all the XS
 	modules should be enabled.

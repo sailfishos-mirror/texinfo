@@ -53,5 +53,5 @@ for dir in `find ../../perl/t_texis/ -type d` ; do
   ) > $logfile 2>&1
 done
 
-diff -u -r ../../perl/t_texis/ $mdir/refold_texi/ > $mdir/orig_refold.diff
+diff -u -r ../../perl/t_texis/ $mdir/refold_texi/ > $mdir/orig_refold.diff || true
 

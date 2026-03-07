@@ -360,6 +360,10 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
     call_modulepath_init (-1, modules_dir, converter_libdir,
                           datadir);
 
+  str = "use Texinfo::XSLoader;\n"
+        "Texinfo::XSLoader::set_XS_mandatory();\n";
+  eval_pv (str, TRUE);
+
   str = "use Texinfo::Document;\n"
         "use Texinfo::Translations;\n"
         "use Texinfo::Convert::NodeNameNormalization;\n"
