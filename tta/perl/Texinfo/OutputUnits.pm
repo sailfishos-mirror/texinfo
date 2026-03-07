@@ -71,7 +71,7 @@ BEGIN {
   if (!Texinfo::XSLoader::XS_structuring_enabled()) {
     undef $shared_library_name;
   }
-  my $loaded_package = Texinfo::XSLoader::init (
+  Texinfo::XSLoader::init (
     "Texinfo::OutputUnits",
     "Texinfo::OutputUnitsNonXS",
     $shared_library_name,

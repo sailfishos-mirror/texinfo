@@ -58,7 +58,7 @@ BEGIN {
   if (!Texinfo::XSLoader::XS_structuring_enabled()) {
     undef $shared_library_name;
   }
-  my $loaded_package = Texinfo::XSLoader::init (
+  Texinfo::XSLoader::init (
     "Texinfo::Transformations",
     "Texinfo::TransformationsNonXS",
     $shared_library_name,

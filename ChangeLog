@@ -1,5 +1,17 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (BEGIN),
+	tta/perl/Texinfo/Convert/HTML.pm (BEGIN),
+	tta/perl/Texinfo/Convert/Texinfo.pm (BEGIN),
+	tta/perl/Texinfo/Convert/Text.pm (BEGIN), tta/perl/Texinfo/Indices.pm
+	(BEGIN), tta/perl/Texinfo/ManipulateTree.pm (BEGIN),
+	tta/perl/Texinfo/OutputUnits.pm (BEGIN),
+	tta/perl/Texinfo/Structuring.pm (BEGIN),
+	tta/perl/Texinfo/Transformations.pm (BEGIN): remove unused
+	Texinfo::XSLoader::init return value variable.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ModulePath.pm.in ($XS_modules_dir, init),
 	tta/perl/Texinfo/XSLoader.pm (init): set $XS_modules_dir in ModulePath
 	instead of prepending to @INC.  Search for libtool archive in

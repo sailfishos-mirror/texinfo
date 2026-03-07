@@ -55,12 +55,6 @@ our $VERSION = '7.3dev';
 # Perl interface.
 our $XS_package;
 
-# NOTE We do not verify that the XS/NonXS for Parser and XS/NonXS for
-# Document are consistent.  They should be, because the conditions to
-# get XS to load are the same in both modules.  Some segfault/undefined
-# value in Perl happens if one is XS, the other is NonXS, which can happen
-# during development when refactoring the interfaces.
-# TODO Maybe some formal check could be added?
 BEGIN {
   my $shared_library_name = "DocumentXS";
   if (!Texinfo::XSLoader::XS_parser_enabled()) {

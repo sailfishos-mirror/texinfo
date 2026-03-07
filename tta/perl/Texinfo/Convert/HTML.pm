@@ -114,7 +114,7 @@ BEGIN {
   if (!Texinfo::XSLoader::XS_convert_enabled()) {
     undef $shared_library_name;
   }
-  my $loaded_package = Texinfo::XSLoader::init (
+  Texinfo::XSLoader::init (
     "Texinfo::Convert::HTML",
     "Texinfo::Convert::HTMLNonXS",
     $shared_library_name,

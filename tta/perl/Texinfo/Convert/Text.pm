@@ -70,7 +70,7 @@ BEGIN {
     undef $shared_library_name;
   }
 
-  my $loaded_package = Texinfo::XSLoader::init (
+  Texinfo::XSLoader::init (
       "Texinfo::Convert::Text",
       "Texinfo::Convert::TextNonXS",
       $shared_library_name,
