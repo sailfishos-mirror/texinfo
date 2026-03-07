@@ -1,5 +1,16 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm (set_XS_mandatory, init): unset
+	$ENV{'TEXINFO_XS'} if set to omit in set_XS_mandatory, not in init.
+
+	* tta/perl/Texinfo/XSLoader.pm (init): handle first the case where
+	there is no attempt to load XS module.  Make $TEXINFO_XS a file
+	lexical.
+
+	* tta/perl/Texinfo/XSLoader.pm ($core_modules_built): add.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/main/call_perl_function.c (call_eval_load_texinfo_modules): no
 	need to check whether Document XS loaded, XS is mandatory such that
 	XSLoader would already have died if Document XS was not loaded.

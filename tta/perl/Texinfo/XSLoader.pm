@@ -23,6 +23,8 @@ use DynaLoader;
 
 #use version;
 
+our $VERSION = '7.3dev';
+
 # disable_XS is set in CheckXS TestXS.pm to override the
 # Texinfo::ModulePath::enable_xs based on the previous configure+make
 our $disable_XS;
@@ -47,9 +49,9 @@ BEGIN {
   }
 }
 
-our $TEXINFO_XS;
-
-our $VERSION = '7.3dev';
+# Not used below as more precise conditions are used, it can be used in
+# other modules.
+our $core_modules_built = (not $disable_C_libraries and not $disable_XS);
 
 # used for comparison with XS_VERSION passed through configure and make.
 # The github CI adds the date after a hyphen, turn the hyphen to a dot.
@@ -69,6 +71,12 @@ our $mandatory_xs;
 
 sub set_XS_mandatory {
   $mandatory_xs = 1;
+
+  my $TEXINFO_XS = $ENV{'TEXINFO_XS'};
+  if (defined($TEXINFO_XS) and $TEXINFO_XS eq 'omit') {
+    # silently unset omit to require XS modules.
+    $ENV{'TEXINFO_XS'} = '';
+  }
 }
 
 sub XS_parser_enabled {
@@ -104,6 +112,8 @@ sub set_XS_parser_loaded($) {
 
   $xs_parser_loaded = $parser_loaded;
 }
+
+my $TEXINFO_XS;
 
 # For verbose information about what's being done
 sub _debug($) {
@@ -218,8 +228,8 @@ my $loaded_additional_libraries = {};
 # Load module $MODULE, either from XS implementation in
 # Libtool file $MODULE_NAME and Perl file $PERL_EXTRA_FILE,
 # or non-XS implementation $FALLBACK_MODULE.
-# The package loaded is returned or undef if there is no fallback and the
-# XS package was not loaded.
+# The package loaded is returned or undef if there is no fallback and there
+# was no attempt to load the XS extension.
 sub init {
   my ($module,
      $fallback_module,
@@ -230,10 +240,9 @@ sub init {
 
   # Possible values for TEXINFO_XS environment variable:
   #
-  # TEXINFO_XS=default      # try xs, abort if enabled by TEXINFO_XS_*
-  #                         # and build options and not loaded
+  # TEXINFO_XS=default      # try xs, if enabled by TEXINFO_XS_*
+  #                         # and build options
   # TEXINFO_XS=omit         # don't try loading xs at all
-  #                         # (unless XS modules are mandatory)
   # TEXINFO_XS=debug        # same as default, voluminuous debugging
   #
   # Other values are treated at the moment as 'default'.
@@ -243,27 +252,54 @@ sub init {
     $TEXINFO_XS = '';
   }
 
-  if ($mandatory_xs and $TEXINFO_XS eq 'omit') {
-    # silently turn to required XS modules.  We should be in a
-    # situation where the XS modules are enabled and libraries are built
-    # (embedded Perl, Perl SWIG interface).
-    $ENV{'TEXINFO_XS'} = '';
-    $TEXINFO_XS = '';
-  }
-
-  if ($TEXINFO_XS ne 'omit' and $disable_XS) {
+  if ($disable_XS) {
     _debug("XS modules were disabled when Texinfo was built: $module");
-    $TEXINFO_XS = 'omit';
   }
 
-  if ($TEXINFO_XS eq 'omit') {
-    # Don't try to use the XS module
-    goto FALLBACK;
-  }
+  # Cases where we do not try to load XS module.
+  if (# Disabled at build time
+      $disable_XS
+      # This happens if iconv is not found or not usable.
+      # In that case, the loading of every module depending on the parser
+      # is expected to fail.  All those modules should have fallback.
+      or (defined($additional_libraries) and $disable_C_libraries)
 
-  if (!defined($module_name)) {
-    goto FALLBACK;
-  }
+      # Disabled at run time
+      # Don't try to use the XS module
+      or ($TEXINFO_XS eq 'omit') 
+      # An undefined module name should only happen based on the TEXINFO_XS_*
+      # environment variables values.  Which module names are undef should be
+      # consistent.  Only possible for modules depending on parser.
+      or (!defined($module_name))) {
+
+    # No fallback module
+    if (!defined($fallback_module)) {
+      return undef;
+    }
+
+    # Fall back to using the Perl code.
+    if ($TEXINFO_XS eq 'debug') {
+      warn "falling back to pure Perl module $fallback_module\n";
+    }
+
+    # Note that if no import method can be found, then the call is skipped (this
+    # special case is described in perldoc use), therefore the fallback module
+    # does not need to implement import().
+    # Use eval here to interpret :: properly in module name.
+    eval "require $fallback_module; $module->import();";
+    if ($@) {
+      warn();
+      die "Error loading $fallback_module\n";
+    }
+
+    return $fallback_module;
+  } # end no attempt to load XS module
+
+  # If $mandatory_xs, we should always reach here as TEXINFO_XS cannot be
+  # 'omit', module name is defined since $mandatory_xs is checked in all
+  # the XS_*_enabled functions and mandatory_xs should only be set in
+  # situations where XS modules build requirements are met (embedded
+  # Perl, Perl SWIG interface).
 
   # Consider that we are in the build directory if texinfo_uninstalled
   # is set, or if Texinfo::ModulePath has not been called, as is the
@@ -272,8 +308,6 @@ sub init {
                      or $Texinfo::ModulePath::texinfo_uninstalled);
 
   if (defined($additional_libraries)) {
-    # TODO if $disable_C_libraries is true, this is unlikely to succeed,
-    # we could shortcut this code.
     foreach my $additional_library_name (@{$additional_libraries}) {
       my $additional_library = 'lib' . $additional_library_name;
       # Note that we do not try to load again a library that didn't load
@@ -301,7 +335,7 @@ sub init {
         # Therefore, we only fallback if the library is not found and we
         # are in-source.
         if (!$ref and $uninstalled) {
-          goto FALLBACK;
+          goto FAILURE;
         } else {
           $loaded_additional_libraries->{$additional_library} = $ref;
         }
@@ -333,7 +367,7 @@ sub init {
   my $libref = load_libtool_library($module_name, $libtool_dir,
                                     $libtool_archive, !$uninstalled);
   if (!$libref) {
-    goto FALLBACK;
+    goto FAILURE;
   }
 
   my $bootname = "boot_$module";
@@ -342,7 +376,7 @@ sub init {
   my $symref = DynaLoader::dl_find_symbol($libref, $bootname);
   if (!defined($symref)) {
     _message("$module_name: couldn't find $bootname symbol");
-    goto FALLBACK;
+    goto FAILURE;
   }
   _debug("trying to call $bootname...");
   my $boot_fn = DynaLoader::dl_install_xsub("${module}::bootstrap",
@@ -350,7 +384,7 @@ sub init {
 
   if (!defined($boot_fn)) {
     _message("$module_name: couldn't bootstrap");
-    goto FALLBACK;
+    goto FAILURE;
   }
   _debug("  ...succeeded");
 
@@ -375,7 +409,7 @@ sub init {
                                  $Texinfo::ModulePath::t2a_builddir,
                                  $Texinfo::ModulePath::t2a_srcdir)) {
     _message("$module_name: error initializing");
-    goto FALLBACK;
+    goto FAILURE;
   }
 
   if (defined($perl_extra_file)) {
@@ -388,66 +422,22 @@ sub init {
 
   return $module;
 
- FALLBACK:
-  if ($TEXINFO_XS ne 'omit') {
-    if (defined($additional_libraries) and $disable_C_libraries) {
-      # This happens if iconv is not found or not usable.
-      # In that case, the loading of every module depending on the parser
-      # is expected to fail.  All those modules should have fallback.
-    } elsif (!defined($module_name)) {
-      # An undefined module name should only happen based on the TEXINFO_XS_*
-      # environment variables values.  Which module names are undef should be
-      # consistent.
-    } else {
-      # If $mandatory_xs, we should always reach here, as TEXINFO_XS cannot be
-      # 'omit', libraries should be present and module name is defined, since
-      # $mandatory_xs is checked in all the XS_*_enabled functions.
+ FAILURE:
+  # modules loading was attempted and failed.
 
-      my $needed = 'enabled required';
-      if ($mandatory_xs) {
-        $needed = 'mandatory';
-      }
-
-      die "extension $module_name $needed for $module\n";
-    }
-    # The following cannot happen, since the modules that do not have
-    # fallback, if not loaded, would have already lead to dying just above:
-    # * ConfigXS is only loaded if mandatory_xs is set such that the module
-    #   name cannot be undef, and $disable_C_libraries cannot happen because
-    #   of build requirements.
-    # * MiscXS does not need additional_libraries and module_name is always
-    #   defined.
-    if (!defined($fallback_module)) {
-      die "missing required fallback for $module\n";
-    }
-    if ($TEXINFO_XS eq 'debug') {
-      warn "falling back to pure Perl module $fallback_module\n";
-    }
+  my $needed = 'enabled required';
+  if ($mandatory_xs) {
+    $needed = 'mandatory';
   }
 
-  # undef is returned only if there is no fallback and loading the module
-  # failed.
-  if (!defined($fallback_module)) {
-    return undef;
-  }
-
-  # Fall back to using the Perl code.
-  # Note that if no import method can be found, then the call is skipped (this
-  # special case is described in perldoc use), therefore the fallback module
-  # does not need to implement import().
-  # Use eval here to interpret :: properly in module name.
-  eval "require $fallback_module; $module->import();";
-  if ($@) {
-    warn();
-    die "Error loading $fallback_module\n";
-  }
-
-  return $fallback_module;
+  die "extension $module_name $needed for $module\n";
 } # end init
 
 my $XS_disable_for_override_error_output;
 
 # Override subroutine $TARGET with $SOURCE.
+# Only for MiscXS (does not depend on libraries nor TEXINFO_XS_* environment
+# variables) and ConfigXS (only loaded with mandatory XS).
 sub override($$) {
   my ($target, $source) = @_;
 
