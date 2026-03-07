@@ -318,7 +318,13 @@ get_implicit_weight (char32_t codepoint,
   const uc_block_t *b = uc_block (codepoint);
   uint16_t AAAA = 0, BBBB = 0;
 
-  if (b->start == 0x17000       /* Tangut */
+  if (!b)
+    {
+      /* possibly an invalid codepoint */
+      AAAA = 0xFBC0 + (codepoint >> 15);
+      BBBB = (codepoint & 0x7FFF) | 0x8000;
+    }
+  else if (b->start == 0x17000       /* Tangut */
       || b->start == 0x18D00 /* Tangut Supplement */ )
     {
       AAAA = 0xFB00;
