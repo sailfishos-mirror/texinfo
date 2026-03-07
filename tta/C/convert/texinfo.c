@@ -166,6 +166,9 @@ txi_setup_main_load_interpreter (enum interpreter_use use_interpreter,
         {
           /* XS code that calls C library initialization was not loaded,
              initialize the C library now */
+          /* In general this cannot happen, because failure to call Perl
+             if embedded or to load modules should lead to dying/croaking
+             earlier, notably in XSLoader */
           messages_and_encodings_setup (datadir);
           setup_texinfo_main (texinfo_uninstalled, datadir,
                               t2a_builddir, t2a_srcdir);

@@ -49,30 +49,19 @@ use Texinfo::ManipulateTree;
 
 our $VERSION = '7.3dev';
 
-# Used to detect that the C library needs to be initialized when the
-# Texinfo::Document Perl module is loaded but the Document XS extension is not
-# loaded.  Only used when loading Perl modules from C through the SWIG
-# Perl interface.
-our $XS_package;
-
 BEGIN {
   my $shared_library_name = "DocumentXS";
   if (!Texinfo::XSLoader::XS_parser_enabled()) {
     undef $shared_library_name;
   }
-  my $nonXS_package = "Texinfo::DocumentNonXS";
 
-  my $loaded_package = Texinfo::XSLoader::init (
+  Texinfo::XSLoader::init (
     "Texinfo::Document",
-    $nonXS_package,
+    "Texinfo::DocumentNonXS",
     $shared_library_name,
     undef,
     ['texinfo', 'texinfoxs'],
   );
-  if (defined($shared_library_name)
-      and $loaded_package ne $nonXS_package) {
-    $XS_package = $loaded_package;
-  }
 }
 
 # No XS override, only called from Texinfo::ParserNonXS.

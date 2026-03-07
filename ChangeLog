@@ -1,5 +1,16 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/main/call_perl_function.c (call_eval_load_texinfo_modules): no
+	need to check whether Document XS loaded, XS is mandatory such that
+	XSLoader would already have died if Document XS was not loaded.
+
+	* tta/perl/Texinfo/Document.pm (BEGIN): no more need to detect that
+	Document XS was loaded.  In general, it should be better to make sure
+	in upstream codes that failure happens as soon as the XS module does
+	not load.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/test_refold.sh: avoid using diff exit status.
 
 2026-03-07 Patrice Dumas  <pertusus@free.fr>

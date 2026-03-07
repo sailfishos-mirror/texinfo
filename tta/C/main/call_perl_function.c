@@ -321,9 +321,9 @@ call_modulepath_init (int updirs, const char *perl_modules_dir,
 /* Initializations similar to those in texi2any.pl or load_txi_modules.pl
    but simplified, as we want to initialize only the modules called from
    libtexinfo. */
-/* return -1 (or croak) if the modules could not be loaded.
-   return 0 if Document XS extension was not loaded.
-   return 1 if Document XS extension was loaded.
+/* return -1 (or croak/die) if something unexpected happened.
+   return 0 in case of regular errors.
+   return 1 for success.
  */
 int
 call_eval_load_texinfo_modules (int texinfo_uninstalled,
@@ -331,7 +331,6 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
           const char *converter_libdir, const char *datadir)
 {
   SV *sv_inc_str;
-  SV *document_loader_sv;
   char *str;
   AV *INC;
 
@@ -364,21 +363,22 @@ call_eval_load_texinfo_modules (int texinfo_uninstalled,
         "Texinfo::XSLoader::set_XS_mandatory();\n";
   eval_pv (str, TRUE);
 
+  /* Since XS modules are mandatory, XSLoader dies if they are not
+     properly loaded.  This means that DocumentXS init should be
+     called if the function returns.
+   */
   str = "use Texinfo::Document;\n"
         "use Texinfo::Translations;\n"
         "use Texinfo::Convert::NodeNameNormalization;\n"
         "use Texinfo::Indices;\n";
   eval_pv (str, TRUE);
 
-  /* should be false if Document XS was not loaded */
-  document_loader_sv = get_sv ("Texinfo::Document::XS_package", 0);
-
   /* TODO add more from load_txi_modules.pl when there is code to test?
      For example loading messages for error messages translation and
      loading translated strings from LocaleData?
    */
 
-  return SvTRUE (document_loader_sv);
+  return 1;
 }
 
 
