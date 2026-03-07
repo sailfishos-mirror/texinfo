@@ -1,5 +1,11 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* INSTALL, tta/perl/Texinfo/XSLoader.pm (_message, init, override):
+	make requiredifenabled the default for TEXINFO_XS.  Remove
+	TEXINFO_XS warn, required and previous default possibilities.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.am (modulesdir), tta/perl/Texinfo/Config.pm
 	(BEGIN): move ConfigXS.pm code to Config.pm.  Remove ConfigXS.pm.
 
