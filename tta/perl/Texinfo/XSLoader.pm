@@ -120,27 +120,11 @@ sub _message($) {
   warn $msg . "\n";
 }
 
-# We look for the .la and .so files in @INC because this allows us to override
-# which modules are used using -I flags to "perl".
-sub _find_file_in_inc($) {
-  my $file = shift;
-
-  foreach my $dir (@INC) {
-    next if (ref($dir) ne '');
-    _debug("checking $dir/$file");
-    if (-f "$dir/$file") {
-      _debug("found $dir/$file");
-      return ($dir, "$dir/$file");
-    }
-  }
-  return undef;
-}
-
 my $added_xsdir;
 my %dl_path_prepended_dirs;
 
-# If $TRY_DIRECT_LOAD is set and no .la file is found in @INC, add
-# the XS extensions directory to the DynaLoader path and let DynaLoader
+# If $TRY_DIRECT_LOAD is set and no .la file is found, add the XS
+# extensions directory to the DynaLoader path and let DynaLoader
 # find the XS module file using the usual file names.
 # This allows to have XS modules found even if packagers remove .la files
 # installed in the default case on platforms where modules have usual names
@@ -323,7 +307,24 @@ sub init {
     }
   }
 
-  my ($libtool_dir, $libtool_archive) = _find_file_in_inc("$module_name.la");
+  my $XS_dir = $Texinfo::ModulePath::XS_modules_dir;
+  if (!defined($XS_dir)) {
+    # case of configure test in CheckXS
+    $XS_dir = '.';
+  }
+
+  my $libtool_dir;
+
+  my $libtool_archive = "$XS_dir/$module_name.la";
+
+  _debug("checking $libtool_archive");
+  if (-f $libtool_archive) {
+    _debug("found $libtool_archive");
+    $libtool_dir = $XS_dir;
+  } else {
+    $libtool_archive = undef;
+  }
+
   # If installed, try direct load of modules if .la file is not found, as
   # it should work in that case on platforms where libtool has installed
   # the module in the specified directory.

@@ -1,5 +1,12 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ModulePath.pm.in ($XS_modules_dir, init),
+	tta/perl/Texinfo/XSLoader.pm (init): set $XS_modules_dir in ModulePath
+	instead of prepending to @INC.  Search for libtool archive in
+	$XS_modules_dir only in XSLoader init.  Remove _find_file_in_inc.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* INSTALL, README-hacking: document TEXINFO_XS_CONVERT only in
 	INSTALL.  Move documentation about all the TEXINFO_XS_* to
 	README-hacking.  Mention that those variables will be removed in the

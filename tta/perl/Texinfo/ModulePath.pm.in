@@ -1,11 +1,13 @@
 # @configure_input@
 #
-# Add directories to @INC, Perl's module search path, to find modules,
-# in the source and build directories or in installation directories.
+# Determine libraries and XS extension modules directories and
+# add directories to @INC, Perl's module search path, to find Perl modules.
+# The directories may be in the source and build directories or in
+# installation directories.
 #
-# 'use Texinfo::ModulePath' should only occur once per program so that
-# the initialization is only done once.  This makes the way this module
-# is used very unusual.
+# 'use Texinfo::ModulePath' should only occur once per program so that the
+# initialization is only done once.  This makes the way this module is used
+# very unusual.
 #
 # Also used to pass other information from configure to modules.
 
@@ -35,6 +37,8 @@ our $converter_datadir;
 our $converter_libdir;
 # C libraries directory
 our $libraries_dir;
+# XS extension modules directory
+our $XS_modules_dir;
 
 # installed locations paths
 our $datadir;
@@ -52,8 +56,8 @@ my $converter = '@CONVERTER@';
 
 # If $PERL_MODULES_DIR and $CONVERTER_LIBDIR are given,
 # (likely the installation directories)
-# use them to add directories
-# to @INC.
+# use them to add directories to @INC and to set $libraries_dir and
+# $XS_modules_dir.
 #
 # PERL_MODULES_DIR for Texinfo Perl modules and bundled Perl modules.
 # CONVERTER_LIBDIR for XS modules and C libraries.
@@ -109,7 +113,7 @@ sub init {
     }
     if (defined($t2a_builddir)) {
       # For XS Modules
-      unshift @INC, join('/', ($t2a_builddir, 'perl', 'XSTexinfo'));
+      $XS_modules_dir = join('/', ($t2a_builddir, 'perl', 'XSTexinfo'));
       # for C libraries
       $libraries_dir = join('/', ($t2a_builddir, 'C'));
     }
@@ -124,7 +128,7 @@ sub init {
     # for the XS modules and the C libraries
     if (defined($converter_libdir)) {
       # For XS Modules
-      unshift @INC, join('/', ($converter_libdir, 'XS_extension'));
+      $XS_modules_dir = join('/', ($converter_libdir, 'XS_extension'));
       # For C libraries
       $libraries_dir = join('/', ($converter_libdir, 'lib'));
     }
