@@ -1,5 +1,12 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* INSTALL, README-hacking: document TEXINFO_XS_CONVERT only in
+	INSTALL.  Move documentation about all the TEXINFO_XS_* to
+	README-hacking.  Mention that those variables will be removed in the
+	future.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* INSTALL, tta/perl/Texinfo/XSLoader.pm (_message, init, override):
 	make requiredifenabled the default for TEXINFO_XS.  Remove
 	TEXINFO_XS warn, required and previous default possibilities.

@@ -82,19 +82,12 @@ Installation notes specific to Texinfo:
   TEXINFO_XS=debug to print some information as the modules are
   looked for and loaded.
 
-  XS modules replacing perl code for the main processing steps can be
-  controlled more finely.  Three steps are distinguished: the parsing
-  step, the structure step for the determination of sectioning and node
-  structures, and the conversion step.  If the XS modules are not used
-  for one step, they cannot be used for any following steps.
-
-  If you want to use the XS modules but not the XS parser, you can
-  set the `TEXINFO_XS_PARSER' environment variable to 0.  If you use
-  the XS parser but do not want to use XS for the structure step, you
-  can set the `TEXINFO_XS_STRUCTURE' environment variable to 0.  If you
-  use the XS modules for the structure but do not want to use XS for the
-  conversion step, you can set the `TEXINFO_XS_CONVERT' environment
-  variable to 0.
+  Three steps are distinguished: the parsing step, the structure step
+  for the determination of sectioning and node structures, and the
+  conversion step.  If you do not want to use XS for the conversion step,
+  you can set the `TEXINFO_XS_CONVERT' environment variable to 0.  (The
+  TEXINFO_XS_CONVERT environment variable will to be removed in a later
+  release.)
 
 * Native code (in XS modules) get translations for strings to be put in
   output files using libc gettext, using the LANGUAGE variable.  If the
