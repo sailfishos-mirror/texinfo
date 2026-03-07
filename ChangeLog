@@ -1,5 +1,14 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm (init): handle mandatory_xs more like
+	other cases since in situations with mandatory_xs set, all the XS
+	modules should be enabled.
+	Show missing fallback only after the required modules that have not
+	been loaded caused to die.
+	Silently reset TEXINFO_XS if set to omit and mandatory_xs is set.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/XSLoader.pm ($mandatory_xs, set_XS_mandatory):
 	rename embedded_xs to mandatory_xs and set_XS_embedded to
 	set_XS_mandatory.  Update users and callers.

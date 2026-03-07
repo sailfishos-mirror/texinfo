@@ -233,6 +233,7 @@ sub init {
   # TEXINFO_XS=default      # try xs, abort if enabled by TEXINFO_XS_*
   #                         # and build options and not loaded
   # TEXINFO_XS=omit         # don't try loading xs at all
+  #                         # (unless XS modules are mandatory)
   # TEXINFO_XS=debug        # same as default, voluminuous debugging
   #
   # Other values are treated at the moment as 'default'.
@@ -243,8 +244,9 @@ sub init {
   }
 
   if ($mandatory_xs and $TEXINFO_XS eq 'omit') {
-    warn "ignoring TEXINFO_XS environment variable set to 'omit' ".
-         "for embedded Perl\n";
+    # silently turn to required XS modules.  We should be in a
+    # situation where the XS modules are enabled and libraries are built
+    # (embedded Perl, Perl SWIG interface).
     $ENV{'TEXINFO_XS'} = '';
     $TEXINFO_XS = '';
   }
@@ -387,24 +389,36 @@ sub init {
   return $module;
 
  FALLBACK:
-  if ($mandatory_xs) {
-    die "Perl is embedded, unexpected failure loading $module XS, aborting\n";
-  } elsif ($TEXINFO_XS ne 'omit') {
-    # This cannot happen for ConfigXS, as mandatory_xs is set in that case,
-    # it could only happen for MiscXS
-    if (!defined($fallback_module)) {
-      die "unexpected missing required fallback for $module\n";
-    }
+  if ($TEXINFO_XS ne 'omit') {
     if (defined($additional_libraries) and $disable_C_libraries) {
       # This happens if iconv is not found or not usable.
       # In that case, the loading of every module depending on the parser
-      # is expected to fail, but all those modules should have fallback.
+      # is expected to fail.  All those modules should have fallback.
     } elsif (!defined($module_name)) {
       # An undefined module name should only happen based on the TEXINFO_XS_*
-      # environment variables values.  Which modules are loaded should be
+      # environment variables values.  Which module names are undef should be
       # consistent.
     } else {
-      die "extension $module_name enabled required for $module\n";
+      # If $mandatory_xs, we should always reach here, as TEXINFO_XS cannot be
+      # 'omit', libraries should be present and module name is defined, since
+      # $mandatory_xs is checked in all the XS_*_enabled functions.
+
+      my $needed = 'enabled required';
+      if ($mandatory_xs) {
+        $needed = 'mandatory';
+      }
+
+      die "extension $module_name $needed for $module\n";
+    }
+    # The following cannot happen, since the modules that do not have
+    # fallback, if not loaded, would have already lead to dying just above:
+    # * ConfigXS is only loaded if mandatory_xs is set such that the module
+    #   name cannot be undef, and $disable_C_libraries cannot happen because
+    #   of build requirements.
+    # * MiscXS does not need additional_libraries and module_name is always
+    #   defined.
+    if (!defined($fallback_module)) {
+      die "missing required fallback for $module\n";
     }
     if ($TEXINFO_XS eq 'debug') {
       warn "falling back to pure Perl module $fallback_module\n";
