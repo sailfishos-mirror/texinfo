@@ -46,7 +46,21 @@ use Encode;
 # for __( and __p( and some functions
 use Texinfo::Common;
 
-use Texinfo::ConfigXS;
+use Texinfo::XSLoader;
+
+BEGIN {
+  # Functions are overriden only if Perl is embedded, no point
+  # in loading otherwise.
+  if ($Texinfo::XSLoader::embedded_xs) {
+    Texinfo::XSLoader::init (
+      "Texinfo::ConfigXS",
+      undef,
+      "ConfigXS",
+      undef,
+      ['texinfo', 'texinfoxs'],
+    );
+  }
+}
 
 # Use functions overriding for the XS interface instead of loading a whole
 # interface because it would be complicated to separate the overriden

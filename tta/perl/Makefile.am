@@ -72,7 +72,6 @@ makeinfo: texi2any
 modulesdir = $(converterdatadir)/Texinfo
 dist_modules_DATA = \
  Texinfo/Config.pm \
- Texinfo/ConfigXS.pm \
  Texinfo/Common.pm \
  Texinfo/Commands.pod \
  Texinfo/Commands.pm \
