@@ -114,10 +114,10 @@ BEGIN
 } # end BEGIN
 
 BEGIN {
-  # important to load early to set XS embedded before loading any
+  # important to load early to set mandate XS before loading any
   # package with XS modules
   use Texinfo::XSLoader;
-  Texinfo::XSLoader::set_XS_embedded();
+  Texinfo::XSLoader::set_XS_mandatory();
   my $enable_xs = '@enable_xs@';
   if ($enable_xs eq 'no') {
     die ("Cannot have XS disabled and embedding Perl\n");

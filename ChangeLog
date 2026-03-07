@@ -1,5 +1,11 @@
 2026-03-07 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/XSLoader.pm ($mandatory_xs, set_XS_mandatory):
+	rename embedded_xs to mandatory_xs and set_XS_embedded to
+	set_XS_mandatory.  Update users and callers.
+
+2026-03-07 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Converter.pm (BEGIN),
 	tta/perl/Texinfo/Convert/HTML.pm (BEGIN),
 	tta/perl/Texinfo/Convert/Texinfo.pm (BEGIN),

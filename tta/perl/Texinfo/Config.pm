@@ -49,9 +49,11 @@ use Texinfo::Common;
 use Texinfo::XSLoader;
 
 BEGIN {
-  # Functions are overriden only if Perl is embedded, no point
-  # in loading otherwise.
-  if ($Texinfo::XSLoader::embedded_xs) {
+  # Functions are overriden only if customization data is managed
+  # from C code.  Otherwise, all the customization code related to init files
+  # is run early and customization variables are passed through the XS
+  # interfaces of converters.
+  if ($Texinfo::XSLoader::mandatory_xs) {
     Texinfo::XSLoader::init (
       "Texinfo::ConfigXS",
       undef,
@@ -89,8 +91,8 @@ my %XS_overrides = (
 my $module_loaded = 0;
 sub import {
   if (!$module_loaded) {
-    # override only if the main program is in C with Perl embedded
-    if ($Texinfo::XSLoader::embedded_xs) {
+    # override only if customization data is managed from C code
+    if ($Texinfo::XSLoader::mandatory_xs) {
       foreach my $sub (keys(%XS_overrides)) {
         Texinfo::XSLoader::override($sub, $XS_overrides{$sub});
       }

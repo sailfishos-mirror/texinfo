@@ -58,21 +58,21 @@ $xs_version =~ s/-/./g;
 $xs_version =~ s/dev$//; # XS bootstrap functions choke on non-numeric version
 #my $xs_version = version->declare($VERSION)->numify;
 
-# Set from code to notify that Perl is embedded in C, and that XS needs to
-# be used.  When Perl is embedded in C, many computations are done in C and
+# Set from code to notify that XS needs to be used, for instance when Perl is
+# embedded in C.  When Perl is embedded in C, many computations are done in C and
 # are not directly passed to Perl.  These C data should be accessed/modified
 # through XS interfaces.  The situation is similar to setting only handlers
 # when calling XS methods from Perl, such that the data is not built to Perl,
 # the changes are done in C only, at least until Perl structures are explicitly
 # required through an XS interface.
-our $embedded_xs;
+our $mandatory_xs;
 
-sub set_XS_embedded {
-  $embedded_xs = 1;
+sub set_XS_mandatory {
+  $mandatory_xs = 1;
 }
 
 sub XS_parser_enabled {
-  return ($embedded_xs or
+  return ($mandatory_xs or
           ((not defined($ENV{TEXINFO_XS})
                 or $ENV{TEXINFO_XS} ne 'omit')
            and (not defined($ENV{TEXINFO_XS_PARSER})
@@ -80,14 +80,14 @@ sub XS_parser_enabled {
 }
 
 sub XS_structuring_enabled {
-  return ($embedded_xs or
+  return ($mandatory_xs or
           (XS_parser_enabled()
            and (not defined($ENV{TEXINFO_XS_STRUCTURE})
                 or $ENV{TEXINFO_XS_STRUCTURE} ne '0')));
 }
 
 sub XS_convert_enabled {
-  return ($embedded_xs or
+  return ($mandatory_xs or
           (XS_structuring_enabled()
             and (not defined $ENV{TEXINFO_XS_CONVERT}
                  or $ENV{TEXINFO_XS_CONVERT} ne '0')));
@@ -242,7 +242,7 @@ sub init {
     $TEXINFO_XS = '';
   }
 
-  if ($embedded_xs and $TEXINFO_XS eq 'omit') {
+  if ($mandatory_xs and $TEXINFO_XS eq 'omit') {
     warn "ignoring TEXINFO_XS environment variable set to 'omit' ".
          "for embedded Perl\n";
     $ENV{'TEXINFO_XS'} = '';
@@ -387,10 +387,10 @@ sub init {
   return $module;
 
  FALLBACK:
-  if ($embedded_xs) {
+  if ($mandatory_xs) {
     die "Perl is embedded, unexpected failure loading $module XS, aborting\n";
   } elsif ($TEXINFO_XS ne 'omit') {
-    # This cannot happen for ConfigXS, as embedded_xs is set in that case,
+    # This cannot happen for ConfigXS, as mandatory_xs is set in that case,
     # it could only happen for MiscXS
     if (!defined($fallback_module)) {
       die "unexpected missing required fallback for $module\n";
