@@ -519,8 +519,11 @@ libtexinfo_convertxs_la_SOURCES = \
                        convert/build_html_perl_info.h \
                        convert/build_html_perl_info.c \
                        convert/get_converter_perl_info.c \
-                       convert/get_converter_perl_info.h \
-                       tree_elements/build_perl_tree_elements.h \
+                       convert/get_converter_perl_info.h
+
+# following files were in libtexinfo_convertxs once, but are not built
+# anymore, only kept as examples
+EXTRA_DIST +=          tree_elements/build_perl_tree_elements.h \
                        tree_elements/build_perl_tree_elements.c \
                        tree_elements/get_perl_tree_elements.h \
                        tree_elements/get_perl_tree_elements.c

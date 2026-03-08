@@ -1,5 +1,11 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/Makefile.am (libtexinfo_convertxs_la_SOURCES, EXTRA_DIST): do
+	not build tree_elements/build_perl_tree_elements.c and
+	tree_elements/get_perl_tree_elements.c.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	remove the Texinfo::TreeElement XS interface
 
 	* doc/tta_api/Makefile.am (texi2any_internals_dependencies),
