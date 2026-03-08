@@ -6,6 +6,8 @@
 
 In allkeys-17.0.0
 256 possible secondary weights (0x0000 and 0x0020 - 0x011E)
+extra secondary collation weights 001F - 0127
+
 29 possible tertiary weights
 
 

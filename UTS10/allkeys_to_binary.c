@@ -388,13 +388,33 @@ write_collation_data (ByteBuffer *buf, CollationData *data)
       uint16_t secondary = data->elements[i].secondary;
       uint8_t secondary_write;
 
-      /* Fit secondary weight in a single byte as there are only 256 possible
+      /* Fit secondary weight in a single byte for 256 possible
          secondary weights (0x0000 and 0x0020 - 0x011E) */
 
       if (secondary == 0x00)
         secondary_write = secondary;
-      else
+      else if (secondary <= 0x011E)
         secondary_write = secondary - 0x1f;
+      else if (secondary <= 0x0127)
+        {
+          /* For higher collation weights 011F - 0127.  These are used
+             in non-initial collation elements, in e.g. quotation marks and runic
+             letters. */
+          secondary_write = secondary - 0x011e;
+
+          /* This may be ok.  From UTS#10 s.9.3.1:
+
+          "Whenever collation elements have different primary weights, the
+          ordering of their secondary weights is immaterial. Thus all of
+          the secondaries that share a single primary can be renumbered to
+          a contiguous range without affecting the resulting order. " */
+
+        }
+      else
+        {
+          fprintf (stderr, "secondary weight too big: %4x\n", secondary);
+          exit (1);
+        }
 
       buffer_write_u8 (buf, secondary_write);
       buffer_write_u8 (buf, data->elements[i].tertiary);
