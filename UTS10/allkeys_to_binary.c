@@ -94,6 +94,12 @@ buffer_write_u8 (ByteBuffer *buf, uint8_t val)
   return buffer_write_bytes (buf, &val, 1);
 }
 
+static void
+buffer_write_u8_at (ByteBuffer *buf, uint32_t offset, uint8_t val)
+{
+  memcpy (buf->data + offset, &val, 1);
+}
+
 static uint32_t
 buffer_write_u16 (ByteBuffer *buf, uint16_t val)
 {
@@ -381,34 +387,35 @@ build_database (const char *filename)
 static uint32_t
 write_collation_data (ByteBuffer *buf, CollationData *data)
 {
-  uint32_t offset = buffer_write_u8 (buf, data->num_elements);
+  uint8_t num_elements = data->num_elements;
+  uint32_t offset = buffer_write_u8 (buf, num_elements);
   for (int i = 0; i < data->num_elements; i++)
     {
       buffer_write_u16 (buf, data->elements[i].primary);
       uint16_t secondary = data->elements[i].secondary;
       uint8_t secondary_write;
 
-      /* Fit secondary weight in a single byte for 256 possible
-         secondary weights (0x0000 and 0x0020 - 0x011E) */
+      /* Fit secondary weight in a single byte for 255 possible
+         secondary weights (0x0000 and 0x0020 - 0x011D) */
 
       if (secondary == 0x00)
         secondary_write = secondary;
-      else if (secondary <= 0x011E)
+      else if (secondary <= 0x011D)
         secondary_write = secondary - 0x1f;
       else if (secondary <= 0x0127)
         {
-          /* For higher collation weights 011F - 0127.  These are used
-             in non-initial collation elements, in e.g. quotation marks and runic
-             letters. */
-          secondary_write = secondary - 0x011e;
+          /* For larger weights, output an extra collation element. */
+          secondary_write = 0xff;
+          buffer_write_u8 (buf, secondary_write);
+          buffer_write_u8 (buf, data->elements[i].tertiary);
 
-          /* This may be ok.  From UTS#10 s.9.3.1:
+          buffer_write_u8_at (buf, offset, ++num_elements);
 
-          "Whenever collation elements have different primary weights, the
-          ordering of their secondary weights is immaterial. Thus all of
-          the secondaries that share a single primary can be renumbered to
-          a contiguous range without affecting the resulting order. " */
+          buffer_write_u16 (buf, 0x0000);
+          buffer_write_u8 (buf, secondary - 0x0100);
+          buffer_write_u8 (buf, 0x00);
 
+          continue;
         }
       else
         {
