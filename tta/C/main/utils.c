@@ -2858,7 +2858,6 @@ enumerate_item_representation (const ELEMENT *element)
 int
 html_get_direction_index (const CONVERTER *converter, const char *direction)
 {
-  int i;
   if (converter && converter->main_units_direction_names)
     {
       int found;
