@@ -15017,8 +15017,6 @@ Unix-like systems, @samp{;} on Windows).
 @opindex --ifplaintext
 @itemx --iftex
 @opindex --iftex
-@itemx --ifxml
-@opindex --ifxml
 For the given format, process @samp{@@if@var{format}} and
 @samp{@@@var{format}} commands, and do not process
 @samp{@@ifnot@var{format}}, regardless of the format being output.
@@ -15038,8 +15036,6 @@ ignored.
 @opindex --no-ifplaintext
 @itemx --no-iftex
 @opindex --no-iftex
-@itemx --no-ifxml
-@opindex --no-ifxml
 For the given format, do not process @samp{@@if@var{format}} and
 @samp{@@@var{format}} commands, and do process
 @samp{@@ifnot@var{format}}, regardless of the format being output.
@@ -15415,7 +15411,7 @@ repeated (@pxref{@command{texi2any} Printed Output}).
 overridden by a command line option.  The value should be one of:
 
 @example
-docbook  dvi  dvipdf  epub3  html  info  latex  pdf  plaintext  ps  xml
+docbook  dvi  dvipdf  epub3  html  info  latex  pdf  plaintext  ps
 @end example
 
 If not set or otherwise specified, Info output is the default.
@@ -16059,14 +16055,6 @@ The generated output format.  Set from command line with options such as
 @option{--html}, as the @env{TEXINFO_OUTPUT_FORMAT} environment variable
 value (@pxref{@command{texi2any} Environment Variables}) or as a customization
 option.  @xref{Output Format Selection}
-
-The value set in the @code{TEXINFO_OUTPUT_FORMAT} variable is in general the
-same as the name used to set the format, but not always.  If the format is set
-to @code{xml}, with @option{--xml}, with the @env{TEXINFO_OUTPUT_FORMAT}
-environment variable or with a customization variable the
-@code{TEXINFO_OUTPUT_FORMAT} customization variable is set to a more
-specific output format name @code{texinfoxml}.  That kind of difference
-in naming should not have any user-visible consequence.
 
 @item TREE_TRANSFORMATIONS
 The associated value is a comma separated list of transformations that

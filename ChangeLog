@@ -1,5 +1,11 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (Invoking @command{texi2any})
+	(Global Customization Variables): remove references to xml
+	command-line and format options.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Makefile.tres, tta/perl/t/xml_tests.t: remove the
 	sectioning_test_no_use_nodes that is now a duplicate.  Replace
 	$sectioning_test by its value.
