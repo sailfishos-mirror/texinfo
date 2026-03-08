@@ -100,7 +100,6 @@ EXTRA_DIST += \
 maintain/catalog.xml: maintain/catalog.xml.in Makefile
 	$(MKDIR_P) maintain
 	sed -e 's|[@]abs_top_srcdir[@]|$(abs_top_srcdir)|' \
-	    -e 's|[@]TEXINFO_DTD_VERSION[@]|$(TEXINFO_DTD_VERSION)|' \
 	  $(srcdir)/maintain/catalog.xml.in >$@
 
 libsrcdir = $(srcdir)/maintain/lib

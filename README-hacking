@@ -534,10 +534,6 @@ check OpenCSW build reports at
   https://buildfarm.opencsw.org/buildbot/waterfall?category=texinfo
 (for master branch only)
 
-Check that TEXINFO_DTD_VERSION has been updated to the next version in
-  configure.ac if the DTD has been modified since the last release.
-  See comments in configure.ac, and run (at the top level) make dtd-check.
-
 check up to date copyright years in files relevant to --version calls
 (tta/perl/texi2any.pl, info/info.c, install-info/install-info.c,
 texindex/ti.twjr, Pod-Simple-Texinfo/pod2texi)

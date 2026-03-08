@@ -212,12 +212,6 @@ my %extensions = (
   'latex_text' => 'tex',
 );
 
-# This is, in general, different from the documented version, which
-# is set in the texi2any main program.  This value should only be
-# used in t/*.t tests.
-my $XML_DTD_VERSION
-  = $Texinfo::Options::converter_customization_options{'TEXINFO_DTD_VERSION'};
-
 my %outfile_preamble = (
   'docbook' => ['<?xml version="1.0"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
@@ -226,7 +220,7 @@ my %outfile_preamble = (
 ]>
 '. "<book>\n", "</book>\n"],
   'xml' => ['<?xml version="1.0"?>
-'."<!DOCTYPE texinfo PUBLIC \"-//GNU//DTD TexinfoML V${XML_DTD_VERSION}//EN\" \"http://www.gnu.org/software/texinfo/dtd/${XML_DTD_VERSION}/texinfo.dtd\">
+'."<!DOCTYPE texinfo PUBLIC \"-//GNU//DTD TexinfoML V7.3//EN\" \"http://www.gnu.org/software/texinfo/dtd/7.3/texinfo.dtd\">
 ".'<texinfo>
 ', "</texinfo>\n"],
  # done dynamically for CSS

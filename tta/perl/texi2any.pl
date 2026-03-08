@@ -350,26 +350,6 @@ my $configured_url = '@PACKAGE_URL@';
 $configured_url = 'https://www.gnu.org/software/texinfo/'
   if ($configured_url eq '@' .'PACKAGE_URL@');
 
-my $texinfo_dtd_version = '@TEXINFO_DTD_VERSION@';
-if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
-  $texinfo_dtd_version = undef;
-  if (open(CONFIGURE,
-         "< ".join('/', ($Texinfo::ModulePath::t2a_srcdir,
-                          'configure.ac')))) {
-    while (<CONFIGURE>) {
-      if (/^TEXINFO_DTD_VERSION=([0-9]\S*)/) {
-        $texinfo_dtd_version = "$1";
-        last;
-      }
-    }
-    close(CONFIGURE);
-  }
-}
-
-# if not configured nor found in configure.ac
-$texinfo_dtd_version = $configured_version
-  if (!defined($texinfo_dtd_version));
-
 my $configured_information = {
     'PACKAGE_VERSION' => $configured_version,
     'PACKAGE' => $configured_package,
@@ -381,7 +361,6 @@ my $configured_information = {
 # options set in the main program.
 my $main_program_set_options = {
     'PROGRAM' => $real_command_name,
-    'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
     # Used for :
     #  * decoding command-line, including file names
     #  * encoding command-line before executing a command

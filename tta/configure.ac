@@ -18,9 +18,6 @@ AC_REQUIRE_AUX_FILE([tap-driver.sh])
 
 AC_CONFIG_HEADERS([config.h])
 
-TEXINFO_DTD_VERSION=7.3
-AC_SUBST([TEXINFO_DTD_VERSION])
-
 CONVERTER=texi2any
 AC_SUBST([CONVERTER])
 
@@ -440,8 +437,6 @@ AC_DEFINE_UNQUOTED([PACKAGE_URL_CONFIG], ["$PACKAGE_URL"],
                    [autoconf PACKAGE_URL value])
 AC_DEFINE_UNQUOTED([PACKAGE_VERSION_CONFIG], ["$PACKAGE_VERSION"],
                    [autoconf PACKAGE_VERSION value])
-AC_DEFINE_UNQUOTED([TEXINFO_DTD_VERSION_CONFIG], ["$TEXINFO_DTD_VERSION"],
-                   [configure TEXINFO_DTD_VERSION value])
 
 # Output with the _CONFIG suffix as the original is a type name
 AC_DEFINE_UNQUOTED([CONVERTER_CONFIG], ["$CONVERTER"],

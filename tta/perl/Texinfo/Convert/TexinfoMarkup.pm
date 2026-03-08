@@ -943,9 +943,7 @@ sub _convert($$;$) {
             }
             $direction_index++;
           }
-          if (! $self->get_conf('TXI_MARKUP_NO_SECTION_EXTENT')) {
-            $result .= $self->txi_markup_close_element('node');
-          }
+          $result .= $self->txi_markup_close_element('node');
           $result .= _format_comment_or_end_line($self, $arguments_line);
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
         } elsif ($Texinfo::Commands::root_commands{$cmdname}) {
@@ -957,13 +955,7 @@ sub _convert($$;$) {
           }
           $result .= $self->txi_markup_open_element($level_adjusted_cmdname,
                                                     $attribute);
-          my $closed_section_element;
-          if ($self->get_conf('TXI_MARKUP_NO_SECTION_EXTENT')) {
-            $closed_section_element
-               = $self->txi_markup_close_element($level_adjusted_cmdname);
-          } else {
-            $closed_section_element = '';
-          }
+          my $closed_section_element = '';
 
           # arguments_line type
           my $arguments_line = $element->{'contents'}->[0];
@@ -1673,8 +1665,7 @@ sub _convert($$;$) {
     }
   } elsif ($element->{'cmdname'}
            and $Texinfo::Commands::root_commands{$element->{'cmdname'}}
-           and $element->{'cmdname'} ne 'node'
-           and !$self->get_conf('TXI_MARKUP_NO_SECTION_EXTENT')) {
+           and $element->{'cmdname'} ne 'node') {
     my $level_adjusted_cmdname
        = Texinfo::Structuring::section_level_adjusted_command_name($element);
     my $sections_list = $self->{'document'}->sections_list();
@@ -1703,11 +1694,6 @@ sub _convert($$;$) {
                ."\n";
       }
     }
-  } elsif ($element->{'cmdname'}
-           and $element->{'cmdname'} eq 'node'
-           and $self->get_conf('TXI_MARKUP_NO_SECTION_EXTENT')) {
-    $result .= $self->txi_markup_close_element('node');
-
   }
   return $result;
 }

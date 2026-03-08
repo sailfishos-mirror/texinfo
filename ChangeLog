@@ -1,5 +1,46 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	Deprecate xml format in documentation and associated variables
+
+	* doc/texinfo.texi (Output Formats, Adding Output Formats)
+	(Conditional Commands, Conditional Not Commands)
+	(Raw Formatter Commands, Inline Conditionals)
+	(Generic Translator @command{texi2any}, Invoking @command{texi2any})
+	(Output Format Selection, Command List)
+	(Customization Variables for Multiple Formats): do not document
+	Texinfo XML as being a supported output format.  Document @ifxml, @xml
+	and @ifnotxml as being deprecated.
+
+	* tta/maintain/catalog.xml.in,
+	tta/perl/Texinfo/Convert/TexinfoMarkup.pm (_convert),
+	tta/perl/Texinfo/Convert/TexinfoXML.pm (txi_markup_header): remove
+	TXI_MARKUP_NO_SECTION_EXTENT, considering that it is always false.
+	Hardcode TEXINFO_DTD_VERSION to 7.3.
+
+	* tta/data/options_data.txt: set TEXINFO_DTD_VERSION to 7.3, document
+	markup and Texinfo XML customization variables as not being used
+	anymore.
+
+	* doc/texinfo.texi (Other Formats Customization Variables),
+	tta/Makefile.am (maintain/catalog.xml), tta/perl/Makefile.am
+	(do_subst): remove Texinfo XML customization variables documentation
+	and substitutions.
+
+	* configure.ac, tta/configure.ac,
+	tta/maintain/change_perl_modules_version.sh: do not set
+	TEXINFO_DTD_VERSION.
+
+	* tta/C/convert/texinfo.c (txi_set_base_default_options),
+	tta/perl/texi2any.pl ($main_program_set_options): do not set
+	TEXINFO_DTD_VERSION.
+
+	* tta/perl/t/xml_tests.t (sectioning_test_no_use_nodes): do not set
+	TXI_MARKUP_NO_SECTION_EXTENT.
+
+	* Makefile.am, README-hacking: remove dtd-check.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/XSTexinfo/convert/ConvertTextXS.xs (XS_convert_tree):
 	remove call of get_sv_element_document and get_sv_element_element,
 	no code sets the corresponding handle and document descriptor.

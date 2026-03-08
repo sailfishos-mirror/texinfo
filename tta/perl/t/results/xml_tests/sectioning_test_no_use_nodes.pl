@@ -250,25 +250,29 @@ list:
 $result_headings_list{'sectioning_test_no_use_nodes'} = '';
 
 
-$result_converted{'xml'}->{'sectioning_test_no_use_nodes'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext>
-</node><top spaces=" "><sectiontitle>top</sectiontitle></top>
+$result_converted{'xml'}->{'sectioning_test_no_use_nodes'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
+<top spaces=" "><sectiontitle>top</sectiontitle>
 
 <para>In T.
 </para>
-<node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">chap2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup>
-</node><chapter spaces=" "><sectiontitle>Chap1</sectiontitle></chapter>
+</top>
+<node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">chap2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Chap1</sectiontitle>
 
 <para>In c1.
 </para>
-<node identifier="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">chap</nodeup>
-</node><section spaces=" "><sectiontitle>sec1</sectiontitle></section>
+<node identifier="sec" spaces=" "><nodename>sec</nodename><nodeup automatic="on">chap</nodeup></node>
+<section spaces=" "><sectiontitle>sec1</sectiontitle>
 
 <para>In s1.1.
 </para>
-<node identifier="chap2" spaces=" "><nodename>chap2</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup>
-</node><chapter spaces=" "><sectiontitle>Chap2</sectiontitle></chapter>
+</section>
+</chapter>
+<node identifier="chap2" spaces=" "><nodename>chap2</nodename><nodeprev automatic="on">chap</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>Chap2</sectiontitle>
 
 <para>In c2.
-</para>';
+</para></chapter>
+';
 
 1;

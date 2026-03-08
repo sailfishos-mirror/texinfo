@@ -372,31 +372,6 @@ documentation.  It therefore bears some resemblance, in broad
 outline, to Texinfo.  See @uref{http://www.docbook.org}.  Various
 converters from DocBook @emph{to} Texinfo have also been developed;
 see the Texinfo web pages.
-
-@cindex XML Texinfo output, overview
-@cindex Texinfo XML output, overview
-@cindex DTD, for Texinfo XML
-@pindex texinfo.dtd
-@pindex txixml2texi
-@item XML
-(Generated via @command{texi2any --xml}.)
-The @command{texi2any} XML output, unlike all the other output
-formats, is a transliteration of the Texinfo source, rather than
-finished output.  Texinfo XML files cannot be viewed in web browsers
-or other programs.
-
-XML is a generic syntax specification usable for any sort of content.
-(A reference is at @uref{http://www.w3.org/XML}.)
-The purpose of the Texinfo XML output is to allow further processing by
-XML tools.  The output syntax is defined in an XML DTD,
-which is contained in a file @file{texinfo.dtd} included in the
-Texinfo source distribution.
-
-The Texinfo source distribution includes a
-utility script @file{txixml2texi} to do a backward transformation
-to recreate the original Texinfo content (except for Texinfo macros
-and conditionals).
-
 @end table
 
 
@@ -646,13 +621,6 @@ willing to develop in Perl
 (@pxref{Texinfo::Convert::Converter,,,texi2any_internals,Texinfo modules
 documentation}).  @xref{Generic Translator @command{texi2any}}.
 
-@cindex Output formats, with Texinfo XML as input
-@cindex Texinfo XML output, as input
-Another viable approach is use the Texinfo XML output from
-@command{texi2any} as your input.  This XML is an essentially complete
-representation of the input, but without the Texinfo syntax and option
-peculiarities, as described above.
-
 @cindex Texinfo parsers, discouraging more
 If you still cannot resist the temptation of writing a new program
 that reads Texinfo source directly, let us give some more caveats:
@@ -810,6 +778,7 @@ for example, in @samp{@@footnote@{ ^L foo@}}, the form feed is
 ignored.
 
 @item XML
+Removed format.
 Keep them everywhere; in attributes, escaped as @samp{\f}; also,
 @samp{\} is escaped as @samp{\\} and newline as @samp{\n}.
 
@@ -12249,7 +12218,6 @@ compatibility, the plain text output.
 @findex iflatex
 @findex ifplaintext
 @findex iftex
-@findex ifxml
 The environments for the other formats are analogous:
 
 @table @code
@@ -12267,9 +12235,6 @@ Text to appear only in the plain text output.
 
 @item @@iftex @dots{} @@end iftex
 Text to appear only in the printed manual.
-
-@item @@ifxml @dots{} @@end ifxml
-Text to appear only in the XML output.
 @end table
 
 The @code{@@if@dots{}} and @code{@@end if@dots{}} commands must appear
@@ -12299,9 +12264,6 @@ Moreover, this text will only appear in @@LaTeX@{@}.
 @@ifplaintext
 Whereas this text will only appear in plain text.
 @@end ifplaintext
-@@ifxml
-Notwithstanding that this will only appear in XML@.
-@@end ifxml
 @@ifdocbook
 Nevertheless, this will only appear in DocBook.
 @@end ifdocbook
@@ -12325,9 +12287,6 @@ Moreover, this text will only appear in @LaTeX{}.
 @ifplaintext
 Whereas this text will only appear in plain text.
 @end ifplaintext
-@ifxml
-Notwithstanding that this will only appear in XML@.
-@end ifxml
 @ifdocbook
 Nevertheless, this will only appear in DocBook.
 @end ifdocbook
@@ -12348,6 +12307,12 @@ useful in that context.  Technically, it can be used anywhere.
 @xref{External Macro Processors}, for a caveat regarding the line
 numbers which @code{@@errormsg} emits in @TeX{}.
 
+@findex ifxml
+Conditionals for removed formats are still recognized for a while before being
+removed.  The associated text is always ignored.  For example, the
+@code{@@ifxml} environment begins segments of text that are ignored in all the
+output formats.  This command will stop being recognized in a future release.
+
 
 @node Conditional Not Commands
 @nodedescription Text for any format other than a given one.
@@ -12358,7 +12323,6 @@ numbers which @code{@@errormsg} emits in @TeX{}.
 @findex ifnotlatex
 @findex ifnotplaintext
 @findex ifnottex
-@findex ifnotxml
 
 You can specify text to be included in any output format @emph{other}
 than a given one with the @code{@@ifnot@dots{}} environments:
@@ -12370,7 +12334,6 @@ than a given one with the @code{@@ifnot@dots{}} environments:
 @@ifnotlatex @dots{} @@end ifnotlatex
 @@ifnotplaintext @dots{} @@end ifnotplaintext
 @@ifnottex @dots{} @@end ifnottex
-@@ifnotxml @dots{} @@end ifnotxml
 @end example
 
 @noindent
@@ -12396,6 +12359,10 @@ This will be in Info, but not plain text.
 The regions delimited by these commands are ordinary Texinfo source as
 with @code{@@iftex}, not raw formatter source as with @code{@@tex}
 (@pxref{Raw Formatter Commands}).
+
+@findex ifnotxml
+Conditionals for removed formats, such as @code{@@ifnotxml} are
+never omitted and stop being recognized after a while.
 
 
 @node Raw Formatter Commands
@@ -12467,13 +12434,10 @@ $$ \chi^2 = \sum_{i=1}^N
 @findex docbook
 @cindex @LaTeX{}, including raw
 @findex latex
-@cindex XML, including raw
-@findex xml
 Analogously, you can use @code{@@html @dots{} @@end html} for a region of
 raw HTML, @code{@@docbook @dots{} @@end docbook} for a
 region of raw DocBook, @code{@@latex @dots{} @@end latex} for a
-region of raw @LaTeX{}, and @code{@@xml @dots{} @@end xml} for a
-region of raw XML@.
+region of raw @LaTeX{}.
 
 The behavior of newlines in raw regions is unspecified.
 
@@ -12485,6 +12449,10 @@ changes that globally affect the document inside a raw region leads to
 unpredictable and generally undesirable behavior.  For example, using
 the @code{@@kbdinputstyle} command inside a raw region is undefined.
 The remedy is simple: don't do that.
+
+@findex xml
+Removed formats raw regions commands such as @code{@@xml} are recognized
+for a while.  Removed formats raw regions are ignored.
 
 
 @node Inline Conditionals
@@ -12518,7 +12486,7 @@ Similar, but for raw @var{text} (@pxref{Raw Formatter Commands}).
 The supported @var{format} names are:
 
 @example
-docbook  html  info  latex  plaintext  tex  xml
+docbook  html  info  latex  plaintext  tex
 @end example
 
 For example,
@@ -14800,8 +14768,7 @@ HTML (with @option{--html}),
 EPUB 3 (with @option{--epub3}),
 plain text (with @option{--plaintext}),
 @LaTeX{} (with @option{--latex}),
-DocBook (with @option{--docbook}),
-Texinfo XML (with @option{--xml}).
+DocBook (with @option{--docbook}).
 @end display
 
 @command{makeinfo} is an alias for @command{texi2any}.  By default,
@@ -15278,7 +15245,7 @@ to a file, it is used for the EPUB output file name.
 @item --output-indent=@var{val}
 @opindex --outputindent
 This option now does nothing, but remains for compatibility.  (It used
-to alter indentation in XML/DocBook output.)
+to alter indentation in XML-based formats such as DocBook output.)
 
 @item -P @var{path}
 @opindex -P @var{path}
@@ -15434,10 +15401,6 @@ Print the version number, then exit successfully.
 @opindex --Xopt @var{str}
 Pass @var{str} (a single shell word) to @command{texi2dvi}; may be
 repeated (@pxref{@command{texi2any} Printed Output}).
-
-@item --xml
-@opindex --xml
-Generate Texinfo XML output (rather than Info).
 
 @end table
 
@@ -15802,7 +15765,6 @@ other special output formats:
 @itemx pdf
 @itemx plaintext
 @itemx ps
-@itemx xml
 These correspond to the command-line options (and
 @code{TEXINFO_OUTPUT_FORMAT} environment variable values) of the same
 name.  The @code{TEXINFO_OUTPUT_FORMAT} customization variable value
@@ -15839,7 +15801,13 @@ structure; there is no output.
 @cindex S-expressions, output format
 @item texinfosxml
 Output the document in TexinfoSXML representation, a syntax for
-writing XML data using Lisp S-expressions.
+writing XML data using Lisp S-expressions.  This output format
+is deprecated and will be removed in a future release.
+
+@cindex XML Texinfo output
+@item texinfoxml
+Output the document in Texinfo XML representation.  This output format
+is deprecated and will be removed in a future release.
 
 @cindex spell checking
 @cindex word counting
@@ -16355,10 +16323,6 @@ This table gives the customization which apply to specific formats only,
 for formats without separate customization variables description section.
 
 @vtable @code
-@item TXI_MARKUP_NO_SECTION_EXTENT
-For XML@.  Do not include lower level sectioning commands inside upper-level
-sectioning command markup.  Default false.
-
 @item TEXI2DVI
 Name of the command used to produce PostScript, PDF, and DVI; default
 @samp{texi2dvi}.  @xref{@command{texi2any} Printed Output}.
@@ -16367,10 +16331,6 @@ Name of the command used to produce PostScript, PDF, and DVI; default
 For stripped text content output (i.e., when
 @code{TEXINFO_OUTPUT_FORMAT} is set to @code{textcontent}).  If set,
 also output comments.  Default false.
-
-@item TEXINFO_DTD_VERSION
-For XML@.  Version of the DTD used in the XML output preamble.  The
-default is set based on a variable in @file{configure.ac}.
 
 @end vtable
 
@@ -16396,11 +16356,10 @@ except that the Unicode code is a closing quote (see below).
 
 @vindex SystemLiteral
 @item DOCTYPE
-For DocBook, HTML, XML@.  Specifies the @code{SystemLiteral}, the
+For DocBook, HTML@.  Specifies the @code{SystemLiteral}, the
 entity's system identifier.  This is a URI which may be used to
 retrieve the entity, and identifies the canonical DTD for the
-document.  The default value is different for each of HTML, DocBook
-and XML.
+document.  The default value is different for each of HTML and DocBook.
 
 @item EXTENSION
 The extension added to the output file name.  The default is different
@@ -16442,9 +16401,9 @@ as an undirected single quote on modern systems.  Otherwise, the Info
 output uses a Unicode left quote.
 
 @item OUTPUT_CHARACTERS
-If not set, the default, output accented and special characters in HTML, XML
+If not set, the default, output accented and special characters in HTML
 and DocBook using XML entities, and in @LaTeX{} using macros.  If set, output
-accented characters in HTML, XML, DocBook and @LaTeX{} output and special
+accented characters in HTML, DocBook and @LaTeX{} output and special
 characters in HTML and @LaTeX{} output based on the document encoding.
 @xref{@code{@@documentencoding}}, and @ref{Inserting Accents}.
 
@@ -16467,7 +16426,7 @@ are separated if @code{USE_NODES} is set.  If set to false, preferentially use
 sectioning to decide where output units are separated.  The default is true.
 
 @item USE_NUMERIC_ENTITY
-For HTML, XML and DocBook@.  If set, use numeric entities instead of named
+For HTML and DocBook@.  If set, use numeric entities instead of named
 entities.  By default, set to true for DocBook output.
 
 @end vtable
@@ -20467,6 +20426,8 @@ compatibility) plain text output.  Pair with @code{@@end ifdocbook}
 resp.@: @code{@@end ifhtml}@enddots{}
 @xref{Conditionals}.
 
+@code{@@ifxml} is deprecated and will be removed in a future release.
+
 @item @@ifnotdocbook
 @itemx @@ifnothtml
 @itemx @@ifnotlatex
@@ -20477,6 +20438,8 @@ Begin text to be ignored in one output format but not the others.
 @code{@@ifnothtml} text is omitted from HTML output, etc.  Pair with
 the corresponding @code{@@end ifnot@var{format}}.
 @xref{Conditionals}.
+
+@code{@@ifnotxml} is deprecated and will be removed in a future release.
 
 @item @@ifnotinfo
 Begin text to appear in output other than Info and (for historical
@@ -21123,7 +21086,8 @@ index of variables.  Pair with @code{@@end vtable}.  The same as
 Disallow line breaks within @var{text}.  @xref{@code{@@w}}.
 
 @item @@xml
-Enter XML completely.  Pair with @code{@@end xml}.  @xref{Raw
+Deprecated, will be removed in a future release.  Text will not
+appear in any output.  Pair with @code{@@end xml}.  @xref{Raw
 Formatter Commands}.
 
 @item @@xref@{@var{node}, [@var{entry}], [@var{node-title}], [@var{info-file}], [@var{printed-manual}]@}

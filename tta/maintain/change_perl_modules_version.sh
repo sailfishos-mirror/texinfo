@@ -27,10 +27,3 @@ find perl/Texinfo/ -name '*.pm' -o -name '*.pm.in' | xargs \
 perl -pi -e "s/^(AC_INIT\(\[[^\]]+\], *)\[([0-9.]+)\]/\$1\[$VERS\]/" configure.ac
 perl -pi -e "s/^(AC_INIT\(\[[^\]]+\], *)\[([0-9.]+)\]/\$1\[$VERS\]/" perl/CheckXS/configure.ac
 
-# do the same for TEXINFO_DTD_VERSION.  It is not easy to pass information
-# from the top configure to the subdirectory configure.
-
-TEXINFO_DTD_VERS=`grep '^TEXINFO_DTD_VERSION' ../configure.ac | sed -e 's/^[^0-9]*//' -e 's/ *$//'`
-echo TEXINFO_DTD_VERSION is $TEXINFO_DTD_VERS
-perl -pi -e "s/^(TEXINFO_DTD_VERSION *= *)([0-9.]+).*/\${1}$TEXINFO_DTD_VERS/" configure.ac
-

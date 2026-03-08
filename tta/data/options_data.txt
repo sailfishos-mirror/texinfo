@@ -191,14 +191,8 @@ HANDLER_FATAL_ERROR_LEVEL          converter_customization 100     integer
 TEST                               converter_customization 0       integer
 # for textcontent format
 TEXTCONTENT_COMMENT                converter_customization undef   integer
-# used in TexinfoXML/SXML
-# Reset by the main program, therefore this value is only used in converter
-# tests that use the perl modules directly.  Does not need to match with the
-# documented value used in the main program, nor to be updated every time a
-# DTD is released, to have a fixed value for the tests.  However, it should
-# be good to update from time to time to avoid test results that are not
-# valid against their reported DTD.
-TEXINFO_DTD_VERSION                converter_customization 7.1     char
+# Not used since the XML format is not generated anymore.
+TEXINFO_DTD_VERSION                converter_customization 7.3     char
 USE_UNICODE_COLLATION              converter_customization 1       integer
 
 # Some are for all converters, EXTENSION for instance, some for
@@ -319,7 +313,7 @@ T4H_MATH_CONVERSION                converter_customization undef   char
 T4H_TEX_CONVERSION                 converter_customization undef   char
 TEXI2HTML                          converter_customization undef   integer
 TEXINFO_OUTPUT_FORMAT              converter_customization undef   char
-# for Texinfo Markup/XML
+# Not used, the corresponding formats are not generated anymore
 TXI_MARKUP_NO_SECTION_EXTENT       converter_customization undef   integer
 TOC_LINKS                          converter_customization undef   integer
 TOP_FILE                           converter_customization undef   char

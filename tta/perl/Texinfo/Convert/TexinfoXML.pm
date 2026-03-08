@@ -234,10 +234,7 @@ sub txi_markup_header($)
       and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
     $encoding = " encoding=\"".$self->get_conf('OUTPUT_ENCODING_NAME')."\" ";
   }
-  my $texinfo_dtd_version = $self->get_conf('TEXINFO_DTD_VERSION');
-  if (!defined($texinfo_dtd_version)) {
-    $texinfo_dtd_version = '1.00';
-  }
+  my $texinfo_dtd_version = '7.3';
 
   # In the TexinfoML name, the X of XML is replaced by Texinfo.
   my $header =  "<?xml version=\"1.0\"${encoding}?>".'

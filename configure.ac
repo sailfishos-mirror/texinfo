@@ -24,19 +24,6 @@ AC_CONFIG_HEADERS([config.h])
 
 AC_CONFIG_SRCDIR([info/info.c])
 
-# TexinfoXML DTD (./util/texinfo.dtd) version:
-# manually set this to the next version number rather than
-# $PACKAGE_VERSION, as soon as the DTD is modified, and perhaps put the
-# file on the web, too.  Several reasons:
-# 1. To avoid using a DTD from the Internet that wouldn't be in sync;
-# 2. To avoid unnnecessary changes in XML output file headers, in
-#    test results for instance.
-# 3. It may be kept as is in case there were no change in the DTD
-#    between releases.  This is rare, but has happened.
-#
-TEXINFO_DTD_VERSION=7.3
-AC_SUBST([TEXINFO_DTD_VERSION])
-
 CONVERTER=texi2any
 AC_SUBST([CONVERTER])
 

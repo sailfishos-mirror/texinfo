@@ -88,15 +88,6 @@ install:
 
 endif
 
-# to be run before making a distribution: ensure that the texinfo.dtd on
-# the web is what we will be releasing.  See README-hacking.
-wget = wget
-dtd_url = http://www.gnu.org/software/texinfo/dtd/$(TEXINFO_DTD_VERSION)/texinfo.dtd
-dtd-check:
-	$(wget) -nv $(dtd_url) -O $@-1 \
-	&& diff $@-1 $(srcdir)/util/texinfo.dtd \
-	&& rm -f $@-1
-
 # For updating version number
 update-version:
 	./update-version.sh $(srcdir)
