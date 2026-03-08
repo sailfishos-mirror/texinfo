@@ -36,28 +36,8 @@
 #include "builtin_commands.h"
 /* add_string */
 #include "utils.h"
-#include "reader_api.h"
 #include "translations.h"
 #include "get_perl_info.h"
-
-struct READER *
-get_sv_reader_reader (SV *sv_in)
-{
-  size_t reader_descriptor;
-  struct READER *reader = 0;
-
-  dTHX;
-
-  reader_descriptor = (size_t) SvIV (SvRV (sv_in));
-  reader = retrieve_reader_descriptor (reader_descriptor);
-
-  if (! reader)
-    {
-      fprintf (stderr, "ERROR: get_sv_reader_reader: no reader %zu\n",
-                                                      reader_descriptor);
-    }
-  return reader;
-}
 
 #define FETCH(key) key##_sv = hv_fetch (hv_in, #key, strlen (#key), 0);
 /* TODO extra/info information not incorporated.  Could use

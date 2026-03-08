@@ -12,8 +12,6 @@
 /* do not depend on READER structure implementation details */
 struct READER;
 
-struct READER *get_sv_reader_reader (SV *sv_in);
-
 ELEMENT *new_element_from_sv (DOCUMENT *document, const SV *element_hash,
                               CONVERTER *converter);
 

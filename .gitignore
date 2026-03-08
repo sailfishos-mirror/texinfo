@@ -370,7 +370,6 @@ tta/perl/XSTexinfo/parser_document/OutputUnitsXS.c
 tta/perl/XSTexinfo/parser_document/.libs
 tta/perl/XSTexinfo/parser_document/*.lo
 
-tta/perl/XSTexinfo/reader_element/ReaderXS.c
 tta/perl/XSTexinfo/reader_element/TreeElementXS.c
 tta/perl/XSTexinfo/reader_element/.libs
 tta/perl/XSTexinfo/reader_element/*.lo

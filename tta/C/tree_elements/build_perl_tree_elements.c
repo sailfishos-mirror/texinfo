@@ -29,24 +29,18 @@
 #undef context
 
 #include "command_ids.h"
-#include "element_types.h"
 #include "types_data.h"
 #include "tree_types.h"
 #include "document_types.h"
-#include "converter_types.h"
 /* for associated_info_table find_associated_info_key
    add_to_element_list */
 #include "tree.h"
 /* for lookup_extra */
 #include "extra.h"
-/* for element_command_name */
-#include "builtin_commands.h"
 /* for debugging */
 #include "debug.h"
 /* build_key_pair_info */
 #include "build_perl_info.h"
-/* get_sv_document_document */
-#include "get_perl_info.h"
 
 
 /* return the handle if the element is registered by the call,

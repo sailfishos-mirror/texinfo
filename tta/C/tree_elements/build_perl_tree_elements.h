@@ -7,7 +7,6 @@
 
 #include "tree_types.h"
 #include "document_types.h"
-#include "converter_types.h"
 
 SV *build_element_attribute (const ELEMENT *element, const char *attribute,
                              DOCUMENT *document);
