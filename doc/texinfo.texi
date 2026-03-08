@@ -15441,24 +15441,21 @@ The following values of @env{TEXINFO_XS} are recognized by
 
 @table @samp
 @item default
-The default behavior.  Try to load extension modules, and silently fall
-back to the interpreted Perl implementations if this fails.
-
-@item warn
-Try to load extension modules, and if this fails, give a warning message
-before falling back to the interpreted Perl implementations.
-
-@item required
-Try to load extension modules, and if this fails, give a message
-and abort.
+The default behavior.  Try to load extension modules enabled at
+build time.  Abort if an extension module fails to load.
 
 @item debug
-Try to load extension modules, printing many messages while doing so.
+Same as default, printing many messages while loading extension
+modules.
 
 @item omit
 Do not use extension modules.
-
 @end table
+
+The C @command{texi2any} implementation always try to load Perl extension
+modules when calling interpreted Perl code and aborts if an extension
+cannot be loaded.  Setting @env{TEXINFO_XS} to @code{omit} with the C
+@command{texi2any} implementation is an error and is ignored.
 
 You can disable the use of the native code implementation in the Perl
 @command{texi2any} implementation for the main processing steps more finely.
@@ -15487,14 +15484,6 @@ do not have a native code implementation for this step.
 This may be useful for working around bugs or incompatibilities
 between the native code implementation and the implementation in pure Perl
 code.
-
-The C @command{texi2any} implementation uses only native code for the
-@emph{parsing} and @emph{structure} steps.  For the @emph{conversion} step,
-native code is used if possible.  If Perl code is called, the program always
-try to load available Perl extension modules.  Failing to load an extension is
-reported and the program aborts.  Setting @env{TEXINFO_XS} to @code{debug} may
-still be useful to get more information.  Setting @env{TEXINFO_XS} to
-@code{omit} with the C @command{texi2any} implementation is an error.
 
 @vindex TEXINFO_C_EMBED_PERL
 @cindex Embedded Perl in C @command{texi2any}

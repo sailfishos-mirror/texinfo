@@ -1,5 +1,10 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@command{texi2any} Environment Variables):
+	update for changes in TEXINFO_XS.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Invoking @command{texi2any})
 	(Global Customization Variables): remove references to xml
 	command-line and format options.
