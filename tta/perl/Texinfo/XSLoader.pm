@@ -29,8 +29,8 @@ our $VERSION = '7.3dev';
 # Texinfo::ModulePath::enable_xs based on the previous configure+make
 our $disable_XS;
 
-# Currently not set elsewhere, but could be if needed.
-our $disable_C_libraries;
+# it is better to use $core_modules_built in other modules.
+my $disable_C_libraries;
 
 BEGIN {
   eval 'require Texinfo::ModulePath';
@@ -49,7 +49,7 @@ BEGIN {
   }
 }
 
-# Not used below as more precise conditions are used, it can be used in
+# Not used below as more precise conditions are used, it should be used in
 # other modules to indicate that the modules depending on XS Parser are
 # built.
 our $core_modules_built = (not $disable_C_libraries and not $disable_XS);
@@ -70,6 +70,7 @@ $xs_version =~ s/dev$//; # XS bootstrap functions choke on non-numeric version
 # required through an XS interface.
 our $mandatory_xs;
 
+# Should be called before any module with XS is loaded.
 sub set_XS_mandatory {
   $mandatory_xs = 1;
 
