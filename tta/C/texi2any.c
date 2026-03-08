@@ -145,7 +145,7 @@ static FORMAT_SPECIFICATION formats_table[] = {
    NULL, "Texinfo::Convert::DocBook", NULL},
   {"epub3", 0, "html", NULL, "epub3.pm"},
   {"texinfoxml", STTF_nodes_tree,
-   NULL, "Texinfo::Convert::TexinfoXML", NULL},
+   NULL, "Texinfo::Example::TexinfoXML", NULL},
   {"pdf", STTF_texi2dvi_format, NULL, NULL, NULL},
   {"ps", STTF_texi2dvi_format, NULL, NULL, NULL},
   {"dvi", STTF_texi2dvi_format, NULL, NULL, NULL},

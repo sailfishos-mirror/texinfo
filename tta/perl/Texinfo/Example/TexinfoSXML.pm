@@ -17,18 +17,18 @@
 #
 # Original author: Patrice Dumas <pertusus@free.fr>
 #
-# A simple subclass of the Texinfo::Convert::TexinfoMarkup abstract
+# A simple subclass of the Texinfo::Example::TexinfoMarkup abstract
 # class.  Defines format specific functions.
 
-package Texinfo::Convert::TexinfoSXML;
+package Texinfo::Example::TexinfoSXML;
 
 use 5.006;
 use strict;
 
-use Texinfo::Convert::TexinfoMarkup;
+use Texinfo::Example::TexinfoMarkup;
 use Carp qw(cluck);
 
-our @ISA = qw(Texinfo::Convert::TexinfoMarkup);
+our @ISA = qw(Texinfo::Example::TexinfoMarkup);
 
 our $VERSION = '7.3dev';
 
@@ -109,7 +109,7 @@ sub txi_markup_close_element($$)
 }
 
 my %no_arg_commands_formatting
-  = %Texinfo::Convert::TexinfoMarkup::no_arg_commands_formatting;
+  = %Texinfo::Example::TexinfoMarkup::no_arg_commands_formatting;
 
 # format specific
 sub txi_markup_atom($$)

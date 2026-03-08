@@ -127,9 +127,6 @@ dist_convertmodules_DATA = \
  Texinfo/Convert/Plaintext.pm \
  Texinfo/Convert/Texinfo.pm \
  Texinfo/Convert/TexinfoNonXS.pm \
- Texinfo/Convert/TexinfoMarkup.pm \
- Texinfo/Convert/TexinfoSXML.pm \
- Texinfo/Convert/TexinfoXML.pm \
  Texinfo/Convert/Text.pm \
  Texinfo/Convert/TextNonXS.pm \
  Texinfo/Convert/TextContent.pm \
@@ -139,6 +136,9 @@ dist_convertmodules_DATA = \
  Texinfo/Example/IXIN.pm \
  Texinfo/Example/IXINSXML.pm \
  Texinfo/Example/TestReader.pm \
+ Texinfo/Example/TexinfoMarkup.pm \
+ Texinfo/Example/TexinfoSXML.pm \
+ Texinfo/Example/TexinfoXML.pm \
  Texinfo/Example/ReadDocBook.pm
 
 # extensions used in main program

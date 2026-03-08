@@ -19,7 +19,7 @@ use Texinfo::Convert::Plaintext;
 use Texinfo::Convert::Info;
 use Texinfo::Convert::LaTeX;
 use Texinfo::Convert::DocBook;
-use Texinfo::Convert::TexinfoXML;
+use Texinfo::Example::TexinfoXML;
 
 # The test in this file tests outputting with converters without
 # calling the Texinfo Structuring code.  In general we are not that
@@ -269,7 +269,7 @@ is($docbook_text, '<chapter label="">
 
 #print STDERR "'$docbook_text'\n";
 
-my $texinfoxml_converter = Texinfo::Convert::TexinfoXML->converter();
+my $texinfoxml_converter = Texinfo::Example::TexinfoXML->converter();
 my $texinfoxml_text = $texinfoxml_converter->convert($document);
 is($texinfoxml_text, '<contents></contents>
 

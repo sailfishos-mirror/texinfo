@@ -856,12 +856,12 @@ my %formats_table = (
            },
   'texinfoxml' => {
              'nodes_tree' => 1,
-             'module' => 'Texinfo::Convert::TexinfoXML',
+             'module' => 'Texinfo::Example::TexinfoXML',
              'floats' => 1,
            },
   'texinfosxml' => {
              'nodes_tree' => 1,
-             'module' => 'Texinfo::Convert::TexinfoSXML',
+             'module' => 'Texinfo::Example::TexinfoSXML',
              'floats' => 1,
            },
   'ixinsxml' => { # note that the Texinfo tree is converted to

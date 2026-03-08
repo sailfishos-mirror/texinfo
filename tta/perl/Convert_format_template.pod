@@ -2,12 +2,12 @@
 
 =head1 NAME
 
-Texinfo::Convert::OUTFORMAT - Convert Texinfo tree to OUTFORMAT
+Texinfo::MODULE - Convert Texinfo tree to OUTFORMAT
 
 =head1 SYNOPSIS
 
   my $converter
-    = Texinfo::Convert::OUTFORMAT->converter({'NUMBER_SECTIONS' => 0});
+    = Texinfo::MODULE->converter({'NUMBER_SECTIONS' => 0});
 
   # output to files
   $converter->output($document);
@@ -23,13 +23,13 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-Texinfo::Convert::OUTFORMAT converts a Texinfo tree to OUTFORMAT.
+Texinfo::MODULE converts a Texinfo tree to OUTFORMAT.
 
 =head1 METHODS
 
 =over
 
-=item $converter = Texinfo::Convert::OUTFORMAT->converter($options)
+=item $converter = Texinfo::MODULE->converter($options)
 
 Initialize converter from Texinfo to OUTFORMAT.
 

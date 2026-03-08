@@ -1,5 +1,26 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	Move TexinfoXML.pm, TexinfoSXML.pm and TexinfoMarkup.pm to Example
+
+	* tta/perl/Makefile.am (dist_convertmodules_DATA),
+	tta/perl/Texinfo/Example/TexinfoMarkup.pm,
+	tta/perl/Texinfo/Example/TexinfoSXML.pm,
+	tta/perl/Texinfo/Example/TexinfoXML.pm: move TexinfoMarkup.pm,
+	TexinfoSXML.pm and TexinfoXML.pm out of Texinfo/ to Example/.
+
+	* tta/C/texi2any.c (formats_table),
+	tta/perl/Texinfo/Example/TexinfoMarkup.pm,
+	tta/perl/Texinfo/Example/TexinfoSXML.pm,
+	tta/perl/Texinfo/Example/TexinfoXML.pm, tta/perl/t/test_utils.pl,
+	tta/perl/t/z_misc/no_structure_test.t, tta/perl/texi2any.pl: update
+	Perl modules names.
+
+	* tta/maintain/regenerate_converters_documentation.sh,
+	tta/perl/Convert_format_template.pod: update to handle TexinfoXML
+	being in Example.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/t/test_utils.pl (test): remove xml from the default
 	expanded formats.
 

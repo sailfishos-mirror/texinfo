@@ -84,7 +84,7 @@ use Texinfo::Convert::Plaintext;
 use Texinfo::Convert::Info;
 use Texinfo::Convert::LaTeX;
 use Texinfo::Convert::HTML;
-use Texinfo::Convert::TexinfoXML;
+use Texinfo::Example::TexinfoXML;
 use Texinfo::Convert::DocBook;
 #use Texinfo::Example::ReadDocBook;
 
@@ -464,7 +464,7 @@ sub convert_to_xml($$$$$)
     = set_converter_option_defaults($converter_options, 'xml',
                                     $self->{'DEBUG'});
 
-  my $converter = Texinfo::Convert::TexinfoXML->converter($converter_options);
+  my $converter = Texinfo::Example::TexinfoXML->converter($converter_options);
 
   my ($result, $converter_init_errors) = _convert($converter, $document,
                                    (defined($converter_options->{'OUTFILE'})

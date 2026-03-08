@@ -16,10 +16,15 @@
 # Originally written by Patrice Dumas.
 
 for format in HTML TexinfoXML DocBook Info Plaintext; do
-  sed -e '/^__END__/q' Texinfo/Convert/$format.pm \
-    > Texinfo/Convert/$format.pm.$$.tmp || exit 1
+  directory_name=Convert
+  if test $format = TexinfoXML ; then
+    directory_name=Example
+  fi
+  sed -e '/^__END__/q' Texinfo/${directory_name}/$format.pm \
+    > Texinfo/${directory_name}/$format.pm.$$.tmp || exit 1
 
-  sed -e "s/OUTFORMAT/$format/g" Convert_format_template.pod \
+  sed -e "s/OUTFORMAT/$format/g" \
+    -e "s/MODULE/${directory_name}::${format}/g" Convert_format_template.pod \
   | if test $format = HTML; then
       sed 's/^__HTML \?//'
     else
@@ -27,8 +32,8 @@ for format in HTML TexinfoXML DocBook Info Plaintext; do
     fi \
   > $format.pod.$$.tmp || exit 1
   
-  sed -e "/^__END__/r $format.pod.$$.tmp" Texinfo/Convert/$format.pm.$$.tmp \
-    > Texinfo/Convert/$format.pm || exit 1
+  sed -e "/^__END__/r $format.pod.$$.tmp" Texinfo/${directory_name}/$format.pm.$$.tmp \
+    > Texinfo/${directory_name}/$format.pm || exit 1
 
-  rm -f $format.pod.$$.tmp Texinfo/Convert/$format.pm.$$.tmp
+  rm -f $format.pod.$$.tmp Texinfo/${directory_name}/$format.pm.$$.tmp
 done

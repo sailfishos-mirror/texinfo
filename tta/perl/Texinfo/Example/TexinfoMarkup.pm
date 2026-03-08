@@ -27,7 +27,7 @@
 # inherit from this module.  The functions to implement are documented in
 # the POD section.
 
-package Texinfo::Convert::TexinfoMarkup;
+package Texinfo::Example::TexinfoMarkup;
 
 use 5.006;
 use strict;
@@ -1704,15 +1704,15 @@ __END__
 
 =head1 NAME
 
-Texinfo::Convert::TexinfoMarkup - Convert Texinfo tree to element and attribute markup
+Texinfo::Example::TexinfoMarkup - Convert Texinfo tree to element and attribute markup
 
 =head1 SYNOPSIS
 
   package Texinfo::Convert::TexinfoMyMarkup;
 
-  use Texinfo::Convert::TexinfoMarkup;
+  use Texinfo::Example::TexinfoMarkup;
 
-  @ISA = qw(Texinfo::Convert::TexinfoMarkup);
+  @ISA = qw(Texinfo::Example::TexinfoMarkup);
 
   sub converter_defaults ($$) {
     return %myconverter_defaults;
@@ -1731,17 +1731,17 @@ Texinfo to other formats.  There is no promise of API stability.
 
 =head1 DESCRIPTION
 
-C<Texinfo::Convert::TexinfoMarkup> converts a Texinfo tree to the Texinfo
+C<Texinfo::Example::TexinfoMarkup> converts a Texinfo tree to the Texinfo
 Markup Language which is based on nested elements with attributes, similar
 to XML.  All the information present in the Texinfo tree, after
 expansion of C<@macro>, C<@value> and inclusion of include files is
-kept.  C<Texinfo::Convert::TexinfoMarkup> is an abstract class, to be used as a
+kept.  C<Texinfo::Example::TexinfoMarkup> is an abstract class, to be used as a
 super class for modules implementing specific markup formatting functions
-called by C<Texinfo::Convert::TexinfoMarkup>.
+called by C<Texinfo::Example::TexinfoMarkup>.
 
 The Texinfo Markup Language elements and attributes are not documented,
-but the Texinfo XML output by the C<Texinfo::Convert::TexinfoXML> subclass
-(L<Texinfo::Convert::TexinfoXML>) is a straightforward formatting as XML,
+but the Texinfo XML output by the C<Texinfo::Example::TexinfoXML> subclass
+(L<Texinfo::Example::TexinfoXML>) is a straightforward formatting as XML,
 and is described by the Texinfo DTD.  Therefore the Texinfo DTD can be
 used as a description of the structure of both Texinfo XML and of the
 more abstract Texinfo Markup Language.
@@ -1751,7 +1751,7 @@ more abstract Texinfo Markup Language.
 =head2 Markup formatting methods defined by subclasses
 
 The following methods should be implemented by the modules inheriting
-from C<Texinfo::Convert::TexinfoMarkup>:
+from C<Texinfo::Example::TexinfoMarkup>:
 
 =over
 
@@ -1819,8 +1819,8 @@ Patrice Dumas, E<lt>bug-texinfo@gnu.orgE<gt>
 
 =head1 SEE ALSO
 
-L<Texinfo::Convert::Converter>. L<Texinfo::Convert::TexinfoXML>.  The
-C<Texinfo::Convert::TexinfoSXML> is another subclass, which outputs
+L<Texinfo::Convert::Converter>. L<Texinfo::Example::TexinfoXML>.  The
+C<Texinfo::Example::TexinfoSXML> is another subclass, which outputs
 SXML.  It is not much documented.
 
 =head1 COPYRIGHT AND LICENSE

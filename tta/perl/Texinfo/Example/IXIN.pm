@@ -31,19 +31,19 @@
 # that does so.  A module inheriting both from a converter module, for
 # convert_tree() and convert_output_unit(), and this module
 # should be used.  A functional implementation of IXIN is available as the
-# Texinfo::Example::IXINSXML module which uses Texinfo::Convert::TexinfoSXML
+# Texinfo::Example::IXINSXML module which uses Texinfo::Example::TexinfoSXML
 # for the Texinfo tree conversion.  Using a Texinfo tree converter that does
 # not lose information for Texinfo tree conversion in IXIN is in line with the
-# IXIN philosophy, so conversion modules like Texinfo::Convert::TexinfoXML or
-# Texinfo::Convert::TexinfoSXML are the best candidates.
+# IXIN philosophy, so conversion modules like Texinfo::Example::TexinfoXML or
+# Texinfo::Example::TexinfoSXML are the best candidates.
 #
 # This module implements output of the IXIN format using lower level formatting
 # functions for the additional information markup, adapted to lisp-like
 # output.  To output the IXIN elements with another format, for example XML,
 # the abstract output specific functions ixin_* should be redefined in
 # another module a functional implementation would inherit from.  (This
-# approach is the same as the one used for Texinfo::Convert::TexinfoXML
-# and Texinfo::Convert::TexinfoSXML).
+# approach is the same as the one used for Texinfo::Example::TexinfoXML
+# and Texinfo::Example::TexinfoSXML).
 #
 # This setup allows to cleanly separate the modules used for IXIN additional
 # information formatting and the modules used for Texinfo tree conversion.
@@ -80,7 +80,7 @@ use Texinfo::Common;
 use Texinfo::Structuring;
 use Texinfo::OutputUnits;
 
-use Texinfo::Convert::TexinfoSXML;
+use Texinfo::Example::TexinfoSXML;
 
 our @ISA = qw(Texinfo::Convert::Converter);
 
@@ -169,7 +169,7 @@ sub _ixin_attributes($$$)
       if ($attribute_string_names{$name}
           and $attribute_string_names{$name}->{$attribute_spec->[0]}) {
         $result .= '"'
-          .Texinfo::Convert::TexinfoSXML->txi_markup_protect_text(
+          .Texinfo::Example::TexinfoSXML->txi_markup_protect_text(
                                                $attribute_spec->[1]).'"';
       } else {
         $result .= $attribute_spec->[1];

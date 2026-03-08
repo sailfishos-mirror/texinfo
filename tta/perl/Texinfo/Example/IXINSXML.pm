@@ -19,7 +19,7 @@
 #
 #
 # This modules combines the Texinfo::Example::IXIN module which
-# outputs the IXIN format and the Texinfo::Convert::TexinfoSXML
+# outputs the IXIN format and the Texinfo::Example::TexinfoSXML
 # Texinfo tree converter, which converts Texinfo, and is called
 # from Texinfo::Example::IXIN, to obtain a functional IXIN format
 # conversion implementation that can be called as a Texinfo converter.
@@ -30,12 +30,12 @@ package Texinfo::Example::IXINSXML;
 use 5.006;
 use strict;
 
-use Texinfo::Convert::TexinfoSXML;
+use Texinfo::Example::TexinfoSXML;
 use Texinfo::Example::IXIN;
 
 use Carp qw(cluck);
 
-our @ISA = qw(Texinfo::Convert::TexinfoSXML Texinfo::Example::IXIN);
+our @ISA = qw(Texinfo::Example::TexinfoSXML Texinfo::Example::IXIN);
 
 our $VERSION = '7.3dev';
 
@@ -59,7 +59,7 @@ sub converter_initialize($) {
 
   # need to call parent module converter_initialize, to initialize
   # the converter state.  This method is actually implemented in
-  # the Texinfo::Convert::TexinfoSXML parent class.
+  # the Texinfo::Example::TexinfoSXML parent class.
   $self->SUPER::converter_initialize(@_);
 }
 
