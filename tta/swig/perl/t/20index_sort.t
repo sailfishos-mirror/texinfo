@@ -37,6 +37,17 @@ BEGIN {
   }
 }
 
+# load SWIG interface Perl module
+use Texinfo_SWIG_Interface_Tests;
+use Texinfo;
+
+# Need to do that before loading texi2any Perl modules, to make sure
+# that set_XS_mandatory is called before loading any module that would
+# read TEXINFO_XS_* environmnent variables
+BEGIN {
+Texinfo::setup(1);
+}
+
 # Load texi2any Perl modules
 # to find Texinfo::ModulePath in build directory
 use lib '../../perl/';
@@ -46,11 +57,6 @@ use Texinfo::Document;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Common;
 
-# load SWIG interface Perl module
-use Texinfo_SWIG_Interface_Tests;
-use Texinfo;
-
-Texinfo::setup(1);
 
 # first two blocks based on t/z_misc/test_sort.t
 my $index_entries = '
