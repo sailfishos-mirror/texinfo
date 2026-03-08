@@ -833,8 +833,11 @@ our %deprecated_commands = (
   "centerchap"              => 1,
   "clickstyle"              => 1,
   "definfoenclose"          => 1,
+  "ifnotxml"                => 1,
+  "ifxml"                   => 1,
   "inforef"                 => 1,
   "refill"                  => 1,
+  "xml"                     => 1,
 );
 
 our %explained_commands = (

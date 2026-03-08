@@ -110,7 +110,10 @@ Para
 <in />
 ';
 
-$result_errors{'raw_and_comments'} = '';
+$result_errors{'raw_and_comments'} = '* W l6|@xml is obsolete
+ warning: @xml is obsolete
+
+';
 
 $result_nodes_list{'raw_and_comments'} = '';
 

@@ -157,7 +157,10 @@ $\\underline{a < b tex \\hbox{ code }}$ ``
 $\\frac{a < b tex \\hbox{ code }}{b}$ ``
 ';
 
-$result_errors{'raw_block_commands'} = '';
+$result_errors{'raw_block_commands'} = '* W l6|@xml is obsolete
+ warning: @xml is obsolete
+
+';
 
 $result_nodes_list{'raw_block_commands'} = '';
 

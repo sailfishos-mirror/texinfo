@@ -68,7 +68,10 @@ Para
 <in />
 ';
 
-$result_errors{'raw'} = '';
+$result_errors{'raw'} = '* W l6|@xml is obsolete
+ warning: @xml is obsolete
+
+';
 
 $result_nodes_list{'raw'} = '';
 

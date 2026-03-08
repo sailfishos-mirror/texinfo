@@ -583,7 +583,7 @@ smallformat       block,close_paragraph,preformatted      preformatted
 # format raw commands
 html                    block,preamble                    format_raw
 tex                     block,preamble                    format_raw
-xml                     block,preamble                    format_raw
+xml                     block,preamble,deprecated         format_raw
 docbook                 block,preamble                    format_raw
 latex                   block,preamble                    format_raw
 
@@ -611,8 +611,8 @@ ifhtml                  block                           conditional
 ifnothtml               block                           conditional
 iftex                   block                           conditional
 ifnottex                block                           conditional
-ifxml                   block                           conditional
-ifnotxml                block                           conditional
+ifxml                   block,deprecated                conditional
+ifnotxml                block,deprecated                conditional
 ifdocbook               block                           conditional
 ifnotdocbook            block                           conditional
 ifinfo                  block                           conditional
