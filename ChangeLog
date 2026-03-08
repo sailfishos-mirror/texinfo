@@ -1,5 +1,11 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Converter.pm (txt_image_text),
+	tta/perl/Texinfo/Example/ReadDocBook.pm (_convert): do not use the
+	TreeElement interface.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/tree_elements/build_perl_tree_elements.c: remove unused header
 	includes.
 

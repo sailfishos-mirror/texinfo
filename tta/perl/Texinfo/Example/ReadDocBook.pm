@@ -1613,7 +1613,7 @@ sub _convert($$)
               if (!defined($image_text) and !$image_file_found) {
                 $self->converter_line_warn(sprintf(
                          __("\@image file `%s' not found, using `%s'"),
-                       $basefile, "$basefile.jpg"), $element->source_info());
+                       $basefile, "$basefile.jpg"), $element->{'source_info'});
               }
 
               if ($is_inline) {
@@ -1922,10 +1922,9 @@ sub _convert($$)
             Texinfo::Convert::Utils::find_element_authors($element,
                                                           $quotation_authors);
             foreach my $author (@$quotation_authors) {
-              my $arg = $author->get_child(0);
-              if ($arg->{'contents'}) {
+              if (exists($author->{'contents'}->[0]->{'contents'})) {
                 $appended .= '<attribution>'.
-                       $self->convert_tree($arg)
+                       $self->convert_tree($author->{'contents'}->[0])
                            ."</attribution>\n";
               }
             }
