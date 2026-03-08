@@ -1,5 +1,11 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/maintain/check_back_xml_forth_texi_t.sh: update.
+
+	* util/txixml2texi.pl: update Perl modules names.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS, TODO: update for Texinfo XML removed as an output format.
 
 2026-03-08 Patrice Dumas  <pertusus@free.fr>

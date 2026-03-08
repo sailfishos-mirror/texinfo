@@ -96,10 +96,10 @@ for dir in `find t_texis/ -type d` ; do
     # not be exactly the same when there are specific values for @setfilename.
     # This concerns a few files only, and those files are more or less
     # the same whether the file or the directory is specified.
-    #./texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/$bfile.texi $file
-    ${srcdir}/texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --ifxml --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/ $file
+    #./texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/$bfile.texi $file
+    ${srcdir}/texi2any.pl -c TEXINFO_OUTPUT_FORMAT=plaintexinfo --no-ifinfo --force --error=100000 -o $mdir/backforth_plaintexi/$bdir/ $file
     echo "              Texinfo XML"
-    ${srcdir}/texi2any.pl --xml --force --error=100000 -o $mdir/backforth_xmltexi/$bdir/ $file
+    ${srcdir}/texi2any.pl -c TEXINFO_OUTPUT_FORMAT=texinfoxml --force --error=100000 -o $mdir/backforth_xmltexi/$bdir/ $file
     echo "              xmllint"
     xmllint --nonet --noout --valid $mdir/backforth_xmltexi/$bdir/$bfile.xml > $mdir/xmllint/$bdir/${bfile}_lint.1 2>$mdir/xmllint/$bdir/${bfile}_lint.2
     echo "              Back"
@@ -110,8 +110,8 @@ done
 
 head -1000 check_back_xml_forth_texi/xmllint/*/*.2 > $mdir/xmllint_all.log
 
-diff -u -r t_texis/ $mdir/backforth_checktexi/ > $mdir/orig_texi.diff
-diff -u -r $mdir/backforth_plaintexi/ $mdir/backforth_checktexi/ > $mdir/plain_texi.diff
+diff -u -r t_texis/ $mdir/backforth_checktexi/ > $mdir/orig_texi.diff || true
+diff -u -r $mdir/backforth_plaintexi/ $mdir/backforth_checktexi/ > $mdir/plain_texi.diff || true
 
 # To find XML parsing errors
 # grep --color 'parser error' check_back_xml_forth_texi/backforth_logs/*

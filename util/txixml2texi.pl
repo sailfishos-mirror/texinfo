@@ -107,7 +107,7 @@ use XML::LibXML::Reader;
 
 use Texinfo::Commands;
 # gather information on Texinfo markup language elements
-use Texinfo::Convert::TexinfoMarkup;
+use Texinfo::Example::TexinfoMarkup;
 
 my $debug = 0;
 my $result_options = Getopt::Long::GetOptions (
@@ -173,7 +173,7 @@ my %entity_texts = (
 
 # contains nobrace symbol and brace noarg commands
 my %no_arg_commands_formatting
-  = %Texinfo::Convert::TexinfoMarkup::no_arg_commands_formatting;
+  = %Texinfo::Example::TexinfoMarkup::no_arg_commands_formatting;
 
 foreach my $command (keys(%no_arg_commands_formatting)) {
   if (!ref($no_arg_commands_formatting{$command})) {
@@ -198,10 +198,10 @@ foreach my $command (keys(%no_arg_commands_formatting)) {
 my %arg_elements;
 my %variadic_elements;
 
-foreach my $command (keys(%Texinfo::Convert::TexinfoMarkup::commands_args_elements)) {
+foreach my $command (keys(%Texinfo::Example::TexinfoMarkup::commands_args_elements)) {
   my $arg_index = 0;
   my @element_arguments
-    = @{$Texinfo::Convert::TexinfoMarkup::commands_args_elements{$command}};
+    = @{$Texinfo::Example::TexinfoMarkup::commands_args_elements{$command}};
   foreach my $element_argument (@element_arguments) {
     if ($element_argument ne '*') {
       # need to disambiguate by command as some markup argument elements
@@ -218,8 +218,8 @@ foreach my $command (keys(%Texinfo::Convert::TexinfoMarkup::commands_args_elemen
 }
 
 my %accent_type_command;
-foreach my $accent_command (keys(%Texinfo::Convert::TexinfoMarkup::accent_types)) {
-  $accent_type_command{$Texinfo::Convert::TexinfoMarkup::accent_types{$accent_command}}
+foreach my $accent_command (keys(%Texinfo::Example::TexinfoMarkup::accent_types)) {
+  $accent_type_command{$Texinfo::Example::TexinfoMarkup::accent_types{$accent_command}}
     = $accent_command;
 }
 
@@ -332,7 +332,7 @@ while ($reader->read) {
     } elsif ($name eq 'listitem') {
       $name = 'item';
     }
-    if ($Texinfo::Convert::TexinfoMarkup::commands_args_elements{$name}) {
+    if ($Texinfo::Example::TexinfoMarkup::commands_args_elements{$name}) {
       push @commands_with_args_stack, [$name, 0];
     }
     my $spaces = unprotect_spaces($reader->getAttribute('spaces'));
@@ -533,7 +533,7 @@ while ($reader->read) {
       print _encode('@'.$reader->getAttribute('commandarg'));
     }
   } elsif ($reader->nodeType() eq XML_READER_TYPE_END_ELEMENT) {
-    if ($Texinfo::Convert::TexinfoMarkup::commands_args_elements{$name}) {
+    if ($Texinfo::Example::TexinfoMarkup::commands_args_elements{$name}) {
       pop @commands_with_args_stack;
     }
     my $trailingspaces = '';

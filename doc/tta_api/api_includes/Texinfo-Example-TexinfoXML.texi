@@ -1,17 +1,17 @@
-@node Texinfo@asis{::}Convert@asis{::}TexinfoXML
-@chapter Texinfo::Convert::TexinfoXML
+@node Texinfo@asis{::}Example@asis{::}TexinfoXML
+@chapter Texinfo::Example::TexinfoXML
 
-@node Texinfo@asis{::}Convert@asis{::}TexinfoXML NAME
-@section Texinfo::Convert::TexinfoXML NAME
+@node Texinfo@asis{::}Example@asis{::}TexinfoXML NAME
+@section Texinfo::Example::TexinfoXML NAME
 
-Texinfo::Convert::TexinfoXML - Convert Texinfo tree to TexinfoXML
+Texinfo::Example::TexinfoXML - Convert Texinfo tree to TexinfoXML
 
-@node Texinfo@asis{::}Convert@asis{::}TexinfoXML SYNOPSIS
-@section Texinfo::Convert::TexinfoXML SYNOPSIS
+@node Texinfo@asis{::}Example@asis{::}TexinfoXML SYNOPSIS
+@section Texinfo::Example::TexinfoXML SYNOPSIS
 
 @verbatim
   my $converter
-    = Texinfo::Convert::TexinfoXML->converter({'NUMBER_SECTIONS' => 0});
+    = Texinfo::Example::TexinfoXML->converter({'NUMBER_SECTIONS' => 0});
 
   # output to files
   $converter->output($document);
@@ -19,23 +19,23 @@ Texinfo::Convert::TexinfoXML - Convert Texinfo tree to TexinfoXML
   my $converted = $converter->convert($document);
 @end verbatim
 
-@node Texinfo@asis{::}Convert@asis{::}TexinfoXML NOTES
-@section Texinfo::Convert::TexinfoXML NOTES
+@node Texinfo@asis{::}Example@asis{::}TexinfoXML NOTES
+@section Texinfo::Example::TexinfoXML NOTES
 
 The Texinfo Perl module main purpose is to be used in @code{texi2any} to convert
 Texinfo to other formats.  There is no promise of API stability.
 
-@node Texinfo@asis{::}Convert@asis{::}TexinfoXML DESCRIPTION
-@section Texinfo::Convert::TexinfoXML DESCRIPTION
+@node Texinfo@asis{::}Example@asis{::}TexinfoXML DESCRIPTION
+@section Texinfo::Example::TexinfoXML DESCRIPTION
 
-Texinfo::Convert::TexinfoXML converts a Texinfo tree to TexinfoXML.
+Texinfo::Example::TexinfoXML converts a Texinfo tree to TexinfoXML.
 
-@node Texinfo@asis{::}Convert@asis{::}TexinfoXML METHODS
-@section Texinfo::Convert::TexinfoXML METHODS
+@node Texinfo@asis{::}Example@asis{::}TexinfoXML METHODS
+@section Texinfo::Example::TexinfoXML METHODS
 
 @table @asis
-@item $converter = Texinfo::Convert::TexinfoXML->converter($options)
-@anchor{Texinfo@asis{::}Convert@asis{::}TexinfoXML $converter = Texinfo@asis{::}Convert@asis{::}TexinfoXML->converter($options)}
+@item $converter = Texinfo::Example::TexinfoXML->converter($options)
+@anchor{Texinfo@asis{::}Example@asis{::}TexinfoXML $converter = Texinfo@asis{::}Example@asis{::}TexinfoXML->converter($options)}
 
 Initialize converter from Texinfo to TexinfoXML.
 
@@ -48,18 +48,18 @@ customization options, when appropriate, override the document content.
 See @ref{Texinfo@asis{::}Convert@asis{::}Converter NAME,, Texinfo::Convert::Converter} for more information.
 
 @item $converter->output($document)
-@anchor{Texinfo@asis{::}Convert@asis{::}TexinfoXML $converter->output($document)}
+@anchor{Texinfo@asis{::}Example@asis{::}TexinfoXML $converter->output($document)}
 
 Convert a Texinfo parsed document @emph{$document} and output the result in files as
 described in the Texinfo manual.
 
 @item $result = $converter->convert($document)
-@anchor{Texinfo@asis{::}Convert@asis{::}TexinfoXML $result = $converter->convert($document)}
+@anchor{Texinfo@asis{::}Example@asis{::}TexinfoXML $result = $converter->convert($document)}
 
 Convert a Texinfo parsed document @emph{$document} and return the resulting output.
 
 @item $result = $converter->convert_tree($tree)
-@anchor{Texinfo@asis{::}Convert@asis{::}TexinfoXML $result = $converter->convert_tree($tree)}
+@anchor{Texinfo@asis{::}Example@asis{::}TexinfoXML $result = $converter->convert_tree($tree)}
 
 Convert a Texinfo tree portion @emph{$tree} and return the resulting
 output.  This function does not try to output a full document but only
@@ -69,13 +69,13 @@ initialized converter formatting state.
 
 @end table
 
-@node Texinfo@asis{::}Convert@asis{::}TexinfoXML AUTHOR
-@section Texinfo::Convert::TexinfoXML AUTHOR
+@node Texinfo@asis{::}Example@asis{::}TexinfoXML AUTHOR
+@section Texinfo::Example::TexinfoXML AUTHOR
 
 Patrice Dumas, <bug-texinfo@@gnu.org>
 
-@node Texinfo@asis{::}Convert@asis{::}TexinfoXML COPYRIGHT AND LICENSE
-@section Texinfo::Convert::TexinfoXML COPYRIGHT AND LICENSE
+@node Texinfo@asis{::}Example@asis{::}TexinfoXML COPYRIGHT AND LICENSE
+@section Texinfo::Example::TexinfoXML COPYRIGHT AND LICENSE
 
 Copyright 2010- Free Software Foundation, Inc.  See the source file for
 all copyright years.
