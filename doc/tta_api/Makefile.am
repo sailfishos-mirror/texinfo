@@ -79,7 +79,7 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoXML.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/Plaintext.pm \
   $(top_srcdir)/tta/perl/Texinfo/TreeElementNonXS.pm \
-  $(top_srcdir)/tta/perl/Texinfo/ReaderNonXS.pm
+  $(top_srcdir)/tta/perl/Texinfo/Reader.pm
 
 $(srcdir)/texi2any_internals.texi: $(texi2any_internals_dependencies) $(srcdir)/texi2any_internals_indices.texi $(srcdir)/texi2any_internals_preamble.texi
 	target=$(srcdir)/texi2any_internals.texi ; \

@@ -47,7 +47,6 @@
 * Texinfo@asis{::}Convert@asis{::}Plaintext::
 * Texinfo@asis{::}TreeElement::
 * Texinfo@asis{::}Reader::
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter::
 
 @detailmenu
  --- The Detailed Node Listing ---
@@ -402,25 +401,6 @@ Texinfo::Reader
 * Texinfo@asis{::}Reader SEE ALSO::
 * Texinfo@asis{::}Reader AUTHOR::
 * Texinfo@asis{::}Reader COPYRIGHT AND LICENSE::
-
-Texinfo::Reader METHODS
-
-* Texinfo@asis{::}Reader @code{Texinfo@asis{::}Reader} and XS extensions::
-
-Texinfo::Example::TreeElementConverter
-
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter NAME::
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter SYNOPSIS::
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter NOTES::
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter DESCRIPTION::
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter METHODS::
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter SEE ALSO::
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter AUTHOR::
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter COPYRIGHT AND LICENSE::
-
-Texinfo::Example::TreeElementConverter METHODS
-
-* Texinfo@asis{::}Example@asis{::}TreeElementConverter Related methods from other modules::
 @end detailmenu
 @end menu
 
@@ -450,7 +430,6 @@ Texinfo::Example::TreeElementConverter METHODS
 @include api_includes/Texinfo-Convert-Plaintext.texi
 @include api_includes/Texinfo-TreeElement.texi
 @include api_includes/Texinfo-Reader.texi
-@include api_includes/Texinfo-Example-TreeElementConverter.texi
 
 
 @node Index

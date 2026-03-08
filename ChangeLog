@@ -1,5 +1,15 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	remove the Texinfo::Reader XS interface
+
+	* doc/tta_api/Makefile.am (texi2any_internals_dependencies),
+	tta/perl/Makefile.am (dist_modules_DATA), tta/perl/Texinfo/Reader.pm,
+	tta/perl/XSTexinfo/Makefile.am:
+	remove XS interface of Texinfo::Reader.  Rename ReaderNonXS.pm as
+	Reader.pm.  Remove reader_element/ReaderXS.xs.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/tree_elements/build_perl_tree_elements.c: remove
 	register_document_sections_list_elements,
 	register_document_nodes_list_elements,

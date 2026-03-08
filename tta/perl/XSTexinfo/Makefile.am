@@ -207,21 +207,6 @@ EXTRA_DIST += reader_element/TreeElementXS.xs
 TreeElementXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/tree_elements $(XSLIBS_CPPFLAGS)
 TreeElementXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo-convert.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
 
-########################## Reader XS
-
-if USE_SHARED_TXI_LIBRARIES
-xs_LTLIBRARIES += ReaderXS.la
-endif
-
-nodist_ReaderXS_la_SOURCES = reader_element/ReaderXS.c
-CLEANFILES += reader_element/ReaderXS.c
-
-EXTRA_DIST += reader_element/ReaderXS.xs
-
-# locate include files under out-of-source builds.
-ReaderXS_la_CPPFLAGS = -I$(txi_libs_srcdir)/main -I$(txi_libs_srcdir)/tree_elements $(XSLIBS_CPPFLAGS)
-ReaderXS_la_LIBADD = $(top_builddir)/C/libtexinfo-convertxs.la $(top_builddir)/C/libtexinfoxs.la $(top_builddir)/C/libtexinfo.la $(platform_PERL_LIBADD)
-
 ########################## IndicesXS
 
 if USE_SHARED_TXI_LIBRARIES

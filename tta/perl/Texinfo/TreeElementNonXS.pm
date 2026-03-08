@@ -268,9 +268,6 @@ Note that, even if XS extensions are used, calling
 L<< C<new>|/$element = new($element_hash) >> does not set up a link to C,
 L<< Texinfo::Example::TreeElementConverter C<new_tree_element>|Texinfo::Example::TreeElementConverter/$converter->new_tree_element($element, $use_sv) >> should be used for that.
 
-For other ways to setup this link, see L<Texinfo::Example::TreeElementConverter>
-and L<< Texinfo::Reader/C<Texinfo::Reader> and XS extensions >>.
-
 =head1 SEE ALSO
 
 L<Texinfo::Parser/TEXINFO TREE>.
