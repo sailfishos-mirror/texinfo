@@ -50,7 +50,8 @@ BEGIN {
 }
 
 # Not used below as more precise conditions are used, it can be used in
-# other modules.
+# other modules to indicate that the modules depending on XS Parser are
+# built.
 our $core_modules_built = (not $disable_C_libraries and not $disable_XS);
 
 # used for comparison with XS_VERSION passed through configure and make.
@@ -99,18 +100,6 @@ sub XS_convert_enabled {
           (XS_structuring_enabled()
             and (not defined $ENV{TEXINFO_XS_CONVERT}
                  or $ENV{TEXINFO_XS_CONVERT} ne '0')));
-}
-
-# set from Texinfo/Parser.pm
-my $xs_parser_loaded;
-sub XS_parser_loaded {
-  return $xs_parser_loaded;
-}
-
-sub set_XS_parser_loaded($) {
-  my $parser_loaded = shift;
-
-  $xs_parser_loaded = $parser_loaded;
 }
 
 my $TEXINFO_XS;

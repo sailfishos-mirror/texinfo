@@ -29,20 +29,13 @@ BEGIN {
     undef $shared_library_name;
   }
 
-  my $nonXS_package = "Texinfo::ParserNonXS";
-  my $loaded_package = Texinfo::XSLoader::init (
+  Texinfo::XSLoader::init (
       "Texinfo::Parser",
-      $nonXS_package,
+      "Texinfo::ParserNonXS",
       $shared_library_name,
       "Texinfo::ParserXS",
       ['texinfo', 'texinfoxs'],
   );
-  if (!defined($shared_library_name)
-      or $loaded_package eq $nonXS_package) {
-    Texinfo::XSLoader::set_XS_parser_loaded(0);
-  } else {
-    Texinfo::XSLoader::set_XS_parser_loaded(1);
-  }
 }
 
 

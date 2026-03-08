@@ -1,5 +1,14 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Parser.pm (BEGIN): do not call
+	set_XS_parser_loaded.
+
+	* tta/perl/Texinfo/XSLoader.pm: remove XS_parser_loaded and
+	set_XS_parser_loaded.  The information can be determined in advance
+	with $Texinfo::XSLoader::core_modules_built and XS_parser_enabled.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ManipulateTree.pm (tree_remove_references):
 	determine early the object count number by using the
 	$Texinfo::XSLoader::core_modules_built variable value to determine if
