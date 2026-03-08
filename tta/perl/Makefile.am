@@ -103,7 +103,6 @@ dist_modules_DATA = \
  Texinfo/TransformationsNonXS.pm \
  Texinfo/Translations.pm \
  Texinfo/TreeElement.pm \
- Texinfo/TreeElementNonXS.pm \
  Texinfo/UnicodeData.pm \
  Texinfo/XSLoader.pm
 

@@ -1,5 +1,15 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	remove the Texinfo::TreeElement XS interface
+
+	* doc/tta_api/Makefile.am (texi2any_internals_dependencies),
+	tta/perl/Makefile.am (dist_modules_DATA),
+	tta/perl/Texinfo/TreeElement.pm, tta/perl/XSTexinfo/Makefile.am:
+	rename TreeElementNonXS.pm as TreeElement.pm.  Remove TreeElement XS
+	loading and reader_element/TreeElementXS.xs.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/TreeElementNonXS.pm,
 	tta/perl/XSTexinfo/reader_element/TreeElementXS.xs: remove all the
 	methods except for new.  Those methods should not be used.
