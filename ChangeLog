@@ -1,5 +1,11 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Makefile.tres, tta/perl/t/xml_tests.t: remove the
+	sectioning_test_no_use_nodes that is now a duplicate.  Replace
+	$sectioning_test by its value.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/maintain/check_back_xml_forth_texi_t.sh: update.
 
 	* util/txixml2texi.pl: update Perl modules names.
