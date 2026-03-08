@@ -387,10 +387,6 @@ Texinfo::TreeElement
 * Texinfo@asis{::}TreeElement AUTHOR::
 * Texinfo@asis{::}TreeElement COPYRIGHT AND LICENSE::
 
-Texinfo::TreeElement METHODS
-
-* Texinfo@asis{::}TreeElement @code{Texinfo@asis{::}TreeElement} and XS extensions::
-
 Texinfo::Reader
 
 * Texinfo@asis{::}Reader NAME::
