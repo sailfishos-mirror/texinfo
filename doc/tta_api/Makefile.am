@@ -75,9 +75,9 @@ texi2any_internals_dependencies = \
   $(top_srcdir)/tta/perl/Texinfo/Convert/Info.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/HTML.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/DocBook.pm \
-  $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoMarkup.pm \
-  $(top_srcdir)/tta/perl/Texinfo/Convert/TexinfoXML.pm \
   $(top_srcdir)/tta/perl/Texinfo/Convert/Plaintext.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Example/TexinfoMarkup.pm \
+  $(top_srcdir)/tta/perl/Texinfo/Example/TexinfoXML.pm \
   $(top_srcdir)/tta/perl/Texinfo/TreeElement.pm \
   $(top_srcdir)/tta/perl/Texinfo/Reader.pm
 
