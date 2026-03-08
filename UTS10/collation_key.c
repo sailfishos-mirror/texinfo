@@ -9,7 +9,7 @@
 #include "collation_key.h"
 
 CollationKey
-get_collation_key (char32_t *codepoints_in, size_t length_in)
+get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
 {
   char32_t *codepoints;
   size_t length;
@@ -67,8 +67,9 @@ get_collation_key (char32_t *codepoints_in, size_t length_in)
   size_t elements_count = 0;
   for (size_t i = 0; i < n_entries; i++)
     {
-      printf ("Collation info for U+%04X: ",
-              codepoints[entry_array[i].string_index]);
+      if (debug)
+        printf ("Collation info for U+%04X: ",
+                codepoints[entry_array[i].string_index]);
 
       if (entry_array[i].data_offset)
         {
@@ -76,18 +77,21 @@ get_collation_key (char32_t *codepoints_in, size_t length_in)
           read_collation_data_offset (entry_array[i].data_offset,
                                       &elements[elements_count],
                                       &num_entry_elements);
-          print_collation (&elements[elements_count], num_entry_elements);
+          if (debug)
+            print_collation (&elements[elements_count], num_entry_elements);
           elements_count += num_entry_elements;
 
         }
       else
         {
           size_t num_entry_elements;
-          printf ("unknown/implicit: ");
+          if (debug)
+            printf ("unknown/implicit: ");
           get_implicit_weight
             (codepoints[entry_array[i].string_index],
              &elements[elements_count], &num_entry_elements);
-          print_collation (&elements[elements_count], num_entry_elements);
+          if (debug)
+            print_collation (&elements[elements_count], num_entry_elements);
           elements_count += num_entry_elements;
 
         }
@@ -155,3 +159,10 @@ get_collation_key (char32_t *codepoints_in, size_t length_in)
   ret.length = psort_key - sort_key;
   return ret;
 }
+
+CollationKey
+get_collation_key (char32_t *codepoints_in, size_t length_in)
+{
+  return get_collation_key_ext (codepoints_in, length_in, 0);
+}
+

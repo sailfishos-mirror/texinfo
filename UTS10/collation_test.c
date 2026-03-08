@@ -8,6 +8,30 @@
 #include "allkeys_bin_loader.h"
 #include "collation_key.h"
 
+static void
+print_collation_key (CollationKey key)
+{
+      for (unsigned char *p = key.key; p < key.key + key.length;
+           p += 2)
+        {
+          printf ("%02x%02x ", p[0], p[1]);
+        }
+      printf ("\n");
+}
+
+static void
+string_save (char **buf, size_t *buf_size, const char *string)
+{
+  size_t len = strlen (string);
+  if (*buf_size < len)
+    {
+      *buf = realloc (*buf, len + 1);
+      *buf_size = len + 1;
+    }
+    
+  memmove (*buf, string, len + 1);
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -28,8 +52,8 @@ main (int argc, char *argv[])
   /* Initialise collation data structures. */
   load_data_file (NULL);
 
-  char *line1 = NULL;
-  size_t line1_size = 0;
+  char *line1 = NULL, *line2 = NULL;
+  size_t line1_size = 0, line2_size = 0;
 
   ssize_t nread;
 
@@ -40,14 +64,14 @@ main (int argc, char *argv[])
 
   while (1)
     {
-      nread = getline (&line1, &line1_size, file);
+      nread = getline (&line2, &line2_size, file);
       if (nread == -1)
         break;
       char *semicolon;
-      if ((semicolon = strchr (line1, ';')))
+      if ((semicolon = strchr (line2, ';')))
         *semicolon = '\0';
 
-      printf ("read line <%s>\n", line1);
+      printf ("read line <%s>\n", line2);
       line_count++;
 
 #define TEST_MAX_LENGTH 16
@@ -55,22 +79,22 @@ main (int argc, char *argv[])
       char32_t codepoints[TEST_MAX_LENGTH];
       size_t length = 0;
 
-      char *pline1 = line1;
-      char *pline2;
+      char *pline = line2;
+      char *qline;
 
       while (length < TEST_MAX_LENGTH)
         {
-          unsigned long val = strtoul (pline1, &pline2, 16);
-          if (pline2 == pline1)
+          unsigned long val = strtoul (pline, &qline, 16);
+          if (qline == pline)
             break;
-          pline1 = pline2;
+          pline = qline;
 
           if (val > 0x10FFFF)
             {
               fprintf (stderr, "Error: invalid codepoint\n");
               exit (1);
             }
-          fprintf (stderr, "read codepoint %lx\n", val);
+          /* fprintf (stderr, "read codepoint %lx\n", val); */
 
           codepoints[length++] = (char32_t) val;
         }
@@ -80,34 +104,37 @@ main (int argc, char *argv[])
           exit (1);
         }
 
-      sort_key2 = get_collation_key (codepoints, length);
-      printf ("Sort key: ");
-      for (unsigned char *p = sort_key2.key; p < sort_key2.key + sort_key2.length;
-           p++)
-        {
-          printf ("%02x", p[0]);
-        }
-      printf ("\n");
+      sort_key2 = get_collation_key_ext (codepoints, length, 1);
 
       /* We expect that sort_key1 <= sort_key1. */
       if (memcmp (sort_key1.key, sort_key2.key,
                  sort_key1.length < sort_key2.length ? sort_key1.length
                                                      : sort_key2.length) > 0)
         {
-          fprintf (stderr, "Test fail at line %ld\n", line_count);
+          printf ("Test fail at line %ld\n", line_count);
+          printf ("line 1: %s\n", line1);
+          printf ("line 2: %s\n", line2);
+
+          printf ("Sort key 1: ");
+          print_collation_key (sort_key1);
+
+          printf ("Sort key 2: ");
+          print_collation_key (sort_key2);
+          printf ("\n");
+
           fail_count++;
         }
 
       free (sort_key1.key);
 
       sort_key1 = sort_key2;
-
+      string_save (&line1, &line1_size, line2);
     }
   if (fail_count == 0)
     exit (0);
   else
     {
-      fprintf (stderr, "Total fails: %ld out of %ld\n", fail_count, line_count);
+      printf ("Total fails: %ld out of %ld\n", fail_count, line_count);
       exit (1);
     }
 }

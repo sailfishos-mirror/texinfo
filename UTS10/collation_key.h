@@ -10,3 +10,4 @@ typedef struct
 } CollationKey;
 
 CollationKey get_collation_key (uint32_t * codepoints, size_t length);
+CollationKey get_collation_key_ext (uint32_t * codepoints, size_t length, int debug);
