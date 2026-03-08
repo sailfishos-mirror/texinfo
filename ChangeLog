@@ -1,5 +1,10 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/t/test_utils.pl (test): remove xml from the default
+	expanded formats.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	Mark texinfo XML related @-command as deprecated
 
 	* tta/data/command_data.txt: mark xml, ifxml and ifnotxml as

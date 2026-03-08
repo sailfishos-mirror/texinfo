@@ -650,11 +650,12 @@ sub test($$)
 
   if (!defined $parser_options->{'EXPANDED_FORMATS'}) {
     $parser_options->{'EXPANDED_FORMATS'} = [
-      'docbook', 'html', 'xml', 'info', 'plaintext', 'latex'];
+      'docbook', 'html', 'info', 'plaintext', 'latex'];
     #  'tex' is missed out here so that @ifnottex is expanded
     # in the tests.  Put
     #   {'EXPANDED_FORMATS' => ['tex']}
     # where you need @tex expanded in the t/*.t files.
+    #  'xml', being deprecated, is not expanded in the default case either
   }
   my $initial_parser_options;
   # keep initial parser options to be able to pass to preamble formatting

@@ -35,15 +35,11 @@ $result_tree_text{'inline'} = '*document_root C1
    {, \\n}
    *@inlinefmt C2 l4
    |EXTRA
-   |expand_index:{1}
    |format:{xml}
     *brace_arg C1
      {xml}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     {<para>xml</para> ``}
+    *elided_brace_command_arg C1
+     {raw: <para>xml</para> ``}
    {,\\n}
    *@inlinefmt C2 l5
    |EXTRA
@@ -119,15 +115,11 @@ $result_tree_text{'inline'} = '*document_root C1
    {, \\n}
    *@inlineraw C2 l12
    |EXTRA
-   |expand_index:{1}
    |format:{xml}
     *brace_arg C1
      {xml}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     {raw <para>xml</para> ``}
+    *elided_brace_command_arg C1
+     {raw: raw <para>xml</para> ``}
    {,\\n}
    *@inlineraw C2 l13
    |EXTRA
@@ -196,7 +188,7 @@ $result_texis{'inline'} = '
 $result_texts{'inline'} = '
 <blink>html</blink> ", 
 plaintext ", 
-<para>xml</para> ",
+,
 <emphasis>docbook</emphasis> ", 
 
 \\frac{a < b tex \\hbox{ code }}{b} "
@@ -204,7 +196,7 @@ plaintext ",
 
 raw <blink>html</blink> ``, 
 raw plaintext ``, 
-raw <para>xml</para> ``,
+,
 raw <emphasis>docbook</emphasis> ``, 
 
 raw $\\frac{a < b tex \\hbox{ code }}{b}$ ``
@@ -248,7 +240,7 @@ $result_converted{'html_text'}->{'inline'} = '
 $result_converted{'xml'}->{'inline'} = '
 <para><inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent spaces=" ">&lt;blink&gt;html&lt;/blink&gt; &textldquo;</inlinefmtcontent></inlinefmt>, 
 <inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent spaces=" ">plaintext &textldquo;</inlinefmtcontent></inlinefmt>, 
-&lt;para&gt;xml&lt;/para&gt; &textldquo;,
+ &lt;para&gt;xml&lt;/para&gt; ``,
 <inlinefmt><inlinefmtformat>docbook</inlinefmtformat><inlinefmtcontent spaces=" ">&lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;</inlinefmtcontent></inlinefmt>, 
 <inlinefmt><inlinefmtformat>tex</inlinefmtformat><inlinefmtcontent> $\\underline{a &lt; b @code{tex \\hbox{ code }}}$ ``</inlinefmtcontent></inlinefmt>
 <inlinefmt><inlinefmtformat>latex</inlinefmtformat><inlinefmtcontent spaces=" "><math>\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}</math> &textldquo;</inlinefmtcontent></inlinefmt>
@@ -256,7 +248,7 @@ $result_converted{'xml'}->{'inline'} = '
 
 <para><inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent spaces=" ">raw &lt;blink&gt;html&lt;/blink&gt; &textldquo;</inlinerawcontent></inlineraw>, 
 <inlineraw><inlinerawformat>plaintext</inlinerawformat><inlinerawcontent spaces=" ">raw plaintext &textldquo;</inlinerawcontent></inlineraw>, 
-raw <para>xml</para> ``,
+ raw <para>xml</para> ``,
 <inlineraw><inlinerawformat>docbook</inlinerawformat><inlinerawcontent spaces=" ">raw &lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;</inlinerawcontent></inlineraw>, 
 <inlineraw><inlinerawformat>tex</inlinerawformat><inlinerawcontent> raw $\\underline{a &lt; b @code{tex \\hbox{ code }}}$ ``</inlinerawcontent></inlineraw>
 <inlineraw><inlinerawformat>latex</inlinerawformat><inlinerawcontent spaces=" ">raw $\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}$ &textldquo;</inlinerawcontent></inlineraw>
