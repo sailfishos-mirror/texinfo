@@ -1,11 +1,12 @@
 # list secondary weights
- perl -wnle '/\[[\.\*]\d\d\d\d\.(\d\d\d\d)/ && print $1 ; ' <allkeys.txt  | sort | uniq
+ perl -wnle '/\[[\.\*][[:xdigit:]]{4}\.([[:xdigit:]]{4})/ && print $1 ; ' <allkeys.txt  | sort | uniq
 
 # list tertiary weights
- perl -wnle '/\[[\.\*]\d\d\d\d\.\d\d\d\d.(\d\d\d\d)/ && print $1 ; ' <allkeys.txt  | sort | uniq
+ perl -wnle '/\[[\.\*][[:xdigit:]]{4}\.[[:xdigit:]]{4}.([[:xdigit:]]{4})/ && print $1 ; ' <allkeys.txt  | sort | uniq
 
-only 109 secondary weights although values go up to 0x127 so not possible
-to simply take LSB.
+In allkeys-17.0.0
+256 possible secondary weights (0x0000 and 0x0020 - 0x011E)
+29 possible tertiary weights
 
 
 * remove useless debugging/progress statements

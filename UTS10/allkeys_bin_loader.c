@@ -154,11 +154,10 @@ read_collation_data (size_t offset,
       offset += 2;
       elements[i].secondary = read_u8 (offset);
       offset += 1;
-      if (elements[i].secondary > 0xA0)
+      if (elements[i].secondary != 0x00)
         {
           /* matches allkeys_to_binary.c:write_collation_data. */
-          elements[i].secondary -= 0xA0;
-          elements[i].secondary |= 0x100;
+          elements[i].secondary += 0x1f;
         }
       elements[i].tertiary = read_u8 (offset);
       offset += 1;
@@ -261,7 +260,7 @@ lookup_collation_data_at_char (char32_t *const string,
 
   if (n_codepoints >= 2)
     {
-      printf ("using codepoint entry of length %zd\n", n_codepoints);
+      // printf ("using codepoint entry of length %zd\n", n_codepoints);
       COLLATION_DATA data_offset = read_u32 (node_offset + 4);
       if (data_offset != 0)
         {

@@ -387,18 +387,14 @@ write_collation_data (ByteBuffer *buf, CollationData *data)
       buffer_write_u16 (buf, data->elements[i].primary);
       uint16_t secondary = data->elements[i].secondary;
       uint8_t secondary_write;
-      /* Pack secondary weight into a single byte.
-         Note that this depends on the values that occur
-         There are fewer than 256 possible values (109 in Unicode 11.0),
-         and hexadecimal digits A-F are not used. */
-      /* Note: we could also use the method describe in UTS #10 s. 9.2
-         and output one extra collation element with only the secondary weight
-         set, for secondary weights above a certain value ("continuation
-         technique"). */
-      if (secondary < 0x100)
+
+      /* Fit secondary weight in a single byte as there are only 256 possible
+         secondary weights (0x0000 and 0x0020 - 0x011E) */
+
+      if (secondary == 0x00)
         secondary_write = secondary;
       else
-        secondary_write = (secondary & 0xFF) + 0xA0;
+        secondary_write = secondary - 0x1f;
 
       buffer_write_u8 (buf, secondary_write);
       buffer_write_u8 (buf, data->elements[i].tertiary);
