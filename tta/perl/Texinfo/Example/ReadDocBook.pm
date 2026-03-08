@@ -62,11 +62,8 @@ use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Converter;
-use Texinfo::Example::TreeElementConverter;
 
-# inherits from Texinfo::Convert::Converter through
-# Texinfo::Example::TreeElementConverter
-our @ISA = qw(Texinfo::Example::TreeElementConverter);
+our @ISA = qw(Texinfo::Convert::Converter);
 
 our $VERSION = '7.3dev';
 
@@ -78,7 +75,6 @@ my %defaults = (
   # Customization option variables
   'FORMAT_MENU'          => 'nomenu',
   'EXTENSION'            => 'xml', # dbk?
-  'OUTPUT_ENCODING_NAME' => 'utf-8',
   'SPLIT'                => '',
   'OPEN_QUOTE_SYMBOL'    => '&#'.hex('2018').';',
   'CLOSE_QUOTE_SYMBOL'   => '&#'.hex('2019').';',
@@ -389,8 +385,6 @@ sub convert($$)
 
   my $root = $document->tree();
 
-  $self->register_document_relations_lists_elements($document);
-
   push @{$self->{'lang_stack'}}, '';
 
   my $result = $self->convert_tree($root);
@@ -422,20 +416,15 @@ sub convert_tree($$)
   return _convert($self, $reader);
 }
 
-sub conversion_output_begin($;$$)
-{
-  my $self = shift;
-  my $output_file = shift;
-  my $output_filename = shift;
+sub conversion_output_begin($;$$) {
+  my ($self, $output_file, $output_filename) = @_;
 
-  if ($self->{'document'}) {
-    $self->register_document_relations_lists_elements($self->{'document'});
-  }
-
-  my $encoding = '';
-  if ($self->get_conf('OUTPUT_ENCODING_NAME')
-      and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
-    $encoding = " encoding=\"".$self->get_conf('OUTPUT_ENCODING_NAME')."\" ";
+  my $encoding;
+  my $encoding_name = $self->get_conf('OUTPUT_ENCODING_NAME');
+  if (defined($encoding_name) and $encoding_name ne 'utf-8') {
+    $encoding = " encoding=\"$encoding_name\" ";
+  } else {
+    $encoding = '';
   }
 
   my $id;
@@ -468,31 +457,35 @@ sub conversion_output_begin($;$$)
 '. "<book${id}${lang_attribute}>\n";
 
   my $legalnotice;
-  my $copying_element = $self->get_global_unique_tree_element('copying');
-  if ($copying_element) {
-    my $copying_result = $self->convert_tree($self->new_tree_element(
-           {'contents' => $copying_element->get_children()}, 1));
+  my $global_commands;
+  if (exists($self->{'document'})) {
+    $global_commands = $self->{'document'}->global_commands_information();
+  }
+  if (defined($global_commands) and exists($global_commands->{'copying'})) {
+    my $copying_element = $global_commands->{'copying'};
+    my $copying_result
+     = $self->convert_tree(Texinfo::TreeElement::new(
+           {'contents' => $copying_element->{'contents'}}));
     if ($copying_result ne '') {
       $legalnotice = "<legalnotice>$copying_result</legalnotice>";
     }
   }
 
   my $fulltitle_command;
-  foreach my $title_cmdname ('title', 'shorttitlepage') {
-    my $command = $self->get_global_unique_tree_element($title_cmdname);
-    if ($command and $command->{'contents'}->[0]->{'contents'}) {
-      $fulltitle_command = $command;
-      last;
+  if (defined($global_commands)) {
+    foreach my $title_cmdname ('title', 'shorttitlepage') {
+      if (exists($global_commands->{$title_cmdname})
+          and exists($global_commands->{$title_cmdname}->{'contents'}->[0]
+                                                            ->{'contents'})) {
+        $fulltitle_command = $global_commands->{$title_cmdname};
+        last;
+      }
     }
-  }
-  if (!defined($fulltitle_command)) {
-    my $command_list
-      = Texinfo::Example::TreeElementConverter::global_commands_information_command_list(
-          $self->{'document'}, 'titlefont');
-    if ($command_list) {
-      my $command = $command_list->[0];
-      if ($command->{'contents'}
-          and $command->{'contents'}->[0]->{'contents'}) {
+    if (!defined($fulltitle_command)
+        and exists($global_commands->{'titlefont'})) {
+      my $command = $global_commands->{'titlefont'}->[0];
+      if (defined($command) and exists($command->{'contents'})
+          and exists($command->{'contents'}->[0]->{'contents'})) {
         $fulltitle_command = $command;
       }
     }
@@ -502,81 +495,84 @@ sub conversion_output_begin($;$$)
   # independently, only author and subtitle are gathered here.
   my $subtitle_info = '';
   my $authors_info = '';
-  foreach my $information_block_cmdname ('documentinfo', 'titlepage') {
-    my $information_block
-       = $self->get_global_unique_tree_element($information_block_cmdname);
-    if (defined($information_block)) {
-      my $collected_commands = Texinfo::Reader::reader_collect_commands_list(
-                                  $information_block, ['author', 'subtitle']);
+  if (defined($global_commands)) {
+    foreach my $information_block ('documentinfo', 'titlepage') {
+      if (exists($global_commands->{$information_block})) {
+        my $collected_commands
+          = Texinfo::Reader::reader_collect_commands_list(
+              $global_commands->{$information_block}, ['author', 'subtitle']);
 
-      my @authors_elements;
-      my $subtitle_text = '';
-      if (scalar(@{$collected_commands})) {
-        foreach my $element (@{$collected_commands}) {
-          my $cmdname = $element->{'cmdname'};
-          if ($cmdname eq 'author') {
-            push @authors_elements, $element;
-          } elsif ($cmdname eq 'subtitle') {
-            # concatenate the text of @subtitle as DocBook only allows one.
-            my ($arg, $end_line)
-              = _convert_argument_and_end_line($self, $element);
-            $subtitle_text .= $arg . $end_line
+        my @authors_elements;
+        my $subtitle_text = '';
+        if (scalar(@{$collected_commands})) {
+          foreach my $element (@{$collected_commands}) {
+            my $cmdname = $element->{'cmdname'};
+            if ($cmdname eq 'author') {
+              push @authors_elements, $element;
+            } elsif ($cmdname eq 'subtitle') {
+              # concatenate the text of @subtitle as DocBook only allows one.
+              my ($arg, $end_line)
+                = _convert_argument_and_end_line($self, $element);
+              $subtitle_text .= $arg . $end_line
+            }
           }
         }
-      }
-      if ($subtitle_text ne '') {
-        chomp ($subtitle_text);
-        $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
-      }
-
-      if (scalar(@authors_elements)) {
-        # using authorgroup and collab is the best, because it doesn't require
-        # knowing people name decomposition.  Also it should work for group names.
-        # FIXME dblatex ignores collab/collabname.
-        $authors_info .= "<authorgroup>\n";
-        foreach my $element (@authors_elements) {
-          my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
-          # FIXME DocBook 5 no more collabname, merged with other elements in
-          # orgname, which is much more specific than collabname, it is for an
-          # organisation and therefore not suitable here.
-          # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
-          # person/personname is not suitable either, because in Texinfo @author
-          # may correspond to more than one author, and also because we do not
-          # have the information in Texinfo needed for <person>, which requires
-          # a split of the name in honorific, firstname, surname...
-          # https://tdg.docbook.org/tdg/5.0/personname
-          my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
-          chomp ($result);
-          $result .= "\n";
-          $authors_info .= $result;
+        if ($subtitle_text ne '') {
+          chomp ($subtitle_text);
+          $subtitle_info = "<subtitle>$subtitle_text</subtitle>\n";
         }
-        $authors_info .= "</authorgroup>\n";
+
+        if (scalar(@authors_elements)) {
+          # using authorgroup and collab is the best, because it doesn't require
+          # knowing people name decomposition.  Also it should work for group names.
+          # FIXME dblatex ignores collab/collabname.
+          $authors_info .= "<authorgroup>\n";
+          foreach my $element (@authors_elements) {
+            my ($arg, $end_line) = _convert_argument_and_end_line($self, $element);
+            # FIXME DocBook 5 no more collabname, merged with other elements in
+            # orgname, which is much more specific than collabname, it is for an
+            # organisation and therefore not suitable here.
+            # https://tdg.docbook.org/tdg/5.0/ch01#introduction-whats-new
+            # person/personname is not suitable either, because in Texinfo @author
+            # may correspond to more than one author, and also because we do not
+            # have the information in Texinfo needed for <person>, which requires
+            # a split of the name in honorific, firstname, surname...
+            # https://tdg.docbook.org/tdg/5.0/personname
+            my $result = "<collab><collabname>$arg</collabname></collab>$end_line";
+            chomp ($result);
+            $result .= "\n";
+            $authors_info .= $result;
+          }
+          $authors_info .= "</authorgroup>\n";
+        }
+        last;
       }
     }
   }
 
   my $settitle_command;
-  my $settitle = $self->get_global_unique_tree_element('settitle');
-  if ($settitle and $settitle->{'contents'}
-      and $settitle->{'contents'}->[0]->{'contents'}) {
-    $settitle_command = $settitle;
+  if (defined($global_commands) and exists($global_commands->{'settitle'})
+      and exists($global_commands->{'settitle'}->{'contents'}->[0]
+                                                         ->{'contents'})) {
+    $settitle_command = $global_commands->{'settitle'};
   }
 
-  my $top_command = $self->get_global_unique_tree_element('top');
-
   my $titleabbrev_command;
-  if ($fulltitle_command) {
+  if (defined($fulltitle_command)) {
     $titleabbrev_command = $settitle_command;
-  } elsif ($settitle_command) {
+  } elsif (defined($settitle_command)) {
     $fulltitle_command = $settitle_command;
-  } elsif (defined($legalnotice) and $top_command) {
+  } elsif (defined($legalnotice) and defined($global_commands)
+           and exists($global_commands->{'top'})) {
     # if there is a legalnotice, we really want to have a title
     # preceding it, so we also use @top
+    my $command = $global_commands->{'top'};
     # arguments_line type element
-    my $arguments_line = $top_command->{'contents'}->[0];
+    my $arguments_line = $command->{'contents'}->[0];
     my $line_arg = $arguments_line->{'contents'}->[0];
-    $fulltitle_command = $top_command
-      if ($line_arg->{'contents'});
+    if (exists($line_arg->{'contents'})) {
+      $fulltitle_command = $arguments_line;
+    }
   }
 
   my $title_info = '';
@@ -677,7 +673,7 @@ sub _docbook_section_element($$)
   if ($level_adjusted_cmdname eq 'unnumbered'
       and $self->{'document'}) {
     # other functions could have been called but this one has an XS override
-    my $sections_list = $self->tree_element_sections_list();
+    my $sections_list = $self->{'document'}->sections_list();
     my $section_relations
       = $sections_list->[$element->{'extra'}->{'section_number'} -1];
     if ($section_relations->{'associated_node'}) {
@@ -705,10 +701,17 @@ sub _begin_index_entry($$)
   my $self = shift;
   my $element = shift;
 
-  my ($index_entry, $index_info)
-   = $self->get_tree_element_index_entry($element);
-  if ($index_entry) {
+  if (exists($element->{'extra'})
+      and exists($element->{'extra'}->{'index_entry'})) {
 
+    my $indices_information;
+    if (exists($self->{'document'})) {
+      $indices_information = $self->{'document'}->indices_information();
+    }
+
+    my ($index_entry, $index_info)
+     = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
+                                           $indices_information);
     # FIXME DocBook 5 role->type
     my $result = "<indexterm role=\"$index_entry->{'index_name'}\">";
 
@@ -778,22 +781,25 @@ sub _format_comment($$) {
   return $self->xml_comment($command_text);
 }
 
-# this is similar to functions used in other converters, but not exactly
-# the same as we want to start with an element that is already registered
-# to C, and so we go through the arguments_line in the
-# argument_comment_end_line function overriden for XS.
-sub _convert_argument_and_end_line($$)
-{
-  my $self = shift;
-  my $element = shift;
+sub _format_comment_or_end_line($$) {
+  my ($self, $element) = @_;
 
-  my ($line_arg, $comment, $end_line)
-    = $self->argument_comment_end_line($element);
+  my ($comment, $end_line)
+   = $self->comment_or_end_line($element);
 
-  my $converted = $self->convert_tree($line_arg);
-  if ($comment) {
-    $end_line = $self->_format_comment($comment);
+  if (defined($comment)) {
+    return _format_comment($self, $comment);
+  } else {
+    return $end_line;
   }
+}
+
+sub _convert_argument_and_end_line($$) {
+  my ($self, $element) = @_;
+
+  my $converted = $self->convert_tree($element->{'contents'}->[0]);
+  my $end_line = _format_comment_or_end_line($self, $element);
+
   return ($converted, $end_line);
 }
 
@@ -829,7 +835,7 @@ sub _begin_def_line($$)
   if ($index_entry) {
     $result .= $index_entry_text;
     $result .= $self->convert_tree(
-      Texinfo::Example::TreeElementConverter::index_content_element($element));
+      Texinfo::Common::index_content_element($element));
     $result .= _end_index_entry($self, $element);
   }
   _new_document_context($self);
@@ -951,19 +957,16 @@ sub _convert($$)
             $command_name = $cmdname;
           }
 
-          my $translated_tree
-            = $self->tree_element_translated_command_tree($command_name, 1);
+          my $translated_tree = $self->translated_command_tree($command_name);
           if ($translated_tree) {
             $result_text = $self->convert_tree($translated_tree);
           } else {
             $result_text = $docbook_no_arg_commands_formatting{$command_name};
           }
         } elsif ($cmdname eq 'today') {
-          $result_text = $self->convert_tree(
-                           $self->tree_element_expand_today(1));
+          $result_text = $self->convert_tree($self->expand_today());
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
-          $reader->register_token_element();
-          $result_text = $self->tree_element_xml_accents($element,
+          $result_text = $self->xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         }
         if (defined($result_text)) {
@@ -986,10 +989,8 @@ sub _convert($$)
             $$output_ref .= "<listitem>";
             if ($parent_cmdname eq 'itemize') {
               my $command_as_argument_name;
-              $reader->register_token_element();
               my $prepended_element
-   = Texinfo::Example::TreeElementConverter::item_itemize_prepended(
-                                                          $element);
+                = Texinfo::Common::item_itemize_prepended($element);
               if ($prepended_element) {
                 $command_as_argument_name = $prepended_element->{'cmdname'};
               }
@@ -1008,21 +1009,19 @@ sub _convert($$)
                    and $element->{'contents'}->[0]->{'type'} eq 'line_arg') {
             my $result_text = '';
             $result_text .= "<term>" if ($cmdname eq 'itemx');
-            $reader->register_token_element();
             my ($index_entry_text, $index_entry)
               = _begin_index_entry($self, $element);
             if ($index_entry) {
               $result_text .= $index_entry_text;
               $result_text .= $self->convert_tree(
-    Texinfo::Example::TreeElementConverter::index_content_element($element));
+                    Texinfo::Common::index_content_element($element));
               $result_text .= _end_index_entry($self, $element);
             }
             if (exists($element->{'contents'}->[0]->{'contents'})) {
               # FIXME in that case, there is a reference in $table_item_tree
               # to $element child, that is not destroyed when $table_item_tree
               # goes out of scope, an added element may need to be undef.
-              my $table_item_tree
-                = $self->table_item_content_tree($element, 1);
+              my $table_item_tree = $self->table_item_content_tree($element);
               $table_item_tree = $element->{'contents'}->[0]
                 if (!defined($table_item_tree));
 
@@ -1049,7 +1048,6 @@ sub _convert($$)
           # end *item* tab
         } elsif ($e_type
                  and $e_type eq 'index_entry_command') {
-          $reader->register_token_element();
           my ($result, $index_entry) = _begin_index_entry($self, $element);
           if ($index_entry) {
             $$output_ref .= $result;
@@ -1091,8 +1089,7 @@ sub _convert($$)
             if ($cmdname ne 'node') {
               my $sections_list;
               if ($self->{'document'}) {
-      # other functions could have been called but this one has an XS override
-                $sections_list = $self->tree_element_sections_list();
+                $sections_list = $self->{'document'}->sections_list();
                 $section_relations
                  = $sections_list->[$element->{'extra'}->{'section_number'} -1];
               }
@@ -1126,8 +1123,7 @@ sub _convert($$)
             if ($cmdname eq 'node' and $self->{'document'}
                 and $element->{'extra'}
                 and $element->{'extra'}->{'node_number'}) {
-     # other functions could have been called but this one has an XS override
-              my $nodes_list = $self->tree_element_nodes_list();
+              my $nodes_list = $self->{'document'}->nodes_list();
               $node_relations
                 = $nodes_list->[$element->{'extra'}->{'node_number'} -1];
               if (not $node_relations->{'associated_section'}) {
@@ -1201,9 +1197,9 @@ sub _convert($$)
                   $section_attribute .= " label=\"$label\"";
                 }
                 my $section_relations;
-                if ($self->{'document'}) {
+                if (exists($self->{'document'})) {
       # other functions could have been called but this one has an XS override
-                  my $sections_list = $self->tree_element_sections_list();
+                  my $sections_list = $self->{'document'}->sections_list();
                   $section_relations
           = $sections_list->[$opened_element->{'extra'}->{'section_number'} -1];
                   if ($section_relations->{'associated_node'}) {
@@ -1224,8 +1220,9 @@ sub _convert($$)
                 my $result_text = '';
                 $result_text
                   .= "<$docbook_sectioning_element${section_attribute}>\n";
+                my $argument_line = $opened_element->{'contents'}->[0];
                 my ($arg, $end_line)
-                  = _convert_argument_and_end_line($self, $opened_element);
+                  = _convert_argument_and_end_line($self, $argument_line);
                 $result_text .= "<title>$arg</title>$end_line";
                 chomp ($result_text);
                 $result_text .= "\n";
@@ -1248,7 +1245,6 @@ sub _convert($$)
             $$output_ref .= $self->_format_comment($element);
           } elsif ($Texinfo::Commands::sectioning_heading_commands{$cmdname}) {
             if (!$Texinfo::Commands::root_commands{$cmdname}) {
-              $reader->register_token_element();
               my ($arg, $end_line)
                 = _convert_argument_and_end_line($self, $element);
               $result_text .=
@@ -1259,13 +1255,11 @@ sub _convert($$)
               $$output_ref .= $result_text;
             }
           } elsif ($Texinfo::Commands::def_commands{$cmdname}) {
-            $reader->register_token_element();
             my $def_line_result = _begin_def_line($self, $element);
             $$output_ref .= $def_line_result if (defined($def_line_result));
           } elsif (exists($docbook_line_elements_with_arg_map{$cmdname})) {
             my ($docbook_element, $attribute_text)
               = _parse_attribute($docbook_line_elements_with_arg_map{$cmdname});
-            $reader->register_token_element();
             my ($arg, $end_line)
               = _convert_argument_and_end_line($self, $element);
             if ($docbook_element eq '') {
@@ -1281,15 +1275,14 @@ sub _convert($$)
             if ($self->{'document'}) {
               my $global_commands
                 = $self->{'document'}->global_commands_information();
-              my $copying_element
-                 = $self->get_global_unique_tree_element('copying');
-              if ($copying_element) {
-                $$output_ref .= $self->convert_tree($self->new_tree_element(
-                      {'contents' => $copying_element->get_children()}, 1));
+              if (defined($global_commands)
+                  and exists($global_commands->{'copying'})) {
+                my $copying_element = $global_commands->{'copying'};
+                $$output_ref .= $self->convert_tree(Texinfo::TreeElement::new(
+                  {'contents' => $global_commands->{'copying'}->{'contents'}}));
               }
             }
           } elsif ($cmdname eq 'verbatiminclude') {
-            $reader->register_token_element();
             # this function is used because the overriden function is the
             # function called by this function
             my $expansion
@@ -1375,14 +1368,12 @@ sub _convert($$)
               if ($args_nr >= 5) {
                 my $book_arg = $element->{'contents'}->[4];
                 if ($book_arg->{'contents'}) {
-                  $reader->register_token_element_child(4);
                   $book_element = $book_arg;
                 }
               }
               if ($args_nr >= 3) {
                 my $section_arg = $element->{'contents'}->[2];
                 if ($section_arg->{'contents'}) {
-                  $reader->register_token_element_child(2);
                   $section_name = $self->convert_tree($section_arg);
                 }
               }
@@ -1393,18 +1384,15 @@ sub _convert($$)
               my $manual_file_arg
                  = $element->{'contents'}->[$manual_file_index];
               if ($manual_file_arg->{'contents'}) {
-                $reader->register_token_element_child($manual_file_index);
                 $manual_file_element = $manual_file_arg;
               }
             }
             if (! defined($section_name) and $args_nr >= 2
                 and $element->{'contents'}->[1]->{'contents'}) {
               my $section_arg = $element->{'contents'}->[1];
-              $reader->register_token_element_child(1);
               $section_name = $self->convert_tree($section_arg);
             } elsif ($element->{'contents'}->[0]->{'contents'}) {
               my $node_arg = $element->{'contents'}->[0];
-              $reader->register_token_element_child(0);
               push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
               $node_name = $self->convert_tree($node_arg);
               pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
@@ -1421,121 +1409,122 @@ sub _convert($$)
               if ($section_name) {
                 my $substituted_strings = {
                     'section_name' =>
-                      $self->new_tree_element({'type' => '_converted',
-                                                 'text' => $section_name}, 1),
+                       Texinfo::TreeElement::new({'type' => '_converted',
+                                                 'text' => $section_name}),
                     'book' => $book_element
                   };
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt(
+                    $self->cdt(
                        'section ``{section_name}\'\' in @cite{{book}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                   $self->tree_element_cdt(
+                   $self->cdt(
                      'See section ``{section_name}\'\' in @cite{{book}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                   $self->tree_element_cdt(
+                   $self->cdt(
                      'see section ``{section_name}\'\' in @cite{{book}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 }
               } elsif ($node_name) {
                 my $substituted_strings = {
                    'node_name' =>
-                      $self->new_tree_element({'type' => '_converted',
-                                                 'text' => $node_name}, 1),
+                      Texinfo::TreeElement::new({'type' => '_converted',
+                                                 'text' => $node_name}),
+
                    'book' => $book_element
                   };
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('``{node_name}\'\' in @cite{{book}}',
-                               $substituted_strings, 1));
+                    $self->cdt('``{node_name}\'\' in @cite{{book}}',
+                               $substituted_strings));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('See ``{node_name}\'\' in @cite{{book}}',
-                               $substituted_strings, 1));
+                    $self->cdt('See ``{node_name}\'\' in @cite{{book}}',
+                               $substituted_strings));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt(
+                    $self->cdt(
                          'see ``{node_name}\'\' in @cite{{book}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 }
               } else {
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('@cite{{book}}',
-                      {'book' => $book_element }, 1));
+                    $self->cdt('@cite{{book}}',
+                      {'book' => $book_element }));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('See @cite{{book}}',
-                               {'book' => $book_element }, 1));
+                    $self->cdt('See @cite{{book}}',
+                               {'book' => $book_element }));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('see @cite{{book}}',
-                      {'book' => $book_element }, 1));
+                    $self->cdt('see @cite{{book}}',
+                      {'book' => $book_element }));
                 }
               }
             } elsif ($manual_file_element) {
               if ($section_name) {
                 my $substituted_strings = {
                   'section_name' =>
-                     $self->new_tree_element({'type' => '_converted',
-                                                'text' => $section_name}, 1),
+                     Texinfo::TreeElement::new({'type' => '_converted',
+                                                'text' => $section_name}),
                   'manual' => $manual_file_element
                  };
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt(
+                    $self->cdt(
                       'section ``{section_name}\'\' in @file{{manual}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt(
+                    $self->cdt(
                        'See section ``{section_name}\'\' in @file{{manual}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                     $self->tree_element_cdt(
+                     $self->cdt(
                      'see section ``{section_name}\'\' in @file{{manual}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 }
               } elsif ($node_name) {
                 my $substituted_strings = {
                     'node_name' =>
-                      $self->new_tree_element({'type' => '_converted',
-                                                 'text' => $node_name}, 1),
+                      Texinfo::TreeElement::new({'type' => '_converted',
+                                                 'text' => $node_name}),
                     'manual' => $manual_file_element
                   };
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('``{node_name}\'\' in @file{{manual}}',
-                               $substituted_strings, 1));
+                    $self->cdt('``{node_name}\'\' in @file{{manual}}',
+                               $substituted_strings));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt(
+                    $self->cdt(
                       'See ``{node_name}\'\' in @file{{manual}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt(
+                    $self->cdt(
                         'see ``{node_name}\'\' in @file{{manual}}',
-                               $substituted_strings, 1));
+                               $substituted_strings));
                 }
               } else {
                 if ($command_name eq 'ref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('@file{{manual}}',
-                      {'manual' => $manual_file_element }, 1));
+                    $self->cdt('@file{{manual}}',
+                      {'manual' => $manual_file_element }));
                 } elsif ($command_name eq 'xref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('See @file{{manual}}',
-                      {'manual' => $manual_file_element }, 1));
+                    $self->cdt('See @file{{manual}}',
+                      {'manual' => $manual_file_element }));
                 } elsif ($command_name eq 'pxref') {
                   $$output_ref .= $self->convert_tree(
-                    $self->tree_element_cdt('see @file{{manual}}',
-                      {'manual' => $manual_file_element }, 1));
+                    $self->cdt('see @file{{manual}}',
+                      {'manual' => $manual_file_element }));
                 }
               }
             } elsif ($cmdname eq 'inforef') {
@@ -1553,22 +1542,22 @@ sub _convert($$)
               if ($cmdname eq 'ref'
                   or $cmdname eq 'link') {
                 $$output_ref .= $self->convert_tree(
-                        $self->tree_element_cdt('{title_ref}',
+                        $self->cdt('{title_ref}',
                          {'title_ref' =>
-                            $self->new_tree_element({'type' => '_converted',
-                                               'text' => $argument}, 1)}, 1));
+                            Texinfo::TreeElement::new({'type' => '_converted',
+                                                  'text' => $argument})}));
               } elsif ($cmdname eq 'xref') {
                 $$output_ref .= $self->convert_tree(
-                        $self->tree_element_cdt('See {title_ref}',
+                        $self->cdt('See {title_ref}',
                          {'title_ref' =>
-                            $self->new_tree_element({'type' => '_converted',
-                                            'text' => $argument}, 1)}, 1));
+                           Texinfo::TreeElement::new({'type' => '_converted',
+                                                      'text' => $argument})}));
               } elsif ($cmdname eq 'pxref') {
                 $$output_ref .= $self->convert_tree(
-                        $self->tree_element_cdt('see {title_ref}',
+                        $self->cdt('see {title_ref}',
                          {'title_ref' =>
-                           $self->new_tree_element({'type' => '_converted',
-                                               'text' => $argument}, 1)}, 1));
+                           Texinfo::TreeElement::new({'type' => '_converted',
+                                                      'text' => $argument})}));
               }
             }
             pop @{$self->{'document_context'}->[-1]->{'upper_case'}};
@@ -1643,7 +1632,6 @@ sub _convert($$)
             if ($args_nr) {
               my $email_arg = $element->{'contents'}->[0];
               if ($email_arg->{'contents'}) {
-                $reader->register_token_element_child(0);
                 $email = $email_arg;
               }
             }
@@ -1651,7 +1639,6 @@ sub _convert($$)
             if ($args_nr >= 2) {
               my $name_arg = $element->{'contents'}->[1];
               if ($name_arg->{'contents'}) {
-                $reader->register_token_element_child(1);
                 $name = $name_arg;
               }
             }
@@ -1687,7 +1674,6 @@ sub _convert($$)
             my $url_text;
             my $url_arg = $element->{'contents'}->[0];
             if ($url_arg->{'contents'}) {
-              $reader->register_token_element_child(0);
               Texinfo::Convert::Text::set_options_code(
                                    $self->{'convert_text_options'});
               Texinfo::Convert::Text::set_options_encoding_if_not_ascii($self,
@@ -1706,7 +1692,6 @@ sub _convert($$)
             if ($args_nr >= 2) {
               my $replacement_arg = $element->{'contents'}->[1];
               if ($replacement_arg->{'contents'}) {
-                $reader->register_token_element_child(1);
                 $replacement = $self->convert_tree($replacement_arg);
               }
             }
@@ -1714,7 +1699,6 @@ sub _convert($$)
               if ($args_nr >= 3) {
                 my $replacement_arg = $element->{'contents'}->[2];
                 if ($replacement_arg->{'contents'}) {
-                  $reader->register_token_element_child(2);
                   $replacement = $self->convert_tree($replacement_arg);
                 }
               }
@@ -1734,7 +1718,6 @@ sub _convert($$)
               my $argument;
               my $arg_element = $element->{'contents'}->[0];
               if ($arg_element->{'contents'}) {
-                $reader->register_token_element_child(0);
                 my $arg_text = $self->convert_tree($arg_element);
                 if ($arg_text ne '') {
                   my $format_element;
@@ -1748,17 +1731,16 @@ sub _convert($$)
               }
               my $explanation_e;
               if ($args_nr >= 2) {
-                $reader->register_token_element_child(1);
                 $explanation_e = $element->{'contents'}->[1];
               }
               if ($explanation_e and $explanation_e->{'contents'}) {
                 if (defined($argument)) {
-                  my $tree = $self->tree_element_cdt(
+                  my $tree = $self->cdt(
                               '{abbr_or_acronym} ({explanation})',
                                  {'abbr_or_acronym' =>
-                            $self->new_tree_element({'type' => '_converted',
-                                                     'text' => $argument}, 1),
-                                  'explanation' => $explanation_e}, 1);
+                            Texinfo::TreeElement::new({'type' => '_converted',
+                                                       'text' => $argument}),
+                                  'explanation' => $explanation_e});
                   $$output_ref .= $self->convert_tree($tree);
                 } else {
                   $$output_ref .= $self->convert_tree($explanation_e);
@@ -1769,9 +1751,9 @@ sub _convert($$)
             }
             $reader->skip_children($element);
           } elsif ($cmdname eq 'U') {
-            if ($element->{'contents'}) {
+            if (exists($element->{'contents'})) {
               my $arg = $element->{'contents'}->[0];
-              if ($arg->{'contents'}) {
+              if (exists($arg->{'contents'})) {
                 my $arg_text = $arg->{'contents'}->[0]->{'text'};
                 if (defined($arg_text)) {
                   $$output_ref .= "&#x$arg_text;";
@@ -1802,7 +1784,6 @@ sub _convert($$)
               if (scalar(@{$element->{'contents'}}) > $arg_index) {
                 my $converted_arg = $element->{'contents'}->[$arg_index];
                 if ($converted_arg->{'contents'}) {
-                  $reader->register_token_element_child($arg_index);
                   $$output_ref .= $self->convert_tree($converted_arg);
                 }
               }
@@ -1938,10 +1919,8 @@ sub _convert($$)
             push @format_elements, 'mathphrase';
           } elsif ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
             my $quotation_authors = [];
-            $reader->register_token_element();
-            Texinfo::Example::TreeElementConverter::find_element_authors(
-                                                        $element,
-                                                        $quotation_authors);
+            Texinfo::Convert::Utils::find_element_authors($element,
+                                                          $quotation_authors);
             foreach my $author (@$quotation_authors) {
               my $arg = $author->get_child(0);
               if ($arg->{'contents'}) {
@@ -1952,7 +1931,6 @@ sub _convert($$)
             }
             my $format_element;
             # arguments_line type element
-            $reader->register_token_element_child(0);
             my $arguments_line = $element->{'contents'}->[0];
             my $block_line_arg = $arguments_line->{'contents'}->[0];
             if ($block_line_arg->{'contents'}) {
@@ -1964,8 +1942,8 @@ sub _convert($$)
               } else {
                 $self->{'pending_prepend'}
                   = $self->convert_tree(
-                          $self->tree_element_cdt('@b{{quotation_arg}:} ',
-                                {'quotation_arg' => $block_line_arg}, 1));
+                          $self->cdt('@b{{quotation_arg}:} ',
+                                {'quotation_arg' => $block_line_arg}));
               }
             }
             $format_element = 'blockquote' if (!defined($format_element));
@@ -2015,7 +1993,6 @@ sub _convert($$)
           $$output_ref .= "<$self->{'document_context'}->[-1]->{'preformatted_stack'}->[-1]>";
           $self->{'document_context'}->[-1]->{'in_preformatted'} = 1;
         } elsif ($e_type eq 'def_line') {
-          $reader->register_token_element();
           my $def_line_result = _begin_def_line($self, $element);
           $$output_ref .= $def_line_result if (defined($def_line_result));
         } elsif ($e_type eq 'table_term') {
@@ -2138,8 +2115,7 @@ sub _convert($$)
         # close sectioning command
         } elsif ($cmdname ne 'node'
                  and $Texinfo::Commands::root_commands{$cmdname}) {
-       # other functions could have been called but this one has an XS override
-          my $sections_list = $self->tree_element_sections_list();
+          my $sections_list = $self->{'document'}->sections_list();
           my $section_relations
             = $sections_list->[$element->{'extra'}->{'section_number'} -1];
           my $docbook_sectioning_element
@@ -2180,8 +2156,15 @@ sub _convert($$)
         } elsif ($e_type
                  and $e_type eq 'index_entry_command') {
           my $result = '';
+
+          my $indices_information;
+          if (exists($self->{'document'})) {
+            $indices_information = $self->{'document'}->indices_information();
+          }
+
           my ($index_entry, $index_info)
-            = $self->get_tree_element_index_entry($element);
+       = Texinfo::Common::lookup_index_entry($element->{'extra'}->{'index_entry'},
+                                           $indices_information);
 
           my $entry_element = $index_entry->{'entry_element'};
           if ($self->{'document_context'}->[-1]->{'subentry_output'}) {
@@ -2296,8 +2279,7 @@ sub _convert($$)
         # special case to ensure that @w leads to something even if empty
           $$output_ref .= $w_command_mark;
         } elsif ($Texinfo::Commands::accent_commands{$cmdname}) {
-          $reader->register_token_element();
-          $result .= $self->tree_element_xml_accents($element,
+          $result .= $self->xml_accents($element,
                  $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
         } elsif (!exists($docbook_no_warn_empty_commands{$cmdname})
                 # brace commands without braces lead to EMPTY element tokens
