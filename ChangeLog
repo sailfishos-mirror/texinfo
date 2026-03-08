@@ -1,6 +1,12 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (@command{texi2any} Environment Variables):
+	remove explanations on TEXINFO_XS_* and TEXINFO_C_EMBED_PERL as these
+	environment variables are likely to be removed at some point.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (@command{texi2any} Environment Variables):
 	update for changes in TEXINFO_XS.
 
 2026-03-08 Patrice Dumas  <pertusus@free.fr>

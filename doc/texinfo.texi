@@ -15457,6 +15457,9 @@ modules when calling interpreted Perl code and aborts if an extension
 cannot be loaded.  Setting @env{TEXINFO_XS} to @code{omit} with the C
 @command{texi2any} implementation is an error and is ignored.
 
+@c the environment variables that control XS extensions and C code
+@c are likely to be removed, so do not document them here.
+@ignore
 You can disable the use of the native code implementation in the Perl
 @command{texi2any} implementation for the main processing steps more finely.
 If native code modules are not used for a step, they cannot be used for the
@@ -15492,6 +15495,7 @@ Perl, by setting the @env{TEXINFO_C_EMBED_PERL} environment variable to
 @samp{0} to disable the use of embedded Perl.  Set with care, as HTML
 customization initialization files, conversion to most output formats and
 optimal index sorting require Perl.
+@end ignore
 
 
 @node @command{texi2any} Printed Output
