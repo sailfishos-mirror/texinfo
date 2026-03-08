@@ -142,8 +142,6 @@ dist_convertmodules_DATA = \
  Texinfo/Example/IXIN.pm \
  Texinfo/Example/IXINSXML.pm \
  Texinfo/Example/TestReader.pm \
- Texinfo/Example/TreeElementConverter.pm \
- Texinfo/Example/TreeElementConverterXS.pm \
  Texinfo/Example/ReadDocBook.pm
 
 # extensions used in main program
