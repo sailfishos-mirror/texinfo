@@ -898,7 +898,6 @@ my %formats_table = (
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::DocBook'
-             #'module' => 'Texinfo::Example::TreeElementReadDocBook'
              #'module' => 'Texinfo::Example::ReadDocBook'
            },
   # next 3 formats are not documented since they should not be used except
@@ -912,11 +911,6 @@ my %formats_table = (
              'move_index_entries_after_items' => 1,
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Example::ReadDocBook'
-           },
-  'docbooktreeelementreader' => {
-             'move_index_entries_after_items' => 1,
-             'no_warn_non_empty_parts' => 1,
-             'module' => 'Texinfo::Example::TreeElementReadDocBook'
            },
   'epub3' => {
             'converted_format' => 'html',

@@ -1,0 +1,89 @@
+This is the todo list for obsolete texi2any information
+
+  Copyright 2012-2026 Free Software Foundation.
+
+  Copying and distribution of this file, with or without modification,
+  are permitted in any medium without royalty provided the copyright
+  notice and this notice are preserved.
+
+
+Texinfo tree reader
+===================
+
+The following information is about code related to the Reader and TreeElement
+interface that is abandonned.  It may refer to code removed from version
+control.  It is kept in case this code would be developped again.
+
+
+The code in Texinfo/Reader*.pm, Texinfo/TreeElement*.pm and
+Texinfo/Convert/TreeElementConverter*.pm and associated XS interfaces
+allow to go through the Texinfo tree, possibly without building the tree to
+perl.  There are two examples of Docbook converters, one using the
+TreeElement+Reader interface, the other using the Reader only in
+Texinfo/Example.
+
+This code relies on calling methods in Perl, which is slow (about 10 time
+slower to call a function compared to accessing a hash key), requires
+carefully registering handles in Perl to find the C elements data in XS
+and doing many XS interfaces and different code in Perl.
+
+Therefore, currently this code is not used in texi2any, and not developped
+further.  The SWIG interface in util/swig, even if less flexible and less
+elegantly integrated in Perl also allows to wrap the C code, is much easier
+to develop and maintain, and multi language.
+
+
+There could be a TreeElement interface for element destruction that
+would nullify the corresponding handle in document->element_handles, and
+remove the associated information in Perl element hash.
+
+There could be a possibility to relinquish the handles in
+document->element_handles and remove the associated information in Perl element
+hash, even though the elements are not destroyed.  This could even be
+automatic, for example when reaching a root command @node or sectioning command
+through the Reader.
+
+It could also be possible to remove and destroy elements that are stored
+in document->additional_elements, that were added by new_tree_element() but
+it should be made sure that they will not be accessed again, which could
+be difficult to make sure of.
+
+All the Document interfaces lead to rebuilding the tree, and wiping out
+the handles for access through the TreeElement interface.  The TreeElement
+interface may still be used in some cases because the XS code also process
+the rebuilt tree, as would Perl do.  It is not clear whether this is a
+good idea as it may hide bugs.
+
+Currently the node, section and heading relations information is available
+because all the corresponding Perl elements can be rebuilt preemptively.
+It could be more relevant to have accessors instead such that the
+Perl information can be built on demand.
+
+indices API is missing in TreeElementConverter. Also maybe an API for output
+units (for formats using output units).
+
+No extra/info taken into account in new_element_from_sv.
+
+accessors for TreeElements:
+ * parent [OK]
+ * type [OK]
+ * command_name [OK]
+ * source marks
+    SourceMarksCount
+    SourceMark(n)
+ * attributes (extra/info)
+     getAttribute (name) [OK]
+     attributeCount ()
+     getAttributeNo (no)
+     maybe: moveToFirstAttribute ()
+            moveToNextAttribute ()
+
+ * associated_unit? <- output units API
+
+Tree access
+ ChildElementCount [OK]
+ ChildElement(n) [OK]
+
+Cross references:
+ * getTargetById [OK, but untested]
+

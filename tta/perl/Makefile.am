@@ -144,8 +144,7 @@ dist_convertmodules_DATA = \
  Texinfo/Example/TestReader.pm \
  Texinfo/Example/TreeElementConverter.pm \
  Texinfo/Example/TreeElementConverterXS.pm \
- Texinfo/Example/ReadDocBook.pm \
- Texinfo/Example/TreeElementReadDocBook.pm
+ Texinfo/Example/ReadDocBook.pm
 
 # extensions used in main program
 extensionsdir = $(converterdatadir)/ext
