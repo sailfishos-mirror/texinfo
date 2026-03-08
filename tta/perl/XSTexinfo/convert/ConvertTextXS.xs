@@ -88,20 +88,10 @@ XS_convert_tree (SV *options_in, SV *tree_in)
         DOCUMENT *document = 0;
         const ELEMENT *element = 0;
     CODE:
-        /* NOTE a descriptor by element is only present with the tree elements
-           API, which is not used in converters actually used in texi2any
-           currently.  Therefore get_sv_element_* should only return NULL
-           for code called from texi2any right now.
-         */
-        document = get_sv_element_document (tree_in, 0);
+        document = get_sv_tree_document (tree_in, 0);
         if (document)
-          element = get_sv_element_element (tree_in, document);
-        else
-          {
-            document = get_sv_tree_document (tree_in, 0);
-            if (document)
-              element = document->tree;
-          }
+          element = document->tree;
+
         if (element)
           RETVAL = convert_element_options_sv_to_text (document, element,
                                                        options_in);

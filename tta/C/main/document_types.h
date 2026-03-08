@@ -321,12 +321,14 @@ typedef struct DOCUMENT {
     size_t output_units_descriptors[OUDT_external_nodes_units+1];
 
     /* lists used to retrieve and store element handles to retrieve
-       C elements associated to Perl elements.  Only used for converters
-       that use the TreeElement XS interface, currently none are
-       used in texi2any. */
+       C elements associated to Perl elements.
+       Not used in any code built.
+     */
+     /*
     ELEMENT_LIST element_handles;
-    /* elements not in the tree, in general added with new_element_from_sv.
-       Currently these elements should also be in element_handles. */
+      */
+    /* elements not in the tree, could be added with new_element_from_sv
+       and would also be in element_handles, or by the SWIG interface. */
     ELEMENT_LIST additional_elements;
 
     /* flags for modified information not already passed to Perl */

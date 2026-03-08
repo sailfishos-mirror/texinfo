@@ -24,8 +24,6 @@ int get_sv_option (OPTION *option, SV *value, int force,
 
 DOCUMENT *get_sv_tree_document (SV *tree_in, const char *warn_string);
 DOCUMENT *get_sv_document_document (SV *document_in, const char *warn_string);
-DOCUMENT *get_sv_element_document (SV *element_in, const char *warn_string);
-ELEMENT *get_sv_element_element (SV *element_sv, DOCUMENT *document);
 
 size_t get_sv_output_units_descriptor (SV *output_units_in,
                                        const char *warn_string,

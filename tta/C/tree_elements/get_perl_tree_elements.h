@@ -9,8 +9,8 @@
 #include "document_types.h"
 #include "converter_types.h"
 
-/* do not depend on READER structure implementation details */
-struct READER;
+DOCUMENT *get_sv_element_document (SV *element_in, const char *warn_string);
+ELEMENT *get_sv_element_element (SV *element_sv, DOCUMENT *document);
 
 ELEMENT *new_element_from_sv (DOCUMENT *document, const SV *element_hash,
                               CONVERTER *converter);

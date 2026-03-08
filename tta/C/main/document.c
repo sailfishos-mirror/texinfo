@@ -125,7 +125,7 @@ setup_texinfo_main (int texinfo_uninstalled,
 
   setup_ai_key_name_index ();
 
-  /* used for the TreeElements interface */
+  /* used in conversion */
   setup_convert_utils ();
 
   /* used in Parser */
@@ -637,7 +637,9 @@ destroy_document (DOCUMENT *document)
     destroy_element (document->additional_elements.list[i]);
   free (document->additional_elements.list);
 
+   /* Not used in any code currently built
   free (document->element_handles.list);
+   */
 
   if (document->tree)
     {

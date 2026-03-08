@@ -1,5 +1,21 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/XSTexinfo/convert/ConvertTextXS.xs (XS_convert_tree):
+	remove call of get_sv_element_document and get_sv_element_element,
+	no code sets the corresponding handle and document descriptor.
+
+	* tta/C/tree_elements/get_perl_tree_elements.c
+	(get_sv_element_document, get_sv_element_element),
+	tta/C/main/get_perl_info.c: move unused get_sv_element_document and
+	get_sv_element_element to get_perl_tree_elements.c.
+
+	* tta/C/main/document.c (destroy_document),
+	tta/C/main/document_types.h (DOCUMENT): comment out definition of 
+	element_handles document field and associated code, as no code built
+	uses it currently.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (libtexinfo_convertxs_la_SOURCES, EXTRA_DIST): do
 	not build tree_elements/build_perl_tree_elements.c and
 	tree_elements/get_perl_tree_elements.c.

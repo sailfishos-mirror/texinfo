@@ -157,16 +157,6 @@ get_sv_tree_document (SV *tree_in, const char *warn_string)
                                warn_string);
 }
 
-/* for any element */
-DOCUMENT *
-get_sv_element_document (SV *element_in, const char *warn_string)
-{
-  dTHX;
-
-  return get_document_or_warn (element_in, "element_document_descriptor",
-                               warn_string);
-}
-
 DOCUMENT *
 get_sv_document_document (SV *document_in, const char *warn_string)
 {
@@ -174,35 +164,6 @@ get_sv_document_document (SV *document_in, const char *warn_string)
 
   return get_document_or_warn (document_in, "document_descriptor",
                                warn_string);
-}
-
-ELEMENT *
-get_sv_element_element (SV *element_sv, DOCUMENT *document)
-{
-  HV *element_hv;
-  SV **handle_sv;
-  const char *key = "_handle";
-
-  dTHX;
-
-  if (!document)
-    return 0;
-
-  element_hv = (HV *) SvRV (element_sv);
-
-  handle_sv = hv_fetch (element_hv, key, strlen(key), 0);
-  if (handle_sv)
-    {
-      ELEMENT *e = 0;
-      size_t element_number = (size_t) SvIV (*handle_sv);
-      /* could also be a function like retrieve_document_element */
-      if (element_number <= document->element_handles.number)
-        {
-          e = document->element_handles.list[element_number -1];
-        }
-      return e;
-    }
-  return 0;
 }
 
 /* caller should ensure that OUTPUT_UNIT_IN is defined.

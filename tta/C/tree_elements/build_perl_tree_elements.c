@@ -13,7 +13,7 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-/* Not built, only used as an example */
+/* Not built, only used as an example for future codes */
 
 #include <stdlib.h>
 #include <string.h>

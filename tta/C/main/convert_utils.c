@@ -996,8 +996,10 @@ comment_or_end_line (const ELEMENT *element)
   return result;
 }
 
-/* in Texinfo::Example::TreeElementConverter
-  NOTE Only used in tree elements interface, not used in texi2any */
+/* Unused */
+/* similar to comment_or_end_line, but additionaly gather the argument
+   to abstract whether there is an argument_line or not */
+/* No equivalent in Perl */
 ARGUMENT_COMMENT_END_LINE *
 argument_comment_end_line (const ELEMENT *element)
 {
