@@ -9,6 +9,12 @@ See the manual for detailed information.
 
 ------------------------------------------------------------------------------
 
+X.Y ()
+* Language
+  . Texinfo XML removed as an output format.  Can still be selected
+    by setting TEXINFO_OUTPUT_FORMAT=texinfoxml until fully removed.
+  . @xml, @ifxml and @ifnotxml are deprecated.
+
 7.3 (02 March 2026)
 * Language
   . new commands for title page creation: @documentinfo, @publication,

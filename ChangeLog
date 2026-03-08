@@ -1,5 +1,9 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS, TODO: update for Texinfo XML removed as an output format.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* doc/tta_api/Makefile.am (texi2any_internals_dependencies): fix
 	TexinfoMarkup.pm and TexinfoXML.pm paths.
 

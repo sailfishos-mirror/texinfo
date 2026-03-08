@@ -160,6 +160,24 @@ After 7.3 release:
   for this release, if yes, remove it (leave at least for one release after
   7.2).
 
+After next release:
+
+* texi2any:
+  Remove TEXINFO_DTD_VERSION and TXI_MARKUP_NO_SECTION_EXTENT customization
+  variables completely (leave at least for one release after X.Y).
+
+* texi2any, Texinfo TeX:
+  Remove completely @xml, @ifxml and @ifnotxml (leave at least for a few
+  releases after X.Y).
+
+* texi2any:
+  Remove Texinfo XML and Texinfo SXML support (from documentation, tests,
+  util/txixml2texi.pl, utile/texinfo.dtd, tta/maintain/catalog.xml.in,
+  tta/maintain/check_back_xml_forth_texi_t.sh) (leave at least for a
+  few releases after X.Y).
+  Decide at that time if the Perl modules in Example and the formats in
+  texi2any formats_table should be removed.
+
 ***********************************************************************
 
 * Ideas that will not be implemented:
