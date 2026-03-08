@@ -341,7 +341,6 @@ their appearence in the Texinfo tree.
 =head1 SEE ALSO
 
 L<Texinfo::Parser>. L<Texinfo::Document>.
-L<Texinfo::Example::TreeElementConverter>.
 
 =head1 AUTHOR
 

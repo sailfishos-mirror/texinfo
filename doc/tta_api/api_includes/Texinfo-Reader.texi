@@ -159,7 +159,6 @@ their appearence in the Texinfo tree.
 @section Texinfo::Reader SEE ALSO
 
 @ref{Texinfo@asis{::}Parser NAME,, Texinfo::Parser}. @ref{Texinfo@asis{::}Document NAME,, Texinfo::Document}.
-@url{https://metacpan.org/pod/Texinfo::Example::TreeElementConverter, Texinfo::Example::TreeElementConverter}.
 
 @node Texinfo@asis{::}Reader AUTHOR
 @section Texinfo::Reader AUTHOR
