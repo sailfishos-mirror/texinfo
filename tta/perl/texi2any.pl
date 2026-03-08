@@ -819,8 +819,8 @@ my %converter_format_expanded_region_name = (
   'docbooktreeelementreader' => 'docbook',
 );
 
+# nothing currently, previously mapped xml to texinfoxml
 my %format_command_line_names = (
-  'xml' => 'texinfoxml',
 );
 
 my %formats_table = (
@@ -1043,7 +1043,6 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 .__("      --epub3                 output EPUB 3")."\n"
 .__("      --latex                 output LaTeX")."\n"
 .__("      --plaintext             output plain text rather than Info")."\n"
-.__("      --xml                   output Texinfo XML")."\n"
 .__("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,
                                 after checking validity of TEXINFO-FILE")."\n"
 ."\n";
@@ -1128,7 +1127,6 @@ the behavior is identical, and does not depend on the installed name.")."\n"
 .__("      --iflatex         process \@iflatex and \@latex")."\n"
 .__("      --ifplaintext     process \@ifplaintext")."\n"
 .__("      --iftex           process \@iftex and \@tex")."\n"
-.__("      --ifxml           process \@ifxml and \@xml")."\n"
 ."\n"
 .__("  By default, an --ifFORMAT setting is on only when the output format
   is FORMAT; for example, --ifhtml is on when outputting HTML.
@@ -1141,7 +1139,6 @@ the behavior is identical, and does not depend on the installed name.")."\n"
   $makeinfo_help .= __("Examples:")."\n"
 .sprintf(__("  %s foo.texi                      write Info"), $real_command_name)."\n"
 .sprintf(__("  %s --html foo.texi               write HTML"), $real_command_name)."\n"
-.sprintf(__("  %s --xml foo.texi                write Texinfo XML"), $real_command_name)."\n"
 .sprintf(__("  %s --docbook foo.texi            write Docbook XML"), $real_command_name)."\n"
 .sprintf(__("  %s --plaintext foo.texi          write plain text to standard output"), $real_command_name)."\n"
 .sprintf(__("  %s --pdf foo.texi                write PDF using texi2dvi"), $real_command_name)."\n"
@@ -1172,7 +1169,6 @@ There is NO WARRANTY, to the extent permitted by law."), "2026")."\n";
  'macro-expand|E=s' => sub { set_from_cmdline('MACRO_EXPAND', $_[1]); },
  'ifhtml!' => sub { set_expansion('html', $_[1]); },
  'ifinfo!' => sub { set_expansion('info', $_[1]); },
- 'ifxml!' => sub { set_expansion('xml', $_[1]); },
  'ifdocbook!' => sub { set_expansion('docbook', $_[1]); },
  'iflatex!' => sub { set_expansion('latex', $_[1]); },
  'iftex!' => sub { set_expansion('tex', $_[1]); },
@@ -1336,7 +1332,6 @@ There is NO WARRANTY, to the extent permitted by law."), "2026")."\n";
  'latex' => sub {set_cmdline_format($_[0].'');},
  'info' => sub {set_cmdline_format($_[0].'');},
  'docbook' => sub {set_cmdline_format($_[0].'');},
- 'xml' => sub {set_cmdline_format('texinfoxml');},
  'dvi' => sub {set_cmdline_format($_[0].'');},
  'dvipdf' => sub {set_cmdline_format($_[0].'');},
  'ps' => sub {set_cmdline_format($_[0].'');},

@@ -1,5 +1,15 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	Remove Texinfo XML command line options
+
+	* tta/C/texi2any.c (format_command_line_names, long_options)
+	(main), tta/perl/texi2any.pl (%format_command_line_names)
+	(makeinfo_help): remove Texinfo XML related command line options.
+
+	* tta/tests/coverage/list-of-tests (formatting_xml): update.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	Deprecate xml format in documentation and associated variables
 
 	* doc/texinfo.texi (Output Formats, Adding Output Formats)

@@ -101,7 +101,6 @@ typedef struct FORMAT_COMMAND_LINE_NAME {
 } FORMAT_COMMAND_LINE_NAME;
 
 static FORMAT_COMMAND_LINE_NAME format_command_line_names[] = {
- {"xml", "texinfoxml"},
  {NULL, NULL},
 };
 
@@ -804,11 +803,8 @@ static int print_help_p;
 #define NO_IFPLAINTEXT_OPT 15
 #define IFTEX_OPT 16
 #define NO_IFTEX_OPT 17
-#define IFXML_OPT 18
-#define NO_IFXML_OPT 19
 #define NO_WARN_OPT 20
 #define _FORMAT_OPT 21
-#define XML_OPT 22
 #define INTERNAL_LINKS_OPT 23
 #define NO_MIMICKING_OPT 24
 #define XOPT_OPT 25
@@ -892,7 +888,6 @@ static struct option long_options[] = {
   {"info", 0, 0, _FORMAT_OPT},
   {"docbook", 0, 0, _FORMAT_OPT},
   {"epub3", 0, 0, _FORMAT_OPT},
-  {"xml", 0, 0, XML_OPT},
   {"dvi", 0, 0, _FORMAT_OPT},
   {"dvipdf", 0, 0, _FORMAT_OPT},
   {"ps", 0, 0, _FORMAT_OPT},
@@ -903,7 +898,6 @@ static struct option long_options[] = {
   IFFORMAT_TABLE(LATEX, latex)
   IFFORMAT_TABLE(PLAINTEXT, plaintext)
   IFFORMAT_TABLE(TEX, tex)
-  IFFORMAT_TABLE(XML, xml)
   {NULL, 0, NULL, 0}
 };
 #undef IFFORMAT_TABLE
@@ -1380,9 +1374,6 @@ main (int argc, char *argv[], char *env[])
         case _FORMAT_OPT:
           set_cmdline_format (long_options[getopt_long_index].name);
           break;
-        case XML_OPT:
-          set_cmdline_format ("texinfoxml");
-          break;
         case NO_MIMICKING_OPT:
           free (program_file);
           program_file = strdup (program_basename);
@@ -1814,7 +1805,6 @@ main (int argc, char *argv[], char *env[])
         IFFORMAT_CASE(LATEX, latex)
         IFFORMAT_CASE(PLAINTEXT, plaintext)
         IFFORMAT_CASE(TEX, tex)
-        IFFORMAT_CASE(XML, xml)
 #undef IFFORMAT_CASE
  /*
         case IFTEX_OPT:
@@ -1935,9 +1925,6 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --plaintext             output plain text rather than Info"));
-      text_append_n (&help_message, "\n", 1);
-      text_append (&help_message,
-        _("      --xml                   output Texinfo XML"));
       text_append_n (&help_message, "\n", 1);
       text_append (&help_message,
         _("      --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,\n"
@@ -2082,9 +2069,6 @@ main (int argc, char *argv[], char *env[])
       text_append (&help_message, _(
 "      --iftex           process @iftex and @tex"));
       text_append_n (&help_message, "\n", 1);
-      text_append (&help_message, _(
-"      --ifxml           process @ifxml and @xml"));
-      text_append_n (&help_message, "\n", 1);
 
       text_append_n (&help_message, "\n", 1);
 
@@ -2108,9 +2092,6 @@ main (int argc, char *argv[], char *env[])
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message, _(
 "  %s --html foo.texi               write HTML"), program_file);
-      text_append_n (&help_message, "\n", 1);
-      text_printf (&help_message, _(
-"  %s --xml foo.texi                write Texinfo XML"), program_file);
       text_append_n (&help_message, "\n", 1);
       text_printf (&help_message, _(
 "  %s --docbook foo.texi            write Docbook XML"), program_file);

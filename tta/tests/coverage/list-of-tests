@@ -7,7 +7,7 @@ formatting_macro_expand formatting.texi --macro-expand=@OUT_DIR@formatting.texi 
 formatting_info formatting.texi -D 'needcollationcompat Need collation compatibility' --info
 formatting_plaintext formatting.texi -D 'needcollationcompat Need collation compatibility' --plaintext
 formatting_docbook formatting.texi --docbook
-formatting_xml formatting.texi --xml
+formatting_xml formatting.texi -c TEXINFO_OUTPUT_FORMAT=texinfoxml
 formatting_html_no_split formatting.texi -D 'needcollationcompat Need collation compatibility' --html --no-split
 formatting_latex formatting.texi --latex
 formatting_epub formatting.texi -D 'needcollationcompat Need collation compatibility' --epub3 -c 'EPUB_CREATE_CONTAINER_FILE 0'
