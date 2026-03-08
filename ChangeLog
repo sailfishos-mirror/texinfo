@@ -1,5 +1,12 @@
 2026-03-08 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/ManipulateTree.pm (tree_remove_references):
+	determine early the object count number by using the
+	$Texinfo::XSLoader::core_modules_built variable value to determine if
+	the XS parser module is loaded.
+
+2026-03-08 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/swig/perl/t/20index_sort.t: load the SWIG interface before the
 	texi2any internal modules and call Texinfo::setup in a BEGIN block to
 	make sure that set_XS_mandatory is called before any module reading

@@ -90,6 +90,43 @@ BEGIN {
 
 my $XS_structuring = Texinfo::XSLoader::XS_structuring_enabled();
 
+# expected number of references to the object
+# The $element variable owns one count to reference and to object.
+# The parent contents or the extra key or the info key or the
+# source mark element key also holds a count to the object.
+# plus possibly one count owned by the C code
+my $destroyed_objects_refcount;
+# used in messages
+my $destroyed_objects_refcount_text;
+# expected number of references to the object if created in Perl without
+# any reference owned by the C code.  Only possible with XS parser, and
+# with structure without XS.
+my $no_XS_objects_refcount;
+
+# expected number of references to the element SV
+my $element_SV_target_count = 1;
+
+$destroyed_objects_refcount = 2;
+$destroyed_objects_refcount_text = $destroyed_objects_refcount;
+
+if (Texinfo::XSLoader::XS_parser_enabled()
+    and $Texinfo::XSLoader::core_modules_built) {
+  # a reference in C too
+  $destroyed_objects_refcount++;
+
+  if (!$XS_structuring) {
+    # transformations may create elements in pure Perl only when
+    # structuring is not done with XS extensions.
+    $no_XS_objects_refcount = $destroyed_objects_refcount -1;
+    $destroyed_objects_refcount_text
+      = "$destroyed_objects_refcount or $no_XS_objects_refcount";
+  } else {
+    $destroyed_objects_refcount_text = $destroyed_objects_refcount;
+  }
+}
+
+
+
 # copy a Texinfo tree.
 
 # To do the copy, we do two pass.  First with _copy_tree, the tree is
@@ -462,22 +499,6 @@ sub tree_remove_parents($) {
   }
 }
 
-# expected number of references to the object
-# The $element variable owns one count to reference and to object.
-# The parent contents or the extra key or the info key or the
-# source mark element key also holds a count to the object.
-# plus possibly one count owned by the C code
-my $destroyed_objects_refcount;
-# used in messages
-my $destroyed_objects_refcount_text;
-# expected number of references to the object if created in Perl without
-# any reference owned by the C code.  Only possible with XS parser, and
-# with structure without XS.
-my $no_XS_objects_refcount;
-
-# expected number of references to the element SV
-my $element_SV_target_count = 1;
-
 sub _element_remove_references($;$$);
 
 # recursively remove references to element.  In general should not be
@@ -579,30 +600,6 @@ sub _element_remove_references($;$$) {
 # not documented on purpose.
 sub tree_remove_references($;$$) {
   my ($tree, $check_refcount, $silent_refcount) = @_;
-
-  if (defined($check_refcount)) {
-    # Setup the expected reference counts.  Better do it dynamically
-    # and not out of any function to be sure that the the parser module have been
-    # setup and XS_parser_loaded return is correct.
-    $destroyed_objects_refcount = 2;
-    $destroyed_objects_refcount_text = $destroyed_objects_refcount;
-    # Do not use XS_parser_enabled, as the loading of the parser may have failed
-    # even if it was enabled.
-    if (Texinfo::XSLoader::XS_parser_loaded()) {
-      # a reference in C too
-      $destroyed_objects_refcount++;
-
-      if (!$XS_structuring) {
-        # transformations may create elements in pure Perl only when
-        # structuring is not done with XS extensions.
-        $no_XS_objects_refcount = $destroyed_objects_refcount -1;
-        $destroyed_objects_refcount_text
-          = "$destroyed_objects_refcount or $no_XS_objects_refcount";
-      } else {
-        $destroyed_objects_refcount_text = $destroyed_objects_refcount;
-      }
-    }
-  }
 
   if (exists($tree->{'contents'})) {
    foreach my $content (@{$tree->{'contents'}}) {
