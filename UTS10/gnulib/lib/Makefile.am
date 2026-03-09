@@ -37,7 +37,8 @@
 #  unictype/property-unified-ideograph \
 #  uninorm/nfd \
 #  uninorm/nfkd \
-#  uninorm/u32-normalize
+#  uninorm/u32-normalize \
+#  unistr/u8-to-u32
 
 AUTOMAKE_OPTIONS = 1.14 gnits subdir-objects
 
@@ -1739,6 +1740,22 @@ libgnu_a_SOURCES += unistr/u8-mbtouc.c unistr/u8-mbtouc-aux.c
 endif
 
 ## end   gnulib module unistr/u8-mbtouc
+
+## begin gnulib module unistr/u8-mbtoucr
+
+if LIBUNISTRING_COMPILE_UNISTR_U8_MBTOUCR
+libgnu_a_SOURCES += unistr/u8-mbtoucr.c
+endif
+
+## end   gnulib module unistr/u8-mbtoucr
+
+## begin gnulib module unistr/u8-to-u32
+
+if LIBUNISTRING_COMPILE_UNISTR_U8_TO_U32
+libgnu_a_SOURCES += unistr/u8-to-u32.c
+endif
+
+## end   gnulib module unistr/u8-to-u32
 
 ## begin gnulib module unistr/u8-uctomb
 

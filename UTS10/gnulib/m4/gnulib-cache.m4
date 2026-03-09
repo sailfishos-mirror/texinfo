@@ -40,10 +40,10 @@
 #  uchar-h-c23 \
 #  unictype/block-of \
 #  unictype/property-unified-ideograph \
-#  unictype/property-unified-ideographic \
 #  uninorm/nfd \
 #  uninorm/nfkd \
-#  uninorm/u32-normalize
+#  uninorm/u32-normalize \
+#  unistr/u8-to-u32
 
 # Specification in the form of a few gnulib-tool.m4 macro invocations:
 gl_LOCAL_DIR([])
@@ -51,10 +51,10 @@ gl_MODULES([
   uchar-h-c23
   unictype/block-of
   unictype/property-unified-ideograph
-  unictype/property-unified-ideographic
   uninorm/nfd
   uninorm/nfkd
   uninorm/u32-normalize
+  unistr/u8-to-u32
 ])
 gl_AVOID([])
 gl_SOURCE_BASE([gnulib/lib])

@@ -114,6 +114,8 @@ AC_DEFUN([gl_EARLY],
   # Code from module unistr/u32-mbtouc-unsafe:
   # Code from module unistr/u32-uctomb:
   # Code from module unistr/u8-mbtouc:
+  # Code from module unistr/u8-mbtoucr:
+  # Code from module unistr/u8-to-u32:
   # Code from module unistr/u8-uctomb:
   # Code from module unitypes-h:
   # Code from module wchar-h:
@@ -300,6 +302,9 @@ AC_DEFUN([gl_INIT],
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u32-uctomb])
   gl_MODULE_INDICATOR([unistr/u8-mbtouc])
   gl_LIBUNISTRING_MODULE([1.2], [unistr/u8-mbtouc])
+  gl_MODULE_INDICATOR([unistr/u8-mbtoucr])
+  gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-mbtoucr])
+  gl_LIBUNISTRING_MODULE([0.9.3], [unistr/u8-to-u32])
   gl_MODULE_INDICATOR([unistr/u8-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-uctomb])
   gl_LIBUNISTRING_LIBHEADER([0.9.11], [unitypes.h])
@@ -592,6 +597,8 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/unistr/u32-uctomb.c
   lib/unistr/u8-mbtouc-aux.c
   lib/unistr/u8-mbtouc.c
+  lib/unistr/u8-mbtoucr.c
+  lib/unistr/u8-to-u32.c
   lib/unistr/u8-uctomb-aux.c
   lib/unistr/u8-uctomb.c
   lib/unitypes.in.h
