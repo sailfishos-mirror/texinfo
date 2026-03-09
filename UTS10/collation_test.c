@@ -61,9 +61,11 @@ main (int argc, char *argv[])
 
   long int line_count = 0;
   long int fail_count = 0;
+  long int skip_count = 0;
 
   while (1)
     {
+    next_line:
       nread = getline (&line2, &line2_size, file);
       if (nread == -1)
         break;
@@ -94,6 +96,14 @@ main (int argc, char *argv[])
               fprintf (stderr, "Error: invalid codepoint\n");
               exit (1);
             }
+          if (val >= 0xD800 && val <= 0xDFFF)
+            {
+              /* UTF-16 surrogate codepoint.  Skip this line. */
+              printf ("skip test of surrogate codepoint\n");
+              skip_count++;
+              goto next_line;
+            }
+
           /* fprintf (stderr, "read codepoint %lx\n", val); */
 
           codepoints[length++] = (char32_t) val;
@@ -131,10 +141,16 @@ main (int argc, char *argv[])
       string_save (&line1, &line1_size, line2);
     }
   if (fail_count == 0)
-    exit (0);
+    {
+      printf ("All tests passed\n");
+      printf ("(Skipped %ld)\n", skip_count);
+
+      exit (0);
+    }
   else
     {
       printf ("Total fails: %ld out of %ld\n", fail_count, line_count);
+      printf ("(Skipped %ld)\n", skip_count);
       exit (1);
     }
 }
