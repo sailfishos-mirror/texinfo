@@ -216,22 +216,50 @@ lookup_codepoint_data (char32_t codepoint)
 }
 
 /* STRING points into a char32_t array.  First check for sequence entry
-   at STRING, then for individual codepoint entry. */
+   at STRING, then for individual codepoint entry.  This function can
+   reorder STRING. */
 COLLATION_DATA
 lookup_collation_data_at_char (char32_t *const string,
+                               size_t length,
                                size_t *n_codepoints_out)
 {
   uint32_t node_offset = header.trie_offset;
 
   char32_t *pchar;
+  char32_t *pre_non_starter = 0;
+  int max_combining_class = 0;
 
   /* similar to lookup_sequence but number of codepoints consumed
      is not known in advance */
   size_t n_codepoints;
 
   for (pchar = string, n_codepoints = 0;
-       (*pchar) != 0; pchar++, n_codepoints++)
+       pchar < string + length && (*pchar) != 0;
+       pchar++)
     {
+      int combining_class;
+      if (pre_non_starter)
+        {
+          /* We are trying to find a non-continguous match. */
+
+          combining_class = uc_combining_class (*pchar);
+          if (combining_class == UC_CCC_NR) /* UC_CCC_NR == 0 */
+            {
+              /* This codepoint cannot be part of a non-contiguous match,
+                 and blocks a non-contiguous match with any later codepoints. */
+              break;
+            }
+
+          if (combining_class <= max_combining_class)
+            {
+              /* This codepoint is blocked from being part of a non-contiguous
+                 match by earlier non-starters. */
+              continue;
+            }
+
+          max_combining_class = combining_class;
+        }
+
       // Read node
       uint32_t node_codepoint = read_u32 (node_offset);
       uint32_t node_data_offset = read_u32 (node_offset + 4);
@@ -250,23 +278,45 @@ lookup_collation_data_at_char (char32_t *const string,
             {
               node_offset = child_offset;
               found = 1;
-
+              n_codepoints++;
               break;
             }
         }
-      if (!found)
-        break;
+
+      if (found && pre_non_starter)
+        {
+          /* This is part of a non-contiguous match.  Move matched
+             character right after the contiguous part of the match. */
+          char32_t tmp = pre_non_starter[1];
+          pre_non_starter[1] = *pchar;
+          *pchar = tmp;
+
+          pchar = &pre_non_starter[1];
+          pre_non_starter = NULL;
+          max_combining_class = 0;
+        }
+      else if (!found)
+        {
+          if (!pre_non_starter && pchar > string)
+            {
+              /* Start looking for a non-contiguous match. */
+              pchar--;
+              pre_non_starter = pchar;
+              continue;
+            }
+        }
     }
 
   if (n_codepoints >= 2)
     {
-      // printf ("using codepoint entry of length %zd\n", n_codepoints);
+      printf ("using codepoint entry of length %zd\n", n_codepoints);
       COLLATION_DATA data_offset = read_u32 (node_offset + 4);
       if (data_offset != 0)
         {
           (*n_codepoints_out) = n_codepoints;
           return data_offset;
         }
+      printf ("(incomplete sequence)\n");
     }
 
   COLLATION_DATA data_offset = lookup_codepoint_data (string[0]);

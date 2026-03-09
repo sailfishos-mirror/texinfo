@@ -35,7 +35,8 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
     {
       size_t n_consumed;
       COLLATION_DATA data_offset
-        = lookup_collation_data_at_char (&codepoints[i], &n_consumed);
+        = lookup_collation_data_at_char (&codepoints[i], length - i,
+                                         &n_consumed);
       if (n_consumed > 0)
         {
           entry_array[n_entries].data_offset = data_offset;
