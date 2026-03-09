@@ -81,7 +81,7 @@ BEGIN {
     "Texinfo::IndicesNonXS",
     $shared_library_name,
     undef,
-    ['texinfo', 'texinfoxs'],
+    ['texinfo', 'texinfoxs', 'texinfo-convert', 'texinfo-convertxs'],
   );
 }
 
