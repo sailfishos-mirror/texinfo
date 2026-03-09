@@ -609,9 +609,9 @@ if PERL_EMBEDDED
 libtexinfo_main_la_LIBADD += $(perl_conf_LIBS)
 endif
 # contains part of ExtUtils::Embed ldopts corresponding to LDFLAGS
-libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LIB_LDFLAGS)
+libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL)
 # example to trigger errors associated with no undefined
-#libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(EUIDACCESS_LIBGEN) $(LTLIBINTL) $(LTLIBICONV) $(LTLIBUNISTRING)
+#libtexinfo_main_la_LDFLAGS = -version-info 0:0:0 -Wl,--no-undefined $(perl_conf_LIB_LDFLAGS) $(LTLIBINTL) $(perl_conf_LIBS)
 
 
 ############################################### main program in C
