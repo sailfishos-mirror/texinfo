@@ -1,5 +1,11 @@
 2026-03-09 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: in TEST is set and
+	OUTFILE is set to /dev/null and /dev/null is not a null device, reset
+	OUTFILE to a platform null device.  For a test that uses -o /dev/null.
+
+2026-03-09 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/Makefile.am (libtexinfo_main_la_LDFLAGS): add $(LTLIBINTL)
 	since gettext is used in texinfo.c.
 

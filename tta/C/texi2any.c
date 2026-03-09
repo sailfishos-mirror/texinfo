@@ -59,7 +59,7 @@
 /* for xvasprintf */
 #include "text.h"
 /* parse_file_path whitespace_chars xasprintf digit_chars encode_with_iconv
-   wipe_values locate_file_in_dirs */
+   wipe_values locate_file_in_dirs null_device_names */
 #include "utils.h"
 #include "errors.h"
 #include "customization_options.h"
@@ -2536,8 +2536,42 @@ main (int argc, char *argv[], char *env[])
       exit (EXIT_FAILURE);
     }
 
-  if (test_option && test_option->o.integer > 1)
-    remove_references = 1;
+  if (test_option)
+    {
+      if (test_option->o.integer > 1)
+        remove_references = 1;
+
+      if (test_mode_set)
+        {
+    /* in a test, /dev/null is used.  Replace by the platform null device.
+     */
+          OPTION *outfile_option
+            = GNUT_get_conf (program_options.options->OUTFILE.number);
+          if (outfile_option && outfile_option->o.string
+              && !strcmp (outfile_option->o.string, "/dev/null")
+              && null_device_names[0])
+            {
+              int i;
+              int outfile_in_null_device_files = 0;
+
+              for (i = 0; null_device_names[i]; i++)
+                {
+                  if (!strcmp (null_device_names[i],
+                               outfile_option->o.string))
+                    {
+                      outfile_in_null_device_files = 1;
+                      break;
+                    }
+                }
+              if (!outfile_in_null_device_files)
+               {
+                 GNUT_set_from_cmdline (&cmdline_options,
+                           cmdline_options.options->OUTFILE.number,
+                           null_device_names[0]);
+               }
+            }
+        }
+    }
 
   initialize_options_list (&convert_options);
 

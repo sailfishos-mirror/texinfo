@@ -99,6 +99,8 @@ C/main/unicode.h: unicode_character_brace_no_arg_commands
 C/main/utils.h: output_conversions, input_conversions
   => libtexinfo-convert (html_prepare_converter.c...),
      libtexinfo-main (swig_interface.c) 
+C/main/utils.h: null_device_names
+  => texi2any.c
 
 On Windows, the DLL are not found by texi2any.exe.  Accoring to Eli, the
 easiest way to fix could be be to copy the DLLs into the directory where

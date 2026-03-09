@@ -1708,7 +1708,19 @@ if (defined($ENV{TEXINFO_XS_EXTERNAL_FORMATTING})
 
 my $remove_references = 0;
 my $test_level = get_conf('TEST');
-$remove_references = 1 if (defined($test_level) and $test_level > 1);
+if (defined($test_level)) {
+  $remove_references = 1 if ($test_level > 1);
+
+  # in a test, /dev/null is used as out file.  Replace by the platform
+  # null device if it is not /dev/null.
+  my $outfile = get_conf('OUTFILE');
+  if (defined($outfile) and $outfile eq '/dev/null'
+      and scalar(keys(%Texinfo::Common::null_device_file))
+      and !exists($Texinfo::Common::null_device_file{$outfile})) {
+    my @null_devices = keys(%Texinfo::Common::null_device_file);
+    set_from_cmdline('OUTFILE', $null_devices[0]);
+  }
+}
 
 my $file_index = -1;
 my %opened_files;
