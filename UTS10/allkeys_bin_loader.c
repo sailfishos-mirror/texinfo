@@ -233,6 +233,8 @@ lookup_collation_data_at_char (char32_t *const string,
      is not known in advance */
   size_t n_codepoints;
 
+  /* Starting at the beginning of the string, try to match the longest
+     sequence possible. */
   for (pchar = string, n_codepoints = 0;
        pchar < string + length && (*pchar) != 0;
        pchar++)
@@ -303,6 +305,16 @@ lookup_collation_data_at_char (char32_t *const string,
               pchar--;
               pre_non_starter = pchar;
               continue;
+            }
+          else if (pre_non_starter)
+            {
+              /* Continue looking for a non-contiguous match. */
+              continue;
+            }
+          else
+            {
+              /* Cannot extend a match. */
+              break;
             }
         }
     }
