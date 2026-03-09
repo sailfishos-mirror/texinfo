@@ -3,12 +3,10 @@
 
 #########################
 
-use Test::More;
+use Test::More tests => 26;
 use File::Spec;
 
 BEGIN {
-  plan tests => 26;
-
   my $updir = File::Spec->updir();
   my $t2a_builddir;
   if (defined($ENV{'t2a_builddir'})) {

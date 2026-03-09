@@ -1,6 +1,11 @@
 2026-03-09 Patrice Dumas  <pertusus@free.fr>
 
-	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: in TEST is set and
+	* Pod-Simple-Texinfo/t/Pod-Simple-Texinfo.t: set number of tests when
+	importing Test::More.
+
+2026-03-09 Patrice Dumas  <pertusus@free.fr>
+
+	* tta/C/texi2any.c (main), tta/perl/texi2any.pl: if TEST is set and
 	OUTFILE is set to /dev/null and /dev/null is not a null device, reset
 	OUTFILE to a platform null device.  For a test that uses -o /dev/null.
 
