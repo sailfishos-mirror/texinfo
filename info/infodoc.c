@@ -252,6 +252,7 @@ create_internal_info_help_node (int help_is_only_window_p)
         = variable_long_description_string (&info_variables[i]);
       text_buffer_printf (&msg, description);
       text_buffer_printf (&msg, "\n");
+      free (description);
 
     }
 
