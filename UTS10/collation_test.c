@@ -11,12 +11,12 @@
 static void
 print_collation_key (CollationKey key)
 {
-      for (unsigned char *p = key.key; p < key.key + key.length;
-           p += 2)
-        {
-          printf ("%02x%02x ", p[0], p[1]);
-        }
-      printf ("\n");
+  for (unsigned char *p = key.key; p < key.key + key.length;
+       p += 2)
+    {
+      fprintf (stderr, "%02x%02x ", p[0], p[1]);
+    }
+  fprintf (stderr, "\n");
 }
 
 static void
@@ -32,16 +32,49 @@ string_save (char **buf, size_t *buf_size, const char *string)
   memmove (*buf, string, len + 1);
 }
 
+static int trace;
+
+static void
+print_usage (void)
+{
+  fprintf (stderr,
+    "usage: collation_test [--trace] CollationTest_NON_IGNORABLE.txt\n");
+}
+
+
 int
 main (int argc, char *argv[])
 {
-  if (argc != 2)
+  struct option long_options[] = {
+    {"trace", no_argument, 0, 't'},
+    {"help", no_argument, 0, '?'},
+    {0, 0, 0, 0}
+  };
+
+  int opt;
+  while ((opt = getopt_long (argc, argv, "t", long_options, NULL)) != -1)
     {
-      fprintf (stderr, "usage: %s CollationTest_NON_IGNORABLE.txt\n",
-               argv[0]);
+      switch (opt)
+        {
+        case 't':
+          trace = 1;
+          break;
+        case '?':
+          print_usage ();
+          exit (0);
+        default:
+          print_usage ();
+          exit (1);
+        }
+    }
+
+  if (optind != argc - 1)
+    {
+      print_usage ();
       exit (1);
     }
-  const char *filename = argv[1];
+
+  const char *filename = argv[optind];
   FILE *file = fopen (filename, "r");
   if (!file)
     {
@@ -73,7 +106,8 @@ main (int argc, char *argv[])
       if ((semicolon = strchr (line2, ';')))
         *semicolon = '\0';
 
-      printf ("read line <%s>\n", line2);
+      if (trace)
+        fprintf (stderr, "read line <%s>\n", line2);
       line_count++;
 
 #define TEST_MAX_LENGTH 16
@@ -93,18 +127,17 @@ main (int argc, char *argv[])
 
           if (val > 0x10FFFF)
             {
-              fprintf (stderr, "Error: invalid codepoint\n");
+              fprintf (stderr, "Error: invalid codepoint %lx\n", val);
               exit (1);
             }
           if (val >= 0xD800 && val <= 0xDFFF)
             {
               /* UTF-16 surrogate codepoint.  Skip this line. */
-              printf ("skip test of surrogate codepoint\n");
+              if (trace)
+                printf ("skip test of surrogate codepoint\n");
               skip_count++;
               goto next_line;
             }
-
-          /* fprintf (stderr, "read codepoint %lx\n", val); */
 
           codepoints[length++] = (char32_t) val;
         }
@@ -114,23 +147,23 @@ main (int argc, char *argv[])
           exit (1);
         }
 
-      sort_key2 = get_collation_key_ext (codepoints, length, 1);
+      sort_key2 = get_collation_key_ext (codepoints, length, trace);
 
       /* We expect that sort_key1 <= sort_key1. */
       if (memcmp (sort_key1.key, sort_key2.key,
                  sort_key1.length < sort_key2.length ? sort_key1.length
                                                      : sort_key2.length) > 0)
         {
-          printf ("Test fail at line %ld\n", line_count);
-          printf ("line 1: %s\n", line1);
-          printf ("line 2: %s\n", line2);
+          fprintf (stderr, "Test fail at line %ld\n", line_count);
+          fprintf (stderr, "line 1: %s\n", line1);
+          fprintf (stderr, "line 2: %s\n", line2);
 
-          printf ("Sort key 1: ");
+          fprintf (stderr, "Sort key 1: ");
           print_collation_key (sort_key1);
 
-          printf ("Sort key 2: ");
+          fprintf (stderr, "Sort key 2: ");
           print_collation_key (sort_key2);
-          printf ("\n");
+          fprintf (stderr, "\n");
 
           fail_count++;
         }

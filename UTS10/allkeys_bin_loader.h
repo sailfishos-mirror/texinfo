@@ -26,6 +26,7 @@ int read_collation_data_offset (COLLATION_DATA data_offset,
 void get_implicit_weight (uint32_t codepoint, CollationElement *elements,
 			  size_t *n_elements);
 
-void print_collation (const CollationElement *elements, size_t num_elements);
+void print_collation (FILE *stream, const CollationElement *elements,
+                      size_t num_elements);
 
 void print_header_info (void);

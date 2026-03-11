@@ -69,8 +69,8 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
   for (size_t i = 0; i < n_entries; i++)
     {
       if (debug)
-        printf ("Collation info for U+%04X: ",
-                codepoints[entry_array[i].string_index]);
+        fprintf (stderr, "Collation info for U+%04X: ",
+          codepoints[entry_array[i].string_index]);
 
       if (entry_array[i].data_offset)
         {
@@ -79,7 +79,7 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
                                       &elements[elements_count],
                                       &num_entry_elements);
           if (debug)
-            print_collation (&elements[elements_count], num_entry_elements);
+            print_collation (stderr, &elements[elements_count], num_entry_elements);
           elements_count += num_entry_elements;
 
         }
@@ -87,12 +87,12 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
         {
           size_t num_entry_elements;
           if (debug)
-            printf ("unknown/implicit: ");
+            fprintf (stderr, "unknown/implicit: ");
           get_implicit_weight
             (codepoints[entry_array[i].string_index],
              &elements[elements_count], &num_entry_elements);
           if (debug)
-            print_collation (&elements[elements_count], num_entry_elements);
+            print_collation (stderr, &elements[elements_count], num_entry_elements);
           elements_count += num_entry_elements;
 
         }

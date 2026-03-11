@@ -321,14 +321,12 @@ lookup_collation_data_at_char (char32_t *const string,
 
   if (n_codepoints >= 2)
     {
-      printf ("using codepoint entry of length %zd\n", n_codepoints);
       COLLATION_DATA data_offset = read_u32 (node_offset + 4);
       if (data_offset != 0)
         {
           (*n_codepoints_out) = n_codepoints;
           return data_offset;
         }
-      printf ("(incomplete sequence)\n");
     }
 
   COLLATION_DATA data_offset = lookup_codepoint_data (string[0]);
@@ -493,23 +491,26 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
 
 /* Print collation elements */
 void
-print_collation (const CollationElement *elements, size_t num_elements)
+print_collation (FILE *stream,
+                 const CollationElement *elements, size_t num_elements)
 {
   for (size_t i = 0; i < num_elements; i++)
     {
       if (elements[i].primary != 0x0000
           && elements[i].primary <= header.max_variable_weight)
         {
-          printf ("[*%04X.%04X.%04X]",
-                  elements[i].primary,
-                  elements[i].secondary, elements[i].tertiary);
+          fprintf (stream,
+                   "[*%04X.%04X.%04X]",
+                   elements[i].primary,
+                   elements[i].secondary, elements[i].tertiary);
         }
       else
         {
-          printf ("[.%04X.%04X.%04X]",
-                  elements[i].primary,
-                  elements[i].secondary, elements[i].tertiary);
+          fprintf (stream,
+                   "[.%04X.%04X.%04X]",
+                   elements[i].primary,
+                   elements[i].secondary, elements[i].tertiary);
         }
     }
-  printf ("\n");
+  fprintf (stderr, "\n");
 }

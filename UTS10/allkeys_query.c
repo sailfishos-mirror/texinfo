@@ -100,7 +100,7 @@ main (int argc, char *argv[])
 
       if (found)
         {
-          print_collation (elements, num_elements);
+          print_collation (stdout, elements, num_elements);
         }
       else
         {
