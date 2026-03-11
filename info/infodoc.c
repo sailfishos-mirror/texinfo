@@ -180,8 +180,7 @@ create_internal_info_help_node (int help_is_only_window_p)
 {
   register int i;
   NODE *node;
-  const char *where_is_exec_cmd;
-  char *exec_keys;
+  const char *exec_keys = 0;
 
   int printed_one_mx = 0;
   struct text_buffer msg;
@@ -208,42 +207,41 @@ create_internal_info_help_node (int help_is_only_window_p)
   dump_map_to_text_buffer (&msg, 0, 0, echo_area_keymap);
 
   /* Get a list of commands which have no keystroke equivs. */
-  where_is_exec_cmd = where_is (info_keymap, InfoCmd(info_execute_command));
-  if (where_is_exec_cmd)
-    exec_keys = xstrdup (where_is_exec_cmd);
-  for (i = 0; function_doc_array[i].func; i++)
-    {
-      InfoCommand *cmd = &function_doc_array[i];
+  exec_keys = where_is (info_keymap, InfoCmd(info_execute_command));
+  if (exec_keys)
+    for (i = 0; function_doc_array[i].func; i++)
+      {
+        InfoCommand *cmd = &function_doc_array[i];
 
-      if (cmd->func != info_do_lowercase_version
-          && !where_is_internal (info_keymap, cmd)
-          && !where_is_internal (echo_area_keymap, cmd))
-        {
-          if (!printed_one_mx)
-            {
-              text_buffer_printf (&msg, "---------------------\n\n");
-              if (exec_keys && exec_keys[0])
-                text_buffer_printf (&msg,
-                    _("The following commands can only be invoked via "
-                      "%s:\n\n"),
-                    exec_keys);
-              else
-                text_buffer_printf (&msg,
-                   _("The following commands cannot be invoked at all:\n\n"));
-              printed_one_mx = 1;
-            }
+        if (cmd->func == info_do_lowercase_version
+            || where_is_internal (info_keymap, cmd)
+            || where_is_internal (echo_area_keymap, cmd))
+          {
+            continue;
+          }
 
-          text_buffer_printf (&msg,
-             "%s %s\n     %s\n",
-             exec_keys,
-             function_doc_array[i].func_name,
-             replace_in_documentation (strlen (function_doc_array[i].doc)
-               ? _(function_doc_array[i].doc) : "", 0)
-            );
+        if (!printed_one_mx)
+          {
+            text_buffer_printf (&msg, "---------------------\n\n");
+            if (exec_keys && exec_keys[0])
+              text_buffer_printf (&msg,
+                  _("The following commands can only be invoked via "
+                    "%s:\n\n"),
+                  exec_keys);
+            else
+              text_buffer_printf (&msg,
+                 _("The following commands cannot be invoked at all:\n\n"));
+            printed_one_mx = 1;
+          }
 
-        }
-    }
-  free (exec_keys);
+        text_buffer_printf (&msg,
+           "%s %s\n     %s\n",
+           exec_keys,
+           function_doc_array[i].func_name,
+           replace_in_documentation (strlen (function_doc_array[i].doc)
+             ? _(function_doc_array[i].doc) : "", 0)
+          );
+      }
 
   text_buffer_printf (&msg, "---------------------\n\n");
   text_buffer_printf (&msg, _("Variables:\n\n"));

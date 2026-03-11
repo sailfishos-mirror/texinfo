@@ -1,3 +1,12 @@
+2026-03-11  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* info/infodoc.c (create_internal_info_help_node):
+	Check if return value of where_is is null before using it.  This
+	shouldn't happen but it is not easy to see this just by looking
+	at this function.  Avoid calling strdup on a string.
+	
+	Report from Patrice.
+
 2026-03-10  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* tta/perl/Texinfo/Translations.pm (fake_setlocale) [openbsd]:
