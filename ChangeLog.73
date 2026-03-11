@@ -3793,7 +3793,7 @@
 
 2025-11-11  Gavin Smith <gavinsmith0123@gmail.com>
 
-	* info/infodoc.c, info/window.c (create_internal_info_help_node):
+	* info/infodoc.c, info/window.c (get_internal_info_window):
 	Move to window.c.  Declare in window.h rather than session.h.
 
 2025-11-11  Gavin Smith <gavinsmith0123@gmail.com>
