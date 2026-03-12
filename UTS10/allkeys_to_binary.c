@@ -118,6 +118,13 @@ buffer_write_u32_at (ByteBuffer *buf, uint32_t offset, uint32_t val)
   memcpy (buf->data + offset, &val, 4);
 }
 
+static void
+buffer_align (ByteBuffer *buf, int alignment)
+{
+  while (buf->size % alignment)
+    buffer_write_u8 (buf, 0);
+}
+
 /* Parser functions */
 static int
 parse_hex (const char *str, uint32_t *value)
@@ -513,6 +520,7 @@ serialize_database (Database *db)
   buffer_write_u32 (buf, 0);    /* Placeholder for trie_offset */
 
   /* Write page table. */
+  buffer_align (buf, 4);
   uint32_t page_table_offset = buf->size;
   buffer_write_u32_at (buf, page_table_offset_pos, page_table_offset);
 
@@ -563,6 +571,7 @@ serialize_database (Database *db)
           buffer_write_u32 (buf, 0); /* Placeholder for data_offset. */
         }
     }
+  buffer_align (buf, 4);
 
   /* Now write all collation data and backfill offsets. */
   for (uint32_t i = 0; i < pending_count; i++)
