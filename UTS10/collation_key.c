@@ -21,7 +21,7 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
   struct collation_info
   {
     size_t string_index;
-    COLLATION_DATA data_offset;
+    COLLATION_DATA data;
   };
 
   /* Maximum one collation_info per character.  Less if there are
@@ -34,18 +34,18 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
   for (size_t i = 0; i < length;)
     {
       size_t n_consumed;
-      COLLATION_DATA data_offset
+      COLLATION_DATA data
         = lookup_collation_data_at_char (&codepoints[i], length - i,
                                          &n_consumed);
       if (n_consumed > 0)
         {
-          entry_array[n_entries].data_offset = data_offset;
+          entry_array[n_entries].data = data;
           entry_array[n_entries++].string_index = i;
           i += n_consumed;
         }
       else
         {
-          entry_array[n_entries].data_offset = 0;
+          entry_array[n_entries].data = (COLLATION_DATA) {0};
           entry_array[n_entries++].string_index = i;
           i++;
         }
@@ -54,11 +54,9 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
   int num_elements = 0;
   for (size_t i = 0; i < n_entries; i++)
     {
-      if (entry_array[i].data_offset)
+      if (entry_array[i].data.data_offset)
         {
-          size_t n = element_count_of_data_offset
-            (entry_array[i].data_offset);
-          num_elements += n;
+          num_elements += entry_array[i].data.num_elements;
         }
       else
         num_elements += 2;      /* implicitly determined weights? */
@@ -72,16 +70,13 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
         fprintf (stderr, "Collation info for U+%04X: ",
           codepoints[entry_array[i].string_index]);
 
-      if (entry_array[i].data_offset)
+      if (entry_array[i].data.data_offset)
         {
-          size_t num_entry_elements;
-          read_collation_data_offset (entry_array[i].data_offset,
-                                      &elements[elements_count],
-                                      &num_entry_elements);
+          size_t num_entry_elements = entry_array[i].data.num_elements;
+          read_collation_data (entry_array[i].data, &elements[elements_count]);
           if (debug)
             print_collation (stderr, &elements[elements_count], num_entry_elements);
-          elements_count += num_entry_elements;
-
+          elements_count += entry_array[i].data.num_elements;
         }
       else
         {

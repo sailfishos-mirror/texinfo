@@ -385,10 +385,11 @@ build_database (const char *filename)
 
 /* Write collation data and return its offset */
 static uint32_t
-write_collation_data (ByteBuffer *buf, CollationData *data)
+write_collation_data (ByteBuffer *buf, CollationData *data,
+                      uint32_t element_count_offset)
 {
   uint8_t num_elements = data->num_elements;
-  uint32_t offset = buffer_write_u8 (buf, num_elements);
+  uint32_t offset = buf->size;
   for (int i = 0; i < data->num_elements; i++)
     {
       buffer_write_u16 (buf, data->elements[i].primary);
@@ -409,7 +410,7 @@ write_collation_data (ByteBuffer *buf, CollationData *data)
           buffer_write_u8 (buf, secondary_write);
           buffer_write_u8 (buf, data->elements[i].tertiary);
 
-          buffer_write_u8_at (buf, offset, ++num_elements);
+          buffer_write_u8_at (buf, element_count_offset, ++num_elements);
 
           buffer_write_u16 (buf, 0x0000);
           buffer_write_u8 (buf, secondary - 0x0100);
@@ -441,6 +442,10 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
   uint32_t data_offset_pos = buf->size;
   buffer_write_u32 (buf, 0);
 
+  /* Number of collation elements in the record. */
+  uint32_t element_count_offset
+    = buffer_write_u8 (buf, node->data ? node->data->num_elements : 0);
+
   buffer_write_u16 (buf, node->num_children);
 
   /* Reserve space for child offsets */
@@ -460,7 +465,8 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
   /* Write collation data and update offset. */
   if (node->data)
     {
-      uint32_t data_offset = write_collation_data (buf, node->data);
+      uint32_t data_offset = write_collation_data (buf, node->data,
+                                                   element_count_offset);
       buffer_write_u32_at (buf, data_offset_pos, data_offset);
     }
 
@@ -522,6 +528,7 @@ serialize_database (Database *db)
   typedef struct
   {
     uint32_t offset_position;   /* Where to write the data_offset. */
+    uint32_t element_count_offset;
     CollationData *data;        /* The data to write later. */
   } PendingData;
 
@@ -544,6 +551,10 @@ serialize_database (Database *db)
         {
           buffer_write_u8 (buf, page->entries[j].offset);
 
+          /* Number of collation elements in the record, if any. */
+          pending[pending_count].element_count_offset
+            = buffer_write_u8 (buf, page->entries[j].data->num_elements);
+
           /* Remember where we need to write the data offset. */
           pending[pending_count].offset_position = buf->size;
           pending[pending_count].data = page->entries[j].data;
@@ -556,7 +567,9 @@ serialize_database (Database *db)
   /* Now write all collation data and backfill offsets. */
   for (uint32_t i = 0; i < pending_count; i++)
     {
-      uint32_t data_offset = write_collation_data (buf, pending[i].data);
+      uint32_t data_offset = write_collation_data (buf,
+                               pending[i].data,
+                               pending[i].element_count_offset);
       buffer_write_u32_at (buf, pending[i].offset_position, data_offset);
     }
 

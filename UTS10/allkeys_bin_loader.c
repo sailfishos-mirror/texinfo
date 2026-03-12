@@ -141,14 +141,12 @@ print_header_info (void)
 }
 
 /* Read collation data at offset */
-static int
-read_collation_data (size_t offset,
-                     CollationElement *elements, size_t *num_elements)
+int
+read_collation_data (COLLATION_DATA data,
+                     CollationElement *elements)
 {
-  *num_elements = read_u8 (offset);
-  offset++;
-
-  for (int i = 0; i < *num_elements; i++)
+  uint32_t offset = data.data_offset;
+  for (int i = 0; i < data.num_elements; i++)
     {
       elements[i].primary = read_u16 (offset);
       offset += 2;
@@ -171,7 +169,7 @@ COLLATION_DATA
 lookup_codepoint_data (char32_t codepoint)
 {
   if (codepoint >= 0x110000)
-    return 0;
+    return (COLLATION_DATA) {0};
 
   uint32_t page_num = codepoint >> 8;
   uint8_t page_offset = codepoint & 0xFF;
@@ -180,7 +178,7 @@ lookup_codepoint_data (char32_t codepoint)
   uint32_t page_data_offset =
     read_u32 (header.page_table_offset + page_num * 4);
   if (page_data_offset == 0)
-    return 0;                   // Page not allocated
+    return (COLLATION_DATA) {0};       // Page not allocated
 
   // Read page count
   uint16_t count = read_u16 (page_data_offset);
@@ -193,14 +191,16 @@ lookup_codepoint_data (char32_t codepoint)
   while (left <= right)
     {
       int mid = left + (right - left) / 2;
-      uint32_t entry_offset = entries_offset + mid * 5; // 1 byte offset + 4 byte data_offset
+      uint32_t entry_offset = entries_offset + mid * 6;
+      /* 1 byte offset + 1 byte element count + 4 byte offset */
       uint8_t entry_page_offset = read_u8 (entry_offset);
 
       if (entry_page_offset == page_offset)
         {
-          // Found it!
-          uint32_t data_offset = read_u32 (entry_offset + 1);
-          return (COLLATION_DATA) data_offset;
+          COLLATION_DATA data;
+          data.num_elements = read_u8 (entry_offset + 1);
+          data.data_offset = read_u32 (entry_offset + 2);
+          return data;
         }
       else if (entry_page_offset < page_offset)
         {
@@ -212,7 +212,7 @@ lookup_codepoint_data (char32_t codepoint)
         }
     }
 
-  return 0;                     // Not found
+  return (COLLATION_DATA) {0}; /* not found */
 }
 
 /* STRING points into a char32_t array.  First check for sequence entry
@@ -265,8 +265,9 @@ lookup_collation_data_at_char (char32_t *const string,
       // Read node
       uint32_t node_codepoint = read_u32 (node_offset);
       uint32_t node_data_offset = read_u32 (node_offset + 4);
-      uint16_t num_children = read_u16 (node_offset + 8);
-      uint32_t children_offset = node_offset + 10;
+      uint8_t num_elements = read_u8 (node_offset + 8);
+      uint16_t num_children = read_u16 (node_offset + 9);
+      uint32_t children_offset = node_offset + 11;
 
 
       // Search for matching child
@@ -321,16 +322,18 @@ lookup_collation_data_at_char (char32_t *const string,
 
   if (n_codepoints >= 2)
     {
-      COLLATION_DATA data_offset = read_u32 (node_offset + 4);
-      if (data_offset != 0)
+      COLLATION_DATA data;
+      data.data_offset = read_u32 (node_offset + 4);
+      data.num_elements = read_u8 (node_offset + 8);
+      if (data.data_offset != 0)
         {
           (*n_codepoints_out) = n_codepoints;
-          return data_offset;
+          return data;
         }
     }
 
-  COLLATION_DATA data_offset = lookup_codepoint_data (string[0]);
-  if (data_offset)
+  COLLATION_DATA data = lookup_codepoint_data (string[0]);
+  if (data.data_offset)
     {
       (*n_codepoints_out) = 1;
     }
@@ -338,33 +341,20 @@ lookup_collation_data_at_char (char32_t *const string,
     {
       (*n_codepoints_out) = 0;
     }
-  return data_offset;
+  return data;
 }
 
 int
 lookup_codepoint (char32_t codepoint,
                   CollationElement *elements, size_t *num_elements)
 {
-  COLLATION_DATA data_offset = lookup_codepoint_data (codepoint);
-  if (data_offset)
+  COLLATION_DATA data = lookup_codepoint_data (codepoint);
+  if (data.data_offset)
     {
-      return read_collation_data (data_offset, elements, num_elements);
+      (*num_elements) = data.num_elements;
+      return read_collation_data (data, elements);
     }
-  return 0;                     // Not found
-}
-
-uint8_t
-element_count_of_data_offset (COLLATION_DATA offset)
-{
-  return read_u8 (offset);
-}
-
-/* Like lookup_codepoint, but takes a data_offset handle. */
-int
-read_collation_data_offset (COLLATION_DATA data_offset,
-                            CollationElement *elements, size_t *num_elements)
-{
-  return read_collation_data (data_offset, elements, num_elements);
+  return 0;
 }
 
 /* Return implicitly determined weights. */
@@ -453,8 +443,9 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
       // Read node
       uint32_t node_codepoint = read_u32 (node_offset);
       uint32_t node_data_offset = read_u32 (node_offset + 4);
-      uint16_t num_children = read_u16 (node_offset + 8);
-      uint32_t children_offset = node_offset + 10;
+      uint8_t node_num_elements = read_u32 (node_offset + 8);
+      uint16_t num_children = read_u16 (node_offset + 9);
+      uint32_t children_offset = node_offset + 11;
 
       // Search for matching child
       int found = 0;
@@ -471,11 +462,13 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
               // If this is the last codepoint, check for collation_data
               if (i == len - 1)
                 {
-                  uint32_t data_offset = read_u32 (node_offset + 4);
-                  if (data_offset != 0)
+                  COLLATION_DATA data;
+                  data.data_offset = read_u32 (node_offset + 4);
+                  data.num_elements = read_u8 (node_offset + 8);
+                  if (data.data_offset != 0)
                     {
-                      return read_collation_data (data_offset, elements,
-                                                  num_elements);
+                      *num_elements = data.num_elements;
+                      return read_collation_data (data, elements);
                     }
                 }
               break;
@@ -486,7 +479,7 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
         return 0;
     }
 
-  return 0;                     // Sequence not found
+  return 0; /* sequence not found */
 }
 
 /* Print collation elements */

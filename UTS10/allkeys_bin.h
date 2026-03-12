@@ -28,10 +28,10 @@
  *   uint16_t count        Number of entries in page
  *   For each entry:
  *     uint8_t offset      Offset within page (0-255)
+ *     uint8_t num_elements
  *     uint32_t data_offset Offset to collation data
  * 
  * Collation Data (variable size):
- *   uint8_t num_elements
  *   For each element:
  *     uint16_t primary
  *     uint8_t secondary (coded)
@@ -40,6 +40,7 @@
  * Sequence Trie (variable size):
  *   uint32_t codepoint
  *   uint32_t data_offset  (0 if intermediate node)
+ *   uint8_t num_elements
  *   uint16_t num_children
  *   For each child:
  *     uint32_t child_offset
