@@ -1,5 +1,14 @@
 2026-03-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm
+	(@informative_global_commands): add exampleindent.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm ($default_indent_length)
+	(_text_heading): rename $indent_length as $default_indent_length.
+	Rename $indent_length in _text_heading as $indented_len.
+
+2026-03-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/C/convert/convert_html.c (html_cache_translate_string):
 	initialize lang.
 

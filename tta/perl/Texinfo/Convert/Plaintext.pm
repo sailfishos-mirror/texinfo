@@ -85,7 +85,8 @@ my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
 
 # documentlanguage is used through cdt().
 my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
-'frenchspacing', 'footnotestyle', 'documentlanguage', 'deftypefnnewline');
+ 'exampleindent',
+ 'frenchspacing', 'footnotestyle', 'documentlanguage', 'deftypefnnewline');
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
@@ -220,7 +221,7 @@ my %item_indent_format_length = ('enumerate' => 2,
     'ftable' => 0,
  );
 
-my $indent_length = 5;
+my $default_indent_length = 5;
 
 my %indented_commands;
 foreach my $indented_command (keys(%item_indent_format_length),
@@ -930,7 +931,8 @@ sub new_formatter($$;$) {
     $container_conf->{'indent_length'} = $indent;
   } else {
     $container_conf->{'indent_length'}
-      = $indent_length*($self->{'format_context'}->[-1]->{'indent_level'});
+      = $default_indent_length
+           * ($self->{'format_context'}->[-1]->{'indent_level'});
   }
 
   my $frenchspacing_conf = $self->get_conf('frenchspacing');
@@ -2505,7 +2507,7 @@ my %underline_symbol = (
 
 # Return the text of an underlined heading, possibly indented.
 sub _text_heading($$$;$$) {
-  my ($self, $current, $heading_element, $numbered, $indent_length) = @_;
+  my ($self, $current, $heading_element, $numbered, $indented_len) = @_;
 
   my $number;
   if (exists($current->{'extra'})
@@ -2537,13 +2539,13 @@ sub _text_heading($$$;$$) {
 
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
-  if (defined($indent_length)) {
-    if ($indent_length < 0) {
-      $indent_length = 0;
+  if (defined($indented_len)) {
+    if ($indented_len < 0) {
+      $indented_len = 0;
     }
-    $result .= (' ' x $indent_length);
+    $result .= (' ' x $indented_len);
   } else {
-    $indent_length = 0;
+    $indented_len = 0;
   }
   my $section_level;
   if (!exists($current->{'extra'})
@@ -2552,10 +2554,10 @@ sub _text_heading($$$;$$) {
   } else {
     $section_level = $current->{'extra'}->{'section_level'};
   }
-  # $text is indented if indent_length is set, so $indent_length needs to
+  # $text is indented if indented_len is set, so $indented_len needs to
   # be subtracted to have the width of the heading only.
   $result .= ($underline_symbol{$section_level}
-                x ($columns - $indent_length))."\n";
+                x ($columns - $indented_len))."\n";
   return $result;
 }
 
@@ -2816,10 +2818,10 @@ sub _convert_def_line($$) {
     my $def_paragraph = new_formatter($self, 'paragraph',
      { 'indent_length' =>
            ($self->{'format_context'}->[-1]->{'indent_level'} -1)
-                                                   * $indent_length,
+                                            * $default_indent_length,
        'indent_length_next' =>
            (1+$self->{'format_context'}->[-1]->{'indent_level'})
-                                                   * $indent_length,
+                                            * $default_indent_length,
        'suppress_styles' => 1
      });
     push @{$self->{'formatters'}}, $def_paragraph;
@@ -3467,7 +3469,8 @@ sub _convert($$) {
                                       'cmdname' => 'titlefont'}),
                             $element->{'contents'}->[0],
                             $self->get_conf('NUMBER_SECTIONS'),
-          ($self->{'format_context'}->[-1]->{'indent_level'}) *$indent_length);
+               $self->{'format_context'}->[-1]->{'indent_level'}
+                                                 * $default_indent_length);
           $result =~ s/\n$//; # final newline has its own tree element
           _stream_output($self, $result);
           _add_lines_count($self, 1);
@@ -3713,7 +3716,7 @@ sub _convert($$) {
              _text_heading($self, $element, $heading_element,
                            $self->get_conf('NUMBER_SECTIONS'),
                            ($self->{'format_context'}->[-1]->{'indent_level'})
-                                           * $indent_length);
+                                           * $default_indent_length);
         _add_newline_if_needed($self);
         _stream_output($self, $heading_underlined);
         if ($heading_underlined ne '') {
@@ -3736,7 +3739,7 @@ sub _convert($$) {
         $self->convert_line($frenchspacing_element,
              {'indent_length' =>
                  ($self->{'format_context'}->[-1]->{'indent_level'} -1)
-                   * $indent_length});
+                   * $default_indent_length});
         _ensure_end_of_line($self);
       }
       return;
@@ -3748,7 +3751,7 @@ sub _convert($$) {
       my $line = new_formatter($self, 'line',
           {'indent_length' =>
               ($self->{'format_context'}->[-1]->{'indent_level'} -1)
-                * $indent_length
+                * $default_indent_length
                  + $item_indent_format_length{$element->{'parent'}->{'cmdname'}}});
       push @{$self->{'formatters'}}, $line;
       if ($element->{'parent'}->{'cmdname'} eq 'enumerate') {
@@ -3820,7 +3823,7 @@ sub _convert($$) {
           my $formatter = new_formatter($self, 'unfilled',
             {'indent_length' =>
                 ($self->{'format_context'}->[-1]->{'indent_level'} -1)
-                  * $indent_length});
+                  * $default_indent_length});
           $formatter->{'font_type_stack'}->[-1]->{'monospace'} = 1;
           push @{$self->{'formatters'}}, $formatter;
           _convert($self, $element->{'contents'}->[0]);
@@ -3832,7 +3835,7 @@ sub _convert($$) {
           $self->convert_line($element->{'contents'}->[0],
              {'indent_length' =>
                  ($self->{'format_context'}->[-1]->{'indent_level'} -1)
-                   * $indent_length});
+                   * $default_indent_length});
         }
       }
       _ensure_end_of_line($self);
@@ -4284,7 +4287,8 @@ sub _convert($$) {
                  'paragraph_count' => 0,
                  'indent_length' => $description_indent_length,
                  # for block commands.  Not an exact value
-                 'indent_level' => int($description_indent_length / $indent_length),
+                 'indent_level' => int(
+                     $description_indent_length / $default_indent_length),
                };
 
               $formatted_elt = {'contents' => $node_description->{'contents'}};
@@ -4379,7 +4383,7 @@ sub _convert($$) {
       my $cell_beginning = 0;
       my $cell_idx = 0;
       my $max_lines = 0;
-      my $indent_len = $indent_length
+      my $indent_len = $default_indent_length
              * $self->{'format_context'}->[-1]->{'indent_level'};
       foreach my $cell (@{$self->{'format_context'}->[-1]->{'row'}}) {
         $cell_beginnings[$cell_idx] = $cell_beginning;
