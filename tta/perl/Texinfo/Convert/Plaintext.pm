@@ -931,13 +931,8 @@ sub new_formatter($$;$) {
     'max' => $self->{'text_element_context'}->[-1]->{'max'},
   };
 
-  my $indent = $self->{'format_context'}->[-1]->{'indent_length'};
-  if (defined($indent)) {
-    $container_conf->{'indent_length'} = $indent;
-  } else {
-    $container_conf->{'indent_length'}
+  $container_conf->{'indent_length'}
       = $self->{'format_context'}->[-1]->{'context_indent_len'};
-  }
 
   my $frenchspacing_conf = $self->get_conf('frenchspacing');
 
@@ -4289,7 +4284,6 @@ sub _convert($$) {
               push @{$self->{'format_context'}},
                { 'cmdname' => $node_description->{'cmdname'},
                  'paragraph_count' => 0,
-                 'indent_length' => $description_indent_length,
                  'context_indent_len' => $description_indent_length,
                };
 
