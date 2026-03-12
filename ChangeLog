@@ -1,5 +1,15 @@
 2026-03-12 Patrice Dumas  <pertusus@free.fr>
 
+	* tta/perl/Texinfo/Convert/Plaintext.pm (%example_indented_commands):
+	set to the indented %preformatted_commands.
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (push_top_formatter)
+	(new_formatter, new_formatter, _convert): replace 'indent_level'
+	by a length, 'context_indent_len'.  This prepares for indentation
+	added being different from the default.
+
+2026-03-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm
 	(@informative_global_commands): add exampleindent.
 

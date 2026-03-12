@@ -692,7 +692,7 @@ $result_converted{'plaintext'}->{'nodedescriptionblock_descriptions'} = 'test of
 
                                Para2
 
-                                   a quotation in description
+                                    a quotation in description
 
 * a somewhat long node without description nor following space::  not as long
                                as the node
