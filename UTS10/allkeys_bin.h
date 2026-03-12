@@ -27,7 +27,7 @@
  * Page Data (variable size per page):
  *   uint16_t count        Number of entries in page
  *   For each entry:
- *     uint8_t offset      Offset within page (0-255)
+ *     uint8_t index      Index within page (0-255)
  *     uint8_t num_elements
  *     uint32_t data_offset Offset to collation data
  * 

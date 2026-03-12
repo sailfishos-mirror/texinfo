@@ -172,7 +172,7 @@ lookup_codepoint_data (char32_t codepoint)
     return (COLLATION_DATA) {0};
 
   uint32_t page_num = codepoint >> 8;
-  uint8_t page_offset = codepoint & 0xFF;
+  uint8_t page_index = codepoint & 0xFF;
 
   // Read page table entry
   uint32_t page_data_offset =
@@ -193,16 +193,16 @@ lookup_codepoint_data (char32_t codepoint)
       int mid = left + (right - left) / 2;
       uint32_t entry_offset = entries_offset + mid * 6;
       /* 1 byte offset + 1 byte element count + 4 byte offset */
-      uint8_t entry_page_offset = read_u8 (entry_offset);
+      uint8_t entry_page_index = read_u8 (entry_offset);
 
-      if (entry_page_offset == page_offset)
+      if (entry_page_index == page_index)
         {
           COLLATION_DATA data;
           data.num_elements = read_u8 (entry_offset + 1);
           data.data_offset = read_u32 (entry_offset + 2);
           return data;
         }
-      else if (entry_page_offset < page_offset)
+      else if (entry_page_index < page_index)
         {
           left = mid + 1;
         }

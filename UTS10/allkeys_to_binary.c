@@ -17,7 +17,7 @@ typedef struct
 
 typedef struct
 {
-  uint8_t offset;
+  uint8_t index;
   CollationData *data;
 } PageEntry;
 
@@ -324,7 +324,7 @@ build_database (const char *filename)
       if (num_codepoints == 1)
         {
           uint32_t page_num = codepoints[0] >> 8;
-          uint8_t offset = codepoints[0] & 0xFF;
+          uint8_t index = codepoints[0] & 0xFF;
 
           if (!db->pages[page_num])
             {
@@ -334,7 +334,7 @@ build_database (const char *filename)
           Page *page = db->pages[page_num];
           page->entries =
             realloc (page->entries, (page->count + 1) * sizeof (PageEntry));
-          page->entries[page->count].offset = offset;
+          page->entries[page->count].index = index;
           page->entries[page->count].data = data;
           page->count++;
           db->num_singles++;
@@ -479,7 +479,7 @@ compare_page_entries (const void *a, const void *b)
 {
   const PageEntry *ea = (const PageEntry *) a;
   const PageEntry *eb = (const PageEntry *) b;
-  return (int) ea->offset - (int) eb->offset;
+  return (int) ea->index - (int) eb->index;
 }
 
 /* Convert database to binary format */
@@ -549,7 +549,7 @@ serialize_database (Database *db)
       /* Write entries with placeholder data offsets. */
       for (uint16_t j = 0; j < page->count; j++)
         {
-          buffer_write_u8 (buf, page->entries[j].offset);
+          buffer_write_u8 (buf, page->entries[j].index);
 
           /* Number of collation elements in the record, if any. */
           pending[pending_count].element_count_offset
