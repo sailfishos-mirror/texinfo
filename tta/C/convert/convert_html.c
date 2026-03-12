@@ -144,7 +144,7 @@ html_cache_translate_string (CONVERTER *self, const char *string,
                              LANG_TRANSLATION *lang_translation,
                              const char *translation_context)
 {
-  const char *lang;
+  const char *lang = 0;
   char *translated_string;
 
   if (lang_translation && lang_translation->lang)

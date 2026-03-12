@@ -255,7 +255,9 @@ messages_and_encodings_setup (const char *datadir)
 
 
 
-/* Here to avoid an include in structuring transfo by the caller */
+/* Here and not in structuring code to avoid an include of structuring
+   code header in the file(s) where setup_structuring_data is called.
+ */
 
 enum structuring_commands_categories {
   SCMC_section,
