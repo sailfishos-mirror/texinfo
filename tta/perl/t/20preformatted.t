@@ -5,6 +5,56 @@ use Texinfo::ModulePath (undef, undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+# for exampleindent tests
+my $nested_examples = '@example
+@quotation
+EXAMPLE INDENT in quotation
+@end quotation
+@end example
+
+@quotation
+@example
+quotation EXAMPLE INDENT
+@end example
+@end quotation
+
+@example
+@display
+EXAMPLE INDENT in display
+@end display
+@end example
+
+@example
+@format
+EXAMPLE INDENT in format
+@end format
+@end example
+
+@example
+@deffn name arg
+In deffn
+@exdent EXDENT
+@end deffn
+@end example
+
+@example
+in first
+@exdent exdented first
+@example
+in second
+@exdent exdented second
+@end example
+@end example
+
+@quotation
+@example
+@exdent exdent in quotation example
+AA
+@end example
+@end quotation
+
+';
+
 my @test_cases = (
 ['empty_line',
 '@example
@@ -238,6 +288,39 @@ example with @@-commands and other special characters
 '@example @ref{a,b,c,d} fa, @anchor{an anchor} on example line, @center in center
 @end example
 '],
+['exampleindent_set',
+'@exampleindent 2
+
+@example
+EXAMPLE INDENT
+@end example
+',],
+['exampleindent_zero',
+'@exampleindent asis
+
+@example
+EXAMPLE INDENT asis
+@end example
+
+@exampleindent 0
+
+@example
+EXAMPLE INDENT 0
+@end example
+',],
+['exampleindent_set_nestings',
+'@exampleindent 2
+'.$nested_examples
+],
+['exampleindent_zero_nestings',
+'@exampleindent asis
+'.
+$nested_examples
+.'@exampleindent 0
+'.
+$nested_examples
+],
+
 );
 
 my @test_invalid = (

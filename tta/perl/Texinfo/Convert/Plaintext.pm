@@ -3575,8 +3575,12 @@ sub _convert($$) {
              };
         if (exists($indented_commands{$cmdname})) {
           if (exists($example_indented_commands{$cmdname})) {
+            my $indent_len = $self->get_conf('exampleindent');
+            if ($indent_len eq 'asis') {
+              $indent_len = 0;
+            }
             $self->{'format_context'}->[-1]->{'context_indent_len'}
-              += $default_indent_length;
+              += $indent_len;
           } else {
             $self->{'format_context'}->[-1]->{'context_indent_len'}
               += $default_indent_length;

@@ -1,0 +1,196 @@
+use vars qw(%result_texis %result_texts %result_tree_text %result_errors
+   %result_indices %result_floats %result_nodes_list %result_sections_list
+   %result_sectioning_root %result_headings_list
+   %result_converted %result_converted_errors %result_indices_sort_strings);
+
+use utf8;
+
+$result_tree_text{'exampleindent_zero'} = '*document_root C1
+ *before_node_section C7
+  *@exampleindent C1 l1
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |global_command_number:{1}
+  |misc_args:A{asis}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {asis}
+  {empty_line:\\n}
+  *@example C3 l3
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+   *preformatted C1
+    {EXAMPLE INDENT asis\\n}
+   *@end C1 l5
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {example}
+  {empty_line:\\n}
+  *@exampleindent C1 l7
+  |INFO
+  |spaces_before_argument:
+   |{spaces_before_argument: }
+  |EXTRA
+  |global_command_number:{2}
+  |misc_args:A{0}
+   *line_arg C1
+   |INFO
+   |spaces_after_argument:
+    |{spaces_after_argument:\\n}
+    {0}
+  {empty_line:\\n}
+  *@example C3 l9
+   *arguments_line C1
+    *block_line_arg
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+   *preformatted C1
+    {EXAMPLE INDENT 0\\n}
+   *@end C1 l11
+   |INFO
+   |spaces_before_argument:
+    |{spaces_before_argument: }
+   |EXTRA
+   |text_arg:{example}
+    *line_arg C1
+    |INFO
+    |spaces_after_argument:
+     |{spaces_after_argument:\\n}
+     {example}
+';
+
+
+$result_texis{'exampleindent_zero'} = '@exampleindent asis
+
+@example
+EXAMPLE INDENT asis
+@end example
+
+@exampleindent 0
+
+@example
+EXAMPLE INDENT 0
+@end example
+';
+
+
+$result_texts{'exampleindent_zero'} = '
+EXAMPLE INDENT asis
+
+
+EXAMPLE INDENT 0
+';
+
+$result_errors{'exampleindent_zero'} = '';
+
+$result_nodes_list{'exampleindent_zero'} = '';
+
+$result_sections_list{'exampleindent_zero'} = '';
+
+$result_sectioning_root{'exampleindent_zero'} = '';
+
+$result_headings_list{'exampleindent_zero'} = '';
+
+
+$result_converted{'plaintext'}->{'exampleindent_zero'} = 'EXAMPLE INDENT asis
+
+EXAMPLE INDENT 0
+';
+
+
+$result_converted{'html'}->{'exampleindent_zero'} = '<!DOCTYPE html>
+<html>
+<!-- Created by texinfo, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Untitled Document</title>
+
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<style type="text/css">
+div.example {margin-left: 3.2em}
+</style>
+
+
+</head>
+
+<body>
+
+<div class="example">
+<pre class="example-preformatted">EXAMPLE INDENT asis
+</pre></div>
+
+
+<div class="example">
+<pre class="example-preformatted">EXAMPLE INDENT 0
+</pre></div>
+
+
+
+</body>
+</html>
+';
+
+$result_converted_errors{'html'}->{'exampleindent_zero'} = '* W |must specify a title with a title command or @top
+ warning: must specify a title with a title command or @top
+
+';
+
+
+$result_converted{'docbook'}->{'exampleindent_zero'} = '
+<screen>EXAMPLE INDENT asis
+</screen>
+
+<screen>EXAMPLE INDENT 0
+</screen>';
+
+
+$result_converted{'xml'}->{'exampleindent_zero'} = '<exampleindent spaces=" " value="asis" line="asis"></exampleindent>
+
+<example endspaces=" ">
+<pre xml:space="preserve">EXAMPLE INDENT asis
+</pre></example>
+
+<exampleindent spaces=" " value="0" line="0"></exampleindent>
+
+<example endspaces=" ">
+<pre xml:space="preserve">EXAMPLE INDENT 0
+</pre></example>
+';
+
+
+$result_converted{'latex_text'}->{'exampleindent_zero'} = '
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily EXAMPLE INDENT asis
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
+
+
+\\begin{Texinfoindented}
+\\begin{Texinfopreformatted}%
+\\ttfamily EXAMPLE INDENT 0
+\\end{Texinfopreformatted}
+\\end{Texinfoindented}
+';
+
+1;

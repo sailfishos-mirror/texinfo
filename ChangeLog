@@ -1,5 +1,18 @@
 2026-03-12 Patrice Dumas  <pertusus@free.fr>
 
+	Obey @exampleindent in plaintext and Info output
+
+	* tta/perl/Texinfo/Convert/Plaintext.pm (_convert): use exampleindent
+	customization info to increase the indent length for
+	%example_indented_commands.  Report from Rik.
+
+	* tta/perl/Makefile.tres, tta/perl/t/20preformatted.t
+	($nested_examples, exampleindent_set, exampleindent_zero)
+	(exampleindent_set_nestings, exampleindent_zero_nestings): new tests
+	of @exampleindent.
+
+2026-03-12 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/Convert/Plaintext.pm (new_formatter, _convert):
 	never put 'indent_length' in 'format_context', only in new_formatter
 	$conf.

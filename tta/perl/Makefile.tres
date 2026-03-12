@@ -1955,6 +1955,10 @@ test_files_generated_list = $(test_tap_files_generated_list) \
   t/results/preformatted/example_empty_arguments.pl \
   t/results/preformatted/example_invalid_at_commands_arguments.pl \
   t/results/preformatted/example_multi_class.pl \
+  t/results/preformatted/exampleindent_set.pl \
+  t/results/preformatted/exampleindent_set_nestings.pl \
+  t/results/preformatted/exampleindent_zero.pl \
+  t/results/preformatted/exampleindent_zero_nestings.pl \
   t/results/preformatted/insertcopying_in_example.pl \
   t/results/preformatted/nested_example_and_comment.pl \
   t/results/preformatted/nested_formats.pl \
