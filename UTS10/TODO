@@ -11,13 +11,14 @@ extra secondary collation weights 001F - 0127
 29 possible tertiary weights
 
 
-* remove useless debugging/progress statements
+* check if reordering in discontiguous matching is correct
 
-* discontiguous matching - check if this is really necessary
-
-* check integer alignment and endianness in dump
+* possible to cast more of dump to C data structure so not always accessing
+by byte offsets?
 
 * put allkeys.txt version (and other metadata?) in output
+
+* optimise sequence lookup or lookup for ASCII chars
 
 * test more sequences other than l· (what are they??)
 
@@ -25,8 +26,9 @@ extra secondary collation weights 001F - 0127
 
 * To avoid zero bytes, change 00 to 01 when creating binary dump.
 (See TR#10 s.9.5.  This advice doesn't really make any sense as
-it doesn't work for 16 bit values greater than FEOO, i.e. what
-can be represented in base 255 with two digits.)
+it doesn't work for 16 bit values greater than FE00, i.e. what
+can be represented in base 255 with two digits.)  But we could save
+additional collation elements if the weights are too high.
 
 * Read Implicit weights from allkeys.txt
  
