@@ -6257,8 +6257,9 @@ is recommended.  Perhaps this will change in future Texinfo releases.
 
 @quotation Caution
 Do not use tabs in the lines of an example!  (Or anywhere else in
-Texinfo, except in verbatim environments.)  @TeX{} treats tabs as
-single spaces, and that is not what they look like.
+Texinfo, except in verbatim environments.)  @TeX{} treats a tab as a
+single space character, so any text following a tab on a line will not
+be aligned as expected.
 @end quotation
 
 
