@@ -26,12 +26,6 @@ by byte offsets?
 
 * Add gnulib vars in Makefile.am
 
-* To avoid zero bytes, change 00 to 01 when creating binary dump.
-(See TR#10 s.9.5.  This advice doesn't really make any sense as
-it doesn't work for 16 bit values greater than FE00, i.e. what
-can be represented in base 255 with two digits.)  But we could save
-additional collation elements if the weights are too high.
-
 * Read Implicit weights from allkeys.txt
  
 * Unicode normalisation issues.  We should extend the data table
