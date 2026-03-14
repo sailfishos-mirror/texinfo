@@ -215,6 +215,8 @@ lookup_codepoint_data (char32_t codepoint)
   return (COLLATION_DATA) {0}; /* not found */
 }
 
+#define check_sequences 1
+
 /* STRING points into a char32_t array.  First check for sequence entry
    at STRING, then for individual codepoint entry.  This function can
    reorder STRING. */
@@ -232,6 +234,8 @@ lookup_collation_data_at_char (char32_t *const string,
   /* similar to lookup_sequence but number of codepoints consumed
      is not known in advance */
   size_t n_codepoints;
+
+#if check_sequences
 
   /* Starting at the beginning of the string, try to match the longest
      sequence possible. */
@@ -331,6 +335,8 @@ lookup_collation_data_at_char (char32_t *const string,
           return data;
         }
     }
+
+#endif
 
   COLLATION_DATA data = lookup_codepoint_data (string[0]);
   if (data.data_offset)
