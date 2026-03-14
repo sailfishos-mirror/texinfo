@@ -41,6 +41,8 @@ print_usage (void)
     "usage: collation_test [--trace] CollationTest_NON_IGNORABLE.txt\n");
 }
 
+#define no_nulls_in_key 1
+
 
 int
 main (int argc, char *argv[])
@@ -150,9 +152,14 @@ main (int argc, char *argv[])
       sort_key2 = get_collation_key_ext (codepoints, length, trace);
 
       /* We expect that sort_key1 <= sort_key1. */
+#if no_nulls_in_key
+      if (sort_key1.key && sort_key2.key
+          && strcmp (sort_key1.key, sort_key2.key) > 0)
+#else
       if (memcmp (sort_key1.key, sort_key2.key,
                  sort_key1.length < sort_key2.length ? sort_key1.length
                                                      : sort_key2.length) > 0)
+#endif
         {
           fprintf (stderr, "Test fail at line %ld\n", line_count);
           fprintf (stderr, "line 1: %s\n", line1);
