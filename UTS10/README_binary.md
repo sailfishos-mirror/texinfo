@@ -1,14 +1,3 @@
-# Binary Collation Data System
-
-This system converts allkeys.txt into a compact binary format (0.56 MB) that can be loaded and queried efficiently.
-
-## Architecture
-
-The system consists of two programs:
-
-1. **collation_builder** - Converts allkeys.txt to binary format
-2. **collation_lookup** - Loads binary data and performs lookups
-
 ## Binary Format Specification
 
 ### Header (28 bytes)
@@ -32,20 +21,19 @@ For each allocated page:
 ```
 uint16_t count        Number of entries in this page (0-256)
 For each entry (5 bytes each):
-  uint8_t offset      Offset within page (0-255)
+  uint8_t index      Index within page (0-255)
+  uint8_t num_elements   Number of collation elements (1-16)
   uint32_t data_offset Offset to collation data
 ```
 
-Entries are sorted by offset for binary search.
+Entries are sorted by index for binary search.
 
 ### Collation Data (variable size)
 ```
-uint8_t num_elements   Number of collation elements (1-16)
-For each element (7 bytes):
+For each element (4 bytes):
   uint16_t primary
-  uint16_t secondary  
-  uint16_t tertiary
-  uint8_t variable    1 if variable weighting, 0 otherwise
+  uint8_t secondary
+  uint8_t tertiary
 ```
 
 ### Sequence Trie (variable size)
@@ -56,82 +44,6 @@ uint32_t data_offset   Offset to collation data (0 if intermediate)
 uint16_t num_children  Number of child nodes
 For each child:
   uint32_t child_offset Offset to child node
-```
-
-## Building
-
-```bash
-# Build the builder
-gcc -O2 -o collation_builder collation_builder.c
-
-# Generate binary data file
-./collation_builder allkeys.txt collation_data.bin
-
-# Optionally also generate C source (for embedding)
-./collation_builder allkeys.txt collation_data.bin collation_data.c
-```
-
-## Usage
-
-### Using minimal_lookup.c (Simple, Working Example)
-
-The `minimal_lookup.c` program is a simple, working example that demonstrates the binary format:
-
-```bash
-# Build
-gcc -O2 -o minimal_lookup minimal_lookup.c
-
-# Run
-./minimal_lookup collation_data.bin
-```
-
-Output:
-```
-Loaded 587112 bytes
-Version: 17.0.0
-Singles: 38785
-Sequences: 964
-
-Looking up U+0041:
-  Page: 0, Offset: 65
-  Page data at offset: 17436
-  Page has 256 entries
-  Found at entry 140, data offset: 212907
-  Collation: 1 elements
-    [.23EC.0020.0008]
-```
-
-This demonstrates:
-- Loading the binary file
-- Reading the header
-- Looking up a single codepoint (U+0041 'A')
-- Binary search within a page
-- Reading collation data
-
-### Using collation_lookup.c (Full Featured)
-
-The `collation_lookup.c` program provides a complete interface with tests and interactive mode. Note: This version currently has a runtime issue and needs debugging, but the format specification it implements is correct.
-
-```bash
-# Build lookup program  
-gcc -O2 -o collation_lookup collation_lookup.c
-
-# Run tests
-./collation_lookup collation_data.bin
-
-# Interactive mode
-./collation_lookup collation_data.bin -i
-```
-
-### Interactive Mode Example
-```
-> 0041
-U+0041: [.23EC.0020.0008]
-
-> 006C 00B7
-U+006C U+00B7: [.2528.0020.0002][.0000.011F.0002]
-
-> quit
 ```
 
 ## Performance
@@ -154,19 +66,19 @@ For Unicode range U+0000 to U+00FF (page 0):
 Page Table[0] → Page Data @ offset 4444
   Page Data:
     count: 179  (179 codepoints in this range have collation data)
-    entries[0]:  offset=0x00, data_offset=5555
-    entries[1]:  offset=0x01, data_offset=5562
+    entries[0]:  index=0x00, data_offset=5555
+    entries[1]:  index=0x01, data_offset=5562
     ...
-    entries[178]: offset=0xFF, data_offset=6789
+    entries[178]: index=0xFF, data_offset=6789
 ```
 
 For codepoint U+0041 ('A'):
 ```
 1. page_num = 0x0041 >> 8 = 0
-2. page_offset = 0x0041 & 0xFF = 0x41 (65)
+2. page_index = 0x0041 & 0xFF = 0x41 (65)
 3. Read Page Table[0] → page_data_offset = 4444
 4. Read page count at offset 4444 → 179 entries
-5. Binary search for offset 65 in entries
+5. Binary search for index 65 in entries
 6. Found at entries[33]: data_offset = 5900
 7. Read collation data at offset 5900:
    num_elements = 1
@@ -200,21 +112,6 @@ For codepoint U+0041 ('A'):
 - Typical page has 50-200 entries (not all 256)
 - Binary search on sorted array is cache-friendly
 - Log₂(200) ≈ 8 comparisons is very fast
-
-## Known Issues
-
-- The C lookup program currently has a runtime issue that needs debugging
-- The builder and binary format are fully functional
-- A working lookup program can be implemented by following the format specification
-
-## Alternative: Hybrid System
-
-For a fully working system, see the hybrid page table + trie implementation in:
-- `collation_hybrid.c`
-- `collation_loader.c`  
-- `collation_demo.c`
-
-This uses an in-memory data structure instead of binary file format, but provides the same O(log 256) + O(k) performance.
 
 ## References
 
