@@ -59,7 +59,7 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
           num_elements += entry_array[i].data.num_elements;
         }
       else
-        num_elements += 2;      /* implicitly determined weights? */
+        num_elements += 3;      /* implicitly determined weights? */
     }
 
   CollationElement *elements = calloc (num_elements, sizeof (*elements));

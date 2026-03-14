@@ -397,9 +397,31 @@ write_collation_data (ByteBuffer *buf, CollationData *data,
 {
   uint8_t num_elements = data->num_elements;
   uint32_t offset = buf->size;
+
+  uint32_t primary_extension = 0;
+  uint16_t secondary_extension = 0;
+
   for (int i = 0; i < data->num_elements; i++)
     {
-      buffer_write_u16 (buf, data->elements[i].primary);
+      uint16_t primary = data->elements[i].primary;
+      uint16_t primary_write;
+      if (primary < 0xFE00)
+        {
+          primary_write = primary;
+        }
+      else
+        {
+          /* For very high primary weights, output an additional
+             collation element.  Same transformation in
+             allkeys_bin_loader.c:get_implicit_weight. */
+
+          primary_write = 0xFE00;
+
+          primary_extension = primary - 0xFE00 + 1;
+        }
+
+      buffer_write_u16 (buf, primary_write);
+
       uint16_t secondary = data->elements[i].secondary;
       uint8_t secondary_write;
 
@@ -414,16 +436,7 @@ write_collation_data (ByteBuffer *buf, CollationData *data,
         {
           /* For larger weights, output an extra collation element. */
           secondary_write = 0xff;
-          buffer_write_u8 (buf, secondary_write);
-          buffer_write_u8 (buf, data->elements[i].tertiary);
-
-          buffer_write_u8_at (buf, element_count_offset, ++num_elements);
-
-          buffer_write_u16 (buf, 0x0000);
-          buffer_write_u8 (buf, secondary - 0x0100);
-          buffer_write_u8 (buf, 0x00);
-
-          continue;
+          secondary_extension = secondary - 0x0100;
         }
       else
         {
@@ -433,6 +446,20 @@ write_collation_data (ByteBuffer *buf, CollationData *data,
 
       buffer_write_u8 (buf, secondary_write);
       buffer_write_u8 (buf, data->elements[i].tertiary);
+
+      if (primary_extension || secondary_extension)
+        {
+
+          buffer_write_u16 (buf, primary_extension);
+          buffer_write_u8 (buf, secondary_extension);
+          buffer_write_u8 (buf, 0x00); /* tertiary weight */
+
+          buffer_write_u8_at (buf, element_count_offset, ++num_elements);
+
+          primary_extension = 0;
+          secondary_extension = 0;
+        }
+
     }
   return offset;
 }

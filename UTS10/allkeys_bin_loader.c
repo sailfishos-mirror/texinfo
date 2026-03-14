@@ -423,10 +423,27 @@ get_implicit_weight (char32_t codepoint,
   if (AAAA && BBBB)
     {
       CollationElement e1 = { AAAA, 0x0020, 0x0002 };
-      CollationElement e2 = { BBBB, 0x0000, 0x0000 };
-      elements[0] = e1;
-      elements[1] = e2;
-      (*n_elements) = 2;
+
+      /* Limit maximum primary weight by using an extra collation element
+         if necessary.  Same transformation in
+         allkeys_bin_dumper.c:write_collation_data */
+      if (BBBB >= 0xFE00)
+        {
+          CollationElement e2 = { 0xFE00, 0x0000, 0x0000 };
+          CollationElement e3 = { BBBB - 0xFE00 + 1, 0x0000, 0x0000 };
+
+          elements[0] = e1;
+          elements[1] = e2;
+          elements[2] = e3;
+          (*n_elements) = 3;
+        }
+      else
+        {
+          CollationElement e2 = { BBBB, 0x0000, 0x0000 };
+          elements[0] = e1;
+          elements[1] = e2;
+          (*n_elements) = 2;
+        }
     }
   else
     {

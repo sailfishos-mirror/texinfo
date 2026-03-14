@@ -10,6 +10,8 @@ extra secondary collation weights 001F - 0127
 
 29 possible tertiary weights
 
+* do not store implicit weights from allkeys.txt, e.g. U+2F270
+
 
 * check if reordering in discontiguous matching is correct
 
