@@ -468,7 +468,21 @@ write_collation_data (ByteBuffer *buf, CollationData *data,
   return offset;
 }
 
-/* Write trie recursively and return its offset */
+/* Function for qsort.  Return negative if the first argument is "less"
+   than the second, zero if they are "equal", and positive if the first
+   argument is "greater". */
+int
+compare_trie_node_children (const void *a, const void *b)
+{
+  TrieNode *node1 = *(TrieNode **) a;
+  TrieNode *node2 = *(TrieNode **) b;
+
+  return (node1->codepoint > node2->codepoint)
+       - (node1->codepoint < node2->codepoint);
+}
+
+/* Write trie recursively and return its offset.  In the process,
+   sort the children of each node. */
 static uint32_t
 write_trie_node (ByteBuffer *buf, TrieNode *node)
 {
@@ -485,6 +499,9 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
     = buffer_write_u8 (buf, node->data ? node->data->num_elements : 0);
 
   buffer_write_u16 (buf, node->num_children);
+
+  qsort (node->children, node->num_children, sizeof(node->children[0]),
+         compare_trie_node_children);
 
   /* Reserve space for child offsets */
   uint32_t children_offset_pos = buf->size;

@@ -302,6 +302,8 @@ lookup_collation_data_at_char (char32_t *const string,
               n_codepoints++;
               break;
             }
+          if (child_codepoint > *pchar)
+            break;
         }
 
       if (found && pre_non_starter)
