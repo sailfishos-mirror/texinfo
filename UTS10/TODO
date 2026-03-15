@@ -10,10 +10,16 @@ extra secondary collation weights 001F - 0127
 
 29 possible tertiary weights
 
-* do not store implicit weights from allkeys.txt, e.g. U+2F270
+* revise data structures for lookup
+See "5.1.2 Multi-stage tables" in Unicode standard for some hints
+https://www.unicode.org/versions/Unicode17.0.0/core-spec/chapter-5/
+
 
 
 * check if reordering in discontiguous matching is correct
+
+* continue to fix data structure to align integers correctly on e.g. 4 byte
+boundaries
 
 * possible to cast more of dump to C data structure so not always accessing
 by byte offsets?
