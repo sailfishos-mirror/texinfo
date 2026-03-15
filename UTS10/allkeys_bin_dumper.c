@@ -626,8 +626,6 @@ serialize_database (Database *db)
             {
               if (j == next_data)
                 {
-                  buffer_write_u8 (buf, page->entries[k].index);
-
                   /* Number of collation elements in the record, if any. */
                   pending[pending_count].element_count_offset
                     = buffer_write_u8 (buf,
@@ -649,7 +647,6 @@ serialize_database (Database *db)
                 {
                   /* Write a zero entry. */
 
-                  buffer_write_u8 (buf, j); /* index in page */
                   buffer_write_u8 (buf, 0); /* number of collation units */
                   buffer_write_u32 (buf, 0); /* collation data pointer */
                 }

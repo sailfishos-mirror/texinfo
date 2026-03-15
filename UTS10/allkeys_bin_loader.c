@@ -188,19 +188,12 @@ lookup_codepoint_data (char32_t codepoint)
      used in allkeys_bin_dumper:serialize_database. */
   if (count == 0xff)
     {
-      uint32_t entry_offset = entries_offset + page_index * 6;
-      /* 1 byte offset + 1 byte element count + 4 byte offset */
-
-      uint8_t entry_page_index = read_u8 (entry_offset);
-      if (entry_page_index != page_index)
-        {
-          fprintf (stderr, "bug: page character index mismatch");
-          exit (2);
-        }
+      uint32_t entry_offset = entries_offset + page_index * 5;
+      /* 1 byte element count + 4 byte offset */
 
       COLLATION_DATA data;
-      data.num_elements = read_u8 (entry_offset + 1);
-      data.data_offset = read_u32 (entry_offset + 2);
+      data.num_elements = read_u8 (entry_offset);
+      data.data_offset = read_u32 (entry_offset + 1);
       return data;
 
     }
