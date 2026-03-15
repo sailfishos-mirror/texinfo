@@ -537,36 +537,10 @@ compare_page_entries (const void *a, const void *b)
   return (int) ea->index - (int) eb->index;
 }
 
-/* Convert database to binary format */
-static ByteBuffer *
-serialize_database (Database *db)
+static void
+serialize_page_table (Database *db, ByteBuffer *buf,
+                      uint32_t page_table_offset_pos)
 {
-  ByteBuffer *buf = buffer_create ();
-
-  printf ("\nSerializing to binary format...\n");
-
-  // Sort all pages by offset to enable binary search
-  printf ("Sorting page entries...\n");
-  for (uint32_t i = 0; i < NUM_PAGES; i++)
-    {
-      if (db->pages[i] && db->pages[i]->count > 0)
-        {
-          qsort (db->pages[i]->entries, db->pages[i]->count,
-                 sizeof (PageEntry), compare_page_entries);
-        }
-    }
-
-  /* Write header, leaving some placeholders to be filled in later. */
-  buffer_write_bytes (buf, "UCADATA1", 8);
-  buffer_write_u32 (buf, db->version);
-  buffer_write_u16 (buf, db->max_variable_weight);
-  buffer_write_u32 (buf, db->num_singles);
-  buffer_write_u32 (buf, db->num_sequences);
-  uint32_t page_table_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);    /* Placeholder for page_table_offset */
-  uint32_t trie_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);    /* Placeholder for trie_offset */
-
   /* Write page table. */
   buffer_align (buf, 4);
   uint32_t page_table_offset = buf->size;
@@ -594,7 +568,10 @@ serialize_database (Database *db)
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
       if (!db->pages[i])
-        continue;
+        {
+          //fprintf (stderr, "EMPTY PAGE (%3x..)\n", i);
+          continue;
+        }
 
       Page *page = db->pages[i];
       uint32_t page_offset = buf->size;
@@ -682,6 +659,41 @@ serialize_database (Database *db)
     }
 
   free (pending);
+}
+
+
+/* Convert database to binary format */
+static ByteBuffer *
+serialize_database (Database *db)
+{
+  ByteBuffer *buf = buffer_create ();
+
+  printf ("\nSerializing to binary format...\n");
+
+  // Sort all pages by offset to enable binary search
+  printf ("Sorting page entries...\n");
+  //for (uint32_t i = 0; i < 256; i++)
+  for (uint32_t i = 0; i < NUM_PAGES; i++)
+    {
+      if (db->pages[i] && db->pages[i]->count > 0)
+        {
+          qsort (db->pages[i]->entries, db->pages[i]->count,
+                 sizeof (PageEntry), compare_page_entries);
+        }
+    }
+
+  /* Write header, leaving some placeholders to be filled in later. */
+  buffer_write_bytes (buf, "UCADATA1", 8);
+  buffer_write_u32 (buf, db->version);
+  buffer_write_u16 (buf, db->max_variable_weight);
+  buffer_write_u32 (buf, db->num_singles);
+  buffer_write_u32 (buf, db->num_sequences);
+  uint32_t page_table_offset_pos = buf->size;
+  buffer_write_u32 (buf, 0);    /* Placeholder for page_table_offset */
+  uint32_t trie_offset_pos = buf->size;
+  buffer_write_u32 (buf, 0);    /* Placeholder for trie_offset */
+
+  serialize_page_table (db, buf, page_table_offset_pos);
 
   /* Write trie. */
   uint32_t trie_offset = write_trie_node (buf, db->trie_root);

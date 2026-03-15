@@ -9,7 +9,7 @@
 /* Maximum codepoints in a sequence (observed max is 18, using 32 for safety) */
 #define MAX_SEQUENCE_LENGTH 32
 
-#define NUM_PAGES 4352
+#define NUM_PAGES 0x1100
 
 #define MAX_COLLATION_ELEMENTS 18
 
