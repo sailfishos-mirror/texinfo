@@ -181,8 +181,29 @@ lookup_codepoint_data (char32_t codepoint)
     return (COLLATION_DATA) {0};       // Page not allocated
 
   // Read page count
-  uint16_t count = read_u16 (page_data_offset);
-  uint32_t entries_offset = page_data_offset + 2;
+  uint8_t count = read_u8 (page_data_offset);
+  uint32_t entries_offset = page_data_offset + 1;
+
+  /* A count of 0xff means all 256 entries are present.  Same convention
+     used in allkeys_bin_dumper:serialize_database. */
+  if (count == 0xff)
+    {
+      uint32_t entry_offset = entries_offset + page_index * 6;
+      /* 1 byte offset + 1 byte element count + 4 byte offset */
+
+      uint8_t entry_page_index = read_u8 (entry_offset);
+      if (entry_page_index != page_index)
+        {
+          fprintf (stderr, "bug: page character index mismatch");
+          exit (2);
+        }
+
+      COLLATION_DATA data;
+      data.num_elements = read_u8 (entry_offset + 1);
+      data.data_offset = read_u32 (entry_offset + 2);
+      return data;
+
+    }
 
   // Binary search within page
   int left = 0;

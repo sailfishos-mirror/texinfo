@@ -19,8 +19,9 @@ Array of 4,352 uint32_t offsets, one per page:
 ### Page Data (variable size)
 For each allocated page:
 ```
-uint16_t count        Number of entries in this page (0-256)
-For each entry (5 bytes each):
+uint8_t count        Number of entries in this page
+                     (0-254, 255 has a special meaning)
+For each entry (6 bytes each):
   uint8_t index      Index within page (0-255)
   uint8_t num_elements   Number of collation elements (1-16)
   uint32_t data_offset Offset to collation data

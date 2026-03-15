@@ -583,23 +583,77 @@ serialize_database (Database *db)
       uint32_t page_offset = buf->size;
       buffer_write_u32_at (buf, page_offset_positions[i], page_offset);
 
-      buffer_write_u16 (buf, page->count);
+      /* For pages which are mostly full, output a full table of 256 collation
+         data.  This allows lookup with a simple array index, rather than
+         binary search.  It also allows fitting the count in a single byte
+         (257 possible values from 0 to 256).
+         Read by allkeys_bin_loader:lookup_codepoint_data. */
+      uint8_t page_count_write;
+      if (page->count >= 0xc0)
+        page_count_write = 0xff;
+      else
+        page_count_write = page->count;
 
-      /* Write entries with placeholder data offsets. */
-      for (uint16_t j = 0; j < page->count; j++)
+      buffer_write_u8 (buf, page_count_write);
+
+      //fprintf (stderr, "%3d PAGE COUNT (%3x..)\n", page->count, i);
+
+      if (page_count_write != 0xff)
         {
-          buffer_write_u8 (buf, page->entries[j].index);
+          /* Write entries with placeholder data offsets. */
+          for (uint16_t j = 0; j < page->count; j++)
+            {
+              buffer_write_u8 (buf, page->entries[j].index);
 
-          /* Number of collation elements in the record, if any. */
-          pending[pending_count].element_count_offset
-            = buffer_write_u8 (buf, page->entries[j].data->num_elements);
+              /* Number of collation elements in the record, if any. */
+              pending[pending_count].element_count_offset
+                = buffer_write_u8 (buf, page->entries[j].data->num_elements);
 
-          /* Remember where we need to write the data offset. */
-          pending[pending_count].offset_position = buf->size;
-          pending[pending_count].data = page->entries[j].data;
-          pending_count++;
+              /* Remember where we need to write the data offset. */
+              pending[pending_count].offset_position = buf->size;
+              pending[pending_count].data = page->entries[j].data;
+              pending_count++;
 
-          buffer_write_u32 (buf, 0); /* Placeholder for data_offset. */
+              buffer_write_u32 (buf, 0); /* Placeholder for data_offset. */
+            }
+        }
+      else
+        {
+          uint16_t k = 0;
+          int16_t next_data = page->entries[k].index;
+
+          for (uint16_t j = 0; j < 256; j++)
+            {
+              if (j == next_data)
+                {
+                  buffer_write_u8 (buf, page->entries[k].index);
+
+                  /* Number of collation elements in the record, if any. */
+                  pending[pending_count].element_count_offset
+                    = buffer_write_u8 (buf,
+                                       page->entries[k].data->num_elements);
+
+                  /* Remember where we need to write the data offset. */
+                  pending[pending_count].offset_position = buf->size;
+                  pending[pending_count].data = page->entries[k].data;
+                  pending_count++;
+
+                  buffer_write_u32 (buf, 0); /* Placeholder for data_offset. */
+
+                  if (++k == page->count)
+                    next_data = -1;
+                  else
+                    next_data = page->entries[k].index;
+                }
+              else
+                {
+                  /* Write a zero entry. */
+
+                  buffer_write_u8 (buf, j); /* index in page */
+                  buffer_write_u8 (buf, 0); /* number of collation units */
+                  buffer_write_u32 (buf, 0); /* collation data pointer */
+                }
+            }
         }
     }
   buffer_align (buf, 4);
