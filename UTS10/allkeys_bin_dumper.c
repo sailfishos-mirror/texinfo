@@ -6,6 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "uninorm.h"
+#include "unictype.h"
 
 #include "allkeys_bin.h"
 
@@ -278,11 +279,14 @@ build_database (const char *filename)
       if (num_codepoints == 0)
         continue;
 
-      if (num_codepoints == 1
-          && !check_codepoint_nondecomposable (codepoints[0]))
+      if (num_codepoints == 1)
         {
-          continue;
+          if (!check_codepoint_nondecomposable (codepoints[0]))
+            continue;
+          if (uc_is_property_unified_ideograph (codepoints[0]))
+            continue;
         }
+
 
       while (*p && *p != ';')
         p++;
