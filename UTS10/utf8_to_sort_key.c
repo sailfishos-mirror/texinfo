@@ -40,12 +40,10 @@ print_usage (const char *program_name)
   printf ("  %s \"Hello, 世界! 🌍\"\n", program_name);
 }
 
-#define DATAFILE "./allkeys.bin"
-
 int
 print_collation_key (UTF8Result result)
 {
-  if (!load_data_file (DATAFILE))
+  if (!load_data_file ())
     return 0;
 
   CollationKey sort_key =

@@ -14,15 +14,7 @@
  */
  
 
-#define EMBED_DATA 1
-
-#if EMBED_DATA
 #include "allkeys_bin.c"
-#else
-/* Global data pointer */
-static uint8_t *collation_data = NULL;
-static size_t collation_data_size = 0;
-#endif
 
 /* Binary file header */
 typedef struct
@@ -42,62 +34,9 @@ static void read_header (void);
 
 /* Load binary data from file */
 int
-load_data_file (const char *filename)
+load_data_file (void)
 {
-#if EMBED_DATA
   read_header ();
-  return 1;
-#else
-
-  if (header.version != 0)
-    return 1;                   /* already loaded */
-
-  FILE *fp = fopen (filename, "rb");
-  if (!fp)
-    {
-      perror ("Failed to open data file");
-      return 0;
-    }
-
-  // Get file size
-  fseek (fp, 0, SEEK_END);
-  collation_data_size = ftell (fp);
-  fseek (fp, 0, SEEK_SET);
-
-  // Allocate and read
-  collation_data = malloc (collation_data_size);
-  if (!collation_data)
-    {
-      fclose (fp);
-      return 0;
-    }
-
-  if (fread (collation_data, 1, collation_data_size, fp) !=
-      collation_data_size)
-    {
-      free (collation_data);
-      fclose (fp);
-      return 0;
-    }
-
-  fclose (fp);
-
-  // Validate data
-  if (collation_data_size < 28)
-    {
-      fprintf (stderr, "Error: Invalid collation data\n");
-      return 1;
-    }
-
-  if (memcmp (collation_data, "UCADATA1", 8) != 0)
-    {
-      fprintf (stderr, "Error: Invalid magic number\n");
-      return 1;
-    }
-
-  read_header ();
-  return 1;
-#endif
 }
 
 /* Helper functions to read from byte array */

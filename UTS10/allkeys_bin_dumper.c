@@ -768,16 +768,15 @@ write_binary_file (ByteBuffer *buf, const char *output_file)
 int
 main (int argc, char *argv[])
 {
-  if (argc < 2 || argc > 4)
+  if (argc != 3)
     {
-      fprintf (stderr, "Usage: %s <allkeys.txt> [output.bin] [output.c]\n",
+      fprintf (stderr, "Usage: %s <allkeys.txt> [output.c]\n",
                argv[0]);
       return 1;
     }
 
   const char *input_file = argv[1];
-  const char *binary_file = argc >= 3 ? argv[2] : "allkeys.bin";
-  const char *c_file = argc >= 4 ? argv[3] : NULL;
+  const char *c_file = argc >= 3 ? argv[2] : NULL;
 
   Database *db = build_database (input_file);
   if (!db)
@@ -785,10 +784,6 @@ main (int argc, char *argv[])
 
   ByteBuffer *buf = serialize_database (db);
 
-  /* Always write binary file. */
-  write_binary_file (buf, binary_file);
-
-  /* Optionally write C source. */
   if (c_file)
     {
       write_c_source (buf, c_file);

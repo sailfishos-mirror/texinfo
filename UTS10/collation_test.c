@@ -85,7 +85,7 @@ main (int argc, char *argv[])
     }
 
   /* Initialise collation data structures. */
-  load_data_file (NULL);
+  load_data_file ();
 
   char *line1 = NULL, *line2 = NULL;
   size_t line1_size = 0, line2_size = 0;

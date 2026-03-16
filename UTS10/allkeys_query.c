@@ -19,11 +19,8 @@ print_usage (const char *prog)
   printf
     ("  lookup <codepoint>...    Lookup codepoint(s) (hex, e.g., 0041 or 006C 00B7)\n\n");
   printf ("Examples:\n");
-  //printf("  %s info allkeys.bin\n", prog);
-  //printf("  %s dump allkeys.bin 20\n", prog);
-  //printf("  %s sequences allkeys.bin\n", prog);
-  printf ("  %s lookup allkeys.bin 0041\n", prog);
-  printf ("  %s lookup allkeys.bin 006C 00B7\n", prog);
+  printf ("  %s lookup 0041\n", prog);
+  printf ("  %s lookup 006C 00B7\n", prog);
 }
 
 int
@@ -36,35 +33,17 @@ main (int argc, char *argv[])
     }
 
   const char *command = argv[1];
-  const char *binary_file = argv[2];
 
-  printf ("Loading collation data from %s...\n", binary_file);
-  if (!load_data_file (binary_file))
+  if (!load_data_file ())
     {
       fprintf (stderr, "Failed to load data file\n");
       return 1;
     }
   print_header_info ();
 
-#if 0
-  if (strcmp (command, "info") == 0)
-    {
-      dump_info (binary_file);
-    }
-  else if (strcmp (command, "dump") == 0)
-    {
-      int count = argc > 3 ? atoi (argv[3]) : 10;
-      dump_entries (binary_file, count);
-    }
-  else if (strcmp (command, "sequences") == 0)
-    {
-      dump_sequences (binary_file);
-    }
-  else
-#endif
   if (strcmp (command, "lookup") == 0)
     {
-      if (argc < 4)
+      if (argc < 3)
         {
           fprintf (stderr, "Error: lookup requires at least one codepoint\n");
           return 1;
@@ -73,7 +52,7 @@ main (int argc, char *argv[])
       char32_t codepoints[MAX_SEQUENCE_LENGTH];
       size_t len = 0;
 
-      for (int i = 3; i < argc && len < MAX_SEQUENCE_LENGTH; i++)
+      for (int i = 2; i < argc && len < MAX_SEQUENCE_LENGTH; i++)
         {
           unsigned long val = strtoul (argv[i], NULL, 16);
           if (val > 0x10FFFF)

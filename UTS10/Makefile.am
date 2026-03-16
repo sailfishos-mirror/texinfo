@@ -27,15 +27,15 @@ collation_test_SOURCES = collation_test.c allkeys_bin_loader.c collation_key.c \
 # This depends on gnulib being built first
 #BUILT_SOURCES = allkeys_bin.c
 
-allkeys.bin allkeys_bin.c: allkeys_bin_dumper allkeys.txt
-	./allkeys_bin_dumper ./allkeys.txt allkeys.bin allkeys_bin.c
+allkeys_bin.c: allkeys_bin_dumper allkeys.txt
+	./allkeys_bin_dumper ./allkeys.txt allkeys_bin.c
 
-test: allkeys_bin_dumper allkeys_query allkeys.bin utf8_to_sort_key
+test: allkeys_bin_dumper allkeys_query utf8_to_sort_key
 	@echo "=== Testing single codepoint lookup ==="
-	./allkeys_query lookup allkeys.bin 0041
+	./allkeys_query lookup 0041
 	@echo ""
 	@echo "=== Testing sequence lookup ==="
-	./allkeys_query lookup allkeys.bin 006C 00B7
+	./allkeys_query lookup 006C 00B7
 	@echo "=== Testing sort key creation ==="
 	@echo "--- ASCII ---"
 	./utf8_to_sort_key hello
