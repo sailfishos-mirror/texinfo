@@ -11,9 +11,13 @@ See the manual for detailed information.
 
 X.Y ()
 * Language
-  . Texinfo XML removed as an output format.  Can still be selected
-    by setting TEXINFO_OUTPUT_FORMAT=texinfoxml until fully removed.
   . @xml, @ifxml and @ifnotxml are deprecated.
+
+* texi2any
+  . Texinfo XML deprecated as an output format.  Remove options --xml,
+     --ifxml and --no-ifxml.
+    Can still be selected by setting TEXINFO_OUTPUT_FORMAT=texinfoxml
+    until fully removed.
 
 7.3 (02 March 2026)
 * Language

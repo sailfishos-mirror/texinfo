@@ -1,3 +1,7 @@
+2026-03-16  Gavin Smith <gavinsmith0123@gmail.com>
+
+	* NEWS: mention removal of --xml etc. options
+
 2026-03-14  Gavin Smith <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@example): Tweak description of tab handling.
