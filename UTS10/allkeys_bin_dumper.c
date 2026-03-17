@@ -724,9 +724,18 @@ write_c_source (ByteBuffer *buf, const char *output_file)
 
   fprintf (fp, "#include <stdint.h>\n\n");
 
-  fprintf (fp, "static const size_t collation_data_size = %zuU;\n\n", buf->size);
+  fprintf (fp, "#define COLLATION_DATA_SIZE %zuU\n\n", buf->size);
+  fprintf (fp,
+    "static const size_t collation_data_size = COLLATION_DATA_SIZE;\n\n");
 
-  fprintf (fp, "static const uint8_t collation_data[] = {\n");
+
+  fprintf (fp, "static const\nstruct\n  {\n");
+  fprintf (fp, "    uint8_t array[COLLATION_DATA_SIZE];\n");
+  fprintf (fp, "  }\n");
+  fprintf (fp, "collation_data = {\n");
+
+  fprintf (fp, "  {\n");
+
 
   for (size_t i = 0; i < buf->size; i++)
     {
@@ -743,7 +752,8 @@ write_c_source (ByteBuffer *buf, const char *output_file)
         fprintf (fp, " ");
     }
 
-  fprintf (fp, "\n};\n");
+  fprintf (fp, "\n  }\n");
+  fprintf (fp, "};\n");
 
   fclose (fp);
 }

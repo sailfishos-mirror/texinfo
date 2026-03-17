@@ -43,14 +43,14 @@ load_data_file (void)
 static uint8_t
 read_u8 (size_t offset)
 {
-  return collation_data[offset];
+  return collation_data.array[offset];
 }
 
 static uint16_t
 read_u16 (size_t offset)
 {
   uint16_t val;
-  memcpy (&val, collation_data + offset, 2);
+  memcpy (&val, collation_data.array + offset, 2);
   return val;
 }
 
@@ -58,7 +58,7 @@ static uint32_t
 read_u32 (size_t offset)
 {
   uint32_t val;
-  memcpy (&val, collation_data + offset, 4);
+  memcpy (&val, collation_data.array + offset, 4);
   return val;
 }
 
@@ -66,7 +66,7 @@ read_u32 (size_t offset)
 void
 read_header (void)
 {
-  memcpy (header.magic, collation_data, 8);
+  memcpy (header.magic, collation_data.array, 8);
   header.version = read_u32 (8);
   header.max_variable_weight = read_u16 (12);
   header.num_singles = read_u32 (14);
