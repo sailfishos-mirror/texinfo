@@ -43,7 +43,7 @@ typedef struct
   uint16_t max_variable_weight;
   uint32_t num_singles;
   uint32_t num_sequences;
-  uint32_t version;
+  long version;
 } Database;
 
 typedef struct
@@ -191,7 +191,7 @@ parse_collation_element (const char **str, CollationElementParsed *elem)
   return 1;
 }
 
-static uint32_t
+static long
 parse_version (const char *line)
 {
   unsigned int major = 0, minor = 0, patch = 0;
@@ -683,11 +683,6 @@ serialize_database (Database *db)
     }
 
   /* Write header, leaving some placeholders to be filled in later. */
-  buffer_write_bytes (buf, "UCADATA1", 8);
-  buffer_write_u32 (buf, db->version);
-  buffer_write_u16 (buf, db->max_variable_weight);
-  buffer_write_u32 (buf, db->num_singles);
-  buffer_write_u32 (buf, db->num_sequences);
   uint32_t page_table_offset_pos = buf->size;
   buffer_write_u32 (buf, 0);    /* Placeholder for page_table_offset */
   uint32_t trie_offset_pos = buf->size;
@@ -707,7 +702,8 @@ serialize_database (Database *db)
 
 /* Write as C source file */
 static void
-write_c_source (ByteBuffer *buf, const char *output_file)
+write_c_source (ByteBuffer *buf, const char *output_file,
+                Database *db)
 {
   FILE *fp = fopen (output_file, "w");
   if (!fp)
@@ -730,13 +726,20 @@ write_c_source (ByteBuffer *buf, const char *output_file)
 
 
   fprintf (fp, "static const\nstruct\n  {\n");
+  fprintf (fp, "    uint32_t version;\n");
+  fprintf (fp, "    uint16_t max_variable_weight;\n");
+  fprintf (fp, "    uint32_t num_singles;\n");
+  fprintf (fp, "    uint32_t num_sequences;\n");
   fprintf (fp, "    uint8_t array[COLLATION_DATA_SIZE];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
 
+  fprintf (fp, "  %ld,\n", db->version);
+  fprintf (fp, "  0x%04X,\n", db->max_variable_weight);
+  fprintf (fp, "  %d,\n", db->num_singles);
+  fprintf (fp, "  %d,\n", db->num_sequences);
+
   fprintf (fp, "  {\n");
-
-
   for (size_t i = 0; i < buf->size; i++)
     {
       if (i % 16 == 0)
@@ -796,7 +799,7 @@ main (int argc, char *argv[])
 
   if (c_file)
     {
-      write_c_source (buf, c_file);
+      write_c_source (buf, c_file, db);
     }
 
   return 0;

@@ -19,11 +19,6 @@
 /* Binary file header */
 typedef struct
 {
-  char magic[8];
-  uint32_t version;
-  uint16_t max_variable_weight;
-  uint32_t num_singles;
-  uint32_t num_sequences;
   uint32_t page_table_offset;
   uint32_t trie_offset;
 } Header;
@@ -66,13 +61,8 @@ read_u32 (size_t offset)
 void
 read_header (void)
 {
-  memcpy (header.magic, collation_data.array, 8);
-  header.version = read_u32 (8);
-  header.max_variable_weight = read_u16 (12);
-  header.num_singles = read_u32 (14);
-  header.num_sequences = read_u32 (18);
-  header.page_table_offset = read_u32 (22);
-  header.trie_offset = read_u32 (26);
+  header.page_table_offset = read_u32 (0);
+  header.trie_offset = read_u32 (4);
 }
 
 void
@@ -82,11 +72,11 @@ print_header_info (void)
   printf ("========================\n");
 
   printf ("  Version: %u.%u.%u\n",
-          header.version / 10000,
-          (header.version / 100) % 100, header.version % 100);
-  printf ("  Singles: %u\n", header.num_singles);
-  printf ("  Sequences: %u\n", header.num_sequences);
-  printf ("  Variable element limit: 0x%04x\n", header.max_variable_weight);
+          collation_data.version / 10000,
+          (collation_data.version / 100) % 100, collation_data.version % 100);
+  printf ("  Singles: %u\n", collation_data.num_singles);
+  printf ("  Sequences: %u\n", collation_data.num_sequences);
+  printf ("  Variable element limit: 0x%04x\n", collation_data.max_variable_weight);
   printf ("  Binary size: %zu bytes (%.3f MB)\n\n",
           collation_data_size, collation_data_size / 1e6);
 
@@ -481,7 +471,7 @@ print_collation (FILE *stream,
   for (size_t i = 0; i < num_elements; i++)
     {
       if (elements[i].primary != 0x0000
-          && elements[i].primary <= header.max_variable_weight)
+          && elements[i].primary <= collation_data.max_variable_weight)
         {
           fprintf (stream,
                    "[*%04X.%04X.%04X]",
