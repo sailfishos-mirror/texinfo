@@ -885,17 +885,17 @@ sub simple_arg_text($) {
           $result = $content->{'text'};
         } else {
           # superfluous arg
-          return undef;
+          return ($result, 1);
         }
-      } else {
-        return undef;
+      } else {# unexpected non text argument
+        return ($result, 1);
       }
     }
   }
   if (defined($result)) {
-    return $result;
+    return ($result, 0);
   }
-  return '';
+  return ('', 0);
 }
 
 sub non_leading_trailing_tree($;$$) {

@@ -117,6 +117,7 @@ parse_line_command_args (ELEMENT *line_command)
   STRING_LIST *line_args;
   enum command_id cmd;
   const char *line;
+  int surplus_arg;
 
   cmd = line_command->e.c->cmd;
 
@@ -129,24 +130,26 @@ parse_line_command_args (ELEMENT *line_command)
   else
     line_arg = line_command->e.c->contents.list[0];
 
-  if (line_arg->e.c->contents.number == 0)
-   {
-     command_error (line_command, "@%s missing argument", command_name(cmd));
-     return 0;
-   }
+  line = simple_arg_text (line_arg, &surplus_arg);
 
-  if (line_arg->e.c->contents.number > 1
-      || line_arg->e.c->contents.list[0]->type != ET_normal_text)
-    {
+  if (line == 0)
+   {
+     if (!surplus_arg)
+       {
+         command_error (line_command, "bad argument to @%s",
+                        command_name(cmd));
+       }
+   } else if (*line == '\0')
+     command_error (line_command, "@%s missing argument", command_name(cmd));
+
+  if (surplus_arg)
       line_error ("superfluous argument to @%s", command_name (cmd));
-    }
-  if (line_arg->e.c->contents.list[0]->type != ET_normal_text
-      || line_arg->e.c->contents.list[0]->e.text->end == 0)
+
+  if (!line || *line == '\0')
     return 0;
 
   /* put in extra "misc_args" */
   line_args = new_string_list ();
-  line = line_arg->e.c->contents.list[0]->e.text->text;
 
   switch (cmd)
     {

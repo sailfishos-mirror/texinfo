@@ -1078,7 +1078,7 @@ empty_spaces_argument (const ELEMENT *element)
 }
 
 const char *
-simple_arg_text (ELEMENT *element)
+simple_arg_text (ELEMENT *element, int *surplus_arg)
 {
   const char *result = 0;
 
@@ -1097,12 +1097,20 @@ simple_arg_text (ELEMENT *element)
               else if (result == 0)
                 result = content->e.text->text;
               else
-                return 0;
+                {
+                  *surplus_arg = 1;
+                  return result;
+                }
             }
           else
-            return 0;
+            {
+              *surplus_arg = 1;
+              return result;
+            }
         }
     }
+
+  *surplus_arg = 0;
 
   if (result)
     return result;

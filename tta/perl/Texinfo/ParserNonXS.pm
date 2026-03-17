@@ -3218,6 +3218,8 @@ sub _isolate_trailing_space($$) {
 sub _isolate_last_space($$) {
   my ($self, $current) = @_;
 
+  #return _isolate_leading_trailing($self, $current);
+
   return if (!exists($current->{'contents'}));
 
   # $current->{'type'} is always set, to line_arg, block_line_arg,
@@ -6939,13 +6941,14 @@ sub _handle_close_brace($$$) {
                    $closed_cmdname), $source_info);
       }
     } elsif ($closed_cmdname eq 'errormsg') {
-      my $arg_text = Texinfo::Common::simple_arg_text($current);
-      # FIXME this means that we ignore text when followed by @-commands
+      my ($arg_text, $surplus_arg) = Texinfo::Common::simple_arg_text($current);
+      # We do not warn if $surplus_arg is set, even though the command is
+      # incorrectly used, as we want to avoid adding to the error text.
       if (defined($arg_text)) {
         _line_error($self, $arg_text, $source_info);
       }
     } elsif ($closed_cmdname eq 'U') {
-      my $arg_text = Texinfo::Common::simple_arg_text($current);
+      my ($arg_text, $surplus_arg) = Texinfo::Common::simple_arg_text($current);
       if (!defined($arg_text) or $arg_text eq '') {
         _line_warn($self, __("no argument specified for \@U"), $source_info);
       } elsif ($arg_text !~ /^[0-9A-Fa-f]+$/) {
@@ -6958,6 +6961,10 @@ sub _handle_close_brace($$$) {
           "fewer than four hex digits in argument for \@U: %s"), $arg_text),
                           $source_info);
       } else {
+        if ($surplus_arg) {
+          _line_warn($self, sprintf(__(
+            "superfluous argument to \@%s"), 'U'), $source_info);
+        }
         # we don't want to call hex at all if the value isn't
         # going to fit; so first use eval to check.
         # Since integer overflow is only a warning, have to make
@@ -8331,20 +8338,28 @@ sub _parse_line_command_args($$$) {
     $line_arg = $line_command->{'contents'}->[0];
   }
 
-  if (!$line_arg->{'contents'}) {
+  my ($line, $surplus_arg)
+     = Texinfo::Common::simple_arg_text($line_arg);
+
+  if (!defined($line)) {
+    # output only one error message.  As a consequence, this error
+    # cannot actually happen as all cases with line undef also have
+    # surplus_arg.
+    if (!$surplus_arg) {
+      _line_error($self, sprintf(__("bad argument to \@%s"),
+         $command), $source_info);
+    }
+  } elsif ($line eq '') {
     _command_error($self, $line_command,
                __("\@%s missing argument"), $command);
-    return undef;
   }
 
-  if (scalar(@{$line_arg->{'contents'}}) > 1
-         or (!defined($line_arg->{'contents'}->[0]->{'text'}))) {
+  if ($surplus_arg) {
     _line_error($self, sprintf(__("superfluous argument to \@%s"),
-       $command), $source_info);
+                $command), $source_info);
   }
-  return undef if (!defined($line_arg->{'contents'}->[0]->{'text'}));
 
-  my $line = $line_arg->{'contents'}->[0]->{'text'};
+  return if (!defined($line) or $line eq '');
 
   if ($command eq 'alias') {
     # REMACRO

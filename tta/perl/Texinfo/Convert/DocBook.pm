@@ -1662,7 +1662,7 @@ sub _convert($$;$) {
 
       } elsif ($cmdname eq 'U') {
         if (exists($element->{'contents'})) {
-          my $arg_text
+          my ($arg_text, $surplus_arg)
             = Texinfo::Common::simple_arg_text($element->{'contents'}->[0]);
           if (defined($arg_text) and $arg_text ne '') {
             my $result = "&#x$arg_text;";

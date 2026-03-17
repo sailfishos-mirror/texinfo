@@ -40,7 +40,10 @@ $result_texts{'test_errormsg'} = 'Some text
 
 ';
 
-$result_errors{'test_errormsg'} = '* E l3|with surrounding spaces
+$result_errors{'test_errormsg'} = '* E l2|Text 
+ Text 
+
+* E l3|with surrounding spaces
  with surrounding spaces
 
 ';

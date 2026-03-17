@@ -446,14 +446,17 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
         }
       else if (closed_cmd == CM_errormsg)
         {
-          const char *arg_text = simple_arg_text (current);
-      /* FIXME this means that we ignore text when followed by @-commands */
+          int surplus_arg;
+          const char *arg_text = simple_arg_text (current, &surplus_arg);
+      /* We do not warn if $surplus_arg is set, even though the command is
+         incorrectly used, as we want to avoid adding to the error text. */
           if (arg_text)
             line_error (arg_text);
         }
       else if (closed_cmd == CM_U)
         {
-          const char *arg_text = simple_arg_text (current);
+          int surplus_arg;
+          const char *arg_text = simple_arg_text (current, &surplus_arg);
 
           if (!arg_text || !*arg_text)
             {
@@ -476,7 +479,12 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
               else
                 {
                   unsigned long int val;
-                  int ret = sscanf (arg_text, "%lx", &val);
+                  int ret;
+
+                  if (surplus_arg)
+                    line_warn ("superfluous argument to \@%s", "U");
+
+                  ret = sscanf (arg_text, "%lx", &val);
                   if (ret != 1)
                     {
                       debug ("hex sscanf failed %s", arg_text);
