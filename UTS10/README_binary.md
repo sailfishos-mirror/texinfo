@@ -1,14 +1,9 @@
 ## Binary Format Specification
 
-### Header (28 bytes)
-```
-char magic[8]        "UCADATA1"
-uint32_t version     UCA version (e.g., 170000)
-uint32_t num_singles Number of single codepoint entries  
-uint32_t num_sequences Number of multi-codepoint sequences
+### Header
+
 uint32_t page_table_offset Offset to page table
 uint32_t trie_offset Offset to sequence trie
-```
 
 ### Page Table (NUM_PAGES * 4 bytes = 17,408 bytes)
 Array of 4,352 uint32_t offsets, one per page:
@@ -97,33 +92,3 @@ For codepoint U+0041 ('A'):
    tertiary = 0x0008
    variable = 0
 ```
-
-## Advantages
-
-1. **Compact**: 0.56 MB vs 6.1 MB text format (10× compression)
-2. **Fast loading**: Direct binary read, no parsing
-3. **Efficient lookup**: O(log 256) for singles, O(k) for sequences
-4. **Portable**: Fixed binary format, works on any platform
-5. **Simple**: No external dependencies, pure C99
-
-## Format Design Decisions
-
-**Why page-based?**
-- Unicode has sparse coverage (only ~38K out of 1.1M possible codepoints have collation data)
-- Page table allows O(1) page lookup with only 17 KB overhead
-- Only allocates pages that contain data
-
-**Why offsets instead of pointers?**
-- Position-independent - can mmap or load anywhere
-- Same binary works on 32-bit and 64-bit systems
-- Can be embedded in executables or shared libraries
-
-**Why binary search within pages?**
-- Typical page has 50-200 entries (not all 256)
-- Binary search on sorted array is cache-friendly
-- Log₂(200) ≈ 8 comparisons is very fast
-
-## References
-
-- Unicode Collation Algorithm: https://unicode.org/reports/tr10/
-- allkeys.txt format: https://www.unicode.org/Public/UCA/latest/allkeys.txt
