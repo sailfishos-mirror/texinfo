@@ -97,8 +97,7 @@ lookup_codepoint_data (char32_t codepoint)
   uint8_t page_index = codepoint & 0xFF;
 
   // Read page table entry
-  uint32_t page_data_offset =
-    read_u32 (collation_data.page_table_offset + page_num * 4);
+  uint32_t page_data_offset = collation_data.pages[page_num];
   if (page_data_offset == 0)
     return (COLLATION_DATA) {0};       // Page not allocated
 

@@ -44,7 +44,6 @@ typedef struct
   uint32_t num_singles;
   uint32_t num_sequences;
   long version;
-  uint32_t page_table_offset;
   uint32_t trie_offset;
 } Database;
 
@@ -539,16 +538,12 @@ compare_page_entries (const void *a, const void *b)
   return (int) ea->index - (int) eb->index;
 }
 
+/* Location in dump of each page data */
+static uint32_t page_offset_positions[NUM_PAGES];
+
 static void
 serialize_page_table (Database *db, ByteBuffer *buf)
 {
-  uint32_t page_offset_positions[NUM_PAGES];
-  for (uint32_t i = 0; i < NUM_PAGES; i++)
-    {
-      page_offset_positions[i] = buf->size;
-      buffer_write_u32 (buf, 0);        // Placeholder
-    }
-
   /* Write page data (entries only, no collation data yet).
      We'll track where to write collation data offsets. */
   typedef struct
@@ -570,8 +565,7 @@ serialize_page_table (Database *db, ByteBuffer *buf)
         }
 
       Page *page = db->pages[i];
-      uint32_t page_offset = buf->size;
-      buffer_write_u32_at (buf, page_offset_positions[i], page_offset);
+      page_offset_positions[i] = buf->size;
 
       /* For pages which are mostly full, output a full table of 256 collation
          data.  This allows lookup with a simple array index, rather than
@@ -678,8 +672,8 @@ serialize_database (Database *db)
     }
 
   /* Write page table. */
-  buffer_align (buf, 4);
-  db->page_table_offset = buf->size;
+  /* Waste four bytes so no real data appears at offset 0. */
+  buffer_write_u32 (buf, 0xFFFFFFFF);
 
   serialize_page_table (db, buf);
 
@@ -722,8 +716,8 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "    uint16_t max_variable_weight;\n");
   fprintf (fp, "    uint32_t num_singles;\n");
   fprintf (fp, "    uint32_t num_sequences;\n");
-  fprintf (fp, "    uint32_t page_table_offset;\n");
   fprintf (fp, "    uint32_t trie_offset;\n");
+  fprintf (fp, "    uint32_t pages[NUM_PAGES];\n");
   fprintf (fp, "    uint8_t array[COLLATION_DATA_SIZE];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
@@ -732,8 +726,17 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "  0x%04X,\n", db->max_variable_weight);
   fprintf (fp, "  %d,\n", db->num_singles);
   fprintf (fp, "  %d,\n", db->num_sequences);
-  fprintf (fp, "  0x%04X,\n", db->page_table_offset);
   fprintf (fp, "  0x%04X,\n", db->trie_offset);
+  fprintf (fp, "  {\n");
+
+  for (uint32_t i = 0; i < NUM_PAGES; i++)
+    {
+      fprintf (fp, "  0x%04X%s\n", page_offset_positions[i],
+                   i == NUM_PAGES - 1 ? "" : ",");
+    }
+
+
+  fprintf (fp, "  },\n");
 
   fprintf (fp, "  {\n");
   for (size_t i = 0; i < buf->size; i++)
