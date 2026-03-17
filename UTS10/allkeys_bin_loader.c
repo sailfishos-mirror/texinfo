@@ -8,19 +8,7 @@
 
 #include "allkeys_bin_loader.h"
 
-/*
- * Lookup program for binary collation data
- * Reads from binary file
- */
- 
-
 #include "allkeys_bin.c"
-
-/* Load binary data from file */
-int
-load_data_file (void)
-{
-}
 
 /* Helper functions to read from byte array */
 static uint8_t
@@ -58,7 +46,7 @@ print_header_info (void)
   printf ("  Sequences: %u\n", collation_data.num_sequences);
   printf ("  Variable element limit: 0x%04x\n", collation_data.max_variable_weight);
   printf ("  Binary size: %zu bytes (%.3f MB)\n\n",
-          collation_data_size, collation_data_size / 1e6);
+          sizeof (collation_data), sizeof (collation_data) / 1e6);
 
 }
 

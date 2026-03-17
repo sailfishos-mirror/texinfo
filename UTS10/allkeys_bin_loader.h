@@ -8,7 +8,6 @@ struct collation_data {
 };
 typedef struct collation_data COLLATION_DATA;
 
-int load_data_file (void);
 int lookup_codepoint (char32_t codepoint,
                       CollationElement *elements, size_t *num_elements);
 

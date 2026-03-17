@@ -43,9 +43,6 @@ print_usage (const char *program_name)
 int
 print_collation_key (UTF8Result result)
 {
-  if (!load_data_file ())
-    return 0;
-
   CollationKey sort_key =
     get_collation_key (result.codepoints, result.length);
   printf ("Sort key: ");

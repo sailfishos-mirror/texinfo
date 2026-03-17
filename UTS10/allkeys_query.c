@@ -34,11 +34,6 @@ main (int argc, char *argv[])
 
   const char *command = argv[1];
 
-  if (!load_data_file ())
-    {
-      fprintf (stderr, "Failed to load data file\n");
-      return 1;
-    }
   print_header_info ();
 
   if (strcmp (command, "lookup") == 0)
