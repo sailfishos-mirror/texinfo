@@ -8,8 +8,9 @@ use utf8;
 $result_tree_text{'empty_line_in_anchor'} = '*document_root C1
  *before_node_section C2
   *@anchor C1 l1
-   *brace_arg C2
-    {an\\n}
+   *brace_arg C3
+    {an}
+    {spaces_after_argument:\\n}
     {empty_line:\\n}
   *paragraph C1
    {anchor\\n}

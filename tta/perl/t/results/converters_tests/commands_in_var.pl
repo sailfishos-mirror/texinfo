@@ -166,10 +166,8 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
        {b}
      { }
      *@url C2 l9
-      *brace_arg
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C1
+       {spaces_before_argument: }
       *brace_arg C1
        {lb}
      {\\n}
@@ -184,19 +182,15 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
        {a}
        *@@
        {c}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {e}
      { }
      *@abbr C2 l10
       *brace_arg C1
        {ab}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {d}
 ';
 
@@ -322,8 +316,8 @@ $result_converted{'xml'}->{'commands_in_var'} = '<node identifier="Top" spaces="
 
 <para><var>a <accent type="tilde" bracketed="off">n</accent> &aring; &tex; <image where="inline"><imagefile>myimage</imagefile></image> <ref label="chap"><xrefnodename>chap</xrefnodename></ref> <xref label="node" manual="f"><xrefnodename>(f)node</xrefnodename></xref>
 <ref label="ext" manual="argf"><xrefnodename>ext</xrefnodename><xrefprinteddesc>name</xrefprinteddesc><xrefinfofile>argf</xrefinfofile></ref> <inlinefmtifelse><inlinefmtifelseformat>latex</inlinefmtifelseformat><inlinefmtifelsecontentelse><verb delimiter="!">inverb</verb></inlinefmtifelsecontentelse></inlinefmtifelse> <anchor identifier="inanchor">inanchor</anchor> <hyphenation>hyphena-te</hyphenation>
-<U>00ff</U> <math>ma+th</math> <footnote><para>infootnote</para></footnote> <url><urefurl>la</urefurl></url> <url><urefurl>a</urefurl><urefdesc>b</urefdesc></url> <url><urefurl spaces=" "></urefurl><urefdesc>lb</urefdesc></url>
-<url><urefreplacement>c</urefreplacement></url> <email><emailaddress>a&arobase;c</emailaddress><emailname spaces=" ">e</emailname></email> <abbr><abbrword>ab</abbrword><abbrdesc spaces=" ">d</abbrdesc></abbr></var></para></chapter>
+<U>00ff</U> <math>ma+th</math> <footnote><para>infootnote</para></footnote> <url><urefurl>la</urefurl></url> <url><urefurl>a</urefurl><urefdesc>b</urefdesc></url> <url><urefurl> </urefurl><urefdesc>lb</urefdesc></url>
+<url><urefreplacement>c</urefreplacement></url> <email><emailaddress>a&arobase;c</emailaddress><emailname> e</emailname></email> <abbr><abbrword>ab</abbrword><abbrdesc> d</abbrdesc></abbr></var></para></chapter>
 ';
 
 

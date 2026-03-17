@@ -13,10 +13,8 @@ $result_tree_text{'end_of_line_in_uref'} = '*document_root C1
     *brace_arg C2
      {https://gcc.gnu.org/codingconventions.html#Spelling\\n}
      {Spelling}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {terminology and markup}
    { section.}
 ';

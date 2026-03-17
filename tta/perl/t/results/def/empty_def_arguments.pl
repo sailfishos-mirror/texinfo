@@ -124,10 +124,8 @@ $result_tree_text{'empty_def_arguments'} = '*document_root C1
        {truc}
      {spaces: }
      *def_name C1
-      *bracketed_arg l7
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C1 l7
+       {spaces_before_argument: }
    *@deffnx C1 l8
    |EXTRA
    |def_command:{deffn}

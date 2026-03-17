@@ -14,10 +14,8 @@ $result_tree_text{'inlineraw_not_closed'} = '*document_root C2
    |format:{html}
     *brace_arg C1
      {html}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {aa\\n}
  *@section C1 l2 {sec}
  |INFO

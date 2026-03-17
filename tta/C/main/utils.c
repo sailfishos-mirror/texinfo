@@ -1052,6 +1052,64 @@ get_label_element (const ELEMENT *e)
   return 0;
 }
 
+/* ALTIMP perl/Texinfo/Common.pm */
+int
+empty_spaces_argument (const ELEMENT *element)
+{
+  size_t i;
+
+  if (element->e.c->contents.number == 0)
+    return 1;
+
+  for (i = 0; i < element->e.c->contents.number; i++)
+    {
+      const ELEMENT *content = element->e.c->contents.list[i];
+      if (type_data[content->type].flags & TF_text)
+        {
+          if (content->type != ET_spaces_before_argument)
+            return 0;
+        }
+      else if (content->e.c->cmd != CM_comment
+               && content->e.c->cmd != CM_c)
+        return 0;
+    }
+
+  return 1;
+}
+
+const char *
+simple_arg_text (ELEMENT *element)
+{
+  const char *result = 0;
+
+  if (element->e.c->contents.number > 0)
+    {
+      size_t i;
+
+      for (i = 0; i < element->e.c->contents.number; i++)
+        {
+          const ELEMENT *content = element->e.c->contents.list[i];
+          if (type_data[content->type].flags & TF_text)
+            {
+              if (content->type == ET_spaces_before_argument
+                  || content->type == ET_spaces_after_argument)
+                continue;
+              else if (result == 0)
+                result = content->e.text->text;
+              else
+                return 0;
+            }
+          else
+            return 0;
+        }
+    }
+
+  if (result)
+    return result;
+
+  return "";
+}
+
 
 /* index related code used both in parsing and conversion */
 /* NAME is the name of an index, e.g. "cp" */

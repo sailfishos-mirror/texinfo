@@ -17,40 +17,32 @@ $result_tree_text{'uref_in_ref'} = '*document_root C1
      {file}
      {)}
      {node}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {cross ref with uref }
      *@uref C2 l1
       *brace_arg C1
        {href://http/myhost.com/index.html}
       *brace_arg C1
        {uref1}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {title with uref2 }
      *@uref C2 l1
       *brace_arg C1
        {href://http/myhost.com/index2.html}
       *brace_arg C1
        {uref2}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {info file with uref3 }
      *@uref C2 l1
       *brace_arg C1
        {href://http/myhost.com/index3.html}
       *brace_arg C1
        {uref3}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {printed manual with uref4 }
      *@uref C2 l1
       *brace_arg C1

@@ -16,17 +16,12 @@ $result_tree_text{'inlinefmtspaces'} = '*document_root C1
    |EXTRA
    |expand_index:{1}
    |format:{plaintext}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     {plaintext}
     *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+     {plaintext}
+     {spaces_after_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {plaintext `` }
      *@lbracechar C1 l1
       *brace_container
@@ -36,17 +31,12 @@ $result_tree_text{'inlinefmtspaces'} = '*document_root C1
    |EXTRA
    |expand_index:{1}
    |format:{html}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     {html}
     *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+     {html}
+     {spaces_after_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {in <i>}
      *@acronym C1 l2
       *brace_arg C1
@@ -85,8 +75,8 @@ in &lt;i&gt;<abbr class="acronym">HTML</abbr>&lt;/i&gt;.
 </p>';
 
 
-$result_converted{'xml'}->{'inlinefmtspaces'} = '<para>A <inlinefmt spacesaftercmd=" "><inlinefmtformat spaces=" ">plaintext </inlinefmtformat><inlinefmtcontent spaces=" ">plaintext &textldquo; &lbracechar; </inlinefmtcontent></inlinefmt> a.  Now html
-<inlinefmt><inlinefmtformat spaces=" ">html </inlinefmtformat><inlinefmtcontent spaces=" ">in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinefmtcontent></inlinefmt>.
+$result_converted{'xml'}->{'inlinefmtspaces'} = '<para>A <inlinefmt spacesaftercmd=" "><inlinefmtformat> plaintext </inlinefmtformat><inlinefmtcontent> plaintext &textldquo; &lbracechar; </inlinefmtcontent></inlinefmt> a.  Now html
+<inlinefmt><inlinefmtformat> html </inlinefmtformat><inlinefmtcontent> in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinefmtcontent></inlinefmt>.
 </para>';
 
 

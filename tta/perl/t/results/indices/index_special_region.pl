@@ -279,10 +279,8 @@ $result_tree_text{'index_special_region'} = '*document_root C7
        {truc}
      {spaces: }
      *def_name C1
-      *bracketed_arg index_special_region.texi:l45
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C1 index_special_region.texi:l45
+       {spaces_before_argument: }
    *@deffnx C1 index_special_region.texi:l46
    |EXTRA
    |def_command:{deffn}

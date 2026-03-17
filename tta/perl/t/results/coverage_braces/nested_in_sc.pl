@@ -38,10 +38,8 @@ $result_tree_text{'nested_in_sc'} = '*document_root C1
        *@abbr C2 l1
         *brace_arg C1
          {ABr}
-        *brace_arg C1
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
+        *brace_arg C2
+         {spaces_before_argument: }
          {expl}
        {, \\n}
        *@verb C1 l2

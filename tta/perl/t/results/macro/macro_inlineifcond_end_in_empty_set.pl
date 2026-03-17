@@ -38,7 +38,7 @@ $result_tree_text{'macro_inlineifcond_end_in_empty_set'} = '*document_root C1
       >*macro_call@clearargendignored C1
        >*brace_arg
     *brace_arg C1
-     {}
+     {spaces_before_argument:}
      >SOURCEMARKS
      >macro_expansion<end;1>
    {. After.\\n}
@@ -55,12 +55,10 @@ $result_tree_text{'macro_inlineifcond_end_in_empty_set'} = '*document_root C1
      >macro_expansion<start;2><p:2>
       >*macro_call@clearargendignored C1
        >*brace_arg
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     |>SOURCEMARKS
-     |>macro_expansion<end;2>
+    *brace_arg C1
+     {spaces_before_argument: }
+     >SOURCEMARKS
+     >macro_expansion<end;2>
    {. After.\\n}
 ';
 

@@ -26,6 +26,7 @@
 #include "text.h"
 #include "command_ids.h"
 #include "element_types.h"
+#include "types_data.h"
 #include "tree_types.h"
 #include "document_types.h"
 #include "converter_types.h"
@@ -1289,7 +1290,7 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
     {
       ELEMENT *content = tree->e.c->contents.list[i];
 
-      if (content->type == ET_normal_text)
+      if (type_data[content->type].flags & TF_text)
         {
           if (content->e.text->end > 0
               && content->e.text->text[strspn
@@ -1369,7 +1370,6 @@ idx_leading_text_or_command (ELEMENT *tree, const char *ignore_chars)
                         return idx_leading_text_or_command (
                                    content->e.c->contents.list[expand_index],
                                                             ignore_chars);
-
                     }
                 }
               else if ((builtin_command_data[data_cmd].other_flags

@@ -45,10 +45,8 @@ $result_tree_text{'pxref_test'} = '*document_root C2
      {)}
      { }
      {in pxref}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {name}
    {) and end.\\n}
    *@pxref C1 l4
@@ -72,10 +70,8 @@ $result_tree_text{'pxref_test'} = '*document_root C2
      {)}
      { }
      {n}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {name}
    {.\\n}
 ';

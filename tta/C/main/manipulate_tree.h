@@ -47,6 +47,7 @@ size_t relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e
 
 
 
+int non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices);
 NODE_SPEC_EXTRA *parse_node_manual (ELEMENT *node, int modify_node);
 
 

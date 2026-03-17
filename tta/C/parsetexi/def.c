@@ -311,7 +311,7 @@ split_def_args (ELEMENT *current, size_t starting_idx)
 
       if (e->type == ET_bracketed_arg)
         {
-          isolate_last_space (e);
+          isolate_leading_trailing (e, 0);
           continue;
         }
 

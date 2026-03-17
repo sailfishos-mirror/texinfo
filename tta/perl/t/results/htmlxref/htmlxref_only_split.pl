@@ -89,21 +89,16 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      {raw: a  node }
    { }
    *@ref C4 test_refs.texi:l12
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
     |EXTRA
     |node_content:{a  node}
+     {spaces_before_argument: }
      {a  node}
+     {spaces_after_argument: }
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    *@*
    {\\n}
@@ -174,21 +169,16 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      {raw:Top}
    { }
    *@ref C4 test_refs.texi:l24
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
     |EXTRA
     |node_content:{top}
+     {spaces_before_argument: }
      {top}
+     {spaces_after_argument: }
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    *@*
    { \\n}
@@ -278,10 +268,8 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      {node}
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {../manual/doc}
    *@*
    {\\n}
@@ -396,13 +384,11 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      {raw:Top}
    { }
    *@ref C1 test_refs.texi:l56
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
     |EXTRA
     |node_content:{Top}
     |normalized:{Top}
+     {spaces_before_argument: }
      {Top}
    {\\n}
   *@example C3 test_refs.texi:l57
@@ -433,13 +419,11 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      {raw: local   node}
    { }
    *@ref C1 test_refs.texi:l61
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument:  }
+    *brace_arg C2
     |EXTRA
     |node_content:{local   node}
     |normalized:{local-node}
+     {spaces_before_argument:  }
      {local   node}
    {\\n}
   *@example C3 test_refs.texi:l62
@@ -542,13 +526,11 @@ $result_tree_text{'htmlxref_only_split'} = '*document_root C9
      {raw:Top}
    { }
    *@ref C1 test_refs.texi:l73
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
     |EXTRA
     |node_content:{Top}
     |normalized:{Top}
+     {spaces_before_argument: }
      {Top}
    {\\n}
   *@example C3 test_refs.texi:l74

@@ -21,10 +21,8 @@ $result_tree_text{'uref_with_commands_characters'} = '*document_root C1
      {ba}
      *@@
      {s\\s p+h#aaa}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {see that }
      *@strong C1 l1
       *brace_container C1

@@ -14,10 +14,8 @@ $result_tree_text{'lone_braces_in_inlineraw'} = '*document_root C1
    |format:{plaintext}
     *brace_arg C1
      {plaintext}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      *balanced_braces C1 l1
       {{truc}}
    {.\\n}

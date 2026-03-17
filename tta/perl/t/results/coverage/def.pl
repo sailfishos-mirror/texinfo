@@ -216,10 +216,8 @@ $result_tree_text{'def'} = '*document_root C1
    |def_command:{deffn}
    |def_index_element:
     |* C1
-     |*brace_arg C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
+     |*brace_arg C2
+      |{spaces_before_argument: }
       |{log trap1}
    |index_entry:I{fn,6}
    |original_def_cmdname:{deffnx}
@@ -232,10 +230,8 @@ $result_tree_text{'def'} = '*document_root C1
        {Command}
      {spaces: }
      *def_name C1
-      *bracketed_arg C1 l14
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C2 l14
+       {spaces_before_argument: }
        {log trap1}
      {spaces: }
      *def_arg C1
@@ -248,11 +244,9 @@ $result_tree_text{'def'} = '*document_root C1
    |def_command:{deffn}
    |def_index_element:
     |* C1
-     |*brace_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument: }
+     |*brace_arg C2
       |{log trap2}
+      |{spaces_after_argument: }
    |index_entry:I{fn,7}
    |original_def_cmdname:{deffnx}
     *line_arg C5
@@ -264,11 +258,9 @@ $result_tree_text{'def'} = '*document_root C1
        {Command}
      {spaces: }
      *def_name C1
-      *bracketed_arg C1 l15
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
+      *bracketed_arg C2 l15
        {log trap2}
+       {spaces_after_argument: }
      {spaces: }
      *def_arg C1
       *bracketed_arg l15
@@ -735,8 +727,8 @@ $result_converted{'xml'}->{'def'} = '
 <deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="3"><var>i</var></indexterm><defcategory>fset</defcategory> <deffunction><var>i</var></deffunction> <defparam>a</defparam> <defparam>g</defparam></definitionterm>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="4">truc</indexterm><defcategory bracketed="on">cmde</defcategory> <deffunction>truc</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="5">log trap</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="6">log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" spaces=" ">log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="7">log trap2</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" trailingspaces=" ">log trap2</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="6"> log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on"> log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="7">log trap2 </indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap2 </deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="8"><b>id ule</b></indexterm><defcategory>cmde</defcategory> <deffunction><b>id ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="9"><b>id <samp>i</samp> ule</b></indexterm><defcategory>cmde2</defcategory> <deffunction><b>id <samp>i</samp> ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="10">machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>

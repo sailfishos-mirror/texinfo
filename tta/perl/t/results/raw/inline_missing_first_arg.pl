@@ -9,10 +9,8 @@ $result_tree_text{'inline_missing_first_arg'} = '*document_root C1
  *before_node_section C1
   *paragraph C4
    *@inlinefmt C2 l1
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C1
+     {spaces_before_argument: }
     *elided_brace_command_arg C1
      {raw: aaa}
    {. }

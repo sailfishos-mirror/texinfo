@@ -24,10 +24,8 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
    *@acronym C2 l4
     *brace_arg C1
      {ABC}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {aaa bb cc}
    {acronym.\\n}
    {acronym2}
@@ -39,10 +37,8 @@ $result_tree_text{'at_commands_glued_in_paragraph'} = '*document_root C1
    *@email C2 l6
     *brace_arg C1
      {somebody}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {mali}
    {email.\\n}
    {ref}

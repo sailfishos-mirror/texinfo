@@ -101,8 +101,8 @@ element_builtin_cmd (const ELEMENT *e)
   else if (e->e.c->cmd)
     {
       char *debug_str = print_element_debug (e, 0);
-      fprintf (stderr, "BUG: element_builtin_cmd: unexpected %s; add code?\n",
-               debug_str);
+      fprintf (stderr, "BUG: element_builtin_cmd: unexpected %s; add code? (%d)\n",
+               debug_str, e->e.c->cmd);
       free (debug_str);
       /* The e->cmd value being outside of the command id tables
          it is likely that it would be associated with incorrect access

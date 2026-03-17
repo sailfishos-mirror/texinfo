@@ -13,7 +13,7 @@ const TYPE_DATA type_data[] = {
 {"context_brace_command", TF_c_only, 2},
 {"after_menu_description_line", TF_text, 0},
 {"space_at_end_menu_node", TF_text, 0},
-{"empty_line", TF_text | TF_leading_space, 0},
+{"empty_line", TF_text | TF_leading_space | TF_trailing_space, 0},
 {"raw", TF_text, 0},
 {"ignorable_spaces_after_command", TF_text | TF_leading_space | TF_ignorable_text, 0},
 {"ignorable_spaces_before_command", TF_text | TF_trailing_space | TF_ignorable_text, 0},

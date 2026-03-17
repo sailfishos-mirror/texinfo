@@ -39,10 +39,8 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{normal node}
     |normalized:{normal-node}
      {normal node}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {the::caption and a word}
    {\\n}
    *@xref C2 nodequote.texi:l5
@@ -51,10 +49,8 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{normal node}
     |normalized:{normal-node}
      {normal node}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {the::caption}
    {\\n}
   {empty_line:\\n}
@@ -65,10 +61,8 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{blah:blah}
     |normalized:{blah_003ablah}
      {blah:blah}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {the::caption and a word}
    {\\n}
    *@xref C2 nodequote.texi:l8
@@ -77,10 +71,8 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{blah:blah}
     |normalized:{blah_003ablah}
      {blah:blah}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {the::caption}
    {\\n}
   {empty_line:\\n}
@@ -91,10 +83,8 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{blumpty.fump}
     |normalized:{blumpty_002efump}
      {blumpty.fump}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {the::caption and a word}
    {\\n}
    *@xref C2 nodequote.texi:l11
@@ -103,10 +93,8 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{blumpty.fump}
     |normalized:{blumpty_002efump}
      {blumpty.fump}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {the::caption}
    {.mrmrmrmmrmrmr\\n}
   {empty_line:\\n}
@@ -175,15 +163,11 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{pp:qq::rr}
      {pp:qq::rr}
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {label}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {man_ual}
     *brace_arg C1
      {Book Title}
@@ -196,15 +180,11 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{pp:qq.rr}
      {pp:qq.rr}
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {label}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {man_ual}
     *brace_arg C1
      {Book Title}
@@ -217,20 +197,14 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{ext}
      {ext}
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {label}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {man:u.al}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {Book Title}
    {.\\n}
   {empty_line:\\n}
@@ -241,20 +215,14 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{e:x.t}
      {e:x.t}
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {label}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {man:u.al}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {Book Title}
    {.\\n}
   {empty_line:\\n}
@@ -265,20 +233,14 @@ $result_tree_text{'quote_node_names'} = '*document_root C12
     |node_content:{ext}
      {ext}
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {la:bel}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {man:u.al}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {Book Title}
    {.\\n}
   {empty_line:\\n}

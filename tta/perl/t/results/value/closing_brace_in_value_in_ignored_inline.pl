@@ -28,10 +28,8 @@ $result_tree_text{'closing_brace_in_value_in_ignored_inline'} = '*document_root 
    >value_expansion<end;1>
     *brace_arg C1
      {html}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument:\\n}
+    *brace_arg C2
+     {spaces_before_argument:\\n}
      {truc }
      >SOURCEMARKS
      >value_expansion<start;1><p:5>{}}

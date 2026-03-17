@@ -80,15 +80,11 @@ $result_tree_text{'form_feeds'} = '*document_root C3
   *paragraph C6
    {something }
    *@email C2 l17
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument:\\f}
+    *brace_arg C2
+     {spaces_before_argument:\\f}
      {aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: \\f }
+    *brace_arg C2
+     {spaces_before_argument: \\f }
      {fff}
    *@footnote C1 l17
    |INFO
@@ -179,13 +175,10 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    |def_command:{deffn}
    |def_index_element:
     |* C1
-     |*brace_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument: }
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
+     |*brace_arg C3
+      |{spaces_before_argument: }
       |{machin}
+      |{spaces_after_argument: }
    |element_node:{chap-node}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
@@ -194,49 +187,34 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     |spaces_after_argument:
      |{spaces_after_argument: \\f\\n}
      *def_category C1
-      *bracketed_arg C1 l31
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: \\f}
+      *bracketed_arg C3 l31
+       {spaces_before_argument: \\f}
        {truc}
+       {spaces_after_argument: }
      {spaces: }
      *def_name C1
-      *bracketed_arg C1 l31
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C3 l31
+       {spaces_before_argument: }
        {machin}
+       {spaces_after_argument: }
      {spaces:  }
      *def_arg C1
-      *bracketed_arg C1 l31
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C3 l31
+       {spaces_before_argument: }
        {bidule}
+       {spaces_after_argument: }
      {spaces:  }
      *def_arg C1
-      *bracketed_arg C1 l31
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: \\f}
-      |spaces_before_argument:
-       |{spaces_before_argument: \\f }
+      *bracketed_arg C3 l31
+       {spaces_before_argument: \\f }
        {chose}
+       {spaces_after_argument: \\f}
      {spaces: }
      *def_arg C1
-      *bracketed_arg C1 l31
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\f }
-      |spaces_before_argument:
-       |{spaces_before_argument:  }
+      *bracketed_arg C3 l31
+       {spaces_before_argument:  }
        {arg}
+       {spaces_after_argument:\\f }
    *@deffnx C1 l32
    |INFO
    |spaces_before_argument:
@@ -245,13 +223,10 @@ $result_tree_text{'form_feeds'} = '*document_root C3
    |def_command:{deffn}
    |def_index_element:
     |* C1
-     |*brace_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument: }
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
+     |*brace_arg C3
+      |{spaces_before_argument: }
       |{xmachin}
+      |{spaces_after_argument: }
    |element_node:{chap-node}
    |index_entry:I{fn,2}
    |original_def_cmdname:{deffnx}
@@ -260,49 +235,34 @@ $result_tree_text{'form_feeds'} = '*document_root C3
     |spaces_after_argument:
      |{spaces_after_argument: \\f\\n}
      *def_category C1
-      *bracketed_arg C1 l32
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: \\f}
+      *bracketed_arg C3 l32
+       {spaces_before_argument: \\f}
        {xtruc}
+       {spaces_after_argument: }
      {spaces: }
      *def_name C1
-      *bracketed_arg C1 l32
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C3 l32
+       {spaces_before_argument: }
        {xmachin}
+       {spaces_after_argument: }
      {spaces:  }
      *def_arg C1
-      *bracketed_arg C1 l32
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C3 l32
+       {spaces_before_argument: }
        {xbidule}
+       {spaces_after_argument: }
      {spaces:  }
      *def_arg C1
-      *bracketed_arg C1 l32
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: \\f}
-      |spaces_before_argument:
-       |{spaces_before_argument: \\f }
+      *bracketed_arg C3 l32
+       {spaces_before_argument: \\f }
        {xchose}
+       {spaces_after_argument: \\f}
      {spaces: }
      *def_arg C1
-      *bracketed_arg C1 l32
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\f }
-      |spaces_before_argument:
-       |{spaces_before_argument:  }
+      *bracketed_arg C3 l32
+       {spaces_before_argument:  }
        {xarg}
+       {spaces_after_argument:\\f }
    *def_item C1
     *paragraph C1
      {T\\n}
@@ -682,7 +642,7 @@ $result_converted{'xml'}->{'form_feeds'} = '<node identifier="Top" spaces=" "><n
 </para>
 <para><code>middle&formfeed; in code</code>
 </para>
-<anchor identifier="aa">aa</anchor>&formfeed;<para>something <email><emailaddress spaces="\\f">aaa</emailaddress><emailname spaces=" \\f ">fff</emailname></email><footnote spaces="\\n">&formfeed; <para>f1 </para>&formfeed;</footnote> <footnote spaces=" \\f "><para>gg</para>&formfeed;<para>jj</para></footnote>.
+<anchor identifier="aa">aa</anchor>&formfeed;<para>something <email><emailaddress>&formfeed;aaa</emailaddress><emailname> &formfeed; fff</emailname></email><footnote spaces="\\n">&formfeed; <para>f1 </para>&formfeed;</footnote> <footnote spaces=" \\f "><para>gg</para>&formfeed;<para>jj</para></footnote>.
 </para>
 <para><xref label="chap-node"><xrefnodename>chap&formfeed;node</xrefnodename></xref>
 </para>
@@ -695,8 +655,8 @@ $result_converted{'xml'}->{'form_feeds'} = '<node identifier="Top" spaces=" "><n
 
 <para><indicateurl> &formfeed; in indicateurl</indicateurl>
 </para>
-<deffn spaces=" \\f " endspaces=" "><definitionterm><indexterm index="fn" number="1">machin</indexterm><defcategory bracketed="on" spaces=" \\f" trailingspaces=" ">truc</defcategory> <deffunction bracketed="on" spaces=" " trailingspaces=" ">machin</deffunction>  <defparam bracketed="on" spaces=" " trailingspaces=" ">bidule</defparam>  <defparam bracketed="on" spaces=" \\f " trailingspaces=" \\f">chose</defparam> <defparam bracketed="on" spaces="  " trailingspaces="\\f ">arg</defparam> &formfeed;</definitionterm>
-<deffnx spaces=" \\f "><definitionterm><indexterm index="fn" number="2">xmachin</indexterm><defcategory bracketed="on" spaces=" \\f" trailingspaces=" ">xtruc</defcategory> <deffunction bracketed="on" spaces=" " trailingspaces=" ">xmachin</deffunction>  <defparam bracketed="on" spaces=" " trailingspaces=" ">xbidule</defparam>  <defparam bracketed="on" spaces=" \\f " trailingspaces=" \\f">xchose</defparam> <defparam bracketed="on" spaces="  " trailingspaces="\\f ">xarg</defparam> &formfeed;</definitionterm></deffnx>
+<deffn spaces=" \\f " endspaces=" "><definitionterm><indexterm index="fn" number="1"> machin </indexterm><defcategory bracketed="on"> &formfeed;truc </defcategory> <deffunction bracketed="on"> machin </deffunction>  <defparam bracketed="on"> bidule </defparam>  <defparam bracketed="on"> &formfeed; chose &formfeed;</defparam> <defparam bracketed="on">  arg&formfeed; </defparam> &formfeed;</definitionterm>
+<deffnx spaces=" \\f "><definitionterm><indexterm index="fn" number="2"> xmachin </indexterm><defcategory bracketed="on"> &formfeed;xtruc </defcategory> <deffunction bracketed="on"> xmachin </deffunction>  <defparam bracketed="on"> xbidule </defparam>  <defparam bracketed="on"> &formfeed; xchose &formfeed;</defparam> <defparam bracketed="on">  xarg&formfeed; </defparam> &formfeed;</definitionterm></deffnx>
 <definitionitem><para>T
 </para></definitionitem></deffn>
 

@@ -48,10 +48,8 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
      {xml}
     *elided_brace_command_arg C1
      {raw:if xml @env{second} arg}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {xml }
      *@env C1 l5
       *brace_container C1
@@ -63,19 +61,14 @@ $result_tree_text{'inlinefmtifelse_with_commands'} = '*document_root C1
    |EXTRA
    |expand_index:{2}
    |format:{docbook}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {docbook}
+     {spaces_after_argument: }
     *elided_brace_command_arg C1
      {raw: if docbook @string{spaces} }
-    *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {else }
      *@strong C1 l7
       *brace_container C1
@@ -189,7 +182,7 @@ $result_converted{'xml'}->{'inlinefmtifelse_with_commands'} = '<para><inlinefmti
 </para>
 <para>if xml @env{second} arg.
 </para>
-<para><inlinefmtifelse><inlinefmtifelseformat spaces=" ">docbook </inlinefmtifelseformat><inlinefmtifelsecontentif> if docbook @string{spaces} </inlinefmtifelsecontentif><inlinefmtifelsecontentelse spaces=" ">else <strong>docbook spaces</strong> </inlinefmtifelsecontentelse></inlinefmtifelse>.
+<para><inlinefmtifelse><inlinefmtifelseformat> docbook </inlinefmtifelseformat><inlinefmtifelsecontentif> if docbook @string{spaces} </inlinefmtifelsecontentif><inlinefmtifelsecontentelse> else <strong>docbook spaces</strong> </inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>
 <para><inlinefmtifelse><inlinefmtifelseformat>tex</inlinefmtifelseformat><inlinefmtifelsecontentif>if @var{tex}</inlinefmtifelsecontentif><inlinefmtifelsecontentelse><var>else</var> tex</inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>

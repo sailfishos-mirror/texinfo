@@ -8,7 +8,8 @@
 @end tex
 
 @c MathJax process LaTeX commands in math environments
-@c trailing space is needed for latex2html
+@c trailing space is needed for latex2html for \def and
+@c \gdef in math, use displaymath instead
 @c tex4ht httex does not keep the definition with \def
 @c in @math, which seems correct as \def is only defined
 @c within the math group
@@ -16,11 +17,15 @@
 @math{\gdef\otest{\sqrt{64}} }
 @end ifset
 @ifclear tex4ht
-@math{\def\otest{\sqrt{64}} }
+@displaymath
+\def\otest{\sqrt{64}}%
+@end displaymath
 @end ifclear
 
 @c MathJax doesn't get \gdef
-@math{\gdef\testmacro{a \equiv b} }
+@displaymath
+\gdef\testmacro{a \equiv b}
+@end displaymath
 
 @math{\Desig \testmacro \otest}
 

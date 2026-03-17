@@ -9,14 +9,15 @@ $result_tree_text{'empty_line_in_braces_in_math_at_begin_line'} = '*document_roo
  *before_node_section C1
   *paragraph C1
    *@math C1 l1
-    *brace_command_context C4
+    *brace_command_context C5
      {a\\n}
      {empty_line:\\n}
      *balanced_braces C3 l3
       {{b\\n}
       {empty_line:\\n}
       {}}
-     { c\\n}
+     { c}
+     {spaces_after_argument:\\n}
 ';
 
 
@@ -32,8 +33,7 @@ $result_texts{'empty_line_in_braces_in_math_at_begin_line'} = 'a
 
 {b
 
-} c
-';
+} c';
 
 $result_errors{'empty_line_in_braces_in_math_at_begin_line'} = '';
 

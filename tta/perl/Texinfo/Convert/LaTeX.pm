@@ -606,7 +606,9 @@ foreach my $type (
             'ignorable_spaces_before_command',
             'spaces_at_end',
             #'space_at_end_menu_node',
-            'spaces_after_close_brace') {
+            'spaces_after_close_brace',
+            'spaces_before_argument',
+            'spaces_after_argument') {
   $ignorable_space_types{$type} = 1;
 }
 
@@ -1316,6 +1318,7 @@ sub copy_options_for_convert_to_latex_math($) {
   my $self = shift;
 
   my %options;
+
   foreach my $option_name ('DEBUG', 'OUTPUT_CHARACTERS', 'OUTPUT_ENCODING_NAME',
                            'TEST') {
     $options{$option_name} = $self->get_conf($option_name)
@@ -3538,11 +3541,13 @@ sub _convert($$) {
         my $email_arg;
         my $email_text;
         if (scalar (@{$element->{'contents'}}) == 2
-            and $element->{'contents'}->[1]->{'contents'}) {
+            and not Texinfo::Common::empty_spaces_argument(
+                                     $element->{'contents'}->[1])) {
           $name = $element->{'contents'}->[1];
           $converted_name = _convert($self, $name);
         }
-        if ($element->{'contents'}->[0]->{'contents'}) {
+        if (not Texinfo::Common::empty_spaces_argument(
+                                  $element->{'contents'}->[0])) {
           $email_arg = $element->{'contents'}->[0];
           Texinfo::Convert::Text::set_options_code(
                           $self->{'convert_text_options'});
@@ -3565,10 +3570,12 @@ sub _convert($$) {
     } elsif ($cmdname eq 'uref' or $cmdname eq 'url') {
       if ($element->{'contents'}) {
         if (scalar(@{$element->{'contents'}}) == 3
-             and $element->{'contents'}->[2]->{'contents'}) {
+             and not Texinfo::Common::empty_spaces_argument(
+                                     $element->{'contents'}->[2])) {
           unshift @{$self->{'current_contents'}->[-1]},
                      $element->{'contents'}->[2];
-        } elsif ($element->{'contents'}->[0]->{'contents'}) {
+        } elsif (not Texinfo::Common::empty_spaces_argument(
+                              $element->{'contents'}->[0])) {
           my $url_arg = $element->{'contents'}->[0];
           Texinfo::Convert::Text::set_options_code(
                                    $self->{'convert_text_options'});
@@ -3578,7 +3585,8 @@ sub _convert($$) {
           Texinfo::Convert::Text::reset_options_code(
                                    $self->{'convert_text_options'});
           if (scalar(@{$element->{'contents'}}) == 2
-              and $element->{'contents'}->[1]->{'contents'}) {
+              and not Texinfo::Common::empty_spaces_argument(
+                                  $element->{'contents'}->[1])) {
             my $description_text = _convert($self, $element->{'contents'}->[1]);
             my $text = $self->cdt_string('{text} ({url})',
               {'text' => $description_text, 'url' => "\\nolinkurl{$url_text}"});
@@ -3589,9 +3597,8 @@ sub _convert($$) {
             return $result;
           }
         } elsif (scalar(@{$element->{'contents'}}) == 2
-                 and defined($element->{'contents'}->[1])
-                 and $element->{'contents'}->[1]->{'contents'}
-                 and @{$element->{'contents'}->[1]->{'contents'}}) {
+                 and not Texinfo::Common::empty_spaces_argument(
+                         $element->{'contents'}->[1])) {
           unshift @{$self->{'current_contents'}->[-1]},
             {'contents' => $element->{'contents'}->[1]->{'contents'}};
         }
@@ -3614,13 +3621,13 @@ sub _convert($$) {
       }
       return $result;
     } elsif ($ref_commands{$cmdname}) {
-      if ($element->{'contents'} and scalar(@{$element->{'contents'}})) {
+      if ($element->{'contents'}) {
         my @args;
-        for my $arg (@{$element->{'contents'}}) {
-          if (defined $arg->{'contents'} and @{$arg->{'contents'}}) {
-            push @args, $arg;
-          } else {
+        foreach my $arg (@{$element->{'contents'}}) {
+          if (Texinfo::Common::empty_spaces_argument($arg)) {
             push @args, undef;
+          } else {
+            push @args, $arg;
           }
         }
         my $node_arg = $element->{'contents'}->[0];
@@ -3787,13 +3794,15 @@ sub _convert($$) {
               if (exists($reference->{'cmdname'})
                   and $reference->{'cmdname'} eq 'namedanchor'
                   and scalar(@{$reference->{'contents'}}) > 1
-                  and $reference->{'contents'}->[1]->{'contents'}) {
+                  and not Texinfo::Common::empty_spaces_argument(
+                                          $reference->{'contents'}->[1])) {
                 $name = $reference->{'contents'}->[1];
               } elsif ($section_command) {
                 # arguments_line type element
                 my $arguments_line = $section_command->{'contents'}->[0];
                 # there may not be any argument at all for xrefname
-                if ($arguments_line->{'contents'}) {
+                if (not Texinfo::Common::empty_spaces_argument(
+                                                          $arguments_line)) {
                   $name = $arguments_line->{'contents'}->[0];
                 }
               }
@@ -3936,8 +3945,9 @@ sub _convert($$) {
       }
       return $result;
     } elsif ($explained_commands{$cmdname}) {
-      if ($element->{'contents'}
-          and $element->{'contents'}->[0]->{'contents'}) {
+      if (exists($element->{'contents'})
+          and not Texinfo::Common::empty_spaces_argument(
+                                  $element->{'contents'}->[0])) {
         # in abbr spaces never end a sentence.
         my $argument;
         if ($cmdname eq 'abbr') {
@@ -3949,21 +3959,20 @@ sub _convert($$) {
           $argument = $element->{'contents'}->[0];
         }
         if (scalar (@{$element->{'contents'}}) == 2
-            and defined($element->{'contents'}->[-1])
-            and $element->{'contents'}->[-1]->{'contents'}
-            and @{$element->{'contents'}->[-1]->{'contents'}}) {
+            and not Texinfo::Common::empty_spaces_argument(
+                                        $element->{'contents'}->[1])) {
           my $prepended
            = $self->cdt('{abbr_or_acronym} ({explanation})',
                         {'abbr_or_acronym' => $argument,
                          'explanation'
-                                   => $element->{'contents'}->[-1]});
+                                   => $element->{'contents'}->[1]});
           $result .= _convert($self, $prepended);
         } else {
           $result .= _convert($self, $argument);
         }
       }
       return $result;
-    } elsif ($Texinfo::Commands::brace_commands{$cmdname}
+    } elsif (exists($Texinfo::Commands::brace_commands{$cmdname})
              and $Texinfo::Commands::brace_commands{$cmdname} eq 'inline') {
       my $arg_index = 1;
       if ($cmdname eq 'inlinefmtifelse'
@@ -3994,7 +4003,7 @@ sub _convert($$) {
       if (not exists($block_commands{$cmdname})) {
         push @{$self->{'formatting_context'}->[-1]->{'math_style'}}, 'one-line';
         if ($cmdname eq 'math') {
-          if ($element->{'contents'}) {
+          if (exists($element->{'contents'})) {
             $result .= '$';
             $result .= _convert($self, $element->{'contents'}->[0]);
             $result .= '$';
@@ -4043,7 +4052,7 @@ sub _convert($$) {
         }
       }
       my $caption_text = '';
-      if ($element->{'contents'}->[0]->{'contents'}) {
+      if (exists($element->{'contents'}->[0]->{'contents'})) {
         _push_new_context($self, 'latex_caption');
         $caption_text = _convert($self, $element->{'contents'}->[0]);
         _pop_context($self);
@@ -4079,12 +4088,10 @@ sub _convert($$) {
       $result .= _title_font($self, $element);
       return $result;
     } elsif ($cmdname eq 'U') {
-      if ($element->{'contents'}
-          and $element->{'contents'}->[0]->{'contents'}
-          and $element->{'contents'}->[0]->{'contents'}->[0]->{'text'}) {
-        my $arg_text = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
-
-        if (defined($arg_text)) {
+      if (exists($element->{'contents'})) {
+        my $arg_text
+          = Texinfo::Common::simple_arg_text($element->{'contents'}->[0]);
+        if (defined($arg_text) and $arg_text ne '') {
           # Syntactic checks on the value were already done in Parser.pm,
           # but we have one more thing to test: since this is the one
           # place where we might output actual UTF-8 binary bytes, we have

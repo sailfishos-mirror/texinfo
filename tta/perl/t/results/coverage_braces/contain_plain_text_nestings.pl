@@ -130,10 +130,8 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
       |node_content:{Top}
       |normalized:{Top}
        {Top}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {cross in w}
      { text}
    {.\\n}
@@ -147,10 +145,8 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
       |node_content:{Top}
       |normalized:{Top}
        {Top}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {cross in hyphenation}
      { text}
    {spaces_after_close_brace:\\n}
@@ -162,10 +158,8 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
       |node_content:{Top}
       |normalized:{Top}
        {Top}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {cross in key}
      { text}
    {\\n}
@@ -191,10 +185,8 @@ $result_tree_text{'contain_plain_text_nestings'} = '*document_root C5
         |node_content:{Top}
         |normalized:{Top}
          {Top}
-        *brace_arg C1
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
+        *brace_arg C2
+         {spaces_before_argument: }
          {cross in sortas}
        { text}
   {empty_line:\\n}

@@ -1338,15 +1338,11 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |node_content:{text with a lot of features}
     |normalized:{text-with-a-lot-of-features}
      {text with a lot of features}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {cross ref}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {title}
    {.\\n}
   {empty_line:\\n}
@@ -1357,20 +1353,14 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |EXTRA
     |node_content:{text with a lot of features}
      {text with a lot of features}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {cross ref}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {title}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    {.\\n}
   {empty_line:\\n}
@@ -1381,21 +1371,15 @@ $result_tree_text{'numbering_captions_listoffloats'} = '*document_root C21
     |EXTRA
     |node_content:{text with a lot of features}
      {text with a lot of features}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {cross ref}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {title}
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {printed manual title}
    {.\\n}
   {empty_line:\\n}
@@ -2566,13 +2550,13 @@ And (<pxref label="text-in-chapter"><xrefnodename>text in chapter</xrefnodename>
 <xref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename></xref>.
 </para>
 <para>And now a ref (without manual or printed manual)
-<ref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname spaces=" ">cross ref</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc></ref>.
+<ref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname> cross ref</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc></ref>.
 </para>
 <para>And now a ref (with manual without printed manual)
-<ref label="text-with-a-lot-of-features" manual="manual"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname spaces=" ">cross ref</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">manual</xrefinfofile></ref>.
+<ref label="text-with-a-lot-of-features" manual="manual"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname> cross ref</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> manual</xrefinfofile></ref>.
 </para>
 <para>And now a ref (without manual with a printed manual)
-<ref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname spaces=" ">cross ref</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefprintedname spaces=" ">printed manual title</xrefprintedname></ref>.
+<ref label="text-with-a-lot-of-features"><xrefnodename>text with a lot of features</xrefnodename><xrefinfoname> cross ref</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefprintedname> printed manual title</xrefprintedname></ref>.
 </para>
 <para>A ref to float without type <ref label="label-but-no-type"><xrefnodename>label but no type</xrefnodename></ref>.
 </para>

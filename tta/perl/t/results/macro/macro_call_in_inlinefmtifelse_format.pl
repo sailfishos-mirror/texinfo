@@ -40,13 +40,11 @@ $result_tree_text{'macro_call_in_inlinefmtifelse_format'} = '*document_root C1
        >*brace_arg
     *elided_brace_command_arg C1
      {raw: before}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {after}
      >SOURCEMARKS
-     >macro_expansion<end;1><p:5>
+     >macro_expansion<end;1><p:6>
    { done.\\n}
 ';
 

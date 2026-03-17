@@ -147,10 +147,8 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
      *@asis C1 l16
       *brace_container C1
        {nodename. a}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      *@asis C1 l16
       *brace_container C1
        {truc:}
@@ -164,10 +162,8 @@ $result_tree_text{'invalid_node_name_no_warning'} = '*document_root C5
      *@comma C1 l16
       *brace_container
      {comma}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {machin}
    {.\\n}
    *@ref C1 l17

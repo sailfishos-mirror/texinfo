@@ -12,6 +12,11 @@ Before next release
 
 Document command_is_in_referred_command_stack in texi2any_api
 
+verify input_files/cpp_lines parse_refold.pl
+
+Put @math arg in brace_container/brace_arg, not in context, but
+set context.
+
 Bugs
 ====
 

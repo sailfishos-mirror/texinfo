@@ -68,10 +68,8 @@ $result_tree_text{'ref_tests'} = '*document_root C2
      {m}
      {)}
      {in ref followed by comma}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {name}
    {,\\n}
    *@ref C2 l10
@@ -83,10 +81,8 @@ $result_tree_text{'ref_tests'} = '*document_root C2
      {m}
      {)}
      {in ref not followed by comma}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {name}
    { after ref.\\n}
    *@code C1 l11
@@ -100,10 +96,8 @@ $result_tree_text{'ref_tests'} = '*document_root C2
        {m}
        {)}
        {in ref followed by end command}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {name}
    {.\\n}
    *@ref C2 l12
@@ -115,10 +109,8 @@ $result_tree_text{'ref_tests'} = '*document_root C2
      {m}
      {)}
      {in ref ending with a dot.}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {name}
    { after ref.\\n}
   {empty_line:\\n}

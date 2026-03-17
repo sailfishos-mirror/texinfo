@@ -9,11 +9,9 @@ $result_tree_text{'empty_line_in_email'} = '*document_root C1
  *before_node_section C4
   *paragraph C1
    *@email C1 l1
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: \\n}
-     {empty_line:\\n}
+    *brace_arg C2
+     {spaces_before_argument: \\n}
+     {spaces_before_argument:\\n}
   *paragraph C1
    {mail,\\n}
   {empty_line:\\n}
@@ -30,8 +28,7 @@ text
 ';
 
 
-$result_texts{'empty_line_in_email'} = '
-mail,
+$result_texts{'empty_line_in_email'} = 'mail,
 
 text
 ';
@@ -53,8 +50,7 @@ $result_sectioning_root{'empty_line_in_email'} = '';
 $result_headings_list{'empty_line_in_email'} = '';
 
 
-$result_converted{'plaintext'}->{'empty_line_in_email'} = '<>
-   mail,
+$result_converted{'plaintext'}->{'empty_line_in_email'} = '   mail,
 
    text
 ';
@@ -66,16 +62,13 @@ $result_converted{'html_text'}->{'empty_line_in_email'} = '<p>mail,
 </p>';
 
 
-$result_converted{'latex_text'}->{'empty_line_in_email'} = '\\href{mailto:
-}{\\nolinkurl{
-}}mail,
+$result_converted{'latex_text'}->{'empty_line_in_email'} = 'mail,
 
 text
 ';
 
 
-$result_converted{'docbook'}->{'empty_line_in_email'} = '<para><email>
-</email></para><para>mail,
+$result_converted{'docbook'}->{'empty_line_in_email'} = '<para></para><para>mail,
 </para>
 <para>text
 </para>';

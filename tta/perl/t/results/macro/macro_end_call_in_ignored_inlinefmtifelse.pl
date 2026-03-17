@@ -42,10 +42,8 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse'} = '*document_root
      {raw: before comma}
      >SOURCEMARKS
      >macro_expansion<end;1><p:7>
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {finish}
    { done.\\n}
 ';

@@ -22,10 +22,8 @@ $result_tree_text{'verb_in_xref'} = '*document_root C1
     |node_content:{point}
     |normalized:{point}
      {point}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      *@verb C1 l3
      |INFO
      |delimiter:{*}

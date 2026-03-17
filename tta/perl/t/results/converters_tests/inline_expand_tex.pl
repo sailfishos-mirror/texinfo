@@ -47,10 +47,8 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
    |format:{tex}
     *brace_arg C1
      {tex}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {$\\underlinea < b }
      *@code C1 l6
       *brace_container C1
@@ -105,10 +103,8 @@ $result_tree_text{'inline_expand_tex'} = '*document_root C1
    |format:{tex}
     *brace_arg C1
      {tex}
-    *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {raw $\\underline}
      *balanced_braces C3 l14
       {{a < b }
@@ -218,7 +214,7 @@ $result_converted{'xml'}->{'inline_expand_tex'} = '
 <inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent> plaintext ``</inlinefmtcontent></inlinefmt>, 
 <inlinefmt><inlinefmtformat>xml</inlinefmtformat><inlinefmtcontent> &lt;para&gt;xml&lt;/para&gt; ``</inlinefmtcontent></inlinefmt>,
 <inlinefmt><inlinefmtformat>docbook</inlinefmtformat><inlinefmtcontent> &lt;emphasis&gt;docbook&lt;/emphasis&gt; ``</inlinefmtcontent></inlinefmt>, 
-$\\underlinea &lt; b <code>tex \\hbox code </code>$ &textldquo;
+ $\\underlinea &lt; b <code>tex \\hbox code </code>$ &textldquo;
 <inlinefmt><inlinefmtformat>latex</inlinefmtformat><inlinefmtcontent> @math{\\frac{a &lt; b @code{tex \\hbox{ code }}}{b}} ``</inlinefmtcontent></inlinefmt>
 </para>
 
@@ -226,7 +222,7 @@ $\\underlinea &lt; b <code>tex \\hbox code </code>$ &textldquo;
 <inlineraw><inlinerawformat>plaintext</inlinerawformat><inlinerawcontent> raw plaintext ``</inlinerawcontent></inlineraw>, 
 <inlineraw><inlinerawformat>xml</inlinerawformat><inlinerawcontent> raw &lt;para&gt;xml&lt;/para&gt; ``</inlinerawcontent></inlineraw>,
 <inlineraw><inlinerawformat>docbook</inlinerawformat><inlinerawcontent> raw &lt;emphasis&gt;docbook&lt;/emphasis&gt; ``</inlinerawcontent></inlineraw>, 
-raw $\\underline{a < b <code>tex \\hbox{ code }</code>}$ ``
+ raw $\\underline{a < b <code>tex \\hbox{ code }</code>}$ ``
 <inlineraw><inlinerawformat>latex</inlinerawformat><inlinerawcontent> raw $\\frac{a &lt; b @code{tex \\hbox{ code }}}{b}$ ``</inlinerawcontent></inlineraw>
 </para>';
 

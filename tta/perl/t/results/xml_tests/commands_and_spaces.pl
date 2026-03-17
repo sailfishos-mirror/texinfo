@@ -131,62 +131,42 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   *@image C5 l21
   |EXTRA
   |input_encoding_name:{utf-8}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C3
+    {spaces_before_argument: }
     {a}
+    {spaces_after_argument: }
    *brace_arg C1
     {b}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *brace_arg C2
     {c}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+    {spaces_after_argument: }
+   *brace_arg C2
+    {spaces_before_argument: }
     {d}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *brace_arg C2
     {e}
+    {spaces_after_argument: }
   {\\n}
   {empty_line:\\n}
   *@image C5 l23
   |EXTRA
   |input_encoding_name:{utf-8}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C3
+    {spaces_before_argument: }
     {a}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: \\n}
+    {spaces_after_argument: }
+   *brace_arg C2
     {b}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+    {spaces_after_argument: \\n}
+   *brace_arg C2
     {c}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+    {spaces_after_argument: }
+   *brace_arg C2
+    {spaces_before_argument: }
     {d}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *brace_arg C2
     {e}
+    {spaces_after_argument: }
   {\\n}
   {empty_line:\\n}
   *@quotation C3 l26
@@ -312,10 +292,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
       {aa b}
      {  }
      *bracketed_arg C1 l39
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      {r }
+      { r }
      {  }
      *@var C1 l39
       *brace_container C1
@@ -441,14 +418,12 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   *paragraph C3
    {Math }
    *@math C1 l60
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *brace_command_context C3
+    *brace_command_context C4
+     {spaces_before_argument: }
      {\\underline}
      *balanced_braces C1 l60
       {{ a, b}}
-     { }
+     {spaces_after_argument: }
    {.\\n}
   {empty_line:\\n}
   *paragraph C2
@@ -466,13 +441,10 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
    |def_command:{deffn}
    |def_index_element:
     |* C1
-     |*brace_arg C1
-     ||INFO
-     ||spaces_after_argument:
-      ||{spaces_after_argument: }
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
+     |*brace_arg C3
+      |{spaces_before_argument: }
       |{machin}
+      |{spaces_after_argument: }
    |element_node:{a}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
@@ -481,49 +453,34 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
     |spaces_after_argument:
      |{spaces_after_argument:\\n}
      *def_category C1
-      *bracketed_arg C1 l64
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C3 l64
+       {spaces_before_argument: }
        {truc}
+       {spaces_after_argument: }
      {spaces: }
      *def_name C1
-      *bracketed_arg C1 l64
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C3 l64
+       {spaces_before_argument: }
        {machin}
+       {spaces_after_argument: }
      {spaces:  }
      *def_arg C1
-      *bracketed_arg C1 l64
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C3 l64
+       {spaces_before_argument: }
        {bidule}
+       {spaces_after_argument: }
      {spaces:  }
      *def_arg C1
-      *bracketed_arg C1 l64
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument:  }
+      *bracketed_arg C3 l64
+       {spaces_before_argument:  }
        {chose}
+       {spaces_after_argument: }
      {spaces: }
      *def_arg C1
-      *bracketed_arg C1 l64
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
-      |spaces_before_argument:
-       |{spaces_before_argument:  }
+      *bracketed_arg C3 l64
+       {spaces_before_argument:  }
        {arg}
+       {spaces_after_argument: }
    *def_item C1
     *paragraph C1
      {T\\n}
@@ -649,7 +606,7 @@ in item
 
 T.
 
-Math \\underline{ a, b} .
+Math \\underline{ a, b}.
 
  http://ggg 
 
@@ -711,10 +668,10 @@ $result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" spaces="  "
 <indent></indent>  
 <para>endof line with spaces line after indent
 </para>
-<image><imagefile spaces=" ">a </imagefile><imagewidth>b</imagewidth><imageheight>c </imageheight><alttext spaces=" ">d</alttext><imageextension>e </imageextension></image>
+<image><imagefile> a </imagefile><imagewidth>b</imagewidth><imageheight>c </imageheight><alttext> d</alttext><imageextension>e </imageextension></image>
 
-<image><imagefile spaces=" ">a </imagefile><imagewidth>b 
-</imagewidth><imageheight>c </imageheight><alttext spaces=" ">d</alttext><imageextension>e </imageextension></image>
+<image><imagefile> a </imagefile><imagewidth>b 
+</imagewidth><imageheight>c </imageheight><alttext> d</alttext><imageextension>e </imageextension></image>
 
 <quotation spaces="  " endspaces=" "><quotationtype>Note  </quotationtype>
 <para>Q
@@ -729,7 +686,7 @@ $result_converted{'xml'}->{'commands_and_spaces'} = '<set name="foo" spaces="  "
 <multitable spaces="  " endspaces=" "><columnfractions spaces="  " line="0.4  0.6  "><columnfraction value="0.4"></columnfraction><columnfraction value="0.6"></columnfraction></columnfractions>
 </multitable>
 
-<multitable spaces="  " endspaces=" "><columnprototypes><columnprototype bracketed="on">aa b</columnprototype>  <columnprototype bracketed="on" spaces=" ">r </columnprototype>  <var>cmd</var>gg hh j</columnprototypes> 
+<multitable spaces="  " endspaces=" "><columnprototypes><columnprototype bracketed="on">aa b</columnprototype>  <columnprototype bracketed="on"> r </columnprototype>  <var>cmd</var>gg hh j</columnprototypes> 
 </multitable>
 
 <verbatim xml:space="preserve" endspaces=" ">  
@@ -750,11 +707,11 @@ in tex
 
 <para>T<footnote spaces="  "><para>a</para></footnote>.
 </para>
-<para>Math <math spaces=" ">\\underline{ a, b} </math>.
+<para>Math <math> \\underline{ a, b} </math>.
 </para>
 <para><indicateurl> http://ggg </indicateurl>
 </para>
-<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1">machin</indexterm><defcategory bracketed="on" spaces=" " trailingspaces=" ">truc</defcategory> <deffunction bracketed="on" spaces=" " trailingspaces=" ">machin</deffunction>  <defparam bracketed="on" spaces=" " trailingspaces=" ">bidule</defparam>  <defparam bracketed="on" spaces="  " trailingspaces=" ">chose</defparam> <defparam bracketed="on" spaces="  " trailingspaces=" ">arg</defparam></definitionterm>
+<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1"> machin </indexterm><defcategory bracketed="on"> truc </defcategory> <deffunction bracketed="on"> machin </deffunction>  <defparam bracketed="on"> bidule </defparam>  <defparam bracketed="on">  chose </defparam> <defparam bracketed="on">  arg </defparam></definitionterm>
 <definitionitem><para>T
 </para></definitionitem></deffn>
 

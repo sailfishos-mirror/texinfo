@@ -34,13 +34,11 @@ $result_tree_text{'macro_end_call_in_ignored_inlinefmtifelse_else'} = '*document
    |format:{html}
     *brace_arg C1
      {html}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {before shown}
      >SOURCEMARKS
-     >macro_expansion<start;1><p:9>
+     >macro_expansion<start;1><p:10>
       >*macro_call@endcallinignoredinlineelse C1
        >*brace_arg
     *elided_brace_command_arg C1

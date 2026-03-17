@@ -189,7 +189,9 @@ sub tex4ht_prepare($$)
         my $cmdname = $element->{'cmdname'};
         my $tree;
         if ($cmdname eq 'math') {
-          $tree = $element->{'contents'}->[0];
+          $tree = Texinfo::Common::non_leading_trailing_tree(
+                                    $element->{'contents'}->[0]);
+          next if (!defined($tree));
         } elsif ($element->{'contents'}) {
           my $contents_nr = scalar(@{$element->{'contents'}});
           # first content is arguments_line, the block command is considered

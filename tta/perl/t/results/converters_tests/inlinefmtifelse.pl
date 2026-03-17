@@ -70,19 +70,14 @@ $result_tree_text{'inlinefmtifelse'} = '*document_root C1
    |EXTRA
    |expand_index:{2}
    |format:{docbook}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {docbook}
+     {spaces_after_argument: }
     *elided_brace_command_arg C1
      {raw: if docbook spaces }
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {else docbook spaces }
    {.\\n}
   {empty_line:\\n}
@@ -91,19 +86,14 @@ $result_tree_text{'inlinefmtifelse'} = '*document_root C1
    |EXTRA
    |expand_index:{2}
    |format:{tex}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {tex}
+     {spaces_after_argument: }
     *elided_brace_command_arg C1
      {raw: if tex spaces }
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {else tex spaces }
    {.\\n}
   {empty_line:\\n}
@@ -244,9 +234,9 @@ $result_converted{'xml'}->{'inlinefmtifelse'} = '<para><inlinefmtifelse><inlinef
 </para>
 <para>if xml empty second arg.
 </para>
-<para><inlinefmtifelse><inlinefmtifelseformat spaces=" ">docbook </inlinefmtifelseformat><inlinefmtifelsecontentif> if docbook spaces </inlinefmtifelsecontentif><inlinefmtifelsecontentelse spaces=" ">else docbook spaces </inlinefmtifelsecontentelse></inlinefmtifelse>.
+<para><inlinefmtifelse><inlinefmtifelseformat> docbook </inlinefmtifelseformat><inlinefmtifelsecontentif> if docbook spaces </inlinefmtifelsecontentif><inlinefmtifelsecontentelse> else docbook spaces </inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>
-<para><inlinefmtifelse><inlinefmtifelseformat spaces=" ">tex </inlinefmtifelseformat><inlinefmtifelsecontentif> if tex spaces </inlinefmtifelsecontentif><inlinefmtifelsecontentelse spaces=" ">else tex spaces </inlinefmtifelsecontentelse></inlinefmtifelse>.
+<para><inlinefmtifelse><inlinefmtifelseformat> tex </inlinefmtifelseformat><inlinefmtifelsecontentif> if tex spaces </inlinefmtifelsecontentif><inlinefmtifelsecontentelse> else tex spaces </inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>
 <para><inlinefmtifelse><inlinefmtifelseformat>docbook</inlinefmtifelseformat><inlinefmtifelsecontentif>if docbook</inlinefmtifelsecontentif><inlinefmtifelsecontentelse>else docbook</inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>

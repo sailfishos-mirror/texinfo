@@ -26,10 +26,8 @@ $result_tree_text{'footnote_in_ref'} = '*document_root C2
    *@xref C2 l3
     *brace_arg C1
      {first}
-    *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {Text}
      *@footnote C1 l3
      |EXTRA

@@ -5483,7 +5483,9 @@ foreach my $type (
             # may be better not to ignore spaces when a : is postpended
             # and the user really wants a space
             #'space_at_end_menu_node',
-            'spaces_after_close_brace') {
+            'spaces_after_close_brace',
+            'spaces_before_argument',
+            'spaces_after_argument') {
   $default_types_conversion{$type} = undef;
 }
 
@@ -8561,7 +8563,7 @@ sub _convert($$;$) {
           if ($arg_idx < $spec_nr) {
             $arg_spec = $args_specification[$arg_idx];
           }
-          if (!exists($arg->{'contents'})) {
+          if (Texinfo::Common::empty_spaces_argument($arg)) {
             push @$args_formatted, undef;
             next;
           }

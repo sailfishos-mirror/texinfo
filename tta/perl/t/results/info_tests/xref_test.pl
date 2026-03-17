@@ -65,10 +65,8 @@ $result_tree_text{'xref_test'} = '*document_root C2
      {m}
      {)}
      {in ref ending with a dot.}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {name}
    { ! after xref and dot inside.\\n}
    *@xref C1 l7

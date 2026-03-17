@@ -27,26 +27,20 @@ $result_tree_text{'one_argument_leading_trailing_spaces'} = '*document_root C1
    *@hyphenation C1 l2
    |EXTRA
    |global_command_number:{1}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {a-b c-d}
+     {spaces_after_argument: }
    {spaces_after_close_brace:\\n}
    *@indicateurl C1 l3
     *brace_container C1
      { http://example.com }
    { }
    *@U C1 l3
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {1234}
+     {spaces_after_argument: }
    { }
    *@w C1 l3
     *brace_container C1

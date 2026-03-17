@@ -200,6 +200,8 @@ static enum element_type ignored_types[] = {
     ET_spaces_at_end,
     ET_spaces_before_paragraph,
     ET_spaces_after_close_brace,
+    ET_spaces_before_argument,
+    ET_spaces_after_argument,
     ET_arguments_line, 0
 };
 

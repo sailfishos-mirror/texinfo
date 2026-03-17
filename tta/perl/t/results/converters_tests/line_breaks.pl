@@ -172,10 +172,8 @@ $result_tree_text{'line_breaks'} = '*document_root C5
         {a }
         *@*
         { new node}
-       *brace_arg C3
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
+       *brace_arg C4
+        {spaces_before_argument: }
         {a }
         *@*
         { something}
@@ -520,7 +518,7 @@ $result_converted{'xml'}->{'line_breaks'} = '<documentdescription endspaces=" ">
 <table commandarg="strong" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="strong">with break &linebreak; after</itemformat></item>
 <itemx spaces=" "><itemformat command="strong">withx breakx &linebreak; afterx</itemformat></itemx>
-</tableterm><tableitem><para>Text, <ref label="a-new-node"><xrefnodename>a &linebreak; new node</xrefnodename><xrefinfoname spaces=" ">a &linebreak; something</xrefinfoname></ref>.
+</tableterm><tableitem><para>Text, <ref label="a-new-node"><xrefnodename>a &linebreak; new node</xrefnodename><xrefinfoname> a &linebreak; something</xrefinfoname></ref>.
 </para></tableitem></tableentry></table>
 
 <quotation spaces=" " endspaces=" "><quotationtype>Q&linebreak; uotation</quotationtype>

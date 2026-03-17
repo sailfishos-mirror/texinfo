@@ -26,10 +26,8 @@ $result_tree_text{'verbatim_in_ref'} = '*document_root C2
    *@xref C2 l3
     *brace_arg C1
      {first}
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: \\n}
+    *brace_arg C1
+     {spaces_before_argument: \\n}
   *@verbatim C3 l4
    *arguments_line C1
     *block_line_arg

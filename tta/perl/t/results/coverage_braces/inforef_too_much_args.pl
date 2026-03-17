@@ -28,15 +28,11 @@ $result_tree_text{'inforef_too_much_args'} = '*document_root C2
     |EXTRA
     |node_content:{chapter}
      {chapter}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {cross ref name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {file name, spurious arg}
    {\\n}
 ';

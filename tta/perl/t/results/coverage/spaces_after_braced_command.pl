@@ -40,13 +40,11 @@ $result_tree_text{'spaces_after_braced_command'} = '*document_root C1
     |{spaces_after_cmd_before_arg:\\n}
     *brace_arg C1
      {a}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     {b \\n}
+    *brace_arg C4
+     {spaces_before_argument: }
+     {b}
+     {spaces_after_argument: \\n}
+     {spaces_after_argument: }
    {\\n}
   {empty_line:\\n}
   *paragraph C2
@@ -83,8 +81,7 @@ v
 
 AA
 
-b 
-
+b
 
 TeX
 
@@ -144,8 +141,7 @@ $result_converted{'html_text'}->{'spaces_after_braced_command'} = '<p><code clas
 </p>
 <p>&Aring;
 </p>
-<p><a class="email" href="mailto:a">b 
-</a>
+<p><a class="email" href="mailto:a">b</a>
 </p>
 <p>TeX
 </p>
@@ -158,7 +154,7 @@ $result_converted{'xml'}->{'spaces_after_braced_command'} = '<para><code spacesa
 </para>
 <para>&Aring;
 </para>
-<para><email spacesaftercmd="\\n"><emailaddress>a</emailaddress><emailname spaces=" ">b 
+<para><email spacesaftercmd="\\n"><emailaddress>a</emailaddress><emailname> b 
  </emailname></email>
 </para>
 <para>&tex;
@@ -172,8 +168,7 @@ $result_converted{'latex_text'}->{'spaces_after_braced_command'} = '\\texttt{b}
 
 \\AA{}
 
-\\href{mailto:a}{b 
-}
+\\href{mailto:a}{b}
 
 \\TeX{}
 
@@ -186,8 +181,7 @@ $result_converted{'docbook'}->{'spaces_after_braced_command'} = '<para><literal>
 </para>
 <para>&#197;
 </para>
-<para><ulink url="mailto:a">b 
-</ulink>
+<para><ulink url="mailto:a">b</ulink>
 </para>
 <para>&tex;
 </para>

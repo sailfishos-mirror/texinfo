@@ -19,21 +19,15 @@ $result_tree_text{'empty_ref'} = '*document_root C1
      {something}
    {. }
    *@inforef C1 l2
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C1
+     {spaces_before_argument: }
    {\\n}
    { }
    *@inforef C2 l3
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {arg}
    {.\\n}
 ';

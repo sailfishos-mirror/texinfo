@@ -227,15 +227,11 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      {cross ref name}
     *brace_arg C1
      {title}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {file name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l15
@@ -293,15 +289,11 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     *brace_arg
     *brace_arg C1
      {title}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {file name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l18
@@ -552,15 +544,11 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
      {cross ref name}
     *brace_arg C1
      {title}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {file name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l30
@@ -630,15 +618,11 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     *brace_arg
     *brace_arg C1
      {title}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {file name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    {\\n}
    *@code C1 l33
@@ -680,15 +664,11 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     |EXTRA
     |node_content:{Top}
      {Top}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {cross ref name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {file name}
    {\\n}
    *@code C1 l36
@@ -720,10 +700,8 @@ $result_tree_text{'top_in_ref'} = '*document_root C3
     |node_content:{Top}
     |normalized:{Top}
      {Top}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {cross ref name}
    {\\n}
    *@code C1 l38
@@ -946,10 +924,10 @@ $result_converted{'xml'}->{'top_in_ref'} = '<node identifier="Top" spaces=" "><n
 <code>&arobase;ref&lbrace;Top,cross ref name,,,manual&rbrace;</code> <ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;Top,cross ref name,title,file name&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;Top,cross ref name,title,,manual&rbrace;</code> <ref label="Top"><xrefnodename>Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;Top,cross ref name,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;Top,cross ref name,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;Top,,title,file name&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;Top,,title,,manual&rbrace;</code> <ref label="Top"><xrefnodename>Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;Top,,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;Top,,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;Top,,,file name,manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>Top</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 <para><code>&arobase;ref&lbrace;(pman)Top,cross ref name&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
@@ -961,15 +939,15 @@ $result_converted{'xml'}->{'top_in_ref'} = '<node identifier="Top" spaces=" "><n
 <code>&arobase;ref&lbrace;(pman)Top,cross ref name,,,manual&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)Top,cross ref name,title,file name&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)Top,cross ref name,title,,manual&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,cross ref name,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)Top,,title,file name&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)Top,,title,,manual&rbrace;</code> <ref label="Top" manual="pman"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)Top,,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)Top,,title, file name, manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)Top,,,file name,manual&rbrace;</code> <ref label="Top" manual="file name"><xrefnodename>(pman)Top</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
-<para><code>&arobase;inforef&lbrace;Top, cross ref name, file name&rbrace;</code> <inforef label="Top" manual="file name"><inforefnodename>Top</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<para><code>&arobase;inforef&lbrace;Top, cross ref name, file name&rbrace;</code> <inforef label="Top" manual="file name"><inforefnodename>Top</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;Top&rbrace;</code> <inforef label="Top"><inforefnodename>Top</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;Top, cross ref name&rbrace;</code> <inforef label="Top"><inforefnodename>Top</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;Top, cross ref name&rbrace;</code> <inforef label="Top"><inforefnodename>Top</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;Top,,file name&rbrace;</code> <inforef label="Top" manual="file name"><inforefnodename>Top</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
 </para>';
 

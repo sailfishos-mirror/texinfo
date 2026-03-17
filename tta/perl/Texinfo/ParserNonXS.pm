@@ -404,7 +404,7 @@ foreach my $type ('empty_line', 'ignorable_spaces_after_command',
 
 # To keep in sync with XS main/element_types.txt trailing_space flag
 my %trailing_space_types;
-foreach my $type ('ignorable_spaces_before_command') {
+foreach my $type ('ignorable_spaces_before_command', 'empty_line') {
   $trailing_space_types{$type} = 1;
 }
 
@@ -1677,6 +1677,20 @@ sub _close_all_style_commands($$$;$$) {
     print STDERR "CLOSING(all_style_commands) "
       ."\@$current->{'parent'}->{'cmdname'}\n"
          if ($self->{'conf'}->{'DEBUG'});
+    if (exists($current->{'type'})
+        and ($current->{'type'} eq 'brace_container'
+             or $current->{'type'} eq 'brace_arg')) {
+      my $brace_command = $current->{'parent'};
+      my $closed_cmdname = $brace_command->{'cmdname'};
+      my $brace_command_type = $self->{'brace_commands'}->{$closed_cmdname};
+
+      if ($brace_command_type eq 'arguments') {
+        _isolate_leading_trailing($self, $current);
+      } elsif ($brace_command_type eq 'inline') {
+        _isolate_leading_trailing($self, $current, 1);
+      }
+    }
+
     $current = _close_brace_command($self, $current->{'parent'}, $source_info,
                                     $closed_block_command,
                                     $interrupting_command, 1);
@@ -2247,13 +2261,14 @@ sub _close_current($$$;$$) {
     if ($current->{'type'} eq 'bracketed_arg') {
       # unclosed bracketed argument
       _command_error($self, $current, __("misplaced {"));
-      if (exists($current->{'contents'})
-          and exists($current->{'contents'}->[0]->{'type'})
-          and $current->{'contents'}->[0]->{'type'}
-                        eq 'internal_spaces_before_argument') {
-        # remove spaces element from tree and update extra values
-        _move_last_space_to_element($self, $current);
-      }
+      #if (exists($current->{'contents'})
+      #    and exists($current->{'contents'}->[0]->{'type'})
+      #    and $current->{'contents'}->[0]->{'type'}
+      #                  eq 'internal_spaces_before_argument') {
+      #  # remove spaces element from tree and update extra values
+      #  _move_last_space_to_element($self, $current);
+      #}
+      _isolate_leading_trailing($self, $current);
       $current = $current->{'parent'};
     } elsif ($current->{'type'} eq 'balanced_braces') {
       # unclosed braces in contexts accepting lone braces
@@ -2271,6 +2286,11 @@ sub _close_current($$$;$$) {
     } elsif ($current->{'type'} eq 'block_line_arg') {
       $current = _end_line_starting_block($self, $current, $source_info);
     } else {
+      if ($current->{'type'} eq 'brace_command_context'
+          and exists($current->{'parent'}->{'cmdname'})
+          and exists($math_commands{$current->{'parent'}->{'cmdname'}})) {
+        _isolate_leading_trailing($self, $current);
+      }
       $current = _close_container($self, $current, $source_info);
     }
   } else { # Should never go here.
@@ -3218,22 +3238,16 @@ sub _isolate_last_space($$) {
   return if (!exists($current->{'contents'}));
 
   # $current->{'type'} is always set, to line_arg, block_line_arg,
-  # brace_container, brace_arg, bracketed_arg or menu_entry_node
+  # or menu_entry_node
 
-  # Store a final comment command in the 'info' hash, except for brace
-  # commands
-  if (not (exists($current->{'type'})
-           and ($current->{'type'} eq 'brace_container'
-                or $current->{'type'} eq 'brace_arg'))
-      and scalar(@{$current->{'contents'}}) >= 1
+  # Store a final comment command in the 'info' hash
+  if (scalar(@{$current->{'contents'}}) >= 1
       and exists($current->{'contents'}->[-1]->{'cmdname'})
       and ($current->{'contents'}->[-1]->{'cmdname'} eq 'c'
             or $current->{'contents'}->[-1]->{'cmdname'} eq 'comment')) {
     $current->{'info'} = {} if (!exists($current->{'info'}));
     $current->{'info'}->{'comment_at_end'}
                            = _pop_element_from_contents($self, $current);
-    # TODO @c should probably not be allowed inside most brace commands
-    # as this would be difficult to implement properly in TeX.
   }
 
   my $debug_str;
@@ -3285,6 +3299,100 @@ sub _isolate_last_space($$) {
 
   print STDERR "NOT ISOLATING $debug_str\n"
      if ($self->{'conf'}->{'DEBUG'});
+}
+
+sub _isolate_leading_spaces_element($;$) {
+  my ($element, $type) = @_;
+
+  my $new_space_element;
+
+  if ($element->{'text'} =~ s/^(\s+)//) {
+    $new_space_element = Texinfo::TreeElement::new({'text' => $1});
+    if (defined($type)) {
+      $new_space_element->{'type'} = $type;
+    }
+    if (exists($element->{'source_marks'})) {
+      Texinfo::Common::relocate_source_marks(
+                          $element->{'source_marks'}, $new_space_element,
+                          0, length($1));
+      delete $element->{'source_marks'}
+        if (!scalar(@{$element->{'source_marks'}}));
+    }
+  }
+  return $new_space_element;
+}
+
+sub _isolate_leading_trailing($$;$) {
+  my ($self, $current, $isolate_leading_only) = @_;
+
+  return if (!exists($current->{'contents'}));
+
+  # $current->{'type'} is always set, to line_arg, block_line_arg,
+  # brace_container, brace_arg, bracketed_arg or menu_entry_node
+
+  #my $debug_str;
+  #if ($self->{'conf'}->{'DEBUG'}) {
+  #  $debug_str = 'b '.Texinfo::Common::debug_print_element($current, 1).'; c ';
+  #  $debug_str .=
+  #     Texinfo::Common::debug_print_element($current->{'contents'}->[-1]);
+  #}
+
+  my $content_len = scalar(@{$current->{'contents'}});
+  for (my $i = 0; $i < $content_len; $i++) {
+    my $content = $current->{'contents'}->[$i];
+    if (exists($content->{'text'})) {
+      if ($content->{'text'} !~ /\S/) {
+        $content->{'type'} = 'spaces_before_argument';
+      } else {
+        my $new_space_element = _isolate_leading_spaces_element($content,
+                                                 'spaces_before_argument');
+        if (defined($new_space_element)) {
+          splice(@{$current->{'contents'}}, $i, 0, $new_space_element);
+        }
+        last;
+      }
+    } elsif (! (exists($content->{'cmdname'})
+                and ($content->{'cmdname'} eq 'c'
+                    or $content->{'cmdname'} eq 'comment'))) {
+      last;
+    }
+  }
+
+  if ($isolate_leading_only) {
+    return;
+  }
+
+  for (my $i = scalar(@{$current->{'contents'}}) -1; $i >= 0; $i--) {
+    my $last_element = $current->{'contents'}->[$i];
+    if (exists($last_element->{'text'})) {
+      my $e_type = $last_element->{'type'};
+      if (defined($e_type) and $e_type eq 'spaces_before_argument') {
+        return;
+      }
+      if ($last_element->{'text'} !~ /\S/) {
+        # FIXME not sure about all the trailing_space_types; empty_line
+        # is good to keep
+        if (!defined($e_type) or !$trailing_space_types{$e_type}) {
+          $last_element->{'type'} = 'spaces_after_argument';
+        } else {
+          #print STDERR "NOT ISOLATING SPACES ONLY $debug_str\n"
+          #  if ($self->{'conf'}->{'DEBUG'});
+        }
+      } else {
+        my $new_space_element
+          = _isolate_trailing_spaces_element($last_element,
+                                             'spaces_after_argument');
+        if (defined($new_space_element)) {
+          splice(@{$current->{'contents'}}, $i +1, 0, $new_space_element);
+        }
+        return;
+      }
+    } elsif (! (exists($last_element->{'cmdname'})
+                and ($last_element->{'cmdname'} eq 'c'
+                    or $last_element->{'cmdname'} eq 'comment'))) {
+      return;
+    }
+  }
 }
 
 # split non-space text elements into strings without [ ] ( ) , put in
@@ -3393,7 +3501,7 @@ sub _split_element_def_args($$$$) {
     return @elements;
   } elsif (exists($element->{'type'})
            and $element->{'type'} eq 'bracketed_arg') {
-    _isolate_last_space($self, $element);
+    _isolate_leading_trailing($self, $element);
   }
   return $element;
 }
@@ -3706,6 +3814,11 @@ sub _text_contents_to_plain_text($) {
     # filenames (although it's not a good idea to use these characters
     # in filenames).
     if (exists($c->{'text'})) {
+      if (exists($c->{'type'})
+          and ($c->{'type'} eq 'spaces_before_argument'
+               or $c->{'type'} eq 'spaces_after_argument')) {
+        next;
+      }
       $text .= $c->{'text'};
     } elsif (exists($c->{'cmdname'})
         and ($c->{'cmdname'} eq '@'
@@ -3764,6 +3877,12 @@ sub _get_current_node_relations($$) {
   return undef;
 }
 
+# NOTE @c is allowed inside most brace commands although the result
+# will be different from TeX, typically for constructs like
+#   @uref{something  @comment a closing brace in comment } some text
+#         more argument, other arg}
+# the closing brace in @comment is considered as closing the @uref
+# command in TeX.
 sub _end_line_misc_line($$$) {
   my ($self, $current, $source_info) = @_;
 
@@ -4287,6 +4406,7 @@ sub _end_line_def_line($$$) {
                         and exists($arg->{'contents'}->[0]->{'text'})
                         and $arg->{'contents'}->[0]->{'text'} !~ /\S/)));
     }
+    # TODO reorganize code as in C, which is more legible
     if (defined($index_entry)) {
       if ($class_element) {
         # Delay getting the text until Texinfo::Indices
@@ -4307,7 +4427,7 @@ sub _end_line_def_line($$$) {
           }
         }
       }
-      if ($index_entry) {
+      if (defined($index_entry)) {
         my $element_copy
           = Texinfo::ManipulateTree::copy_element_tree($index_entry);
         delete $element_copy->{'type'};
@@ -6592,40 +6712,42 @@ sub _handle_open_brace($$$$) {
         $self->{'nesting_context'}->{'footnote'} += 1;
       }
 
-      my $spaces_e = Texinfo::TreeElement::new({});
-      push @{$current->{'contents'}}, $spaces_e;
-
       if ($math_commands{$command}) {
         # internal_spaces_before_argument is a transient internal type,
         # which should end up in info spaces_before_argument.
-        $spaces_e->{'type'} = 'internal_spaces_before_argument';
+        #$spaces_e->{'type'} = 'internal_spaces_before_argument';
         _push_context($self, 'ct_math', $command);
       } else {
+        my $spaces_e = Texinfo::TreeElement::new({});
+        push @{$current->{'contents'}}, $spaces_e;
+
         $spaces_e->{'type'} = 'internal_spaces_before_context_argument';
         _push_context($self, 'ct_base', $command);
+
+        $self->{'internal_space_holder'} = $current->{'parent'};
+        # based on whitespace_chars_except_newline in XS parser
+        $line =~ s/([ \t\cK\f]*)//;
+        $spaces_e->{'text'} = $1;
       }
-      $self->{'internal_space_holder'} = $current->{'parent'};
-      # based on whitespace_chars_except_newline in XS parser
-      $line =~ s/([ \t\cK\f]*)//;
-      $spaces_e->{'text'} = $1;
     } else {
       # Commands that disregard leading whitespace.
       if ($brace_commands{$command}
           and ($brace_commands{$command} eq 'arguments'
                or $brace_commands{$command} eq 'inline')) {
         $current->{'type'} = 'brace_arg';
-        # internal_spaces_before_argument is a transient internal type,
-        # which should end up in info spaces_before_argument.
-        push @{$current->{'contents'}}, Texinfo::TreeElement::new({
-                    'type' => 'internal_spaces_before_argument',
-                    'text' => '',
-                  });
-        $self->{'internal_space_holder'} = $current;
+        ## internal_spaces_before_argument is a transient internal type,
+        ## which should end up in info spaces_before_argument.
+        #push @{$current->{'contents'}}, Texinfo::TreeElement::new({
+        #            'type' => 'internal_spaces_before_argument',
+        #            'text' => '',
+        #          });
+        #$self->{'internal_space_holder'} = $current;
+
+        _push_context($self, 'ct_inlineraw', $command)
+          if ($command eq 'inlineraw');
       } else {
         $current->{'type'} = 'brace_container';
       }
-      _push_context($self, 'ct_inlineraw', $command)
-        if ($command eq 'inlineraw');
     }
     print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "
       .(defined($current->{'parent'}->{'remaining_args'})
@@ -6649,12 +6771,12 @@ sub _handle_open_brace($$$$) {
     $current->{'source_info'} = {%$source_info};
     # internal_spaces_before_argument is a transient internal type,
     # which should end up in info spaces_before_argument.
-    push @{$current->{'contents'}},
-      Texinfo::TreeElement::new(
-        {'type' => 'internal_spaces_before_argument',
-         'text' => '',
-       });
-    $self->{'internal_space_holder'} = $current;
+    #push @{$current->{'contents'}},
+    #  Texinfo::TreeElement::new(
+    #    {'type' => 'internal_spaces_before_argument',
+    #     'text' => '',
+    #   });
+    #$self->{'internal_space_holder'} = $current;
 
     print STDERR "BRACKETED in def/multitable\n"
                              if ($self->{'conf'}->{'DEBUG'});
@@ -6725,8 +6847,12 @@ sub _handle_close_brace($$$) {
     my $closed_cmdname = $brace_command->{'cmdname'};
     my $brace_command_type = $self->{'brace_commands'}->{$closed_cmdname};
 
-    if ($brace_command_type eq 'arguments') {
-      _isolate_last_space($self, $current);
+    if ($brace_command_type eq 'arguments'
+        or exists($math_commands{$closed_cmdname})) {
+      _isolate_leading_trailing($self, $current);
+    } elsif ($brace_command_type eq 'inline'
+             and $current->{'type'} ne 'elided_brace_command_arg') {
+      _isolate_leading_trailing($self, $current, 1);
     }
 
     print STDERR "CLOSING(brace) \@$closed_cmdname\n"
@@ -6735,7 +6861,7 @@ sub _handle_close_brace($$$) {
     if ($closed_cmdname eq 'anchor'
         or $closed_cmdname eq 'namedanchor') {
       my $anchor_id_element = $brace_command->{'contents'}->[0];
-      if (! exists($anchor_id_element->{'contents'})) {
+      if (Texinfo::Common::empty_spaces_argument($anchor_id_element)) {
         _line_error($self, sprintf(__("empty argument in \@%s"),
                                    $closed_cmdname), $source_info);
       } else {
@@ -6754,10 +6880,10 @@ sub _handle_close_brace($$$) {
       my $ref = $brace_command;
       my @args;
       foreach my $a (@{$ref->{'contents'}}) {
-        if (exists($a->{'contents'})) {
-          push @args, $a->{'contents'};
-        } else {
+        if (Texinfo::Common::empty_spaces_argument($a)) {
           push @args, undef;
+        } else {
+          push @args, $a->{'contents'};
         }
       }
       my $link_or_inforef = ($closed_cmdname eq 'link'
@@ -6813,7 +6939,8 @@ sub _handle_close_brace($$$) {
       }
     } elsif ($closed_cmdname eq 'image') {
       my $image = $brace_command;
-      if (!exists($image->{'contents'}->[0]->{'contents'})) {
+      if (Texinfo::Common::empty_spaces_argument(
+                                 $image->{'contents'}->[0])) {
         _line_error($self,
            __("\@image missing filename argument"), $source_info);
       }
@@ -6838,23 +6965,20 @@ sub _handle_close_brace($$$) {
     } elsif ($explained_commands{$closed_cmdname}
              or ($brace_commands{$closed_cmdname}
                  and $brace_commands{$closed_cmdname} eq 'inline')) {
-      if (!exists($brace_command->{'contents'}->[0]->{'contents'})) {
+      if (Texinfo::Common::empty_spaces_argument(
+                           $brace_command->{'contents'}->[0])) {
         _line_warn($self,
            sprintf(__("\@%s missing first argument"),
                    $closed_cmdname), $source_info);
       }
     } elsif ($closed_cmdname eq 'errormsg') {
-      my $arg_text = '';
-      if (exists($current->{'contents'})
-          and exists($current->{'contents'}->[0]->{'text'})) {
-        $arg_text = $current->{'contents'}->[0]->{'text'};
+      my $arg_text = Texinfo::Common::simple_arg_text($current);
+      # FIXME this means that we ignore text when followed by @-commands
+      if (defined($arg_text)) {
+        _line_error($self, $arg_text, $source_info);
       }
-      _line_error($self, $arg_text, $source_info);
     } elsif ($closed_cmdname eq 'U') {
-      my $arg_text;
-      if (exists($current->{'contents'})) {
-        $arg_text = $current->{'contents'}->[0]->{'text'};
-      }
+      my $arg_text = Texinfo::Common::simple_arg_text($current);
       if (!defined($arg_text) or $arg_text eq '') {
         _line_warn($self, __("no argument specified for \@U"), $source_info);
       } elsif ($arg_text !~ /^[0-9A-Fa-f]+$/) {
@@ -6936,7 +7060,13 @@ sub _handle_comma($$$$) {
   my ($self, $current, $line, $source_info) = @_;
 
   _abort_empty_line($self, $current);
-  _isolate_last_space($self, $current);
+  if (exists($current->{'type'})
+             and ($current->{'type'} eq 'brace_container'
+                  or $current->{'type'} eq 'brace_arg')) {
+    _isolate_leading_trailing($self, $current);
+  } else {
+    _isolate_last_space($self, $current);
+  }
   # type corresponds to three possible containers: in brace commands,
   # line of block command (float or example) or line (node).
   my $type = $current->{'type'};
@@ -6964,7 +7094,12 @@ sub _handle_comma($$$$) {
       # get the first argument, which is also $current, which was before the comma
       # and put it in extra format
       if (exists($current->{'contents'})) {
-        $inline_type = $current->{'contents'}->[0]->{'text'};
+        foreach my $content (@{$current->{'contents'}}) {
+          if (exists($content->{'text'}) and !exists($content->{'type'})) {
+            $inline_type = $content->{'text'};
+            last;
+          }
+        }
       }
 
       if (!defined($inline_type) or $inline_type eq '') {
@@ -7102,17 +7237,20 @@ sub _handle_comma($$$$) {
     }
   }
   my $new_arg
-    = Texinfo::TreeElement::new({'type' => $type, 'parent' => $argument,
-                                 'contents' => []});
+    = Texinfo::TreeElement::new({'type' => $type, 'parent' => $argument,});
   push @{$argument->{'contents'}}, $new_arg;
 
-  # internal_spaces_before_argument is a transient internal type,
-  # which should end up in info spaces_before_argument.
-  my $space_before
-    = Texinfo::TreeElement::new({'type' => 'internal_spaces_before_argument',
-                                 'text' => '',});
-  $self->{'internal_space_holder'} = $new_arg;
-  push @{$new_arg->{'contents'}}, $space_before;
+  if (! (exists($current->{'type'})
+               and ($current->{'type'} eq 'brace_container'
+                  or $current->{'type'} eq 'brace_arg'))) {
+    # internal_spaces_before_argument is a transient internal type,
+    # which should end up in info spaces_before_argument.
+    my $space_before
+     = Texinfo::TreeElement::new({'type' => 'internal_spaces_before_argument',
+                                  'text' => '',});
+    $self->{'internal_space_holder'} = $new_arg;
+    $new_arg->{'contents'} = [$space_before];
+  }
 
   return ($new_arg, $line, $source_info);
 }

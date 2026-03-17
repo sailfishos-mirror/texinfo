@@ -14,10 +14,8 @@ $result_tree_text{'inline_commands'} = '*document_root C1
    |format:{xml}
     *brace_arg C1
      {xml}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {<sc>xml inlineraw</sc>}
    {\\n}
    *@inlineraw C2 l2
@@ -36,10 +34,8 @@ $result_tree_text{'inline_commands'} = '*document_root C1
    |format:{xml}
     *brace_arg C1
      {xml}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      *@env C1 l4
       *brace_container C1
        {inlinefmt}
@@ -61,10 +57,8 @@ $result_tree_text{'inline_commands'} = '*document_root C1
    |format:{xml}
     *brace_arg C1
      {xml}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {xml }
      *@code C1 l7
       *brace_container C1
@@ -80,10 +74,8 @@ $result_tree_text{'inline_commands'} = '*document_root C1
      {html}
     *elided_brace_command_arg C1
      {raw: html @var{inlinefmtifelse}}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {else html}
    {\\n}
 ';
@@ -121,14 +113,14 @@ $result_sectioning_root{'inline_commands'} = '';
 $result_headings_list{'inline_commands'} = '';
 
 
-$result_converted{'xml'}->{'inline_commands'} = '<para><sc>xml inlineraw</sc>
+$result_converted{'xml'}->{'inline_commands'} = '<para> <sc>xml inlineraw</sc>
 <inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent> &lt;code&gt;html&lt;/code&gt;</inlinerawcontent></inlineraw>
 </para>
-<para><env>inlinefmt</env>, xml
+<para> <env>inlinefmt</env>, xml
 <inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent> @env{inlinefmt}, html</inlinefmtcontent></inlinefmt>
 </para>
-<para>xml <code>inlinefmtifelse</code>
-<inlinefmtifelse><inlinefmtifelseformat>html</inlinefmtifelseformat><inlinefmtifelsecontentif> html @var{inlinefmtifelse}</inlinefmtifelsecontentif><inlinefmtifelsecontentelse spaces=" ">else html</inlinefmtifelsecontentelse></inlinefmtifelse>
+<para> xml <code>inlinefmtifelse</code>
+<inlinefmtifelse><inlinefmtifelseformat>html</inlinefmtifelseformat><inlinefmtifelsecontentif> html @var{inlinefmtifelse}</inlinefmtifelsecontentif><inlinefmtifelsecontentelse> else html</inlinefmtifelsecontentelse></inlinefmtifelse>
 </para>';
 
 1;

@@ -29,10 +29,8 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    *@math C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
-    *brace_command_context C3
+    *brace_command_context C5
+     {spaces_before_argument:\\n}
      {c something protected d\\n}
      >SOURCEMARKS
      >linemacro_expansion<start;1>
@@ -47,9 +45,10 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
        >|spaces_before_argument:
         >|{spaces_before_argument: }
         >{macro_call_arg_text:something }
-     {something }
+     {something}
+     {spaces_after_argument: }
      >SOURCEMARKS
-     >linemacro_expansion<end;1><p:10>
+     >linemacro_expansion<end;1><p:1>
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -81,7 +80,7 @@ after
 
 $result_texts{'comment_at_end_of_linemacro_call'} = '
 c something protected d
-something 
+something
 after
 
 ';

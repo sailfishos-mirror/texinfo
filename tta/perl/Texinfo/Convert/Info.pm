@@ -549,10 +549,10 @@ sub format_ref($$$) {
 
   my @args;
   foreach my $arg (@{$element->{'contents'}}) {
-    if (exists($arg->{'contents'})) {
-      push @args, $arg;
-    } else {
+    if (Texinfo::Common::empty_spaces_argument($arg)) {
       push @args, undef;
+    } else {
+      push @args, $arg;
     }
   }
   $args[0] = {'text' => ''} if (!defined($args[0]));
@@ -974,7 +974,8 @@ sub format_image_element($$) {
   my $lines_count = 0;
 
   if (exists($element->{'contents'})
-      and exists($element->{'contents'}->[0]->{'contents'})) {
+      and not Texinfo::Common::empty_spaces_argument(
+                              $element->{'contents'}->[0])) {
     Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(

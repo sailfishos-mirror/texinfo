@@ -972,12 +972,43 @@ reference_to_arg_internal (const char *type,
                 {
                   ELEMENT *removed = remove_from_contents (e, idx);
                   size_t i;
+                  size_t leading_trailing_indices[2];
+                  size_t non_leading_idx;
+                  size_t non_trailing_idx;
+                  int non_empty;
+
                   if (removed != arg)
                     fatal ("BUG: reference_to_arg_internal removed != arg");
                   /* avoid the type and spaces by getting only the contents */
+                  non_empty = non_leading_trailing_indices (removed,
+                                                    leading_trailing_indices);
+
+                  if (!non_empty)
+                    fatal ("BUG: reference_to_arg_internal removed empty");
+
+                  non_leading_idx = leading_trailing_indices[0];
+                  non_trailing_idx = leading_trailing_indices[1];
+
                   insert_slice_into_contents (new, 0,
-                                              removed, 0,
-                                              removed->e.c->contents.number);
+                                              removed, non_leading_idx,
+                                              non_trailing_idx +1);
+                  if (non_leading_idx > 0)
+                    {
+                      for (i = 0; i < non_leading_idx; i++)
+                        {
+                          ELEMENT *content = removed->e.c->contents.list[i];
+                          destroy_element (content);
+                        }
+                    }
+                  if (non_trailing_idx +1 < removed->e.c->contents.number)
+                    {
+                      for (i = non_trailing_idx +1;
+                           i < removed->e.c->contents.number; i++)
+                        {
+                          ELEMENT *content = removed->e.c->contents.list[i];
+                          destroy_element (content);
+                        }
+                    }
                   for (i = 0; i < new->e.c->contents.number; i++)
                     {
                       ELEMENT *content = new->e.c->contents.list[i];

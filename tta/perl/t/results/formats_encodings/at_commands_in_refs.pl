@@ -479,10 +479,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *@acronym C2 l20
       *brace_arg C1
        {AAA}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {fff}
      { }
      *@acronym C1 l20
@@ -505,10 +503,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *@abbr C2 l21
       *brace_arg C1
        {CCC}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {rrr}
      { }
      *@abbr C1 l21
@@ -533,10 +529,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
        {someone}
        *@@
        {somewher}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {the someone}
      { }
      *@email C1 l22
@@ -759,10 +753,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *@url C2 l31
       *brace_arg C1
        {url}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {text}
      { }
      *@uref C3 l31
@@ -1764,10 +1756,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@acronym C2 l79
      *brace_arg C1
       {AAA}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {fff}
     { }
     *@acronym C1 l79
@@ -1793,10 +1783,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@acronym C2 l80
      *brace_arg C1
       {AAA}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {fff}
     { }
     *@acronym C1 l80
@@ -1831,10 +1819,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@abbr C2 l82
      *brace_arg C1
       {CCC}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {rrr}
     { }
     *@abbr C1 l82
@@ -1873,10 +1859,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@abbr C2 l84
      *brace_arg C1
       {CCC}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {rrr}
     { }
     *@abbr C1 l84
@@ -1905,10 +1889,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {someone}
       *@@
       {somewher}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {the someone}
     { }
     *@email C1 l87
@@ -1934,10 +1916,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
       {someone}
       *@@
       {somewher}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {the someone}
     { }
     *@email C1 l88
@@ -2460,10 +2440,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@url C2 l118
      *brace_arg C1
       {url}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {text}
     { }
     *@uref C3 l118
@@ -2492,10 +2470,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
     *@url C2 l119
      *brace_arg C1
       {url}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {text}
     { }
     *@uref C3 l119
@@ -2912,10 +2888,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *@acronym C2 l151
       *brace_arg C1
        {AAA}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {fff}
      { }
      *@acronym C1 l151
@@ -2944,10 +2918,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *@abbr C2 l154
       *brace_arg C1
        {CCC}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {rrr}
      { }
      *@abbr C1 l154
@@ -2983,10 +2955,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
        {someone}
        *@@
        {somewher}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {the someone}
      { }
      *@email C1 l157
@@ -3212,10 +3182,8 @@ $result_tree_text{'at_commands_in_refs'} = '*document_root C58
      *@url C2 l177
       *brace_arg C1
        {url}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {text}
      { }
      *@uref C3 l177
@@ -4649,9 +4617,9 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top" spac
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>&laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode>`` \'\' --- -- ` \'</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><acronym><acronymword>AAA</acronymword><acronymdesc spaces=" ">fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><abbr><abbrword>CCC</abbrword><abbrdesc spaces=" ">rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><email><emailaddress>someone&arobase;somewher</emailaddress><emailname spaces=" ">the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><verb delimiter="."> @ {} . </verb></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><cite>cite <asis>asis</asis></cite> <w>in &arobase;w <b>b</b></w> <r>in r</r> <sc>sc</sc> <strong>str</strong> <t>t</t> <var>var</var> <dfn>dfn</dfn> <i>i</i></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
@@ -4660,7 +4628,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top" spac
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><sansserif>sansserif</sansserif> <slanted>slanted</slanted></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><indicateurl>indicateurl</indicateurl></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><sub>g</sub>H 3<sup>rd</sup></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc spaces=" ">text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
+</pre></menudescription></menuentry><menuentry><menuleadingtext>* </menuleadingtext><menunode><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
 </pre></menudescription></menuentry></menu>
 
 </top>
@@ -4720,23 +4688,23 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top" spac
 <chapter spaces=" "><sectiontitle>&laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</sectiontitle>
 
 </chapter>
-<node identifier="_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027" spaces=" "><nodename>`` \'\' --- -- ` \'</nodename><nodenext automatic="on"><acronym><acronymword>AAA</acronymword><acronymdesc spaces=" ">fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodenext><nodeprev automatic="on">&laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027" spaces=" "><nodename>`` \'\' --- -- ` \'</nodename><nodenext automatic="on"><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodenext><nodeprev automatic="on">&laquo; &raquo; &guillemotleft; &guillemotright; &lsaquo; &rsaquo;</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>&textldquo; &textrdquo; &textmdash; &textndash; &textlsquo; &textrsquo;</sectiontitle>
 
 </chapter>
-<node identifier="AAA-AAA-BBB" spaces=" "><nodename><acronym><acronymword>AAA</acronymword><acronymdesc spaces=" ">fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodename><nodenext automatic="on"><abbr><abbrword>CCC</abbrword><abbrdesc spaces=" ">rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodenext><nodeprev automatic="on">`` \'\' --- -- ` \'</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><acronym><acronymword>AAA</acronymword><acronymdesc spaces=" ">fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></sectiontitle>
+<node identifier="AAA-AAA-BBB" spaces=" "><nodename><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodename><nodenext automatic="on"><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodenext><nodeprev automatic="on">`` \'\' --- -- ` \'</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></sectiontitle>
 
 </chapter>
-<node identifier="CCC-CCC-DDD" spaces=" "><nodename><abbr><abbrword>CCC</abbrword><abbrdesc spaces=" ">rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodename><nodenext automatic="on"><email><emailaddress>someone&arobase;somewher</emailaddress><emailname spaces=" ">the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodenext><nodeprev automatic="on"><acronym><acronymword>AAA</acronymword><acronymdesc spaces=" ">fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><abbr><abbrword>CCC</abbrword><abbrdesc spaces=" ">rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></sectiontitle>
+<node identifier="CCC-CCC-DDD" spaces=" "><nodename><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodename><nodenext automatic="on"><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodenext><nodeprev automatic="on"><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></sectiontitle>
 
 </chapter>
-<node identifier="someone_0040somewher-no_005fexplain_0040there" spaces=" "><nodename><email><emailaddress>someone&arobase;somewher</emailaddress><emailname spaces=" ">the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodename><nodenext automatic="on"><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodenext><nodeprev automatic="on"><abbr><abbrword>CCC</abbrword><abbrdesc spaces=" ">rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><email><emailaddress>someone&arobase;somewher</emailaddress><emailname spaces=" ">the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></sectiontitle>
+<node identifier="someone_0040somewher-no_005fexplain_0040there" spaces=" "><nodename><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodename><nodenext automatic="on"><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodenext><nodeprev automatic="on"><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></sectiontitle>
 
 </chapter>
-<node identifier="f_002d_002dile1-f_002d_002dile" spaces=" "><nodename><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodename><nodenext automatic="on"><verb delimiter="."> @ {} . </verb></nodenext><nodeprev automatic="on"><email><emailaddress>someone&arobase;somewher</emailaddress><emailname spaces=" ">the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="f_002d_002dile1-f_002d_002dile" spaces=" "><nodename><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></nodename><nodenext automatic="on"><verb delimiter="."> @ {} . </verb></nodenext><nodeprev automatic="on"><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></sectiontitle>
 
 </chapter>
@@ -4764,12 +4732,12 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top" spac
 <chapter spaces=" "><sectiontitle><indicateurl>indicateurl</indicateurl></sectiontitle>
 
 </chapter>
-<node identifier="gH-3rd" spaces=" "><nodename><sub>g</sub>H 3<sup>rd</sup></nodename><nodenext automatic="on"><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc spaces=" ">text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodenext><nodeprev automatic="on"><indicateurl>indicateurl</indicateurl></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node identifier="gH-3rd" spaces=" "><nodename><sub>g</sub>H 3<sup>rd</sup></nodename><nodenext automatic="on"><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodenext><nodeprev automatic="on"><indicateurl>indicateurl</indicateurl></nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle><sub>g</sub>H 3<sup>rd</sup></sectiontitle>
 
 </chapter>
-<node identifier="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" spaces=" "><nodename><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc spaces=" ">text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodename><nodeprev automatic="on"><sub>g</sub>H 3<sup>rd</sup></nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc spaces=" ">text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></sectiontitle>
+<node identifier="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls" spaces=" "><nodename><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></nodename><nodeprev automatic="on"><sub>g</sub>H 3<sup>rd</sup></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></sectiontitle>
 
 <para><ref label="-_007b-_007d"><xrefnodename>&hyphenbreak; &lbrace; &rbrace;</xrefnodename></ref>
 </para>
@@ -4801,11 +4769,11 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top" spac
 </para>
 <para><ref label="_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027"><xrefnodename>`` \'\' --- -- ` \'</xrefnodename></ref>
 </para>
-<para><ref label="AAA-AAA-BBB"><xrefnodename><acronym><acronymword>AAA</acronymword><acronymdesc spaces=" ">fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></xrefnodename></ref>
+<para><ref label="AAA-AAA-BBB"><xrefnodename><acronym><acronymword>AAA</acronymword><acronymdesc> fff</acronymdesc></acronym> <acronym><acronymword>AAA</acronymword></acronym> <acronym><acronymword>BBB</acronymword></acronym></xrefnodename></ref>
 </para>
-<para><ref label="CCC-CCC-DDD"><xrefnodename><abbr><abbrword>CCC</abbrword><abbrdesc spaces=" ">rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></xrefnodename></ref>
+<para><ref label="CCC-CCC-DDD"><xrefnodename><abbr><abbrword>CCC</abbrword><abbrdesc> rrr</abbrdesc></abbr> <abbr><abbrword>CCC</abbrword></abbr> <abbr><abbrword>DDD</abbrword></abbr></xrefnodename></ref>
 </para>
-<para><ref label="someone_0040somewher-no_005fexplain_0040there"><xrefnodename><email><emailaddress>someone&arobase;somewher</emailaddress><emailname spaces=" ">the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></xrefnodename></ref>
+<para><ref label="someone_0040somewher-no_005fexplain_0040there"><xrefnodename><email><emailaddress>someone&arobase;somewher</emailaddress><emailname> the someone</emailname></email> <email><emailaddress>no_explain&arobase;there</emailaddress></email></xrefnodename></ref>
 </para>
 <para><ref label="f_002d_002dile1-f_002d_002dile"><xrefnodename><image where="inline"><imagefile>f--ile1</imagefile></image>  <image where="inline"><imagefile>f--ile</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension>e--xt</imageextension></image></xrefnodename></ref>
 </para>
@@ -4823,7 +4791,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node identifier="Top" spac
 </para>
 <para><ref label="gH-3rd"><xrefnodename><sub>g</sub>H 3<sup>rd</sup></xrefnodename></ref>
 </para>
-<para><ref label="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls"><xrefnodename><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc spaces=" ">text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></xrefnodename></ref>
+<para><ref label="http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls"><xrefnodename><url><urefurl>http://somewhere_aaa</urefurl></url> <url><urefurl>url</urefurl><urefdesc> text</urefdesc></url> <uref><urefurl>/man.cgi/1/ls</urefurl><urefreplacement>ls</urefreplacement></uref></xrefnodename></ref>
 </para>
 </chapter>
 <bye></bye>

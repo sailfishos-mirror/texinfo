@@ -113,8 +113,9 @@ sub target_element_to_texi_label($) {
   if (!defined($label_element)) {
     return link_element_to_texi($element);
   }
-  return convert_to_texinfo(
-   Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}}));
+  my $converted_element
+    = Texinfo::TreeElement::new({'contents' => $label_element->{'contents'}});
+  return convert_to_texinfo($converted_element);
 }
 
 # only used in Texinfo::Structuring.  Here and not in Texinfo::Structuring

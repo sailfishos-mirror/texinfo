@@ -1388,7 +1388,7 @@ but , ,&noeos;
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
 <code>&arobase;acronym&lbrace;--a&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword></acronym>
-<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude Autonome &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc spaces=" "><accent type="acute" bracketed="off">E</accent>tude Autonome </abbrdesc></abbr>
+<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude Autonome &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc> <accent type="acute" bracketed="off">E</accent>tude Autonome </abbrdesc></abbr>
 <code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A.&rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword></abbr>
 <code>&arobase;asis&lbrace;--a&rbrace;</code> <asis>&textndash;a</asis>
 <code>&arobase;b&lbrace;--a&rbrace;</code> <b>&textndash;a</b>
@@ -1831,15 +1831,15 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <cindex index="cp" spaces=" "><indexterm index="cp" number="5">index entry within deffn</indexterm></cindex>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="6">truc</indexterm><defcategory bracketed="on">cmde</defcategory> <deffunction>truc</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="7">log trap</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="8">log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" spaces=" ">log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="9">log trap2</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" trailingspaces=" ">log trap2</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="8"> log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on"> log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="9">log trap2 </indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap2 </deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="10"><b>id ule</b></indexterm><defcategory>cmde</defcategory> <deffunction><b>id ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="11"><b>id <samp>i</samp> ule</b></indexterm><defcategory>cmde2</defcategory> <deffunction><b>id <samp>i</samp> ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"></deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="12">machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="13">bidule machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on">bidule machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="14">machin</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
-<deffnx><definitionterm><defcategory bracketed="on">truc</defcategory> <deffunction bracketed="on" spaces=" "></deffunction></definitionterm></deffnx>
+<deffnx><definitionterm><defcategory bracketed="on">truc</defcategory> <deffunction bracketed="on"> </deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="15">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <!-- c comment -->
 <deffnx><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"></deffunction></definitionterm></deffnx>
@@ -2005,10 +2005,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 
 <deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
-<para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname spaces=" ">cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc spaces=" ">t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile spaces=" ">file n---ame&arobase;</xrefinfofile><xrefprintedname spaces=" ">ma&textmdash;nual&arobase;</xrefprintedname></xref>.
-<code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
-<code>&arobase;pxref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <pxref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></pxref>
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname> cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc> t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile> file n---ame&arobase;</xrefinfofile><xrefprintedname> ma&textmdash;nual&arobase;</xrefprintedname></xref>.
+<code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref name</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;pxref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <pxref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref name</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></pxref>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 </para>
 <para><code>&arobase;ref&lbrace;chapter&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename></ref>
 <code>&arobase;xref&lbrace;chapter&rbrace;</code> <xref label="chapter"><xrefnodename>chapter</xrefnodename></xref>.
@@ -2017,8 +2017,8 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </para>
 <para><code>&arobase;ref&lbrace;s--ect&arobase;comma&lbrace;&rbrace;ion, a &arobase;comma&lbrace;&rbrace; in cross
 ref, a comma&arobase;comma&lbrace;&rbrace; in title, a comma&arobase;comma&lbrace;&rbrace; in file, a &arobase;comma&lbrace;&rbrace; in manual name &rbrace;</code>
-<ref label="s_002d_002dect_002cion" manual="a comma, in file"><xrefnodename>s--ect&comma;ion</xrefnodename><xrefinfoname spaces=" ">a &comma; in cross
-ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprinteddesc><xrefinfofile spaces=" ">a comma&comma; in file</xrefinfofile><xrefprintedname spaces=" ">a &comma; in manual name </xrefprintedname></ref>
+<ref label="s_002d_002dect_002cion" manual="a comma, in file"><xrefnodename>s--ect&comma;ion</xrefnodename><xrefinfoname> a &comma; in cross
+ref</xrefinfoname><xrefprinteddesc> a comma&comma; in title</xrefprinteddesc><xrefinfofile> a comma&comma; in file</xrefinfofile><xrefprintedname> a &comma; in manual name </xrefprintedname></ref>
 </para>
 <para><code>&arobase;ref&lbrace;chapter,cross ref name&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
 <code>&arobase;ref&lbrace;chapter,,title&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
@@ -2029,10 +2029,10 @@ ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprint
 <code>&arobase;ref&lbrace;chapter,cross ref name,,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,cross ref name,title,file name&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;chapter,cross ref name,title,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,cross ref name,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,cross ref name,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,title,file name&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;chapter,,title,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,,file name,manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 
@@ -2045,33 +2045,33 @@ ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprint
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,,file name,manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 
-<para><code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<para><code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;chapter&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;chapter, cross ref name&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;chapter,,file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;node, cross ref name, file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;node, cross ref name, file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;node&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;node, cross ref name&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;node, cross ref name&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;node,,file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name, spurious arg&rbrace;</code> <inforef label="chapter" manual="file name, spurious arg"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name, spurious arg</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name, spurious arg&rbrace;</code> <inforef label="chapter" manual="file name, spurious arg"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name, spurious arg</inforefinfoname></inforef>
 </para>
 <para><code>&arobase;inforef&lbrace;s--ect&arobase;comma&lbrace;&rbrace;ion, a &arobase;comma&lbrace;&rbrace; in cross
 ref, a comma&arobase;comma&lbrace;&rbrace; in file&rbrace;</code>
-<inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname spaces=" ">a &comma; in cross
-ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefinfoname></inforef>
+<inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname> a &comma; in cross
+ref</inforefrefname><inforefinfoname> a comma&comma; in file</inforefinfoname></inforef>
 </para>
 <!-- c special cases with @uref -->
 <para><samp><ref label="chapter"><xrefnodename>chapter</xrefnodename></ref></samp>.
 </para>
-<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile spaces=" ">info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname spaces=" ">printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
-<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
+<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname> cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc> title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile> info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname> printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
+<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc> title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
 </para>
 <!-- c TeX does not like @table in @example -->
 <!-- c as documented The @table command is not supported inside @display -->
@@ -2171,7 +2171,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 
 
 <para><code>&arobase;acronym&lbrace;--a,an accronym &arobase;comma&lbrace;&rbrace; &arobase;enddots&lbrace;&rbrace;&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym &comma; &enddots;</acronymdesc></acronym>
-<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude--&arobase;comma&lbrace;&rbrace; &arobase;b&lbrace;Autonome&rbrace; &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc spaces=" "><accent type="acute" bracketed="off">E</accent>tude&textndash;&comma; <b>Autonome</b> </abbrdesc></abbr>
+<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude--&arobase;comma&lbrace;&rbrace; &arobase;b&lbrace;Autonome&rbrace; &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc> <accent type="acute" bracketed="off">E</accent>tude&textndash;&comma; <b>Autonome</b> </abbrdesc></abbr>
 <code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A.&rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword></abbr>
 </para>
 <para><code>&arobase;math&lbrace;--a&arobase;minus&lbrace;&rbrace; &lbrace;\frac&lbrace;1&rbrace;&lbrace;2&rbrace;&rbrace;&rbrace;</code> <math>--a&minus; {\frac{1}{2}}</math>
@@ -2323,8 +2323,10 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <deffn spaces=" " endspaces=" "><definitionterm><defcategory>fun</defcategory></definitionterm>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="46">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> </definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="47">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam>  <defparam>after</defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="48">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on" spaces="\n"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="49">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on" spaces=" ">and after</defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="48">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on">
+</defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="49">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on"> and after
+</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="50">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <!-- c comment -->
 <para>Various deff lines
@@ -2363,26 +2365,26 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <code>&arobase;ref&lbrace;node,cross ref name,,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,cross ref name,title,file name&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;node,cross ref name,title,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;node,cross ref name,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;node,cross ref name,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,,title,file name&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;node,,title,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;node,,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;node,,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,,,file name,manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile></xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,,file name&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,,,manual&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,file name&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,,manual&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;,cross ref name,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;,cross ref name,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,,title,file name&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,,title,,manual&rbrace;</code> <ref><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;,,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;,,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,,,file name,manual&rbrace;</code> <ref manual="file name"><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 <para><code>&arobase;inforef&lbrace;,cross ref name &rbrace;</code> <inforef><inforefrefname>cross ref name </inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;,,file name&rbrace;</code> <inforef manual="file name"><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;,cross ref name, file name&rbrace;</code> <inforef manual="file name"><inforefrefname>cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;,cross ref name, file name&rbrace;</code> <inforef manual="file name"><inforefrefname>cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;&rbrace;</code> <inforef><inforefnodename></inforefnodename></inforef>
 </para>
 
@@ -2560,7 +2562,7 @@ but , ,&noeos;
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
 <code>&arobase;acronym&lbrace;--a&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword></acronym>
-<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude Autonome &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc spaces=" "><accent type="acute" bracketed="off">E</accent>tude Autonome </abbrdesc></abbr>
+<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude Autonome &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc> <accent type="acute" bracketed="off">E</accent>tude Autonome </abbrdesc></abbr>
 <code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A.&rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword></abbr>
 <code>&arobase;asis&lbrace;--a&rbrace;</code> <asis>&textndash;a</asis>
 <code>&arobase;b&lbrace;--a&rbrace;</code> <b>&textndash;a</b>
@@ -3003,15 +3005,15 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <cindex index="cp" spaces=" "><indexterm index="cp" number="12">index entry within deffn</indexterm></cindex>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="58">truc</indexterm><defcategory bracketed="on">cmde</defcategory> <deffunction>truc</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="59">log trap</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="60">log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" spaces=" ">log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="61">log trap2</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" trailingspaces=" ">log trap2</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="60"> log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on"> log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="61">log trap2 </indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap2 </deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="62"><b>id ule</b></indexterm><defcategory>cmde</defcategory> <deffunction><b>id ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="63"><b>id <samp>i</samp> ule</b></indexterm><defcategory>cmde2</defcategory> <deffunction><b>id <samp>i</samp> ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"></deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="64">machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="65">bidule machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on">bidule machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="66">machin</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
-<deffnx><definitionterm><defcategory bracketed="on">truc</defcategory> <deffunction bracketed="on" spaces=" "></deffunction></definitionterm></deffnx>
+<deffnx><definitionterm><defcategory bracketed="on">truc</defcategory> <deffunction bracketed="on"> </deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="67">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <!-- c comment -->
 <deffnx><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"></deffunction></definitionterm></deffnx>
@@ -3177,10 +3179,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 
 <deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
-<para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname spaces=" ">cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc spaces=" ">t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile spaces=" ">file n---ame&arobase;</xrefinfofile><xrefprintedname spaces=" ">ma&textmdash;nual&arobase;</xrefprintedname></xref>.
-<code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
-<code>&arobase;pxref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <pxref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></pxref>
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname> cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc> t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile> file n---ame&arobase;</xrefinfofile><xrefprintedname> ma&textmdash;nual&arobase;</xrefprintedname></xref>.
+<code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref name</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;pxref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <pxref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref name</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></pxref>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 </para>
 <para><code>&arobase;ref&lbrace;chapter&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename></ref>
 <code>&arobase;xref&lbrace;chapter&rbrace;</code> <xref label="chapter"><xrefnodename>chapter</xrefnodename></xref>.
@@ -3189,8 +3191,8 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </para>
 <para><code>&arobase;ref&lbrace;s--ect&arobase;comma&lbrace;&rbrace;ion, a &arobase;comma&lbrace;&rbrace; in cross
 ref, a comma&arobase;comma&lbrace;&rbrace; in title, a comma&arobase;comma&lbrace;&rbrace; in file, a &arobase;comma&lbrace;&rbrace; in manual name &rbrace;</code>
-<ref label="s_002d_002dect_002cion" manual="a comma, in file"><xrefnodename>s--ect&comma;ion</xrefnodename><xrefinfoname spaces=" ">a &comma; in cross
-ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprinteddesc><xrefinfofile spaces=" ">a comma&comma; in file</xrefinfofile><xrefprintedname spaces=" ">a &comma; in manual name </xrefprintedname></ref>
+<ref label="s_002d_002dect_002cion" manual="a comma, in file"><xrefnodename>s--ect&comma;ion</xrefnodename><xrefinfoname> a &comma; in cross
+ref</xrefinfoname><xrefprinteddesc> a comma&comma; in title</xrefprinteddesc><xrefinfofile> a comma&comma; in file</xrefinfofile><xrefprintedname> a &comma; in manual name </xrefprintedname></ref>
 </para>
 <para><code>&arobase;ref&lbrace;chapter,cross ref name&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
 <code>&arobase;ref&lbrace;chapter,,title&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
@@ -3201,10 +3203,10 @@ ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprint
 <code>&arobase;ref&lbrace;chapter,cross ref name,,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,cross ref name,title,file name&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;chapter,cross ref name,title,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,cross ref name,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,cross ref name,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,title,file name&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;chapter,,title,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,,file name,manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 
@@ -3217,33 +3219,33 @@ ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprint
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,,file name,manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 
-<para><code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<para><code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;chapter&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;chapter, cross ref name&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;chapter,,file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;node, cross ref name, file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;node, cross ref name, file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;node&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;node, cross ref name&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;node, cross ref name&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;node,,file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name, spurious arg&rbrace;</code> <inforef label="chapter" manual="file name, spurious arg"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name, spurious arg</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name, spurious arg&rbrace;</code> <inforef label="chapter" manual="file name, spurious arg"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name, spurious arg</inforefinfoname></inforef>
 </para>
 <para><code>&arobase;inforef&lbrace;s--ect&arobase;comma&lbrace;&rbrace;ion, a &arobase;comma&lbrace;&rbrace; in cross
 ref, a comma&arobase;comma&lbrace;&rbrace; in file&rbrace;</code>
-<inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname spaces=" ">a &comma; in cross
-ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefinfoname></inforef>
+<inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname> a &comma; in cross
+ref</inforefrefname><inforefinfoname> a comma&comma; in file</inforefinfoname></inforef>
 </para>
 <!-- c special cases with @uref -->
 <para><samp><ref label="chapter"><xrefnodename>chapter</xrefnodename></ref></samp>.
 </para>
-<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile spaces=" ">info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname spaces=" ">printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
-<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
+<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname> cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc> title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile> info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname> printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
+<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc> title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
 </para>
 <!-- c TeX does not like @table in @example -->
 <!-- c as documented The @table command is not supported inside @display -->
@@ -3343,7 +3345,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 
 
 <para><code>&arobase;acronym&lbrace;--a,an accronym &arobase;comma&lbrace;&rbrace; &arobase;enddots&lbrace;&rbrace;&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym &comma; &enddots;</acronymdesc></acronym>
-<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude--&arobase;comma&lbrace;&rbrace; &arobase;b&lbrace;Autonome&rbrace; &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc spaces=" "><accent type="acute" bracketed="off">E</accent>tude&textndash;&comma; <b>Autonome</b> </abbrdesc></abbr>
+<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude--&arobase;comma&lbrace;&rbrace; &arobase;b&lbrace;Autonome&rbrace; &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc> <accent type="acute" bracketed="off">E</accent>tude&textndash;&comma; <b>Autonome</b> </abbrdesc></abbr>
 <code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A.&rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword></abbr>
 </para>
 <para><code>&arobase;math&lbrace;--a&arobase;minus&lbrace;&rbrace; &lbrace;\frac&lbrace;1&rbrace;&lbrace;2&rbrace;&rbrace;&rbrace;</code> <math>--a&minus; {\frac{1}{2}}</math>
@@ -3495,8 +3497,10 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <deffn spaces=" " endspaces=" "><definitionterm><defcategory>fun</defcategory></definitionterm>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="98">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> </definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="99">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam>  <defparam>after</defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="100">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on" spaces="\n"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="101">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on" spaces=" ">and after</defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="100">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on">
+</defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="101">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on"> and after
+</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="102">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <!-- c comment -->
 <para>Various deff lines
@@ -3535,26 +3539,26 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <code>&arobase;ref&lbrace;node,cross ref name,,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,cross ref name,title,file name&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;node,cross ref name,title,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;node,cross ref name,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;node,cross ref name,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,,title,file name&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;node,,title,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;node,,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;node,,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,,,file name,manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile></xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,,file name&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,,,manual&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,file name&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,,manual&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;,cross ref name,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;,cross ref name,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,,title,file name&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,,title,,manual&rbrace;</code> <ref><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;,,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;,,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,,,file name,manual&rbrace;</code> <ref manual="file name"><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 <para><code>&arobase;inforef&lbrace;,cross ref name &rbrace;</code> <inforef><inforefrefname>cross ref name </inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;,,file name&rbrace;</code> <inforef manual="file name"><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;,cross ref name, file name&rbrace;</code> <inforef manual="file name"><inforefrefname>cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;,cross ref name, file name&rbrace;</code> <inforef manual="file name"><inforefrefname>cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;&rbrace;</code> <inforef><inforefnodename></inforefnodename></inforef>
 </para>
 
@@ -3773,7 +3777,7 @@ but , ,&noeos;
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
 <code>&arobase;acronym&lbrace;--a&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword></acronym>
-<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude Autonome &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc spaces=" "><accent type="acute" bracketed="off">E</accent>tude Autonome </abbrdesc></abbr>
+<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude Autonome &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc> <accent type="acute" bracketed="off">E</accent>tude Autonome </abbrdesc></abbr>
 <code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A.&rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword></abbr>
 <code>&arobase;asis&lbrace;--a&rbrace;</code> <asis>&textndash;a</asis>
 <code>&arobase;b&lbrace;--a&rbrace;</code> <b>&textndash;a</b>
@@ -4216,15 +4220,15 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <cindex index="cp" spaces=" "><indexterm index="cp" number="19">index entry within deffn</indexterm></cindex>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="110">truc</indexterm><defcategory bracketed="on">cmde</defcategory> <deffunction>truc</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="111">log trap</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="112">log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" spaces=" ">log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="113">log trap2</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" trailingspaces=" ">log trap2</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="112"> log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on"> log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="113">log trap2 </indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap2 </deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="114"><b>id ule</b></indexterm><defcategory>cmde</defcategory> <deffunction><b>id ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="115"><b>id <samp>i</samp> ule</b></indexterm><defcategory>cmde2</defcategory> <deffunction><b>id <samp>i</samp> ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"></deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="116">machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="117">bidule machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on">bidule machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="118">machin</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
-<deffnx><definitionterm><defcategory bracketed="on">truc</defcategory> <deffunction bracketed="on" spaces=" "></deffunction></definitionterm></deffnx>
+<deffnx><definitionterm><defcategory bracketed="on">truc</defcategory> <deffunction bracketed="on"> </deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="119">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <!-- c comment -->
 <deffnx><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"></deffunction></definitionterm></deffnx>
@@ -4390,10 +4394,10 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 
 <deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
-<para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname spaces=" ">cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc spaces=" ">t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile spaces=" ">file n---ame&arobase;</xrefinfofile><xrefprintedname spaces=" ">ma&textmdash;nual&arobase;</xrefprintedname></xref>.
-<code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
-<code>&arobase;pxref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <pxref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></pxref>
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<para><code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname> cross r&textmdash;ef name&arobase;</xrefinfoname><xrefprinteddesc> t&textmdash;itle&arobase;</xrefprinteddesc><xrefinfofile> file n---ame&arobase;</xrefinfofile><xrefprintedname> ma&textmdash;nual&arobase;</xrefprintedname></xref>.
+<code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref name</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;pxref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <pxref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref name</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></pxref>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 </para>
 <para><code>&arobase;ref&lbrace;chapter&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename></ref>
 <code>&arobase;xref&lbrace;chapter&rbrace;</code> <xref label="chapter"><xrefnodename>chapter</xrefnodename></xref>.
@@ -4402,8 +4406,8 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </para>
 <para><code>&arobase;ref&lbrace;s--ect&arobase;comma&lbrace;&rbrace;ion, a &arobase;comma&lbrace;&rbrace; in cross
 ref, a comma&arobase;comma&lbrace;&rbrace; in title, a comma&arobase;comma&lbrace;&rbrace; in file, a &arobase;comma&lbrace;&rbrace; in manual name &rbrace;</code>
-<ref label="s_002d_002dect_002cion" manual="a comma, in file"><xrefnodename>s--ect&comma;ion</xrefnodename><xrefinfoname spaces=" ">a &comma; in cross
-ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprinteddesc><xrefinfofile spaces=" ">a comma&comma; in file</xrefinfofile><xrefprintedname spaces=" ">a &comma; in manual name </xrefprintedname></ref>
+<ref label="s_002d_002dect_002cion" manual="a comma, in file"><xrefnodename>s--ect&comma;ion</xrefnodename><xrefinfoname> a &comma; in cross
+ref</xrefinfoname><xrefprinteddesc> a comma&comma; in title</xrefprinteddesc><xrefinfofile> a comma&comma; in file</xrefinfofile><xrefprintedname> a &comma; in manual name </xrefprintedname></ref>
 </para>
 <para><code>&arobase;ref&lbrace;chapter,cross ref name&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
 <code>&arobase;ref&lbrace;chapter,,title&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
@@ -4414,10 +4418,10 @@ ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprint
 <code>&arobase;ref&lbrace;chapter,cross ref name,,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,cross ref name,title,file name&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;chapter,cross ref name,title,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,cross ref name,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,cross ref name,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,title,file name&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;chapter,,title,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,,file name,manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 
@@ -4430,33 +4434,33 @@ ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprint
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,,file name,manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 
-<para><code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<para><code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;chapter&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;chapter, cross ref name&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;chapter,,file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;node, cross ref name, file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;node, cross ref name, file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;node&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;node, cross ref name&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;node, cross ref name&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;node,,file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name, spurious arg&rbrace;</code> <inforef label="chapter" manual="file name, spurious arg"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name, spurious arg</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name, spurious arg&rbrace;</code> <inforef label="chapter" manual="file name, spurious arg"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name, spurious arg</inforefinfoname></inforef>
 </para>
 <para><code>&arobase;inforef&lbrace;s--ect&arobase;comma&lbrace;&rbrace;ion, a &arobase;comma&lbrace;&rbrace; in cross
 ref, a comma&arobase;comma&lbrace;&rbrace; in file&rbrace;</code>
-<inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname spaces=" ">a &comma; in cross
-ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefinfoname></inforef>
+<inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname> a &comma; in cross
+ref</inforefrefname><inforefinfoname> a comma&comma; in file</inforefinfoname></inforef>
 </para>
 <!-- c special cases with @uref -->
 <para><samp><ref label="chapter"><xrefnodename>chapter</xrefnodename></ref></samp>.
 </para>
-<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile spaces=" ">info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname spaces=" ">printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
-<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
+<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname> cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc> title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile> info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname> printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
+<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc> title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
 </para>
 <!-- c TeX does not like @table in @example -->
 <!-- c as documented The @table command is not supported inside @display -->
@@ -4556,7 +4560,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 
 
 <para><code>&arobase;acronym&lbrace;--a,an accronym &arobase;comma&lbrace;&rbrace; &arobase;enddots&lbrace;&rbrace;&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym &comma; &enddots;</acronymdesc></acronym>
-<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude--&arobase;comma&lbrace;&rbrace; &arobase;b&lbrace;Autonome&rbrace; &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc spaces=" "><accent type="acute" bracketed="off">E</accent>tude&textndash;&comma; <b>Autonome</b> </abbrdesc></abbr>
+<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude--&arobase;comma&lbrace;&rbrace; &arobase;b&lbrace;Autonome&rbrace; &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword><abbrdesc> <accent type="acute" bracketed="off">E</accent>tude&textndash;&comma; <b>Autonome</b> </abbrdesc></abbr>
 <code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A.&rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>&textndash;. &comma;A.</abbrword></abbr>
 </para>
 <para><code>&arobase;math&lbrace;--a&arobase;minus&lbrace;&rbrace; &lbrace;\frac&lbrace;1&rbrace;&lbrace;2&rbrace;&rbrace;&rbrace;</code> <math>--a&minus; {\frac{1}{2}}</math>
@@ -4708,8 +4712,10 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <deffn spaces=" " endspaces=" "><definitionterm><defcategory>fun</defcategory></definitionterm>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="150">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> </definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="151">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam>  <defparam>after</defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="152">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on" spaces="\n"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="153">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on" spaces=" ">and after</defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="152">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on">
+</defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="153">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on"> and after
+</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="154">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <!-- c comment -->
 <para>Various deff lines
@@ -4748,26 +4754,26 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <code>&arobase;ref&lbrace;node,cross ref name,,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,cross ref name,title,file name&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;node,cross ref name,title,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;node,cross ref name,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;node,cross ref name,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,,title,file name&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;node,,title,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;node,,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;node,,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,,,file name,manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile></xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,,file name&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,,,manual&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,file name&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,,manual&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;,cross ref name,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;,cross ref name,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,,title,file name&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,,title,,manual&rbrace;</code> <ref><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;,,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;,,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,,,file name,manual&rbrace;</code> <ref manual="file name"><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 </para>
 <para><code>&arobase;inforef&lbrace;,cross ref name &rbrace;</code> <inforef><inforefrefname>cross ref name </inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;,,file name&rbrace;</code> <inforef manual="file name"><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;,cross ref name, file name&rbrace;</code> <inforef manual="file name"><inforefrefname>cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;,cross ref name, file name&rbrace;</code> <inforef manual="file name"><inforefrefname>cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;&rbrace;</code> <inforef><inforefnodename></inforefnodename></inforef>
 </para>
 
@@ -4939,7 +4945,7 @@ but , ,&noeos;
 
 <code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>--a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
 <code>&arobase;acronym&lbrace;--a&rbrace;</code> <acronym><acronymword>--a</acronymword></acronym>
-<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude Autonome &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>--. &comma;A.</abbrword><abbrdesc spaces=" "><accent type="acute" bracketed="off">E</accent>tude Autonome </abbrdesc></abbr>
+<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude Autonome &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>--. &comma;A.</abbrword><abbrdesc> <accent type="acute" bracketed="off">E</accent>tude Autonome </abbrdesc></abbr>
 <code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A.&rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>--. &comma;A.</abbrword></abbr>
 <code>&arobase;asis&lbrace;--a&rbrace;</code> <asis>--a</asis>
 <code>&arobase;b&lbrace;--a&rbrace;</code> <b>--a</b>
@@ -5382,15 +5388,15 @@ Less recent versions are also present.
 <pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="26">index entry within deffn</indexterm></cindex>
 </pre><deffnx spaces=" "><definitionterm><indexterm index="fn" number="162">truc</indexterm><defcategory bracketed="on">cmde</defcategory> <deffunction>truc</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="163">log trap</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="164">log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" spaces=" ">log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="165">log trap2</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on" trailingspaces=" ">log trap2</deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="164"> log trap1</indexterm><defcategory>Command</defcategory> <deffunction bracketed="on"> log trap1</deffunction> <defparam bracketed="on"></defparam>  </definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="165">log trap2 </indexterm><defcategory>Command</defcategory> <deffunction bracketed="on">log trap2 </deffunction> <defparam bracketed="on"></defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="166"><b>id ule</b></indexterm><defcategory>cmde</defcategory> <deffunction><b>id ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="167"><b>id <samp>i</samp> ule</b></indexterm><defcategory>cmde2</defcategory> <deffunction><b>id <samp>i</samp> ule</b></deffunction> <defparam>truc</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"></deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="168">machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="169">bidule machin</indexterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on">bidule machin</deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="170">machin</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>machin</deffunction></definitionterm></deffnx>
-<deffnx><definitionterm><defcategory bracketed="on">truc</defcategory> <deffunction bracketed="on" spaces=" "></deffunction></definitionterm></deffnx>
+<deffnx><definitionterm><defcategory bracketed="on">truc</defcategory> <deffunction bracketed="on"> </deffunction></definitionterm></deffnx>
 <deffnx><definitionterm><indexterm index="fn" number="171">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <pre xml:space="preserve"><!-- c comment -->
 </pre><deffnx><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"></deffunction></definitionterm></deffnx>
@@ -5556,10 +5562,10 @@ text in def item for second def item
 <pre xml:space="preserve">
 <deftypefnnewline spaces=" " value="off" line="off"></deftypefnnewline>
 
-<code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname spaces=" ">cross r---ef name&arobase;</xrefinfoname><xrefprinteddesc spaces=" ">t---itle&arobase;</xrefprinteddesc><xrefinfofile spaces=" ">file n---ame&arobase;</xrefinfofile><xrefprintedname spaces=" ">ma---nual&arobase;</xrefprintedname></xref>.
-<code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
-<code>&arobase;pxref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <pxref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref name</xrefinfoname><xrefprinteddesc spaces=" ">title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></pxref>
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;xref&lbrace;c---hapter&arobase;&arobase;, cross r---ef name&arobase;&arobase;, t---itle&arobase;&arobase;, file n---ame&arobase;&arobase;, ma---nual&arobase;&arobase;&rbrace;</code> <xref label="c_002d_002d_002dhapter_0040" manual="file n---ame@"><xrefnodename>c---hapter&arobase;</xrefnodename><xrefinfoname> cross r---ef name&arobase;</xrefinfoname><xrefprinteddesc> t---itle&arobase;</xrefprinteddesc><xrefinfofile> file n---ame&arobase;</xrefinfofile><xrefprintedname> ma---nual&arobase;</xrefprintedname></xref>.
+<code>&arobase;ref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref name</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;pxref&lbrace;chapter, cross ref name, title, file name, manual&rbrace;</code> <pxref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref name</xrefinfoname><xrefprinteddesc> title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></pxref>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 
 <code>&arobase;ref&lbrace;chapter&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename></ref>
 <code>&arobase;xref&lbrace;chapter&rbrace;</code> <xref label="chapter"><xrefnodename>chapter</xrefnodename></xref>.
@@ -5568,8 +5574,8 @@ text in def item for second def item
 
 <code>&arobase;ref&lbrace;s--ect&arobase;comma&lbrace;&rbrace;ion, a &arobase;comma&lbrace;&rbrace; in cross
 ref, a comma&arobase;comma&lbrace;&rbrace; in title, a comma&arobase;comma&lbrace;&rbrace; in file, a &arobase;comma&lbrace;&rbrace; in manual name &rbrace;</code>
-<ref label="s_002d_002dect_002cion" manual="a comma, in file"><xrefnodename>s--ect&comma;ion</xrefnodename><xrefinfoname spaces=" ">a &comma; in cross
-ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprinteddesc><xrefinfofile spaces=" ">a comma&comma; in file</xrefinfofile><xrefprintedname spaces=" ">a &comma; in manual name </xrefprintedname></ref>
+<ref label="s_002d_002dect_002cion" manual="a comma, in file"><xrefnodename>s--ect&comma;ion</xrefnodename><xrefinfoname> a &comma; in cross
+ref</xrefinfoname><xrefprinteddesc> a comma&comma; in title</xrefprinteddesc><xrefinfofile> a comma&comma; in file</xrefinfofile><xrefprintedname> a &comma; in manual name </xrefprintedname></ref>
 
 <code>&arobase;ref&lbrace;chapter,cross ref name&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname></ref>
 <code>&arobase;ref&lbrace;chapter,,title&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc></ref>
@@ -5580,10 +5586,10 @@ ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprint
 <code>&arobase;ref&lbrace;chapter,cross ref name,,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,cross ref name,title,file name&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;chapter,cross ref name,title,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,cross ref name,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,cross ref name,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,title,file name&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;chapter,,title,,manual&rbrace;</code> <ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;chapter,,,file name,manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 
 
@@ -5596,33 +5602,33 @@ ref</xrefinfoname><xrefprinteddesc spaces=" ">a comma&comma; in title</xrefprint
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)anode,cross ref name,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,cross ref name,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,title,file name&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,title,,manual&rbrace;</code> <ref label="anode" manual="pman"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;(pman)anode,,title, file name, manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;(pman)anode,,,file name,manual&rbrace;</code> <ref label="anode" manual="file name"><xrefnodename>(pman)anode</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 
 
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;chapter&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;chapter, cross ref name&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name&rbrace;</code> <inforef label="chapter"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;chapter,,file name&rbrace;</code> <inforef label="chapter" manual="file name"><inforefnodename>chapter</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;node, cross ref name, file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;node, cross ref name, file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;node&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename></inforef>
-<code>&arobase;inforef&lbrace;node, cross ref name&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname></inforef>
+<code>&arobase;inforef&lbrace;node, cross ref name&rbrace;</code> <inforef label="node"><inforefnodename>node</inforefnodename><inforefrefname> cross ref name</inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;node,,file name&rbrace;</code> <inforef label="node" manual="file name"><inforefnodename>node</inforefnodename><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;chapter, cross ref name, file name, spurious arg&rbrace;</code> <inforef label="chapter" manual="file name, spurious arg"><inforefnodename>chapter</inforefnodename><inforefrefname spaces=" ">cross ref name</inforefrefname><inforefinfoname spaces=" ">file name, spurious arg</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;chapter, cross ref name, file name, spurious arg&rbrace;</code> <inforef label="chapter" manual="file name, spurious arg"><inforefnodename>chapter</inforefnodename><inforefrefname> cross ref name</inforefrefname><inforefinfoname> file name, spurious arg</inforefinfoname></inforef>
 
 <code>&arobase;inforef&lbrace;s--ect&arobase;comma&lbrace;&rbrace;ion, a &arobase;comma&lbrace;&rbrace; in cross
 ref, a comma&arobase;comma&lbrace;&rbrace; in file&rbrace;</code>
-<inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname spaces=" ">a &comma; in cross
-ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefinfoname></inforef>
+<inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname> a &comma; in cross
+ref</inforefrefname><inforefinfoname> a comma&comma; in file</inforefinfoname></inforef>
 
 <!-- c special cases with @uref -->
 <samp><ref label="chapter"><xrefnodename>chapter</xrefnodename></ref></samp>.
 
-<ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile spaces=" ">info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname spaces=" ">printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
-<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
+<ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname> cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc> title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile> info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname> printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
+<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname> cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc> title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
 
 <!-- c TeX does not like @table in @example -->
 <!-- c as documented The @table command is not supported inside @display -->
@@ -5722,7 +5728,7 @@ $\frac{a &lt; b @code{tex \hbox{ code }}}{b}$ ``
 <pre xml:space="preserve">
 
 <code>&arobase;acronym&lbrace;--a,an accronym &arobase;comma&lbrace;&rbrace; &arobase;enddots&lbrace;&rbrace;&rbrace;</code> <acronym><acronymword>--a</acronymword><acronymdesc>an accronym &comma; &enddots;</acronymdesc></acronym>
-<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude--&arobase;comma&lbrace;&rbrace; &arobase;b&lbrace;Autonome&rbrace; &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>--. &comma;A.</abbrword><abbrdesc spaces=" "><accent type="acute" bracketed="off">E</accent>tude--&comma; <b>Autonome</b> </abbrdesc></abbr>
+<code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A., &arobase;'Etude--&arobase;comma&lbrace;&rbrace; &arobase;b&lbrace;Autonome&rbrace; &rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>--. &comma;A.</abbrword><abbrdesc> <accent type="acute" bracketed="off">E</accent>tude--&comma; <b>Autonome</b> </abbrdesc></abbr>
 <code>&arobase;abbr&lbrace;&arobase;'E--. &arobase;comma&lbrace;&rbrace;A.&rbrace;</code> <abbr><abbrword><accent type="acute" bracketed="off">E</accent>--. &comma;A.</abbrword></abbr>
 
 <code>&arobase;math&lbrace;--a&arobase;minus&lbrace;&rbrace; &lbrace;\frac&lbrace;1&rbrace;&lbrace;2&rbrace;&rbrace;&rbrace;</code> <math>--a&minus; {\frac{1}{2}}</math>
@@ -5874,8 +5880,10 @@ Invalid use of &arobase;':&linebreak;
 </pre><deffn spaces=" " endspaces=" "><definitionterm><defcategory>fun</defcategory></definitionterm>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="202">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> </definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="203">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam>  <defparam>after</defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="204">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on" spaces="\n"></defparam></definitionterm></deffnx>
-<deffnx spaces=" "><definitionterm><indexterm index="fn" number="205">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on" spaces=" ">and after</defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="204">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on">
+</defparam></definitionterm></deffnx>
+<deffnx spaces=" "><definitionterm><indexterm index="fn" number="205">machin</indexterm><defcategory>truc</defcategory> <deffunction>machin</deffunction> <defparam>bidule</defparam> <defparam>chose</defparam> <defparam>and</defparam> <defparam bracketed="on"> and after
+</defparam></definitionterm></deffnx>
 <deffnx spaces=" "><definitionterm><indexterm index="fn" number="206">followed</indexterm><defcategory bracketed="on">truc</defcategory> <deffunction>followed</deffunction> <defparam>by</defparam> <defparam>a</defparam> <defparam>comment</defparam></definitionterm></deffnx>
 <pre xml:space="preserve"><!-- c comment -->
 Various deff lines
@@ -5914,26 +5922,26 @@ Various deff lines
 <code>&arobase;ref&lbrace;node,cross ref name,,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,cross ref name,title,file name&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;node,cross ref name,title,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;node,cross ref name,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;node,cross ref name,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,,title,file name&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;node,,title,,manual&rbrace;</code> <ref label="node"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;node,,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;chapter,,title, file name, manual&rbrace;</code> <ref label="chapter" manual="file name"><xrefnodename>chapter</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;node,,title, file name, manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;node,,,file name,manual&rbrace;</code> <ref label="node" manual="file name"><xrefnodename>node</xrefnodename><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile></xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,,file name&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,,,manual&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprintedname>manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,file name&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,cross ref name,title,,manual&rbrace;</code> <ref><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;,cross ref name,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;,cross ref name,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefinfoname>cross ref name</xrefinfoname><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,,title,file name&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile>file name</xrefinfofile></ref>
 <code>&arobase;ref&lbrace;,,title,,manual&rbrace;</code> <ref><xrefprinteddesc>title</xrefprinteddesc><xrefprintedname>manual</xrefprintedname></ref>
-<code>&arobase;ref&lbrace;,,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile spaces=" ">file name</xrefinfofile><xrefprintedname spaces=" ">manual</xrefprintedname></ref>
+<code>&arobase;ref&lbrace;,,title, file name, manual&rbrace;</code> <ref manual="file name"><xrefprinteddesc>title</xrefprinteddesc><xrefinfofile> file name</xrefinfofile><xrefprintedname> manual</xrefprintedname></ref>
 <code>&arobase;ref&lbrace;,,,file name,manual&rbrace;</code> <ref manual="file name"><xrefinfofile>file name</xrefinfofile><xrefprintedname>manual</xrefprintedname></ref>
 
 <code>&arobase;inforef&lbrace;,cross ref name &rbrace;</code> <inforef><inforefrefname>cross ref name </inforefrefname></inforef>
 <code>&arobase;inforef&lbrace;,,file name&rbrace;</code> <inforef manual="file name"><inforefinfoname>file name</inforefinfoname></inforef>
-<code>&arobase;inforef&lbrace;,cross ref name, file name&rbrace;</code> <inforef manual="file name"><inforefrefname>cross ref name</inforefrefname><inforefinfoname spaces=" ">file name</inforefinfoname></inforef>
+<code>&arobase;inforef&lbrace;,cross ref name, file name&rbrace;</code> <inforef manual="file name"><inforefrefname>cross ref name</inforefrefname><inforefinfoname> file name</inforefinfoname></inforef>
 <code>&arobase;inforef&lbrace;&rbrace;</code> <inforef><inforefnodename></inforefnodename></inforef>
 
 
@@ -5942,10 +5950,10 @@ Various deff lines
 <clear name="validinexample" spaces=" ">validinexample</clear>
 
 <para><xref label="node-with-xrefname"><xrefnodename>node with xrefname</xrefnodename></xref>.
-<xref label="node-with-xrefname"><xrefnodename>node with xrefname</xrefnodename><xrefinfoname spaces=" ">sec for node with xrefname</xrefinfoname></xref>.
+<xref label="node-with-xrefname"><xrefnodename>node with xrefname</xrefnodename><xrefinfoname> sec for node with xrefname</xrefinfoname></xref>.
 </para>
 <para><xref label="node-with-empty-xrefname"><xrefnodename>node with empty xrefname</xrefnodename></xref>.
-<xref label="node-with-empty-xrefname"><xrefnodename>node with empty xrefname</xrefnodename><xrefinfoname spaces=" ">sec for empty xrefname</xrefinfoname></xref>.
+<xref label="node-with-empty-xrefname"><xrefnodename>node with empty xrefname</xrefnodename><xrefinfoname> sec for empty xrefname</xrefinfoname></xref>.
 </para>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="29">t&textndash;ruc</indexterm></cindex>
 <cindex index="cp" spaces=" "><indexterm index="cp" number="30">T&textndash;ruc</indexterm></cindex>

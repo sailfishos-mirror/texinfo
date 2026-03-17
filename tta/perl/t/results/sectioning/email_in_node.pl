@@ -21,35 +21,24 @@ $result_tree_text{'email_in_node'} = '*document_root C2
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
     *@email C1 l1
-     *brace_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: }
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C3
+      {spaces_before_argument: }
       {a}
+      {spaces_after_argument: }
     { }
     *@email C2 l1
-     *brace_arg C1
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: }
+     *brace_arg C2
       {c}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+      {spaces_after_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {d}
     { }
     *@email C2 l1
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
      *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+      {spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {e}
 ';
 

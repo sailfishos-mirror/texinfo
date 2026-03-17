@@ -16,10 +16,8 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
    |def_command:{deffn}
    |def_index_element:
     |* C1
-     |*brace_arg C1
-     ||INFO
-     ||spaces_before_argument:
-      ||{spaces_before_argument: }
+     |*brace_arg C2
+      |{spaces_before_argument: }
       |{name}
    |index_entry:I{fn,1}
    |original_def_cmdname:{deffn}
@@ -32,10 +30,8 @@ $result_tree_text{'leading_space_in_def_arg'} = '*document_root C1
        {category}
      {spaces: }
      *def_name C1
-      *bracketed_arg C1 l1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C2 l1
+       {spaces_before_argument: }
        {name}
      {spaces: }
      *def_arg C1

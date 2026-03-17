@@ -29,10 +29,8 @@ $result_tree_text{'ignore_in_xref'} = '*document_root C2
     |node_content:{first}
     |normalized:{first}
      {first}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument:\\n}
+    *brace_arg C2
+     {spaces_before_argument:\\n}
      *@ignore C3 l4
       *arguments_line C1
        *block_line_arg

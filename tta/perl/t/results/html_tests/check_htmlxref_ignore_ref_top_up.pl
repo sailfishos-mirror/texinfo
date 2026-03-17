@@ -67,20 +67,14 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
     |EXTRA
     |node_content:{a}
      {a}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {b}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {c}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {no_existing_no_manual.info}
    {\\n}
    *@ref C4 l6
@@ -88,20 +82,14 @@ $result_tree_text{'check_htmlxref_ignore_ref_top_up'} = '*document_root C6
     |EXTRA
     |node_content:{a}
      {a}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {b}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {c}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {no_existing_no_manual.info}
    {\\n}
   {empty_line:\\n}

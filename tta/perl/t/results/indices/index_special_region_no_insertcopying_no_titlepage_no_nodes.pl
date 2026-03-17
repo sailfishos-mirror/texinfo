@@ -306,10 +306,8 @@ $result_tree_text{'index_special_region_no_insertcopying_no_titlepage_no_nodes'}
        {truc}
      {spaces: }
      *def_name C1
-      *bracketed_arg index_special_region_no_insertcopying.texi:l48
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C1 index_special_region_no_insertcopying.texi:l48
+       {spaces_before_argument: }
    *@deffnx C1 index_special_region_no_insertcopying.texi:l49
    |EXTRA
    |def_command:{deffn}

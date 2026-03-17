@@ -597,6 +597,45 @@ sub _count_opened_tree_braces($$) {
   return $braces_count;
 }
 
+sub _non_leading_trailing_indices($) {
+  my $tree = shift;
+
+  if (exists($tree->{'contents'})) {
+    my $start_idx = 0;
+    foreach my $content (@{$tree->{'contents'}}) {
+      if (exists($content->{'type'})
+          and $content->{'type'} eq 'spaces_before_argument') {
+        $start_idx++;
+      } elsif (exists($content->{'cmdname'})
+               and ($content->{'cmdname'} eq 'comment'
+                    or $content->{'cmdname'} eq 'c')) {
+        $start_idx++;
+      } else {
+        last;
+      }
+    }
+    if ($start_idx == scalar(@{$tree->{'contents'}})) {
+      return undef, undef;
+    }
+    my $end_idx = scalar(@{$tree->{'contents'}}) - 1;
+    while (1) {
+      my $content = $tree->{'contents'}->[$end_idx];
+      if (exists($content->{'type'})
+          and $content->{'type'} eq 'spaces_after_argument') {
+        $end_idx--;
+      } elsif (exists($content->{'cmdname'})
+               and ($content->{'cmdname'} eq 'comment'
+                    or $content->{'cmdname'} eq 'c')) {
+        $end_idx--;
+      } else {
+        last;
+      }
+    }
+    return ($start_idx, $end_idx);
+  }
+  return undef, undef;
+}
+
 # ALTIMP C/main/manipulate_tree.c
 # retrieve a leading manual name in parentheses, if there is one.
 # $LABEL_CONTENTS_CONTAINER->{'contents'} is the Texinfo for the specification
@@ -625,20 +664,26 @@ sub parse_node_manual($;$) {
 
   my $contents = $label_contents_container->{'contents'};
 
-  my $idx = 0;
-
   my $manual;
   my $result;
   my $node_content = [];
 
-  if (exists($contents->[0]->{'text'}) and $contents->[0]->{'text'} =~ /^\(/) {
+  my ($first_idx, $end_idx)
+    = _non_leading_trailing_indices($label_contents_container);
+  return undef if (!defined($first_idx));
+
+  my $idx = $first_idx;
+  my $orig_contents_len = scalar(@$contents);
+
+  if (exists($contents->[$idx]->{'text'})
+      and $contents->[$idx]->{'text'} =~ /^\(/) {
     my ($new_first, $opening_brace);
     $manual = [];
     my $braces_count = 1; # Number of ( seen minus number of ) seen.
     # the leading ( from @$contents is not in manual.
     # If the first contents element is "(" followed by more text, split
     # the leading "(" into its own element.
-    my $first = $contents->[0];
+    my $first = $contents->[$idx];
     if ($first->{'text'} ne '(') {
       if ($modify_node) {
         $opening_brace
@@ -653,7 +698,7 @@ sub parse_node_manual($;$) {
     }
     for (; $idx < scalar(@$contents); $idx++) {
       my $content;
-      if ($idx == 0) {
+      if ($idx == $first_idx) {
         $content = $new_first;
       } else {
         $content = $contents->[$idx];
@@ -678,9 +723,9 @@ sub parse_node_manual($;$) {
             if ($opening_brace) {
               # remove the original $first first element and prepend the
               # split "(" and text elements
-              shift @$contents;
-              unshift @$contents, $new_first;
-              unshift @$contents, $opening_brace;
+              splice(@$contents, $first_idx, 1);
+              splice(@$contents, $first_idx, 0, $new_first);
+              splice(@$contents, $first_idx, 0, $opening_brace);
               $idx++;
               if (exists($first->{'source_marks'})) {
                 my $current_position = relocate_source_marks(
@@ -751,7 +796,7 @@ sub parse_node_manual($;$) {
     if ($braces_count != 0) {
       # unclosed brace, reset
       $manual = undef;
-      $idx = 0;
+      $idx = $first_idx;
     } else {
       $result = {};
       $result->{'manual_content'}
@@ -759,8 +804,12 @@ sub parse_node_manual($;$) {
     }
   }
 
-  if ($idx < scalar(@$contents)) {
-    push(@$node_content, @$contents[$idx .. scalar(@$contents)-1]);
+  my $new_contents_len = scalar(@$contents);
+  if ($idx < $new_contents_len) {
+    # take into account that contents size may have increased
+    # and increased consistently $end_idx.
+    push(@$node_content, @$contents[$idx ..
+                    $end_idx + $new_contents_len - $orig_contents_len]);
   }
 
   if (scalar(@$node_content)) {
@@ -791,6 +840,82 @@ sub file_separator_canonpath($) {
   } else {
     return $canon_dir;
   }
+}
+
+# TODO document
+sub empty_spaces_argument($) {
+  my $element = shift;
+
+  return 1 if (!exists($element->{'contents'}));
+
+  foreach my $content (@{$element->{'contents'}}) {
+    if (exists($content->{'text'})) {
+      if (!exists($content->{'type'})) {
+        return 0;
+      }
+      if ($content->{'type'} ne 'spaces_before_argument') {
+        return 0;
+      }
+    } elsif (exists($content->{'cmdname'})
+             and ($content->{'cmdname'} eq 'comment'
+                  or $content->{'cmdname'} eq 'c')) {
+    } else {
+      return 0;
+    }
+  }
+
+  return 1;
+}
+
+# TODO document
+# Return argument of a brace command with simple text as argument, for
+# example @U
+sub simple_arg_text($) {
+  my $element = shift;
+
+  my $result;
+  if (exists($element->{'contents'})) {
+    foreach my $content (@{$element->{'contents'}}) {
+      if (exists($content->{'text'})) {
+        if (exists($content->{'type'})
+            and ($content->{'type'} eq 'spaces_before_argument'
+                 or $content->{'type'} eq 'spaces_after_argument')) {
+          next;
+        } elsif (!defined($result)) {
+          $result = $content->{'text'};
+        } else {
+          # superfluous arg
+          return undef;
+        }
+      } else {
+        return undef;
+      }
+    }
+  }
+  if (defined($result)) {
+    return $result;
+  }
+  return '';
+}
+
+sub non_leading_trailing_tree($;$$) {
+  my ($tree, $type, $cmdname) = @_;
+
+  my ($start_idx, $end_idx) = _non_leading_trailing_indices($tree);
+  if (!defined($start_idx)) {
+    return undef;
+  }
+
+  my $result = Texinfo::TreeElement::new({});
+  if (defined($type)) {
+    $result->{'type'} = $type;
+  }
+  if (defined($cmdname)) {
+    $result->{'cmdname'} = $cmdname;
+  }
+  $result->{'contents'} = [@{$tree->{'contents'}}[$start_idx .. $end_idx]];
+
+  return $result;
 }
 
 # ALTIMP C/convert/converter.c

@@ -43,10 +43,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *@image C5 l9:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
-     *brace_arg C11
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: }
+     *brace_arg C12
       {f}
       *@@
       {i--le}
@@ -62,6 +59,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       |delimiter:{:}
        *brace_container C1
         {raw:  < & @ % " }
+      {spaces_after_argument: }
      *brace_arg
      *brace_arg
      *brace_arg
@@ -88,10 +86,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *@image C5 l9:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
-     *brace_arg C11
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: }
+     *brace_arg C12
       {f}
       *@@
       {i--le}
@@ -107,19 +102,14 @@ $result_tree_text{'test_image'} = '*document_root C3
       |delimiter:{:}
        *brace_container C1
         {raw:  < & @ % " }
+      {spaces_after_argument: }
      *brace_arg C1
       {1in}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {1cm}
-     *brace_arg C7
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:  }
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C9
+      {spaces_before_argument: }
       {alt }
       *@b C1 l9:@files-char
        *brace_container C5
@@ -141,6 +131,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       |delimiter:{:}
        *brace_container C1
         {raw:  < & @ % " }
+      {spaces_after_argument:  }
      *brace_arg C11
       {.ext}
       *@@
@@ -208,10 +199,7 @@ $result_tree_text{'test_image'} = '*document_root C3
   *@image C5 l15:@files-char
   |EXTRA
   |input_encoding_name:{utf-8}
-   *brace_arg C11
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *brace_arg C12
     {f}
     *@@
     {i--le}
@@ -227,6 +215,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     |delimiter:{:}
      *brace_container C1
       {raw:  < & @ % " }
+    {spaces_after_argument: }
    *brace_arg
    *brace_arg
    *brace_arg
@@ -253,10 +242,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *@image C5 l15:@files-char
    |EXTRA
    |input_encoding_name:{utf-8}
-    *brace_arg C11
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *brace_arg C12
      {f}
      *@@
      {i--le}
@@ -272,19 +258,14 @@ $result_tree_text{'test_image'} = '*document_root C3
      |delimiter:{:}
       *brace_container C1
        {raw:  < & @ % " }
+     {spaces_after_argument: }
     *brace_arg C1
      {1in}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {1cm}
-    *brace_arg C7
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:  }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C9
+     {spaces_before_argument: }
      {alt }
      *@b C1 l15:@files-char
       *brace_container C5
@@ -306,6 +287,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      |delimiter:{:}
       *brace_container C1
        {raw:  < & @ % " }
+     {spaces_after_argument:  }
     *brace_arg C11
      {.ext}
      *@@
@@ -351,10 +333,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *@image C5 l21:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
-     *brace_arg C11
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: }
+     *brace_arg C12
       {f}
       *@@
       {i--le}
@@ -370,6 +349,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       |delimiter:{:}
        *brace_container C1
         {raw:  < & @ % " }
+      {spaces_after_argument: }
      *brace_arg
      *brace_arg
      *brace_arg
@@ -395,10 +375,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *@image C5 l21:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
-     *brace_arg C11
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: }
+     *brace_arg C12
       {f}
       *@@
       {i--le}
@@ -414,19 +391,14 @@ $result_tree_text{'test_image'} = '*document_root C3
       |delimiter:{:}
        *brace_container C1
         {raw:  < & @ % " }
+      {spaces_after_argument: }
      *brace_arg C1
       {1in}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {1cm}
-     *brace_arg C7
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:  }
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C9
+      {spaces_before_argument: }
       {alt }
       *@b C1 l21:@files-char
        *brace_container C5
@@ -448,6 +420,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       |delimiter:{:}
        *brace_container C1
         {raw:  < & @ % " }
+      {spaces_after_argument:  }
      *brace_arg C11
       {.ext}
       *@@
@@ -506,10 +479,7 @@ $result_tree_text{'test_image'} = '*document_root C3
    *@image C5 l25:@files-char
    |EXTRA
    |input_encoding_name:{utf-8}
-    *brace_arg C11
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
+    *brace_arg C12
      {f}
      *@@
      {i--le}
@@ -525,6 +495,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      |delimiter:{:}
       *brace_container C1
        {raw:  < & @ % " }
+     {spaces_after_argument: }
     *brace_arg
     *brace_arg
     *brace_arg
@@ -551,10 +522,7 @@ $result_tree_text{'test_image'} = '*document_root C3
     *@image C5 l25:@files-char
     |EXTRA
     |input_encoding_name:{utf-8}
-     *brace_arg C11
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument: }
+     *brace_arg C12
       {f}
       *@@
       {i--le}
@@ -570,19 +538,14 @@ $result_tree_text{'test_image'} = '*document_root C3
       |delimiter:{:}
        *brace_container C1
         {raw:  < & @ % " }
+      {spaces_after_argument: }
      *brace_arg C1
       {1in}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {1cm}
-     *brace_arg C7
-     |INFO
-     |spaces_after_argument:
-      |{spaces_after_argument:  }
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C9
+      {spaces_before_argument: }
       {alt }
       *@b C1 l25:@files-char
        *brace_container C5
@@ -604,6 +567,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       |delimiter:{:}
        *brace_container C1
         {raw:  < & @ % " }
+      {spaces_after_argument:  }
      *brace_arg C11
       {.ext}
       *@@
@@ -634,10 +598,7 @@ $result_tree_text{'test_image'} = '*document_root C3
      *@image C5 l27:@files-char
      |EXTRA
      |input_encoding_name:{utf-8}
-      *brace_arg C11
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
+      *brace_arg C12
        {f}
        *@@
        {i--le}
@@ -653,6 +614,7 @@ $result_tree_text{'test_image'} = '*document_root C3
        |delimiter:{:}
         *brace_container C1
          {raw:  < & @ % " }
+       {spaces_after_argument: }
       *brace_arg
       *brace_arg
       *brace_arg
@@ -679,10 +641,7 @@ $result_tree_text{'test_image'} = '*document_root C3
       *@image C5 l27:@files-char
       |EXTRA
       |input_encoding_name:{utf-8}
-       *brace_arg C11
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument: }
+       *brace_arg C12
         {f}
         *@@
         {i--le}
@@ -698,19 +657,14 @@ $result_tree_text{'test_image'} = '*document_root C3
         |delimiter:{:}
          *brace_container C1
           {raw:  < & @ % " }
+        {spaces_after_argument: }
        *brace_arg C1
         {1in}
-       *brace_arg C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
+       *brace_arg C2
+        {spaces_before_argument: }
         {1cm}
-       *brace_arg C7
-       |INFO
-       |spaces_after_argument:
-        |{spaces_after_argument:  }
-       |spaces_before_argument:
-        |{spaces_before_argument: }
+       *brace_arg C9
+        {spaces_before_argument: }
         {alt }
         *@b C1 l27:@files-char
          *brace_container C5
@@ -732,6 +686,7 @@ $result_tree_text{'test_image'} = '*document_root C3
         |delimiter:{:}
          *brace_container C1
           {raw:  < & @ % " }
+        {spaces_after_argument:  }
        *brace_arg C11
         {.ext}
         *@@

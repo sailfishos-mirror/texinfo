@@ -13,17 +13,12 @@ $result_tree_text{'inlinerawspaces'} = '*document_root C1
    |EXTRA
    |expand_index:{1}
    |format:{plaintext}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     {plaintext}
     *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+     {plaintext}
+     {spaces_after_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {plaintext `` }
      *@lbracechar C1 l1
       *brace_container
@@ -36,17 +31,12 @@ $result_tree_text{'inlinerawspaces'} = '*document_root C1
    |EXTRA
    |expand_index:{1}
    |format:{html}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
-     {html}
     *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+     {html}
+     {spaces_after_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {in <i>}
      *@acronym C1 l2
       *brace_arg C1
@@ -85,8 +75,8 @@ in <i><abbr class="acronym">HTML</abbr></i>.
 </p>';
 
 
-$result_converted{'xml'}->{'inlinerawspaces'} = '<para>A <inlineraw><inlinerawformat spaces=" ">plaintext </inlinerawformat><inlinerawcontent spaces=" ">plaintext &textldquo; &lbracechar; </inlinerawcontent></inlineraw> a.  Now html
-<inlineraw spacesaftercmd=" "><inlinerawformat spaces=" ">html </inlinerawformat><inlinerawcontent spaces=" ">in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinerawcontent></inlineraw>.
+$result_converted{'xml'}->{'inlinerawspaces'} = '<para>A <inlineraw><inlinerawformat> plaintext </inlinerawformat><inlinerawcontent> plaintext &textldquo; &lbracechar; </inlinerawcontent></inlineraw> a.  Now html
+<inlineraw spacesaftercmd=" "><inlinerawformat> html </inlinerawformat><inlinerawcontent> in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinerawcontent></inlineraw>.
 </para>';
 
 

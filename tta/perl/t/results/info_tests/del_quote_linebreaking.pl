@@ -19,10 +19,8 @@ $result_tree_text{'del_quote_linebreaking'} = '*document_root C1
      {noxde}
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
     *brace_arg C1
      {Manual}
@@ -37,10 +35,8 @@ $result_tree_text{'del_quote_linebreaking'} = '*document_root C1
      {noxde}
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
     *brace_arg C1
      {Manual}
@@ -55,10 +51,8 @@ $result_tree_text{'del_quote_linebreaking'} = '*document_root C1
      {noxde}
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
     *brace_arg C1
      {Manual}
@@ -76,10 +70,8 @@ $result_tree_text{'del_quote_linebreaking'} = '*document_root C1
      {no:de}
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
     *brace_arg C1
      {Manual}
@@ -94,10 +86,8 @@ $result_tree_text{'del_quote_linebreaking'} = '*document_root C1
      {no:de}
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
     *brace_arg C1
      {Manual}
@@ -112,10 +102,8 @@ $result_tree_text{'del_quote_linebreaking'} = '*document_root C1
      {no:de}
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
     *brace_arg C1
      {Manual}

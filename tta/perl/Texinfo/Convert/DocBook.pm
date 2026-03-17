@@ -236,6 +236,8 @@ foreach my $text_type (
             'spaces_after_close_brace',
             'spaces_before_paragraph',
             'spaces_at_end',
+            'spaces_before_argument',
+            'spaces_after_argument',
   ) {
   $ignored_text_types{$text_type} = 1;
 }
@@ -1295,11 +1297,13 @@ sub _convert($$;$) {
             $command_name = 'ref';
           } else {
             if ($args_nr >= 5
-                and exists($element->{'contents'}->[4]->{'contents'})) {
+                and not Texinfo::Common::empty_spaces_argument(
+                                     $element->{'contents'}->[4])) {
               $book_element = $element->{'contents'}->[4];
             }
             if ($args_nr >= 3
-                and exists($element->{'contents'}->[2]->{'contents'})) {
+                and not Texinfo::Common::empty_spaces_argument(
+                                    $element->{'contents'}->[2])) {
               my $section_arg = $element->{'contents'}->[2];
               $section_name = _convert($self, $section_arg);
             }
@@ -1307,15 +1311,17 @@ sub _convert($$;$) {
           }
           my $manual_file_element;
           if ($args_nr >= $manual_file_index+1
-              and exists($element->{'contents'}->[$manual_file_index]
-                                                             ->{'contents'})) {
+              and not Texinfo::Common::empty_spaces_argument(
+                                $element->{'contents'}->[$manual_file_index])) {
             $manual_file_element = $element->{'contents'}->[$manual_file_index];
           }
           if (! defined($section_name) and $args_nr >= 2
-              and exists($element->{'contents'}->[1]->{'contents'})) {
+              and not Texinfo::Common::empty_spaces_argument(
+                                       $element->{'contents'}->[1])) {
             my $section_arg = $element->{'contents'}->[1];
             $section_name = _convert($self, $section_arg);
-          } elsif (exists($element->{'contents'}->[0]->{'contents'})) {
+          } elsif (not Texinfo::Common::empty_spaces_argument(
+                                      $element->{'contents'}->[0])) {
             my $node_arg = $element->{'contents'}->[0];
             push @{$self->{'document_context'}->[-1]->{'upper_case'}}, 0;
             $node_name = _convert($self, $node_arg);
@@ -1542,10 +1548,12 @@ sub _convert($$;$) {
           my $email;
           my $email_text;
           if (scalar(@{$element->{'contents'}}) >= 2
-              and exists($element->{'contents'}->[1]->{'contents'})) {
+              and not Texinfo::Common::empty_spaces_argument(
+                                  $element->{'contents'}->[1])) {
             $name = $element->{'contents'}->[1];
           }
-          if (exists($element->{'contents'}->[0]->{'contents'})) {
+          if (not Texinfo::Common::empty_spaces_argument(
+                                       $element->{'contents'}->[0])) {
             $email = $element->{'contents'}->[0];
             Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
@@ -1651,14 +1659,10 @@ sub _convert($$;$) {
         return '';
 
       } elsif ($cmdname eq 'U') {
-        if (exists($element->{'contents'})
-            and exists($element->{'contents'}->[0]->{'contents'})
-            and exists($element->{'contents'}->[0]->{'contents'}->[0]
-                                                            ->{'text'})) {
+        if (exists($element->{'contents'})) {
           my $arg_text
-            = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
-
-          if (defined($arg_text)) {
+            = Texinfo::Common::simple_arg_text($element->{'contents'}->[0]);
+          if (defined($arg_text) and $arg_text ne '') {
             my $result = "&#x$arg_text;";
             return $result;
           }

@@ -15,17 +15,12 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
    |EXTRA
    |expand_index:{1}
    |format:{aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_after_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {iclear first }
    {.\\n}
   {empty_line:\\n}
@@ -36,13 +31,10 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
     |{spaces_after_cmd_before_arg:\\n}
    |EXTRA
    |format:{aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {aaa}
+     {spaces_after_argument: }
     *elided_brace_command_arg C1
      {raw: ifset first }
    {.\\n}
@@ -66,13 +58,10 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
     |{spaces_after_cmd_before_arg: }
    |EXTRA
    |format:{aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {aaa}
+     {spaces_after_argument: }
     *elided_brace_command_arg C1
      {raw: ifclear second }
    {.\\n}
@@ -85,17 +74,12 @@ $result_tree_text{'inlineifsetifclearspaces'} = '*document_root C1
    |EXTRA
    |expand_index:{1}
    |format:{aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_after_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {ifset second }
    {.\\n}
 ';
@@ -163,15 +147,15 @@ $result_converted{'html_text'}->{'inlineifsetifclearspaces'} = '<p>iclear first 
 </p>';
 
 
-$result_converted{'xml'}->{'inlineifsetifclearspaces'} = '<para><inlineifclear spacesaftercmd="\\n"><inlineifclearformat spaces=" ">aaa </inlineifclearformat><inlineifclearcontent spaces=" ">iclear first </inlineifclearcontent></inlineifclear>.
+$result_converted{'xml'}->{'inlineifsetifclearspaces'} = '<para><inlineifclear spacesaftercmd="\\n"><inlineifclearformat> aaa </inlineifclearformat><inlineifclearcontent> iclear first </inlineifclearcontent></inlineifclear>.
 </para>
-<para><inlineifset spacesaftercmd="\\n"><inlineifsetformat spaces=" ">aaa </inlineifsetformat><inlineifsetcontent> ifset first </inlineifsetcontent></inlineifset>.
+<para><inlineifset spacesaftercmd="\\n"><inlineifsetformat> aaa </inlineifsetformat><inlineifsetcontent> ifset first </inlineifsetcontent></inlineifset>.
 </para>
 <set name="aaa" spaces=" ">aaa</set>
 
-<para><inlineifclear spacesaftercmd=" "><inlineifclearformat spaces=" ">aaa </inlineifclearformat><inlineifclearcontent> ifclear second </inlineifclearcontent></inlineifclear>.
+<para><inlineifclear spacesaftercmd=" "><inlineifclearformat> aaa </inlineifclearformat><inlineifclearcontent> ifclear second </inlineifclearcontent></inlineifclear>.
 </para>
-<para><inlineifset spacesaftercmd=" "><inlineifsetformat spaces=" ">aaa </inlineifsetformat><inlineifsetcontent spaces=" ">ifset second </inlineifsetcontent></inlineifset>.
+<para><inlineifset spacesaftercmd=" "><inlineifsetformat> aaa </inlineifsetformat><inlineifsetcontent> ifset second </inlineifsetcontent></inlineifset>.
 </para>';
 
 

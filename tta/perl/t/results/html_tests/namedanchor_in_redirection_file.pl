@@ -79,10 +79,8 @@ $result_tree_text{'namedanchor_in_redirection_file'} = '*document_root C5
   |is_target:{1}
    *brace_arg C1
     {the spot}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C2
+    {spaces_before_argument: }
     {named in a way}
   {spaces_after_close_brace:\\n}
 ';

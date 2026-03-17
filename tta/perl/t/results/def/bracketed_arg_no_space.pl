@@ -43,11 +43,9 @@ $result_tree_text{'bracketed_arg_no_space'} = '*document_root C1
       *def_line_arg C1
        {m}
      *def_arg C1
-      *bracketed_arg C1 l1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument: }
+      *bracketed_arg C2 l1
        {ll}
+       {spaces_after_argument: }
      {spaces: }
      *def_arg C1
       *bracketed_arg C1 l1
@@ -155,7 +153,7 @@ $result_converted_errors{'html'}->{'bracketed_arg_no_space'} = '* W |must specif
 ';
 
 
-$result_converted{'xml'}->{'bracketed_arg_no_space'} = '<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1"><defbracketed bracketed="on">e g</defbracketed>h</indexterm><defcategory><defbracketed bracketed="on">a b</defbracketed><defbracketed bracketed="on">c d</defbracketed></defcategory> <deffunction><defbracketed bracketed="on">e g</defbracketed>h</deffunction> <defparam>m</defparam><defparam bracketed="on" trailingspaces=" ">ll</defparam> <defparam bracketed="on">rest</defparam><defparam bracketed="on">and more</defparam></definitionterm>
+$result_converted{'xml'}->{'bracketed_arg_no_space'} = '<deffn spaces=" " endspaces=" "><definitionterm><indexterm index="fn" number="1"><defbracketed bracketed="on">e g</defbracketed>h</indexterm><defcategory><defbracketed bracketed="on">a b</defbracketed><defbracketed bracketed="on">c d</defbracketed></defcategory> <deffunction><defbracketed bracketed="on">e g</defbracketed>h</deffunction> <defparam>m</defparam><defparam bracketed="on">ll </defparam> <defparam bracketed="on">rest</defparam><defparam bracketed="on">and more</defparam></definitionterm>
 </deffn>
 ';
 

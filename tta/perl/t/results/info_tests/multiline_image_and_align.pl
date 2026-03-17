@@ -130,18 +130,12 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {figure}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {txt}
   {empty_line:\\n}
@@ -159,18 +153,12 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {figure}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {txt}
   {empty_line:  \\n}
@@ -188,18 +176,12 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {figure}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {txt}
   {empty_line:\\n}
@@ -217,18 +199,12 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {figure}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {txt}
     { iiiii}
@@ -246,18 +222,12 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {figure}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {txt}
     {\\n}
@@ -269,18 +239,12 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {figure}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {txt}
     { gggg }
@@ -289,18 +253,12 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {figure}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {txt}
     {\\n}
@@ -312,18 +270,12 @@ $result_tree_text{'multiline_image_and_align'} = '*document_root C1
     |input_encoding_name:{utf-8}
      *brace_arg C1
       {figure}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {txt}
     { JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ\\n}

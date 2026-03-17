@@ -10,42 +10,30 @@ $result_tree_text{'space_in_image'} = '*document_root C1
   *@image C5 l1
   |EXTRA
   |input_encoding_name:{utf-8}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C3
+    {spaces_before_argument: }
     {a}
+    {spaces_after_argument: }
    *brace_arg C1
     {bb}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C2
+    {spaces_before_argument: }
     {cc}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *brace_arg C2
     {dd}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+    {spaces_after_argument: }
+   *brace_arg C2
     {.e}
+    {spaces_after_argument: }
   *paragraph C3
    {. }
    *@image C1 l1
    |EXTRA
    |input_encoding_name:{utf-8}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {f}
+     {spaces_after_argument: }
    {.}
 ';
 

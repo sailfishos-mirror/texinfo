@@ -1898,10 +1898,8 @@ $result_tree_text{'bib_example'} = '*document_root C9
         >{mybibrefnode}
      >value_expansion<end;2><p:10>
      >macro_expansion<end;6><p:10>
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {LaTeX2e}
    {.)\\n}
    >SOURCEMARKS

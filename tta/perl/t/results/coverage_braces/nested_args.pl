@@ -17,27 +17,21 @@ $result_tree_text{'nested_args'} = '*document_root C1
      *@samp C1 l1
       *brace_container C1
        {in samp}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      {descr }
      *@b C1 l1
       *brace_container C1
        {in b}
-    *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {S}
      *@~ C1 l1
       *brace_container C1
        {e}
      {ction}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: \\n}
+    *brace_arg C2
+     {spaces_before_argument: \\n}
      *@cite C1 l2
       *brace_container C1
        {manual}

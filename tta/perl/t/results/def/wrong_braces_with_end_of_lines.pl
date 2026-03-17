@@ -34,15 +34,12 @@ $result_tree_text{'wrong_braces_with_end_of_lines'} = '*document_root C1
        {args}
      {spaces: }
      *def_arg C1
-      *bracketed_arg C1 l1
-      |INFO
-      |spaces_after_argument:
-       |{spaces_after_argument:\\n}
-      |spaces_before_argument:
-       |{spaces_before_argument:   }
-       |>SOURCEMARKS
-       |>defline_continuation<1><p:1>
+      *bracketed_arg C3 l1
+       {spaces_before_argument:   }
+       >SOURCEMARKS
+       >defline_continuation<1><p:1>
        {more args}
+       {spaces_after_argument:\\n}
    *def_item C1
     *paragraph C3
      {deffn with }

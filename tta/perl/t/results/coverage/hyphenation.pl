@@ -11,11 +11,9 @@ $result_tree_text{'hyphenation'} = '*document_root C1
   *@hyphenation C1 l2
   |EXTRA
   |global_command_number:{1}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *brace_arg C2
     {some-where}
+    {spaces_after_argument: }
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
 ';

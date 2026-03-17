@@ -41,10 +41,8 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |is_target:{1}
    *brace_arg C1
     {in Top}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C2
+    {spaces_before_argument: }
     *@emph C1 l4
      *brace_container C1
       {n in Top}
@@ -84,10 +82,8 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |is_target:{1}
      *brace_arg C1
       {Not here!}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {There}
     {spaces_after_close_brace: }
     {after}
@@ -105,19 +101,15 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |is_target:{1}
    *brace_arg C1
     {in chap empty name}
-   *brace_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C1
+    {spaces_before_argument: }
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
   *paragraph C3
    {Empty namedanchor\\n}
    *@namedanchor C1 l13
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C1
+     {spaces_before_argument: }
    {.\\n}
   {empty_line:\\n}
   *@namedanchor C2 l15
@@ -126,10 +118,8 @@ $result_tree_text{'namedanchor'} = '*document_root C11
   |is_target:{1}
    *brace_arg C1
     {normal}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C2
+    {spaces_before_argument: }
     {here we are}
   {spaces_after_close_brace:\\n}
   {empty_line:\\n}
@@ -189,10 +179,8 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |node_content:{in chap no name}
     |normalized:{in-chap-no-name}
      {in chap no name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {t}
    {\\n}
    *@xref C3 l24
@@ -201,15 +189,11 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |node_content:{in chap no name}
     |normalized:{in-chap-no-name}
      {in chap no name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {t}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {o}
    {\\n}
   {empty_line:\\n}
@@ -227,10 +211,8 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |node_content:{normal}
     |normalized:{normal}
      {normal}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {nt}
    {\\n}
    *@xref C3 l28
@@ -239,15 +221,11 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |node_content:{normal}
     |normalized:{normal}
      {normal}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {nt}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {no}
    {\\n}
   {empty_line:\\n}
@@ -278,10 +256,8 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |node_content:{in chap empty name}
     |normalized:{in-chap-empty-name}
      {in chap empty name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {xat on t}
    {\\n}
    *@xref C3 l34
@@ -290,15 +266,11 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |node_content:{in chap empty name}
     |normalized:{in-chap-empty-name}
      {in chap empty name}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {xat on t}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {xat on o}
    {\\n}
   {empty_line:\\n}
@@ -316,10 +288,8 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |node_content:{normal}
     |normalized:{normal}
      {normal}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {xat on nt}
    {\\n}
    *@xref C3 l38
@@ -328,15 +298,11 @@ $result_tree_text{'namedanchor'} = '*document_root C11
     |node_content:{normal}
     |normalized:{normal}
      {normal}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {xat on nt}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {xat on no}
    {\\n}
   {empty_line:\\n}
@@ -804,19 +770,19 @@ See <a class="xref" href="#Not-here_0021">There</a>
 $result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chap</nodenext></node>
 <top spaces=" "><sectiontitle>top</sectiontitle>
 
-<namedanchor><anchoridentifier identifier="in-Top">in Top</anchoridentifier><anchorname spaces=" "><emph>n in Top</emph></anchorname></namedanchor>
+<namedanchor><anchoridentifier identifier="in-Top">in Top</anchoridentifier><anchorname> <emph>n in Top</emph></anchorname></namedanchor>
 
 </top>
 <node identifier="chap" spaces=" "><nodename>chap</nodename><nodenext automatic="on">chap1</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter <namedanchor><anchoridentifier identifier="Not-here_0021">Not here!</anchoridentifier><anchorname spaces=" ">There</anchorname></namedanchor> after</sectiontitle>
+<chapter spaces=" "><sectiontitle>chapter <namedanchor><anchoridentifier identifier="Not-here_0021">Not here!</anchoridentifier><anchorname> There</anchorname></namedanchor> after</sectiontitle>
 
 <namedanchor><anchoridentifier identifier="in-chap-no-name">in chap no name</anchoridentifier></namedanchor>
-<namedanchor><anchoridentifier identifier="in-chap-empty-name">in chap empty name</anchoridentifier><anchorname spaces=" "></anchorname></namedanchor>
+<namedanchor><anchoridentifier identifier="in-chap-empty-name">in chap empty name</anchoridentifier><anchorname> </anchorname></namedanchor>
 
 <para>Empty namedanchor
-<namedanchor><anchoridentifier identifier="" spaces=" "></anchoridentifier></namedanchor>.
+<namedanchor><anchoridentifier identifier=""> </anchoridentifier></namedanchor>.
 </para>
-<namedanchor><anchoridentifier identifier="normal">normal</anchoridentifier><anchorname spaces=" ">here we are</anchorname></namedanchor>
+<namedanchor><anchoridentifier identifier="normal">normal</anchoridentifier><anchorname> here we are</anchorname></namedanchor>
 
 <node identifier="secc1" spaces=" "><nodename>secc1</nodename><nodeup automatic="on">chap</nodeup></node>
 <section spaces=" "><sectiontitle>secc1</sectiontitle>
@@ -824,22 +790,22 @@ $result_converted{'xml'}->{'namedanchor'} = '<node identifier="Top" spaces=" "><
 <xrefautomaticsectiontitle spaces=" " value="off" line="off"></xrefautomaticsectiontitle>
 
 <para><xref label="in-chap-no-name"><xrefnodename>in chap no name</xrefnodename></xref>
-<xref label="in-chap-no-name"><xrefnodename>in chap no name</xrefnodename><xrefinfoname spaces=" ">t</xrefinfoname></xref>
-<xref label="in-chap-no-name"><xrefnodename>in chap no name</xrefnodename><xrefinfoname spaces=" ">t</xrefinfoname><xrefprinteddesc spaces=" ">o</xrefprinteddesc></xref>
+<xref label="in-chap-no-name"><xrefnodename>in chap no name</xrefnodename><xrefinfoname> t</xrefinfoname></xref>
+<xref label="in-chap-no-name"><xrefnodename>in chap no name</xrefnodename><xrefinfoname> t</xrefinfoname><xrefprinteddesc> o</xrefprinteddesc></xref>
 </para>
 <para><xref label="normal"><xrefnodename>normal</xrefnodename></xref>
-<xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname spaces=" ">nt</xrefinfoname></xref>
-<xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname spaces=" ">nt</xrefinfoname><xrefprinteddesc spaces=" ">no</xrefprinteddesc></xref>
+<xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname> nt</xrefinfoname></xref>
+<xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname> nt</xrefinfoname><xrefprinteddesc> no</xrefprinteddesc></xref>
 </para>
 <xrefautomaticsectiontitle spaces=" " value="on" line="on"></xrefautomaticsectiontitle>
 
 <para><xref label="in-chap-empty-name"><xrefnodename>in chap empty name</xrefnodename></xref>
-<xref label="in-chap-empty-name"><xrefnodename>in chap empty name</xrefnodename><xrefinfoname spaces=" ">xat on t</xrefinfoname></xref>
-<xref label="in-chap-empty-name"><xrefnodename>in chap empty name</xrefnodename><xrefinfoname spaces=" ">xat on t</xrefinfoname><xrefprinteddesc spaces=" ">xat on o</xrefprinteddesc></xref>
+<xref label="in-chap-empty-name"><xrefnodename>in chap empty name</xrefnodename><xrefinfoname> xat on t</xrefinfoname></xref>
+<xref label="in-chap-empty-name"><xrefnodename>in chap empty name</xrefnodename><xrefinfoname> xat on t</xrefinfoname><xrefprinteddesc> xat on o</xrefprinteddesc></xref>
 </para>
 <para><xref label="normal"><xrefnodename>normal</xrefnodename></xref>
-<xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname spaces=" ">xat on nt</xrefinfoname></xref>
-<xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname spaces=" ">xat on nt</xrefinfoname><xrefprinteddesc spaces=" ">xat on no</xrefprinteddesc></xref>
+<xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname> xat on nt</xrefinfoname></xref>
+<xref label="normal"><xrefnodename>normal</xrefnodename><xrefinfoname> xat on nt</xrefinfoname><xrefprinteddesc> xat on no</xrefprinteddesc></xref>
 </para>
 <para><xref label="in-Top"><xrefnodename>in Top</xrefnodename></xref>
 <xref label="Not-here_0021"><xrefnodename>Not here!</xrefnodename></xref>

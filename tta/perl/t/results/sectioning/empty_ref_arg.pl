@@ -29,10 +29,8 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     |node_content:{first}
     |normalized:{first}
      {first}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      *@ 
    {\\n}
    *@ref C3 l4
@@ -41,14 +39,10 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     |node_content:{first}
     |normalized:{first}
      {first}
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      *@ 
    {\\n}
    *@ref C3 l5
@@ -57,15 +51,11 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     |node_content:{first}
     |normalized:{first}
      {first}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      *@ 
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      *@:
    {\\n}
    *@ref C3 l6
@@ -74,10 +64,8 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
     |node_content:{first}
     |normalized:{first}
      {first}
-    *brace_arg C5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C6
+     {spaces_before_argument: }
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -87,9 +75,9 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
        {rawline_text:aaa}
-     { }
+     {spaces_before_argument: }
      *@ 
-     {\\n}
+     {spaces_after_argument:\\n}
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -99,10 +87,8 @@ $result_tree_text{'empty_ref_arg'} = '*document_root C2
       |spaces_after_argument:
        |{spaces_after_argument:\\n}
        {rawline_text:ggg}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      *@c C1
      |INFO
      |spaces_before_argument:
@@ -143,32 +129,25 @@ first
 first
 ';
 
-$result_errors{'empty_ref_arg'} = '* W l3|in @ref empty cross reference name after expansion `@ \'
- warning: in @ref empty cross reference name after expansion `@ \'
+$result_errors{'empty_ref_arg'} = '* W l3|in @ref empty cross reference name after expansion ` @ \'
+ warning: in @ref empty cross reference name after expansion ` @ \'
 
-* W l4|in @ref empty cross reference title after expansion `@ \'
- warning: in @ref empty cross reference title after expansion `@ \'
+* W l4|in @ref empty cross reference title after expansion ` @ \'
+ warning: in @ref empty cross reference title after expansion ` @ \'
 
-* W l5|in @ref empty cross reference name after expansion `@ \'
- warning: in @ref empty cross reference name after expansion `@ \'
+* W l5|in @ref empty cross reference name after expansion ` @ \'
+ warning: in @ref empty cross reference name after expansion ` @ \'
 
-* W l5|in @ref empty cross reference title after expansion `@:\'
- warning: in @ref empty cross reference title after expansion `@:\'
+* W l5|in @ref empty cross reference title after expansion ` @:\'
+ warning: in @ref empty cross reference title after expansion ` @:\'
 
-* W l11|in @ref empty cross reference name after expansion `@c aaa
+* W l11|in @ref empty cross reference name after expansion ` @c aaa
  @ 
 @c ggg
 \'
- warning: in @ref empty cross reference name after expansion `@c aaa
+ warning: in @ref empty cross reference name after expansion ` @c aaa
  @ 
 @c ggg
-\'
-
-* W l11|in @ref empty cross reference title after expansion `@c fff
-@c
-\'
- warning: in @ref empty cross reference title after expansion `@c fff
-@c
 \'
 
 ';
@@ -185,13 +164,13 @@ $result_headings_list{'empty_ref_arg'} = '';
 
 $result_converted{'xml'}->{'empty_ref_arg'} = '<node identifier="first" spaces=" "><nodename>first</nodename></node>
 
-<para><ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname spaces=" "><spacecmd type="spc"/></xrefinfoname></ref>
-<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname spaces=" "></xrefinfoname><xrefprinteddesc spaces=" "><spacecmd type="spc"/></xrefprinteddesc></ref>
-<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname spaces=" "><spacecmd type="spc"/></xrefinfoname><xrefprinteddesc spaces=" ">&noeos;</xrefprinteddesc></ref>
-<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname spaces=" "><!-- c aaa -->
+<para><ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname> <spacecmd type="spc"/></xrefinfoname></ref>
+<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname> </xrefinfoname><xrefprinteddesc> <spacecmd type="spc"/></xrefprinteddesc></ref>
+<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname> <spacecmd type="spc"/></xrefinfoname><xrefprinteddesc> &noeos;</xrefprinteddesc></ref>
+<ref label="first"><xrefnodename>first</xrefnodename><xrefinfoname> <!-- c aaa -->
  <spacecmd type="spc"/>
 <!-- c ggg -->
-</xrefinfoname><xrefprinteddesc spaces=" "><!-- c fff -->
+</xrefinfoname><xrefprinteddesc> <!-- c fff -->
 <!-- c -->
 </xrefprinteddesc></ref>
 </para>';

@@ -35,10 +35,8 @@ $result_tree_text{'in_errormsg'} = '*document_root C1
    {\\n}
   {empty_line:\\n}
   *@errormsg C1 l5
-   *brace_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
+   *brace_arg C1
+    {spaces_before_argument:\\n}
   *@table C3 l6
   |INFO
   |spaces_before_argument:
@@ -96,9 +94,6 @@ $result_errors{'in_errormsg'} = '* W l3|@anchor should not appear anywhere insid
 
 * W l3|@ref should not appear anywhere inside @errormsg
  warning: @ref should not appear anywhere inside @errormsg
-
-* E l3|
- 
 
 * E l5|@errormsg missing closing brace
  @errormsg missing closing brace

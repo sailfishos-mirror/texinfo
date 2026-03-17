@@ -40,12 +40,8 @@ $result_tree_text{'abbr_acronym'} = '*document_root C1
      *@comma C1 l5
       *brace_container
      {A.}
-    *brace_arg C5
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C7
+     {spaces_before_argument: }
      *@\' C1 l5
       *following_arg C1
        {E}
@@ -56,6 +52,7 @@ $result_tree_text{'abbr_acronym'} = '*document_root C1
      *@b C1 l5
       *brace_container C1
        {Autonome}
+     {spaces_after_argument: }
    {\\n}
    *@abbr C1 l6
     *brace_arg C4

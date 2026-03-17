@@ -15,10 +15,8 @@ $result_tree_text{'inline'} = '*document_root C1
    |format:{html}
     *brace_arg C1
      {html}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {<blink>html</blink> ``}
    {, \\n}
    *@inlinefmt C2 l3
@@ -27,10 +25,8 @@ $result_tree_text{'inline'} = '*document_root C1
    |format:{plaintext}
     *brace_arg C1
      {plaintext}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {plaintext ``}
    {, \\n}
    *@inlinefmt C2 l4
@@ -47,10 +43,8 @@ $result_tree_text{'inline'} = '*document_root C1
    |format:{docbook}
     *brace_arg C1
      {docbook}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {<emphasis>docbook</emphasis> ``}
    {, \\n}
    *@inlinefmt C2 l6
@@ -67,10 +61,8 @@ $result_tree_text{'inline'} = '*document_root C1
    |format:{latex}
     *brace_arg C1
      {latex}
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
+     {spaces_before_argument: }
      *@math C1 l7
       *brace_command_context C3
        {\\frac}
@@ -95,10 +87,8 @@ $result_tree_text{'inline'} = '*document_root C1
    |format:{html}
     *brace_arg C1
      {html}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {raw <blink>html</blink> ``}
    {, \\n}
    *@inlineraw C2 l11
@@ -107,10 +97,8 @@ $result_tree_text{'inline'} = '*document_root C1
    |format:{plaintext}
     *brace_arg C1
      {plaintext}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {raw plaintext ``}
    {, \\n}
    *@inlineraw C2 l12
@@ -127,10 +115,8 @@ $result_tree_text{'inline'} = '*document_root C1
    |format:{docbook}
     *brace_arg C1
      {docbook}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {raw <emphasis>docbook</emphasis> ``}
    {, \\n}
    *@inlineraw C2 l14
@@ -147,10 +133,8 @@ $result_tree_text{'inline'} = '*document_root C1
    |format:{latex}
     *brace_arg C1
      {latex}
-    *brace_arg C4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C5
+     {spaces_before_argument: }
      {raw $\\frac}
      *balanced_braces C3 l15
       {{a < b }
@@ -238,20 +222,20 @@ $result_converted{'html_text'}->{'inline'} = '
 
 
 $result_converted{'xml'}->{'inline'} = '
-<para><inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent spaces=" ">&lt;blink&gt;html&lt;/blink&gt; &textldquo;</inlinefmtcontent></inlinefmt>, 
-<inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent spaces=" ">plaintext &textldquo;</inlinefmtcontent></inlinefmt>, 
+<para><inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent> &lt;blink&gt;html&lt;/blink&gt; &textldquo;</inlinefmtcontent></inlinefmt>, 
+<inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent> plaintext &textldquo;</inlinefmtcontent></inlinefmt>, 
  &lt;para&gt;xml&lt;/para&gt; ``,
-<inlinefmt><inlinefmtformat>docbook</inlinefmtformat><inlinefmtcontent spaces=" ">&lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;</inlinefmtcontent></inlinefmt>, 
+<inlinefmt><inlinefmtformat>docbook</inlinefmtformat><inlinefmtcontent> &lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;</inlinefmtcontent></inlinefmt>, 
 <inlinefmt><inlinefmtformat>tex</inlinefmtformat><inlinefmtcontent> $\\underline{a &lt; b @code{tex \\hbox{ code }}}$ ``</inlinefmtcontent></inlinefmt>
-<inlinefmt><inlinefmtformat>latex</inlinefmtformat><inlinefmtcontent spaces=" "><math>\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}</math> &textldquo;</inlinefmtcontent></inlinefmt>
+<inlinefmt><inlinefmtformat>latex</inlinefmtformat><inlinefmtcontent> <math>\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}</math> &textldquo;</inlinefmtcontent></inlinefmt>
 </para>
 
-<para><inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent spaces=" ">raw &lt;blink&gt;html&lt;/blink&gt; &textldquo;</inlinerawcontent></inlineraw>, 
-<inlineraw><inlinerawformat>plaintext</inlinerawformat><inlinerawcontent spaces=" ">raw plaintext &textldquo;</inlinerawcontent></inlineraw>, 
+<para><inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent> raw &lt;blink&gt;html&lt;/blink&gt; &textldquo;</inlinerawcontent></inlineraw>, 
+<inlineraw><inlinerawformat>plaintext</inlinerawformat><inlinerawcontent> raw plaintext &textldquo;</inlinerawcontent></inlineraw>, 
  raw <para>xml</para> ``,
-<inlineraw><inlinerawformat>docbook</inlinerawformat><inlinerawcontent spaces=" ">raw &lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;</inlinerawcontent></inlineraw>, 
+<inlineraw><inlinerawformat>docbook</inlinerawformat><inlinerawcontent> raw &lt;emphasis&gt;docbook&lt;/emphasis&gt; &textldquo;</inlinerawcontent></inlineraw>, 
 <inlineraw><inlinerawformat>tex</inlinerawformat><inlinerawcontent> raw $\\underline{a &lt; b @code{tex \\hbox{ code }}}$ ``</inlinerawcontent></inlineraw>
-<inlineraw><inlinerawformat>latex</inlinerawformat><inlinerawcontent spaces=" ">raw $\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}$ &textldquo;</inlinerawcontent></inlineraw>
+<inlineraw><inlinerawformat>latex</inlinerawformat><inlinerawcontent> raw $\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}$ &textldquo;</inlinerawcontent></inlineraw>
 </para>';
 
 

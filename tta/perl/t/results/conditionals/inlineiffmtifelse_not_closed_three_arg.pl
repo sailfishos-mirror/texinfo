@@ -16,10 +16,8 @@ $result_tree_text{'inlineiffmtifelse_not_closed_three_arg'} = '*document_root C1
      {html}
     *elided_brace_command_arg C1
      {raw: hhhhh}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {ggggg\\n}
 ';
 

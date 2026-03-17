@@ -215,6 +215,9 @@ text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg)
       const ELEMENT *e1 = contents_child_by_index (e, i);
       if (type_data[e1->type].flags & TF_text)
         {
+          if (e1->type == ET_spaces_before_argument
+              || e1->type == ET_spaces_after_argument)
+            continue;
           if (e1->e.text->end > 0)
             ADD(e1->e.text->text, e1->e.text->end);
         }
@@ -1051,24 +1054,19 @@ isolate_trailing_space (ELEMENT *current, enum element_type spaces_type)
 void
 isolate_last_space (ELEMENT *current)
 {
-  ELEMENT *last_elt = 0;
+  ELEMENT *last_elt;
 
   if (current->e.c->contents.number == 0)
     return;
 
-  /* Store a final comment command in the 'info' hash, except for brace
-     commands */
-  if (current->type != ET_brace_container
-      && current->type != ET_brace_arg)
+  /* Store a final comment command in the 'info' hash */
+  last_elt = last_contents_child (current);
+  if (!(type_data[last_elt->type].flags & TF_text)
+      && (last_elt->e.c->cmd == CM_c
+          || last_elt->e.c->cmd == CM_comment))
     {
-      last_elt = last_contents_child (current);
-      if (!(type_data[last_elt->type].flags & TF_text)
-          && (last_elt->e.c->cmd == CM_c
-              || last_elt->e.c->cmd == CM_comment))
-        {
-          current->elt_info[eit_comment_at_end]
-            = pop_element_from_contents (current);
-        }
+      current->elt_info[eit_comment_at_end]
+         = pop_element_from_contents (current);
     }
 
   last_elt = last_contents_child (current);
@@ -1131,6 +1129,115 @@ isolate_last_space (ELEMENT *current)
     }
 
   return;
+}
+
+static ELEMENT *
+isolate_leading_spaces_element (enum element_type spaces_type,
+                                ELEMENT *element)
+{
+  ELEMENT *spaces_element = 0;
+  size_t leading_spaces;
+  size_t text_len = element->e.text->end;
+  char *text = element->e.text->text;
+
+  leading_spaces = strspn (text, whitespace_chars);
+
+  /* only spaces in input element text, return the element */
+  if (leading_spaces == text_len)
+    return element;
+
+  if (leading_spaces)
+    {
+      char *temp;
+
+      spaces_element = new_text_element (spaces_type);
+      text_append_n (spaces_element->e.text,
+                     text, leading_spaces);
+
+      temp = strndup (text + leading_spaces, text_len - leading_spaces);
+      element->e.text->end = 0;
+      text_append_n (element->e.text, temp, text_len - leading_spaces);
+      free (temp);
+
+      if (element->source_mark_list)
+        {
+          relocate_source_marks (element->source_mark_list,
+                                 spaces_element, 0,
+                       count_multibyte (spaces_element->e.text->text));
+          destroy_element_empty_source_mark_list (element);
+        }
+    }
+  return spaces_element;
+}
+
+void
+isolate_leading_trailing (ELEMENT *current, int isolate_leading_only)
+{
+  size_t i;
+
+  if (current->e.c->contents.number == 0)
+    return;
+
+  for (i = 0; i < current->e.c->contents.number; i++)
+    {
+      ELEMENT *content = current->e.c->contents.list[i];
+
+      if (type_data[content->type].flags & TF_text)
+        {
+          ELEMENT *spaces_element
+            = isolate_leading_spaces_element (ET_spaces_before_argument,
+                                              content);
+          if (spaces_element == content)
+            spaces_element->type = ET_spaces_before_argument;
+          else
+            {
+              if (spaces_element)
+                insert_into_contents_as_array (current, spaces_element, i);
+              break;
+            }
+        }
+      else if (content->e.c->cmd != CM_c
+               && content->e.c->cmd != CM_comment)
+        break;
+    }
+
+  if (isolate_leading_only)
+    return;
+
+
+  for (i = current->e.c->contents.number -1; ; i--)
+    {
+      ELEMENT *last_element = current->e.c->contents.list[i];
+
+      if (type_data[last_element->type].flags & TF_text)
+        {
+          ELEMENT *spaces_element;
+
+          if (last_element->type == ET_spaces_before_argument)
+            break;
+
+          spaces_element
+            = isolate_trailing_spaces_element (ET_spaces_after_argument,
+                                               last_element);
+          if (spaces_element == last_element)
+            {
+              if (!(type_data[last_element->type].flags & TF_trailing_space))
+                spaces_element->type = ET_spaces_after_argument;
+            }
+          else
+            {
+              if (spaces_element)
+                insert_into_contents_as_array (current, spaces_element, i +1);
+              break;
+            }
+        }
+      else if (last_element->e.c->cmd != CM_c
+               && last_element->e.c->cmd != CM_comment)
+        break;
+
+      if (i == 0)
+        break;
+    }
 }
 
 /* Add an "ET_ignorable_spaces_after_command" element containing the

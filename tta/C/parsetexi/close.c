@@ -123,6 +123,18 @@ close_all_style_commands (ELEMENT *current,
     {
       debug ("CLOSING(all_style_commands) @%s",
              command_name(current->e.c->parent->e.c->cmd));
+
+      if (current->type == ET_brace_container
+          || current->type == ET_brace_arg)
+        {
+          if (command_data(current->e.c->parent->e.c->cmd).data
+                                                  == BRACE_arguments)
+            isolate_leading_trailing (current, 0);
+          else if (command_data(current->e.c->parent->e.c->cmd).data
+                                                  == BRACE_inline)
+            isolate_leading_trailing (current, 1);
+        }
+
       current = close_brace_command (current->e.c->parent,
                            closed_block_cmd, interrupting_cmd, 1);
     }
@@ -459,13 +471,7 @@ close_current (ELEMENT *current,
           break;
         case ET_bracketed_arg:
           command_error (current, "misplaced {");
-          if (current->e.c->contents.number > 0
-              && current->e.c->contents.list[0]->type
-                 == ET_internal_spaces_before_argument)
-            {
-              /* remove spaces element from tree and update extra values */
-              move_last_space_to_element (current);
-            }
+          isolate_leading_trailing (current, 0);
           current = current->e.c->parent;
           break;
         case ET_line_arg:
@@ -473,6 +479,12 @@ close_current (ELEMENT *current,
           break;
         case ET_block_line_arg:
           current = end_line_starting_block (current);
+          break;
+        case ET_brace_command_context:
+          if (current->e.c->parent
+              && command_flags(current->e.c->parent) & CF_math)
+            isolate_leading_trailing (current, 0);
+          current = close_container (current);
           break;
         default:
           current = close_container (current);

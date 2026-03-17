@@ -37,11 +37,10 @@ $result_tree_text{'item_in_ref'} = '*document_root C1
        *brace_arg C1
         {Top}
        *brace_arg
-       *brace_arg C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
-        {title in first item\\n}
+       *brace_arg C3
+        {spaces_before_argument: }
+        {title in first item}
+        {spaces_after_argument:\\n}
    *table_entry C1
     *table_term C1
      *@item C1 l6

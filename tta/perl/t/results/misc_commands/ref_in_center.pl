@@ -88,10 +88,8 @@ $result_tree_text{'ref_in_center'} = '*document_root C5
     *@ref C3 l9
      *brace_arg C1
       {Top}
-     *brace_arg
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C1
+      {spaces_before_argument: }
      *brace_arg C1
       {title\\n}
   *paragraph C1

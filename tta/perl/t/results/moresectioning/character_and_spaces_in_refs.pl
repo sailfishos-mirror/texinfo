@@ -120,21 +120,16 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
   {empty_line:\\n}
   *paragraph C10
    *@ref C4 character_and_spaces_in_refs_text.texi:l14
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
     |EXTRA
     |node_content:{a  node}
+     {spaces_before_argument: }
      {a  node}
+     {spaces_after_argument: }
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    {\\n}
    *@ref C4 character_and_spaces_in_refs_text.texi:l15
@@ -148,21 +143,16 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      {manual}
    {\\n}
    *@ref C4 character_and_spaces_in_refs_text.texi:l16
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument: }
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C3
     |EXTRA
     |node_content:{top}
+     {spaces_before_argument: }
      {top}
+     {spaces_after_argument: }
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {manual}
    {\\n}
    *@ref C1 character_and_spaces_in_refs_text.texi:l17
@@ -182,10 +172,8 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      {node}
     *brace_arg
     *brace_arg
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {../manual/doc}
    {\\n}
   {empty_line:\\n}
@@ -218,23 +206,19 @@ $result_tree_text{'character_and_spaces_in_refs'} = '*document_root C11
      {/;<=>?[\\]^_`|~}
    {\\n}
    *@ref C1 character_and_spaces_in_refs_text.texi:l24
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
     |EXTRA
     |node_content:{Top}
     |normalized:{Top}
+     {spaces_before_argument: }
      {Top}
    {\\n}
    *@ref C1 character_and_spaces_in_refs_text.texi:l25
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument:  }
+    *brace_arg C2
     |EXTRA
     |node_content:{local   node}
     |normalized:{local-node}
+     {spaces_before_argument:  }
      {local   node}
    {\\n}
   {empty_line:\\n}

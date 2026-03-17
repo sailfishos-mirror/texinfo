@@ -11,13 +11,10 @@ $result_tree_text{'space_in_anchor'} = '*document_root C1
   |EXTRA
   |identifier:{anchor-name}
   |is_target:{1}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument:   }
-   |spaces_before_argument:
-    |{spaces_before_argument:   }
+   *brace_arg C3
+    {spaces_before_argument:   }
     {anchor  name}
+    {spaces_after_argument:   }
   *paragraph C1
    {.\\n}
 ';

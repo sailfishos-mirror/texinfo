@@ -97,10 +97,8 @@ $result_tree_text{'acronym_in_node_and_section'} = '*document_root C9
    *@acronym C2 l10
     *brace_arg C1
      {GHJ}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {Good Hypo Jolly}
    {\\n}
   {empty_line:\\n}

@@ -21,10 +21,8 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
     |format:{plaintext}
      *brace_arg C1
       {plaintext}
-     *brace_arg C5
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C6
+      {spaces_before_argument: }
       {plaintext \\n}
       {empty_line:\\n}
       {`` }
@@ -38,10 +36,8 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
     |format:{plaintext}
      *brace_arg C1
       {plaintext}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {`` }
     {.\\n}
     {empty_line:\\n}
@@ -52,11 +48,9 @@ $result_tree_text{'inline_in_example'} = '*document_root C1
     |format:{html}
      *brace_arg C1
       {html}
-     *brace_arg C4
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: \\n}
-      {empty_line:\\n}
+     *brace_arg C5
+      {spaces_before_argument: \\n}
+      {spaces_before_argument:\\n}
       {in <i>}
       *@acronym C1 l10
        *brace_arg C1
@@ -97,7 +91,6 @@ $result_texts{'inline_in_example'} = 'A plaintext
 `` .
 
   Now html
-
 in <i>HTML</i>.
 ';
 
@@ -123,13 +116,14 @@ $result_converted{'plaintext'}->{'inline_in_example'} = '     A plaintext
 
 
 $result_converted{'xml'}->{'inline_in_example'} = '<example endspaces=" ">
-<pre xml:space="preserve">A <inlineraw><inlinerawformat>plaintext</inlinerawformat><inlinerawcontent spaces=" ">plaintext 
+<pre xml:space="preserve">A <inlineraw><inlinerawformat>plaintext</inlinerawformat><inlinerawcontent> plaintext 
 
 `` &lbracechar; </inlinerawcontent></inlineraw> a.
-<inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent spaces=" ">`` </inlinefmtcontent></inlinefmt>.
+<inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent> `` </inlinefmtcontent></inlinefmt>.
 
   Now html
-<inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent spaces=" \\n">
+<inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent> 
+
 in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinerawcontent></inlineraw>.
 </pre></example>
 ';

@@ -12,10 +12,8 @@ $result_tree_text{'empty_anchor'} = '*document_root C1
   *paragraph C3
    {. \\n}
    *@anchor C1 l2
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument:   }
+    *brace_arg C1
+     {spaces_before_argument:   }
    {.\\n}
 ';
 

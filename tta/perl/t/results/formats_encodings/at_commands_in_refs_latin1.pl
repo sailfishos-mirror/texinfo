@@ -504,10 +504,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *@acronym C2 l23
       *brace_arg C1
        {AAA}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {fff}
      { }
      *@acronym C1 l23
@@ -530,10 +528,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *@abbr C2 l24
       *brace_arg C1
        {CCC}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {rrr}
      { }
      *@abbr C1 l24
@@ -558,10 +554,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
        {someone}
        *@@
        {somewher}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {the someone}
      { }
      *@email C1 l25
@@ -784,10 +778,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *@url C2 l34
       *brace_arg C1
        {url}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {text}
      { }
      *@uref C3 l34
@@ -1789,10 +1781,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@acronym C2 l82
      *brace_arg C1
       {AAA}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {fff}
     { }
     *@acronym C1 l82
@@ -1818,10 +1808,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@acronym C2 l83
      *brace_arg C1
       {AAA}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {fff}
     { }
     *@acronym C1 l83
@@ -1856,10 +1844,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@abbr C2 l85
      *brace_arg C1
       {CCC}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {rrr}
     { }
     *@abbr C1 l85
@@ -1898,10 +1884,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@abbr C2 l87
      *brace_arg C1
       {CCC}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {rrr}
     { }
     *@abbr C1 l87
@@ -1930,10 +1914,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       {someone}
       *@@
       {somewher}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {the someone}
     { }
     *@email C1 l90
@@ -1959,10 +1941,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
       {someone}
       *@@
       {somewher}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {the someone}
     { }
     *@email C1 l91
@@ -2485,10 +2465,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@url C2 l121
      *brace_arg C1
       {url}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {text}
     { }
     *@uref C3 l121
@@ -2517,10 +2495,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
     *@url C2 l122
      *brace_arg C1
       {url}
-     *brace_arg C1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C2
+      {spaces_before_argument: }
       {text}
     { }
     *@uref C3 l122
@@ -2937,10 +2913,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *@acronym C2 l154
       *brace_arg C1
        {AAA}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {fff}
      { }
      *@acronym C1 l154
@@ -2969,10 +2943,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *@abbr C2 l157
       *brace_arg C1
        {CCC}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {rrr}
      { }
      *@abbr C1 l157
@@ -3008,10 +2980,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
        {someone}
        *@@
        {somewher}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {the someone}
      { }
      *@email C1 l160
@@ -3237,10 +3207,8 @@ $result_tree_text{'at_commands_in_refs_latin1'} = '*document_root C58
      *@url C2 l180
       *brace_arg C1
        {url}
-      *brace_arg C1
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *brace_arg C2
+       {spaces_before_argument: }
        {text}
      { }
      *@uref C3 l180

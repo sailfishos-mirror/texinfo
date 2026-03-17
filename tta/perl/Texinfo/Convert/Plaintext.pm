@@ -306,7 +306,9 @@ foreach my $type (
             'spaces_at_end',
             # not ignored as menu manual formatting is kept as is
             #'space_at_end_menu_node',
-            'spaces_after_close_brace') {
+            'spaces_after_close_brace',
+            'spaces_before_argument',
+            'spaces_after_argument') {
   $ignorable_space_types{$type} = 1;
 }
 
@@ -2152,10 +2154,10 @@ sub format_ref($$$) {
 
   my @args;
   foreach my $arg (@{$element->{'contents'}}) {
-    if (exists($arg->{'contents'})) {
-      push @args, $arg;
-    } else {
+    if (Texinfo::Common::empty_spaces_argument($arg)) {
       push @args, undef;
+    } else {
+      push @args, $arg;
     }
   }
   my $node_arg = $element->{'contents'}->[0];
@@ -2394,7 +2396,8 @@ sub image_formatted_text($$$$) {
   if (defined($text)) {
     $result = $text;
   } elsif (scalar(@{$element->{'contents'}}) >= 4
-           and $element->{'contents'}->[3]->{'contents'}) {
+           and not Texinfo::Common::empty_spaces_argument(
+                                    $element->{'contents'}->[3])) {
     $result = '[' .Texinfo::Convert::Text::convert_to_text(
          $element->{'contents'}->[3], $self->{'convert_text_options'}) .']';
   } else {
@@ -2410,7 +2413,8 @@ sub format_image_element($$) {
   my ($self, $element) = @_;
 
   if (exists($element->{'contents'})
-      and exists($element->{'contents'}->[0]->{'contents'})) {
+      and not Texinfo::Common::empty_spaces_argument(
+                                     $element->{'contents'}->[0])) {
     Texinfo::Convert::Text::set_options_code(
                                  $self->{'convert_text_options'});
     my $basefile = Texinfo::Convert::Text::convert_to_text(
@@ -3182,9 +3186,11 @@ sub _convert($$) {
           my $text_arg;
 
           if (scalar(@{$element->{'contents'}}) >= 2
-              and exists($element->{'contents'}->[1]->{'contents'})) {
+              and not Texinfo::Common::empty_spaces_argument(
+                                  $element->{'contents'}->[1])) {
             $text_arg = $element->{'contents'}->[1];
-          } elsif (exists($element->{'contents'}->[0]->{'contents'})) {
+          } elsif (not Texinfo::Common::empty_spaces_argument(
+                                   $element->{'contents'}->[0])) {
             $text_arg = $element->{'contents'}->[0];
           }
           if (defined($text_arg)) {
@@ -3265,10 +3271,12 @@ sub _convert($$) {
           my $name;
           my $email;
           if (scalar(@{$element->{'contents'}}) >= 2
-              and exists($element->{'contents'}->[1]->{'contents'})) {
+              and not Texinfo::Common::empty_spaces_argument(
+                                     $element->{'contents'}->[1])) {
             $name = $element->{'contents'}->[1];
           }
-          if (exists($element->{'contents'}->[0]->{'contents'})) {
+          if (not Texinfo::Common::empty_spaces_argument(
+                                 $element->{'contents'}->[0])) {
             $email = $element->{'contents'}->[0];
           }
           my $email_tree;
@@ -3290,11 +3298,13 @@ sub _convert($$) {
         my $inserted;
         if (exists($element->{'contents'})) {
           if (scalar(@{$element->{'contents'}}) == 3
-               and exists($element->{'contents'}->[2]->{'contents'})) {
+               and not Texinfo::Common::empty_spaces_argument(
+                                            $element->{'contents'}->[2])) {
             $inserted = Texinfo::TreeElement::new(
                         {'type' => '_stop_upper_case',
                          'contents' => [$element->{'contents'}->[2]]});
-          } elsif (exists($element->{'contents'}->[0]->{'contents'})) {
+          } elsif (not Texinfo::Common::empty_spaces_argument(
+                                                $element->{'contents'}->[0])) {
             # no mangling of --- and similar in url.
             my $url = Texinfo::TreeElement::new(
              {'type' => '_stop_upper_case',
@@ -3302,7 +3312,8 @@ sub _convert($$) {
                Texinfo::TreeElement::new({'type' => '_code',
                 'contents' => [$element->{'contents'}->[0]]})]});
             if (scalar(@{$element->{'contents'}}) == 2
-                and exists($element->{'contents'}->[1]->{'contents'})) {
+                and not Texinfo::Common::empty_spaces_argument(
+                                                $element->{'contents'}->[1])) {
               $inserted = $self->cdt('{text} ({url})',
                    {'text' => $element->{'contents'}->[1],
                     'url' => $url });
@@ -3310,7 +3321,8 @@ sub _convert($$) {
               $inserted = $self->cdt('@t{<{url}>}', {'url' => $url});
             }
           } elsif (scalar(@{$element->{'contents'}}) == 2
-                   and exists($element->{'contents'}->[1]->{'contents'})) {
+                   and not Texinfo::Common::empty_spaces_argument(
+                             $element->{'contents'}->[1])) {
             $inserted = $element->{'contents'}->[1];
           }
         }
@@ -3366,7 +3378,8 @@ sub _convert($$) {
         return;
       } elsif (exists($explained_commands{$cmdname})) {
         if (exists($element->{'contents'})
-            and exists($element->{'contents'}->[0]->{'contents'})) {
+            and not Texinfo::Common::empty_spaces_argument(
+                                 $element->{'contents'}->[0])) {
           # in abbr spaces never end a sentence.
           my $argument;
           if ($cmdname eq 'abbr') {
@@ -3376,7 +3389,8 @@ sub _convert($$) {
             $argument = $element->{'contents'}->[0];
           }
           if (scalar(@{$element->{'contents'}}) >= 2
-              and exists($element->{'contents'}->[1]->{'contents'})) {
+              and not Texinfo::Common::empty_spaces_argument(
+                                      $element->{'contents'}->[1])) {
             my $inserted = $self->cdt('{abbr_or_acronym} ({explanation})',
                    {'abbr_or_acronym' => $argument,
                     'explanation' => $element->{'contents'}->[1]});
@@ -3474,13 +3488,10 @@ sub _convert($$) {
         }
         return;
       } elsif ($cmdname eq 'U') {
-        if (exists($element->{'contents'})
-            and exists($element->{'contents'}->[0]->{'contents'})
-       and exists($element->{'contents'}->[0]->{'contents'}->[0]->{'text'})) {
+        if (exists($element->{'contents'})) {
           my $arg_text
-            = $element->{'contents'}->[0]->{'contents'}->[0]->{'text'};
-
-          if ($arg_text ne '') {
+            = Texinfo::Common::simple_arg_text($element->{'contents'}->[0]);
+          if (defined($arg_text) and $arg_text ne '') {
             # Syntactic checks on the value were already done in Parser.pm,
             # but we have one more thing to test: since this is the one
             # place where we might output actual UTF-8 binary bytes, we have
@@ -3493,7 +3504,7 @@ sub _convert($$) {
                                                   $arg_text, $self->{'DEBUG'});
               if ($possible_conversion) {
                 $res = chr(hex($arg_text)); # ok to call chr
-              } else {
+             } else {
                 $res = "U+$arg_text";
               }
             } else {

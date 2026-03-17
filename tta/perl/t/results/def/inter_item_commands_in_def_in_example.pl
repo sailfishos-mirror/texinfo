@@ -69,10 +69,8 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
     |def_command:{deffn}
     |def_index_element:
      |* C1
-      |*brace_arg C1
-      ||INFO
-      ||spaces_before_argument:
-       ||{spaces_before_argument: }
+      |*brace_arg C2
+       |{spaces_before_argument: }
        |{log trap1}
     |index_entry:I{fn,2}
     |original_def_cmdname:{deffnx}
@@ -85,10 +83,8 @@ $result_tree_text{'inter_item_commands_in_def_in_example'} = '*document_root C1
         {Command}
       {spaces: }
       *def_name C1
-       *bracketed_arg C1 l5
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
+       *bracketed_arg C2 l5
+        {spaces_before_argument: }
         {log trap1}
       {spaces: }
       *def_arg C1

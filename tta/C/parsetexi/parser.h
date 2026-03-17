@@ -93,6 +93,7 @@ ELEMENT *end_preformatted (ELEMENT *current,
                            enum command_id interrupting_cmd);
 char *read_command_name (const char **ptr);
 const char *read_comment (const char *line, int *has_comment);
+void isolate_leading_trailing (ELEMENT *current, int isolate_leading_only);
 char *text_contents_to_plain_text (ELEMENT *e, int *superfluous_arg);
 ELEMENT *merge_text (ELEMENT *current, const char *text, size_t text_len,
                      ELEMENT *transfer_marks_element);

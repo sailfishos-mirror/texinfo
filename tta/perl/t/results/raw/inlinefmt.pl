@@ -15,10 +15,8 @@ $result_tree_text{'inlinefmt'} = '*document_root C1
    |format:{plaintext}
     *brace_arg C1
      {plaintext}
-    *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {plaintext `` }
      *@lbracechar C1 l1
       *brace_container
@@ -30,10 +28,8 @@ $result_tree_text{'inlinefmt'} = '*document_root C1
    |format:{html}
     *brace_arg C1
      {html}
-    *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {in <i>}
      *@acronym C1 l2
       *brace_arg C1
@@ -67,8 +63,8 @@ $result_converted{'plaintext'}->{'inlinefmt'} = 'A plaintext " { a.  Now html .
 ';
 
 
-$result_converted{'xml'}->{'inlinefmt'} = '<para>A <inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent spaces=" ">plaintext &textldquo; &lbracechar; </inlinefmtcontent></inlinefmt> a.  Now html
-<inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent spaces=" ">in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinefmtcontent></inlinefmt>.
+$result_converted{'xml'}->{'inlinefmt'} = '<para>A <inlinefmt><inlinefmtformat>plaintext</inlinefmtformat><inlinefmtcontent> plaintext &textldquo; &lbracechar; </inlinefmtcontent></inlinefmt> a.  Now html
+<inlinefmt><inlinefmtformat>html</inlinefmtformat><inlinefmtcontent> in &lt;i&gt;<acronym><acronymword>HTML</acronymword></acronym>&lt;/i&gt;</inlinefmtcontent></inlinefmt>.
 </para>';
 
 1;

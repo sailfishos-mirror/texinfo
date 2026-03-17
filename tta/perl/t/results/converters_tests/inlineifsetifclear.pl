@@ -14,10 +14,8 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
    |format:{aaa}
     *brace_arg C1
      {aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {iclear first }
    {.\\n}
   {empty_line:\\n}
@@ -60,10 +58,8 @@ $result_tree_text{'inlineifsetifclear'} = '*document_root C1
    |format:{aaa}
     *brace_arg C1
      {aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {ifset second }
    {.\\n}
 ';
@@ -123,7 +119,7 @@ $result_converted{'html_text'}->{'inlineifsetifclear'} = '<p>iclear first .
 </p>';
 
 
-$result_converted{'xml'}->{'inlineifsetifclear'} = '<para><inlineifclear><inlineifclearformat>aaa</inlineifclearformat><inlineifclearcontent spaces=" ">iclear first </inlineifclearcontent></inlineifclear>.
+$result_converted{'xml'}->{'inlineifsetifclear'} = '<para><inlineifclear><inlineifclearformat>aaa</inlineifclearformat><inlineifclearcontent> iclear first </inlineifclearcontent></inlineifclear>.
 </para>
 <para><inlineifset><inlineifsetformat>aaa</inlineifsetformat><inlineifsetcontent> ifset first </inlineifsetcontent></inlineifset>.
 </para>
@@ -131,7 +127,7 @@ $result_converted{'xml'}->{'inlineifsetifclear'} = '<para><inlineifclear><inline
 
 <para><inlineifclear><inlineifclearformat>aaa</inlineifclearformat><inlineifclearcontent> ifclear second </inlineifclearcontent></inlineifclear>.
 </para>
-<para><inlineifset><inlineifsetformat>aaa</inlineifsetformat><inlineifsetcontent spaces=" ">ifset second </inlineifsetcontent></inlineifset>.
+<para><inlineifset><inlineifsetformat>aaa</inlineifsetformat><inlineifsetcontent> ifset second </inlineifsetcontent></inlineifset>.
 </para>';
 
 

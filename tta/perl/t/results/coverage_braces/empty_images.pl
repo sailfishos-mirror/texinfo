@@ -16,19 +16,15 @@ $result_tree_text{'empty_images'} = '*document_root C1
   *@image C5 l3
   |EXTRA
   |input_encoding_name:{utf-8}
-   *brace_arg
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
+   *brace_arg C1
+    {spaces_before_argument: }
    *brace_arg C1
     {aa}
    *brace_arg C1
     {bb}
-   *brace_arg C1
-   |INFO
-   |spaces_after_argument:
-    |{spaces_after_argument: }
+   *brace_arg C2
     {cc}
+    {spaces_after_argument: }
    *brace_arg C1
     {dd}
   {\\n}

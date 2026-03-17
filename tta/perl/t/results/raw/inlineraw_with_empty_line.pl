@@ -15,10 +15,8 @@ $result_tree_text{'inlineraw_with_empty_line'} = '*document_root C1
    |format:{plaintext}
     *brace_arg C1
      {plaintext}
-    *brace_arg C4
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C5
+     {spaces_before_argument: }
      {plaintext ``\\n}
      {empty_line:\\n}
      *@lbracechar C1 l3
@@ -31,10 +29,8 @@ $result_tree_text{'inlineraw_with_empty_line'} = '*document_root C1
    |format:{html}
     *brace_arg C1
      {html}
-    *brace_arg C5
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C6
+     {spaces_before_argument: }
      {in \\n}
      {empty_line:\\n}
      {<i>}

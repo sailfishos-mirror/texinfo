@@ -2231,7 +2231,7 @@ html_internal_command_name_tree (CONVERTER *self, const ELEMENT *command,
           tree = &target_info->name_tree;
           if (command->e.c->cmd == CM_namedanchor
               && command->e.c->contents.number > 1
-              && command->e.c->contents.list[1]->e.c->contents.number > 0)
+              && ! empty_spaces_argument (command->e.c->contents.list[1]))
             {
               tree->status = tree_added_status_reused_tree;
               tree->tree = command->e.c->contents.list[1];

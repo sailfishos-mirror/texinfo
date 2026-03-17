@@ -59,10 +59,8 @@ $result_tree_text{'inlineraw_in_menu_description'} = '*document_root C3
       |format:{html}
        *brace_arg C1
         {html}
-       *brace_arg C3
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
+       *brace_arg C4
+        {spaces_before_argument: }
         {in inline raw\\n}
         {empty_line:\\n}
         {end inlineraw}
@@ -193,7 +191,7 @@ $result_converted{'xml'}->{'inlineraw_in_menu_description'} = '<node identifier=
 
 <menu endspaces=" ">
 <menuentry><menuleadingtext>* </menuleadingtext><menunode>(manual)</menunode><menuseparator>::</menuseparator><menudescription><pre xml:space="preserve">
-<inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent spaces=" ">in inline raw
+<inlineraw><inlinerawformat>html</inlinerawformat><inlinerawcontent> in inline raw
 
 end inlineraw</inlinerawcontent></inlineraw>
 </pre></menudescription></menuentry><menucomment><pre xml:space="preserve">

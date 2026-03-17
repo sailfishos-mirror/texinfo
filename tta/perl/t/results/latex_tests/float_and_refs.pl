@@ -225,10 +225,8 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |node_content:{no type}
     |normalized:{no-type}
      {no type}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
    {.\\n}
    *@xref C3 l29
@@ -237,15 +235,11 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |node_content:{no type}
     |normalized:{no-type}
      {no type}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
    {.\\n}
    *@xref C4 l30
@@ -253,20 +247,14 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |EXTRA
     |node_content:{no type}
      {no type}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {four}
    {.\\n}
    *@xref C5 l31
@@ -274,25 +262,17 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |EXTRA
     |node_content:{no type}
      {no type}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {four}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {five}
    {.\\n}
   {empty_line:\\n}
@@ -310,10 +290,8 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |node_content:{with type}
     |normalized:{with-type}
      {with type}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
    {.\\n}
    *@xref C3 l35
@@ -322,15 +300,11 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |node_content:{with type}
     |normalized:{with-type}
      {with type}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
    {.\\n}
    *@xref C4 l36
@@ -338,20 +312,14 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |EXTRA
     |node_content:{with type}
      {with type}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {four}
    {.\\n}
    *@xref C5 l37
@@ -359,25 +327,17 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |EXTRA
     |node_content:{with type}
      {with type}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {four}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {five}
    {.\\n}
   {empty_line:\\n}
@@ -395,10 +355,8 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |node_content:{my figure}
     |normalized:{my-figure}
      {my figure}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
    {.\\n}
    *@xref C3 l41
@@ -407,15 +365,11 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |node_content:{my figure}
     |normalized:{my-figure}
      {my figure}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
    {.\\n}
    *@xref C4 l42
@@ -423,20 +377,14 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |EXTRA
     |node_content:{my figure}
      {my figure}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {four}
    {.\\n}
    *@xref C5 l43
@@ -444,25 +392,17 @@ $result_tree_text{'float_and_refs'} = '*document_root C7
     |EXTRA
     |node_content:{my figure}
      {my figure}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {two}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {three}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {four}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {five}
    {.\\n}
   {empty_line:\\n}

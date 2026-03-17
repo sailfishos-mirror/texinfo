@@ -55,10 +55,8 @@ $result_tree_text{'empty_index_entry'} = '*document_root C3
       *bracketed_arg l5
      {spaces: }
      *def_name C1
-      *bracketed_arg l5
-      |INFO
-      |spaces_before_argument:
-       |{spaces_before_argument: }
+      *bracketed_arg C1 l5
+       {spaces_before_argument: }
    *@end C1 l6
    |INFO
    |spaces_before_argument:
@@ -175,7 +173,7 @@ $result_converted{'xml'}->{'empty_index_entry'} = '<node identifier="Top" spaces
 
 <node identifier="chap" spaces=" "><nodename>chap</nodename><nodeprev automatic="on">Top</nodeprev></node>
 
-<deffn spaces=" " endspaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on" spaces=" "></deffunction></definitionterm>
+<deffn spaces=" " endspaces=" "><definitionterm><defcategory bracketed="on"></defcategory> <deffunction bracketed="on"> </deffunction></definitionterm>
 </deffn>
 
 <printindex spaces=" " value="fn" line="fn"></printindex>

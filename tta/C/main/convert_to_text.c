@@ -529,7 +529,10 @@ convert_to_text_internal (const ELEMENT *element, TEXT_OPTIONS *text_options,
           || element->type == ET_spaces_at_end
           || element->type == ET_space_at_end_menu_node
           || element->type == ET_spaces_before_paragraph
-          || element->type == ET_spaces_after_close_brace)
+          || element->type == ET_spaces_after_close_brace
+          || element->type == ET_spaces_before_argument
+          || element->type == ET_spaces_after_argument
+         )
         return;
 
       if (element->e.text->end <= 0)

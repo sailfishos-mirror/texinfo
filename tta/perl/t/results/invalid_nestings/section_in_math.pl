@@ -35,11 +35,10 @@ $result_tree_text{'section_in_math'} = '*document_root C3
   *paragraph C2
    {More }
    *@math C1 l6
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: }
-    *brace_command_context C2
-     {in math\\n}
+    *brace_command_context C4
+     {spaces_before_argument: }
+     {in math}
+     {spaces_after_argument:\\n}
      {empty_line:\\n}
  *@section C1 l8 {sec2}
  |INFO
@@ -76,7 +75,6 @@ Some aa {x^2
 ======
 
 More in math
-
 2 sec2
 ======
 ';

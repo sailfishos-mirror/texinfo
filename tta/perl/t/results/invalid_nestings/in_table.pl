@@ -129,10 +129,7 @@ $result_tree_text{'in_table'} = '*document_root C3
          {Top}
         *brace_arg
         *brace_arg C1
-        |INFO
-        |spaces_before_argument:
-         |{spaces_before_argument: }
-         {title\\n}
+         { title\\n}
     *table_definition C1
      *paragraph C1
       {long title\\n}

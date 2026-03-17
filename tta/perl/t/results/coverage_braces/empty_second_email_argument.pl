@@ -9,17 +9,13 @@ $result_tree_text{'empty_second_email_argument'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
    *@email C2 l1
-    *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {a}
      *@@
      {b.c}
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C1
+     {spaces_before_argument: }
 ';
 
 

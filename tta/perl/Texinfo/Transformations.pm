@@ -100,13 +100,18 @@ sub _reference_to_arg($$$) {
         # @asis{ }, @ , but it is not an issue or could even be considered
         # as a feature.
         if (!Texinfo::Common::is_content_empty($arg)) {
-          # avoid the type and spaces by getting only the contents
           my $result
-            = Texinfo::TreeElement::new({'contents' => $arg->{'contents'},
+            = Texinfo::TreeElement::new({#'contents' => $arg->{'contents'},
                                          'parent' => $current->{'parent'}});
           foreach my $content (@{$arg->{'contents'}}) {
-            $content->{'parent'} = $result if (exists($content->{'parent'}));;
+            if (!exists($content->{'type'})
+                or ($content->{'type'} ne 'spaces_before_argument'
+                    and $content->{'type'} ne 'spaces_after_argument')) {
+              $content->{'parent'} = $result if (exists($content->{'parent'}));
+              push @{$result->{'contents'}}, $content;
+            }
           }
+          $arg = undef;
           $current = undef;
           return [$result];
         }

@@ -69,18 +69,14 @@ $result_tree_text{'reference_to_only_special_spaces_node_transliterate'} = '*doc
   {empty_line:\\n}
   *paragraph C2
    *@ref C2 reference_to_only_special_spaces_node.texi:l8
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
     |EXTRA
     |node_content:{   }
     |normalized:{_2002_2003_2002}
+     {spaces_before_argument: }
      {   }
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {   }
    {.\\n}
   {empty_line:\\n}
@@ -125,10 +121,8 @@ $result_tree_text{'reference_to_only_special_spaces_node_transliterate'} = '*doc
      *@code C1 reference_to_only_special_spaces_node.texi:l13
       *brace_container C1
        {   }
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      *@code C1 reference_to_only_special_spaces_node.texi:l13
       *brace_container C1
        {   }

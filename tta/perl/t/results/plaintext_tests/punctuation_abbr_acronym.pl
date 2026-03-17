@@ -27,37 +27,29 @@ $result_tree_text{'punctuation_abbr_acronym'} = '*document_root C1
    *@abbr C2 l2
     *brace_arg C1
      {AAA}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {expL}
    {. }
    *@acronym C2 l2
     *brace_arg C1
      {BBB}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {explA}
    {. }
    *@abbr C2 l2
     *brace_arg C1
      {aaa}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {expl}
    {. \\n}
    *@acronym C2 l3
     *brace_arg C1
      {bbb}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {expla}
    {. Last.\\n}
 ';

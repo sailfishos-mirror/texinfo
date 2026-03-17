@@ -1075,7 +1075,8 @@ sub _internal_command_name_tree($$$) {
       if (exists($command->{'cmdname'})
           and $command->{'cmdname'} eq 'namedanchor'
           and scalar(@{$command->{'contents'}}) > 1
-          and exists($command->{'contents'}->[1]->{'contents'})) {
+          and not Texinfo::Common::empty_spaces_argument(
+                                  $command->{'contents'}->[1])) {
         $tree = $command->{'contents'}->[1];
       }
       $target->{'name_tree'} = $tree;

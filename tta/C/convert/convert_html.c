@@ -1528,7 +1528,7 @@ html_convert_tree_append (CONVERTER *self, const ELEMENT *element,
                   HTML_ARG_FORMATTED *arg_formatted
                      = &args_formatted->args[arg_idx];
 
-                  if (arg->e.c->contents.number <= 0)
+                  if (empty_spaces_argument (arg))
                     {
                       continue;
                     }

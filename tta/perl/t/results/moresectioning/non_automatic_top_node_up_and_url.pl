@@ -42,10 +42,8 @@ NodeForward: [U1]
     *@acronym C2 l1
      *brace_arg C1
       {GNU}
-     *brace_arg C2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C3
+      {spaces_before_argument: }
       *@acronym C1 l1
        *brace_arg C1
         {GNU}
@@ -63,10 +61,8 @@ NodeForward: [U1]
     *@acronym C2 l1
      *brace_arg C1
       {GNU}
-     *brace_arg C2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C3
+      {spaces_before_argument: }
       *@acronym C1 l1
        *brace_arg C1
         {GNU}
@@ -158,10 +154,8 @@ NodeBack: [U0]
     *@acronym C2 l8
      *brace_arg C1
       {GNU}
-     *brace_arg C2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *brace_arg C3
+      {spaces_before_argument: }
       *@acronym C1 l8
        *brace_arg C1
         {GNU}

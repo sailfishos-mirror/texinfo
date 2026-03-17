@@ -16,10 +16,8 @@ $result_tree_text{'multitable_bracketed_prototype_empty_spaces_not_closed_commen
   |max_columns:{1}
    *arguments_line C1
     *block_line_arg C1
-     *bracketed_arg C1 l2
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
+     *bracketed_arg C2 l2
+      {spaces_before_argument: }
       *@comment C1
       |INFO
       |spaces_before_argument:

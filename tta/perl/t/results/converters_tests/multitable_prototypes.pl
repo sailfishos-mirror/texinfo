@@ -22,10 +22,7 @@ $result_tree_text{'multitable_prototypes'} = '*document_root C1
       {aa b}
      {  }
      *bracketed_arg C1 l1
-     |INFO
-     |spaces_before_argument:
-      |{spaces_before_argument: }
-      {r }
+      { r }
      { }
      *bracketed_arg C3 l1
       {j }
@@ -132,7 +129,7 @@ $result_converted{'html_text'}->{'multitable_prototypes'} = '<table class="multi
 ';
 
 
-$result_converted{'xml'}->{'multitable_prototypes'} = '<multitable spaces="  " endspaces=" "><columnprototypes><columnprototype bracketed="on">aa b</columnprototype>  <columnprototype bracketed="on" spaces=" ">r </columnprototype> <columnprototype bracketed="on">j <code>some code</code> </columnprototype> <var>cmd</var>gg hh j</columnprototypes> 
+$result_converted{'xml'}->{'multitable_prototypes'} = '<multitable spaces="  " endspaces=" "><columnprototypes><columnprototype bracketed="on">aa b</columnprototype>  <columnprototype bracketed="on"> r </columnprototype> <columnprototype bracketed="on">j <code>some code</code> </columnprototype> <var>cmd</var>gg hh j</columnprototypes> 
 <tbody><row><entry command="item"> <para>cc d
 </para></entry><entry command="tab"> <para>s
 </para></entry><entry command="tab"> <para>k <samp>same samp</samp>
@@ -142,7 +139,7 @@ $result_converted{'xml'}->{'multitable_prototypes'} = '<multitable spaces="  " e
 ';
 
 
-$result_converted{'docbook'}->{'multitable_prototypes'} = '<informaltable><tgroup cols="3"><colspec colwidth="4*"></colspec><colspec colwidth="2*"></colspec><colspec colwidth="12*"></colspec><tbody><row><entry><para>cc d
+$result_converted{'docbook'}->{'multitable_prototypes'} = '<informaltable><tgroup cols="3"><colspec colwidth="4*"></colspec><colspec colwidth="3*"></colspec><colspec colwidth="12*"></colspec><tbody><row><entry><para>cc d
 </para></entry><entry><para>s
 </para></entry><entry><para>k &#8216;<literal>same samp</literal>&#8217;
 </para><para>Invalid tab
@@ -150,7 +147,7 @@ $result_converted{'docbook'}->{'multitable_prototypes'} = '<informaltable><tgrou
 ';
 
 
-$result_converted{'latex_text'}->{'multitable_prototypes'} = '\\begin{tabular}{m{0.222222222222222\\textwidth} m{0.111111111111111\\textwidth} m{0.666666666666667\\textwidth}}%
+$result_converted{'latex_text'}->{'multitable_prototypes'} = '\\begin{tabular}{m{0.210526315789474\\textwidth} m{0.157894736842105\\textwidth} m{0.631578947368421\\textwidth}}%
 cc d&
 s&
 k `\\texttt{same samp}\'

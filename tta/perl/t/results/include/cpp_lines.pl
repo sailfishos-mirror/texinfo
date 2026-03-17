@@ -253,73 +253,55 @@ $result_tree_text{'cpp_lines'} = '*document_root C4
   *paragraph C2
    *@email C2 footnote2:l40
     *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: \\n}
-     {}
+     {spaces_before_argument: \\n}
      >SOURCEMARKS
-     >line_directive<8>{#line 50 "email1"\\n}
+     >line_directive<8><p:2>{#line 50 "email1"\\n}
      {etext1}
-    *brace_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument:\\n}
-     {}
+    *brace_arg C3
+     {spaces_before_argument:\\n}
      >SOURCEMARKS
-     >line_directive<9>{#line 60 "email2"\\n}
+     >line_directive<9><p:1>{#line 60 "email2"\\n}
      {etext2}
+     {spaces_after_argument:\\n}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
    *@email C2 email2:l64
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument:\\n}
-     { no line directive mail space}
-    *brace_arg C1
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument:\\n}
-     { no line directive text space}
+    *brace_arg C3
+     {spaces_before_argument:\\n}
+     {spaces_before_argument: }
+     {no line directive mail space}
+    *brace_arg C4
+     {spaces_before_argument:\\n}
+     {spaces_before_argument: }
+     {no line directive text space}
+     {spaces_after_argument:\\n}
    {\\n}
   {empty_line:\\n}
   *paragraph C2
    *@email C2 email2:l69
-    *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: \\n}
-     {}
+    *brace_arg C3
+     {spaces_before_argument: \\n}
      >SOURCEMARKS
-     >line_directive<10>{#line 50 "email11"\\n}
-     { mail space}
-    *brace_arg C2
-    |INFO
-    |spaces_after_argument:
-     |{spaces_after_argument:\\n}
-    |spaces_before_argument:
-     |{spaces_before_argument:\\n}
-     {}
+     >line_directive<10><p:2>{#line 50 "email11"\\n}
+     {spaces_before_argument: }
+     {mail space}
+    *brace_arg C4
+     {spaces_before_argument:\\n}
      >SOURCEMARKS
-     >line_directive<11>{#line 60 "email12"\\n}
-     { text space}
+     >line_directive<11><p:1>{#line 60 "email12"\\n}
+     {spaces_before_argument: }
+     {text space}
+     {spaces_after_argument:\\n}
    {\\n}
   {empty_line:\\n}
   *paragraph C1
    *@email C1 email12:l64
     *brace_arg C2
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: \\n}
-     {}
+     {spaces_before_argument: \\n}
      >SOURCEMARKS
-     >line_directive<12>{#line 80 "email3"\\n}
-     {empty_line:\\n}
+     >line_directive<12><p:2>{#line 80 "email3"\\n}
+     {spaces_before_argument:\\n}
   *paragraph C1
    {etext3,\\n}
   {empty_line:\\n}
@@ -494,10 +476,9 @@ a
 
 etext2
 
- no line directive text space
+no line directive text space
 
- text space
-
+text space
 
 etext3,
 

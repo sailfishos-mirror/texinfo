@@ -221,10 +221,8 @@ $result_tree_text{'end_of_line_command_in_node_lines'} = '*document_root C7
      {ankh }
      *@*
      { p}
-    *brace_arg C3
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C4
+     {spaces_before_argument: }
      {addll}
      *@*
      {gg}

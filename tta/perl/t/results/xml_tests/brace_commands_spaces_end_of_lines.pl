@@ -10,20 +10,16 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
   *@image C1 l1
   |EXTRA
   |input_encoding_name:{utf-8}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
+   *brace_arg C2
+    {spaces_before_argument:\\n}
     {a}
   {\\n}
   {empty_line:\\n}
   *@image C1 l4
   |EXTRA
   |input_encoding_name:{utf-8}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: \\n}
+   *brace_arg C2
+    {spaces_before_argument: \\n}
     {a}
   {\\n}
   {empty_line:\\n}
@@ -32,10 +28,8 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
   |input_encoding_name:{utf-8}
    *brace_arg C1
     {a}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
+   *brace_arg C2
+    {spaces_before_argument:\\n}
     {b}
   {\\n}
   {empty_line:\\n}
@@ -44,10 +38,8 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
   |input_encoding_name:{utf-8}
    *brace_arg C1
     {a}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: \\n}
+   *brace_arg C2
+    {spaces_before_argument: \\n}
     {b}
   {\\n}
   {empty_line:\\n}
@@ -56,11 +48,10 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
   |input_encoding_name:{utf-8}
    *brace_arg C1
     {a}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument:\\n}
-    { b}
+   *brace_arg C3
+    {spaces_before_argument:\\n}
+    {spaces_before_argument: }
+    {b}
   {\\n}
   {empty_line:\\n}
   *@image C2 l16
@@ -68,11 +59,10 @@ $result_tree_text{'brace_commands_spaces_end_of_lines'} = '*document_root C1
   |input_encoding_name:{utf-8}
    *brace_arg C1
     {a}
-   *brace_arg C1
-   |INFO
-   |spaces_before_argument:
-    |{spaces_before_argument: \\n}
-    { b}
+   *brace_arg C3
+    {spaces_before_argument: \\n}
+    {spaces_before_argument: }
+    {b}
   {\\n}
 ';
 
@@ -121,17 +111,23 @@ $result_sectioning_root{'brace_commands_spaces_end_of_lines'} = '';
 $result_headings_list{'brace_commands_spaces_end_of_lines'} = '';
 
 
-$result_converted{'xml'}->{'brace_commands_spaces_end_of_lines'} = '<image><imagefile spaces="\\n">a</imagefile></image>
+$result_converted{'xml'}->{'brace_commands_spaces_end_of_lines'} = '<image><imagefile>
+a</imagefile></image>
 
-<image><imagefile spaces=" \\n">a</imagefile></image>
+<image><imagefile> 
+a</imagefile></image>
 
-<image><imagefile>a</imagefile><imagewidth spaces="\\n">b</imagewidth></image>
+<image><imagefile>a</imagefile><imagewidth>
+b</imagewidth></image>
 
-<image><imagefile>a</imagefile><imagewidth spaces=" \\n">b</imagewidth></image>
+<image><imagefile>a</imagefile><imagewidth> 
+b</imagewidth></image>
 
-<image><imagefile>a</imagefile><imagewidth spaces="\\n"> b</imagewidth></image>
+<image><imagefile>a</imagefile><imagewidth>
+ b</imagewidth></image>
 
-<image><imagefile>a</imagefile><imagewidth spaces=" \\n"> b</imagewidth></image>
+<image><imagefile>a</imagefile><imagewidth> 
+ b</imagewidth></image>
 ';
 
 1;

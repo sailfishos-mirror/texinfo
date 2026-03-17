@@ -733,6 +733,52 @@ relocate_source_marks (SOURCE_MARK_LIST *source_mark_list, ELEMENT *new_e,
 
 
 
+int
+non_leading_trailing_indices (const ELEMENT *tree, size_t *out_indices)
+{
+  size_t start_idx = 0;
+  size_t end_idx;
+
+  if (!tree->e.c->contents.number)
+    return 0;
+
+  while (start_idx < tree->e.c->contents.number)
+    {
+      const ELEMENT *content = tree->e.c->contents.list[start_idx];
+      if (content->type == ET_spaces_before_argument)
+        start_idx++;
+      else if (!(type_data[content->type].flags & TF_text)
+               && (content->e.c->cmd == CM_c
+                   || content->e.c->cmd == CM_comment))
+        start_idx++;
+      else
+        break;
+    }
+
+  if (start_idx == tree->e.c->contents.number)
+    return 0;
+
+  out_indices[0] = start_idx;
+
+  end_idx = tree->e.c->contents.number - 1;
+
+  while (end_idx > 0)
+    {
+      const ELEMENT *content = tree->e.c->contents.list[end_idx];
+      if (content->type == ET_spaces_after_argument)
+        end_idx--;
+      else if (!(type_data[content->type].flags & TF_text)
+               && (content->e.c->cmd == CM_c
+                   || content->e.c->cmd == CM_comment))
+        end_idx--;
+      else
+        break;
+    }
+  out_indices[1] = end_idx;
+
+  return 1;
+}
+
 /* In Texinfo::Common */
 /* NODE->e.c->contents is the Texinfo for the specification of a node.  This
    function sets two fields on the returned object:
@@ -761,7 +807,10 @@ parse_node_manual (ELEMENT *node, int modify_node)
 {
   NODE_SPEC_EXTRA *result;
   ELEMENT *node_content = 0;
-  size_t idx = 0; /* index into node->e.c->contents */
+  size_t idx; /* index into node->e.c->contents */
+  size_t leading_trailing_indices[2];
+  int non_empty;
+  size_t orig_contents_len = node->e.c->contents.number;
 
   result = (NODE_SPEC_EXTRA *) malloc (sizeof (NODE_SPEC_EXTRA));
   result->manual_content = result->node_content = 0;
@@ -773,16 +822,23 @@ parse_node_manual (ELEMENT *node, int modify_node)
      opening brace and text before and after the closing manual name brace */
   result->out_of_tree_elements = 0;
 
+  non_empty = non_leading_trailing_indices (node, leading_trailing_indices);
+
+  if (!non_empty)
+    return result;
+
+  idx = leading_trailing_indices[0];
+
   /* If the content starts with a '(', try to get a manual name. */
-  if (node->e.c->contents.number > 0
-      && node->e.c->contents.list[0]->type == ET_normal_text
-      && node->e.c->contents.list[0]->e.text->end > 0
-      && node->e.c->contents.list[0]->e.text->text[0] == '(')
+  if (node->e.c->contents.list[idx]->type == ET_normal_text
+      && node->e.c->contents.list[idx]->e.text->end > 0
+      && node->e.c->contents.list[idx]->e.text->text[0] == '(')
     {
       ELEMENT *manual, *first;
       ELEMENT *new_first = 0;
       ELEMENT *opening_brace = 0;
       char *opening_bracket, *closing_bracket;
+      size_t first_idx = idx;
 
       /* Handle nested parentheses in the manual name, for whatever reason. */
       int bracket_count = 1; /* Number of ( seen minus number of ) seen. */
@@ -791,7 +847,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
 
       /* If the first contents element is "(" followed by more text, split
          the leading "(" into its own element. */
-      first = node->e.c->contents.list[0];
+      first = node->e.c->contents.list[idx];
       if (first->e.text->end > 1)
         {
           if (modify_node)
@@ -814,7 +870,7 @@ parse_node_manual (ELEMENT *node, int modify_node)
           ELEMENT *e;
           char *p, *q;
 
-          if (idx == 0)
+          if (idx == first_idx)
             e = new_first;
           else
             e = node->e.c->contents.list[idx];
@@ -874,9 +930,12 @@ parse_node_manual (ELEMENT *node, int modify_node)
                     {
                       /* remove the original first element and prepend the
                          split "(" and text elements */
-                      remove_from_contents (node, 0); /* remove first element */
-                      insert_into_contents_as_array (node, new_first, 0);
-                      insert_into_contents_as_array (node, opening_brace, 0);
+                      /* remove first element non space nor comment */
+                      remove_from_contents (node, first_idx);
+                      insert_into_contents_as_array (node, new_first,
+                                                     first_idx);
+                      insert_into_contents_as_array (node, opening_brace,
+                                                     first_idx);
                       idx++;
                       if (first->source_mark_list)
                         {
@@ -996,19 +1055,22 @@ parse_node_manual (ELEMENT *node, int modify_node)
             destroy_element (new_first);
           if (opening_brace)
             destroy_element (opening_brace);
-          idx = 0; /* Back to the start, and consider the whole thing
-                      as a node name. */
+          idx = first_idx; /* Back to the start, and consider the whole thing
+                              as a node name. */
         }
     }
 
-  /* If anything left, it is part of the node name. */
+  /* If anything left up to trailing spaces and comments, it is part of
+     the node name. */
   if (idx < node->e.c->contents.number)
     {
       if (!node_content)
         node_content = new_element (ET_NONE);
       insert_slice_into_contents (node_content,
                                   node_content->e.c->contents.number,
-                                  node, idx, node->e.c->contents.number);
+                                  node, idx,
+                leading_trailing_indices[1] + 1 + node->e.c->contents.number
+                                          - orig_contents_len);
     }
 
   if (node_content)

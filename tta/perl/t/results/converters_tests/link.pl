@@ -85,10 +85,8 @@ $result_tree_text{'link'} = '*document_root C4
     |node_content:{One}
     |normalized:{One}
      {One}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {label}
    {\\n}
   {empty_line:\\n}
@@ -123,10 +121,8 @@ $result_tree_text{'link'} = '*document_root C4
     |node_content:{One}
     |normalized:{One}
      {One}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {label}
    {\\n}
   {empty_line:\\n}
@@ -303,14 +299,14 @@ $result_converted{'xml'}->{'link'} = '<node identifier="One" spaces=" "><nodenam
 </para>
 <para><link label="One"><linknodename>One</linknodename></link>
 </para>
-<para><link label="One"><linknodename>One</linknodename><linkrefname spaces=" ">label</linkrefname></link>
+<para><link label="One"><linknodename>One</linknodename><linkrefname> label</linkrefname></link>
 </para>
 <para>xrefautomaticsectiontitle on
 <xrefautomaticsectiontitle spaces=" " value="on" line="on"></xrefautomaticsectiontitle>
 </para>
 <para><link label="One"><linknodename>One</linknodename></link>
 </para>
-<para><link label="One"><linknodename>One</linknodename><linkrefname spaces=" ">label</linkrefname></link>
+<para><link label="One"><linknodename>One</linknodename><linkrefname> label</linkrefname></link>
 </para>
 <para>external link
 </para>

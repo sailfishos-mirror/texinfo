@@ -47,15 +47,11 @@ $result_tree_text{'xref_quote_long_item'} = '*document_root C1
          *brace_container
         { $verbatiminclude)}
        *brace_arg
-       *brace_arg C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument:\\n}
+       *brace_arg C2
+        {spaces_before_argument:\\n}
         {Texinfo::Convert::Utils::expand_verbatiminclude}
-       *brace_arg C1
-       |INFO
-       |spaces_before_argument:
-        |{spaces_before_argument: }
+       *brace_arg C2
+        {spaces_before_argument: }
         {tp_api}
       {.\\n}
      {empty_line:\\n}

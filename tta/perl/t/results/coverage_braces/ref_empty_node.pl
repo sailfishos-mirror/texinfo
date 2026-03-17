@@ -20,14 +20,10 @@ $result_tree_text{'ref_empty_node'} = '*document_root C1
     *brace_arg
     *brace_arg
     *brace_arg
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {Manual}
    { }
    *@inforef C3 l2
@@ -37,29 +33,19 @@ $result_tree_text{'ref_empty_node'} = '*document_root C1
      {imanual}
    {\\n}
    *@xref C5 l3
-    *brace_arg
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
     *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+     {spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {Bidule}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {Truc}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {file}
-    *brace_arg C1
-    |INFO
-    |spaces_before_argument:
-     |{spaces_before_argument: }
+    *brace_arg C2
+     {spaces_before_argument: }
      {Printed}
    {.\\n}
 ';
