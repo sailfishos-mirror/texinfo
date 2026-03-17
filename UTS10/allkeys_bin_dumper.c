@@ -44,6 +44,8 @@ typedef struct
   uint32_t num_singles;
   uint32_t num_sequences;
   long version;
+  uint32_t page_table_offset;
+  uint32_t trie_offset;
 } Database;
 
 typedef struct
@@ -538,14 +540,8 @@ compare_page_entries (const void *a, const void *b)
 }
 
 static void
-serialize_page_table (Database *db, ByteBuffer *buf,
-                      uint32_t page_table_offset_pos)
+serialize_page_table (Database *db, ByteBuffer *buf)
 {
-  /* Write page table. */
-  buffer_align (buf, 4);
-  uint32_t page_table_offset = buf->size;
-  buffer_write_u32_at (buf, page_table_offset_pos, page_table_offset);
-
   uint32_t page_offset_positions[NUM_PAGES];
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
@@ -672,7 +668,6 @@ serialize_database (Database *db)
 
   // Sort all pages by offset to enable binary search
   printf ("Sorting page entries...\n");
-  //for (uint32_t i = 0; i < 256; i++)
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
       if (db->pages[i] && db->pages[i]->count > 0)
@@ -682,17 +677,14 @@ serialize_database (Database *db)
         }
     }
 
-  /* Write header, leaving some placeholders to be filled in later. */
-  uint32_t page_table_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);    /* Placeholder for page_table_offset */
-  uint32_t trie_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);    /* Placeholder for trie_offset */
+  /* Write page table. */
+  buffer_align (buf, 4);
+  db->page_table_offset = buf->size;
 
-  serialize_page_table (db, buf, page_table_offset_pos);
+  serialize_page_table (db, buf);
 
   /* Write trie. */
-  uint32_t trie_offset = write_trie_node (buf, db->trie_root);
-  buffer_write_u32_at (buf, trie_offset_pos, trie_offset);
+  db->trie_offset = write_trie_node (buf, db->trie_root);
 
   printf ("Binary size: %zu bytes (%.2f MB)\n", buf->size,
           buf->size / 1e6);
@@ -730,6 +722,8 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "    uint16_t max_variable_weight;\n");
   fprintf (fp, "    uint32_t num_singles;\n");
   fprintf (fp, "    uint32_t num_sequences;\n");
+  fprintf (fp, "    uint32_t page_table_offset;\n");
+  fprintf (fp, "    uint32_t trie_offset;\n");
   fprintf (fp, "    uint8_t array[COLLATION_DATA_SIZE];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
@@ -738,6 +732,8 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "  0x%04X,\n", db->max_variable_weight);
   fprintf (fp, "  %d,\n", db->num_singles);
   fprintf (fp, "  %d,\n", db->num_sequences);
+  fprintf (fp, "  0x%04X,\n", db->page_table_offset);
+  fprintf (fp, "  0x%04X,\n", db->trie_offset);
 
   fprintf (fp, "  {\n");
   for (size_t i = 0; i < buf->size; i++)

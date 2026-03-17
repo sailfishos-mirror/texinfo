@@ -16,22 +16,10 @@
 
 #include "allkeys_bin.c"
 
-/* Binary file header */
-typedef struct
-{
-  uint32_t page_table_offset;
-  uint32_t trie_offset;
-} Header;
-
-
-static Header header;
-static void read_header (void);
-
 /* Load binary data from file */
 int
 load_data_file (void)
 {
-  read_header ();
 }
 
 /* Helper functions to read from byte array */
@@ -55,14 +43,6 @@ read_u32 (size_t offset)
   uint32_t val;
   memcpy (&val, collation_data.array + offset, 4);
   return val;
-}
-
-/* Read header */
-void
-read_header (void)
-{
-  header.page_table_offset = read_u32 (0);
-  header.trie_offset = read_u32 (4);
 }
 
 void
@@ -118,7 +98,7 @@ lookup_codepoint_data (char32_t codepoint)
 
   // Read page table entry
   uint32_t page_data_offset =
-    read_u32 (header.page_table_offset + page_num * 4);
+    read_u32 (collation_data.page_table_offset + page_num * 4);
   if (page_data_offset == 0)
     return (COLLATION_DATA) {0};       // Page not allocated
 
@@ -181,7 +161,7 @@ lookup_collation_data_at_char (char32_t *const string,
                                size_t length,
                                size_t *n_codepoints_out)
 {
-  uint32_t node_offset = header.trie_offset;
+  uint32_t node_offset = collation_data.trie_offset;
 
   char32_t *pchar;
   char32_t *pre_non_starter = 0;
@@ -417,7 +397,7 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
   if (len == 0)
     return 0;
 
-  uint32_t node_offset = header.trie_offset;
+  uint32_t node_offset = collation_data.trie_offset;
 
   for (size_t i = 0; i < len; i++)
     {

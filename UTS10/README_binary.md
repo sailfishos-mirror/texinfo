@@ -1,9 +1,6 @@
 ## Binary Format Specification
 
-### Header
-
-uint32_t page_table_offset Offset to page table
-uint32_t trie_offset Offset to sequence trie
+data structure in allkeys_bin.c
 
 ### Page Table (NUM_PAGES * 4 bytes = 17,408 bytes)
 Array of 4,352 uint32_t offsets, one per page:
