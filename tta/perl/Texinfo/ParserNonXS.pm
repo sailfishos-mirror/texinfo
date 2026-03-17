@@ -4406,28 +4406,24 @@ sub _end_line_def_line($$$) {
                         and exists($arg->{'contents'}->[0]->{'text'})
                         and $arg->{'contents'}->[0]->{'text'} !~ /\S/)));
     }
-    # TODO reorganize code as in C, which is more legible
     if (defined($index_entry)) {
-      if ($class_element) {
-        # Delay getting the text until Texinfo::Indices
-        # in order to avoid calling gdt.
-        # We need to store the language as well in case there are multiple
-        # languages in the document.
-        if ($def_command eq 'defop'
-            or $def_command eq 'deftypeop'
-            or $def_command eq 'defmethod'
-            or $def_command eq 'deftypemethod'
-            or $def_command eq 'defivar'
-            or $def_command eq 'deftypeivar'
-            or $def_command eq 'deftypecv') {
-          undef $index_entry;
-          if (defined($self->{'documentlanguage'})) {
-            $current->{'extra'}->{'documentlanguage'}
-                   = $self->{'documentlanguage'};
-          }
+      # Delay getting the text until Texinfo::Indices
+      # in order to avoid calling gdt.
+      # We need to store the language as well in case there are multiple
+      # languages in the document.
+      if ($class_element
+          and ($def_command eq 'defop'
+               or $def_command eq 'deftypeop'
+               or $def_command eq 'defmethod'
+               or $def_command eq 'deftypemethod'
+               or $def_command eq 'defivar'
+               or $def_command eq 'deftypeivar'
+               or $def_command eq 'deftypecv')) {
+        if (defined($self->{'documentlanguage'})) {
+          $current->{'extra'}->{'documentlanguage'}
+                 = $self->{'documentlanguage'};
         }
-      }
-      if (defined($index_entry)) {
+      } else {
         my $element_copy
           = Texinfo::ManipulateTree::copy_element_tree($index_entry);
         delete $element_copy->{'type'};
