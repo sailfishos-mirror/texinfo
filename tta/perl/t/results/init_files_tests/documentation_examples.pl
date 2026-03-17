@@ -162,7 +162,7 @@ $result_tree_text{'documentation_examples'} = '*document_root C11
   {empty_line:\\n}
   *paragraph C2
    *@math C1 l20
-    *brace_command_context C7
+    *brace_arg C7
      *@sansserif C1 l20
       *brace_container C1
        {in--math}

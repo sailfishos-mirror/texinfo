@@ -418,7 +418,7 @@ $result_tree_text{'commands_and_spaces'} = '*document_root C2
   *paragraph C3
    {Math }
    *@math C1 l60
-    *brace_command_context C4
+    *brace_arg C4
      {spaces_before_argument: }
      {\\underline}
      *balanced_braces C1 l60

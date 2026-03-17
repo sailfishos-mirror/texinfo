@@ -29,7 +29,7 @@ $result_tree_text{'comment_at_end_of_linemacro_call'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C3
    *@math C1 l6
-    *brace_command_context C5
+    *brace_arg C5
      {spaces_before_argument:\\n}
      {c something protected d\\n}
      >SOURCEMARKS

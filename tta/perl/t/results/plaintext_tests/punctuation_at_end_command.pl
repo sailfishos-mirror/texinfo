@@ -30,7 +30,7 @@ $result_tree_text{'punctuation_at_end_command'} = '*document_root C1
      {.}
    { and math }
    *@math C1 l3
-    *brace_command_context C1
+    *brace_arg C1
      {.}
    { and cite }
    *@cite C1 l3

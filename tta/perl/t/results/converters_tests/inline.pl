@@ -64,7 +64,7 @@ $result_tree_text{'inline'} = '*document_root C1
     *brace_arg C3
      {spaces_before_argument: }
      *@math C1 l7
-      *brace_command_context C3
+      *brace_arg C3
        {\\frac}
        *balanced_braces C3 l7
         {{a < b }

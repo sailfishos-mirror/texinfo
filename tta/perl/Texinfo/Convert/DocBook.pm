@@ -1229,7 +1229,8 @@ sub _convert($$;$) {
              and exists($brace_commands{$cmdname})) {
       #Texinfo::Common::debug_list(" brace command with args", $element->{'contents'});
       if ($style_commands_formatting{$cmdname}) {
-        if ($brace_commands{$cmdname} eq 'context') {
+        if ($brace_commands{$cmdname} eq 'context'
+            or exists($Texinfo::Commands::math_commands{$cmdname})) {
           _new_document_context($self);
         }
         my $formatting = $style_commands_formatting{$cmdname};
@@ -1273,7 +1274,8 @@ sub _convert($$;$) {
         }
         pop @{$self->{'document_context'}->[-1]->{'monospace'}}
           if (defined($in_monospace_not_normal));
-        if ($brace_commands{$cmdname} eq 'context') {
+        if ($brace_commands{$cmdname} eq 'context'
+            or exists($Texinfo::Commands::math_commands{$cmdname})) {
           pop @{$self->{'document_context'}};
         }
         if ($cmdname eq 'w') {

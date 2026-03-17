@@ -177,7 +177,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
   |index_ignore_chars:{\\}
    *line_arg C9
     *@math C1 l17
-     *brace_command_context C3
+     *brace_arg C3
       {a!"}
       *@@
       {b}
@@ -210,7 +210,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
       {spaces_after_close_brace: }
       {sub}
       *@math C1 l17
-       *brace_command_context C3
+       *brace_arg C3
         {a!"}
         *@@
         {b}
@@ -228,7 +228,7 @@ $result_tree_text{'indices_disable_encoding'} = '*document_root C5
       *@seealso C1 l17
        *brace_arg C7
         *@math C1 l17
-         *brace_command_context C3
+         *brace_arg C3
           {a!"}
           *@@
           {b}

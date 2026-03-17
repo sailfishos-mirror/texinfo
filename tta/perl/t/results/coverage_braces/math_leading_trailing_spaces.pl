@@ -9,7 +9,7 @@ $result_tree_text{'math_leading_trailing_spaces'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
    *@math C1 l1
-    *brace_command_context C3
+    *brace_arg C3
      {spaces_before_argument: }
      {a = b}
      {spaces_after_argument: }

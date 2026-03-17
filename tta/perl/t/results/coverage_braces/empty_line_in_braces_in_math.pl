@@ -9,7 +9,7 @@ $result_tree_text{'empty_line_in_braces_in_math'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
    *@math C1 l1
-    *brace_command_context C3
+    *brace_arg C3
      {a}
      *balanced_braces C3 l1
       {{bb\\n}

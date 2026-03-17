@@ -44,7 +44,7 @@ $result_tree_text{'mathjax_with_texinfo_no_convert_to_latex'} = '*document_root 
   *paragraph C3
    {Some }
    *@math C1 l5
-    *brace_command_context C8
+    *brace_arg C8
      {a }
      *@minus C1 l5
       *brace_container

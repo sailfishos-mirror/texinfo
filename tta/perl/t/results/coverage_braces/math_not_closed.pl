@@ -9,7 +9,7 @@ $result_tree_text{'math_not_closed'} = '*document_root C1
  *before_node_section C1
   *paragraph C1
    *@math C1 l1
-    *brace_command_context C1
+    *brace_arg C1
      {\\delta + 2}
 ';
 

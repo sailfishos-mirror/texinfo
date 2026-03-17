@@ -254,7 +254,7 @@ const COMMAND builtin_command_data[] = {
 {"macro", CF_block | CF_no_paragraph | CF_preamble, CF_non_formatted_block, BLOCK_raw, 0},
 {"majorheading", CF_line | CF_no_paragraph | CF_contain_basic_inline | CF_sectioning_heading | CF_close_paragraph | CF_global, CF_formatted_line, LINE_line, 1},
 {"maketitle", CF_line | CF_no_paragraph | CF_close_paragraph | CF_global_unique, CF_formattable_line, LINE_lineraw, 0},
-{"math", CF_brace | CF_math | CF_contain_basic_inline, 0, BRACE_context, 1},
+{"math", CF_brace | CF_math | CF_contain_basic_inline, 0, BRACE_arguments, 1},
 {"menu", CF_block | CF_no_paragraph | CF_close_paragraph, 0, BLOCK_menu, 0},
 {"microtype", CF_line | CF_no_paragraph | CF_global | CF_preamble | CF_contain_plain_text, 0, LINE_specific, 1},
 {"minus", CF_brace, 0, BRACE_noarg, 0},

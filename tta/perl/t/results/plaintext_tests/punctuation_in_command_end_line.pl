@@ -32,7 +32,7 @@ $result_tree_text{'punctuation_in_command_end_line'} = '*document_root C1
    {\\n}
    {and math }
    *@math C1 l5
-    *brace_command_context C1
+    *brace_arg C1
      {.}
    {\\n}
    {and cite }

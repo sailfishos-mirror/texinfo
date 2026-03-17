@@ -135,25 +135,18 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
               nesting_context.footnote++;
             }
 
-          if (cmd == CM_math)
-            {
-              push_context (ct_math, cmd);
-            }
-          else
-            {
-              push_context (ct_base, cmd);
-              space_e
-                = new_text_element (ET_internal_spaces_before_context_argument);
+          push_context (ct_base, cmd);
+          space_e
+            = new_text_element (ET_internal_spaces_before_context_argument);
 
-              add_to_contents_as_array (current, space_e);
-              internal_space_holder = current->e.c->parent;
+          add_to_contents_as_array (current, space_e);
+          internal_space_holder = current->e.c->parent;
 
-              n = strspn (line, whitespace_chars_except_newline);
-              if (n > 0)
-                {
-                  text_append_n (space_e->e.text, line, n);
-                  line += n;
-                }
+          n = strspn (line, whitespace_chars_except_newline);
+          if (n > 0)
+            {
+              text_append_n (space_e->e.text, line, n);
+              line += n;
             }
         }
       else /* not context brace */
@@ -166,6 +159,8 @@ handle_open_brace (ELEMENT *current, const char **line_inout)
 
               if (cmd == CM_inlineraw)
                 push_context (ct_inlineraw, cmd);
+              else if (command_data(cmd).flags & CF_math)
+                push_context (ct_math, cmd);
             }
           else
             {
@@ -286,8 +281,7 @@ handle_close_brace (ELEMENT *current, const char **line_inout)
 
       abort_empty_line (current);
 
-      if (command_data(closed_cmd).data == BRACE_arguments
-          || command_flags(current->e.c->parent) & CF_math)
+      if (command_data(closed_cmd).data == BRACE_arguments)
         isolate_leading_trailing (current, 0);
       else if (command_data(closed_cmd).data == BRACE_inline
                && current->type != ET_elided_brace_command_arg)

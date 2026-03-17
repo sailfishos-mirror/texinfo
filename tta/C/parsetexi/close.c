@@ -53,12 +53,7 @@ close_brace_command (ELEMENT *current,
 
   if (command_data(current->e.c->cmd).data == BRACE_context)
     {
-      if (current->e.c->cmd == CM_math)
-        {
-          if (pop_context () != ct_math)
-            fatal ("math context expected");
-        }
-      else if (pop_context () != ct_base)
+      if (pop_context () != ct_base)
         fatal ("base context brace command context expected");
       if (current->e.c->cmd == CM_footnote)
         nesting_context.footnote--;
@@ -70,6 +65,11 @@ close_brace_command (ELEMENT *current,
     {
       if (pop_context () != ct_inlineraw)
         fatal ("inlineraw context expected");
+    }
+  else if (command_flags(current) & CF_math)
+    {
+      if (pop_context () != ct_math)
+        fatal ("math context expected");
     }
 
   if (command_flags(current) & CF_contain_basic_inline)
@@ -479,12 +479,6 @@ close_current (ELEMENT *current,
           break;
         case ET_block_line_arg:
           current = end_line_starting_block (current);
-          break;
-        case ET_brace_command_context:
-          if (current->e.c->parent
-              && command_flags(current->e.c->parent) & CF_math)
-            isolate_leading_trailing (current, 0);
-          current = close_container (current);
           break;
         default:
           current = close_container (current);

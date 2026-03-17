@@ -145,7 +145,7 @@ $result_tree_text{'commands_in_var'} = '*document_root C5
        {00ff}
      { }
      *@math C1 l9
-      *brace_command_context C1
+      *brace_arg C1
        {ma+th}
      { }
      *@footnote C1 l9

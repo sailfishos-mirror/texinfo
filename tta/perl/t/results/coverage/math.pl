@@ -10,7 +10,7 @@ $result_tree_text{'math'} = '*document_root C1
   *paragraph C3
    {Simple math\\n}
    *@math C1 l2
-    *brace_command_context C4
+    *brace_arg C4
      {--}
      *balanced_braces C1 l2
       {{x^i}}
@@ -24,7 +24,7 @@ $result_tree_text{'math'} = '*document_root C1
    *@@
    {-command\\n}
    *@math C1 l5
-    *brace_command_context C5
+    *brace_arg C5
      *@code C1 l5
       *brace_container C1
        {math code}
@@ -41,7 +41,7 @@ $result_tree_text{'math'} = '*document_root C1
   *paragraph C3
    {Complex\\n}
    *@math C1 l8
-    *brace_command_context C8
+    *brace_arg C8
      {spaces_before_argument: }
      {\\underline}
      *balanced_braces C3 l8

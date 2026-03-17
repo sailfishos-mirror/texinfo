@@ -425,9 +425,8 @@ r                       brace                           style_no_code
 footnote                brace,global                    context
 caption                 brace,close_paragraph,no_paragraph,non_formatted_brace           context
 shortcaption            brace,close_paragraph,contain_basic_inline,no_paragraph,non_formatted_brace    context
-# Commands that enclose math content, and, because of that, are not in the
-# main document context.
-math                    brace,math,contain_basic_inline  context
+# Commands that enclose math content
+math                    brace,math,contain_basic_inline  arguments 1
 
 # in this category, the leading and trailing spaces are separated from
 # the arguments and commas do not delimitate arguments.

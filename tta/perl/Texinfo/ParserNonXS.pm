@@ -234,9 +234,7 @@ my %parsing_state_initialization = (
                          # (html, xml, docbook...)
                          # 'ct_inlineraw' is added when in inlineraw
                          # 'ct_base' is (re-)added when in footnote,
-                         # caption, or shortcaption (context brace_commands
-                         # that does not already start another context, ie not
-                         # math).
+                         # caption, or shortcaption (context brace_commands).
                          # 'ct_paragraph' is added in paragraph.
   'context_command_stack' => [],
                          # the stack of @-commands. An @-command name can
@@ -1457,7 +1455,7 @@ sub _parse_macro_command_line($$$$$;$) {
 # return true if in a context where paragraphs are to be started.
 sub _in_begin_paragraph($$) {
   # we want to avoid
-  # brace_container, brace_arg, root_line (ct_line),
+  # brace_container, brace_arg (also in ct_math), root_line (ct_line),
   # paragraphs (ct_paragraph), line_arg (ct_line, ct_def), balanced_braces
   # (only in ct_math, ct_rawpreformatted, ct_inlineraw), block_line_arg
   # (ct_line, ct_def), preformatted (ct_preformatted).
@@ -1552,12 +1550,7 @@ sub _close_brace_command($$$;$$$) {
   delete $current->{'remaining_args'};
 
   if ($self->{'brace_commands'}->{$current->{'cmdname'}} eq 'context') {
-    my $expected_context;
-    if ($math_commands{$current->{'cmdname'}}) {
-      $expected_context = 'ct_math';
-    } else {
-      $expected_context = 'ct_base';
-    }
+    my $expected_context = 'ct_base';
     _pop_context($self, [$expected_context], $source_info, $current);
 
     $self->{'nesting_context'}->{'footnote'} -= 1
@@ -1568,6 +1561,8 @@ sub _close_brace_command($$$;$$$) {
   } elsif ($current->{'cmdname'} eq 'inlineraw') {
     _pop_context($self, ['ct_inlineraw'], $source_info, $current,
                  ' inlineraw');
+  } elsif ($math_commands{$current->{'cmdname'}}) {
+    _pop_context($self, ['ct_math'], $source_info, $current);
   }
 
   # args are always set except in cases of bogus brace @-commands
@@ -2261,13 +2256,6 @@ sub _close_current($$$;$$) {
     if ($current->{'type'} eq 'bracketed_arg') {
       # unclosed bracketed argument
       _command_error($self, $current, __("misplaced {"));
-      #if (exists($current->{'contents'})
-      #    and exists($current->{'contents'}->[0]->{'type'})
-      #    and $current->{'contents'}->[0]->{'type'}
-      #                  eq 'internal_spaces_before_argument') {
-      #  # remove spaces element from tree and update extra values
-      #  _move_last_space_to_element($self, $current);
-      #}
       _isolate_leading_trailing($self, $current);
       $current = $current->{'parent'};
     } elsif ($current->{'type'} eq 'balanced_braces') {
@@ -2286,11 +2274,6 @@ sub _close_current($$$;$$) {
     } elsif ($current->{'type'} eq 'block_line_arg') {
       $current = _end_line_starting_block($self, $current, $source_info);
     } else {
-      if ($current->{'type'} eq 'brace_command_context'
-          and exists($current->{'parent'}->{'cmdname'})
-          and exists($math_commands{$current->{'parent'}->{'cmdname'}})) {
-        _isolate_leading_trailing($self, $current);
-      }
       $current = _close_container($self, $current, $source_info);
     }
   } else { # Should never go here.
@@ -6708,39 +6691,28 @@ sub _handle_open_brace($$$$) {
         $self->{'nesting_context'}->{'footnote'} += 1;
       }
 
-      if ($math_commands{$command}) {
-        # internal_spaces_before_argument is a transient internal type,
-        # which should end up in info spaces_before_argument.
-        #$spaces_e->{'type'} = 'internal_spaces_before_argument';
-        _push_context($self, 'ct_math', $command);
-      } else {
-        my $spaces_e = Texinfo::TreeElement::new({});
-        push @{$current->{'contents'}}, $spaces_e;
+      my $spaces_e = Texinfo::TreeElement::new({});
+      push @{$current->{'contents'}}, $spaces_e;
 
-        $spaces_e->{'type'} = 'internal_spaces_before_context_argument';
-        _push_context($self, 'ct_base', $command);
+      $spaces_e->{'type'} = 'internal_spaces_before_context_argument';
+      _push_context($self, 'ct_base', $command);
 
-        $self->{'internal_space_holder'} = $current->{'parent'};
-        # based on whitespace_chars_except_newline in XS parser
-        $line =~ s/([ \t\cK\f]*)//;
-        $spaces_e->{'text'} = $1;
-      }
+      $self->{'internal_space_holder'} = $current->{'parent'};
+      # based on whitespace_chars_except_newline in XS parser
+      $line =~ s/([ \t\cK\f]*)//;
+      $spaces_e->{'text'} = $1;
     } else {
       # Commands that disregard leading whitespace.
       if ($brace_commands{$command}
           and ($brace_commands{$command} eq 'arguments'
                or $brace_commands{$command} eq 'inline')) {
         $current->{'type'} = 'brace_arg';
-        ## internal_spaces_before_argument is a transient internal type,
-        ## which should end up in info spaces_before_argument.
-        #push @{$current->{'contents'}}, Texinfo::TreeElement::new({
-        #            'type' => 'internal_spaces_before_argument',
-        #            'text' => '',
-        #          });
-        #$self->{'internal_space_holder'} = $current;
 
-        _push_context($self, 'ct_inlineraw', $command)
-          if ($command eq 'inlineraw');
+        if ($command eq 'inlineraw') {
+          _push_context($self, 'ct_inlineraw', $command);
+        } elsif ($math_commands{$command}) {
+          _push_context($self, 'ct_math', $command);
+        }
       } else {
         $current->{'type'} = 'brace_container';
       }
@@ -6843,8 +6815,7 @@ sub _handle_close_brace($$$) {
     my $closed_cmdname = $brace_command->{'cmdname'};
     my $brace_command_type = $self->{'brace_commands'}->{$closed_cmdname};
 
-    if ($brace_command_type eq 'arguments'
-        or exists($math_commands{$closed_cmdname})) {
+    if ($brace_command_type eq 'arguments') {
       _isolate_leading_trailing($self, $current);
     } elsif ($brace_command_type eq 'inline'
              and $current->{'type'} ne 'elided_brace_command_arg') {
@@ -9057,9 +9028,7 @@ C<@footnote> and C<@caption> @-command elements that start a new context and
 contain paragraphs and block commands contain a I<brace_command_context>
 container.  The I<brace_command_context> container contains I<paragraph>,
 line command and block command elements, much like node, sectioning and block
-command elements.  C<@math> also contains a I<brace_command_context> container,
-which contains directly text and brace commands more similar to the
-I<preformatted> container.
+command elements.
 
 For commands taking arguments surrounded by braces when the whole text in the
 braces is in the argument, such as C<@u> or C<@code> the first and only
@@ -9069,6 +9038,8 @@ by commas contain I<brace_arg> containers, one for each of the arguments.
 The I<brace_container> and I<brace_arg> containers contain directly text
 elements some @-commands without arguments and other @-commands with braces,
 similar to I<line_arg> or I<paragraph> containers.
+C<@math> also contains a I<brace_arg> container, which contains directly
+text and brace commands similar to the I<preformatted> container.
 
 =head3 Texinfo line tree
 
@@ -9428,7 +9399,7 @@ is in the argument.  I<brace_arg> is used for the arguments to commands taking
 arguments surrounded by braces when the leading and, in most cases, trailing
 spaces are not part of the argument, and for arguments in braces separated by
 commas.  I<brace_command_context> is used for @-commands with braces that start
-a new context (C<@footnote>, C<@caption>, C<@math>).
+a new context (C<@footnote>, C<@caption>).
 
 I<line_arg> is used for commands that take the texinfo code on the rest of the
 line as their argument, such as C<@settitle>, or for C<@node>, C<@section>
@@ -9655,8 +9626,8 @@ some @-commands with braces and bracketed content type, spaces following
 @-commands for line commands and block command taking Texinfo as argument, and
 spaces following comma delimited arguments.  For context brace commands, line
 commands and block commands, I<spaces_before_argument> is associated with the
-@-command element, for other brace commands and for spaces after comma, it is
-associated with each argument element.
+@-command element, for spaces after comma, it is associated with each argument
+element.
 
 =back
 

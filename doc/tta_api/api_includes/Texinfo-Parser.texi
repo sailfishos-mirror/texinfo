@@ -380,9 +380,7 @@ do not.
 contain paragraphs and block commands contain a @emph{brace_command_context}
 container.  The @emph{brace_command_context} container contains @emph{paragraph},
 line command and block command elements, much like node, sectioning and block
-command elements.  @code{@@math} also contains a @emph{brace_command_context} container,
-which contains directly text and brace commands more similar to the
-@emph{preformatted} container.
+command elements.
 
 For commands taking arguments surrounded by braces when the whole text in the
 braces is in the argument, such as @code{@@u} or @code{@@code} the first and only
@@ -392,6 +390,8 @@ by commas contain @emph{brace_arg} containers, one for each of the arguments.
 The @emph{brace_container} and @emph{brace_arg} containers contain directly text
 elements some @@-commands without arguments and other @@-commands with braces,
 similar to @emph{line_arg} or @emph{paragraph} containers.
+@code{@@math} also contains a @emph{brace_arg} container, which contains directly
+text and brace commands similar to the @emph{preformatted} container.
 
 @node Texinfo@asis{::}Parser Texinfo line tree
 @subsubsection Texinfo line tree
@@ -816,7 +816,7 @@ is in the argument.  @emph{brace_arg} is used for the arguments to commands taki
 arguments surrounded by braces when the leading and, in most cases, trailing
 spaces are not part of the argument, and for arguments in braces separated by
 commas.  @emph{brace_command_context} is used for @@-commands with braces that start
-a new context (@code{@@footnote}, @code{@@caption}, @code{@@math}).
+a new context (@code{@@footnote}, @code{@@caption}).
 
 @emph{line_arg} is used for commands that take the texinfo code on the rest of the
 line as their argument, such as @code{@@settitle}, or for @code{@@node}, @code{@@section}
@@ -1093,8 +1093,8 @@ some @@-commands with braces and bracketed content type, spaces following
 @@-commands for line commands and block command taking Texinfo as argument, and
 spaces following comma delimited arguments.  For context brace commands, line
 commands and block commands, @emph{spaces_before_argument} is associated with the
-@@-command element, for other brace commands and for spaces after comma, it is
-associated with each argument element.
+@@-command element, for spaces after comma, it is associated with each argument
+element.
 
 @end table
 

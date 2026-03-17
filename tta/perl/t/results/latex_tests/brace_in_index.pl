@@ -14,7 +14,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
   {empty_line:\\n}
   *paragraph C2
    *@math C1 l3
-    *brace_command_context C1
+    *brace_arg C1
      *@{
    {\\n}
   {empty_line:\\n}
@@ -61,7 +61,7 @@ $result_tree_text{'brace_in_index'} = '*document_root C1
    |spaces_after_argument:
     |{spaces_after_argument:\\n}
     *@math C1 l11
-     *brace_command_context C1
+     *brace_arg C1
       *@{
   {empty_line:\\n}
   *index_entry_command@cindex C1 l13

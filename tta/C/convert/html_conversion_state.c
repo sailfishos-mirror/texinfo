@@ -158,7 +158,8 @@ html_open_command_update_context (CONVERTER *self, enum command_id data_cmd)
   HTML_FORMATTING_CONTEXT *top_formating_ctx;
 
   if (builtin_command_data[data_cmd].flags & CF_brace
-      && builtin_command_data[data_cmd].data == BRACE_context)
+      && (builtin_command_data[data_cmd].data == BRACE_context
+          || builtin_command_data[data_cmd].flags & CF_math))
     {
       html_new_document_context (self,
                    builtin_command_data[data_cmd].cmdname, 0, 0, 0);
@@ -317,7 +318,8 @@ html_convert_command_update_context (CONVERTER *self, enum command_id data_cmd)
     }
 
   if (builtin_command_data[data_cmd].flags & CF_brace
-      && builtin_command_data[data_cmd].data == BRACE_context)
+      && (builtin_command_data[data_cmd].data == BRACE_context
+          || builtin_command_data[data_cmd].flags & CF_math))
     {
       html_pop_document_context (self);
     }

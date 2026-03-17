@@ -1,5 +1,25 @@
 2026-03-17 Patrice Dumas  <pertusus@free.fr>
 
+	Move @math command from context commands to arguments commands
+
+	* tta/data/command_data.txt (math), tta/C/parsetexi/close.c
+	(close_brace_command, close_current), tta/C/parsetexi/separator.c
+	(handle_open_brace, handle_close_brace),
+	tta/perl/Texinfo/ParserNonXS.pm (_close_brace_command, _close_current)
+	(_handle_open_brace, _handle_close_brace): change math data type to be
+	arguments.  Move code related to math to arguments brace commands
+	handling, with explicit setting of context.
+
+	* tta/C/convert/html_conversion_state.c
+	(html_open_command_update_context)
+	(html_convert_command_update_context),
+	tta/perl/Texinfo/Convert/DocBook.pm (_convert),
+	tta/perl/Texinfo/Convert/HTMLNonXS.pm (_open_command_update_context)
+	(_convert_command_update_context): set explicitly math context for
+	brace math command.
+
+2026-03-17 Patrice Dumas  <pertusus@free.fr>
+
 	* tta/perl/Texinfo/ParserNonXS.pm (_end_line_def_line): reorganize the
 	code to be more legible, and converge to C version.
 

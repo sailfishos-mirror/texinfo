@@ -10,7 +10,7 @@ $result_tree_text{'backslash_math'} = '*document_root C1
   *preamble_before_content
   *paragraph C2
    *@math C1 l1
-    *brace_command_context C5
+    *brace_arg C5
      {a }
      *@\\
      { b }

@@ -11,7 +11,7 @@ $result_tree_text{'section_in_math'} = '*document_root C3
   *paragraph C2
    {Some }
    *@math C1 l2
-    *brace_command_context C2
+    *brace_arg C2
      {aa }
      *balanced_braces C3 l2
       {{x^2\\n}
@@ -35,7 +35,7 @@ $result_tree_text{'section_in_math'} = '*document_root C3
   *paragraph C2
    {More }
    *@math C1 l6
-    *brace_command_context C4
+    *brace_arg C4
      {spaces_before_argument: }
      {in math}
      {spaces_after_argument:\\n}
