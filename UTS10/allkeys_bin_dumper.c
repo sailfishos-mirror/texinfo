@@ -543,20 +543,21 @@ compare_page_entries (const void *a, const void *b)
 /* Location in dump of each page data */
 static uint32_t page_offset_positions[NUM_PAGES];
 
+typedef struct
+{
+  uint32_t offset_position;   /* Where to write the data_offset. */
+  uint32_t element_count_offset;
+  CollationData *data;        /* The data to write later. */
+} PendingData;
+
+static PendingData *pending;
+static uint32_t pending_count;
+
 static void
 serialize_page_table (Database *db, ByteBuffer *buf)
 {
   /* Write page data (entries only, no collation data yet).
      We'll track where to write collation data offsets. */
-  typedef struct
-  {
-    uint32_t offset_position;   /* Where to write the data_offset. */
-    uint32_t element_count_offset;
-    CollationData *data;        /* The data to write later. */
-  } PendingData;
-
-  PendingData *pending = malloc (db->num_singles * sizeof (PendingData));
-  uint32_t pending_count = 0;
 
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
@@ -641,16 +642,6 @@ serialize_page_table (Database *db, ByteBuffer *buf)
     }
   buffer_align (buf, 4);
 
-  /* Now write all collation data and backfill offsets. */
-  for (uint32_t i = 0; i < pending_count; i++)
-    {
-      uint32_t data_offset = write_collation_data (buf,
-                               pending[i].data,
-                               pending[i].element_count_offset);
-      buffer_write_u32_at (buf, pending[i].offset_position, data_offset);
-    }
-
-  free (pending);
 }
 
 
@@ -677,7 +668,21 @@ serialize_database (Database *db)
   /* Waste four bytes so no real data appears at offset 0. */
   buffer_write_u32 (buf, 0xFFFFFFFF);
 
+  pending = malloc (db->num_singles * sizeof (PendingData));
+  pending_count = 0;
+
   serialize_page_table (db, buf);
+
+  /* Now write all collation data and backfill offsets. */
+  for (uint32_t i = 0; i < pending_count; i++)
+    {
+      uint32_t data_offset = write_collation_data (buf,
+                               pending[i].data,
+                               pending[i].element_count_offset);
+      buffer_write_u32_at (buf, pending[i].offset_position, data_offset);
+    }
+
+  free (pending);
 
   /* Write trie. */
   db->trie_offset = write_trie_node (buf, db->trie_root);
