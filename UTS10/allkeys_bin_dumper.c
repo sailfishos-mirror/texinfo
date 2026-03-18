@@ -471,6 +471,17 @@ write_collation_data (ByteBuffer *buf, CollationData *data,
   return offset;
 }
 
+typedef struct
+{
+  uint32_t offset_position;   /* Where to write the data_offset. */
+  uint32_t element_count_offset; /* Position of collation element count. */
+  CollationData *data;        /* The data to write later. */
+} PendingData;
+
+static PendingData *pending;
+static uint32_t pending_count;
+
+
 /* Function for qsort.  Return negative if the first argument is "less"
    than the second, zero if they are "equal", and positive if the first
    argument is "greater". */
@@ -523,9 +534,13 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
   /* Write collation data and update offset. */
   if (node->data)
     {
-      uint32_t data_offset = write_collation_data (buf, node->data,
-                                                   element_count_offset);
-      buffer_write_u32_at (buf, data_offset_pos, data_offset);
+      /* Position of the number of collation elements in the record. */
+      pending[pending_count].element_count_offset = element_count_offset;
+
+      /* Remember where we need to write the data offset. */
+      pending[pending_count].offset_position = data_offset_pos;
+      pending[pending_count].data = node->data;
+      pending_count++;
     }
 
   return offset;
@@ -542,16 +557,6 @@ compare_page_entries (const void *a, const void *b)
 
 /* Location in dump of each page data */
 static uint32_t page_offset_positions[NUM_PAGES];
-
-typedef struct
-{
-  uint32_t offset_position;   /* Where to write the data_offset. */
-  uint32_t element_count_offset;
-  CollationData *data;        /* The data to write later. */
-} PendingData;
-
-static PendingData *pending;
-static uint32_t pending_count;
 
 static void
 serialize_page_table (Database *db, ByteBuffer *buf)
@@ -668,10 +673,13 @@ serialize_database (Database *db)
   /* Waste four bytes so no real data appears at offset 0. */
   buffer_write_u32 (buf, 0xFFFFFFFF);
 
-  pending = malloc (db->num_singles * sizeof (PendingData));
+  pending = malloc ((db->num_singles + db->num_sequences)
+                    * sizeof (PendingData));
   pending_count = 0;
 
   serialize_page_table (db, buf);
+  db->trie_offset = write_trie_node (buf, db->trie_root);
+
 
   /* Now write all collation data and backfill offsets. */
   for (uint32_t i = 0; i < pending_count; i++)
@@ -683,9 +691,6 @@ serialize_database (Database *db)
     }
 
   free (pending);
-
-  /* Write trie. */
-  db->trie_offset = write_trie_node (buf, db->trie_root);
 
   printf ("Binary size: %zu bytes (%.2f MB)\n", buf->size,
           buf->size / 1e6);
