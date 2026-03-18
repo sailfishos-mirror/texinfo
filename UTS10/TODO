@@ -25,6 +25,18 @@ in unictype/bitmap.h or combining_class in unictype/combining_class.c.
 gnulib/lib/gen-uni-tables.c (in gnulib git repo) for generating C source
 code with data literals, and especially gnulib/lib/unictype/3level.h.
 
+* most codepoints only translate to a single collation unit, which
+takes 32 bits (16 + 8 + 8) to store.  currently we store a number of
+collation units, as well as an offset into the array of collation units.
+what if we stored the 32 bit collation unit info directly where the offset
+currently is, and make it only one unit by default.  overload the value
+(perhaps use high tertiary weights) to mark multi-unit results and reference
+an offset in another lookup table for the sequence of collation units.  this
+could cut the size of the data by a factor of two.
+
+* check in main collation data table first and add some special marker
+for checking in trie for sequence
+
 
 * check if reordering in discontiguous matching is correct
 

@@ -406,6 +406,8 @@ write_collation_data (ByteBuffer *buf, CollationData *data,
   uint32_t primary_extension = 0;
   uint16_t secondary_extension = 0;
 
+  // if (data->num_elements > 1)
+  //   fprintf (stderr, "multi elements %d\n", data->num_elements);
   for (int i = 0; i < data->num_elements; i++)
     {
       uint16_t primary = data->elements[i].primary;
