@@ -55,20 +55,18 @@ int
 read_collation_data (COLLATION_DATA data,
                      CollationElement *elements)
 {
-  uint32_t offset = data.data_offset;
+  uint32_t index = data.data_index;
   for (int i = 0; i < data.num_elements; i++)
     {
-      elements[i].primary = read_u16 (offset);
-      offset += 2;
-      elements[i].secondary = read_u8 (offset);
-      offset += 1;
+      elements[i].primary = collation_data.collation_data[index + i].primary;
+      elements[i].secondary = collation_data.collation_data[index + i].secondary;
+      elements[i].tertiary = collation_data.collation_data[index + i].tertiary;;
+
       if (elements[i].secondary != 0x00)
         {
           /* matches allkeys_to_binary.c:write_collation_data. */
           elements[i].secondary += 0x1f;
         }
-      elements[i].tertiary = read_u8 (offset);
-      offset += 1;
     }
 
   return 1;
@@ -102,7 +100,7 @@ lookup_codepoint_data (char32_t codepoint)
 
       COLLATION_DATA data;
       data.num_elements = read_u8 (entry_offset);
-      data.data_offset = read_u32 (entry_offset + 1);
+      data.data_index = read_u32 (entry_offset + 1);
       return data;
 
     }
@@ -122,7 +120,7 @@ lookup_codepoint_data (char32_t codepoint)
         {
           COLLATION_DATA data;
           data.num_elements = read_u8 (entry_offset + 1);
-          data.data_offset = read_u32 (entry_offset + 2);
+          data.data_index = read_u32 (entry_offset + 2);
           return data;
         }
       else if (entry_page_index < page_index)
@@ -191,7 +189,7 @@ lookup_collation_data_at_char (char32_t *const string,
 
       // Read node
       uint32_t node_codepoint = read_u32 (node_offset);
-      uint32_t node_data_offset = read_u32 (node_offset + 4);
+      uint32_t node_data_index = read_u32 (node_offset + 4);
       uint8_t num_elements = read_u8 (node_offset + 8);
       uint16_t num_children = read_u16 (node_offset + 9);
       uint32_t children_offset = node_offset + 11;
@@ -252,9 +250,9 @@ lookup_collation_data_at_char (char32_t *const string,
   if (n_codepoints >= 2)
     {
       COLLATION_DATA data;
-      data.data_offset = read_u32 (node_offset + 4);
+      data.data_index = read_u32 (node_offset + 4);
       data.num_elements = read_u8 (node_offset + 8);
-      if (data.data_offset != 0)
+      if (data.data_index != 0)
         {
           (*n_codepoints_out) = n_codepoints;
           return data;
@@ -264,7 +262,7 @@ lookup_collation_data_at_char (char32_t *const string,
 #endif
 
   COLLATION_DATA data = lookup_codepoint_data (string[0]);
-  if (data.data_offset)
+  if (data.data_index)
     {
       (*n_codepoints_out) = 1;
     }
@@ -280,7 +278,7 @@ lookup_codepoint (char32_t codepoint,
                   CollationElement *elements, size_t *num_elements)
 {
   COLLATION_DATA data = lookup_codepoint_data (codepoint);
-  if (data.data_offset)
+  if (data.data_index)
     {
       (*num_elements) = data.num_elements;
       return read_collation_data (data, elements);
@@ -295,6 +293,12 @@ void
 get_implicit_weight (char32_t codepoint,
                      CollationElement *elements, size_t *n_elements)
 {
+  if (codepoint == 0x0000)
+    {
+      (*n_elements) = 0;
+      return;
+    }
+
   const uc_block_t *b = uc_block (codepoint);
   uint16_t AAAA = 0, BBBB = 0;
 
@@ -390,7 +394,7 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
     {
       // Read node
       uint32_t node_codepoint = read_u32 (node_offset);
-      uint32_t node_data_offset = read_u32 (node_offset + 4);
+      uint32_t node_data_index = read_u32 (node_offset + 4);
       uint8_t node_num_elements = read_u32 (node_offset + 8);
       uint16_t num_children = read_u16 (node_offset + 9);
       uint32_t children_offset = node_offset + 11;
@@ -411,9 +415,9 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
               if (i == len - 1)
                 {
                   COLLATION_DATA data;
-                  data.data_offset = read_u32 (node_offset + 4);
+                  data.data_index = read_u32 (node_offset + 4);
                   data.num_elements = read_u8 (node_offset + 8);
-                  if (data.data_offset != 0)
+                  if (data.data_index != 0)
                     {
                       *num_elements = data.num_elements;
                       return read_collation_data (data, elements);

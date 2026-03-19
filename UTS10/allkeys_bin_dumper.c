@@ -395,19 +395,18 @@ build_database (const char *filename)
   return db;
 }
 
-/* Write collation data and return its offset */
-static uint32_t
-write_collation_data (ByteBuffer *buf, CollationData *data,
-                      uint32_t element_count_offset)
+/* Convert collation units into to the form they will be written as. */
+static void
+expand_collation_sequence (CollationData *data)
 {
-  uint8_t num_elements = data->num_elements;
-  uint32_t offset = buf->size;
+  if (!data)
+    return;
+  CollationData new;
+  new.num_elements = 0;
 
-  uint32_t primary_extension = 0;
-  uint16_t secondary_extension = 0;
+  uint16_t primary_extension = 0;
+  uint8_t secondary_extension = 0;
 
-  // if (data->num_elements > 1)
-  //   fprintf (stderr, "multi elements %d\n", data->num_elements);
   for (int i = 0; i < data->num_elements; i++)
     {
       uint16_t primary = data->elements[i].primary;
@@ -421,13 +420,9 @@ write_collation_data (ByteBuffer *buf, CollationData *data,
           /* For very high primary weights, output an additional
              collation element.  Same transformation in
              allkeys_bin_loader.c:get_implicit_weight. */
-
           primary_write = 0xFE00;
-
           primary_extension = primary - 0xFE00 + 1;
         }
-
-      buffer_write_u16 (buf, primary_write);
 
       uint16_t secondary = data->elements[i].secondary;
       uint8_t secondary_write;
@@ -451,35 +446,60 @@ write_collation_data (ByteBuffer *buf, CollationData *data,
           exit (1);
         }
 
-      buffer_write_u8 (buf, secondary_write);
-      buffer_write_u8 (buf, data->elements[i].tertiary);
+      uint8_t tertiary_write = data->elements[i].tertiary;
+
+      new.elements[new.num_elements++]
+        = (CollationElement) { primary_write, secondary_write, tertiary_write };
+
+      if (new.num_elements == MAX_COLLATION_ELEMENTS)
+        {
+          fprintf (stderr, "too many collation units in record\n");
+          exit (1);
+        }
+
 
       if (primary_extension || secondary_extension)
         {
+          new.elements[new.num_elements++]
+            = (CollationElement) { primary_extension, secondary_extension, 0 };
 
-          buffer_write_u16 (buf, primary_extension);
-          buffer_write_u8 (buf, secondary_extension);
-          buffer_write_u8 (buf, 0x00); /* tertiary weight */
-
-          buffer_write_u8_at (buf, element_count_offset, ++num_elements);
+          if (new.num_elements == MAX_COLLATION_ELEMENTS)
+            {
+              fprintf (stderr, "too many collation units in record\n");
+              exit (1);
+            }
 
           primary_extension = 0;
           secondary_extension = 0;
         }
 
     }
-  return offset;
+
+  *data = new;
+}
+
+/* Write collation data. */
+static void
+write_collation_data (FILE *fp, ByteBuffer *buf, CollationData *data)
+{
+  uint8_t num_elements;
+
+  for (int i = 0; i < data->num_elements; i++)
+    {
+      CollationElement unit = data->elements[i];
+      fprintf (fp, "{ 0x%04x, 0x%02x, 0x%02x },\n",
+               unit.primary, unit.secondary, unit.tertiary);
+    }
 }
 
 typedef struct
 {
-  uint32_t offset_position;      /* Where to write the data_offset. */
-  uint32_t element_count_offset; /* Position of collation element count. */
   CollationData *data;           /* The data to write later. */
 } PendingCollationData;
 
 static PendingCollationData *collation_units;
 static uint32_t collation_units_count;
+static long collation_units_written;
 
 
 /* Function for qsort.  Return negative if the first argument is "less"
@@ -504,13 +524,23 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
 
   buffer_write_u32 (buf, node->codepoint);
 
-  /* Reserve space for codepoint data. */
-  uint32_t data_offset_pos = buf->size;
-  buffer_write_u32 (buf, 0);
+  /* index of collation data */
+  if (node->data)
+    {
+      buffer_write_u32 (buf, collation_units_written);
+      expand_collation_sequence (node->data);
+      collation_units_written += node->data->num_elements;
+
+      /* Save collation data to be written later. */
+      collation_units[collation_units_count].data = node->data;
+      collation_units_count++;
+    }
+  else
+    buffer_write_u32 (buf, 0x0000);
+
 
   /* Number of collation elements in the record. */
-  uint32_t element_count_offset
-    = buffer_write_u8 (buf, node->data ? node->data->num_elements : 0);
+  buffer_write_u8 (buf, node->data ? node->data->num_elements : 0);
 
   buffer_write_u16 (buf, node->num_children);
 
@@ -529,20 +559,6 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
     {
       uint32_t child_offset = write_trie_node (buf, node->children[i]);
       buffer_write_u32_at (buf, children_offset_pos + i * 4, child_offset);
-    }
-
-  /* Write collation data and update offset. */
-  if (node->data)
-    {
-      /* Position of the number of collation elements in the record. */
-      collation_units[collation_units_count].element_count_offset
-        = element_count_offset;
-
-      /* Remember where we need to write the data offset. */
-      collation_units[collation_units_count].offset_position
-        = data_offset_pos;
-      collation_units[collation_units_count].data = node->data;
-      collation_units_count++;
     }
 
   return offset;
@@ -597,56 +613,52 @@ serialize_page_table (Database *db, ByteBuffer *buf)
           /* Write entries with placeholder data offsets. */
           for (uint16_t j = 0; j < page->count; j++)
             {
+              expand_collation_sequence (page->entries[j].data);
+
               buffer_write_u8 (buf, page->entries[j].index);
 
               /* Number of collation elements in the record, if any. */
-              collation_units[collation_units_count].element_count_offset
-                = buffer_write_u8 (buf, page->entries[j].data->num_elements);
+              buffer_write_u8 (buf, page->entries[j].data->num_elements);
 
-              /* Remember where we need to write the data offset. */
-              collation_units[collation_units_count].offset_position
-                = buf->size;
               collation_units[collation_units_count].data
                 = page->entries[j].data;
               collation_units_count++;
 
-              buffer_write_u32 (buf, 0); /* Placeholder for data_offset. */
+              buffer_write_u32 (buf, collation_units_written);
+              collation_units_written += page->entries[j].data->num_elements;
             }
         }
       else
         {
           uint16_t k = 0;
           int16_t next_data = page->entries[k].index;
+          expand_collation_sequence (page->entries[k].data);
 
           for (uint16_t j = 0; j < 256; j++)
             {
               if (j == next_data)
                 {
-                  /* Number of collation elements in the record, if any. */
-                  collation_units[collation_units_count].element_count_offset
-                    = buffer_write_u8 (buf,
-                                       page->entries[k].data->num_elements);
+                  buffer_write_u8 (buf, page->entries[k].data->num_elements);
 
-                  /* Remember where we need to write the data offset. */
-                  collation_units[collation_units_count].offset_position
-                    = buf->size;
-                  collation_units[collation_units_count].data
-                    = page->entries[k].data;
+                  collation_units[collation_units_count].data = page->entries[k].data;
                   collation_units_count++;
 
-                  buffer_write_u32 (buf, 0); /* Placeholder for data_offset. */
+                  buffer_write_u32 (buf, collation_units_written);
+                  collation_units_written += page->entries[k].data->num_elements;
 
                   if (++k == page->count)
                     next_data = -1;
                   else
-                    next_data = page->entries[k].index;
+                    {
+                      next_data = page->entries[k].index;
+                      expand_collation_sequence (page->entries[k].data);
+                    }
                 }
               else
                 {
                   /* Write a zero entry. */
-
                   buffer_write_u8 (buf, 0); /* number of collation units */
-                  buffer_write_u32 (buf, 0); /* collation data pointer */
+                  buffer_write_u32 (buf, 0); /* collation data index */
                 }
             }
         }
@@ -656,7 +668,8 @@ serialize_page_table (Database *db, ByteBuffer *buf)
 }
 
 
-/* Convert database to binary format */
+/* Convert part of database to binary format.  Save collation units
+   to be output in mallocated COLLATION_UNITS. */
 static ByteBuffer *
 serialize_database (Database *db)
 {
@@ -675,29 +688,20 @@ serialize_database (Database *db)
         }
     }
 
-  /* Write page table. */
-  /* Waste four bytes so no real data appears at offset 0. */
-  buffer_write_u32 (buf, 0xFFFFFFFF);
-
+  /* keep running count of collation units which will be written to
+     the collation units array so we can output indices into that array. */
+  collation_units_written = 0;
   collation_units = malloc ((db->num_singles + db->num_sequences)
                     * sizeof (PendingCollationData));
   collation_units_count = 0;
 
+  /* Write page table. */
+  /* Waste four bytes so no real data appears at offset 0. */
+  buffer_write_u32 (buf, 0xFFFFFFFF);
+
+
   serialize_page_table (db, buf);
   db->trie_offset = write_trie_node (buf, db->trie_root);
-
-
-  /* Now write all collation data and backfill offsets. */
-  for (uint32_t i = 0; i < collation_units_count; i++)
-    {
-      uint32_t data_offset = write_collation_data (buf,
-                               collation_units[i].data,
-                               collation_units[i].element_count_offset);
-      buffer_write_u32_at (buf, collation_units[i].offset_position,
-                           data_offset);
-    }
-
-  free (collation_units);
 
   printf ("Binary size: %zu bytes (%.2f MB)\n", buf->size,
           buf->size / 1e6);
@@ -725,7 +729,15 @@ write_c_source (ByteBuffer *buf, const char *output_file,
 
   fprintf (fp, "#include <stdint.h>\n\n");
 
-  fprintf (fp, "#define COLLATION_DATA_SIZE %zuU\n\n", buf->size);
+  fprintf (fp, "struct collation_data\n  {\n");
+  fprintf (fp, "  uint16_t primary;\n");
+  fprintf (fp, "  uint8_t secondary;\n");
+  fprintf (fp, "  uint8_t tertiary;\n");
+  fprintf (fp, "};\n");
+
+  fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", collation_units_written);
+
+  fprintf (fp, "#define COLLATION_DATA_SIZE %zu\n\n", buf->size);
   fprintf (fp,
     "static const size_t collation_data_size = COLLATION_DATA_SIZE;\n\n");
 
@@ -738,6 +750,7 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "    uint32_t trie_offset;\n");
   fprintf (fp, "    uint32_t pages[NUM_PAGES];\n");
   fprintf (fp, "    uint8_t array[COLLATION_DATA_SIZE];\n");
+  fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
 
@@ -773,7 +786,20 @@ write_c_source (ByteBuffer *buf, const char *output_file,
         fprintf (fp, " ");
     }
 
-  fprintf (fp, "\n  }\n");
+  fprintf (fp, "\n  },\n");
+
+  fprintf (fp, "\n  {\n");
+
+  /* Now write all collation data, backfilling indices and updating
+     element counts if necessary. */
+  for (uint32_t i = 0; i < collation_units_count; i++)
+    {
+      write_collation_data (fp, buf, collation_units[i].data);
+    }
+
+  free (collation_units);
+  fprintf (fp, "\n  },\n");
+
   fprintf (fp, "};\n");
 
   fclose (fp);

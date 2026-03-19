@@ -18,14 +18,14 @@ uint8_t count        Number of entries in this page
 For each entry (6 bytes each):
   uint8_t index      Index within page (0-255)
   uint8_t num_elements   Number of collation elements (1-16)
-  uint32_t data_offset Offset to collation data
+  uint32_t data_index    Index of collation data in array
 
 Or:
 
 uint8_t count        (255 - means 256)
 For each of 256 entries (5 bytes each):
   uint8_t num_elements   Number of collation elements (1-16)
-  uint32_t data_offset Offset to collation data
+  uint32_t data_index    Index of collation data in array
 
 
 Entries are sorted by index for binary search.
@@ -42,7 +42,8 @@ For each element (4 bytes):
 Recursive trie structure for multi-codepoint sequences:
 ```
 uint32_t codepoint     Codepoint at this node
-uint32_t data_offset   Offset to collation data (0 if intermediate)
+uint32_t data_index    Index of collation data in array (0 if intermediate)
+uint8_t num_elements   Number of collation elements
 uint16_t num_children  Number of child nodes
 For each child:
   uint32_t child_offset Offset to child node

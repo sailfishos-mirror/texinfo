@@ -11,7 +11,8 @@
 
 #define NUM_PAGES 0x1100
 
-#define MAX_COLLATION_ELEMENTS 18
+//#define MAX_COLLATION_ELEMENTS 18
+#define MAX_COLLATION_ELEMENTS 32
 
 /* Collation element - represents [.XXXX.XXXX.XXXX] or [*XXXX.XXXX.XXXX]. */
 typedef struct

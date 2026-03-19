@@ -2,11 +2,11 @@
 #include <uchar.h>
 #include "allkeys_bin.h"
 
-struct collation_data {
-  uint32_t data_offset;
+struct collation_data_ref {
+  uint32_t data_index;
   uint8_t num_elements;
 };
-typedef struct collation_data COLLATION_DATA;
+typedef struct collation_data_ref COLLATION_DATA;
 
 int lookup_codepoint (char32_t codepoint,
                       CollationElement *elements, size_t *num_elements);

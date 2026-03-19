@@ -56,7 +56,7 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
   int num_elements = 0;
   for (size_t i = 0; i < n_entries; i++)
     {
-      if (entry_array[i].data.data_offset)
+      if (entry_array[i].data.data_index)
         {
           num_elements += entry_array[i].data.num_elements;
         }
@@ -72,7 +72,7 @@ get_collation_key_ext (char32_t *codepoints_in, size_t length_in, int debug)
         fprintf (stderr, "Collation info for U+%04X: ",
           codepoints[entry_array[i].string_index]);
 
-      if (entry_array[i].data.data_offset)
+      if (entry_array[i].data.data_index)
         {
           size_t num_entry_elements = entry_array[i].data.num_elements;
           read_collation_data (entry_array[i].data, &elements[elements_count]);
