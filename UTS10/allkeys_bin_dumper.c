@@ -497,8 +497,8 @@ typedef struct
   CollationData *data;           /* The data to write later. */
 } PendingCollationData;
 
-static PendingCollationData *collation_units;
-static uint32_t collation_units_count;
+static PendingCollationData *collation_records;
+static uint32_t collation_records_count;
 static long collation_units_written;
 
 
@@ -532,8 +532,8 @@ write_trie_node (ByteBuffer *buf, TrieNode *node)
       collation_units_written += node->data->num_elements;
 
       /* Save collation data to be written later. */
-      collation_units[collation_units_count].data = node->data;
-      collation_units_count++;
+      collation_records[collation_records_count].data = node->data;
+      collation_records_count++;
     }
   else
     buffer_write_u32 (buf, 0x0000);
@@ -633,9 +633,9 @@ serialize_page_table (Database *db, ByteBuffer *buf)
               /* Number of collation elements in the record, if any. */
               buffer_write_u8 (buf, page->entries[j].data->num_elements);
 
-              collation_units[collation_units_count].data
+              collation_records[collation_records_count].data
                 = page->entries[j].data;
-              collation_units_count++;
+              collation_records_count++;
 
               buffer_write_u32 (buf, collation_units_written);
               collation_units_written += page->entries[j].data->num_elements;
@@ -653,8 +653,9 @@ serialize_page_table (Database *db, ByteBuffer *buf)
                 {
                   buffer_write_u8 (buf, page->entries[k].data->num_elements);
 
-                  collation_units[collation_units_count].data = page->entries[k].data;
-                  collation_units_count++;
+                  collation_records[collation_records_count].data
+                    = page->entries[k].data;
+                  collation_records_count++;
 
                   buffer_write_u32 (buf, collation_units_written);
                   collation_units_written += page->entries[k].data->num_elements;
@@ -704,9 +705,9 @@ serialize_database (Database *db)
   /* keep running count of collation units which will be written to
      the collation units array so we can output indices into that array. */
   collation_units_written = 0;
-  collation_units = malloc ((db->num_singles + db->num_sequences)
+  collation_records = malloc ((db->num_singles + db->num_sequences)
                     * sizeof (PendingCollationData));
-  collation_units_count = 0;
+  collation_records_count = 0;
 
   /* Write page table. */
   /* Waste four bytes so no real data appears at offset 0. */
@@ -822,14 +823,12 @@ write_c_source (ByteBuffer *buf, const char *output_file,
 
   fprintf (fp, "\n  {\n");
 
-  /* Now write all collation data, backfilling indices and updating
-     element counts if necessary. */
-  for (uint32_t i = 0; i < collation_units_count; i++)
+  for (uint32_t i = 0; i < collation_records_count; i++)
     {
-      write_collation_data (fp, buf, collation_units[i].data);
+      write_collation_data (fp, buf, collation_records[i].data);
     }
 
-  free (collation_units);
+  free (collation_records);
   fprintf (fp, "\n  },\n");
 
   fprintf (fp, "};\n");
