@@ -606,74 +606,38 @@ serialize_page_table (Database *db, ByteBuffer *buf)
       Page *page = db->pages[i];
       page_offset_positions[i] = buf->size;
 
-      /* For pages which are mostly full, output a full table of 256 collation
-         data.  This allows lookup with a simple array index, rather than
-         binary search.  It also allows fitting the count in a single byte
-         (257 possible values from 0 to 256).
-         Read by allkeys_bin_loader:lookup_codepoint_data. */
-      uint8_t page_count_write;
-      if (page->count >= 0xc0)
-        page_count_write = 0xff;
-      else
-        page_count_write = page->count;
-
-      buffer_write_u8 (buf, page_count_write);
-
       //fprintf (stderr, "%3d PAGE COUNT (%3x..)\n", page->count, i);
 
-      if (page_count_write != 0xff)
+      uint16_t k = 0;
+      int16_t next_data = page->entries[k].index;
+      expand_collation_sequence (page->entries[k].data);
+
+      for (uint16_t j = 0; j < 256; j++)
         {
-          /* Write entries with placeholder data offsets. */
-          for (uint16_t j = 0; j < page->count; j++)
+          if (j == next_data)
             {
-              expand_collation_sequence (page->entries[j].data);
-
-              buffer_write_u8 (buf, page->entries[j].index);
-
-              /* Number of collation elements in the record, if any. */
-              buffer_write_u8 (buf, page->entries[j].data->num_elements);
+              buffer_write_u8 (buf, page->entries[k].data->num_elements);
 
               collation_records[collation_records_count].data
-                = page->entries[j].data;
+                = page->entries[k].data;
               collation_records_count++;
 
               buffer_write_u32 (buf, collation_units_written);
-              collation_units_written += page->entries[j].data->num_elements;
-            }
-        }
-      else
-        {
-          uint16_t k = 0;
-          int16_t next_data = page->entries[k].index;
-          expand_collation_sequence (page->entries[k].data);
+              collation_units_written += page->entries[k].data->num_elements;
 
-          for (uint16_t j = 0; j < 256; j++)
-            {
-              if (j == next_data)
-                {
-                  buffer_write_u8 (buf, page->entries[k].data->num_elements);
-
-                  collation_records[collation_records_count].data
-                    = page->entries[k].data;
-                  collation_records_count++;
-
-                  buffer_write_u32 (buf, collation_units_written);
-                  collation_units_written += page->entries[k].data->num_elements;
-
-                  if (++k == page->count)
-                    next_data = -1;
-                  else
-                    {
-                      next_data = page->entries[k].index;
-                      expand_collation_sequence (page->entries[k].data);
-                    }
-                }
+              if (++k == page->count)
+                next_data = -1;
               else
                 {
-                  /* Write a zero entry. */
-                  buffer_write_u8 (buf, 0); /* number of collation units */
-                  buffer_write_u32 (buf, 0); /* collation data index */
+                  next_data = page->entries[k].index;
+                  expand_collation_sequence (page->entries[k].data);
                 }
+            }
+          else
+            {
+              /* Write a zero entry. */
+              buffer_write_u8 (buf, 0); /* number of collation units */
+              buffer_write_u32 (buf, 0); /* collation data index */
             }
         }
     }
@@ -691,7 +655,7 @@ serialize_database (Database *db)
 
   printf ("\nSerializing to binary format...\n");
 
-  // Sort all pages by offset to enable binary search
+  /* Sort all pages by offset. */
   printf ("Sorting page entries...\n");
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
@@ -712,7 +676,6 @@ serialize_database (Database *db)
   /* Write page table. */
   /* Waste four bytes so no real data appears at offset 0. */
   buffer_write_u32 (buf, 0xFFFFFFFF);
-
 
   serialize_page_table (db, buf);
   db->trie_offset = write_trie_node (buf, db->trie_root);
