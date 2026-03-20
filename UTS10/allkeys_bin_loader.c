@@ -79,7 +79,17 @@ lookup_codepoint_data (char32_t codepoint)
   if (codepoint >= 0x110000)
     return (COLLATION_DATA) {0};
 
-  uint32_t page_num = codepoint >> 8;
+  int plane = codepoint >> 16;
+  if (collation_data.planes[plane] < 0)
+    return (COLLATION_DATA) {0};
+
+  uint32_t page = codepoint >> 8;
+
+  uint32_t page_num
+    = collation_data.planes[plane] * 0x100 /* 256 pages per plane */
+      + (page & 0xff);
+
+
   uint8_t page_index = codepoint & 0xFF;
 
   // Read page table entry

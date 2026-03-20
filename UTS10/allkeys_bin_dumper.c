@@ -576,11 +576,24 @@ compare_page_entries (const void *a, const void *b)
 /* Location in dump of each page data */
 static uint32_t page_offset_positions[NUM_PAGES];
 
+static int used_planes[17];
+
 static void
 serialize_page_table (Database *db, ByteBuffer *buf)
 {
   /* Write page data (entries only, no collation data yet).
      We'll track where to write collation data offsets. */
+
+  for (uint32_t i = 0; i < NUM_PAGES; i++)
+    {
+      if (db->pages[i])
+        {
+          fprintf (stderr, "used plane %x\n", i >> 8);
+          used_planes[i >> 8] = 1;
+          i = ((i >> 8) + 1) << 8;
+          i--;
+        }
+    }
 
   for (uint32_t i = 0; i < NUM_PAGES; i++)
     {
@@ -718,6 +731,14 @@ write_c_source (ByteBuffer *buf, const char *output_file,
       return;
     }
 
+  int n_used_planes = 0;
+  int i;
+  for (i = 0; i < 17; i++)
+    {
+      if (used_planes[i])
+        n_used_planes++;
+    }
+
   printf ("Writing C source file: %s\n", output_file);
 
   fprintf (fp, "/* DO NOT EDIT:\n");
@@ -735,6 +756,7 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "#define NUM_COLLATION_UNITS %ld\n\n", collation_units_written);
 
   fprintf (fp, "#define COLLATION_DATA_SIZE %zu\n\n", buf->size);
+  fprintf (fp, "#define NUM_PLANES 0x%x\n\n", 17);
   fprintf (fp,
     "static const size_t collation_data_size = COLLATION_DATA_SIZE;\n\n");
 
@@ -745,7 +767,8 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "    uint32_t num_singles;\n");
   fprintf (fp, "    uint32_t num_sequences;\n");
   fprintf (fp, "    uint32_t trie_offset;\n");
-  fprintf (fp, "    uint32_t pages[NUM_PAGES];\n");
+  fprintf (fp, "    int planes[NUM_PLANES];\n");
+  fprintf (fp, "    uint32_t pages[0x%x];\n", n_used_planes * 0x100);
   fprintf (fp, "    uint8_t array[COLLATION_DATA_SIZE];\n");
   fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS];\n");
   fprintf (fp, "  }\n");
@@ -758,12 +781,24 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "  0x%04X,\n", db->trie_offset);
   fprintf (fp, "  {\n");
 
-  for (uint32_t i = 0; i < NUM_PAGES; i++)
+  int page_idx = 0;
+  for (i = 0; i < 17; i++)
     {
-      fprintf (fp, "  0x%04X%s\n", page_offset_positions[i],
-                   i == NUM_PAGES - 1 ? "" : ",");
+      fprintf (fp, "    %d,\n", used_planes[i] ? page_idx++ : -1);
     }
+  fprintf (fp, "  },\n");
+  fprintf (fp, "  {\n");
 
+  for (i = 0; i < 17; i++)
+    {
+      if (used_planes[i])
+        {
+          for (int j = (i << 8); j < (i+1) << 8; j++)
+            {
+              fprintf (fp, "  0x%04X,\n", page_offset_positions[j]);
+            }
+        }
+    }
 
   fprintf (fp, "  },\n");
 
