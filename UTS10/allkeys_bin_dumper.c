@@ -703,9 +703,6 @@ serialize_database (Database *db)
   serialize_page_table (db, buf);
   db->trie_offset = write_trie_node (buf, db->trie_root);
 
-  printf ("Binary size: %zu bytes (%.2f MB)\n", buf->size,
-          buf->size / 1e6);
-
   return buf;
 }
 
