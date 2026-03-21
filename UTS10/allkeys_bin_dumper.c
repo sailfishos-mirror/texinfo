@@ -44,7 +44,6 @@ typedef struct
   uint32_t num_singles;
   uint32_t num_sequences;
   long version;
-  uint32_t trie_offset;
 } Database;
 
 typedef struct
@@ -660,11 +659,7 @@ serialize_database (Database *db)
   collation_records_count++;
   collation_units_written++;
 
-  /* Write trie. */
-  /* Waste four bytes so no real data appears at offset 0. */
-  buffer_write_u32 (buf, 0xFFFFFFFF);
-
-  db->trie_offset = write_trie_node (buf, db->trie_root);
+  (void) write_trie_node (buf, db->trie_root);
 
   return buf;
 }
@@ -728,11 +723,10 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "    uint16_t max_variable_weight;\n");
   fprintf (fp, "    uint32_t num_singles;\n");
   fprintf (fp, "    uint32_t num_sequences;\n");
-  fprintf (fp, "    uint32_t trie_offset;\n");
   fprintf (fp, "    int planes[NUM_PLANES];\n");
   fprintf (fp, "    int pages[0x%x];\n", n_used_planes * 0x100);
   fprintf (fp, "    struct block256_data pages_data[0x%x];\n", n_used_pages);
-  fprintf (fp, "    uint8_t array[COLLATION_DATA_SIZE];\n");
+  fprintf (fp, "    uint8_t trie_array[COLLATION_DATA_SIZE];\n");
   fprintf (fp, "    struct collation_data collation_data[NUM_COLLATION_UNITS+1];\n");
   fprintf (fp, "  }\n");
   fprintf (fp, "collation_data = {\n");
@@ -741,7 +735,6 @@ write_c_source (ByteBuffer *buf, const char *output_file,
   fprintf (fp, "  0x%04X,\n", db->max_variable_weight);
   fprintf (fp, "  %d,\n", db->num_singles);
   fprintf (fp, "  %d,\n", db->num_sequences);
-  fprintf (fp, "  0x%04X,\n", db->trie_offset);
   fprintf (fp, "  { /* .planes */\n");
 
   int page_idx = 0;
@@ -837,7 +830,7 @@ write_c_source (ByteBuffer *buf, const char *output_file,
     }
   fprintf (fp, "  },\n");
 
-  fprintf (fp, "  { /* .array */\n");
+  fprintf (fp, "  { /* .trie_array */\n");
   for (size_t i = 0; i < buf->size; i++)
     {
       if (i % 16 == 0)

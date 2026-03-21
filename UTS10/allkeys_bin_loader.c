@@ -14,14 +14,14 @@
 static uint8_t
 read_u8 (size_t offset)
 {
-  return collation_data.array[offset];
+  return collation_data.trie_array[offset];
 }
 
 static uint16_t
 read_u16 (size_t offset)
 {
   uint16_t val;
-  memcpy (&val, collation_data.array + offset, 2);
+  memcpy (&val, collation_data.trie_array + offset, 2);
   return val;
 }
 
@@ -29,7 +29,7 @@ static uint32_t
 read_u32 (size_t offset)
 {
   uint32_t val;
-  memcpy (&val, collation_data.array + offset, 4);
+  memcpy (&val, collation_data.trie_array + offset, 4);
   return val;
 }
 
@@ -114,7 +114,7 @@ lookup_collation_data_at_char (char32_t *const string,
                                size_t length,
                                size_t *n_codepoints_out)
 {
-  uint32_t node_offset = collation_data.trie_offset;
+  uint32_t node_offset = 0;
 
   char32_t *pchar;
   char32_t *pre_non_starter = 0;
@@ -356,7 +356,7 @@ lookup_sequence (const uint32_t *codepoints, size_t len,
   if (len == 0)
     return 0;
 
-  uint32_t node_offset = collation_data.trie_offset;
+  uint32_t node_offset = 0;
 
   for (size_t i = 0; i < len; i++)
     {
